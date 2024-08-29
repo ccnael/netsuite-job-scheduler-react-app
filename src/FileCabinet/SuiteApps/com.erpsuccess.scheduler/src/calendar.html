@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scheduler - Calendar</title>
+  <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+  <!-- <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" ></script> -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.11.3/jquery-ui.min.js"></script>
+  <link href="https://unpkg.com/fullcalendar@5.0.1/main.min.css" rel="stylesheet">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.30.1/moment.min.js" crossorigin="anonymous"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.datatables.net/2.0.5/js/dataTables.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.datatables.net/2.0.5/js/dataTables.bootstrap5.js" crossorigin="anonymous"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <!-- Aligns datatables extra elements in a single row -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
+  <link rel="stylesheet" href="https://cdn.datatables.net/2.0.7/css/dataTables.bootstrap4.css">
+  <!-- Working navtabs + popper-->
+  <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous"> -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta/js/bootstrap.min.js" crossorigin="anonymous"></script>
+  <!-- Toastify JS -->
+  <script src="https://cdn.jsdelivr.net/npm/toastify-js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <!-- Multiselect filter -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.18/js/bootstrap-select.min.js"></script> 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.18/css/bootstrap-select.min.css" />
+  <link rel="stylesheet" href="calendar.css">
+  <script src="calendar.js" defer></script>
+</head>
+
+<body>
+  <header class="header">
+    <nav>
+      <ul>
+        <li><a href="{{suiteletUrl}}">Board</a></li>
+        <li class="active"><a href="#">Calendar</a></li>
+      </ul>
+      <div id="settings-view">
+        <i class="fa-solid fa-icon-size fa-sliders" onclick="settingsView(event)"></i>
+      </div>
+    </nav>
+  </header>
+
+  <div class="main-container">
+    <!-- Collapsible First Column -->
+    <aside class="sidebar" id="leftSidebar">
+      <div class="collapse-content" id="collapseLeft">
+        <div style="padding: 10px" class="card-header header">
+          <i class="fa-solid fa-icon-size fa-users-gear" style="font-size: 14px; margin-right: 5px"></i>
+          <span style="display: inline-block;"><h5><strong>Resources</strong></h5></span>
+          <span class="badge badge-danger badge-pill">${data.resources.all?size}</span>
+        </div>
+        <div id="col1-filter-tableWrapper" class="accordion accordion-flush">
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="col1-filter-tableHeading">
+              <button class="accordion-button" type="button" data-toggle="collapse" data-target="#col1-filter-table" aria-expanded="true" aria-controls="col1-filter-table">
+                <i class="fa fa-filter"></i>
+                <strong class="grid-header">&nbsp;Filters</strong>
+              </button>
+            </h2>
+            <div id="col1-filter-table" class="accordion-collapse collapse show" aria-labelledby="col1-filter-tableHeading" data-parent="#col1-filter-tableWrapper">
+              <div class="input-group" style=" margin-top: 10px;">
+                <div class="input-group mb-3" style="border-radius: 5px 5px 0 0;">
+                  <select class="selectpicker mx-auto multiple-resource-field" title="Filter by Name" id="" data-live-search="true" data-selected-text-format="count>2" data-style="" data-style-base="form-control" data-actions-box="true" multiple>
+                    <#if data.resources.all?has_content>
+                      <#list data.resources.all as resource>
+                        <option value="${resource.employee.value}">${resource.employee.text}</option>
+                      </#list>
+                    </#if>
+                  </select>
+                </div>
+                <div class="input-group mb-3">
+                  <select class="selectpicker mx-auto multiple-resource-group-field" title="Filter by Group" id="" data-live-search="true" data-selected-text-format="count>2" data-style="" data-style-base="form-control" data-actions-box="true" multiple>
+                    <#if data.resourceGroups.all?has_content>
+                      <#list data.resourceGroups.all as resourceGroup>
+                        <option value="${resourceGroup.value}">${resourceGroup.text}</option>
+                      </#list>
+                    </#if>
+                  </select>
+                </div>
+                <div class="input-group mb-3">
+                  <select class="selectpicker mx-auto multiple-resource-group-field" title="Filter by Status" id="" data-live-search="true" data-selected-text-format="count>2" data-style="" data-style-base="form-control" data-actions-box="true" multiple>
+                    <option value="1">Available</option>
+                    <option value="2">Unavailable</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <ul class="list-group overflow-auto shadow" style="max-height: 100%; z-index: -1;">
+        <#if data.resourceGroups.all?has_content>
+          <#list data.resourceGroups.all as resourceGroup>
+            <#assign count = 0 />
+            <#if data.resources.all?has_content>
+              <#list data.resources.all as resource>
+                <#if resource.resourceGroup.value == resourceGroup.value>
+                  <#assign count += 1 />
+                </#if>
+              </#list>
+            </#if>
+            <#if resourceGroup_index == 0>
+              <li class="bg-white"></li>
+            </#if>
+            <li class="list-group-item py-1 bg-secondary">
+              <span class="text-white" id="resourceGroup-${resourceGroup.value}">${resourceGroup.text}</span>
+              <span class="badge badge-danger badge-pill">${count}</span>
+            </li>
+            <#if data.resources.all?has_content>
+              <#list data.resources.all as resource>
+                <#if resource.resourceGroup.value == resourceGroup.value>
+                  <li class="list-group-item py-1">
+                    <div id="resource-${resource.employee.value}" class="circle" style="background-color: #dfdacb; display: inline-block;" onclick='alert("test")'>
+                      <p class="circle-inner" data-toggle="tooltip" title="${resource.initials}">${resource.initials}</p>
+                      <#if resource.active == 'true'>
+                        <div class="fc-daygrid-event-dot status-active"></div>
+                      <#else>
+                        <div class="fc-daygrid-event-dot status-busy"></div>
+                      </#if>
+                    </div>
+                    <div class="fullname">
+                      ${resource.employee.text}
+                    </div>
+                  </li>
+                </#if>
+              </#list>
+            </#if>
+          </#list>
+        </#if>
+      </ul>
+    </aside>
+    <div class="collapse-btn">
+      <i id="toggleLeft" class="fa-solid fa-square-caret-left"></i>
+    </div>
+    <div class="container" id="secondColumn">
+      <div id="calendar"></div>
+    </div>
+
+    <div class="collapse-btn">
+      <i id="toggleRight" class="fa-sharp-duotone fa-solid fa-square-caret-right"></i>
+    </div>
+
+    <!-- <ul class="nav nav-tabs" role="tablist" style="width: 250px">
+      <li class="nav-item" role="presentation">
+        <a class="nav-link active" data-toggle="tab" role="tab" href="#ex2-tabs-1" aria-controls="ex2-tabs-1" onclick="event.preventDefault()"><i class="fa-solid fa-icon-size fa-user"></i></a>
+      </li>
+      <li class="nav-item" role="presentation">
+        <a class="nav-link" data-toggle="tab" role="tab" href="#ex2-tabs-2" aria-controls="ex2-tabs-2" onclick="event.preventDefault()"><i class="fa-solid fa-icon-size fa-user-group"></i></a>
+      </li>
+      <li class="nav-item" role="presentation">
+        <a class="nav-link" data-toggle="tab" role="tab" href="#ex2-tabs-3" aria-controls="ex2-tabs-3" onclick="event.preventDefault()"><i class="fa-solid fa-icon-size fa-screwdriver-wrench"></i></a>
+      </li>
+      <li class="nav-item" role="presentation">
+        <a class="nav-link" data-toggle="tab" role="tab" href="#ex2-tabs-4" aria-controls="ex2-tabs-4" onclick="event.preventDefault()"><i class="fa-solid fa-icon-size fa-truck-fast"></i></a>
+      </li>
+    </ul> -->
+
+    <!-- Collapsible Fourth Column -->
+    <aside class="sidebar" id="rightSidebar">
+      <!-- <button class="btn toggle-btn" id="toggleRight">Hide Events</button> -->
+      <div class="collapse-content" id="collapseRight">
+        <div style="padding: 10px" class="card-header header">
+          <ul class="nav nav-tabs" id="firstTab" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active" data-toggle="tab" href="#col3-tab-content1" role="tab">
+                  <i class="fa-solid fa-screwdriver-wrench" style="font-size: 16px; margin-right: 5px"></i>
+                  <span style="display: inline-block;"><h5><strong>Available Jobs</strong></h5></span>
+                  <span class="badge badge-danger badge-pill">${data.workOrders?size}</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#col3-tab-content2" role="tab">
+                  <i class="fa-regular fa-icon-size fa-calendar-check" style="font-size: 16px; margin-right: 5px"></i>
+                  <#assign count = 0 />
+                  <#if data.workOrders?has_content>
+                    <#list data.workOrders as wo>
+                      <#assign count += wo.events?size />
+                    </#list>
+                  </#if>
+                  <span style="display: inline-block;"><h5><strong>Events</strong></h5></span>
+                  <span class="badge badge-danger badge-pill">${count}</span>
+                </a>
+            </li>
+          </ul>
+        </div>
+        <div class="tab-content mt-3 overflow-auto shadow" style="max-height: 100%; z-index: -1;">
+          <!-- Available Jobs -->
+          <div class="tab-pane fade show active" id="col3-tab-content1" role="tabpanel">
+            <div id="col3-filter-tableWrapper-1" class="accordion accordion-flush">
+              <div class="accordion-item">
+                  <h2 class="accordion-header" id="col3-filter-tableHeading-1">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#col3-filter-table-1" aria-expanded="true" aria-controls="col3-filter-table-1">
+                      <i class="fa fa-filter"></i>
+                      <strong class="grid-header">&nbsp;Filters</strong>
+                    </button>
+                  </h2>
+                  <div id="col3-filter-table-1" class="accordion-collapse collapse show" aria-labelledby="col3-filter-tableHeading-1" data-bs-parent="#col3-filter-tableWrapper-1">
+                    <div class="input-group" style="margin-top: 10px; margin-left: 5px;">
+                      <div class="mb-3 row">
+                        <label for="datefrom" class="col-form-label col-auto">From: </label>
+                        <div class="col-auto" style="margin-left: -15px">
+                            <input type="date" class="form-control" id="datefrom">
+                        </div>
+                      </div>
+                      <div class="mb-3 row">
+                        <label for="dateto" class="col-form-label col-auto">To: </label>
+                        <div class="col-auto" style="margin-left: -15px">
+                            <input type="date" class="form-control" id="dateto">
+                        </div>
+                      </div>
+                    </div>
+                    <div style="margin-left: 25px;">
+                      <select class="selectpicker mx-auto multiple-resource-field" title="Filter by Customer" id="" data-live-search="true" data-selected-text-format="count>2" data-style="" data-style-base="form-control" data-actions-box="true" multiple>
+                        <option value="1">XYZ</option>
+                        <option value="1">XYZ</option>
+                        <option value="1">XYZ</option>
+                        <option value="1">XYZ</option>
+                        <option value="1">XYZ</option>
+                      </select>
+                    </div>
+                    <div class="input-group" style="margin-left: 20px;">
+                      <div style="border-radius: 5px 5px 0 0; margin: 15px 15px 15px 5px">
+                        <input type="text" class="form-control" id="tranid" placeholder="Enter Work Order #">
+                      </div>
+                    </div>
+                  </div>
+              </div>
+            </div>
+            <div class="content">
+              <div class="card-wrapper">
+                <#if data.workOrders?has_content>
+                  <#list data.workOrders as wo>
+                    <div class="card-item" draggable="true" ondragstart="dragFunctions(event);" ondragend="dragFunctions(event);" draggable="true">
+                      <div class="card-head">
+                        <a href="${wo.woUrl}" target="_blank"><strong>WO Test Installer</a></strong>&nbsp;
+                        <div class="card-header-btns">
+                          <!-- <div class="fa-solid fa-grip"></div>&nbsp; -->
+                          <i class="fa-solid fa-angles-down expand" onclick="showMenuOptions(event)"></i>&nbsp;
+                          <div class="dropdown-options">
+                            <div class="dropdown-content menu-options">
+                              <a href="#" onclick="hold(event)">Hold</a>
+                              <!-- <a href="#" onclick="rescheduleEvent(event)">Reschedule Event</a> -->
+                              <!-- <a href="#" onclick="unlock(event)">Unlock</a> -->
+                              <a href="#" onclick="print(event)">Print</a>
+                              <!-- <a href="#" onclick="removeEvent(event)">Remove Event</a> -->
+                              <a href="#" onclick="cancel(event)">Cancel</a>
+                              <a href="#" onclick="printPickList(event)">Print Pick List</a>
+                              <!-- <a href="#" onclick="completeEventWindow(event)">Complete Event</a> -->
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="card-content">
+                        <span class="card-content-woId">ID ${wo.id}</span><br/>
+                        <span class="card-content-customer" id="customer-${wo.customer.value}"><strong>${wo.customer.text}</strong></span><br/>
+                        <span class="card-content-date">${wo.date}</span><!-- <br/>
+                        <div class="card-content-memo" style="border-top: 1px solid #ccc; margin-top: 10px">
+                          <strong>Memo:</strong><br/>
+                          <span>${wo.memo}</span><br/>
+                        </div> -->
+                      </div>
+                    </div>
+                  </#list>
+                </#if>
+              </div>
+            </div>
+          </div>
+          <!-- Events -->
+          <div class="tab-pane fade" id="col3-tab-content2" role="tabpanel">
+            <div id="col3-filter-tableWrapper-2" class="accordion accordion-flush">
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="col3-filter-tableHeading-2">
+                  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#col3-filter-table-2" aria-expanded="true" aria-controls="col3-filter-table-2">
+                    <i class="fa fa-filter"></i>
+                    <strong class="grid-header">&nbsp;Filters</strong>
+                  </button>
+                </h2>
+                <div id="col3-filter-table-2" class="accordion-collapse collapse show" aria-labelledby="col3-filter-tableHeading-2" data-bs-parent="#col3-filter-tableWrapper-2">
+                  <div class="input-group" style="margin-top: 10px;">
+                    <!-- <span class="mx-auto">Name<br/></span> -->
+                    <div class="input-group mb-3" style="border-radius: 5px 5px 0 0;">
+                      <!-- <label class="mx-auto" for="multiple-resource-field">Resource Name&nbsp;</label> -->
+                      <select class="selectpicker mx-auto multiple-resource-field" title="Filter by Resource Name" id="" data-live-search="true" data-selected-text-format="count>2" data-style="" data-style-base="form-control" data-actions-box="true" multiple>
+                        <#if data.resources.all?has_content>
+                          <#list data.resources.all as resource>
+                            <option value="${resource.employee.value}">${resource.employee.text}</option>
+                          </#list>
+                        </#if>
+                      </select>
+                    </div>
+                    <!-- <span class="mx-auto">Group<br/></span> -->
+                    <div class="input-group mb-3">
+                      <!-- <label class="mx-auto" for="multiple-resource-group-field">Resource Group&nbsp;</label> -->
+                      <select class="selectpicker mx-auto multiple-resource-group-field" title="Filter by Resource Group" id="" data-live-search="true" data-selected-text-format="count>2" data-style="" data-style-base="form-control" data-actions-box="true" multiple>
+                        <#if data.resourceGroups.all?has_content>
+                          <#list data.resourceGroups.all as resourceGroup>
+                            <option value="${resourceGroup.value}">${resourceGroup.text}</option>
+                          </#list>
+                        </#if>
+                      </select>
+                    </div>
+                    <div class="input-group mb-3">
+                      <!-- <label class="mx-auto" for="multiple-event-status-field">Event Status&nbsp;</label> -->
+                      <select class="selectpicker mx-auto multiple-event-status-field" title="Filter by Status" id="" data-live-search="true" data-selected-text-format="count>2" data-style="" data-style-base="form-control" multiple>
+                        <option value="TENTATIVE">Tentative</option>
+                        <option value="CONFIRMED">Confirmed</option>
+                      </select>
+                    </div>
+                    <div class="input-group mb-3">
+                      <!-- <label class="mx-auto" for="multiple-event-priority-field">Event Priority&nbsp;</label> -->
+                      <select class="selectpicker mx-auto multiple-event-priority-field" title="Filter by Priority" id="" data-live-search="true" data-selected-text-format="count>2" data-style="" data-style-base="form-control" data-actions-box="true" multiple>
+                        <option value="1">Low</option>
+                        <option value="2">Mid</option>
+                        <option value="3">High</option>
+                        <option value="4">Urgent</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="list-group overflow-auto shadow" style="max-height: 100%; z-index: -1;">
+              <div class="fc-daygrid-event-harness">
+                <a href="${event.url}" target="_blank" class="fc-event fc-event-draggable fc-event-resizable fc-event-start fc-event-end fc-event-future event-class-style-name fc-daygrid-event fc-daygrid-dot-event">
+                  <!-- <div class="fc-daygrid-event-dot" style="border-color: ${event.color};"></div> -->
+                  <div style="padding: 3px">
+                    <div class="fc-event-title align-bottom">WO Test<br/>WO Title</div>
+                    <div class="fc-event-daytime">11-12-2024 9:00am - 11-12-2024 6:00pm</div>
+                    <div class="row" style="fc-event-status">
+                      <div class="col-3">
+                        <span class="badge py-2 px-3 bg-secondary rounded-pill text-uppercase">Tentative</span>
+                        <span class="badge py-2 px-3 bg-secondary rounded-pill text-uppercase">Low</span>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+              </div>
+              <#if data.workOrders?has_content>
+              <#list data.workOrders as wo>
+                <#list wo.events?sort_by("id")?reverse as event>
+                  <div class="fc-daygrid-event-harness">
+                    <a href="${event.url}" target="_blank" class="fc-event fc-event-draggable fc-event-resizable fc-event-start fc-event-end fc-event-future event-class-style-name fc-daygrid-event fc-daygrid-dot-event">
+                      <!-- <div class="fc-daygrid-event-dot" style="border-color: ${event.color};"></div> -->
+                      <div style="padding: 3px">
+                        <div class="fc-event-title align-bottom">${event.workorder.text}<br/>${event.title}</div>
+                        <div class="fc-event-daytime">${event.date.start} ${event.time.start} - ${event.date.end} ${event.time.end}</div>
+                        <div class="row" style="fc-event-status">
+                          <div class="col-3">
+                            <span class="badge py-2 px-3 ${event.status.code} rounded-pill text-uppercase">${event.status.text}</span>
+                            <span class="badge py-2 px-3 ${event.priority.code} rounded-pill text-uppercase">${event.priority.text}</span>
+                          </div>
+                        </div>
+                      </div>
+                    </a>
+                  </div>
+                </#list>
+              </#list>
+            </#if>
+            </div>
+          </div>
+        </div>
+      </div>
+    </aside>
+  </div>
+
+  <!-- Modals -->
+  <div class="modal fade" id="eventModal" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="eventModalLabel"><strong class="table-header">Work Order Event Details</strong></h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <!-- First Accordion Item -->
+          <div class="accordion" id="firstAccordion">
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingOne">
+                <button class="accordion-button" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                  <!-- <strong class="grid-header">&nbsp;Primary Information</strong> -->
+                  <strong class="table-header">Primary Information</strong>
+                </button>
+              </h2>
+              <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-parent="#firstAccordion">
+                <div class="accordion-body">
+                  <form>
+                    <table class="table w-100 table-borderless">
+                      <tr>
+                        <td>
+                          <div>
+                            <label for="date1" class="form-label">Start Date</label>
+                            <input type="date" class="form-control" id="date1">
+                          </div>
+                        </td>
+                        <td>
+                          <div>
+                            <label for="date2" class="form-label">End Date</label>
+                            <input type="date" class="form-control" id="date2">
+                          </div>
+                        </td>
+                        <td rowspan="2">
+                          <div>
+                            <label for="textarea" class="form-label">Notes</label>
+                            <textarea class="form-control" id="textarea" rows="5"></textarea>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <div>
+                            <label for="time1" class="form-label">Start Time</label>
+                            <input type="time" class="form-control" id="time1">
+                          </div>
+                        </td>
+                        <td>
+                          <div>
+                            <label for="time2" class="form-label">End Time</label>
+                            <input type="time" class="form-control" id="time2">
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <label for="dropdown2" class="form-label">Priority</label>
+                          <select class="form-select" id="dropdown2">
+                            <option value="1" selected>Low</option>
+                            <option value="2">Mid</option>
+                            <option value="3">High</option>
+                            <option value="4">Urgent</option>
+                          </select>
+                        </td>
+                        <td>
+                          <label for="dropdown1" class="form-label">Dropdown 2</label>
+                          <select class="form-select" id="dropdown1">
+                            <option value="TENTATIVE" selected>Tentative</option>
+                            <option value="CONFIRMED">Confirmed</option>
+                          </select>
+                        </td>
+                        <td>
+                          <label class="form-check-label" for="switch1">All Day</label>
+                          <div class="form-check form-switch w-100" style="margin-left: 30px">
+                            <input class="form-check-input text-right" type="checkbox" id="switch1">
+                          </div>
+                        </td>
+                      </tr>
+                    </table>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Second Accordion Item -->
+          <div class="accordion" id="secondAccordion" style="margin-top: 15px">
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingTwo">
+                <button class="accordion-button" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                  <strong class="table-header">Select Available Resources</strong>
+                </button>
+              </h2>
+              <div id="collapseTwo" class="accordion-collapse collapse show" aria-labelledby="headingTwo" data-parent="#secondAccordion">
+                <div class="accordion-body">
+                  <div class="input-group inline-inputs" style=" margin-top: 10px;">
+                    <!-- <span class="mx-auto">Name<br/></span> -->
+                    <div class="input-group mb-3" style="border-radius: 5px 5px 0 0;">
+                      <!-- <label class="mx-auto" for="multiple-resource-field">Resource Name&nbsp;</label> -->
+                      <select class="selectpicker mx-auto multiple-resource-field" title="Filter by Name" id="" data-live-search="true" data-selected-text-format="count>2" data-style="" data-style-base="form-control" data-actions-box="true" multiple>
+                        <option value="1">XYZ</option>
+                        <option value="1">XYZ</option>
+                        <option value="1">XYZ</option>
+                        <option value="1">XYZ</option>
+                        <option value="1">XYZ</option>
+                      </select>
+                    </div>
+                    <!-- <span class="mx-auto">Group<br/></span> -->
+                    <div class="input-group mb-3" style="margin-left: 10px">
+                      <!-- <label class="mx-auto" for="multiple-resource-group-field">Resource Group&nbsp;</label> -->
+                      <select class="selectpicker mx-auto multiple-resource-group-field" title="Filter by Group" id="" data-live-search="true" data-selected-text-format="count>2" data-style="" data-style-base="form-control" data-actions-box="true" multiple>
+                        <option value="2">Installers</option>
+                        <option value="2">Drivers</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="table-responsive">
+                    <table class="table table-striped">
+                      <thead>
+                        <tr>
+                          <th>
+                            <div class="form-group form-check container d-flex justify-content-center">
+                              <input type="checkbox" class="form-check-input wo-line-select">
+                            </div>
+                          </th>
+                          <th>Column 2</th>
+                          <th>Column 3</th>
+                          <th>Column 4</th>
+                          <th>Column 5</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <th>
+                            <div class="form-group form-check container d-flex justify-content-center">
+                              <input type="checkbox" class="form-check-input wo-line-select">
+                            </div>
+                          </th>
+                          <td>Data 2</td>
+                          <td>Data 3</td>
+                          <td>Data 4</td>
+                          <td>Data 5</td>
+                        </tr>
+                        <tr>
+                          <th>
+                            <div class="form-group form-check container d-flex justify-content-center">
+                              <input type="checkbox" class="form-check-input wo-line-select">
+                            </div>
+                          </th>
+                          <td>Data 7</td>
+                          <td>Data 8</td>
+                          <td>Data 9</td>
+                          <td>Data 10</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Third Accordion Item -->
+          <div class="accordion" id="thirdAccordion" style="margin-top: 15px">
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingThree">
+                <button class="accordion-button" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
+                  <strong class="table-header">Work Order Items</strong>
+                </button>
+              </h2>
+              <div id="collapseThree" class="accordion-collapse collapse show" aria-labelledby="headingThree" data-parent="#thirdAccordion">
+                <div class="accordion-body">
+                  <div class="table-responsive">
+                    <table class="table table-striped">
+                      <thead>
+                        <tr>
+                          <th>
+                            <div class="form-group form-check container d-flex justify-content-center">
+                              <input type="checkbox" class="form-check-input wo-line-select">
+                            </div>
+                          </th>
+                          <th>Column 2</th>
+                          <th>Column 3</th>
+                          <th>Column 4</th>
+                          <th>Column 5</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>
+                            <div class="form-group form-check container d-flex justify-content-center">
+                              <input type="checkbox" class="form-check-input wo-line-select">
+                            </div>
+                          </td>
+                          <td>Data 2</td>
+                          <td>Data 3</td>
+                          <td>Data 4</td>
+                          <td>Data 5</td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <div class="form-group form-check container d-flex justify-content-center">
+                              <input type="checkbox" class="form-check-input wo-line-select">
+                            </div>
+                          </td>
+                          <td>Data 7</td>
+                          <td>Data 8</td>
+                          <td>Data 9</td>
+                          <td>Data 10</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Fourth Accordion Item -->
+          <div class="accordion" id="fourthAccordion" style="margin-top: 15px">
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingFourth">
+                <button class="accordion-button collapsed" type="button" data-toggle="collapse" data-target="#collapseFourth" aria-expanded="false" aria-controls="collapseFourth">
+                  <strong class="table-header">Work Order Contacts</strong>
+                </button>
+              </h2>
+              <div id="collapseFourth" class="accordion-collapse collapse" aria-labelledby="headingFourth" data-parent="#fourthAccordion">
+                <div class="accordion-body">
+                  <div class="table-responsive">
+                    <table class="table table-striped">
+                      <thead>
+                        <tr>
+                          <th class="table-radio"></th>
+                          <th>Column 2</th>
+                          <th>Column 3</th>
+                          <th>Column 4</th>
+                          <th>Column 5</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td class="table-radio">
+                            <div class="form-group form-check container d-flex justify-content-center">
+                              <input type="radio" class="form-check-input" name="selectWOContact" value="1" checked>
+                            </div>
+                          </td>
+                          <td>Data 2</td>
+                          <td>Data 3</td>
+                          <td>Data 4</td>
+                          <td>Data 5</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Fifth Accordion Item -->
+          <div class="accordion" id="fifthAccordion" style="margin-top: 15px">
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingFifth">
+                <button class="accordion-button collapsed" type="button" data-toggle="collapse" data-target="#collapseFifth" aria-expanded="false" aria-controls="collapseFifth">
+                  <strong class="table-header">Work Order Addresses</strong>
+                </button>
+              </h2>
+              <div id="collapseFifth" class="accordion-collapse collapse" aria-labelledby="headingFifth" data-parent="#fifthAccordion">
+                <div class="accordion-body">
+                  <div class="table-responsive">
+                    <table class="table table-striped">
+                      <thead>
+                        <tr>
+                          <th class="table-radio"></th>
+                          <th>Column 2</th>
+                          <th>Column 3</th>
+                          <th>Column 4</th>
+                          <th>Column 5</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td class="table-radio">
+                            <div class="form-group form-check container d-flex justify-content-center">
+                              <input type="radio" class="form-check-input" name="selectWOAddress" value="1" checked>
+                            </div>
+                          </td>
+                          <td>Data 2</td>
+                          <td>Data 3</td>
+                          <td>Data 4</td>
+                          <td>Data 5</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="confirm-delete" tabindex="-1" aria-labelledby="confirm-delete" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="confirm-delete-label">Confirm Delete</h5>
+          <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          Delete Schedule?
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal" onclick="removeSchedule(event)">Remove</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <input type="hidden" id="suiteletUrl" value="{{suiteletUrl}}" />
+  <input type="hidden" id="workOrders" value="{{workOrders}}" />
+  <input type="hidden" id="resources" value="{{resources}}" />
+</body>
+
+</html>

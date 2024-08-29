@@ -1,0 +1,14 @@
+<manifest projecttype="SUITEAPP">
+  <publisherid>com.erpsuccess</publisherid>
+  <projectid>scheduler</projectid>
+  <projectname>CFI Work Order Scheduler</projectname>
+  <projectversion>1.0.0</projectversion>
+  <frameworkversion>1.0</frameworkversion>
+  <dependencies>
+    <features>
+      <feature required="true">SERVERSIDESCRIPTING</feature>
+      <feature required="false">CRM</feature>
+      <feature required="true">CUSTOMRECORDS</feature>
+    </features>
+  </dependencies>
+</manifest>

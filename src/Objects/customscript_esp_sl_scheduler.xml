@@ -1,0 +1,38 @@
+<suitelet scriptid="customscript_esp_sl_scheduler">
+  <description></description>
+  <isinactive>F</isinactive>
+  <name>ESP CFI SL Scheduler</name>
+  <notifyadmins>F</notifyadmins>
+  <notifyemails></notifyemails>
+  <notifyowner>T</notifyowner>
+  <notifyuser>F</notifyuser>
+  <scriptfile>[/SuiteApps/com.erpsuccess.scheduler/suitescripts/esp_sl_scheduler.js]</scriptfile>
+  <scriptdeployments>
+    <scriptdeployment scriptid="customdeploy_esp_sl_scheduler">
+      <allemployees>F</allemployees>
+      <allpartners>F</allpartners>
+      <allroles>T</allroles>
+      <audslctrole></audslctrole>
+      <eventtype></eventtype>
+      <isdeployed>T</isdeployed>
+      <isonline>F</isonline>
+      <loglevel>DEBUG</loglevel>
+      <runasrole>ADMINISTRATOR</runasrole>
+      <status>RELEASED</status>
+      <title>WO Scheduler</title>
+    </scriptdeployment>
+    <!-- <scriptdeployment scriptid="customdeploy_esp_sl_scheduler_ud">
+      <allemployees>F</allemployees>
+      <allpartners>F</allpartners>
+      <allroles>T</allroles>
+      <audslctrole></audslctrole>
+      <eventtype></eventtype>
+      <isdeployed>T</isdeployed>
+      <isonline>F</isonline>
+      <loglevel>DEBUG</loglevel>
+      <runasrole>ADMINISTRATOR</runasrole>
+      <status>RELEASED</status>
+      <title>[UNDER DEVELOPMENT] WO Scheduler</title>
+    </scriptdeployment> -->
+  </scriptdeployments>
+</suitelet>

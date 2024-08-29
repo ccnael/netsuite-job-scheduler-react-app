@@ -1,0 +1,1 @@
+// $("#event-modal").modal("toggle");
