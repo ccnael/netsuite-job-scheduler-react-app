@@ -1,0 +1,17845 @@
+const mockup = {
+    "suiteletUrl": "/app/site/hosting/scriptlet.nl?script=877&deploy=1&compid=TSTDRV2617106",
+    "workOrders": [{
+        "id": "61",
+        "name": "Sample Work Order - Mei - DO NOT USE - 61",
+        "title": "Sample Work Order - Mei - DO NOT USE - 61",
+        "project": {
+            "text": "AB&I Holdings : Field Ops Pro Project",
+            "value": "1883"
+        },
+        "date": "9/23/2024",
+        "status": {
+            "text": "Not Started",
+            "value": "4",
+            "code": "#026adf"
+        },
+        "type": {
+            "text": "Moves",
+            "value": "3"
+        },
+        "memo": "<p><strong>Sample Work Order - Mei - DO NOT USE</strong></p>",
+        "salesorder": {
+            "text": "Sales Order #SLS00000686",
+            "value": "17729"
+        },
+        "customer": {
+            "text": "AB&I Holdings",
+            "value": "1249"
+        },
+        "resourceGroup": {
+            "text": "",
+            "value": ""
+        },
+        "priority": "",
+        "resources": [],
+        "items": [{
+            "id": "65",
+            "workorder": {
+                "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                "value": "61"
+            },
+            "events": [],
+            "uuid": "17729_4",
+            "line": "4",
+            "item": {
+                "text": "ACQUA/CARAVEL AU0641",
+                "value": "1062"
+            },
+            "description": "Inventory Item",
+            "quantity": 0,
+            "note": ""
+        }, {
+            "id": "66",
+            "workorder": {
+                "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                "value": "61"
+            },
+            "events": [],
+            "uuid": "17729_5",
+            "line": "5",
+            "item": {
+                "text": "Dealer Service Fee",
+                "value": "2331"
+            },
+            "description": "Dealer Service Fee",
+            "quantity": 0,
+            "note": ""
+        }],
+        "addresses": [{
+            "id": "45",
+            "workorder": {
+                "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                "value": "61"
+            },
+            "customer": {
+                "text": "AB&I Holdings",
+                "value": "1249"
+            },
+            "events": [],
+            "address": {
+                "text": "1701 Rollins Road",
+                "value": "244878"
+            },
+            "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+            "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+        }],
+        "contacts": [{
+            "id": "44",
+            "workorder": {
+                "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                "value": "61"
+            },
+            "events": [],
+            "contact": {
+                "text": "AB&I Holdings : Test Prav",
+                "value": "1892"
+            },
+            "name": "Test Prav",
+            "email": "pravallika@erpsuccesspartners.com",
+            "jobTitle": "QA",
+            "mobilePhone": "",
+            "phone": "",
+            "primary": "checked",
+            "url": "/app/common/entity/contact.nl?id=1892&compid=TSTDRV2617106"
+        }],
+        "events": [],
+        "projectUrl": "/app/accounting/project/project.nl?id=1883&compid=TSTDRV2617106",
+        "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=61&compid=TSTDRV2617106",
+        "soUrl": "/app/accounting/transactions/salesord.nl?id=17729&compid=TSTDRV2617106",
+        "esthours": "40"
+    }, {
+        "id": "60",
+        "name": "Sample Work Order - Mei - DO NOT USE",
+        "title": "Sample Work Order - Mei - DO NOT USE",
+        "project": {
+            "text": "AB&I Holdings : Field Ops Pro Project",
+            "value": "1883"
+        },
+        "date": "9/23/2024",
+        "status": {
+            "text": "Not Started",
+            "value": "4",
+            "code": "#026adf"
+        },
+        "type": {
+            "text": "Demo",
+            "value": "1"
+        },
+        "memo": "<p><strong>Sample Work Order - Mei - DO NOT USE</strong></p>",
+        "salesorder": {
+            "text": "Sales Order #SLS00000686",
+            "value": "17729"
+        },
+        "customer": {
+            "text": "AB&I Holdings",
+            "value": "1249"
+        },
+        "resourceGroup": {
+            "text": "",
+            "value": ""
+        },
+        "priority": "",
+        "resources": [],
+        "items": [{
+            "id": "62",
+            "workorder": {
+                "text": "Sample Work Order - Mei - DO NOT USE",
+                "value": "60"
+            },
+            "events": [],
+            "uuid": "17729_2",
+            "line": "2",
+            "item": {
+                "text": "2375-6727",
+                "value": "1426"
+            },
+            "description": "Inventory Item",
+            "quantity": 0,
+            "note": ""
+        }, {
+            "id": "63",
+            "workorder": {
+                "text": "Sample Work Order - Mei - DO NOT USE",
+                "value": "60"
+            },
+            "events": [],
+            "uuid": "17729_3",
+            "line": "3",
+            "item": {
+                "text": "45XQ-2424-LJ4SCA",
+                "value": "1013"
+            },
+            "description": "Inventory Item",
+            "quantity": 0,
+            "note": ""
+        }, {
+            "id": "64",
+            "workorder": {
+                "text": "Sample Work Order - Mei - DO NOT USE",
+                "value": "60"
+            },
+            "events": [],
+            "uuid": "17729_5",
+            "line": "5",
+            "item": {
+                "text": "Dealer Service Fee",
+                "value": "2331"
+            },
+            "description": "Dealer Service Fee",
+            "quantity": 0,
+            "note": ""
+        }],
+        "addresses": [{
+            "id": "44",
+            "workorder": {
+                "text": "Sample Work Order - Mei - DO NOT USE",
+                "value": "60"
+            },
+            "customer": {
+                "text": "AB&I Holdings",
+                "value": "1249"
+            },
+            "events": [],
+            "address": {
+                "text": "1701 Rollins Road",
+                "value": "244878"
+            },
+            "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+            "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+        }],
+        "contacts": [{
+            "id": "43",
+            "workorder": {
+                "text": "Sample Work Order - Mei - DO NOT USE",
+                "value": "60"
+            },
+            "events": [],
+            "contact": {
+                "text": "AB&I Holdings : Test Prav",
+                "value": "1892"
+            },
+            "name": "Test Prav",
+            "email": "pravallika@erpsuccesspartners.com",
+            "jobTitle": "QA",
+            "mobilePhone": "",
+            "phone": "",
+            "primary": "checked",
+            "url": "/app/common/entity/contact.nl?id=1892&compid=TSTDRV2617106"
+        }],
+        "events": [],
+        "projectUrl": "/app/accounting/project/project.nl?id=1883&compid=TSTDRV2617106",
+        "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=60&compid=TSTDRV2617106",
+        "soUrl": "/app/accounting/transactions/salesord.nl?id=17729&compid=TSTDRV2617106",
+        "esthours": "50"
+    }, {
+        "id": "59",
+        "name": "Sample Work Order - Mei - DO NOT USE",
+        "title": "Sample Work Order - Mei - DO NOT USE",
+        "project": {
+            "text": "AB&I Holdings : Field Ops Pro Project",
+            "value": "1883"
+        },
+        "date": "9/23/2024",
+        "status": {
+            "text": "Not Started",
+            "value": "4",
+            "code": "#026adf"
+        },
+        "type": {
+            "text": "Mockup",
+            "value": "2"
+        },
+        "memo": "<p><strong>Sample Work Order - Mei - DO NOT USE</strong></p>",
+        "salesorder": {
+            "text": "Sales Order #SLS00000686",
+            "value": "17729"
+        },
+        "customer": {
+            "text": "AB&I Holdings",
+            "value": "1249"
+        },
+        "resourceGroup": {
+            "text": "",
+            "value": ""
+        },
+        "priority": "",
+        "resources": [],
+        "items": [{
+            "id": "59",
+            "workorder": {
+                "text": "Sample Work Order - Mei - DO NOT USE",
+                "value": "59"
+            },
+            "events": [],
+            "uuid": "17729_2",
+            "line": "2",
+            "item": {
+                "text": "2375-6727",
+                "value": "1426"
+            },
+            "description": "Inventory Item",
+            "quantity": 0,
+            "note": ""
+        }, {
+            "id": "60",
+            "workorder": {
+                "text": "Sample Work Order - Mei - DO NOT USE",
+                "value": "59"
+            },
+            "events": [],
+            "uuid": "17729_3",
+            "line": "3",
+            "item": {
+                "text": "45XQ-2424-LJ4SCA",
+                "value": "1013"
+            },
+            "description": "Inventory Item",
+            "quantity": 0,
+            "note": ""
+        }, {
+            "id": "61",
+            "workorder": {
+                "text": "Sample Work Order - Mei - DO NOT USE",
+                "value": "59"
+            },
+            "events": [],
+            "uuid": "17729_5",
+            "line": "5",
+            "item": {
+                "text": "Dealer Service Fee",
+                "value": "2331"
+            },
+            "description": "Dealer Service Fee",
+            "quantity": 0,
+            "note": ""
+        }],
+        "addresses": [{
+            "id": "43",
+            "workorder": {
+                "text": "Sample Work Order - Mei - DO NOT USE",
+                "value": "59"
+            },
+            "customer": {
+                "text": "AB&I Holdings",
+                "value": "1249"
+            },
+            "events": [],
+            "address": {
+                "text": "1701 Rollins Road",
+                "value": "244878"
+            },
+            "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+            "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+        }],
+        "contacts": [{
+            "id": "42",
+            "workorder": {
+                "text": "Sample Work Order - Mei - DO NOT USE",
+                "value": "59"
+            },
+            "events": [],
+            "contact": {
+                "text": "AB&I Holdings : Test Prav",
+                "value": "1892"
+            },
+            "name": "Test Prav",
+            "email": "pravallika@erpsuccesspartners.com",
+            "jobTitle": "QA",
+            "mobilePhone": "",
+            "phone": "",
+            "primary": "checked",
+            "url": "/app/common/entity/contact.nl?id=1892&compid=TSTDRV2617106"
+        }],
+        "events": [],
+        "projectUrl": "/app/accounting/project/project.nl?id=1883&compid=TSTDRV2617106",
+        "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=59&compid=TSTDRV2617106",
+        "soUrl": "/app/accounting/transactions/salesord.nl?id=17729&compid=TSTDRV2617106",
+        "esthours": "50"
+    }, {
+        "id": "58",
+        "name": "Sample Work Order - Mei - DO NOT USE",
+        "title": "Sample Work Order - Mei - DO NOT USE",
+        "project": {
+            "text": "AB&I Holdings : Field Ops Pro Project",
+            "value": "1883"
+        },
+        "date": "9/23/2024",
+        "status": {
+            "text": "Not Started",
+            "value": "4",
+            "code": "#026adf"
+        },
+        "type": {
+            "text": "Moves",
+            "value": "3"
+        },
+        "memo": "<p><strong>Sample Work Order - Mei - DO NOT USE</strong></p>",
+        "salesorder": {
+            "text": "Sales Order #SLS00000686",
+            "value": "17729"
+        },
+        "customer": {
+            "text": "AB&I Holdings",
+            "value": "1249"
+        },
+        "resourceGroup": {
+            "text": "",
+            "value": ""
+        },
+        "priority": "",
+        "resources": [],
+        "items": [{
+            "id": "56",
+            "workorder": {
+                "text": "Sample Work Order - Mei - DO NOT USE",
+                "value": "58"
+            },
+            "events": [],
+            "uuid": "17729_2",
+            "line": "2",
+            "item": {
+                "text": "2375-6727",
+                "value": "1426"
+            },
+            "description": "Inventory Item",
+            "quantity": 0,
+            "note": ""
+        }, {
+            "id": "57",
+            "workorder": {
+                "text": "Sample Work Order - Mei - DO NOT USE",
+                "value": "58"
+            },
+            "events": [],
+            "uuid": "17729_3",
+            "line": "3",
+            "item": {
+                "text": "45XQ-2424-LJ4SCA",
+                "value": "1013"
+            },
+            "description": "Inventory Item",
+            "quantity": 0,
+            "note": ""
+        }, {
+            "id": "58",
+            "workorder": {
+                "text": "Sample Work Order - Mei - DO NOT USE",
+                "value": "58"
+            },
+            "events": [],
+            "uuid": "17729_5",
+            "line": "5",
+            "item": {
+                "text": "Dealer Service Fee",
+                "value": "2331"
+            },
+            "description": "Dealer Service Fee",
+            "quantity": 0,
+            "note": ""
+        }],
+        "addresses": [{
+            "id": "42",
+            "workorder": {
+                "text": "Sample Work Order - Mei - DO NOT USE",
+                "value": "58"
+            },
+            "customer": {
+                "text": "AB&I Holdings",
+                "value": "1249"
+            },
+            "events": [],
+            "address": {
+                "text": "1701 Rollins Road",
+                "value": "244878"
+            },
+            "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+            "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+        }],
+        "contacts": [{
+            "id": "41",
+            "workorder": {
+                "text": "Sample Work Order - Mei - DO NOT USE",
+                "value": "58"
+            },
+            "events": [],
+            "contact": {
+                "text": "AB&I Holdings : Test Prav",
+                "value": "1892"
+            },
+            "name": "Test Prav",
+            "email": "pravallika@erpsuccesspartners.com",
+            "jobTitle": "QA",
+            "mobilePhone": "",
+            "phone": "",
+            "primary": "checked",
+            "url": "/app/common/entity/contact.nl?id=1892&compid=TSTDRV2617106"
+        }],
+        "events": [],
+        "projectUrl": "/app/accounting/project/project.nl?id=1883&compid=TSTDRV2617106",
+        "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=58&compid=TSTDRV2617106",
+        "soUrl": "/app/accounting/transactions/salesord.nl?id=17729&compid=TSTDRV2617106",
+        "esthours": "50"
+    }, {
+        "id": "57",
+        "name": "Sample Work Order - Mei - DO NOT USE",
+        "title": "Sample Work Order - Mei - DO NOT USE",
+        "project": {
+            "text": "AB&I Holdings : Field Ops Pro Project",
+            "value": "1883"
+        },
+        "date": "9/23/2024",
+        "status": {
+            "text": "Not Started",
+            "value": "4",
+            "code": "#026adf"
+        },
+        "type": {
+            "text": "Mockup",
+            "value": "2"
+        },
+        "memo": "<p><strong>Sample Work Order - Mei - DO NOT USE</strong></p>",
+        "salesorder": {
+            "text": "Sales Order #SLS00000686",
+            "value": "17729"
+        },
+        "customer": {
+            "text": "AB&I Holdings",
+            "value": "1249"
+        },
+        "resourceGroup": {
+            "text": "",
+            "value": ""
+        },
+        "priority": "",
+        "resources": [],
+        "items": [],
+        "addresses": [],
+        "contacts": [{
+            "id": "40",
+            "workorder": {
+                "text": "Sample Work Order - Mei - DO NOT USE",
+                "value": "57"
+            },
+            "events": [],
+            "contact": {
+                "text": "AB&I Holdings : Test Prav",
+                "value": "1892"
+            },
+            "name": "Test Prav",
+            "email": "pravallika@erpsuccesspartners.com",
+            "jobTitle": "QA",
+            "mobilePhone": "",
+            "phone": "",
+            "primary": "checked",
+            "url": "/app/common/entity/contact.nl?id=1892&compid=TSTDRV2617106"
+        }],
+        "events": [],
+        "projectUrl": "/app/accounting/project/project.nl?id=1883&compid=TSTDRV2617106",
+        "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=57&compid=TSTDRV2617106",
+        "soUrl": "/app/accounting/transactions/salesord.nl?id=17729&compid=TSTDRV2617106",
+        "esthours": "50"
+    }, {
+        "id": "56",
+        "name": "Sample Work Order - Mei - DO NOT USE",
+        "title": "Sample Work Order - Mei - DO NOT USE",
+        "project": {
+            "text": "AB&I Holdings : Field Ops Pro Project",
+            "value": "1883"
+        },
+        "date": "9/23/2024",
+        "status": {
+            "text": "Not Started",
+            "value": "4",
+            "code": "#026adf"
+        },
+        "type": {
+            "text": "Mockup",
+            "value": "2"
+        },
+        "memo": "<p>Sample Work Order - Mei - DO NOT USE</p>",
+        "salesorder": {
+            "text": "Sales Order #SLS00000686",
+            "value": "17729"
+        },
+        "customer": {
+            "text": "AB&I Holdings",
+            "value": "1249"
+        },
+        "resourceGroup": {
+            "text": "",
+            "value": ""
+        },
+        "priority": "",
+        "resources": [],
+        "items": [],
+        "addresses": [],
+        "contacts": [],
+        "events": [],
+        "projectUrl": "/app/accounting/project/project.nl?id=1883&compid=TSTDRV2617106",
+        "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=56&compid=TSTDRV2617106",
+        "soUrl": "/app/accounting/transactions/salesord.nl?id=17729&compid=TSTDRV2617106",
+        "esthours": "10"
+    }, {
+        "id": "55",
+        "name": "Sample Work Order - Mei - DO NOT USE",
+        "title": "Sample Work Order - Mei - DO NOT USE",
+        "project": {
+            "text": "AB&I Holdings : Field Ops Pro Project",
+            "value": "1883"
+        },
+        "date": "9/23/2024",
+        "status": {
+            "text": "Not Started",
+            "value": "4",
+            "code": "#026adf"
+        },
+        "type": {
+            "text": "Demo",
+            "value": "1"
+        },
+        "memo": "<p><strong>Sample Work Order - Mei - DO NOT USE</strong></p>",
+        "salesorder": {
+            "text": "Sales Order #SLS00000686",
+            "value": "17729"
+        },
+        "customer": {
+            "text": "AB&I Holdings",
+            "value": "1249"
+        },
+        "resourceGroup": {
+            "text": "",
+            "value": ""
+        },
+        "priority": "",
+        "resources": [],
+        "items": [],
+        "addresses": [],
+        "contacts": [],
+        "events": [],
+        "projectUrl": "/app/accounting/project/project.nl?id=1883&compid=TSTDRV2617106",
+        "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=55&compid=TSTDRV2617106",
+        "soUrl": "/app/accounting/transactions/salesord.nl?id=17729&compid=TSTDRV2617106",
+        "esthours": "20"
+    }, {
+        "id": "54",
+        "name": "Sample Work Order - Mei - DO NOT USE",
+        "title": "Sample Work Order - Mei - DO NOT USE",
+        "project": {
+            "text": "AB&I Holdings : Field Ops Pro Project",
+            "value": "1883"
+        },
+        "date": "9/23/2024",
+        "status": {
+            "text": "Not Started",
+            "value": "4",
+            "code": "#026adf"
+        },
+        "type": {
+            "text": "Mockup",
+            "value": "2"
+        },
+        "memo": "<table style=\"border: 1px solid #000;\"><tbody><tr><td data-row=\"1\"><strong>Sample Work Order - Mei - DO NOT USE</strong></td></tr></tbody></table>",
+        "salesorder": {
+            "text": "Sales Order #SLS00000686",
+            "value": "17729"
+        },
+        "customer": {
+            "text": "AB&I Holdings",
+            "value": "1249"
+        },
+        "resourceGroup": {
+            "text": "",
+            "value": ""
+        },
+        "priority": "",
+        "resources": [],
+        "items": [],
+        "addresses": [],
+        "contacts": [],
+        "events": [],
+        "projectUrl": "/app/accounting/project/project.nl?id=1883&compid=TSTDRV2617106",
+        "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=54&compid=TSTDRV2617106",
+        "soUrl": "/app/accounting/transactions/salesord.nl?id=17729&compid=TSTDRV2617106",
+        "esthours": "5"
+    }, {
+        "id": "51",
+        "name": "Test Work Order 12 Sep",
+        "title": "",
+        "project": {
+            "text": "",
+            "value": ""
+        },
+        "date": "",
+        "status": {
+            "text": "",
+            "value": ""
+        },
+        "type": {
+            "text": "",
+            "value": ""
+        },
+        "memo": "",
+        "salesorder": {
+            "text": " ",
+            "value": ""
+        },
+        "customer": {
+            "text": "",
+            "value": ""
+        },
+        "resourceGroup": {
+            "text": "",
+            "value": ""
+        },
+        "priority": "",
+        "resources": [],
+        "items": [],
+        "addresses": [],
+        "contacts": [],
+        "events": [],
+        "projectUrl": "/app/accounting/project/project.nl?compid=TSTDRV2617106",
+        "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=51&compid=TSTDRV2617106",
+        "soUrl": "/app/accounting/transactions/salesord.nl?compid=TSTDRV2617106",
+        "esthours": ""
+    }, {
+        "id": "50",
+        "name": "test site test",
+        "title": "test site test",
+        "project": {
+            "text": "Test site test : Test",
+            "value": "1900"
+        },
+        "date": "9/11/2024",
+        "status": {
+            "text": "In Progress",
+            "value": "1",
+            "code": "#026adf"
+        },
+        "type": {
+            "text": "Standard",
+            "value": "5"
+        },
+        "memo": "",
+        "salesorder": {
+            "text": "Sales Order #SLS00000681",
+            "value": "17705"
+        },
+        "customer": {
+            "text": "Test site test",
+            "value": "1898"
+        },
+        "resourceGroup": {
+            "text": "",
+            "value": ""
+        },
+        "priority": "",
+        "resources": [],
+        "items": [],
+        "addresses": [],
+        "contacts": [],
+        "events": [],
+        "projectUrl": "/app/accounting/project/project.nl?id=1900&compid=TSTDRV2617106",
+        "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=50&compid=TSTDRV2617106",
+        "soUrl": "/app/accounting/transactions/salesord.nl?id=17705&compid=TSTDRV2617106",
+        "esthours": "2"
+    }, {
+        "id": "49",
+        "name": "Work Order Test - Sept 12 - Mei",
+        "title": "Work Order Test - Sept 12 - Mei",
+        "project": {
+            "text": "AB&I Holdings : Field Ops Pro Project",
+            "value": "1883"
+        },
+        "date": "9/9/2024",
+        "status": {
+            "text": "Not Started",
+            "value": "4",
+            "code": "#026adf"
+        },
+        "type": {
+            "text": "Moves",
+            "value": "3"
+        },
+        "memo": "<p class=\"ql-align-justify\"><strong style=\"background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);\">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quam est, tempus vel eleifend sit amet, vehicula sed diam. Maecenas porta mollis sem in aliquam. Suspendisse imperdiet suscipit accumsan. Vivamus lacinia interdum sagittis. Mauris vitae nisl vitae magna lacinia aliquam. Proin lacinia, erat at aliquet bibendum, justo nunc faucibus velit, et fringilla lorem libero non ligula. Vivamus id mattis sem. Cras sagittis nunc est, vitae vestibulum erat sollicitudin eu. Aenean purus dui, dignissim sed molestie quis, feugiat vel velit.</strong></p><p class=\"ql-align-justify\"></p><p class=\"ql-align-justify\"><span style=\"background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);\">Nulla pretium accumsan laoreet. Duis diam augue, maximus et venenatis vel,</span><em style=\"background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);\"> sagittis quis lectus. Pellentesque vestibulum tortor eget eleifend sodales. </em><span style=\"background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);\">Morbi a ultrices velit, in sollicitudin tortor. Fusce imperdiet posuere arcu, nec porta leo fermentum id. Aliquam consectetur consectetur erat ut ultricies. Donec eu erat metus. Aliquam bibendum quis velit in tempor. Praesent id augue vestibulum, euismod odio vel, rutrum diam. Praesent dignissim, arcu et gravida suscipit, sapien ex eleifend dolor, non ultrices nunc metus id enim. Aliquam maximus lectus eu neque blandit, malesuada egestas libero maximus. Nunc finibus laoreet eros, et efficitur nibh tincidunt id. Integer fringilla arcu eu dolor varius, sit amet mattis nunc tincidunt.</span></p>",
+        "salesorder": {
+            "text": "Sales Order #SLS00000654",
+            "value": "16211"
+        },
+        "customer": {
+            "text": "AB&I Holdings",
+            "value": "1249"
+        },
+        "resourceGroup": {
+            "text": "",
+            "value": ""
+        },
+        "priority": "",
+        "resources": [],
+        "items": [{
+            "id": "53",
+            "workorder": {
+                "text": "Work Order Test - Sept 12 - Mei",
+                "value": "49"
+            },
+            "events": ["100782"],
+            "uuid": "16210_2",
+            "line": "2",
+            "item": {
+                "text": "2375-6727",
+                "value": "1426"
+            },
+            "description": "Inventory Item",
+            "quantity": 0,
+            "note": ""
+        }, {
+            "id": "54",
+            "workorder": {
+                "text": "Work Order Test - Sept 12 - Mei",
+                "value": "49"
+            },
+            "events": ["100782"],
+            "uuid": "16210_3",
+            "line": "3",
+            "item": {
+                "text": "45XQ-2424-LJ4SCA",
+                "value": "1013"
+            },
+            "description": "Inventory Item",
+            "quantity": 0,
+            "note": ""
+        }, {
+            "id": "55",
+            "workorder": {
+                "text": "Work Order Test - Sept 12 - Mei",
+                "value": "49"
+            },
+            "events": ["100782"],
+            "uuid": "16211_10",
+            "line": "5",
+            "item": {
+                "text": "Dealer Service Fee",
+                "value": "2331"
+            },
+            "description": "Dealer Service Fee",
+            "quantity": 0,
+            "note": ""
+        }],
+        "addresses": [{
+            "id": "41",
+            "workorder": {
+                "text": "Work Order Test - Sept 12 - Mei",
+                "value": "49"
+            },
+            "customer": {
+                "text": "AB&I Holdings",
+                "value": "1249"
+            },
+            "events": ["100782"],
+            "address": {
+                "text": "1701 Rollins Road",
+                "value": "244878"
+            },
+            "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+            "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+        }],
+        "contacts": [{
+            "id": "33",
+            "workorder": {
+                "text": "Work Order Test - Sept 12 - Mei",
+                "value": "49"
+            },
+            "events": ["100782"],
+            "contact": {
+                "text": "AB&I Holdings : Test Prav",
+                "value": "1892"
+            },
+            "name": "Test Prav",
+            "email": "pravallika@erpsuccesspartners.com",
+            "jobTitle": "QA",
+            "mobilePhone": "",
+            "phone": "",
+            "primary": "checked",
+            "url": "/app/common/entity/contact.nl?id=1892&compid=TSTDRV2617106"
+        }],
+        "events": [{
+            "id": "100781",
+            "title": "Work Order Test 123123123123",
+            "workorder": {
+                "text": "Work Order Test - Sept 12 - Mei",
+                "value": "49"
+            },
+            "project": {
+                "text": "AB&I Holdings : Field Ops Pro Project",
+                "value": "1883"
+            },
+            "location": "",
+            "status": {
+                "text": "Confirmed",
+                "value": "CONFIRMED",
+                "code": "bg-success"
+            },
+            "date": {
+                "recurrence": "occurs every day from 9/4/2024 until 9/9/2024",
+                "start": "2024-09-04",
+                "end": "2024-09-09"
+            },
+            "time": {
+                "start": "08:00",
+                "end": "23:05"
+            },
+            "priority": {
+                "text": "High",
+                "value": "3",
+                "code": "#ca6621"
+            },
+            "note": "XYZ\r\nABC",
+            "url": "/app/crm/calendar/event.nl?id=100781&compid=TSTDRV2617106&selectedtab=custom337",
+            "color": "#1a6756",
+            "woRef": {},
+            "resources": [],
+            "items": [],
+            "contacts": [],
+            "addresses": [],
+            "contact": {
+                "text": "",
+                "value": ""
+            },
+            "address": {
+                "text": "",
+                "value": ""
+            }
+        }, {
+            "id": "100782",
+            "title": "Work Order Test - ^_^",
+            "workorder": {
+                "text": "Work Order Test - Sept 12 - Mei",
+                "value": "49"
+            },
+            "project": {
+                "text": "AB&I Holdings : Field Ops Pro Project",
+                "value": "1883"
+            },
+            "location": "",
+            "status": {
+                "text": "Confirmed",
+                "value": "CONFIRMED",
+                "code": "bg-success"
+            },
+            "date": {
+                "recurrence": "occurs every day from 9/4/2024 until 9/29/2024",
+                "start": "2024-09-04",
+                "end": "2024-09-29"
+            },
+            "time": {
+                "start": "08:00",
+                "end": "18:00"
+            },
+            "priority": {
+                "text": "Urgent",
+                "value": "4",
+                "code": "#9a2407"
+            },
+            "note": "",
+            "url": "/app/crm/calendar/event.nl?id=100782&compid=TSTDRV2617106&selectedtab=custom337",
+            "color": "#1a6756",
+            "woRef": {},
+            "resources": [],
+            "items": [],
+            "contacts": [],
+            "addresses": [],
+            "contact": {
+                "text": "",
+                "value": ""
+            },
+            "address": {
+                "text": "",
+                "value": ""
+            }
+        }],
+        "projectUrl": "/app/accounting/project/project.nl?id=1883&compid=TSTDRV2617106",
+        "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=49&compid=TSTDRV2617106",
+        "soUrl": "/app/accounting/transactions/salesord.nl?id=16211&compid=TSTDRV2617106",
+        "esthours": "100"
+    }, {
+        "id": "48",
+        "name": "Sample 6",
+        "title": "Sample 6",
+        "project": {
+            "text": "AB&I Holdings : Field Ops Pro Project",
+            "value": "1883"
+        },
+        "date": "9/5/2024",
+        "status": {
+            "text": "Hold",
+            "value": "7",
+            "code": "#6c757d"
+        },
+        "type": {
+            "text": "Walls",
+            "value": "6"
+        },
+        "memo": "<p><strong>Sample 6</strong></p>",
+        "salesorder": {
+            "text": "Sales Order #SLS00000654",
+            "value": "16211"
+        },
+        "customer": {
+            "text": "AB&I Holdings",
+            "value": "1249"
+        },
+        "resourceGroup": {
+            "text": "",
+            "value": ""
+        },
+        "priority": "",
+        "resources": [],
+        "items": [{
+            "id": "51",
+            "workorder": {
+                "text": "Sample 6",
+                "value": "48"
+            },
+            "events": ["100777"],
+            "uuid": "16210_1",
+            "line": "1",
+            "item": {
+                "text": "BIC00008",
+                "value": "467"
+            },
+            "description": "Inventory Item",
+            "quantity": 0,
+            "note": ""
+        }, {
+            "id": "52",
+            "workorder": {
+                "text": "Sample 6",
+                "value": "48"
+            },
+            "events": ["100777"],
+            "uuid": "16211_10",
+            "line": "5",
+            "item": {
+                "text": "Dealer Service Fee",
+                "value": "2331"
+            },
+            "description": "Dealer Service Fee",
+            "quantity": 0,
+            "note": ""
+        }],
+        "addresses": [{
+            "id": "40",
+            "workorder": {
+                "text": "Sample 6",
+                "value": "48"
+            },
+            "customer": {
+                "text": "AB&I Holdings",
+                "value": "1249"
+            },
+            "events": ["100777"],
+            "address": {
+                "text": "1701 Rollins Road",
+                "value": "244878"
+            },
+            "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+            "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+        }],
+        "contacts": [{
+            "id": "30",
+            "workorder": {
+                "text": "Sample 6",
+                "value": "48"
+            },
+            "events": ["100777"],
+            "contact": {
+                "text": "AB&I Holdings : Test Prav",
+                "value": "1892"
+            },
+            "name": "Test Prav",
+            "email": "pravallika@erpsuccesspartners.com",
+            "jobTitle": "QA",
+            "mobilePhone": "",
+            "phone": "",
+            "primary": "checked",
+            "url": "/app/common/entity/contact.nl?id=1892&compid=TSTDRV2617106"
+        }],
+        "events": [{
+            "id": "100777",
+            "title": "Sample 656",
+            "workorder": {
+                "text": "Sample 6",
+                "value": "48"
+            },
+            "project": {
+                "text": "AB&I Holdings : Field Ops Pro Project",
+                "value": "1883"
+            },
+            "location": "",
+            "status": {
+                "text": "Confirmed",
+                "value": "CONFIRMED",
+                "code": "bg-success"
+            },
+            "date": {
+                "recurrence": "one time event on 9/4/2024",
+                "start": "2024-09-04",
+                "end": "2024-09-04"
+            },
+            "time": {
+                "start": "08:00",
+                "end": "18:00"
+            },
+            "priority": {
+                "text": "High",
+                "value": "3",
+                "code": "#ca6621"
+            },
+            "note": "ASDASDASADASDBBB\nBBBBBB",
+            "url": "/app/crm/calendar/event.nl?id=100777&compid=TSTDRV2617106&selectedtab=custom337",
+            "color": "#1a6756",
+            "woRef": {},
+            "resources": [],
+            "items": [],
+            "contacts": [],
+            "addresses": [],
+            "contact": {
+                "text": "",
+                "value": ""
+            },
+            "address": {
+                "text": "",
+                "value": ""
+            }
+        }],
+        "projectUrl": "/app/accounting/project/project.nl?id=1883&compid=TSTDRV2617106",
+        "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=48&compid=TSTDRV2617106",
+        "soUrl": "/app/accounting/transactions/salesord.nl?id=16211&compid=TSTDRV2617106",
+        "esthours": "50"
+    }, {
+        "id": "47",
+        "name": "Sample 5",
+        "title": "Sample 5",
+        "project": {
+            "text": "AB&I Holdings : Field Ops Pro Project",
+            "value": "1883"
+        },
+        "date": "9/5/2024",
+        "status": {
+            "text": "Closed",
+            "value": "3",
+            "code": "#6c757d"
+        },
+        "type": {
+            "text": "Moves",
+            "value": "3"
+        },
+        "memo": "<p>Sample 5</p>",
+        "salesorder": {
+            "text": "Sales Order #SLS00000654",
+            "value": "16211"
+        },
+        "customer": {
+            "text": "AB&I Holdings",
+            "value": "1249"
+        },
+        "resourceGroup": {
+            "text": "",
+            "value": ""
+        },
+        "priority": "",
+        "resources": [],
+        "items": [{
+            "id": "49",
+            "workorder": {
+                "text": "Sample 5",
+                "value": "47"
+            },
+            "events": ["100758"],
+            "uuid": "16210_1",
+            "line": "1",
+            "item": {
+                "text": "BIC00008",
+                "value": "467"
+            },
+            "description": "Inventory Item",
+            "quantity": 0,
+            "note": ""
+        }, {
+            "id": "50",
+            "workorder": {
+                "text": "Sample 5",
+                "value": "47"
+            },
+            "events": [],
+            "uuid": "16211_10",
+            "line": "5",
+            "item": {
+                "text": "Dealer Service Fee",
+                "value": "2331"
+            },
+            "description": "Dealer Service Fee",
+            "quantity": 0,
+            "note": ""
+        }],
+        "addresses": [{
+            "id": "39",
+            "workorder": {
+                "text": "Sample 5",
+                "value": "47"
+            },
+            "customer": {
+                "text": "AB&I Holdings",
+                "value": "1249"
+            },
+            "events": ["100769"],
+            "address": {
+                "text": "1701 Rollins Road",
+                "value": "244878"
+            },
+            "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+            "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+        }],
+        "contacts": [{
+            "id": "29",
+            "workorder": {
+                "text": "Sample 5",
+                "value": "47"
+            },
+            "events": ["100769"],
+            "contact": {
+                "text": "AB&I Holdings : Test Prav",
+                "value": "1892"
+            },
+            "name": "Test Prav",
+            "email": "pravallika@erpsuccesspartners.com",
+            "jobTitle": "QA",
+            "mobilePhone": "",
+            "phone": "",
+            "primary": "checked",
+            "url": "/app/common/entity/contact.nl?id=1892&compid=TSTDRV2617106"
+        }],
+        "events": [{
+            "id": "100753",
+            "title": "Sample 5",
+            "workorder": {
+                "text": "Sample 5",
+                "value": "47"
+            },
+            "project": {
+                "text": "AB&I Holdings : Field Ops Pro Project",
+                "value": "1883"
+            },
+            "location": "",
+            "status": {
+                "text": "Confirmed",
+                "value": "CONFIRMED",
+                "code": "bg-success"
+            },
+            "date": {
+                "recurrence": "one time event on 8/31/2024",
+                "start": "2024-08-31",
+                "end": "2024-08-31"
+            },
+            "time": {
+                "start": "08:00",
+                "end": "18:00"
+            },
+            "priority": {
+                "text": "Low",
+                "value": "1",
+                "code": "#026adf"
+            },
+            "note": "TEST12345",
+            "url": "/app/crm/calendar/event.nl?id=100753&compid=TSTDRV2617106&selectedtab=custom337",
+            "color": "#1a6756",
+            "woRef": {},
+            "resources": [],
+            "items": [],
+            "contacts": [],
+            "addresses": [],
+            "contact": {
+                "text": "",
+                "value": ""
+            },
+            "address": {
+                "text": "",
+                "value": ""
+            }
+        }, {
+            "id": "100754",
+            "title": "Sample 5",
+            "workorder": {
+                "text": "Sample 5",
+                "value": "47"
+            },
+            "project": {
+                "text": "AB&I Holdings : Field Ops Pro Project",
+                "value": "1883"
+            },
+            "location": "",
+            "status": {
+                "text": "Confirmed",
+                "value": "CONFIRMED",
+                "code": "bg-success"
+            },
+            "date": {
+                "recurrence": "one time event on 8/31/2024",
+                "start": "2024-08-31",
+                "end": "2024-08-31"
+            },
+            "time": {
+                "start": "08:00",
+                "end": "18:00"
+            },
+            "priority": {
+                "text": "Low",
+                "value": "1",
+                "code": "#026adf"
+            },
+            "note": "TEST12345",
+            "url": "/app/crm/calendar/event.nl?id=100754&compid=TSTDRV2617106&selectedtab=custom337",
+            "color": "#1a6756",
+            "woRef": {},
+            "resources": [],
+            "items": [],
+            "contacts": [],
+            "addresses": [],
+            "contact": {
+                "text": "",
+                "value": ""
+            },
+            "address": {
+                "text": "",
+                "value": ""
+            }
+        }, {
+            "id": "100756",
+            "title": "Sample 5",
+            "workorder": {
+                "text": "Sample 5",
+                "value": "47"
+            },
+            "project": {
+                "text": "AB&I Holdings : Field Ops Pro Project",
+                "value": "1883"
+            },
+            "location": "",
+            "status": {
+                "text": "Confirmed",
+                "value": "CONFIRMED",
+                "code": "bg-success"
+            },
+            "date": {
+                "recurrence": "one time event on 8/31/2024",
+                "start": "2024-08-31",
+                "end": "2024-08-31"
+            },
+            "time": {
+                "start": "08:00",
+                "end": "18:00"
+            },
+            "priority": {
+                "text": "High",
+                "value": "3",
+                "code": "#ca6621"
+            },
+            "note": "TEST12345",
+            "url": "/app/crm/calendar/event.nl?id=100756&compid=TSTDRV2617106&selectedtab=custom337",
+            "color": "#1a6756",
+            "woRef": {},
+            "resources": [],
+            "items": [],
+            "contacts": [],
+            "addresses": [],
+            "contact": {
+                "text": "",
+                "value": ""
+            },
+            "address": {
+                "text": "",
+                "value": ""
+            }
+        }, {
+            "id": "100758",
+            "title": "Sample 5",
+            "workorder": {
+                "text": "Sample 5",
+                "value": "47"
+            },
+            "project": {
+                "text": "AB&I Holdings : Field Ops Pro Project",
+                "value": "1883"
+            },
+            "location": "",
+            "status": {
+                "text": "Confirmed",
+                "value": "CONFIRMED",
+                "code": "bg-success"
+            },
+            "date": {
+                "recurrence": "one time event on 8/31/2024",
+                "start": "2024-08-31",
+                "end": "2024-08-31"
+            },
+            "time": {
+                "start": "08:00",
+                "end": "18:00"
+            },
+            "priority": {
+                "text": "Low",
+                "value": "1",
+                "code": "#026adf"
+            },
+            "note": "TEST12345",
+            "url": "/app/crm/calendar/event.nl?id=100758&compid=TSTDRV2617106&selectedtab=custom337",
+            "color": "#1a6756",
+            "woRef": {},
+            "resources": [],
+            "items": [],
+            "contacts": [],
+            "addresses": [],
+            "contact": {
+                "text": "",
+                "value": ""
+            },
+            "address": {
+                "text": "",
+                "value": ""
+            }
+        }, {
+            "id": "100769",
+            "title": "Sample 567",
+            "workorder": {
+                "text": "Sample 5",
+                "value": "47"
+            },
+            "project": {
+                "text": "AB&I Holdings : Field Ops Pro Project",
+                "value": "1883"
+            },
+            "location": "",
+            "status": {
+                "text": "Confirmed",
+                "value": "CONFIRMED",
+                "code": "bg-success"
+            },
+            "date": {
+                "recurrence": "one time event on 9/3/2024",
+                "start": "2024-09-03",
+                "end": "2024-09-03"
+            },
+            "time": {
+                "start": "08:00",
+                "end": "18:00"
+            },
+            "priority": {
+                "text": "Medium",
+                "value": "2",
+                "code": "#dfcf02"
+            },
+            "note": "AAA\nBBB",
+            "url": "/app/crm/calendar/event.nl?id=100769&compid=TSTDRV2617106&selectedtab=custom337",
+            "color": "#1a6756",
+            "woRef": {},
+            "resources": [],
+            "items": [],
+            "contacts": [],
+            "addresses": [],
+            "contact": {
+                "text": "",
+                "value": ""
+            },
+            "address": {
+                "text": "",
+                "value": ""
+            }
+        }],
+        "projectUrl": "/app/accounting/project/project.nl?id=1883&compid=TSTDRV2617106",
+        "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=47&compid=TSTDRV2617106",
+        "soUrl": "/app/accounting/transactions/salesord.nl?id=16211&compid=TSTDRV2617106",
+        "esthours": "10"
+    }, {
+        "id": "46",
+        "name": "Sample 4",
+        "title": "Sample 4",
+        "project": {
+            "text": "AB&I Holdings : Field Ops Pro Project",
+            "value": "1883"
+        },
+        "date": "9/5/2024",
+        "status": {
+            "text": "Hold",
+            "value": "7",
+            "code": "#6c757d"
+        },
+        "type": {
+            "text": "Walls",
+            "value": "6"
+        },
+        "memo": "<p>Sample 4</p>",
+        "salesorder": {
+            "text": "Sales Order #SLS00000654",
+            "value": "16211"
+        },
+        "customer": {
+            "text": "AB&I Holdings",
+            "value": "1249"
+        },
+        "resourceGroup": {
+            "text": "",
+            "value": ""
+        },
+        "priority": "",
+        "resources": [],
+        "items": [{
+            "id": "47",
+            "workorder": {
+                "text": "Sample 4",
+                "value": "46"
+            },
+            "events": ["100762", "100795"],
+            "uuid": "16210_1",
+            "line": "1",
+            "item": {
+                "text": "BIC00008",
+                "value": "467"
+            },
+            "description": "Inventory Item",
+            "quantity": 0,
+            "note": ""
+        }, {
+            "id": "48",
+            "workorder": {
+                "text": "Sample 4",
+                "value": "46"
+            },
+            "events": ["100762", "100795"],
+            "uuid": "16211_10",
+            "line": "5",
+            "item": {
+                "text": "Dealer Service Fee",
+                "value": "2331"
+            },
+            "description": "Dealer Service Fee",
+            "quantity": 0,
+            "note": ""
+        }],
+        "addresses": [{
+            "id": "38",
+            "workorder": {
+                "text": "Sample 4",
+                "value": "46"
+            },
+            "customer": {
+                "text": "AB&I Holdings",
+                "value": "1249"
+            },
+            "events": ["100778", "100795"],
+            "address": {
+                "text": "1701 Rollins Road",
+                "value": "244878"
+            },
+            "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+            "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+        }],
+        "contacts": [{
+            "id": "28",
+            "workorder": {
+                "text": "Sample 4",
+                "value": "46"
+            },
+            "events": [],
+            "contact": {
+                "text": "AB&I Holdings : Test Prav",
+                "value": "1892"
+            },
+            "name": "Test Prav",
+            "email": "pravallika@erpsuccesspartners.com",
+            "jobTitle": "QA",
+            "mobilePhone": "",
+            "phone": "9502123363",
+            "primary": "checked",
+            "url": "/app/common/entity/contact.nl?id=1892&compid=TSTDRV2617106"
+        }],
+        "events": [{
+            "id": "100762",
+            "title": "Sample 4",
+            "workorder": {
+                "text": "Sample 4",
+                "value": "46"
+            },
+            "project": {
+                "text": "AB&I Holdings : Field Ops Pro Project",
+                "value": "1883"
+            },
+            "location": "",
+            "status": {
+                "text": "Confirmed",
+                "value": "CONFIRMED",
+                "code": "bg-success"
+            },
+            "date": {
+                "recurrence": "one time event on 9/3/2024",
+                "start": "2024-09-03",
+                "end": "2024-09-03"
+            },
+            "time": {
+                "start": "08:00",
+                "end": "18:00"
+            },
+            "priority": {
+                "text": "Medium",
+                "value": "2",
+                "code": "#dfcf02"
+            },
+            "note": "AAAAXXX",
+            "url": "/app/crm/calendar/event.nl?id=100762&compid=TSTDRV2617106&selectedtab=custom337",
+            "color": "#1a6756",
+            "woRef": {},
+            "resources": [],
+            "items": [],
+            "contacts": [],
+            "addresses": [],
+            "contact": {
+                "text": "",
+                "value": ""
+            },
+            "address": {
+                "text": "",
+                "value": ""
+            }
+        }, {
+            "id": "100778",
+            "title": "Sample 45678990",
+            "workorder": {
+                "text": "Sample 4",
+                "value": "46"
+            },
+            "project": {
+                "text": "AB&I Holdings : Field Ops Pro Project",
+                "value": "1883"
+            },
+            "location": "",
+            "status": {
+                "text": "Confirmed",
+                "value": "CONFIRMED",
+                "code": "bg-success"
+            },
+            "date": {
+                "recurrence": "one time event on 9/4/2024",
+                "start": "2024-09-04",
+                "end": "2024-09-04"
+            },
+            "time": {
+                "start": "08:00",
+                "end": "18:00"
+            },
+            "priority": {
+                "text": "Urgent",
+                "value": "4",
+                "code": "#9a2407"
+            },
+            "note": "FF\n\n\n123",
+            "url": "/app/crm/calendar/event.nl?id=100778&compid=TSTDRV2617106&selectedtab=custom337",
+            "color": "#1a6756",
+            "woRef": {},
+            "resources": [],
+            "items": [],
+            "contacts": [],
+            "addresses": [],
+            "contact": {
+                "text": "",
+                "value": ""
+            },
+            "address": {
+                "text": "",
+                "value": ""
+            }
+        }, {
+            "id": "100795",
+            "title": "Sample 4",
+            "workorder": {
+                "text": "Sample 4",
+                "value": "46"
+            },
+            "project": {
+                "text": "AB&I Holdings : Field Ops Pro Project",
+                "value": "1883"
+            },
+            "location": "",
+            "status": {
+                "text": "Tentative",
+                "value": "TENTATIVE",
+                "code": "bg-secondary"
+            },
+            "date": {
+                "recurrence": "one time event on 9/11/2024",
+                "start": "2024-09-11",
+                "end": "2024-09-11"
+            },
+            "time": {
+                "start": "08:00",
+                "end": "18:00"
+            },
+            "priority": {
+                "text": "Low",
+                "value": "1",
+                "code": "#026adf"
+            },
+            "note": "TEST1234",
+            "url": "/app/crm/calendar/event.nl?id=100795&compid=TSTDRV2617106&selectedtab=custom337",
+            "color": "#1a6756",
+            "woRef": {},
+            "resources": [],
+            "items": [],
+            "contacts": [],
+            "addresses": [],
+            "contact": {
+                "text": "28",
+                "value": "28"
+            },
+            "address": {
+                "text": "38",
+                "value": "38"
+            }
+        }],
+        "projectUrl": "/app/accounting/project/project.nl?id=1883&compid=TSTDRV2617106",
+        "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=46&compid=TSTDRV2617106",
+        "soUrl": "/app/accounting/transactions/salesord.nl?id=16211&compid=TSTDRV2617106",
+        "esthours": "2"
+    }, {
+        "id": "45",
+        "name": "Sample 3",
+        "title": "Sample 3",
+        "project": {
+            "text": "AB&I Holdings : Field Ops Pro Project",
+            "value": "1883"
+        },
+        "date": "9/3/2024",
+        "status": {
+            "text": "Not Started",
+            "value": "4",
+            "code": "#026adf"
+        },
+        "type": {
+            "text": "Moves",
+            "value": "3"
+        },
+        "memo": "<p>Sample 3</p>",
+        "salesorder": {
+            "text": "Sales Order #SLS00000654",
+            "value": "16211"
+        },
+        "customer": {
+            "text": "AB&I Holdings",
+            "value": "1249"
+        },
+        "resourceGroup": {
+            "text": "",
+            "value": ""
+        },
+        "priority": "",
+        "resources": [],
+        "items": [{
+            "id": "45",
+            "workorder": {
+                "text": "Sample 3",
+                "value": "45"
+            },
+            "events": ["100760"],
+            "uuid": "16210_2",
+            "line": "2",
+            "item": {
+                "text": "2375-6727",
+                "value": "1426"
+            },
+            "description": "Inventory Item",
+            "quantity": 0,
+            "note": ""
+        }, {
+            "id": "46",
+            "workorder": {
+                "text": "Sample 3",
+                "value": "45"
+            },
+            "events": ["100760"],
+            "uuid": "16211_10",
+            "line": "5",
+            "item": {
+                "text": "Dealer Service Fee",
+                "value": "2331"
+            },
+            "description": "Dealer Service Fee",
+            "quantity": 0,
+            "note": ""
+        }],
+        "addresses": [{
+            "id": "37",
+            "workorder": {
+                "text": "Sample 3",
+                "value": "45"
+            },
+            "customer": {
+                "text": "AB&I Holdings",
+                "value": "1249"
+            },
+            "events": [],
+            "address": {
+                "text": "1701 Rollins Road",
+                "value": "244878"
+            },
+            "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+            "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+        }],
+        "contacts": [{
+            "id": "27",
+            "workorder": {
+                "text": "Sample 3",
+                "value": "45"
+            },
+            "events": [],
+            "contact": {
+                "text": "AB&I Holdings : Test Prav",
+                "value": "1892"
+            },
+            "name": "Test Prav",
+            "email": "pravallika@erpsuccesspartners.com",
+            "jobTitle": "QA",
+            "mobilePhone": "",
+            "phone": "",
+            "primary": "checked",
+            "url": "/app/common/entity/contact.nl?id=1892&compid=TSTDRV2617106"
+        }],
+        "events": [{
+            "id": "100760",
+            "title": "Sample 3",
+            "workorder": {
+                "text": "Sample 3",
+                "value": "45"
+            },
+            "project": {
+                "text": "AB&I Holdings : Field Ops Pro Project",
+                "value": "1883"
+            },
+            "location": "",
+            "status": {
+                "text": "Confirmed",
+                "value": "CONFIRMED",
+                "code": "bg-success"
+            },
+            "date": {
+                "recurrence": "one time event on 9/3/2024",
+                "start": "2024-09-03",
+                "end": "2024-09-03"
+            },
+            "time": {
+                "start": "08:00",
+                "end": "18:00"
+            },
+            "priority": {
+                "text": "Medium",
+                "value": "2",
+                "code": "#dfcf02"
+            },
+            "note": "AAA\nBBBB",
+            "url": "/app/crm/calendar/event.nl?id=100760&compid=TSTDRV2617106&selectedtab=custom337",
+            "color": "#1a6756",
+            "woRef": {},
+            "resources": [],
+            "items": [],
+            "contacts": [],
+            "addresses": [],
+            "contact": {
+                "text": "",
+                "value": ""
+            },
+            "address": {
+                "text": "",
+                "value": ""
+            }
+        }],
+        "projectUrl": "/app/accounting/project/project.nl?id=1883&compid=TSTDRV2617106",
+        "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=45&compid=TSTDRV2617106",
+        "soUrl": "/app/accounting/transactions/salesord.nl?id=16211&compid=TSTDRV2617106",
+        "esthours": "10"
+    }, {
+        "id": "44",
+        "name": "Sample 2",
+        "title": "Sample 2",
+        "project": {
+            "text": "AB&I Holdings : Field Ops Pro Project",
+            "value": "1883"
+        },
+        "date": "9/5/2024",
+        "status": {
+            "text": "Hold",
+            "value": "7",
+            "code": "#6c757d"
+        },
+        "type": {
+            "text": "Walls",
+            "value": "6"
+        },
+        "memo": "<p>Sample 2</p>",
+        "salesorder": {
+            "text": "Sales Order #SLS00000654",
+            "value": "16211"
+        },
+        "customer": {
+            "text": "AB&I Holdings",
+            "value": "1249"
+        },
+        "resourceGroup": {
+            "text": "",
+            "value": ""
+        },
+        "priority": "",
+        "resources": [],
+        "items": [{
+            "id": "43",
+            "workorder": {
+                "text": "Sample 2",
+                "value": "44"
+            },
+            "events": ["100787"],
+            "uuid": "16210_2",
+            "line": "2",
+            "item": {
+                "text": "2375-6727",
+                "value": "1426"
+            },
+            "description": "Inventory Item",
+            "quantity": 0,
+            "note": ""
+        }, {
+            "id": "44",
+            "workorder": {
+                "text": "Sample 2",
+                "value": "44"
+            },
+            "events": ["100787"],
+            "uuid": "16211_10",
+            "line": "5",
+            "item": {
+                "text": "Dealer Service Fee",
+                "value": "2331"
+            },
+            "description": "Dealer Service Fee",
+            "quantity": 0,
+            "note": ""
+        }],
+        "addresses": [{
+            "id": "36",
+            "workorder": {
+                "text": "Sample 2",
+                "value": "44"
+            },
+            "customer": {
+                "text": "AB&I Holdings",
+                "value": "1249"
+            },
+            "events": ["100787"],
+            "address": {
+                "text": "1701 Rollins Road",
+                "value": "244878"
+            },
+            "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+            "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+        }],
+        "contacts": [{
+            "id": "26",
+            "workorder": {
+                "text": "Sample 2",
+                "value": "44"
+            },
+            "events": ["100787"],
+            "contact": {
+                "text": "AB&I Holdings : Test Prav",
+                "value": "1892"
+            },
+            "name": "Test Prav",
+            "email": "pravallika@erpsuccesspartners.com",
+            "jobTitle": "QA",
+            "mobilePhone": "",
+            "phone": "",
+            "primary": "checked",
+            "url": "/app/common/entity/contact.nl?id=1892&compid=TSTDRV2617106"
+        }],
+        "events": [{
+            "id": "100787",
+            "title": "Sample 22134",
+            "workorder": {
+                "text": "Sample 2",
+                "value": "44"
+            },
+            "project": {
+                "text": "AB&I Holdings : Field Ops Pro Project",
+                "value": "1883"
+            },
+            "location": "",
+            "status": {
+                "text": "Tentative",
+                "value": "TENTATIVE",
+                "code": "bg-secondary"
+            },
+            "date": {
+                "recurrence": "occurs every day from 8/30/2024 until 8/30/2024",
+                "start": "2024-08-30",
+                "end": "2024-08-30"
+            },
+            "time": {
+                "start": "11:00",
+                "end": "21:00"
+            },
+            "priority": {
+                "text": "Low",
+                "value": "1",
+                "code": "#026adf"
+            },
+            "note": "TEST\nAAAA\nCCC",
+            "url": "/app/crm/calendar/event.nl?id=100787&compid=TSTDRV2617106&selectedtab=custom337",
+            "color": "#1a6756",
+            "woRef": {},
+            "resources": [],
+            "items": [],
+            "contacts": [],
+            "addresses": [],
+            "contact": {
+                "text": "",
+                "value": ""
+            },
+            "address": {
+                "text": "",
+                "value": ""
+            }
+        }],
+        "projectUrl": "/app/accounting/project/project.nl?id=1883&compid=TSTDRV2617106",
+        "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=44&compid=TSTDRV2617106",
+        "soUrl": "/app/accounting/transactions/salesord.nl?id=16211&compid=TSTDRV2617106",
+        "esthours": "5"
+    }, {
+        "id": "43",
+        "name": "Sample Work Order",
+        "title": "Sample Work Order",
+        "project": {
+            "text": "AB&I Holdings : Field Ops Pro Project",
+            "value": "1883"
+        },
+        "date": "9/3/2024",
+        "status": {
+            "text": "Not Started",
+            "value": "4",
+            "code": "#026adf"
+        },
+        "type": {
+            "text": "Moves",
+            "value": "3"
+        },
+        "memo": "<p>Sample Work Order</p>",
+        "salesorder": {
+            "text": "Sales Order #SLS00000654",
+            "value": "16211"
+        },
+        "customer": {
+            "text": "AB&I Holdings",
+            "value": "1249"
+        },
+        "resourceGroup": {
+            "text": "",
+            "value": ""
+        },
+        "priority": "",
+        "resources": [],
+        "items": [{
+            "id": "41",
+            "workorder": {
+                "text": "Sample Work Order",
+                "value": "43"
+            },
+            "events": [],
+            "uuid": "16210_2",
+            "line": "2",
+            "item": {
+                "text": "2375-6727",
+                "value": "1426"
+            },
+            "description": "Inventory Item",
+            "quantity": 0,
+            "note": ""
+        }, {
+            "id": "42",
+            "workorder": {
+                "text": "Sample Work Order",
+                "value": "43"
+            },
+            "events": [],
+            "uuid": "16211_10",
+            "line": "5",
+            "item": {
+                "text": "Dealer Service Fee",
+                "value": "2331"
+            },
+            "description": "Dealer Service Fee",
+            "quantity": 0,
+            "note": ""
+        }],
+        "addresses": [{
+            "id": "35",
+            "workorder": {
+                "text": "Sample Work Order",
+                "value": "43"
+            },
+            "customer": {
+                "text": "AB&I Holdings",
+                "value": "1249"
+            },
+            "events": [],
+            "address": {
+                "text": "1701 Rollins Road",
+                "value": "244878"
+            },
+            "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+            "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+        }],
+        "contacts": [{
+            "id": "25",
+            "workorder": {
+                "text": "Sample Work Order",
+                "value": "43"
+            },
+            "events": [],
+            "contact": {
+                "text": "AB&I Holdings : Test Prav",
+                "value": "1892"
+            },
+            "name": "Test Prav",
+            "email": "pravallika@erpsuccesspartners.com",
+            "jobTitle": "QA",
+            "mobilePhone": "",
+            "phone": "",
+            "primary": "checked",
+            "url": "/app/common/entity/contact.nl?id=1892&compid=TSTDRV2617106"
+        }],
+        "events": [],
+        "projectUrl": "/app/accounting/project/project.nl?id=1883&compid=TSTDRV2617106",
+        "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=43&compid=TSTDRV2617106",
+        "soUrl": "/app/accounting/transactions/salesord.nl?id=16211&compid=TSTDRV2617106",
+        "esthours": ""
+    }, {
+        "id": "42",
+        "name": "Test Work Order",
+        "title": "Test Work Order",
+        "project": {
+            "text": "AB&I Holdings : Field Ops Pro Project",
+            "value": "1883"
+        },
+        "date": "9/2/2024",
+        "status": {
+            "text": "Not Started",
+            "value": "4",
+            "code": "#026adf"
+        },
+        "type": {
+            "text": "Mockup",
+            "value": "2"
+        },
+        "memo": "<p><strong>Test Work Order</strong></p>",
+        "salesorder": {
+            "text": "Sales Order #SLS00000654",
+            "value": "16211"
+        },
+        "customer": {
+            "text": "AB&I Holdings",
+            "value": "1249"
+        },
+        "resourceGroup": {
+            "text": "",
+            "value": ""
+        },
+        "priority": "",
+        "resources": [],
+        "items": [],
+        "addresses": [],
+        "contacts": [],
+        "events": [],
+        "projectUrl": "/app/accounting/project/project.nl?id=1883&compid=TSTDRV2617106",
+        "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=42&compid=TSTDRV2617106",
+        "soUrl": "/app/accounting/transactions/salesord.nl?id=16211&compid=TSTDRV2617106",
+        "esthours": ""
+    }, {
+        "id": "41",
+        "name": "TESTED FOR ROLE",
+        "title": "TESTED FOR ROLE",
+        "project": {
+            "text": "3M : Test Project",
+            "value": "1893"
+        },
+        "date": "8/1/2024",
+        "status": {
+            "text": "In Progress",
+            "value": "1",
+            "code": "#026adf"
+        },
+        "type": {
+            "text": "Walls",
+            "value": "6"
+        },
+        "memo": "",
+        "salesorder": {
+            "text": "Sales Order #SLS00000657",
+            "value": "16214"
+        },
+        "customer": {
+            "text": "3M",
+            "value": "1397"
+        },
+        "resourceGroup": {
+            "text": "",
+            "value": ""
+        },
+        "priority": "",
+        "resources": [],
+        "items": [],
+        "addresses": [{
+            "id": "34",
+            "workorder": {
+                "text": "TESTED FOR ROLE",
+                "value": "41"
+            },
+            "customer": {
+                "text": "3M",
+                "value": "1397"
+            },
+            "events": [],
+            "address": {
+                "text": "Some st.",
+                "value": "244887"
+            },
+            "addressDetails": "3M<br/>United States",
+            "customerUrl": "/app/common/entity/custjob.nl?id=1397&compid=TSTDRV2617106"
+        }],
+        "contacts": [],
+        "events": [],
+        "projectUrl": "/app/accounting/project/project.nl?id=1893&compid=TSTDRV2617106",
+        "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=41&compid=TSTDRV2617106",
+        "soUrl": "/app/accounting/transactions/salesord.nl?id=16214&compid=TSTDRV2617106",
+        "esthours": ""
+    }, {
+        "id": "40",
+        "name": "TESTED FOR ROLE",
+        "title": "TESTED FOR ROLE",
+        "project": {
+            "text": "3M : Test Project",
+            "value": "1893"
+        },
+        "date": "8/2/2024",
+        "status": {
+            "text": "In Progress",
+            "value": "1",
+            "code": "#026adf"
+        },
+        "type": {
+            "text": "Walls",
+            "value": "6"
+        },
+        "memo": "",
+        "salesorder": {
+            "text": "Sales Order #SLS00000657",
+            "value": "16214"
+        },
+        "customer": {
+            "text": "3M",
+            "value": "1397"
+        },
+        "resourceGroup": {
+            "text": "",
+            "value": ""
+        },
+        "priority": "",
+        "resources": [],
+        "items": [],
+        "addresses": [{
+            "id": "33",
+            "workorder": {
+                "text": "TESTED FOR ROLE",
+                "value": "40"
+            },
+            "customer": {
+                "text": "3M",
+                "value": "1397"
+            },
+            "events": [],
+            "address": {
+                "text": "Some st.",
+                "value": "244887"
+            },
+            "addressDetails": "3M<br/>United States",
+            "customerUrl": "/app/common/entity/custjob.nl?id=1397&compid=TSTDRV2617106"
+        }],
+        "contacts": [{
+            "id": "23",
+            "workorder": {
+                "text": "TESTED FOR ROLE",
+                "value": "40"
+            },
+            "events": [],
+            "contact": {
+                "text": "3M : James Smith",
+                "value": "1559"
+            },
+            "name": "James Smith",
+            "email": "pravallika@erpsuccesspartners.com",
+            "jobTitle": "",
+            "mobilePhone": "",
+            "phone": "",
+            "primary": "checked",
+            "url": "/app/common/entity/contact.nl?id=1559&compid=TSTDRV2617106"
+        }],
+        "events": [],
+        "projectUrl": "/app/accounting/project/project.nl?id=1893&compid=TSTDRV2617106",
+        "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=40&compid=TSTDRV2617106",
+        "soUrl": "/app/accounting/transactions/salesord.nl?id=16214&compid=TSTDRV2617106",
+        "esthours": ""
+    }, {
+        "id": "39",
+        "name": "Test Site Checklist",
+        "title": "Test Site Checklist",
+        "project": {
+            "text": "Test For site checklist : test",
+            "value": "1890"
+        },
+        "date": "8/1/2024",
+        "status": {
+            "text": "In Progress",
+            "value": "1",
+            "code": "#026adf"
+        },
+        "type": {
+            "text": "Walls",
+            "value": "6"
+        },
+        "memo": "",
+        "salesorder": {
+            "text": "Sales Order #SLS00000655",
+            "value": "16212"
+        },
+        "customer": {
+            "text": "Test For site checklist",
+            "value": "1888"
+        },
+        "resourceGroup": {
+            "text": "",
+            "value": ""
+        },
+        "priority": "",
+        "resources": [],
+        "items": [],
+        "addresses": [{
+            "id": "32",
+            "workorder": {
+                "text": "Test Site Checklist",
+                "value": "39"
+            },
+            "customer": {
+                "text": "Test For site checklist",
+                "value": "1888"
+            },
+            "events": [],
+            "address": {
+                "text": "",
+                "value": ""
+            },
+            "addressDetails": "",
+            "customerUrl": "/app/common/entity/custjob.nl?id=1888&compid=TSTDRV2617106"
+        }],
+        "contacts": [{
+            "id": "37",
+            "workorder": {
+                "text": "Test Site Checklist",
+                "value": "39"
+            },
+            "events": [],
+            "contact": {
+                "text": "Test For site checklist : Test WO Contact",
+                "value": "1889"
+            },
+            "name": "Test WO Contact",
+            "email": "pravallika@erpsuccesspartners.com",
+            "jobTitle": "Developer",
+            "mobilePhone": "",
+            "phone": "",
+            "primary": "",
+            "url": "/app/common/entity/contact.nl?id=1889&compid=TSTDRV2617106"
+        }],
+        "events": [],
+        "projectUrl": "/app/accounting/project/project.nl?id=1890&compid=TSTDRV2617106",
+        "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=39&compid=TSTDRV2617106",
+        "soUrl": "/app/accounting/transactions/salesord.nl?id=16212&compid=TSTDRV2617106",
+        "esthours": ""
+    }, {
+        "id": "38",
+        "name": "Test Site Checklist",
+        "title": "Test Site Checklist",
+        "project": {
+            "text": "Test For site checklist : test",
+            "value": "1890"
+        },
+        "date": "8/1/2024",
+        "status": {
+            "text": "Hold",
+            "value": "7",
+            "code": "#6c757d"
+        },
+        "type": {
+            "text": "Walls",
+            "value": "6"
+        },
+        "memo": "",
+        "salesorder": {
+            "text": "Sales Order #SLS00000655",
+            "value": "16212"
+        },
+        "customer": {
+            "text": "Test For site checklist",
+            "value": "1888"
+        },
+        "resourceGroup": {
+            "text": "",
+            "value": ""
+        },
+        "priority": "",
+        "resources": [],
+        "items": [],
+        "addresses": [{
+            "id": "31",
+            "workorder": {
+                "text": "Test Site Checklist",
+                "value": "38"
+            },
+            "customer": {
+                "text": "Test For site checklist",
+                "value": "1888"
+            },
+            "events": [],
+            "address": {
+                "text": "",
+                "value": ""
+            },
+            "addressDetails": "",
+            "customerUrl": "/app/common/entity/custjob.nl?id=1888&compid=TSTDRV2617106"
+        }],
+        "contacts": [{
+            "id": "31",
+            "workorder": {
+                "text": "Test Site Checklist",
+                "value": "38"
+            },
+            "events": ["100258"],
+            "contact": {
+                "text": "",
+                "value": ""
+            },
+            "name": "test",
+            "email": "desettipravallika@gmail.com",
+            "jobTitle": "developer",
+            "mobilePhone": "",
+            "phone": "",
+            "primary": "",
+            "url": "/app/common/entity/contact.nl?compid=TSTDRV2617106"
+        }],
+        "events": [],
+        "projectUrl": "/app/accounting/project/project.nl?id=1890&compid=TSTDRV2617106",
+        "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=38&compid=TSTDRV2617106",
+        "soUrl": "/app/accounting/transactions/salesord.nl?id=16212&compid=TSTDRV2617106",
+        "esthours": ""
+    }, {
+        "id": "37",
+        "name": "Work Order aug 1 test",
+        "title": "Work Order aug 1 test",
+        "project": {
+            "text": "Test For site checklist : test",
+            "value": "1890"
+        },
+        "date": "8/1/2024",
+        "status": {
+            "text": "In Progress",
+            "value": "1",
+            "code": "#026adf"
+        },
+        "type": {
+            "text": "Walls",
+            "value": "6"
+        },
+        "memo": "",
+        "salesorder": {
+            "text": "Sales Order #SLS00000655",
+            "value": "16212"
+        },
+        "customer": {
+            "text": "Test For site checklist",
+            "value": "1888"
+        },
+        "resourceGroup": {
+            "text": "",
+            "value": ""
+        },
+        "priority": "",
+        "resources": [],
+        "items": [{
+            "id": "40",
+            "workorder": {
+                "text": "Work Order aug 1 test",
+                "value": "37"
+            },
+            "events": [],
+            "uuid": "16212_1",
+            "line": "1",
+            "item": {
+                "text": "343",
+                "value": "1343"
+            },
+            "description": "Inventory Item",
+            "quantity": 1,
+            "note": ""
+        }],
+        "addresses": [{
+            "id": "30",
+            "workorder": {
+                "text": "Work Order aug 1 test",
+                "value": "37"
+            },
+            "customer": {
+                "text": "Test For site checklist",
+                "value": "1888"
+            },
+            "events": [],
+            "address": {
+                "text": "",
+                "value": ""
+            },
+            "addressDetails": "",
+            "customerUrl": "/app/common/entity/custjob.nl?id=1888&compid=TSTDRV2617106"
+        }],
+        "contacts": [{
+            "id": "21",
+            "workorder": {
+                "text": "Work Order aug 1 test",
+                "value": "37"
+            },
+            "events": ["100017"],
+            "contact": {
+                "text": "Test For site checklist : Test WO Contact",
+                "value": "1889"
+            },
+            "name": "Test WO Contact",
+            "email": "pravallika@erpsuccesspartners.com",
+            "jobTitle": "Developer",
+            "mobilePhone": "",
+            "phone": "",
+            "primary": "",
+            "url": "/app/common/entity/contact.nl?id=1889&compid=TSTDRV2617106"
+        }],
+        "events": [],
+        "projectUrl": "/app/accounting/project/project.nl?id=1890&compid=TSTDRV2617106",
+        "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=37&compid=TSTDRV2617106",
+        "soUrl": "/app/accounting/transactions/salesord.nl?id=16212&compid=TSTDRV2617106",
+        "esthours": ""
+    }, {
+        "id": "36",
+        "name": "Work Order aug 1 test",
+        "title": "Work Order aug 1 test",
+        "project": {
+            "text": "Test For site checklist : test",
+            "value": "1890"
+        },
+        "date": "8/1/2024",
+        "status": {
+            "text": "Hold",
+            "value": "7",
+            "code": "#6c757d"
+        },
+        "type": {
+            "text": "Walls",
+            "value": "6"
+        },
+        "memo": "",
+        "salesorder": {
+            "text": "Sales Order #SLS00000655",
+            "value": "16212"
+        },
+        "customer": {
+            "text": "Test For site checklist",
+            "value": "1888"
+        },
+        "resourceGroup": {
+            "text": "",
+            "value": ""
+        },
+        "priority": "",
+        "resources": [],
+        "items": [{
+            "id": "39",
+            "workorder": {
+                "text": "Work Order aug 1 test",
+                "value": "36"
+            },
+            "events": [],
+            "uuid": "16212_1",
+            "line": "1",
+            "item": {
+                "text": "343",
+                "value": "1343"
+            },
+            "description": "Inventory Item",
+            "quantity": 1,
+            "note": ""
+        }],
+        "addresses": [{
+            "id": "29",
+            "workorder": {
+                "text": "Work Order aug 1 test",
+                "value": "36"
+            },
+            "customer": {
+                "text": "Test For site checklist",
+                "value": "1888"
+            },
+            "events": [],
+            "address": {
+                "text": "",
+                "value": ""
+            },
+            "addressDetails": "",
+            "customerUrl": "/app/common/entity/custjob.nl?id=1888&compid=TSTDRV2617106"
+        }],
+        "contacts": [],
+        "events": [],
+        "projectUrl": "/app/accounting/project/project.nl?id=1890&compid=TSTDRV2617106",
+        "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=36&compid=TSTDRV2617106",
+        "soUrl": "/app/accounting/transactions/salesord.nl?id=16212&compid=TSTDRV2617106",
+        "esthours": ""
+    }, {
+        "id": "35",
+        "name": "Work Order Sample aug1",
+        "title": "Work Order Sample July 31",
+        "project": {
+            "text": "AB&I Holdings : Parking Lot Construction",
+            "value": "1515"
+        },
+        "date": "8/2/2024",
+        "status": {
+            "text": "Not Started",
+            "value": "4",
+            "code": "#026adf"
+        },
+        "type": {
+            "text": "Mockup",
+            "value": "2"
+        },
+        "memo": "<p><strong>Work Order Sample July 31</strong></p>",
+        "salesorder": {
+            "text": "Sales Order #SLS00000651",
+            "value": "15100"
+        },
+        "customer": {
+            "text": "AB&I Holdings",
+            "value": "1249"
+        },
+        "resourceGroup": {
+            "text": "",
+            "value": ""
+        },
+        "priority": "",
+        "resources": [],
+        "items": [],
+        "addresses": [],
+        "contacts": [{
+            "id": "18",
+            "workorder": {
+                "text": "Work Order Sample aug1",
+                "value": "35"
+            },
+            "events": [],
+            "contact": {
+                "text": "",
+                "value": ""
+            },
+            "name": "Test",
+            "email": "pravallika@erpsuccesspartners.com",
+            "jobTitle": "Developer",
+            "mobilePhone": "",
+            "phone": "",
+            "primary": "",
+            "url": "/app/common/entity/contact.nl?compid=TSTDRV2617106"
+        }, {
+            "id": "19",
+            "workorder": {
+                "text": "Work Order Sample aug1",
+                "value": "35"
+            },
+            "events": [],
+            "contact": {
+                "text": "AB&I Holdings : Chad Bass",
+                "value": "1382"
+            },
+            "name": "Chad Bass",
+            "email": "cbass@sbi.com",
+            "jobTitle": "President",
+            "mobilePhone": "",
+            "phone": "",
+            "primary": "",
+            "url": "/app/common/entity/contact.nl?id=1382&compid=TSTDRV2617106"
+        }],
+        "events": [],
+        "projectUrl": "/app/accounting/project/project.nl?id=1515&compid=TSTDRV2617106",
+        "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=35&compid=TSTDRV2617106",
+        "soUrl": "/app/accounting/transactions/salesord.nl?id=15100&compid=TSTDRV2617106",
+        "esthours": "8"
+    }, {
+        "id": "34",
+        "name": "Work Order Sample July 31",
+        "title": "Work Order Sample July 31",
+        "project": {
+            "text": "AB&I Holdings : Parking Lot Construction",
+            "value": "1515"
+        },
+        "date": "8/2/2024",
+        "status": {
+            "text": "Not Started",
+            "value": "4",
+            "code": "#026adf"
+        },
+        "type": {
+            "text": "Mockup",
+            "value": "2"
+        },
+        "memo": "<p><strong>Work Order Sample July 31</strong></p>",
+        "salesorder": {
+            "text": "Sales Order #SLS00000651",
+            "value": "15100"
+        },
+        "customer": {
+            "text": "AB&I Holdings",
+            "value": "1249"
+        },
+        "resourceGroup": {
+            "text": "",
+            "value": ""
+        },
+        "priority": "",
+        "resources": [],
+        "items": [{
+            "id": "36",
+            "workorder": {
+                "text": "Work Order Sample July 31",
+                "value": "34"
+            },
+            "events": ["100768"],
+            "uuid": "15100_1",
+            "line": "1",
+            "item": {
+                "text": "BIC00008",
+                "value": "467"
+            },
+            "description": "Inventory Item",
+            "quantity": 2,
+            "note": ""
+        }, {
+            "id": "37",
+            "workorder": {
+                "text": "Work Order Sample July 31",
+                "value": "34"
+            },
+            "events": ["100768"],
+            "uuid": "15100_2",
+            "line": "2",
+            "item": {
+                "text": "BIC00008",
+                "value": "467"
+            },
+            "description": "Inventory Item",
+            "quantity": 1,
+            "note": ""
+        }, {
+            "id": "38",
+            "workorder": {
+                "text": "Work Order Sample July 31",
+                "value": "34"
+            },
+            "events": ["100768"],
+            "uuid": "15100_22",
+            "line": "4",
+            "item": {
+                "text": "Dealer Service Fee",
+                "value": "2331"
+            },
+            "description": "Dealer Service Fee",
+            "quantity": 0,
+            "note": ""
+        }],
+        "addresses": [{
+            "id": "28",
+            "workorder": {
+                "text": "Work Order Sample July 31",
+                "value": "34"
+            },
+            "customer": {
+                "text": "AB&I Holdings",
+                "value": "1249"
+            },
+            "events": ["100767", "100786"],
+            "address": {
+                "text": "1701 Rollins Road",
+                "value": "244878"
+            },
+            "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+            "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+        }],
+        "contacts": [{
+            "id": "16",
+            "workorder": {
+                "text": "Work Order Sample July 31",
+                "value": "34"
+            },
+            "events": ["100768"],
+            "contact": {
+                "text": "AB&I Holdings : Chad Bass",
+                "value": "1382"
+            },
+            "name": "Chad Bass",
+            "email": "cbass@sbi.com",
+            "jobTitle": "President",
+            "mobilePhone": "",
+            "phone": "",
+            "primary": "checked",
+            "url": "/app/common/entity/contact.nl?id=1382&compid=TSTDRV2617106"
+        }, {
+            "id": "20",
+            "workorder": {
+                "text": "Work Order Sample July 31",
+                "value": "34"
+            },
+            "events": ["100786"],
+            "contact": {
+                "text": "",
+                "value": ""
+            },
+            "name": "Test",
+            "email": "pravallika@erpsuccesspartners.com",
+            "jobTitle": "Developer",
+            "mobilePhone": "",
+            "phone": "",
+            "primary": "",
+            "url": "/app/common/entity/contact.nl?compid=TSTDRV2617106"
+        }],
+        "events": [{
+            "id": "100767",
+            "title": "Work Order Sample July 31",
+            "workorder": {
+                "text": "Work Order Sample July 31",
+                "value": "34"
+            },
+            "project": {
+                "text": "AB&I Holdings : Parking Lot Construction",
+                "value": "1515"
+            },
+            "location": "",
+            "status": {
+                "text": "Confirmed",
+                "value": "CONFIRMED",
+                "code": "bg-success"
+            },
+            "date": {
+                "recurrence": "one time event on 9/10/2024",
+                "start": "2024-09-10",
+                "end": "2024-09-10"
+            },
+            "time": {
+                "start": "10:00",
+                "end": "19:00"
+            },
+            "priority": {
+                "text": "Urgent",
+                "value": "4",
+                "code": "#9a2407"
+            },
+            "note": "ASDFGH",
+            "url": "/app/crm/calendar/event.nl?id=100767&compid=TSTDRV2617106&selectedtab=custom337",
+            "color": "#1a6756",
+            "woRef": {},
+            "resources": [],
+            "items": [],
+            "contacts": [],
+            "addresses": [],
+            "contact": {
+                "text": "",
+                "value": ""
+            },
+            "address": {
+                "text": "",
+                "value": ""
+            }
+        }, {
+            "id": "100768",
+            "title": "Work Order Sample July 31",
+            "workorder": {
+                "text": "Work Order Sample July 31",
+                "value": "34"
+            },
+            "project": {
+                "text": "AB&I Holdings : Parking Lot Construction",
+                "value": "1515"
+            },
+            "location": "",
+            "status": {
+                "text": "Confirmed",
+                "value": "CONFIRMED",
+                "code": "bg-success"
+            },
+            "date": {
+                "recurrence": "one time event on 9/11/2024",
+                "start": "2024-09-11",
+                "end": "2024-09-11"
+            },
+            "time": {
+                "start": "06:42",
+                "end": "17:45"
+            },
+            "priority": {
+                "text": "High",
+                "value": "3",
+                "code": "#ca6621"
+            },
+            "note": "123qwe\nAsdfasd",
+            "url": "/app/crm/calendar/event.nl?id=100768&compid=TSTDRV2617106&selectedtab=custom337",
+            "color": "#1a6756",
+            "woRef": {},
+            "resources": [],
+            "items": [],
+            "contacts": [],
+            "addresses": [],
+            "contact": {
+                "text": "",
+                "value": ""
+            },
+            "address": {
+                "text": "",
+                "value": ""
+            }
+        }, {
+            "id": "100786",
+            "title": "Work Order Sample July 32",
+            "workorder": {
+                "text": "Work Order Sample July 31",
+                "value": "34"
+            },
+            "project": {
+                "text": "AB&I Holdings : Parking Lot Construction",
+                "value": "1515"
+            },
+            "location": "",
+            "status": {
+                "text": "Confirmed",
+                "value": "CONFIRMED",
+                "code": "bg-success"
+            },
+            "date": {
+                "recurrence": "occurs every day from 9/6/2024 until 9/29/2024",
+                "start": "2024-09-06",
+                "end": "2024-09-29"
+            },
+            "time": {
+                "start": "08:00",
+                "end": "18:00"
+            },
+            "priority": {
+                "text": "High",
+                "value": "3",
+                "code": "#ca6621"
+            },
+            "note": "TEST\nXYZ\n123",
+            "url": "/app/crm/calendar/event.nl?id=100786&compid=TSTDRV2617106&selectedtab=custom337",
+            "color": "#1a6756",
+            "woRef": {},
+            "resources": [],
+            "items": [],
+            "contacts": [],
+            "addresses": [],
+            "contact": {
+                "text": "",
+                "value": ""
+            },
+            "address": {
+                "text": "",
+                "value": ""
+            }
+        }],
+        "projectUrl": "/app/accounting/project/project.nl?id=1515&compid=TSTDRV2617106",
+        "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=34&compid=TSTDRV2617106",
+        "soUrl": "/app/accounting/transactions/salesord.nl?id=15100&compid=TSTDRV2617106",
+        "esthours": "8"
+    }, {
+        "id": "33",
+        "name": "Work Order Sample July 22",
+        "title": "Work Order Sample July 22",
+        "project": {
+            "text": "AB&I Holdings : Parking Lot Construction",
+            "value": "1515"
+        },
+        "date": "7/29/2024",
+        "status": {
+            "text": "Not Started",
+            "value": "4",
+            "code": "#026adf"
+        },
+        "type": {
+            "text": "Moves",
+            "value": "3"
+        },
+        "memo": "<p><strong>Work Order Sample July 22</strong></p>",
+        "salesorder": {
+            "text": "Sales Order #SLS00000609",
+            "value": "11722"
+        },
+        "customer": {
+            "text": "AB&I Holdings",
+            "value": "1249"
+        },
+        "resourceGroup": {
+            "text": "",
+            "value": ""
+        },
+        "priority": "",
+        "resources": [],
+        "items": [{
+            "id": "28",
+            "workorder": {
+                "text": "Work Order Sample July 22",
+                "value": "33"
+            },
+            "events": ["100740"],
+            "uuid": "11722_1",
+            "line": "1",
+            "item": {
+                "text": "4321GR",
+                "value": "1015"
+            },
+            "description": "11 POCKET MAGAZINE RACK",
+            "quantity": 2,
+            "note": ""
+        }, {
+            "id": "29",
+            "workorder": {
+                "text": "Work Order Sample July 22",
+                "value": "33"
+            },
+            "events": ["100740"],
+            "uuid": "11722_2",
+            "line": "2",
+            "item": {
+                "text": "7031-0501",
+                "value": "1047"
+            },
+            "description": "Friction Pad, Non-Carpeted Surfaces, Svc",
+            "quantity": 3,
+            "note": ""
+        }],
+        "addresses": [{
+            "id": "27",
+            "workorder": {
+                "text": "Work Order Sample July 22",
+                "value": "33"
+            },
+            "customer": {
+                "text": "AB&I Holdings",
+                "value": "1249"
+            },
+            "events": ["100740"],
+            "address": {
+                "text": "1701 Rollins Road",
+                "value": "244878"
+            },
+            "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+            "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+        }],
+        "contacts": [{
+            "id": "14",
+            "workorder": {
+                "text": "Work Order Sample July 22",
+                "value": "33"
+            },
+            "events": ["100740"],
+            "contact": {
+                "text": "AB&I Holdings : Chad Bass",
+                "value": "1382"
+            },
+            "name": "Chad Bass",
+            "email": "cbass@sbi.com",
+            "jobTitle": "President",
+            "mobilePhone": "",
+            "phone": "",
+            "primary": "",
+            "url": "/app/common/entity/contact.nl?id=1382&compid=TSTDRV2617106"
+        }],
+        "events": [{
+            "id": "100740",
+            "title": "Work Order Sample July 22",
+            "workorder": {
+                "text": "Work Order Sample July 22",
+                "value": "33"
+            },
+            "project": {
+                "text": "AB&I Holdings : Parking Lot Construction",
+                "value": "1515"
+            },
+            "location": "01: San Francisco",
+            "status": {
+                "text": "Confirmed",
+                "value": "CONFIRMED",
+                "code": "bg-success"
+            },
+            "date": {
+                "recurrence": "one time event on 7/24/2024",
+                "start": "2024-07-24",
+                "end": "2024-07-24"
+            },
+            "time": {
+                "start": "08:00",
+                "end": "18:00"
+            },
+            "priority": {
+                "text": "Urgent",
+                "value": "4",
+                "code": "#9a2407"
+            },
+            "note": "123\n456",
+            "url": "/app/crm/calendar/event.nl?id=100740&compid=TSTDRV2617106&selectedtab=custom337",
+            "color": "#1a6756",
+            "woRef": {},
+            "resources": [],
+            "items": [],
+            "contacts": [],
+            "addresses": [],
+            "contact": {
+                "text": "",
+                "value": ""
+            },
+            "address": {
+                "text": "",
+                "value": ""
+            }
+        }],
+        "projectUrl": "/app/accounting/project/project.nl?id=1515&compid=TSTDRV2617106",
+        "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=33&compid=TSTDRV2617106",
+        "soUrl": "/app/accounting/transactions/salesord.nl?id=11722&compid=TSTDRV2617106",
+        "esthours": "200"
+    }, {
+        "id": "32",
+        "name": "SLS00000621_WRKORDR001",
+        "title": "SLS00000621_WRKORDR001",
+        "project": {
+            "text": "Test Test : Test Project",
+            "value": "1774"
+        },
+        "date": "7/19/2024",
+        "status": {
+            "text": "Hold",
+            "value": "7",
+            "code": "#6c757d"
+        },
+        "type": {
+            "text": "Standard",
+            "value": "5"
+        },
+        "memo": "<p><strong style=\"color: rgb(232, 230, 227); --darkreader-inline-color: #d8d4cf;\" data-darkreader-inline-color=\"\">Work Order Instructions QA Test</strong></p>",
+        "salesorder": {
+            "text": "Sales Order #SLS00000621",
+            "value": "13089"
+        },
+        "customer": {
+            "text": "Test Test",
+            "value": "1493"
+        },
+        "resourceGroup": {
+            "text": "",
+            "value": ""
+        },
+        "priority": "",
+        "resources": [],
+        "items": [{
+            "id": "26",
+            "workorder": {
+                "text": "SLS00000621_WRKORDR001",
+                "value": "32"
+            },
+            "events": ["100739"],
+            "uuid": "13089_1",
+            "line": "1",
+            "item": {
+                "text": "VZCC-0054-HSS1",
+                "value": "2031"
+            },
+            "description": "Compose,Top Trim 54In​【137 cm】.W,Stl, Pnl Frame",
+            "quantity": 1,
+            "note": ""
+        }, {
+            "id": "27",
+            "workorder": {
+                "text": "SLS00000621_WRKORDR001",
+                "value": "32"
+            },
+            "events": [],
+            "uuid": "13089_2",
+            "line": "2",
+            "item": {
+                "text": "VZCE-7400-HS1",
+                "value": "2032"
+            },
+            "description": "Compose,Panel Trim,End-Of-Run 74In​【188 cm】.H, Steel",
+            "quantity": 3,
+            "note": ""
+        }],
+        "addresses": [{
+            "id": "26",
+            "workorder": {
+                "text": "SLS00000621_WRKORDR001",
+                "value": "32"
+            },
+            "customer": {
+                "text": "Test Test",
+                "value": "1493"
+            },
+            "events": ["100739"],
+            "address": {
+                "text": "",
+                "value": ""
+            },
+            "addressDetails": "",
+            "customerUrl": "/app/common/entity/custjob.nl?id=1493&compid=TSTDRV2617106"
+        }],
+        "contacts": [],
+        "events": [{
+            "id": "100739",
+            "title": "SLS00000621_WRKORDR001",
+            "workorder": {
+                "text": "SLS00000621_WRKORDR001",
+                "value": "32"
+            },
+            "project": {
+                "text": "Test Test : Test Project",
+                "value": "1774"
+            },
+            "location": "01: San Francisco",
+            "status": {
+                "text": "Tentative",
+                "value": "TENTATIVE",
+                "code": "bg-secondary"
+            },
+            "date": {
+                "recurrence": "one time event on 7/23/2024",
+                "start": "2024-07-23",
+                "end": "2024-07-23"
+            },
+            "time": {
+                "start": "08:00",
+                "end": "18:00"
+            },
+            "priority": {
+                "text": "Medium",
+                "value": "2",
+                "code": "#dfcf02"
+            },
+            "note": "123\r\n444",
+            "url": "/app/crm/calendar/event.nl?id=100739&compid=TSTDRV2617106&selectedtab=custom337",
+            "color": "#1a6756",
+            "woRef": {},
+            "resources": [],
+            "items": [],
+            "contacts": [],
+            "addresses": [],
+            "contact": {
+                "text": "",
+                "value": ""
+            },
+            "address": {
+                "text": "",
+                "value": ""
+            }
+        }],
+        "projectUrl": "/app/accounting/project/project.nl?id=1774&compid=TSTDRV2617106",
+        "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=32&compid=TSTDRV2617106",
+        "soUrl": "/app/accounting/transactions/salesord.nl?id=13089&compid=TSTDRV2617106",
+        "esthours": ""
+    }, {
+        "id": "31",
+        "name": "Test",
+        "title": "Test",
+        "project": {
+            "text": "AB&I Holdings : Parking Lot Construction",
+            "value": "1515"
+        },
+        "date": "7/19/2024",
+        "status": {
+            "text": "Closed",
+            "value": "3",
+            "code": "#6c757d"
+        },
+        "type": {
+            "text": "Walls",
+            "value": "6"
+        },
+        "memo": "<p>Test</p>",
+        "salesorder": {
+            "text": "Sales Order #SLS00000609",
+            "value": "11722"
+        },
+        "customer": {
+            "text": "AB&I Holdings",
+            "value": "1249"
+        },
+        "resourceGroup": {
+            "text": "",
+            "value": ""
+        },
+        "priority": "",
+        "resources": [],
+        "items": [{
+            "id": "24",
+            "workorder": {
+                "text": "Test",
+                "value": "31"
+            },
+            "events": [],
+            "uuid": "11722_1",
+            "line": "1",
+            "item": {
+                "text": "4321GR",
+                "value": "1015"
+            },
+            "description": "11 POCKET MAGAZINE RACK",
+            "quantity": 2,
+            "note": ""
+        }, {
+            "id": "25",
+            "workorder": {
+                "text": "Test",
+                "value": "31"
+            },
+            "events": [],
+            "uuid": "11722_2",
+            "line": "2",
+            "item": {
+                "text": "7031-0501",
+                "value": "1047"
+            },
+            "description": "Friction Pad, Non-Carpeted Surfaces, Svc",
+            "quantity": 4,
+            "note": ""
+        }, {
+            "id": "30",
+            "workorder": {
+                "text": "Test",
+                "value": "31"
+            },
+            "events": [],
+            "uuid": "11722_1",
+            "line": "1",
+            "item": {
+                "text": "",
+                "value": ""
+            },
+            "description": "11 POCKET MAGAZINE RACK",
+            "quantity": 2,
+            "note": ""
+        }, {
+            "id": "31",
+            "workorder": {
+                "text": "Test",
+                "value": "31"
+            },
+            "events": [],
+            "uuid": "11722_2",
+            "line": "2",
+            "item": {
+                "text": "",
+                "value": ""
+            },
+            "description": "Friction Pad, Non-Carpeted Surfaces, Svc",
+            "quantity": 4,
+            "note": ""
+        }, {
+            "id": "32",
+            "workorder": {
+                "text": "Test",
+                "value": "31"
+            },
+            "events": [],
+            "uuid": "11722_1",
+            "line": "1",
+            "item": {
+                "text": "",
+                "value": ""
+            },
+            "description": "11 POCKET MAGAZINE RACK",
+            "quantity": 2,
+            "note": ""
+        }, {
+            "id": "33",
+            "workorder": {
+                "text": "Test",
+                "value": "31"
+            },
+            "events": [],
+            "uuid": "11722_2",
+            "line": "2",
+            "item": {
+                "text": "",
+                "value": ""
+            },
+            "description": "Friction Pad, Non-Carpeted Surfaces, Svc",
+            "quantity": 4,
+            "note": ""
+        }, {
+            "id": "34",
+            "workorder": {
+                "text": "Test",
+                "value": "31"
+            },
+            "events": [],
+            "uuid": "11722_1",
+            "line": "1",
+            "item": {
+                "text": "",
+                "value": ""
+            },
+            "description": "11 POCKET MAGAZINE RACK",
+            "quantity": 2,
+            "note": ""
+        }, {
+            "id": "35",
+            "workorder": {
+                "text": "Test",
+                "value": "31"
+            },
+            "events": [],
+            "uuid": "11722_2",
+            "line": "2",
+            "item": {
+                "text": "",
+                "value": ""
+            },
+            "description": "Friction Pad, Non-Carpeted Surfaces, Svc",
+            "quantity": 4,
+            "note": ""
+        }],
+        "addresses": [{
+            "id": "24",
+            "workorder": {
+                "text": "Test",
+                "value": "31"
+            },
+            "customer": {
+                "text": "AB&I Holdings",
+                "value": "1249"
+            },
+            "events": [],
+            "address": {
+                "text": "1701 Rollins Road",
+                "value": "244878"
+            },
+            "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+            "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+        }],
+        "contacts": [{
+            "id": "13",
+            "workorder": {
+                "text": "Test",
+                "value": "31"
+            },
+            "events": [],
+            "contact": {
+                "text": "AB&I Holdings : Chad Bass",
+                "value": "1382"
+            },
+            "name": "Chad Bass",
+            "email": "cbass@sbi.com",
+            "jobTitle": "President",
+            "mobilePhone": "",
+            "phone": "",
+            "primary": "",
+            "url": "/app/common/entity/contact.nl?id=1382&compid=TSTDRV2617106"
+        }],
+        "events": [{
+            "id": "100723",
+            "title": "Test",
+            "workorder": {
+                "text": "Test",
+                "value": "31"
+            },
+            "project": {
+                "text": "AB&I Holdings : Parking Lot Construction",
+                "value": "1515"
+            },
+            "location": "01: San Francisco",
+            "status": {
+                "text": "Confirmed",
+                "value": "CONFIRMED",
+                "code": "bg-success"
+            },
+            "date": {
+                "recurrence": "one time event on 7/8/2024",
+                "start": "2024-07-08",
+                "end": "2024-07-08"
+            },
+            "time": {
+                "start": "08:00",
+                "end": "18:00"
+            },
+            "priority": {
+                "text": "Urgent",
+                "value": "4",
+                "code": "#9a2407"
+            },
+            "note": "TEST123",
+            "url": "/app/crm/calendar/event.nl?id=100723&compid=TSTDRV2617106&selectedtab=custom337",
+            "color": "#1a6756",
+            "woRef": {},
+            "resources": [],
+            "items": [],
+            "contacts": [],
+            "addresses": [],
+            "contact": {
+                "text": "",
+                "value": ""
+            },
+            "address": {
+                "text": "",
+                "value": ""
+            }
+        }, {
+            "id": "100749",
+            "title": "Test",
+            "workorder": {
+                "text": "Test",
+                "value": "31"
+            },
+            "project": {
+                "text": "AB&I Holdings : Parking Lot Construction",
+                "value": "1515"
+            },
+            "location": "01: San Francisco",
+            "status": {
+                "text": "Tentative",
+                "value": "TENTATIVE",
+                "code": "bg-secondary"
+            },
+            "date": {
+                "recurrence": "one time event on 7/25/2024",
+                "start": "2024-07-25",
+                "end": "2024-07-25"
+            },
+            "time": {
+                "start": "08:00",
+                "end": "18:00"
+            },
+            "priority": {
+                "text": "Low",
+                "value": "1",
+                "code": "#026adf"
+            },
+            "note": "1\r\n2\r\n3",
+            "url": "/app/crm/calendar/event.nl?id=100749&compid=TSTDRV2617106&selectedtab=custom337",
+            "color": "#1a6756",
+            "woRef": {},
+            "resources": [],
+            "items": [],
+            "contacts": [],
+            "addresses": [],
+            "contact": {
+                "text": "",
+                "value": ""
+            },
+            "address": {
+                "text": "",
+                "value": ""
+            }
+        }],
+        "projectUrl": "/app/accounting/project/project.nl?id=1515&compid=TSTDRV2617106",
+        "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=31&compid=TSTDRV2617106",
+        "soUrl": "/app/accounting/transactions/salesord.nl?id=11722&compid=TSTDRV2617106",
+        "esthours": "20"
+    }, {
+        "id": "30",
+        "name": "Test",
+        "title": "Test",
+        "project": {
+            "text": "AB&I Holdings : Parking Lot Construction",
+            "value": "1515"
+        },
+        "date": "7/12/2024",
+        "status": {
+            "text": "Hold",
+            "value": "7",
+            "code": "#6c757d"
+        },
+        "type": {
+            "text": "Standard",
+            "value": "5"
+        },
+        "memo": "",
+        "salesorder": {
+            "text": "Sales Order #SLS00000609",
+            "value": "11722"
+        },
+        "customer": {
+            "text": "AB&I Holdings",
+            "value": "1249"
+        },
+        "resourceGroup": {
+            "text": "",
+            "value": ""
+        },
+        "priority": "",
+        "resources": [],
+        "items": [{
+            "id": "23",
+            "workorder": {
+                "text": "Test",
+                "value": "30"
+            },
+            "events": [],
+            "uuid": "11722_1",
+            "line": "1",
+            "item": {
+                "text": "4321GR",
+                "value": "1015"
+            },
+            "description": "11 POCKET MAGAZINE RACK",
+            "quantity": 2,
+            "note": ""
+        }],
+        "addresses": [{
+            "id": "23",
+            "workorder": {
+                "text": "Test",
+                "value": "30"
+            },
+            "customer": {
+                "text": "AB&I Holdings",
+                "value": "1249"
+            },
+            "events": [],
+            "address": {
+                "text": "1701 Rollins Road",
+                "value": "244878"
+            },
+            "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+            "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+        }],
+        "contacts": [{
+            "id": "12",
+            "workorder": {
+                "text": "Test",
+                "value": "30"
+            },
+            "events": [],
+            "contact": {
+                "text": "AB&I Holdings : Chad Bass",
+                "value": "1382"
+            },
+            "name": "Chad Bass",
+            "email": "cbass@sbi.com",
+            "jobTitle": "President",
+            "mobilePhone": "",
+            "phone": "",
+            "primary": "",
+            "url": "/app/common/entity/contact.nl?id=1382&compid=TSTDRV2617106"
+        }],
+        "events": [],
+        "projectUrl": "/app/accounting/project/project.nl?id=1515&compid=TSTDRV2617106",
+        "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=30&compid=TSTDRV2617106",
+        "soUrl": "/app/accounting/transactions/salesord.nl?id=11722&compid=TSTDRV2617106",
+        "esthours": "20"
+    }, {
+        "id": "29",
+        "name": "Test",
+        "title": "Test",
+        "project": {
+            "text": "AB&I Holdings : Parking Lot Construction",
+            "value": "1515"
+        },
+        "date": "7/12/2024",
+        "status": {
+            "text": "Not Started",
+            "value": "4",
+            "code": "#026adf"
+        },
+        "type": {
+            "text": "Standard",
+            "value": "5"
+        },
+        "memo": "<p><span style=\"background-color: rgb(255, 255, 255); color: rgb(38, 38, 38);\">Test</span></p>",
+        "salesorder": {
+            "text": "Sales Order #SLS00000609",
+            "value": "11722"
+        },
+        "customer": {
+            "text": "AB&I Holdings",
+            "value": "1249"
+        },
+        "resourceGroup": {
+            "text": "",
+            "value": ""
+        },
+        "priority": "",
+        "resources": [],
+        "items": [{
+            "id": "21",
+            "workorder": {
+                "text": "Test",
+                "value": "29"
+            },
+            "events": [],
+            "uuid": "11722_1",
+            "line": "1",
+            "item": {
+                "text": "4321GR",
+                "value": "1015"
+            },
+            "description": "11 POCKET MAGAZINE RACK",
+            "quantity": 2,
+            "note": ""
+        }, {
+            "id": "22",
+            "workorder": {
+                "text": "Test",
+                "value": "29"
+            },
+            "events": [],
+            "uuid": "11722_3",
+            "line": "3",
+            "item": {
+                "text": "BAG00002",
+                "value": "837"
+            },
+            "description": "Sling Laptop Bag",
+            "quantity": 10,
+            "note": ""
+        }],
+        "addresses": [{
+            "id": "22",
+            "workorder": {
+                "text": "Test",
+                "value": "29"
+            },
+            "customer": {
+                "text": "AB&I Holdings",
+                "value": "1249"
+            },
+            "events": [],
+            "address": {
+                "text": "1701 Rollins Road",
+                "value": "244878"
+            },
+            "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+            "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+        }],
+        "contacts": [{
+            "id": "11",
+            "workorder": {
+                "text": "Test",
+                "value": "29"
+            },
+            "events": [],
+            "contact": {
+                "text": "AB&I Holdings : Chad Bass",
+                "value": "1382"
+            },
+            "name": "Chad Bass",
+            "email": "cbass@sbi.com",
+            "jobTitle": "President",
+            "mobilePhone": "",
+            "phone": "",
+            "primary": "",
+            "url": "/app/common/entity/contact.nl?id=1382&compid=TSTDRV2617106"
+        }],
+        "events": [],
+        "projectUrl": "/app/accounting/project/project.nl?id=1515&compid=TSTDRV2617106",
+        "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=29&compid=TSTDRV2617106",
+        "soUrl": "/app/accounting/transactions/salesord.nl?id=11722&compid=TSTDRV2617106",
+        "esthours": "16"
+    }, {
+        "id": "28",
+        "name": "Test",
+        "title": "Test",
+        "project": {
+            "text": "AB&I Holdings : Parking Lot Construction",
+            "value": "1515"
+        },
+        "date": "7/12/2024",
+        "status": {
+            "text": "Not Started",
+            "value": "4",
+            "code": "#026adf"
+        },
+        "type": {
+            "text": "Walls",
+            "value": "6"
+        },
+        "memo": "<p>Test</p>",
+        "salesorder": {
+            "text": "Sales Order #SLS00000609",
+            "value": "11722"
+        },
+        "customer": {
+            "text": "AB&I Holdings",
+            "value": "1249"
+        },
+        "resourceGroup": {
+            "text": "",
+            "value": ""
+        },
+        "priority": "",
+        "resources": [],
+        "items": [{
+            "id": "20",
+            "workorder": {
+                "text": "Test",
+                "value": "28"
+            },
+            "events": [],
+            "uuid": "11722_1",
+            "line": "1",
+            "item": {
+                "text": "4321GR",
+                "value": "1015"
+            },
+            "description": "11 POCKET MAGAZINE RACK",
+            "quantity": 2,
+            "note": ""
+        }],
+        "addresses": [{
+            "id": "21",
+            "workorder": {
+                "text": "Test",
+                "value": "28"
+            },
+            "customer": {
+                "text": "AB&I Holdings",
+                "value": "1249"
+            },
+            "events": [],
+            "address": {
+                "text": "1701 Rollins Road",
+                "value": "244878"
+            },
+            "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+            "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+        }],
+        "contacts": [{
+            "id": "10",
+            "workorder": {
+                "text": "Test",
+                "value": "28"
+            },
+            "events": [],
+            "contact": {
+                "text": "AB&I Holdings : Chad Bass",
+                "value": "1382"
+            },
+            "name": "Chad Bass",
+            "email": "cbass@sbi.com",
+            "jobTitle": "President",
+            "mobilePhone": "",
+            "phone": "",
+            "primary": "",
+            "url": "/app/common/entity/contact.nl?id=1382&compid=TSTDRV2617106"
+        }],
+        "events": [],
+        "projectUrl": "/app/accounting/project/project.nl?id=1515&compid=TSTDRV2617106",
+        "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=28&compid=TSTDRV2617106",
+        "soUrl": "/app/accounting/transactions/salesord.nl?id=11722&compid=TSTDRV2617106",
+        "esthours": "2"
+    }, {
+        "id": "27",
+        "name": "Test Work Order",
+        "title": "Test Work Order",
+        "project": {
+            "text": "AB&I Holdings : Parking Lot Construction",
+            "value": "1515"
+        },
+        "date": "7/12/2024",
+        "status": {
+            "text": "Not Started",
+            "value": "4",
+            "code": "#026adf"
+        },
+        "type": {
+            "text": "Standard",
+            "value": "5"
+        },
+        "memo": "<p><strong>Test Work Order</strong></p>",
+        "salesorder": {
+            "text": "Sales Order #SLS00000609",
+            "value": "11722"
+        },
+        "customer": {
+            "text": "AB&I Holdings",
+            "value": "1249"
+        },
+        "resourceGroup": {
+            "text": "",
+            "value": ""
+        },
+        "priority": "",
+        "resources": [],
+        "items": [],
+        "addresses": [{
+            "id": "20",
+            "workorder": {
+                "text": "Test Work Order",
+                "value": "27"
+            },
+            "customer": {
+                "text": "AB&I Holdings",
+                "value": "1249"
+            },
+            "events": [],
+            "address": {
+                "text": "1701 Rollins Road",
+                "value": "244878"
+            },
+            "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+            "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+        }],
+        "contacts": [],
+        "events": [],
+        "projectUrl": "/app/accounting/project/project.nl?id=1515&compid=TSTDRV2617106",
+        "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=27&compid=TSTDRV2617106",
+        "soUrl": "/app/accounting/transactions/salesord.nl?id=11722&compid=TSTDRV2617106",
+        "esthours": "2"
+    }, {
+        "id": "26",
+        "name": "Test Work Order",
+        "title": "Test Work Order",
+        "project": {
+            "text": "AB&I Holdings : Parking Lot Construction",
+            "value": "1515"
+        },
+        "date": "7/12/2024",
+        "status": {
+            "text": "In Progress",
+            "value": "1",
+            "code": "#026adf"
+        },
+        "type": {
+            "text": "Mockup",
+            "value": "2"
+        },
+        "memo": "<p>Test Work Order</p>",
+        "salesorder": {
+            "text": "Sales Order #SLS00000609",
+            "value": "11722"
+        },
+        "customer": {
+            "text": "AB&I Holdings",
+            "value": "1249"
+        },
+        "resourceGroup": {
+            "text": "",
+            "value": ""
+        },
+        "priority": "",
+        "resources": [],
+        "items": [],
+        "addresses": [{
+            "id": "19",
+            "workorder": {
+                "text": "Test Work Order",
+                "value": "26"
+            },
+            "customer": {
+                "text": "AB&I Holdings",
+                "value": "1249"
+            },
+            "events": [],
+            "address": {
+                "text": "1701 Rollins Road",
+                "value": "244878"
+            },
+            "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+            "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+        }],
+        "contacts": [],
+        "events": [],
+        "projectUrl": "/app/accounting/project/project.nl?id=1515&compid=TSTDRV2617106",
+        "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=26&compid=TSTDRV2617106",
+        "soUrl": "/app/accounting/transactions/salesord.nl?id=11722&compid=TSTDRV2617106",
+        "esthours": "2"
+    }, {
+        "id": "25",
+        "name": "Install Furniture Test Work Order",
+        "title": "Install Furniture Test Work Order",
+        "project": {
+            "text": "AB&I Holdings : Parking Lot Construction",
+            "value": "1515"
+        },
+        "date": "7/15/2024",
+        "status": {
+            "text": "Hold",
+            "value": "7",
+            "code": "#6c757d"
+        },
+        "type": {
+            "text": "Demo",
+            "value": "1"
+        },
+        "memo": "<p><span style=\"color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);\">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus id malesuada enim, sed fringilla turpis. Nullam sed viverra risus. Fusce maximus sapien et neque elementum, et feugiat orci efficitur. Suspendisse faucibus lacus id justo tempus tempor.</span></p><p></p><p><span style=\"color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);\">Vestibulum vehicula, libero sed interdum lobortis, nisi dolor tincidunt leo, vel accumsan erat mi et justo. Proin consectetur felis semper varius viverra. Nam neque nulla, feugiat ac tempor in, aliquet sed enim.</span></p><p></p><p><strong style=\"color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);\">Fusce mattis, diam non tempus lacinia, diam eros semper mauris, a egestas lacus libero eget sapien. Donec convallis sit amet velit non euismod.</strong></p>",
+        "salesorder": {
+            "text": "Sales Order #SLS00000609",
+            "value": "11722"
+        },
+        "customer": {
+            "text": "AB&I Holdings",
+            "value": "1249"
+        },
+        "resourceGroup": {
+            "text": "",
+            "value": ""
+        },
+        "priority": "",
+        "resources": [],
+        "items": [],
+        "addresses": [{
+            "id": "18",
+            "workorder": {
+                "text": "Install Furniture Test Work Order",
+                "value": "25"
+            },
+            "customer": {
+                "text": "AB&I Holdings",
+                "value": "1249"
+            },
+            "events": [],
+            "address": {
+                "text": "1701 Rollins Road",
+                "value": "244878"
+            },
+            "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+            "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+        }],
+        "contacts": [],
+        "events": [],
+        "projectUrl": "/app/accounting/project/project.nl?id=1515&compid=TSTDRV2617106",
+        "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=25&compid=TSTDRV2617106",
+        "soUrl": "/app/accounting/transactions/salesord.nl?id=11722&compid=TSTDRV2617106",
+        "esthours": "200"
+    }, {
+        "id": "24",
+        "name": "Test Work Order",
+        "title": "Test Work Order",
+        "project": {
+            "text": "AB&I Holdings : Parking Lot Construction",
+            "value": "1515"
+        },
+        "date": "7/17/2024",
+        "status": {
+            "text": "Not Started",
+            "value": "4",
+            "code": "#026adf"
+        },
+        "type": {
+            "text": "Standard",
+            "value": "5"
+        },
+        "memo": "<p>Test Work Order</p>",
+        "salesorder": {
+            "text": "Sales Order #SLS00000609",
+            "value": "11722"
+        },
+        "customer": {
+            "text": "AB&I Holdings",
+            "value": "1249"
+        },
+        "resourceGroup": {
+            "text": "",
+            "value": ""
+        },
+        "priority": "",
+        "resources": [],
+        "items": [],
+        "addresses": [{
+            "id": "17",
+            "workorder": {
+                "text": "Test Work Order",
+                "value": "24"
+            },
+            "customer": {
+                "text": "AB&I Holdings",
+                "value": "1249"
+            },
+            "events": [],
+            "address": {
+                "text": "1701 Rollins Road",
+                "value": "244878"
+            },
+            "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+            "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+        }],
+        "contacts": [],
+        "events": [],
+        "projectUrl": "/app/accounting/project/project.nl?id=1515&compid=TSTDRV2617106",
+        "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=24&compid=TSTDRV2617106",
+        "soUrl": "/app/accounting/transactions/salesord.nl?id=11722&compid=TSTDRV2617106",
+        "esthours": "10"
+    }, {
+        "id": "23",
+        "name": "Test Work Order",
+        "title": "Test Work Order",
+        "project": {
+            "text": "AB&I Holdings : Parking Lot Construction",
+            "value": "1515"
+        },
+        "date": "7/11/2024",
+        "status": {
+            "text": "Not Started",
+            "value": "4",
+            "code": "#026adf"
+        },
+        "type": {
+            "text": "Standard",
+            "value": "5"
+        },
+        "memo": "<p>Test Work Order</p>",
+        "salesorder": {
+            "text": "Sales Order #SLS00000609",
+            "value": "11722"
+        },
+        "customer": {
+            "text": "AB&I Holdings",
+            "value": "1249"
+        },
+        "resourceGroup": {
+            "text": "",
+            "value": ""
+        },
+        "priority": "",
+        "resources": [],
+        "items": [],
+        "addresses": [{
+            "id": "16",
+            "workorder": {
+                "text": "Test Work Order",
+                "value": "23"
+            },
+            "customer": {
+                "text": "AB&I Holdings",
+                "value": "1249"
+            },
+            "events": [],
+            "address": {
+                "text": "1701 Rollins Road",
+                "value": "244878"
+            },
+            "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+            "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+        }],
+        "contacts": [],
+        "events": [],
+        "projectUrl": "/app/accounting/project/project.nl?id=1515&compid=TSTDRV2617106",
+        "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=23&compid=TSTDRV2617106",
+        "soUrl": "/app/accounting/transactions/salesord.nl?id=11722&compid=TSTDRV2617106",
+        "esthours": "5"
+    }, {
+        "id": "22",
+        "name": "Test Work Order",
+        "title": "Test Work Order",
+        "project": {
+            "text": "AB&I Holdings : Parking Lot Construction",
+            "value": "1515"
+        },
+        "date": "7/10/2024",
+        "status": {
+            "text": "Not Started",
+            "value": "4",
+            "code": "#026adf"
+        },
+        "type": {
+            "text": "Demo",
+            "value": "1"
+        },
+        "memo": "<p>Test Work Order</p>",
+        "salesorder": {
+            "text": "Sales Order #SLS00000609",
+            "value": "11722"
+        },
+        "customer": {
+            "text": "AB&I Holdings",
+            "value": "1249"
+        },
+        "resourceGroup": {
+            "text": "",
+            "value": ""
+        },
+        "priority": "",
+        "resources": [],
+        "items": [],
+        "addresses": [{
+            "id": "15",
+            "workorder": {
+                "text": "Test Work Order",
+                "value": "22"
+            },
+            "customer": {
+                "text": "AB&I Holdings",
+                "value": "1249"
+            },
+            "events": [],
+            "address": {
+                "text": "1701 Rollins Road",
+                "value": "244878"
+            },
+            "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+            "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+        }],
+        "contacts": [],
+        "events": [],
+        "projectUrl": "/app/accounting/project/project.nl?id=1515&compid=TSTDRV2617106",
+        "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=22&compid=TSTDRV2617106",
+        "soUrl": "/app/accounting/transactions/salesord.nl?id=11722&compid=TSTDRV2617106",
+        "esthours": "200"
+    }, {
+        "id": "21",
+        "name": "Test Work Order",
+        "title": "Test Work Order",
+        "project": {
+            "text": "AB&I Holdings : Parking Lot Construction",
+            "value": "1515"
+        },
+        "date": "7/10/2024",
+        "status": {
+            "text": "Not Started",
+            "value": "4",
+            "code": "#026adf"
+        },
+        "type": {
+            "text": "Demo",
+            "value": "1"
+        },
+        "memo": "<p>Test Work Order</p>",
+        "salesorder": {
+            "text": "Sales Order #SLS00000609",
+            "value": "11722"
+        },
+        "customer": {
+            "text": "AB&I Holdings",
+            "value": "1249"
+        },
+        "resourceGroup": {
+            "text": "",
+            "value": ""
+        },
+        "priority": "",
+        "resources": [],
+        "items": [],
+        "addresses": [{
+            "id": "14",
+            "workorder": {
+                "text": "Test Work Order",
+                "value": "21"
+            },
+            "customer": {
+                "text": "AB&I Holdings",
+                "value": "1249"
+            },
+            "events": [],
+            "address": {
+                "text": "1701 Rollins Road",
+                "value": "244878"
+            },
+            "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+            "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+        }],
+        "contacts": [],
+        "events": [],
+        "projectUrl": "/app/accounting/project/project.nl?id=1515&compid=TSTDRV2617106",
+        "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=21&compid=TSTDRV2617106",
+        "soUrl": "/app/accounting/transactions/salesord.nl?id=11722&compid=TSTDRV2617106",
+        "esthours": "200"
+    }, {
+        "id": "20",
+        "name": "Install Furniture Test Work Order",
+        "title": "Install Furniture Test Work Order",
+        "project": {
+            "text": "AB&I Holdings : Parking Lot Construction",
+            "value": "1515"
+        },
+        "date": "7/15/2024",
+        "status": {
+            "text": "Not Started",
+            "value": "4",
+            "code": "#026adf"
+        },
+        "type": {
+            "text": "Demo",
+            "value": "1"
+        },
+        "memo": "<p><span style=\"background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);\">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus id malesuada enim, sed fringilla turpis. Nullam sed viverra risus. Fusce maximus sapien et neque elementum, et feugiat orci efficitur. Suspendisse faucibus lacus id justo tempus tempor.</span></p><p></p><p><span style=\"background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);\">Vestibulum vehicula, libero sed interdum lobortis, nisi dolor tincidunt leo, vel accumsan erat mi et justo. Proin consectetur felis semper varius viverra. Nam neque nulla, feugiat ac tempor in, aliquet sed enim.</span></p><p></p><p><strong style=\"background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);\">Fusce mattis, diam non tempus lacinia, diam eros semper mauris, a egestas lacus libero eget sapien. Donec convallis sit amet velit non euismod.</strong></p>",
+        "salesorder": {
+            "text": "Sales Order #SLS00000609",
+            "value": "11722"
+        },
+        "customer": {
+            "text": "AB&I Holdings",
+            "value": "1249"
+        },
+        "resourceGroup": {
+            "text": "",
+            "value": ""
+        },
+        "priority": "",
+        "resources": [],
+        "items": [],
+        "addresses": [{
+            "id": "13",
+            "workorder": {
+                "text": "Install Furniture Test Work Order",
+                "value": "20"
+            },
+            "customer": {
+                "text": "AB&I Holdings",
+                "value": "1249"
+            },
+            "events": [],
+            "address": {
+                "text": "1701 Rollins Road",
+                "value": "244878"
+            },
+            "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+            "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+        }],
+        "contacts": [],
+        "events": [],
+        "projectUrl": "/app/accounting/project/project.nl?id=1515&compid=TSTDRV2617106",
+        "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=20&compid=TSTDRV2617106",
+        "soUrl": "/app/accounting/transactions/salesord.nl?id=11722&compid=TSTDRV2617106",
+        "esthours": "200"
+    }, {
+        "id": "19",
+        "name": "Install Walls",
+        "title": "Install Walls",
+        "project": {
+            "text": "AB&I Holdings : Parking Lot Construction",
+            "value": "1515"
+        },
+        "date": "7/8/2024",
+        "status": {
+            "text": "Not Started",
+            "value": "4",
+            "code": "#026adf"
+        },
+        "type": {
+            "text": "Demo",
+            "value": "1"
+        },
+        "memo": "<p><span style=\"color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);\">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus id malesuada enim, sed fringilla turpis. Nullam sed viverra risus. Fusce maximus sapien et neque elementum, et feugiat orci efficitur. Suspendisse faucibus lacus id justo tempus tempor.</span></p><p></p><p><span style=\"color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);\">Vestibulum vehicula, libero sed interdum lobortis, nisi dolor tincidunt leo, vel accumsan erat mi et justo. Proin consectetur felis semper varius viverra. Nam neque nulla, feugiat ac tempor in, aliquet sed enim.</span></p><p></p><p><strong style=\"color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);\">Fusce mattis, diam non tempus lacinia, diam eros semper mauris, a egestas lacus libero eget sapien. Donec convallis sit amet velit non euismod.</strong></p>",
+        "salesorder": {
+            "text": "Sales Order #SLS00000609",
+            "value": "11722"
+        },
+        "customer": {
+            "text": "AB&I Holdings",
+            "value": "1249"
+        },
+        "resourceGroup": {
+            "text": "",
+            "value": ""
+        },
+        "priority": "",
+        "resources": [],
+        "items": [],
+        "addresses": [{
+            "id": "12",
+            "workorder": {
+                "text": "Install Walls",
+                "value": "19"
+            },
+            "customer": {
+                "text": "AB&I Holdings",
+                "value": "1249"
+            },
+            "events": [],
+            "address": {
+                "text": "1701 Rollins Road",
+                "value": "244878"
+            },
+            "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+            "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+        }],
+        "contacts": [],
+        "events": [],
+        "projectUrl": "/app/accounting/project/project.nl?id=1515&compid=TSTDRV2617106",
+        "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=19&compid=TSTDRV2617106",
+        "soUrl": "/app/accounting/transactions/salesord.nl?id=11722&compid=TSTDRV2617106",
+        "esthours": "300"
+    }, {
+        "id": "18",
+        "name": "Install Walls",
+        "title": "Install Walls",
+        "project": {
+            "text": "AB&I Holdings : Parking Lot Construction",
+            "value": "1515"
+        },
+        "date": "7/8/2024",
+        "status": {
+            "text": "Not Started",
+            "value": "4",
+            "code": "#026adf"
+        },
+        "type": {
+            "text": "Demo",
+            "value": "1"
+        },
+        "memo": "<p><span style=\"color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);\">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus id malesuada enim, sed fringilla turpis. Nullam sed viverra risus. Fusce maximus sapien et neque elementum, et feugiat orci efficitur. Suspendisse faucibus lacus id justo tempus tempor.</span></p><p></p><p><span style=\"color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);\">Vestibulum vehicula, libero sed interdum lobortis, nisi dolor tincidunt leo, vel accumsan erat mi et justo. Proin consectetur felis semper varius viverra. Nam neque nulla, feugiat ac tempor in, aliquet sed enim.</span></p><p></p><p><strong style=\"color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);\">Fusce mattis, diam non tempus lacinia, diam eros semper mauris, a egestas lacus libero eget sapien. Donec convallis sit amet velit non euismod.</strong></p>",
+        "salesorder": {
+            "text": "Sales Order #SLS00000609",
+            "value": "11722"
+        },
+        "customer": {
+            "text": "AB&I Holdings",
+            "value": "1249"
+        },
+        "resourceGroup": {
+            "text": "",
+            "value": ""
+        },
+        "priority": "",
+        "resources": [],
+        "items": [],
+        "addresses": [{
+            "id": "11",
+            "workorder": {
+                "text": "Install Walls",
+                "value": "18"
+            },
+            "customer": {
+                "text": "AB&I Holdings",
+                "value": "1249"
+            },
+            "events": [],
+            "address": {
+                "text": "1701 Rollins Road",
+                "value": "244878"
+            },
+            "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+            "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+        }],
+        "contacts": [],
+        "events": [],
+        "projectUrl": "/app/accounting/project/project.nl?id=1515&compid=TSTDRV2617106",
+        "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=18&compid=TSTDRV2617106",
+        "soUrl": "/app/accounting/transactions/salesord.nl?id=11722&compid=TSTDRV2617106",
+        "esthours": "300"
+    }, {
+        "id": "17",
+        "name": "Install Walls",
+        "title": "Install Walls",
+        "project": {
+            "text": "AB&I Holdings : Parking Lot Construction",
+            "value": "1515"
+        },
+        "date": "7/8/2024",
+        "status": {
+            "text": "Not Started",
+            "value": "4",
+            "code": "#026adf"
+        },
+        "type": {
+            "text": "Demo",
+            "value": "1"
+        },
+        "memo": "<p><span style=\"background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);\">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus id malesuada enim, sed fringilla turpis. Nullam sed viverra risus. Fusce maximus sapien et neque elementum, et feugiat orci efficitur. Suspendisse faucibus lacus id justo tempus tempor.</span></p><p></p><p><span style=\"background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);\">Vestibulum vehicula, libero sed interdum lobortis, nisi dolor tincidunt leo, vel accumsan erat mi et justo. Proin consectetur felis semper varius viverra. Nam neque nulla, feugiat ac tempor in, aliquet sed enim.</span></p><p></p><p><strong style=\"background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);\">Fusce mattis, diam non tempus lacinia, diam eros semper mauris, a egestas lacus libero eget sapien. Donec convallis sit amet velit non euismod.</strong></p>",
+        "salesorder": {
+            "text": "Sales Order #SLS00000609",
+            "value": "11722"
+        },
+        "customer": {
+            "text": "AB&I Holdings",
+            "value": "1249"
+        },
+        "resourceGroup": {
+            "text": "",
+            "value": ""
+        },
+        "priority": "",
+        "resources": [],
+        "items": [],
+        "addresses": [{
+            "id": "10",
+            "workorder": {
+                "text": "Install Walls",
+                "value": "17"
+            },
+            "customer": {
+                "text": "AB&I Holdings",
+                "value": "1249"
+            },
+            "events": [],
+            "address": {
+                "text": "1701 Rollins Road",
+                "value": "244878"
+            },
+            "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+            "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+        }],
+        "contacts": [],
+        "events": [],
+        "projectUrl": "/app/accounting/project/project.nl?id=1515&compid=TSTDRV2617106",
+        "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=17&compid=TSTDRV2617106",
+        "soUrl": "/app/accounting/transactions/salesord.nl?id=11722&compid=TSTDRV2617106",
+        "esthours": "300"
+    }, {
+        "id": "16",
+        "name": "Install Walls",
+        "title": "Install Walls",
+        "project": {
+            "text": "AB&I Holdings : Parking Lot Construction",
+            "value": "1515"
+        },
+        "date": "7/8/2024",
+        "status": {
+            "text": "Not Started",
+            "value": "4",
+            "code": "#026adf"
+        },
+        "type": {
+            "text": "Demo",
+            "value": "1"
+        },
+        "memo": "<p><span style=\"background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);\">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus id malesuada enim, sed fringilla turpis. Nullam sed viverra risus. Fusce maximus sapien et neque elementum, et feugiat orci efficitur. Suspendisse faucibus lacus id justo tempus tempor.</span></p><p></p><p><span style=\"background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);\">Vestibulum vehicula, libero sed interdum lobortis, nisi dolor tincidunt leo, vel accumsan erat mi et justo. Proin consectetur felis semper varius viverra. Nam neque nulla, feugiat ac tempor in, aliquet sed enim.</span></p><p></p><p><strong style=\"background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);\">Fusce mattis, diam non tempus lacinia, diam eros semper mauris, a egestas lacus libero eget sapien. Donec convallis sit amet velit non euismod.</strong></p>",
+        "salesorder": {
+            "text": "Sales Order #SLS00000609",
+            "value": "11722"
+        },
+        "customer": {
+            "text": "AB&I Holdings",
+            "value": "1249"
+        },
+        "resourceGroup": {
+            "text": "",
+            "value": ""
+        },
+        "priority": "",
+        "resources": [],
+        "items": [],
+        "addresses": [{
+            "id": "9",
+            "workorder": {
+                "text": "Install Walls",
+                "value": "16"
+            },
+            "customer": {
+                "text": "AB&I Holdings",
+                "value": "1249"
+            },
+            "events": [],
+            "address": {
+                "text": "1701 Rollins Road",
+                "value": "244878"
+            },
+            "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+            "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+        }],
+        "contacts": [],
+        "events": [],
+        "projectUrl": "/app/accounting/project/project.nl?id=1515&compid=TSTDRV2617106",
+        "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=16&compid=TSTDRV2617106",
+        "soUrl": "/app/accounting/transactions/salesord.nl?id=11722&compid=TSTDRV2617106",
+        "esthours": "300"
+    }, {
+        "id": "15",
+        "name": "Install Walls Test Work Order",
+        "title": "Install Walls Test Work Order",
+        "project": {
+            "text": "AB&I Holdings : Parking Lot Construction",
+            "value": "1515"
+        },
+        "date": "7/8/2024",
+        "status": {
+            "text": "In Progress",
+            "value": "1",
+            "code": "#026adf"
+        },
+        "type": {
+            "text": "Demo",
+            "value": "1"
+        },
+        "memo": "<p><span style=\"color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);\">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus id malesuada enim, sed fringilla turpis. Nullam sed viverra risus. Fusce maximus sapien et neque elementum, et feugiat orci efficitur. Suspendisse faucibus lacus id justo tempus tempor.</span></p><p></p><p><span style=\"color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);\">Vestibulum vehicula, libero sed interdum lobortis, nisi dolor tincidunt leo, vel accumsan erat mi et justo. Proin consectetur felis semper varius viverra. Nam neque nulla, feugiat ac tempor in, aliquet sed enim.</span></p><p></p><p><strong style=\"color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);\">Fusce mattis, diam non tempus lacinia, diam eros semper mauris, a egestas lacus libero eget sapien. Donec convallis sit amet velit non euismod.</strong></p>",
+        "salesorder": {
+            "text": "Sales Order #SLS00000609",
+            "value": "11722"
+        },
+        "customer": {
+            "text": "AB&I Holdings",
+            "value": "1249"
+        },
+        "resourceGroup": {
+            "text": "",
+            "value": ""
+        },
+        "priority": "",
+        "resources": [],
+        "items": [{
+            "id": "15",
+            "workorder": {
+                "text": "Install Walls Test Work Order",
+                "value": "15"
+            },
+            "events": [],
+            "uuid": "11722_1",
+            "line": "1",
+            "item": {
+                "text": "4321GR",
+                "value": "1015"
+            },
+            "description": "11 POCKET MAGAZINE RACK",
+            "quantity": 3,
+            "note": ""
+        }, {
+            "id": "17",
+            "workorder": {
+                "text": "Install Walls Test Work Order",
+                "value": "15"
+            },
+            "events": [],
+            "uuid": "11722_2",
+            "line": "2",
+            "item": {
+                "text": "7031-0501",
+                "value": "1047"
+            },
+            "description": "Friction Pad, Non-Carpeted Surfaces, Svc",
+            "quantity": 7,
+            "note": ""
+        }, {
+            "id": "18",
+            "workorder": {
+                "text": "Install Walls Test Work Order",
+                "value": "15"
+            },
+            "events": [],
+            "uuid": "11722_3",
+            "line": "3",
+            "item": {
+                "text": "BAG00002",
+                "value": "837"
+            },
+            "description": "Sling Laptop Bag",
+            "quantity": 20,
+            "note": ""
+        }],
+        "addresses": [{
+            "id": "8",
+            "workorder": {
+                "text": "Install Walls Test Work Order",
+                "value": "15"
+            },
+            "customer": {
+                "text": "AB&I Holdings",
+                "value": "1249"
+            },
+            "events": [],
+            "address": {
+                "text": "1701 Rollins Road",
+                "value": "244878"
+            },
+            "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+            "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+        }],
+        "contacts": [{
+            "id": "9",
+            "workorder": {
+                "text": "Install Walls Test Work Order",
+                "value": "15"
+            },
+            "events": [],
+            "contact": {
+                "text": "AB&I Holdings : Chad Bass",
+                "value": "1382"
+            },
+            "name": "Chad Bass",
+            "email": "cbass@sbi.com",
+            "jobTitle": "President",
+            "mobilePhone": "",
+            "phone": "",
+            "primary": "",
+            "url": "/app/common/entity/contact.nl?id=1382&compid=TSTDRV2617106"
+        }],
+        "events": [],
+        "projectUrl": "/app/accounting/project/project.nl?id=1515&compid=TSTDRV2617106",
+        "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=15&compid=TSTDRV2617106",
+        "soUrl": "/app/accounting/transactions/salesord.nl?id=11722&compid=TSTDRV2617106",
+        "esthours": "300"
+    }, {
+        "id": "14",
+        "name": "Install Walls",
+        "title": "Install Walls",
+        "project": {
+            "text": "AB&I Holdings : Parking Lot Construction",
+            "value": "1515"
+        },
+        "date": "7/8/2024",
+        "status": {
+            "text": "Not Started",
+            "value": "4",
+            "code": "#026adf"
+        },
+        "type": {
+            "text": "Service",
+            "value": "4"
+        },
+        "memo": "",
+        "salesorder": {
+            "text": "Sales Order #SLS00000609",
+            "value": "11722"
+        },
+        "customer": {
+            "text": "AB&I Holdings",
+            "value": "1249"
+        },
+        "resourceGroup": {
+            "text": "",
+            "value": ""
+        },
+        "priority": "",
+        "resources": [],
+        "items": [{
+            "id": "13",
+            "workorder": {
+                "text": "Install Walls",
+                "value": "14"
+            },
+            "events": [],
+            "uuid": "11722_1",
+            "line": "1",
+            "item": {
+                "text": "4321GR",
+                "value": "1015"
+            },
+            "description": "11 POCKET MAGAZINE RACK",
+            "quantity": 2,
+            "note": ""
+        }, {
+            "id": "14",
+            "workorder": {
+                "text": "Install Walls",
+                "value": "14"
+            },
+            "events": [],
+            "uuid": "11722_3",
+            "line": "3",
+            "item": {
+                "text": "BAG00002",
+                "value": "837"
+            },
+            "description": "Sling Laptop Bag",
+            "quantity": 10,
+            "note": ""
+        }],
+        "addresses": [{
+            "id": "7",
+            "workorder": {
+                "text": "Install Walls",
+                "value": "14"
+            },
+            "customer": {
+                "text": "AB&I Holdings",
+                "value": "1249"
+            },
+            "events": [],
+            "address": {
+                "text": "1701 Rollins Road",
+                "value": "244878"
+            },
+            "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+            "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+        }],
+        "contacts": [{
+            "id": "8",
+            "workorder": {
+                "text": "Install Walls",
+                "value": "14"
+            },
+            "events": [],
+            "contact": {
+                "text": "AB&I Holdings : Chad Bass",
+                "value": "1382"
+            },
+            "name": "Chad Bass",
+            "email": "cbass@sbi.com",
+            "jobTitle": "President",
+            "mobilePhone": "",
+            "phone": "",
+            "primary": "",
+            "url": "/app/common/entity/contact.nl?id=1382&compid=TSTDRV2617106"
+        }],
+        "events": [],
+        "projectUrl": "/app/accounting/project/project.nl?id=1515&compid=TSTDRV2617106",
+        "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=14&compid=TSTDRV2617106",
+        "soUrl": "/app/accounting/transactions/salesord.nl?id=11722&compid=TSTDRV2617106",
+        "esthours": "300"
+    }, {
+        "id": "13",
+        "name": "Install Walls",
+        "title": "Install Walls",
+        "project": {
+            "text": "AB&I Holdings : Parking Lot Construction",
+            "value": "1515"
+        },
+        "date": "7/8/2024",
+        "status": {
+            "text": "Not Started",
+            "value": "4",
+            "code": "#026adf"
+        },
+        "type": {
+            "text": "Service",
+            "value": "4"
+        },
+        "memo": "",
+        "salesorder": {
+            "text": "Sales Order #SLS00000609",
+            "value": "11722"
+        },
+        "customer": {
+            "text": "AB&I Holdings",
+            "value": "1249"
+        },
+        "resourceGroup": {
+            "text": "",
+            "value": ""
+        },
+        "priority": "",
+        "resources": [],
+        "items": [{
+            "id": "11",
+            "workorder": {
+                "text": "Install Walls",
+                "value": "13"
+            },
+            "events": [],
+            "uuid": "11722_1",
+            "line": "1",
+            "item": {
+                "text": "4321GR",
+                "value": "1015"
+            },
+            "description": "11 POCKET MAGAZINE RACK",
+            "quantity": 2,
+            "note": ""
+        }, {
+            "id": "12",
+            "workorder": {
+                "text": "Install Walls",
+                "value": "13"
+            },
+            "events": [],
+            "uuid": "11722_3",
+            "line": "3",
+            "item": {
+                "text": "BAG00002",
+                "value": "837"
+            },
+            "description": "Sling Laptop Bag",
+            "quantity": 10,
+            "note": ""
+        }],
+        "addresses": [{
+            "id": "6",
+            "workorder": {
+                "text": "Install Walls",
+                "value": "13"
+            },
+            "customer": {
+                "text": "AB&I Holdings",
+                "value": "1249"
+            },
+            "events": [],
+            "address": {
+                "text": "1701 Rollins Road",
+                "value": "244878"
+            },
+            "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+            "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+        }],
+        "contacts": [{
+            "id": "7",
+            "workorder": {
+                "text": "Install Walls",
+                "value": "13"
+            },
+            "events": [],
+            "contact": {
+                "text": "AB&I Holdings : Chad Bass",
+                "value": "1382"
+            },
+            "name": "Chad Bass",
+            "email": "cbass@sbi.com",
+            "jobTitle": "President",
+            "mobilePhone": "",
+            "phone": "",
+            "primary": "",
+            "url": "/app/common/entity/contact.nl?id=1382&compid=TSTDRV2617106"
+        }],
+        "events": [],
+        "projectUrl": "/app/accounting/project/project.nl?id=1515&compid=TSTDRV2617106",
+        "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=13&compid=TSTDRV2617106",
+        "soUrl": "/app/accounting/transactions/salesord.nl?id=11722&compid=TSTDRV2617106",
+        "esthours": "300"
+    }, {
+        "id": "12",
+        "name": "Install Walls",
+        "title": "Install Walls",
+        "project": {
+            "text": "AB&I Holdings : Parking Lot Construction",
+            "value": "1515"
+        },
+        "date": "7/8/2024",
+        "status": {
+            "text": "Not Started",
+            "value": "4",
+            "code": "#026adf"
+        },
+        "type": {
+            "text": "Service",
+            "value": "4"
+        },
+        "memo": "",
+        "salesorder": {
+            "text": "Sales Order #SLS00000609",
+            "value": "11722"
+        },
+        "customer": {
+            "text": "AB&I Holdings",
+            "value": "1249"
+        },
+        "resourceGroup": {
+            "text": "",
+            "value": ""
+        },
+        "priority": "",
+        "resources": [],
+        "items": [],
+        "addresses": [],
+        "contacts": [{
+            "id": "6",
+            "workorder": {
+                "text": "Install Walls",
+                "value": "12"
+            },
+            "events": [],
+            "contact": {
+                "text": "AB&I Holdings : Chad Bass",
+                "value": "1382"
+            },
+            "name": "Chad Bass",
+            "email": "cbass@sbi.com",
+            "jobTitle": "President",
+            "mobilePhone": "",
+            "phone": "",
+            "primary": "",
+            "url": "/app/common/entity/contact.nl?id=1382&compid=TSTDRV2617106"
+        }],
+        "events": [],
+        "projectUrl": "/app/accounting/project/project.nl?id=1515&compid=TSTDRV2617106",
+        "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=12&compid=TSTDRV2617106",
+        "soUrl": "/app/accounting/transactions/salesord.nl?id=11722&compid=TSTDRV2617106",
+        "esthours": "300"
+    }, {
+        "id": "11",
+        "name": "Install Walls",
+        "title": "Install Walls",
+        "project": {
+            "text": "AB&I Holdings : Parking Lot Construction",
+            "value": "1515"
+        },
+        "date": "7/8/2024",
+        "status": {
+            "text": "Not Started",
+            "value": "4",
+            "code": "#026adf"
+        },
+        "type": {
+            "text": "Service",
+            "value": "4"
+        },
+        "memo": "",
+        "salesorder": {
+            "text": "Sales Order #SLS00000609",
+            "value": "11722"
+        },
+        "customer": {
+            "text": "AB&I Holdings",
+            "value": "1249"
+        },
+        "resourceGroup": {
+            "text": "",
+            "value": ""
+        },
+        "priority": "",
+        "resources": [],
+        "items": [],
+        "addresses": [],
+        "contacts": [],
+        "events": [],
+        "projectUrl": "/app/accounting/project/project.nl?id=1515&compid=TSTDRV2617106",
+        "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=11&compid=TSTDRV2617106",
+        "soUrl": "/app/accounting/transactions/salesord.nl?id=11722&compid=TSTDRV2617106",
+        "esthours": "300"
+    }, {
+        "id": "10",
+        "name": "Install Walls",
+        "title": "Install Walls",
+        "project": {
+            "text": "AB&I Holdings : Parking Lot Construction",
+            "value": "1515"
+        },
+        "date": "7/8/2024",
+        "status": {
+            "text": "Not Started",
+            "value": "4",
+            "code": "#026adf"
+        },
+        "type": {
+            "text": "Service",
+            "value": "4"
+        },
+        "memo": "",
+        "salesorder": {
+            "text": "Sales Order #SLS00000609",
+            "value": "11722"
+        },
+        "customer": {
+            "text": "AB&I Holdings",
+            "value": "1249"
+        },
+        "resourceGroup": {
+            "text": "",
+            "value": ""
+        },
+        "priority": "",
+        "resources": [],
+        "items": [],
+        "addresses": [],
+        "contacts": [],
+        "events": [],
+        "projectUrl": "/app/accounting/project/project.nl?id=1515&compid=TSTDRV2617106",
+        "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=10&compid=TSTDRV2617106",
+        "soUrl": "/app/accounting/transactions/salesord.nl?id=11722&compid=TSTDRV2617106",
+        "esthours": "300"
+    }, {
+        "id": "9",
+        "name": "Install Walls",
+        "title": "Install Walls",
+        "project": {
+            "text": "AB&I Holdings : Parking Lot Construction",
+            "value": "1515"
+        },
+        "date": "7/15/2024",
+        "status": {
+            "text": "Not Started",
+            "value": "4",
+            "code": "#026adf"
+        },
+        "type": {
+            "text": "Service",
+            "value": "4"
+        },
+        "memo": "<p><span style=\"color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);\">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus id malesuada enim, sed fringilla turpis. Nullam sed viverra risus. Fusce maximus sapien et neque elementum, et feugiat orci efficitur. Suspendisse faucibus lacus id justo tempus tempor.</span></p><p> </p><p><span style=\"color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);\">Vestibulum vehicula, libero sed interdum lobortis, nisi dolor tincidunt leo, vel accumsan erat mi et justo. Proin consectetur felis semper varius viverra. Nam neque nulla, feugiat ac tempor in, aliquet sed enim.</span></p><p> </p><p><strong style=\"color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);\">Fusce mattis, diam non tempus lacinia, diam eros semper mauris, a egestas lacus libero eget sapien. Donec convallis sit amet velit non euismod.</strong></p>",
+        "salesorder": {
+            "text": "Sales Order #SLS00000609",
+            "value": "11722"
+        },
+        "customer": {
+            "text": "AB&I Holdings",
+            "value": "1249"
+        },
+        "resourceGroup": {
+            "text": "",
+            "value": ""
+        },
+        "priority": "",
+        "resources": [],
+        "items": [],
+        "addresses": [],
+        "contacts": [],
+        "events": [],
+        "projectUrl": "/app/accounting/project/project.nl?id=1515&compid=TSTDRV2617106",
+        "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=9&compid=TSTDRV2617106",
+        "soUrl": "/app/accounting/transactions/salesord.nl?id=11722&compid=TSTDRV2617106",
+        "esthours": "200"
+    }, {
+        "id": "8",
+        "name": "Install Walls",
+        "title": "Install Walls",
+        "project": {
+            "text": "AB&I Holdings : Parking Lot Construction",
+            "value": "1515"
+        },
+        "date": "7/15/2024",
+        "status": {
+            "text": "Not Started",
+            "value": "4",
+            "code": "#026adf"
+        },
+        "type": {
+            "text": "Service",
+            "value": "4"
+        },
+        "memo": "<p><span style=\"color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);\">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus id malesuada enim, sed fringilla turpis. Nullam sed viverra risus. Fusce maximus sapien et neque elementum, et feugiat orci efficitur. Suspendisse faucibus lacus id justo tempus tempor.</span></p><p> </p><p><span style=\"color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);\">Vestibulum vehicula, libero sed interdum lobortis, nisi dolor tincidunt leo, vel accumsan erat mi et justo. Proin consectetur felis semper varius viverra. Nam neque nulla, feugiat ac tempor in, aliquet sed enim.</span></p><p> </p><p><strong style=\"color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);\">Fusce mattis, diam non tempus lacinia, diam eros semper mauris, a egestas lacus libero eget sapien. Donec convallis sit amet velit non euismod.</strong></p>",
+        "salesorder": {
+            "text": "Sales Order #SLS00000609",
+            "value": "11722"
+        },
+        "customer": {
+            "text": "AB&I Holdings",
+            "value": "1249"
+        },
+        "resourceGroup": {
+            "text": "",
+            "value": ""
+        },
+        "priority": "",
+        "resources": [],
+        "items": [],
+        "addresses": [],
+        "contacts": [],
+        "events": [],
+        "projectUrl": "/app/accounting/project/project.nl?id=1515&compid=TSTDRV2617106",
+        "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=8&compid=TSTDRV2617106",
+        "soUrl": "/app/accounting/transactions/salesord.nl?id=11722&compid=TSTDRV2617106",
+        "esthours": "200"
+    }, {
+        "id": "7",
+        "name": "Install Walls",
+        "title": "Install Walls",
+        "project": {
+            "text": "AB&I Holdings : Parking Lot Construction",
+            "value": "1515"
+        },
+        "date": "7/5/2024",
+        "status": {
+            "text": "Not Started",
+            "value": "4",
+            "code": "#026adf"
+        },
+        "type": {
+            "text": "Service",
+            "value": "4"
+        },
+        "memo": "<p><span style=\"background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);\">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus id malesuada enim, sed fringilla turpis. Nullam sed viverra risus. Fusce maximus sapien et neque elementum, et feugiat orci efficitur. Suspendisse faucibus lacus id justo tempus tempor.</span></p><p></p><p><span style=\"background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);\">Vestibulum vehicula, libero sed interdum lobortis, nisi dolor tincidunt leo, vel accumsan erat mi et justo. Proin consectetur felis semper varius viverra. Nam neque nulla, feugiat ac tempor in, aliquet sed enim.</span></p><p></p><p><strong style=\"background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);\">Fusce mattis, diam non tempus lacinia, diam eros semper mauris, a egestas lacus libero eget sapien. Donec convallis sit amet velit non euismod.</strong></p>",
+        "salesorder": {
+            "text": "Sales Order #SLS00000609",
+            "value": "11722"
+        },
+        "customer": {
+            "text": "AB&I Holdings",
+            "value": "1249"
+        },
+        "resourceGroup": {
+            "text": "",
+            "value": ""
+        },
+        "priority": "",
+        "resources": [],
+        "items": [{
+            "id": "8",
+            "workorder": {
+                "text": "Install Walls",
+                "value": "7"
+            },
+            "events": [],
+            "uuid": "11722_1",
+            "line": "1",
+            "item": {
+                "text": "4321GR",
+                "value": "1015"
+            },
+            "description": "11 POCKET MAGAZINE RACK",
+            "quantity": 2,
+            "note": ""
+        }, {
+            "id": "9",
+            "workorder": {
+                "text": "Install Walls",
+                "value": "7"
+            },
+            "events": [],
+            "uuid": "11722_2",
+            "line": "2",
+            "item": {
+                "text": "7031-0501",
+                "value": "1047"
+            },
+            "description": "Friction Pad, Non-Carpeted Surfaces, Svc",
+            "quantity": 5,
+            "note": ""
+        }, {
+            "id": "10",
+            "workorder": {
+                "text": "Install Walls",
+                "value": "7"
+            },
+            "events": [],
+            "uuid": "11722_3",
+            "line": "3",
+            "item": {
+                "text": "BAG00002",
+                "value": "837"
+            },
+            "description": "Sling Laptop Bag",
+            "quantity": 20,
+            "note": ""
+        }],
+        "addresses": [{
+            "id": "5",
+            "workorder": {
+                "text": "Install Walls",
+                "value": "7"
+            },
+            "customer": {
+                "text": "AB&I Holdings",
+                "value": "1249"
+            },
+            "events": [],
+            "address": {
+                "text": "1701 Rollins Road",
+                "value": "244878"
+            },
+            "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+            "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+        }],
+        "contacts": [{
+            "id": "5",
+            "workorder": {
+                "text": "Install Walls",
+                "value": "7"
+            },
+            "events": [],
+            "contact": {
+                "text": "AB&I Holdings : Chad Bass",
+                "value": "1382"
+            },
+            "name": "Chad Bass",
+            "email": "cbass@sbi.com",
+            "jobTitle": "President",
+            "mobilePhone": "",
+            "phone": "",
+            "primary": "",
+            "url": "/app/common/entity/contact.nl?id=1382&compid=TSTDRV2617106"
+        }],
+        "events": [],
+        "projectUrl": "/app/accounting/project/project.nl?id=1515&compid=TSTDRV2617106",
+        "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=7&compid=TSTDRV2617106",
+        "soUrl": "/app/accounting/transactions/salesord.nl?id=11722&compid=TSTDRV2617106",
+        "esthours": "200"
+    }, {
+        "id": "6",
+        "name": "Work Order Sample",
+        "title": "Movement of furniture",
+        "project": {
+            "text": "Rogers Communication : Office Remodel",
+            "value": "1509"
+        },
+        "date": "7/3/2024",
+        "status": {
+            "text": "Not Started",
+            "value": "4",
+            "code": "#026adf"
+        },
+        "type": {
+            "text": "Demo",
+            "value": "1"
+        },
+        "memo": "<p><span style=\"background-color:rgb(255,255,255);color:rgb(0,0,0);\">Work order instructions for work order sample</span></p>",
+        "salesorder": {
+            "text": "Sales Order #SLS00000610",
+            "value": "11727"
+        },
+        "customer": {
+            "text": "Anonymous Customer HQ",
+            "value": "1599"
+        },
+        "resourceGroup": {
+            "text": "",
+            "value": ""
+        },
+        "priority": "",
+        "resources": [],
+        "items": [],
+        "addresses": [],
+        "contacts": [],
+        "events": [],
+        "projectUrl": "/app/accounting/project/project.nl?id=1509&compid=TSTDRV2617106",
+        "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=6&compid=TSTDRV2617106",
+        "soUrl": "/app/accounting/transactions/salesord.nl?id=11727&compid=TSTDRV2617106",
+        "esthours": ""
+    }, {
+        "id": "5",
+        "name": "Installation of chairs",
+        "title": "Installation of chairs",
+        "project": {
+            "text": "",
+            "value": ""
+        },
+        "date": "7/19/2024",
+        "status": {
+            "text": "Closed",
+            "value": "3",
+            "code": "#6c757d"
+        },
+        "type": {
+            "text": "Demo",
+            "value": "1"
+        },
+        "memo": "<p><span style=\"color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);\">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus id malesuada enim, sed fringilla turpis. Nullam sed viverra risus. Fusce maximus sapien et neque elementum, et feugiat orci efficitur. Suspendisse faucibus lacus id justo tempus tempor.</span></p>",
+        "salesorder": {
+            "text": "Sales Order #SLS00000604",
+            "value": "11716"
+        },
+        "customer": {
+            "text": "AB&I Holdings",
+            "value": "1249"
+        },
+        "resourceGroup": {
+            "text": "",
+            "value": ""
+        },
+        "priority": "",
+        "resources": [],
+        "items": [],
+        "addresses": [{
+            "id": "25",
+            "workorder": {
+                "text": "Installation of chairs",
+                "value": "5"
+            },
+            "customer": {
+                "text": "AB&I Holdings",
+                "value": "1249"
+            },
+            "events": [],
+            "address": {
+                "text": "AB&I Holdings (244879)",
+                "value": "244879"
+            },
+            "addressDetails": "United States",
+            "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+        }],
+        "contacts": [],
+        "events": [],
+        "projectUrl": "/app/accounting/project/project.nl?compid=TSTDRV2617106",
+        "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=5&compid=TSTDRV2617106",
+        "soUrl": "/app/accounting/transactions/salesord.nl?id=11716&compid=TSTDRV2617106",
+        "esthours": ""
+    }, {
+        "id": "4",
+        "name": "Demo",
+        "title": "Demo",
+        "project": {
+            "text": "AB&I Holdings : Parking Lot Construction",
+            "value": "1515"
+        },
+        "date": "7/29/2024",
+        "status": {
+            "text": "In Progress",
+            "value": "1",
+            "code": "#026adf"
+        },
+        "type": {
+            "text": "Standard",
+            "value": "5"
+        },
+        "memo": "",
+        "salesorder": {
+            "text": "Sales Order #SLS00000609",
+            "value": "11722"
+        },
+        "customer": {
+            "text": "AB&I Holdings",
+            "value": "1249"
+        },
+        "resourceGroup": {
+            "text": "",
+            "value": ""
+        },
+        "priority": "",
+        "resources": [],
+        "items": [],
+        "addresses": [{
+            "id": "4",
+            "workorder": {
+                "text": "Demo",
+                "value": "4"
+            },
+            "customer": {
+                "text": "AB&I Holdings",
+                "value": "1249"
+            },
+            "events": [],
+            "address": {
+                "text": "1701 Rollins Road",
+                "value": "244878"
+            },
+            "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+            "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+        }],
+        "contacts": [{
+            "id": "4",
+            "workorder": {
+                "text": "Demo",
+                "value": "4"
+            },
+            "events": [],
+            "contact": {
+                "text": "AB&I Holdings : Chad Bass",
+                "value": "1382"
+            },
+            "name": "Chad Bass",
+            "email": "cbass@sbi.com",
+            "jobTitle": "President",
+            "mobilePhone": "",
+            "phone": "",
+            "primary": "",
+            "url": "/app/common/entity/contact.nl?id=1382&compid=TSTDRV2617106"
+        }],
+        "events": [],
+        "projectUrl": "/app/accounting/project/project.nl?id=1515&compid=TSTDRV2617106",
+        "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=4&compid=TSTDRV2617106",
+        "soUrl": "/app/accounting/transactions/salesord.nl?id=11722&compid=TSTDRV2617106",
+        "esthours": "10"
+    }, {
+        "id": "3",
+        "name": "Installation of Furnitures - Edit",
+        "title": "Installation of Furnitures - Edit",
+        "project": {
+            "text": "AB&I Holdings : Parking Lot Construction",
+            "value": "1515"
+        },
+        "date": "7/5/2024",
+        "status": {
+            "text": "Not Started",
+            "value": "4",
+            "code": "#026adf"
+        },
+        "type": {
+            "text": "Demo",
+            "value": "1"
+        },
+        "memo": "<p><span style=\"background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);\">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus id malesuada enim, sed fringilla turpis. Nullam sed viverra risus. Fusce maximus sapien et neque elementum, et feugiat orci efficitur. Suspendisse faucibus lacus id justo tempus tempor.</span></p><p></p><p><span style=\"background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);\">Vestibulum vehicula, libero sed interdum lobortis, nisi dolor tincidunt leo, vel accumsan erat mi et justo. Proin consectetur felis semper varius viverra. Nam neque nulla, feugiat ac tempor in, aliquet sed enim.</span></p><p></p><p><strong style=\"background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);\">Fusce mattis, diam non tempus lacinia, diam eros semper mauris, a egestas lacus libero eget sapien. Donec convallis sit amet velit non euismod.</strong></p>",
+        "salesorder": {
+            "text": "Sales Order #SLS00000609",
+            "value": "11722"
+        },
+        "customer": {
+            "text": "AB&I Holdings",
+            "value": "1249"
+        },
+        "resourceGroup": {
+            "text": "",
+            "value": ""
+        },
+        "priority": "",
+        "resources": [],
+        "items": [{
+            "id": "5",
+            "workorder": {
+                "text": "Installation of Furnitures - Edit",
+                "value": "3"
+            },
+            "events": [],
+            "uuid": "",
+            "line": "",
+            "item": {
+                "text": "",
+                "value": ""
+            },
+            "description": "",
+            "quantity": 0,
+            "note": ""
+        }, {
+            "id": "6",
+            "workorder": {
+                "text": "Installation of Furnitures - Edit",
+                "value": "3"
+            },
+            "events": [],
+            "uuid": "",
+            "line": "",
+            "item": {
+                "text": "",
+                "value": ""
+            },
+            "description": "",
+            "quantity": 0,
+            "note": ""
+        }],
+        "addresses": [{
+            "id": "3",
+            "workorder": {
+                "text": "Installation of Furnitures - Edit",
+                "value": "3"
+            },
+            "customer": {
+                "text": "AB&I Holdings",
+                "value": "1249"
+            },
+            "events": [],
+            "address": {
+                "text": "1701 Rollins Road",
+                "value": "244878"
+            },
+            "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+            "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+        }],
+        "contacts": [{
+            "id": "3",
+            "workorder": {
+                "text": "Installation of Furnitures - Edit",
+                "value": "3"
+            },
+            "events": [],
+            "contact": {
+                "text": "AB&I Holdings : Chad Bass",
+                "value": "1382"
+            },
+            "name": "Chad Bass",
+            "email": "cbass@sbi.com",
+            "jobTitle": "President",
+            "mobilePhone": "",
+            "phone": "",
+            "primary": "",
+            "url": "/app/common/entity/contact.nl?id=1382&compid=TSTDRV2617106"
+        }],
+        "events": [],
+        "projectUrl": "/app/accounting/project/project.nl?id=1515&compid=TSTDRV2617106",
+        "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=3&compid=TSTDRV2617106",
+        "soUrl": "/app/accounting/transactions/salesord.nl?id=11722&compid=TSTDRV2617106",
+        "esthours": "20"
+    }, {
+        "id": "2",
+        "name": "Installation of Furnitures",
+        "title": "Installation of Furnitures",
+        "project": {
+            "text": "",
+            "value": ""
+        },
+        "date": "7/5/2024",
+        "status": {
+            "text": "Not Started",
+            "value": "4",
+            "code": "#026adf"
+        },
+        "type": {
+            "text": "Demo",
+            "value": "1"
+        },
+        "memo": "<p><span style=\"background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);\">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus id malesuada enim, sed fringilla turpis. Nullam sed viverra risus. Fusce maximus sapien et neque elementum, et feugiat orci efficitur. Suspendisse faucibus lacus id justo tempus tempor.</span></p><p></p><p><span style=\"background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);\">Vestibulum vehicula, libero sed interdum lobortis, nisi dolor tincidunt leo, vel accumsan erat mi et justo. Proin consectetur felis semper varius viverra. Nam neque nulla, feugiat ac tempor in, aliquet sed enim.</span></p><p></p><p><strong style=\"background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);\">Fusce mattis, diam non tempus lacinia, diam eros semper mauris, a egestas lacus libero eget sapien. Donec convallis sit amet velit non euismod.</strong></p>",
+        "salesorder": {
+            "text": "Sales Order #SLS00000609",
+            "value": "11722"
+        },
+        "customer": {
+            "text": "AB&I Holdings",
+            "value": "1249"
+        },
+        "resourceGroup": {
+            "text": "",
+            "value": ""
+        },
+        "priority": "",
+        "resources": [],
+        "items": [{
+            "id": "3",
+            "workorder": {
+                "text": "Installation of Furnitures",
+                "value": "2"
+            },
+            "events": [],
+            "uuid": "11722_1",
+            "line": "1",
+            "item": {
+                "text": "4321GR",
+                "value": "1015"
+            },
+            "description": "11 POCKET MAGAZINE RACK",
+            "quantity": 2,
+            "note": ""
+        }, {
+            "id": "4",
+            "workorder": {
+                "text": "Installation of Furnitures",
+                "value": "2"
+            },
+            "events": [],
+            "uuid": "11722_2",
+            "line": "2",
+            "item": {
+                "text": "7031-0501",
+                "value": "1047"
+            },
+            "description": "Friction Pad, Non-Carpeted Surfaces, Svc",
+            "quantity": 1,
+            "note": ""
+        }],
+        "addresses": [{
+            "id": "2",
+            "workorder": {
+                "text": "Installation of Furnitures",
+                "value": "2"
+            },
+            "customer": {
+                "text": "AB&I Holdings",
+                "value": "1249"
+            },
+            "events": [],
+            "address": {
+                "text": "1701 Rollins Road",
+                "value": "244878"
+            },
+            "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+            "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+        }],
+        "contacts": [{
+            "id": "2",
+            "workorder": {
+                "text": "Installation of Furnitures",
+                "value": "2"
+            },
+            "events": [],
+            "contact": {
+                "text": "AB&I Holdings : Chad Bass",
+                "value": "1382"
+            },
+            "name": "Chad Bass",
+            "email": "cbass@sbi.com",
+            "jobTitle": "President",
+            "mobilePhone": "",
+            "phone": "",
+            "primary": "",
+            "url": "/app/common/entity/contact.nl?id=1382&compid=TSTDRV2617106"
+        }],
+        "events": [],
+        "projectUrl": "/app/accounting/project/project.nl?compid=TSTDRV2617106",
+        "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=2&compid=TSTDRV2617106",
+        "soUrl": "/app/accounting/transactions/salesord.nl?id=11722&compid=TSTDRV2617106",
+        "esthours": "20"
+    }, {
+        "id": "1",
+        "name": "Install Furniture",
+        "title": "Install Furniture",
+        "project": {
+            "text": "AB&I Holdings : Parking Lot Construction",
+            "value": "1515"
+        },
+        "date": "7/5/2024",
+        "status": {
+            "text": "Hold",
+            "value": "7",
+            "code": "#6c757d"
+        },
+        "type": {
+            "text": "Demo",
+            "value": "1"
+        },
+        "memo": "<p><span style=\"background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);\">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus id malesuada enim, sed fringilla turpis. Nullam sed viverra risus. Fusce maximus sapien et neque elementum, et feugiat orci efficitur. Suspendisse faucibus lacus id justo tempus tempor. </span></p><p></p><p><span style=\"background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);\">Vestibulum vehicula, libero sed interdum lobortis, nisi dolor tincidunt leo, vel accumsan erat mi et justo. Proin consectetur felis semper varius viverra. Nam neque nulla, feugiat ac tempor in, aliquet sed enim. </span></p><p></p><p><strong style=\"background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);\">Fusce mattis, diam non tempus lacinia, diam eros semper mauris, a egestas lacus libero eget sapien. Donec convallis sit amet velit non euismod.</strong></p>",
+        "salesorder": {
+            "text": "Sales Order #SLS00000609",
+            "value": "11722"
+        },
+        "customer": {
+            "text": "AB&I Holdings",
+            "value": "1249"
+        },
+        "resourceGroup": {
+            "text": "",
+            "value": ""
+        },
+        "priority": "",
+        "resources": [],
+        "items": [{
+            "id": "1",
+            "workorder": {
+                "text": "Install Furniture",
+                "value": "1"
+            },
+            "events": ["100792", "100798"],
+            "uuid": "11722_1",
+            "line": "1",
+            "item": {
+                "text": "4321GR",
+                "value": "1015"
+            },
+            "description": "11 POCKET MAGAZINE RACK",
+            "quantity": 2,
+            "note": ""
+        }, {
+            "id": "2",
+            "workorder": {
+                "text": "Install Furniture",
+                "value": "1"
+            },
+            "events": ["100792", "100798"],
+            "uuid": "11722_3",
+            "line": "3",
+            "item": {
+                "text": "BAG00002",
+                "value": "837"
+            },
+            "description": "Sling Laptop Bag",
+            "quantity": 10,
+            "note": ""
+        }],
+        "addresses": [{
+            "id": "1",
+            "workorder": {
+                "text": "Install Furniture",
+                "value": "1"
+            },
+            "customer": {
+                "text": "AB&I Holdings",
+                "value": "1249"
+            },
+            "events": ["100792", "100798"],
+            "address": {
+                "text": "1701 Rollins Road",
+                "value": "244878"
+            },
+            "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+            "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+        }],
+        "contacts": [{
+            "id": "1",
+            "workorder": {
+                "text": "Install Furniture",
+                "value": "1"
+            },
+            "events": ["100682", "100798"],
+            "contact": {
+                "text": "AB&I Holdings : Chad Bass",
+                "value": "1382"
+            },
+            "name": "Chad Bass",
+            "email": "cbass@sbi.com",
+            "jobTitle": "President",
+            "mobilePhone": "",
+            "phone": "",
+            "primary": "checked",
+            "url": "/app/common/entity/contact.nl?id=1382&compid=TSTDRV2617106"
+        }, {
+            "id": "15",
+            "workorder": {
+                "text": "Install Furniture",
+                "value": "1"
+            },
+            "events": ["18", "100798"],
+            "contact": {
+                "text": "Pravallika Desetty",
+                "value": "1648"
+            },
+            "name": "Pravallika Desetty",
+            "email": "pravallika@erpsuccesspartners.com",
+            "jobTitle": "",
+            "mobilePhone": "",
+            "phone": "",
+            "primary": "",
+            "url": "/app/common/entity/contact.nl?id=1648&compid=TSTDRV2617106"
+        }],
+        "events": [{
+            "id": "100682",
+            "title": "TEST EVENT 123",
+            "workorder": {
+                "text": "Install Furniture",
+                "value": "1"
+            },
+            "project": {
+                "text": "AB&I Holdings : Lobby Remodel",
+                "value": "1514"
+            },
+            "location": "",
+            "status": {
+                "text": "Confirmed",
+                "value": "CONFIRMED",
+                "code": "bg-success"
+            },
+            "date": {
+                "recurrence": "one time event on 7/4/2024",
+                "start": "2024-07-04",
+                "end": "2024-07-04"
+            },
+            "time": {
+                "start": "22:00",
+                "end": "23:00"
+            },
+            "priority": {
+                "text": "High",
+                "value": "3",
+                "code": "#ca6621"
+            },
+            "note": "TEST12345",
+            "url": "/app/crm/calendar/event.nl?id=100682&compid=TSTDRV2617106&selectedtab=custom337",
+            "color": "#1a6756",
+            "woRef": {},
+            "resources": [],
+            "items": [],
+            "contacts": [],
+            "addresses": [],
+            "contact": {
+                "text": "1",
+                "value": "1"
+            },
+            "address": {
+                "text": "",
+                "value": ""
+            }
+        }, {
+            "id": "100718",
+            "title": "Install Furniture",
+            "workorder": {
+                "text": "Install Furniture",
+                "value": "1"
+            },
+            "project": {
+                "text": "AB&I Holdings : Parking Lot Construction",
+                "value": "1515"
+            },
+            "location": "01: San Francisco",
+            "status": {
+                "text": "Confirmed",
+                "value": "CONFIRMED",
+                "code": "bg-success"
+            },
+            "date": {
+                "recurrence": "one time event on 7/9/2024",
+                "start": "2024-07-09",
+                "end": "2024-07-09"
+            },
+            "time": {
+                "start": "07:00",
+                "end": "21:00"
+            },
+            "priority": {
+                "text": "Medium",
+                "value": "2",
+                "code": "#dfcf02"
+            },
+            "note": "XXX\nYYY\nZZZ",
+            "url": "/app/crm/calendar/event.nl?id=100718&compid=TSTDRV2617106&selectedtab=custom337",
+            "color": "#1a6756",
+            "woRef": {},
+            "resources": [],
+            "items": [],
+            "contacts": [],
+            "addresses": [],
+            "contact": {
+                "text": "",
+                "value": ""
+            },
+            "address": {
+                "text": "",
+                "value": ""
+            }
+        }, {
+            "id": "100792",
+            "title": "Install Furniture XYZ",
+            "workorder": {
+                "text": "Install Furniture",
+                "value": "1"
+            },
+            "project": {
+                "text": "AB&I Holdings : Parking Lot Construction",
+                "value": "1515"
+            },
+            "location": "",
+            "status": {
+                "text": "Tentative",
+                "value": "TENTATIVE",
+                "code": "bg-secondary"
+            },
+            "date": {
+                "recurrence": "one time event on 9/11/2024",
+                "start": "2024-09-11",
+                "end": "2024-09-11"
+            },
+            "time": {
+                "start": "08:00",
+                "end": "18:00"
+            },
+            "priority": {
+                "text": "High",
+                "value": "3",
+                "code": "#ca6621"
+            },
+            "note": "AAA\nBBB",
+            "url": "/app/crm/calendar/event.nl?id=100792&compid=TSTDRV2617106&selectedtab=custom337",
+            "color": "#1a6756",
+            "woRef": {},
+            "resources": [],
+            "items": [],
+            "contacts": [],
+            "addresses": [],
+            "contact": {
+                "text": "1",
+                "value": "1"
+            },
+            "address": {
+                "text": "1",
+                "value": "1"
+            }
+        }, {
+            "id": "100794",
+            "title": "Install Furniture 123",
+            "workorder": {
+                "text": "Install Furniture",
+                "value": "1"
+            },
+            "project": {
+                "text": "AB&I Holdings : Parking Lot Construction",
+                "value": "1515"
+            },
+            "location": "",
+            "status": {
+                "text": "Tentative",
+                "value": "TENTATIVE",
+                "code": "bg-secondary"
+            },
+            "date": {
+                "recurrence": "occurs every day from 9/11/2024 until 9/12/2024",
+                "start": "2024-09-11",
+                "end": "2024-09-12"
+            },
+            "time": {
+                "start": "08:00",
+                "end": "18:00"
+            },
+            "priority": {
+                "text": "Urgent",
+                "value": "4",
+                "code": "#9a2407"
+            },
+            "note": "ASD\nBBBB",
+            "url": "/app/crm/calendar/event.nl?id=100794&compid=TSTDRV2617106&selectedtab=custom337",
+            "color": "#1a6756",
+            "woRef": {},
+            "resources": [],
+            "items": [],
+            "contacts": [],
+            "addresses": [],
+            "contact": {
+                "text": "15",
+                "value": "15"
+            },
+            "address": {
+                "text": "1",
+                "value": "1"
+            }
+        }, {
+            "id": "100796",
+            "title": "Install Furniture 12345",
+            "workorder": {
+                "text": "Install Furniture",
+                "value": "1"
+            },
+            "project": {
+                "text": "AB&I Holdings : Parking Lot Construction",
+                "value": "1515"
+            },
+            "location": "",
+            "status": {
+                "text": "Tentative",
+                "value": "TENTATIVE",
+                "code": "bg-secondary"
+            },
+            "date": {
+                "recurrence": "occurs every day from 9/11/2024 until 9/12/2024",
+                "start": "2024-09-11",
+                "end": "2024-09-12"
+            },
+            "time": {
+                "start": "08:00",
+                "end": "19:00"
+            },
+            "priority": {
+                "text": "Medium",
+                "value": "2",
+                "code": "#dfcf02"
+            },
+            "note": "XYZ\n123",
+            "url": "/app/crm/calendar/event.nl?id=100796&compid=TSTDRV2617106&selectedtab=custom337",
+            "color": "#1a6756",
+            "woRef": {},
+            "resources": [],
+            "items": [],
+            "contacts": [],
+            "addresses": [],
+            "contact": {
+                "text": "1",
+                "value": "1"
+            },
+            "address": {
+                "text": "1",
+                "value": "1"
+            }
+        }, {
+            "id": "100798",
+            "title": "Install Furniture XYZ",
+            "workorder": {
+                "text": "Install Furniture",
+                "value": "1"
+            },
+            "project": {
+                "text": "AB&I Holdings : Parking Lot Construction",
+                "value": "1515"
+            },
+            "location": "",
+            "status": {
+                "text": "Confirmed",
+                "value": "CONFIRMED",
+                "code": "bg-success"
+            },
+            "date": {
+                "recurrence": "occurs every day from 9/12/2024 until 9/13/2024",
+                "start": "2024-09-12",
+                "end": "2024-09-13"
+            },
+            "time": {
+                "start": "08:00",
+                "end": "18:00"
+            },
+            "priority": {
+                "text": "High",
+                "value": "3",
+                "code": "#ca6621"
+            },
+            "note": "TEST ABCD",
+            "url": "/app/crm/calendar/event.nl?id=100798&compid=TSTDRV2617106&selectedtab=custom337",
+            "color": "#1a6756",
+            "woRef": {},
+            "resources": [],
+            "items": [],
+            "contacts": [],
+            "addresses": [],
+            "contact": {
+                "text": "1",
+                "value": "1"
+            },
+            "address": {
+                "text": "1",
+                "value": "1"
+            }
+        }],
+        "projectUrl": "/app/accounting/project/project.nl?id=1515&compid=TSTDRV2617106",
+        "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=1&compid=TSTDRV2617106",
+        "soUrl": "/app/accounting/transactions/salesord.nl?id=11722&compid=TSTDRV2617106",
+        "esthours": "10"
+    }],
+    "customers": [{
+        "text": "AB&I Holdings",
+        "value": "1249"
+    }, {
+        "text": "Test site test",
+        "value": "1898"
+    }, {
+        "text": "3M",
+        "value": "1397"
+    }, {
+        "text": "Test For site checklist",
+        "value": "1888"
+    }, {
+        "text": "Test Test",
+        "value": "1493"
+    }, {
+        "text": "Anonymous Customer HQ",
+        "value": "1599"
+    }],
+    "resources": {
+        "all": [{
+            "employee": {
+                "text": "Bea Dashboards",
+                "value": "1767"
+            },
+            "initials": "BD",
+            "email": "beatrice.q@erpsuccesspartners.com",
+            "phone": "",
+            "location": {
+                "text": "01: San Francisco",
+                "value": "2"
+            },
+            "active": true,
+            "resourceGroup": {
+                "text": "Drivers",
+                "value": "3"
+            },
+            "type": {
+                "text": "Delivery Driver",
+                "value": "2"
+            },
+            "color": "#554de2",
+            "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fcompid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
+            "events": ["100682", "100798"]
+        }, {
+            "employee": {
+                "text": "Bonita Kane",
+                "value": "912"
+            },
+            "initials": "BK",
+            "email": "bdickens@ramsey.com",
+            "phone": "(123) 456-7890",
+            "location": {
+                "text": "02: Boston",
+                "value": "1"
+            },
+            "active": true,
+            "resourceGroup": {
+                "text": "Installers",
+                "value": "1"
+            },
+            "type": {
+                "text": "Installer",
+                "value": "1"
+            },
+            "color": "#cbb24c",
+            "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fcompid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
+            "events": ["100792", "100798"]
+        }, {
+            "employee": {
+                "text": "Gary Grant",
+                "value": "1312"
+            },
+            "initials": "GG",
+            "email": "garygrant@ramsey.com",
+            "phone": "(873) 775-6114",
+            "location": {
+                "text": "02: Boston",
+                "value": "1"
+            },
+            "active": true,
+            "resourceGroup": {
+                "text": "Installers",
+                "value": "1"
+            },
+            "type": {
+                "text": "Designer",
+                "value": "3"
+            },
+            "color": "#bc3567",
+            "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fcompid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
+            "events": ["100786", "100798"]
+        }, {
+            "employee": {
+                "text": "Matt Nolan",
+                "value": "1292"
+            },
+            "initials": "MN",
+            "email": "mnolan@ramsey.com",
+            "phone": "",
+            "location": {
+                "text": "01: San Francisco",
+                "value": "2"
+            },
+            "active": true,
+            "resourceGroup": {
+                "text": "Designers",
+                "value": "2"
+            },
+            "type": {
+                "text": "Designer",
+                "value": "3"
+            },
+            "color": "#e57d29",
+            "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fcompid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
+            "events": ["100767", "100794"]
+        }, {
+            "employee": {
+                "text": "Mei Matriano",
+                "value": "1647"
+            },
+            "initials": "MM",
+            "email": "mei@erpsuccesspartners.com",
+            "phone": "",
+            "location": {
+                "text": "",
+                "value": ""
+            },
+            "active": true,
+            "resourceGroup": {
+                "text": "Designers",
+                "value": "2"
+            },
+            "type": {
+                "text": "Installer",
+                "value": "1"
+            },
+            "color": "#f1484c",
+            "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fcompid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
+            "events": ["100767", "100794"]
+        }, {
+            "employee": {
+                "text": "Rowe Riomalos",
+                "value": "1766"
+            },
+            "initials": "RR",
+            "email": "rowe@erpsuccesspartners.com",
+            "phone": "",
+            "location": {
+                "text": "",
+                "value": ""
+            },
+            "active": false,
+            "resourceGroup": {
+                "text": "Designers",
+                "value": "2"
+            },
+            "type": {
+                "text": "",
+                "value": ""
+            },
+            "color": "#7d5f3c",
+            "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fcompid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
+            "events": []
+        }, {
+            "employee": {
+                "text": "Youssef Ezz",
+                "value": "1656"
+            },
+            "initials": "YE",
+            "email": "yk@erpsuccesspartners.com",
+            "phone": "",
+            "location": {
+                "text": "",
+                "value": ""
+            },
+            "active": true,
+            "resourceGroup": {
+                "text": "Installers",
+                "value": "1"
+            },
+            "type": {
+                "text": "Installer",
+                "value": "1"
+            },
+            "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fcompid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
+            "events": ["100767", "100794"]
+        }],
+        "active": [{
+            "employee": {
+                "text": "Bea Dashboards",
+                "value": "1767"
+            },
+            "initials": "BD",
+            "email": "beatrice.q@erpsuccesspartners.com",
+            "phone": "",
+            "location": {
+                "text": "01: San Francisco",
+                "value": "2"
+            },
+            "active": true,
+            "resourceGroup": {
+                "text": "Drivers",
+                "value": "3"
+            },
+            "type": {
+                "text": "Delivery Driver",
+                "value": "2"
+            },
+            "color": "#554de2",
+            "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fcompid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
+            "events": ["100682", "100798"]
+        }, {
+            "employee": {
+                "text": "Bonita Kane",
+                "value": "912"
+            },
+            "initials": "BK",
+            "email": "bdickens@ramsey.com",
+            "phone": "(123) 456-7890",
+            "location": {
+                "text": "02: Boston",
+                "value": "1"
+            },
+            "active": true,
+            "resourceGroup": {
+                "text": "Installers",
+                "value": "1"
+            },
+            "type": {
+                "text": "Installer",
+                "value": "1"
+            },
+            "color": "#cbb24c",
+            "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fcompid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
+            "events": ["100792", "100798"]
+        }, {
+            "employee": {
+                "text": "Gary Grant",
+                "value": "1312"
+            },
+            "initials": "GG",
+            "email": "garygrant@ramsey.com",
+            "phone": "(873) 775-6114",
+            "location": {
+                "text": "02: Boston",
+                "value": "1"
+            },
+            "active": true,
+            "resourceGroup": {
+                "text": "Installers",
+                "value": "1"
+            },
+            "type": {
+                "text": "Designer",
+                "value": "3"
+            },
+            "color": "#bc3567",
+            "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fcompid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
+            "events": ["100786", "100798"]
+        }, {
+            "employee": {
+                "text": "Matt Nolan",
+                "value": "1292"
+            },
+            "initials": "MN",
+            "email": "mnolan@ramsey.com",
+            "phone": "",
+            "location": {
+                "text": "01: San Francisco",
+                "value": "2"
+            },
+            "active": true,
+            "resourceGroup": {
+                "text": "Designers",
+                "value": "2"
+            },
+            "type": {
+                "text": "Designer",
+                "value": "3"
+            },
+            "color": "#e57d29",
+            "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fcompid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
+            "events": ["100767", "100794"]
+        }, {
+            "employee": {
+                "text": "Mei Matriano",
+                "value": "1647"
+            },
+            "initials": "MM",
+            "email": "mei@erpsuccesspartners.com",
+            "phone": "",
+            "location": {
+                "text": "",
+                "value": ""
+            },
+            "active": true,
+            "resourceGroup": {
+                "text": "Designers",
+                "value": "2"
+            },
+            "type": {
+                "text": "Installer",
+                "value": "1"
+            },
+            "color": "#f1484c",
+            "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fcompid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
+            "events": ["100767", "100794"]
+        }, {
+            "employee": {
+                "text": "Youssef Ezz",
+                "value": "1656"
+            },
+            "initials": "YE",
+            "email": "yk@erpsuccesspartners.com",
+            "phone": "",
+            "location": {
+                "text": "",
+                "value": ""
+            },
+            "active": true,
+            "resourceGroup": {
+                "text": "Installers",
+                "value": "1"
+            },
+            "type": {
+                "text": "Installer",
+                "value": "1"
+            },
+            "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fcompid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
+            "events": ["100767", "100794"]
+        }]
+    },
+    "resourceGroups": [{
+        "text": "Installers",
+        "value": "1",
+        "resources": [{
+            "employee": {
+                "text": "Bonita Kane",
+                "value": "912"
+            },
+            "initials": "BK",
+            "email": "bdickens@ramsey.com",
+            "phone": "(123) 456-7890",
+            "location": {
+                "text": "02: Boston",
+                "value": "1"
+            },
+            "active": true,
+            "resourceGroup": {
+                "text": "Installers",
+                "value": "1"
+            },
+            "type": {
+                "text": "Installer",
+                "value": "1"
+            },
+            "color": "#cbb24c",
+            "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fcompid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
+            "events": ["100792", "100798"]
+        }, {
+            "employee": {
+                "text": "Gary Grant",
+                "value": "1312"
+            },
+            "initials": "GG",
+            "email": "garygrant@ramsey.com",
+            "phone": "(873) 775-6114",
+            "location": {
+                "text": "02: Boston",
+                "value": "1"
+            },
+            "active": true,
+            "resourceGroup": {
+                "text": "Installers",
+                "value": "1"
+            },
+            "type": {
+                "text": "Designer",
+                "value": "3"
+            },
+            "color": "#bc3567",
+            "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fcompid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
+            "events": ["100786", "100798"]
+        }, {
+            "employee": {
+                "text": "Youssef Ezz",
+                "value": "1656"
+            },
+            "initials": "YE",
+            "email": "yk@erpsuccesspartners.com",
+            "phone": "",
+            "location": {
+                "text": "",
+                "value": ""
+            },
+            "active": true,
+            "resourceGroup": {
+                "text": "Installers",
+                "value": "1"
+            },
+            "type": {
+                "text": "Installer",
+                "value": "1"
+            },
+            "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fcompid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
+            "events": ["100767", "100794"]
+        }],
+        "resourceCount": 3
+    }, {
+        "text": "Designers",
+        "value": "2",
+        "resources": [{
+            "employee": {
+                "text": "Matt Nolan",
+                "value": "1292"
+            },
+            "initials": "MN",
+            "email": "mnolan@ramsey.com",
+            "phone": "",
+            "location": {
+                "text": "01: San Francisco",
+                "value": "2"
+            },
+            "active": true,
+            "resourceGroup": {
+                "text": "Designers",
+                "value": "2"
+            },
+            "type": {
+                "text": "Designer",
+                "value": "3"
+            },
+            "color": "#e57d29",
+            "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fcompid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
+            "events": ["100767", "100794"]
+        }, {
+            "employee": {
+                "text": "Mei Matriano",
+                "value": "1647"
+            },
+            "initials": "MM",
+            "email": "mei@erpsuccesspartners.com",
+            "phone": "",
+            "location": {
+                "text": "",
+                "value": ""
+            },
+            "active": true,
+            "resourceGroup": {
+                "text": "Designers",
+                "value": "2"
+            },
+            "type": {
+                "text": "Installer",
+                "value": "1"
+            },
+            "color": "#f1484c",
+            "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fcompid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
+            "events": ["100767", "100794"]
+        }, {
+            "employee": {
+                "text": "Rowe Riomalos",
+                "value": "1766"
+            },
+            "initials": "RR",
+            "email": "rowe@erpsuccesspartners.com",
+            "phone": "",
+            "location": {
+                "text": "",
+                "value": ""
+            },
+            "active": false,
+            "resourceGroup": {
+                "text": "Designers",
+                "value": "2"
+            },
+            "type": {
+                "text": "",
+                "value": ""
+            },
+            "color": "#7d5f3c",
+            "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fcompid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
+            "events": []
+        }],
+        "resourceCount": 3
+    }, {
+        "text": "Drivers",
+        "value": "3",
+        "resources": [{
+            "employee": {
+                "text": "Bea Dashboards",
+                "value": "1767"
+            },
+            "initials": "BD",
+            "email": "beatrice.q@erpsuccesspartners.com",
+            "phone": "",
+            "location": {
+                "text": "01: San Francisco",
+                "value": "2"
+            },
+            "active": true,
+            "resourceGroup": {
+                "text": "Drivers",
+                "value": "3"
+            },
+            "type": {
+                "text": "Delivery Driver",
+                "value": "2"
+            },
+            "color": "#554de2",
+            "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fcompid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
+            "events": ["100682", "100798"]
+        }],
+        "resourceCount": 1
+    }],
+    "events": [{
+        "id": "100682",
+        "title": "TEST EVENT 123",
+        "workorder": {
+            "text": "Install Furniture",
+            "value": "1"
+        },
+        "project": {
+            "text": "AB&I Holdings : Lobby Remodel",
+            "value": "1514"
+        },
+        "location": "",
+        "status": {
+            "text": "Confirmed",
+            "value": "CONFIRMED",
+            "code": "bg-success"
+        },
+        "date": {
+            "recurrence": "one time event on 7/4/2024",
+            "start": "2024-07-04",
+            "end": "2024-07-04"
+        },
+        "time": {
+            "start": "22:00",
+            "end": "23:00"
+        },
+        "priority": {
+            "text": "High",
+            "value": "3",
+            "code": "#ca6621"
+        },
+        "note": "TEST12345",
+        "url": "/app/crm/calendar/event.nl?id=100682&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {
+            "id": "1",
+            "name": "Install Furniture",
+            "title": "Install Furniture",
+            "project": {
+                "text": "AB&I Holdings : Parking Lot Construction",
+                "value": "1515"
+            },
+            "date": "7/5/2024",
+            "status": {
+                "text": "Hold",
+                "value": "7",
+                "code": "#6c757d"
+            },
+            "type": {
+                "text": "Demo",
+                "value": "1"
+            },
+            "memo": "<p><span style=\"background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);\">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus id malesuada enim, sed fringilla turpis. Nullam sed viverra risus. Fusce maximus sapien et neque elementum, et feugiat orci efficitur. Suspendisse faucibus lacus id justo tempus tempor. </span></p><p></p><p><span style=\"background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);\">Vestibulum vehicula, libero sed interdum lobortis, nisi dolor tincidunt leo, vel accumsan erat mi et justo. Proin consectetur felis semper varius viverra. Nam neque nulla, feugiat ac tempor in, aliquet sed enim. </span></p><p></p><p><strong style=\"background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);\">Fusce mattis, diam non tempus lacinia, diam eros semper mauris, a egestas lacus libero eget sapien. Donec convallis sit amet velit non euismod.</strong></p>",
+            "salesorder": {
+                "text": "Sales Order #SLS00000609",
+                "value": "11722"
+            },
+            "customer": {
+                "text": "AB&I Holdings",
+                "value": "1249"
+            },
+            "resourceGroup": {
+                "text": "",
+                "value": ""
+            },
+            "priority": "",
+            "resources": [],
+            "items": [{
+                "id": "1",
+                "workorder": {
+                    "text": "Install Furniture",
+                    "value": "1"
+                },
+                "events": ["100792", "100798"],
+                "uuid": "11722_1",
+                "line": "1",
+                "item": {
+                    "text": "4321GR",
+                    "value": "1015"
+                },
+                "description": "11 POCKET MAGAZINE RACK",
+                "quantity": 2,
+                "note": ""
+            }, {
+                "id": "2",
+                "workorder": {
+                    "text": "Install Furniture",
+                    "value": "1"
+                },
+                "events": ["100792", "100798"],
+                "uuid": "11722_3",
+                "line": "3",
+                "item": {
+                    "text": "BAG00002",
+                    "value": "837"
+                },
+                "description": "Sling Laptop Bag",
+                "quantity": 10,
+                "note": ""
+            }],
+            "addresses": [{
+                "id": "1",
+                "workorder": {
+                    "text": "Install Furniture",
+                    "value": "1"
+                },
+                "customer": {
+                    "text": "AB&I Holdings",
+                    "value": "1249"
+                },
+                "events": ["100792", "100798"],
+                "address": {
+                    "text": "1701 Rollins Road",
+                    "value": "244878"
+                },
+                "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+                "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+            }],
+            "contacts": [{
+                "id": "1",
+                "workorder": {
+                    "text": "Install Furniture",
+                    "value": "1"
+                },
+                "events": ["100682", "100798"],
+                "contact": {
+                    "text": "AB&I Holdings : Chad Bass",
+                    "value": "1382"
+                },
+                "name": "Chad Bass",
+                "email": "cbass@sbi.com",
+                "jobTitle": "President",
+                "mobilePhone": "",
+                "phone": "",
+                "primary": "checked",
+                "url": "/app/common/entity/contact.nl?id=1382&compid=TSTDRV2617106"
+            }, {
+                "id": "15",
+                "workorder": {
+                    "text": "Install Furniture",
+                    "value": "1"
+                },
+                "events": ["18", "100798"],
+                "contact": {
+                    "text": "Pravallika Desetty",
+                    "value": "1648"
+                },
+                "name": "Pravallika Desetty",
+                "email": "pravallika@erpsuccesspartners.com",
+                "jobTitle": "",
+                "mobilePhone": "",
+                "phone": "",
+                "primary": "",
+                "url": "/app/common/entity/contact.nl?id=1648&compid=TSTDRV2617106"
+            }],
+            "events": [{
+                "id": "100682",
+                "title": "TEST EVENT 123",
+                "workorder": {
+                    "text": "Install Furniture",
+                    "value": "1"
+                },
+                "project": {
+                    "text": "AB&I Holdings : Lobby Remodel",
+                    "value": "1514"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 7/4/2024",
+                    "start": "2024-07-04",
+                    "end": "2024-07-04"
+                },
+                "time": {
+                    "start": "22:00",
+                    "end": "23:00"
+                },
+                "priority": {
+                    "text": "High",
+                    "value": "3",
+                    "code": "#ca6621"
+                },
+                "note": "TEST12345",
+                "url": "/app/crm/calendar/event.nl?id=100682&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "1",
+                    "value": "1"
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100718",
+                "title": "Install Furniture",
+                "workorder": {
+                    "text": "Install Furniture",
+                    "value": "1"
+                },
+                "project": {
+                    "text": "AB&I Holdings : Parking Lot Construction",
+                    "value": "1515"
+                },
+                "location": "01: San Francisco",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 7/9/2024",
+                    "start": "2024-07-09",
+                    "end": "2024-07-09"
+                },
+                "time": {
+                    "start": "07:00",
+                    "end": "21:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "XXX\nYYY\nZZZ",
+                "url": "/app/crm/calendar/event.nl?id=100718&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100792",
+                "title": "Install Furniture XYZ",
+                "workorder": {
+                    "text": "Install Furniture",
+                    "value": "1"
+                },
+                "project": {
+                    "text": "AB&I Holdings : Parking Lot Construction",
+                    "value": "1515"
+                },
+                "location": "",
+                "status": {
+                    "text": "Tentative",
+                    "value": "TENTATIVE",
+                    "code": "bg-secondary"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/11/2024",
+                    "start": "2024-09-11",
+                    "end": "2024-09-11"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "18:00"
+                },
+                "priority": {
+                    "text": "High",
+                    "value": "3",
+                    "code": "#ca6621"
+                },
+                "note": "AAA\nBBB",
+                "url": "/app/crm/calendar/event.nl?id=100792&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "1",
+                    "value": "1"
+                },
+                "address": {
+                    "text": "1",
+                    "value": "1"
+                }
+            }, {
+                "id": "100794",
+                "title": "Install Furniture 123",
+                "workorder": {
+                    "text": "Install Furniture",
+                    "value": "1"
+                },
+                "project": {
+                    "text": "AB&I Holdings : Parking Lot Construction",
+                    "value": "1515"
+                },
+                "location": "",
+                "status": {
+                    "text": "Tentative",
+                    "value": "TENTATIVE",
+                    "code": "bg-secondary"
+                },
+                "date": {
+                    "recurrence": "occurs every day from 9/11/2024 until 9/12/2024",
+                    "start": "2024-09-11",
+                    "end": "2024-09-12"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "18:00"
+                },
+                "priority": {
+                    "text": "Urgent",
+                    "value": "4",
+                    "code": "#9a2407"
+                },
+                "note": "ASD\nBBBB",
+                "url": "/app/crm/calendar/event.nl?id=100794&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "15",
+                    "value": "15"
+                },
+                "address": {
+                    "text": "1",
+                    "value": "1"
+                }
+            }, {
+                "id": "100796",
+                "title": "Install Furniture 12345",
+                "workorder": {
+                    "text": "Install Furniture",
+                    "value": "1"
+                },
+                "project": {
+                    "text": "AB&I Holdings : Parking Lot Construction",
+                    "value": "1515"
+                },
+                "location": "",
+                "status": {
+                    "text": "Tentative",
+                    "value": "TENTATIVE",
+                    "code": "bg-secondary"
+                },
+                "date": {
+                    "recurrence": "occurs every day from 9/11/2024 until 9/12/2024",
+                    "start": "2024-09-11",
+                    "end": "2024-09-12"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "19:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "XYZ\n123",
+                "url": "/app/crm/calendar/event.nl?id=100796&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "1",
+                    "value": "1"
+                },
+                "address": {
+                    "text": "1",
+                    "value": "1"
+                }
+            }, {
+                "id": "100798",
+                "title": "Install Furniture XYZ",
+                "workorder": {
+                    "text": "Install Furniture",
+                    "value": "1"
+                },
+                "project": {
+                    "text": "AB&I Holdings : Parking Lot Construction",
+                    "value": "1515"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "occurs every day from 9/12/2024 until 9/13/2024",
+                    "start": "2024-09-12",
+                    "end": "2024-09-13"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "18:00"
+                },
+                "priority": {
+                    "text": "High",
+                    "value": "3",
+                    "code": "#ca6621"
+                },
+                "note": "TEST ABCD",
+                "url": "/app/crm/calendar/event.nl?id=100798&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "1",
+                    "value": "1"
+                },
+                "address": {
+                    "text": "1",
+                    "value": "1"
+                }
+            }],
+            "projectUrl": "/app/accounting/project/project.nl?id=1515&compid=TSTDRV2617106",
+            "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=1&compid=TSTDRV2617106",
+            "soUrl": "/app/accounting/transactions/salesord.nl?id=11722&compid=TSTDRV2617106",
+            "esthours": "10"
+        },
+        "resources": [{
+            "employee": {
+                "text": "Bea Dashboards",
+                "value": "1767"
+            },
+            "initials": "BD",
+            "email": "beatrice.q@erpsuccesspartners.com",
+            "phone": "",
+            "location": {
+                "text": "01: San Francisco",
+                "value": "2"
+            },
+            "active": true,
+            "resourceGroup": {
+                "text": "Drivers",
+                "value": "3"
+            },
+            "type": {
+                "text": "Delivery Driver",
+                "value": "2"
+            },
+            "color": "#554de2",
+            "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fcompid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
+            "events": ["100682", "100798"],
+            "selected": true
+        }],
+        "items": [],
+        "contacts": [{
+            "id": "1",
+            "workorder": {
+                "text": "Install Furniture",
+                "value": "1"
+            },
+            "events": ["100682", "100798"],
+            "contact": {
+                "text": "AB&I Holdings : Chad Bass",
+                "value": "1382"
+            },
+            "name": "Chad Bass",
+            "email": "cbass@sbi.com",
+            "jobTitle": "President",
+            "mobilePhone": "",
+            "phone": "",
+            "primary": "checked",
+            "url": "/app/common/entity/contact.nl?id=1382&compid=TSTDRV2617106",
+            "selected": true
+        }],
+        "addresses": [],
+        "contact": {
+            "text": "1",
+            "value": "1"
+        },
+        "address": {
+            "text": "",
+            "value": ""
+        }
+    }, {
+        "id": "100718",
+        "title": "Install Furniture",
+        "workorder": {
+            "text": "Install Furniture",
+            "value": "1"
+        },
+        "project": {
+            "text": "AB&I Holdings : Parking Lot Construction",
+            "value": "1515"
+        },
+        "location": "01: San Francisco",
+        "status": {
+            "text": "Confirmed",
+            "value": "CONFIRMED",
+            "code": "bg-success"
+        },
+        "date": {
+            "recurrence": "one time event on 7/9/2024",
+            "start": "2024-07-09",
+            "end": "2024-07-09"
+        },
+        "time": {
+            "start": "07:00",
+            "end": "21:00"
+        },
+        "priority": {
+            "text": "Medium",
+            "value": "2",
+            "code": "#dfcf02"
+        },
+        "note": "XXX\nYYY\nZZZ",
+        "url": "/app/crm/calendar/event.nl?id=100718&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {
+            "id": "1",
+            "name": "Install Furniture",
+            "title": "Install Furniture",
+            "project": {
+                "text": "AB&I Holdings : Parking Lot Construction",
+                "value": "1515"
+            },
+            "date": "7/5/2024",
+            "status": {
+                "text": "Hold",
+                "value": "7",
+                "code": "#6c757d"
+            },
+            "type": {
+                "text": "Demo",
+                "value": "1"
+            },
+            "memo": "<p><span style=\"background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);\">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus id malesuada enim, sed fringilla turpis. Nullam sed viverra risus. Fusce maximus sapien et neque elementum, et feugiat orci efficitur. Suspendisse faucibus lacus id justo tempus tempor. </span></p><p></p><p><span style=\"background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);\">Vestibulum vehicula, libero sed interdum lobortis, nisi dolor tincidunt leo, vel accumsan erat mi et justo. Proin consectetur felis semper varius viverra. Nam neque nulla, feugiat ac tempor in, aliquet sed enim. </span></p><p></p><p><strong style=\"background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);\">Fusce mattis, diam non tempus lacinia, diam eros semper mauris, a egestas lacus libero eget sapien. Donec convallis sit amet velit non euismod.</strong></p>",
+            "salesorder": {
+                "text": "Sales Order #SLS00000609",
+                "value": "11722"
+            },
+            "customer": {
+                "text": "AB&I Holdings",
+                "value": "1249"
+            },
+            "resourceGroup": {
+                "text": "",
+                "value": ""
+            },
+            "priority": "",
+            "resources": [],
+            "items": [{
+                "id": "1",
+                "workorder": {
+                    "text": "Install Furniture",
+                    "value": "1"
+                },
+                "events": ["100792", "100798"],
+                "uuid": "11722_1",
+                "line": "1",
+                "item": {
+                    "text": "4321GR",
+                    "value": "1015"
+                },
+                "description": "11 POCKET MAGAZINE RACK",
+                "quantity": 2,
+                "note": ""
+            }, {
+                "id": "2",
+                "workorder": {
+                    "text": "Install Furniture",
+                    "value": "1"
+                },
+                "events": ["100792", "100798"],
+                "uuid": "11722_3",
+                "line": "3",
+                "item": {
+                    "text": "BAG00002",
+                    "value": "837"
+                },
+                "description": "Sling Laptop Bag",
+                "quantity": 10,
+                "note": ""
+            }],
+            "addresses": [{
+                "id": "1",
+                "workorder": {
+                    "text": "Install Furniture",
+                    "value": "1"
+                },
+                "customer": {
+                    "text": "AB&I Holdings",
+                    "value": "1249"
+                },
+                "events": ["100792", "100798"],
+                "address": {
+                    "text": "1701 Rollins Road",
+                    "value": "244878"
+                },
+                "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+                "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+            }],
+            "contacts": [{
+                "id": "1",
+                "workorder": {
+                    "text": "Install Furniture",
+                    "value": "1"
+                },
+                "events": ["100682", "100798"],
+                "contact": {
+                    "text": "AB&I Holdings : Chad Bass",
+                    "value": "1382"
+                },
+                "name": "Chad Bass",
+                "email": "cbass@sbi.com",
+                "jobTitle": "President",
+                "mobilePhone": "",
+                "phone": "",
+                "primary": "checked",
+                "url": "/app/common/entity/contact.nl?id=1382&compid=TSTDRV2617106"
+            }, {
+                "id": "15",
+                "workorder": {
+                    "text": "Install Furniture",
+                    "value": "1"
+                },
+                "events": ["18", "100798"],
+                "contact": {
+                    "text": "Pravallika Desetty",
+                    "value": "1648"
+                },
+                "name": "Pravallika Desetty",
+                "email": "pravallika@erpsuccesspartners.com",
+                "jobTitle": "",
+                "mobilePhone": "",
+                "phone": "",
+                "primary": "",
+                "url": "/app/common/entity/contact.nl?id=1648&compid=TSTDRV2617106"
+            }],
+            "events": [{
+                "id": "100682",
+                "title": "TEST EVENT 123",
+                "workorder": {
+                    "text": "Install Furniture",
+                    "value": "1"
+                },
+                "project": {
+                    "text": "AB&I Holdings : Lobby Remodel",
+                    "value": "1514"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 7/4/2024",
+                    "start": "2024-07-04",
+                    "end": "2024-07-04"
+                },
+                "time": {
+                    "start": "22:00",
+                    "end": "23:00"
+                },
+                "priority": {
+                    "text": "High",
+                    "value": "3",
+                    "code": "#ca6621"
+                },
+                "note": "TEST12345",
+                "url": "/app/crm/calendar/event.nl?id=100682&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "1",
+                    "value": "1"
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100718",
+                "title": "Install Furniture",
+                "workorder": {
+                    "text": "Install Furniture",
+                    "value": "1"
+                },
+                "project": {
+                    "text": "AB&I Holdings : Parking Lot Construction",
+                    "value": "1515"
+                },
+                "location": "01: San Francisco",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 7/9/2024",
+                    "start": "2024-07-09",
+                    "end": "2024-07-09"
+                },
+                "time": {
+                    "start": "07:00",
+                    "end": "21:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "XXX\nYYY\nZZZ",
+                "url": "/app/crm/calendar/event.nl?id=100718&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100792",
+                "title": "Install Furniture XYZ",
+                "workorder": {
+                    "text": "Install Furniture",
+                    "value": "1"
+                },
+                "project": {
+                    "text": "AB&I Holdings : Parking Lot Construction",
+                    "value": "1515"
+                },
+                "location": "",
+                "status": {
+                    "text": "Tentative",
+                    "value": "TENTATIVE",
+                    "code": "bg-secondary"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/11/2024",
+                    "start": "2024-09-11",
+                    "end": "2024-09-11"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "18:00"
+                },
+                "priority": {
+                    "text": "High",
+                    "value": "3",
+                    "code": "#ca6621"
+                },
+                "note": "AAA\nBBB",
+                "url": "/app/crm/calendar/event.nl?id=100792&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "1",
+                    "value": "1"
+                },
+                "address": {
+                    "text": "1",
+                    "value": "1"
+                }
+            }, {
+                "id": "100794",
+                "title": "Install Furniture 123",
+                "workorder": {
+                    "text": "Install Furniture",
+                    "value": "1"
+                },
+                "project": {
+                    "text": "AB&I Holdings : Parking Lot Construction",
+                    "value": "1515"
+                },
+                "location": "",
+                "status": {
+                    "text": "Tentative",
+                    "value": "TENTATIVE",
+                    "code": "bg-secondary"
+                },
+                "date": {
+                    "recurrence": "occurs every day from 9/11/2024 until 9/12/2024",
+                    "start": "2024-09-11",
+                    "end": "2024-09-12"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "18:00"
+                },
+                "priority": {
+                    "text": "Urgent",
+                    "value": "4",
+                    "code": "#9a2407"
+                },
+                "note": "ASD\nBBBB",
+                "url": "/app/crm/calendar/event.nl?id=100794&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "15",
+                    "value": "15"
+                },
+                "address": {
+                    "text": "1",
+                    "value": "1"
+                }
+            }, {
+                "id": "100796",
+                "title": "Install Furniture 12345",
+                "workorder": {
+                    "text": "Install Furniture",
+                    "value": "1"
+                },
+                "project": {
+                    "text": "AB&I Holdings : Parking Lot Construction",
+                    "value": "1515"
+                },
+                "location": "",
+                "status": {
+                    "text": "Tentative",
+                    "value": "TENTATIVE",
+                    "code": "bg-secondary"
+                },
+                "date": {
+                    "recurrence": "occurs every day from 9/11/2024 until 9/12/2024",
+                    "start": "2024-09-11",
+                    "end": "2024-09-12"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "19:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "XYZ\n123",
+                "url": "/app/crm/calendar/event.nl?id=100796&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "1",
+                    "value": "1"
+                },
+                "address": {
+                    "text": "1",
+                    "value": "1"
+                }
+            }, {
+                "id": "100798",
+                "title": "Install Furniture XYZ",
+                "workorder": {
+                    "text": "Install Furniture",
+                    "value": "1"
+                },
+                "project": {
+                    "text": "AB&I Holdings : Parking Lot Construction",
+                    "value": "1515"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "occurs every day from 9/12/2024 until 9/13/2024",
+                    "start": "2024-09-12",
+                    "end": "2024-09-13"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "18:00"
+                },
+                "priority": {
+                    "text": "High",
+                    "value": "3",
+                    "code": "#ca6621"
+                },
+                "note": "TEST ABCD",
+                "url": "/app/crm/calendar/event.nl?id=100798&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "1",
+                    "value": "1"
+                },
+                "address": {
+                    "text": "1",
+                    "value": "1"
+                }
+            }],
+            "projectUrl": "/app/accounting/project/project.nl?id=1515&compid=TSTDRV2617106",
+            "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=1&compid=TSTDRV2617106",
+            "soUrl": "/app/accounting/transactions/salesord.nl?id=11722&compid=TSTDRV2617106",
+            "esthours": "10"
+        },
+        "resources": [],
+        "items": [],
+        "contacts": [],
+        "addresses": [],
+        "contact": {
+            "text": "",
+            "value": ""
+        },
+        "address": {
+            "text": "",
+            "value": ""
+        }
+    }, {
+        "id": "100723",
+        "title": "Test",
+        "workorder": {
+            "text": "Test",
+            "value": "31"
+        },
+        "project": {
+            "text": "AB&I Holdings : Parking Lot Construction",
+            "value": "1515"
+        },
+        "location": "01: San Francisco",
+        "status": {
+            "text": "Confirmed",
+            "value": "CONFIRMED",
+            "code": "bg-success"
+        },
+        "date": {
+            "recurrence": "one time event on 7/8/2024",
+            "start": "2024-07-08",
+            "end": "2024-07-08"
+        },
+        "time": {
+            "start": "08:00",
+            "end": "18:00"
+        },
+        "priority": {
+            "text": "Urgent",
+            "value": "4",
+            "code": "#9a2407"
+        },
+        "note": "TEST123",
+        "url": "/app/crm/calendar/event.nl?id=100723&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {
+            "id": "31",
+            "name": "Test",
+            "title": "Test",
+            "project": {
+                "text": "AB&I Holdings : Parking Lot Construction",
+                "value": "1515"
+            },
+            "date": "7/19/2024",
+            "status": {
+                "text": "Closed",
+                "value": "3",
+                "code": "#6c757d"
+            },
+            "type": {
+                "text": "Walls",
+                "value": "6"
+            },
+            "memo": "<p>Test</p>",
+            "salesorder": {
+                "text": "Sales Order #SLS00000609",
+                "value": "11722"
+            },
+            "customer": {
+                "text": "AB&I Holdings",
+                "value": "1249"
+            },
+            "resourceGroup": {
+                "text": "",
+                "value": ""
+            },
+            "priority": "",
+            "resources": [],
+            "items": [{
+                "id": "24",
+                "workorder": {
+                    "text": "Test",
+                    "value": "31"
+                },
+                "events": [],
+                "uuid": "11722_1",
+                "line": "1",
+                "item": {
+                    "text": "4321GR",
+                    "value": "1015"
+                },
+                "description": "11 POCKET MAGAZINE RACK",
+                "quantity": 2,
+                "note": ""
+            }, {
+                "id": "25",
+                "workorder": {
+                    "text": "Test",
+                    "value": "31"
+                },
+                "events": [],
+                "uuid": "11722_2",
+                "line": "2",
+                "item": {
+                    "text": "7031-0501",
+                    "value": "1047"
+                },
+                "description": "Friction Pad, Non-Carpeted Surfaces, Svc",
+                "quantity": 4,
+                "note": ""
+            }, {
+                "id": "30",
+                "workorder": {
+                    "text": "Test",
+                    "value": "31"
+                },
+                "events": [],
+                "uuid": "11722_1",
+                "line": "1",
+                "item": {
+                    "text": "",
+                    "value": ""
+                },
+                "description": "11 POCKET MAGAZINE RACK",
+                "quantity": 2,
+                "note": ""
+            }, {
+                "id": "31",
+                "workorder": {
+                    "text": "Test",
+                    "value": "31"
+                },
+                "events": [],
+                "uuid": "11722_2",
+                "line": "2",
+                "item": {
+                    "text": "",
+                    "value": ""
+                },
+                "description": "Friction Pad, Non-Carpeted Surfaces, Svc",
+                "quantity": 4,
+                "note": ""
+            }, {
+                "id": "32",
+                "workorder": {
+                    "text": "Test",
+                    "value": "31"
+                },
+                "events": [],
+                "uuid": "11722_1",
+                "line": "1",
+                "item": {
+                    "text": "",
+                    "value": ""
+                },
+                "description": "11 POCKET MAGAZINE RACK",
+                "quantity": 2,
+                "note": ""
+            }, {
+                "id": "33",
+                "workorder": {
+                    "text": "Test",
+                    "value": "31"
+                },
+                "events": [],
+                "uuid": "11722_2",
+                "line": "2",
+                "item": {
+                    "text": "",
+                    "value": ""
+                },
+                "description": "Friction Pad, Non-Carpeted Surfaces, Svc",
+                "quantity": 4,
+                "note": ""
+            }, {
+                "id": "34",
+                "workorder": {
+                    "text": "Test",
+                    "value": "31"
+                },
+                "events": [],
+                "uuid": "11722_1",
+                "line": "1",
+                "item": {
+                    "text": "",
+                    "value": ""
+                },
+                "description": "11 POCKET MAGAZINE RACK",
+                "quantity": 2,
+                "note": ""
+            }, {
+                "id": "35",
+                "workorder": {
+                    "text": "Test",
+                    "value": "31"
+                },
+                "events": [],
+                "uuid": "11722_2",
+                "line": "2",
+                "item": {
+                    "text": "",
+                    "value": ""
+                },
+                "description": "Friction Pad, Non-Carpeted Surfaces, Svc",
+                "quantity": 4,
+                "note": ""
+            }],
+            "addresses": [{
+                "id": "24",
+                "workorder": {
+                    "text": "Test",
+                    "value": "31"
+                },
+                "customer": {
+                    "text": "AB&I Holdings",
+                    "value": "1249"
+                },
+                "events": [],
+                "address": {
+                    "text": "1701 Rollins Road",
+                    "value": "244878"
+                },
+                "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+                "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+            }],
+            "contacts": [{
+                "id": "13",
+                "workorder": {
+                    "text": "Test",
+                    "value": "31"
+                },
+                "events": [],
+                "contact": {
+                    "text": "AB&I Holdings : Chad Bass",
+                    "value": "1382"
+                },
+                "name": "Chad Bass",
+                "email": "cbass@sbi.com",
+                "jobTitle": "President",
+                "mobilePhone": "",
+                "phone": "",
+                "primary": "",
+                "url": "/app/common/entity/contact.nl?id=1382&compid=TSTDRV2617106"
+            }],
+            "events": [{
+                "id": "100723",
+                "title": "Test",
+                "workorder": {
+                    "text": "Test",
+                    "value": "31"
+                },
+                "project": {
+                    "text": "AB&I Holdings : Parking Lot Construction",
+                    "value": "1515"
+                },
+                "location": "01: San Francisco",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 7/8/2024",
+                    "start": "2024-07-08",
+                    "end": "2024-07-08"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "18:00"
+                },
+                "priority": {
+                    "text": "Urgent",
+                    "value": "4",
+                    "code": "#9a2407"
+                },
+                "note": "TEST123",
+                "url": "/app/crm/calendar/event.nl?id=100723&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100749",
+                "title": "Test",
+                "workorder": {
+                    "text": "Test",
+                    "value": "31"
+                },
+                "project": {
+                    "text": "AB&I Holdings : Parking Lot Construction",
+                    "value": "1515"
+                },
+                "location": "01: San Francisco",
+                "status": {
+                    "text": "Tentative",
+                    "value": "TENTATIVE",
+                    "code": "bg-secondary"
+                },
+                "date": {
+                    "recurrence": "one time event on 7/25/2024",
+                    "start": "2024-07-25",
+                    "end": "2024-07-25"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "18:00"
+                },
+                "priority": {
+                    "text": "Low",
+                    "value": "1",
+                    "code": "#026adf"
+                },
+                "note": "1\r\n2\r\n3",
+                "url": "/app/crm/calendar/event.nl?id=100749&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }],
+            "projectUrl": "/app/accounting/project/project.nl?id=1515&compid=TSTDRV2617106",
+            "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=31&compid=TSTDRV2617106",
+            "soUrl": "/app/accounting/transactions/salesord.nl?id=11722&compid=TSTDRV2617106",
+            "esthours": "20"
+        },
+        "resources": [],
+        "items": [],
+        "contacts": [],
+        "addresses": [],
+        "contact": {
+            "text": "",
+            "value": ""
+        },
+        "address": {
+            "text": "",
+            "value": ""
+        }
+    }, {
+        "id": "100739",
+        "title": "SLS00000621_WRKORDR001",
+        "workorder": {
+            "text": "SLS00000621_WRKORDR001",
+            "value": "32"
+        },
+        "project": {
+            "text": "Test Test : Test Project",
+            "value": "1774"
+        },
+        "location": "01: San Francisco",
+        "status": {
+            "text": "Tentative",
+            "value": "TENTATIVE",
+            "code": "bg-secondary"
+        },
+        "date": {
+            "recurrence": "one time event on 7/23/2024",
+            "start": "2024-07-23",
+            "end": "2024-07-23"
+        },
+        "time": {
+            "start": "08:00",
+            "end": "18:00"
+        },
+        "priority": {
+            "text": "Medium",
+            "value": "2",
+            "code": "#dfcf02"
+        },
+        "note": "123\r\n444",
+        "url": "/app/crm/calendar/event.nl?id=100739&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {
+            "id": "32",
+            "name": "SLS00000621_WRKORDR001",
+            "title": "SLS00000621_WRKORDR001",
+            "project": {
+                "text": "Test Test : Test Project",
+                "value": "1774"
+            },
+            "date": "7/19/2024",
+            "status": {
+                "text": "Hold",
+                "value": "7",
+                "code": "#6c757d"
+            },
+            "type": {
+                "text": "Standard",
+                "value": "5"
+            },
+            "memo": "<p><strong style=\"color: rgb(232, 230, 227); --darkreader-inline-color: #d8d4cf;\" data-darkreader-inline-color=\"\">Work Order Instructions QA Test</strong></p>",
+            "salesorder": {
+                "text": "Sales Order #SLS00000621",
+                "value": "13089"
+            },
+            "customer": {
+                "text": "Test Test",
+                "value": "1493"
+            },
+            "resourceGroup": {
+                "text": "",
+                "value": ""
+            },
+            "priority": "",
+            "resources": [],
+            "items": [{
+                "id": "26",
+                "workorder": {
+                    "text": "SLS00000621_WRKORDR001",
+                    "value": "32"
+                },
+                "events": ["100739"],
+                "uuid": "13089_1",
+                "line": "1",
+                "item": {
+                    "text": "VZCC-0054-HSS1",
+                    "value": "2031"
+                },
+                "description": "Compose,Top Trim 54In​【137 cm】.W,Stl, Pnl Frame",
+                "quantity": 1,
+                "note": ""
+            }, {
+                "id": "27",
+                "workorder": {
+                    "text": "SLS00000621_WRKORDR001",
+                    "value": "32"
+                },
+                "events": [],
+                "uuid": "13089_2",
+                "line": "2",
+                "item": {
+                    "text": "VZCE-7400-HS1",
+                    "value": "2032"
+                },
+                "description": "Compose,Panel Trim,End-Of-Run 74In​【188 cm】.H, Steel",
+                "quantity": 3,
+                "note": ""
+            }],
+            "addresses": [{
+                "id": "26",
+                "workorder": {
+                    "text": "SLS00000621_WRKORDR001",
+                    "value": "32"
+                },
+                "customer": {
+                    "text": "Test Test",
+                    "value": "1493"
+                },
+                "events": ["100739"],
+                "address": {
+                    "text": "",
+                    "value": ""
+                },
+                "addressDetails": "",
+                "customerUrl": "/app/common/entity/custjob.nl?id=1493&compid=TSTDRV2617106"
+            }],
+            "contacts": [],
+            "events": [{
+                "id": "100739",
+                "title": "SLS00000621_WRKORDR001",
+                "workorder": {
+                    "text": "SLS00000621_WRKORDR001",
+                    "value": "32"
+                },
+                "project": {
+                    "text": "Test Test : Test Project",
+                    "value": "1774"
+                },
+                "location": "01: San Francisco",
+                "status": {
+                    "text": "Tentative",
+                    "value": "TENTATIVE",
+                    "code": "bg-secondary"
+                },
+                "date": {
+                    "recurrence": "one time event on 7/23/2024",
+                    "start": "2024-07-23",
+                    "end": "2024-07-23"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "18:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "123\r\n444",
+                "url": "/app/crm/calendar/event.nl?id=100739&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }],
+            "projectUrl": "/app/accounting/project/project.nl?id=1774&compid=TSTDRV2617106",
+            "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=32&compid=TSTDRV2617106",
+            "soUrl": "/app/accounting/transactions/salesord.nl?id=13089&compid=TSTDRV2617106",
+            "esthours": ""
+        },
+        "resources": [],
+        "items": [{
+            "id": "26",
+            "workorder": {
+                "text": "SLS00000621_WRKORDR001",
+                "value": "32"
+            },
+            "events": ["100739"],
+            "uuid": "13089_1",
+            "line": "1",
+            "item": {
+                "text": "VZCC-0054-HSS1",
+                "value": "2031"
+            },
+            "description": "Compose,Top Trim 54In​【137 cm】.W,Stl, Pnl Frame",
+            "quantity": 1,
+            "note": "",
+            "selected": true
+        }],
+        "contacts": [],
+        "addresses": [{
+            "id": "26",
+            "workorder": {
+                "text": "SLS00000621_WRKORDR001",
+                "value": "32"
+            },
+            "customer": {
+                "text": "Test Test",
+                "value": "1493"
+            },
+            "events": ["100739"],
+            "address": {
+                "text": "",
+                "value": ""
+            },
+            "addressDetails": "",
+            "customerUrl": "/app/common/entity/custjob.nl?id=1493&compid=TSTDRV2617106",
+            "selected": true
+        }],
+        "contact": {
+            "text": "",
+            "value": ""
+        },
+        "address": {
+            "text": "",
+            "value": ""
+        }
+    }, {
+        "id": "100740",
+        "title": "Work Order Sample July 22",
+        "workorder": {
+            "text": "Work Order Sample July 22",
+            "value": "33"
+        },
+        "project": {
+            "text": "AB&I Holdings : Parking Lot Construction",
+            "value": "1515"
+        },
+        "location": "01: San Francisco",
+        "status": {
+            "text": "Confirmed",
+            "value": "CONFIRMED",
+            "code": "bg-success"
+        },
+        "date": {
+            "recurrence": "one time event on 7/24/2024",
+            "start": "2024-07-24",
+            "end": "2024-07-24"
+        },
+        "time": {
+            "start": "08:00",
+            "end": "18:00"
+        },
+        "priority": {
+            "text": "Urgent",
+            "value": "4",
+            "code": "#9a2407"
+        },
+        "note": "123\n456",
+        "url": "/app/crm/calendar/event.nl?id=100740&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {
+            "id": "33",
+            "name": "Work Order Sample July 22",
+            "title": "Work Order Sample July 22",
+            "project": {
+                "text": "AB&I Holdings : Parking Lot Construction",
+                "value": "1515"
+            },
+            "date": "7/29/2024",
+            "status": {
+                "text": "Not Started",
+                "value": "4",
+                "code": "#026adf"
+            },
+            "type": {
+                "text": "Moves",
+                "value": "3"
+            },
+            "memo": "<p><strong>Work Order Sample July 22</strong></p>",
+            "salesorder": {
+                "text": "Sales Order #SLS00000609",
+                "value": "11722"
+            },
+            "customer": {
+                "text": "AB&I Holdings",
+                "value": "1249"
+            },
+            "resourceGroup": {
+                "text": "",
+                "value": ""
+            },
+            "priority": "",
+            "resources": [],
+            "items": [{
+                "id": "28",
+                "workorder": {
+                    "text": "Work Order Sample July 22",
+                    "value": "33"
+                },
+                "events": ["100740"],
+                "uuid": "11722_1",
+                "line": "1",
+                "item": {
+                    "text": "4321GR",
+                    "value": "1015"
+                },
+                "description": "11 POCKET MAGAZINE RACK",
+                "quantity": 2,
+                "note": ""
+            }, {
+                "id": "29",
+                "workorder": {
+                    "text": "Work Order Sample July 22",
+                    "value": "33"
+                },
+                "events": ["100740"],
+                "uuid": "11722_2",
+                "line": "2",
+                "item": {
+                    "text": "7031-0501",
+                    "value": "1047"
+                },
+                "description": "Friction Pad, Non-Carpeted Surfaces, Svc",
+                "quantity": 3,
+                "note": ""
+            }],
+            "addresses": [{
+                "id": "27",
+                "workorder": {
+                    "text": "Work Order Sample July 22",
+                    "value": "33"
+                },
+                "customer": {
+                    "text": "AB&I Holdings",
+                    "value": "1249"
+                },
+                "events": ["100740"],
+                "address": {
+                    "text": "1701 Rollins Road",
+                    "value": "244878"
+                },
+                "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+                "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+            }],
+            "contacts": [{
+                "id": "14",
+                "workorder": {
+                    "text": "Work Order Sample July 22",
+                    "value": "33"
+                },
+                "events": ["100740"],
+                "contact": {
+                    "text": "AB&I Holdings : Chad Bass",
+                    "value": "1382"
+                },
+                "name": "Chad Bass",
+                "email": "cbass@sbi.com",
+                "jobTitle": "President",
+                "mobilePhone": "",
+                "phone": "",
+                "primary": "",
+                "url": "/app/common/entity/contact.nl?id=1382&compid=TSTDRV2617106"
+            }],
+            "events": [{
+                "id": "100740",
+                "title": "Work Order Sample July 22",
+                "workorder": {
+                    "text": "Work Order Sample July 22",
+                    "value": "33"
+                },
+                "project": {
+                    "text": "AB&I Holdings : Parking Lot Construction",
+                    "value": "1515"
+                },
+                "location": "01: San Francisco",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 7/24/2024",
+                    "start": "2024-07-24",
+                    "end": "2024-07-24"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "18:00"
+                },
+                "priority": {
+                    "text": "Urgent",
+                    "value": "4",
+                    "code": "#9a2407"
+                },
+                "note": "123\n456",
+                "url": "/app/crm/calendar/event.nl?id=100740&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }],
+            "projectUrl": "/app/accounting/project/project.nl?id=1515&compid=TSTDRV2617106",
+            "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=33&compid=TSTDRV2617106",
+            "soUrl": "/app/accounting/transactions/salesord.nl?id=11722&compid=TSTDRV2617106",
+            "esthours": "200"
+        },
+        "resources": [],
+        "items": [{
+            "id": "28",
+            "workorder": {
+                "text": "Work Order Sample July 22",
+                "value": "33"
+            },
+            "events": ["100740"],
+            "uuid": "11722_1",
+            "line": "1",
+            "item": {
+                "text": "4321GR",
+                "value": "1015"
+            },
+            "description": "11 POCKET MAGAZINE RACK",
+            "quantity": 2,
+            "note": "",
+            "selected": true
+        }, {
+            "id": "29",
+            "workorder": {
+                "text": "Work Order Sample July 22",
+                "value": "33"
+            },
+            "events": ["100740"],
+            "uuid": "11722_2",
+            "line": "2",
+            "item": {
+                "text": "7031-0501",
+                "value": "1047"
+            },
+            "description": "Friction Pad, Non-Carpeted Surfaces, Svc",
+            "quantity": 3,
+            "note": "",
+            "selected": true
+        }],
+        "contacts": [{
+            "id": "14",
+            "workorder": {
+                "text": "Work Order Sample July 22",
+                "value": "33"
+            },
+            "events": ["100740"],
+            "contact": {
+                "text": "AB&I Holdings : Chad Bass",
+                "value": "1382"
+            },
+            "name": "Chad Bass",
+            "email": "cbass@sbi.com",
+            "jobTitle": "President",
+            "mobilePhone": "",
+            "phone": "",
+            "primary": "",
+            "url": "/app/common/entity/contact.nl?id=1382&compid=TSTDRV2617106",
+            "selected": true
+        }],
+        "addresses": [{
+            "id": "27",
+            "workorder": {
+                "text": "Work Order Sample July 22",
+                "value": "33"
+            },
+            "customer": {
+                "text": "AB&I Holdings",
+                "value": "1249"
+            },
+            "events": ["100740"],
+            "address": {
+                "text": "1701 Rollins Road",
+                "value": "244878"
+            },
+            "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+            "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106",
+            "selected": true
+        }],
+        "contact": {
+            "text": "",
+            "value": ""
+        },
+        "address": {
+            "text": "",
+            "value": ""
+        }
+    }, {
+        "id": "100749",
+        "title": "Test",
+        "workorder": {
+            "text": "Test",
+            "value": "31"
+        },
+        "project": {
+            "text": "AB&I Holdings : Parking Lot Construction",
+            "value": "1515"
+        },
+        "location": "01: San Francisco",
+        "status": {
+            "text": "Tentative",
+            "value": "TENTATIVE",
+            "code": "bg-secondary"
+        },
+        "date": {
+            "recurrence": "one time event on 7/25/2024",
+            "start": "2024-07-25",
+            "end": "2024-07-25"
+        },
+        "time": {
+            "start": "08:00",
+            "end": "18:00"
+        },
+        "priority": {
+            "text": "Low",
+            "value": "1",
+            "code": "#026adf"
+        },
+        "note": "1\r\n2\r\n3",
+        "url": "/app/crm/calendar/event.nl?id=100749&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {
+            "id": "31",
+            "name": "Test",
+            "title": "Test",
+            "project": {
+                "text": "AB&I Holdings : Parking Lot Construction",
+                "value": "1515"
+            },
+            "date": "7/19/2024",
+            "status": {
+                "text": "Closed",
+                "value": "3",
+                "code": "#6c757d"
+            },
+            "type": {
+                "text": "Walls",
+                "value": "6"
+            },
+            "memo": "<p>Test</p>",
+            "salesorder": {
+                "text": "Sales Order #SLS00000609",
+                "value": "11722"
+            },
+            "customer": {
+                "text": "AB&I Holdings",
+                "value": "1249"
+            },
+            "resourceGroup": {
+                "text": "",
+                "value": ""
+            },
+            "priority": "",
+            "resources": [],
+            "items": [{
+                "id": "24",
+                "workorder": {
+                    "text": "Test",
+                    "value": "31"
+                },
+                "events": [],
+                "uuid": "11722_1",
+                "line": "1",
+                "item": {
+                    "text": "4321GR",
+                    "value": "1015"
+                },
+                "description": "11 POCKET MAGAZINE RACK",
+                "quantity": 2,
+                "note": ""
+            }, {
+                "id": "25",
+                "workorder": {
+                    "text": "Test",
+                    "value": "31"
+                },
+                "events": [],
+                "uuid": "11722_2",
+                "line": "2",
+                "item": {
+                    "text": "7031-0501",
+                    "value": "1047"
+                },
+                "description": "Friction Pad, Non-Carpeted Surfaces, Svc",
+                "quantity": 4,
+                "note": ""
+            }, {
+                "id": "30",
+                "workorder": {
+                    "text": "Test",
+                    "value": "31"
+                },
+                "events": [],
+                "uuid": "11722_1",
+                "line": "1",
+                "item": {
+                    "text": "",
+                    "value": ""
+                },
+                "description": "11 POCKET MAGAZINE RACK",
+                "quantity": 2,
+                "note": ""
+            }, {
+                "id": "31",
+                "workorder": {
+                    "text": "Test",
+                    "value": "31"
+                },
+                "events": [],
+                "uuid": "11722_2",
+                "line": "2",
+                "item": {
+                    "text": "",
+                    "value": ""
+                },
+                "description": "Friction Pad, Non-Carpeted Surfaces, Svc",
+                "quantity": 4,
+                "note": ""
+            }, {
+                "id": "32",
+                "workorder": {
+                    "text": "Test",
+                    "value": "31"
+                },
+                "events": [],
+                "uuid": "11722_1",
+                "line": "1",
+                "item": {
+                    "text": "",
+                    "value": ""
+                },
+                "description": "11 POCKET MAGAZINE RACK",
+                "quantity": 2,
+                "note": ""
+            }, {
+                "id": "33",
+                "workorder": {
+                    "text": "Test",
+                    "value": "31"
+                },
+                "events": [],
+                "uuid": "11722_2",
+                "line": "2",
+                "item": {
+                    "text": "",
+                    "value": ""
+                },
+                "description": "Friction Pad, Non-Carpeted Surfaces, Svc",
+                "quantity": 4,
+                "note": ""
+            }, {
+                "id": "34",
+                "workorder": {
+                    "text": "Test",
+                    "value": "31"
+                },
+                "events": [],
+                "uuid": "11722_1",
+                "line": "1",
+                "item": {
+                    "text": "",
+                    "value": ""
+                },
+                "description": "11 POCKET MAGAZINE RACK",
+                "quantity": 2,
+                "note": ""
+            }, {
+                "id": "35",
+                "workorder": {
+                    "text": "Test",
+                    "value": "31"
+                },
+                "events": [],
+                "uuid": "11722_2",
+                "line": "2",
+                "item": {
+                    "text": "",
+                    "value": ""
+                },
+                "description": "Friction Pad, Non-Carpeted Surfaces, Svc",
+                "quantity": 4,
+                "note": ""
+            }],
+            "addresses": [{
+                "id": "24",
+                "workorder": {
+                    "text": "Test",
+                    "value": "31"
+                },
+                "customer": {
+                    "text": "AB&I Holdings",
+                    "value": "1249"
+                },
+                "events": [],
+                "address": {
+                    "text": "1701 Rollins Road",
+                    "value": "244878"
+                },
+                "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+                "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+            }],
+            "contacts": [{
+                "id": "13",
+                "workorder": {
+                    "text": "Test",
+                    "value": "31"
+                },
+                "events": [],
+                "contact": {
+                    "text": "AB&I Holdings : Chad Bass",
+                    "value": "1382"
+                },
+                "name": "Chad Bass",
+                "email": "cbass@sbi.com",
+                "jobTitle": "President",
+                "mobilePhone": "",
+                "phone": "",
+                "primary": "",
+                "url": "/app/common/entity/contact.nl?id=1382&compid=TSTDRV2617106"
+            }],
+            "events": [{
+                "id": "100723",
+                "title": "Test",
+                "workorder": {
+                    "text": "Test",
+                    "value": "31"
+                },
+                "project": {
+                    "text": "AB&I Holdings : Parking Lot Construction",
+                    "value": "1515"
+                },
+                "location": "01: San Francisco",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 7/8/2024",
+                    "start": "2024-07-08",
+                    "end": "2024-07-08"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "18:00"
+                },
+                "priority": {
+                    "text": "Urgent",
+                    "value": "4",
+                    "code": "#9a2407"
+                },
+                "note": "TEST123",
+                "url": "/app/crm/calendar/event.nl?id=100723&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100749",
+                "title": "Test",
+                "workorder": {
+                    "text": "Test",
+                    "value": "31"
+                },
+                "project": {
+                    "text": "AB&I Holdings : Parking Lot Construction",
+                    "value": "1515"
+                },
+                "location": "01: San Francisco",
+                "status": {
+                    "text": "Tentative",
+                    "value": "TENTATIVE",
+                    "code": "bg-secondary"
+                },
+                "date": {
+                    "recurrence": "one time event on 7/25/2024",
+                    "start": "2024-07-25",
+                    "end": "2024-07-25"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "18:00"
+                },
+                "priority": {
+                    "text": "Low",
+                    "value": "1",
+                    "code": "#026adf"
+                },
+                "note": "1\r\n2\r\n3",
+                "url": "/app/crm/calendar/event.nl?id=100749&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }],
+            "projectUrl": "/app/accounting/project/project.nl?id=1515&compid=TSTDRV2617106",
+            "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=31&compid=TSTDRV2617106",
+            "soUrl": "/app/accounting/transactions/salesord.nl?id=11722&compid=TSTDRV2617106",
+            "esthours": "20"
+        },
+        "resources": [],
+        "items": [],
+        "contacts": [],
+        "addresses": [],
+        "contact": {
+            "text": "",
+            "value": ""
+        },
+        "address": {
+            "text": "",
+            "value": ""
+        }
+    }, {
+        "id": "100753",
+        "title": "Sample 5",
+        "workorder": {
+            "text": "Sample 5",
+            "value": "47"
+        },
+        "project": {
+            "text": "AB&I Holdings : Field Ops Pro Project",
+            "value": "1883"
+        },
+        "location": "",
+        "status": {
+            "text": "Confirmed",
+            "value": "CONFIRMED",
+            "code": "bg-success"
+        },
+        "date": {
+            "recurrence": "one time event on 8/31/2024",
+            "start": "2024-08-31",
+            "end": "2024-08-31"
+        },
+        "time": {
+            "start": "08:00",
+            "end": "18:00"
+        },
+        "priority": {
+            "text": "Low",
+            "value": "1",
+            "code": "#026adf"
+        },
+        "note": "TEST12345",
+        "url": "/app/crm/calendar/event.nl?id=100753&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {
+            "id": "47",
+            "name": "Sample 5",
+            "title": "Sample 5",
+            "project": {
+                "text": "AB&I Holdings : Field Ops Pro Project",
+                "value": "1883"
+            },
+            "date": "9/5/2024",
+            "status": {
+                "text": "Closed",
+                "value": "3",
+                "code": "#6c757d"
+            },
+            "type": {
+                "text": "Moves",
+                "value": "3"
+            },
+            "memo": "<p>Sample 5</p>",
+            "salesorder": {
+                "text": "Sales Order #SLS00000654",
+                "value": "16211"
+            },
+            "customer": {
+                "text": "AB&I Holdings",
+                "value": "1249"
+            },
+            "resourceGroup": {
+                "text": "",
+                "value": ""
+            },
+            "priority": "",
+            "resources": [],
+            "items": [{
+                "id": "49",
+                "workorder": {
+                    "text": "Sample 5",
+                    "value": "47"
+                },
+                "events": ["100758"],
+                "uuid": "16210_1",
+                "line": "1",
+                "item": {
+                    "text": "BIC00008",
+                    "value": "467"
+                },
+                "description": "Inventory Item",
+                "quantity": 0,
+                "note": ""
+            }, {
+                "id": "50",
+                "workorder": {
+                    "text": "Sample 5",
+                    "value": "47"
+                },
+                "events": [],
+                "uuid": "16211_10",
+                "line": "5",
+                "item": {
+                    "text": "Dealer Service Fee",
+                    "value": "2331"
+                },
+                "description": "Dealer Service Fee",
+                "quantity": 0,
+                "note": ""
+            }],
+            "addresses": [{
+                "id": "39",
+                "workorder": {
+                    "text": "Sample 5",
+                    "value": "47"
+                },
+                "customer": {
+                    "text": "AB&I Holdings",
+                    "value": "1249"
+                },
+                "events": ["100769"],
+                "address": {
+                    "text": "1701 Rollins Road",
+                    "value": "244878"
+                },
+                "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+                "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+            }],
+            "contacts": [{
+                "id": "29",
+                "workorder": {
+                    "text": "Sample 5",
+                    "value": "47"
+                },
+                "events": ["100769"],
+                "contact": {
+                    "text": "AB&I Holdings : Test Prav",
+                    "value": "1892"
+                },
+                "name": "Test Prav",
+                "email": "pravallika@erpsuccesspartners.com",
+                "jobTitle": "QA",
+                "mobilePhone": "",
+                "phone": "",
+                "primary": "checked",
+                "url": "/app/common/entity/contact.nl?id=1892&compid=TSTDRV2617106"
+            }],
+            "events": [{
+                "id": "100753",
+                "title": "Sample 5",
+                "workorder": {
+                    "text": "Sample 5",
+                    "value": "47"
+                },
+                "project": {
+                    "text": "AB&I Holdings : Field Ops Pro Project",
+                    "value": "1883"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 8/31/2024",
+                    "start": "2024-08-31",
+                    "end": "2024-08-31"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "18:00"
+                },
+                "priority": {
+                    "text": "Low",
+                    "value": "1",
+                    "code": "#026adf"
+                },
+                "note": "TEST12345",
+                "url": "/app/crm/calendar/event.nl?id=100753&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100754",
+                "title": "Sample 5",
+                "workorder": {
+                    "text": "Sample 5",
+                    "value": "47"
+                },
+                "project": {
+                    "text": "AB&I Holdings : Field Ops Pro Project",
+                    "value": "1883"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 8/31/2024",
+                    "start": "2024-08-31",
+                    "end": "2024-08-31"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "18:00"
+                },
+                "priority": {
+                    "text": "Low",
+                    "value": "1",
+                    "code": "#026adf"
+                },
+                "note": "TEST12345",
+                "url": "/app/crm/calendar/event.nl?id=100754&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100756",
+                "title": "Sample 5",
+                "workorder": {
+                    "text": "Sample 5",
+                    "value": "47"
+                },
+                "project": {
+                    "text": "AB&I Holdings : Field Ops Pro Project",
+                    "value": "1883"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 8/31/2024",
+                    "start": "2024-08-31",
+                    "end": "2024-08-31"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "18:00"
+                },
+                "priority": {
+                    "text": "High",
+                    "value": "3",
+                    "code": "#ca6621"
+                },
+                "note": "TEST12345",
+                "url": "/app/crm/calendar/event.nl?id=100756&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100758",
+                "title": "Sample 5",
+                "workorder": {
+                    "text": "Sample 5",
+                    "value": "47"
+                },
+                "project": {
+                    "text": "AB&I Holdings : Field Ops Pro Project",
+                    "value": "1883"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 8/31/2024",
+                    "start": "2024-08-31",
+                    "end": "2024-08-31"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "18:00"
+                },
+                "priority": {
+                    "text": "Low",
+                    "value": "1",
+                    "code": "#026adf"
+                },
+                "note": "TEST12345",
+                "url": "/app/crm/calendar/event.nl?id=100758&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100769",
+                "title": "Sample 567",
+                "workorder": {
+                    "text": "Sample 5",
+                    "value": "47"
+                },
+                "project": {
+                    "text": "AB&I Holdings : Field Ops Pro Project",
+                    "value": "1883"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/3/2024",
+                    "start": "2024-09-03",
+                    "end": "2024-09-03"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "18:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "AAA\nBBB",
+                "url": "/app/crm/calendar/event.nl?id=100769&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }],
+            "projectUrl": "/app/accounting/project/project.nl?id=1883&compid=TSTDRV2617106",
+            "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=47&compid=TSTDRV2617106",
+            "soUrl": "/app/accounting/transactions/salesord.nl?id=16211&compid=TSTDRV2617106",
+            "esthours": "10"
+        },
+        "resources": [],
+        "items": [],
+        "contacts": [],
+        "addresses": [],
+        "contact": {
+            "text": "",
+            "value": ""
+        },
+        "address": {
+            "text": "",
+            "value": ""
+        }
+    }, {
+        "id": "100754",
+        "title": "Sample 5",
+        "workorder": {
+            "text": "Sample 5",
+            "value": "47"
+        },
+        "project": {
+            "text": "AB&I Holdings : Field Ops Pro Project",
+            "value": "1883"
+        },
+        "location": "",
+        "status": {
+            "text": "Confirmed",
+            "value": "CONFIRMED",
+            "code": "bg-success"
+        },
+        "date": {
+            "recurrence": "one time event on 8/31/2024",
+            "start": "2024-08-31",
+            "end": "2024-08-31"
+        },
+        "time": {
+            "start": "08:00",
+            "end": "18:00"
+        },
+        "priority": {
+            "text": "Low",
+            "value": "1",
+            "code": "#026adf"
+        },
+        "note": "TEST12345",
+        "url": "/app/crm/calendar/event.nl?id=100754&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {
+            "id": "47",
+            "name": "Sample 5",
+            "title": "Sample 5",
+            "project": {
+                "text": "AB&I Holdings : Field Ops Pro Project",
+                "value": "1883"
+            },
+            "date": "9/5/2024",
+            "status": {
+                "text": "Closed",
+                "value": "3",
+                "code": "#6c757d"
+            },
+            "type": {
+                "text": "Moves",
+                "value": "3"
+            },
+            "memo": "<p>Sample 5</p>",
+            "salesorder": {
+                "text": "Sales Order #SLS00000654",
+                "value": "16211"
+            },
+            "customer": {
+                "text": "AB&I Holdings",
+                "value": "1249"
+            },
+            "resourceGroup": {
+                "text": "",
+                "value": ""
+            },
+            "priority": "",
+            "resources": [],
+            "items": [{
+                "id": "49",
+                "workorder": {
+                    "text": "Sample 5",
+                    "value": "47"
+                },
+                "events": ["100758"],
+                "uuid": "16210_1",
+                "line": "1",
+                "item": {
+                    "text": "BIC00008",
+                    "value": "467"
+                },
+                "description": "Inventory Item",
+                "quantity": 0,
+                "note": ""
+            }, {
+                "id": "50",
+                "workorder": {
+                    "text": "Sample 5",
+                    "value": "47"
+                },
+                "events": [],
+                "uuid": "16211_10",
+                "line": "5",
+                "item": {
+                    "text": "Dealer Service Fee",
+                    "value": "2331"
+                },
+                "description": "Dealer Service Fee",
+                "quantity": 0,
+                "note": ""
+            }],
+            "addresses": [{
+                "id": "39",
+                "workorder": {
+                    "text": "Sample 5",
+                    "value": "47"
+                },
+                "customer": {
+                    "text": "AB&I Holdings",
+                    "value": "1249"
+                },
+                "events": ["100769"],
+                "address": {
+                    "text": "1701 Rollins Road",
+                    "value": "244878"
+                },
+                "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+                "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+            }],
+            "contacts": [{
+                "id": "29",
+                "workorder": {
+                    "text": "Sample 5",
+                    "value": "47"
+                },
+                "events": ["100769"],
+                "contact": {
+                    "text": "AB&I Holdings : Test Prav",
+                    "value": "1892"
+                },
+                "name": "Test Prav",
+                "email": "pravallika@erpsuccesspartners.com",
+                "jobTitle": "QA",
+                "mobilePhone": "",
+                "phone": "",
+                "primary": "checked",
+                "url": "/app/common/entity/contact.nl?id=1892&compid=TSTDRV2617106"
+            }],
+            "events": [{
+                "id": "100753",
+                "title": "Sample 5",
+                "workorder": {
+                    "text": "Sample 5",
+                    "value": "47"
+                },
+                "project": {
+                    "text": "AB&I Holdings : Field Ops Pro Project",
+                    "value": "1883"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 8/31/2024",
+                    "start": "2024-08-31",
+                    "end": "2024-08-31"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "18:00"
+                },
+                "priority": {
+                    "text": "Low",
+                    "value": "1",
+                    "code": "#026adf"
+                },
+                "note": "TEST12345",
+                "url": "/app/crm/calendar/event.nl?id=100753&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100754",
+                "title": "Sample 5",
+                "workorder": {
+                    "text": "Sample 5",
+                    "value": "47"
+                },
+                "project": {
+                    "text": "AB&I Holdings : Field Ops Pro Project",
+                    "value": "1883"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 8/31/2024",
+                    "start": "2024-08-31",
+                    "end": "2024-08-31"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "18:00"
+                },
+                "priority": {
+                    "text": "Low",
+                    "value": "1",
+                    "code": "#026adf"
+                },
+                "note": "TEST12345",
+                "url": "/app/crm/calendar/event.nl?id=100754&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100756",
+                "title": "Sample 5",
+                "workorder": {
+                    "text": "Sample 5",
+                    "value": "47"
+                },
+                "project": {
+                    "text": "AB&I Holdings : Field Ops Pro Project",
+                    "value": "1883"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 8/31/2024",
+                    "start": "2024-08-31",
+                    "end": "2024-08-31"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "18:00"
+                },
+                "priority": {
+                    "text": "High",
+                    "value": "3",
+                    "code": "#ca6621"
+                },
+                "note": "TEST12345",
+                "url": "/app/crm/calendar/event.nl?id=100756&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100758",
+                "title": "Sample 5",
+                "workorder": {
+                    "text": "Sample 5",
+                    "value": "47"
+                },
+                "project": {
+                    "text": "AB&I Holdings : Field Ops Pro Project",
+                    "value": "1883"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 8/31/2024",
+                    "start": "2024-08-31",
+                    "end": "2024-08-31"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "18:00"
+                },
+                "priority": {
+                    "text": "Low",
+                    "value": "1",
+                    "code": "#026adf"
+                },
+                "note": "TEST12345",
+                "url": "/app/crm/calendar/event.nl?id=100758&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100769",
+                "title": "Sample 567",
+                "workorder": {
+                    "text": "Sample 5",
+                    "value": "47"
+                },
+                "project": {
+                    "text": "AB&I Holdings : Field Ops Pro Project",
+                    "value": "1883"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/3/2024",
+                    "start": "2024-09-03",
+                    "end": "2024-09-03"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "18:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "AAA\nBBB",
+                "url": "/app/crm/calendar/event.nl?id=100769&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }],
+            "projectUrl": "/app/accounting/project/project.nl?id=1883&compid=TSTDRV2617106",
+            "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=47&compid=TSTDRV2617106",
+            "soUrl": "/app/accounting/transactions/salesord.nl?id=16211&compid=TSTDRV2617106",
+            "esthours": "10"
+        },
+        "resources": [],
+        "items": [],
+        "contacts": [],
+        "addresses": [],
+        "contact": {
+            "text": "",
+            "value": ""
+        },
+        "address": {
+            "text": "",
+            "value": ""
+        }
+    }, {
+        "id": "100756",
+        "title": "Sample 5",
+        "workorder": {
+            "text": "Sample 5",
+            "value": "47"
+        },
+        "project": {
+            "text": "AB&I Holdings : Field Ops Pro Project",
+            "value": "1883"
+        },
+        "location": "",
+        "status": {
+            "text": "Confirmed",
+            "value": "CONFIRMED",
+            "code": "bg-success"
+        },
+        "date": {
+            "recurrence": "one time event on 8/31/2024",
+            "start": "2024-08-31",
+            "end": "2024-08-31"
+        },
+        "time": {
+            "start": "08:00",
+            "end": "18:00"
+        },
+        "priority": {
+            "text": "High",
+            "value": "3",
+            "code": "#ca6621"
+        },
+        "note": "TEST12345",
+        "url": "/app/crm/calendar/event.nl?id=100756&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {
+            "id": "47",
+            "name": "Sample 5",
+            "title": "Sample 5",
+            "project": {
+                "text": "AB&I Holdings : Field Ops Pro Project",
+                "value": "1883"
+            },
+            "date": "9/5/2024",
+            "status": {
+                "text": "Closed",
+                "value": "3",
+                "code": "#6c757d"
+            },
+            "type": {
+                "text": "Moves",
+                "value": "3"
+            },
+            "memo": "<p>Sample 5</p>",
+            "salesorder": {
+                "text": "Sales Order #SLS00000654",
+                "value": "16211"
+            },
+            "customer": {
+                "text": "AB&I Holdings",
+                "value": "1249"
+            },
+            "resourceGroup": {
+                "text": "",
+                "value": ""
+            },
+            "priority": "",
+            "resources": [],
+            "items": [{
+                "id": "49",
+                "workorder": {
+                    "text": "Sample 5",
+                    "value": "47"
+                },
+                "events": ["100758"],
+                "uuid": "16210_1",
+                "line": "1",
+                "item": {
+                    "text": "BIC00008",
+                    "value": "467"
+                },
+                "description": "Inventory Item",
+                "quantity": 0,
+                "note": ""
+            }, {
+                "id": "50",
+                "workorder": {
+                    "text": "Sample 5",
+                    "value": "47"
+                },
+                "events": [],
+                "uuid": "16211_10",
+                "line": "5",
+                "item": {
+                    "text": "Dealer Service Fee",
+                    "value": "2331"
+                },
+                "description": "Dealer Service Fee",
+                "quantity": 0,
+                "note": ""
+            }],
+            "addresses": [{
+                "id": "39",
+                "workorder": {
+                    "text": "Sample 5",
+                    "value": "47"
+                },
+                "customer": {
+                    "text": "AB&I Holdings",
+                    "value": "1249"
+                },
+                "events": ["100769"],
+                "address": {
+                    "text": "1701 Rollins Road",
+                    "value": "244878"
+                },
+                "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+                "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+            }],
+            "contacts": [{
+                "id": "29",
+                "workorder": {
+                    "text": "Sample 5",
+                    "value": "47"
+                },
+                "events": ["100769"],
+                "contact": {
+                    "text": "AB&I Holdings : Test Prav",
+                    "value": "1892"
+                },
+                "name": "Test Prav",
+                "email": "pravallika@erpsuccesspartners.com",
+                "jobTitle": "QA",
+                "mobilePhone": "",
+                "phone": "",
+                "primary": "checked",
+                "url": "/app/common/entity/contact.nl?id=1892&compid=TSTDRV2617106"
+            }],
+            "events": [{
+                "id": "100753",
+                "title": "Sample 5",
+                "workorder": {
+                    "text": "Sample 5",
+                    "value": "47"
+                },
+                "project": {
+                    "text": "AB&I Holdings : Field Ops Pro Project",
+                    "value": "1883"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 8/31/2024",
+                    "start": "2024-08-31",
+                    "end": "2024-08-31"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "18:00"
+                },
+                "priority": {
+                    "text": "Low",
+                    "value": "1",
+                    "code": "#026adf"
+                },
+                "note": "TEST12345",
+                "url": "/app/crm/calendar/event.nl?id=100753&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100754",
+                "title": "Sample 5",
+                "workorder": {
+                    "text": "Sample 5",
+                    "value": "47"
+                },
+                "project": {
+                    "text": "AB&I Holdings : Field Ops Pro Project",
+                    "value": "1883"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 8/31/2024",
+                    "start": "2024-08-31",
+                    "end": "2024-08-31"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "18:00"
+                },
+                "priority": {
+                    "text": "Low",
+                    "value": "1",
+                    "code": "#026adf"
+                },
+                "note": "TEST12345",
+                "url": "/app/crm/calendar/event.nl?id=100754&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100756",
+                "title": "Sample 5",
+                "workorder": {
+                    "text": "Sample 5",
+                    "value": "47"
+                },
+                "project": {
+                    "text": "AB&I Holdings : Field Ops Pro Project",
+                    "value": "1883"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 8/31/2024",
+                    "start": "2024-08-31",
+                    "end": "2024-08-31"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "18:00"
+                },
+                "priority": {
+                    "text": "High",
+                    "value": "3",
+                    "code": "#ca6621"
+                },
+                "note": "TEST12345",
+                "url": "/app/crm/calendar/event.nl?id=100756&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100758",
+                "title": "Sample 5",
+                "workorder": {
+                    "text": "Sample 5",
+                    "value": "47"
+                },
+                "project": {
+                    "text": "AB&I Holdings : Field Ops Pro Project",
+                    "value": "1883"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 8/31/2024",
+                    "start": "2024-08-31",
+                    "end": "2024-08-31"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "18:00"
+                },
+                "priority": {
+                    "text": "Low",
+                    "value": "1",
+                    "code": "#026adf"
+                },
+                "note": "TEST12345",
+                "url": "/app/crm/calendar/event.nl?id=100758&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100769",
+                "title": "Sample 567",
+                "workorder": {
+                    "text": "Sample 5",
+                    "value": "47"
+                },
+                "project": {
+                    "text": "AB&I Holdings : Field Ops Pro Project",
+                    "value": "1883"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/3/2024",
+                    "start": "2024-09-03",
+                    "end": "2024-09-03"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "18:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "AAA\nBBB",
+                "url": "/app/crm/calendar/event.nl?id=100769&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }],
+            "projectUrl": "/app/accounting/project/project.nl?id=1883&compid=TSTDRV2617106",
+            "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=47&compid=TSTDRV2617106",
+            "soUrl": "/app/accounting/transactions/salesord.nl?id=16211&compid=TSTDRV2617106",
+            "esthours": "10"
+        },
+        "resources": [],
+        "items": [],
+        "contacts": [],
+        "addresses": [],
+        "contact": {
+            "text": "",
+            "value": ""
+        },
+        "address": {
+            "text": "",
+            "value": ""
+        }
+    }, {
+        "id": "100758",
+        "title": "Sample 5",
+        "workorder": {
+            "text": "Sample 5",
+            "value": "47"
+        },
+        "project": {
+            "text": "AB&I Holdings : Field Ops Pro Project",
+            "value": "1883"
+        },
+        "location": "",
+        "status": {
+            "text": "Confirmed",
+            "value": "CONFIRMED",
+            "code": "bg-success"
+        },
+        "date": {
+            "recurrence": "one time event on 8/31/2024",
+            "start": "2024-08-31",
+            "end": "2024-08-31"
+        },
+        "time": {
+            "start": "08:00",
+            "end": "18:00"
+        },
+        "priority": {
+            "text": "Low",
+            "value": "1",
+            "code": "#026adf"
+        },
+        "note": "TEST12345",
+        "url": "/app/crm/calendar/event.nl?id=100758&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {
+            "id": "47",
+            "name": "Sample 5",
+            "title": "Sample 5",
+            "project": {
+                "text": "AB&I Holdings : Field Ops Pro Project",
+                "value": "1883"
+            },
+            "date": "9/5/2024",
+            "status": {
+                "text": "Closed",
+                "value": "3",
+                "code": "#6c757d"
+            },
+            "type": {
+                "text": "Moves",
+                "value": "3"
+            },
+            "memo": "<p>Sample 5</p>",
+            "salesorder": {
+                "text": "Sales Order #SLS00000654",
+                "value": "16211"
+            },
+            "customer": {
+                "text": "AB&I Holdings",
+                "value": "1249"
+            },
+            "resourceGroup": {
+                "text": "",
+                "value": ""
+            },
+            "priority": "",
+            "resources": [],
+            "items": [{
+                "id": "49",
+                "workorder": {
+                    "text": "Sample 5",
+                    "value": "47"
+                },
+                "events": ["100758"],
+                "uuid": "16210_1",
+                "line": "1",
+                "item": {
+                    "text": "BIC00008",
+                    "value": "467"
+                },
+                "description": "Inventory Item",
+                "quantity": 0,
+                "note": ""
+            }, {
+                "id": "50",
+                "workorder": {
+                    "text": "Sample 5",
+                    "value": "47"
+                },
+                "events": [],
+                "uuid": "16211_10",
+                "line": "5",
+                "item": {
+                    "text": "Dealer Service Fee",
+                    "value": "2331"
+                },
+                "description": "Dealer Service Fee",
+                "quantity": 0,
+                "note": ""
+            }],
+            "addresses": [{
+                "id": "39",
+                "workorder": {
+                    "text": "Sample 5",
+                    "value": "47"
+                },
+                "customer": {
+                    "text": "AB&I Holdings",
+                    "value": "1249"
+                },
+                "events": ["100769"],
+                "address": {
+                    "text": "1701 Rollins Road",
+                    "value": "244878"
+                },
+                "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+                "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+            }],
+            "contacts": [{
+                "id": "29",
+                "workorder": {
+                    "text": "Sample 5",
+                    "value": "47"
+                },
+                "events": ["100769"],
+                "contact": {
+                    "text": "AB&I Holdings : Test Prav",
+                    "value": "1892"
+                },
+                "name": "Test Prav",
+                "email": "pravallika@erpsuccesspartners.com",
+                "jobTitle": "QA",
+                "mobilePhone": "",
+                "phone": "",
+                "primary": "checked",
+                "url": "/app/common/entity/contact.nl?id=1892&compid=TSTDRV2617106"
+            }],
+            "events": [{
+                "id": "100753",
+                "title": "Sample 5",
+                "workorder": {
+                    "text": "Sample 5",
+                    "value": "47"
+                },
+                "project": {
+                    "text": "AB&I Holdings : Field Ops Pro Project",
+                    "value": "1883"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 8/31/2024",
+                    "start": "2024-08-31",
+                    "end": "2024-08-31"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "18:00"
+                },
+                "priority": {
+                    "text": "Low",
+                    "value": "1",
+                    "code": "#026adf"
+                },
+                "note": "TEST12345",
+                "url": "/app/crm/calendar/event.nl?id=100753&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100754",
+                "title": "Sample 5",
+                "workorder": {
+                    "text": "Sample 5",
+                    "value": "47"
+                },
+                "project": {
+                    "text": "AB&I Holdings : Field Ops Pro Project",
+                    "value": "1883"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 8/31/2024",
+                    "start": "2024-08-31",
+                    "end": "2024-08-31"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "18:00"
+                },
+                "priority": {
+                    "text": "Low",
+                    "value": "1",
+                    "code": "#026adf"
+                },
+                "note": "TEST12345",
+                "url": "/app/crm/calendar/event.nl?id=100754&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100756",
+                "title": "Sample 5",
+                "workorder": {
+                    "text": "Sample 5",
+                    "value": "47"
+                },
+                "project": {
+                    "text": "AB&I Holdings : Field Ops Pro Project",
+                    "value": "1883"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 8/31/2024",
+                    "start": "2024-08-31",
+                    "end": "2024-08-31"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "18:00"
+                },
+                "priority": {
+                    "text": "High",
+                    "value": "3",
+                    "code": "#ca6621"
+                },
+                "note": "TEST12345",
+                "url": "/app/crm/calendar/event.nl?id=100756&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100758",
+                "title": "Sample 5",
+                "workorder": {
+                    "text": "Sample 5",
+                    "value": "47"
+                },
+                "project": {
+                    "text": "AB&I Holdings : Field Ops Pro Project",
+                    "value": "1883"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 8/31/2024",
+                    "start": "2024-08-31",
+                    "end": "2024-08-31"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "18:00"
+                },
+                "priority": {
+                    "text": "Low",
+                    "value": "1",
+                    "code": "#026adf"
+                },
+                "note": "TEST12345",
+                "url": "/app/crm/calendar/event.nl?id=100758&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100769",
+                "title": "Sample 567",
+                "workorder": {
+                    "text": "Sample 5",
+                    "value": "47"
+                },
+                "project": {
+                    "text": "AB&I Holdings : Field Ops Pro Project",
+                    "value": "1883"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/3/2024",
+                    "start": "2024-09-03",
+                    "end": "2024-09-03"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "18:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "AAA\nBBB",
+                "url": "/app/crm/calendar/event.nl?id=100769&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }],
+            "projectUrl": "/app/accounting/project/project.nl?id=1883&compid=TSTDRV2617106",
+            "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=47&compid=TSTDRV2617106",
+            "soUrl": "/app/accounting/transactions/salesord.nl?id=16211&compid=TSTDRV2617106",
+            "esthours": "10"
+        },
+        "resources": [],
+        "items": [{
+            "id": "49",
+            "workorder": {
+                "text": "Sample 5",
+                "value": "47"
+            },
+            "events": ["100758"],
+            "uuid": "16210_1",
+            "line": "1",
+            "item": {
+                "text": "BIC00008",
+                "value": "467"
+            },
+            "description": "Inventory Item",
+            "quantity": 0,
+            "note": "",
+            "selected": true
+        }],
+        "contacts": [],
+        "addresses": [],
+        "contact": {
+            "text": "",
+            "value": ""
+        },
+        "address": {
+            "text": "",
+            "value": ""
+        }
+    }, {
+        "id": "100760",
+        "title": "Sample 3",
+        "workorder": {
+            "text": "Sample 3",
+            "value": "45"
+        },
+        "project": {
+            "text": "AB&I Holdings : Field Ops Pro Project",
+            "value": "1883"
+        },
+        "location": "",
+        "status": {
+            "text": "Confirmed",
+            "value": "CONFIRMED",
+            "code": "bg-success"
+        },
+        "date": {
+            "recurrence": "one time event on 9/3/2024",
+            "start": "2024-09-03",
+            "end": "2024-09-03"
+        },
+        "time": {
+            "start": "08:00",
+            "end": "18:00"
+        },
+        "priority": {
+            "text": "Medium",
+            "value": "2",
+            "code": "#dfcf02"
+        },
+        "note": "AAA\nBBBB",
+        "url": "/app/crm/calendar/event.nl?id=100760&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {
+            "id": "45",
+            "name": "Sample 3",
+            "title": "Sample 3",
+            "project": {
+                "text": "AB&I Holdings : Field Ops Pro Project",
+                "value": "1883"
+            },
+            "date": "9/3/2024",
+            "status": {
+                "text": "Not Started",
+                "value": "4",
+                "code": "#026adf"
+            },
+            "type": {
+                "text": "Moves",
+                "value": "3"
+            },
+            "memo": "<p>Sample 3</p>",
+            "salesorder": {
+                "text": "Sales Order #SLS00000654",
+                "value": "16211"
+            },
+            "customer": {
+                "text": "AB&I Holdings",
+                "value": "1249"
+            },
+            "resourceGroup": {
+                "text": "",
+                "value": ""
+            },
+            "priority": "",
+            "resources": [],
+            "items": [{
+                "id": "45",
+                "workorder": {
+                    "text": "Sample 3",
+                    "value": "45"
+                },
+                "events": ["100760"],
+                "uuid": "16210_2",
+                "line": "2",
+                "item": {
+                    "text": "2375-6727",
+                    "value": "1426"
+                },
+                "description": "Inventory Item",
+                "quantity": 0,
+                "note": ""
+            }, {
+                "id": "46",
+                "workorder": {
+                    "text": "Sample 3",
+                    "value": "45"
+                },
+                "events": ["100760"],
+                "uuid": "16211_10",
+                "line": "5",
+                "item": {
+                    "text": "Dealer Service Fee",
+                    "value": "2331"
+                },
+                "description": "Dealer Service Fee",
+                "quantity": 0,
+                "note": ""
+            }],
+            "addresses": [{
+                "id": "37",
+                "workorder": {
+                    "text": "Sample 3",
+                    "value": "45"
+                },
+                "customer": {
+                    "text": "AB&I Holdings",
+                    "value": "1249"
+                },
+                "events": [],
+                "address": {
+                    "text": "1701 Rollins Road",
+                    "value": "244878"
+                },
+                "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+                "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+            }],
+            "contacts": [{
+                "id": "27",
+                "workorder": {
+                    "text": "Sample 3",
+                    "value": "45"
+                },
+                "events": [],
+                "contact": {
+                    "text": "AB&I Holdings : Test Prav",
+                    "value": "1892"
+                },
+                "name": "Test Prav",
+                "email": "pravallika@erpsuccesspartners.com",
+                "jobTitle": "QA",
+                "mobilePhone": "",
+                "phone": "",
+                "primary": "checked",
+                "url": "/app/common/entity/contact.nl?id=1892&compid=TSTDRV2617106"
+            }],
+            "events": [{
+                "id": "100760",
+                "title": "Sample 3",
+                "workorder": {
+                    "text": "Sample 3",
+                    "value": "45"
+                },
+                "project": {
+                    "text": "AB&I Holdings : Field Ops Pro Project",
+                    "value": "1883"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/3/2024",
+                    "start": "2024-09-03",
+                    "end": "2024-09-03"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "18:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "AAA\nBBBB",
+                "url": "/app/crm/calendar/event.nl?id=100760&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }],
+            "projectUrl": "/app/accounting/project/project.nl?id=1883&compid=TSTDRV2617106",
+            "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=45&compid=TSTDRV2617106",
+            "soUrl": "/app/accounting/transactions/salesord.nl?id=16211&compid=TSTDRV2617106",
+            "esthours": "10"
+        },
+        "resources": [],
+        "items": [{
+            "id": "45",
+            "workorder": {
+                "text": "Sample 3",
+                "value": "45"
+            },
+            "events": ["100760"],
+            "uuid": "16210_2",
+            "line": "2",
+            "item": {
+                "text": "2375-6727",
+                "value": "1426"
+            },
+            "description": "Inventory Item",
+            "quantity": 0,
+            "note": "",
+            "selected": true
+        }, {
+            "id": "46",
+            "workorder": {
+                "text": "Sample 3",
+                "value": "45"
+            },
+            "events": ["100760"],
+            "uuid": "16211_10",
+            "line": "5",
+            "item": {
+                "text": "Dealer Service Fee",
+                "value": "2331"
+            },
+            "description": "Dealer Service Fee",
+            "quantity": 0,
+            "note": "",
+            "selected": true
+        }],
+        "contacts": [],
+        "addresses": [],
+        "contact": {
+            "text": "",
+            "value": ""
+        },
+        "address": {
+            "text": "",
+            "value": ""
+        }
+    }, {
+        "id": "100762",
+        "title": "Sample 4",
+        "workorder": {
+            "text": "Sample 4",
+            "value": "46"
+        },
+        "project": {
+            "text": "AB&I Holdings : Field Ops Pro Project",
+            "value": "1883"
+        },
+        "location": "",
+        "status": {
+            "text": "Confirmed",
+            "value": "CONFIRMED",
+            "code": "bg-success"
+        },
+        "date": {
+            "recurrence": "one time event on 9/3/2024",
+            "start": "2024-09-03",
+            "end": "2024-09-03"
+        },
+        "time": {
+            "start": "08:00",
+            "end": "18:00"
+        },
+        "priority": {
+            "text": "Medium",
+            "value": "2",
+            "code": "#dfcf02"
+        },
+        "note": "AAAAXXX",
+        "url": "/app/crm/calendar/event.nl?id=100762&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {
+            "id": "46",
+            "name": "Sample 4",
+            "title": "Sample 4",
+            "project": {
+                "text": "AB&I Holdings : Field Ops Pro Project",
+                "value": "1883"
+            },
+            "date": "9/5/2024",
+            "status": {
+                "text": "Hold",
+                "value": "7",
+                "code": "#6c757d"
+            },
+            "type": {
+                "text": "Walls",
+                "value": "6"
+            },
+            "memo": "<p>Sample 4</p>",
+            "salesorder": {
+                "text": "Sales Order #SLS00000654",
+                "value": "16211"
+            },
+            "customer": {
+                "text": "AB&I Holdings",
+                "value": "1249"
+            },
+            "resourceGroup": {
+                "text": "",
+                "value": ""
+            },
+            "priority": "",
+            "resources": [],
+            "items": [{
+                "id": "47",
+                "workorder": {
+                    "text": "Sample 4",
+                    "value": "46"
+                },
+                "events": ["100762", "100795"],
+                "uuid": "16210_1",
+                "line": "1",
+                "item": {
+                    "text": "BIC00008",
+                    "value": "467"
+                },
+                "description": "Inventory Item",
+                "quantity": 0,
+                "note": ""
+            }, {
+                "id": "48",
+                "workorder": {
+                    "text": "Sample 4",
+                    "value": "46"
+                },
+                "events": ["100762", "100795"],
+                "uuid": "16211_10",
+                "line": "5",
+                "item": {
+                    "text": "Dealer Service Fee",
+                    "value": "2331"
+                },
+                "description": "Dealer Service Fee",
+                "quantity": 0,
+                "note": ""
+            }],
+            "addresses": [{
+                "id": "38",
+                "workorder": {
+                    "text": "Sample 4",
+                    "value": "46"
+                },
+                "customer": {
+                    "text": "AB&I Holdings",
+                    "value": "1249"
+                },
+                "events": ["100778", "100795"],
+                "address": {
+                    "text": "1701 Rollins Road",
+                    "value": "244878"
+                },
+                "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+                "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+            }],
+            "contacts": [{
+                "id": "28",
+                "workorder": {
+                    "text": "Sample 4",
+                    "value": "46"
+                },
+                "events": [],
+                "contact": {
+                    "text": "AB&I Holdings : Test Prav",
+                    "value": "1892"
+                },
+                "name": "Test Prav",
+                "email": "pravallika@erpsuccesspartners.com",
+                "jobTitle": "QA",
+                "mobilePhone": "",
+                "phone": "9502123363",
+                "primary": "checked",
+                "url": "/app/common/entity/contact.nl?id=1892&compid=TSTDRV2617106"
+            }],
+            "events": [{
+                "id": "100762",
+                "title": "Sample 4",
+                "workorder": {
+                    "text": "Sample 4",
+                    "value": "46"
+                },
+                "project": {
+                    "text": "AB&I Holdings : Field Ops Pro Project",
+                    "value": "1883"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/3/2024",
+                    "start": "2024-09-03",
+                    "end": "2024-09-03"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "18:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "AAAAXXX",
+                "url": "/app/crm/calendar/event.nl?id=100762&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100778",
+                "title": "Sample 45678990",
+                "workorder": {
+                    "text": "Sample 4",
+                    "value": "46"
+                },
+                "project": {
+                    "text": "AB&I Holdings : Field Ops Pro Project",
+                    "value": "1883"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/4/2024",
+                    "start": "2024-09-04",
+                    "end": "2024-09-04"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "18:00"
+                },
+                "priority": {
+                    "text": "Urgent",
+                    "value": "4",
+                    "code": "#9a2407"
+                },
+                "note": "FF\n\n\n123",
+                "url": "/app/crm/calendar/event.nl?id=100778&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100795",
+                "title": "Sample 4",
+                "workorder": {
+                    "text": "Sample 4",
+                    "value": "46"
+                },
+                "project": {
+                    "text": "AB&I Holdings : Field Ops Pro Project",
+                    "value": "1883"
+                },
+                "location": "",
+                "status": {
+                    "text": "Tentative",
+                    "value": "TENTATIVE",
+                    "code": "bg-secondary"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/11/2024",
+                    "start": "2024-09-11",
+                    "end": "2024-09-11"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "18:00"
+                },
+                "priority": {
+                    "text": "Low",
+                    "value": "1",
+                    "code": "#026adf"
+                },
+                "note": "TEST1234",
+                "url": "/app/crm/calendar/event.nl?id=100795&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "28",
+                    "value": "28"
+                },
+                "address": {
+                    "text": "38",
+                    "value": "38"
+                }
+            }],
+            "projectUrl": "/app/accounting/project/project.nl?id=1883&compid=TSTDRV2617106",
+            "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=46&compid=TSTDRV2617106",
+            "soUrl": "/app/accounting/transactions/salesord.nl?id=16211&compid=TSTDRV2617106",
+            "esthours": "2"
+        },
+        "resources": [],
+        "items": [{
+            "id": "47",
+            "workorder": {
+                "text": "Sample 4",
+                "value": "46"
+            },
+            "events": ["100762", "100795"],
+            "uuid": "16210_1",
+            "line": "1",
+            "item": {
+                "text": "BIC00008",
+                "value": "467"
+            },
+            "description": "Inventory Item",
+            "quantity": 0,
+            "note": "",
+            "selected": true
+        }, {
+            "id": "48",
+            "workorder": {
+                "text": "Sample 4",
+                "value": "46"
+            },
+            "events": ["100762", "100795"],
+            "uuid": "16211_10",
+            "line": "5",
+            "item": {
+                "text": "Dealer Service Fee",
+                "value": "2331"
+            },
+            "description": "Dealer Service Fee",
+            "quantity": 0,
+            "note": "",
+            "selected": true
+        }],
+        "contacts": [],
+        "addresses": [],
+        "contact": {
+            "text": "",
+            "value": ""
+        },
+        "address": {
+            "text": "",
+            "value": ""
+        }
+    }, {
+        "id": "100767",
+        "title": "Work Order Sample July 31",
+        "workorder": {
+            "text": "Work Order Sample July 31",
+            "value": "34"
+        },
+        "project": {
+            "text": "AB&I Holdings : Parking Lot Construction",
+            "value": "1515"
+        },
+        "location": "",
+        "status": {
+            "text": "Confirmed",
+            "value": "CONFIRMED",
+            "code": "bg-success"
+        },
+        "date": {
+            "recurrence": "one time event on 9/10/2024",
+            "start": "2024-09-10",
+            "end": "2024-09-10"
+        },
+        "time": {
+            "start": "10:00",
+            "end": "19:00"
+        },
+        "priority": {
+            "text": "Urgent",
+            "value": "4",
+            "code": "#9a2407"
+        },
+        "note": "ASDFGH",
+        "url": "/app/crm/calendar/event.nl?id=100767&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {
+            "id": "34",
+            "name": "Work Order Sample July 31",
+            "title": "Work Order Sample July 31",
+            "project": {
+                "text": "AB&I Holdings : Parking Lot Construction",
+                "value": "1515"
+            },
+            "date": "8/2/2024",
+            "status": {
+                "text": "Not Started",
+                "value": "4",
+                "code": "#026adf"
+            },
+            "type": {
+                "text": "Mockup",
+                "value": "2"
+            },
+            "memo": "<p><strong>Work Order Sample July 31</strong></p>",
+            "salesorder": {
+                "text": "Sales Order #SLS00000651",
+                "value": "15100"
+            },
+            "customer": {
+                "text": "AB&I Holdings",
+                "value": "1249"
+            },
+            "resourceGroup": {
+                "text": "",
+                "value": ""
+            },
+            "priority": "",
+            "resources": [],
+            "items": [{
+                "id": "36",
+                "workorder": {
+                    "text": "Work Order Sample July 31",
+                    "value": "34"
+                },
+                "events": ["100768"],
+                "uuid": "15100_1",
+                "line": "1",
+                "item": {
+                    "text": "BIC00008",
+                    "value": "467"
+                },
+                "description": "Inventory Item",
+                "quantity": 2,
+                "note": ""
+            }, {
+                "id": "37",
+                "workorder": {
+                    "text": "Work Order Sample July 31",
+                    "value": "34"
+                },
+                "events": ["100768"],
+                "uuid": "15100_2",
+                "line": "2",
+                "item": {
+                    "text": "BIC00008",
+                    "value": "467"
+                },
+                "description": "Inventory Item",
+                "quantity": 1,
+                "note": ""
+            }, {
+                "id": "38",
+                "workorder": {
+                    "text": "Work Order Sample July 31",
+                    "value": "34"
+                },
+                "events": ["100768"],
+                "uuid": "15100_22",
+                "line": "4",
+                "item": {
+                    "text": "Dealer Service Fee",
+                    "value": "2331"
+                },
+                "description": "Dealer Service Fee",
+                "quantity": 0,
+                "note": ""
+            }],
+            "addresses": [{
+                "id": "28",
+                "workorder": {
+                    "text": "Work Order Sample July 31",
+                    "value": "34"
+                },
+                "customer": {
+                    "text": "AB&I Holdings",
+                    "value": "1249"
+                },
+                "events": ["100767", "100786"],
+                "address": {
+                    "text": "1701 Rollins Road",
+                    "value": "244878"
+                },
+                "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+                "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+            }],
+            "contacts": [{
+                "id": "16",
+                "workorder": {
+                    "text": "Work Order Sample July 31",
+                    "value": "34"
+                },
+                "events": ["100768"],
+                "contact": {
+                    "text": "AB&I Holdings : Chad Bass",
+                    "value": "1382"
+                },
+                "name": "Chad Bass",
+                "email": "cbass@sbi.com",
+                "jobTitle": "President",
+                "mobilePhone": "",
+                "phone": "",
+                "primary": "checked",
+                "url": "/app/common/entity/contact.nl?id=1382&compid=TSTDRV2617106"
+            }, {
+                "id": "20",
+                "workorder": {
+                    "text": "Work Order Sample July 31",
+                    "value": "34"
+                },
+                "events": ["100786"],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "name": "Test",
+                "email": "pravallika@erpsuccesspartners.com",
+                "jobTitle": "Developer",
+                "mobilePhone": "",
+                "phone": "",
+                "primary": "",
+                "url": "/app/common/entity/contact.nl?compid=TSTDRV2617106"
+            }],
+            "events": [{
+                "id": "100767",
+                "title": "Work Order Sample July 31",
+                "workorder": {
+                    "text": "Work Order Sample July 31",
+                    "value": "34"
+                },
+                "project": {
+                    "text": "AB&I Holdings : Parking Lot Construction",
+                    "value": "1515"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/10/2024",
+                    "start": "2024-09-10",
+                    "end": "2024-09-10"
+                },
+                "time": {
+                    "start": "10:00",
+                    "end": "19:00"
+                },
+                "priority": {
+                    "text": "Urgent",
+                    "value": "4",
+                    "code": "#9a2407"
+                },
+                "note": "ASDFGH",
+                "url": "/app/crm/calendar/event.nl?id=100767&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100768",
+                "title": "Work Order Sample July 31",
+                "workorder": {
+                    "text": "Work Order Sample July 31",
+                    "value": "34"
+                },
+                "project": {
+                    "text": "AB&I Holdings : Parking Lot Construction",
+                    "value": "1515"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/11/2024",
+                    "start": "2024-09-11",
+                    "end": "2024-09-11"
+                },
+                "time": {
+                    "start": "06:42",
+                    "end": "17:45"
+                },
+                "priority": {
+                    "text": "High",
+                    "value": "3",
+                    "code": "#ca6621"
+                },
+                "note": "123qwe\nAsdfasd",
+                "url": "/app/crm/calendar/event.nl?id=100768&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100786",
+                "title": "Work Order Sample July 32",
+                "workorder": {
+                    "text": "Work Order Sample July 31",
+                    "value": "34"
+                },
+                "project": {
+                    "text": "AB&I Holdings : Parking Lot Construction",
+                    "value": "1515"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "occurs every day from 9/6/2024 until 9/29/2024",
+                    "start": "2024-09-06",
+                    "end": "2024-09-29"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "18:00"
+                },
+                "priority": {
+                    "text": "High",
+                    "value": "3",
+                    "code": "#ca6621"
+                },
+                "note": "TEST\nXYZ\n123",
+                "url": "/app/crm/calendar/event.nl?id=100786&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }],
+            "projectUrl": "/app/accounting/project/project.nl?id=1515&compid=TSTDRV2617106",
+            "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=34&compid=TSTDRV2617106",
+            "soUrl": "/app/accounting/transactions/salesord.nl?id=15100&compid=TSTDRV2617106",
+            "esthours": "8"
+        },
+        "resources": [{
+            "employee": {
+                "text": "Matt Nolan",
+                "value": "1292"
+            },
+            "initials": "MN",
+            "email": "mnolan@ramsey.com",
+            "phone": "",
+            "location": {
+                "text": "01: San Francisco",
+                "value": "2"
+            },
+            "active": true,
+            "resourceGroup": {
+                "text": "Designers",
+                "value": "2"
+            },
+            "type": {
+                "text": "Designer",
+                "value": "3"
+            },
+            "color": "#e57d29",
+            "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fcompid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
+            "events": ["100767", "100794"],
+            "selected": true
+        }, {
+            "employee": {
+                "text": "Mei Matriano",
+                "value": "1647"
+            },
+            "initials": "MM",
+            "email": "mei@erpsuccesspartners.com",
+            "phone": "",
+            "location": {
+                "text": "",
+                "value": ""
+            },
+            "active": true,
+            "resourceGroup": {
+                "text": "Designers",
+                "value": "2"
+            },
+            "type": {
+                "text": "Installer",
+                "value": "1"
+            },
+            "color": "#f1484c",
+            "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fcompid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
+            "events": ["100767", "100794"],
+            "selected": true
+        }, {
+            "employee": {
+                "text": "Youssef Ezz",
+                "value": "1656"
+            },
+            "initials": "YE",
+            "email": "yk@erpsuccesspartners.com",
+            "phone": "",
+            "location": {
+                "text": "",
+                "value": ""
+            },
+            "active": true,
+            "resourceGroup": {
+                "text": "Installers",
+                "value": "1"
+            },
+            "type": {
+                "text": "Installer",
+                "value": "1"
+            },
+            "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fcompid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
+            "events": ["100767", "100794"],
+            "selected": true
+        }],
+        "items": [],
+        "contacts": [],
+        "addresses": [{
+            "id": "28",
+            "workorder": {
+                "text": "Work Order Sample July 31",
+                "value": "34"
+            },
+            "customer": {
+                "text": "AB&I Holdings",
+                "value": "1249"
+            },
+            "events": ["100767", "100786"],
+            "address": {
+                "text": "1701 Rollins Road",
+                "value": "244878"
+            },
+            "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+            "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106",
+            "selected": true
+        }],
+        "contact": {
+            "text": "",
+            "value": ""
+        },
+        "address": {
+            "text": "",
+            "value": ""
+        }
+    }, {
+        "id": "100768",
+        "title": "Work Order Sample July 31",
+        "workorder": {
+            "text": "Work Order Sample July 31",
+            "value": "34"
+        },
+        "project": {
+            "text": "AB&I Holdings : Parking Lot Construction",
+            "value": "1515"
+        },
+        "location": "",
+        "status": {
+            "text": "Confirmed",
+            "value": "CONFIRMED",
+            "code": "bg-success"
+        },
+        "date": {
+            "recurrence": "one time event on 9/11/2024",
+            "start": "2024-09-11",
+            "end": "2024-09-11"
+        },
+        "time": {
+            "start": "06:42",
+            "end": "17:45"
+        },
+        "priority": {
+            "text": "High",
+            "value": "3",
+            "code": "#ca6621"
+        },
+        "note": "123qwe\nAsdfasd",
+        "url": "/app/crm/calendar/event.nl?id=100768&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {
+            "id": "34",
+            "name": "Work Order Sample July 31",
+            "title": "Work Order Sample July 31",
+            "project": {
+                "text": "AB&I Holdings : Parking Lot Construction",
+                "value": "1515"
+            },
+            "date": "8/2/2024",
+            "status": {
+                "text": "Not Started",
+                "value": "4",
+                "code": "#026adf"
+            },
+            "type": {
+                "text": "Mockup",
+                "value": "2"
+            },
+            "memo": "<p><strong>Work Order Sample July 31</strong></p>",
+            "salesorder": {
+                "text": "Sales Order #SLS00000651",
+                "value": "15100"
+            },
+            "customer": {
+                "text": "AB&I Holdings",
+                "value": "1249"
+            },
+            "resourceGroup": {
+                "text": "",
+                "value": ""
+            },
+            "priority": "",
+            "resources": [],
+            "items": [{
+                "id": "36",
+                "workorder": {
+                    "text": "Work Order Sample July 31",
+                    "value": "34"
+                },
+                "events": ["100768"],
+                "uuid": "15100_1",
+                "line": "1",
+                "item": {
+                    "text": "BIC00008",
+                    "value": "467"
+                },
+                "description": "Inventory Item",
+                "quantity": 2,
+                "note": ""
+            }, {
+                "id": "37",
+                "workorder": {
+                    "text": "Work Order Sample July 31",
+                    "value": "34"
+                },
+                "events": ["100768"],
+                "uuid": "15100_2",
+                "line": "2",
+                "item": {
+                    "text": "BIC00008",
+                    "value": "467"
+                },
+                "description": "Inventory Item",
+                "quantity": 1,
+                "note": ""
+            }, {
+                "id": "38",
+                "workorder": {
+                    "text": "Work Order Sample July 31",
+                    "value": "34"
+                },
+                "events": ["100768"],
+                "uuid": "15100_22",
+                "line": "4",
+                "item": {
+                    "text": "Dealer Service Fee",
+                    "value": "2331"
+                },
+                "description": "Dealer Service Fee",
+                "quantity": 0,
+                "note": ""
+            }],
+            "addresses": [{
+                "id": "28",
+                "workorder": {
+                    "text": "Work Order Sample July 31",
+                    "value": "34"
+                },
+                "customer": {
+                    "text": "AB&I Holdings",
+                    "value": "1249"
+                },
+                "events": ["100767", "100786"],
+                "address": {
+                    "text": "1701 Rollins Road",
+                    "value": "244878"
+                },
+                "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+                "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+            }],
+            "contacts": [{
+                "id": "16",
+                "workorder": {
+                    "text": "Work Order Sample July 31",
+                    "value": "34"
+                },
+                "events": ["100768"],
+                "contact": {
+                    "text": "AB&I Holdings : Chad Bass",
+                    "value": "1382"
+                },
+                "name": "Chad Bass",
+                "email": "cbass@sbi.com",
+                "jobTitle": "President",
+                "mobilePhone": "",
+                "phone": "",
+                "primary": "checked",
+                "url": "/app/common/entity/contact.nl?id=1382&compid=TSTDRV2617106"
+            }, {
+                "id": "20",
+                "workorder": {
+                    "text": "Work Order Sample July 31",
+                    "value": "34"
+                },
+                "events": ["100786"],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "name": "Test",
+                "email": "pravallika@erpsuccesspartners.com",
+                "jobTitle": "Developer",
+                "mobilePhone": "",
+                "phone": "",
+                "primary": "",
+                "url": "/app/common/entity/contact.nl?compid=TSTDRV2617106"
+            }],
+            "events": [{
+                "id": "100767",
+                "title": "Work Order Sample July 31",
+                "workorder": {
+                    "text": "Work Order Sample July 31",
+                    "value": "34"
+                },
+                "project": {
+                    "text": "AB&I Holdings : Parking Lot Construction",
+                    "value": "1515"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/10/2024",
+                    "start": "2024-09-10",
+                    "end": "2024-09-10"
+                },
+                "time": {
+                    "start": "10:00",
+                    "end": "19:00"
+                },
+                "priority": {
+                    "text": "Urgent",
+                    "value": "4",
+                    "code": "#9a2407"
+                },
+                "note": "ASDFGH",
+                "url": "/app/crm/calendar/event.nl?id=100767&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100768",
+                "title": "Work Order Sample July 31",
+                "workorder": {
+                    "text": "Work Order Sample July 31",
+                    "value": "34"
+                },
+                "project": {
+                    "text": "AB&I Holdings : Parking Lot Construction",
+                    "value": "1515"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/11/2024",
+                    "start": "2024-09-11",
+                    "end": "2024-09-11"
+                },
+                "time": {
+                    "start": "06:42",
+                    "end": "17:45"
+                },
+                "priority": {
+                    "text": "High",
+                    "value": "3",
+                    "code": "#ca6621"
+                },
+                "note": "123qwe\nAsdfasd",
+                "url": "/app/crm/calendar/event.nl?id=100768&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100786",
+                "title": "Work Order Sample July 32",
+                "workorder": {
+                    "text": "Work Order Sample July 31",
+                    "value": "34"
+                },
+                "project": {
+                    "text": "AB&I Holdings : Parking Lot Construction",
+                    "value": "1515"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "occurs every day from 9/6/2024 until 9/29/2024",
+                    "start": "2024-09-06",
+                    "end": "2024-09-29"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "18:00"
+                },
+                "priority": {
+                    "text": "High",
+                    "value": "3",
+                    "code": "#ca6621"
+                },
+                "note": "TEST\nXYZ\n123",
+                "url": "/app/crm/calendar/event.nl?id=100786&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }],
+            "projectUrl": "/app/accounting/project/project.nl?id=1515&compid=TSTDRV2617106",
+            "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=34&compid=TSTDRV2617106",
+            "soUrl": "/app/accounting/transactions/salesord.nl?id=15100&compid=TSTDRV2617106",
+            "esthours": "8"
+        },
+        "resources": [],
+        "items": [{
+            "id": "36",
+            "workorder": {
+                "text": "Work Order Sample July 31",
+                "value": "34"
+            },
+            "events": ["100768"],
+            "uuid": "15100_1",
+            "line": "1",
+            "item": {
+                "text": "BIC00008",
+                "value": "467"
+            },
+            "description": "Inventory Item",
+            "quantity": 2,
+            "note": "",
+            "selected": true
+        }, {
+            "id": "37",
+            "workorder": {
+                "text": "Work Order Sample July 31",
+                "value": "34"
+            },
+            "events": ["100768"],
+            "uuid": "15100_2",
+            "line": "2",
+            "item": {
+                "text": "BIC00008",
+                "value": "467"
+            },
+            "description": "Inventory Item",
+            "quantity": 1,
+            "note": "",
+            "selected": true
+        }, {
+            "id": "38",
+            "workorder": {
+                "text": "Work Order Sample July 31",
+                "value": "34"
+            },
+            "events": ["100768"],
+            "uuid": "15100_22",
+            "line": "4",
+            "item": {
+                "text": "Dealer Service Fee",
+                "value": "2331"
+            },
+            "description": "Dealer Service Fee",
+            "quantity": 0,
+            "note": "",
+            "selected": true
+        }],
+        "contacts": [{
+            "id": "16",
+            "workorder": {
+                "text": "Work Order Sample July 31",
+                "value": "34"
+            },
+            "events": ["100768"],
+            "contact": {
+                "text": "AB&I Holdings : Chad Bass",
+                "value": "1382"
+            },
+            "name": "Chad Bass",
+            "email": "cbass@sbi.com",
+            "jobTitle": "President",
+            "mobilePhone": "",
+            "phone": "",
+            "primary": "checked",
+            "url": "/app/common/entity/contact.nl?id=1382&compid=TSTDRV2617106",
+            "selected": true
+        }],
+        "addresses": [],
+        "contact": {
+            "text": "",
+            "value": ""
+        },
+        "address": {
+            "text": "",
+            "value": ""
+        }
+    }, {
+        "id": "100769",
+        "title": "Sample 567",
+        "workorder": {
+            "text": "Sample 5",
+            "value": "47"
+        },
+        "project": {
+            "text": "AB&I Holdings : Field Ops Pro Project",
+            "value": "1883"
+        },
+        "location": "",
+        "status": {
+            "text": "Confirmed",
+            "value": "CONFIRMED",
+            "code": "bg-success"
+        },
+        "date": {
+            "recurrence": "one time event on 9/3/2024",
+            "start": "2024-09-03",
+            "end": "2024-09-03"
+        },
+        "time": {
+            "start": "08:00",
+            "end": "18:00"
+        },
+        "priority": {
+            "text": "Medium",
+            "value": "2",
+            "code": "#dfcf02"
+        },
+        "note": "AAA\nBBB",
+        "url": "/app/crm/calendar/event.nl?id=100769&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {
+            "id": "47",
+            "name": "Sample 5",
+            "title": "Sample 5",
+            "project": {
+                "text": "AB&I Holdings : Field Ops Pro Project",
+                "value": "1883"
+            },
+            "date": "9/5/2024",
+            "status": {
+                "text": "Closed",
+                "value": "3",
+                "code": "#6c757d"
+            },
+            "type": {
+                "text": "Moves",
+                "value": "3"
+            },
+            "memo": "<p>Sample 5</p>",
+            "salesorder": {
+                "text": "Sales Order #SLS00000654",
+                "value": "16211"
+            },
+            "customer": {
+                "text": "AB&I Holdings",
+                "value": "1249"
+            },
+            "resourceGroup": {
+                "text": "",
+                "value": ""
+            },
+            "priority": "",
+            "resources": [],
+            "items": [{
+                "id": "49",
+                "workorder": {
+                    "text": "Sample 5",
+                    "value": "47"
+                },
+                "events": ["100758"],
+                "uuid": "16210_1",
+                "line": "1",
+                "item": {
+                    "text": "BIC00008",
+                    "value": "467"
+                },
+                "description": "Inventory Item",
+                "quantity": 0,
+                "note": ""
+            }, {
+                "id": "50",
+                "workorder": {
+                    "text": "Sample 5",
+                    "value": "47"
+                },
+                "events": [],
+                "uuid": "16211_10",
+                "line": "5",
+                "item": {
+                    "text": "Dealer Service Fee",
+                    "value": "2331"
+                },
+                "description": "Dealer Service Fee",
+                "quantity": 0,
+                "note": ""
+            }],
+            "addresses": [{
+                "id": "39",
+                "workorder": {
+                    "text": "Sample 5",
+                    "value": "47"
+                },
+                "customer": {
+                    "text": "AB&I Holdings",
+                    "value": "1249"
+                },
+                "events": ["100769"],
+                "address": {
+                    "text": "1701 Rollins Road",
+                    "value": "244878"
+                },
+                "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+                "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+            }],
+            "contacts": [{
+                "id": "29",
+                "workorder": {
+                    "text": "Sample 5",
+                    "value": "47"
+                },
+                "events": ["100769"],
+                "contact": {
+                    "text": "AB&I Holdings : Test Prav",
+                    "value": "1892"
+                },
+                "name": "Test Prav",
+                "email": "pravallika@erpsuccesspartners.com",
+                "jobTitle": "QA",
+                "mobilePhone": "",
+                "phone": "",
+                "primary": "checked",
+                "url": "/app/common/entity/contact.nl?id=1892&compid=TSTDRV2617106"
+            }],
+            "events": [{
+                "id": "100753",
+                "title": "Sample 5",
+                "workorder": {
+                    "text": "Sample 5",
+                    "value": "47"
+                },
+                "project": {
+                    "text": "AB&I Holdings : Field Ops Pro Project",
+                    "value": "1883"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 8/31/2024",
+                    "start": "2024-08-31",
+                    "end": "2024-08-31"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "18:00"
+                },
+                "priority": {
+                    "text": "Low",
+                    "value": "1",
+                    "code": "#026adf"
+                },
+                "note": "TEST12345",
+                "url": "/app/crm/calendar/event.nl?id=100753&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100754",
+                "title": "Sample 5",
+                "workorder": {
+                    "text": "Sample 5",
+                    "value": "47"
+                },
+                "project": {
+                    "text": "AB&I Holdings : Field Ops Pro Project",
+                    "value": "1883"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 8/31/2024",
+                    "start": "2024-08-31",
+                    "end": "2024-08-31"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "18:00"
+                },
+                "priority": {
+                    "text": "Low",
+                    "value": "1",
+                    "code": "#026adf"
+                },
+                "note": "TEST12345",
+                "url": "/app/crm/calendar/event.nl?id=100754&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100756",
+                "title": "Sample 5",
+                "workorder": {
+                    "text": "Sample 5",
+                    "value": "47"
+                },
+                "project": {
+                    "text": "AB&I Holdings : Field Ops Pro Project",
+                    "value": "1883"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 8/31/2024",
+                    "start": "2024-08-31",
+                    "end": "2024-08-31"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "18:00"
+                },
+                "priority": {
+                    "text": "High",
+                    "value": "3",
+                    "code": "#ca6621"
+                },
+                "note": "TEST12345",
+                "url": "/app/crm/calendar/event.nl?id=100756&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100758",
+                "title": "Sample 5",
+                "workorder": {
+                    "text": "Sample 5",
+                    "value": "47"
+                },
+                "project": {
+                    "text": "AB&I Holdings : Field Ops Pro Project",
+                    "value": "1883"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 8/31/2024",
+                    "start": "2024-08-31",
+                    "end": "2024-08-31"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "18:00"
+                },
+                "priority": {
+                    "text": "Low",
+                    "value": "1",
+                    "code": "#026adf"
+                },
+                "note": "TEST12345",
+                "url": "/app/crm/calendar/event.nl?id=100758&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100769",
+                "title": "Sample 567",
+                "workorder": {
+                    "text": "Sample 5",
+                    "value": "47"
+                },
+                "project": {
+                    "text": "AB&I Holdings : Field Ops Pro Project",
+                    "value": "1883"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/3/2024",
+                    "start": "2024-09-03",
+                    "end": "2024-09-03"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "18:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "AAA\nBBB",
+                "url": "/app/crm/calendar/event.nl?id=100769&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }],
+            "projectUrl": "/app/accounting/project/project.nl?id=1883&compid=TSTDRV2617106",
+            "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=47&compid=TSTDRV2617106",
+            "soUrl": "/app/accounting/transactions/salesord.nl?id=16211&compid=TSTDRV2617106",
+            "esthours": "10"
+        },
+        "resources": [],
+        "items": [],
+        "contacts": [{
+            "id": "29",
+            "workorder": {
+                "text": "Sample 5",
+                "value": "47"
+            },
+            "events": ["100769"],
+            "contact": {
+                "text": "AB&I Holdings : Test Prav",
+                "value": "1892"
+            },
+            "name": "Test Prav",
+            "email": "pravallika@erpsuccesspartners.com",
+            "jobTitle": "QA",
+            "mobilePhone": "",
+            "phone": "",
+            "primary": "checked",
+            "url": "/app/common/entity/contact.nl?id=1892&compid=TSTDRV2617106",
+            "selected": true
+        }],
+        "addresses": [{
+            "id": "39",
+            "workorder": {
+                "text": "Sample 5",
+                "value": "47"
+            },
+            "customer": {
+                "text": "AB&I Holdings",
+                "value": "1249"
+            },
+            "events": ["100769"],
+            "address": {
+                "text": "1701 Rollins Road",
+                "value": "244878"
+            },
+            "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+            "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106",
+            "selected": true
+        }],
+        "contact": {
+            "text": "",
+            "value": ""
+        },
+        "address": {
+            "text": "",
+            "value": ""
+        }
+    }, {
+        "id": "100777",
+        "title": "Sample 656",
+        "workorder": {
+            "text": "Sample 6",
+            "value": "48"
+        },
+        "project": {
+            "text": "AB&I Holdings : Field Ops Pro Project",
+            "value": "1883"
+        },
+        "location": "",
+        "status": {
+            "text": "Confirmed",
+            "value": "CONFIRMED",
+            "code": "bg-success"
+        },
+        "date": {
+            "recurrence": "one time event on 9/4/2024",
+            "start": "2024-09-04",
+            "end": "2024-09-04"
+        },
+        "time": {
+            "start": "08:00",
+            "end": "18:00"
+        },
+        "priority": {
+            "text": "High",
+            "value": "3",
+            "code": "#ca6621"
+        },
+        "note": "ASDASDASADASDBBB\nBBBBBB",
+        "url": "/app/crm/calendar/event.nl?id=100777&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {
+            "id": "48",
+            "name": "Sample 6",
+            "title": "Sample 6",
+            "project": {
+                "text": "AB&I Holdings : Field Ops Pro Project",
+                "value": "1883"
+            },
+            "date": "9/5/2024",
+            "status": {
+                "text": "Hold",
+                "value": "7",
+                "code": "#6c757d"
+            },
+            "type": {
+                "text": "Walls",
+                "value": "6"
+            },
+            "memo": "<p><strong>Sample 6</strong></p>",
+            "salesorder": {
+                "text": "Sales Order #SLS00000654",
+                "value": "16211"
+            },
+            "customer": {
+                "text": "AB&I Holdings",
+                "value": "1249"
+            },
+            "resourceGroup": {
+                "text": "",
+                "value": ""
+            },
+            "priority": "",
+            "resources": [],
+            "items": [{
+                "id": "51",
+                "workorder": {
+                    "text": "Sample 6",
+                    "value": "48"
+                },
+                "events": ["100777"],
+                "uuid": "16210_1",
+                "line": "1",
+                "item": {
+                    "text": "BIC00008",
+                    "value": "467"
+                },
+                "description": "Inventory Item",
+                "quantity": 0,
+                "note": ""
+            }, {
+                "id": "52",
+                "workorder": {
+                    "text": "Sample 6",
+                    "value": "48"
+                },
+                "events": ["100777"],
+                "uuid": "16211_10",
+                "line": "5",
+                "item": {
+                    "text": "Dealer Service Fee",
+                    "value": "2331"
+                },
+                "description": "Dealer Service Fee",
+                "quantity": 0,
+                "note": ""
+            }],
+            "addresses": [{
+                "id": "40",
+                "workorder": {
+                    "text": "Sample 6",
+                    "value": "48"
+                },
+                "customer": {
+                    "text": "AB&I Holdings",
+                    "value": "1249"
+                },
+                "events": ["100777"],
+                "address": {
+                    "text": "1701 Rollins Road",
+                    "value": "244878"
+                },
+                "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+                "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+            }],
+            "contacts": [{
+                "id": "30",
+                "workorder": {
+                    "text": "Sample 6",
+                    "value": "48"
+                },
+                "events": ["100777"],
+                "contact": {
+                    "text": "AB&I Holdings : Test Prav",
+                    "value": "1892"
+                },
+                "name": "Test Prav",
+                "email": "pravallika@erpsuccesspartners.com",
+                "jobTitle": "QA",
+                "mobilePhone": "",
+                "phone": "",
+                "primary": "checked",
+                "url": "/app/common/entity/contact.nl?id=1892&compid=TSTDRV2617106"
+            }],
+            "events": [{
+                "id": "100777",
+                "title": "Sample 656",
+                "workorder": {
+                    "text": "Sample 6",
+                    "value": "48"
+                },
+                "project": {
+                    "text": "AB&I Holdings : Field Ops Pro Project",
+                    "value": "1883"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/4/2024",
+                    "start": "2024-09-04",
+                    "end": "2024-09-04"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "18:00"
+                },
+                "priority": {
+                    "text": "High",
+                    "value": "3",
+                    "code": "#ca6621"
+                },
+                "note": "ASDASDASADASDBBB\nBBBBBB",
+                "url": "/app/crm/calendar/event.nl?id=100777&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }],
+            "projectUrl": "/app/accounting/project/project.nl?id=1883&compid=TSTDRV2617106",
+            "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=48&compid=TSTDRV2617106",
+            "soUrl": "/app/accounting/transactions/salesord.nl?id=16211&compid=TSTDRV2617106",
+            "esthours": "50"
+        },
+        "resources": [],
+        "items": [{
+            "id": "51",
+            "workorder": {
+                "text": "Sample 6",
+                "value": "48"
+            },
+            "events": ["100777"],
+            "uuid": "16210_1",
+            "line": "1",
+            "item": {
+                "text": "BIC00008",
+                "value": "467"
+            },
+            "description": "Inventory Item",
+            "quantity": 0,
+            "note": "",
+            "selected": true
+        }, {
+            "id": "52",
+            "workorder": {
+                "text": "Sample 6",
+                "value": "48"
+            },
+            "events": ["100777"],
+            "uuid": "16211_10",
+            "line": "5",
+            "item": {
+                "text": "Dealer Service Fee",
+                "value": "2331"
+            },
+            "description": "Dealer Service Fee",
+            "quantity": 0,
+            "note": "",
+            "selected": true
+        }],
+        "contacts": [{
+            "id": "30",
+            "workorder": {
+                "text": "Sample 6",
+                "value": "48"
+            },
+            "events": ["100777"],
+            "contact": {
+                "text": "AB&I Holdings : Test Prav",
+                "value": "1892"
+            },
+            "name": "Test Prav",
+            "email": "pravallika@erpsuccesspartners.com",
+            "jobTitle": "QA",
+            "mobilePhone": "",
+            "phone": "",
+            "primary": "checked",
+            "url": "/app/common/entity/contact.nl?id=1892&compid=TSTDRV2617106",
+            "selected": true
+        }],
+        "addresses": [{
+            "id": "40",
+            "workorder": {
+                "text": "Sample 6",
+                "value": "48"
+            },
+            "customer": {
+                "text": "AB&I Holdings",
+                "value": "1249"
+            },
+            "events": ["100777"],
+            "address": {
+                "text": "1701 Rollins Road",
+                "value": "244878"
+            },
+            "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+            "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106",
+            "selected": true
+        }],
+        "contact": {
+            "text": "",
+            "value": ""
+        },
+        "address": {
+            "text": "",
+            "value": ""
+        }
+    }, {
+        "id": "100778",
+        "title": "Sample 45678990",
+        "workorder": {
+            "text": "Sample 4",
+            "value": "46"
+        },
+        "project": {
+            "text": "AB&I Holdings : Field Ops Pro Project",
+            "value": "1883"
+        },
+        "location": "",
+        "status": {
+            "text": "Confirmed",
+            "value": "CONFIRMED",
+            "code": "bg-success"
+        },
+        "date": {
+            "recurrence": "one time event on 9/4/2024",
+            "start": "2024-09-04",
+            "end": "2024-09-04"
+        },
+        "time": {
+            "start": "08:00",
+            "end": "18:00"
+        },
+        "priority": {
+            "text": "Urgent",
+            "value": "4",
+            "code": "#9a2407"
+        },
+        "note": "FF\n\n\n123",
+        "url": "/app/crm/calendar/event.nl?id=100778&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {
+            "id": "46",
+            "name": "Sample 4",
+            "title": "Sample 4",
+            "project": {
+                "text": "AB&I Holdings : Field Ops Pro Project",
+                "value": "1883"
+            },
+            "date": "9/5/2024",
+            "status": {
+                "text": "Hold",
+                "value": "7",
+                "code": "#6c757d"
+            },
+            "type": {
+                "text": "Walls",
+                "value": "6"
+            },
+            "memo": "<p>Sample 4</p>",
+            "salesorder": {
+                "text": "Sales Order #SLS00000654",
+                "value": "16211"
+            },
+            "customer": {
+                "text": "AB&I Holdings",
+                "value": "1249"
+            },
+            "resourceGroup": {
+                "text": "",
+                "value": ""
+            },
+            "priority": "",
+            "resources": [],
+            "items": [{
+                "id": "47",
+                "workorder": {
+                    "text": "Sample 4",
+                    "value": "46"
+                },
+                "events": ["100762", "100795"],
+                "uuid": "16210_1",
+                "line": "1",
+                "item": {
+                    "text": "BIC00008",
+                    "value": "467"
+                },
+                "description": "Inventory Item",
+                "quantity": 0,
+                "note": ""
+            }, {
+                "id": "48",
+                "workorder": {
+                    "text": "Sample 4",
+                    "value": "46"
+                },
+                "events": ["100762", "100795"],
+                "uuid": "16211_10",
+                "line": "5",
+                "item": {
+                    "text": "Dealer Service Fee",
+                    "value": "2331"
+                },
+                "description": "Dealer Service Fee",
+                "quantity": 0,
+                "note": ""
+            }],
+            "addresses": [{
+                "id": "38",
+                "workorder": {
+                    "text": "Sample 4",
+                    "value": "46"
+                },
+                "customer": {
+                    "text": "AB&I Holdings",
+                    "value": "1249"
+                },
+                "events": ["100778", "100795"],
+                "address": {
+                    "text": "1701 Rollins Road",
+                    "value": "244878"
+                },
+                "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+                "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+            }],
+            "contacts": [{
+                "id": "28",
+                "workorder": {
+                    "text": "Sample 4",
+                    "value": "46"
+                },
+                "events": [],
+                "contact": {
+                    "text": "AB&I Holdings : Test Prav",
+                    "value": "1892"
+                },
+                "name": "Test Prav",
+                "email": "pravallika@erpsuccesspartners.com",
+                "jobTitle": "QA",
+                "mobilePhone": "",
+                "phone": "9502123363",
+                "primary": "checked",
+                "url": "/app/common/entity/contact.nl?id=1892&compid=TSTDRV2617106"
+            }],
+            "events": [{
+                "id": "100762",
+                "title": "Sample 4",
+                "workorder": {
+                    "text": "Sample 4",
+                    "value": "46"
+                },
+                "project": {
+                    "text": "AB&I Holdings : Field Ops Pro Project",
+                    "value": "1883"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/3/2024",
+                    "start": "2024-09-03",
+                    "end": "2024-09-03"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "18:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "AAAAXXX",
+                "url": "/app/crm/calendar/event.nl?id=100762&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100778",
+                "title": "Sample 45678990",
+                "workorder": {
+                    "text": "Sample 4",
+                    "value": "46"
+                },
+                "project": {
+                    "text": "AB&I Holdings : Field Ops Pro Project",
+                    "value": "1883"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/4/2024",
+                    "start": "2024-09-04",
+                    "end": "2024-09-04"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "18:00"
+                },
+                "priority": {
+                    "text": "Urgent",
+                    "value": "4",
+                    "code": "#9a2407"
+                },
+                "note": "FF\n\n\n123",
+                "url": "/app/crm/calendar/event.nl?id=100778&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100795",
+                "title": "Sample 4",
+                "workorder": {
+                    "text": "Sample 4",
+                    "value": "46"
+                },
+                "project": {
+                    "text": "AB&I Holdings : Field Ops Pro Project",
+                    "value": "1883"
+                },
+                "location": "",
+                "status": {
+                    "text": "Tentative",
+                    "value": "TENTATIVE",
+                    "code": "bg-secondary"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/11/2024",
+                    "start": "2024-09-11",
+                    "end": "2024-09-11"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "18:00"
+                },
+                "priority": {
+                    "text": "Low",
+                    "value": "1",
+                    "code": "#026adf"
+                },
+                "note": "TEST1234",
+                "url": "/app/crm/calendar/event.nl?id=100795&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "28",
+                    "value": "28"
+                },
+                "address": {
+                    "text": "38",
+                    "value": "38"
+                }
+            }],
+            "projectUrl": "/app/accounting/project/project.nl?id=1883&compid=TSTDRV2617106",
+            "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=46&compid=TSTDRV2617106",
+            "soUrl": "/app/accounting/transactions/salesord.nl?id=16211&compid=TSTDRV2617106",
+            "esthours": "2"
+        },
+        "resources": [],
+        "items": [],
+        "contacts": [],
+        "addresses": [{
+            "id": "38",
+            "workorder": {
+                "text": "Sample 4",
+                "value": "46"
+            },
+            "customer": {
+                "text": "AB&I Holdings",
+                "value": "1249"
+            },
+            "events": ["100778", "100795"],
+            "address": {
+                "text": "1701 Rollins Road",
+                "value": "244878"
+            },
+            "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+            "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106",
+            "selected": true
+        }],
+        "contact": {
+            "text": "",
+            "value": ""
+        },
+        "address": {
+            "text": "",
+            "value": ""
+        }
+    }, {
+        "id": "100781",
+        "title": "Work Order Test 123123123123",
+        "workorder": {
+            "text": "Work Order Test - Sept 12 - Mei",
+            "value": "49"
+        },
+        "project": {
+            "text": "AB&I Holdings : Field Ops Pro Project",
+            "value": "1883"
+        },
+        "location": "",
+        "status": {
+            "text": "Confirmed",
+            "value": "CONFIRMED",
+            "code": "bg-success"
+        },
+        "date": {
+            "recurrence": "occurs every day from 9/4/2024 until 9/9/2024",
+            "start": "2024-09-04",
+            "end": "2024-09-09"
+        },
+        "time": {
+            "start": "08:00",
+            "end": "23:05"
+        },
+        "priority": {
+            "text": "High",
+            "value": "3",
+            "code": "#ca6621"
+        },
+        "note": "XYZ\r\nABC",
+        "url": "/app/crm/calendar/event.nl?id=100781&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {
+            "id": "49",
+            "name": "Work Order Test - Sept 12 - Mei",
+            "title": "Work Order Test - Sept 12 - Mei",
+            "project": {
+                "text": "AB&I Holdings : Field Ops Pro Project",
+                "value": "1883"
+            },
+            "date": "9/9/2024",
+            "status": {
+                "text": "Not Started",
+                "value": "4",
+                "code": "#026adf"
+            },
+            "type": {
+                "text": "Moves",
+                "value": "3"
+            },
+            "memo": "<p class=\"ql-align-justify\"><strong style=\"background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);\">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quam est, tempus vel eleifend sit amet, vehicula sed diam. Maecenas porta mollis sem in aliquam. Suspendisse imperdiet suscipit accumsan. Vivamus lacinia interdum sagittis. Mauris vitae nisl vitae magna lacinia aliquam. Proin lacinia, erat at aliquet bibendum, justo nunc faucibus velit, et fringilla lorem libero non ligula. Vivamus id mattis sem. Cras sagittis nunc est, vitae vestibulum erat sollicitudin eu. Aenean purus dui, dignissim sed molestie quis, feugiat vel velit.</strong></p><p class=\"ql-align-justify\"></p><p class=\"ql-align-justify\"><span style=\"background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);\">Nulla pretium accumsan laoreet. Duis diam augue, maximus et venenatis vel,</span><em style=\"background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);\"> sagittis quis lectus. Pellentesque vestibulum tortor eget eleifend sodales. </em><span style=\"background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);\">Morbi a ultrices velit, in sollicitudin tortor. Fusce imperdiet posuere arcu, nec porta leo fermentum id. Aliquam consectetur consectetur erat ut ultricies. Donec eu erat metus. Aliquam bibendum quis velit in tempor. Praesent id augue vestibulum, euismod odio vel, rutrum diam. Praesent dignissim, arcu et gravida suscipit, sapien ex eleifend dolor, non ultrices nunc metus id enim. Aliquam maximus lectus eu neque blandit, malesuada egestas libero maximus. Nunc finibus laoreet eros, et efficitur nibh tincidunt id. Integer fringilla arcu eu dolor varius, sit amet mattis nunc tincidunt.</span></p>",
+            "salesorder": {
+                "text": "Sales Order #SLS00000654",
+                "value": "16211"
+            },
+            "customer": {
+                "text": "AB&I Holdings",
+                "value": "1249"
+            },
+            "resourceGroup": {
+                "text": "",
+                "value": ""
+            },
+            "priority": "",
+            "resources": [],
+            "items": [{
+                "id": "53",
+                "workorder": {
+                    "text": "Work Order Test - Sept 12 - Mei",
+                    "value": "49"
+                },
+                "events": ["100782"],
+                "uuid": "16210_2",
+                "line": "2",
+                "item": {
+                    "text": "2375-6727",
+                    "value": "1426"
+                },
+                "description": "Inventory Item",
+                "quantity": 0,
+                "note": ""
+            }, {
+                "id": "54",
+                "workorder": {
+                    "text": "Work Order Test - Sept 12 - Mei",
+                    "value": "49"
+                },
+                "events": ["100782"],
+                "uuid": "16210_3",
+                "line": "3",
+                "item": {
+                    "text": "45XQ-2424-LJ4SCA",
+                    "value": "1013"
+                },
+                "description": "Inventory Item",
+                "quantity": 0,
+                "note": ""
+            }, {
+                "id": "55",
+                "workorder": {
+                    "text": "Work Order Test - Sept 12 - Mei",
+                    "value": "49"
+                },
+                "events": ["100782"],
+                "uuid": "16211_10",
+                "line": "5",
+                "item": {
+                    "text": "Dealer Service Fee",
+                    "value": "2331"
+                },
+                "description": "Dealer Service Fee",
+                "quantity": 0,
+                "note": ""
+            }],
+            "addresses": [{
+                "id": "41",
+                "workorder": {
+                    "text": "Work Order Test - Sept 12 - Mei",
+                    "value": "49"
+                },
+                "customer": {
+                    "text": "AB&I Holdings",
+                    "value": "1249"
+                },
+                "events": ["100782"],
+                "address": {
+                    "text": "1701 Rollins Road",
+                    "value": "244878"
+                },
+                "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+                "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+            }],
+            "contacts": [{
+                "id": "33",
+                "workorder": {
+                    "text": "Work Order Test - Sept 12 - Mei",
+                    "value": "49"
+                },
+                "events": ["100782"],
+                "contact": {
+                    "text": "AB&I Holdings : Test Prav",
+                    "value": "1892"
+                },
+                "name": "Test Prav",
+                "email": "pravallika@erpsuccesspartners.com",
+                "jobTitle": "QA",
+                "mobilePhone": "",
+                "phone": "",
+                "primary": "checked",
+                "url": "/app/common/entity/contact.nl?id=1892&compid=TSTDRV2617106"
+            }],
+            "events": [{
+                "id": "100781",
+                "title": "Work Order Test 123123123123",
+                "workorder": {
+                    "text": "Work Order Test - Sept 12 - Mei",
+                    "value": "49"
+                },
+                "project": {
+                    "text": "AB&I Holdings : Field Ops Pro Project",
+                    "value": "1883"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "occurs every day from 9/4/2024 until 9/9/2024",
+                    "start": "2024-09-04",
+                    "end": "2024-09-09"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "23:05"
+                },
+                "priority": {
+                    "text": "High",
+                    "value": "3",
+                    "code": "#ca6621"
+                },
+                "note": "XYZ\r\nABC",
+                "url": "/app/crm/calendar/event.nl?id=100781&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100782",
+                "title": "Work Order Test - ^_^",
+                "workorder": {
+                    "text": "Work Order Test - Sept 12 - Mei",
+                    "value": "49"
+                },
+                "project": {
+                    "text": "AB&I Holdings : Field Ops Pro Project",
+                    "value": "1883"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "occurs every day from 9/4/2024 until 9/29/2024",
+                    "start": "2024-09-04",
+                    "end": "2024-09-29"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "18:00"
+                },
+                "priority": {
+                    "text": "Urgent",
+                    "value": "4",
+                    "code": "#9a2407"
+                },
+                "note": "",
+                "url": "/app/crm/calendar/event.nl?id=100782&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }],
+            "projectUrl": "/app/accounting/project/project.nl?id=1883&compid=TSTDRV2617106",
+            "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=49&compid=TSTDRV2617106",
+            "soUrl": "/app/accounting/transactions/salesord.nl?id=16211&compid=TSTDRV2617106",
+            "esthours": "100"
+        },
+        "resources": [],
+        "items": [],
+        "contacts": [],
+        "addresses": [],
+        "contact": {
+            "text": "",
+            "value": ""
+        },
+        "address": {
+            "text": "",
+            "value": ""
+        }
+    }, {
+        "id": "100782",
+        "title": "Work Order Test - ^_^",
+        "workorder": {
+            "text": "Work Order Test - Sept 12 - Mei",
+            "value": "49"
+        },
+        "project": {
+            "text": "AB&I Holdings : Field Ops Pro Project",
+            "value": "1883"
+        },
+        "location": "",
+        "status": {
+            "text": "Confirmed",
+            "value": "CONFIRMED",
+            "code": "bg-success"
+        },
+        "date": {
+            "recurrence": "occurs every day from 9/4/2024 until 9/29/2024",
+            "start": "2024-09-04",
+            "end": "2024-09-29"
+        },
+        "time": {
+            "start": "08:00",
+            "end": "18:00"
+        },
+        "priority": {
+            "text": "Urgent",
+            "value": "4",
+            "code": "#9a2407"
+        },
+        "note": "",
+        "url": "/app/crm/calendar/event.nl?id=100782&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {
+            "id": "49",
+            "name": "Work Order Test - Sept 12 - Mei",
+            "title": "Work Order Test - Sept 12 - Mei",
+            "project": {
+                "text": "AB&I Holdings : Field Ops Pro Project",
+                "value": "1883"
+            },
+            "date": "9/9/2024",
+            "status": {
+                "text": "Not Started",
+                "value": "4",
+                "code": "#026adf"
+            },
+            "type": {
+                "text": "Moves",
+                "value": "3"
+            },
+            "memo": "<p class=\"ql-align-justify\"><strong style=\"background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);\">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quam est, tempus vel eleifend sit amet, vehicula sed diam. Maecenas porta mollis sem in aliquam. Suspendisse imperdiet suscipit accumsan. Vivamus lacinia interdum sagittis. Mauris vitae nisl vitae magna lacinia aliquam. Proin lacinia, erat at aliquet bibendum, justo nunc faucibus velit, et fringilla lorem libero non ligula. Vivamus id mattis sem. Cras sagittis nunc est, vitae vestibulum erat sollicitudin eu. Aenean purus dui, dignissim sed molestie quis, feugiat vel velit.</strong></p><p class=\"ql-align-justify\"></p><p class=\"ql-align-justify\"><span style=\"background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);\">Nulla pretium accumsan laoreet. Duis diam augue, maximus et venenatis vel,</span><em style=\"background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);\"> sagittis quis lectus. Pellentesque vestibulum tortor eget eleifend sodales. </em><span style=\"background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);\">Morbi a ultrices velit, in sollicitudin tortor. Fusce imperdiet posuere arcu, nec porta leo fermentum id. Aliquam consectetur consectetur erat ut ultricies. Donec eu erat metus. Aliquam bibendum quis velit in tempor. Praesent id augue vestibulum, euismod odio vel, rutrum diam. Praesent dignissim, arcu et gravida suscipit, sapien ex eleifend dolor, non ultrices nunc metus id enim. Aliquam maximus lectus eu neque blandit, malesuada egestas libero maximus. Nunc finibus laoreet eros, et efficitur nibh tincidunt id. Integer fringilla arcu eu dolor varius, sit amet mattis nunc tincidunt.</span></p>",
+            "salesorder": {
+                "text": "Sales Order #SLS00000654",
+                "value": "16211"
+            },
+            "customer": {
+                "text": "AB&I Holdings",
+                "value": "1249"
+            },
+            "resourceGroup": {
+                "text": "",
+                "value": ""
+            },
+            "priority": "",
+            "resources": [],
+            "items": [{
+                "id": "53",
+                "workorder": {
+                    "text": "Work Order Test - Sept 12 - Mei",
+                    "value": "49"
+                },
+                "events": ["100782"],
+                "uuid": "16210_2",
+                "line": "2",
+                "item": {
+                    "text": "2375-6727",
+                    "value": "1426"
+                },
+                "description": "Inventory Item",
+                "quantity": 0,
+                "note": ""
+            }, {
+                "id": "54",
+                "workorder": {
+                    "text": "Work Order Test - Sept 12 - Mei",
+                    "value": "49"
+                },
+                "events": ["100782"],
+                "uuid": "16210_3",
+                "line": "3",
+                "item": {
+                    "text": "45XQ-2424-LJ4SCA",
+                    "value": "1013"
+                },
+                "description": "Inventory Item",
+                "quantity": 0,
+                "note": ""
+            }, {
+                "id": "55",
+                "workorder": {
+                    "text": "Work Order Test - Sept 12 - Mei",
+                    "value": "49"
+                },
+                "events": ["100782"],
+                "uuid": "16211_10",
+                "line": "5",
+                "item": {
+                    "text": "Dealer Service Fee",
+                    "value": "2331"
+                },
+                "description": "Dealer Service Fee",
+                "quantity": 0,
+                "note": ""
+            }],
+            "addresses": [{
+                "id": "41",
+                "workorder": {
+                    "text": "Work Order Test - Sept 12 - Mei",
+                    "value": "49"
+                },
+                "customer": {
+                    "text": "AB&I Holdings",
+                    "value": "1249"
+                },
+                "events": ["100782"],
+                "address": {
+                    "text": "1701 Rollins Road",
+                    "value": "244878"
+                },
+                "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+                "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+            }],
+            "contacts": [{
+                "id": "33",
+                "workorder": {
+                    "text": "Work Order Test - Sept 12 - Mei",
+                    "value": "49"
+                },
+                "events": ["100782"],
+                "contact": {
+                    "text": "AB&I Holdings : Test Prav",
+                    "value": "1892"
+                },
+                "name": "Test Prav",
+                "email": "pravallika@erpsuccesspartners.com",
+                "jobTitle": "QA",
+                "mobilePhone": "",
+                "phone": "",
+                "primary": "checked",
+                "url": "/app/common/entity/contact.nl?id=1892&compid=TSTDRV2617106"
+            }],
+            "events": [{
+                "id": "100781",
+                "title": "Work Order Test 123123123123",
+                "workorder": {
+                    "text": "Work Order Test - Sept 12 - Mei",
+                    "value": "49"
+                },
+                "project": {
+                    "text": "AB&I Holdings : Field Ops Pro Project",
+                    "value": "1883"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "occurs every day from 9/4/2024 until 9/9/2024",
+                    "start": "2024-09-04",
+                    "end": "2024-09-09"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "23:05"
+                },
+                "priority": {
+                    "text": "High",
+                    "value": "3",
+                    "code": "#ca6621"
+                },
+                "note": "XYZ\r\nABC",
+                "url": "/app/crm/calendar/event.nl?id=100781&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100782",
+                "title": "Work Order Test - ^_^",
+                "workorder": {
+                    "text": "Work Order Test - Sept 12 - Mei",
+                    "value": "49"
+                },
+                "project": {
+                    "text": "AB&I Holdings : Field Ops Pro Project",
+                    "value": "1883"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "occurs every day from 9/4/2024 until 9/29/2024",
+                    "start": "2024-09-04",
+                    "end": "2024-09-29"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "18:00"
+                },
+                "priority": {
+                    "text": "Urgent",
+                    "value": "4",
+                    "code": "#9a2407"
+                },
+                "note": "",
+                "url": "/app/crm/calendar/event.nl?id=100782&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }],
+            "projectUrl": "/app/accounting/project/project.nl?id=1883&compid=TSTDRV2617106",
+            "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=49&compid=TSTDRV2617106",
+            "soUrl": "/app/accounting/transactions/salesord.nl?id=16211&compid=TSTDRV2617106",
+            "esthours": "100"
+        },
+        "resources": [],
+        "items": [{
+            "id": "53",
+            "workorder": {
+                "text": "Work Order Test - Sept 12 - Mei",
+                "value": "49"
+            },
+            "events": ["100782"],
+            "uuid": "16210_2",
+            "line": "2",
+            "item": {
+                "text": "2375-6727",
+                "value": "1426"
+            },
+            "description": "Inventory Item",
+            "quantity": 0,
+            "note": "",
+            "selected": true
+        }, {
+            "id": "54",
+            "workorder": {
+                "text": "Work Order Test - Sept 12 - Mei",
+                "value": "49"
+            },
+            "events": ["100782"],
+            "uuid": "16210_3",
+            "line": "3",
+            "item": {
+                "text": "45XQ-2424-LJ4SCA",
+                "value": "1013"
+            },
+            "description": "Inventory Item",
+            "quantity": 0,
+            "note": "",
+            "selected": true
+        }, {
+            "id": "55",
+            "workorder": {
+                "text": "Work Order Test - Sept 12 - Mei",
+                "value": "49"
+            },
+            "events": ["100782"],
+            "uuid": "16211_10",
+            "line": "5",
+            "item": {
+                "text": "Dealer Service Fee",
+                "value": "2331"
+            },
+            "description": "Dealer Service Fee",
+            "quantity": 0,
+            "note": "",
+            "selected": true
+        }],
+        "contacts": [{
+            "id": "33",
+            "workorder": {
+                "text": "Work Order Test - Sept 12 - Mei",
+                "value": "49"
+            },
+            "events": ["100782"],
+            "contact": {
+                "text": "AB&I Holdings : Test Prav",
+                "value": "1892"
+            },
+            "name": "Test Prav",
+            "email": "pravallika@erpsuccesspartners.com",
+            "jobTitle": "QA",
+            "mobilePhone": "",
+            "phone": "",
+            "primary": "checked",
+            "url": "/app/common/entity/contact.nl?id=1892&compid=TSTDRV2617106",
+            "selected": true
+        }],
+        "addresses": [{
+            "id": "41",
+            "workorder": {
+                "text": "Work Order Test - Sept 12 - Mei",
+                "value": "49"
+            },
+            "customer": {
+                "text": "AB&I Holdings",
+                "value": "1249"
+            },
+            "events": ["100782"],
+            "address": {
+                "text": "1701 Rollins Road",
+                "value": "244878"
+            },
+            "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+            "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106",
+            "selected": true
+        }],
+        "contact": {
+            "text": "",
+            "value": ""
+        },
+        "address": {
+            "text": "",
+            "value": ""
+        }
+    }, {
+        "id": "100786",
+        "title": "Work Order Sample July 32",
+        "workorder": {
+            "text": "Work Order Sample July 31",
+            "value": "34"
+        },
+        "project": {
+            "text": "AB&I Holdings : Parking Lot Construction",
+            "value": "1515"
+        },
+        "location": "",
+        "status": {
+            "text": "Confirmed",
+            "value": "CONFIRMED",
+            "code": "bg-success"
+        },
+        "date": {
+            "recurrence": "occurs every day from 9/6/2024 until 9/29/2024",
+            "start": "2024-09-06",
+            "end": "2024-09-29"
+        },
+        "time": {
+            "start": "08:00",
+            "end": "18:00"
+        },
+        "priority": {
+            "text": "High",
+            "value": "3",
+            "code": "#ca6621"
+        },
+        "note": "TEST\nXYZ\n123",
+        "url": "/app/crm/calendar/event.nl?id=100786&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {
+            "id": "34",
+            "name": "Work Order Sample July 31",
+            "title": "Work Order Sample July 31",
+            "project": {
+                "text": "AB&I Holdings : Parking Lot Construction",
+                "value": "1515"
+            },
+            "date": "8/2/2024",
+            "status": {
+                "text": "Not Started",
+                "value": "4",
+                "code": "#026adf"
+            },
+            "type": {
+                "text": "Mockup",
+                "value": "2"
+            },
+            "memo": "<p><strong>Work Order Sample July 31</strong></p>",
+            "salesorder": {
+                "text": "Sales Order #SLS00000651",
+                "value": "15100"
+            },
+            "customer": {
+                "text": "AB&I Holdings",
+                "value": "1249"
+            },
+            "resourceGroup": {
+                "text": "",
+                "value": ""
+            },
+            "priority": "",
+            "resources": [],
+            "items": [{
+                "id": "36",
+                "workorder": {
+                    "text": "Work Order Sample July 31",
+                    "value": "34"
+                },
+                "events": ["100768"],
+                "uuid": "15100_1",
+                "line": "1",
+                "item": {
+                    "text": "BIC00008",
+                    "value": "467"
+                },
+                "description": "Inventory Item",
+                "quantity": 2,
+                "note": ""
+            }, {
+                "id": "37",
+                "workorder": {
+                    "text": "Work Order Sample July 31",
+                    "value": "34"
+                },
+                "events": ["100768"],
+                "uuid": "15100_2",
+                "line": "2",
+                "item": {
+                    "text": "BIC00008",
+                    "value": "467"
+                },
+                "description": "Inventory Item",
+                "quantity": 1,
+                "note": ""
+            }, {
+                "id": "38",
+                "workorder": {
+                    "text": "Work Order Sample July 31",
+                    "value": "34"
+                },
+                "events": ["100768"],
+                "uuid": "15100_22",
+                "line": "4",
+                "item": {
+                    "text": "Dealer Service Fee",
+                    "value": "2331"
+                },
+                "description": "Dealer Service Fee",
+                "quantity": 0,
+                "note": ""
+            }],
+            "addresses": [{
+                "id": "28",
+                "workorder": {
+                    "text": "Work Order Sample July 31",
+                    "value": "34"
+                },
+                "customer": {
+                    "text": "AB&I Holdings",
+                    "value": "1249"
+                },
+                "events": ["100767", "100786"],
+                "address": {
+                    "text": "1701 Rollins Road",
+                    "value": "244878"
+                },
+                "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+                "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+            }],
+            "contacts": [{
+                "id": "16",
+                "workorder": {
+                    "text": "Work Order Sample July 31",
+                    "value": "34"
+                },
+                "events": ["100768"],
+                "contact": {
+                    "text": "AB&I Holdings : Chad Bass",
+                    "value": "1382"
+                },
+                "name": "Chad Bass",
+                "email": "cbass@sbi.com",
+                "jobTitle": "President",
+                "mobilePhone": "",
+                "phone": "",
+                "primary": "checked",
+                "url": "/app/common/entity/contact.nl?id=1382&compid=TSTDRV2617106"
+            }, {
+                "id": "20",
+                "workorder": {
+                    "text": "Work Order Sample July 31",
+                    "value": "34"
+                },
+                "events": ["100786"],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "name": "Test",
+                "email": "pravallika@erpsuccesspartners.com",
+                "jobTitle": "Developer",
+                "mobilePhone": "",
+                "phone": "",
+                "primary": "",
+                "url": "/app/common/entity/contact.nl?compid=TSTDRV2617106"
+            }],
+            "events": [{
+                "id": "100767",
+                "title": "Work Order Sample July 31",
+                "workorder": {
+                    "text": "Work Order Sample July 31",
+                    "value": "34"
+                },
+                "project": {
+                    "text": "AB&I Holdings : Parking Lot Construction",
+                    "value": "1515"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/10/2024",
+                    "start": "2024-09-10",
+                    "end": "2024-09-10"
+                },
+                "time": {
+                    "start": "10:00",
+                    "end": "19:00"
+                },
+                "priority": {
+                    "text": "Urgent",
+                    "value": "4",
+                    "code": "#9a2407"
+                },
+                "note": "ASDFGH",
+                "url": "/app/crm/calendar/event.nl?id=100767&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100768",
+                "title": "Work Order Sample July 31",
+                "workorder": {
+                    "text": "Work Order Sample July 31",
+                    "value": "34"
+                },
+                "project": {
+                    "text": "AB&I Holdings : Parking Lot Construction",
+                    "value": "1515"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/11/2024",
+                    "start": "2024-09-11",
+                    "end": "2024-09-11"
+                },
+                "time": {
+                    "start": "06:42",
+                    "end": "17:45"
+                },
+                "priority": {
+                    "text": "High",
+                    "value": "3",
+                    "code": "#ca6621"
+                },
+                "note": "123qwe\nAsdfasd",
+                "url": "/app/crm/calendar/event.nl?id=100768&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100786",
+                "title": "Work Order Sample July 32",
+                "workorder": {
+                    "text": "Work Order Sample July 31",
+                    "value": "34"
+                },
+                "project": {
+                    "text": "AB&I Holdings : Parking Lot Construction",
+                    "value": "1515"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "occurs every day from 9/6/2024 until 9/29/2024",
+                    "start": "2024-09-06",
+                    "end": "2024-09-29"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "18:00"
+                },
+                "priority": {
+                    "text": "High",
+                    "value": "3",
+                    "code": "#ca6621"
+                },
+                "note": "TEST\nXYZ\n123",
+                "url": "/app/crm/calendar/event.nl?id=100786&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }],
+            "projectUrl": "/app/accounting/project/project.nl?id=1515&compid=TSTDRV2617106",
+            "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=34&compid=TSTDRV2617106",
+            "soUrl": "/app/accounting/transactions/salesord.nl?id=15100&compid=TSTDRV2617106",
+            "esthours": "8"
+        },
+        "resources": [{
+            "employee": {
+                "text": "Gary Grant",
+                "value": "1312"
+            },
+            "initials": "GG",
+            "email": "garygrant@ramsey.com",
+            "phone": "(873) 775-6114",
+            "location": {
+                "text": "02: Boston",
+                "value": "1"
+            },
+            "active": true,
+            "resourceGroup": {
+                "text": "Installers",
+                "value": "1"
+            },
+            "type": {
+                "text": "Designer",
+                "value": "3"
+            },
+            "color": "#bc3567",
+            "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fcompid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
+            "events": ["100786", "100798"],
+            "selected": true
+        }],
+        "items": [],
+        "contacts": [{
+            "id": "20",
+            "workorder": {
+                "text": "Work Order Sample July 31",
+                "value": "34"
+            },
+            "events": ["100786"],
+            "contact": {
+                "text": "",
+                "value": ""
+            },
+            "name": "Test",
+            "email": "pravallika@erpsuccesspartners.com",
+            "jobTitle": "Developer",
+            "mobilePhone": "",
+            "phone": "",
+            "primary": "",
+            "url": "/app/common/entity/contact.nl?compid=TSTDRV2617106",
+            "selected": true
+        }],
+        "addresses": [{
+            "id": "28",
+            "workorder": {
+                "text": "Work Order Sample July 31",
+                "value": "34"
+            },
+            "customer": {
+                "text": "AB&I Holdings",
+                "value": "1249"
+            },
+            "events": ["100767", "100786"],
+            "address": {
+                "text": "1701 Rollins Road",
+                "value": "244878"
+            },
+            "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+            "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106",
+            "selected": true
+        }],
+        "contact": {
+            "text": "",
+            "value": ""
+        },
+        "address": {
+            "text": "",
+            "value": ""
+        }
+    }, {
+        "id": "100787",
+        "title": "Sample 22134",
+        "workorder": {
+            "text": "Sample 2",
+            "value": "44"
+        },
+        "project": {
+            "text": "AB&I Holdings : Field Ops Pro Project",
+            "value": "1883"
+        },
+        "location": "",
+        "status": {
+            "text": "Tentative",
+            "value": "TENTATIVE",
+            "code": "bg-secondary"
+        },
+        "date": {
+            "recurrence": "occurs every day from 8/30/2024 until 8/30/2024",
+            "start": "2024-08-30",
+            "end": "2024-08-30"
+        },
+        "time": {
+            "start": "11:00",
+            "end": "21:00"
+        },
+        "priority": {
+            "text": "Low",
+            "value": "1",
+            "code": "#026adf"
+        },
+        "note": "TEST\nAAAA\nCCC",
+        "url": "/app/crm/calendar/event.nl?id=100787&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {
+            "id": "44",
+            "name": "Sample 2",
+            "title": "Sample 2",
+            "project": {
+                "text": "AB&I Holdings : Field Ops Pro Project",
+                "value": "1883"
+            },
+            "date": "9/5/2024",
+            "status": {
+                "text": "Hold",
+                "value": "7",
+                "code": "#6c757d"
+            },
+            "type": {
+                "text": "Walls",
+                "value": "6"
+            },
+            "memo": "<p>Sample 2</p>",
+            "salesorder": {
+                "text": "Sales Order #SLS00000654",
+                "value": "16211"
+            },
+            "customer": {
+                "text": "AB&I Holdings",
+                "value": "1249"
+            },
+            "resourceGroup": {
+                "text": "",
+                "value": ""
+            },
+            "priority": "",
+            "resources": [],
+            "items": [{
+                "id": "43",
+                "workorder": {
+                    "text": "Sample 2",
+                    "value": "44"
+                },
+                "events": ["100787"],
+                "uuid": "16210_2",
+                "line": "2",
+                "item": {
+                    "text": "2375-6727",
+                    "value": "1426"
+                },
+                "description": "Inventory Item",
+                "quantity": 0,
+                "note": ""
+            }, {
+                "id": "44",
+                "workorder": {
+                    "text": "Sample 2",
+                    "value": "44"
+                },
+                "events": ["100787"],
+                "uuid": "16211_10",
+                "line": "5",
+                "item": {
+                    "text": "Dealer Service Fee",
+                    "value": "2331"
+                },
+                "description": "Dealer Service Fee",
+                "quantity": 0,
+                "note": ""
+            }],
+            "addresses": [{
+                "id": "36",
+                "workorder": {
+                    "text": "Sample 2",
+                    "value": "44"
+                },
+                "customer": {
+                    "text": "AB&I Holdings",
+                    "value": "1249"
+                },
+                "events": ["100787"],
+                "address": {
+                    "text": "1701 Rollins Road",
+                    "value": "244878"
+                },
+                "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+                "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+            }],
+            "contacts": [{
+                "id": "26",
+                "workorder": {
+                    "text": "Sample 2",
+                    "value": "44"
+                },
+                "events": ["100787"],
+                "contact": {
+                    "text": "AB&I Holdings : Test Prav",
+                    "value": "1892"
+                },
+                "name": "Test Prav",
+                "email": "pravallika@erpsuccesspartners.com",
+                "jobTitle": "QA",
+                "mobilePhone": "",
+                "phone": "",
+                "primary": "checked",
+                "url": "/app/common/entity/contact.nl?id=1892&compid=TSTDRV2617106"
+            }],
+            "events": [{
+                "id": "100787",
+                "title": "Sample 22134",
+                "workorder": {
+                    "text": "Sample 2",
+                    "value": "44"
+                },
+                "project": {
+                    "text": "AB&I Holdings : Field Ops Pro Project",
+                    "value": "1883"
+                },
+                "location": "",
+                "status": {
+                    "text": "Tentative",
+                    "value": "TENTATIVE",
+                    "code": "bg-secondary"
+                },
+                "date": {
+                    "recurrence": "occurs every day from 8/30/2024 until 8/30/2024",
+                    "start": "2024-08-30",
+                    "end": "2024-08-30"
+                },
+                "time": {
+                    "start": "11:00",
+                    "end": "21:00"
+                },
+                "priority": {
+                    "text": "Low",
+                    "value": "1",
+                    "code": "#026adf"
+                },
+                "note": "TEST\nAAAA\nCCC",
+                "url": "/app/crm/calendar/event.nl?id=100787&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }],
+            "projectUrl": "/app/accounting/project/project.nl?id=1883&compid=TSTDRV2617106",
+            "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=44&compid=TSTDRV2617106",
+            "soUrl": "/app/accounting/transactions/salesord.nl?id=16211&compid=TSTDRV2617106",
+            "esthours": "5"
+        },
+        "resources": [],
+        "items": [{
+            "id": "43",
+            "workorder": {
+                "text": "Sample 2",
+                "value": "44"
+            },
+            "events": ["100787"],
+            "uuid": "16210_2",
+            "line": "2",
+            "item": {
+                "text": "2375-6727",
+                "value": "1426"
+            },
+            "description": "Inventory Item",
+            "quantity": 0,
+            "note": "",
+            "selected": true
+        }, {
+            "id": "44",
+            "workorder": {
+                "text": "Sample 2",
+                "value": "44"
+            },
+            "events": ["100787"],
+            "uuid": "16211_10",
+            "line": "5",
+            "item": {
+                "text": "Dealer Service Fee",
+                "value": "2331"
+            },
+            "description": "Dealer Service Fee",
+            "quantity": 0,
+            "note": "",
+            "selected": true
+        }],
+        "contacts": [{
+            "id": "26",
+            "workorder": {
+                "text": "Sample 2",
+                "value": "44"
+            },
+            "events": ["100787"],
+            "contact": {
+                "text": "AB&I Holdings : Test Prav",
+                "value": "1892"
+            },
+            "name": "Test Prav",
+            "email": "pravallika@erpsuccesspartners.com",
+            "jobTitle": "QA",
+            "mobilePhone": "",
+            "phone": "",
+            "primary": "checked",
+            "url": "/app/common/entity/contact.nl?id=1892&compid=TSTDRV2617106",
+            "selected": true
+        }],
+        "addresses": [{
+            "id": "36",
+            "workorder": {
+                "text": "Sample 2",
+                "value": "44"
+            },
+            "customer": {
+                "text": "AB&I Holdings",
+                "value": "1249"
+            },
+            "events": ["100787"],
+            "address": {
+                "text": "1701 Rollins Road",
+                "value": "244878"
+            },
+            "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+            "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106",
+            "selected": true
+        }],
+        "contact": {
+            "text": "",
+            "value": ""
+        },
+        "address": {
+            "text": "",
+            "value": ""
+        }
+    }, {
+        "id": "100792",
+        "title": "Install Furniture XYZ",
+        "workorder": {
+            "text": "Install Furniture",
+            "value": "1"
+        },
+        "project": {
+            "text": "AB&I Holdings : Parking Lot Construction",
+            "value": "1515"
+        },
+        "location": "",
+        "status": {
+            "text": "Tentative",
+            "value": "TENTATIVE",
+            "code": "bg-secondary"
+        },
+        "date": {
+            "recurrence": "one time event on 9/11/2024",
+            "start": "2024-09-11",
+            "end": "2024-09-11"
+        },
+        "time": {
+            "start": "08:00",
+            "end": "18:00"
+        },
+        "priority": {
+            "text": "High",
+            "value": "3",
+            "code": "#ca6621"
+        },
+        "note": "AAA\nBBB",
+        "url": "/app/crm/calendar/event.nl?id=100792&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {
+            "id": "1",
+            "name": "Install Furniture",
+            "title": "Install Furniture",
+            "project": {
+                "text": "AB&I Holdings : Parking Lot Construction",
+                "value": "1515"
+            },
+            "date": "7/5/2024",
+            "status": {
+                "text": "Hold",
+                "value": "7",
+                "code": "#6c757d"
+            },
+            "type": {
+                "text": "Demo",
+                "value": "1"
+            },
+            "memo": "<p><span style=\"background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);\">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus id malesuada enim, sed fringilla turpis. Nullam sed viverra risus. Fusce maximus sapien et neque elementum, et feugiat orci efficitur. Suspendisse faucibus lacus id justo tempus tempor. </span></p><p></p><p><span style=\"background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);\">Vestibulum vehicula, libero sed interdum lobortis, nisi dolor tincidunt leo, vel accumsan erat mi et justo. Proin consectetur felis semper varius viverra. Nam neque nulla, feugiat ac tempor in, aliquet sed enim. </span></p><p></p><p><strong style=\"background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);\">Fusce mattis, diam non tempus lacinia, diam eros semper mauris, a egestas lacus libero eget sapien. Donec convallis sit amet velit non euismod.</strong></p>",
+            "salesorder": {
+                "text": "Sales Order #SLS00000609",
+                "value": "11722"
+            },
+            "customer": {
+                "text": "AB&I Holdings",
+                "value": "1249"
+            },
+            "resourceGroup": {
+                "text": "",
+                "value": ""
+            },
+            "priority": "",
+            "resources": [],
+            "items": [{
+                "id": "1",
+                "workorder": {
+                    "text": "Install Furniture",
+                    "value": "1"
+                },
+                "events": ["100792", "100798"],
+                "uuid": "11722_1",
+                "line": "1",
+                "item": {
+                    "text": "4321GR",
+                    "value": "1015"
+                },
+                "description": "11 POCKET MAGAZINE RACK",
+                "quantity": 2,
+                "note": ""
+            }, {
+                "id": "2",
+                "workorder": {
+                    "text": "Install Furniture",
+                    "value": "1"
+                },
+                "events": ["100792", "100798"],
+                "uuid": "11722_3",
+                "line": "3",
+                "item": {
+                    "text": "BAG00002",
+                    "value": "837"
+                },
+                "description": "Sling Laptop Bag",
+                "quantity": 10,
+                "note": ""
+            }],
+            "addresses": [{
+                "id": "1",
+                "workorder": {
+                    "text": "Install Furniture",
+                    "value": "1"
+                },
+                "customer": {
+                    "text": "AB&I Holdings",
+                    "value": "1249"
+                },
+                "events": ["100792", "100798"],
+                "address": {
+                    "text": "1701 Rollins Road",
+                    "value": "244878"
+                },
+                "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+                "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+            }],
+            "contacts": [{
+                "id": "1",
+                "workorder": {
+                    "text": "Install Furniture",
+                    "value": "1"
+                },
+                "events": ["100682", "100798"],
+                "contact": {
+                    "text": "AB&I Holdings : Chad Bass",
+                    "value": "1382"
+                },
+                "name": "Chad Bass",
+                "email": "cbass@sbi.com",
+                "jobTitle": "President",
+                "mobilePhone": "",
+                "phone": "",
+                "primary": "checked",
+                "url": "/app/common/entity/contact.nl?id=1382&compid=TSTDRV2617106"
+            }, {
+                "id": "15",
+                "workorder": {
+                    "text": "Install Furniture",
+                    "value": "1"
+                },
+                "events": ["18", "100798"],
+                "contact": {
+                    "text": "Pravallika Desetty",
+                    "value": "1648"
+                },
+                "name": "Pravallika Desetty",
+                "email": "pravallika@erpsuccesspartners.com",
+                "jobTitle": "",
+                "mobilePhone": "",
+                "phone": "",
+                "primary": "",
+                "url": "/app/common/entity/contact.nl?id=1648&compid=TSTDRV2617106"
+            }],
+            "events": [{
+                "id": "100682",
+                "title": "TEST EVENT 123",
+                "workorder": {
+                    "text": "Install Furniture",
+                    "value": "1"
+                },
+                "project": {
+                    "text": "AB&I Holdings : Lobby Remodel",
+                    "value": "1514"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 7/4/2024",
+                    "start": "2024-07-04",
+                    "end": "2024-07-04"
+                },
+                "time": {
+                    "start": "22:00",
+                    "end": "23:00"
+                },
+                "priority": {
+                    "text": "High",
+                    "value": "3",
+                    "code": "#ca6621"
+                },
+                "note": "TEST12345",
+                "url": "/app/crm/calendar/event.nl?id=100682&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "1",
+                    "value": "1"
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100718",
+                "title": "Install Furniture",
+                "workorder": {
+                    "text": "Install Furniture",
+                    "value": "1"
+                },
+                "project": {
+                    "text": "AB&I Holdings : Parking Lot Construction",
+                    "value": "1515"
+                },
+                "location": "01: San Francisco",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 7/9/2024",
+                    "start": "2024-07-09",
+                    "end": "2024-07-09"
+                },
+                "time": {
+                    "start": "07:00",
+                    "end": "21:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "XXX\nYYY\nZZZ",
+                "url": "/app/crm/calendar/event.nl?id=100718&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100792",
+                "title": "Install Furniture XYZ",
+                "workorder": {
+                    "text": "Install Furniture",
+                    "value": "1"
+                },
+                "project": {
+                    "text": "AB&I Holdings : Parking Lot Construction",
+                    "value": "1515"
+                },
+                "location": "",
+                "status": {
+                    "text": "Tentative",
+                    "value": "TENTATIVE",
+                    "code": "bg-secondary"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/11/2024",
+                    "start": "2024-09-11",
+                    "end": "2024-09-11"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "18:00"
+                },
+                "priority": {
+                    "text": "High",
+                    "value": "3",
+                    "code": "#ca6621"
+                },
+                "note": "AAA\nBBB",
+                "url": "/app/crm/calendar/event.nl?id=100792&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "1",
+                    "value": "1"
+                },
+                "address": {
+                    "text": "1",
+                    "value": "1"
+                }
+            }, {
+                "id": "100794",
+                "title": "Install Furniture 123",
+                "workorder": {
+                    "text": "Install Furniture",
+                    "value": "1"
+                },
+                "project": {
+                    "text": "AB&I Holdings : Parking Lot Construction",
+                    "value": "1515"
+                },
+                "location": "",
+                "status": {
+                    "text": "Tentative",
+                    "value": "TENTATIVE",
+                    "code": "bg-secondary"
+                },
+                "date": {
+                    "recurrence": "occurs every day from 9/11/2024 until 9/12/2024",
+                    "start": "2024-09-11",
+                    "end": "2024-09-12"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "18:00"
+                },
+                "priority": {
+                    "text": "Urgent",
+                    "value": "4",
+                    "code": "#9a2407"
+                },
+                "note": "ASD\nBBBB",
+                "url": "/app/crm/calendar/event.nl?id=100794&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "15",
+                    "value": "15"
+                },
+                "address": {
+                    "text": "1",
+                    "value": "1"
+                }
+            }, {
+                "id": "100796",
+                "title": "Install Furniture 12345",
+                "workorder": {
+                    "text": "Install Furniture",
+                    "value": "1"
+                },
+                "project": {
+                    "text": "AB&I Holdings : Parking Lot Construction",
+                    "value": "1515"
+                },
+                "location": "",
+                "status": {
+                    "text": "Tentative",
+                    "value": "TENTATIVE",
+                    "code": "bg-secondary"
+                },
+                "date": {
+                    "recurrence": "occurs every day from 9/11/2024 until 9/12/2024",
+                    "start": "2024-09-11",
+                    "end": "2024-09-12"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "19:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "XYZ\n123",
+                "url": "/app/crm/calendar/event.nl?id=100796&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "1",
+                    "value": "1"
+                },
+                "address": {
+                    "text": "1",
+                    "value": "1"
+                }
+            }, {
+                "id": "100798",
+                "title": "Install Furniture XYZ",
+                "workorder": {
+                    "text": "Install Furniture",
+                    "value": "1"
+                },
+                "project": {
+                    "text": "AB&I Holdings : Parking Lot Construction",
+                    "value": "1515"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "occurs every day from 9/12/2024 until 9/13/2024",
+                    "start": "2024-09-12",
+                    "end": "2024-09-13"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "18:00"
+                },
+                "priority": {
+                    "text": "High",
+                    "value": "3",
+                    "code": "#ca6621"
+                },
+                "note": "TEST ABCD",
+                "url": "/app/crm/calendar/event.nl?id=100798&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "1",
+                    "value": "1"
+                },
+                "address": {
+                    "text": "1",
+                    "value": "1"
+                }
+            }],
+            "projectUrl": "/app/accounting/project/project.nl?id=1515&compid=TSTDRV2617106",
+            "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=1&compid=TSTDRV2617106",
+            "soUrl": "/app/accounting/transactions/salesord.nl?id=11722&compid=TSTDRV2617106",
+            "esthours": "10"
+        },
+        "resources": [{
+            "employee": {
+                "text": "Bonita Kane",
+                "value": "912"
+            },
+            "initials": "BK",
+            "email": "bdickens@ramsey.com",
+            "phone": "(123) 456-7890",
+            "location": {
+                "text": "02: Boston",
+                "value": "1"
+            },
+            "active": true,
+            "resourceGroup": {
+                "text": "Installers",
+                "value": "1"
+            },
+            "type": {
+                "text": "Installer",
+                "value": "1"
+            },
+            "color": "#cbb24c",
+            "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fcompid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
+            "events": ["100792", "100798"],
+            "selected": true
+        }],
+        "items": [{
+            "id": "1",
+            "workorder": {
+                "text": "Install Furniture",
+                "value": "1"
+            },
+            "events": ["100792", "100798"],
+            "uuid": "11722_1",
+            "line": "1",
+            "item": {
+                "text": "4321GR",
+                "value": "1015"
+            },
+            "description": "11 POCKET MAGAZINE RACK",
+            "quantity": 2,
+            "note": "",
+            "selected": true
+        }, {
+            "id": "2",
+            "workorder": {
+                "text": "Install Furniture",
+                "value": "1"
+            },
+            "events": ["100792", "100798"],
+            "uuid": "11722_3",
+            "line": "3",
+            "item": {
+                "text": "BAG00002",
+                "value": "837"
+            },
+            "description": "Sling Laptop Bag",
+            "quantity": 10,
+            "note": "",
+            "selected": true
+        }],
+        "contacts": [],
+        "addresses": [{
+            "id": "1",
+            "workorder": {
+                "text": "Install Furniture",
+                "value": "1"
+            },
+            "customer": {
+                "text": "AB&I Holdings",
+                "value": "1249"
+            },
+            "events": ["100792", "100798"],
+            "address": {
+                "text": "1701 Rollins Road",
+                "value": "244878"
+            },
+            "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+            "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106",
+            "selected": true
+        }],
+        "contact": {
+            "text": "1",
+            "value": "1"
+        },
+        "address": {
+            "text": "1",
+            "value": "1"
+        }
+    }, {
+        "id": "100794",
+        "title": "Install Furniture 123",
+        "workorder": {
+            "text": "Install Furniture",
+            "value": "1"
+        },
+        "project": {
+            "text": "AB&I Holdings : Parking Lot Construction",
+            "value": "1515"
+        },
+        "location": "",
+        "status": {
+            "text": "Tentative",
+            "value": "TENTATIVE",
+            "code": "bg-secondary"
+        },
+        "date": {
+            "recurrence": "occurs every day from 9/11/2024 until 9/12/2024",
+            "start": "2024-09-11",
+            "end": "2024-09-12"
+        },
+        "time": {
+            "start": "08:00",
+            "end": "18:00"
+        },
+        "priority": {
+            "text": "Urgent",
+            "value": "4",
+            "code": "#9a2407"
+        },
+        "note": "ASD\nBBBB",
+        "url": "/app/crm/calendar/event.nl?id=100794&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {
+            "id": "1",
+            "name": "Install Furniture",
+            "title": "Install Furniture",
+            "project": {
+                "text": "AB&I Holdings : Parking Lot Construction",
+                "value": "1515"
+            },
+            "date": "7/5/2024",
+            "status": {
+                "text": "Hold",
+                "value": "7",
+                "code": "#6c757d"
+            },
+            "type": {
+                "text": "Demo",
+                "value": "1"
+            },
+            "memo": "<p><span style=\"background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);\">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus id malesuada enim, sed fringilla turpis. Nullam sed viverra risus. Fusce maximus sapien et neque elementum, et feugiat orci efficitur. Suspendisse faucibus lacus id justo tempus tempor. </span></p><p></p><p><span style=\"background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);\">Vestibulum vehicula, libero sed interdum lobortis, nisi dolor tincidunt leo, vel accumsan erat mi et justo. Proin consectetur felis semper varius viverra. Nam neque nulla, feugiat ac tempor in, aliquet sed enim. </span></p><p></p><p><strong style=\"background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);\">Fusce mattis, diam non tempus lacinia, diam eros semper mauris, a egestas lacus libero eget sapien. Donec convallis sit amet velit non euismod.</strong></p>",
+            "salesorder": {
+                "text": "Sales Order #SLS00000609",
+                "value": "11722"
+            },
+            "customer": {
+                "text": "AB&I Holdings",
+                "value": "1249"
+            },
+            "resourceGroup": {
+                "text": "",
+                "value": ""
+            },
+            "priority": "",
+            "resources": [],
+            "items": [{
+                "id": "1",
+                "workorder": {
+                    "text": "Install Furniture",
+                    "value": "1"
+                },
+                "events": ["100792", "100798"],
+                "uuid": "11722_1",
+                "line": "1",
+                "item": {
+                    "text": "4321GR",
+                    "value": "1015"
+                },
+                "description": "11 POCKET MAGAZINE RACK",
+                "quantity": 2,
+                "note": ""
+            }, {
+                "id": "2",
+                "workorder": {
+                    "text": "Install Furniture",
+                    "value": "1"
+                },
+                "events": ["100792", "100798"],
+                "uuid": "11722_3",
+                "line": "3",
+                "item": {
+                    "text": "BAG00002",
+                    "value": "837"
+                },
+                "description": "Sling Laptop Bag",
+                "quantity": 10,
+                "note": ""
+            }],
+            "addresses": [{
+                "id": "1",
+                "workorder": {
+                    "text": "Install Furniture",
+                    "value": "1"
+                },
+                "customer": {
+                    "text": "AB&I Holdings",
+                    "value": "1249"
+                },
+                "events": ["100792", "100798"],
+                "address": {
+                    "text": "1701 Rollins Road",
+                    "value": "244878"
+                },
+                "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+                "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+            }],
+            "contacts": [{
+                "id": "1",
+                "workorder": {
+                    "text": "Install Furniture",
+                    "value": "1"
+                },
+                "events": ["100682", "100798"],
+                "contact": {
+                    "text": "AB&I Holdings : Chad Bass",
+                    "value": "1382"
+                },
+                "name": "Chad Bass",
+                "email": "cbass@sbi.com",
+                "jobTitle": "President",
+                "mobilePhone": "",
+                "phone": "",
+                "primary": "checked",
+                "url": "/app/common/entity/contact.nl?id=1382&compid=TSTDRV2617106"
+            }, {
+                "id": "15",
+                "workorder": {
+                    "text": "Install Furniture",
+                    "value": "1"
+                },
+                "events": ["18", "100798"],
+                "contact": {
+                    "text": "Pravallika Desetty",
+                    "value": "1648"
+                },
+                "name": "Pravallika Desetty",
+                "email": "pravallika@erpsuccesspartners.com",
+                "jobTitle": "",
+                "mobilePhone": "",
+                "phone": "",
+                "primary": "",
+                "url": "/app/common/entity/contact.nl?id=1648&compid=TSTDRV2617106"
+            }],
+            "events": [{
+                "id": "100682",
+                "title": "TEST EVENT 123",
+                "workorder": {
+                    "text": "Install Furniture",
+                    "value": "1"
+                },
+                "project": {
+                    "text": "AB&I Holdings : Lobby Remodel",
+                    "value": "1514"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 7/4/2024",
+                    "start": "2024-07-04",
+                    "end": "2024-07-04"
+                },
+                "time": {
+                    "start": "22:00",
+                    "end": "23:00"
+                },
+                "priority": {
+                    "text": "High",
+                    "value": "3",
+                    "code": "#ca6621"
+                },
+                "note": "TEST12345",
+                "url": "/app/crm/calendar/event.nl?id=100682&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "1",
+                    "value": "1"
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100718",
+                "title": "Install Furniture",
+                "workorder": {
+                    "text": "Install Furniture",
+                    "value": "1"
+                },
+                "project": {
+                    "text": "AB&I Holdings : Parking Lot Construction",
+                    "value": "1515"
+                },
+                "location": "01: San Francisco",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 7/9/2024",
+                    "start": "2024-07-09",
+                    "end": "2024-07-09"
+                },
+                "time": {
+                    "start": "07:00",
+                    "end": "21:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "XXX\nYYY\nZZZ",
+                "url": "/app/crm/calendar/event.nl?id=100718&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100792",
+                "title": "Install Furniture XYZ",
+                "workorder": {
+                    "text": "Install Furniture",
+                    "value": "1"
+                },
+                "project": {
+                    "text": "AB&I Holdings : Parking Lot Construction",
+                    "value": "1515"
+                },
+                "location": "",
+                "status": {
+                    "text": "Tentative",
+                    "value": "TENTATIVE",
+                    "code": "bg-secondary"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/11/2024",
+                    "start": "2024-09-11",
+                    "end": "2024-09-11"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "18:00"
+                },
+                "priority": {
+                    "text": "High",
+                    "value": "3",
+                    "code": "#ca6621"
+                },
+                "note": "AAA\nBBB",
+                "url": "/app/crm/calendar/event.nl?id=100792&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "1",
+                    "value": "1"
+                },
+                "address": {
+                    "text": "1",
+                    "value": "1"
+                }
+            }, {
+                "id": "100794",
+                "title": "Install Furniture 123",
+                "workorder": {
+                    "text": "Install Furniture",
+                    "value": "1"
+                },
+                "project": {
+                    "text": "AB&I Holdings : Parking Lot Construction",
+                    "value": "1515"
+                },
+                "location": "",
+                "status": {
+                    "text": "Tentative",
+                    "value": "TENTATIVE",
+                    "code": "bg-secondary"
+                },
+                "date": {
+                    "recurrence": "occurs every day from 9/11/2024 until 9/12/2024",
+                    "start": "2024-09-11",
+                    "end": "2024-09-12"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "18:00"
+                },
+                "priority": {
+                    "text": "Urgent",
+                    "value": "4",
+                    "code": "#9a2407"
+                },
+                "note": "ASD\nBBBB",
+                "url": "/app/crm/calendar/event.nl?id=100794&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "15",
+                    "value": "15"
+                },
+                "address": {
+                    "text": "1",
+                    "value": "1"
+                }
+            }, {
+                "id": "100796",
+                "title": "Install Furniture 12345",
+                "workorder": {
+                    "text": "Install Furniture",
+                    "value": "1"
+                },
+                "project": {
+                    "text": "AB&I Holdings : Parking Lot Construction",
+                    "value": "1515"
+                },
+                "location": "",
+                "status": {
+                    "text": "Tentative",
+                    "value": "TENTATIVE",
+                    "code": "bg-secondary"
+                },
+                "date": {
+                    "recurrence": "occurs every day from 9/11/2024 until 9/12/2024",
+                    "start": "2024-09-11",
+                    "end": "2024-09-12"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "19:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "XYZ\n123",
+                "url": "/app/crm/calendar/event.nl?id=100796&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "1",
+                    "value": "1"
+                },
+                "address": {
+                    "text": "1",
+                    "value": "1"
+                }
+            }, {
+                "id": "100798",
+                "title": "Install Furniture XYZ",
+                "workorder": {
+                    "text": "Install Furniture",
+                    "value": "1"
+                },
+                "project": {
+                    "text": "AB&I Holdings : Parking Lot Construction",
+                    "value": "1515"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "occurs every day from 9/12/2024 until 9/13/2024",
+                    "start": "2024-09-12",
+                    "end": "2024-09-13"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "18:00"
+                },
+                "priority": {
+                    "text": "High",
+                    "value": "3",
+                    "code": "#ca6621"
+                },
+                "note": "TEST ABCD",
+                "url": "/app/crm/calendar/event.nl?id=100798&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "1",
+                    "value": "1"
+                },
+                "address": {
+                    "text": "1",
+                    "value": "1"
+                }
+            }],
+            "projectUrl": "/app/accounting/project/project.nl?id=1515&compid=TSTDRV2617106",
+            "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=1&compid=TSTDRV2617106",
+            "soUrl": "/app/accounting/transactions/salesord.nl?id=11722&compid=TSTDRV2617106",
+            "esthours": "10"
+        },
+        "resources": [{
+            "employee": {
+                "text": "Matt Nolan",
+                "value": "1292"
+            },
+            "initials": "MN",
+            "email": "mnolan@ramsey.com",
+            "phone": "",
+            "location": {
+                "text": "01: San Francisco",
+                "value": "2"
+            },
+            "active": true,
+            "resourceGroup": {
+                "text": "Designers",
+                "value": "2"
+            },
+            "type": {
+                "text": "Designer",
+                "value": "3"
+            },
+            "color": "#e57d29",
+            "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fcompid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
+            "events": ["100767", "100794"],
+            "selected": true
+        }, {
+            "employee": {
+                "text": "Mei Matriano",
+                "value": "1647"
+            },
+            "initials": "MM",
+            "email": "mei@erpsuccesspartners.com",
+            "phone": "",
+            "location": {
+                "text": "",
+                "value": ""
+            },
+            "active": true,
+            "resourceGroup": {
+                "text": "Designers",
+                "value": "2"
+            },
+            "type": {
+                "text": "Installer",
+                "value": "1"
+            },
+            "color": "#f1484c",
+            "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fcompid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
+            "events": ["100767", "100794"],
+            "selected": true
+        }, {
+            "employee": {
+                "text": "Youssef Ezz",
+                "value": "1656"
+            },
+            "initials": "YE",
+            "email": "yk@erpsuccesspartners.com",
+            "phone": "",
+            "location": {
+                "text": "",
+                "value": ""
+            },
+            "active": true,
+            "resourceGroup": {
+                "text": "Installers",
+                "value": "1"
+            },
+            "type": {
+                "text": "Installer",
+                "value": "1"
+            },
+            "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fcompid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
+            "events": ["100767", "100794"],
+            "selected": true
+        }],
+        "items": [],
+        "contacts": [],
+        "addresses": [],
+        "contact": {
+            "text": "15",
+            "value": "15"
+        },
+        "address": {
+            "text": "1",
+            "value": "1"
+        }
+    }, {
+        "id": "100795",
+        "title": "Sample 4",
+        "workorder": {
+            "text": "Sample 4",
+            "value": "46"
+        },
+        "project": {
+            "text": "AB&I Holdings : Field Ops Pro Project",
+            "value": "1883"
+        },
+        "location": "",
+        "status": {
+            "text": "Tentative",
+            "value": "TENTATIVE",
+            "code": "bg-secondary"
+        },
+        "date": {
+            "recurrence": "one time event on 9/11/2024",
+            "start": "2024-09-11",
+            "end": "2024-09-11"
+        },
+        "time": {
+            "start": "08:00",
+            "end": "18:00"
+        },
+        "priority": {
+            "text": "Low",
+            "value": "1",
+            "code": "#026adf"
+        },
+        "note": "TEST1234",
+        "url": "/app/crm/calendar/event.nl?id=100795&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {
+            "id": "46",
+            "name": "Sample 4",
+            "title": "Sample 4",
+            "project": {
+                "text": "AB&I Holdings : Field Ops Pro Project",
+                "value": "1883"
+            },
+            "date": "9/5/2024",
+            "status": {
+                "text": "Hold",
+                "value": "7",
+                "code": "#6c757d"
+            },
+            "type": {
+                "text": "Walls",
+                "value": "6"
+            },
+            "memo": "<p>Sample 4</p>",
+            "salesorder": {
+                "text": "Sales Order #SLS00000654",
+                "value": "16211"
+            },
+            "customer": {
+                "text": "AB&I Holdings",
+                "value": "1249"
+            },
+            "resourceGroup": {
+                "text": "",
+                "value": ""
+            },
+            "priority": "",
+            "resources": [],
+            "items": [{
+                "id": "47",
+                "workorder": {
+                    "text": "Sample 4",
+                    "value": "46"
+                },
+                "events": ["100762", "100795"],
+                "uuid": "16210_1",
+                "line": "1",
+                "item": {
+                    "text": "BIC00008",
+                    "value": "467"
+                },
+                "description": "Inventory Item",
+                "quantity": 0,
+                "note": ""
+            }, {
+                "id": "48",
+                "workorder": {
+                    "text": "Sample 4",
+                    "value": "46"
+                },
+                "events": ["100762", "100795"],
+                "uuid": "16211_10",
+                "line": "5",
+                "item": {
+                    "text": "Dealer Service Fee",
+                    "value": "2331"
+                },
+                "description": "Dealer Service Fee",
+                "quantity": 0,
+                "note": ""
+            }],
+            "addresses": [{
+                "id": "38",
+                "workorder": {
+                    "text": "Sample 4",
+                    "value": "46"
+                },
+                "customer": {
+                    "text": "AB&I Holdings",
+                    "value": "1249"
+                },
+                "events": ["100778", "100795"],
+                "address": {
+                    "text": "1701 Rollins Road",
+                    "value": "244878"
+                },
+                "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+                "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+            }],
+            "contacts": [{
+                "id": "28",
+                "workorder": {
+                    "text": "Sample 4",
+                    "value": "46"
+                },
+                "events": [],
+                "contact": {
+                    "text": "AB&I Holdings : Test Prav",
+                    "value": "1892"
+                },
+                "name": "Test Prav",
+                "email": "pravallika@erpsuccesspartners.com",
+                "jobTitle": "QA",
+                "mobilePhone": "",
+                "phone": "9502123363",
+                "primary": "checked",
+                "url": "/app/common/entity/contact.nl?id=1892&compid=TSTDRV2617106"
+            }],
+            "events": [{
+                "id": "100762",
+                "title": "Sample 4",
+                "workorder": {
+                    "text": "Sample 4",
+                    "value": "46"
+                },
+                "project": {
+                    "text": "AB&I Holdings : Field Ops Pro Project",
+                    "value": "1883"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/3/2024",
+                    "start": "2024-09-03",
+                    "end": "2024-09-03"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "18:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "AAAAXXX",
+                "url": "/app/crm/calendar/event.nl?id=100762&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100778",
+                "title": "Sample 45678990",
+                "workorder": {
+                    "text": "Sample 4",
+                    "value": "46"
+                },
+                "project": {
+                    "text": "AB&I Holdings : Field Ops Pro Project",
+                    "value": "1883"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/4/2024",
+                    "start": "2024-09-04",
+                    "end": "2024-09-04"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "18:00"
+                },
+                "priority": {
+                    "text": "Urgent",
+                    "value": "4",
+                    "code": "#9a2407"
+                },
+                "note": "FF\n\n\n123",
+                "url": "/app/crm/calendar/event.nl?id=100778&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100795",
+                "title": "Sample 4",
+                "workorder": {
+                    "text": "Sample 4",
+                    "value": "46"
+                },
+                "project": {
+                    "text": "AB&I Holdings : Field Ops Pro Project",
+                    "value": "1883"
+                },
+                "location": "",
+                "status": {
+                    "text": "Tentative",
+                    "value": "TENTATIVE",
+                    "code": "bg-secondary"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/11/2024",
+                    "start": "2024-09-11",
+                    "end": "2024-09-11"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "18:00"
+                },
+                "priority": {
+                    "text": "Low",
+                    "value": "1",
+                    "code": "#026adf"
+                },
+                "note": "TEST1234",
+                "url": "/app/crm/calendar/event.nl?id=100795&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "28",
+                    "value": "28"
+                },
+                "address": {
+                    "text": "38",
+                    "value": "38"
+                }
+            }],
+            "projectUrl": "/app/accounting/project/project.nl?id=1883&compid=TSTDRV2617106",
+            "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=46&compid=TSTDRV2617106",
+            "soUrl": "/app/accounting/transactions/salesord.nl?id=16211&compid=TSTDRV2617106",
+            "esthours": "2"
+        },
+        "resources": [],
+        "items": [{
+            "id": "47",
+            "workorder": {
+                "text": "Sample 4",
+                "value": "46"
+            },
+            "events": ["100762", "100795"],
+            "uuid": "16210_1",
+            "line": "1",
+            "item": {
+                "text": "BIC00008",
+                "value": "467"
+            },
+            "description": "Inventory Item",
+            "quantity": 0,
+            "note": "",
+            "selected": true
+        }, {
+            "id": "48",
+            "workorder": {
+                "text": "Sample 4",
+                "value": "46"
+            },
+            "events": ["100762", "100795"],
+            "uuid": "16211_10",
+            "line": "5",
+            "item": {
+                "text": "Dealer Service Fee",
+                "value": "2331"
+            },
+            "description": "Dealer Service Fee",
+            "quantity": 0,
+            "note": "",
+            "selected": true
+        }],
+        "contacts": [],
+        "addresses": [{
+            "id": "38",
+            "workorder": {
+                "text": "Sample 4",
+                "value": "46"
+            },
+            "customer": {
+                "text": "AB&I Holdings",
+                "value": "1249"
+            },
+            "events": ["100778", "100795"],
+            "address": {
+                "text": "1701 Rollins Road",
+                "value": "244878"
+            },
+            "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+            "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106",
+            "selected": true
+        }],
+        "contact": {
+            "text": "28",
+            "value": "28"
+        },
+        "address": {
+            "text": "38",
+            "value": "38"
+        }
+    }, {
+        "id": "100796",
+        "title": "Install Furniture 12345",
+        "workorder": {
+            "text": "Install Furniture",
+            "value": "1"
+        },
+        "project": {
+            "text": "AB&I Holdings : Parking Lot Construction",
+            "value": "1515"
+        },
+        "location": "",
+        "status": {
+            "text": "Tentative",
+            "value": "TENTATIVE",
+            "code": "bg-secondary"
+        },
+        "date": {
+            "recurrence": "occurs every day from 9/11/2024 until 9/12/2024",
+            "start": "2024-09-11",
+            "end": "2024-09-12"
+        },
+        "time": {
+            "start": "08:00",
+            "end": "19:00"
+        },
+        "priority": {
+            "text": "Medium",
+            "value": "2",
+            "code": "#dfcf02"
+        },
+        "note": "XYZ\n123",
+        "url": "/app/crm/calendar/event.nl?id=100796&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {
+            "id": "1",
+            "name": "Install Furniture",
+            "title": "Install Furniture",
+            "project": {
+                "text": "AB&I Holdings : Parking Lot Construction",
+                "value": "1515"
+            },
+            "date": "7/5/2024",
+            "status": {
+                "text": "Hold",
+                "value": "7",
+                "code": "#6c757d"
+            },
+            "type": {
+                "text": "Demo",
+                "value": "1"
+            },
+            "memo": "<p><span style=\"background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);\">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus id malesuada enim, sed fringilla turpis. Nullam sed viverra risus. Fusce maximus sapien et neque elementum, et feugiat orci efficitur. Suspendisse faucibus lacus id justo tempus tempor. </span></p><p></p><p><span style=\"background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);\">Vestibulum vehicula, libero sed interdum lobortis, nisi dolor tincidunt leo, vel accumsan erat mi et justo. Proin consectetur felis semper varius viverra. Nam neque nulla, feugiat ac tempor in, aliquet sed enim. </span></p><p></p><p><strong style=\"background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);\">Fusce mattis, diam non tempus lacinia, diam eros semper mauris, a egestas lacus libero eget sapien. Donec convallis sit amet velit non euismod.</strong></p>",
+            "salesorder": {
+                "text": "Sales Order #SLS00000609",
+                "value": "11722"
+            },
+            "customer": {
+                "text": "AB&I Holdings",
+                "value": "1249"
+            },
+            "resourceGroup": {
+                "text": "",
+                "value": ""
+            },
+            "priority": "",
+            "resources": [],
+            "items": [{
+                "id": "1",
+                "workorder": {
+                    "text": "Install Furniture",
+                    "value": "1"
+                },
+                "events": ["100792", "100798"],
+                "uuid": "11722_1",
+                "line": "1",
+                "item": {
+                    "text": "4321GR",
+                    "value": "1015"
+                },
+                "description": "11 POCKET MAGAZINE RACK",
+                "quantity": 2,
+                "note": ""
+            }, {
+                "id": "2",
+                "workorder": {
+                    "text": "Install Furniture",
+                    "value": "1"
+                },
+                "events": ["100792", "100798"],
+                "uuid": "11722_3",
+                "line": "3",
+                "item": {
+                    "text": "BAG00002",
+                    "value": "837"
+                },
+                "description": "Sling Laptop Bag",
+                "quantity": 10,
+                "note": ""
+            }],
+            "addresses": [{
+                "id": "1",
+                "workorder": {
+                    "text": "Install Furniture",
+                    "value": "1"
+                },
+                "customer": {
+                    "text": "AB&I Holdings",
+                    "value": "1249"
+                },
+                "events": ["100792", "100798"],
+                "address": {
+                    "text": "1701 Rollins Road",
+                    "value": "244878"
+                },
+                "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+                "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+            }],
+            "contacts": [{
+                "id": "1",
+                "workorder": {
+                    "text": "Install Furniture",
+                    "value": "1"
+                },
+                "events": ["100682", "100798"],
+                "contact": {
+                    "text": "AB&I Holdings : Chad Bass",
+                    "value": "1382"
+                },
+                "name": "Chad Bass",
+                "email": "cbass@sbi.com",
+                "jobTitle": "President",
+                "mobilePhone": "",
+                "phone": "",
+                "primary": "checked",
+                "url": "/app/common/entity/contact.nl?id=1382&compid=TSTDRV2617106"
+            }, {
+                "id": "15",
+                "workorder": {
+                    "text": "Install Furniture",
+                    "value": "1"
+                },
+                "events": ["18", "100798"],
+                "contact": {
+                    "text": "Pravallika Desetty",
+                    "value": "1648"
+                },
+                "name": "Pravallika Desetty",
+                "email": "pravallika@erpsuccesspartners.com",
+                "jobTitle": "",
+                "mobilePhone": "",
+                "phone": "",
+                "primary": "",
+                "url": "/app/common/entity/contact.nl?id=1648&compid=TSTDRV2617106"
+            }],
+            "events": [{
+                "id": "100682",
+                "title": "TEST EVENT 123",
+                "workorder": {
+                    "text": "Install Furniture",
+                    "value": "1"
+                },
+                "project": {
+                    "text": "AB&I Holdings : Lobby Remodel",
+                    "value": "1514"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 7/4/2024",
+                    "start": "2024-07-04",
+                    "end": "2024-07-04"
+                },
+                "time": {
+                    "start": "22:00",
+                    "end": "23:00"
+                },
+                "priority": {
+                    "text": "High",
+                    "value": "3",
+                    "code": "#ca6621"
+                },
+                "note": "TEST12345",
+                "url": "/app/crm/calendar/event.nl?id=100682&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "1",
+                    "value": "1"
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100718",
+                "title": "Install Furniture",
+                "workorder": {
+                    "text": "Install Furniture",
+                    "value": "1"
+                },
+                "project": {
+                    "text": "AB&I Holdings : Parking Lot Construction",
+                    "value": "1515"
+                },
+                "location": "01: San Francisco",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 7/9/2024",
+                    "start": "2024-07-09",
+                    "end": "2024-07-09"
+                },
+                "time": {
+                    "start": "07:00",
+                    "end": "21:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "XXX\nYYY\nZZZ",
+                "url": "/app/crm/calendar/event.nl?id=100718&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100792",
+                "title": "Install Furniture XYZ",
+                "workorder": {
+                    "text": "Install Furniture",
+                    "value": "1"
+                },
+                "project": {
+                    "text": "AB&I Holdings : Parking Lot Construction",
+                    "value": "1515"
+                },
+                "location": "",
+                "status": {
+                    "text": "Tentative",
+                    "value": "TENTATIVE",
+                    "code": "bg-secondary"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/11/2024",
+                    "start": "2024-09-11",
+                    "end": "2024-09-11"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "18:00"
+                },
+                "priority": {
+                    "text": "High",
+                    "value": "3",
+                    "code": "#ca6621"
+                },
+                "note": "AAA\nBBB",
+                "url": "/app/crm/calendar/event.nl?id=100792&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "1",
+                    "value": "1"
+                },
+                "address": {
+                    "text": "1",
+                    "value": "1"
+                }
+            }, {
+                "id": "100794",
+                "title": "Install Furniture 123",
+                "workorder": {
+                    "text": "Install Furniture",
+                    "value": "1"
+                },
+                "project": {
+                    "text": "AB&I Holdings : Parking Lot Construction",
+                    "value": "1515"
+                },
+                "location": "",
+                "status": {
+                    "text": "Tentative",
+                    "value": "TENTATIVE",
+                    "code": "bg-secondary"
+                },
+                "date": {
+                    "recurrence": "occurs every day from 9/11/2024 until 9/12/2024",
+                    "start": "2024-09-11",
+                    "end": "2024-09-12"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "18:00"
+                },
+                "priority": {
+                    "text": "Urgent",
+                    "value": "4",
+                    "code": "#9a2407"
+                },
+                "note": "ASD\nBBBB",
+                "url": "/app/crm/calendar/event.nl?id=100794&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "15",
+                    "value": "15"
+                },
+                "address": {
+                    "text": "1",
+                    "value": "1"
+                }
+            }, {
+                "id": "100796",
+                "title": "Install Furniture 12345",
+                "workorder": {
+                    "text": "Install Furniture",
+                    "value": "1"
+                },
+                "project": {
+                    "text": "AB&I Holdings : Parking Lot Construction",
+                    "value": "1515"
+                },
+                "location": "",
+                "status": {
+                    "text": "Tentative",
+                    "value": "TENTATIVE",
+                    "code": "bg-secondary"
+                },
+                "date": {
+                    "recurrence": "occurs every day from 9/11/2024 until 9/12/2024",
+                    "start": "2024-09-11",
+                    "end": "2024-09-12"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "19:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "XYZ\n123",
+                "url": "/app/crm/calendar/event.nl?id=100796&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "1",
+                    "value": "1"
+                },
+                "address": {
+                    "text": "1",
+                    "value": "1"
+                }
+            }, {
+                "id": "100798",
+                "title": "Install Furniture XYZ",
+                "workorder": {
+                    "text": "Install Furniture",
+                    "value": "1"
+                },
+                "project": {
+                    "text": "AB&I Holdings : Parking Lot Construction",
+                    "value": "1515"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "occurs every day from 9/12/2024 until 9/13/2024",
+                    "start": "2024-09-12",
+                    "end": "2024-09-13"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "18:00"
+                },
+                "priority": {
+                    "text": "High",
+                    "value": "3",
+                    "code": "#ca6621"
+                },
+                "note": "TEST ABCD",
+                "url": "/app/crm/calendar/event.nl?id=100798&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "1",
+                    "value": "1"
+                },
+                "address": {
+                    "text": "1",
+                    "value": "1"
+                }
+            }],
+            "projectUrl": "/app/accounting/project/project.nl?id=1515&compid=TSTDRV2617106",
+            "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=1&compid=TSTDRV2617106",
+            "soUrl": "/app/accounting/transactions/salesord.nl?id=11722&compid=TSTDRV2617106",
+            "esthours": "10"
+        },
+        "resources": [],
+        "items": [],
+        "contacts": [],
+        "addresses": [],
+        "contact": {
+            "text": "1",
+            "value": "1"
+        },
+        "address": {
+            "text": "1",
+            "value": "1"
+        }
+    }, {
+        "id": "100798",
+        "title": "Install Furniture XYZ",
+        "workorder": {
+            "text": "Install Furniture",
+            "value": "1"
+        },
+        "project": {
+            "text": "AB&I Holdings : Parking Lot Construction",
+            "value": "1515"
+        },
+        "location": "",
+        "status": {
+            "text": "Confirmed",
+            "value": "CONFIRMED",
+            "code": "bg-success"
+        },
+        "date": {
+            "recurrence": "occurs every day from 9/12/2024 until 9/13/2024",
+            "start": "2024-09-12",
+            "end": "2024-09-13"
+        },
+        "time": {
+            "start": "08:00",
+            "end": "18:00"
+        },
+        "priority": {
+            "text": "High",
+            "value": "3",
+            "code": "#ca6621"
+        },
+        "note": "TEST ABCD",
+        "url": "/app/crm/calendar/event.nl?id=100798&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {
+            "id": "1",
+            "name": "Install Furniture",
+            "title": "Install Furniture",
+            "project": {
+                "text": "AB&I Holdings : Parking Lot Construction",
+                "value": "1515"
+            },
+            "date": "7/5/2024",
+            "status": {
+                "text": "Hold",
+                "value": "7",
+                "code": "#6c757d"
+            },
+            "type": {
+                "text": "Demo",
+                "value": "1"
+            },
+            "memo": "<p><span style=\"background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);\">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus id malesuada enim, sed fringilla turpis. Nullam sed viverra risus. Fusce maximus sapien et neque elementum, et feugiat orci efficitur. Suspendisse faucibus lacus id justo tempus tempor. </span></p><p></p><p><span style=\"background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);\">Vestibulum vehicula, libero sed interdum lobortis, nisi dolor tincidunt leo, vel accumsan erat mi et justo. Proin consectetur felis semper varius viverra. Nam neque nulla, feugiat ac tempor in, aliquet sed enim. </span></p><p></p><p><strong style=\"background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);\">Fusce mattis, diam non tempus lacinia, diam eros semper mauris, a egestas lacus libero eget sapien. Donec convallis sit amet velit non euismod.</strong></p>",
+            "salesorder": {
+                "text": "Sales Order #SLS00000609",
+                "value": "11722"
+            },
+            "customer": {
+                "text": "AB&I Holdings",
+                "value": "1249"
+            },
+            "resourceGroup": {
+                "text": "",
+                "value": ""
+            },
+            "priority": "",
+            "resources": [],
+            "items": [{
+                "id": "1",
+                "workorder": {
+                    "text": "Install Furniture",
+                    "value": "1"
+                },
+                "events": ["100792", "100798"],
+                "uuid": "11722_1",
+                "line": "1",
+                "item": {
+                    "text": "4321GR",
+                    "value": "1015"
+                },
+                "description": "11 POCKET MAGAZINE RACK",
+                "quantity": 2,
+                "note": ""
+            }, {
+                "id": "2",
+                "workorder": {
+                    "text": "Install Furniture",
+                    "value": "1"
+                },
+                "events": ["100792", "100798"],
+                "uuid": "11722_3",
+                "line": "3",
+                "item": {
+                    "text": "BAG00002",
+                    "value": "837"
+                },
+                "description": "Sling Laptop Bag",
+                "quantity": 10,
+                "note": ""
+            }],
+            "addresses": [{
+                "id": "1",
+                "workorder": {
+                    "text": "Install Furniture",
+                    "value": "1"
+                },
+                "customer": {
+                    "text": "AB&I Holdings",
+                    "value": "1249"
+                },
+                "events": ["100792", "100798"],
+                "address": {
+                    "text": "1701 Rollins Road",
+                    "value": "244878"
+                },
+                "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+                "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+            }],
+            "contacts": [{
+                "id": "1",
+                "workorder": {
+                    "text": "Install Furniture",
+                    "value": "1"
+                },
+                "events": ["100682", "100798"],
+                "contact": {
+                    "text": "AB&I Holdings : Chad Bass",
+                    "value": "1382"
+                },
+                "name": "Chad Bass",
+                "email": "cbass@sbi.com",
+                "jobTitle": "President",
+                "mobilePhone": "",
+                "phone": "",
+                "primary": "checked",
+                "url": "/app/common/entity/contact.nl?id=1382&compid=TSTDRV2617106"
+            }, {
+                "id": "15",
+                "workorder": {
+                    "text": "Install Furniture",
+                    "value": "1"
+                },
+                "events": ["18", "100798"],
+                "contact": {
+                    "text": "Pravallika Desetty",
+                    "value": "1648"
+                },
+                "name": "Pravallika Desetty",
+                "email": "pravallika@erpsuccesspartners.com",
+                "jobTitle": "",
+                "mobilePhone": "",
+                "phone": "",
+                "primary": "",
+                "url": "/app/common/entity/contact.nl?id=1648&compid=TSTDRV2617106"
+            }],
+            "events": [{
+                "id": "100682",
+                "title": "TEST EVENT 123",
+                "workorder": {
+                    "text": "Install Furniture",
+                    "value": "1"
+                },
+                "project": {
+                    "text": "AB&I Holdings : Lobby Remodel",
+                    "value": "1514"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 7/4/2024",
+                    "start": "2024-07-04",
+                    "end": "2024-07-04"
+                },
+                "time": {
+                    "start": "22:00",
+                    "end": "23:00"
+                },
+                "priority": {
+                    "text": "High",
+                    "value": "3",
+                    "code": "#ca6621"
+                },
+                "note": "TEST12345",
+                "url": "/app/crm/calendar/event.nl?id=100682&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "1",
+                    "value": "1"
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100718",
+                "title": "Install Furniture",
+                "workorder": {
+                    "text": "Install Furniture",
+                    "value": "1"
+                },
+                "project": {
+                    "text": "AB&I Holdings : Parking Lot Construction",
+                    "value": "1515"
+                },
+                "location": "01: San Francisco",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 7/9/2024",
+                    "start": "2024-07-09",
+                    "end": "2024-07-09"
+                },
+                "time": {
+                    "start": "07:00",
+                    "end": "21:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "XXX\nYYY\nZZZ",
+                "url": "/app/crm/calendar/event.nl?id=100718&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100792",
+                "title": "Install Furniture XYZ",
+                "workorder": {
+                    "text": "Install Furniture",
+                    "value": "1"
+                },
+                "project": {
+                    "text": "AB&I Holdings : Parking Lot Construction",
+                    "value": "1515"
+                },
+                "location": "",
+                "status": {
+                    "text": "Tentative",
+                    "value": "TENTATIVE",
+                    "code": "bg-secondary"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/11/2024",
+                    "start": "2024-09-11",
+                    "end": "2024-09-11"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "18:00"
+                },
+                "priority": {
+                    "text": "High",
+                    "value": "3",
+                    "code": "#ca6621"
+                },
+                "note": "AAA\nBBB",
+                "url": "/app/crm/calendar/event.nl?id=100792&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "1",
+                    "value": "1"
+                },
+                "address": {
+                    "text": "1",
+                    "value": "1"
+                }
+            }, {
+                "id": "100794",
+                "title": "Install Furniture 123",
+                "workorder": {
+                    "text": "Install Furniture",
+                    "value": "1"
+                },
+                "project": {
+                    "text": "AB&I Holdings : Parking Lot Construction",
+                    "value": "1515"
+                },
+                "location": "",
+                "status": {
+                    "text": "Tentative",
+                    "value": "TENTATIVE",
+                    "code": "bg-secondary"
+                },
+                "date": {
+                    "recurrence": "occurs every day from 9/11/2024 until 9/12/2024",
+                    "start": "2024-09-11",
+                    "end": "2024-09-12"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "18:00"
+                },
+                "priority": {
+                    "text": "Urgent",
+                    "value": "4",
+                    "code": "#9a2407"
+                },
+                "note": "ASD\nBBBB",
+                "url": "/app/crm/calendar/event.nl?id=100794&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "15",
+                    "value": "15"
+                },
+                "address": {
+                    "text": "1",
+                    "value": "1"
+                }
+            }, {
+                "id": "100796",
+                "title": "Install Furniture 12345",
+                "workorder": {
+                    "text": "Install Furniture",
+                    "value": "1"
+                },
+                "project": {
+                    "text": "AB&I Holdings : Parking Lot Construction",
+                    "value": "1515"
+                },
+                "location": "",
+                "status": {
+                    "text": "Tentative",
+                    "value": "TENTATIVE",
+                    "code": "bg-secondary"
+                },
+                "date": {
+                    "recurrence": "occurs every day from 9/11/2024 until 9/12/2024",
+                    "start": "2024-09-11",
+                    "end": "2024-09-12"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "19:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "XYZ\n123",
+                "url": "/app/crm/calendar/event.nl?id=100796&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "1",
+                    "value": "1"
+                },
+                "address": {
+                    "text": "1",
+                    "value": "1"
+                }
+            }, {
+                "id": "100798",
+                "title": "Install Furniture XYZ",
+                "workorder": {
+                    "text": "Install Furniture",
+                    "value": "1"
+                },
+                "project": {
+                    "text": "AB&I Holdings : Parking Lot Construction",
+                    "value": "1515"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "occurs every day from 9/12/2024 until 9/13/2024",
+                    "start": "2024-09-12",
+                    "end": "2024-09-13"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "18:00"
+                },
+                "priority": {
+                    "text": "High",
+                    "value": "3",
+                    "code": "#ca6621"
+                },
+                "note": "TEST ABCD",
+                "url": "/app/crm/calendar/event.nl?id=100798&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "1",
+                    "value": "1"
+                },
+                "address": {
+                    "text": "1",
+                    "value": "1"
+                }
+            }],
+            "projectUrl": "/app/accounting/project/project.nl?id=1515&compid=TSTDRV2617106",
+            "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=1&compid=TSTDRV2617106",
+            "soUrl": "/app/accounting/transactions/salesord.nl?id=11722&compid=TSTDRV2617106",
+            "esthours": "10"
+        },
+        "resources": [{
+            "employee": {
+                "text": "Bea Dashboards",
+                "value": "1767"
+            },
+            "initials": "BD",
+            "email": "beatrice.q@erpsuccesspartners.com",
+            "phone": "",
+            "location": {
+                "text": "01: San Francisco",
+                "value": "2"
+            },
+            "active": true,
+            "resourceGroup": {
+                "text": "Drivers",
+                "value": "3"
+            },
+            "type": {
+                "text": "Delivery Driver",
+                "value": "2"
+            },
+            "color": "#554de2",
+            "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fcompid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
+            "events": ["100682", "100798"],
+            "selected": true
+        }, {
+            "employee": {
+                "text": "Bonita Kane",
+                "value": "912"
+            },
+            "initials": "BK",
+            "email": "bdickens@ramsey.com",
+            "phone": "(123) 456-7890",
+            "location": {
+                "text": "02: Boston",
+                "value": "1"
+            },
+            "active": true,
+            "resourceGroup": {
+                "text": "Installers",
+                "value": "1"
+            },
+            "type": {
+                "text": "Installer",
+                "value": "1"
+            },
+            "color": "#cbb24c",
+            "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fcompid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
+            "events": ["100792", "100798"],
+            "selected": true
+        }, {
+            "employee": {
+                "text": "Gary Grant",
+                "value": "1312"
+            },
+            "initials": "GG",
+            "email": "garygrant@ramsey.com",
+            "phone": "(873) 775-6114",
+            "location": {
+                "text": "02: Boston",
+                "value": "1"
+            },
+            "active": true,
+            "resourceGroup": {
+                "text": "Installers",
+                "value": "1"
+            },
+            "type": {
+                "text": "Designer",
+                "value": "3"
+            },
+            "color": "#bc3567",
+            "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fcompid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
+            "events": ["100786", "100798"],
+            "selected": true
+        }],
+        "items": [{
+            "id": "1",
+            "workorder": {
+                "text": "Install Furniture",
+                "value": "1"
+            },
+            "events": ["100792", "100798"],
+            "uuid": "11722_1",
+            "line": "1",
+            "item": {
+                "text": "4321GR",
+                "value": "1015"
+            },
+            "description": "11 POCKET MAGAZINE RACK",
+            "quantity": 2,
+            "note": "",
+            "selected": true
+        }, {
+            "id": "2",
+            "workorder": {
+                "text": "Install Furniture",
+                "value": "1"
+            },
+            "events": ["100792", "100798"],
+            "uuid": "11722_3",
+            "line": "3",
+            "item": {
+                "text": "BAG00002",
+                "value": "837"
+            },
+            "description": "Sling Laptop Bag",
+            "quantity": 10,
+            "note": "",
+            "selected": true
+        }],
+        "contacts": [{
+            "id": "1",
+            "workorder": {
+                "text": "Install Furniture",
+                "value": "1"
+            },
+            "events": ["100682", "100798"],
+            "contact": {
+                "text": "AB&I Holdings : Chad Bass",
+                "value": "1382"
+            },
+            "name": "Chad Bass",
+            "email": "cbass@sbi.com",
+            "jobTitle": "President",
+            "mobilePhone": "",
+            "phone": "",
+            "primary": "checked",
+            "url": "/app/common/entity/contact.nl?id=1382&compid=TSTDRV2617106",
+            "selected": true
+        }, {
+            "id": "15",
+            "workorder": {
+                "text": "Install Furniture",
+                "value": "1"
+            },
+            "events": ["18", "100798"],
+            "contact": {
+                "text": "Pravallika Desetty",
+                "value": "1648"
+            },
+            "name": "Pravallika Desetty",
+            "email": "pravallika@erpsuccesspartners.com",
+            "jobTitle": "",
+            "mobilePhone": "",
+            "phone": "",
+            "primary": "",
+            "url": "/app/common/entity/contact.nl?id=1648&compid=TSTDRV2617106",
+            "selected": true
+        }],
+        "addresses": [{
+            "id": "1",
+            "workorder": {
+                "text": "Install Furniture",
+                "value": "1"
+            },
+            "customer": {
+                "text": "AB&I Holdings",
+                "value": "1249"
+            },
+            "events": ["100792", "100798"],
+            "address": {
+                "text": "1701 Rollins Road",
+                "value": "244878"
+            },
+            "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+            "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106",
+            "selected": true
+        }],
+        "contact": {
+            "text": "1",
+            "value": "1"
+        },
+        "address": {
+            "text": "1",
+            "value": "1"
+        }
+    }],
+    "contacts": [{
+        "id": "1",
+        "workorder": {
+            "text": "Install Furniture",
+            "value": "1"
+        },
+        "events": ["100682", "100798"],
+        "contact": {
+            "text": "AB&I Holdings : Chad Bass",
+            "value": "1382"
+        },
+        "name": "Chad Bass",
+        "email": "cbass@sbi.com",
+        "jobTitle": "President",
+        "mobilePhone": "",
+        "phone": "",
+        "primary": "checked",
+        "url": "/app/common/entity/contact.nl?id=1382&compid=TSTDRV2617106"
+    }, {
+        "id": "2",
+        "workorder": {
+            "text": "Installation of Furnitures",
+            "value": "2"
+        },
+        "events": [],
+        "contact": {
+            "text": "AB&I Holdings : Chad Bass",
+            "value": "1382"
+        },
+        "name": "Chad Bass",
+        "email": "cbass@sbi.com",
+        "jobTitle": "President",
+        "mobilePhone": "",
+        "phone": "",
+        "primary": "",
+        "url": "/app/common/entity/contact.nl?id=1382&compid=TSTDRV2617106"
+    }, {
+        "id": "3",
+        "workorder": {
+            "text": "Installation of Furnitures - Edit",
+            "value": "3"
+        },
+        "events": [],
+        "contact": {
+            "text": "AB&I Holdings : Chad Bass",
+            "value": "1382"
+        },
+        "name": "Chad Bass",
+        "email": "cbass@sbi.com",
+        "jobTitle": "President",
+        "mobilePhone": "",
+        "phone": "",
+        "primary": "",
+        "url": "/app/common/entity/contact.nl?id=1382&compid=TSTDRV2617106"
+    }, {
+        "id": "4",
+        "workorder": {
+            "text": "Demo",
+            "value": "4"
+        },
+        "events": [],
+        "contact": {
+            "text": "AB&I Holdings : Chad Bass",
+            "value": "1382"
+        },
+        "name": "Chad Bass",
+        "email": "cbass@sbi.com",
+        "jobTitle": "President",
+        "mobilePhone": "",
+        "phone": "",
+        "primary": "",
+        "url": "/app/common/entity/contact.nl?id=1382&compid=TSTDRV2617106"
+    }, {
+        "id": "5",
+        "workorder": {
+            "text": "Install Walls",
+            "value": "7"
+        },
+        "events": [],
+        "contact": {
+            "text": "AB&I Holdings : Chad Bass",
+            "value": "1382"
+        },
+        "name": "Chad Bass",
+        "email": "cbass@sbi.com",
+        "jobTitle": "President",
+        "mobilePhone": "",
+        "phone": "",
+        "primary": "",
+        "url": "/app/common/entity/contact.nl?id=1382&compid=TSTDRV2617106"
+    }, {
+        "id": "6",
+        "workorder": {
+            "text": "Install Walls",
+            "value": "12"
+        },
+        "events": [],
+        "contact": {
+            "text": "AB&I Holdings : Chad Bass",
+            "value": "1382"
+        },
+        "name": "Chad Bass",
+        "email": "cbass@sbi.com",
+        "jobTitle": "President",
+        "mobilePhone": "",
+        "phone": "",
+        "primary": "",
+        "url": "/app/common/entity/contact.nl?id=1382&compid=TSTDRV2617106"
+    }, {
+        "id": "7",
+        "workorder": {
+            "text": "Install Walls",
+            "value": "13"
+        },
+        "events": [],
+        "contact": {
+            "text": "AB&I Holdings : Chad Bass",
+            "value": "1382"
+        },
+        "name": "Chad Bass",
+        "email": "cbass@sbi.com",
+        "jobTitle": "President",
+        "mobilePhone": "",
+        "phone": "",
+        "primary": "",
+        "url": "/app/common/entity/contact.nl?id=1382&compid=TSTDRV2617106"
+    }, {
+        "id": "8",
+        "workorder": {
+            "text": "Install Walls",
+            "value": "14"
+        },
+        "events": [],
+        "contact": {
+            "text": "AB&I Holdings : Chad Bass",
+            "value": "1382"
+        },
+        "name": "Chad Bass",
+        "email": "cbass@sbi.com",
+        "jobTitle": "President",
+        "mobilePhone": "",
+        "phone": "",
+        "primary": "",
+        "url": "/app/common/entity/contact.nl?id=1382&compid=TSTDRV2617106"
+    }, {
+        "id": "9",
+        "workorder": {
+            "text": "Install Walls Test Work Order",
+            "value": "15"
+        },
+        "events": [],
+        "contact": {
+            "text": "AB&I Holdings : Chad Bass",
+            "value": "1382"
+        },
+        "name": "Chad Bass",
+        "email": "cbass@sbi.com",
+        "jobTitle": "President",
+        "mobilePhone": "",
+        "phone": "",
+        "primary": "",
+        "url": "/app/common/entity/contact.nl?id=1382&compid=TSTDRV2617106"
+    }, {
+        "id": "10",
+        "workorder": {
+            "text": "Test",
+            "value": "28"
+        },
+        "events": [],
+        "contact": {
+            "text": "AB&I Holdings : Chad Bass",
+            "value": "1382"
+        },
+        "name": "Chad Bass",
+        "email": "cbass@sbi.com",
+        "jobTitle": "President",
+        "mobilePhone": "",
+        "phone": "",
+        "primary": "",
+        "url": "/app/common/entity/contact.nl?id=1382&compid=TSTDRV2617106"
+    }, {
+        "id": "11",
+        "workorder": {
+            "text": "Test",
+            "value": "29"
+        },
+        "events": [],
+        "contact": {
+            "text": "AB&I Holdings : Chad Bass",
+            "value": "1382"
+        },
+        "name": "Chad Bass",
+        "email": "cbass@sbi.com",
+        "jobTitle": "President",
+        "mobilePhone": "",
+        "phone": "",
+        "primary": "",
+        "url": "/app/common/entity/contact.nl?id=1382&compid=TSTDRV2617106"
+    }, {
+        "id": "12",
+        "workorder": {
+            "text": "Test",
+            "value": "30"
+        },
+        "events": [],
+        "contact": {
+            "text": "AB&I Holdings : Chad Bass",
+            "value": "1382"
+        },
+        "name": "Chad Bass",
+        "email": "cbass@sbi.com",
+        "jobTitle": "President",
+        "mobilePhone": "",
+        "phone": "",
+        "primary": "",
+        "url": "/app/common/entity/contact.nl?id=1382&compid=TSTDRV2617106"
+    }, {
+        "id": "13",
+        "workorder": {
+            "text": "Test",
+            "value": "31"
+        },
+        "events": [],
+        "contact": {
+            "text": "AB&I Holdings : Chad Bass",
+            "value": "1382"
+        },
+        "name": "Chad Bass",
+        "email": "cbass@sbi.com",
+        "jobTitle": "President",
+        "mobilePhone": "",
+        "phone": "",
+        "primary": "",
+        "url": "/app/common/entity/contact.nl?id=1382&compid=TSTDRV2617106"
+    }, {
+        "id": "14",
+        "workorder": {
+            "text": "Work Order Sample July 22",
+            "value": "33"
+        },
+        "events": ["100740"],
+        "contact": {
+            "text": "AB&I Holdings : Chad Bass",
+            "value": "1382"
+        },
+        "name": "Chad Bass",
+        "email": "cbass@sbi.com",
+        "jobTitle": "President",
+        "mobilePhone": "",
+        "phone": "",
+        "primary": "",
+        "url": "/app/common/entity/contact.nl?id=1382&compid=TSTDRV2617106"
+    }, {
+        "id": "15",
+        "workorder": {
+            "text": "Install Furniture",
+            "value": "1"
+        },
+        "events": ["18", "100798"],
+        "contact": {
+            "text": "Pravallika Desetty",
+            "value": "1648"
+        },
+        "name": "Pravallika Desetty",
+        "email": "pravallika@erpsuccesspartners.com",
+        "jobTitle": "",
+        "mobilePhone": "",
+        "phone": "",
+        "primary": "",
+        "url": "/app/common/entity/contact.nl?id=1648&compid=TSTDRV2617106"
+    }, {
+        "id": "16",
+        "workorder": {
+            "text": "Work Order Sample July 31",
+            "value": "34"
+        },
+        "events": ["100768"],
+        "contact": {
+            "text": "AB&I Holdings : Chad Bass",
+            "value": "1382"
+        },
+        "name": "Chad Bass",
+        "email": "cbass@sbi.com",
+        "jobTitle": "President",
+        "mobilePhone": "",
+        "phone": "",
+        "primary": "checked",
+        "url": "/app/common/entity/contact.nl?id=1382&compid=TSTDRV2617106"
+    }, {
+        "id": "18",
+        "workorder": {
+            "text": "Work Order Sample aug1",
+            "value": "35"
+        },
+        "events": [],
+        "contact": {
+            "text": "",
+            "value": ""
+        },
+        "name": "Test",
+        "email": "pravallika@erpsuccesspartners.com",
+        "jobTitle": "Developer",
+        "mobilePhone": "",
+        "phone": "",
+        "primary": "",
+        "url": "/app/common/entity/contact.nl?compid=TSTDRV2617106"
+    }, {
+        "id": "19",
+        "workorder": {
+            "text": "Work Order Sample aug1",
+            "value": "35"
+        },
+        "events": [],
+        "contact": {
+            "text": "AB&I Holdings : Chad Bass",
+            "value": "1382"
+        },
+        "name": "Chad Bass",
+        "email": "cbass@sbi.com",
+        "jobTitle": "President",
+        "mobilePhone": "",
+        "phone": "",
+        "primary": "",
+        "url": "/app/common/entity/contact.nl?id=1382&compid=TSTDRV2617106"
+    }, {
+        "id": "20",
+        "workorder": {
+            "text": "Work Order Sample July 31",
+            "value": "34"
+        },
+        "events": ["100786"],
+        "contact": {
+            "text": "",
+            "value": ""
+        },
+        "name": "Test",
+        "email": "pravallika@erpsuccesspartners.com",
+        "jobTitle": "Developer",
+        "mobilePhone": "",
+        "phone": "",
+        "primary": "",
+        "url": "/app/common/entity/contact.nl?compid=TSTDRV2617106"
+    }, {
+        "id": "21",
+        "workorder": {
+            "text": "Work Order aug 1 test",
+            "value": "37"
+        },
+        "events": ["100017"],
+        "contact": {
+            "text": "Test For site checklist : Test WO Contact",
+            "value": "1889"
+        },
+        "name": "Test WO Contact",
+        "email": "pravallika@erpsuccesspartners.com",
+        "jobTitle": "Developer",
+        "mobilePhone": "",
+        "phone": "",
+        "primary": "",
+        "url": "/app/common/entity/contact.nl?id=1889&compid=TSTDRV2617106"
+    }, {
+        "id": "23",
+        "workorder": {
+            "text": "TESTED FOR ROLE",
+            "value": "40"
+        },
+        "events": [],
+        "contact": {
+            "text": "3M : James Smith",
+            "value": "1559"
+        },
+        "name": "James Smith",
+        "email": "pravallika@erpsuccesspartners.com",
+        "jobTitle": "",
+        "mobilePhone": "",
+        "phone": "",
+        "primary": "checked",
+        "url": "/app/common/entity/contact.nl?id=1559&compid=TSTDRV2617106"
+    }, {
+        "id": "25",
+        "workorder": {
+            "text": "Sample Work Order",
+            "value": "43"
+        },
+        "events": [],
+        "contact": {
+            "text": "AB&I Holdings : Test Prav",
+            "value": "1892"
+        },
+        "name": "Test Prav",
+        "email": "pravallika@erpsuccesspartners.com",
+        "jobTitle": "QA",
+        "mobilePhone": "",
+        "phone": "",
+        "primary": "checked",
+        "url": "/app/common/entity/contact.nl?id=1892&compid=TSTDRV2617106"
+    }, {
+        "id": "26",
+        "workorder": {
+            "text": "Sample 2",
+            "value": "44"
+        },
+        "events": ["100787"],
+        "contact": {
+            "text": "AB&I Holdings : Test Prav",
+            "value": "1892"
+        },
+        "name": "Test Prav",
+        "email": "pravallika@erpsuccesspartners.com",
+        "jobTitle": "QA",
+        "mobilePhone": "",
+        "phone": "",
+        "primary": "checked",
+        "url": "/app/common/entity/contact.nl?id=1892&compid=TSTDRV2617106"
+    }, {
+        "id": "27",
+        "workorder": {
+            "text": "Sample 3",
+            "value": "45"
+        },
+        "events": [],
+        "contact": {
+            "text": "AB&I Holdings : Test Prav",
+            "value": "1892"
+        },
+        "name": "Test Prav",
+        "email": "pravallika@erpsuccesspartners.com",
+        "jobTitle": "QA",
+        "mobilePhone": "",
+        "phone": "",
+        "primary": "checked",
+        "url": "/app/common/entity/contact.nl?id=1892&compid=TSTDRV2617106"
+    }, {
+        "id": "28",
+        "workorder": {
+            "text": "Sample 4",
+            "value": "46"
+        },
+        "events": [],
+        "contact": {
+            "text": "AB&I Holdings : Test Prav",
+            "value": "1892"
+        },
+        "name": "Test Prav",
+        "email": "pravallika@erpsuccesspartners.com",
+        "jobTitle": "QA",
+        "mobilePhone": "",
+        "phone": "9502123363",
+        "primary": "checked",
+        "url": "/app/common/entity/contact.nl?id=1892&compid=TSTDRV2617106"
+    }, {
+        "id": "29",
+        "workorder": {
+            "text": "Sample 5",
+            "value": "47"
+        },
+        "events": ["100769"],
+        "contact": {
+            "text": "AB&I Holdings : Test Prav",
+            "value": "1892"
+        },
+        "name": "Test Prav",
+        "email": "pravallika@erpsuccesspartners.com",
+        "jobTitle": "QA",
+        "mobilePhone": "",
+        "phone": "",
+        "primary": "checked",
+        "url": "/app/common/entity/contact.nl?id=1892&compid=TSTDRV2617106"
+    }, {
+        "id": "30",
+        "workorder": {
+            "text": "Sample 6",
+            "value": "48"
+        },
+        "events": ["100777"],
+        "contact": {
+            "text": "AB&I Holdings : Test Prav",
+            "value": "1892"
+        },
+        "name": "Test Prav",
+        "email": "pravallika@erpsuccesspartners.com",
+        "jobTitle": "QA",
+        "mobilePhone": "",
+        "phone": "",
+        "primary": "checked",
+        "url": "/app/common/entity/contact.nl?id=1892&compid=TSTDRV2617106"
+    }, {
+        "id": "31",
+        "workorder": {
+            "text": "Test Site Checklist",
+            "value": "38"
+        },
+        "events": ["100258"],
+        "contact": {
+            "text": "",
+            "value": ""
+        },
+        "name": "test",
+        "email": "desettipravallika@gmail.com",
+        "jobTitle": "developer",
+        "mobilePhone": "",
+        "phone": "",
+        "primary": "",
+        "url": "/app/common/entity/contact.nl?compid=TSTDRV2617106"
+    }, {
+        "id": "33",
+        "workorder": {
+            "text": "Work Order Test - Sept 12 - Mei",
+            "value": "49"
+        },
+        "events": ["100782"],
+        "contact": {
+            "text": "AB&I Holdings : Test Prav",
+            "value": "1892"
+        },
+        "name": "Test Prav",
+        "email": "pravallika@erpsuccesspartners.com",
+        "jobTitle": "QA",
+        "mobilePhone": "",
+        "phone": "",
+        "primary": "checked",
+        "url": "/app/common/entity/contact.nl?id=1892&compid=TSTDRV2617106"
+    }, {
+        "id": "37",
+        "workorder": {
+            "text": "Test Site Checklist",
+            "value": "39"
+        },
+        "events": [],
+        "contact": {
+            "text": "Test For site checklist : Test WO Contact",
+            "value": "1889"
+        },
+        "name": "Test WO Contact",
+        "email": "pravallika@erpsuccesspartners.com",
+        "jobTitle": "Developer",
+        "mobilePhone": "",
+        "phone": "",
+        "primary": "",
+        "url": "/app/common/entity/contact.nl?id=1889&compid=TSTDRV2617106"
+    }, {
+        "id": "40",
+        "workorder": {
+            "text": "Sample Work Order - Mei - DO NOT USE",
+            "value": "57"
+        },
+        "events": [],
+        "contact": {
+            "text": "AB&I Holdings : Test Prav",
+            "value": "1892"
+        },
+        "name": "Test Prav",
+        "email": "pravallika@erpsuccesspartners.com",
+        "jobTitle": "QA",
+        "mobilePhone": "",
+        "phone": "",
+        "primary": "checked",
+        "url": "/app/common/entity/contact.nl?id=1892&compid=TSTDRV2617106"
+    }, {
+        "id": "41",
+        "workorder": {
+            "text": "Sample Work Order - Mei - DO NOT USE",
+            "value": "58"
+        },
+        "events": [],
+        "contact": {
+            "text": "AB&I Holdings : Test Prav",
+            "value": "1892"
+        },
+        "name": "Test Prav",
+        "email": "pravallika@erpsuccesspartners.com",
+        "jobTitle": "QA",
+        "mobilePhone": "",
+        "phone": "",
+        "primary": "checked",
+        "url": "/app/common/entity/contact.nl?id=1892&compid=TSTDRV2617106"
+    }, {
+        "id": "42",
+        "workorder": {
+            "text": "Sample Work Order - Mei - DO NOT USE",
+            "value": "59"
+        },
+        "events": [],
+        "contact": {
+            "text": "AB&I Holdings : Test Prav",
+            "value": "1892"
+        },
+        "name": "Test Prav",
+        "email": "pravallika@erpsuccesspartners.com",
+        "jobTitle": "QA",
+        "mobilePhone": "",
+        "phone": "",
+        "primary": "checked",
+        "url": "/app/common/entity/contact.nl?id=1892&compid=TSTDRV2617106"
+    }, {
+        "id": "43",
+        "workorder": {
+            "text": "Sample Work Order - Mei - DO NOT USE",
+            "value": "60"
+        },
+        "events": [],
+        "contact": {
+            "text": "AB&I Holdings : Test Prav",
+            "value": "1892"
+        },
+        "name": "Test Prav",
+        "email": "pravallika@erpsuccesspartners.com",
+        "jobTitle": "QA",
+        "mobilePhone": "",
+        "phone": "",
+        "primary": "checked",
+        "url": "/app/common/entity/contact.nl?id=1892&compid=TSTDRV2617106"
+    }, {
+        "id": "44",
+        "workorder": {
+            "text": "Sample Work Order - Mei - DO NOT USE - 61",
+            "value": "61"
+        },
+        "events": [],
+        "contact": {
+            "text": "AB&I Holdings : Test Prav",
+            "value": "1892"
+        },
+        "name": "Test Prav",
+        "email": "pravallika@erpsuccesspartners.com",
+        "jobTitle": "QA",
+        "mobilePhone": "",
+        "phone": "",
+        "primary": "checked",
+        "url": "/app/common/entity/contact.nl?id=1892&compid=TSTDRV2617106"
+    }],
+    "addresses": [{
+        "id": "1",
+        "workorder": {
+            "text": "Install Furniture",
+            "value": "1"
+        },
+        "customer": {
+            "text": "AB&I Holdings",
+            "value": "1249"
+        },
+        "events": ["100792", "100798"],
+        "address": {
+            "text": "1701 Rollins Road",
+            "value": "244878"
+        },
+        "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+        "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+    }, {
+        "id": "2",
+        "workorder": {
+            "text": "Installation of Furnitures",
+            "value": "2"
+        },
+        "customer": {
+            "text": "AB&I Holdings",
+            "value": "1249"
+        },
+        "events": [],
+        "address": {
+            "text": "1701 Rollins Road",
+            "value": "244878"
+        },
+        "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+        "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+    }, {
+        "id": "3",
+        "workorder": {
+            "text": "Installation of Furnitures - Edit",
+            "value": "3"
+        },
+        "customer": {
+            "text": "AB&I Holdings",
+            "value": "1249"
+        },
+        "events": [],
+        "address": {
+            "text": "1701 Rollins Road",
+            "value": "244878"
+        },
+        "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+        "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+    }, {
+        "id": "4",
+        "workorder": {
+            "text": "Demo",
+            "value": "4"
+        },
+        "customer": {
+            "text": "AB&I Holdings",
+            "value": "1249"
+        },
+        "events": [],
+        "address": {
+            "text": "1701 Rollins Road",
+            "value": "244878"
+        },
+        "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+        "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+    }, {
+        "id": "5",
+        "workorder": {
+            "text": "Install Walls",
+            "value": "7"
+        },
+        "customer": {
+            "text": "AB&I Holdings",
+            "value": "1249"
+        },
+        "events": [],
+        "address": {
+            "text": "1701 Rollins Road",
+            "value": "244878"
+        },
+        "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+        "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+    }, {
+        "id": "6",
+        "workorder": {
+            "text": "Install Walls",
+            "value": "13"
+        },
+        "customer": {
+            "text": "AB&I Holdings",
+            "value": "1249"
+        },
+        "events": [],
+        "address": {
+            "text": "1701 Rollins Road",
+            "value": "244878"
+        },
+        "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+        "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+    }, {
+        "id": "7",
+        "workorder": {
+            "text": "Install Walls",
+            "value": "14"
+        },
+        "customer": {
+            "text": "AB&I Holdings",
+            "value": "1249"
+        },
+        "events": [],
+        "address": {
+            "text": "1701 Rollins Road",
+            "value": "244878"
+        },
+        "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+        "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+    }, {
+        "id": "8",
+        "workorder": {
+            "text": "Install Walls Test Work Order",
+            "value": "15"
+        },
+        "customer": {
+            "text": "AB&I Holdings",
+            "value": "1249"
+        },
+        "events": [],
+        "address": {
+            "text": "1701 Rollins Road",
+            "value": "244878"
+        },
+        "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+        "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+    }, {
+        "id": "9",
+        "workorder": {
+            "text": "Install Walls",
+            "value": "16"
+        },
+        "customer": {
+            "text": "AB&I Holdings",
+            "value": "1249"
+        },
+        "events": [],
+        "address": {
+            "text": "1701 Rollins Road",
+            "value": "244878"
+        },
+        "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+        "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+    }, {
+        "id": "10",
+        "workorder": {
+            "text": "Install Walls",
+            "value": "17"
+        },
+        "customer": {
+            "text": "AB&I Holdings",
+            "value": "1249"
+        },
+        "events": [],
+        "address": {
+            "text": "1701 Rollins Road",
+            "value": "244878"
+        },
+        "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+        "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+    }, {
+        "id": "11",
+        "workorder": {
+            "text": "Install Walls",
+            "value": "18"
+        },
+        "customer": {
+            "text": "AB&I Holdings",
+            "value": "1249"
+        },
+        "events": [],
+        "address": {
+            "text": "1701 Rollins Road",
+            "value": "244878"
+        },
+        "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+        "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+    }, {
+        "id": "12",
+        "workorder": {
+            "text": "Install Walls",
+            "value": "19"
+        },
+        "customer": {
+            "text": "AB&I Holdings",
+            "value": "1249"
+        },
+        "events": [],
+        "address": {
+            "text": "1701 Rollins Road",
+            "value": "244878"
+        },
+        "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+        "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+    }, {
+        "id": "13",
+        "workorder": {
+            "text": "Install Furniture Test Work Order",
+            "value": "20"
+        },
+        "customer": {
+            "text": "AB&I Holdings",
+            "value": "1249"
+        },
+        "events": [],
+        "address": {
+            "text": "1701 Rollins Road",
+            "value": "244878"
+        },
+        "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+        "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+    }, {
+        "id": "14",
+        "workorder": {
+            "text": "Test Work Order",
+            "value": "21"
+        },
+        "customer": {
+            "text": "AB&I Holdings",
+            "value": "1249"
+        },
+        "events": [],
+        "address": {
+            "text": "1701 Rollins Road",
+            "value": "244878"
+        },
+        "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+        "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+    }, {
+        "id": "15",
+        "workorder": {
+            "text": "Test Work Order",
+            "value": "22"
+        },
+        "customer": {
+            "text": "AB&I Holdings",
+            "value": "1249"
+        },
+        "events": [],
+        "address": {
+            "text": "1701 Rollins Road",
+            "value": "244878"
+        },
+        "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+        "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+    }, {
+        "id": "16",
+        "workorder": {
+            "text": "Test Work Order",
+            "value": "23"
+        },
+        "customer": {
+            "text": "AB&I Holdings",
+            "value": "1249"
+        },
+        "events": [],
+        "address": {
+            "text": "1701 Rollins Road",
+            "value": "244878"
+        },
+        "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+        "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+    }, {
+        "id": "17",
+        "workorder": {
+            "text": "Test Work Order",
+            "value": "24"
+        },
+        "customer": {
+            "text": "AB&I Holdings",
+            "value": "1249"
+        },
+        "events": [],
+        "address": {
+            "text": "1701 Rollins Road",
+            "value": "244878"
+        },
+        "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+        "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+    }, {
+        "id": "18",
+        "workorder": {
+            "text": "Install Furniture Test Work Order",
+            "value": "25"
+        },
+        "customer": {
+            "text": "AB&I Holdings",
+            "value": "1249"
+        },
+        "events": [],
+        "address": {
+            "text": "1701 Rollins Road",
+            "value": "244878"
+        },
+        "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+        "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+    }, {
+        "id": "19",
+        "workorder": {
+            "text": "Test Work Order",
+            "value": "26"
+        },
+        "customer": {
+            "text": "AB&I Holdings",
+            "value": "1249"
+        },
+        "events": [],
+        "address": {
+            "text": "1701 Rollins Road",
+            "value": "244878"
+        },
+        "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+        "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+    }, {
+        "id": "20",
+        "workorder": {
+            "text": "Test Work Order",
+            "value": "27"
+        },
+        "customer": {
+            "text": "AB&I Holdings",
+            "value": "1249"
+        },
+        "events": [],
+        "address": {
+            "text": "1701 Rollins Road",
+            "value": "244878"
+        },
+        "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+        "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+    }, {
+        "id": "21",
+        "workorder": {
+            "text": "Test",
+            "value": "28"
+        },
+        "customer": {
+            "text": "AB&I Holdings",
+            "value": "1249"
+        },
+        "events": [],
+        "address": {
+            "text": "1701 Rollins Road",
+            "value": "244878"
+        },
+        "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+        "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+    }, {
+        "id": "22",
+        "workorder": {
+            "text": "Test",
+            "value": "29"
+        },
+        "customer": {
+            "text": "AB&I Holdings",
+            "value": "1249"
+        },
+        "events": [],
+        "address": {
+            "text": "1701 Rollins Road",
+            "value": "244878"
+        },
+        "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+        "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+    }, {
+        "id": "23",
+        "workorder": {
+            "text": "Test",
+            "value": "30"
+        },
+        "customer": {
+            "text": "AB&I Holdings",
+            "value": "1249"
+        },
+        "events": [],
+        "address": {
+            "text": "1701 Rollins Road",
+            "value": "244878"
+        },
+        "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+        "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+    }, {
+        "id": "24",
+        "workorder": {
+            "text": "Test",
+            "value": "31"
+        },
+        "customer": {
+            "text": "AB&I Holdings",
+            "value": "1249"
+        },
+        "events": [],
+        "address": {
+            "text": "1701 Rollins Road",
+            "value": "244878"
+        },
+        "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+        "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+    }, {
+        "id": "25",
+        "workorder": {
+            "text": "Installation of chairs",
+            "value": "5"
+        },
+        "customer": {
+            "text": "AB&I Holdings",
+            "value": "1249"
+        },
+        "events": [],
+        "address": {
+            "text": "AB&I Holdings (244879)",
+            "value": "244879"
+        },
+        "addressDetails": "United States",
+        "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+    }, {
+        "id": "26",
+        "workorder": {
+            "text": "SLS00000621_WRKORDR001",
+            "value": "32"
+        },
+        "customer": {
+            "text": "Test Test",
+            "value": "1493"
+        },
+        "events": ["100739"],
+        "address": {
+            "text": "",
+            "value": ""
+        },
+        "addressDetails": "",
+        "customerUrl": "/app/common/entity/custjob.nl?id=1493&compid=TSTDRV2617106"
+    }, {
+        "id": "27",
+        "workorder": {
+            "text": "Work Order Sample July 22",
+            "value": "33"
+        },
+        "customer": {
+            "text": "AB&I Holdings",
+            "value": "1249"
+        },
+        "events": ["100740"],
+        "address": {
+            "text": "1701 Rollins Road",
+            "value": "244878"
+        },
+        "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+        "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+    }, {
+        "id": "28",
+        "workorder": {
+            "text": "Work Order Sample July 31",
+            "value": "34"
+        },
+        "customer": {
+            "text": "AB&I Holdings",
+            "value": "1249"
+        },
+        "events": ["100767", "100786"],
+        "address": {
+            "text": "1701 Rollins Road",
+            "value": "244878"
+        },
+        "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+        "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+    }, {
+        "id": "29",
+        "workorder": {
+            "text": "Work Order aug 1 test",
+            "value": "36"
+        },
+        "customer": {
+            "text": "Test For site checklist",
+            "value": "1888"
+        },
+        "events": [],
+        "address": {
+            "text": "",
+            "value": ""
+        },
+        "addressDetails": "",
+        "customerUrl": "/app/common/entity/custjob.nl?id=1888&compid=TSTDRV2617106"
+    }, {
+        "id": "30",
+        "workorder": {
+            "text": "Work Order aug 1 test",
+            "value": "37"
+        },
+        "customer": {
+            "text": "Test For site checklist",
+            "value": "1888"
+        },
+        "events": [],
+        "address": {
+            "text": "",
+            "value": ""
+        },
+        "addressDetails": "",
+        "customerUrl": "/app/common/entity/custjob.nl?id=1888&compid=TSTDRV2617106"
+    }, {
+        "id": "31",
+        "workorder": {
+            "text": "Test Site Checklist",
+            "value": "38"
+        },
+        "customer": {
+            "text": "Test For site checklist",
+            "value": "1888"
+        },
+        "events": [],
+        "address": {
+            "text": "",
+            "value": ""
+        },
+        "addressDetails": "",
+        "customerUrl": "/app/common/entity/custjob.nl?id=1888&compid=TSTDRV2617106"
+    }, {
+        "id": "32",
+        "workorder": {
+            "text": "Test Site Checklist",
+            "value": "39"
+        },
+        "customer": {
+            "text": "Test For site checklist",
+            "value": "1888"
+        },
+        "events": [],
+        "address": {
+            "text": "",
+            "value": ""
+        },
+        "addressDetails": "",
+        "customerUrl": "/app/common/entity/custjob.nl?id=1888&compid=TSTDRV2617106"
+    }, {
+        "id": "33",
+        "workorder": {
+            "text": "TESTED FOR ROLE",
+            "value": "40"
+        },
+        "customer": {
+            "text": "3M",
+            "value": "1397"
+        },
+        "events": [],
+        "address": {
+            "text": "Some st.",
+            "value": "244887"
+        },
+        "addressDetails": "3M<br/>United States",
+        "customerUrl": "/app/common/entity/custjob.nl?id=1397&compid=TSTDRV2617106"
+    }, {
+        "id": "34",
+        "workorder": {
+            "text": "TESTED FOR ROLE",
+            "value": "41"
+        },
+        "customer": {
+            "text": "3M",
+            "value": "1397"
+        },
+        "events": [],
+        "address": {
+            "text": "Some st.",
+            "value": "244887"
+        },
+        "addressDetails": "3M<br/>United States",
+        "customerUrl": "/app/common/entity/custjob.nl?id=1397&compid=TSTDRV2617106"
+    }, {
+        "id": "35",
+        "workorder": {
+            "text": "Sample Work Order",
+            "value": "43"
+        },
+        "customer": {
+            "text": "AB&I Holdings",
+            "value": "1249"
+        },
+        "events": [],
+        "address": {
+            "text": "1701 Rollins Road",
+            "value": "244878"
+        },
+        "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+        "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+    }, {
+        "id": "36",
+        "workorder": {
+            "text": "Sample 2",
+            "value": "44"
+        },
+        "customer": {
+            "text": "AB&I Holdings",
+            "value": "1249"
+        },
+        "events": ["100787"],
+        "address": {
+            "text": "1701 Rollins Road",
+            "value": "244878"
+        },
+        "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+        "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+    }, {
+        "id": "37",
+        "workorder": {
+            "text": "Sample 3",
+            "value": "45"
+        },
+        "customer": {
+            "text": "AB&I Holdings",
+            "value": "1249"
+        },
+        "events": [],
+        "address": {
+            "text": "1701 Rollins Road",
+            "value": "244878"
+        },
+        "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+        "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+    }, {
+        "id": "38",
+        "workorder": {
+            "text": "Sample 4",
+            "value": "46"
+        },
+        "customer": {
+            "text": "AB&I Holdings",
+            "value": "1249"
+        },
+        "events": ["100778", "100795"],
+        "address": {
+            "text": "1701 Rollins Road",
+            "value": "244878"
+        },
+        "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+        "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+    }, {
+        "id": "39",
+        "workorder": {
+            "text": "Sample 5",
+            "value": "47"
+        },
+        "customer": {
+            "text": "AB&I Holdings",
+            "value": "1249"
+        },
+        "events": ["100769"],
+        "address": {
+            "text": "1701 Rollins Road",
+            "value": "244878"
+        },
+        "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+        "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+    }, {
+        "id": "40",
+        "workorder": {
+            "text": "Sample 6",
+            "value": "48"
+        },
+        "customer": {
+            "text": "AB&I Holdings",
+            "value": "1249"
+        },
+        "events": ["100777"],
+        "address": {
+            "text": "1701 Rollins Road",
+            "value": "244878"
+        },
+        "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+        "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+    }, {
+        "id": "41",
+        "workorder": {
+            "text": "Work Order Test - Sept 12 - Mei",
+            "value": "49"
+        },
+        "customer": {
+            "text": "AB&I Holdings",
+            "value": "1249"
+        },
+        "events": ["100782"],
+        "address": {
+            "text": "1701 Rollins Road",
+            "value": "244878"
+        },
+        "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+        "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+    }, {
+        "id": "42",
+        "workorder": {
+            "text": "Sample Work Order - Mei - DO NOT USE",
+            "value": "58"
+        },
+        "customer": {
+            "text": "AB&I Holdings",
+            "value": "1249"
+        },
+        "events": [],
+        "address": {
+            "text": "1701 Rollins Road",
+            "value": "244878"
+        },
+        "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+        "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+    }, {
+        "id": "43",
+        "workorder": {
+            "text": "Sample Work Order - Mei - DO NOT USE",
+            "value": "59"
+        },
+        "customer": {
+            "text": "AB&I Holdings",
+            "value": "1249"
+        },
+        "events": [],
+        "address": {
+            "text": "1701 Rollins Road",
+            "value": "244878"
+        },
+        "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+        "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+    }, {
+        "id": "44",
+        "workorder": {
+            "text": "Sample Work Order - Mei - DO NOT USE",
+            "value": "60"
+        },
+        "customer": {
+            "text": "AB&I Holdings",
+            "value": "1249"
+        },
+        "events": [],
+        "address": {
+            "text": "1701 Rollins Road",
+            "value": "244878"
+        },
+        "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+        "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+    }, {
+        "id": "45",
+        "workorder": {
+            "text": "Sample Work Order - Mei - DO NOT USE - 61",
+            "value": "61"
+        },
+        "customer": {
+            "text": "AB&I Holdings",
+            "value": "1249"
+        },
+        "events": [],
+        "address": {
+            "text": "1701 Rollins Road",
+            "value": "244878"
+        },
+        "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+        "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+    }]
+}
+
+export default mockup;
