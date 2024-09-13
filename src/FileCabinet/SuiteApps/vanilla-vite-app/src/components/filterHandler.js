@@ -1,78 +1,80 @@
 export function initLeftSideBarFilters(resources) {
-  const $leftSideBarFilters = $('#leftSidebar select.selectpicker'); // Applies to all multiselect filter
-  let selectedResources = [], selectedResourceGroups = [], selectedStatuses = [];
+  const $items = $('#leftSidebar .collapsible-list .person-container');
+  const $resourceFilter = $('#leftSidebar select.multiple-resource-field');
+  const $resourceGroupFilter = $('#leftSidebar select.multiple-resource-group-field');
+  const $statusFilter = $('#leftSidebar select.multiple-status-field');
+  const $selected = {
+    resources: [],
+    resourceGroups: [],
+    status: []
+  };
+  let $groupCounterMap = {};
 
-  $leftSideBarFilters.on('change', function() {
-    const selectedValues = $(this).val() || [];
-    const parentClass = $(this).parent().attr('class').split(' ').find(cls => cls.match(/multiple-/gi));
-    const counterMap = {};
+  if ($resourceFilter.length) {
+    $resourceFilter.on('change', function() {
+      $selected.resources = $(this).val() || [];
+      filterItems();
+    });
+  }
+
+  if ($resourceGroupFilter.length) {
+    $resourceGroupFilter.on('change', function() {
+      $selected.resourceGroups = $(this).val() || [];
+      filterItems();
+    });
+  }
+
+  if ($statusFilter.length) {
+    $statusFilter.on('change', function() {
+      $selected.status = $(this).val() || [];
+      filterItems();
+    });
+  }
+
+  function filterItems() {
+    $groupCounterMap = {};
     
-    switch (parentClass) {
-      case 'multiple-resource-field':
-        selectedResources = selectedValues;
-        break;
-      case 'multiple-resource-group-field':
-        selectedResourceGroups = selectedValues;
-        break;
-      case 'multiple-status-field':
-        selectedStatuses = selectedValues;
-        break;
-    }
-
-    const $items = $('#leftSidebar .collapsible-list .person-container');
     $items.each(function() {
       const $el = $(this);
-      const containerId = $el.closest('div[id*="-filter-tableWrapper"]').attr('id');
-      const headerId = containerId.match(/\d+/)[0];
-      if (!counterMap[headerId]) {
-        counterMap[headerId] = 0;
-      }
-      let toDisplay = false, resource;
+      const resourceId = $el[0].id;
+      const _resource = resources.all.find(resource => resource.employee.value == resourceId);
+      
+      if (_resource) {
+        const _resourceGroup = _resource.resourceGroup.value;
+        const _resourceStatus = _resource.active ? '1' : '0';
+        const shouldDisplay = Boolean(
+          (!$selected.resources.length || $selected.resources.includes(resourceId)) &&
+          (!$selected.resourceGroups.length || $selected.resourceGroups.includes(_resourceGroup)) &&
+          (!$selected.status.length || $selected.status.includes(_resourceStatus))
+        ); 
+        $el.toggle(shouldDisplay);
 
-      if (selectedResources.length) {
-        toDisplay = selectedResources.includes($el.attr('id'));
-      }
-
-      if (toDisplay && selectedResourceGroups.length) {
-        resource = resources.all.find(resource => resource.employee.value == $el.attr('id'));
-        if (resource) {
-          toDisplay = selectedResourceGroups.includes(resource.resourceGroup.value);
+        // Group counter map
+        const containerId = $el.closest('div[id*="-filter-tableWrapper"]').attr('id');
+        const groupId = containerId.match(/\d+/)[0];
+        if (!$groupCounterMap[groupId]) {
+          $groupCounterMap[groupId] = 0;
         }
-      }
-
-      if (toDisplay && selectedStatuses.length) {
-        resource = resources.all.find(resource => resource.employee.value == $el.attr('id'));
-        if (resource) {
-          if (selectedStatuses.includes('1')) {
-            toDisplay = Boolean(resource.active);
-          } else if (selectedStatuses.includes('2')) {
-            toDisplay = !Boolean(resource.active);
-          } else {
-            toDisplay = true;
-          }
+        if (shouldDisplay) {
+          $groupCounterMap[groupId]++;
         }
-      }
-
-      // Display all for no selected filters (default)
-      if (!selectedResources.length && !selectedResourceGroups.length && !selectedStatuses.length) {
-        toDisplay = true;
-      }
-
-      $el.toggle(toDisplay);
-      if (toDisplay) {
-        counterMap[headerId]++;
       }
     });
+    updateHeaderCount();
+  }
 
+  // Update header column counter
+  function updateHeaderCount() {
     // Update group counter
-    $.each(counterMap, function(headerId, count) {
+    $.each($groupCounterMap, (headerId, count) => {
+      console.log(headerId, count)
       $(`#leftSidebar #resourceGroup-${headerId}-filter-tableWrapper span.counter`).html(count);
     });
-
-    // Update header column counter
-    const total = Object.values(counterMap).reduce((x, y) => x + y, 0);
+    const total = $items.filter(function() {
+      return $(this).css('display') !== 'none';
+    }).length;
     $('#leftSidebar .card-header span.counter').html(total);
-  });
+  }
 }
 
 export function initAvailableJobsFilters(workOrders) {

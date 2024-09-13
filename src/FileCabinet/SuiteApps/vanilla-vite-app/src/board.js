@@ -52,7 +52,7 @@ document.querySelector('#app').innerHTML = `
                       <div class="input-group mb-3">
                         <select class="selectpicker mx-auto multiple-status-field" title="Filter by Status" id="" data-live-search="true" data-selected-text-format="count>2" data-style="" data-style-base="form-control" data-actions-box="true" multiple>
                           <option value="1">Available</option>
-                          <option value="2">Unavailable</option>
+                          <option value="0">Unavailable</option>
                         </select>
                       </div>
                     </div>
