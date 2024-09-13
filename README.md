@@ -37,4 +37,4 @@ codeSplit: false
    - This will generate bundle (html, js, css files) (see config > rollupOptions > output)
 7. Load the bundle files to the suitelet
 
-NOTE: execute npm run build everytime changes happen under vanilla-vite-app-bundle folder before deployment
+NOTE: execute 'npm run build' everytime changes happen under vanilla-vite-app folder before deployment
