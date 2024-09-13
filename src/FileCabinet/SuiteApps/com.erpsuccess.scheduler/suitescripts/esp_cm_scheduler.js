@@ -1167,20 +1167,6 @@ define([
         const user = runtime.getCurrentUser();
         return user.getPreference ({ name: 'DATEFORMAT' });
       }
-
-      static _createRecord = (type, vars, isDynamic) => {
-        // log.audit('Creating...', { type, vars });
-        const rec = record.create({ type, isDynamic })
-        for (let key in vars) {
-          rec.setValue({ 
-            fieldId: key, 
-            value: vars[key] 
-          });
-        }
-        const id = rec.save({ ignoreMandatoryFieds: true });
-        log.audit('***** Created Record *****', { type, id });
-        return id;
-      }
       
       static createLogFile(name, contents, folderId) {
         try {
