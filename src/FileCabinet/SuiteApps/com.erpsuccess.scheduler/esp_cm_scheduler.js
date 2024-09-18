@@ -848,10 +848,10 @@ define([
         const woIds = workOrders.map(wo => wo.id);
 
         const filters = [ 
-          ['organizer', 'anyof', '@CURRENT@']
+          // ['organizer', 'anyof', '@CURRENT@']
         ];
         if (woIds.length) {
-          filters.push('AND');
+          // filters.push('AND');
           filters.push(['custevent_esp_fop_work_order', 'anyof', woIds]);
         }
         const events = [];
@@ -866,7 +866,7 @@ define([
               sort: search.Sort.ASC
             }),
             search.createColumn({ name: 'title', label: 'Event'}),
-            search.createColumn({ name: 'custevent_cfi_fsl_project', label: 'Project'}),
+            // search.createColumn({ name: 'custevent_cfi_fsl_project', label: 'Project'}),
             search.createColumn({ name: 'location', label: 'Location'}),
             search.createColumn({ name: 'response', label: 'Response'}),
             search.createColumn({ name: 'status', label: 'Status'}),
@@ -893,10 +893,10 @@ define([
               text: result.getText('custevent_esp_fop_work_order'),
               value: result.getValue('custevent_esp_fop_work_order')
             },
-            project: {
+            /* project: {
               text: result.getText('custevent_cfi_fsl_project'),
               value: result.getValue('custevent_cfi_fsl_project')
-            },
+            }, */
             location: result.getValue('location'),
             status: {
               text: result.getText('status'),
@@ -1055,7 +1055,7 @@ define([
 
           const fieldToSet = {};
           fieldToSet.title = eventData.title;
-          fieldToSet.custevent_cfi_fsl_project = woRef?.project?.value || '';
+          // fieldToSet.custevent_cfi_fsl_project = woRef?.project?.value || '';
           // fieldToSet.alldayevent = eventData.allDay;
           fieldToSet.custevent_esp_fop_work_order = woRef?.id || '';
           fieldToSet.organizer = user.id;
