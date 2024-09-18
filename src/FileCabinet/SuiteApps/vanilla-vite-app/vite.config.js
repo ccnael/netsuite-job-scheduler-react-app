@@ -8,9 +8,7 @@ export default defineConfig({
       output: {
         entryFileNames: 'app.js',  // JavaScript file naming convention
         chunkFileNames: 'app.chunk.js',  // Chunk file naming
-        // assetFileNames: 'assets/index.css', // Asset file naming
         assetFileNames: ({ name }) => {
-          console.log(`>>> ${name}`);
           if (name && name.endsWith('.css')) {
             return 'index.css'; // For CSS files
           } else if (name === 'vite.svg') {

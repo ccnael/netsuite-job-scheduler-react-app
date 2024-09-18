@@ -1,8 +1,8 @@
-export function initLeftSideBarFilters(resources) {
-  const $items = $('#leftSidebar .collapsible-list .person-container');
-  const $resourceFilter = $('#leftSidebar select.multiple-resource-field');
-  const $resourceGroupFilter = $('#leftSidebar select.multiple-resource-group-field');
-  const $statusFilter = $('#leftSidebar select.multiple-status-field');
+export function initLeftSideBarFilters(sectionId, resources) {
+  const $items = $(`${sectionId} .leftSidebar .collapsible-list .person-container`);
+  const $resourceFilter = $(`${sectionId} .leftSidebar select.multiple-resource-field`);
+  const $resourceGroupFilter = $(`${sectionId} .leftSidebar select.multiple-resource-group-field`);
+  const $statusFilter = $(`${sectionId} .leftSidebar select.multiple-status-field`);
   const $selected = {
     resources: [],
     resourceGroups: [],
@@ -33,7 +33,7 @@ export function initLeftSideBarFilters(resources) {
 
   function filterItems() {
     $groupCounterMap = {};
-    
+
     $items.each(function() {
       const $el = $(this);
       const resourceId = $el[0].id;
@@ -67,22 +67,21 @@ export function initLeftSideBarFilters(resources) {
   function updateHeaderCount() {
     // Update group counter
     $.each($groupCounterMap, (headerId, count) => {
-      console.log(headerId, count)
-      $(`#leftSidebar #resourceGroup-${headerId}-filter-tableWrapper span.counter`).html(count);
+      $(`${sectionId} .leftSidebar #resourceGroup-${headerId}-filter-tableWrapper span.counter`).html(count);
     });
     const total = $items.filter(function() {
       return $(this).css('display') !== 'none';
     }).length;
-    $('#leftSidebar .card-header span.counter').html(total);
+    $(`${sectionId} .leftSidebar .card-header span.counter`).html(total);
   }
 }
 
-export function initAvailableJobsFilters(workOrders) {
-  const $items = $('#secondColumn .card-wrapper .card-item');
-  const $dateFromFilter = $('#secondColumn input#job-datefrom');
-  const $dateToFilter = $('#secondColumn input#job-dateto');
-  const $customerFilter = $('#secondColumn select.multiple-customer-field');
-  const $woTitleFilter = $('#secondColumn input#woTitle');
+export function initAvailableJobsFilters(sectionId, workOrders) {
+  const $items = $(`${sectionId} .secondColumn .card-wrapper .card-item`);
+  const $dateFromFilter = $(`${sectionId} .secondColumn input#board-job-datefrom`);
+  const $dateToFilter = $(`${sectionId} .secondColumn input#board-job-dateto`);
+  const $customerFilter = $(`${sectionId} .secondColumn select.multiple-customer-field`);
+  const $woTitleFilter = $(`${sectionId} .secondColumn input#woTitle`);
   const $selected = {
     dateFrom: '',
     dateTo: '',
@@ -165,18 +164,18 @@ export function initAvailableJobsFilters(workOrders) {
     const total = $items.filter(function() {
       return $(this).css('display') !== 'none';
     }).length;
-    $('#secondColumn .card-header span.counter').html(total);
+    $(`${sectionId} .secondColumn .card-header span.counter`).html(total);
   }
 }
 
-export function initEventJobsFilters(events) {
-  const $items = $('#thirdColumn .card-wrapper .card-item');
-  const $dateFromFilter = $('#thirdColumn input#event-datefrom');
-  const $dateToFilter = $('#thirdColumn input#event-dateto');
-  const $resourceFilter = $('#thirdColumn select.multiple-resource-field');
-  const $resourceGroupFilter = $('#thirdColumn select.multiple-resource-group-field');
-  const $statusFilter = $('#thirdColumn select.multiple-event-status-field');
-  const $priorityFilter = $('#thirdColumn select.multiple-event-priority-field');
+export function initEventFilters(sectionId, events) {
+  const $items = $(`${sectionId} .thirdColumn .card-wrapper .card-item`);
+  const $dateFromFilter = $(`${sectionId} .thirdColumn input#board-event-datefrom`);
+  const $dateToFilter = $(`${sectionId} .thirdColumn input#board-event-dateto`);
+  const $resourceFilter = $(`${sectionId} .thirdColumn select.multiple-resource-field`);
+  const $resourceGroupFilter = $(`${sectionId} .thirdColumn select.multiple-resource-group-field`);
+  const $statusFilter = $(`${sectionId} .thirdColumn select.multiple-event-status-field`);
+  const $priorityFilter = $(`${sectionId} .thirdColumn select.multiple-event-priority-field`);
   const $selected = {
     dateFrom: '',
     dateTo: '',
@@ -279,6 +278,6 @@ export function initEventJobsFilters(events) {
     const total = $items.filter(function() {
       return $(this).css('display') !== 'none';
     }).length;
-    $('#thirdColumn .card-header span.counter').html(total);
+    $(`${sectionId} .thirdColumn .card-header span.counter`).html(total);
   }
 }

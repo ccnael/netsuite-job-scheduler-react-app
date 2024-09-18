@@ -18,7 +18,7 @@ const mockup = {
             "text": "Moves",
             "value": "3"
         },
-        "memo": "<p><strong>Sample Work Order - Mei - DO NOT USE</strong></p>",
+        "memo": "<p><strong>Sample Work Order - Mei - DO NOT USE - TEST</strong></p>",
         "salesorder": {
             "text": "Sales Order #SLS00000686",
             "value": "17729"
@@ -324,7 +324,7 @@ const mockup = {
                 "text": "AB&I Holdings",
                 "value": "1249"
             },
-            "events": [],
+            "events": ["100803"],
             "address": {
                 "text": "1701 Rollins Road",
                 "value": "244878"
@@ -338,7 +338,7 @@ const mockup = {
                 "text": "Sample Work Order - Mei - DO NOT USE",
                 "value": "59"
             },
-            "events": [],
+            "events": ["100803"],
             "contact": {
                 "text": "AB&I Holdings : Test Prav",
                 "value": "1892"
@@ -351,7 +351,50 @@ const mockup = {
             "primary": "checked",
             "url": "/app/common/entity/contact.nl?id=1892&compid=TSTDRV2617106"
         }],
-        "events": [],
+        "events": [{
+            "id": "100803",
+            "title": "12345",
+            "workorder": {
+                "text": "Sample Work Order - Mei - DO NOT USE",
+                "value": "59"
+            },
+            "location": "",
+            "status": {
+                "text": "Confirmed",
+                "value": "CONFIRMED",
+                "code": "bg-success"
+            },
+            "date": {
+                "recurrence": "occurs every day from 9/14/2024 until 9/15/2024",
+                "start": "2024-09-14",
+                "end": "2024-09-15"
+            },
+            "time": {
+                "start": "08:00",
+                "end": "18:00"
+            },
+            "priority": {
+                "text": "High",
+                "value": "3",
+                "code": "#ca6621"
+            },
+            "note": "TEST21345",
+            "url": "/app/crm/calendar/event.nl?id=100803&compid=TSTDRV2617106&selectedtab=custom337",
+            "color": "#1a6756",
+            "woRef": {},
+            "resources": [],
+            "items": [],
+            "contacts": [],
+            "addresses": [],
+            "contact": {
+                "text": "42",
+                "value": "42"
+            },
+            "address": {
+                "text": "43",
+                "value": "43"
+            }
+        }],
         "projectUrl": "/app/accounting/project/project.nl?id=1883&compid=TSTDRV2617106",
         "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=59&compid=TSTDRV2617106",
         "soUrl": "/app/accounting/transactions/salesord.nl?id=17729&compid=TSTDRV2617106",
@@ -869,10 +912,6 @@ const mockup = {
                 "text": "Work Order Test - Sept 12 - Mei",
                 "value": "49"
             },
-            "project": {
-                "text": "AB&I Holdings : Field Ops Pro Project",
-                "value": "1883"
-            },
             "location": "",
             "status": {
                 "text": "Confirmed",
@@ -915,10 +954,6 @@ const mockup = {
             "workorder": {
                 "text": "Work Order Test - Sept 12 - Mei",
                 "value": "49"
-            },
-            "project": {
-                "text": "AB&I Holdings : Field Ops Pro Project",
-                "value": "1883"
             },
             "location": "",
             "status": {
@@ -1071,10 +1106,6 @@ const mockup = {
                 "text": "Sample 6",
                 "value": "48"
             },
-            "project": {
-                "text": "AB&I Holdings : Field Ops Pro Project",
-                "value": "1883"
-            },
             "location": "",
             "status": {
                 "text": "Confirmed",
@@ -1226,10 +1257,6 @@ const mockup = {
                 "text": "Sample 5",
                 "value": "47"
             },
-            "project": {
-                "text": "AB&I Holdings : Field Ops Pro Project",
-                "value": "1883"
-            },
             "location": "",
             "status": {
                 "text": "Confirmed",
@@ -1272,10 +1299,6 @@ const mockup = {
             "workorder": {
                 "text": "Sample 5",
                 "value": "47"
-            },
-            "project": {
-                "text": "AB&I Holdings : Field Ops Pro Project",
-                "value": "1883"
             },
             "location": "",
             "status": {
@@ -1320,10 +1343,6 @@ const mockup = {
                 "text": "Sample 5",
                 "value": "47"
             },
-            "project": {
-                "text": "AB&I Holdings : Field Ops Pro Project",
-                "value": "1883"
-            },
             "location": "",
             "status": {
                 "text": "Confirmed",
@@ -1367,10 +1386,6 @@ const mockup = {
                 "text": "Sample 5",
                 "value": "47"
             },
-            "project": {
-                "text": "AB&I Holdings : Field Ops Pro Project",
-                "value": "1883"
-            },
             "location": "",
             "status": {
                 "text": "Confirmed",
@@ -1413,10 +1428,6 @@ const mockup = {
             "workorder": {
                 "text": "Sample 5",
                 "value": "47"
-            },
-            "project": {
-                "text": "AB&I Holdings : Field Ops Pro Project",
-                "value": "1883"
             },
             "location": "",
             "status": {
@@ -1569,10 +1580,6 @@ const mockup = {
                 "text": "Sample 4",
                 "value": "46"
             },
-            "project": {
-                "text": "AB&I Holdings : Field Ops Pro Project",
-                "value": "1883"
-            },
             "location": "",
             "status": {
                 "text": "Confirmed",
@@ -1616,10 +1623,6 @@ const mockup = {
                 "text": "Sample 4",
                 "value": "46"
             },
-            "project": {
-                "text": "AB&I Holdings : Field Ops Pro Project",
-                "value": "1883"
-            },
             "location": "",
             "status": {
                 "text": "Confirmed",
@@ -1662,10 +1665,6 @@ const mockup = {
             "workorder": {
                 "text": "Sample 4",
                 "value": "46"
-            },
-            "project": {
-                "text": "AB&I Holdings : Field Ops Pro Project",
-                "value": "1883"
             },
             "location": "",
             "status": {
@@ -1818,10 +1817,6 @@ const mockup = {
                 "text": "Sample 3",
                 "value": "45"
             },
-            "project": {
-                "text": "AB&I Holdings : Field Ops Pro Project",
-                "value": "1883"
-            },
             "location": "",
             "status": {
                 "text": "Confirmed",
@@ -1972,10 +1967,6 @@ const mockup = {
             "workorder": {
                 "text": "Sample 2",
                 "value": "44"
-            },
-            "project": {
-                "text": "AB&I Holdings : Field Ops Pro Project",
-                "value": "1883"
             },
             "location": "",
             "status": {
@@ -2840,10 +2831,6 @@ const mockup = {
                 "text": "Work Order Sample July 31",
                 "value": "34"
             },
-            "project": {
-                "text": "AB&I Holdings : Parking Lot Construction",
-                "value": "1515"
-            },
             "location": "",
             "status": {
                 "text": "Confirmed",
@@ -2887,10 +2874,6 @@ const mockup = {
                 "text": "Work Order Sample July 31",
                 "value": "34"
             },
-            "project": {
-                "text": "AB&I Holdings : Parking Lot Construction",
-                "value": "1515"
-            },
             "location": "",
             "status": {
                 "text": "Confirmed",
@@ -2933,10 +2916,6 @@ const mockup = {
             "workorder": {
                 "text": "Work Order Sample July 31",
                 "value": "34"
-            },
-            "project": {
-                "text": "AB&I Holdings : Parking Lot Construction",
-                "value": "1515"
             },
             "location": "",
             "status": {
@@ -3089,10 +3068,6 @@ const mockup = {
                 "text": "Work Order Sample July 22",
                 "value": "33"
             },
-            "project": {
-                "text": "AB&I Holdings : Parking Lot Construction",
-                "value": "1515"
-            },
             "location": "01: San Francisco",
             "status": {
                 "text": "Confirmed",
@@ -3225,10 +3200,6 @@ const mockup = {
             "workorder": {
                 "text": "SLS00000621_WRKORDR001",
                 "value": "32"
-            },
-            "project": {
-                "text": "Test Test : Test Project",
-                "value": "1774"
             },
             "location": "01: San Francisco",
             "status": {
@@ -3477,10 +3448,6 @@ const mockup = {
                 "text": "Test",
                 "value": "31"
             },
-            "project": {
-                "text": "AB&I Holdings : Parking Lot Construction",
-                "value": "1515"
-            },
             "location": "01: San Francisco",
             "status": {
                 "text": "Confirmed",
@@ -3523,10 +3490,6 @@ const mockup = {
             "workorder": {
                 "text": "Test",
                 "value": "31"
-            },
-            "project": {
-                "text": "AB&I Holdings : Parking Lot Construction",
-                "value": "1515"
             },
             "location": "01: San Francisco",
             "status": {
@@ -5763,10 +5726,6 @@ const mockup = {
                 "text": "Install Furniture",
                 "value": "1"
             },
-            "project": {
-                "text": "AB&I Holdings : Lobby Remodel",
-                "value": "1514"
-            },
             "location": "",
             "status": {
                 "text": "Confirmed",
@@ -5787,7 +5746,7 @@ const mockup = {
                 "value": "3",
                 "code": "#ca6621"
             },
-            "note": "TEST12345",
+            "note": "TEST123456",
             "url": "/app/crm/calendar/event.nl?id=100682&compid=TSTDRV2617106&selectedtab=custom337",
             "color": "#1a6756",
             "woRef": {},
@@ -5809,10 +5768,6 @@ const mockup = {
             "workorder": {
                 "text": "Install Furniture",
                 "value": "1"
-            },
-            "project": {
-                "text": "AB&I Holdings : Parking Lot Construction",
-                "value": "1515"
             },
             "location": "01: San Francisco",
             "status": {
@@ -5857,10 +5812,6 @@ const mockup = {
                 "text": "Install Furniture",
                 "value": "1"
             },
-            "project": {
-                "text": "AB&I Holdings : Parking Lot Construction",
-                "value": "1515"
-            },
             "location": "",
             "status": {
                 "text": "Tentative",
@@ -5898,62 +5849,11 @@ const mockup = {
                 "value": "1"
             }
         }, {
-            "id": "100794",
-            "title": "Install Furniture 123",
-            "workorder": {
-                "text": "Install Furniture",
-                "value": "1"
-            },
-            "project": {
-                "text": "AB&I Holdings : Parking Lot Construction",
-                "value": "1515"
-            },
-            "location": "",
-            "status": {
-                "text": "Tentative",
-                "value": "TENTATIVE",
-                "code": "bg-secondary"
-            },
-            "date": {
-                "recurrence": "occurs every day from 9/11/2024 until 9/12/2024",
-                "start": "2024-09-11",
-                "end": "2024-09-12"
-            },
-            "time": {
-                "start": "08:00",
-                "end": "18:00"
-            },
-            "priority": {
-                "text": "Urgent",
-                "value": "4",
-                "code": "#9a2407"
-            },
-            "note": "ASD\nBBBB",
-            "url": "/app/crm/calendar/event.nl?id=100794&compid=TSTDRV2617106&selectedtab=custom337",
-            "color": "#1a6756",
-            "woRef": {},
-            "resources": [],
-            "items": [],
-            "contacts": [],
-            "addresses": [],
-            "contact": {
-                "text": "15",
-                "value": "15"
-            },
-            "address": {
-                "text": "1",
-                "value": "1"
-            }
-        }, {
             "id": "100796",
             "title": "Install Furniture 12345",
             "workorder": {
                 "text": "Install Furniture",
                 "value": "1"
-            },
-            "project": {
-                "text": "AB&I Holdings : Parking Lot Construction",
-                "value": "1515"
             },
             "location": "",
             "status": {
@@ -5997,10 +5897,6 @@ const mockup = {
             "workorder": {
                 "text": "Install Furniture",
                 "value": "1"
-            },
-            "project": {
-                "text": "AB&I Holdings : Parking Lot Construction",
-                "value": "1515"
             },
             "location": "",
             "status": {
@@ -6087,7 +5983,7 @@ const mockup = {
             },
             "color": "#554de2",
             "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fcompid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-            "events": ["100682", "100798"]
+            "events": ["100682", "100803"]
         }, {
             "employee": {
                 "text": "Bonita Kane",
@@ -6111,7 +6007,7 @@ const mockup = {
             },
             "color": "#cbb24c",
             "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fcompid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-            "events": ["100792", "100798"]
+            "events": []
         }, {
             "employee": {
                 "text": "Gary Grant",
@@ -6159,7 +6055,7 @@ const mockup = {
             },
             "color": "#e57d29",
             "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fcompid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-            "events": ["100767", "100794"]
+            "events": ["100767"]
         }, {
             "employee": {
                 "text": "Mei Matriano",
@@ -6183,7 +6079,7 @@ const mockup = {
             },
             "color": "#f1484c",
             "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fcompid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-            "events": ["100767", "100794"]
+            "events": ["100767"]
         }, {
             "employee": {
                 "text": "Rowe Riomalos",
@@ -6230,7 +6126,7 @@ const mockup = {
                 "value": "1"
             },
             "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fcompid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-            "events": ["100767", "100794"]
+            "events": ["100767"]
         }],
         "active": [{
             "employee": {
@@ -6255,7 +6151,7 @@ const mockup = {
             },
             "color": "#554de2",
             "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fcompid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-            "events": ["100682", "100798"]
+            "events": ["100682", "100803"]
         }, {
             "employee": {
                 "text": "Bonita Kane",
@@ -6279,7 +6175,7 @@ const mockup = {
             },
             "color": "#cbb24c",
             "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fcompid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-            "events": ["100792", "100798"]
+            "events": []
         }, {
             "employee": {
                 "text": "Gary Grant",
@@ -6327,7 +6223,7 @@ const mockup = {
             },
             "color": "#e57d29",
             "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fcompid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-            "events": ["100767", "100794"]
+            "events": ["100767"]
         }, {
             "employee": {
                 "text": "Mei Matriano",
@@ -6351,7 +6247,7 @@ const mockup = {
             },
             "color": "#f1484c",
             "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fcompid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-            "events": ["100767", "100794"]
+            "events": ["100767"]
         }, {
             "employee": {
                 "text": "Youssef Ezz",
@@ -6374,7 +6270,7 @@ const mockup = {
                 "value": "1"
             },
             "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fcompid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-            "events": ["100767", "100794"]
+            "events": ["100767"]
         }]
     },
     "resourceGroups": [{
@@ -6403,7 +6299,7 @@ const mockup = {
             },
             "color": "#cbb24c",
             "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fcompid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-            "events": ["100792", "100798"]
+            "events": []
         }, {
             "employee": {
                 "text": "Gary Grant",
@@ -6450,7 +6346,7 @@ const mockup = {
                 "value": "1"
             },
             "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fcompid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-            "events": ["100767", "100794"]
+            "events": ["100767"]
         }],
         "resourceCount": 3
     }, {
@@ -6479,7 +6375,7 @@ const mockup = {
             },
             "color": "#e57d29",
             "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fcompid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-            "events": ["100767", "100794"]
+            "events": ["100767"]
         }, {
             "employee": {
                 "text": "Mei Matriano",
@@ -6503,7 +6399,7 @@ const mockup = {
             },
             "color": "#f1484c",
             "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fcompid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-            "events": ["100767", "100794"]
+            "events": ["100767"]
         }, {
             "employee": {
                 "text": "Rowe Riomalos",
@@ -6556,7 +6452,7 @@ const mockup = {
             },
             "color": "#554de2",
             "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fcompid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-            "events": ["100682", "100798"]
+            "events": ["100682", "100803"]
         }],
         "resourceCount": 1
     }],
@@ -6566,10 +6462,6 @@ const mockup = {
         "workorder": {
             "text": "Install Furniture",
             "value": "1"
-        },
-        "project": {
-            "text": "AB&I Holdings : Lobby Remodel",
-            "value": "1514"
         },
         "location": "",
         "status": {
@@ -6591,7 +6483,7 @@ const mockup = {
             "value": "3",
             "code": "#ca6621"
         },
-        "note": "TEST12345",
+        "note": "TEST123456",
         "url": "/app/crm/calendar/event.nl?id=100682&compid=TSTDRV2617106&selectedtab=custom337",
         "color": "#1a6756",
         "woRef": {
@@ -6722,10 +6614,6 @@ const mockup = {
                     "text": "Install Furniture",
                     "value": "1"
                 },
-                "project": {
-                    "text": "AB&I Holdings : Lobby Remodel",
-                    "value": "1514"
-                },
                 "location": "",
                 "status": {
                     "text": "Confirmed",
@@ -6746,7 +6634,7 @@ const mockup = {
                     "value": "3",
                     "code": "#ca6621"
                 },
-                "note": "TEST12345",
+                "note": "TEST123456",
                 "url": "/app/crm/calendar/event.nl?id=100682&compid=TSTDRV2617106&selectedtab=custom337",
                 "color": "#1a6756",
                 "woRef": {},
@@ -6768,10 +6656,6 @@ const mockup = {
                 "workorder": {
                     "text": "Install Furniture",
                     "value": "1"
-                },
-                "project": {
-                    "text": "AB&I Holdings : Parking Lot Construction",
-                    "value": "1515"
                 },
                 "location": "01: San Francisco",
                 "status": {
@@ -6816,10 +6700,6 @@ const mockup = {
                     "text": "Install Furniture",
                     "value": "1"
                 },
-                "project": {
-                    "text": "AB&I Holdings : Parking Lot Construction",
-                    "value": "1515"
-                },
                 "location": "",
                 "status": {
                     "text": "Tentative",
@@ -6857,62 +6737,11 @@ const mockup = {
                     "value": "1"
                 }
             }, {
-                "id": "100794",
-                "title": "Install Furniture 123",
-                "workorder": {
-                    "text": "Install Furniture",
-                    "value": "1"
-                },
-                "project": {
-                    "text": "AB&I Holdings : Parking Lot Construction",
-                    "value": "1515"
-                },
-                "location": "",
-                "status": {
-                    "text": "Tentative",
-                    "value": "TENTATIVE",
-                    "code": "bg-secondary"
-                },
-                "date": {
-                    "recurrence": "occurs every day from 9/11/2024 until 9/12/2024",
-                    "start": "2024-09-11",
-                    "end": "2024-09-12"
-                },
-                "time": {
-                    "start": "08:00",
-                    "end": "18:00"
-                },
-                "priority": {
-                    "text": "Urgent",
-                    "value": "4",
-                    "code": "#9a2407"
-                },
-                "note": "ASD\nBBBB",
-                "url": "/app/crm/calendar/event.nl?id=100794&compid=TSTDRV2617106&selectedtab=custom337",
-                "color": "#1a6756",
-                "woRef": {},
-                "resources": [],
-                "items": [],
-                "contacts": [],
-                "addresses": [],
-                "contact": {
-                    "text": "15",
-                    "value": "15"
-                },
-                "address": {
-                    "text": "1",
-                    "value": "1"
-                }
-            }, {
                 "id": "100796",
                 "title": "Install Furniture 12345",
                 "workorder": {
                     "text": "Install Furniture",
                     "value": "1"
-                },
-                "project": {
-                    "text": "AB&I Holdings : Parking Lot Construction",
-                    "value": "1515"
                 },
                 "location": "",
                 "status": {
@@ -6956,10 +6785,6 @@ const mockup = {
                 "workorder": {
                     "text": "Install Furniture",
                     "value": "1"
-                },
-                "project": {
-                    "text": "AB&I Holdings : Parking Lot Construction",
-                    "value": "1515"
                 },
                 "location": "",
                 "status": {
@@ -7026,7 +6851,7 @@ const mockup = {
             },
             "color": "#554de2",
             "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fcompid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-            "events": ["100682", "100798"],
+            "events": ["100682", "100803"],
             "selected": true
         }],
         "items": [],
@@ -7065,10 +6890,6 @@ const mockup = {
         "workorder": {
             "text": "Install Furniture",
             "value": "1"
-        },
-        "project": {
-            "text": "AB&I Holdings : Parking Lot Construction",
-            "value": "1515"
         },
         "location": "01: San Francisco",
         "status": {
@@ -7221,10 +7042,6 @@ const mockup = {
                     "text": "Install Furniture",
                     "value": "1"
                 },
-                "project": {
-                    "text": "AB&I Holdings : Lobby Remodel",
-                    "value": "1514"
-                },
                 "location": "",
                 "status": {
                     "text": "Confirmed",
@@ -7245,7 +7062,7 @@ const mockup = {
                     "value": "3",
                     "code": "#ca6621"
                 },
-                "note": "TEST12345",
+                "note": "TEST123456",
                 "url": "/app/crm/calendar/event.nl?id=100682&compid=TSTDRV2617106&selectedtab=custom337",
                 "color": "#1a6756",
                 "woRef": {},
@@ -7267,10 +7084,6 @@ const mockup = {
                 "workorder": {
                     "text": "Install Furniture",
                     "value": "1"
-                },
-                "project": {
-                    "text": "AB&I Holdings : Parking Lot Construction",
-                    "value": "1515"
                 },
                 "location": "01: San Francisco",
                 "status": {
@@ -7315,10 +7128,6 @@ const mockup = {
                     "text": "Install Furniture",
                     "value": "1"
                 },
-                "project": {
-                    "text": "AB&I Holdings : Parking Lot Construction",
-                    "value": "1515"
-                },
                 "location": "",
                 "status": {
                     "text": "Tentative",
@@ -7356,62 +7165,11 @@ const mockup = {
                     "value": "1"
                 }
             }, {
-                "id": "100794",
-                "title": "Install Furniture 123",
-                "workorder": {
-                    "text": "Install Furniture",
-                    "value": "1"
-                },
-                "project": {
-                    "text": "AB&I Holdings : Parking Lot Construction",
-                    "value": "1515"
-                },
-                "location": "",
-                "status": {
-                    "text": "Tentative",
-                    "value": "TENTATIVE",
-                    "code": "bg-secondary"
-                },
-                "date": {
-                    "recurrence": "occurs every day from 9/11/2024 until 9/12/2024",
-                    "start": "2024-09-11",
-                    "end": "2024-09-12"
-                },
-                "time": {
-                    "start": "08:00",
-                    "end": "18:00"
-                },
-                "priority": {
-                    "text": "Urgent",
-                    "value": "4",
-                    "code": "#9a2407"
-                },
-                "note": "ASD\nBBBB",
-                "url": "/app/crm/calendar/event.nl?id=100794&compid=TSTDRV2617106&selectedtab=custom337",
-                "color": "#1a6756",
-                "woRef": {},
-                "resources": [],
-                "items": [],
-                "contacts": [],
-                "addresses": [],
-                "contact": {
-                    "text": "15",
-                    "value": "15"
-                },
-                "address": {
-                    "text": "1",
-                    "value": "1"
-                }
-            }, {
                 "id": "100796",
                 "title": "Install Furniture 12345",
                 "workorder": {
                     "text": "Install Furniture",
                     "value": "1"
-                },
-                "project": {
-                    "text": "AB&I Holdings : Parking Lot Construction",
-                    "value": "1515"
                 },
                 "location": "",
                 "status": {
@@ -7455,10 +7213,6 @@ const mockup = {
                 "workorder": {
                     "text": "Install Furniture",
                     "value": "1"
-                },
-                "project": {
-                    "text": "AB&I Holdings : Parking Lot Construction",
-                    "value": "1515"
                 },
                 "location": "",
                 "status": {
@@ -7520,10 +7274,6 @@ const mockup = {
         "workorder": {
             "text": "Test",
             "value": "31"
-        },
-        "project": {
-            "text": "AB&I Holdings : Parking Lot Construction",
-            "value": "1515"
         },
         "location": "01: San Francisco",
         "status": {
@@ -7754,10 +7504,6 @@ const mockup = {
                     "text": "Test",
                     "value": "31"
                 },
-                "project": {
-                    "text": "AB&I Holdings : Parking Lot Construction",
-                    "value": "1515"
-                },
                 "location": "01: San Francisco",
                 "status": {
                     "text": "Confirmed",
@@ -7800,10 +7546,6 @@ const mockup = {
                 "workorder": {
                     "text": "Test",
                     "value": "31"
-                },
-                "project": {
-                    "text": "AB&I Holdings : Parking Lot Construction",
-                    "value": "1515"
                 },
                 "location": "01: San Francisco",
                 "status": {
@@ -7865,10 +7607,6 @@ const mockup = {
         "workorder": {
             "text": "SLS00000621_WRKORDR001",
             "value": "32"
-        },
-        "project": {
-            "text": "Test Test : Test Project",
-            "value": "1774"
         },
         "location": "01: San Francisco",
         "status": {
@@ -7985,10 +7723,6 @@ const mockup = {
                     "text": "SLS00000621_WRKORDR001",
                     "value": "32"
                 },
-                "project": {
-                    "text": "Test Test : Test Project",
-                    "value": "1774"
-                },
                 "location": "01: San Francisco",
                 "status": {
                     "text": "Tentative",
@@ -8084,10 +7818,6 @@ const mockup = {
         "workorder": {
             "text": "Work Order Sample July 22",
             "value": "33"
-        },
-        "project": {
-            "text": "AB&I Holdings : Parking Lot Construction",
-            "value": "1515"
         },
         "location": "01: San Francisco",
         "status": {
@@ -8222,10 +7952,6 @@ const mockup = {
                     "text": "Work Order Sample July 22",
                     "value": "33"
                 },
-                "project": {
-                    "text": "AB&I Holdings : Parking Lot Construction",
-                    "value": "1515"
-                },
                 "location": "01: San Francisco",
                 "status": {
                     "text": "Confirmed",
@@ -8357,10 +8083,6 @@ const mockup = {
         "workorder": {
             "text": "Test",
             "value": "31"
-        },
-        "project": {
-            "text": "AB&I Holdings : Parking Lot Construction",
-            "value": "1515"
         },
         "location": "01: San Francisco",
         "status": {
@@ -8591,10 +8313,6 @@ const mockup = {
                     "text": "Test",
                     "value": "31"
                 },
-                "project": {
-                    "text": "AB&I Holdings : Parking Lot Construction",
-                    "value": "1515"
-                },
                 "location": "01: San Francisco",
                 "status": {
                     "text": "Confirmed",
@@ -8637,10 +8355,6 @@ const mockup = {
                 "workorder": {
                     "text": "Test",
                     "value": "31"
-                },
-                "project": {
-                    "text": "AB&I Holdings : Parking Lot Construction",
-                    "value": "1515"
                 },
                 "location": "01: San Francisco",
                 "status": {
@@ -8702,10 +8416,6 @@ const mockup = {
         "workorder": {
             "text": "Sample 5",
             "value": "47"
-        },
-        "project": {
-            "text": "AB&I Holdings : Field Ops Pro Project",
-            "value": "1883"
         },
         "location": "",
         "status": {
@@ -8840,10 +8550,6 @@ const mockup = {
                     "text": "Sample 5",
                     "value": "47"
                 },
-                "project": {
-                    "text": "AB&I Holdings : Field Ops Pro Project",
-                    "value": "1883"
-                },
                 "location": "",
                 "status": {
                     "text": "Confirmed",
@@ -8886,10 +8592,6 @@ const mockup = {
                 "workorder": {
                     "text": "Sample 5",
                     "value": "47"
-                },
-                "project": {
-                    "text": "AB&I Holdings : Field Ops Pro Project",
-                    "value": "1883"
                 },
                 "location": "",
                 "status": {
@@ -8934,10 +8636,6 @@ const mockup = {
                     "text": "Sample 5",
                     "value": "47"
                 },
-                "project": {
-                    "text": "AB&I Holdings : Field Ops Pro Project",
-                    "value": "1883"
-                },
                 "location": "",
                 "status": {
                     "text": "Confirmed",
@@ -8981,10 +8679,6 @@ const mockup = {
                     "text": "Sample 5",
                     "value": "47"
                 },
-                "project": {
-                    "text": "AB&I Holdings : Field Ops Pro Project",
-                    "value": "1883"
-                },
                 "location": "",
                 "status": {
                     "text": "Confirmed",
@@ -9027,10 +8721,6 @@ const mockup = {
                 "workorder": {
                     "text": "Sample 5",
                     "value": "47"
-                },
-                "project": {
-                    "text": "AB&I Holdings : Field Ops Pro Project",
-                    "value": "1883"
                 },
                 "location": "",
                 "status": {
@@ -9092,10 +8782,6 @@ const mockup = {
         "workorder": {
             "text": "Sample 5",
             "value": "47"
-        },
-        "project": {
-            "text": "AB&I Holdings : Field Ops Pro Project",
-            "value": "1883"
         },
         "location": "",
         "status": {
@@ -9230,10 +8916,6 @@ const mockup = {
                     "text": "Sample 5",
                     "value": "47"
                 },
-                "project": {
-                    "text": "AB&I Holdings : Field Ops Pro Project",
-                    "value": "1883"
-                },
                 "location": "",
                 "status": {
                     "text": "Confirmed",
@@ -9276,10 +8958,6 @@ const mockup = {
                 "workorder": {
                     "text": "Sample 5",
                     "value": "47"
-                },
-                "project": {
-                    "text": "AB&I Holdings : Field Ops Pro Project",
-                    "value": "1883"
                 },
                 "location": "",
                 "status": {
@@ -9324,10 +9002,6 @@ const mockup = {
                     "text": "Sample 5",
                     "value": "47"
                 },
-                "project": {
-                    "text": "AB&I Holdings : Field Ops Pro Project",
-                    "value": "1883"
-                },
                 "location": "",
                 "status": {
                     "text": "Confirmed",
@@ -9371,10 +9045,6 @@ const mockup = {
                     "text": "Sample 5",
                     "value": "47"
                 },
-                "project": {
-                    "text": "AB&I Holdings : Field Ops Pro Project",
-                    "value": "1883"
-                },
                 "location": "",
                 "status": {
                     "text": "Confirmed",
@@ -9417,10 +9087,6 @@ const mockup = {
                 "workorder": {
                     "text": "Sample 5",
                     "value": "47"
-                },
-                "project": {
-                    "text": "AB&I Holdings : Field Ops Pro Project",
-                    "value": "1883"
                 },
                 "location": "",
                 "status": {
@@ -9482,10 +9148,6 @@ const mockup = {
         "workorder": {
             "text": "Sample 5",
             "value": "47"
-        },
-        "project": {
-            "text": "AB&I Holdings : Field Ops Pro Project",
-            "value": "1883"
         },
         "location": "",
         "status": {
@@ -9620,10 +9282,6 @@ const mockup = {
                     "text": "Sample 5",
                     "value": "47"
                 },
-                "project": {
-                    "text": "AB&I Holdings : Field Ops Pro Project",
-                    "value": "1883"
-                },
                 "location": "",
                 "status": {
                     "text": "Confirmed",
@@ -9666,10 +9324,6 @@ const mockup = {
                 "workorder": {
                     "text": "Sample 5",
                     "value": "47"
-                },
-                "project": {
-                    "text": "AB&I Holdings : Field Ops Pro Project",
-                    "value": "1883"
                 },
                 "location": "",
                 "status": {
@@ -9714,10 +9368,6 @@ const mockup = {
                     "text": "Sample 5",
                     "value": "47"
                 },
-                "project": {
-                    "text": "AB&I Holdings : Field Ops Pro Project",
-                    "value": "1883"
-                },
                 "location": "",
                 "status": {
                     "text": "Confirmed",
@@ -9761,10 +9411,6 @@ const mockup = {
                     "text": "Sample 5",
                     "value": "47"
                 },
-                "project": {
-                    "text": "AB&I Holdings : Field Ops Pro Project",
-                    "value": "1883"
-                },
                 "location": "",
                 "status": {
                     "text": "Confirmed",
@@ -9807,10 +9453,6 @@ const mockup = {
                 "workorder": {
                     "text": "Sample 5",
                     "value": "47"
-                },
-                "project": {
-                    "text": "AB&I Holdings : Field Ops Pro Project",
-                    "value": "1883"
                 },
                 "location": "",
                 "status": {
@@ -9872,10 +9514,6 @@ const mockup = {
         "workorder": {
             "text": "Sample 5",
             "value": "47"
-        },
-        "project": {
-            "text": "AB&I Holdings : Field Ops Pro Project",
-            "value": "1883"
         },
         "location": "",
         "status": {
@@ -10010,10 +9648,6 @@ const mockup = {
                     "text": "Sample 5",
                     "value": "47"
                 },
-                "project": {
-                    "text": "AB&I Holdings : Field Ops Pro Project",
-                    "value": "1883"
-                },
                 "location": "",
                 "status": {
                     "text": "Confirmed",
@@ -10056,10 +9690,6 @@ const mockup = {
                 "workorder": {
                     "text": "Sample 5",
                     "value": "47"
-                },
-                "project": {
-                    "text": "AB&I Holdings : Field Ops Pro Project",
-                    "value": "1883"
                 },
                 "location": "",
                 "status": {
@@ -10104,10 +9734,6 @@ const mockup = {
                     "text": "Sample 5",
                     "value": "47"
                 },
-                "project": {
-                    "text": "AB&I Holdings : Field Ops Pro Project",
-                    "value": "1883"
-                },
                 "location": "",
                 "status": {
                     "text": "Confirmed",
@@ -10151,10 +9777,6 @@ const mockup = {
                     "text": "Sample 5",
                     "value": "47"
                 },
-                "project": {
-                    "text": "AB&I Holdings : Field Ops Pro Project",
-                    "value": "1883"
-                },
                 "location": "",
                 "status": {
                     "text": "Confirmed",
@@ -10197,10 +9819,6 @@ const mockup = {
                 "workorder": {
                     "text": "Sample 5",
                     "value": "47"
-                },
-                "project": {
-                    "text": "AB&I Holdings : Field Ops Pro Project",
-                    "value": "1883"
                 },
                 "location": "",
                 "status": {
@@ -10279,10 +9897,6 @@ const mockup = {
         "workorder": {
             "text": "Sample 3",
             "value": "45"
-        },
-        "project": {
-            "text": "AB&I Holdings : Field Ops Pro Project",
-            "value": "1883"
         },
         "location": "",
         "status": {
@@ -10417,10 +10031,6 @@ const mockup = {
                     "text": "Sample 3",
                     "value": "45"
                 },
-                "project": {
-                    "text": "AB&I Holdings : Field Ops Pro Project",
-                    "value": "1883"
-                },
                 "location": "",
                 "status": {
                     "text": "Confirmed",
@@ -10515,10 +10125,6 @@ const mockup = {
         "workorder": {
             "text": "Sample 4",
             "value": "46"
-        },
-        "project": {
-            "text": "AB&I Holdings : Field Ops Pro Project",
-            "value": "1883"
         },
         "location": "",
         "status": {
@@ -10653,10 +10259,6 @@ const mockup = {
                     "text": "Sample 4",
                     "value": "46"
                 },
-                "project": {
-                    "text": "AB&I Holdings : Field Ops Pro Project",
-                    "value": "1883"
-                },
                 "location": "",
                 "status": {
                     "text": "Confirmed",
@@ -10700,10 +10302,6 @@ const mockup = {
                     "text": "Sample 4",
                     "value": "46"
                 },
-                "project": {
-                    "text": "AB&I Holdings : Field Ops Pro Project",
-                    "value": "1883"
-                },
                 "location": "",
                 "status": {
                     "text": "Confirmed",
@@ -10746,10 +10344,6 @@ const mockup = {
                 "workorder": {
                     "text": "Sample 4",
                     "value": "46"
-                },
-                "project": {
-                    "text": "AB&I Holdings : Field Ops Pro Project",
-                    "value": "1883"
                 },
                 "location": "",
                 "status": {
@@ -10845,10 +10439,6 @@ const mockup = {
         "workorder": {
             "text": "Work Order Sample July 31",
             "value": "34"
-        },
-        "project": {
-            "text": "AB&I Holdings : Parking Lot Construction",
-            "value": "1515"
         },
         "location": "",
         "status": {
@@ -11017,10 +10607,6 @@ const mockup = {
                     "text": "Work Order Sample July 31",
                     "value": "34"
                 },
-                "project": {
-                    "text": "AB&I Holdings : Parking Lot Construction",
-                    "value": "1515"
-                },
                 "location": "",
                 "status": {
                     "text": "Confirmed",
@@ -11064,10 +10650,6 @@ const mockup = {
                     "text": "Work Order Sample July 31",
                     "value": "34"
                 },
-                "project": {
-                    "text": "AB&I Holdings : Parking Lot Construction",
-                    "value": "1515"
-                },
                 "location": "",
                 "status": {
                     "text": "Confirmed",
@@ -11110,10 +10692,6 @@ const mockup = {
                 "workorder": {
                     "text": "Work Order Sample July 31",
                     "value": "34"
-                },
-                "project": {
-                    "text": "AB&I Holdings : Parking Lot Construction",
-                    "value": "1515"
                 },
                 "location": "",
                 "status": {
@@ -11180,7 +10758,7 @@ const mockup = {
             },
             "color": "#e57d29",
             "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fcompid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-            "events": ["100767", "100794"],
+            "events": ["100767"],
             "selected": true
         }, {
             "employee": {
@@ -11205,7 +10783,7 @@ const mockup = {
             },
             "color": "#f1484c",
             "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fcompid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-            "events": ["100767", "100794"],
+            "events": ["100767"],
             "selected": true
         }, {
             "employee": {
@@ -11229,7 +10807,7 @@ const mockup = {
                 "value": "1"
             },
             "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fcompid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-            "events": ["100767", "100794"],
+            "events": ["100767"],
             "selected": true
         }],
         "items": [],
@@ -11267,10 +10845,6 @@ const mockup = {
         "workorder": {
             "text": "Work Order Sample July 31",
             "value": "34"
-        },
-        "project": {
-            "text": "AB&I Holdings : Parking Lot Construction",
-            "value": "1515"
         },
         "location": "",
         "status": {
@@ -11439,10 +11013,6 @@ const mockup = {
                     "text": "Work Order Sample July 31",
                     "value": "34"
                 },
-                "project": {
-                    "text": "AB&I Holdings : Parking Lot Construction",
-                    "value": "1515"
-                },
                 "location": "",
                 "status": {
                     "text": "Confirmed",
@@ -11486,10 +11056,6 @@ const mockup = {
                     "text": "Work Order Sample July 31",
                     "value": "34"
                 },
-                "project": {
-                    "text": "AB&I Holdings : Parking Lot Construction",
-                    "value": "1515"
-                },
                 "location": "",
                 "status": {
                     "text": "Confirmed",
@@ -11532,10 +11098,6 @@ const mockup = {
                 "workorder": {
                     "text": "Work Order Sample July 31",
                     "value": "34"
-                },
-                "project": {
-                    "text": "AB&I Holdings : Parking Lot Construction",
-                    "value": "1515"
                 },
                 "location": "",
                 "status": {
@@ -11667,10 +11229,6 @@ const mockup = {
         "workorder": {
             "text": "Sample 5",
             "value": "47"
-        },
-        "project": {
-            "text": "AB&I Holdings : Field Ops Pro Project",
-            "value": "1883"
         },
         "location": "",
         "status": {
@@ -11805,10 +11363,6 @@ const mockup = {
                     "text": "Sample 5",
                     "value": "47"
                 },
-                "project": {
-                    "text": "AB&I Holdings : Field Ops Pro Project",
-                    "value": "1883"
-                },
                 "location": "",
                 "status": {
                     "text": "Confirmed",
@@ -11851,10 +11405,6 @@ const mockup = {
                 "workorder": {
                     "text": "Sample 5",
                     "value": "47"
-                },
-                "project": {
-                    "text": "AB&I Holdings : Field Ops Pro Project",
-                    "value": "1883"
                 },
                 "location": "",
                 "status": {
@@ -11899,10 +11449,6 @@ const mockup = {
                     "text": "Sample 5",
                     "value": "47"
                 },
-                "project": {
-                    "text": "AB&I Holdings : Field Ops Pro Project",
-                    "value": "1883"
-                },
                 "location": "",
                 "status": {
                     "text": "Confirmed",
@@ -11946,10 +11492,6 @@ const mockup = {
                     "text": "Sample 5",
                     "value": "47"
                 },
-                "project": {
-                    "text": "AB&I Holdings : Field Ops Pro Project",
-                    "value": "1883"
-                },
                 "location": "",
                 "status": {
                     "text": "Confirmed",
@@ -11992,10 +11534,6 @@ const mockup = {
                 "workorder": {
                     "text": "Sample 5",
                     "value": "47"
-                },
-                "project": {
-                    "text": "AB&I Holdings : Field Ops Pro Project",
-                    "value": "1883"
                 },
                 "location": "",
                 "status": {
@@ -12094,10 +11632,6 @@ const mockup = {
         "workorder": {
             "text": "Sample 6",
             "value": "48"
-        },
-        "project": {
-            "text": "AB&I Holdings : Field Ops Pro Project",
-            "value": "1883"
         },
         "location": "",
         "status": {
@@ -12232,10 +11766,6 @@ const mockup = {
                     "text": "Sample 6",
                     "value": "48"
                 },
-                "project": {
-                    "text": "AB&I Holdings : Field Ops Pro Project",
-                    "value": "1883"
-                },
                 "location": "",
                 "status": {
                     "text": "Confirmed",
@@ -12367,10 +11897,6 @@ const mockup = {
         "workorder": {
             "text": "Sample 4",
             "value": "46"
-        },
-        "project": {
-            "text": "AB&I Holdings : Field Ops Pro Project",
-            "value": "1883"
         },
         "location": "",
         "status": {
@@ -12505,10 +12031,6 @@ const mockup = {
                     "text": "Sample 4",
                     "value": "46"
                 },
-                "project": {
-                    "text": "AB&I Holdings : Field Ops Pro Project",
-                    "value": "1883"
-                },
                 "location": "",
                 "status": {
                     "text": "Confirmed",
@@ -12552,10 +12074,6 @@ const mockup = {
                     "text": "Sample 4",
                     "value": "46"
                 },
-                "project": {
-                    "text": "AB&I Holdings : Field Ops Pro Project",
-                    "value": "1883"
-                },
                 "location": "",
                 "status": {
                     "text": "Confirmed",
@@ -12598,10 +12116,6 @@ const mockup = {
                 "workorder": {
                     "text": "Sample 4",
                     "value": "46"
-                },
-                "project": {
-                    "text": "AB&I Holdings : Field Ops Pro Project",
-                    "value": "1883"
                 },
                 "location": "",
                 "status": {
@@ -12681,10 +12195,6 @@ const mockup = {
         "workorder": {
             "text": "Work Order Test - Sept 12 - Mei",
             "value": "49"
-        },
-        "project": {
-            "text": "AB&I Holdings : Field Ops Pro Project",
-            "value": "1883"
         },
         "location": "",
         "status": {
@@ -12835,10 +12345,6 @@ const mockup = {
                     "text": "Work Order Test - Sept 12 - Mei",
                     "value": "49"
                 },
-                "project": {
-                    "text": "AB&I Holdings : Field Ops Pro Project",
-                    "value": "1883"
-                },
                 "location": "",
                 "status": {
                     "text": "Confirmed",
@@ -12881,10 +12387,6 @@ const mockup = {
                 "workorder": {
                     "text": "Work Order Test - Sept 12 - Mei",
                     "value": "49"
-                },
-                "project": {
-                    "text": "AB&I Holdings : Field Ops Pro Project",
-                    "value": "1883"
                 },
                 "location": "",
                 "status": {
@@ -12946,10 +12448,6 @@ const mockup = {
         "workorder": {
             "text": "Work Order Test - Sept 12 - Mei",
             "value": "49"
-        },
-        "project": {
-            "text": "AB&I Holdings : Field Ops Pro Project",
-            "value": "1883"
         },
         "location": "",
         "status": {
@@ -13100,10 +12598,6 @@ const mockup = {
                     "text": "Work Order Test - Sept 12 - Mei",
                     "value": "49"
                 },
-                "project": {
-                    "text": "AB&I Holdings : Field Ops Pro Project",
-                    "value": "1883"
-                },
                 "location": "",
                 "status": {
                     "text": "Confirmed",
@@ -13146,10 +12640,6 @@ const mockup = {
                 "workorder": {
                     "text": "Work Order Test - Sept 12 - Mei",
                     "value": "49"
-                },
-                "project": {
-                    "text": "AB&I Holdings : Field Ops Pro Project",
-                    "value": "1883"
                 },
                 "location": "",
                 "status": {
@@ -13299,10 +12789,6 @@ const mockup = {
         "workorder": {
             "text": "Work Order Sample July 31",
             "value": "34"
-        },
-        "project": {
-            "text": "AB&I Holdings : Parking Lot Construction",
-            "value": "1515"
         },
         "location": "",
         "status": {
@@ -13471,10 +12957,6 @@ const mockup = {
                     "text": "Work Order Sample July 31",
                     "value": "34"
                 },
-                "project": {
-                    "text": "AB&I Holdings : Parking Lot Construction",
-                    "value": "1515"
-                },
                 "location": "",
                 "status": {
                     "text": "Confirmed",
@@ -13518,10 +13000,6 @@ const mockup = {
                     "text": "Work Order Sample July 31",
                     "value": "34"
                 },
-                "project": {
-                    "text": "AB&I Holdings : Parking Lot Construction",
-                    "value": "1515"
-                },
                 "location": "",
                 "status": {
                     "text": "Confirmed",
@@ -13564,10 +13042,6 @@ const mockup = {
                 "workorder": {
                     "text": "Work Order Sample July 31",
                     "value": "34"
-                },
-                "project": {
-                    "text": "AB&I Holdings : Parking Lot Construction",
-                    "value": "1515"
                 },
                 "location": "",
                 "status": {
@@ -13691,10 +13165,6 @@ const mockup = {
         "workorder": {
             "text": "Sample 2",
             "value": "44"
-        },
-        "project": {
-            "text": "AB&I Holdings : Field Ops Pro Project",
-            "value": "1883"
         },
         "location": "",
         "status": {
@@ -13829,10 +13299,6 @@ const mockup = {
                     "text": "Sample 2",
                     "value": "44"
                 },
-                "project": {
-                    "text": "AB&I Holdings : Field Ops Pro Project",
-                    "value": "1883"
-                },
                 "location": "",
                 "status": {
                     "text": "Tentative",
@@ -13964,10 +13430,6 @@ const mockup = {
         "workorder": {
             "text": "Install Furniture",
             "value": "1"
-        },
-        "project": {
-            "text": "AB&I Holdings : Parking Lot Construction",
-            "value": "1515"
         },
         "location": "",
         "status": {
@@ -14120,10 +13582,6 @@ const mockup = {
                     "text": "Install Furniture",
                     "value": "1"
                 },
-                "project": {
-                    "text": "AB&I Holdings : Lobby Remodel",
-                    "value": "1514"
-                },
                 "location": "",
                 "status": {
                     "text": "Confirmed",
@@ -14144,7 +13602,7 @@ const mockup = {
                     "value": "3",
                     "code": "#ca6621"
                 },
-                "note": "TEST12345",
+                "note": "TEST123456",
                 "url": "/app/crm/calendar/event.nl?id=100682&compid=TSTDRV2617106&selectedtab=custom337",
                 "color": "#1a6756",
                 "woRef": {},
@@ -14166,10 +13624,6 @@ const mockup = {
                 "workorder": {
                     "text": "Install Furniture",
                     "value": "1"
-                },
-                "project": {
-                    "text": "AB&I Holdings : Parking Lot Construction",
-                    "value": "1515"
                 },
                 "location": "01: San Francisco",
                 "status": {
@@ -14214,10 +13668,6 @@ const mockup = {
                     "text": "Install Furniture",
                     "value": "1"
                 },
-                "project": {
-                    "text": "AB&I Holdings : Parking Lot Construction",
-                    "value": "1515"
-                },
                 "location": "",
                 "status": {
                     "text": "Tentative",
@@ -14255,62 +13705,11 @@ const mockup = {
                     "value": "1"
                 }
             }, {
-                "id": "100794",
-                "title": "Install Furniture 123",
-                "workorder": {
-                    "text": "Install Furniture",
-                    "value": "1"
-                },
-                "project": {
-                    "text": "AB&I Holdings : Parking Lot Construction",
-                    "value": "1515"
-                },
-                "location": "",
-                "status": {
-                    "text": "Tentative",
-                    "value": "TENTATIVE",
-                    "code": "bg-secondary"
-                },
-                "date": {
-                    "recurrence": "occurs every day from 9/11/2024 until 9/12/2024",
-                    "start": "2024-09-11",
-                    "end": "2024-09-12"
-                },
-                "time": {
-                    "start": "08:00",
-                    "end": "18:00"
-                },
-                "priority": {
-                    "text": "Urgent",
-                    "value": "4",
-                    "code": "#9a2407"
-                },
-                "note": "ASD\nBBBB",
-                "url": "/app/crm/calendar/event.nl?id=100794&compid=TSTDRV2617106&selectedtab=custom337",
-                "color": "#1a6756",
-                "woRef": {},
-                "resources": [],
-                "items": [],
-                "contacts": [],
-                "addresses": [],
-                "contact": {
-                    "text": "15",
-                    "value": "15"
-                },
-                "address": {
-                    "text": "1",
-                    "value": "1"
-                }
-            }, {
                 "id": "100796",
                 "title": "Install Furniture 12345",
                 "workorder": {
                     "text": "Install Furniture",
                     "value": "1"
-                },
-                "project": {
-                    "text": "AB&I Holdings : Parking Lot Construction",
-                    "value": "1515"
                 },
                 "location": "",
                 "status": {
@@ -14355,10 +13754,6 @@ const mockup = {
                     "text": "Install Furniture",
                     "value": "1"
                 },
-                "project": {
-                    "text": "AB&I Holdings : Parking Lot Construction",
-                    "value": "1515"
-                },
                 "location": "",
                 "status": {
                     "text": "Confirmed",
@@ -14401,32 +13796,7 @@ const mockup = {
             "soUrl": "/app/accounting/transactions/salesord.nl?id=11722&compid=TSTDRV2617106",
             "esthours": "10"
         },
-        "resources": [{
-            "employee": {
-                "text": "Bonita Kane",
-                "value": "912"
-            },
-            "initials": "BK",
-            "email": "bdickens@ramsey.com",
-            "phone": "(123) 456-7890",
-            "location": {
-                "text": "02: Boston",
-                "value": "1"
-            },
-            "active": true,
-            "resourceGroup": {
-                "text": "Installers",
-                "value": "1"
-            },
-            "type": {
-                "text": "Installer",
-                "value": "1"
-            },
-            "color": "#cbb24c",
-            "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fcompid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-            "events": ["100792", "100798"],
-            "selected": true
-        }],
+        "resources": [],
         "items": [{
             "id": "1",
             "workorder": {
@@ -14491,544 +13861,11 @@ const mockup = {
             "value": "1"
         }
     }, {
-        "id": "100794",
-        "title": "Install Furniture 123",
-        "workorder": {
-            "text": "Install Furniture",
-            "value": "1"
-        },
-        "project": {
-            "text": "AB&I Holdings : Parking Lot Construction",
-            "value": "1515"
-        },
-        "location": "",
-        "status": {
-            "text": "Tentative",
-            "value": "TENTATIVE",
-            "code": "bg-secondary"
-        },
-        "date": {
-            "recurrence": "occurs every day from 9/11/2024 until 9/12/2024",
-            "start": "2024-09-11",
-            "end": "2024-09-12"
-        },
-        "time": {
-            "start": "08:00",
-            "end": "18:00"
-        },
-        "priority": {
-            "text": "Urgent",
-            "value": "4",
-            "code": "#9a2407"
-        },
-        "note": "ASD\nBBBB",
-        "url": "/app/crm/calendar/event.nl?id=100794&compid=TSTDRV2617106&selectedtab=custom337",
-        "color": "#1a6756",
-        "woRef": {
-            "id": "1",
-            "name": "Install Furniture",
-            "title": "Install Furniture",
-            "project": {
-                "text": "AB&I Holdings : Parking Lot Construction",
-                "value": "1515"
-            },
-            "date": "7/5/2024",
-            "status": {
-                "text": "Hold",
-                "value": "7",
-                "code": "#6c757d"
-            },
-            "type": {
-                "text": "Demo",
-                "value": "1"
-            },
-            "memo": "<p><span style=\"background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);\">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus id malesuada enim, sed fringilla turpis. Nullam sed viverra risus. Fusce maximus sapien et neque elementum, et feugiat orci efficitur. Suspendisse faucibus lacus id justo tempus tempor. </span></p><p></p><p><span style=\"background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);\">Vestibulum vehicula, libero sed interdum lobortis, nisi dolor tincidunt leo, vel accumsan erat mi et justo. Proin consectetur felis semper varius viverra. Nam neque nulla, feugiat ac tempor in, aliquet sed enim. </span></p><p></p><p><strong style=\"background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);\">Fusce mattis, diam non tempus lacinia, diam eros semper mauris, a egestas lacus libero eget sapien. Donec convallis sit amet velit non euismod.</strong></p>",
-            "salesorder": {
-                "text": "Sales Order #SLS00000609",
-                "value": "11722"
-            },
-            "customer": {
-                "text": "AB&I Holdings",
-                "value": "1249"
-            },
-            "resourceGroup": {
-                "text": "",
-                "value": ""
-            },
-            "priority": "",
-            "resources": [],
-            "items": [{
-                "id": "1",
-                "workorder": {
-                    "text": "Install Furniture",
-                    "value": "1"
-                },
-                "events": ["100792", "100798"],
-                "uuid": "11722_1",
-                "line": "1",
-                "item": {
-                    "text": "4321GR",
-                    "value": "1015"
-                },
-                "description": "11 POCKET MAGAZINE RACK",
-                "quantity": 2,
-                "note": ""
-            }, {
-                "id": "2",
-                "workorder": {
-                    "text": "Install Furniture",
-                    "value": "1"
-                },
-                "events": ["100792", "100798"],
-                "uuid": "11722_3",
-                "line": "3",
-                "item": {
-                    "text": "BAG00002",
-                    "value": "837"
-                },
-                "description": "Sling Laptop Bag",
-                "quantity": 10,
-                "note": ""
-            }],
-            "addresses": [{
-                "id": "1",
-                "workorder": {
-                    "text": "Install Furniture",
-                    "value": "1"
-                },
-                "customer": {
-                    "text": "AB&I Holdings",
-                    "value": "1249"
-                },
-                "events": ["100792", "100798"],
-                "address": {
-                    "text": "1701 Rollins Road",
-                    "value": "244878"
-                },
-                "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
-                "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
-            }],
-            "contacts": [{
-                "id": "1",
-                "workorder": {
-                    "text": "Install Furniture",
-                    "value": "1"
-                },
-                "events": ["100682", "100798"],
-                "contact": {
-                    "text": "AB&I Holdings : Chad Bass",
-                    "value": "1382"
-                },
-                "name": "Chad Bass",
-                "email": "cbass@sbi.com",
-                "jobTitle": "President",
-                "mobilePhone": "",
-                "phone": "",
-                "primary": "checked",
-                "url": "/app/common/entity/contact.nl?id=1382&compid=TSTDRV2617106"
-            }, {
-                "id": "15",
-                "workorder": {
-                    "text": "Install Furniture",
-                    "value": "1"
-                },
-                "events": ["18", "100798"],
-                "contact": {
-                    "text": "Pravallika Desetty",
-                    "value": "1648"
-                },
-                "name": "Pravallika Desetty",
-                "email": "pravallika@erpsuccesspartners.com",
-                "jobTitle": "",
-                "mobilePhone": "",
-                "phone": "",
-                "primary": "",
-                "url": "/app/common/entity/contact.nl?id=1648&compid=TSTDRV2617106"
-            }],
-            "events": [{
-                "id": "100682",
-                "title": "TEST EVENT 123",
-                "workorder": {
-                    "text": "Install Furniture",
-                    "value": "1"
-                },
-                "project": {
-                    "text": "AB&I Holdings : Lobby Remodel",
-                    "value": "1514"
-                },
-                "location": "",
-                "status": {
-                    "text": "Confirmed",
-                    "value": "CONFIRMED",
-                    "code": "bg-success"
-                },
-                "date": {
-                    "recurrence": "one time event on 7/4/2024",
-                    "start": "2024-07-04",
-                    "end": "2024-07-04"
-                },
-                "time": {
-                    "start": "22:00",
-                    "end": "23:00"
-                },
-                "priority": {
-                    "text": "High",
-                    "value": "3",
-                    "code": "#ca6621"
-                },
-                "note": "TEST12345",
-                "url": "/app/crm/calendar/event.nl?id=100682&compid=TSTDRV2617106&selectedtab=custom337",
-                "color": "#1a6756",
-                "woRef": {},
-                "resources": [],
-                "items": [],
-                "contacts": [],
-                "addresses": [],
-                "contact": {
-                    "text": "1",
-                    "value": "1"
-                },
-                "address": {
-                    "text": "",
-                    "value": ""
-                }
-            }, {
-                "id": "100718",
-                "title": "Install Furniture",
-                "workorder": {
-                    "text": "Install Furniture",
-                    "value": "1"
-                },
-                "project": {
-                    "text": "AB&I Holdings : Parking Lot Construction",
-                    "value": "1515"
-                },
-                "location": "01: San Francisco",
-                "status": {
-                    "text": "Confirmed",
-                    "value": "CONFIRMED",
-                    "code": "bg-success"
-                },
-                "date": {
-                    "recurrence": "one time event on 7/9/2024",
-                    "start": "2024-07-09",
-                    "end": "2024-07-09"
-                },
-                "time": {
-                    "start": "07:00",
-                    "end": "21:00"
-                },
-                "priority": {
-                    "text": "Medium",
-                    "value": "2",
-                    "code": "#dfcf02"
-                },
-                "note": "XXX\nYYY\nZZZ",
-                "url": "/app/crm/calendar/event.nl?id=100718&compid=TSTDRV2617106&selectedtab=custom337",
-                "color": "#1a6756",
-                "woRef": {},
-                "resources": [],
-                "items": [],
-                "contacts": [],
-                "addresses": [],
-                "contact": {
-                    "text": "",
-                    "value": ""
-                },
-                "address": {
-                    "text": "",
-                    "value": ""
-                }
-            }, {
-                "id": "100792",
-                "title": "Install Furniture XYZ",
-                "workorder": {
-                    "text": "Install Furniture",
-                    "value": "1"
-                },
-                "project": {
-                    "text": "AB&I Holdings : Parking Lot Construction",
-                    "value": "1515"
-                },
-                "location": "",
-                "status": {
-                    "text": "Tentative",
-                    "value": "TENTATIVE",
-                    "code": "bg-secondary"
-                },
-                "date": {
-                    "recurrence": "one time event on 9/11/2024",
-                    "start": "2024-09-11",
-                    "end": "2024-09-11"
-                },
-                "time": {
-                    "start": "08:00",
-                    "end": "18:00"
-                },
-                "priority": {
-                    "text": "High",
-                    "value": "3",
-                    "code": "#ca6621"
-                },
-                "note": "AAA\nBBB",
-                "url": "/app/crm/calendar/event.nl?id=100792&compid=TSTDRV2617106&selectedtab=custom337",
-                "color": "#1a6756",
-                "woRef": {},
-                "resources": [],
-                "items": [],
-                "contacts": [],
-                "addresses": [],
-                "contact": {
-                    "text": "1",
-                    "value": "1"
-                },
-                "address": {
-                    "text": "1",
-                    "value": "1"
-                }
-            }, {
-                "id": "100794",
-                "title": "Install Furniture 123",
-                "workorder": {
-                    "text": "Install Furniture",
-                    "value": "1"
-                },
-                "project": {
-                    "text": "AB&I Holdings : Parking Lot Construction",
-                    "value": "1515"
-                },
-                "location": "",
-                "status": {
-                    "text": "Tentative",
-                    "value": "TENTATIVE",
-                    "code": "bg-secondary"
-                },
-                "date": {
-                    "recurrence": "occurs every day from 9/11/2024 until 9/12/2024",
-                    "start": "2024-09-11",
-                    "end": "2024-09-12"
-                },
-                "time": {
-                    "start": "08:00",
-                    "end": "18:00"
-                },
-                "priority": {
-                    "text": "Urgent",
-                    "value": "4",
-                    "code": "#9a2407"
-                },
-                "note": "ASD\nBBBB",
-                "url": "/app/crm/calendar/event.nl?id=100794&compid=TSTDRV2617106&selectedtab=custom337",
-                "color": "#1a6756",
-                "woRef": {},
-                "resources": [],
-                "items": [],
-                "contacts": [],
-                "addresses": [],
-                "contact": {
-                    "text": "15",
-                    "value": "15"
-                },
-                "address": {
-                    "text": "1",
-                    "value": "1"
-                }
-            }, {
-                "id": "100796",
-                "title": "Install Furniture 12345",
-                "workorder": {
-                    "text": "Install Furniture",
-                    "value": "1"
-                },
-                "project": {
-                    "text": "AB&I Holdings : Parking Lot Construction",
-                    "value": "1515"
-                },
-                "location": "",
-                "status": {
-                    "text": "Tentative",
-                    "value": "TENTATIVE",
-                    "code": "bg-secondary"
-                },
-                "date": {
-                    "recurrence": "occurs every day from 9/11/2024 until 9/12/2024",
-                    "start": "2024-09-11",
-                    "end": "2024-09-12"
-                },
-                "time": {
-                    "start": "08:00",
-                    "end": "19:00"
-                },
-                "priority": {
-                    "text": "Medium",
-                    "value": "2",
-                    "code": "#dfcf02"
-                },
-                "note": "XYZ\n123",
-                "url": "/app/crm/calendar/event.nl?id=100796&compid=TSTDRV2617106&selectedtab=custom337",
-                "color": "#1a6756",
-                "woRef": {},
-                "resources": [],
-                "items": [],
-                "contacts": [],
-                "addresses": [],
-                "contact": {
-                    "text": "1",
-                    "value": "1"
-                },
-                "address": {
-                    "text": "1",
-                    "value": "1"
-                }
-            }, {
-                "id": "100798",
-                "title": "Install Furniture XYZ",
-                "workorder": {
-                    "text": "Install Furniture",
-                    "value": "1"
-                },
-                "project": {
-                    "text": "AB&I Holdings : Parking Lot Construction",
-                    "value": "1515"
-                },
-                "location": "",
-                "status": {
-                    "text": "Confirmed",
-                    "value": "CONFIRMED",
-                    "code": "bg-success"
-                },
-                "date": {
-                    "recurrence": "occurs every day from 9/12/2024 until 9/13/2024",
-                    "start": "2024-09-12",
-                    "end": "2024-09-13"
-                },
-                "time": {
-                    "start": "08:00",
-                    "end": "18:00"
-                },
-                "priority": {
-                    "text": "High",
-                    "value": "3",
-                    "code": "#ca6621"
-                },
-                "note": "TEST ABCD",
-                "url": "/app/crm/calendar/event.nl?id=100798&compid=TSTDRV2617106&selectedtab=custom337",
-                "color": "#1a6756",
-                "woRef": {},
-                "resources": [],
-                "items": [],
-                "contacts": [],
-                "addresses": [],
-                "contact": {
-                    "text": "1",
-                    "value": "1"
-                },
-                "address": {
-                    "text": "1",
-                    "value": "1"
-                }
-            }],
-            "projectUrl": "/app/accounting/project/project.nl?id=1515&compid=TSTDRV2617106",
-            "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=1&compid=TSTDRV2617106",
-            "soUrl": "/app/accounting/transactions/salesord.nl?id=11722&compid=TSTDRV2617106",
-            "esthours": "10"
-        },
-        "resources": [{
-            "employee": {
-                "text": "Matt Nolan",
-                "value": "1292"
-            },
-            "initials": "MN",
-            "email": "mnolan@ramsey.com",
-            "phone": "",
-            "location": {
-                "text": "01: San Francisco",
-                "value": "2"
-            },
-            "active": true,
-            "resourceGroup": {
-                "text": "Designers",
-                "value": "2"
-            },
-            "type": {
-                "text": "Designer",
-                "value": "3"
-            },
-            "color": "#e57d29",
-            "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fcompid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-            "events": ["100767", "100794"],
-            "selected": true
-        }, {
-            "employee": {
-                "text": "Mei Matriano",
-                "value": "1647"
-            },
-            "initials": "MM",
-            "email": "mei@erpsuccesspartners.com",
-            "phone": "",
-            "location": {
-                "text": "",
-                "value": ""
-            },
-            "active": true,
-            "resourceGroup": {
-                "text": "Designers",
-                "value": "2"
-            },
-            "type": {
-                "text": "Installer",
-                "value": "1"
-            },
-            "color": "#f1484c",
-            "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fcompid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-            "events": ["100767", "100794"],
-            "selected": true
-        }, {
-            "employee": {
-                "text": "Youssef Ezz",
-                "value": "1656"
-            },
-            "initials": "YE",
-            "email": "yk@erpsuccesspartners.com",
-            "phone": "",
-            "location": {
-                "text": "",
-                "value": ""
-            },
-            "active": true,
-            "resourceGroup": {
-                "text": "Installers",
-                "value": "1"
-            },
-            "type": {
-                "text": "Installer",
-                "value": "1"
-            },
-            "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fcompid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-            "events": ["100767", "100794"],
-            "selected": true
-        }],
-        "items": [],
-        "contacts": [],
-        "addresses": [],
-        "contact": {
-            "text": "15",
-            "value": "15"
-        },
-        "address": {
-            "text": "1",
-            "value": "1"
-        }
-    }, {
         "id": "100795",
         "title": "Sample 4",
         "workorder": {
             "text": "Sample 4",
             "value": "46"
-        },
-        "project": {
-            "text": "AB&I Holdings : Field Ops Pro Project",
-            "value": "1883"
         },
         "location": "",
         "status": {
@@ -15163,10 +14000,6 @@ const mockup = {
                     "text": "Sample 4",
                     "value": "46"
                 },
-                "project": {
-                    "text": "AB&I Holdings : Field Ops Pro Project",
-                    "value": "1883"
-                },
                 "location": "",
                 "status": {
                     "text": "Confirmed",
@@ -15210,10 +14043,6 @@ const mockup = {
                     "text": "Sample 4",
                     "value": "46"
                 },
-                "project": {
-                    "text": "AB&I Holdings : Field Ops Pro Project",
-                    "value": "1883"
-                },
                 "location": "",
                 "status": {
                     "text": "Confirmed",
@@ -15256,10 +14085,6 @@ const mockup = {
                 "workorder": {
                     "text": "Sample 4",
                     "value": "46"
-                },
-                "project": {
-                    "text": "AB&I Holdings : Field Ops Pro Project",
-                    "value": "1883"
                 },
                 "location": "",
                 "status": {
@@ -15373,10 +14198,6 @@ const mockup = {
         "workorder": {
             "text": "Install Furniture",
             "value": "1"
-        },
-        "project": {
-            "text": "AB&I Holdings : Parking Lot Construction",
-            "value": "1515"
         },
         "location": "",
         "status": {
@@ -15529,10 +14350,6 @@ const mockup = {
                     "text": "Install Furniture",
                     "value": "1"
                 },
-                "project": {
-                    "text": "AB&I Holdings : Lobby Remodel",
-                    "value": "1514"
-                },
                 "location": "",
                 "status": {
                     "text": "Confirmed",
@@ -15553,7 +14370,7 @@ const mockup = {
                     "value": "3",
                     "code": "#ca6621"
                 },
-                "note": "TEST12345",
+                "note": "TEST123456",
                 "url": "/app/crm/calendar/event.nl?id=100682&compid=TSTDRV2617106&selectedtab=custom337",
                 "color": "#1a6756",
                 "woRef": {},
@@ -15575,10 +14392,6 @@ const mockup = {
                 "workorder": {
                     "text": "Install Furniture",
                     "value": "1"
-                },
-                "project": {
-                    "text": "AB&I Holdings : Parking Lot Construction",
-                    "value": "1515"
                 },
                 "location": "01: San Francisco",
                 "status": {
@@ -15623,10 +14436,6 @@ const mockup = {
                     "text": "Install Furniture",
                     "value": "1"
                 },
-                "project": {
-                    "text": "AB&I Holdings : Parking Lot Construction",
-                    "value": "1515"
-                },
                 "location": "",
                 "status": {
                     "text": "Tentative",
@@ -15664,62 +14473,11 @@ const mockup = {
                     "value": "1"
                 }
             }, {
-                "id": "100794",
-                "title": "Install Furniture 123",
-                "workorder": {
-                    "text": "Install Furniture",
-                    "value": "1"
-                },
-                "project": {
-                    "text": "AB&I Holdings : Parking Lot Construction",
-                    "value": "1515"
-                },
-                "location": "",
-                "status": {
-                    "text": "Tentative",
-                    "value": "TENTATIVE",
-                    "code": "bg-secondary"
-                },
-                "date": {
-                    "recurrence": "occurs every day from 9/11/2024 until 9/12/2024",
-                    "start": "2024-09-11",
-                    "end": "2024-09-12"
-                },
-                "time": {
-                    "start": "08:00",
-                    "end": "18:00"
-                },
-                "priority": {
-                    "text": "Urgent",
-                    "value": "4",
-                    "code": "#9a2407"
-                },
-                "note": "ASD\nBBBB",
-                "url": "/app/crm/calendar/event.nl?id=100794&compid=TSTDRV2617106&selectedtab=custom337",
-                "color": "#1a6756",
-                "woRef": {},
-                "resources": [],
-                "items": [],
-                "contacts": [],
-                "addresses": [],
-                "contact": {
-                    "text": "15",
-                    "value": "15"
-                },
-                "address": {
-                    "text": "1",
-                    "value": "1"
-                }
-            }, {
                 "id": "100796",
                 "title": "Install Furniture 12345",
                 "workorder": {
                     "text": "Install Furniture",
                     "value": "1"
-                },
-                "project": {
-                    "text": "AB&I Holdings : Parking Lot Construction",
-                    "value": "1515"
                 },
                 "location": "",
                 "status": {
@@ -15763,10 +14521,6 @@ const mockup = {
                 "workorder": {
                     "text": "Install Furniture",
                     "value": "1"
-                },
-                "project": {
-                    "text": "AB&I Holdings : Parking Lot Construction",
-                    "value": "1515"
                 },
                 "location": "",
                 "status": {
@@ -15828,10 +14582,6 @@ const mockup = {
         "workorder": {
             "text": "Install Furniture",
             "value": "1"
-        },
-        "project": {
-            "text": "AB&I Holdings : Parking Lot Construction",
-            "value": "1515"
         },
         "location": "",
         "status": {
@@ -15984,10 +14734,6 @@ const mockup = {
                     "text": "Install Furniture",
                     "value": "1"
                 },
-                "project": {
-                    "text": "AB&I Holdings : Lobby Remodel",
-                    "value": "1514"
-                },
                 "location": "",
                 "status": {
                     "text": "Confirmed",
@@ -16008,7 +14754,7 @@ const mockup = {
                     "value": "3",
                     "code": "#ca6621"
                 },
-                "note": "TEST12345",
+                "note": "TEST123456",
                 "url": "/app/crm/calendar/event.nl?id=100682&compid=TSTDRV2617106&selectedtab=custom337",
                 "color": "#1a6756",
                 "woRef": {},
@@ -16030,10 +14776,6 @@ const mockup = {
                 "workorder": {
                     "text": "Install Furniture",
                     "value": "1"
-                },
-                "project": {
-                    "text": "AB&I Holdings : Parking Lot Construction",
-                    "value": "1515"
                 },
                 "location": "01: San Francisco",
                 "status": {
@@ -16078,10 +14820,6 @@ const mockup = {
                     "text": "Install Furniture",
                     "value": "1"
                 },
-                "project": {
-                    "text": "AB&I Holdings : Parking Lot Construction",
-                    "value": "1515"
-                },
                 "location": "",
                 "status": {
                     "text": "Tentative",
@@ -16119,62 +14857,11 @@ const mockup = {
                     "value": "1"
                 }
             }, {
-                "id": "100794",
-                "title": "Install Furniture 123",
-                "workorder": {
-                    "text": "Install Furniture",
-                    "value": "1"
-                },
-                "project": {
-                    "text": "AB&I Holdings : Parking Lot Construction",
-                    "value": "1515"
-                },
-                "location": "",
-                "status": {
-                    "text": "Tentative",
-                    "value": "TENTATIVE",
-                    "code": "bg-secondary"
-                },
-                "date": {
-                    "recurrence": "occurs every day from 9/11/2024 until 9/12/2024",
-                    "start": "2024-09-11",
-                    "end": "2024-09-12"
-                },
-                "time": {
-                    "start": "08:00",
-                    "end": "18:00"
-                },
-                "priority": {
-                    "text": "Urgent",
-                    "value": "4",
-                    "code": "#9a2407"
-                },
-                "note": "ASD\nBBBB",
-                "url": "/app/crm/calendar/event.nl?id=100794&compid=TSTDRV2617106&selectedtab=custom337",
-                "color": "#1a6756",
-                "woRef": {},
-                "resources": [],
-                "items": [],
-                "contacts": [],
-                "addresses": [],
-                "contact": {
-                    "text": "15",
-                    "value": "15"
-                },
-                "address": {
-                    "text": "1",
-                    "value": "1"
-                }
-            }, {
                 "id": "100796",
                 "title": "Install Furniture 12345",
                 "workorder": {
                     "text": "Install Furniture",
                     "value": "1"
-                },
-                "project": {
-                    "text": "AB&I Holdings : Parking Lot Construction",
-                    "value": "1515"
                 },
                 "location": "",
                 "status": {
@@ -16219,10 +14906,6 @@ const mockup = {
                     "text": "Install Furniture",
                     "value": "1"
                 },
-                "project": {
-                    "text": "AB&I Holdings : Parking Lot Construction",
-                    "value": "1515"
-                },
                 "location": "",
                 "status": {
                     "text": "Confirmed",
@@ -16266,56 +14949,6 @@ const mockup = {
             "esthours": "10"
         },
         "resources": [{
-            "employee": {
-                "text": "Bea Dashboards",
-                "value": "1767"
-            },
-            "initials": "BD",
-            "email": "beatrice.q@erpsuccesspartners.com",
-            "phone": "",
-            "location": {
-                "text": "01: San Francisco",
-                "value": "2"
-            },
-            "active": true,
-            "resourceGroup": {
-                "text": "Drivers",
-                "value": "3"
-            },
-            "type": {
-                "text": "Delivery Driver",
-                "value": "2"
-            },
-            "color": "#554de2",
-            "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fcompid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-            "events": ["100682", "100798"],
-            "selected": true
-        }, {
-            "employee": {
-                "text": "Bonita Kane",
-                "value": "912"
-            },
-            "initials": "BK",
-            "email": "bdickens@ramsey.com",
-            "phone": "(123) 456-7890",
-            "location": {
-                "text": "02: Boston",
-                "value": "1"
-            },
-            "active": true,
-            "resourceGroup": {
-                "text": "Installers",
-                "value": "1"
-            },
-            "type": {
-                "text": "Installer",
-                "value": "1"
-            },
-            "color": "#cbb24c",
-            "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fcompid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-            "events": ["100792", "100798"],
-            "selected": true
-        }, {
             "employee": {
                 "text": "Gary Grant",
                 "value": "1312"
@@ -16441,6 +15074,278 @@ const mockup = {
         "address": {
             "text": "1",
             "value": "1"
+        }
+    }, {
+        "id": "100803",
+        "title": "12345",
+        "workorder": {
+            "text": "Sample Work Order - Mei - DO NOT USE",
+            "value": "59"
+        },
+        "location": "",
+        "status": {
+            "text": "Confirmed",
+            "value": "CONFIRMED",
+            "code": "bg-success"
+        },
+        "date": {
+            "recurrence": "occurs every day from 9/14/2024 until 9/15/2024",
+            "start": "2024-09-14",
+            "end": "2024-09-15"
+        },
+        "time": {
+            "start": "08:00",
+            "end": "18:00"
+        },
+        "priority": {
+            "text": "High",
+            "value": "3",
+            "code": "#ca6621"
+        },
+        "note": "TEST21345",
+        "url": "/app/crm/calendar/event.nl?id=100803&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {
+            "id": "59",
+            "name": "Sample Work Order - Mei - DO NOT USE",
+            "title": "Sample Work Order - Mei - DO NOT USE",
+            "project": {
+                "text": "AB&I Holdings : Field Ops Pro Project",
+                "value": "1883"
+            },
+            "date": "9/23/2024",
+            "status": {
+                "text": "Not Started",
+                "value": "4",
+                "code": "#026adf"
+            },
+            "type": {
+                "text": "Mockup",
+                "value": "2"
+            },
+            "memo": "<p><strong>Sample Work Order - Mei - DO NOT USE</strong></p>",
+            "salesorder": {
+                "text": "Sales Order #SLS00000686",
+                "value": "17729"
+            },
+            "customer": {
+                "text": "AB&I Holdings",
+                "value": "1249"
+            },
+            "resourceGroup": {
+                "text": "",
+                "value": ""
+            },
+            "priority": "",
+            "resources": [],
+            "items": [{
+                "id": "59",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE",
+                    "value": "59"
+                },
+                "events": [],
+                "uuid": "17729_2",
+                "line": "2",
+                "item": {
+                    "text": "2375-6727",
+                    "value": "1426"
+                },
+                "description": "Inventory Item",
+                "quantity": 0,
+                "note": ""
+            }, {
+                "id": "60",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE",
+                    "value": "59"
+                },
+                "events": [],
+                "uuid": "17729_3",
+                "line": "3",
+                "item": {
+                    "text": "45XQ-2424-LJ4SCA",
+                    "value": "1013"
+                },
+                "description": "Inventory Item",
+                "quantity": 0,
+                "note": ""
+            }, {
+                "id": "61",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE",
+                    "value": "59"
+                },
+                "events": [],
+                "uuid": "17729_5",
+                "line": "5",
+                "item": {
+                    "text": "Dealer Service Fee",
+                    "value": "2331"
+                },
+                "description": "Dealer Service Fee",
+                "quantity": 0,
+                "note": ""
+            }],
+            "addresses": [{
+                "id": "43",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE",
+                    "value": "59"
+                },
+                "customer": {
+                    "text": "AB&I Holdings",
+                    "value": "1249"
+                },
+                "events": ["100803"],
+                "address": {
+                    "text": "1701 Rollins Road",
+                    "value": "244878"
+                },
+                "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+                "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+            }],
+            "contacts": [{
+                "id": "42",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE",
+                    "value": "59"
+                },
+                "events": ["100803"],
+                "contact": {
+                    "text": "AB&I Holdings : Test Prav",
+                    "value": "1892"
+                },
+                "name": "Test Prav",
+                "email": "pravallika@erpsuccesspartners.com",
+                "jobTitle": "QA",
+                "mobilePhone": "",
+                "phone": "",
+                "primary": "checked",
+                "url": "/app/common/entity/contact.nl?id=1892&compid=TSTDRV2617106"
+            }],
+            "events": [{
+                "id": "100803",
+                "title": "12345",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE",
+                    "value": "59"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "occurs every day from 9/14/2024 until 9/15/2024",
+                    "start": "2024-09-14",
+                    "end": "2024-09-15"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "18:00"
+                },
+                "priority": {
+                    "text": "High",
+                    "value": "3",
+                    "code": "#ca6621"
+                },
+                "note": "TEST21345",
+                "url": "/app/crm/calendar/event.nl?id=100803&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "42",
+                    "value": "42"
+                },
+                "address": {
+                    "text": "43",
+                    "value": "43"
+                }
+            }],
+            "projectUrl": "/app/accounting/project/project.nl?id=1883&compid=TSTDRV2617106",
+            "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=59&compid=TSTDRV2617106",
+            "soUrl": "/app/accounting/transactions/salesord.nl?id=17729&compid=TSTDRV2617106",
+            "esthours": "50"
+        },
+        "resources": [{
+            "employee": {
+                "text": "Bea Dashboards",
+                "value": "1767"
+            },
+            "initials": "BD",
+            "email": "beatrice.q@erpsuccesspartners.com",
+            "phone": "",
+            "location": {
+                "text": "01: San Francisco",
+                "value": "2"
+            },
+            "active": true,
+            "resourceGroup": {
+                "text": "Drivers",
+                "value": "3"
+            },
+            "type": {
+                "text": "Delivery Driver",
+                "value": "2"
+            },
+            "color": "#554de2",
+            "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fcompid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
+            "events": ["100682", "100803"],
+            "selected": true
+        }],
+        "items": [],
+        "contacts": [{
+            "id": "42",
+            "workorder": {
+                "text": "Sample Work Order - Mei - DO NOT USE",
+                "value": "59"
+            },
+            "events": ["100803"],
+            "contact": {
+                "text": "AB&I Holdings : Test Prav",
+                "value": "1892"
+            },
+            "name": "Test Prav",
+            "email": "pravallika@erpsuccesspartners.com",
+            "jobTitle": "QA",
+            "mobilePhone": "",
+            "phone": "",
+            "primary": "checked",
+            "url": "/app/common/entity/contact.nl?id=1892&compid=TSTDRV2617106",
+            "selected": true
+        }],
+        "addresses": [{
+            "id": "43",
+            "workorder": {
+                "text": "Sample Work Order - Mei - DO NOT USE",
+                "value": "59"
+            },
+            "customer": {
+                "text": "AB&I Holdings",
+                "value": "1249"
+            },
+            "events": ["100803"],
+            "address": {
+                "text": "1701 Rollins Road",
+                "value": "244878"
+            },
+            "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+            "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106",
+            "selected": true
+        }],
+        "contact": {
+            "text": "42",
+            "value": "42"
+        },
+        "address": {
+            "text": "43",
+            "value": "43"
         }
     }],
     "contacts": [{
@@ -17025,7 +15930,7 @@ const mockup = {
             "text": "Sample Work Order - Mei - DO NOT USE",
             "value": "59"
         },
-        "events": [],
+        "events": ["100803"],
         "contact": {
             "text": "AB&I Holdings : Test Prav",
             "value": "1892"
@@ -17798,7 +16703,7 @@ const mockup = {
             "text": "AB&I Holdings",
             "value": "1249"
         },
-        "events": [],
+        "events": ["100803"],
         "address": {
             "text": "1701 Rollins Road",
             "value": "244878"

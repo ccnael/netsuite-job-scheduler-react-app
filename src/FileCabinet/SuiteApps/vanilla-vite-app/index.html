@@ -9,15 +9,14 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/web-animations/2.3.2/web-animations.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js"></script>
-    <link href="https://unpkg.com/fullcalendar@5.0.1/main.min.css" rel="stylesheet">
+    <!-- <link href="https://unpkg.com/fullcalendar@5.0.1/main.min.css" rel="stylesheet"> -->
      <!-- <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" ></script> -->
-    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.js"></script>
-    <link href="https://unpkg.com/fullcalendar@5.0.1/main.min.css" rel="stylesheet">
+    <!-- <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.js"></script> -->
+    <!-- <link href="https://unpkg.com/fullcalendar@5.0.1/main.min.css" rel="stylesheet"> -->
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.30.1/moment.min.js" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous">
-    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
     <script src="https://cdn.datatables.net/2.0.5/js/dataTables.js" crossorigin="anonymous"></script>
     <script src="https://cdn.datatables.net/2.0.5/js/dataTables.bootstrap5.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
@@ -36,11 +35,11 @@
   </head>
   <body>
     <div id="app"></div>
-    <script type="module" src="/src/board.js" defer></script>
-    <script type="module" src="/src/calendar.js" defer></script>
-    <script type="module" src="/src/components/eventForm.js"></script>
-    <script type="module" src="/src/components/generalEventForm.js"></script>
-    <script type="module" src="/src/components/completeEventForm.js"></script>
+    <script type="module" src="main.js" defer></script>
+    <link rel="stylesheet" href="style.css" />
+    <script type="module" src="/src/components/eventModal.js" defer></script>
+    <script type="module" src="/src/components/generalEventModal.js" defer></script>
+    <script type="module" src="/src/components/completeEventModal.js" defer></script>
     <input type="hidden" id="suiteletUrl" value="{{suiteletUrl}}" />
     <input type="hidden" id="workOrders" value="{{workOrders}}" />
     <input type="hidden" id="customers" value="{{customers}}" />
