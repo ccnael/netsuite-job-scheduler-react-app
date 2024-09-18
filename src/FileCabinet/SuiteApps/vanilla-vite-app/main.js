@@ -4,10 +4,9 @@ import { DropDownAction as DropDown } from './src/components/utils';
 
 document.addEventListener('DOMContentLoaded', () => {
   Board.setup();
-  Calendar.setup();
-
-  Board.initLayoutHandlers();
   Board.showBanners();
+  
+  Calendar.setup();
   
   // Set dropdown actions globally
   // -----------------------------------------------------------------

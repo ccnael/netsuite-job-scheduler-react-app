@@ -168,7 +168,7 @@ $(document).ready(() => {
     });
 
     // Fetch order punch list
-    $('#completeEventModal').attr('punchLines', encodeURIComponent('[]'));
+    /* $('#completeEventModal').attr('punchLines', encodeURIComponent('[]'));
     temp_cePunchItemsDataTable = $('#punchItems_dt').DataTable({
       processing: true,
       retrieve: true,
@@ -185,8 +185,8 @@ $(document).ready(() => {
         completeEventModalHandlers();
         hideCustomLoader();
       }
-    });
-    /* fetch(
+    }); */
+    fetch(
       `${suiteletUrl}&mode=getOrderPunchList&woId=${woId}`, {
         method: 'GET',
         headers: {
@@ -222,7 +222,7 @@ $(document).ready(() => {
         'error'
       );
       hideCustomLoader('completeEventModal');
-    }); */
+    });
   });
 
   // General Event Form -> On Submit

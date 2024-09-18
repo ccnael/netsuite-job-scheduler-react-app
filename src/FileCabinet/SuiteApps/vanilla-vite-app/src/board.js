@@ -284,6 +284,8 @@ export default class Board {
         </div>
       </div>
     `.replace(/,/g, ''));
+
+    this.initLayoutHandlers();
   }
 
   // Instantiate column resizer etc.

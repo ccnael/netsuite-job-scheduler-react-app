@@ -175,7 +175,7 @@ export default class Calendar {
       aspectRatio: 1.8,
       scrollTime: '00:00', // undo default 6am scrollTime
       headerToolbar: {
-        left: 'prev,next',
+        left: 'todayBtn prev,next',
         center: 'title',
         // right: 'resourceTimelineDay,resourceTimelineSevenDays,timeGridWeek,dayGridMonth,listWeek'
         right: 'resourceTimelineDay,resourceTimelineSevenDays,resourceTimelineWeek,resourceTimelineMonth,listWeek createEventBtn'
@@ -183,7 +183,7 @@ export default class Calendar {
       initialView: 'resourceTimelineSevenDays',
       views: {
         resourceTimelineDay: {
-          buttonText: 'Today'
+          buttonText: 'Day'
         },
         resourceTimelineSevenDays: {
           type: 'resourceTimeline',
@@ -195,6 +195,14 @@ export default class Calendar {
       resources: calendarResources,
       events: calendarEvents,
       customButtons: {
+        todayBtn: {
+          text: 'Today',
+          click: () => {
+            const currentDate = new Date();  // Get the current date
+            window.FullCalendar.changeView('resourceTimelineDay'); // Switch to resourceTimelineDay view
+            window.FullCalendar.gotoDate(currentDate); // Set the calendar to the current date
+          }
+        },
         createEventBtn: {
           text: 'New Event',
           click: () => {
