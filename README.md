@@ -41,10 +41,10 @@ codeSplit: false
 });
 
 6. Install FullCalendar dependencies
-   npm install @fullcalendar/core @fullcalendar/adaptive @fullcalendar/interaction @fullcalendar/resource-timeline @fullcalendar/daygrid
+   "npm install @fullcalendar/core @fullcalendar/adaptive @fullcalendar/interaction @fullcalendar/resource-timeline @fullcalendar/daygrid"
 
 7. npm run build
-   - This will generate bundle/build (html, js, css files) (see config > rollupOptions > output)
+   - This will compile and generate bundle/build (html, js, css files) (see config > rollupOptions > output)
 8. Load the bundle/build files to the suitelet
 
-NOTE: execute 'npm run build' everytime changes happen under vanilla-vite-app folder before deployment
+NOTE: execute "npm run build" everytime changes happen under vanilla-vite-app folder before deployment
