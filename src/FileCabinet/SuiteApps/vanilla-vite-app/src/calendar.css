@@ -39,6 +39,11 @@
   font-size: 14px; /* Font size for event text */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Shadow effect */
 }
+#calendarSection #calendar .fc-event .card-content {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
 #calendarSection #calendar .fc-event:hover {
   background-color: #2980b9; /* Darker blue on hover */
   cursor: pointer; /* Pointer cursor on hover */

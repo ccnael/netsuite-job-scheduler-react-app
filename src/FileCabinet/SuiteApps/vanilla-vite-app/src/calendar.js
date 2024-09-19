@@ -7,6 +7,7 @@ import timeGridPlugin from '@fullcalendar/timegrid';
 import resourceTimelinePlugin from '@fullcalendar/resource-timeline';
 import { customers, resources, resourceGroups, workOrders, events } from './components/dataSet';
 import { initAvailableJobsFilters } from './components/filterHandler';
+import { Event } from './components/utils';
 import './calendar.css';
 
 export default class Calendar {
@@ -143,7 +144,7 @@ export default class Calendar {
       return map;
     });
 
-    console.log('CALENDAR DATA', { calendarResources, calendarEvents });
+    // console.log('CALENDAR DATA', { calendarResources, calendarEvents });
 
     const calendarEl = document.getElementById('calendar');
     const containerEl = document.querySelector('#calendarSection .thirdColumn');
@@ -162,10 +163,6 @@ export default class Calendar {
     
     // Instantiate calendar
     // -----------------------------------------------------------------
-    const eventPopup = document.getElementById('eventPopup');
-    const closePopupBtn = document.getElementById('closePopup');
-    let popperInstance = null;
-
     window.FullCalendar = new FullCalendar(calendarEl, {
       plugins: [ adaptivePlugin, interactionPlugin, dayGridPlugin, listPlugin, timeGridPlugin, resourceTimelinePlugin ],
       schedulerLicenseKey: 'XXX',
@@ -191,7 +188,7 @@ export default class Calendar {
           buttonText: '7 days'
         }
       },
-      resourceAreaHeaderContent: 'Resources',
+      resourceAreaHeaderContent: `Resources: ${resources.all.length}`,
       resources: calendarResources,
       events: calendarEvents,
       customButtons: {
@@ -210,58 +207,64 @@ export default class Calendar {
           }
         }
       },
-      eventClick: event => {
-        // if (event.event.url) {
-        //   event.jsEvent.preventDefault();
-        //   window.open(event.event.url, "_blank");
-        // }
-        // Show popup when event is clicked
-        eventPopup.style.display = 'block';
-
-        // Create a new Popper instance
-        popperInstance = Popper.createPopper(info.el, eventPopup, {
-          placement: 'top',
+      eventDidMount: info => {
+        const event = info.event.extendedProps;
+        new bootstrap.Tooltip(info.el, {
+          html: true,
+          title: `
+            <strong>${event.title}</strong><br>
+            ${event.workorder.text}<br/>
+            ${event.date.start == event.date.end ? moment(event.date.start).format('M/D/YYYY') : `${moment(event.date.start).format('M/D/YYYY')} - ${moment(event.date.end).format('M/D/YYYY')}`}<br/>
+            ${moment(`1/1/1999 ${event.time.start}`).format('h:mm a')} - ${moment(`1/1/1999 ${event.time.end}`).format('h:mm a')}`,
+          placement: 'left' // Set tooltip placement to right
         });
-
-        // Update content based on the event
-        eventPopup.querySelector('.popup-content p').textContent = `Event: ${info.event.title}`;
       },
-      eventDrop: info => {
-        console.log('Event dropped to new dates:', info.event.start, info.event.end);
+      eventContent: el => {
+        const event = el.event.extendedProps; 
+        const html = `
+        <div style="margin-left: 15px; height: 75px" id="${event.id}">
+         <div class="card-head">
+           <div class="card-name"><a href="${event.url}" target="_blank"><strong>${event.title}</strong></a>
+           </div>
+         </div>
+         <div class="card-content" style="position: relative">
+           <div class="card-content-eventId" eventId="${event.id}">ID ${event.id}</div>
+           <div class="row">
+             <div class="col-2 fc-event-status">
+               <span class="badge py-1 px-2 ${event.status.code} rounded-pill text-uppercase">${event.status.text}</span>
+               <span class="badge py-1 px-2 rounded-pill text-uppercase" style="background-color: ${event.priority.code};">${event.priority.text}</span>
+             </div>
+           </div>
+         </div>
+       </div>
+        `;
+        return { html };
       },
-      eventResize: info => {
-        console.log('Event resized to:', info.event.start, info.event.end);
+      eventClick: event => {
+        if (event.event.url) {
+          event.jsEvent.preventDefault();
+          window.open(event.event.url, "_blank");
+        }
       },
-      eventReceive: info => {
+      eventDrop: info => { // Ex. moving events to change dates (Updates start and end date)
+        info.action = 'eventDrop';
+        this.confirmEventUpdate(info);
+      },
+      eventDragStop: info => {
+        $('.tooltip').remove();
+      },
+      eventResize: info => { // Updates start and end time and day, 
+        info.action = 'eventResize';
+        this.confirmEventUpdate(info);
+      },
+      eventReceive: info => { // Ex. Dropping workorders
         const woId = info.event.extendedProps.woId;
-        console.log('eventReceive woId', woId);
         window.openEventModal(null, woId);
-
-        // $('#event-modal').attr('event-id', defId);
-        // toggleEventModal();
-        // addEvent();
-        info.event.remove();
-        // return confirm('TEST?');
-        // if (draggedEvent.id === '999') {
-        //   return dropInfo.start < new Date(2016, 0, 1); // a boolean
-        // }
-        // else {
-        //   return true;
-        // }
+        info.revert();
       },
     });
   
     window.FullCalendar.render();
-
-    // Close popup when close button is clicked
-    closePopupBtn.addEventListener('click', function() {
-      eventPopup.style.display = 'none';
-
-      if (popperInstance) {
-        popperInstance.destroy();
-        popperInstance = null;
-      }
-    });
   }
 
   // Instantiate tab header switch, column resizer etc.
@@ -329,5 +332,30 @@ export default class Calendar {
         }
       });
     });
+  }
+
+  static confirmEventUpdate(info) {
+    const payload = {};
+    payload.eventData = JSON.parse(JSON.stringify(info.event.extendedProps));
+    const startSplit = moment(info.event.start).format('YYYY-MM-DDTHH:mm').split('T');
+    payload.eventData.date.start = startSplit[0];
+    payload.eventData.time.start = startSplit[1];
+    const endSplit = moment(info.event.end).format('YYYY-MM-DDTHH:mm').split('T');
+    payload.eventData.date.end = endSplit[0];
+    payload.eventData.time.end = endSplit[1];
+
+    if (info.action == 'eventDrop') {
+      const calEvents = window.FullCalendar.getEvents();
+      if (calEvents.length) {
+        const calEvent = calEvents.find(event => event.id == info.event.id);
+        if (calEvent) {
+          const resourceIds = calEvent._def.resourceIds;
+          payload.eventData.selectedResources = resources.active.filter(resource => Boolean(resourceIds.includes(resource.employee.value)));
+        }
+      }
+    }
+
+    console.log('NEW PAYLOAD', payload, info)
+    // Event.updateEventRecord(payload, info);
   }
 }

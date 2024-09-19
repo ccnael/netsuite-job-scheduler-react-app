@@ -518,17 +518,22 @@ div.form-check {
 	.tab-content.active {
 		display: block;
 	}
- 
 }
 
-.popup {
-	background: white;
-	border: 1px solid #ddd;
-	padding: 10px;
-	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-	z-index: 9999;
+.tooltip {
+	white-space: nowrap; /* Prevent text from wrapping */
 }
-
-.popup-content {
-	padding: 10px;
+.tooltip .tooltip-inner {
+	max-width: none; /* Remove width restriction */
+	/* Example font styles */
+	font-family: 'Arial', sans-serif; /* Replace with your desired font family */
+	font-size: 12px; /* Adjust the font size as needed */
+	font-weight: 400; /* Adjust the font weight as needed */
+}
+.tooltip.bs-tooltip-end .tooltip-arrow {
+	border-end-color: #000; /* Customize arrow color */
+}
+.tooltip.bs-tooltip-end .tooltip-inner {
+	/* Adjust the position if the tooltip is set to end */
+	text-align: left; /* Align text to the left */
 }

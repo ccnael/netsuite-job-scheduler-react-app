@@ -65,7 +65,7 @@ export class Event {
     });
   }
 
-  static updateEventRecord(payload) {
+  static updateEventRecord(payload, eventInfo) {
     console.log('***** updateEventRecord() -> PAYLOAD *****', payload);
 
     Swal.fire({
@@ -124,12 +124,16 @@ export class Event {
           allowEscapeKey: false,
           text: `Updating Event Record ID ${payload.eventData.id}...`
         });
+      } else {
+        if (eventInfo) {
+          eventInfo.revert();
+        }
       }
     });
   }
 
-  static deleteEventRecord(ev) {
-    const eventId = ev.target.closest('.card-item').getAttribute('id');
+  static deleteEventRecord(ev, eventId) {
+    eventId = eventId || ev.target.closest('.card-item').getAttribute('id');
     console.log('deleteEventRecord() > Event ID', eventId);
 
     Swal.fire({

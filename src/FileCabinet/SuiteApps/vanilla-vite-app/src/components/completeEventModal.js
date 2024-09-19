@@ -1,7 +1,6 @@
 import './completeEventModal.css';
 import { suiteletUrl, events } from './dataSet';
 import {  ceTimeSheetsDtColumns, ceItemsDtColumns, cePunchItemsDtColumns } from './dataTableColumns';
-import { Event } from './utils';
 
 let temp_ceTimeSheetDataTable, temp_ceItemsDataTable, temp_cePunchItemsDataTable;
 
@@ -118,8 +117,8 @@ $(document).ready(() => {
     </div>
   </div>`);
 
-  window.openCompleteEventModal = ev => {
-    const eventId = ev.target.closest('.card-item').getAttribute('id');
+  window.openCompleteEventModal = (ev, eventId) => {
+    eventId = eventId || ev.target.closest('.card-item').getAttribute('id');
     console.log('openCompleteEventModal() > Event ID', eventId);
     $('#completeEventModal').attr('eventId', eventId);
     $('#completeEventModal').modal('toggle');

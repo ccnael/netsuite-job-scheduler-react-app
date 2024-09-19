@@ -71,7 +71,15 @@ export default class Board {
                         <div id="resourceGroup-${resourceGroup.value}-filter-table" class="accordion-collapse collapse show" aria-labelledby="resourceGroup-${resourceGroup.value}-filter-tableHeading" data-parent="#resourceGroup-${resourceGroup.value}-filter-tableWrapper">
                           ${resourceGroup.resources.map(resource => `
                           <div class="person-container" id="${resource.employee.value}">
-                            <div class="person-circle">
+                            <div class="person-circle" 
+                                  data-bs-toggle="tooltip" 
+                                  data-bs-placement="right" 
+                                  title="<strong>${resource.employee.text}</strong><br/>
+        ${resource.type.text}<br/>
+        ${resource.resourceGroup.text}<br/>
+        ${resource.email}<br/>
+        ${resource.phone}<br/>
+        ${resource.location.text}">
                                 <span class="initials">${resource.initials}</span>
                                 ${Boolean(resource.active) ? '<span class="status active"></span>' : '<span class="status busy"></span>'}
                             </div>
@@ -286,6 +294,7 @@ export default class Board {
     `.replace(/,/g, ''));
 
     this.initLayoutHandlers();
+    this.initToolTip();
   }
 
   // Instantiate column resizer etc.
@@ -435,5 +444,14 @@ export default class Board {
       
       toasties.map(toast => Toastify(toast).showToast());
     }, 250);
+  }
+
+  static initToolTip() {
+    const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
+    tooltipTriggerList.forEach(tooltipTriggerEl => {
+      new bootstrap.Tooltip(tooltipTriggerEl, {
+        html: true
+      });
+    });
   }
 }

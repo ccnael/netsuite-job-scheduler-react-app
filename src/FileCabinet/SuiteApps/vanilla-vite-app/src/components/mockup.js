@@ -1,6 +1,123 @@
 const mockup = {
     "suiteletUrl": "/app/site/hosting/scriptlet.nl?script=877&deploy=1&compid=TSTDRV2617106",
     "workOrders": [{
+        "id": "63",
+        "name": "test site test",
+        "title": "test site test",
+        "project": {
+            "text": "Pravallika : test",
+            "value": "2010"
+        },
+        "date": "9/23/2024",
+        "status": {
+            "text": "In Progress",
+            "value": "1",
+            "code": "#026adf"
+        },
+        "type": {
+            "text": "Standard",
+            "value": "5"
+        },
+        "memo": "",
+        "salesorder": {
+            "text": "Sales Order #SLS00000688",
+            "value": "17739"
+        },
+        "customer": {
+            "text": "Pravallika",
+            "value": "2008"
+        },
+        "resourceGroup": {
+            "text": "",
+            "value": ""
+        },
+        "priority": "",
+        "resources": [],
+        "items": [],
+        "addresses": [{
+            "id": "46",
+            "workorder": {
+                "text": "test site test",
+                "value": "63"
+            },
+            "customer": {
+                "text": "Pravallika",
+                "value": "2008"
+            },
+            "events": [],
+            "address": {
+                "text": "",
+                "value": ""
+            },
+            "addressDetails": "",
+            "customerUrl": "/app/common/entity/custjob.nl?id=2008&compid=TSTDRV2617106"
+        }],
+        "contacts": [{
+            "id": "45",
+            "workorder": {
+                "text": "test site test",
+                "value": "63"
+            },
+            "events": [],
+            "contact": {
+                "text": "Pravallika : pravallika",
+                "value": "2009"
+            },
+            "name": "pravallika",
+            "email": "rowe@erpsuccesspartners.com",
+            "jobTitle": "developer",
+            "mobilePhone": "",
+            "phone": "",
+            "primary": "checked",
+            "url": "/app/common/entity/contact.nl?id=2009&compid=TSTDRV2617106"
+        }],
+        "events": [],
+        "projectUrl": "/app/accounting/project/project.nl?id=2010&compid=TSTDRV2617106",
+        "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=63&compid=TSTDRV2617106",
+        "soUrl": "/app/accounting/transactions/salesord.nl?id=17739&compid=TSTDRV2617106",
+        "esthours": ""
+    }, {
+        "id": "62",
+        "name": "test",
+        "title": "Sample 4",
+        "project": {
+            "text": "AB&I Holdings : Field Ops Pro Project",
+            "value": "1883"
+        },
+        "date": "9/5/2024",
+        "status": {
+            "text": "Hold",
+            "value": "7",
+            "code": "#6c757d"
+        },
+        "type": {
+            "text": "Walls",
+            "value": "6"
+        },
+        "memo": "<p>Sample 4</p>",
+        "salesorder": {
+            "text": "Sales Order #SLS00000654",
+            "value": "16211"
+        },
+        "customer": {
+            "text": "AB&I Holdings",
+            "value": "1249"
+        },
+        "resourceGroup": {
+            "text": "",
+            "value": ""
+        },
+        "priority": "",
+        "resources": [],
+        "items": [],
+        "addresses": [],
+        "contacts": [],
+        "events": [],
+        "projectUrl": "/app/accounting/project/project.nl?id=1883&compid=TSTDRV2617106",
+        "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=62&compid=TSTDRV2617106",
+        "soUrl": "/app/accounting/transactions/salesord.nl?id=16211&compid=TSTDRV2617106",
+        "esthours": "2"
+    }, {
         "id": "61",
         "name": "Sample Work Order - Mei - DO NOT USE - 61",
         "title": "Sample Work Order - Mei - DO NOT USE - 61",
@@ -10,9 +127,9 @@ const mockup = {
         },
         "date": "9/23/2024",
         "status": {
-            "text": "Not Started",
-            "value": "4",
-            "code": "#026adf"
+            "text": "Hold",
+            "value": "7",
+            "code": "#6c757d"
         },
         "type": {
             "text": "Moves",
@@ -46,8 +163,8 @@ const mockup = {
                 "text": "ACQUA/CARAVEL AU0641",
                 "value": "1062"
             },
-            "description": "Inventory Item",
-            "quantity": 0,
+            "description": "ACQUA/CARAVEL AU0641",
+            "quantity": 1,
             "note": ""
         }, {
             "id": "66",
@@ -63,7 +180,7 @@ const mockup = {
                 "value": "2331"
             },
             "description": "Dealer Service Fee",
-            "quantity": 0,
+            "quantity": 5,
             "note": ""
         }],
         "addresses": [{
@@ -76,7 +193,7 @@ const mockup = {
                 "text": "AB&I Holdings",
                 "value": "1249"
             },
-            "events": [],
+            "events": ["100813"],
             "address": {
                 "text": "1701 Rollins Road",
                 "value": "244878"
@@ -90,7 +207,7 @@ const mockup = {
                 "text": "Sample Work Order - Mei - DO NOT USE - 61",
                 "value": "61"
             },
-            "events": [],
+            "events": ["100813"],
             "contact": {
                 "text": "AB&I Holdings : Test Prav",
                 "value": "1892"
@@ -103,7 +220,738 @@ const mockup = {
             "primary": "checked",
             "url": "/app/common/entity/contact.nl?id=1892&compid=TSTDRV2617106"
         }],
-        "events": [],
+        "events": [{
+            "id": "100805",
+            "title": "Test Event",
+            "workorder": {
+                "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                "value": "61"
+            },
+            "location": "",
+            "status": {
+                "text": "Confirmed",
+                "value": "CONFIRMED",
+                "code": "bg-success"
+            },
+            "date": {
+                "recurrence": "one time event on 9/17/2024",
+                "start": "2024-09-17",
+                "end": "2024-09-17"
+            },
+            "time": {
+                "start": "05:00",
+                "end": "06:00"
+            },
+            "priority": {
+                "text": "Medium",
+                "value": "2",
+                "code": "#dfcf02"
+            },
+            "note": "Test Event",
+            "url": "/app/crm/calendar/event.nl?id=100805&compid=TSTDRV2617106&selectedtab=custom337",
+            "color": "#1a6756",
+            "woRef": {},
+            "resources": [],
+            "items": [],
+            "contacts": [],
+            "addresses": [],
+            "contact": {
+                "text": "",
+                "value": ""
+            },
+            "address": {
+                "text": "",
+                "value": ""
+            }
+        }, {
+            "id": "100805",
+            "title": "Test Event",
+            "workorder": {
+                "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                "value": "61"
+            },
+            "location": "",
+            "status": {
+                "text": "Confirmed",
+                "value": "CONFIRMED",
+                "code": "bg-success"
+            },
+            "date": {
+                "recurrence": "one time event on 9/17/2024",
+                "start": "2024-09-17",
+                "end": "2024-09-17"
+            },
+            "time": {
+                "start": "05:00",
+                "end": "06:00"
+            },
+            "priority": {
+                "text": "Medium",
+                "value": "2",
+                "code": "#dfcf02"
+            },
+            "note": "Test Event",
+            "url": "/app/crm/calendar/event.nl?id=100805&compid=TSTDRV2617106&selectedtab=custom337",
+            "color": "#1a6756",
+            "woRef": {},
+            "resources": [],
+            "items": [],
+            "contacts": [],
+            "addresses": [],
+            "contact": {
+                "text": "",
+                "value": ""
+            },
+            "address": {
+                "text": "",
+                "value": ""
+            }
+        }, {
+            "id": "100806",
+            "title": "Test Event",
+            "workorder": {
+                "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                "value": "61"
+            },
+            "location": "",
+            "status": {
+                "text": "Confirmed",
+                "value": "CONFIRMED",
+                "code": "bg-success"
+            },
+            "date": {
+                "recurrence": "one time event on 9/17/2024",
+                "start": "2024-09-17",
+                "end": "2024-09-17"
+            },
+            "time": {
+                "start": "05:00",
+                "end": "06:00"
+            },
+            "priority": {
+                "text": "Medium",
+                "value": "2",
+                "code": "#dfcf02"
+            },
+            "note": "Test Event",
+            "url": "/app/crm/calendar/event.nl?id=100806&compid=TSTDRV2617106&selectedtab=custom337",
+            "color": "#1a6756",
+            "woRef": {},
+            "resources": [],
+            "items": [],
+            "contacts": [],
+            "addresses": [],
+            "contact": {
+                "text": "",
+                "value": ""
+            },
+            "address": {
+                "text": "",
+                "value": ""
+            }
+        }, {
+            "id": "100806",
+            "title": "Test Event",
+            "workorder": {
+                "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                "value": "61"
+            },
+            "location": "",
+            "status": {
+                "text": "Confirmed",
+                "value": "CONFIRMED",
+                "code": "bg-success"
+            },
+            "date": {
+                "recurrence": "one time event on 9/17/2024",
+                "start": "2024-09-17",
+                "end": "2024-09-17"
+            },
+            "time": {
+                "start": "05:00",
+                "end": "06:00"
+            },
+            "priority": {
+                "text": "Medium",
+                "value": "2",
+                "code": "#dfcf02"
+            },
+            "note": "Test Event",
+            "url": "/app/crm/calendar/event.nl?id=100806&compid=TSTDRV2617106&selectedtab=custom337",
+            "color": "#1a6756",
+            "woRef": {},
+            "resources": [],
+            "items": [],
+            "contacts": [],
+            "addresses": [],
+            "contact": {
+                "text": "",
+                "value": ""
+            },
+            "address": {
+                "text": "",
+                "value": ""
+            }
+        }, {
+            "id": "100807",
+            "title": "Test Event",
+            "workorder": {
+                "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                "value": "61"
+            },
+            "location": "",
+            "status": {
+                "text": "Confirmed",
+                "value": "CONFIRMED",
+                "code": "bg-success"
+            },
+            "date": {
+                "recurrence": "one time event on 9/17/2024",
+                "start": "2024-09-17",
+                "end": "2024-09-17"
+            },
+            "time": {
+                "start": "05:00",
+                "end": "06:00"
+            },
+            "priority": {
+                "text": "Medium",
+                "value": "2",
+                "code": "#dfcf02"
+            },
+            "note": "Test Event",
+            "url": "/app/crm/calendar/event.nl?id=100807&compid=TSTDRV2617106&selectedtab=custom337",
+            "color": "#1a6756",
+            "woRef": {},
+            "resources": [],
+            "items": [],
+            "contacts": [],
+            "addresses": [],
+            "contact": {
+                "text": "",
+                "value": ""
+            },
+            "address": {
+                "text": "",
+                "value": ""
+            }
+        }, {
+            "id": "100807",
+            "title": "Test Event",
+            "workorder": {
+                "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                "value": "61"
+            },
+            "location": "",
+            "status": {
+                "text": "Confirmed",
+                "value": "CONFIRMED",
+                "code": "bg-success"
+            },
+            "date": {
+                "recurrence": "one time event on 9/17/2024",
+                "start": "2024-09-17",
+                "end": "2024-09-17"
+            },
+            "time": {
+                "start": "05:00",
+                "end": "06:00"
+            },
+            "priority": {
+                "text": "Medium",
+                "value": "2",
+                "code": "#dfcf02"
+            },
+            "note": "Test Event",
+            "url": "/app/crm/calendar/event.nl?id=100807&compid=TSTDRV2617106&selectedtab=custom337",
+            "color": "#1a6756",
+            "woRef": {},
+            "resources": [],
+            "items": [],
+            "contacts": [],
+            "addresses": [],
+            "contact": {
+                "text": "",
+                "value": ""
+            },
+            "address": {
+                "text": "",
+                "value": ""
+            }
+        }, {
+            "id": "100808",
+            "title": "Test Submit Event 2",
+            "workorder": {
+                "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                "value": "61"
+            },
+            "location": "",
+            "status": {
+                "text": "Confirmed",
+                "value": "CONFIRMED",
+                "code": "bg-success"
+            },
+            "date": {
+                "recurrence": "one time event on 9/17/2024",
+                "start": "2024-09-17",
+                "end": "2024-09-17"
+            },
+            "time": {
+                "start": "08:00",
+                "end": "09:00"
+            },
+            "priority": {
+                "text": "Low",
+                "value": "1",
+                "code": "#026adf"
+            },
+            "note": "Test Submit Event 2",
+            "url": "/app/crm/calendar/event.nl?id=100808&compid=TSTDRV2617106&selectedtab=custom337",
+            "color": "#1a6756",
+            "woRef": {},
+            "resources": [],
+            "items": [],
+            "contacts": [],
+            "addresses": [],
+            "contact": {
+                "text": "",
+                "value": ""
+            },
+            "address": {
+                "text": "",
+                "value": ""
+            }
+        }, {
+            "id": "100808",
+            "title": "Test Submit Event 2",
+            "workorder": {
+                "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                "value": "61"
+            },
+            "location": "",
+            "status": {
+                "text": "Confirmed",
+                "value": "CONFIRMED",
+                "code": "bg-success"
+            },
+            "date": {
+                "recurrence": "one time event on 9/17/2024",
+                "start": "2024-09-17",
+                "end": "2024-09-17"
+            },
+            "time": {
+                "start": "08:00",
+                "end": "09:00"
+            },
+            "priority": {
+                "text": "Low",
+                "value": "1",
+                "code": "#026adf"
+            },
+            "note": "Test Submit Event 2",
+            "url": "/app/crm/calendar/event.nl?id=100808&compid=TSTDRV2617106&selectedtab=custom337",
+            "color": "#1a6756",
+            "woRef": {},
+            "resources": [],
+            "items": [],
+            "contacts": [],
+            "addresses": [],
+            "contact": {
+                "text": "",
+                "value": ""
+            },
+            "address": {
+                "text": "",
+                "value": ""
+            }
+        }, {
+            "id": "100809",
+            "title": "Test Event Submission 3",
+            "workorder": {
+                "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                "value": "61"
+            },
+            "location": "",
+            "status": {
+                "text": "Confirmed",
+                "value": "CONFIRMED",
+                "code": "bg-success"
+            },
+            "date": {
+                "recurrence": "one time event on 9/17/2024",
+                "start": "2024-09-17",
+                "end": "2024-09-17"
+            },
+            "time": {
+                "start": "08:00",
+                "end": "09:00"
+            },
+            "priority": {
+                "text": "Medium",
+                "value": "2",
+                "code": "#dfcf02"
+            },
+            "note": "Test Event Submission 3",
+            "url": "/app/crm/calendar/event.nl?id=100809&compid=TSTDRV2617106&selectedtab=custom337",
+            "color": "#1a6756",
+            "woRef": {},
+            "resources": [],
+            "items": [],
+            "contacts": [],
+            "addresses": [],
+            "contact": {
+                "text": "",
+                "value": ""
+            },
+            "address": {
+                "text": "",
+                "value": ""
+            }
+        }, {
+            "id": "100809",
+            "title": "Test Event Submission 3",
+            "workorder": {
+                "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                "value": "61"
+            },
+            "location": "",
+            "status": {
+                "text": "Confirmed",
+                "value": "CONFIRMED",
+                "code": "bg-success"
+            },
+            "date": {
+                "recurrence": "one time event on 9/17/2024",
+                "start": "2024-09-17",
+                "end": "2024-09-17"
+            },
+            "time": {
+                "start": "08:00",
+                "end": "09:00"
+            },
+            "priority": {
+                "text": "Medium",
+                "value": "2",
+                "code": "#dfcf02"
+            },
+            "note": "Test Event Submission 3",
+            "url": "/app/crm/calendar/event.nl?id=100809&compid=TSTDRV2617106&selectedtab=custom337",
+            "color": "#1a6756",
+            "woRef": {},
+            "resources": [],
+            "items": [],
+            "contacts": [],
+            "addresses": [],
+            "contact": {
+                "text": "",
+                "value": ""
+            },
+            "address": {
+                "text": "",
+                "value": ""
+            }
+        }, {
+            "id": "100810",
+            "title": "Sample Event Submission 4",
+            "workorder": {
+                "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                "value": "61"
+            },
+            "location": "",
+            "status": {
+                "text": "Confirmed",
+                "value": "CONFIRMED",
+                "code": "bg-success"
+            },
+            "date": {
+                "recurrence": "one time event on 9/17/2024",
+                "start": "2024-09-17",
+                "end": "2024-09-17"
+            },
+            "time": {
+                "start": "09:00",
+                "end": "10:00"
+            },
+            "priority": {
+                "text": "Medium",
+                "value": "2",
+                "code": "#dfcf02"
+            },
+            "note": "Sample Event Submission 4",
+            "url": "/app/crm/calendar/event.nl?id=100810&compid=TSTDRV2617106&selectedtab=custom337",
+            "color": "#1a6756",
+            "woRef": {},
+            "resources": [],
+            "items": [],
+            "contacts": [],
+            "addresses": [],
+            "contact": {
+                "text": "",
+                "value": ""
+            },
+            "address": {
+                "text": "",
+                "value": ""
+            }
+        }, {
+            "id": "100810",
+            "title": "Sample Event Submission 4",
+            "workorder": {
+                "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                "value": "61"
+            },
+            "location": "",
+            "status": {
+                "text": "Confirmed",
+                "value": "CONFIRMED",
+                "code": "bg-success"
+            },
+            "date": {
+                "recurrence": "one time event on 9/17/2024",
+                "start": "2024-09-17",
+                "end": "2024-09-17"
+            },
+            "time": {
+                "start": "09:00",
+                "end": "10:00"
+            },
+            "priority": {
+                "text": "Medium",
+                "value": "2",
+                "code": "#dfcf02"
+            },
+            "note": "Sample Event Submission 4",
+            "url": "/app/crm/calendar/event.nl?id=100810&compid=TSTDRV2617106&selectedtab=custom337",
+            "color": "#1a6756",
+            "woRef": {},
+            "resources": [],
+            "items": [],
+            "contacts": [],
+            "addresses": [],
+            "contact": {
+                "text": "",
+                "value": ""
+            },
+            "address": {
+                "text": "",
+                "value": ""
+            }
+        }, {
+            "id": "100811",
+            "title": "Test Event Submission 4",
+            "workorder": {
+                "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                "value": "61"
+            },
+            "location": "",
+            "status": {
+                "text": "Confirmed",
+                "value": "CONFIRMED",
+                "code": "bg-success"
+            },
+            "date": {
+                "recurrence": "one time event on 9/17/2024",
+                "start": "2024-09-17",
+                "end": "2024-09-17"
+            },
+            "time": {
+                "start": "09:00",
+                "end": "10:00"
+            },
+            "priority": {
+                "text": "Low",
+                "value": "1",
+                "code": "#026adf"
+            },
+            "note": "Test Event Submission 5",
+            "url": "/app/crm/calendar/event.nl?id=100811&compid=TSTDRV2617106&selectedtab=custom337",
+            "color": "#1a6756",
+            "woRef": {},
+            "resources": [],
+            "items": [],
+            "contacts": [],
+            "addresses": [],
+            "contact": {
+                "text": "",
+                "value": ""
+            },
+            "address": {
+                "text": "",
+                "value": ""
+            }
+        }, {
+            "id": "100811",
+            "title": "Test Event Submission 4",
+            "workorder": {
+                "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                "value": "61"
+            },
+            "location": "",
+            "status": {
+                "text": "Confirmed",
+                "value": "CONFIRMED",
+                "code": "bg-success"
+            },
+            "date": {
+                "recurrence": "one time event on 9/17/2024",
+                "start": "2024-09-17",
+                "end": "2024-09-17"
+            },
+            "time": {
+                "start": "09:00",
+                "end": "10:00"
+            },
+            "priority": {
+                "text": "Low",
+                "value": "1",
+                "code": "#026adf"
+            },
+            "note": "Test Event Submission 5",
+            "url": "/app/crm/calendar/event.nl?id=100811&compid=TSTDRV2617106&selectedtab=custom337",
+            "color": "#1a6756",
+            "woRef": {},
+            "resources": [],
+            "items": [],
+            "contacts": [],
+            "addresses": [],
+            "contact": {
+                "text": "",
+                "value": ""
+            },
+            "address": {
+                "text": "",
+                "value": ""
+            }
+        }, {
+            "id": "100812",
+            "title": "Test Sample Event Submission 5",
+            "workorder": {
+                "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                "value": "61"
+            },
+            "location": "",
+            "status": {
+                "text": "Confirmed",
+                "value": "CONFIRMED",
+                "code": "bg-success"
+            },
+            "date": {
+                "recurrence": "one time event on 9/17/2024",
+                "start": "2024-09-17",
+                "end": "2024-09-17"
+            },
+            "time": {
+                "start": "09:00",
+                "end": "10:00"
+            },
+            "priority": {
+                "text": "Low",
+                "value": "1",
+                "code": "#026adf"
+            },
+            "note": "Test Sample Event Submission 5",
+            "url": "/app/crm/calendar/event.nl?id=100812&compid=TSTDRV2617106&selectedtab=custom337",
+            "color": "#1a6756",
+            "woRef": {},
+            "resources": [],
+            "items": [],
+            "contacts": [],
+            "addresses": [],
+            "contact": {
+                "text": "",
+                "value": ""
+            },
+            "address": {
+                "text": "",
+                "value": ""
+            }
+        }, {
+            "id": "100812",
+            "title": "Test Sample Event Submission 5",
+            "workorder": {
+                "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                "value": "61"
+            },
+            "location": "",
+            "status": {
+                "text": "Confirmed",
+                "value": "CONFIRMED",
+                "code": "bg-success"
+            },
+            "date": {
+                "recurrence": "one time event on 9/17/2024",
+                "start": "2024-09-17",
+                "end": "2024-09-17"
+            },
+            "time": {
+                "start": "09:00",
+                "end": "10:00"
+            },
+            "priority": {
+                "text": "Low",
+                "value": "1",
+                "code": "#026adf"
+            },
+            "note": "Test Sample Event Submission 5",
+            "url": "/app/crm/calendar/event.nl?id=100812&compid=TSTDRV2617106&selectedtab=custom337",
+            "color": "#1a6756",
+            "woRef": {},
+            "resources": [],
+            "items": [],
+            "contacts": [],
+            "addresses": [],
+            "contact": {
+                "text": "",
+                "value": ""
+            },
+            "address": {
+                "text": "",
+                "value": ""
+            }
+        }, {
+            "id": "100813",
+            "title": "Sample Work Order - Mei - DO NOT USE - 61",
+            "workorder": {
+                "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                "value": "61"
+            },
+            "location": "",
+            "status": {
+                "text": "Tentative",
+                "value": "TENTATIVE",
+                "code": "bg-secondary"
+            },
+            "date": {
+                "recurrence": "occurs every day from 9/18/2024 until 9/20/2024",
+                "start": "2024-09-18",
+                "end": "2024-09-20"
+            },
+            "time": {
+                "start": "08:00",
+                "end": "18:00"
+            },
+            "priority": {
+                "text": "Low",
+                "value": "1",
+                "code": "#026adf"
+            },
+            "note": "TEST 12345",
+            "url": "/app/crm/calendar/event.nl?id=100813&compid=TSTDRV2617106&selectedtab=custom337",
+            "color": "#1a6756",
+            "woRef": {},
+            "resources": [],
+            "items": [],
+            "contacts": [],
+            "addresses": [],
+            "contact": {
+                "text": "44",
+                "value": "44"
+            },
+            "address": {
+                "text": "45",
+                "value": "45"
+            }
+        }],
         "projectUrl": "/app/accounting/project/project.nl?id=1883&compid=TSTDRV2617106",
         "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=61&compid=TSTDRV2617106",
         "soUrl": "/app/accounting/transactions/salesord.nl?id=17729&compid=TSTDRV2617106",
@@ -740,7 +1588,91 @@ const mockup = {
         "items": [],
         "addresses": [],
         "contacts": [],
-        "events": [],
+        "events": [{
+            "id": "100799",
+            "title": "Test Event 12 Sep",
+            "workorder": {
+                "text": "Test Work Order 12 Sep",
+                "value": "51"
+            },
+            "location": "",
+            "status": {
+                "text": "Confirmed",
+                "value": "CONFIRMED",
+                "code": "bg-success"
+            },
+            "date": {
+                "recurrence": "one time event on 9/12/2024",
+                "start": "2024-09-12",
+                "end": "2024-09-12"
+            },
+            "time": {
+                "start": "09:00",
+                "end": "10:00"
+            },
+            "priority": {
+                "text": "",
+                "value": ""
+            },
+            "note": "",
+            "url": "/app/crm/calendar/event.nl?id=100799&compid=TSTDRV2617106&selectedtab=custom337",
+            "color": "#1a6756",
+            "woRef": {},
+            "resources": [],
+            "items": [],
+            "contacts": [],
+            "addresses": [],
+            "contact": {
+                "text": "",
+                "value": ""
+            },
+            "address": {
+                "text": "",
+                "value": ""
+            }
+        }, {
+            "id": "100804",
+            "title": "Test Event 17 Sep",
+            "workorder": {
+                "text": "Test Work Order 12 Sep",
+                "value": "51"
+            },
+            "location": "",
+            "status": {
+                "text": "Confirmed",
+                "value": "CONFIRMED",
+                "code": "bg-success"
+            },
+            "date": {
+                "recurrence": "one time event on 9/17/2024",
+                "start": "2024-09-17",
+                "end": "2024-09-17"
+            },
+            "time": {
+                "start": "07:00",
+                "end": "08:00"
+            },
+            "priority": {
+                "text": "",
+                "value": ""
+            },
+            "note": "",
+            "url": "/app/crm/calendar/event.nl?id=100804&compid=TSTDRV2617106&selectedtab=custom337",
+            "color": "#1a6756",
+            "woRef": {},
+            "resources": [],
+            "items": [],
+            "contacts": [],
+            "addresses": [],
+            "contact": {
+                "text": "",
+                "value": ""
+            },
+            "address": {
+                "text": "",
+                "value": ""
+            }
+        }],
         "projectUrl": "/app/accounting/project/project.nl?compid=TSTDRV2617106",
         "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=51&compid=TSTDRV2617106",
         "soUrl": "/app/accounting/transactions/salesord.nl?compid=TSTDRV2617106",
@@ -977,6 +1909,134 @@ const mockup = {
             },
             "note": "",
             "url": "/app/crm/calendar/event.nl?id=100782&compid=TSTDRV2617106&selectedtab=custom337",
+            "color": "#1a6756",
+            "woRef": {},
+            "resources": [],
+            "items": [],
+            "contacts": [],
+            "addresses": [],
+            "contact": {
+                "text": "",
+                "value": ""
+            },
+            "address": {
+                "text": "",
+                "value": ""
+            }
+        }, {
+            "id": "100800",
+            "title": "Sample Event",
+            "workorder": {
+                "text": "Work Order Test - Sept 12 - Mei",
+                "value": "49"
+            },
+            "location": "",
+            "status": {
+                "text": "Confirmed",
+                "value": "CONFIRMED",
+                "code": "bg-success"
+            },
+            "date": {
+                "recurrence": "one time event on 9/12/2024",
+                "start": "2024-09-12",
+                "end": "2024-09-12"
+            },
+            "time": {
+                "start": "13:00",
+                "end": "14:00"
+            },
+            "priority": {
+                "text": "Medium",
+                "value": "2",
+                "code": "#dfcf02"
+            },
+            "note": "Sample Event",
+            "url": "/app/crm/calendar/event.nl?id=100800&compid=TSTDRV2617106&selectedtab=custom337",
+            "color": "#1a6756",
+            "woRef": {},
+            "resources": [],
+            "items": [],
+            "contacts": [],
+            "addresses": [],
+            "contact": {
+                "text": "",
+                "value": ""
+            },
+            "address": {
+                "text": "",
+                "value": ""
+            }
+        }, {
+            "id": "100800",
+            "title": "Sample Event",
+            "workorder": {
+                "text": "Work Order Test - Sept 12 - Mei",
+                "value": "49"
+            },
+            "location": "",
+            "status": {
+                "text": "Confirmed",
+                "value": "CONFIRMED",
+                "code": "bg-success"
+            },
+            "date": {
+                "recurrence": "one time event on 9/12/2024",
+                "start": "2024-09-12",
+                "end": "2024-09-12"
+            },
+            "time": {
+                "start": "13:00",
+                "end": "14:00"
+            },
+            "priority": {
+                "text": "Medium",
+                "value": "2",
+                "code": "#dfcf02"
+            },
+            "note": "Sample Event",
+            "url": "/app/crm/calendar/event.nl?id=100800&compid=TSTDRV2617106&selectedtab=custom337",
+            "color": "#1a6756",
+            "woRef": {},
+            "resources": [],
+            "items": [],
+            "contacts": [],
+            "addresses": [],
+            "contact": {
+                "text": "",
+                "value": ""
+            },
+            "address": {
+                "text": "",
+                "value": ""
+            }
+        }, {
+            "id": "100801",
+            "title": "Test",
+            "workorder": {
+                "text": "Work Order Test - Sept 12 - Mei",
+                "value": "49"
+            },
+            "location": "",
+            "status": {
+                "text": "Confirmed",
+                "value": "CONFIRMED",
+                "code": "bg-success"
+            },
+            "date": {
+                "recurrence": "one time event on 9/13/2024",
+                "start": "2024-09-13",
+                "end": "2024-09-13"
+            },
+            "time": {
+                "start": "11:00",
+                "end": "12:00"
+            },
+            "priority": {
+                "text": "",
+                "value": ""
+            },
+            "note": "",
+            "url": "/app/crm/calendar/event.nl?id=100801&compid=TSTDRV2617106&selectedtab=custom337",
             "color": "#1a6756",
             "woRef": {},
             "resources": [],
@@ -3485,6 +4545,49 @@ const mockup = {
                 "value": ""
             }
         }, {
+            "id": "100724",
+            "title": "AV Installation and Pickup",
+            "workorder": {
+                "text": "Test",
+                "value": "31"
+            },
+            "location": "01: San Francisco",
+            "status": {
+                "text": "Confirmed",
+                "value": "CONFIRMED",
+                "code": "bg-success"
+            },
+            "date": {
+                "recurrence": "one time event on 7/21/2024",
+                "start": "2024-07-21",
+                "end": "2024-07-21"
+            },
+            "time": {
+                "start": "08:00",
+                "end": "18:00"
+            },
+            "priority": {
+                "text": "Low",
+                "value": "1",
+                "code": "#026adf"
+            },
+            "note": "",
+            "url": "/app/crm/calendar/event.nl?id=100724&compid=TSTDRV2617106&selectedtab=custom337",
+            "color": "#1a6756",
+            "woRef": {},
+            "resources": [],
+            "items": [],
+            "contacts": [],
+            "addresses": [],
+            "contact": {
+                "text": "",
+                "value": ""
+            },
+            "address": {
+                "text": "",
+                "value": ""
+            }
+        }, {
             "id": "100749",
             "title": "Test",
             "workorder": {
@@ -4639,7 +5742,179 @@ const mockup = {
             "primary": "",
             "url": "/app/common/entity/contact.nl?id=1382&compid=TSTDRV2617106"
         }],
-        "events": [],
+        "events": [{
+            "id": "100684",
+            "title": "Install Walls Event Test",
+            "workorder": {
+                "text": "Install Walls Test Work Order",
+                "value": "15"
+            },
+            "location": "",
+            "status": {
+                "text": "Confirmed",
+                "value": "CONFIRMED",
+                "code": "bg-success"
+            },
+            "date": {
+                "recurrence": "one time event on 7/8/2024",
+                "start": "2024-07-08",
+                "end": "2024-07-08"
+            },
+            "time": {
+                "start": "05:00",
+                "end": "06:00"
+            },
+            "priority": {
+                "text": "Urgent",
+                "value": "4",
+                "code": "#9a2407"
+            },
+            "note": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus id malesuada enim, sed fringilla turpis. Nullam sed viverra risus. Fusce maximus sapien et neque elementum, et feugiat orci efficitur. Suspendisse faucibus lacus id justo tempus tempor.",
+            "url": "/app/crm/calendar/event.nl?id=100684&compid=TSTDRV2617106&selectedtab=custom337",
+            "color": "#1a6756",
+            "woRef": {},
+            "resources": [],
+            "items": [],
+            "contacts": [],
+            "addresses": [],
+            "contact": {
+                "text": "",
+                "value": ""
+            },
+            "address": {
+                "text": "",
+                "value": ""
+            }
+        }, {
+            "id": "100686",
+            "title": "Sample Event 2",
+            "workorder": {
+                "text": "Install Walls Test Work Order",
+                "value": "15"
+            },
+            "location": "",
+            "status": {
+                "text": "Confirmed",
+                "value": "CONFIRMED",
+                "code": "bg-success"
+            },
+            "date": {
+                "recurrence": "one time event on 7/8/2024",
+                "start": "2024-07-08",
+                "end": "2024-07-08"
+            },
+            "time": {
+                "start": "08:00",
+                "end": "09:00"
+            },
+            "priority": {
+                "text": "High",
+                "value": "3",
+                "code": "#ca6621"
+            },
+            "note": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus id malesuada enim, sed fringilla turpis. Nullam sed viverra risus. Fusce maximus sapien et neque elementum, et feugiat orci efficitur. Suspendisse faucibus lacus id justo tempus tempor.",
+            "url": "/app/crm/calendar/event.nl?id=100686&compid=TSTDRV2617106&selectedtab=custom337",
+            "color": "#1a6756",
+            "woRef": {},
+            "resources": [],
+            "items": [],
+            "contacts": [],
+            "addresses": [],
+            "contact": {
+                "text": "",
+                "value": ""
+            },
+            "address": {
+                "text": "",
+                "value": ""
+            }
+        }, {
+            "id": "100720",
+            "title": "Sample Event 3",
+            "workorder": {
+                "text": "Install Walls Test Work Order",
+                "value": "15"
+            },
+            "location": "",
+            "status": {
+                "text": "Confirmed",
+                "value": "CONFIRMED",
+                "code": "bg-success"
+            },
+            "date": {
+                "recurrence": "one time event on 7/8/2024",
+                "start": "2024-07-08",
+                "end": "2024-07-08"
+            },
+            "time": {
+                "start": "03:00",
+                "end": "04:00"
+            },
+            "priority": {
+                "text": "High",
+                "value": "3",
+                "code": "#ca6621"
+            },
+            "note": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus id malesuada enim, sed fringilla turpis. Nullam sed viverra risus. Fusce maximus sapien et neque elementum, et feugiat orci efficitur. Suspendisse faucibus lacus id justo tempus tempor.",
+            "url": "/app/crm/calendar/event.nl?id=100720&compid=TSTDRV2617106&selectedtab=custom337",
+            "color": "#1a6756",
+            "woRef": {},
+            "resources": [],
+            "items": [],
+            "contacts": [],
+            "addresses": [],
+            "contact": {
+                "text": "",
+                "value": ""
+            },
+            "address": {
+                "text": "",
+                "value": ""
+            }
+        }, {
+            "id": "100721",
+            "title": "Sample Event for Work Order",
+            "workorder": {
+                "text": "Install Walls Test Work Order",
+                "value": "15"
+            },
+            "location": "",
+            "status": {
+                "text": "Confirmed",
+                "value": "CONFIRMED",
+                "code": "bg-success"
+            },
+            "date": {
+                "recurrence": "one time event on 7/8/2024",
+                "start": "2024-07-08",
+                "end": "2024-07-08"
+            },
+            "time": {
+                "start": "13:00",
+                "end": "14:00"
+            },
+            "priority": {
+                "text": "Medium",
+                "value": "2",
+                "code": "#dfcf02"
+            },
+            "note": "Sample Event for Work Order",
+            "url": "/app/crm/calendar/event.nl?id=100721&compid=TSTDRV2617106&selectedtab=custom337",
+            "color": "#1a6756",
+            "woRef": {},
+            "resources": [],
+            "items": [],
+            "contacts": [],
+            "addresses": [],
+            "contact": {
+                "text": "",
+                "value": ""
+            },
+            "address": {
+                "text": "",
+                "value": ""
+            }
+        }],
         "projectUrl": "/app/accounting/project/project.nl?id=1515&compid=TSTDRV2617106",
         "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=15&compid=TSTDRV2617106",
         "soUrl": "/app/accounting/transactions/salesord.nl?id=11722&compid=TSTDRV2617106",
@@ -5806,6 +7081,90 @@ const mockup = {
                 "value": ""
             }
         }, {
+            "id": "100751",
+            "title": "Furniture Installer",
+            "workorder": {
+                "text": "Install Furniture",
+                "value": "1"
+            },
+            "location": "",
+            "status": {
+                "text": "Confirmed",
+                "value": "CONFIRMED",
+                "code": "bg-success"
+            },
+            "date": {
+                "recurrence": "one time event on 8/12/2024",
+                "start": "2024-08-12",
+                "end": "2024-08-12"
+            },
+            "time": {
+                "start": "15:00",
+                "end": "16:00"
+            },
+            "priority": {
+                "text": "",
+                "value": ""
+            },
+            "note": "",
+            "url": "/app/crm/calendar/event.nl?id=100751&compid=TSTDRV2617106&selectedtab=custom337",
+            "color": "#1a6756",
+            "woRef": {},
+            "resources": [],
+            "items": [],
+            "contacts": [],
+            "addresses": [],
+            "contact": {
+                "text": "",
+                "value": ""
+            },
+            "address": {
+                "text": "",
+                "value": ""
+            }
+        }, {
+            "id": "100751",
+            "title": "Furniture Installer",
+            "workorder": {
+                "text": "Install Furniture",
+                "value": "1"
+            },
+            "location": "",
+            "status": {
+                "text": "Confirmed",
+                "value": "CONFIRMED",
+                "code": "bg-success"
+            },
+            "date": {
+                "recurrence": "one time event on 8/12/2024",
+                "start": "2024-08-12",
+                "end": "2024-08-12"
+            },
+            "time": {
+                "start": "15:00",
+                "end": "16:00"
+            },
+            "priority": {
+                "text": "",
+                "value": ""
+            },
+            "note": "",
+            "url": "/app/crm/calendar/event.nl?id=100751&compid=TSTDRV2617106&selectedtab=custom337",
+            "color": "#1a6756",
+            "woRef": {},
+            "resources": [],
+            "items": [],
+            "contacts": [],
+            "addresses": [],
+            "contact": {
+                "text": "",
+                "value": ""
+            },
+            "address": {
+                "text": "",
+                "value": ""
+            }
+        }, {
             "id": "100792",
             "title": "Install Furniture XYZ",
             "workorder": {
@@ -5941,6 +7300,9 @@ const mockup = {
         "esthours": "10"
     }],
     "customers": [{
+        "text": "Pravallika",
+        "value": "2008"
+    }, {
         "text": "AB&I Holdings",
         "value": "1249"
     }, {
@@ -5983,7 +7345,7 @@ const mockup = {
             },
             "color": "#554de2",
             "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fcompid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-            "events": ["100682", "100803"]
+            "events": ["100682", "100813"]
         }, {
             "employee": {
                 "text": "Bonita Kane",
@@ -6007,7 +7369,7 @@ const mockup = {
             },
             "color": "#cbb24c",
             "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fcompid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-            "events": []
+            "events": ["100813"]
         }, {
             "employee": {
                 "text": "Gary Grant",
@@ -6151,7 +7513,7 @@ const mockup = {
             },
             "color": "#554de2",
             "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fcompid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-            "events": ["100682", "100803"]
+            "events": ["100682", "100813"]
         }, {
             "employee": {
                 "text": "Bonita Kane",
@@ -6175,7 +7537,7 @@ const mockup = {
             },
             "color": "#cbb24c",
             "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fcompid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-            "events": []
+            "events": ["100813"]
         }, {
             "employee": {
                 "text": "Gary Grant",
@@ -6299,7 +7661,7 @@ const mockup = {
             },
             "color": "#cbb24c",
             "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fcompid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-            "events": []
+            "events": ["100813"]
         }, {
             "employee": {
                 "text": "Gary Grant",
@@ -6452,7 +7814,7 @@ const mockup = {
             },
             "color": "#554de2",
             "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fcompid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-            "events": ["100682", "100803"]
+            "events": ["100682", "100813"]
         }],
         "resourceCount": 1
     }],
@@ -6694,6 +8056,90 @@ const mockup = {
                     "value": ""
                 }
             }, {
+                "id": "100751",
+                "title": "Furniture Installer",
+                "workorder": {
+                    "text": "Install Furniture",
+                    "value": "1"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 8/12/2024",
+                    "start": "2024-08-12",
+                    "end": "2024-08-12"
+                },
+                "time": {
+                    "start": "15:00",
+                    "end": "16:00"
+                },
+                "priority": {
+                    "text": "",
+                    "value": ""
+                },
+                "note": "",
+                "url": "/app/crm/calendar/event.nl?id=100751&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100751",
+                "title": "Furniture Installer",
+                "workorder": {
+                    "text": "Install Furniture",
+                    "value": "1"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 8/12/2024",
+                    "start": "2024-08-12",
+                    "end": "2024-08-12"
+                },
+                "time": {
+                    "start": "15:00",
+                    "end": "16:00"
+                },
+                "priority": {
+                    "text": "",
+                    "value": ""
+                },
+                "note": "",
+                "url": "/app/crm/calendar/event.nl?id=100751&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
                 "id": "100792",
                 "title": "Install Furniture XYZ",
                 "workorder": {
@@ -6851,7 +8297,7 @@ const mockup = {
             },
             "color": "#554de2",
             "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fcompid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-            "events": ["100682", "100803"],
+            "events": ["100682", "100813"],
             "selected": true
         }],
         "items": [],
@@ -6879,6 +8325,684 @@ const mockup = {
         "contact": {
             "text": "1",
             "value": "1"
+        },
+        "address": {
+            "text": "",
+            "value": ""
+        }
+    }, {
+        "id": "100684",
+        "title": "Install Walls Event Test",
+        "workorder": {
+            "text": "Install Walls Test Work Order",
+            "value": "15"
+        },
+        "location": "",
+        "status": {
+            "text": "Confirmed",
+            "value": "CONFIRMED",
+            "code": "bg-success"
+        },
+        "date": {
+            "recurrence": "one time event on 7/8/2024",
+            "start": "2024-07-08",
+            "end": "2024-07-08"
+        },
+        "time": {
+            "start": "05:00",
+            "end": "06:00"
+        },
+        "priority": {
+            "text": "Urgent",
+            "value": "4",
+            "code": "#9a2407"
+        },
+        "note": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus id malesuada enim, sed fringilla turpis. Nullam sed viverra risus. Fusce maximus sapien et neque elementum, et feugiat orci efficitur. Suspendisse faucibus lacus id justo tempus tempor.",
+        "url": "/app/crm/calendar/event.nl?id=100684&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {
+            "id": "15",
+            "name": "Install Walls Test Work Order",
+            "title": "Install Walls Test Work Order",
+            "project": {
+                "text": "AB&I Holdings : Parking Lot Construction",
+                "value": "1515"
+            },
+            "date": "7/8/2024",
+            "status": {
+                "text": "In Progress",
+                "value": "1",
+                "code": "#026adf"
+            },
+            "type": {
+                "text": "Demo",
+                "value": "1"
+            },
+            "memo": "<p><span style=\"color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);\">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus id malesuada enim, sed fringilla turpis. Nullam sed viverra risus. Fusce maximus sapien et neque elementum, et feugiat orci efficitur. Suspendisse faucibus lacus id justo tempus tempor.</span></p><p></p><p><span style=\"color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);\">Vestibulum vehicula, libero sed interdum lobortis, nisi dolor tincidunt leo, vel accumsan erat mi et justo. Proin consectetur felis semper varius viverra. Nam neque nulla, feugiat ac tempor in, aliquet sed enim.</span></p><p></p><p><strong style=\"color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);\">Fusce mattis, diam non tempus lacinia, diam eros semper mauris, a egestas lacus libero eget sapien. Donec convallis sit amet velit non euismod.</strong></p>",
+            "salesorder": {
+                "text": "Sales Order #SLS00000609",
+                "value": "11722"
+            },
+            "customer": {
+                "text": "AB&I Holdings",
+                "value": "1249"
+            },
+            "resourceGroup": {
+                "text": "",
+                "value": ""
+            },
+            "priority": "",
+            "resources": [],
+            "items": [{
+                "id": "15",
+                "workorder": {
+                    "text": "Install Walls Test Work Order",
+                    "value": "15"
+                },
+                "events": [],
+                "uuid": "11722_1",
+                "line": "1",
+                "item": {
+                    "text": "4321GR",
+                    "value": "1015"
+                },
+                "description": "11 POCKET MAGAZINE RACK",
+                "quantity": 3,
+                "note": ""
+            }, {
+                "id": "17",
+                "workorder": {
+                    "text": "Install Walls Test Work Order",
+                    "value": "15"
+                },
+                "events": [],
+                "uuid": "11722_2",
+                "line": "2",
+                "item": {
+                    "text": "7031-0501",
+                    "value": "1047"
+                },
+                "description": "Friction Pad, Non-Carpeted Surfaces, Svc",
+                "quantity": 7,
+                "note": ""
+            }, {
+                "id": "18",
+                "workorder": {
+                    "text": "Install Walls Test Work Order",
+                    "value": "15"
+                },
+                "events": [],
+                "uuid": "11722_3",
+                "line": "3",
+                "item": {
+                    "text": "BAG00002",
+                    "value": "837"
+                },
+                "description": "Sling Laptop Bag",
+                "quantity": 20,
+                "note": ""
+            }],
+            "addresses": [{
+                "id": "8",
+                "workorder": {
+                    "text": "Install Walls Test Work Order",
+                    "value": "15"
+                },
+                "customer": {
+                    "text": "AB&I Holdings",
+                    "value": "1249"
+                },
+                "events": [],
+                "address": {
+                    "text": "1701 Rollins Road",
+                    "value": "244878"
+                },
+                "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+                "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+            }],
+            "contacts": [{
+                "id": "9",
+                "workorder": {
+                    "text": "Install Walls Test Work Order",
+                    "value": "15"
+                },
+                "events": [],
+                "contact": {
+                    "text": "AB&I Holdings : Chad Bass",
+                    "value": "1382"
+                },
+                "name": "Chad Bass",
+                "email": "cbass@sbi.com",
+                "jobTitle": "President",
+                "mobilePhone": "",
+                "phone": "",
+                "primary": "",
+                "url": "/app/common/entity/contact.nl?id=1382&compid=TSTDRV2617106"
+            }],
+            "events": [{
+                "id": "100684",
+                "title": "Install Walls Event Test",
+                "workorder": {
+                    "text": "Install Walls Test Work Order",
+                    "value": "15"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 7/8/2024",
+                    "start": "2024-07-08",
+                    "end": "2024-07-08"
+                },
+                "time": {
+                    "start": "05:00",
+                    "end": "06:00"
+                },
+                "priority": {
+                    "text": "Urgent",
+                    "value": "4",
+                    "code": "#9a2407"
+                },
+                "note": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus id malesuada enim, sed fringilla turpis. Nullam sed viverra risus. Fusce maximus sapien et neque elementum, et feugiat orci efficitur. Suspendisse faucibus lacus id justo tempus tempor.",
+                "url": "/app/crm/calendar/event.nl?id=100684&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100686",
+                "title": "Sample Event 2",
+                "workorder": {
+                    "text": "Install Walls Test Work Order",
+                    "value": "15"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 7/8/2024",
+                    "start": "2024-07-08",
+                    "end": "2024-07-08"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "09:00"
+                },
+                "priority": {
+                    "text": "High",
+                    "value": "3",
+                    "code": "#ca6621"
+                },
+                "note": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus id malesuada enim, sed fringilla turpis. Nullam sed viverra risus. Fusce maximus sapien et neque elementum, et feugiat orci efficitur. Suspendisse faucibus lacus id justo tempus tempor.",
+                "url": "/app/crm/calendar/event.nl?id=100686&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100720",
+                "title": "Sample Event 3",
+                "workorder": {
+                    "text": "Install Walls Test Work Order",
+                    "value": "15"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 7/8/2024",
+                    "start": "2024-07-08",
+                    "end": "2024-07-08"
+                },
+                "time": {
+                    "start": "03:00",
+                    "end": "04:00"
+                },
+                "priority": {
+                    "text": "High",
+                    "value": "3",
+                    "code": "#ca6621"
+                },
+                "note": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus id malesuada enim, sed fringilla turpis. Nullam sed viverra risus. Fusce maximus sapien et neque elementum, et feugiat orci efficitur. Suspendisse faucibus lacus id justo tempus tempor.",
+                "url": "/app/crm/calendar/event.nl?id=100720&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100721",
+                "title": "Sample Event for Work Order",
+                "workorder": {
+                    "text": "Install Walls Test Work Order",
+                    "value": "15"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 7/8/2024",
+                    "start": "2024-07-08",
+                    "end": "2024-07-08"
+                },
+                "time": {
+                    "start": "13:00",
+                    "end": "14:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Sample Event for Work Order",
+                "url": "/app/crm/calendar/event.nl?id=100721&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }],
+            "projectUrl": "/app/accounting/project/project.nl?id=1515&compid=TSTDRV2617106",
+            "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=15&compid=TSTDRV2617106",
+            "soUrl": "/app/accounting/transactions/salesord.nl?id=11722&compid=TSTDRV2617106",
+            "esthours": "300"
+        },
+        "resources": [],
+        "items": [],
+        "contacts": [],
+        "addresses": [],
+        "contact": {
+            "text": "",
+            "value": ""
+        },
+        "address": {
+            "text": "",
+            "value": ""
+        }
+    }, {
+        "id": "100686",
+        "title": "Sample Event 2",
+        "workorder": {
+            "text": "Install Walls Test Work Order",
+            "value": "15"
+        },
+        "location": "",
+        "status": {
+            "text": "Confirmed",
+            "value": "CONFIRMED",
+            "code": "bg-success"
+        },
+        "date": {
+            "recurrence": "one time event on 7/8/2024",
+            "start": "2024-07-08",
+            "end": "2024-07-08"
+        },
+        "time": {
+            "start": "08:00",
+            "end": "09:00"
+        },
+        "priority": {
+            "text": "High",
+            "value": "3",
+            "code": "#ca6621"
+        },
+        "note": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus id malesuada enim, sed fringilla turpis. Nullam sed viverra risus. Fusce maximus sapien et neque elementum, et feugiat orci efficitur. Suspendisse faucibus lacus id justo tempus tempor.",
+        "url": "/app/crm/calendar/event.nl?id=100686&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {
+            "id": "15",
+            "name": "Install Walls Test Work Order",
+            "title": "Install Walls Test Work Order",
+            "project": {
+                "text": "AB&I Holdings : Parking Lot Construction",
+                "value": "1515"
+            },
+            "date": "7/8/2024",
+            "status": {
+                "text": "In Progress",
+                "value": "1",
+                "code": "#026adf"
+            },
+            "type": {
+                "text": "Demo",
+                "value": "1"
+            },
+            "memo": "<p><span style=\"color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);\">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus id malesuada enim, sed fringilla turpis. Nullam sed viverra risus. Fusce maximus sapien et neque elementum, et feugiat orci efficitur. Suspendisse faucibus lacus id justo tempus tempor.</span></p><p></p><p><span style=\"color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);\">Vestibulum vehicula, libero sed interdum lobortis, nisi dolor tincidunt leo, vel accumsan erat mi et justo. Proin consectetur felis semper varius viverra. Nam neque nulla, feugiat ac tempor in, aliquet sed enim.</span></p><p></p><p><strong style=\"color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);\">Fusce mattis, diam non tempus lacinia, diam eros semper mauris, a egestas lacus libero eget sapien. Donec convallis sit amet velit non euismod.</strong></p>",
+            "salesorder": {
+                "text": "Sales Order #SLS00000609",
+                "value": "11722"
+            },
+            "customer": {
+                "text": "AB&I Holdings",
+                "value": "1249"
+            },
+            "resourceGroup": {
+                "text": "",
+                "value": ""
+            },
+            "priority": "",
+            "resources": [],
+            "items": [{
+                "id": "15",
+                "workorder": {
+                    "text": "Install Walls Test Work Order",
+                    "value": "15"
+                },
+                "events": [],
+                "uuid": "11722_1",
+                "line": "1",
+                "item": {
+                    "text": "4321GR",
+                    "value": "1015"
+                },
+                "description": "11 POCKET MAGAZINE RACK",
+                "quantity": 3,
+                "note": ""
+            }, {
+                "id": "17",
+                "workorder": {
+                    "text": "Install Walls Test Work Order",
+                    "value": "15"
+                },
+                "events": [],
+                "uuid": "11722_2",
+                "line": "2",
+                "item": {
+                    "text": "7031-0501",
+                    "value": "1047"
+                },
+                "description": "Friction Pad, Non-Carpeted Surfaces, Svc",
+                "quantity": 7,
+                "note": ""
+            }, {
+                "id": "18",
+                "workorder": {
+                    "text": "Install Walls Test Work Order",
+                    "value": "15"
+                },
+                "events": [],
+                "uuid": "11722_3",
+                "line": "3",
+                "item": {
+                    "text": "BAG00002",
+                    "value": "837"
+                },
+                "description": "Sling Laptop Bag",
+                "quantity": 20,
+                "note": ""
+            }],
+            "addresses": [{
+                "id": "8",
+                "workorder": {
+                    "text": "Install Walls Test Work Order",
+                    "value": "15"
+                },
+                "customer": {
+                    "text": "AB&I Holdings",
+                    "value": "1249"
+                },
+                "events": [],
+                "address": {
+                    "text": "1701 Rollins Road",
+                    "value": "244878"
+                },
+                "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+                "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+            }],
+            "contacts": [{
+                "id": "9",
+                "workorder": {
+                    "text": "Install Walls Test Work Order",
+                    "value": "15"
+                },
+                "events": [],
+                "contact": {
+                    "text": "AB&I Holdings : Chad Bass",
+                    "value": "1382"
+                },
+                "name": "Chad Bass",
+                "email": "cbass@sbi.com",
+                "jobTitle": "President",
+                "mobilePhone": "",
+                "phone": "",
+                "primary": "",
+                "url": "/app/common/entity/contact.nl?id=1382&compid=TSTDRV2617106"
+            }],
+            "events": [{
+                "id": "100684",
+                "title": "Install Walls Event Test",
+                "workorder": {
+                    "text": "Install Walls Test Work Order",
+                    "value": "15"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 7/8/2024",
+                    "start": "2024-07-08",
+                    "end": "2024-07-08"
+                },
+                "time": {
+                    "start": "05:00",
+                    "end": "06:00"
+                },
+                "priority": {
+                    "text": "Urgent",
+                    "value": "4",
+                    "code": "#9a2407"
+                },
+                "note": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus id malesuada enim, sed fringilla turpis. Nullam sed viverra risus. Fusce maximus sapien et neque elementum, et feugiat orci efficitur. Suspendisse faucibus lacus id justo tempus tempor.",
+                "url": "/app/crm/calendar/event.nl?id=100684&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100686",
+                "title": "Sample Event 2",
+                "workorder": {
+                    "text": "Install Walls Test Work Order",
+                    "value": "15"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 7/8/2024",
+                    "start": "2024-07-08",
+                    "end": "2024-07-08"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "09:00"
+                },
+                "priority": {
+                    "text": "High",
+                    "value": "3",
+                    "code": "#ca6621"
+                },
+                "note": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus id malesuada enim, sed fringilla turpis. Nullam sed viverra risus. Fusce maximus sapien et neque elementum, et feugiat orci efficitur. Suspendisse faucibus lacus id justo tempus tempor.",
+                "url": "/app/crm/calendar/event.nl?id=100686&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100720",
+                "title": "Sample Event 3",
+                "workorder": {
+                    "text": "Install Walls Test Work Order",
+                    "value": "15"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 7/8/2024",
+                    "start": "2024-07-08",
+                    "end": "2024-07-08"
+                },
+                "time": {
+                    "start": "03:00",
+                    "end": "04:00"
+                },
+                "priority": {
+                    "text": "High",
+                    "value": "3",
+                    "code": "#ca6621"
+                },
+                "note": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus id malesuada enim, sed fringilla turpis. Nullam sed viverra risus. Fusce maximus sapien et neque elementum, et feugiat orci efficitur. Suspendisse faucibus lacus id justo tempus tempor.",
+                "url": "/app/crm/calendar/event.nl?id=100720&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100721",
+                "title": "Sample Event for Work Order",
+                "workorder": {
+                    "text": "Install Walls Test Work Order",
+                    "value": "15"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 7/8/2024",
+                    "start": "2024-07-08",
+                    "end": "2024-07-08"
+                },
+                "time": {
+                    "start": "13:00",
+                    "end": "14:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Sample Event for Work Order",
+                "url": "/app/crm/calendar/event.nl?id=100721&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }],
+            "projectUrl": "/app/accounting/project/project.nl?id=1515&compid=TSTDRV2617106",
+            "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=15&compid=TSTDRV2617106",
+            "soUrl": "/app/accounting/transactions/salesord.nl?id=11722&compid=TSTDRV2617106",
+            "esthours": "300"
+        },
+        "resources": [],
+        "items": [],
+        "contacts": [],
+        "addresses": [],
+        "contact": {
+            "text": "",
+            "value": ""
         },
         "address": {
             "text": "",
@@ -7122,6 +9246,90 @@ const mockup = {
                     "value": ""
                 }
             }, {
+                "id": "100751",
+                "title": "Furniture Installer",
+                "workorder": {
+                    "text": "Install Furniture",
+                    "value": "1"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 8/12/2024",
+                    "start": "2024-08-12",
+                    "end": "2024-08-12"
+                },
+                "time": {
+                    "start": "15:00",
+                    "end": "16:00"
+                },
+                "priority": {
+                    "text": "",
+                    "value": ""
+                },
+                "note": "",
+                "url": "/app/crm/calendar/event.nl?id=100751&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100751",
+                "title": "Furniture Installer",
+                "workorder": {
+                    "text": "Install Furniture",
+                    "value": "1"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 8/12/2024",
+                    "start": "2024-08-12",
+                    "end": "2024-08-12"
+                },
+                "time": {
+                    "start": "15:00",
+                    "end": "16:00"
+                },
+                "priority": {
+                    "text": "",
+                    "value": ""
+                },
+                "note": "",
+                "url": "/app/crm/calendar/event.nl?id=100751&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
                 "id": "100792",
                 "title": "Install Furniture XYZ",
                 "workorder": {
@@ -7255,6 +9463,684 @@ const mockup = {
             "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=1&compid=TSTDRV2617106",
             "soUrl": "/app/accounting/transactions/salesord.nl?id=11722&compid=TSTDRV2617106",
             "esthours": "10"
+        },
+        "resources": [],
+        "items": [],
+        "contacts": [],
+        "addresses": [],
+        "contact": {
+            "text": "",
+            "value": ""
+        },
+        "address": {
+            "text": "",
+            "value": ""
+        }
+    }, {
+        "id": "100720",
+        "title": "Sample Event 3",
+        "workorder": {
+            "text": "Install Walls Test Work Order",
+            "value": "15"
+        },
+        "location": "",
+        "status": {
+            "text": "Confirmed",
+            "value": "CONFIRMED",
+            "code": "bg-success"
+        },
+        "date": {
+            "recurrence": "one time event on 7/8/2024",
+            "start": "2024-07-08",
+            "end": "2024-07-08"
+        },
+        "time": {
+            "start": "03:00",
+            "end": "04:00"
+        },
+        "priority": {
+            "text": "High",
+            "value": "3",
+            "code": "#ca6621"
+        },
+        "note": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus id malesuada enim, sed fringilla turpis. Nullam sed viverra risus. Fusce maximus sapien et neque elementum, et feugiat orci efficitur. Suspendisse faucibus lacus id justo tempus tempor.",
+        "url": "/app/crm/calendar/event.nl?id=100720&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {
+            "id": "15",
+            "name": "Install Walls Test Work Order",
+            "title": "Install Walls Test Work Order",
+            "project": {
+                "text": "AB&I Holdings : Parking Lot Construction",
+                "value": "1515"
+            },
+            "date": "7/8/2024",
+            "status": {
+                "text": "In Progress",
+                "value": "1",
+                "code": "#026adf"
+            },
+            "type": {
+                "text": "Demo",
+                "value": "1"
+            },
+            "memo": "<p><span style=\"color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);\">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus id malesuada enim, sed fringilla turpis. Nullam sed viverra risus. Fusce maximus sapien et neque elementum, et feugiat orci efficitur. Suspendisse faucibus lacus id justo tempus tempor.</span></p><p></p><p><span style=\"color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);\">Vestibulum vehicula, libero sed interdum lobortis, nisi dolor tincidunt leo, vel accumsan erat mi et justo. Proin consectetur felis semper varius viverra. Nam neque nulla, feugiat ac tempor in, aliquet sed enim.</span></p><p></p><p><strong style=\"color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);\">Fusce mattis, diam non tempus lacinia, diam eros semper mauris, a egestas lacus libero eget sapien. Donec convallis sit amet velit non euismod.</strong></p>",
+            "salesorder": {
+                "text": "Sales Order #SLS00000609",
+                "value": "11722"
+            },
+            "customer": {
+                "text": "AB&I Holdings",
+                "value": "1249"
+            },
+            "resourceGroup": {
+                "text": "",
+                "value": ""
+            },
+            "priority": "",
+            "resources": [],
+            "items": [{
+                "id": "15",
+                "workorder": {
+                    "text": "Install Walls Test Work Order",
+                    "value": "15"
+                },
+                "events": [],
+                "uuid": "11722_1",
+                "line": "1",
+                "item": {
+                    "text": "4321GR",
+                    "value": "1015"
+                },
+                "description": "11 POCKET MAGAZINE RACK",
+                "quantity": 3,
+                "note": ""
+            }, {
+                "id": "17",
+                "workorder": {
+                    "text": "Install Walls Test Work Order",
+                    "value": "15"
+                },
+                "events": [],
+                "uuid": "11722_2",
+                "line": "2",
+                "item": {
+                    "text": "7031-0501",
+                    "value": "1047"
+                },
+                "description": "Friction Pad, Non-Carpeted Surfaces, Svc",
+                "quantity": 7,
+                "note": ""
+            }, {
+                "id": "18",
+                "workorder": {
+                    "text": "Install Walls Test Work Order",
+                    "value": "15"
+                },
+                "events": [],
+                "uuid": "11722_3",
+                "line": "3",
+                "item": {
+                    "text": "BAG00002",
+                    "value": "837"
+                },
+                "description": "Sling Laptop Bag",
+                "quantity": 20,
+                "note": ""
+            }],
+            "addresses": [{
+                "id": "8",
+                "workorder": {
+                    "text": "Install Walls Test Work Order",
+                    "value": "15"
+                },
+                "customer": {
+                    "text": "AB&I Holdings",
+                    "value": "1249"
+                },
+                "events": [],
+                "address": {
+                    "text": "1701 Rollins Road",
+                    "value": "244878"
+                },
+                "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+                "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+            }],
+            "contacts": [{
+                "id": "9",
+                "workorder": {
+                    "text": "Install Walls Test Work Order",
+                    "value": "15"
+                },
+                "events": [],
+                "contact": {
+                    "text": "AB&I Holdings : Chad Bass",
+                    "value": "1382"
+                },
+                "name": "Chad Bass",
+                "email": "cbass@sbi.com",
+                "jobTitle": "President",
+                "mobilePhone": "",
+                "phone": "",
+                "primary": "",
+                "url": "/app/common/entity/contact.nl?id=1382&compid=TSTDRV2617106"
+            }],
+            "events": [{
+                "id": "100684",
+                "title": "Install Walls Event Test",
+                "workorder": {
+                    "text": "Install Walls Test Work Order",
+                    "value": "15"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 7/8/2024",
+                    "start": "2024-07-08",
+                    "end": "2024-07-08"
+                },
+                "time": {
+                    "start": "05:00",
+                    "end": "06:00"
+                },
+                "priority": {
+                    "text": "Urgent",
+                    "value": "4",
+                    "code": "#9a2407"
+                },
+                "note": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus id malesuada enim, sed fringilla turpis. Nullam sed viverra risus. Fusce maximus sapien et neque elementum, et feugiat orci efficitur. Suspendisse faucibus lacus id justo tempus tempor.",
+                "url": "/app/crm/calendar/event.nl?id=100684&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100686",
+                "title": "Sample Event 2",
+                "workorder": {
+                    "text": "Install Walls Test Work Order",
+                    "value": "15"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 7/8/2024",
+                    "start": "2024-07-08",
+                    "end": "2024-07-08"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "09:00"
+                },
+                "priority": {
+                    "text": "High",
+                    "value": "3",
+                    "code": "#ca6621"
+                },
+                "note": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus id malesuada enim, sed fringilla turpis. Nullam sed viverra risus. Fusce maximus sapien et neque elementum, et feugiat orci efficitur. Suspendisse faucibus lacus id justo tempus tempor.",
+                "url": "/app/crm/calendar/event.nl?id=100686&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100720",
+                "title": "Sample Event 3",
+                "workorder": {
+                    "text": "Install Walls Test Work Order",
+                    "value": "15"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 7/8/2024",
+                    "start": "2024-07-08",
+                    "end": "2024-07-08"
+                },
+                "time": {
+                    "start": "03:00",
+                    "end": "04:00"
+                },
+                "priority": {
+                    "text": "High",
+                    "value": "3",
+                    "code": "#ca6621"
+                },
+                "note": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus id malesuada enim, sed fringilla turpis. Nullam sed viverra risus. Fusce maximus sapien et neque elementum, et feugiat orci efficitur. Suspendisse faucibus lacus id justo tempus tempor.",
+                "url": "/app/crm/calendar/event.nl?id=100720&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100721",
+                "title": "Sample Event for Work Order",
+                "workorder": {
+                    "text": "Install Walls Test Work Order",
+                    "value": "15"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 7/8/2024",
+                    "start": "2024-07-08",
+                    "end": "2024-07-08"
+                },
+                "time": {
+                    "start": "13:00",
+                    "end": "14:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Sample Event for Work Order",
+                "url": "/app/crm/calendar/event.nl?id=100721&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }],
+            "projectUrl": "/app/accounting/project/project.nl?id=1515&compid=TSTDRV2617106",
+            "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=15&compid=TSTDRV2617106",
+            "soUrl": "/app/accounting/transactions/salesord.nl?id=11722&compid=TSTDRV2617106",
+            "esthours": "300"
+        },
+        "resources": [],
+        "items": [],
+        "contacts": [],
+        "addresses": [],
+        "contact": {
+            "text": "",
+            "value": ""
+        },
+        "address": {
+            "text": "",
+            "value": ""
+        }
+    }, {
+        "id": "100721",
+        "title": "Sample Event for Work Order",
+        "workorder": {
+            "text": "Install Walls Test Work Order",
+            "value": "15"
+        },
+        "location": "",
+        "status": {
+            "text": "Confirmed",
+            "value": "CONFIRMED",
+            "code": "bg-success"
+        },
+        "date": {
+            "recurrence": "one time event on 7/8/2024",
+            "start": "2024-07-08",
+            "end": "2024-07-08"
+        },
+        "time": {
+            "start": "13:00",
+            "end": "14:00"
+        },
+        "priority": {
+            "text": "Medium",
+            "value": "2",
+            "code": "#dfcf02"
+        },
+        "note": "Sample Event for Work Order",
+        "url": "/app/crm/calendar/event.nl?id=100721&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {
+            "id": "15",
+            "name": "Install Walls Test Work Order",
+            "title": "Install Walls Test Work Order",
+            "project": {
+                "text": "AB&I Holdings : Parking Lot Construction",
+                "value": "1515"
+            },
+            "date": "7/8/2024",
+            "status": {
+                "text": "In Progress",
+                "value": "1",
+                "code": "#026adf"
+            },
+            "type": {
+                "text": "Demo",
+                "value": "1"
+            },
+            "memo": "<p><span style=\"color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);\">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus id malesuada enim, sed fringilla turpis. Nullam sed viverra risus. Fusce maximus sapien et neque elementum, et feugiat orci efficitur. Suspendisse faucibus lacus id justo tempus tempor.</span></p><p></p><p><span style=\"color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);\">Vestibulum vehicula, libero sed interdum lobortis, nisi dolor tincidunt leo, vel accumsan erat mi et justo. Proin consectetur felis semper varius viverra. Nam neque nulla, feugiat ac tempor in, aliquet sed enim.</span></p><p></p><p><strong style=\"color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);\">Fusce mattis, diam non tempus lacinia, diam eros semper mauris, a egestas lacus libero eget sapien. Donec convallis sit amet velit non euismod.</strong></p>",
+            "salesorder": {
+                "text": "Sales Order #SLS00000609",
+                "value": "11722"
+            },
+            "customer": {
+                "text": "AB&I Holdings",
+                "value": "1249"
+            },
+            "resourceGroup": {
+                "text": "",
+                "value": ""
+            },
+            "priority": "",
+            "resources": [],
+            "items": [{
+                "id": "15",
+                "workorder": {
+                    "text": "Install Walls Test Work Order",
+                    "value": "15"
+                },
+                "events": [],
+                "uuid": "11722_1",
+                "line": "1",
+                "item": {
+                    "text": "4321GR",
+                    "value": "1015"
+                },
+                "description": "11 POCKET MAGAZINE RACK",
+                "quantity": 3,
+                "note": ""
+            }, {
+                "id": "17",
+                "workorder": {
+                    "text": "Install Walls Test Work Order",
+                    "value": "15"
+                },
+                "events": [],
+                "uuid": "11722_2",
+                "line": "2",
+                "item": {
+                    "text": "7031-0501",
+                    "value": "1047"
+                },
+                "description": "Friction Pad, Non-Carpeted Surfaces, Svc",
+                "quantity": 7,
+                "note": ""
+            }, {
+                "id": "18",
+                "workorder": {
+                    "text": "Install Walls Test Work Order",
+                    "value": "15"
+                },
+                "events": [],
+                "uuid": "11722_3",
+                "line": "3",
+                "item": {
+                    "text": "BAG00002",
+                    "value": "837"
+                },
+                "description": "Sling Laptop Bag",
+                "quantity": 20,
+                "note": ""
+            }],
+            "addresses": [{
+                "id": "8",
+                "workorder": {
+                    "text": "Install Walls Test Work Order",
+                    "value": "15"
+                },
+                "customer": {
+                    "text": "AB&I Holdings",
+                    "value": "1249"
+                },
+                "events": [],
+                "address": {
+                    "text": "1701 Rollins Road",
+                    "value": "244878"
+                },
+                "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+                "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+            }],
+            "contacts": [{
+                "id": "9",
+                "workorder": {
+                    "text": "Install Walls Test Work Order",
+                    "value": "15"
+                },
+                "events": [],
+                "contact": {
+                    "text": "AB&I Holdings : Chad Bass",
+                    "value": "1382"
+                },
+                "name": "Chad Bass",
+                "email": "cbass@sbi.com",
+                "jobTitle": "President",
+                "mobilePhone": "",
+                "phone": "",
+                "primary": "",
+                "url": "/app/common/entity/contact.nl?id=1382&compid=TSTDRV2617106"
+            }],
+            "events": [{
+                "id": "100684",
+                "title": "Install Walls Event Test",
+                "workorder": {
+                    "text": "Install Walls Test Work Order",
+                    "value": "15"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 7/8/2024",
+                    "start": "2024-07-08",
+                    "end": "2024-07-08"
+                },
+                "time": {
+                    "start": "05:00",
+                    "end": "06:00"
+                },
+                "priority": {
+                    "text": "Urgent",
+                    "value": "4",
+                    "code": "#9a2407"
+                },
+                "note": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus id malesuada enim, sed fringilla turpis. Nullam sed viverra risus. Fusce maximus sapien et neque elementum, et feugiat orci efficitur. Suspendisse faucibus lacus id justo tempus tempor.",
+                "url": "/app/crm/calendar/event.nl?id=100684&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100686",
+                "title": "Sample Event 2",
+                "workorder": {
+                    "text": "Install Walls Test Work Order",
+                    "value": "15"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 7/8/2024",
+                    "start": "2024-07-08",
+                    "end": "2024-07-08"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "09:00"
+                },
+                "priority": {
+                    "text": "High",
+                    "value": "3",
+                    "code": "#ca6621"
+                },
+                "note": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus id malesuada enim, sed fringilla turpis. Nullam sed viverra risus. Fusce maximus sapien et neque elementum, et feugiat orci efficitur. Suspendisse faucibus lacus id justo tempus tempor.",
+                "url": "/app/crm/calendar/event.nl?id=100686&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100720",
+                "title": "Sample Event 3",
+                "workorder": {
+                    "text": "Install Walls Test Work Order",
+                    "value": "15"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 7/8/2024",
+                    "start": "2024-07-08",
+                    "end": "2024-07-08"
+                },
+                "time": {
+                    "start": "03:00",
+                    "end": "04:00"
+                },
+                "priority": {
+                    "text": "High",
+                    "value": "3",
+                    "code": "#ca6621"
+                },
+                "note": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus id malesuada enim, sed fringilla turpis. Nullam sed viverra risus. Fusce maximus sapien et neque elementum, et feugiat orci efficitur. Suspendisse faucibus lacus id justo tempus tempor.",
+                "url": "/app/crm/calendar/event.nl?id=100720&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100721",
+                "title": "Sample Event for Work Order",
+                "workorder": {
+                    "text": "Install Walls Test Work Order",
+                    "value": "15"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 7/8/2024",
+                    "start": "2024-07-08",
+                    "end": "2024-07-08"
+                },
+                "time": {
+                    "start": "13:00",
+                    "end": "14:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Sample Event for Work Order",
+                "url": "/app/crm/calendar/event.nl?id=100721&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }],
+            "projectUrl": "/app/accounting/project/project.nl?id=1515&compid=TSTDRV2617106",
+            "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=15&compid=TSTDRV2617106",
+            "soUrl": "/app/accounting/transactions/salesord.nl?id=11722&compid=TSTDRV2617106",
+            "esthours": "300"
         },
         "resources": [],
         "items": [],
@@ -7526,6 +10412,425 @@ const mockup = {
                 },
                 "note": "TEST123",
                 "url": "/app/crm/calendar/event.nl?id=100723&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100724",
+                "title": "AV Installation and Pickup",
+                "workorder": {
+                    "text": "Test",
+                    "value": "31"
+                },
+                "location": "01: San Francisco",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 7/21/2024",
+                    "start": "2024-07-21",
+                    "end": "2024-07-21"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "18:00"
+                },
+                "priority": {
+                    "text": "Low",
+                    "value": "1",
+                    "code": "#026adf"
+                },
+                "note": "",
+                "url": "/app/crm/calendar/event.nl?id=100724&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100749",
+                "title": "Test",
+                "workorder": {
+                    "text": "Test",
+                    "value": "31"
+                },
+                "location": "01: San Francisco",
+                "status": {
+                    "text": "Tentative",
+                    "value": "TENTATIVE",
+                    "code": "bg-secondary"
+                },
+                "date": {
+                    "recurrence": "one time event on 7/25/2024",
+                    "start": "2024-07-25",
+                    "end": "2024-07-25"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "18:00"
+                },
+                "priority": {
+                    "text": "Low",
+                    "value": "1",
+                    "code": "#026adf"
+                },
+                "note": "1\r\n2\r\n3",
+                "url": "/app/crm/calendar/event.nl?id=100749&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }],
+            "projectUrl": "/app/accounting/project/project.nl?id=1515&compid=TSTDRV2617106",
+            "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=31&compid=TSTDRV2617106",
+            "soUrl": "/app/accounting/transactions/salesord.nl?id=11722&compid=TSTDRV2617106",
+            "esthours": "20"
+        },
+        "resources": [],
+        "items": [],
+        "contacts": [],
+        "addresses": [],
+        "contact": {
+            "text": "",
+            "value": ""
+        },
+        "address": {
+            "text": "",
+            "value": ""
+        }
+    }, {
+        "id": "100724",
+        "title": "AV Installation and Pickup",
+        "workorder": {
+            "text": "Test",
+            "value": "31"
+        },
+        "location": "01: San Francisco",
+        "status": {
+            "text": "Confirmed",
+            "value": "CONFIRMED",
+            "code": "bg-success"
+        },
+        "date": {
+            "recurrence": "one time event on 7/21/2024",
+            "start": "2024-07-21",
+            "end": "2024-07-21"
+        },
+        "time": {
+            "start": "08:00",
+            "end": "18:00"
+        },
+        "priority": {
+            "text": "Low",
+            "value": "1",
+            "code": "#026adf"
+        },
+        "note": "",
+        "url": "/app/crm/calendar/event.nl?id=100724&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {
+            "id": "31",
+            "name": "Test",
+            "title": "Test",
+            "project": {
+                "text": "AB&I Holdings : Parking Lot Construction",
+                "value": "1515"
+            },
+            "date": "7/19/2024",
+            "status": {
+                "text": "Closed",
+                "value": "3",
+                "code": "#6c757d"
+            },
+            "type": {
+                "text": "Walls",
+                "value": "6"
+            },
+            "memo": "<p>Test</p>",
+            "salesorder": {
+                "text": "Sales Order #SLS00000609",
+                "value": "11722"
+            },
+            "customer": {
+                "text": "AB&I Holdings",
+                "value": "1249"
+            },
+            "resourceGroup": {
+                "text": "",
+                "value": ""
+            },
+            "priority": "",
+            "resources": [],
+            "items": [{
+                "id": "24",
+                "workorder": {
+                    "text": "Test",
+                    "value": "31"
+                },
+                "events": [],
+                "uuid": "11722_1",
+                "line": "1",
+                "item": {
+                    "text": "4321GR",
+                    "value": "1015"
+                },
+                "description": "11 POCKET MAGAZINE RACK",
+                "quantity": 2,
+                "note": ""
+            }, {
+                "id": "25",
+                "workorder": {
+                    "text": "Test",
+                    "value": "31"
+                },
+                "events": [],
+                "uuid": "11722_2",
+                "line": "2",
+                "item": {
+                    "text": "7031-0501",
+                    "value": "1047"
+                },
+                "description": "Friction Pad, Non-Carpeted Surfaces, Svc",
+                "quantity": 4,
+                "note": ""
+            }, {
+                "id": "30",
+                "workorder": {
+                    "text": "Test",
+                    "value": "31"
+                },
+                "events": [],
+                "uuid": "11722_1",
+                "line": "1",
+                "item": {
+                    "text": "",
+                    "value": ""
+                },
+                "description": "11 POCKET MAGAZINE RACK",
+                "quantity": 2,
+                "note": ""
+            }, {
+                "id": "31",
+                "workorder": {
+                    "text": "Test",
+                    "value": "31"
+                },
+                "events": [],
+                "uuid": "11722_2",
+                "line": "2",
+                "item": {
+                    "text": "",
+                    "value": ""
+                },
+                "description": "Friction Pad, Non-Carpeted Surfaces, Svc",
+                "quantity": 4,
+                "note": ""
+            }, {
+                "id": "32",
+                "workorder": {
+                    "text": "Test",
+                    "value": "31"
+                },
+                "events": [],
+                "uuid": "11722_1",
+                "line": "1",
+                "item": {
+                    "text": "",
+                    "value": ""
+                },
+                "description": "11 POCKET MAGAZINE RACK",
+                "quantity": 2,
+                "note": ""
+            }, {
+                "id": "33",
+                "workorder": {
+                    "text": "Test",
+                    "value": "31"
+                },
+                "events": [],
+                "uuid": "11722_2",
+                "line": "2",
+                "item": {
+                    "text": "",
+                    "value": ""
+                },
+                "description": "Friction Pad, Non-Carpeted Surfaces, Svc",
+                "quantity": 4,
+                "note": ""
+            }, {
+                "id": "34",
+                "workorder": {
+                    "text": "Test",
+                    "value": "31"
+                },
+                "events": [],
+                "uuid": "11722_1",
+                "line": "1",
+                "item": {
+                    "text": "",
+                    "value": ""
+                },
+                "description": "11 POCKET MAGAZINE RACK",
+                "quantity": 2,
+                "note": ""
+            }, {
+                "id": "35",
+                "workorder": {
+                    "text": "Test",
+                    "value": "31"
+                },
+                "events": [],
+                "uuid": "11722_2",
+                "line": "2",
+                "item": {
+                    "text": "",
+                    "value": ""
+                },
+                "description": "Friction Pad, Non-Carpeted Surfaces, Svc",
+                "quantity": 4,
+                "note": ""
+            }],
+            "addresses": [{
+                "id": "24",
+                "workorder": {
+                    "text": "Test",
+                    "value": "31"
+                },
+                "customer": {
+                    "text": "AB&I Holdings",
+                    "value": "1249"
+                },
+                "events": [],
+                "address": {
+                    "text": "1701 Rollins Road",
+                    "value": "244878"
+                },
+                "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+                "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+            }],
+            "contacts": [{
+                "id": "13",
+                "workorder": {
+                    "text": "Test",
+                    "value": "31"
+                },
+                "events": [],
+                "contact": {
+                    "text": "AB&I Holdings : Chad Bass",
+                    "value": "1382"
+                },
+                "name": "Chad Bass",
+                "email": "cbass@sbi.com",
+                "jobTitle": "President",
+                "mobilePhone": "",
+                "phone": "",
+                "primary": "",
+                "url": "/app/common/entity/contact.nl?id=1382&compid=TSTDRV2617106"
+            }],
+            "events": [{
+                "id": "100723",
+                "title": "Test",
+                "workorder": {
+                    "text": "Test",
+                    "value": "31"
+                },
+                "location": "01: San Francisco",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 7/8/2024",
+                    "start": "2024-07-08",
+                    "end": "2024-07-08"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "18:00"
+                },
+                "priority": {
+                    "text": "Urgent",
+                    "value": "4",
+                    "code": "#9a2407"
+                },
+                "note": "TEST123",
+                "url": "/app/crm/calendar/event.nl?id=100723&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100724",
+                "title": "AV Installation and Pickup",
+                "workorder": {
+                    "text": "Test",
+                    "value": "31"
+                },
+                "location": "01: San Francisco",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 7/21/2024",
+                    "start": "2024-07-21",
+                    "end": "2024-07-21"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "18:00"
+                },
+                "priority": {
+                    "text": "Low",
+                    "value": "1",
+                    "code": "#026adf"
+                },
+                "note": "",
+                "url": "/app/crm/calendar/event.nl?id=100724&compid=TSTDRV2617106&selectedtab=custom337",
                 "color": "#1a6756",
                 "woRef": {},
                 "resources": [],
@@ -8350,6 +11655,49 @@ const mockup = {
                     "value": ""
                 }
             }, {
+                "id": "100724",
+                "title": "AV Installation and Pickup",
+                "workorder": {
+                    "text": "Test",
+                    "value": "31"
+                },
+                "location": "01: San Francisco",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 7/21/2024",
+                    "start": "2024-07-21",
+                    "end": "2024-07-21"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "18:00"
+                },
+                "priority": {
+                    "text": "Low",
+                    "value": "1",
+                    "code": "#026adf"
+                },
+                "note": "",
+                "url": "/app/crm/calendar/event.nl?id=100724&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
                 "id": "100749",
                 "title": "Test",
                 "workorder": {
@@ -8397,6 +11745,940 @@ const mockup = {
             "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=31&compid=TSTDRV2617106",
             "soUrl": "/app/accounting/transactions/salesord.nl?id=11722&compid=TSTDRV2617106",
             "esthours": "20"
+        },
+        "resources": [],
+        "items": [],
+        "contacts": [],
+        "addresses": [],
+        "contact": {
+            "text": "",
+            "value": ""
+        },
+        "address": {
+            "text": "",
+            "value": ""
+        }
+    }, {
+        "id": "100751",
+        "title": "Furniture Installer",
+        "workorder": {
+            "text": "Install Furniture",
+            "value": "1"
+        },
+        "location": "",
+        "status": {
+            "text": "Confirmed",
+            "value": "CONFIRMED",
+            "code": "bg-success"
+        },
+        "date": {
+            "recurrence": "one time event on 8/12/2024",
+            "start": "2024-08-12",
+            "end": "2024-08-12"
+        },
+        "time": {
+            "start": "15:00",
+            "end": "16:00"
+        },
+        "priority": {
+            "text": "",
+            "value": ""
+        },
+        "note": "",
+        "url": "/app/crm/calendar/event.nl?id=100751&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {
+            "id": "1",
+            "name": "Install Furniture",
+            "title": "Install Furniture",
+            "project": {
+                "text": "AB&I Holdings : Parking Lot Construction",
+                "value": "1515"
+            },
+            "date": "7/5/2024",
+            "status": {
+                "text": "Hold",
+                "value": "7",
+                "code": "#6c757d"
+            },
+            "type": {
+                "text": "Demo",
+                "value": "1"
+            },
+            "memo": "<p><span style=\"background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);\">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus id malesuada enim, sed fringilla turpis. Nullam sed viverra risus. Fusce maximus sapien et neque elementum, et feugiat orci efficitur. Suspendisse faucibus lacus id justo tempus tempor. </span></p><p></p><p><span style=\"background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);\">Vestibulum vehicula, libero sed interdum lobortis, nisi dolor tincidunt leo, vel accumsan erat mi et justo. Proin consectetur felis semper varius viverra. Nam neque nulla, feugiat ac tempor in, aliquet sed enim. </span></p><p></p><p><strong style=\"background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);\">Fusce mattis, diam non tempus lacinia, diam eros semper mauris, a egestas lacus libero eget sapien. Donec convallis sit amet velit non euismod.</strong></p>",
+            "salesorder": {
+                "text": "Sales Order #SLS00000609",
+                "value": "11722"
+            },
+            "customer": {
+                "text": "AB&I Holdings",
+                "value": "1249"
+            },
+            "resourceGroup": {
+                "text": "",
+                "value": ""
+            },
+            "priority": "",
+            "resources": [],
+            "items": [{
+                "id": "1",
+                "workorder": {
+                    "text": "Install Furniture",
+                    "value": "1"
+                },
+                "events": ["100792", "100798"],
+                "uuid": "11722_1",
+                "line": "1",
+                "item": {
+                    "text": "4321GR",
+                    "value": "1015"
+                },
+                "description": "11 POCKET MAGAZINE RACK",
+                "quantity": 2,
+                "note": ""
+            }, {
+                "id": "2",
+                "workorder": {
+                    "text": "Install Furniture",
+                    "value": "1"
+                },
+                "events": ["100792", "100798"],
+                "uuid": "11722_3",
+                "line": "3",
+                "item": {
+                    "text": "BAG00002",
+                    "value": "837"
+                },
+                "description": "Sling Laptop Bag",
+                "quantity": 10,
+                "note": ""
+            }],
+            "addresses": [{
+                "id": "1",
+                "workorder": {
+                    "text": "Install Furniture",
+                    "value": "1"
+                },
+                "customer": {
+                    "text": "AB&I Holdings",
+                    "value": "1249"
+                },
+                "events": ["100792", "100798"],
+                "address": {
+                    "text": "1701 Rollins Road",
+                    "value": "244878"
+                },
+                "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+                "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+            }],
+            "contacts": [{
+                "id": "1",
+                "workorder": {
+                    "text": "Install Furniture",
+                    "value": "1"
+                },
+                "events": ["100682", "100798"],
+                "contact": {
+                    "text": "AB&I Holdings : Chad Bass",
+                    "value": "1382"
+                },
+                "name": "Chad Bass",
+                "email": "cbass@sbi.com",
+                "jobTitle": "President",
+                "mobilePhone": "",
+                "phone": "",
+                "primary": "checked",
+                "url": "/app/common/entity/contact.nl?id=1382&compid=TSTDRV2617106"
+            }, {
+                "id": "15",
+                "workorder": {
+                    "text": "Install Furniture",
+                    "value": "1"
+                },
+                "events": ["18", "100798"],
+                "contact": {
+                    "text": "Pravallika Desetty",
+                    "value": "1648"
+                },
+                "name": "Pravallika Desetty",
+                "email": "pravallika@erpsuccesspartners.com",
+                "jobTitle": "",
+                "mobilePhone": "",
+                "phone": "",
+                "primary": "",
+                "url": "/app/common/entity/contact.nl?id=1648&compid=TSTDRV2617106"
+            }],
+            "events": [{
+                "id": "100682",
+                "title": "TEST EVENT 123",
+                "workorder": {
+                    "text": "Install Furniture",
+                    "value": "1"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 7/4/2024",
+                    "start": "2024-07-04",
+                    "end": "2024-07-04"
+                },
+                "time": {
+                    "start": "22:00",
+                    "end": "23:00"
+                },
+                "priority": {
+                    "text": "High",
+                    "value": "3",
+                    "code": "#ca6621"
+                },
+                "note": "TEST123456",
+                "url": "/app/crm/calendar/event.nl?id=100682&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "1",
+                    "value": "1"
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100718",
+                "title": "Install Furniture",
+                "workorder": {
+                    "text": "Install Furniture",
+                    "value": "1"
+                },
+                "location": "01: San Francisco",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 7/9/2024",
+                    "start": "2024-07-09",
+                    "end": "2024-07-09"
+                },
+                "time": {
+                    "start": "07:00",
+                    "end": "21:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "XXX\nYYY\nZZZ",
+                "url": "/app/crm/calendar/event.nl?id=100718&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100751",
+                "title": "Furniture Installer",
+                "workorder": {
+                    "text": "Install Furniture",
+                    "value": "1"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 8/12/2024",
+                    "start": "2024-08-12",
+                    "end": "2024-08-12"
+                },
+                "time": {
+                    "start": "15:00",
+                    "end": "16:00"
+                },
+                "priority": {
+                    "text": "",
+                    "value": ""
+                },
+                "note": "",
+                "url": "/app/crm/calendar/event.nl?id=100751&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100751",
+                "title": "Furniture Installer",
+                "workorder": {
+                    "text": "Install Furniture",
+                    "value": "1"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 8/12/2024",
+                    "start": "2024-08-12",
+                    "end": "2024-08-12"
+                },
+                "time": {
+                    "start": "15:00",
+                    "end": "16:00"
+                },
+                "priority": {
+                    "text": "",
+                    "value": ""
+                },
+                "note": "",
+                "url": "/app/crm/calendar/event.nl?id=100751&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100792",
+                "title": "Install Furniture XYZ",
+                "workorder": {
+                    "text": "Install Furniture",
+                    "value": "1"
+                },
+                "location": "",
+                "status": {
+                    "text": "Tentative",
+                    "value": "TENTATIVE",
+                    "code": "bg-secondary"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/11/2024",
+                    "start": "2024-09-11",
+                    "end": "2024-09-11"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "18:00"
+                },
+                "priority": {
+                    "text": "High",
+                    "value": "3",
+                    "code": "#ca6621"
+                },
+                "note": "AAA\nBBB",
+                "url": "/app/crm/calendar/event.nl?id=100792&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "1",
+                    "value": "1"
+                },
+                "address": {
+                    "text": "1",
+                    "value": "1"
+                }
+            }, {
+                "id": "100796",
+                "title": "Install Furniture 12345",
+                "workorder": {
+                    "text": "Install Furniture",
+                    "value": "1"
+                },
+                "location": "",
+                "status": {
+                    "text": "Tentative",
+                    "value": "TENTATIVE",
+                    "code": "bg-secondary"
+                },
+                "date": {
+                    "recurrence": "occurs every day from 9/11/2024 until 9/12/2024",
+                    "start": "2024-09-11",
+                    "end": "2024-09-12"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "19:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "XYZ\n123",
+                "url": "/app/crm/calendar/event.nl?id=100796&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "1",
+                    "value": "1"
+                },
+                "address": {
+                    "text": "1",
+                    "value": "1"
+                }
+            }, {
+                "id": "100798",
+                "title": "Install Furniture XYZ",
+                "workorder": {
+                    "text": "Install Furniture",
+                    "value": "1"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "occurs every day from 9/12/2024 until 9/13/2024",
+                    "start": "2024-09-12",
+                    "end": "2024-09-13"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "18:00"
+                },
+                "priority": {
+                    "text": "High",
+                    "value": "3",
+                    "code": "#ca6621"
+                },
+                "note": "TEST ABCD",
+                "url": "/app/crm/calendar/event.nl?id=100798&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "1",
+                    "value": "1"
+                },
+                "address": {
+                    "text": "1",
+                    "value": "1"
+                }
+            }],
+            "projectUrl": "/app/accounting/project/project.nl?id=1515&compid=TSTDRV2617106",
+            "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=1&compid=TSTDRV2617106",
+            "soUrl": "/app/accounting/transactions/salesord.nl?id=11722&compid=TSTDRV2617106",
+            "esthours": "10"
+        },
+        "resources": [],
+        "items": [],
+        "contacts": [],
+        "addresses": [],
+        "contact": {
+            "text": "",
+            "value": ""
+        },
+        "address": {
+            "text": "",
+            "value": ""
+        }
+    }, {
+        "id": "100751",
+        "title": "Furniture Installer",
+        "workorder": {
+            "text": "Install Furniture",
+            "value": "1"
+        },
+        "location": "",
+        "status": {
+            "text": "Confirmed",
+            "value": "CONFIRMED",
+            "code": "bg-success"
+        },
+        "date": {
+            "recurrence": "one time event on 8/12/2024",
+            "start": "2024-08-12",
+            "end": "2024-08-12"
+        },
+        "time": {
+            "start": "15:00",
+            "end": "16:00"
+        },
+        "priority": {
+            "text": "",
+            "value": ""
+        },
+        "note": "",
+        "url": "/app/crm/calendar/event.nl?id=100751&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {
+            "id": "1",
+            "name": "Install Furniture",
+            "title": "Install Furniture",
+            "project": {
+                "text": "AB&I Holdings : Parking Lot Construction",
+                "value": "1515"
+            },
+            "date": "7/5/2024",
+            "status": {
+                "text": "Hold",
+                "value": "7",
+                "code": "#6c757d"
+            },
+            "type": {
+                "text": "Demo",
+                "value": "1"
+            },
+            "memo": "<p><span style=\"background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);\">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus id malesuada enim, sed fringilla turpis. Nullam sed viverra risus. Fusce maximus sapien et neque elementum, et feugiat orci efficitur. Suspendisse faucibus lacus id justo tempus tempor. </span></p><p></p><p><span style=\"background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);\">Vestibulum vehicula, libero sed interdum lobortis, nisi dolor tincidunt leo, vel accumsan erat mi et justo. Proin consectetur felis semper varius viverra. Nam neque nulla, feugiat ac tempor in, aliquet sed enim. </span></p><p></p><p><strong style=\"background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);\">Fusce mattis, diam non tempus lacinia, diam eros semper mauris, a egestas lacus libero eget sapien. Donec convallis sit amet velit non euismod.</strong></p>",
+            "salesorder": {
+                "text": "Sales Order #SLS00000609",
+                "value": "11722"
+            },
+            "customer": {
+                "text": "AB&I Holdings",
+                "value": "1249"
+            },
+            "resourceGroup": {
+                "text": "",
+                "value": ""
+            },
+            "priority": "",
+            "resources": [],
+            "items": [{
+                "id": "1",
+                "workorder": {
+                    "text": "Install Furniture",
+                    "value": "1"
+                },
+                "events": ["100792", "100798"],
+                "uuid": "11722_1",
+                "line": "1",
+                "item": {
+                    "text": "4321GR",
+                    "value": "1015"
+                },
+                "description": "11 POCKET MAGAZINE RACK",
+                "quantity": 2,
+                "note": ""
+            }, {
+                "id": "2",
+                "workorder": {
+                    "text": "Install Furniture",
+                    "value": "1"
+                },
+                "events": ["100792", "100798"],
+                "uuid": "11722_3",
+                "line": "3",
+                "item": {
+                    "text": "BAG00002",
+                    "value": "837"
+                },
+                "description": "Sling Laptop Bag",
+                "quantity": 10,
+                "note": ""
+            }],
+            "addresses": [{
+                "id": "1",
+                "workorder": {
+                    "text": "Install Furniture",
+                    "value": "1"
+                },
+                "customer": {
+                    "text": "AB&I Holdings",
+                    "value": "1249"
+                },
+                "events": ["100792", "100798"],
+                "address": {
+                    "text": "1701 Rollins Road",
+                    "value": "244878"
+                },
+                "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+                "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+            }],
+            "contacts": [{
+                "id": "1",
+                "workorder": {
+                    "text": "Install Furniture",
+                    "value": "1"
+                },
+                "events": ["100682", "100798"],
+                "contact": {
+                    "text": "AB&I Holdings : Chad Bass",
+                    "value": "1382"
+                },
+                "name": "Chad Bass",
+                "email": "cbass@sbi.com",
+                "jobTitle": "President",
+                "mobilePhone": "",
+                "phone": "",
+                "primary": "checked",
+                "url": "/app/common/entity/contact.nl?id=1382&compid=TSTDRV2617106"
+            }, {
+                "id": "15",
+                "workorder": {
+                    "text": "Install Furniture",
+                    "value": "1"
+                },
+                "events": ["18", "100798"],
+                "contact": {
+                    "text": "Pravallika Desetty",
+                    "value": "1648"
+                },
+                "name": "Pravallika Desetty",
+                "email": "pravallika@erpsuccesspartners.com",
+                "jobTitle": "",
+                "mobilePhone": "",
+                "phone": "",
+                "primary": "",
+                "url": "/app/common/entity/contact.nl?id=1648&compid=TSTDRV2617106"
+            }],
+            "events": [{
+                "id": "100682",
+                "title": "TEST EVENT 123",
+                "workorder": {
+                    "text": "Install Furniture",
+                    "value": "1"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 7/4/2024",
+                    "start": "2024-07-04",
+                    "end": "2024-07-04"
+                },
+                "time": {
+                    "start": "22:00",
+                    "end": "23:00"
+                },
+                "priority": {
+                    "text": "High",
+                    "value": "3",
+                    "code": "#ca6621"
+                },
+                "note": "TEST123456",
+                "url": "/app/crm/calendar/event.nl?id=100682&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "1",
+                    "value": "1"
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100718",
+                "title": "Install Furniture",
+                "workorder": {
+                    "text": "Install Furniture",
+                    "value": "1"
+                },
+                "location": "01: San Francisco",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 7/9/2024",
+                    "start": "2024-07-09",
+                    "end": "2024-07-09"
+                },
+                "time": {
+                    "start": "07:00",
+                    "end": "21:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "XXX\nYYY\nZZZ",
+                "url": "/app/crm/calendar/event.nl?id=100718&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100751",
+                "title": "Furniture Installer",
+                "workorder": {
+                    "text": "Install Furniture",
+                    "value": "1"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 8/12/2024",
+                    "start": "2024-08-12",
+                    "end": "2024-08-12"
+                },
+                "time": {
+                    "start": "15:00",
+                    "end": "16:00"
+                },
+                "priority": {
+                    "text": "",
+                    "value": ""
+                },
+                "note": "",
+                "url": "/app/crm/calendar/event.nl?id=100751&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100751",
+                "title": "Furniture Installer",
+                "workorder": {
+                    "text": "Install Furniture",
+                    "value": "1"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 8/12/2024",
+                    "start": "2024-08-12",
+                    "end": "2024-08-12"
+                },
+                "time": {
+                    "start": "15:00",
+                    "end": "16:00"
+                },
+                "priority": {
+                    "text": "",
+                    "value": ""
+                },
+                "note": "",
+                "url": "/app/crm/calendar/event.nl?id=100751&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100792",
+                "title": "Install Furniture XYZ",
+                "workorder": {
+                    "text": "Install Furniture",
+                    "value": "1"
+                },
+                "location": "",
+                "status": {
+                    "text": "Tentative",
+                    "value": "TENTATIVE",
+                    "code": "bg-secondary"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/11/2024",
+                    "start": "2024-09-11",
+                    "end": "2024-09-11"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "18:00"
+                },
+                "priority": {
+                    "text": "High",
+                    "value": "3",
+                    "code": "#ca6621"
+                },
+                "note": "AAA\nBBB",
+                "url": "/app/crm/calendar/event.nl?id=100792&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "1",
+                    "value": "1"
+                },
+                "address": {
+                    "text": "1",
+                    "value": "1"
+                }
+            }, {
+                "id": "100796",
+                "title": "Install Furniture 12345",
+                "workorder": {
+                    "text": "Install Furniture",
+                    "value": "1"
+                },
+                "location": "",
+                "status": {
+                    "text": "Tentative",
+                    "value": "TENTATIVE",
+                    "code": "bg-secondary"
+                },
+                "date": {
+                    "recurrence": "occurs every day from 9/11/2024 until 9/12/2024",
+                    "start": "2024-09-11",
+                    "end": "2024-09-12"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "19:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "XYZ\n123",
+                "url": "/app/crm/calendar/event.nl?id=100796&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "1",
+                    "value": "1"
+                },
+                "address": {
+                    "text": "1",
+                    "value": "1"
+                }
+            }, {
+                "id": "100798",
+                "title": "Install Furniture XYZ",
+                "workorder": {
+                    "text": "Install Furniture",
+                    "value": "1"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "occurs every day from 9/12/2024 until 9/13/2024",
+                    "start": "2024-09-12",
+                    "end": "2024-09-13"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "18:00"
+                },
+                "priority": {
+                    "text": "High",
+                    "value": "3",
+                    "code": "#ca6621"
+                },
+                "note": "TEST ABCD",
+                "url": "/app/crm/calendar/event.nl?id=100798&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "1",
+                    "value": "1"
+                },
+                "address": {
+                    "text": "1",
+                    "value": "1"
+                }
+            }],
+            "projectUrl": "/app/accounting/project/project.nl?id=1515&compid=TSTDRV2617106",
+            "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=1&compid=TSTDRV2617106",
+            "soUrl": "/app/accounting/transactions/salesord.nl?id=11722&compid=TSTDRV2617106",
+            "esthours": "10"
         },
         "resources": [],
         "items": [],
@@ -12424,6 +16706,134 @@ const mockup = {
                     "text": "",
                     "value": ""
                 }
+            }, {
+                "id": "100800",
+                "title": "Sample Event",
+                "workorder": {
+                    "text": "Work Order Test - Sept 12 - Mei",
+                    "value": "49"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/12/2024",
+                    "start": "2024-09-12",
+                    "end": "2024-09-12"
+                },
+                "time": {
+                    "start": "13:00",
+                    "end": "14:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Sample Event",
+                "url": "/app/crm/calendar/event.nl?id=100800&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100800",
+                "title": "Sample Event",
+                "workorder": {
+                    "text": "Work Order Test - Sept 12 - Mei",
+                    "value": "49"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/12/2024",
+                    "start": "2024-09-12",
+                    "end": "2024-09-12"
+                },
+                "time": {
+                    "start": "13:00",
+                    "end": "14:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Sample Event",
+                "url": "/app/crm/calendar/event.nl?id=100800&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100801",
+                "title": "Test",
+                "workorder": {
+                    "text": "Work Order Test - Sept 12 - Mei",
+                    "value": "49"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/13/2024",
+                    "start": "2024-09-13",
+                    "end": "2024-09-13"
+                },
+                "time": {
+                    "start": "11:00",
+                    "end": "12:00"
+                },
+                "priority": {
+                    "text": "",
+                    "value": ""
+                },
+                "note": "",
+                "url": "/app/crm/calendar/event.nl?id=100801&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
             }],
             "projectUrl": "/app/accounting/project/project.nl?id=1883&compid=TSTDRV2617106",
             "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=49&compid=TSTDRV2617106",
@@ -12663,6 +17073,134 @@ const mockup = {
                 },
                 "note": "",
                 "url": "/app/crm/calendar/event.nl?id=100782&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100800",
+                "title": "Sample Event",
+                "workorder": {
+                    "text": "Work Order Test - Sept 12 - Mei",
+                    "value": "49"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/12/2024",
+                    "start": "2024-09-12",
+                    "end": "2024-09-12"
+                },
+                "time": {
+                    "start": "13:00",
+                    "end": "14:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Sample Event",
+                "url": "/app/crm/calendar/event.nl?id=100800&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100800",
+                "title": "Sample Event",
+                "workorder": {
+                    "text": "Work Order Test - Sept 12 - Mei",
+                    "value": "49"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/12/2024",
+                    "start": "2024-09-12",
+                    "end": "2024-09-12"
+                },
+                "time": {
+                    "start": "13:00",
+                    "end": "14:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Sample Event",
+                "url": "/app/crm/calendar/event.nl?id=100800&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100801",
+                "title": "Test",
+                "workorder": {
+                    "text": "Work Order Test - Sept 12 - Mei",
+                    "value": "49"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/13/2024",
+                    "start": "2024-09-13",
+                    "end": "2024-09-13"
+                },
+                "time": {
+                    "start": "11:00",
+                    "end": "12:00"
+                },
+                "priority": {
+                    "text": "",
+                    "value": ""
+                },
+                "note": "",
+                "url": "/app/crm/calendar/event.nl?id=100801&compid=TSTDRV2617106&selectedtab=custom337",
                 "color": "#1a6756",
                 "woRef": {},
                 "resources": [],
@@ -13662,6 +18200,90 @@ const mockup = {
                     "value": ""
                 }
             }, {
+                "id": "100751",
+                "title": "Furniture Installer",
+                "workorder": {
+                    "text": "Install Furniture",
+                    "value": "1"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 8/12/2024",
+                    "start": "2024-08-12",
+                    "end": "2024-08-12"
+                },
+                "time": {
+                    "start": "15:00",
+                    "end": "16:00"
+                },
+                "priority": {
+                    "text": "",
+                    "value": ""
+                },
+                "note": "",
+                "url": "/app/crm/calendar/event.nl?id=100751&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100751",
+                "title": "Furniture Installer",
+                "workorder": {
+                    "text": "Install Furniture",
+                    "value": "1"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 8/12/2024",
+                    "start": "2024-08-12",
+                    "end": "2024-08-12"
+                },
+                "time": {
+                    "start": "15:00",
+                    "end": "16:00"
+                },
+                "priority": {
+                    "text": "",
+                    "value": ""
+                },
+                "note": "",
+                "url": "/app/crm/calendar/event.nl?id=100751&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
                 "id": "100792",
                 "title": "Install Furniture XYZ",
                 "workorder": {
@@ -14430,6 +19052,90 @@ const mockup = {
                     "value": ""
                 }
             }, {
+                "id": "100751",
+                "title": "Furniture Installer",
+                "workorder": {
+                    "text": "Install Furniture",
+                    "value": "1"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 8/12/2024",
+                    "start": "2024-08-12",
+                    "end": "2024-08-12"
+                },
+                "time": {
+                    "start": "15:00",
+                    "end": "16:00"
+                },
+                "priority": {
+                    "text": "",
+                    "value": ""
+                },
+                "note": "",
+                "url": "/app/crm/calendar/event.nl?id=100751&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100751",
+                "title": "Furniture Installer",
+                "workorder": {
+                    "text": "Install Furniture",
+                    "value": "1"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 8/12/2024",
+                    "start": "2024-08-12",
+                    "end": "2024-08-12"
+                },
+                "time": {
+                    "start": "15:00",
+                    "end": "16:00"
+                },
+                "priority": {
+                    "text": "",
+                    "value": ""
+                },
+                "note": "",
+                "url": "/app/crm/calendar/event.nl?id=100751&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
                 "id": "100792",
                 "title": "Install Furniture XYZ",
                 "workorder": {
@@ -14814,6 +19520,90 @@ const mockup = {
                     "value": ""
                 }
             }, {
+                "id": "100751",
+                "title": "Furniture Installer",
+                "workorder": {
+                    "text": "Install Furniture",
+                    "value": "1"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 8/12/2024",
+                    "start": "2024-08-12",
+                    "end": "2024-08-12"
+                },
+                "time": {
+                    "start": "15:00",
+                    "end": "16:00"
+                },
+                "priority": {
+                    "text": "",
+                    "value": ""
+                },
+                "note": "",
+                "url": "/app/crm/calendar/event.nl?id=100751&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100751",
+                "title": "Furniture Installer",
+                "workorder": {
+                    "text": "Install Furniture",
+                    "value": "1"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 8/12/2024",
+                    "start": "2024-08-12",
+                    "end": "2024-08-12"
+                },
+                "time": {
+                    "start": "15:00",
+                    "end": "16:00"
+                },
+                "priority": {
+                    "text": "",
+                    "value": ""
+                },
+                "note": "",
+                "url": "/app/crm/calendar/event.nl?id=100751&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
                 "id": "100792",
                 "title": "Install Furniture XYZ",
                 "workorder": {
@@ -15076,6 +19866,1314 @@ const mockup = {
             "value": "1"
         }
     }, {
+        "id": "100799",
+        "title": "Test Event 12 Sep",
+        "workorder": {
+            "text": "Test Work Order 12 Sep",
+            "value": "51"
+        },
+        "location": "",
+        "status": {
+            "text": "Confirmed",
+            "value": "CONFIRMED",
+            "code": "bg-success"
+        },
+        "date": {
+            "recurrence": "one time event on 9/12/2024",
+            "start": "2024-09-12",
+            "end": "2024-09-12"
+        },
+        "time": {
+            "start": "09:00",
+            "end": "10:00"
+        },
+        "priority": {
+            "text": "",
+            "value": ""
+        },
+        "note": "",
+        "url": "/app/crm/calendar/event.nl?id=100799&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {
+            "id": "51",
+            "name": "Test Work Order 12 Sep",
+            "title": "",
+            "project": {
+                "text": "",
+                "value": ""
+            },
+            "date": "",
+            "status": {
+                "text": "",
+                "value": ""
+            },
+            "type": {
+                "text": "",
+                "value": ""
+            },
+            "memo": "",
+            "salesorder": {
+                "text": " ",
+                "value": ""
+            },
+            "customer": {
+                "text": "",
+                "value": ""
+            },
+            "resourceGroup": {
+                "text": "",
+                "value": ""
+            },
+            "priority": "",
+            "resources": [],
+            "items": [],
+            "addresses": [],
+            "contacts": [],
+            "events": [{
+                "id": "100799",
+                "title": "Test Event 12 Sep",
+                "workorder": {
+                    "text": "Test Work Order 12 Sep",
+                    "value": "51"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/12/2024",
+                    "start": "2024-09-12",
+                    "end": "2024-09-12"
+                },
+                "time": {
+                    "start": "09:00",
+                    "end": "10:00"
+                },
+                "priority": {
+                    "text": "",
+                    "value": ""
+                },
+                "note": "",
+                "url": "/app/crm/calendar/event.nl?id=100799&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100804",
+                "title": "Test Event 17 Sep",
+                "workorder": {
+                    "text": "Test Work Order 12 Sep",
+                    "value": "51"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "07:00",
+                    "end": "08:00"
+                },
+                "priority": {
+                    "text": "",
+                    "value": ""
+                },
+                "note": "",
+                "url": "/app/crm/calendar/event.nl?id=100804&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }],
+            "projectUrl": "/app/accounting/project/project.nl?compid=TSTDRV2617106",
+            "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=51&compid=TSTDRV2617106",
+            "soUrl": "/app/accounting/transactions/salesord.nl?compid=TSTDRV2617106",
+            "esthours": ""
+        },
+        "resources": [],
+        "items": [],
+        "contacts": [],
+        "addresses": [],
+        "contact": {
+            "text": "",
+            "value": ""
+        },
+        "address": {
+            "text": "",
+            "value": ""
+        }
+    }, {
+        "id": "100800",
+        "title": "Sample Event",
+        "workorder": {
+            "text": "Work Order Test - Sept 12 - Mei",
+            "value": "49"
+        },
+        "location": "",
+        "status": {
+            "text": "Confirmed",
+            "value": "CONFIRMED",
+            "code": "bg-success"
+        },
+        "date": {
+            "recurrence": "one time event on 9/12/2024",
+            "start": "2024-09-12",
+            "end": "2024-09-12"
+        },
+        "time": {
+            "start": "13:00",
+            "end": "14:00"
+        },
+        "priority": {
+            "text": "Medium",
+            "value": "2",
+            "code": "#dfcf02"
+        },
+        "note": "Sample Event",
+        "url": "/app/crm/calendar/event.nl?id=100800&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {
+            "id": "49",
+            "name": "Work Order Test - Sept 12 - Mei",
+            "title": "Work Order Test - Sept 12 - Mei",
+            "project": {
+                "text": "AB&I Holdings : Field Ops Pro Project",
+                "value": "1883"
+            },
+            "date": "9/9/2024",
+            "status": {
+                "text": "Not Started",
+                "value": "4",
+                "code": "#026adf"
+            },
+            "type": {
+                "text": "Moves",
+                "value": "3"
+            },
+            "memo": "<p class=\"ql-align-justify\"><strong style=\"background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);\">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quam est, tempus vel eleifend sit amet, vehicula sed diam. Maecenas porta mollis sem in aliquam. Suspendisse imperdiet suscipit accumsan. Vivamus lacinia interdum sagittis. Mauris vitae nisl vitae magna lacinia aliquam. Proin lacinia, erat at aliquet bibendum, justo nunc faucibus velit, et fringilla lorem libero non ligula. Vivamus id mattis sem. Cras sagittis nunc est, vitae vestibulum erat sollicitudin eu. Aenean purus dui, dignissim sed molestie quis, feugiat vel velit.</strong></p><p class=\"ql-align-justify\"></p><p class=\"ql-align-justify\"><span style=\"background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);\">Nulla pretium accumsan laoreet. Duis diam augue, maximus et venenatis vel,</span><em style=\"background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);\"> sagittis quis lectus. Pellentesque vestibulum tortor eget eleifend sodales. </em><span style=\"background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);\">Morbi a ultrices velit, in sollicitudin tortor. Fusce imperdiet posuere arcu, nec porta leo fermentum id. Aliquam consectetur consectetur erat ut ultricies. Donec eu erat metus. Aliquam bibendum quis velit in tempor. Praesent id augue vestibulum, euismod odio vel, rutrum diam. Praesent dignissim, arcu et gravida suscipit, sapien ex eleifend dolor, non ultrices nunc metus id enim. Aliquam maximus lectus eu neque blandit, malesuada egestas libero maximus. Nunc finibus laoreet eros, et efficitur nibh tincidunt id. Integer fringilla arcu eu dolor varius, sit amet mattis nunc tincidunt.</span></p>",
+            "salesorder": {
+                "text": "Sales Order #SLS00000654",
+                "value": "16211"
+            },
+            "customer": {
+                "text": "AB&I Holdings",
+                "value": "1249"
+            },
+            "resourceGroup": {
+                "text": "",
+                "value": ""
+            },
+            "priority": "",
+            "resources": [],
+            "items": [{
+                "id": "53",
+                "workorder": {
+                    "text": "Work Order Test - Sept 12 - Mei",
+                    "value": "49"
+                },
+                "events": ["100782"],
+                "uuid": "16210_2",
+                "line": "2",
+                "item": {
+                    "text": "2375-6727",
+                    "value": "1426"
+                },
+                "description": "Inventory Item",
+                "quantity": 0,
+                "note": ""
+            }, {
+                "id": "54",
+                "workorder": {
+                    "text": "Work Order Test - Sept 12 - Mei",
+                    "value": "49"
+                },
+                "events": ["100782"],
+                "uuid": "16210_3",
+                "line": "3",
+                "item": {
+                    "text": "45XQ-2424-LJ4SCA",
+                    "value": "1013"
+                },
+                "description": "Inventory Item",
+                "quantity": 0,
+                "note": ""
+            }, {
+                "id": "55",
+                "workorder": {
+                    "text": "Work Order Test - Sept 12 - Mei",
+                    "value": "49"
+                },
+                "events": ["100782"],
+                "uuid": "16211_10",
+                "line": "5",
+                "item": {
+                    "text": "Dealer Service Fee",
+                    "value": "2331"
+                },
+                "description": "Dealer Service Fee",
+                "quantity": 0,
+                "note": ""
+            }],
+            "addresses": [{
+                "id": "41",
+                "workorder": {
+                    "text": "Work Order Test - Sept 12 - Mei",
+                    "value": "49"
+                },
+                "customer": {
+                    "text": "AB&I Holdings",
+                    "value": "1249"
+                },
+                "events": ["100782"],
+                "address": {
+                    "text": "1701 Rollins Road",
+                    "value": "244878"
+                },
+                "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+                "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+            }],
+            "contacts": [{
+                "id": "33",
+                "workorder": {
+                    "text": "Work Order Test - Sept 12 - Mei",
+                    "value": "49"
+                },
+                "events": ["100782"],
+                "contact": {
+                    "text": "AB&I Holdings : Test Prav",
+                    "value": "1892"
+                },
+                "name": "Test Prav",
+                "email": "pravallika@erpsuccesspartners.com",
+                "jobTitle": "QA",
+                "mobilePhone": "",
+                "phone": "",
+                "primary": "checked",
+                "url": "/app/common/entity/contact.nl?id=1892&compid=TSTDRV2617106"
+            }],
+            "events": [{
+                "id": "100781",
+                "title": "Work Order Test 123123123123",
+                "workorder": {
+                    "text": "Work Order Test - Sept 12 - Mei",
+                    "value": "49"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "occurs every day from 9/4/2024 until 9/9/2024",
+                    "start": "2024-09-04",
+                    "end": "2024-09-09"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "23:05"
+                },
+                "priority": {
+                    "text": "High",
+                    "value": "3",
+                    "code": "#ca6621"
+                },
+                "note": "XYZ\r\nABC",
+                "url": "/app/crm/calendar/event.nl?id=100781&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100782",
+                "title": "Work Order Test - ^_^",
+                "workorder": {
+                    "text": "Work Order Test - Sept 12 - Mei",
+                    "value": "49"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "occurs every day from 9/4/2024 until 9/29/2024",
+                    "start": "2024-09-04",
+                    "end": "2024-09-29"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "18:00"
+                },
+                "priority": {
+                    "text": "Urgent",
+                    "value": "4",
+                    "code": "#9a2407"
+                },
+                "note": "",
+                "url": "/app/crm/calendar/event.nl?id=100782&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100800",
+                "title": "Sample Event",
+                "workorder": {
+                    "text": "Work Order Test - Sept 12 - Mei",
+                    "value": "49"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/12/2024",
+                    "start": "2024-09-12",
+                    "end": "2024-09-12"
+                },
+                "time": {
+                    "start": "13:00",
+                    "end": "14:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Sample Event",
+                "url": "/app/crm/calendar/event.nl?id=100800&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100800",
+                "title": "Sample Event",
+                "workorder": {
+                    "text": "Work Order Test - Sept 12 - Mei",
+                    "value": "49"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/12/2024",
+                    "start": "2024-09-12",
+                    "end": "2024-09-12"
+                },
+                "time": {
+                    "start": "13:00",
+                    "end": "14:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Sample Event",
+                "url": "/app/crm/calendar/event.nl?id=100800&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100801",
+                "title": "Test",
+                "workorder": {
+                    "text": "Work Order Test - Sept 12 - Mei",
+                    "value": "49"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/13/2024",
+                    "start": "2024-09-13",
+                    "end": "2024-09-13"
+                },
+                "time": {
+                    "start": "11:00",
+                    "end": "12:00"
+                },
+                "priority": {
+                    "text": "",
+                    "value": ""
+                },
+                "note": "",
+                "url": "/app/crm/calendar/event.nl?id=100801&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }],
+            "projectUrl": "/app/accounting/project/project.nl?id=1883&compid=TSTDRV2617106",
+            "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=49&compid=TSTDRV2617106",
+            "soUrl": "/app/accounting/transactions/salesord.nl?id=16211&compid=TSTDRV2617106",
+            "esthours": "100"
+        },
+        "resources": [],
+        "items": [],
+        "contacts": [],
+        "addresses": [],
+        "contact": {
+            "text": "",
+            "value": ""
+        },
+        "address": {
+            "text": "",
+            "value": ""
+        }
+    }, {
+        "id": "100800",
+        "title": "Sample Event",
+        "workorder": {
+            "text": "Work Order Test - Sept 12 - Mei",
+            "value": "49"
+        },
+        "location": "",
+        "status": {
+            "text": "Confirmed",
+            "value": "CONFIRMED",
+            "code": "bg-success"
+        },
+        "date": {
+            "recurrence": "one time event on 9/12/2024",
+            "start": "2024-09-12",
+            "end": "2024-09-12"
+        },
+        "time": {
+            "start": "13:00",
+            "end": "14:00"
+        },
+        "priority": {
+            "text": "Medium",
+            "value": "2",
+            "code": "#dfcf02"
+        },
+        "note": "Sample Event",
+        "url": "/app/crm/calendar/event.nl?id=100800&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {
+            "id": "49",
+            "name": "Work Order Test - Sept 12 - Mei",
+            "title": "Work Order Test - Sept 12 - Mei",
+            "project": {
+                "text": "AB&I Holdings : Field Ops Pro Project",
+                "value": "1883"
+            },
+            "date": "9/9/2024",
+            "status": {
+                "text": "Not Started",
+                "value": "4",
+                "code": "#026adf"
+            },
+            "type": {
+                "text": "Moves",
+                "value": "3"
+            },
+            "memo": "<p class=\"ql-align-justify\"><strong style=\"background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);\">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quam est, tempus vel eleifend sit amet, vehicula sed diam. Maecenas porta mollis sem in aliquam. Suspendisse imperdiet suscipit accumsan. Vivamus lacinia interdum sagittis. Mauris vitae nisl vitae magna lacinia aliquam. Proin lacinia, erat at aliquet bibendum, justo nunc faucibus velit, et fringilla lorem libero non ligula. Vivamus id mattis sem. Cras sagittis nunc est, vitae vestibulum erat sollicitudin eu. Aenean purus dui, dignissim sed molestie quis, feugiat vel velit.</strong></p><p class=\"ql-align-justify\"></p><p class=\"ql-align-justify\"><span style=\"background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);\">Nulla pretium accumsan laoreet. Duis diam augue, maximus et venenatis vel,</span><em style=\"background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);\"> sagittis quis lectus. Pellentesque vestibulum tortor eget eleifend sodales. </em><span style=\"background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);\">Morbi a ultrices velit, in sollicitudin tortor. Fusce imperdiet posuere arcu, nec porta leo fermentum id. Aliquam consectetur consectetur erat ut ultricies. Donec eu erat metus. Aliquam bibendum quis velit in tempor. Praesent id augue vestibulum, euismod odio vel, rutrum diam. Praesent dignissim, arcu et gravida suscipit, sapien ex eleifend dolor, non ultrices nunc metus id enim. Aliquam maximus lectus eu neque blandit, malesuada egestas libero maximus. Nunc finibus laoreet eros, et efficitur nibh tincidunt id. Integer fringilla arcu eu dolor varius, sit amet mattis nunc tincidunt.</span></p>",
+            "salesorder": {
+                "text": "Sales Order #SLS00000654",
+                "value": "16211"
+            },
+            "customer": {
+                "text": "AB&I Holdings",
+                "value": "1249"
+            },
+            "resourceGroup": {
+                "text": "",
+                "value": ""
+            },
+            "priority": "",
+            "resources": [],
+            "items": [{
+                "id": "53",
+                "workorder": {
+                    "text": "Work Order Test - Sept 12 - Mei",
+                    "value": "49"
+                },
+                "events": ["100782"],
+                "uuid": "16210_2",
+                "line": "2",
+                "item": {
+                    "text": "2375-6727",
+                    "value": "1426"
+                },
+                "description": "Inventory Item",
+                "quantity": 0,
+                "note": ""
+            }, {
+                "id": "54",
+                "workorder": {
+                    "text": "Work Order Test - Sept 12 - Mei",
+                    "value": "49"
+                },
+                "events": ["100782"],
+                "uuid": "16210_3",
+                "line": "3",
+                "item": {
+                    "text": "45XQ-2424-LJ4SCA",
+                    "value": "1013"
+                },
+                "description": "Inventory Item",
+                "quantity": 0,
+                "note": ""
+            }, {
+                "id": "55",
+                "workorder": {
+                    "text": "Work Order Test - Sept 12 - Mei",
+                    "value": "49"
+                },
+                "events": ["100782"],
+                "uuid": "16211_10",
+                "line": "5",
+                "item": {
+                    "text": "Dealer Service Fee",
+                    "value": "2331"
+                },
+                "description": "Dealer Service Fee",
+                "quantity": 0,
+                "note": ""
+            }],
+            "addresses": [{
+                "id": "41",
+                "workorder": {
+                    "text": "Work Order Test - Sept 12 - Mei",
+                    "value": "49"
+                },
+                "customer": {
+                    "text": "AB&I Holdings",
+                    "value": "1249"
+                },
+                "events": ["100782"],
+                "address": {
+                    "text": "1701 Rollins Road",
+                    "value": "244878"
+                },
+                "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+                "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+            }],
+            "contacts": [{
+                "id": "33",
+                "workorder": {
+                    "text": "Work Order Test - Sept 12 - Mei",
+                    "value": "49"
+                },
+                "events": ["100782"],
+                "contact": {
+                    "text": "AB&I Holdings : Test Prav",
+                    "value": "1892"
+                },
+                "name": "Test Prav",
+                "email": "pravallika@erpsuccesspartners.com",
+                "jobTitle": "QA",
+                "mobilePhone": "",
+                "phone": "",
+                "primary": "checked",
+                "url": "/app/common/entity/contact.nl?id=1892&compid=TSTDRV2617106"
+            }],
+            "events": [{
+                "id": "100781",
+                "title": "Work Order Test 123123123123",
+                "workorder": {
+                    "text": "Work Order Test - Sept 12 - Mei",
+                    "value": "49"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "occurs every day from 9/4/2024 until 9/9/2024",
+                    "start": "2024-09-04",
+                    "end": "2024-09-09"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "23:05"
+                },
+                "priority": {
+                    "text": "High",
+                    "value": "3",
+                    "code": "#ca6621"
+                },
+                "note": "XYZ\r\nABC",
+                "url": "/app/crm/calendar/event.nl?id=100781&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100782",
+                "title": "Work Order Test - ^_^",
+                "workorder": {
+                    "text": "Work Order Test - Sept 12 - Mei",
+                    "value": "49"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "occurs every day from 9/4/2024 until 9/29/2024",
+                    "start": "2024-09-04",
+                    "end": "2024-09-29"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "18:00"
+                },
+                "priority": {
+                    "text": "Urgent",
+                    "value": "4",
+                    "code": "#9a2407"
+                },
+                "note": "",
+                "url": "/app/crm/calendar/event.nl?id=100782&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100800",
+                "title": "Sample Event",
+                "workorder": {
+                    "text": "Work Order Test - Sept 12 - Mei",
+                    "value": "49"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/12/2024",
+                    "start": "2024-09-12",
+                    "end": "2024-09-12"
+                },
+                "time": {
+                    "start": "13:00",
+                    "end": "14:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Sample Event",
+                "url": "/app/crm/calendar/event.nl?id=100800&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100800",
+                "title": "Sample Event",
+                "workorder": {
+                    "text": "Work Order Test - Sept 12 - Mei",
+                    "value": "49"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/12/2024",
+                    "start": "2024-09-12",
+                    "end": "2024-09-12"
+                },
+                "time": {
+                    "start": "13:00",
+                    "end": "14:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Sample Event",
+                "url": "/app/crm/calendar/event.nl?id=100800&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100801",
+                "title": "Test",
+                "workorder": {
+                    "text": "Work Order Test - Sept 12 - Mei",
+                    "value": "49"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/13/2024",
+                    "start": "2024-09-13",
+                    "end": "2024-09-13"
+                },
+                "time": {
+                    "start": "11:00",
+                    "end": "12:00"
+                },
+                "priority": {
+                    "text": "",
+                    "value": ""
+                },
+                "note": "",
+                "url": "/app/crm/calendar/event.nl?id=100801&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }],
+            "projectUrl": "/app/accounting/project/project.nl?id=1883&compid=TSTDRV2617106",
+            "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=49&compid=TSTDRV2617106",
+            "soUrl": "/app/accounting/transactions/salesord.nl?id=16211&compid=TSTDRV2617106",
+            "esthours": "100"
+        },
+        "resources": [],
+        "items": [],
+        "contacts": [],
+        "addresses": [],
+        "contact": {
+            "text": "",
+            "value": ""
+        },
+        "address": {
+            "text": "",
+            "value": ""
+        }
+    }, {
+        "id": "100801",
+        "title": "Test",
+        "workorder": {
+            "text": "Work Order Test - Sept 12 - Mei",
+            "value": "49"
+        },
+        "location": "",
+        "status": {
+            "text": "Confirmed",
+            "value": "CONFIRMED",
+            "code": "bg-success"
+        },
+        "date": {
+            "recurrence": "one time event on 9/13/2024",
+            "start": "2024-09-13",
+            "end": "2024-09-13"
+        },
+        "time": {
+            "start": "11:00",
+            "end": "12:00"
+        },
+        "priority": {
+            "text": "",
+            "value": ""
+        },
+        "note": "",
+        "url": "/app/crm/calendar/event.nl?id=100801&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {
+            "id": "49",
+            "name": "Work Order Test - Sept 12 - Mei",
+            "title": "Work Order Test - Sept 12 - Mei",
+            "project": {
+                "text": "AB&I Holdings : Field Ops Pro Project",
+                "value": "1883"
+            },
+            "date": "9/9/2024",
+            "status": {
+                "text": "Not Started",
+                "value": "4",
+                "code": "#026adf"
+            },
+            "type": {
+                "text": "Moves",
+                "value": "3"
+            },
+            "memo": "<p class=\"ql-align-justify\"><strong style=\"background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);\">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quam est, tempus vel eleifend sit amet, vehicula sed diam. Maecenas porta mollis sem in aliquam. Suspendisse imperdiet suscipit accumsan. Vivamus lacinia interdum sagittis. Mauris vitae nisl vitae magna lacinia aliquam. Proin lacinia, erat at aliquet bibendum, justo nunc faucibus velit, et fringilla lorem libero non ligula. Vivamus id mattis sem. Cras sagittis nunc est, vitae vestibulum erat sollicitudin eu. Aenean purus dui, dignissim sed molestie quis, feugiat vel velit.</strong></p><p class=\"ql-align-justify\"></p><p class=\"ql-align-justify\"><span style=\"background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);\">Nulla pretium accumsan laoreet. Duis diam augue, maximus et venenatis vel,</span><em style=\"background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);\"> sagittis quis lectus. Pellentesque vestibulum tortor eget eleifend sodales. </em><span style=\"background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);\">Morbi a ultrices velit, in sollicitudin tortor. Fusce imperdiet posuere arcu, nec porta leo fermentum id. Aliquam consectetur consectetur erat ut ultricies. Donec eu erat metus. Aliquam bibendum quis velit in tempor. Praesent id augue vestibulum, euismod odio vel, rutrum diam. Praesent dignissim, arcu et gravida suscipit, sapien ex eleifend dolor, non ultrices nunc metus id enim. Aliquam maximus lectus eu neque blandit, malesuada egestas libero maximus. Nunc finibus laoreet eros, et efficitur nibh tincidunt id. Integer fringilla arcu eu dolor varius, sit amet mattis nunc tincidunt.</span></p>",
+            "salesorder": {
+                "text": "Sales Order #SLS00000654",
+                "value": "16211"
+            },
+            "customer": {
+                "text": "AB&I Holdings",
+                "value": "1249"
+            },
+            "resourceGroup": {
+                "text": "",
+                "value": ""
+            },
+            "priority": "",
+            "resources": [],
+            "items": [{
+                "id": "53",
+                "workorder": {
+                    "text": "Work Order Test - Sept 12 - Mei",
+                    "value": "49"
+                },
+                "events": ["100782"],
+                "uuid": "16210_2",
+                "line": "2",
+                "item": {
+                    "text": "2375-6727",
+                    "value": "1426"
+                },
+                "description": "Inventory Item",
+                "quantity": 0,
+                "note": ""
+            }, {
+                "id": "54",
+                "workorder": {
+                    "text": "Work Order Test - Sept 12 - Mei",
+                    "value": "49"
+                },
+                "events": ["100782"],
+                "uuid": "16210_3",
+                "line": "3",
+                "item": {
+                    "text": "45XQ-2424-LJ4SCA",
+                    "value": "1013"
+                },
+                "description": "Inventory Item",
+                "quantity": 0,
+                "note": ""
+            }, {
+                "id": "55",
+                "workorder": {
+                    "text": "Work Order Test - Sept 12 - Mei",
+                    "value": "49"
+                },
+                "events": ["100782"],
+                "uuid": "16211_10",
+                "line": "5",
+                "item": {
+                    "text": "Dealer Service Fee",
+                    "value": "2331"
+                },
+                "description": "Dealer Service Fee",
+                "quantity": 0,
+                "note": ""
+            }],
+            "addresses": [{
+                "id": "41",
+                "workorder": {
+                    "text": "Work Order Test - Sept 12 - Mei",
+                    "value": "49"
+                },
+                "customer": {
+                    "text": "AB&I Holdings",
+                    "value": "1249"
+                },
+                "events": ["100782"],
+                "address": {
+                    "text": "1701 Rollins Road",
+                    "value": "244878"
+                },
+                "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+                "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+            }],
+            "contacts": [{
+                "id": "33",
+                "workorder": {
+                    "text": "Work Order Test - Sept 12 - Mei",
+                    "value": "49"
+                },
+                "events": ["100782"],
+                "contact": {
+                    "text": "AB&I Holdings : Test Prav",
+                    "value": "1892"
+                },
+                "name": "Test Prav",
+                "email": "pravallika@erpsuccesspartners.com",
+                "jobTitle": "QA",
+                "mobilePhone": "",
+                "phone": "",
+                "primary": "checked",
+                "url": "/app/common/entity/contact.nl?id=1892&compid=TSTDRV2617106"
+            }],
+            "events": [{
+                "id": "100781",
+                "title": "Work Order Test 123123123123",
+                "workorder": {
+                    "text": "Work Order Test - Sept 12 - Mei",
+                    "value": "49"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "occurs every day from 9/4/2024 until 9/9/2024",
+                    "start": "2024-09-04",
+                    "end": "2024-09-09"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "23:05"
+                },
+                "priority": {
+                    "text": "High",
+                    "value": "3",
+                    "code": "#ca6621"
+                },
+                "note": "XYZ\r\nABC",
+                "url": "/app/crm/calendar/event.nl?id=100781&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100782",
+                "title": "Work Order Test - ^_^",
+                "workorder": {
+                    "text": "Work Order Test - Sept 12 - Mei",
+                    "value": "49"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "occurs every day from 9/4/2024 until 9/29/2024",
+                    "start": "2024-09-04",
+                    "end": "2024-09-29"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "18:00"
+                },
+                "priority": {
+                    "text": "Urgent",
+                    "value": "4",
+                    "code": "#9a2407"
+                },
+                "note": "",
+                "url": "/app/crm/calendar/event.nl?id=100782&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100800",
+                "title": "Sample Event",
+                "workorder": {
+                    "text": "Work Order Test - Sept 12 - Mei",
+                    "value": "49"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/12/2024",
+                    "start": "2024-09-12",
+                    "end": "2024-09-12"
+                },
+                "time": {
+                    "start": "13:00",
+                    "end": "14:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Sample Event",
+                "url": "/app/crm/calendar/event.nl?id=100800&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100800",
+                "title": "Sample Event",
+                "workorder": {
+                    "text": "Work Order Test - Sept 12 - Mei",
+                    "value": "49"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/12/2024",
+                    "start": "2024-09-12",
+                    "end": "2024-09-12"
+                },
+                "time": {
+                    "start": "13:00",
+                    "end": "14:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Sample Event",
+                "url": "/app/crm/calendar/event.nl?id=100800&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100801",
+                "title": "Test",
+                "workorder": {
+                    "text": "Work Order Test - Sept 12 - Mei",
+                    "value": "49"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/13/2024",
+                    "start": "2024-09-13",
+                    "end": "2024-09-13"
+                },
+                "time": {
+                    "start": "11:00",
+                    "end": "12:00"
+                },
+                "priority": {
+                    "text": "",
+                    "value": ""
+                },
+                "note": "",
+                "url": "/app/crm/calendar/event.nl?id=100801&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }],
+            "projectUrl": "/app/accounting/project/project.nl?id=1883&compid=TSTDRV2617106",
+            "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=49&compid=TSTDRV2617106",
+            "soUrl": "/app/accounting/transactions/salesord.nl?id=16211&compid=TSTDRV2617106",
+            "esthours": "100"
+        },
+        "resources": [],
+        "items": [],
+        "contacts": [],
+        "addresses": [],
+        "contact": {
+            "text": "",
+            "value": ""
+        },
+        "address": {
+            "text": "",
+            "value": ""
+        }
+    }, {
         "id": "100803",
         "title": "12345",
         "workorder": {
@@ -15273,32 +21371,7 @@ const mockup = {
             "soUrl": "/app/accounting/transactions/salesord.nl?id=17729&compid=TSTDRV2617106",
             "esthours": "50"
         },
-        "resources": [{
-            "employee": {
-                "text": "Bea Dashboards",
-                "value": "1767"
-            },
-            "initials": "BD",
-            "email": "beatrice.q@erpsuccesspartners.com",
-            "phone": "",
-            "location": {
-                "text": "01: San Francisco",
-                "value": "2"
-            },
-            "active": true,
-            "resourceGroup": {
-                "text": "Drivers",
-                "value": "3"
-            },
-            "type": {
-                "text": "Delivery Driver",
-                "value": "2"
-            },
-            "color": "#554de2",
-            "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fcompid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-            "events": ["100682", "100803"],
-            "selected": true
-        }],
+        "resources": [],
         "items": [],
         "contacts": [{
             "id": "42",
@@ -15346,6 +21419,15253 @@ const mockup = {
         "address": {
             "text": "43",
             "value": "43"
+        }
+    }, {
+        "id": "100804",
+        "title": "Test Event 17 Sep",
+        "workorder": {
+            "text": "Test Work Order 12 Sep",
+            "value": "51"
+        },
+        "location": "",
+        "status": {
+            "text": "Confirmed",
+            "value": "CONFIRMED",
+            "code": "bg-success"
+        },
+        "date": {
+            "recurrence": "one time event on 9/17/2024",
+            "start": "2024-09-17",
+            "end": "2024-09-17"
+        },
+        "time": {
+            "start": "07:00",
+            "end": "08:00"
+        },
+        "priority": {
+            "text": "",
+            "value": ""
+        },
+        "note": "",
+        "url": "/app/crm/calendar/event.nl?id=100804&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {
+            "id": "51",
+            "name": "Test Work Order 12 Sep",
+            "title": "",
+            "project": {
+                "text": "",
+                "value": ""
+            },
+            "date": "",
+            "status": {
+                "text": "",
+                "value": ""
+            },
+            "type": {
+                "text": "",
+                "value": ""
+            },
+            "memo": "",
+            "salesorder": {
+                "text": " ",
+                "value": ""
+            },
+            "customer": {
+                "text": "",
+                "value": ""
+            },
+            "resourceGroup": {
+                "text": "",
+                "value": ""
+            },
+            "priority": "",
+            "resources": [],
+            "items": [],
+            "addresses": [],
+            "contacts": [],
+            "events": [{
+                "id": "100799",
+                "title": "Test Event 12 Sep",
+                "workorder": {
+                    "text": "Test Work Order 12 Sep",
+                    "value": "51"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/12/2024",
+                    "start": "2024-09-12",
+                    "end": "2024-09-12"
+                },
+                "time": {
+                    "start": "09:00",
+                    "end": "10:00"
+                },
+                "priority": {
+                    "text": "",
+                    "value": ""
+                },
+                "note": "",
+                "url": "/app/crm/calendar/event.nl?id=100799&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100804",
+                "title": "Test Event 17 Sep",
+                "workorder": {
+                    "text": "Test Work Order 12 Sep",
+                    "value": "51"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "07:00",
+                    "end": "08:00"
+                },
+                "priority": {
+                    "text": "",
+                    "value": ""
+                },
+                "note": "",
+                "url": "/app/crm/calendar/event.nl?id=100804&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }],
+            "projectUrl": "/app/accounting/project/project.nl?compid=TSTDRV2617106",
+            "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=51&compid=TSTDRV2617106",
+            "soUrl": "/app/accounting/transactions/salesord.nl?compid=TSTDRV2617106",
+            "esthours": ""
+        },
+        "resources": [],
+        "items": [],
+        "contacts": [],
+        "addresses": [],
+        "contact": {
+            "text": "",
+            "value": ""
+        },
+        "address": {
+            "text": "",
+            "value": ""
+        }
+    }, {
+        "id": "100805",
+        "title": "Test Event",
+        "workorder": {
+            "text": "Sample Work Order - Mei - DO NOT USE - 61",
+            "value": "61"
+        },
+        "location": "",
+        "status": {
+            "text": "Confirmed",
+            "value": "CONFIRMED",
+            "code": "bg-success"
+        },
+        "date": {
+            "recurrence": "one time event on 9/17/2024",
+            "start": "2024-09-17",
+            "end": "2024-09-17"
+        },
+        "time": {
+            "start": "05:00",
+            "end": "06:00"
+        },
+        "priority": {
+            "text": "Medium",
+            "value": "2",
+            "code": "#dfcf02"
+        },
+        "note": "Test Event",
+        "url": "/app/crm/calendar/event.nl?id=100805&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {
+            "id": "61",
+            "name": "Sample Work Order - Mei - DO NOT USE - 61",
+            "title": "Sample Work Order - Mei - DO NOT USE - 61",
+            "project": {
+                "text": "AB&I Holdings : Field Ops Pro Project",
+                "value": "1883"
+            },
+            "date": "9/23/2024",
+            "status": {
+                "text": "Hold",
+                "value": "7",
+                "code": "#6c757d"
+            },
+            "type": {
+                "text": "Moves",
+                "value": "3"
+            },
+            "memo": "<p><strong>Sample Work Order - Mei - DO NOT USE - TEST</strong></p>",
+            "salesorder": {
+                "text": "Sales Order #SLS00000686",
+                "value": "17729"
+            },
+            "customer": {
+                "text": "AB&I Holdings",
+                "value": "1249"
+            },
+            "resourceGroup": {
+                "text": "",
+                "value": ""
+            },
+            "priority": "",
+            "resources": [],
+            "items": [{
+                "id": "65",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "events": [],
+                "uuid": "17729_4",
+                "line": "4",
+                "item": {
+                    "text": "ACQUA/CARAVEL AU0641",
+                    "value": "1062"
+                },
+                "description": "ACQUA/CARAVEL AU0641",
+                "quantity": 1,
+                "note": ""
+            }, {
+                "id": "66",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "events": [],
+                "uuid": "17729_5",
+                "line": "5",
+                "item": {
+                    "text": "Dealer Service Fee",
+                    "value": "2331"
+                },
+                "description": "Dealer Service Fee",
+                "quantity": 5,
+                "note": ""
+            }],
+            "addresses": [{
+                "id": "45",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "customer": {
+                    "text": "AB&I Holdings",
+                    "value": "1249"
+                },
+                "events": ["100813"],
+                "address": {
+                    "text": "1701 Rollins Road",
+                    "value": "244878"
+                },
+                "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+                "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+            }],
+            "contacts": [{
+                "id": "44",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "events": ["100813"],
+                "contact": {
+                    "text": "AB&I Holdings : Test Prav",
+                    "value": "1892"
+                },
+                "name": "Test Prav",
+                "email": "pravallika@erpsuccesspartners.com",
+                "jobTitle": "QA",
+                "mobilePhone": "",
+                "phone": "",
+                "primary": "checked",
+                "url": "/app/common/entity/contact.nl?id=1892&compid=TSTDRV2617106"
+            }],
+            "events": [{
+                "id": "100805",
+                "title": "Test Event",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "05:00",
+                    "end": "06:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Test Event",
+                "url": "/app/crm/calendar/event.nl?id=100805&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100805",
+                "title": "Test Event",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "05:00",
+                    "end": "06:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Test Event",
+                "url": "/app/crm/calendar/event.nl?id=100805&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100806",
+                "title": "Test Event",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "05:00",
+                    "end": "06:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Test Event",
+                "url": "/app/crm/calendar/event.nl?id=100806&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100806",
+                "title": "Test Event",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "05:00",
+                    "end": "06:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Test Event",
+                "url": "/app/crm/calendar/event.nl?id=100806&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100807",
+                "title": "Test Event",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "05:00",
+                    "end": "06:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Test Event",
+                "url": "/app/crm/calendar/event.nl?id=100807&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100807",
+                "title": "Test Event",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "05:00",
+                    "end": "06:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Test Event",
+                "url": "/app/crm/calendar/event.nl?id=100807&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100808",
+                "title": "Test Submit Event 2",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "09:00"
+                },
+                "priority": {
+                    "text": "Low",
+                    "value": "1",
+                    "code": "#026adf"
+                },
+                "note": "Test Submit Event 2",
+                "url": "/app/crm/calendar/event.nl?id=100808&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100808",
+                "title": "Test Submit Event 2",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "09:00"
+                },
+                "priority": {
+                    "text": "Low",
+                    "value": "1",
+                    "code": "#026adf"
+                },
+                "note": "Test Submit Event 2",
+                "url": "/app/crm/calendar/event.nl?id=100808&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100809",
+                "title": "Test Event Submission 3",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "09:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Test Event Submission 3",
+                "url": "/app/crm/calendar/event.nl?id=100809&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100809",
+                "title": "Test Event Submission 3",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "09:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Test Event Submission 3",
+                "url": "/app/crm/calendar/event.nl?id=100809&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100810",
+                "title": "Sample Event Submission 4",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "09:00",
+                    "end": "10:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Sample Event Submission 4",
+                "url": "/app/crm/calendar/event.nl?id=100810&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100810",
+                "title": "Sample Event Submission 4",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "09:00",
+                    "end": "10:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Sample Event Submission 4",
+                "url": "/app/crm/calendar/event.nl?id=100810&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100811",
+                "title": "Test Event Submission 4",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "09:00",
+                    "end": "10:00"
+                },
+                "priority": {
+                    "text": "Low",
+                    "value": "1",
+                    "code": "#026adf"
+                },
+                "note": "Test Event Submission 5",
+                "url": "/app/crm/calendar/event.nl?id=100811&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100811",
+                "title": "Test Event Submission 4",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "09:00",
+                    "end": "10:00"
+                },
+                "priority": {
+                    "text": "Low",
+                    "value": "1",
+                    "code": "#026adf"
+                },
+                "note": "Test Event Submission 5",
+                "url": "/app/crm/calendar/event.nl?id=100811&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100812",
+                "title": "Test Sample Event Submission 5",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "09:00",
+                    "end": "10:00"
+                },
+                "priority": {
+                    "text": "Low",
+                    "value": "1",
+                    "code": "#026adf"
+                },
+                "note": "Test Sample Event Submission 5",
+                "url": "/app/crm/calendar/event.nl?id=100812&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100812",
+                "title": "Test Sample Event Submission 5",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "09:00",
+                    "end": "10:00"
+                },
+                "priority": {
+                    "text": "Low",
+                    "value": "1",
+                    "code": "#026adf"
+                },
+                "note": "Test Sample Event Submission 5",
+                "url": "/app/crm/calendar/event.nl?id=100812&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100813",
+                "title": "Sample Work Order - Mei - DO NOT USE - 61",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Tentative",
+                    "value": "TENTATIVE",
+                    "code": "bg-secondary"
+                },
+                "date": {
+                    "recurrence": "occurs every day from 9/18/2024 until 9/20/2024",
+                    "start": "2024-09-18",
+                    "end": "2024-09-20"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "18:00"
+                },
+                "priority": {
+                    "text": "Low",
+                    "value": "1",
+                    "code": "#026adf"
+                },
+                "note": "TEST 12345",
+                "url": "/app/crm/calendar/event.nl?id=100813&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "44",
+                    "value": "44"
+                },
+                "address": {
+                    "text": "45",
+                    "value": "45"
+                }
+            }],
+            "projectUrl": "/app/accounting/project/project.nl?id=1883&compid=TSTDRV2617106",
+            "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=61&compid=TSTDRV2617106",
+            "soUrl": "/app/accounting/transactions/salesord.nl?id=17729&compid=TSTDRV2617106",
+            "esthours": "40"
+        },
+        "resources": [],
+        "items": [],
+        "contacts": [],
+        "addresses": [],
+        "contact": {
+            "text": "",
+            "value": ""
+        },
+        "address": {
+            "text": "",
+            "value": ""
+        }
+    }, {
+        "id": "100805",
+        "title": "Test Event",
+        "workorder": {
+            "text": "Sample Work Order - Mei - DO NOT USE - 61",
+            "value": "61"
+        },
+        "location": "",
+        "status": {
+            "text": "Confirmed",
+            "value": "CONFIRMED",
+            "code": "bg-success"
+        },
+        "date": {
+            "recurrence": "one time event on 9/17/2024",
+            "start": "2024-09-17",
+            "end": "2024-09-17"
+        },
+        "time": {
+            "start": "05:00",
+            "end": "06:00"
+        },
+        "priority": {
+            "text": "Medium",
+            "value": "2",
+            "code": "#dfcf02"
+        },
+        "note": "Test Event",
+        "url": "/app/crm/calendar/event.nl?id=100805&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {
+            "id": "61",
+            "name": "Sample Work Order - Mei - DO NOT USE - 61",
+            "title": "Sample Work Order - Mei - DO NOT USE - 61",
+            "project": {
+                "text": "AB&I Holdings : Field Ops Pro Project",
+                "value": "1883"
+            },
+            "date": "9/23/2024",
+            "status": {
+                "text": "Hold",
+                "value": "7",
+                "code": "#6c757d"
+            },
+            "type": {
+                "text": "Moves",
+                "value": "3"
+            },
+            "memo": "<p><strong>Sample Work Order - Mei - DO NOT USE - TEST</strong></p>",
+            "salesorder": {
+                "text": "Sales Order #SLS00000686",
+                "value": "17729"
+            },
+            "customer": {
+                "text": "AB&I Holdings",
+                "value": "1249"
+            },
+            "resourceGroup": {
+                "text": "",
+                "value": ""
+            },
+            "priority": "",
+            "resources": [],
+            "items": [{
+                "id": "65",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "events": [],
+                "uuid": "17729_4",
+                "line": "4",
+                "item": {
+                    "text": "ACQUA/CARAVEL AU0641",
+                    "value": "1062"
+                },
+                "description": "ACQUA/CARAVEL AU0641",
+                "quantity": 1,
+                "note": ""
+            }, {
+                "id": "66",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "events": [],
+                "uuid": "17729_5",
+                "line": "5",
+                "item": {
+                    "text": "Dealer Service Fee",
+                    "value": "2331"
+                },
+                "description": "Dealer Service Fee",
+                "quantity": 5,
+                "note": ""
+            }],
+            "addresses": [{
+                "id": "45",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "customer": {
+                    "text": "AB&I Holdings",
+                    "value": "1249"
+                },
+                "events": ["100813"],
+                "address": {
+                    "text": "1701 Rollins Road",
+                    "value": "244878"
+                },
+                "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+                "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+            }],
+            "contacts": [{
+                "id": "44",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "events": ["100813"],
+                "contact": {
+                    "text": "AB&I Holdings : Test Prav",
+                    "value": "1892"
+                },
+                "name": "Test Prav",
+                "email": "pravallika@erpsuccesspartners.com",
+                "jobTitle": "QA",
+                "mobilePhone": "",
+                "phone": "",
+                "primary": "checked",
+                "url": "/app/common/entity/contact.nl?id=1892&compid=TSTDRV2617106"
+            }],
+            "events": [{
+                "id": "100805",
+                "title": "Test Event",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "05:00",
+                    "end": "06:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Test Event",
+                "url": "/app/crm/calendar/event.nl?id=100805&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100805",
+                "title": "Test Event",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "05:00",
+                    "end": "06:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Test Event",
+                "url": "/app/crm/calendar/event.nl?id=100805&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100806",
+                "title": "Test Event",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "05:00",
+                    "end": "06:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Test Event",
+                "url": "/app/crm/calendar/event.nl?id=100806&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100806",
+                "title": "Test Event",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "05:00",
+                    "end": "06:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Test Event",
+                "url": "/app/crm/calendar/event.nl?id=100806&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100807",
+                "title": "Test Event",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "05:00",
+                    "end": "06:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Test Event",
+                "url": "/app/crm/calendar/event.nl?id=100807&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100807",
+                "title": "Test Event",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "05:00",
+                    "end": "06:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Test Event",
+                "url": "/app/crm/calendar/event.nl?id=100807&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100808",
+                "title": "Test Submit Event 2",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "09:00"
+                },
+                "priority": {
+                    "text": "Low",
+                    "value": "1",
+                    "code": "#026adf"
+                },
+                "note": "Test Submit Event 2",
+                "url": "/app/crm/calendar/event.nl?id=100808&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100808",
+                "title": "Test Submit Event 2",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "09:00"
+                },
+                "priority": {
+                    "text": "Low",
+                    "value": "1",
+                    "code": "#026adf"
+                },
+                "note": "Test Submit Event 2",
+                "url": "/app/crm/calendar/event.nl?id=100808&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100809",
+                "title": "Test Event Submission 3",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "09:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Test Event Submission 3",
+                "url": "/app/crm/calendar/event.nl?id=100809&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100809",
+                "title": "Test Event Submission 3",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "09:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Test Event Submission 3",
+                "url": "/app/crm/calendar/event.nl?id=100809&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100810",
+                "title": "Sample Event Submission 4",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "09:00",
+                    "end": "10:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Sample Event Submission 4",
+                "url": "/app/crm/calendar/event.nl?id=100810&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100810",
+                "title": "Sample Event Submission 4",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "09:00",
+                    "end": "10:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Sample Event Submission 4",
+                "url": "/app/crm/calendar/event.nl?id=100810&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100811",
+                "title": "Test Event Submission 4",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "09:00",
+                    "end": "10:00"
+                },
+                "priority": {
+                    "text": "Low",
+                    "value": "1",
+                    "code": "#026adf"
+                },
+                "note": "Test Event Submission 5",
+                "url": "/app/crm/calendar/event.nl?id=100811&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100811",
+                "title": "Test Event Submission 4",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "09:00",
+                    "end": "10:00"
+                },
+                "priority": {
+                    "text": "Low",
+                    "value": "1",
+                    "code": "#026adf"
+                },
+                "note": "Test Event Submission 5",
+                "url": "/app/crm/calendar/event.nl?id=100811&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100812",
+                "title": "Test Sample Event Submission 5",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "09:00",
+                    "end": "10:00"
+                },
+                "priority": {
+                    "text": "Low",
+                    "value": "1",
+                    "code": "#026adf"
+                },
+                "note": "Test Sample Event Submission 5",
+                "url": "/app/crm/calendar/event.nl?id=100812&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100812",
+                "title": "Test Sample Event Submission 5",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "09:00",
+                    "end": "10:00"
+                },
+                "priority": {
+                    "text": "Low",
+                    "value": "1",
+                    "code": "#026adf"
+                },
+                "note": "Test Sample Event Submission 5",
+                "url": "/app/crm/calendar/event.nl?id=100812&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100813",
+                "title": "Sample Work Order - Mei - DO NOT USE - 61",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Tentative",
+                    "value": "TENTATIVE",
+                    "code": "bg-secondary"
+                },
+                "date": {
+                    "recurrence": "occurs every day from 9/18/2024 until 9/20/2024",
+                    "start": "2024-09-18",
+                    "end": "2024-09-20"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "18:00"
+                },
+                "priority": {
+                    "text": "Low",
+                    "value": "1",
+                    "code": "#026adf"
+                },
+                "note": "TEST 12345",
+                "url": "/app/crm/calendar/event.nl?id=100813&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "44",
+                    "value": "44"
+                },
+                "address": {
+                    "text": "45",
+                    "value": "45"
+                }
+            }],
+            "projectUrl": "/app/accounting/project/project.nl?id=1883&compid=TSTDRV2617106",
+            "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=61&compid=TSTDRV2617106",
+            "soUrl": "/app/accounting/transactions/salesord.nl?id=17729&compid=TSTDRV2617106",
+            "esthours": "40"
+        },
+        "resources": [],
+        "items": [],
+        "contacts": [],
+        "addresses": [],
+        "contact": {
+            "text": "",
+            "value": ""
+        },
+        "address": {
+            "text": "",
+            "value": ""
+        }
+    }, {
+        "id": "100806",
+        "title": "Test Event",
+        "workorder": {
+            "text": "Sample Work Order - Mei - DO NOT USE - 61",
+            "value": "61"
+        },
+        "location": "",
+        "status": {
+            "text": "Confirmed",
+            "value": "CONFIRMED",
+            "code": "bg-success"
+        },
+        "date": {
+            "recurrence": "one time event on 9/17/2024",
+            "start": "2024-09-17",
+            "end": "2024-09-17"
+        },
+        "time": {
+            "start": "05:00",
+            "end": "06:00"
+        },
+        "priority": {
+            "text": "Medium",
+            "value": "2",
+            "code": "#dfcf02"
+        },
+        "note": "Test Event",
+        "url": "/app/crm/calendar/event.nl?id=100806&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {
+            "id": "61",
+            "name": "Sample Work Order - Mei - DO NOT USE - 61",
+            "title": "Sample Work Order - Mei - DO NOT USE - 61",
+            "project": {
+                "text": "AB&I Holdings : Field Ops Pro Project",
+                "value": "1883"
+            },
+            "date": "9/23/2024",
+            "status": {
+                "text": "Hold",
+                "value": "7",
+                "code": "#6c757d"
+            },
+            "type": {
+                "text": "Moves",
+                "value": "3"
+            },
+            "memo": "<p><strong>Sample Work Order - Mei - DO NOT USE - TEST</strong></p>",
+            "salesorder": {
+                "text": "Sales Order #SLS00000686",
+                "value": "17729"
+            },
+            "customer": {
+                "text": "AB&I Holdings",
+                "value": "1249"
+            },
+            "resourceGroup": {
+                "text": "",
+                "value": ""
+            },
+            "priority": "",
+            "resources": [],
+            "items": [{
+                "id": "65",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "events": [],
+                "uuid": "17729_4",
+                "line": "4",
+                "item": {
+                    "text": "ACQUA/CARAVEL AU0641",
+                    "value": "1062"
+                },
+                "description": "ACQUA/CARAVEL AU0641",
+                "quantity": 1,
+                "note": ""
+            }, {
+                "id": "66",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "events": [],
+                "uuid": "17729_5",
+                "line": "5",
+                "item": {
+                    "text": "Dealer Service Fee",
+                    "value": "2331"
+                },
+                "description": "Dealer Service Fee",
+                "quantity": 5,
+                "note": ""
+            }],
+            "addresses": [{
+                "id": "45",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "customer": {
+                    "text": "AB&I Holdings",
+                    "value": "1249"
+                },
+                "events": ["100813"],
+                "address": {
+                    "text": "1701 Rollins Road",
+                    "value": "244878"
+                },
+                "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+                "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+            }],
+            "contacts": [{
+                "id": "44",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "events": ["100813"],
+                "contact": {
+                    "text": "AB&I Holdings : Test Prav",
+                    "value": "1892"
+                },
+                "name": "Test Prav",
+                "email": "pravallika@erpsuccesspartners.com",
+                "jobTitle": "QA",
+                "mobilePhone": "",
+                "phone": "",
+                "primary": "checked",
+                "url": "/app/common/entity/contact.nl?id=1892&compid=TSTDRV2617106"
+            }],
+            "events": [{
+                "id": "100805",
+                "title": "Test Event",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "05:00",
+                    "end": "06:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Test Event",
+                "url": "/app/crm/calendar/event.nl?id=100805&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100805",
+                "title": "Test Event",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "05:00",
+                    "end": "06:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Test Event",
+                "url": "/app/crm/calendar/event.nl?id=100805&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100806",
+                "title": "Test Event",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "05:00",
+                    "end": "06:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Test Event",
+                "url": "/app/crm/calendar/event.nl?id=100806&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100806",
+                "title": "Test Event",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "05:00",
+                    "end": "06:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Test Event",
+                "url": "/app/crm/calendar/event.nl?id=100806&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100807",
+                "title": "Test Event",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "05:00",
+                    "end": "06:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Test Event",
+                "url": "/app/crm/calendar/event.nl?id=100807&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100807",
+                "title": "Test Event",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "05:00",
+                    "end": "06:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Test Event",
+                "url": "/app/crm/calendar/event.nl?id=100807&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100808",
+                "title": "Test Submit Event 2",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "09:00"
+                },
+                "priority": {
+                    "text": "Low",
+                    "value": "1",
+                    "code": "#026adf"
+                },
+                "note": "Test Submit Event 2",
+                "url": "/app/crm/calendar/event.nl?id=100808&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100808",
+                "title": "Test Submit Event 2",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "09:00"
+                },
+                "priority": {
+                    "text": "Low",
+                    "value": "1",
+                    "code": "#026adf"
+                },
+                "note": "Test Submit Event 2",
+                "url": "/app/crm/calendar/event.nl?id=100808&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100809",
+                "title": "Test Event Submission 3",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "09:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Test Event Submission 3",
+                "url": "/app/crm/calendar/event.nl?id=100809&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100809",
+                "title": "Test Event Submission 3",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "09:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Test Event Submission 3",
+                "url": "/app/crm/calendar/event.nl?id=100809&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100810",
+                "title": "Sample Event Submission 4",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "09:00",
+                    "end": "10:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Sample Event Submission 4",
+                "url": "/app/crm/calendar/event.nl?id=100810&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100810",
+                "title": "Sample Event Submission 4",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "09:00",
+                    "end": "10:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Sample Event Submission 4",
+                "url": "/app/crm/calendar/event.nl?id=100810&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100811",
+                "title": "Test Event Submission 4",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "09:00",
+                    "end": "10:00"
+                },
+                "priority": {
+                    "text": "Low",
+                    "value": "1",
+                    "code": "#026adf"
+                },
+                "note": "Test Event Submission 5",
+                "url": "/app/crm/calendar/event.nl?id=100811&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100811",
+                "title": "Test Event Submission 4",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "09:00",
+                    "end": "10:00"
+                },
+                "priority": {
+                    "text": "Low",
+                    "value": "1",
+                    "code": "#026adf"
+                },
+                "note": "Test Event Submission 5",
+                "url": "/app/crm/calendar/event.nl?id=100811&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100812",
+                "title": "Test Sample Event Submission 5",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "09:00",
+                    "end": "10:00"
+                },
+                "priority": {
+                    "text": "Low",
+                    "value": "1",
+                    "code": "#026adf"
+                },
+                "note": "Test Sample Event Submission 5",
+                "url": "/app/crm/calendar/event.nl?id=100812&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100812",
+                "title": "Test Sample Event Submission 5",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "09:00",
+                    "end": "10:00"
+                },
+                "priority": {
+                    "text": "Low",
+                    "value": "1",
+                    "code": "#026adf"
+                },
+                "note": "Test Sample Event Submission 5",
+                "url": "/app/crm/calendar/event.nl?id=100812&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100813",
+                "title": "Sample Work Order - Mei - DO NOT USE - 61",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Tentative",
+                    "value": "TENTATIVE",
+                    "code": "bg-secondary"
+                },
+                "date": {
+                    "recurrence": "occurs every day from 9/18/2024 until 9/20/2024",
+                    "start": "2024-09-18",
+                    "end": "2024-09-20"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "18:00"
+                },
+                "priority": {
+                    "text": "Low",
+                    "value": "1",
+                    "code": "#026adf"
+                },
+                "note": "TEST 12345",
+                "url": "/app/crm/calendar/event.nl?id=100813&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "44",
+                    "value": "44"
+                },
+                "address": {
+                    "text": "45",
+                    "value": "45"
+                }
+            }],
+            "projectUrl": "/app/accounting/project/project.nl?id=1883&compid=TSTDRV2617106",
+            "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=61&compid=TSTDRV2617106",
+            "soUrl": "/app/accounting/transactions/salesord.nl?id=17729&compid=TSTDRV2617106",
+            "esthours": "40"
+        },
+        "resources": [],
+        "items": [],
+        "contacts": [],
+        "addresses": [],
+        "contact": {
+            "text": "",
+            "value": ""
+        },
+        "address": {
+            "text": "",
+            "value": ""
+        }
+    }, {
+        "id": "100806",
+        "title": "Test Event",
+        "workorder": {
+            "text": "Sample Work Order - Mei - DO NOT USE - 61",
+            "value": "61"
+        },
+        "location": "",
+        "status": {
+            "text": "Confirmed",
+            "value": "CONFIRMED",
+            "code": "bg-success"
+        },
+        "date": {
+            "recurrence": "one time event on 9/17/2024",
+            "start": "2024-09-17",
+            "end": "2024-09-17"
+        },
+        "time": {
+            "start": "05:00",
+            "end": "06:00"
+        },
+        "priority": {
+            "text": "Medium",
+            "value": "2",
+            "code": "#dfcf02"
+        },
+        "note": "Test Event",
+        "url": "/app/crm/calendar/event.nl?id=100806&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {
+            "id": "61",
+            "name": "Sample Work Order - Mei - DO NOT USE - 61",
+            "title": "Sample Work Order - Mei - DO NOT USE - 61",
+            "project": {
+                "text": "AB&I Holdings : Field Ops Pro Project",
+                "value": "1883"
+            },
+            "date": "9/23/2024",
+            "status": {
+                "text": "Hold",
+                "value": "7",
+                "code": "#6c757d"
+            },
+            "type": {
+                "text": "Moves",
+                "value": "3"
+            },
+            "memo": "<p><strong>Sample Work Order - Mei - DO NOT USE - TEST</strong></p>",
+            "salesorder": {
+                "text": "Sales Order #SLS00000686",
+                "value": "17729"
+            },
+            "customer": {
+                "text": "AB&I Holdings",
+                "value": "1249"
+            },
+            "resourceGroup": {
+                "text": "",
+                "value": ""
+            },
+            "priority": "",
+            "resources": [],
+            "items": [{
+                "id": "65",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "events": [],
+                "uuid": "17729_4",
+                "line": "4",
+                "item": {
+                    "text": "ACQUA/CARAVEL AU0641",
+                    "value": "1062"
+                },
+                "description": "ACQUA/CARAVEL AU0641",
+                "quantity": 1,
+                "note": ""
+            }, {
+                "id": "66",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "events": [],
+                "uuid": "17729_5",
+                "line": "5",
+                "item": {
+                    "text": "Dealer Service Fee",
+                    "value": "2331"
+                },
+                "description": "Dealer Service Fee",
+                "quantity": 5,
+                "note": ""
+            }],
+            "addresses": [{
+                "id": "45",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "customer": {
+                    "text": "AB&I Holdings",
+                    "value": "1249"
+                },
+                "events": ["100813"],
+                "address": {
+                    "text": "1701 Rollins Road",
+                    "value": "244878"
+                },
+                "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+                "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+            }],
+            "contacts": [{
+                "id": "44",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "events": ["100813"],
+                "contact": {
+                    "text": "AB&I Holdings : Test Prav",
+                    "value": "1892"
+                },
+                "name": "Test Prav",
+                "email": "pravallika@erpsuccesspartners.com",
+                "jobTitle": "QA",
+                "mobilePhone": "",
+                "phone": "",
+                "primary": "checked",
+                "url": "/app/common/entity/contact.nl?id=1892&compid=TSTDRV2617106"
+            }],
+            "events": [{
+                "id": "100805",
+                "title": "Test Event",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "05:00",
+                    "end": "06:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Test Event",
+                "url": "/app/crm/calendar/event.nl?id=100805&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100805",
+                "title": "Test Event",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "05:00",
+                    "end": "06:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Test Event",
+                "url": "/app/crm/calendar/event.nl?id=100805&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100806",
+                "title": "Test Event",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "05:00",
+                    "end": "06:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Test Event",
+                "url": "/app/crm/calendar/event.nl?id=100806&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100806",
+                "title": "Test Event",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "05:00",
+                    "end": "06:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Test Event",
+                "url": "/app/crm/calendar/event.nl?id=100806&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100807",
+                "title": "Test Event",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "05:00",
+                    "end": "06:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Test Event",
+                "url": "/app/crm/calendar/event.nl?id=100807&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100807",
+                "title": "Test Event",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "05:00",
+                    "end": "06:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Test Event",
+                "url": "/app/crm/calendar/event.nl?id=100807&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100808",
+                "title": "Test Submit Event 2",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "09:00"
+                },
+                "priority": {
+                    "text": "Low",
+                    "value": "1",
+                    "code": "#026adf"
+                },
+                "note": "Test Submit Event 2",
+                "url": "/app/crm/calendar/event.nl?id=100808&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100808",
+                "title": "Test Submit Event 2",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "09:00"
+                },
+                "priority": {
+                    "text": "Low",
+                    "value": "1",
+                    "code": "#026adf"
+                },
+                "note": "Test Submit Event 2",
+                "url": "/app/crm/calendar/event.nl?id=100808&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100809",
+                "title": "Test Event Submission 3",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "09:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Test Event Submission 3",
+                "url": "/app/crm/calendar/event.nl?id=100809&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100809",
+                "title": "Test Event Submission 3",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "09:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Test Event Submission 3",
+                "url": "/app/crm/calendar/event.nl?id=100809&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100810",
+                "title": "Sample Event Submission 4",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "09:00",
+                    "end": "10:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Sample Event Submission 4",
+                "url": "/app/crm/calendar/event.nl?id=100810&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100810",
+                "title": "Sample Event Submission 4",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "09:00",
+                    "end": "10:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Sample Event Submission 4",
+                "url": "/app/crm/calendar/event.nl?id=100810&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100811",
+                "title": "Test Event Submission 4",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "09:00",
+                    "end": "10:00"
+                },
+                "priority": {
+                    "text": "Low",
+                    "value": "1",
+                    "code": "#026adf"
+                },
+                "note": "Test Event Submission 5",
+                "url": "/app/crm/calendar/event.nl?id=100811&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100811",
+                "title": "Test Event Submission 4",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "09:00",
+                    "end": "10:00"
+                },
+                "priority": {
+                    "text": "Low",
+                    "value": "1",
+                    "code": "#026adf"
+                },
+                "note": "Test Event Submission 5",
+                "url": "/app/crm/calendar/event.nl?id=100811&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100812",
+                "title": "Test Sample Event Submission 5",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "09:00",
+                    "end": "10:00"
+                },
+                "priority": {
+                    "text": "Low",
+                    "value": "1",
+                    "code": "#026adf"
+                },
+                "note": "Test Sample Event Submission 5",
+                "url": "/app/crm/calendar/event.nl?id=100812&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100812",
+                "title": "Test Sample Event Submission 5",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "09:00",
+                    "end": "10:00"
+                },
+                "priority": {
+                    "text": "Low",
+                    "value": "1",
+                    "code": "#026adf"
+                },
+                "note": "Test Sample Event Submission 5",
+                "url": "/app/crm/calendar/event.nl?id=100812&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100813",
+                "title": "Sample Work Order - Mei - DO NOT USE - 61",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Tentative",
+                    "value": "TENTATIVE",
+                    "code": "bg-secondary"
+                },
+                "date": {
+                    "recurrence": "occurs every day from 9/18/2024 until 9/20/2024",
+                    "start": "2024-09-18",
+                    "end": "2024-09-20"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "18:00"
+                },
+                "priority": {
+                    "text": "Low",
+                    "value": "1",
+                    "code": "#026adf"
+                },
+                "note": "TEST 12345",
+                "url": "/app/crm/calendar/event.nl?id=100813&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "44",
+                    "value": "44"
+                },
+                "address": {
+                    "text": "45",
+                    "value": "45"
+                }
+            }],
+            "projectUrl": "/app/accounting/project/project.nl?id=1883&compid=TSTDRV2617106",
+            "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=61&compid=TSTDRV2617106",
+            "soUrl": "/app/accounting/transactions/salesord.nl?id=17729&compid=TSTDRV2617106",
+            "esthours": "40"
+        },
+        "resources": [],
+        "items": [],
+        "contacts": [],
+        "addresses": [],
+        "contact": {
+            "text": "",
+            "value": ""
+        },
+        "address": {
+            "text": "",
+            "value": ""
+        }
+    }, {
+        "id": "100807",
+        "title": "Test Event",
+        "workorder": {
+            "text": "Sample Work Order - Mei - DO NOT USE - 61",
+            "value": "61"
+        },
+        "location": "",
+        "status": {
+            "text": "Confirmed",
+            "value": "CONFIRMED",
+            "code": "bg-success"
+        },
+        "date": {
+            "recurrence": "one time event on 9/17/2024",
+            "start": "2024-09-17",
+            "end": "2024-09-17"
+        },
+        "time": {
+            "start": "05:00",
+            "end": "06:00"
+        },
+        "priority": {
+            "text": "Medium",
+            "value": "2",
+            "code": "#dfcf02"
+        },
+        "note": "Test Event",
+        "url": "/app/crm/calendar/event.nl?id=100807&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {
+            "id": "61",
+            "name": "Sample Work Order - Mei - DO NOT USE - 61",
+            "title": "Sample Work Order - Mei - DO NOT USE - 61",
+            "project": {
+                "text": "AB&I Holdings : Field Ops Pro Project",
+                "value": "1883"
+            },
+            "date": "9/23/2024",
+            "status": {
+                "text": "Hold",
+                "value": "7",
+                "code": "#6c757d"
+            },
+            "type": {
+                "text": "Moves",
+                "value": "3"
+            },
+            "memo": "<p><strong>Sample Work Order - Mei - DO NOT USE - TEST</strong></p>",
+            "salesorder": {
+                "text": "Sales Order #SLS00000686",
+                "value": "17729"
+            },
+            "customer": {
+                "text": "AB&I Holdings",
+                "value": "1249"
+            },
+            "resourceGroup": {
+                "text": "",
+                "value": ""
+            },
+            "priority": "",
+            "resources": [],
+            "items": [{
+                "id": "65",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "events": [],
+                "uuid": "17729_4",
+                "line": "4",
+                "item": {
+                    "text": "ACQUA/CARAVEL AU0641",
+                    "value": "1062"
+                },
+                "description": "ACQUA/CARAVEL AU0641",
+                "quantity": 1,
+                "note": ""
+            }, {
+                "id": "66",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "events": [],
+                "uuid": "17729_5",
+                "line": "5",
+                "item": {
+                    "text": "Dealer Service Fee",
+                    "value": "2331"
+                },
+                "description": "Dealer Service Fee",
+                "quantity": 5,
+                "note": ""
+            }],
+            "addresses": [{
+                "id": "45",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "customer": {
+                    "text": "AB&I Holdings",
+                    "value": "1249"
+                },
+                "events": ["100813"],
+                "address": {
+                    "text": "1701 Rollins Road",
+                    "value": "244878"
+                },
+                "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+                "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+            }],
+            "contacts": [{
+                "id": "44",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "events": ["100813"],
+                "contact": {
+                    "text": "AB&I Holdings : Test Prav",
+                    "value": "1892"
+                },
+                "name": "Test Prav",
+                "email": "pravallika@erpsuccesspartners.com",
+                "jobTitle": "QA",
+                "mobilePhone": "",
+                "phone": "",
+                "primary": "checked",
+                "url": "/app/common/entity/contact.nl?id=1892&compid=TSTDRV2617106"
+            }],
+            "events": [{
+                "id": "100805",
+                "title": "Test Event",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "05:00",
+                    "end": "06:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Test Event",
+                "url": "/app/crm/calendar/event.nl?id=100805&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100805",
+                "title": "Test Event",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "05:00",
+                    "end": "06:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Test Event",
+                "url": "/app/crm/calendar/event.nl?id=100805&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100806",
+                "title": "Test Event",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "05:00",
+                    "end": "06:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Test Event",
+                "url": "/app/crm/calendar/event.nl?id=100806&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100806",
+                "title": "Test Event",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "05:00",
+                    "end": "06:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Test Event",
+                "url": "/app/crm/calendar/event.nl?id=100806&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100807",
+                "title": "Test Event",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "05:00",
+                    "end": "06:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Test Event",
+                "url": "/app/crm/calendar/event.nl?id=100807&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100807",
+                "title": "Test Event",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "05:00",
+                    "end": "06:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Test Event",
+                "url": "/app/crm/calendar/event.nl?id=100807&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100808",
+                "title": "Test Submit Event 2",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "09:00"
+                },
+                "priority": {
+                    "text": "Low",
+                    "value": "1",
+                    "code": "#026adf"
+                },
+                "note": "Test Submit Event 2",
+                "url": "/app/crm/calendar/event.nl?id=100808&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100808",
+                "title": "Test Submit Event 2",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "09:00"
+                },
+                "priority": {
+                    "text": "Low",
+                    "value": "1",
+                    "code": "#026adf"
+                },
+                "note": "Test Submit Event 2",
+                "url": "/app/crm/calendar/event.nl?id=100808&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100809",
+                "title": "Test Event Submission 3",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "09:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Test Event Submission 3",
+                "url": "/app/crm/calendar/event.nl?id=100809&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100809",
+                "title": "Test Event Submission 3",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "09:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Test Event Submission 3",
+                "url": "/app/crm/calendar/event.nl?id=100809&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100810",
+                "title": "Sample Event Submission 4",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "09:00",
+                    "end": "10:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Sample Event Submission 4",
+                "url": "/app/crm/calendar/event.nl?id=100810&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100810",
+                "title": "Sample Event Submission 4",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "09:00",
+                    "end": "10:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Sample Event Submission 4",
+                "url": "/app/crm/calendar/event.nl?id=100810&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100811",
+                "title": "Test Event Submission 4",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "09:00",
+                    "end": "10:00"
+                },
+                "priority": {
+                    "text": "Low",
+                    "value": "1",
+                    "code": "#026adf"
+                },
+                "note": "Test Event Submission 5",
+                "url": "/app/crm/calendar/event.nl?id=100811&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100811",
+                "title": "Test Event Submission 4",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "09:00",
+                    "end": "10:00"
+                },
+                "priority": {
+                    "text": "Low",
+                    "value": "1",
+                    "code": "#026adf"
+                },
+                "note": "Test Event Submission 5",
+                "url": "/app/crm/calendar/event.nl?id=100811&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100812",
+                "title": "Test Sample Event Submission 5",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "09:00",
+                    "end": "10:00"
+                },
+                "priority": {
+                    "text": "Low",
+                    "value": "1",
+                    "code": "#026adf"
+                },
+                "note": "Test Sample Event Submission 5",
+                "url": "/app/crm/calendar/event.nl?id=100812&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100812",
+                "title": "Test Sample Event Submission 5",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "09:00",
+                    "end": "10:00"
+                },
+                "priority": {
+                    "text": "Low",
+                    "value": "1",
+                    "code": "#026adf"
+                },
+                "note": "Test Sample Event Submission 5",
+                "url": "/app/crm/calendar/event.nl?id=100812&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100813",
+                "title": "Sample Work Order - Mei - DO NOT USE - 61",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Tentative",
+                    "value": "TENTATIVE",
+                    "code": "bg-secondary"
+                },
+                "date": {
+                    "recurrence": "occurs every day from 9/18/2024 until 9/20/2024",
+                    "start": "2024-09-18",
+                    "end": "2024-09-20"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "18:00"
+                },
+                "priority": {
+                    "text": "Low",
+                    "value": "1",
+                    "code": "#026adf"
+                },
+                "note": "TEST 12345",
+                "url": "/app/crm/calendar/event.nl?id=100813&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "44",
+                    "value": "44"
+                },
+                "address": {
+                    "text": "45",
+                    "value": "45"
+                }
+            }],
+            "projectUrl": "/app/accounting/project/project.nl?id=1883&compid=TSTDRV2617106",
+            "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=61&compid=TSTDRV2617106",
+            "soUrl": "/app/accounting/transactions/salesord.nl?id=17729&compid=TSTDRV2617106",
+            "esthours": "40"
+        },
+        "resources": [],
+        "items": [],
+        "contacts": [],
+        "addresses": [],
+        "contact": {
+            "text": "",
+            "value": ""
+        },
+        "address": {
+            "text": "",
+            "value": ""
+        }
+    }, {
+        "id": "100807",
+        "title": "Test Event",
+        "workorder": {
+            "text": "Sample Work Order - Mei - DO NOT USE - 61",
+            "value": "61"
+        },
+        "location": "",
+        "status": {
+            "text": "Confirmed",
+            "value": "CONFIRMED",
+            "code": "bg-success"
+        },
+        "date": {
+            "recurrence": "one time event on 9/17/2024",
+            "start": "2024-09-17",
+            "end": "2024-09-17"
+        },
+        "time": {
+            "start": "05:00",
+            "end": "06:00"
+        },
+        "priority": {
+            "text": "Medium",
+            "value": "2",
+            "code": "#dfcf02"
+        },
+        "note": "Test Event",
+        "url": "/app/crm/calendar/event.nl?id=100807&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {
+            "id": "61",
+            "name": "Sample Work Order - Mei - DO NOT USE - 61",
+            "title": "Sample Work Order - Mei - DO NOT USE - 61",
+            "project": {
+                "text": "AB&I Holdings : Field Ops Pro Project",
+                "value": "1883"
+            },
+            "date": "9/23/2024",
+            "status": {
+                "text": "Hold",
+                "value": "7",
+                "code": "#6c757d"
+            },
+            "type": {
+                "text": "Moves",
+                "value": "3"
+            },
+            "memo": "<p><strong>Sample Work Order - Mei - DO NOT USE - TEST</strong></p>",
+            "salesorder": {
+                "text": "Sales Order #SLS00000686",
+                "value": "17729"
+            },
+            "customer": {
+                "text": "AB&I Holdings",
+                "value": "1249"
+            },
+            "resourceGroup": {
+                "text": "",
+                "value": ""
+            },
+            "priority": "",
+            "resources": [],
+            "items": [{
+                "id": "65",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "events": [],
+                "uuid": "17729_4",
+                "line": "4",
+                "item": {
+                    "text": "ACQUA/CARAVEL AU0641",
+                    "value": "1062"
+                },
+                "description": "ACQUA/CARAVEL AU0641",
+                "quantity": 1,
+                "note": ""
+            }, {
+                "id": "66",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "events": [],
+                "uuid": "17729_5",
+                "line": "5",
+                "item": {
+                    "text": "Dealer Service Fee",
+                    "value": "2331"
+                },
+                "description": "Dealer Service Fee",
+                "quantity": 5,
+                "note": ""
+            }],
+            "addresses": [{
+                "id": "45",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "customer": {
+                    "text": "AB&I Holdings",
+                    "value": "1249"
+                },
+                "events": ["100813"],
+                "address": {
+                    "text": "1701 Rollins Road",
+                    "value": "244878"
+                },
+                "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+                "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+            }],
+            "contacts": [{
+                "id": "44",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "events": ["100813"],
+                "contact": {
+                    "text": "AB&I Holdings : Test Prav",
+                    "value": "1892"
+                },
+                "name": "Test Prav",
+                "email": "pravallika@erpsuccesspartners.com",
+                "jobTitle": "QA",
+                "mobilePhone": "",
+                "phone": "",
+                "primary": "checked",
+                "url": "/app/common/entity/contact.nl?id=1892&compid=TSTDRV2617106"
+            }],
+            "events": [{
+                "id": "100805",
+                "title": "Test Event",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "05:00",
+                    "end": "06:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Test Event",
+                "url": "/app/crm/calendar/event.nl?id=100805&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100805",
+                "title": "Test Event",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "05:00",
+                    "end": "06:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Test Event",
+                "url": "/app/crm/calendar/event.nl?id=100805&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100806",
+                "title": "Test Event",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "05:00",
+                    "end": "06:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Test Event",
+                "url": "/app/crm/calendar/event.nl?id=100806&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100806",
+                "title": "Test Event",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "05:00",
+                    "end": "06:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Test Event",
+                "url": "/app/crm/calendar/event.nl?id=100806&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100807",
+                "title": "Test Event",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "05:00",
+                    "end": "06:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Test Event",
+                "url": "/app/crm/calendar/event.nl?id=100807&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100807",
+                "title": "Test Event",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "05:00",
+                    "end": "06:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Test Event",
+                "url": "/app/crm/calendar/event.nl?id=100807&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100808",
+                "title": "Test Submit Event 2",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "09:00"
+                },
+                "priority": {
+                    "text": "Low",
+                    "value": "1",
+                    "code": "#026adf"
+                },
+                "note": "Test Submit Event 2",
+                "url": "/app/crm/calendar/event.nl?id=100808&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100808",
+                "title": "Test Submit Event 2",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "09:00"
+                },
+                "priority": {
+                    "text": "Low",
+                    "value": "1",
+                    "code": "#026adf"
+                },
+                "note": "Test Submit Event 2",
+                "url": "/app/crm/calendar/event.nl?id=100808&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100809",
+                "title": "Test Event Submission 3",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "09:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Test Event Submission 3",
+                "url": "/app/crm/calendar/event.nl?id=100809&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100809",
+                "title": "Test Event Submission 3",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "09:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Test Event Submission 3",
+                "url": "/app/crm/calendar/event.nl?id=100809&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100810",
+                "title": "Sample Event Submission 4",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "09:00",
+                    "end": "10:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Sample Event Submission 4",
+                "url": "/app/crm/calendar/event.nl?id=100810&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100810",
+                "title": "Sample Event Submission 4",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "09:00",
+                    "end": "10:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Sample Event Submission 4",
+                "url": "/app/crm/calendar/event.nl?id=100810&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100811",
+                "title": "Test Event Submission 4",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "09:00",
+                    "end": "10:00"
+                },
+                "priority": {
+                    "text": "Low",
+                    "value": "1",
+                    "code": "#026adf"
+                },
+                "note": "Test Event Submission 5",
+                "url": "/app/crm/calendar/event.nl?id=100811&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100811",
+                "title": "Test Event Submission 4",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "09:00",
+                    "end": "10:00"
+                },
+                "priority": {
+                    "text": "Low",
+                    "value": "1",
+                    "code": "#026adf"
+                },
+                "note": "Test Event Submission 5",
+                "url": "/app/crm/calendar/event.nl?id=100811&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100812",
+                "title": "Test Sample Event Submission 5",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "09:00",
+                    "end": "10:00"
+                },
+                "priority": {
+                    "text": "Low",
+                    "value": "1",
+                    "code": "#026adf"
+                },
+                "note": "Test Sample Event Submission 5",
+                "url": "/app/crm/calendar/event.nl?id=100812&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100812",
+                "title": "Test Sample Event Submission 5",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "09:00",
+                    "end": "10:00"
+                },
+                "priority": {
+                    "text": "Low",
+                    "value": "1",
+                    "code": "#026adf"
+                },
+                "note": "Test Sample Event Submission 5",
+                "url": "/app/crm/calendar/event.nl?id=100812&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100813",
+                "title": "Sample Work Order - Mei - DO NOT USE - 61",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Tentative",
+                    "value": "TENTATIVE",
+                    "code": "bg-secondary"
+                },
+                "date": {
+                    "recurrence": "occurs every day from 9/18/2024 until 9/20/2024",
+                    "start": "2024-09-18",
+                    "end": "2024-09-20"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "18:00"
+                },
+                "priority": {
+                    "text": "Low",
+                    "value": "1",
+                    "code": "#026adf"
+                },
+                "note": "TEST 12345",
+                "url": "/app/crm/calendar/event.nl?id=100813&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "44",
+                    "value": "44"
+                },
+                "address": {
+                    "text": "45",
+                    "value": "45"
+                }
+            }],
+            "projectUrl": "/app/accounting/project/project.nl?id=1883&compid=TSTDRV2617106",
+            "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=61&compid=TSTDRV2617106",
+            "soUrl": "/app/accounting/transactions/salesord.nl?id=17729&compid=TSTDRV2617106",
+            "esthours": "40"
+        },
+        "resources": [],
+        "items": [],
+        "contacts": [],
+        "addresses": [],
+        "contact": {
+            "text": "",
+            "value": ""
+        },
+        "address": {
+            "text": "",
+            "value": ""
+        }
+    }, {
+        "id": "100808",
+        "title": "Test Submit Event 2",
+        "workorder": {
+            "text": "Sample Work Order - Mei - DO NOT USE - 61",
+            "value": "61"
+        },
+        "location": "",
+        "status": {
+            "text": "Confirmed",
+            "value": "CONFIRMED",
+            "code": "bg-success"
+        },
+        "date": {
+            "recurrence": "one time event on 9/17/2024",
+            "start": "2024-09-17",
+            "end": "2024-09-17"
+        },
+        "time": {
+            "start": "08:00",
+            "end": "09:00"
+        },
+        "priority": {
+            "text": "Low",
+            "value": "1",
+            "code": "#026adf"
+        },
+        "note": "Test Submit Event 2",
+        "url": "/app/crm/calendar/event.nl?id=100808&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {
+            "id": "61",
+            "name": "Sample Work Order - Mei - DO NOT USE - 61",
+            "title": "Sample Work Order - Mei - DO NOT USE - 61",
+            "project": {
+                "text": "AB&I Holdings : Field Ops Pro Project",
+                "value": "1883"
+            },
+            "date": "9/23/2024",
+            "status": {
+                "text": "Hold",
+                "value": "7",
+                "code": "#6c757d"
+            },
+            "type": {
+                "text": "Moves",
+                "value": "3"
+            },
+            "memo": "<p><strong>Sample Work Order - Mei - DO NOT USE - TEST</strong></p>",
+            "salesorder": {
+                "text": "Sales Order #SLS00000686",
+                "value": "17729"
+            },
+            "customer": {
+                "text": "AB&I Holdings",
+                "value": "1249"
+            },
+            "resourceGroup": {
+                "text": "",
+                "value": ""
+            },
+            "priority": "",
+            "resources": [],
+            "items": [{
+                "id": "65",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "events": [],
+                "uuid": "17729_4",
+                "line": "4",
+                "item": {
+                    "text": "ACQUA/CARAVEL AU0641",
+                    "value": "1062"
+                },
+                "description": "ACQUA/CARAVEL AU0641",
+                "quantity": 1,
+                "note": ""
+            }, {
+                "id": "66",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "events": [],
+                "uuid": "17729_5",
+                "line": "5",
+                "item": {
+                    "text": "Dealer Service Fee",
+                    "value": "2331"
+                },
+                "description": "Dealer Service Fee",
+                "quantity": 5,
+                "note": ""
+            }],
+            "addresses": [{
+                "id": "45",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "customer": {
+                    "text": "AB&I Holdings",
+                    "value": "1249"
+                },
+                "events": ["100813"],
+                "address": {
+                    "text": "1701 Rollins Road",
+                    "value": "244878"
+                },
+                "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+                "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+            }],
+            "contacts": [{
+                "id": "44",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "events": ["100813"],
+                "contact": {
+                    "text": "AB&I Holdings : Test Prav",
+                    "value": "1892"
+                },
+                "name": "Test Prav",
+                "email": "pravallika@erpsuccesspartners.com",
+                "jobTitle": "QA",
+                "mobilePhone": "",
+                "phone": "",
+                "primary": "checked",
+                "url": "/app/common/entity/contact.nl?id=1892&compid=TSTDRV2617106"
+            }],
+            "events": [{
+                "id": "100805",
+                "title": "Test Event",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "05:00",
+                    "end": "06:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Test Event",
+                "url": "/app/crm/calendar/event.nl?id=100805&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100805",
+                "title": "Test Event",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "05:00",
+                    "end": "06:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Test Event",
+                "url": "/app/crm/calendar/event.nl?id=100805&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100806",
+                "title": "Test Event",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "05:00",
+                    "end": "06:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Test Event",
+                "url": "/app/crm/calendar/event.nl?id=100806&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100806",
+                "title": "Test Event",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "05:00",
+                    "end": "06:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Test Event",
+                "url": "/app/crm/calendar/event.nl?id=100806&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100807",
+                "title": "Test Event",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "05:00",
+                    "end": "06:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Test Event",
+                "url": "/app/crm/calendar/event.nl?id=100807&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100807",
+                "title": "Test Event",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "05:00",
+                    "end": "06:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Test Event",
+                "url": "/app/crm/calendar/event.nl?id=100807&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100808",
+                "title": "Test Submit Event 2",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "09:00"
+                },
+                "priority": {
+                    "text": "Low",
+                    "value": "1",
+                    "code": "#026adf"
+                },
+                "note": "Test Submit Event 2",
+                "url": "/app/crm/calendar/event.nl?id=100808&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100808",
+                "title": "Test Submit Event 2",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "09:00"
+                },
+                "priority": {
+                    "text": "Low",
+                    "value": "1",
+                    "code": "#026adf"
+                },
+                "note": "Test Submit Event 2",
+                "url": "/app/crm/calendar/event.nl?id=100808&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100809",
+                "title": "Test Event Submission 3",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "09:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Test Event Submission 3",
+                "url": "/app/crm/calendar/event.nl?id=100809&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100809",
+                "title": "Test Event Submission 3",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "09:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Test Event Submission 3",
+                "url": "/app/crm/calendar/event.nl?id=100809&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100810",
+                "title": "Sample Event Submission 4",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "09:00",
+                    "end": "10:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Sample Event Submission 4",
+                "url": "/app/crm/calendar/event.nl?id=100810&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100810",
+                "title": "Sample Event Submission 4",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "09:00",
+                    "end": "10:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Sample Event Submission 4",
+                "url": "/app/crm/calendar/event.nl?id=100810&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100811",
+                "title": "Test Event Submission 4",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "09:00",
+                    "end": "10:00"
+                },
+                "priority": {
+                    "text": "Low",
+                    "value": "1",
+                    "code": "#026adf"
+                },
+                "note": "Test Event Submission 5",
+                "url": "/app/crm/calendar/event.nl?id=100811&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100811",
+                "title": "Test Event Submission 4",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "09:00",
+                    "end": "10:00"
+                },
+                "priority": {
+                    "text": "Low",
+                    "value": "1",
+                    "code": "#026adf"
+                },
+                "note": "Test Event Submission 5",
+                "url": "/app/crm/calendar/event.nl?id=100811&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100812",
+                "title": "Test Sample Event Submission 5",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "09:00",
+                    "end": "10:00"
+                },
+                "priority": {
+                    "text": "Low",
+                    "value": "1",
+                    "code": "#026adf"
+                },
+                "note": "Test Sample Event Submission 5",
+                "url": "/app/crm/calendar/event.nl?id=100812&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100812",
+                "title": "Test Sample Event Submission 5",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "09:00",
+                    "end": "10:00"
+                },
+                "priority": {
+                    "text": "Low",
+                    "value": "1",
+                    "code": "#026adf"
+                },
+                "note": "Test Sample Event Submission 5",
+                "url": "/app/crm/calendar/event.nl?id=100812&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100813",
+                "title": "Sample Work Order - Mei - DO NOT USE - 61",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Tentative",
+                    "value": "TENTATIVE",
+                    "code": "bg-secondary"
+                },
+                "date": {
+                    "recurrence": "occurs every day from 9/18/2024 until 9/20/2024",
+                    "start": "2024-09-18",
+                    "end": "2024-09-20"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "18:00"
+                },
+                "priority": {
+                    "text": "Low",
+                    "value": "1",
+                    "code": "#026adf"
+                },
+                "note": "TEST 12345",
+                "url": "/app/crm/calendar/event.nl?id=100813&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "44",
+                    "value": "44"
+                },
+                "address": {
+                    "text": "45",
+                    "value": "45"
+                }
+            }],
+            "projectUrl": "/app/accounting/project/project.nl?id=1883&compid=TSTDRV2617106",
+            "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=61&compid=TSTDRV2617106",
+            "soUrl": "/app/accounting/transactions/salesord.nl?id=17729&compid=TSTDRV2617106",
+            "esthours": "40"
+        },
+        "resources": [],
+        "items": [],
+        "contacts": [],
+        "addresses": [],
+        "contact": {
+            "text": "",
+            "value": ""
+        },
+        "address": {
+            "text": "",
+            "value": ""
+        }
+    }, {
+        "id": "100808",
+        "title": "Test Submit Event 2",
+        "workorder": {
+            "text": "Sample Work Order - Mei - DO NOT USE - 61",
+            "value": "61"
+        },
+        "location": "",
+        "status": {
+            "text": "Confirmed",
+            "value": "CONFIRMED",
+            "code": "bg-success"
+        },
+        "date": {
+            "recurrence": "one time event on 9/17/2024",
+            "start": "2024-09-17",
+            "end": "2024-09-17"
+        },
+        "time": {
+            "start": "08:00",
+            "end": "09:00"
+        },
+        "priority": {
+            "text": "Low",
+            "value": "1",
+            "code": "#026adf"
+        },
+        "note": "Test Submit Event 2",
+        "url": "/app/crm/calendar/event.nl?id=100808&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {
+            "id": "61",
+            "name": "Sample Work Order - Mei - DO NOT USE - 61",
+            "title": "Sample Work Order - Mei - DO NOT USE - 61",
+            "project": {
+                "text": "AB&I Holdings : Field Ops Pro Project",
+                "value": "1883"
+            },
+            "date": "9/23/2024",
+            "status": {
+                "text": "Hold",
+                "value": "7",
+                "code": "#6c757d"
+            },
+            "type": {
+                "text": "Moves",
+                "value": "3"
+            },
+            "memo": "<p><strong>Sample Work Order - Mei - DO NOT USE - TEST</strong></p>",
+            "salesorder": {
+                "text": "Sales Order #SLS00000686",
+                "value": "17729"
+            },
+            "customer": {
+                "text": "AB&I Holdings",
+                "value": "1249"
+            },
+            "resourceGroup": {
+                "text": "",
+                "value": ""
+            },
+            "priority": "",
+            "resources": [],
+            "items": [{
+                "id": "65",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "events": [],
+                "uuid": "17729_4",
+                "line": "4",
+                "item": {
+                    "text": "ACQUA/CARAVEL AU0641",
+                    "value": "1062"
+                },
+                "description": "ACQUA/CARAVEL AU0641",
+                "quantity": 1,
+                "note": ""
+            }, {
+                "id": "66",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "events": [],
+                "uuid": "17729_5",
+                "line": "5",
+                "item": {
+                    "text": "Dealer Service Fee",
+                    "value": "2331"
+                },
+                "description": "Dealer Service Fee",
+                "quantity": 5,
+                "note": ""
+            }],
+            "addresses": [{
+                "id": "45",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "customer": {
+                    "text": "AB&I Holdings",
+                    "value": "1249"
+                },
+                "events": ["100813"],
+                "address": {
+                    "text": "1701 Rollins Road",
+                    "value": "244878"
+                },
+                "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+                "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+            }],
+            "contacts": [{
+                "id": "44",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "events": ["100813"],
+                "contact": {
+                    "text": "AB&I Holdings : Test Prav",
+                    "value": "1892"
+                },
+                "name": "Test Prav",
+                "email": "pravallika@erpsuccesspartners.com",
+                "jobTitle": "QA",
+                "mobilePhone": "",
+                "phone": "",
+                "primary": "checked",
+                "url": "/app/common/entity/contact.nl?id=1892&compid=TSTDRV2617106"
+            }],
+            "events": [{
+                "id": "100805",
+                "title": "Test Event",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "05:00",
+                    "end": "06:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Test Event",
+                "url": "/app/crm/calendar/event.nl?id=100805&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100805",
+                "title": "Test Event",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "05:00",
+                    "end": "06:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Test Event",
+                "url": "/app/crm/calendar/event.nl?id=100805&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100806",
+                "title": "Test Event",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "05:00",
+                    "end": "06:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Test Event",
+                "url": "/app/crm/calendar/event.nl?id=100806&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100806",
+                "title": "Test Event",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "05:00",
+                    "end": "06:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Test Event",
+                "url": "/app/crm/calendar/event.nl?id=100806&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100807",
+                "title": "Test Event",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "05:00",
+                    "end": "06:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Test Event",
+                "url": "/app/crm/calendar/event.nl?id=100807&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100807",
+                "title": "Test Event",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "05:00",
+                    "end": "06:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Test Event",
+                "url": "/app/crm/calendar/event.nl?id=100807&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100808",
+                "title": "Test Submit Event 2",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "09:00"
+                },
+                "priority": {
+                    "text": "Low",
+                    "value": "1",
+                    "code": "#026adf"
+                },
+                "note": "Test Submit Event 2",
+                "url": "/app/crm/calendar/event.nl?id=100808&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100808",
+                "title": "Test Submit Event 2",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "09:00"
+                },
+                "priority": {
+                    "text": "Low",
+                    "value": "1",
+                    "code": "#026adf"
+                },
+                "note": "Test Submit Event 2",
+                "url": "/app/crm/calendar/event.nl?id=100808&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100809",
+                "title": "Test Event Submission 3",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "09:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Test Event Submission 3",
+                "url": "/app/crm/calendar/event.nl?id=100809&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100809",
+                "title": "Test Event Submission 3",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "09:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Test Event Submission 3",
+                "url": "/app/crm/calendar/event.nl?id=100809&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100810",
+                "title": "Sample Event Submission 4",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "09:00",
+                    "end": "10:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Sample Event Submission 4",
+                "url": "/app/crm/calendar/event.nl?id=100810&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100810",
+                "title": "Sample Event Submission 4",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "09:00",
+                    "end": "10:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Sample Event Submission 4",
+                "url": "/app/crm/calendar/event.nl?id=100810&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100811",
+                "title": "Test Event Submission 4",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "09:00",
+                    "end": "10:00"
+                },
+                "priority": {
+                    "text": "Low",
+                    "value": "1",
+                    "code": "#026adf"
+                },
+                "note": "Test Event Submission 5",
+                "url": "/app/crm/calendar/event.nl?id=100811&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100811",
+                "title": "Test Event Submission 4",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "09:00",
+                    "end": "10:00"
+                },
+                "priority": {
+                    "text": "Low",
+                    "value": "1",
+                    "code": "#026adf"
+                },
+                "note": "Test Event Submission 5",
+                "url": "/app/crm/calendar/event.nl?id=100811&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100812",
+                "title": "Test Sample Event Submission 5",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "09:00",
+                    "end": "10:00"
+                },
+                "priority": {
+                    "text": "Low",
+                    "value": "1",
+                    "code": "#026adf"
+                },
+                "note": "Test Sample Event Submission 5",
+                "url": "/app/crm/calendar/event.nl?id=100812&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100812",
+                "title": "Test Sample Event Submission 5",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "09:00",
+                    "end": "10:00"
+                },
+                "priority": {
+                    "text": "Low",
+                    "value": "1",
+                    "code": "#026adf"
+                },
+                "note": "Test Sample Event Submission 5",
+                "url": "/app/crm/calendar/event.nl?id=100812&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100813",
+                "title": "Sample Work Order - Mei - DO NOT USE - 61",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Tentative",
+                    "value": "TENTATIVE",
+                    "code": "bg-secondary"
+                },
+                "date": {
+                    "recurrence": "occurs every day from 9/18/2024 until 9/20/2024",
+                    "start": "2024-09-18",
+                    "end": "2024-09-20"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "18:00"
+                },
+                "priority": {
+                    "text": "Low",
+                    "value": "1",
+                    "code": "#026adf"
+                },
+                "note": "TEST 12345",
+                "url": "/app/crm/calendar/event.nl?id=100813&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "44",
+                    "value": "44"
+                },
+                "address": {
+                    "text": "45",
+                    "value": "45"
+                }
+            }],
+            "projectUrl": "/app/accounting/project/project.nl?id=1883&compid=TSTDRV2617106",
+            "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=61&compid=TSTDRV2617106",
+            "soUrl": "/app/accounting/transactions/salesord.nl?id=17729&compid=TSTDRV2617106",
+            "esthours": "40"
+        },
+        "resources": [],
+        "items": [],
+        "contacts": [],
+        "addresses": [],
+        "contact": {
+            "text": "",
+            "value": ""
+        },
+        "address": {
+            "text": "",
+            "value": ""
+        }
+    }, {
+        "id": "100809",
+        "title": "Test Event Submission 3",
+        "workorder": {
+            "text": "Sample Work Order - Mei - DO NOT USE - 61",
+            "value": "61"
+        },
+        "location": "",
+        "status": {
+            "text": "Confirmed",
+            "value": "CONFIRMED",
+            "code": "bg-success"
+        },
+        "date": {
+            "recurrence": "one time event on 9/17/2024",
+            "start": "2024-09-17",
+            "end": "2024-09-17"
+        },
+        "time": {
+            "start": "08:00",
+            "end": "09:00"
+        },
+        "priority": {
+            "text": "Medium",
+            "value": "2",
+            "code": "#dfcf02"
+        },
+        "note": "Test Event Submission 3",
+        "url": "/app/crm/calendar/event.nl?id=100809&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {
+            "id": "61",
+            "name": "Sample Work Order - Mei - DO NOT USE - 61",
+            "title": "Sample Work Order - Mei - DO NOT USE - 61",
+            "project": {
+                "text": "AB&I Holdings : Field Ops Pro Project",
+                "value": "1883"
+            },
+            "date": "9/23/2024",
+            "status": {
+                "text": "Hold",
+                "value": "7",
+                "code": "#6c757d"
+            },
+            "type": {
+                "text": "Moves",
+                "value": "3"
+            },
+            "memo": "<p><strong>Sample Work Order - Mei - DO NOT USE - TEST</strong></p>",
+            "salesorder": {
+                "text": "Sales Order #SLS00000686",
+                "value": "17729"
+            },
+            "customer": {
+                "text": "AB&I Holdings",
+                "value": "1249"
+            },
+            "resourceGroup": {
+                "text": "",
+                "value": ""
+            },
+            "priority": "",
+            "resources": [],
+            "items": [{
+                "id": "65",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "events": [],
+                "uuid": "17729_4",
+                "line": "4",
+                "item": {
+                    "text": "ACQUA/CARAVEL AU0641",
+                    "value": "1062"
+                },
+                "description": "ACQUA/CARAVEL AU0641",
+                "quantity": 1,
+                "note": ""
+            }, {
+                "id": "66",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "events": [],
+                "uuid": "17729_5",
+                "line": "5",
+                "item": {
+                    "text": "Dealer Service Fee",
+                    "value": "2331"
+                },
+                "description": "Dealer Service Fee",
+                "quantity": 5,
+                "note": ""
+            }],
+            "addresses": [{
+                "id": "45",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "customer": {
+                    "text": "AB&I Holdings",
+                    "value": "1249"
+                },
+                "events": ["100813"],
+                "address": {
+                    "text": "1701 Rollins Road",
+                    "value": "244878"
+                },
+                "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+                "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+            }],
+            "contacts": [{
+                "id": "44",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "events": ["100813"],
+                "contact": {
+                    "text": "AB&I Holdings : Test Prav",
+                    "value": "1892"
+                },
+                "name": "Test Prav",
+                "email": "pravallika@erpsuccesspartners.com",
+                "jobTitle": "QA",
+                "mobilePhone": "",
+                "phone": "",
+                "primary": "checked",
+                "url": "/app/common/entity/contact.nl?id=1892&compid=TSTDRV2617106"
+            }],
+            "events": [{
+                "id": "100805",
+                "title": "Test Event",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "05:00",
+                    "end": "06:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Test Event",
+                "url": "/app/crm/calendar/event.nl?id=100805&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100805",
+                "title": "Test Event",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "05:00",
+                    "end": "06:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Test Event",
+                "url": "/app/crm/calendar/event.nl?id=100805&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100806",
+                "title": "Test Event",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "05:00",
+                    "end": "06:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Test Event",
+                "url": "/app/crm/calendar/event.nl?id=100806&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100806",
+                "title": "Test Event",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "05:00",
+                    "end": "06:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Test Event",
+                "url": "/app/crm/calendar/event.nl?id=100806&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100807",
+                "title": "Test Event",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "05:00",
+                    "end": "06:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Test Event",
+                "url": "/app/crm/calendar/event.nl?id=100807&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100807",
+                "title": "Test Event",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "05:00",
+                    "end": "06:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Test Event",
+                "url": "/app/crm/calendar/event.nl?id=100807&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100808",
+                "title": "Test Submit Event 2",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "09:00"
+                },
+                "priority": {
+                    "text": "Low",
+                    "value": "1",
+                    "code": "#026adf"
+                },
+                "note": "Test Submit Event 2",
+                "url": "/app/crm/calendar/event.nl?id=100808&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100808",
+                "title": "Test Submit Event 2",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "09:00"
+                },
+                "priority": {
+                    "text": "Low",
+                    "value": "1",
+                    "code": "#026adf"
+                },
+                "note": "Test Submit Event 2",
+                "url": "/app/crm/calendar/event.nl?id=100808&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100809",
+                "title": "Test Event Submission 3",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "09:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Test Event Submission 3",
+                "url": "/app/crm/calendar/event.nl?id=100809&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100809",
+                "title": "Test Event Submission 3",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "09:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Test Event Submission 3",
+                "url": "/app/crm/calendar/event.nl?id=100809&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100810",
+                "title": "Sample Event Submission 4",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "09:00",
+                    "end": "10:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Sample Event Submission 4",
+                "url": "/app/crm/calendar/event.nl?id=100810&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100810",
+                "title": "Sample Event Submission 4",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "09:00",
+                    "end": "10:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Sample Event Submission 4",
+                "url": "/app/crm/calendar/event.nl?id=100810&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100811",
+                "title": "Test Event Submission 4",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "09:00",
+                    "end": "10:00"
+                },
+                "priority": {
+                    "text": "Low",
+                    "value": "1",
+                    "code": "#026adf"
+                },
+                "note": "Test Event Submission 5",
+                "url": "/app/crm/calendar/event.nl?id=100811&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100811",
+                "title": "Test Event Submission 4",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "09:00",
+                    "end": "10:00"
+                },
+                "priority": {
+                    "text": "Low",
+                    "value": "1",
+                    "code": "#026adf"
+                },
+                "note": "Test Event Submission 5",
+                "url": "/app/crm/calendar/event.nl?id=100811&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100812",
+                "title": "Test Sample Event Submission 5",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "09:00",
+                    "end": "10:00"
+                },
+                "priority": {
+                    "text": "Low",
+                    "value": "1",
+                    "code": "#026adf"
+                },
+                "note": "Test Sample Event Submission 5",
+                "url": "/app/crm/calendar/event.nl?id=100812&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100812",
+                "title": "Test Sample Event Submission 5",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "09:00",
+                    "end": "10:00"
+                },
+                "priority": {
+                    "text": "Low",
+                    "value": "1",
+                    "code": "#026adf"
+                },
+                "note": "Test Sample Event Submission 5",
+                "url": "/app/crm/calendar/event.nl?id=100812&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100813",
+                "title": "Sample Work Order - Mei - DO NOT USE - 61",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Tentative",
+                    "value": "TENTATIVE",
+                    "code": "bg-secondary"
+                },
+                "date": {
+                    "recurrence": "occurs every day from 9/18/2024 until 9/20/2024",
+                    "start": "2024-09-18",
+                    "end": "2024-09-20"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "18:00"
+                },
+                "priority": {
+                    "text": "Low",
+                    "value": "1",
+                    "code": "#026adf"
+                },
+                "note": "TEST 12345",
+                "url": "/app/crm/calendar/event.nl?id=100813&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "44",
+                    "value": "44"
+                },
+                "address": {
+                    "text": "45",
+                    "value": "45"
+                }
+            }],
+            "projectUrl": "/app/accounting/project/project.nl?id=1883&compid=TSTDRV2617106",
+            "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=61&compid=TSTDRV2617106",
+            "soUrl": "/app/accounting/transactions/salesord.nl?id=17729&compid=TSTDRV2617106",
+            "esthours": "40"
+        },
+        "resources": [],
+        "items": [],
+        "contacts": [],
+        "addresses": [],
+        "contact": {
+            "text": "",
+            "value": ""
+        },
+        "address": {
+            "text": "",
+            "value": ""
+        }
+    }, {
+        "id": "100809",
+        "title": "Test Event Submission 3",
+        "workorder": {
+            "text": "Sample Work Order - Mei - DO NOT USE - 61",
+            "value": "61"
+        },
+        "location": "",
+        "status": {
+            "text": "Confirmed",
+            "value": "CONFIRMED",
+            "code": "bg-success"
+        },
+        "date": {
+            "recurrence": "one time event on 9/17/2024",
+            "start": "2024-09-17",
+            "end": "2024-09-17"
+        },
+        "time": {
+            "start": "08:00",
+            "end": "09:00"
+        },
+        "priority": {
+            "text": "Medium",
+            "value": "2",
+            "code": "#dfcf02"
+        },
+        "note": "Test Event Submission 3",
+        "url": "/app/crm/calendar/event.nl?id=100809&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {
+            "id": "61",
+            "name": "Sample Work Order - Mei - DO NOT USE - 61",
+            "title": "Sample Work Order - Mei - DO NOT USE - 61",
+            "project": {
+                "text": "AB&I Holdings : Field Ops Pro Project",
+                "value": "1883"
+            },
+            "date": "9/23/2024",
+            "status": {
+                "text": "Hold",
+                "value": "7",
+                "code": "#6c757d"
+            },
+            "type": {
+                "text": "Moves",
+                "value": "3"
+            },
+            "memo": "<p><strong>Sample Work Order - Mei - DO NOT USE - TEST</strong></p>",
+            "salesorder": {
+                "text": "Sales Order #SLS00000686",
+                "value": "17729"
+            },
+            "customer": {
+                "text": "AB&I Holdings",
+                "value": "1249"
+            },
+            "resourceGroup": {
+                "text": "",
+                "value": ""
+            },
+            "priority": "",
+            "resources": [],
+            "items": [{
+                "id": "65",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "events": [],
+                "uuid": "17729_4",
+                "line": "4",
+                "item": {
+                    "text": "ACQUA/CARAVEL AU0641",
+                    "value": "1062"
+                },
+                "description": "ACQUA/CARAVEL AU0641",
+                "quantity": 1,
+                "note": ""
+            }, {
+                "id": "66",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "events": [],
+                "uuid": "17729_5",
+                "line": "5",
+                "item": {
+                    "text": "Dealer Service Fee",
+                    "value": "2331"
+                },
+                "description": "Dealer Service Fee",
+                "quantity": 5,
+                "note": ""
+            }],
+            "addresses": [{
+                "id": "45",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "customer": {
+                    "text": "AB&I Holdings",
+                    "value": "1249"
+                },
+                "events": ["100813"],
+                "address": {
+                    "text": "1701 Rollins Road",
+                    "value": "244878"
+                },
+                "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+                "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+            }],
+            "contacts": [{
+                "id": "44",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "events": ["100813"],
+                "contact": {
+                    "text": "AB&I Holdings : Test Prav",
+                    "value": "1892"
+                },
+                "name": "Test Prav",
+                "email": "pravallika@erpsuccesspartners.com",
+                "jobTitle": "QA",
+                "mobilePhone": "",
+                "phone": "",
+                "primary": "checked",
+                "url": "/app/common/entity/contact.nl?id=1892&compid=TSTDRV2617106"
+            }],
+            "events": [{
+                "id": "100805",
+                "title": "Test Event",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "05:00",
+                    "end": "06:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Test Event",
+                "url": "/app/crm/calendar/event.nl?id=100805&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100805",
+                "title": "Test Event",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "05:00",
+                    "end": "06:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Test Event",
+                "url": "/app/crm/calendar/event.nl?id=100805&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100806",
+                "title": "Test Event",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "05:00",
+                    "end": "06:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Test Event",
+                "url": "/app/crm/calendar/event.nl?id=100806&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100806",
+                "title": "Test Event",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "05:00",
+                    "end": "06:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Test Event",
+                "url": "/app/crm/calendar/event.nl?id=100806&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100807",
+                "title": "Test Event",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "05:00",
+                    "end": "06:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Test Event",
+                "url": "/app/crm/calendar/event.nl?id=100807&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100807",
+                "title": "Test Event",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "05:00",
+                    "end": "06:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Test Event",
+                "url": "/app/crm/calendar/event.nl?id=100807&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100808",
+                "title": "Test Submit Event 2",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "09:00"
+                },
+                "priority": {
+                    "text": "Low",
+                    "value": "1",
+                    "code": "#026adf"
+                },
+                "note": "Test Submit Event 2",
+                "url": "/app/crm/calendar/event.nl?id=100808&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100808",
+                "title": "Test Submit Event 2",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "09:00"
+                },
+                "priority": {
+                    "text": "Low",
+                    "value": "1",
+                    "code": "#026adf"
+                },
+                "note": "Test Submit Event 2",
+                "url": "/app/crm/calendar/event.nl?id=100808&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100809",
+                "title": "Test Event Submission 3",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "09:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Test Event Submission 3",
+                "url": "/app/crm/calendar/event.nl?id=100809&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100809",
+                "title": "Test Event Submission 3",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "09:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Test Event Submission 3",
+                "url": "/app/crm/calendar/event.nl?id=100809&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100810",
+                "title": "Sample Event Submission 4",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "09:00",
+                    "end": "10:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Sample Event Submission 4",
+                "url": "/app/crm/calendar/event.nl?id=100810&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100810",
+                "title": "Sample Event Submission 4",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "09:00",
+                    "end": "10:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Sample Event Submission 4",
+                "url": "/app/crm/calendar/event.nl?id=100810&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100811",
+                "title": "Test Event Submission 4",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "09:00",
+                    "end": "10:00"
+                },
+                "priority": {
+                    "text": "Low",
+                    "value": "1",
+                    "code": "#026adf"
+                },
+                "note": "Test Event Submission 5",
+                "url": "/app/crm/calendar/event.nl?id=100811&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100811",
+                "title": "Test Event Submission 4",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "09:00",
+                    "end": "10:00"
+                },
+                "priority": {
+                    "text": "Low",
+                    "value": "1",
+                    "code": "#026adf"
+                },
+                "note": "Test Event Submission 5",
+                "url": "/app/crm/calendar/event.nl?id=100811&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100812",
+                "title": "Test Sample Event Submission 5",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "09:00",
+                    "end": "10:00"
+                },
+                "priority": {
+                    "text": "Low",
+                    "value": "1",
+                    "code": "#026adf"
+                },
+                "note": "Test Sample Event Submission 5",
+                "url": "/app/crm/calendar/event.nl?id=100812&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100812",
+                "title": "Test Sample Event Submission 5",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "09:00",
+                    "end": "10:00"
+                },
+                "priority": {
+                    "text": "Low",
+                    "value": "1",
+                    "code": "#026adf"
+                },
+                "note": "Test Sample Event Submission 5",
+                "url": "/app/crm/calendar/event.nl?id=100812&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100813",
+                "title": "Sample Work Order - Mei - DO NOT USE - 61",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Tentative",
+                    "value": "TENTATIVE",
+                    "code": "bg-secondary"
+                },
+                "date": {
+                    "recurrence": "occurs every day from 9/18/2024 until 9/20/2024",
+                    "start": "2024-09-18",
+                    "end": "2024-09-20"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "18:00"
+                },
+                "priority": {
+                    "text": "Low",
+                    "value": "1",
+                    "code": "#026adf"
+                },
+                "note": "TEST 12345",
+                "url": "/app/crm/calendar/event.nl?id=100813&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "44",
+                    "value": "44"
+                },
+                "address": {
+                    "text": "45",
+                    "value": "45"
+                }
+            }],
+            "projectUrl": "/app/accounting/project/project.nl?id=1883&compid=TSTDRV2617106",
+            "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=61&compid=TSTDRV2617106",
+            "soUrl": "/app/accounting/transactions/salesord.nl?id=17729&compid=TSTDRV2617106",
+            "esthours": "40"
+        },
+        "resources": [],
+        "items": [],
+        "contacts": [],
+        "addresses": [],
+        "contact": {
+            "text": "",
+            "value": ""
+        },
+        "address": {
+            "text": "",
+            "value": ""
+        }
+    }, {
+        "id": "100810",
+        "title": "Sample Event Submission 4",
+        "workorder": {
+            "text": "Sample Work Order - Mei - DO NOT USE - 61",
+            "value": "61"
+        },
+        "location": "",
+        "status": {
+            "text": "Confirmed",
+            "value": "CONFIRMED",
+            "code": "bg-success"
+        },
+        "date": {
+            "recurrence": "one time event on 9/17/2024",
+            "start": "2024-09-17",
+            "end": "2024-09-17"
+        },
+        "time": {
+            "start": "09:00",
+            "end": "10:00"
+        },
+        "priority": {
+            "text": "Medium",
+            "value": "2",
+            "code": "#dfcf02"
+        },
+        "note": "Sample Event Submission 4",
+        "url": "/app/crm/calendar/event.nl?id=100810&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {
+            "id": "61",
+            "name": "Sample Work Order - Mei - DO NOT USE - 61",
+            "title": "Sample Work Order - Mei - DO NOT USE - 61",
+            "project": {
+                "text": "AB&I Holdings : Field Ops Pro Project",
+                "value": "1883"
+            },
+            "date": "9/23/2024",
+            "status": {
+                "text": "Hold",
+                "value": "7",
+                "code": "#6c757d"
+            },
+            "type": {
+                "text": "Moves",
+                "value": "3"
+            },
+            "memo": "<p><strong>Sample Work Order - Mei - DO NOT USE - TEST</strong></p>",
+            "salesorder": {
+                "text": "Sales Order #SLS00000686",
+                "value": "17729"
+            },
+            "customer": {
+                "text": "AB&I Holdings",
+                "value": "1249"
+            },
+            "resourceGroup": {
+                "text": "",
+                "value": ""
+            },
+            "priority": "",
+            "resources": [],
+            "items": [{
+                "id": "65",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "events": [],
+                "uuid": "17729_4",
+                "line": "4",
+                "item": {
+                    "text": "ACQUA/CARAVEL AU0641",
+                    "value": "1062"
+                },
+                "description": "ACQUA/CARAVEL AU0641",
+                "quantity": 1,
+                "note": ""
+            }, {
+                "id": "66",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "events": [],
+                "uuid": "17729_5",
+                "line": "5",
+                "item": {
+                    "text": "Dealer Service Fee",
+                    "value": "2331"
+                },
+                "description": "Dealer Service Fee",
+                "quantity": 5,
+                "note": ""
+            }],
+            "addresses": [{
+                "id": "45",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "customer": {
+                    "text": "AB&I Holdings",
+                    "value": "1249"
+                },
+                "events": ["100813"],
+                "address": {
+                    "text": "1701 Rollins Road",
+                    "value": "244878"
+                },
+                "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+                "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+            }],
+            "contacts": [{
+                "id": "44",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "events": ["100813"],
+                "contact": {
+                    "text": "AB&I Holdings : Test Prav",
+                    "value": "1892"
+                },
+                "name": "Test Prav",
+                "email": "pravallika@erpsuccesspartners.com",
+                "jobTitle": "QA",
+                "mobilePhone": "",
+                "phone": "",
+                "primary": "checked",
+                "url": "/app/common/entity/contact.nl?id=1892&compid=TSTDRV2617106"
+            }],
+            "events": [{
+                "id": "100805",
+                "title": "Test Event",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "05:00",
+                    "end": "06:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Test Event",
+                "url": "/app/crm/calendar/event.nl?id=100805&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100805",
+                "title": "Test Event",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "05:00",
+                    "end": "06:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Test Event",
+                "url": "/app/crm/calendar/event.nl?id=100805&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100806",
+                "title": "Test Event",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "05:00",
+                    "end": "06:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Test Event",
+                "url": "/app/crm/calendar/event.nl?id=100806&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100806",
+                "title": "Test Event",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "05:00",
+                    "end": "06:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Test Event",
+                "url": "/app/crm/calendar/event.nl?id=100806&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100807",
+                "title": "Test Event",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "05:00",
+                    "end": "06:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Test Event",
+                "url": "/app/crm/calendar/event.nl?id=100807&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100807",
+                "title": "Test Event",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "05:00",
+                    "end": "06:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Test Event",
+                "url": "/app/crm/calendar/event.nl?id=100807&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100808",
+                "title": "Test Submit Event 2",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "09:00"
+                },
+                "priority": {
+                    "text": "Low",
+                    "value": "1",
+                    "code": "#026adf"
+                },
+                "note": "Test Submit Event 2",
+                "url": "/app/crm/calendar/event.nl?id=100808&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100808",
+                "title": "Test Submit Event 2",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "09:00"
+                },
+                "priority": {
+                    "text": "Low",
+                    "value": "1",
+                    "code": "#026adf"
+                },
+                "note": "Test Submit Event 2",
+                "url": "/app/crm/calendar/event.nl?id=100808&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100809",
+                "title": "Test Event Submission 3",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "09:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Test Event Submission 3",
+                "url": "/app/crm/calendar/event.nl?id=100809&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100809",
+                "title": "Test Event Submission 3",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "09:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Test Event Submission 3",
+                "url": "/app/crm/calendar/event.nl?id=100809&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100810",
+                "title": "Sample Event Submission 4",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "09:00",
+                    "end": "10:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Sample Event Submission 4",
+                "url": "/app/crm/calendar/event.nl?id=100810&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100810",
+                "title": "Sample Event Submission 4",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "09:00",
+                    "end": "10:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Sample Event Submission 4",
+                "url": "/app/crm/calendar/event.nl?id=100810&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100811",
+                "title": "Test Event Submission 4",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "09:00",
+                    "end": "10:00"
+                },
+                "priority": {
+                    "text": "Low",
+                    "value": "1",
+                    "code": "#026adf"
+                },
+                "note": "Test Event Submission 5",
+                "url": "/app/crm/calendar/event.nl?id=100811&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100811",
+                "title": "Test Event Submission 4",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "09:00",
+                    "end": "10:00"
+                },
+                "priority": {
+                    "text": "Low",
+                    "value": "1",
+                    "code": "#026adf"
+                },
+                "note": "Test Event Submission 5",
+                "url": "/app/crm/calendar/event.nl?id=100811&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100812",
+                "title": "Test Sample Event Submission 5",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "09:00",
+                    "end": "10:00"
+                },
+                "priority": {
+                    "text": "Low",
+                    "value": "1",
+                    "code": "#026adf"
+                },
+                "note": "Test Sample Event Submission 5",
+                "url": "/app/crm/calendar/event.nl?id=100812&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100812",
+                "title": "Test Sample Event Submission 5",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "09:00",
+                    "end": "10:00"
+                },
+                "priority": {
+                    "text": "Low",
+                    "value": "1",
+                    "code": "#026adf"
+                },
+                "note": "Test Sample Event Submission 5",
+                "url": "/app/crm/calendar/event.nl?id=100812&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100813",
+                "title": "Sample Work Order - Mei - DO NOT USE - 61",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Tentative",
+                    "value": "TENTATIVE",
+                    "code": "bg-secondary"
+                },
+                "date": {
+                    "recurrence": "occurs every day from 9/18/2024 until 9/20/2024",
+                    "start": "2024-09-18",
+                    "end": "2024-09-20"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "18:00"
+                },
+                "priority": {
+                    "text": "Low",
+                    "value": "1",
+                    "code": "#026adf"
+                },
+                "note": "TEST 12345",
+                "url": "/app/crm/calendar/event.nl?id=100813&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "44",
+                    "value": "44"
+                },
+                "address": {
+                    "text": "45",
+                    "value": "45"
+                }
+            }],
+            "projectUrl": "/app/accounting/project/project.nl?id=1883&compid=TSTDRV2617106",
+            "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=61&compid=TSTDRV2617106",
+            "soUrl": "/app/accounting/transactions/salesord.nl?id=17729&compid=TSTDRV2617106",
+            "esthours": "40"
+        },
+        "resources": [],
+        "items": [],
+        "contacts": [],
+        "addresses": [],
+        "contact": {
+            "text": "",
+            "value": ""
+        },
+        "address": {
+            "text": "",
+            "value": ""
+        }
+    }, {
+        "id": "100810",
+        "title": "Sample Event Submission 4",
+        "workorder": {
+            "text": "Sample Work Order - Mei - DO NOT USE - 61",
+            "value": "61"
+        },
+        "location": "",
+        "status": {
+            "text": "Confirmed",
+            "value": "CONFIRMED",
+            "code": "bg-success"
+        },
+        "date": {
+            "recurrence": "one time event on 9/17/2024",
+            "start": "2024-09-17",
+            "end": "2024-09-17"
+        },
+        "time": {
+            "start": "09:00",
+            "end": "10:00"
+        },
+        "priority": {
+            "text": "Medium",
+            "value": "2",
+            "code": "#dfcf02"
+        },
+        "note": "Sample Event Submission 4",
+        "url": "/app/crm/calendar/event.nl?id=100810&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {
+            "id": "61",
+            "name": "Sample Work Order - Mei - DO NOT USE - 61",
+            "title": "Sample Work Order - Mei - DO NOT USE - 61",
+            "project": {
+                "text": "AB&I Holdings : Field Ops Pro Project",
+                "value": "1883"
+            },
+            "date": "9/23/2024",
+            "status": {
+                "text": "Hold",
+                "value": "7",
+                "code": "#6c757d"
+            },
+            "type": {
+                "text": "Moves",
+                "value": "3"
+            },
+            "memo": "<p><strong>Sample Work Order - Mei - DO NOT USE - TEST</strong></p>",
+            "salesorder": {
+                "text": "Sales Order #SLS00000686",
+                "value": "17729"
+            },
+            "customer": {
+                "text": "AB&I Holdings",
+                "value": "1249"
+            },
+            "resourceGroup": {
+                "text": "",
+                "value": ""
+            },
+            "priority": "",
+            "resources": [],
+            "items": [{
+                "id": "65",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "events": [],
+                "uuid": "17729_4",
+                "line": "4",
+                "item": {
+                    "text": "ACQUA/CARAVEL AU0641",
+                    "value": "1062"
+                },
+                "description": "ACQUA/CARAVEL AU0641",
+                "quantity": 1,
+                "note": ""
+            }, {
+                "id": "66",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "events": [],
+                "uuid": "17729_5",
+                "line": "5",
+                "item": {
+                    "text": "Dealer Service Fee",
+                    "value": "2331"
+                },
+                "description": "Dealer Service Fee",
+                "quantity": 5,
+                "note": ""
+            }],
+            "addresses": [{
+                "id": "45",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "customer": {
+                    "text": "AB&I Holdings",
+                    "value": "1249"
+                },
+                "events": ["100813"],
+                "address": {
+                    "text": "1701 Rollins Road",
+                    "value": "244878"
+                },
+                "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+                "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+            }],
+            "contacts": [{
+                "id": "44",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "events": ["100813"],
+                "contact": {
+                    "text": "AB&I Holdings : Test Prav",
+                    "value": "1892"
+                },
+                "name": "Test Prav",
+                "email": "pravallika@erpsuccesspartners.com",
+                "jobTitle": "QA",
+                "mobilePhone": "",
+                "phone": "",
+                "primary": "checked",
+                "url": "/app/common/entity/contact.nl?id=1892&compid=TSTDRV2617106"
+            }],
+            "events": [{
+                "id": "100805",
+                "title": "Test Event",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "05:00",
+                    "end": "06:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Test Event",
+                "url": "/app/crm/calendar/event.nl?id=100805&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100805",
+                "title": "Test Event",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "05:00",
+                    "end": "06:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Test Event",
+                "url": "/app/crm/calendar/event.nl?id=100805&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100806",
+                "title": "Test Event",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "05:00",
+                    "end": "06:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Test Event",
+                "url": "/app/crm/calendar/event.nl?id=100806&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100806",
+                "title": "Test Event",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "05:00",
+                    "end": "06:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Test Event",
+                "url": "/app/crm/calendar/event.nl?id=100806&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100807",
+                "title": "Test Event",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "05:00",
+                    "end": "06:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Test Event",
+                "url": "/app/crm/calendar/event.nl?id=100807&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100807",
+                "title": "Test Event",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "05:00",
+                    "end": "06:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Test Event",
+                "url": "/app/crm/calendar/event.nl?id=100807&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100808",
+                "title": "Test Submit Event 2",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "09:00"
+                },
+                "priority": {
+                    "text": "Low",
+                    "value": "1",
+                    "code": "#026adf"
+                },
+                "note": "Test Submit Event 2",
+                "url": "/app/crm/calendar/event.nl?id=100808&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100808",
+                "title": "Test Submit Event 2",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "09:00"
+                },
+                "priority": {
+                    "text": "Low",
+                    "value": "1",
+                    "code": "#026adf"
+                },
+                "note": "Test Submit Event 2",
+                "url": "/app/crm/calendar/event.nl?id=100808&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100809",
+                "title": "Test Event Submission 3",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "09:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Test Event Submission 3",
+                "url": "/app/crm/calendar/event.nl?id=100809&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100809",
+                "title": "Test Event Submission 3",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "09:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Test Event Submission 3",
+                "url": "/app/crm/calendar/event.nl?id=100809&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100810",
+                "title": "Sample Event Submission 4",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "09:00",
+                    "end": "10:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Sample Event Submission 4",
+                "url": "/app/crm/calendar/event.nl?id=100810&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100810",
+                "title": "Sample Event Submission 4",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "09:00",
+                    "end": "10:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Sample Event Submission 4",
+                "url": "/app/crm/calendar/event.nl?id=100810&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100811",
+                "title": "Test Event Submission 4",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "09:00",
+                    "end": "10:00"
+                },
+                "priority": {
+                    "text": "Low",
+                    "value": "1",
+                    "code": "#026adf"
+                },
+                "note": "Test Event Submission 5",
+                "url": "/app/crm/calendar/event.nl?id=100811&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100811",
+                "title": "Test Event Submission 4",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "09:00",
+                    "end": "10:00"
+                },
+                "priority": {
+                    "text": "Low",
+                    "value": "1",
+                    "code": "#026adf"
+                },
+                "note": "Test Event Submission 5",
+                "url": "/app/crm/calendar/event.nl?id=100811&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100812",
+                "title": "Test Sample Event Submission 5",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "09:00",
+                    "end": "10:00"
+                },
+                "priority": {
+                    "text": "Low",
+                    "value": "1",
+                    "code": "#026adf"
+                },
+                "note": "Test Sample Event Submission 5",
+                "url": "/app/crm/calendar/event.nl?id=100812&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100812",
+                "title": "Test Sample Event Submission 5",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "09:00",
+                    "end": "10:00"
+                },
+                "priority": {
+                    "text": "Low",
+                    "value": "1",
+                    "code": "#026adf"
+                },
+                "note": "Test Sample Event Submission 5",
+                "url": "/app/crm/calendar/event.nl?id=100812&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100813",
+                "title": "Sample Work Order - Mei - DO NOT USE - 61",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Tentative",
+                    "value": "TENTATIVE",
+                    "code": "bg-secondary"
+                },
+                "date": {
+                    "recurrence": "occurs every day from 9/18/2024 until 9/20/2024",
+                    "start": "2024-09-18",
+                    "end": "2024-09-20"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "18:00"
+                },
+                "priority": {
+                    "text": "Low",
+                    "value": "1",
+                    "code": "#026adf"
+                },
+                "note": "TEST 12345",
+                "url": "/app/crm/calendar/event.nl?id=100813&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "44",
+                    "value": "44"
+                },
+                "address": {
+                    "text": "45",
+                    "value": "45"
+                }
+            }],
+            "projectUrl": "/app/accounting/project/project.nl?id=1883&compid=TSTDRV2617106",
+            "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=61&compid=TSTDRV2617106",
+            "soUrl": "/app/accounting/transactions/salesord.nl?id=17729&compid=TSTDRV2617106",
+            "esthours": "40"
+        },
+        "resources": [],
+        "items": [],
+        "contacts": [],
+        "addresses": [],
+        "contact": {
+            "text": "",
+            "value": ""
+        },
+        "address": {
+            "text": "",
+            "value": ""
+        }
+    }, {
+        "id": "100811",
+        "title": "Test Event Submission 4",
+        "workorder": {
+            "text": "Sample Work Order - Mei - DO NOT USE - 61",
+            "value": "61"
+        },
+        "location": "",
+        "status": {
+            "text": "Confirmed",
+            "value": "CONFIRMED",
+            "code": "bg-success"
+        },
+        "date": {
+            "recurrence": "one time event on 9/17/2024",
+            "start": "2024-09-17",
+            "end": "2024-09-17"
+        },
+        "time": {
+            "start": "09:00",
+            "end": "10:00"
+        },
+        "priority": {
+            "text": "Low",
+            "value": "1",
+            "code": "#026adf"
+        },
+        "note": "Test Event Submission 5",
+        "url": "/app/crm/calendar/event.nl?id=100811&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {
+            "id": "61",
+            "name": "Sample Work Order - Mei - DO NOT USE - 61",
+            "title": "Sample Work Order - Mei - DO NOT USE - 61",
+            "project": {
+                "text": "AB&I Holdings : Field Ops Pro Project",
+                "value": "1883"
+            },
+            "date": "9/23/2024",
+            "status": {
+                "text": "Hold",
+                "value": "7",
+                "code": "#6c757d"
+            },
+            "type": {
+                "text": "Moves",
+                "value": "3"
+            },
+            "memo": "<p><strong>Sample Work Order - Mei - DO NOT USE - TEST</strong></p>",
+            "salesorder": {
+                "text": "Sales Order #SLS00000686",
+                "value": "17729"
+            },
+            "customer": {
+                "text": "AB&I Holdings",
+                "value": "1249"
+            },
+            "resourceGroup": {
+                "text": "",
+                "value": ""
+            },
+            "priority": "",
+            "resources": [],
+            "items": [{
+                "id": "65",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "events": [],
+                "uuid": "17729_4",
+                "line": "4",
+                "item": {
+                    "text": "ACQUA/CARAVEL AU0641",
+                    "value": "1062"
+                },
+                "description": "ACQUA/CARAVEL AU0641",
+                "quantity": 1,
+                "note": ""
+            }, {
+                "id": "66",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "events": [],
+                "uuid": "17729_5",
+                "line": "5",
+                "item": {
+                    "text": "Dealer Service Fee",
+                    "value": "2331"
+                },
+                "description": "Dealer Service Fee",
+                "quantity": 5,
+                "note": ""
+            }],
+            "addresses": [{
+                "id": "45",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "customer": {
+                    "text": "AB&I Holdings",
+                    "value": "1249"
+                },
+                "events": ["100813"],
+                "address": {
+                    "text": "1701 Rollins Road",
+                    "value": "244878"
+                },
+                "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+                "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+            }],
+            "contacts": [{
+                "id": "44",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "events": ["100813"],
+                "contact": {
+                    "text": "AB&I Holdings : Test Prav",
+                    "value": "1892"
+                },
+                "name": "Test Prav",
+                "email": "pravallika@erpsuccesspartners.com",
+                "jobTitle": "QA",
+                "mobilePhone": "",
+                "phone": "",
+                "primary": "checked",
+                "url": "/app/common/entity/contact.nl?id=1892&compid=TSTDRV2617106"
+            }],
+            "events": [{
+                "id": "100805",
+                "title": "Test Event",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "05:00",
+                    "end": "06:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Test Event",
+                "url": "/app/crm/calendar/event.nl?id=100805&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100805",
+                "title": "Test Event",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "05:00",
+                    "end": "06:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Test Event",
+                "url": "/app/crm/calendar/event.nl?id=100805&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100806",
+                "title": "Test Event",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "05:00",
+                    "end": "06:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Test Event",
+                "url": "/app/crm/calendar/event.nl?id=100806&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100806",
+                "title": "Test Event",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "05:00",
+                    "end": "06:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Test Event",
+                "url": "/app/crm/calendar/event.nl?id=100806&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100807",
+                "title": "Test Event",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "05:00",
+                    "end": "06:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Test Event",
+                "url": "/app/crm/calendar/event.nl?id=100807&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100807",
+                "title": "Test Event",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "05:00",
+                    "end": "06:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Test Event",
+                "url": "/app/crm/calendar/event.nl?id=100807&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100808",
+                "title": "Test Submit Event 2",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "09:00"
+                },
+                "priority": {
+                    "text": "Low",
+                    "value": "1",
+                    "code": "#026adf"
+                },
+                "note": "Test Submit Event 2",
+                "url": "/app/crm/calendar/event.nl?id=100808&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100808",
+                "title": "Test Submit Event 2",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "09:00"
+                },
+                "priority": {
+                    "text": "Low",
+                    "value": "1",
+                    "code": "#026adf"
+                },
+                "note": "Test Submit Event 2",
+                "url": "/app/crm/calendar/event.nl?id=100808&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100809",
+                "title": "Test Event Submission 3",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "09:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Test Event Submission 3",
+                "url": "/app/crm/calendar/event.nl?id=100809&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100809",
+                "title": "Test Event Submission 3",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "09:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Test Event Submission 3",
+                "url": "/app/crm/calendar/event.nl?id=100809&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100810",
+                "title": "Sample Event Submission 4",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "09:00",
+                    "end": "10:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Sample Event Submission 4",
+                "url": "/app/crm/calendar/event.nl?id=100810&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100810",
+                "title": "Sample Event Submission 4",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "09:00",
+                    "end": "10:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Sample Event Submission 4",
+                "url": "/app/crm/calendar/event.nl?id=100810&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100811",
+                "title": "Test Event Submission 4",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "09:00",
+                    "end": "10:00"
+                },
+                "priority": {
+                    "text": "Low",
+                    "value": "1",
+                    "code": "#026adf"
+                },
+                "note": "Test Event Submission 5",
+                "url": "/app/crm/calendar/event.nl?id=100811&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100811",
+                "title": "Test Event Submission 4",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "09:00",
+                    "end": "10:00"
+                },
+                "priority": {
+                    "text": "Low",
+                    "value": "1",
+                    "code": "#026adf"
+                },
+                "note": "Test Event Submission 5",
+                "url": "/app/crm/calendar/event.nl?id=100811&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100812",
+                "title": "Test Sample Event Submission 5",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "09:00",
+                    "end": "10:00"
+                },
+                "priority": {
+                    "text": "Low",
+                    "value": "1",
+                    "code": "#026adf"
+                },
+                "note": "Test Sample Event Submission 5",
+                "url": "/app/crm/calendar/event.nl?id=100812&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100812",
+                "title": "Test Sample Event Submission 5",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "09:00",
+                    "end": "10:00"
+                },
+                "priority": {
+                    "text": "Low",
+                    "value": "1",
+                    "code": "#026adf"
+                },
+                "note": "Test Sample Event Submission 5",
+                "url": "/app/crm/calendar/event.nl?id=100812&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100813",
+                "title": "Sample Work Order - Mei - DO NOT USE - 61",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Tentative",
+                    "value": "TENTATIVE",
+                    "code": "bg-secondary"
+                },
+                "date": {
+                    "recurrence": "occurs every day from 9/18/2024 until 9/20/2024",
+                    "start": "2024-09-18",
+                    "end": "2024-09-20"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "18:00"
+                },
+                "priority": {
+                    "text": "Low",
+                    "value": "1",
+                    "code": "#026adf"
+                },
+                "note": "TEST 12345",
+                "url": "/app/crm/calendar/event.nl?id=100813&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "44",
+                    "value": "44"
+                },
+                "address": {
+                    "text": "45",
+                    "value": "45"
+                }
+            }],
+            "projectUrl": "/app/accounting/project/project.nl?id=1883&compid=TSTDRV2617106",
+            "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=61&compid=TSTDRV2617106",
+            "soUrl": "/app/accounting/transactions/salesord.nl?id=17729&compid=TSTDRV2617106",
+            "esthours": "40"
+        },
+        "resources": [],
+        "items": [],
+        "contacts": [],
+        "addresses": [],
+        "contact": {
+            "text": "",
+            "value": ""
+        },
+        "address": {
+            "text": "",
+            "value": ""
+        }
+    }, {
+        "id": "100811",
+        "title": "Test Event Submission 4",
+        "workorder": {
+            "text": "Sample Work Order - Mei - DO NOT USE - 61",
+            "value": "61"
+        },
+        "location": "",
+        "status": {
+            "text": "Confirmed",
+            "value": "CONFIRMED",
+            "code": "bg-success"
+        },
+        "date": {
+            "recurrence": "one time event on 9/17/2024",
+            "start": "2024-09-17",
+            "end": "2024-09-17"
+        },
+        "time": {
+            "start": "09:00",
+            "end": "10:00"
+        },
+        "priority": {
+            "text": "Low",
+            "value": "1",
+            "code": "#026adf"
+        },
+        "note": "Test Event Submission 5",
+        "url": "/app/crm/calendar/event.nl?id=100811&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {
+            "id": "61",
+            "name": "Sample Work Order - Mei - DO NOT USE - 61",
+            "title": "Sample Work Order - Mei - DO NOT USE - 61",
+            "project": {
+                "text": "AB&I Holdings : Field Ops Pro Project",
+                "value": "1883"
+            },
+            "date": "9/23/2024",
+            "status": {
+                "text": "Hold",
+                "value": "7",
+                "code": "#6c757d"
+            },
+            "type": {
+                "text": "Moves",
+                "value": "3"
+            },
+            "memo": "<p><strong>Sample Work Order - Mei - DO NOT USE - TEST</strong></p>",
+            "salesorder": {
+                "text": "Sales Order #SLS00000686",
+                "value": "17729"
+            },
+            "customer": {
+                "text": "AB&I Holdings",
+                "value": "1249"
+            },
+            "resourceGroup": {
+                "text": "",
+                "value": ""
+            },
+            "priority": "",
+            "resources": [],
+            "items": [{
+                "id": "65",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "events": [],
+                "uuid": "17729_4",
+                "line": "4",
+                "item": {
+                    "text": "ACQUA/CARAVEL AU0641",
+                    "value": "1062"
+                },
+                "description": "ACQUA/CARAVEL AU0641",
+                "quantity": 1,
+                "note": ""
+            }, {
+                "id": "66",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "events": [],
+                "uuid": "17729_5",
+                "line": "5",
+                "item": {
+                    "text": "Dealer Service Fee",
+                    "value": "2331"
+                },
+                "description": "Dealer Service Fee",
+                "quantity": 5,
+                "note": ""
+            }],
+            "addresses": [{
+                "id": "45",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "customer": {
+                    "text": "AB&I Holdings",
+                    "value": "1249"
+                },
+                "events": ["100813"],
+                "address": {
+                    "text": "1701 Rollins Road",
+                    "value": "244878"
+                },
+                "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+                "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+            }],
+            "contacts": [{
+                "id": "44",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "events": ["100813"],
+                "contact": {
+                    "text": "AB&I Holdings : Test Prav",
+                    "value": "1892"
+                },
+                "name": "Test Prav",
+                "email": "pravallika@erpsuccesspartners.com",
+                "jobTitle": "QA",
+                "mobilePhone": "",
+                "phone": "",
+                "primary": "checked",
+                "url": "/app/common/entity/contact.nl?id=1892&compid=TSTDRV2617106"
+            }],
+            "events": [{
+                "id": "100805",
+                "title": "Test Event",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "05:00",
+                    "end": "06:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Test Event",
+                "url": "/app/crm/calendar/event.nl?id=100805&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100805",
+                "title": "Test Event",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "05:00",
+                    "end": "06:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Test Event",
+                "url": "/app/crm/calendar/event.nl?id=100805&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100806",
+                "title": "Test Event",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "05:00",
+                    "end": "06:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Test Event",
+                "url": "/app/crm/calendar/event.nl?id=100806&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100806",
+                "title": "Test Event",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "05:00",
+                    "end": "06:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Test Event",
+                "url": "/app/crm/calendar/event.nl?id=100806&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100807",
+                "title": "Test Event",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "05:00",
+                    "end": "06:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Test Event",
+                "url": "/app/crm/calendar/event.nl?id=100807&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100807",
+                "title": "Test Event",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "05:00",
+                    "end": "06:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Test Event",
+                "url": "/app/crm/calendar/event.nl?id=100807&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100808",
+                "title": "Test Submit Event 2",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "09:00"
+                },
+                "priority": {
+                    "text": "Low",
+                    "value": "1",
+                    "code": "#026adf"
+                },
+                "note": "Test Submit Event 2",
+                "url": "/app/crm/calendar/event.nl?id=100808&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100808",
+                "title": "Test Submit Event 2",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "09:00"
+                },
+                "priority": {
+                    "text": "Low",
+                    "value": "1",
+                    "code": "#026adf"
+                },
+                "note": "Test Submit Event 2",
+                "url": "/app/crm/calendar/event.nl?id=100808&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100809",
+                "title": "Test Event Submission 3",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "09:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Test Event Submission 3",
+                "url": "/app/crm/calendar/event.nl?id=100809&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100809",
+                "title": "Test Event Submission 3",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "09:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Test Event Submission 3",
+                "url": "/app/crm/calendar/event.nl?id=100809&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100810",
+                "title": "Sample Event Submission 4",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "09:00",
+                    "end": "10:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Sample Event Submission 4",
+                "url": "/app/crm/calendar/event.nl?id=100810&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100810",
+                "title": "Sample Event Submission 4",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "09:00",
+                    "end": "10:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Sample Event Submission 4",
+                "url": "/app/crm/calendar/event.nl?id=100810&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100811",
+                "title": "Test Event Submission 4",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "09:00",
+                    "end": "10:00"
+                },
+                "priority": {
+                    "text": "Low",
+                    "value": "1",
+                    "code": "#026adf"
+                },
+                "note": "Test Event Submission 5",
+                "url": "/app/crm/calendar/event.nl?id=100811&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100811",
+                "title": "Test Event Submission 4",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "09:00",
+                    "end": "10:00"
+                },
+                "priority": {
+                    "text": "Low",
+                    "value": "1",
+                    "code": "#026adf"
+                },
+                "note": "Test Event Submission 5",
+                "url": "/app/crm/calendar/event.nl?id=100811&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100812",
+                "title": "Test Sample Event Submission 5",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "09:00",
+                    "end": "10:00"
+                },
+                "priority": {
+                    "text": "Low",
+                    "value": "1",
+                    "code": "#026adf"
+                },
+                "note": "Test Sample Event Submission 5",
+                "url": "/app/crm/calendar/event.nl?id=100812&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100812",
+                "title": "Test Sample Event Submission 5",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "09:00",
+                    "end": "10:00"
+                },
+                "priority": {
+                    "text": "Low",
+                    "value": "1",
+                    "code": "#026adf"
+                },
+                "note": "Test Sample Event Submission 5",
+                "url": "/app/crm/calendar/event.nl?id=100812&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100813",
+                "title": "Sample Work Order - Mei - DO NOT USE - 61",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Tentative",
+                    "value": "TENTATIVE",
+                    "code": "bg-secondary"
+                },
+                "date": {
+                    "recurrence": "occurs every day from 9/18/2024 until 9/20/2024",
+                    "start": "2024-09-18",
+                    "end": "2024-09-20"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "18:00"
+                },
+                "priority": {
+                    "text": "Low",
+                    "value": "1",
+                    "code": "#026adf"
+                },
+                "note": "TEST 12345",
+                "url": "/app/crm/calendar/event.nl?id=100813&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "44",
+                    "value": "44"
+                },
+                "address": {
+                    "text": "45",
+                    "value": "45"
+                }
+            }],
+            "projectUrl": "/app/accounting/project/project.nl?id=1883&compid=TSTDRV2617106",
+            "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=61&compid=TSTDRV2617106",
+            "soUrl": "/app/accounting/transactions/salesord.nl?id=17729&compid=TSTDRV2617106",
+            "esthours": "40"
+        },
+        "resources": [],
+        "items": [],
+        "contacts": [],
+        "addresses": [],
+        "contact": {
+            "text": "",
+            "value": ""
+        },
+        "address": {
+            "text": "",
+            "value": ""
+        }
+    }, {
+        "id": "100812",
+        "title": "Test Sample Event Submission 5",
+        "workorder": {
+            "text": "Sample Work Order - Mei - DO NOT USE - 61",
+            "value": "61"
+        },
+        "location": "",
+        "status": {
+            "text": "Confirmed",
+            "value": "CONFIRMED",
+            "code": "bg-success"
+        },
+        "date": {
+            "recurrence": "one time event on 9/17/2024",
+            "start": "2024-09-17",
+            "end": "2024-09-17"
+        },
+        "time": {
+            "start": "09:00",
+            "end": "10:00"
+        },
+        "priority": {
+            "text": "Low",
+            "value": "1",
+            "code": "#026adf"
+        },
+        "note": "Test Sample Event Submission 5",
+        "url": "/app/crm/calendar/event.nl?id=100812&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {
+            "id": "61",
+            "name": "Sample Work Order - Mei - DO NOT USE - 61",
+            "title": "Sample Work Order - Mei - DO NOT USE - 61",
+            "project": {
+                "text": "AB&I Holdings : Field Ops Pro Project",
+                "value": "1883"
+            },
+            "date": "9/23/2024",
+            "status": {
+                "text": "Hold",
+                "value": "7",
+                "code": "#6c757d"
+            },
+            "type": {
+                "text": "Moves",
+                "value": "3"
+            },
+            "memo": "<p><strong>Sample Work Order - Mei - DO NOT USE - TEST</strong></p>",
+            "salesorder": {
+                "text": "Sales Order #SLS00000686",
+                "value": "17729"
+            },
+            "customer": {
+                "text": "AB&I Holdings",
+                "value": "1249"
+            },
+            "resourceGroup": {
+                "text": "",
+                "value": ""
+            },
+            "priority": "",
+            "resources": [],
+            "items": [{
+                "id": "65",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "events": [],
+                "uuid": "17729_4",
+                "line": "4",
+                "item": {
+                    "text": "ACQUA/CARAVEL AU0641",
+                    "value": "1062"
+                },
+                "description": "ACQUA/CARAVEL AU0641",
+                "quantity": 1,
+                "note": ""
+            }, {
+                "id": "66",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "events": [],
+                "uuid": "17729_5",
+                "line": "5",
+                "item": {
+                    "text": "Dealer Service Fee",
+                    "value": "2331"
+                },
+                "description": "Dealer Service Fee",
+                "quantity": 5,
+                "note": ""
+            }],
+            "addresses": [{
+                "id": "45",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "customer": {
+                    "text": "AB&I Holdings",
+                    "value": "1249"
+                },
+                "events": ["100813"],
+                "address": {
+                    "text": "1701 Rollins Road",
+                    "value": "244878"
+                },
+                "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+                "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+            }],
+            "contacts": [{
+                "id": "44",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "events": ["100813"],
+                "contact": {
+                    "text": "AB&I Holdings : Test Prav",
+                    "value": "1892"
+                },
+                "name": "Test Prav",
+                "email": "pravallika@erpsuccesspartners.com",
+                "jobTitle": "QA",
+                "mobilePhone": "",
+                "phone": "",
+                "primary": "checked",
+                "url": "/app/common/entity/contact.nl?id=1892&compid=TSTDRV2617106"
+            }],
+            "events": [{
+                "id": "100805",
+                "title": "Test Event",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "05:00",
+                    "end": "06:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Test Event",
+                "url": "/app/crm/calendar/event.nl?id=100805&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100805",
+                "title": "Test Event",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "05:00",
+                    "end": "06:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Test Event",
+                "url": "/app/crm/calendar/event.nl?id=100805&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100806",
+                "title": "Test Event",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "05:00",
+                    "end": "06:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Test Event",
+                "url": "/app/crm/calendar/event.nl?id=100806&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100806",
+                "title": "Test Event",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "05:00",
+                    "end": "06:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Test Event",
+                "url": "/app/crm/calendar/event.nl?id=100806&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100807",
+                "title": "Test Event",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "05:00",
+                    "end": "06:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Test Event",
+                "url": "/app/crm/calendar/event.nl?id=100807&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100807",
+                "title": "Test Event",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "05:00",
+                    "end": "06:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Test Event",
+                "url": "/app/crm/calendar/event.nl?id=100807&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100808",
+                "title": "Test Submit Event 2",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "09:00"
+                },
+                "priority": {
+                    "text": "Low",
+                    "value": "1",
+                    "code": "#026adf"
+                },
+                "note": "Test Submit Event 2",
+                "url": "/app/crm/calendar/event.nl?id=100808&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100808",
+                "title": "Test Submit Event 2",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "09:00"
+                },
+                "priority": {
+                    "text": "Low",
+                    "value": "1",
+                    "code": "#026adf"
+                },
+                "note": "Test Submit Event 2",
+                "url": "/app/crm/calendar/event.nl?id=100808&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100809",
+                "title": "Test Event Submission 3",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "09:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Test Event Submission 3",
+                "url": "/app/crm/calendar/event.nl?id=100809&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100809",
+                "title": "Test Event Submission 3",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "09:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Test Event Submission 3",
+                "url": "/app/crm/calendar/event.nl?id=100809&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100810",
+                "title": "Sample Event Submission 4",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "09:00",
+                    "end": "10:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Sample Event Submission 4",
+                "url": "/app/crm/calendar/event.nl?id=100810&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100810",
+                "title": "Sample Event Submission 4",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "09:00",
+                    "end": "10:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Sample Event Submission 4",
+                "url": "/app/crm/calendar/event.nl?id=100810&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100811",
+                "title": "Test Event Submission 4",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "09:00",
+                    "end": "10:00"
+                },
+                "priority": {
+                    "text": "Low",
+                    "value": "1",
+                    "code": "#026adf"
+                },
+                "note": "Test Event Submission 5",
+                "url": "/app/crm/calendar/event.nl?id=100811&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100811",
+                "title": "Test Event Submission 4",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "09:00",
+                    "end": "10:00"
+                },
+                "priority": {
+                    "text": "Low",
+                    "value": "1",
+                    "code": "#026adf"
+                },
+                "note": "Test Event Submission 5",
+                "url": "/app/crm/calendar/event.nl?id=100811&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100812",
+                "title": "Test Sample Event Submission 5",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "09:00",
+                    "end": "10:00"
+                },
+                "priority": {
+                    "text": "Low",
+                    "value": "1",
+                    "code": "#026adf"
+                },
+                "note": "Test Sample Event Submission 5",
+                "url": "/app/crm/calendar/event.nl?id=100812&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100812",
+                "title": "Test Sample Event Submission 5",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "09:00",
+                    "end": "10:00"
+                },
+                "priority": {
+                    "text": "Low",
+                    "value": "1",
+                    "code": "#026adf"
+                },
+                "note": "Test Sample Event Submission 5",
+                "url": "/app/crm/calendar/event.nl?id=100812&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100813",
+                "title": "Sample Work Order - Mei - DO NOT USE - 61",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Tentative",
+                    "value": "TENTATIVE",
+                    "code": "bg-secondary"
+                },
+                "date": {
+                    "recurrence": "occurs every day from 9/18/2024 until 9/20/2024",
+                    "start": "2024-09-18",
+                    "end": "2024-09-20"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "18:00"
+                },
+                "priority": {
+                    "text": "Low",
+                    "value": "1",
+                    "code": "#026adf"
+                },
+                "note": "TEST 12345",
+                "url": "/app/crm/calendar/event.nl?id=100813&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "44",
+                    "value": "44"
+                },
+                "address": {
+                    "text": "45",
+                    "value": "45"
+                }
+            }],
+            "projectUrl": "/app/accounting/project/project.nl?id=1883&compid=TSTDRV2617106",
+            "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=61&compid=TSTDRV2617106",
+            "soUrl": "/app/accounting/transactions/salesord.nl?id=17729&compid=TSTDRV2617106",
+            "esthours": "40"
+        },
+        "resources": [],
+        "items": [],
+        "contacts": [],
+        "addresses": [],
+        "contact": {
+            "text": "",
+            "value": ""
+        },
+        "address": {
+            "text": "",
+            "value": ""
+        }
+    }, {
+        "id": "100812",
+        "title": "Test Sample Event Submission 5",
+        "workorder": {
+            "text": "Sample Work Order - Mei - DO NOT USE - 61",
+            "value": "61"
+        },
+        "location": "",
+        "status": {
+            "text": "Confirmed",
+            "value": "CONFIRMED",
+            "code": "bg-success"
+        },
+        "date": {
+            "recurrence": "one time event on 9/17/2024",
+            "start": "2024-09-17",
+            "end": "2024-09-17"
+        },
+        "time": {
+            "start": "09:00",
+            "end": "10:00"
+        },
+        "priority": {
+            "text": "Low",
+            "value": "1",
+            "code": "#026adf"
+        },
+        "note": "Test Sample Event Submission 5",
+        "url": "/app/crm/calendar/event.nl?id=100812&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {
+            "id": "61",
+            "name": "Sample Work Order - Mei - DO NOT USE - 61",
+            "title": "Sample Work Order - Mei - DO NOT USE - 61",
+            "project": {
+                "text": "AB&I Holdings : Field Ops Pro Project",
+                "value": "1883"
+            },
+            "date": "9/23/2024",
+            "status": {
+                "text": "Hold",
+                "value": "7",
+                "code": "#6c757d"
+            },
+            "type": {
+                "text": "Moves",
+                "value": "3"
+            },
+            "memo": "<p><strong>Sample Work Order - Mei - DO NOT USE - TEST</strong></p>",
+            "salesorder": {
+                "text": "Sales Order #SLS00000686",
+                "value": "17729"
+            },
+            "customer": {
+                "text": "AB&I Holdings",
+                "value": "1249"
+            },
+            "resourceGroup": {
+                "text": "",
+                "value": ""
+            },
+            "priority": "",
+            "resources": [],
+            "items": [{
+                "id": "65",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "events": [],
+                "uuid": "17729_4",
+                "line": "4",
+                "item": {
+                    "text": "ACQUA/CARAVEL AU0641",
+                    "value": "1062"
+                },
+                "description": "ACQUA/CARAVEL AU0641",
+                "quantity": 1,
+                "note": ""
+            }, {
+                "id": "66",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "events": [],
+                "uuid": "17729_5",
+                "line": "5",
+                "item": {
+                    "text": "Dealer Service Fee",
+                    "value": "2331"
+                },
+                "description": "Dealer Service Fee",
+                "quantity": 5,
+                "note": ""
+            }],
+            "addresses": [{
+                "id": "45",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "customer": {
+                    "text": "AB&I Holdings",
+                    "value": "1249"
+                },
+                "events": ["100813"],
+                "address": {
+                    "text": "1701 Rollins Road",
+                    "value": "244878"
+                },
+                "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+                "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+            }],
+            "contacts": [{
+                "id": "44",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "events": ["100813"],
+                "contact": {
+                    "text": "AB&I Holdings : Test Prav",
+                    "value": "1892"
+                },
+                "name": "Test Prav",
+                "email": "pravallika@erpsuccesspartners.com",
+                "jobTitle": "QA",
+                "mobilePhone": "",
+                "phone": "",
+                "primary": "checked",
+                "url": "/app/common/entity/contact.nl?id=1892&compid=TSTDRV2617106"
+            }],
+            "events": [{
+                "id": "100805",
+                "title": "Test Event",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "05:00",
+                    "end": "06:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Test Event",
+                "url": "/app/crm/calendar/event.nl?id=100805&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100805",
+                "title": "Test Event",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "05:00",
+                    "end": "06:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Test Event",
+                "url": "/app/crm/calendar/event.nl?id=100805&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100806",
+                "title": "Test Event",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "05:00",
+                    "end": "06:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Test Event",
+                "url": "/app/crm/calendar/event.nl?id=100806&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100806",
+                "title": "Test Event",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "05:00",
+                    "end": "06:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Test Event",
+                "url": "/app/crm/calendar/event.nl?id=100806&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100807",
+                "title": "Test Event",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "05:00",
+                    "end": "06:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Test Event",
+                "url": "/app/crm/calendar/event.nl?id=100807&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100807",
+                "title": "Test Event",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "05:00",
+                    "end": "06:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Test Event",
+                "url": "/app/crm/calendar/event.nl?id=100807&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100808",
+                "title": "Test Submit Event 2",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "09:00"
+                },
+                "priority": {
+                    "text": "Low",
+                    "value": "1",
+                    "code": "#026adf"
+                },
+                "note": "Test Submit Event 2",
+                "url": "/app/crm/calendar/event.nl?id=100808&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100808",
+                "title": "Test Submit Event 2",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "09:00"
+                },
+                "priority": {
+                    "text": "Low",
+                    "value": "1",
+                    "code": "#026adf"
+                },
+                "note": "Test Submit Event 2",
+                "url": "/app/crm/calendar/event.nl?id=100808&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100809",
+                "title": "Test Event Submission 3",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "09:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Test Event Submission 3",
+                "url": "/app/crm/calendar/event.nl?id=100809&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100809",
+                "title": "Test Event Submission 3",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "09:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Test Event Submission 3",
+                "url": "/app/crm/calendar/event.nl?id=100809&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100810",
+                "title": "Sample Event Submission 4",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "09:00",
+                    "end": "10:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Sample Event Submission 4",
+                "url": "/app/crm/calendar/event.nl?id=100810&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100810",
+                "title": "Sample Event Submission 4",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "09:00",
+                    "end": "10:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Sample Event Submission 4",
+                "url": "/app/crm/calendar/event.nl?id=100810&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100811",
+                "title": "Test Event Submission 4",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "09:00",
+                    "end": "10:00"
+                },
+                "priority": {
+                    "text": "Low",
+                    "value": "1",
+                    "code": "#026adf"
+                },
+                "note": "Test Event Submission 5",
+                "url": "/app/crm/calendar/event.nl?id=100811&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100811",
+                "title": "Test Event Submission 4",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "09:00",
+                    "end": "10:00"
+                },
+                "priority": {
+                    "text": "Low",
+                    "value": "1",
+                    "code": "#026adf"
+                },
+                "note": "Test Event Submission 5",
+                "url": "/app/crm/calendar/event.nl?id=100811&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100812",
+                "title": "Test Sample Event Submission 5",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "09:00",
+                    "end": "10:00"
+                },
+                "priority": {
+                    "text": "Low",
+                    "value": "1",
+                    "code": "#026adf"
+                },
+                "note": "Test Sample Event Submission 5",
+                "url": "/app/crm/calendar/event.nl?id=100812&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100812",
+                "title": "Test Sample Event Submission 5",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "09:00",
+                    "end": "10:00"
+                },
+                "priority": {
+                    "text": "Low",
+                    "value": "1",
+                    "code": "#026adf"
+                },
+                "note": "Test Sample Event Submission 5",
+                "url": "/app/crm/calendar/event.nl?id=100812&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100813",
+                "title": "Sample Work Order - Mei - DO NOT USE - 61",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Tentative",
+                    "value": "TENTATIVE",
+                    "code": "bg-secondary"
+                },
+                "date": {
+                    "recurrence": "occurs every day from 9/18/2024 until 9/20/2024",
+                    "start": "2024-09-18",
+                    "end": "2024-09-20"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "18:00"
+                },
+                "priority": {
+                    "text": "Low",
+                    "value": "1",
+                    "code": "#026adf"
+                },
+                "note": "TEST 12345",
+                "url": "/app/crm/calendar/event.nl?id=100813&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "44",
+                    "value": "44"
+                },
+                "address": {
+                    "text": "45",
+                    "value": "45"
+                }
+            }],
+            "projectUrl": "/app/accounting/project/project.nl?id=1883&compid=TSTDRV2617106",
+            "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=61&compid=TSTDRV2617106",
+            "soUrl": "/app/accounting/transactions/salesord.nl?id=17729&compid=TSTDRV2617106",
+            "esthours": "40"
+        },
+        "resources": [],
+        "items": [],
+        "contacts": [],
+        "addresses": [],
+        "contact": {
+            "text": "",
+            "value": ""
+        },
+        "address": {
+            "text": "",
+            "value": ""
+        }
+    }, {
+        "id": "100813",
+        "title": "Sample Work Order - Mei - DO NOT USE - 61",
+        "workorder": {
+            "text": "Sample Work Order - Mei - DO NOT USE - 61",
+            "value": "61"
+        },
+        "location": "",
+        "status": {
+            "text": "Tentative",
+            "value": "TENTATIVE",
+            "code": "bg-secondary"
+        },
+        "date": {
+            "recurrence": "occurs every day from 9/18/2024 until 9/20/2024",
+            "start": "2024-09-18",
+            "end": "2024-09-20"
+        },
+        "time": {
+            "start": "08:00",
+            "end": "18:00"
+        },
+        "priority": {
+            "text": "Low",
+            "value": "1",
+            "code": "#026adf"
+        },
+        "note": "TEST 12345",
+        "url": "/app/crm/calendar/event.nl?id=100813&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {
+            "id": "61",
+            "name": "Sample Work Order - Mei - DO NOT USE - 61",
+            "title": "Sample Work Order - Mei - DO NOT USE - 61",
+            "project": {
+                "text": "AB&I Holdings : Field Ops Pro Project",
+                "value": "1883"
+            },
+            "date": "9/23/2024",
+            "status": {
+                "text": "Hold",
+                "value": "7",
+                "code": "#6c757d"
+            },
+            "type": {
+                "text": "Moves",
+                "value": "3"
+            },
+            "memo": "<p><strong>Sample Work Order - Mei - DO NOT USE - TEST</strong></p>",
+            "salesorder": {
+                "text": "Sales Order #SLS00000686",
+                "value": "17729"
+            },
+            "customer": {
+                "text": "AB&I Holdings",
+                "value": "1249"
+            },
+            "resourceGroup": {
+                "text": "",
+                "value": ""
+            },
+            "priority": "",
+            "resources": [],
+            "items": [{
+                "id": "65",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "events": [],
+                "uuid": "17729_4",
+                "line": "4",
+                "item": {
+                    "text": "ACQUA/CARAVEL AU0641",
+                    "value": "1062"
+                },
+                "description": "ACQUA/CARAVEL AU0641",
+                "quantity": 1,
+                "note": ""
+            }, {
+                "id": "66",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "events": [],
+                "uuid": "17729_5",
+                "line": "5",
+                "item": {
+                    "text": "Dealer Service Fee",
+                    "value": "2331"
+                },
+                "description": "Dealer Service Fee",
+                "quantity": 5,
+                "note": ""
+            }],
+            "addresses": [{
+                "id": "45",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "customer": {
+                    "text": "AB&I Holdings",
+                    "value": "1249"
+                },
+                "events": ["100813"],
+                "address": {
+                    "text": "1701 Rollins Road",
+                    "value": "244878"
+                },
+                "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+                "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+            }],
+            "contacts": [{
+                "id": "44",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "events": ["100813"],
+                "contact": {
+                    "text": "AB&I Holdings : Test Prav",
+                    "value": "1892"
+                },
+                "name": "Test Prav",
+                "email": "pravallika@erpsuccesspartners.com",
+                "jobTitle": "QA",
+                "mobilePhone": "",
+                "phone": "",
+                "primary": "checked",
+                "url": "/app/common/entity/contact.nl?id=1892&compid=TSTDRV2617106"
+            }],
+            "events": [{
+                "id": "100805",
+                "title": "Test Event",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "05:00",
+                    "end": "06:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Test Event",
+                "url": "/app/crm/calendar/event.nl?id=100805&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100805",
+                "title": "Test Event",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "05:00",
+                    "end": "06:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Test Event",
+                "url": "/app/crm/calendar/event.nl?id=100805&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100806",
+                "title": "Test Event",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "05:00",
+                    "end": "06:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Test Event",
+                "url": "/app/crm/calendar/event.nl?id=100806&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100806",
+                "title": "Test Event",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "05:00",
+                    "end": "06:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Test Event",
+                "url": "/app/crm/calendar/event.nl?id=100806&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100807",
+                "title": "Test Event",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "05:00",
+                    "end": "06:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Test Event",
+                "url": "/app/crm/calendar/event.nl?id=100807&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100807",
+                "title": "Test Event",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "05:00",
+                    "end": "06:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Test Event",
+                "url": "/app/crm/calendar/event.nl?id=100807&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100808",
+                "title": "Test Submit Event 2",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "09:00"
+                },
+                "priority": {
+                    "text": "Low",
+                    "value": "1",
+                    "code": "#026adf"
+                },
+                "note": "Test Submit Event 2",
+                "url": "/app/crm/calendar/event.nl?id=100808&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100808",
+                "title": "Test Submit Event 2",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "09:00"
+                },
+                "priority": {
+                    "text": "Low",
+                    "value": "1",
+                    "code": "#026adf"
+                },
+                "note": "Test Submit Event 2",
+                "url": "/app/crm/calendar/event.nl?id=100808&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100809",
+                "title": "Test Event Submission 3",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "09:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Test Event Submission 3",
+                "url": "/app/crm/calendar/event.nl?id=100809&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100809",
+                "title": "Test Event Submission 3",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "09:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Test Event Submission 3",
+                "url": "/app/crm/calendar/event.nl?id=100809&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100810",
+                "title": "Sample Event Submission 4",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "09:00",
+                    "end": "10:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Sample Event Submission 4",
+                "url": "/app/crm/calendar/event.nl?id=100810&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100810",
+                "title": "Sample Event Submission 4",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "09:00",
+                    "end": "10:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Sample Event Submission 4",
+                "url": "/app/crm/calendar/event.nl?id=100810&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100811",
+                "title": "Test Event Submission 4",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "09:00",
+                    "end": "10:00"
+                },
+                "priority": {
+                    "text": "Low",
+                    "value": "1",
+                    "code": "#026adf"
+                },
+                "note": "Test Event Submission 5",
+                "url": "/app/crm/calendar/event.nl?id=100811&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100811",
+                "title": "Test Event Submission 4",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "09:00",
+                    "end": "10:00"
+                },
+                "priority": {
+                    "text": "Low",
+                    "value": "1",
+                    "code": "#026adf"
+                },
+                "note": "Test Event Submission 5",
+                "url": "/app/crm/calendar/event.nl?id=100811&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100812",
+                "title": "Test Sample Event Submission 5",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "09:00",
+                    "end": "10:00"
+                },
+                "priority": {
+                    "text": "Low",
+                    "value": "1",
+                    "code": "#026adf"
+                },
+                "note": "Test Sample Event Submission 5",
+                "url": "/app/crm/calendar/event.nl?id=100812&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100812",
+                "title": "Test Sample Event Submission 5",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/17/2024",
+                    "start": "2024-09-17",
+                    "end": "2024-09-17"
+                },
+                "time": {
+                    "start": "09:00",
+                    "end": "10:00"
+                },
+                "priority": {
+                    "text": "Low",
+                    "value": "1",
+                    "code": "#026adf"
+                },
+                "note": "Test Sample Event Submission 5",
+                "url": "/app/crm/calendar/event.nl?id=100812&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }, {
+                "id": "100813",
+                "title": "Sample Work Order - Mei - DO NOT USE - 61",
+                "workorder": {
+                    "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                    "value": "61"
+                },
+                "location": "",
+                "status": {
+                    "text": "Tentative",
+                    "value": "TENTATIVE",
+                    "code": "bg-secondary"
+                },
+                "date": {
+                    "recurrence": "occurs every day from 9/18/2024 until 9/20/2024",
+                    "start": "2024-09-18",
+                    "end": "2024-09-20"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "18:00"
+                },
+                "priority": {
+                    "text": "Low",
+                    "value": "1",
+                    "code": "#026adf"
+                },
+                "note": "TEST 12345",
+                "url": "/app/crm/calendar/event.nl?id=100813&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "44",
+                    "value": "44"
+                },
+                "address": {
+                    "text": "45",
+                    "value": "45"
+                }
+            }],
+            "projectUrl": "/app/accounting/project/project.nl?id=1883&compid=TSTDRV2617106",
+            "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=61&compid=TSTDRV2617106",
+            "soUrl": "/app/accounting/transactions/salesord.nl?id=17729&compid=TSTDRV2617106",
+            "esthours": "40"
+        },
+        "resources": [{
+            "employee": {
+                "text": "Bea Dashboards",
+                "value": "1767"
+            },
+            "initials": "BD",
+            "email": "beatrice.q@erpsuccesspartners.com",
+            "phone": "",
+            "location": {
+                "text": "01: San Francisco",
+                "value": "2"
+            },
+            "active": true,
+            "resourceGroup": {
+                "text": "Drivers",
+                "value": "3"
+            },
+            "type": {
+                "text": "Delivery Driver",
+                "value": "2"
+            },
+            "color": "#554de2",
+            "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fcompid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
+            "events": ["100682", "100813"],
+            "selected": true
+        }, {
+            "employee": {
+                "text": "Bonita Kane",
+                "value": "912"
+            },
+            "initials": "BK",
+            "email": "bdickens@ramsey.com",
+            "phone": "(123) 456-7890",
+            "location": {
+                "text": "02: Boston",
+                "value": "1"
+            },
+            "active": true,
+            "resourceGroup": {
+                "text": "Installers",
+                "value": "1"
+            },
+            "type": {
+                "text": "Installer",
+                "value": "1"
+            },
+            "color": "#cbb24c",
+            "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fcompid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
+            "events": ["100813"],
+            "selected": true
+        }],
+        "items": [],
+        "contacts": [{
+            "id": "44",
+            "workorder": {
+                "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                "value": "61"
+            },
+            "events": ["100813"],
+            "contact": {
+                "text": "AB&I Holdings : Test Prav",
+                "value": "1892"
+            },
+            "name": "Test Prav",
+            "email": "pravallika@erpsuccesspartners.com",
+            "jobTitle": "QA",
+            "mobilePhone": "",
+            "phone": "",
+            "primary": "checked",
+            "url": "/app/common/entity/contact.nl?id=1892&compid=TSTDRV2617106",
+            "selected": true
+        }],
+        "addresses": [{
+            "id": "45",
+            "workorder": {
+                "text": "Sample Work Order - Mei - DO NOT USE - 61",
+                "value": "61"
+            },
+            "customer": {
+                "text": "AB&I Holdings",
+                "value": "1249"
+            },
+            "events": ["100813"],
+            "address": {
+                "text": "1701 Rollins Road",
+                "value": "244878"
+            },
+            "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+            "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106",
+            "selected": true
+        }],
+        "contact": {
+            "text": "44",
+            "value": "44"
+        },
+        "address": {
+            "text": "45",
+            "value": "45"
         }
     }],
     "contacts": [{
@@ -15966,7 +37286,7 @@ const mockup = {
             "text": "Sample Work Order - Mei - DO NOT USE - 61",
             "value": "61"
         },
-        "events": [],
+        "events": ["100813"],
         "contact": {
             "text": "AB&I Holdings : Test Prav",
             "value": "1892"
@@ -15978,6 +37298,24 @@ const mockup = {
         "phone": "",
         "primary": "checked",
         "url": "/app/common/entity/contact.nl?id=1892&compid=TSTDRV2617106"
+    }, {
+        "id": "45",
+        "workorder": {
+            "text": "test site test",
+            "value": "63"
+        },
+        "events": [],
+        "contact": {
+            "text": "Pravallika : pravallika",
+            "value": "2009"
+        },
+        "name": "pravallika",
+        "email": "rowe@erpsuccesspartners.com",
+        "jobTitle": "developer",
+        "mobilePhone": "",
+        "phone": "",
+        "primary": "checked",
+        "url": "/app/common/entity/contact.nl?id=2009&compid=TSTDRV2617106"
     }],
     "addresses": [{
         "id": "1",
@@ -16737,13 +38075,30 @@ const mockup = {
             "text": "AB&I Holdings",
             "value": "1249"
         },
-        "events": [],
+        "events": ["100813"],
         "address": {
             "text": "1701 Rollins Road",
             "value": "244878"
         },
         "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
         "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+    }, {
+        "id": "46",
+        "workorder": {
+            "text": "test site test",
+            "value": "63"
+        },
+        "customer": {
+            "text": "Pravallika",
+            "value": "2008"
+        },
+        "events": [],
+        "address": {
+            "text": "",
+            "value": ""
+        },
+        "addressDetails": "",
+        "customerUrl": "/app/common/entity/custjob.nl?id=2008&compid=TSTDRV2617106"
     }]
 }
 

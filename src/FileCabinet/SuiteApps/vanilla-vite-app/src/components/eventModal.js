@@ -206,8 +206,7 @@ $(document).ready(() => {
     </div>
   </div>`);
 
-  window.openEventModal = (ev, id) => {
-    let woId, eventId;
+  window.openEventModal = (ev, woId, eventId) => {
     if (ev) {
       const dataTransfer = ev?.dataTransfer;
       if (dataTransfer) {
@@ -220,9 +219,13 @@ $(document).ready(() => {
         $('#eventModal').attr('eventId', eventId);
       }
     } else { // Calendar view scenario
-      woId = id;
-      $('#eventModal').attr('mode', 'create');
-      $('#eventModal').attr('woId', woId);
+      if (woId) {
+        $('#eventModal').attr('mode', 'create');
+        $('#eventModal').attr('woId', woId);
+      } else if (eventId) {
+        $('#eventModal').attr('mode', 'edit');
+        $('#eventModal').attr('eventId', eventId);
+      }
     }
     if (woId || eventId) {
       $('#eventModal').modal('toggle');
