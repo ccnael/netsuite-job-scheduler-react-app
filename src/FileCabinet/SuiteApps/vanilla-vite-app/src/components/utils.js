@@ -66,7 +66,7 @@ export class Event {
   }
 
   static updateEventRecord(payload, eventInfo) {
-    console.log('***** updateEventRecord() -> PAYLOAD *****', payload);
+    console.log('***** updateEventRecord() -> PAYLOAD *****', { payload, eventInfo: eventInfo || '' });
 
     Swal.fire({
       title: `Update Event Record?`,
@@ -108,6 +108,9 @@ export class Event {
                   text: `Error: ${result.errorMsg}`,
                   icon: 'error'
                 });
+                if (eventInfo) {
+                  eventInfo.revert();
+                }
               }
               Swal.hideLoading();
             })
@@ -118,6 +121,9 @@ export class Event {
                 'error'
               );
               Swal.hideLoading();
+              if (eventInfo) {
+                eventInfo.revert();
+              }
             });
           },
           allowOutsideClick: false,

@@ -236,7 +236,19 @@ $(document).ready(() => {
 
     payload.eventDataSrc = JSON.parse(decodeURIComponent($('#completeEventModal').attr('eventDataSrc')));
     const punchLines = JSON.parse(decodeURIComponent($('#completeEventModal').attr('punchLines')));
+    const unresolvedPunchCount = punchLines.filter(punch => punch.status.value != 6).length; // 6 (Resolved)
     const eventId = payload.eventDataSrc.id;
+
+    console.log('Punch Items', punchLines);
+    
+    if (unresolvedPunchCount) {
+      Swal.fire(
+        'Unable to Proceed',
+        `There are ${unresolvedPunchCount} Remaining Unresolved Punch Item(s)`,
+        'error'
+      );
+      return;
+    }
 
     $('#timeSheets_dt tbody > tr').each(function() {
       payload.timeSheets.push({
@@ -256,7 +268,7 @@ $(document).ready(() => {
 
     $('#woItems_dt_ce tbody > tr').each(function() {
       const customRecordId = $(this).find('.dt-line-select').attr('recordId');
-      const checked = $(this).find('.dt-line-select')[0].checked;
+      const checked = ($(this).find('.dt-line-select') || [])[0]?.checked || false;
       const lineId = $(this).find('.lineId').text();
       const quantity = +$(this).find('.itemQty').text();
       const completeQty = +$(this).find('.completeQty').val();
@@ -264,12 +276,6 @@ $(document).ready(() => {
         payload.fulfillItems.push({ customRecordId, lineId, quantity, completeQty });
       }
     });
-
-    console.log('payload', payload);
-
-    if (punchLines.length) {
-      // TBD
-    }
 
     Swal.fire({
       title: 'Complete Event?',

@@ -76,12 +76,12 @@ export function initLeftSideBarFilters(sectionId, resources) {
   }
 }
 
-export function initAvailableJobsFilters(sectionId, workOrders) {
-  const $items = $(`${sectionId} .secondColumn .card-wrapper .card-item`);
-  const $dateFromFilter = $(`${sectionId} .secondColumn input#board-job-datefrom`);
-  const $dateToFilter = $(`${sectionId} .secondColumn input#board-job-dateto`);
-  const $customerFilter = $(`${sectionId} .secondColumn select.multiple-customer-field`);
-  const $woTitleFilter = $(`${sectionId} .secondColumn input#woTitle`);
+export function initAvailableJobsFilters(selectorId, workOrders) {
+  const $items = $(`${selectorId} .card-wrapper .card-item`);
+  const $dateFromFilter = $(`${selectorId} input[id*="datefrom"]`);
+  const $dateToFilter = $(`${selectorId} input[id*="dateto"]`);
+  const $customerFilter = $(`${selectorId} select.multiple-customer-field`);
+  const $woTitleFilter = $(`${selectorId} input#woTitle`);
   const $selected = {
     dateFrom: '',
     dateTo: '',
@@ -164,7 +164,7 @@ export function initAvailableJobsFilters(sectionId, workOrders) {
     const total = $items.filter(function() {
       return $(this).css('display') !== 'none';
     }).length;
-    $(`${sectionId} .secondColumn .card-header span.counter`).html(total);
+    $(`${selectorId} .card-header span.counter`).html(total);
   }
 }
 

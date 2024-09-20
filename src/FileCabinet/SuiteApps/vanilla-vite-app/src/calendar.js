@@ -103,13 +103,6 @@ export default class Calendar {
           </aside>
         </div>
       </div>
-    </div>
-    <!-- Popup Element -->
-    <div id="eventPopup" class="popup" style="display: none;">
-      <div class="popup-content">
-        <p>Event Details</p>
-        <button id="closePopup">Close</button>
-      </div>
     </div>`
     .replace(/,/g, ''));
 
@@ -119,13 +112,18 @@ export default class Calendar {
 
   static initFullCalendarIO() {
     
+    const containerEl = document.querySelector('#calendarSection .thirdColumn');
+    const calendarEl = document.getElementById('calendar');
+
     const calendarResources = resourceGroups.map(resourceGroup => ({
       id: resourceGroup.value,
       title: resourceGroup.text,
       children: resourceGroup.resources.map(resource => ({
         id: resource.employee.value,
-        title: resource.employee.text
-      }))
+        title: resource.employee.text,
+        extendedProps: resource
+      })),
+      extendedProps: resourceGroup
     }))
 
     // Remap calendar events data
@@ -137,19 +135,14 @@ export default class Calendar {
       map.start = `${event.date.start}T${event.time.start}`;
       map.end = `${event.date.end}T${event.time.end}`;
       map.url = event.url;
-      map.color = `#${Math.floor(Math.random()*16777215).toString(16)}`; // TBD
       map.className = 'event-class-style-name';
+      map.className += (event.status.value === 'TENTATIVE' ? ' tentative' : ' confirmed');
       map.resourceIds = event.resources.map(resource => resource.employee.value);
       map.extendedProps = JSON.parse(JSON.stringify(event));
       return map;
     });
-
-    // console.log('CALENDAR DATA', { calendarResources, calendarEvents });
-
-    const calendarEl = document.getElementById('calendar');
-    const containerEl = document.querySelector('#calendarSection .thirdColumn');
     
-    // Initialize the external events
+    // Instantiate draggable external events
     // -----------------------------------------------------------------
     new Draggable(containerEl, {
       itemSelector: '.card-item',
@@ -167,37 +160,81 @@ export default class Calendar {
       plugins: [ adaptivePlugin, interactionPlugin, dayGridPlugin, listPlugin, timeGridPlugin, resourceTimelinePlugin ],
       schedulerLicenseKey: 'XXX',
       nowIndicator: true,
-      editable: true, // enable draggable events
+      editable: true,
       droppable: true, // Allow external events to be dropped
-      aspectRatio: 1.8,
-      scrollTime: '00:00', // undo default 6am scrollTime
+      aspectRatio: 1,
+      eventDurationEditable: true,
+      eventResizableFromStart: true,
+      // eventColor: '#02ac5a', // Default color class -> .confirmed
+      scrollTime: '00:00', // Undo default 6am scrollTime
+      viewDidMount: info => {
+        if (!$('#legend').length) {
+          const legendHTML = `
+          <div id="legend">
+            <span class="confirmed"></span> Confirmed
+            <span class="tentative"></span> Tentative
+          </div>`;
+          $(legendHTML).insertAfter('.fc-toolbar-title');
+        }
+      },
       headerToolbar: {
         left: 'todayBtn prev,next',
         center: 'title',
-        // right: 'resourceTimelineDay,resourceTimelineSevenDays,timeGridWeek,dayGridMonth,listWeek'
-        right: 'resourceTimelineDay,resourceTimelineSevenDays,resourceTimelineWeek,resourceTimelineMonth,listWeek createEventBtn'
+        right: 'resourceTimelineDay,resourceTimelineDefault,resourceTimelineWeek,resourceTimelineMonth,listWeek createEventBtn'
       },
-      initialView: 'resourceTimelineSevenDays',
+      // Resource etc settings
+      // -----------------------------------------------------------------
+      initialView: 'resourceTimelineDefault',
+      resourceAreaWidth: '20%',
       views: {
         resourceTimelineDay: {
           buttonText: 'Day'
         },
-        resourceTimelineSevenDays: {
+        resourceTimelineDefault: {
           type: 'resourceTimeline',
-          duration: { days: 7 },
-          buttonText: '7 days'
+          buttonText: '3 days',
+          duration: { days: 3 },
+          slotLabelFormat: [
+            { weekday: 'long' },  // Display day of the week
+            { hour: 'numeric', /* minute: '2-digit', */ meridiem: 'short' }  // Time format
+          ]
         }
       },
-      resourceAreaHeaderContent: `Resources: ${resources.all.length}`,
+      // Set slot duration to 4 hours
+      slotDuration: '04:00:00',
+      // Optionally, set the slot label interval to 4 hours
+      slotLabelInterval: '04:00',
+      resourceAreaHeaderContent: arg => {
+        return {
+          html: `<div style="padding: 10px; width: 100%">
+            <i class="fa-solid fa-icon-size fa-users-gear" style="font-size: 14px; margin-right: 5px"></i>
+            <span style="display: inline-block;"><h5><strong>Resources</strong></h5></span>
+            <span class="badge badge-danger badge-pill counter">${resources.all.length}</span>
+          </div>`
+        }
+      },
       resources: calendarResources,
+      resourceLabelContent: arg => {
+        const resource = arg.resource.extendedProps;
+        if (resource.resourceCount) {
+          return {
+            html: `<i class="fa-solid fa-icon-size fa-user-group"></i>
+            ${resource.text}
+            <span class="badge badge-danger badge-pill counter">${resource.resourceCount}</span>
+            `
+          };
+        } else {
+          return resource.employee.text;
+        }
+      },
       events: calendarEvents,
       customButtons: {
         todayBtn: {
           text: 'Today',
           click: () => {
-            const currentDate = new Date();  // Get the current date
-            window.FullCalendar.changeView('resourceTimelineDay'); // Switch to resourceTimelineDay view
-            window.FullCalendar.gotoDate(currentDate); // Set the calendar to the current date
+            const currentDate = new Date();
+            window.FullCalendar.changeView('resourceTimelineDay'); 
+            window.FullCalendar.gotoDate(currentDate);
           }
         },
         createEventBtn: {
@@ -207,61 +244,83 @@ export default class Calendar {
           }
         }
       },
+      // Event actions etc settings
+      // -----------------------------------------------------------------
       eventDidMount: info => {
         const event = info.event.extendedProps;
-        new bootstrap.Tooltip(info.el, {
-          html: true,
-          title: `
-            <strong>${event.title}</strong><br>
-            ${event.workorder.text}<br/>
-            ${event.date.start == event.date.end ? moment(event.date.start).format('M/D/YYYY') : `${moment(event.date.start).format('M/D/YYYY')} - ${moment(event.date.end).format('M/D/YYYY')}`}<br/>
-            ${moment(`1/1/1999 ${event.time.start}`).format('h:mm a')} - ${moment(`1/1/1999 ${event.time.end}`).format('h:mm a')}`,
-          placement: 'left' // Set tooltip placement to right
-        });
+        try {
+          info.el.classList.add(event.status.value === 'TENTATIVE' ? 'tentative' : 'confirmed');
+
+          this.initDropDown(info);
+          this.initToolTip(info);
+        } catch (e) {
+          console.log('eventDidMount Unexpected Error', e.message);
+        }
       },
       eventContent: el => {
-        const event = el.event.extendedProps; 
-        const html = `
-        <div style="margin-left: 15px; height: 75px" id="${event.id}">
-         <div class="card-head">
-           <div class="card-name"><a href="${event.url}" target="_blank"><strong>${event.title}</strong></a>
-           </div>
-         </div>
-         <div class="card-content" style="position: relative">
-           <div class="card-content-eventId" eventId="${event.id}">ID ${event.id}</div>
-           <div class="row">
-             <div class="col-2 fc-event-status">
-               <span class="badge py-1 px-2 ${event.status.code} rounded-pill text-uppercase">${event.status.text}</span>
-               <span class="badge py-1 px-2 rounded-pill text-uppercase" style="background-color: ${event.priority.code};">${event.priority.text}</span>
-             </div>
-           </div>
-         </div>
-       </div>
-        `;
-        return { html };
+        const event = el.event.extendedProps;
+        try {
+          const html = `
+          <div style="margin-left: 15px; height: 110px" id="${event.id}">
+          <div class="card-head">
+            <div class="card-name"><a href="${event.url}" target="_blank"><strong>${event.title}</strong></a>
+            </div>
+          </div>
+          <div class="card-content" style="position: relative">
+            <div class="card-content-eventId" eventId="${event.id}">ID ${event.id}</div>
+            <div class="card-content-date">${event.date.start == event.date.end ? moment(event.date.start).format('M/D/YYYY') : `${moment(event.date.start).format('M/D/YYYY')} - ${moment(event.date.end).format('M/D/YYYY')}`}</div>
+            <div class="card-content-time">${moment(`1/1/1999 ${event.time.start}`).format('h:mm a')} - ${moment(`1/1/1999 ${event.time.end}`).format('h:mm a')}</div>
+            <div class="row">
+              <div class="col-2 fc-event-status">
+                <span class="badge py-1 px-2 rounded-pill text-uppercase" style="background-color: ${event.priority.code};">${event.priority.text}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+          `;
+          return { html };
+        } catch (e) {
+          console.log('eventContent Unexpected Error', e.message);
+        }
       },
       eventClick: event => {
         if (event.event.url) {
           event.jsEvent.preventDefault();
-          window.open(event.event.url, "_blank");
+          // window.open(event.event.url, "_blank");
         }
       },
-      eventDrop: info => { // Ex. moving events to change dates (Updates start and end date)
+      // Moving events to change dates (Updates start and end date)
+      // -----------------------------------------------------------------
+      eventDrop: info => {
         info.action = 'eventDrop';
         this.confirmEventUpdate(info);
       },
       eventDragStop: info => {
         $('.tooltip').remove();
       },
-      eventResize: info => { // Updates start and end time and day, 
+      // Updates start and end time and day
+      // -----------------------------------------------------------------
+      eventResize: info => {
         info.action = 'eventResize';
         this.confirmEventUpdate(info);
       },
-      eventReceive: info => { // Ex. Dropping workorders
+      // Ex. Dropping external events/jobs
+      // -----------------------------------------------------------------
+      eventReceive: info => {
+        $('.tooltip').remove();
+
         const woId = info.event.extendedProps.woId;
         window.openEventModal(null, woId);
         info.revert();
       },
+      // Disable event drop on Groups
+      eventAllow: (dropInfo, draggedEvent) => {
+        return !Boolean((dropInfo.resource.extendedProps.resourceCount));
+      },
+      windowResize: () => {
+        console.log('The calendar has adjusted to a window resize. Current view: ' + arg.view.type);
+        window.FullCalendar.render();
+      }
     });
   
     window.FullCalendar.render();
@@ -328,19 +387,21 @@ export default class Calendar {
         } else {
           document.getElementById(tabId).style.display = 'block';
           document.getElementById('boardSection').style.display = 'none';
-          // window.FullCalendar.render();
         }
       });
     });
   }
 
   static confirmEventUpdate(info) {
+    $('.tooltip').remove();
+
     const payload = {};
     payload.eventData = JSON.parse(JSON.stringify(info.event.extendedProps));
-    const startSplit = moment(info.event.start).format('YYYY-MM-DDTHH:mm').split('T');
+    payload.eventDataSrc = events.find(event => event.id == payload.eventData.id) || {};
+    const startSplit = moment(info.event.startStr).format('YYYY-MM-DDTHH:mm').split('T');
     payload.eventData.date.start = startSplit[0];
     payload.eventData.time.start = startSplit[1];
-    const endSplit = moment(info.event.end).format('YYYY-MM-DDTHH:mm').split('T');
+    const endSplit = moment(info.event.endStr).format('YYYY-MM-DDTHH:mm').split('T');
     payload.eventData.date.end = endSplit[0];
     payload.eventData.time.end = endSplit[1];
 
@@ -355,7 +416,35 @@ export default class Calendar {
       }
     }
 
-    console.log('NEW PAYLOAD', payload, info)
-    // Event.updateEventRecord(payload, info);
+    console.log('NEW PAYLOAD', payload, info);
+    Event.updateEventRecord(payload, info);
+  }
+
+  static initDropDown(info) {
+    const event = info.event;
+    const html = `<div class="card-header-options"><div class="dropdown" style="display:inline-block">
+      <i class="fa-solid fa-angles-down" style="cursor: pointer"></i>
+      <div class="dropdown-content">
+        <a href="#" onclick="openEventModal('', '', ${event.id})">Update Event</a>
+        <a href="#" onclick="openCompleteEventModal('', ${event.id})">Complete Event</a>
+        <a href="#" onclick="deleteEventRecord('', ${event.id})">Remove Event</a>
+      </div>
+    </div></div>`;
+    const el = info.el.querySelector('div.card-name');
+    el.insertAdjacentHTML('afterend', html);
+  }
+
+  static initToolTip(info) {
+    const event = info.event.extendedProps;
+    new bootstrap.Tooltip(info.el, {
+      html: true,
+      title: `
+        <strong>${event.title}</strong><br>
+        ID ${event.id}<br/>
+        ${event.workorder.text}<br/>
+        ${event.date.start == event.date.end ? moment(event.date.start).format('M/D/YYYY') : `${moment(event.date.start).format('M/D/YYYY')} - ${moment(event.date.end).format('M/D/YYYY')}`}<br/>
+        ${moment(`1/1/1999 ${event.time.start}`).format('h:mm a')} - ${moment(`1/1/1999 ${event.time.end}`).format('h:mm a')}`,
+      placement: 'left'
+    });
   }
 }

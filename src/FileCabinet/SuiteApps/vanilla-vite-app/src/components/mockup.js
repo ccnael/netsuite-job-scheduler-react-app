@@ -1,6 +1,88 @@
 const mockup = {
     "suiteletUrl": "/app/site/hosting/scriptlet.nl?script=877&deploy=1&compid=TSTDRV2617106",
     "workOrders": [{
+        "id": "64",
+        "name": "Testing Work Order - Ipad",
+        "title": "",
+        "project": {
+            "text": "",
+            "value": ""
+        },
+        "date": "",
+        "status": {
+            "text": "",
+            "value": ""
+        },
+        "type": {
+            "text": "",
+            "value": ""
+        },
+        "memo": "",
+        "salesorder": {
+            "text": " ",
+            "value": ""
+        },
+        "customer": {
+            "text": "",
+            "value": ""
+        },
+        "resourceGroup": {
+            "text": "",
+            "value": ""
+        },
+        "priority": "",
+        "resources": [],
+        "items": [],
+        "addresses": [],
+        "contacts": [],
+        "events": [{
+            "id": "100814",
+            "title": "Time Tracking Showcase Event",
+            "workorder": {
+                "text": "Testing Work Order - Ipad",
+                "value": "64"
+            },
+            "location": "New York",
+            "status": {
+                "text": "Confirmed",
+                "value": "CONFIRMED",
+                "code": "bg-success"
+            },
+            "date": {
+                "recurrence": "one time event on 9/20/2024",
+                "start": "2024-09-20",
+                "end": "2024-09-20"
+            },
+            "time": {
+                "start": "20:00",
+                "end": "21:00"
+            },
+            "priority": {
+                "text": "",
+                "value": ""
+            },
+            "note": "",
+            "url": "/app/crm/calendar/event.nl?id=100814&compid=TSTDRV2617106&selectedtab=custom337",
+            "color": "#1a6756",
+            "woRef": {},
+            "resources": [],
+            "items": [],
+            "contacts": [],
+            "addresses": [],
+            "contact": {
+                "text": "",
+                "value": ""
+            },
+            "address": {
+                "text": "",
+                "value": ""
+            }
+        }],
+        "projectUrl": "/app/accounting/project/project.nl?compid=TSTDRV2617106",
+        "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=64&compid=TSTDRV2617106",
+        "soUrl": "/app/accounting/transactions/salesord.nl?compid=TSTDRV2617106",
+        "esthours": ""
+    }, {
         "id": "63",
         "name": "test site test",
         "title": "test site test",
@@ -928,7 +1010,7 @@ const mockup = {
             },
             "time": {
                 "start": "08:00",
-                "end": "18:00"
+                "end": "10:00"
             },
             "priority": {
                 "text": "Low",
@@ -7021,7 +7103,7 @@ const mockup = {
                 "value": "3",
                 "code": "#ca6621"
             },
-            "note": "TEST123456",
+            "note": "TEST1234567",
             "url": "/app/crm/calendar/event.nl?id=100682&compid=TSTDRV2617106&selectedtab=custom337",
             "color": "#1a6756",
             "woRef": {},
@@ -7441,7 +7523,7 @@ const mockup = {
             },
             "color": "#f1484c",
             "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fcompid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-            "events": ["100767"]
+            "events": []
         }, {
             "employee": {
                 "text": "Rowe Riomalos",
@@ -7609,7 +7691,7 @@ const mockup = {
             },
             "color": "#f1484c",
             "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fcompid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-            "events": ["100767"]
+            "events": []
         }, {
             "employee": {
                 "text": "Youssef Ezz",
@@ -7761,7 +7843,7 @@ const mockup = {
             },
             "color": "#f1484c",
             "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fcompid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-            "events": ["100767"]
+            "events": []
         }, {
             "employee": {
                 "text": "Rowe Riomalos",
@@ -7845,7 +7927,7 @@ const mockup = {
             "value": "3",
             "code": "#ca6621"
         },
-        "note": "TEST123456",
+        "note": "TEST1234567",
         "url": "/app/crm/calendar/event.nl?id=100682&compid=TSTDRV2617106&selectedtab=custom337",
         "color": "#1a6756",
         "woRef": {
@@ -7996,7 +8078,7 @@ const mockup = {
                     "value": "3",
                     "code": "#ca6621"
                 },
-                "note": "TEST123456",
+                "note": "TEST1234567",
                 "url": "/app/crm/calendar/event.nl?id=100682&compid=TSTDRV2617106&selectedtab=custom337",
                 "color": "#1a6756",
                 "woRef": {},
@@ -9186,7 +9268,7 @@ const mockup = {
                     "value": "3",
                     "code": "#ca6621"
                 },
-                "note": "TEST123456",
+                "note": "TEST1234567",
                 "url": "/app/crm/calendar/event.nl?id=100682&compid=TSTDRV2617106&selectedtab=custom337",
                 "color": "#1a6756",
                 "woRef": {},
@@ -11935,7 +12017,7 @@ const mockup = {
                     "value": "3",
                     "code": "#ca6621"
                 },
-                "note": "TEST123456",
+                "note": "TEST1234567",
                 "url": "/app/crm/calendar/event.nl?id=100682&compid=TSTDRV2617106&selectedtab=custom337",
                 "color": "#1a6756",
                 "woRef": {},
@@ -12402,7 +12484,7 @@ const mockup = {
                     "value": "3",
                     "code": "#ca6621"
                 },
-                "note": "TEST123456",
+                "note": "TEST1234567",
                 "url": "/app/crm/calendar/event.nl?id=100682&compid=TSTDRV2617106&selectedtab=custom337",
                 "color": "#1a6756",
                 "woRef": {},
@@ -15039,31 +15121,6 @@ const mockup = {
                 "value": "3"
             },
             "color": "#e57d29",
-            "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fcompid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-            "events": ["100767"],
-            "selected": true
-        }, {
-            "employee": {
-                "text": "Mei Matriano",
-                "value": "1647"
-            },
-            "initials": "MM",
-            "email": "mei@erpsuccesspartners.com",
-            "phone": "",
-            "location": {
-                "text": "",
-                "value": ""
-            },
-            "active": true,
-            "resourceGroup": {
-                "text": "Designers",
-                "value": "2"
-            },
-            "type": {
-                "text": "Installer",
-                "value": "1"
-            },
-            "color": "#f1484c",
             "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fcompid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
             "events": ["100767"],
             "selected": true
@@ -18140,7 +18197,7 @@ const mockup = {
                     "value": "3",
                     "code": "#ca6621"
                 },
-                "note": "TEST123456",
+                "note": "TEST1234567",
                 "url": "/app/crm/calendar/event.nl?id=100682&compid=TSTDRV2617106&selectedtab=custom337",
                 "color": "#1a6756",
                 "woRef": {},
@@ -18992,7 +19049,7 @@ const mockup = {
                     "value": "3",
                     "code": "#ca6621"
                 },
-                "note": "TEST123456",
+                "note": "TEST1234567",
                 "url": "/app/crm/calendar/event.nl?id=100682&compid=TSTDRV2617106&selectedtab=custom337",
                 "color": "#1a6756",
                 "woRef": {},
@@ -19460,7 +19517,7 @@ const mockup = {
                     "value": "3",
                     "code": "#ca6621"
                 },
-                "note": "TEST123456",
+                "note": "TEST1234567",
                 "url": "/app/crm/calendar/event.nl?id=100682&compid=TSTDRV2617106&selectedtab=custom337",
                 "color": "#1a6756",
                 "woRef": {},
@@ -22427,7 +22484,7 @@ const mockup = {
                 },
                 "time": {
                     "start": "08:00",
-                    "end": "18:00"
+                    "end": "10:00"
                 },
                 "priority": {
                     "text": "Low",
@@ -23309,7 +23366,7 @@ const mockup = {
                 },
                 "time": {
                     "start": "08:00",
-                    "end": "18:00"
+                    "end": "10:00"
                 },
                 "priority": {
                     "text": "Low",
@@ -24191,7 +24248,7 @@ const mockup = {
                 },
                 "time": {
                     "start": "08:00",
-                    "end": "18:00"
+                    "end": "10:00"
                 },
                 "priority": {
                     "text": "Low",
@@ -25073,7 +25130,7 @@ const mockup = {
                 },
                 "time": {
                     "start": "08:00",
-                    "end": "18:00"
+                    "end": "10:00"
                 },
                 "priority": {
                     "text": "Low",
@@ -25955,7 +26012,7 @@ const mockup = {
                 },
                 "time": {
                     "start": "08:00",
-                    "end": "18:00"
+                    "end": "10:00"
                 },
                 "priority": {
                     "text": "Low",
@@ -26837,7 +26894,7 @@ const mockup = {
                 },
                 "time": {
                     "start": "08:00",
-                    "end": "18:00"
+                    "end": "10:00"
                 },
                 "priority": {
                     "text": "Low",
@@ -27719,7 +27776,7 @@ const mockup = {
                 },
                 "time": {
                     "start": "08:00",
-                    "end": "18:00"
+                    "end": "10:00"
                 },
                 "priority": {
                     "text": "Low",
@@ -28601,7 +28658,7 @@ const mockup = {
                 },
                 "time": {
                     "start": "08:00",
-                    "end": "18:00"
+                    "end": "10:00"
                 },
                 "priority": {
                     "text": "Low",
@@ -29483,7 +29540,7 @@ const mockup = {
                 },
                 "time": {
                     "start": "08:00",
-                    "end": "18:00"
+                    "end": "10:00"
                 },
                 "priority": {
                     "text": "Low",
@@ -30365,7 +30422,7 @@ const mockup = {
                 },
                 "time": {
                     "start": "08:00",
-                    "end": "18:00"
+                    "end": "10:00"
                 },
                 "priority": {
                     "text": "Low",
@@ -31247,7 +31304,7 @@ const mockup = {
                 },
                 "time": {
                     "start": "08:00",
-                    "end": "18:00"
+                    "end": "10:00"
                 },
                 "priority": {
                     "text": "Low",
@@ -32129,7 +32186,7 @@ const mockup = {
                 },
                 "time": {
                     "start": "08:00",
-                    "end": "18:00"
+                    "end": "10:00"
                 },
                 "priority": {
                     "text": "Low",
@@ -33011,7 +33068,7 @@ const mockup = {
                 },
                 "time": {
                     "start": "08:00",
-                    "end": "18:00"
+                    "end": "10:00"
                 },
                 "priority": {
                     "text": "Low",
@@ -33893,7 +33950,7 @@ const mockup = {
                 },
                 "time": {
                     "start": "08:00",
-                    "end": "18:00"
+                    "end": "10:00"
                 },
                 "priority": {
                     "text": "Low",
@@ -34775,7 +34832,7 @@ const mockup = {
                 },
                 "time": {
                     "start": "08:00",
-                    "end": "18:00"
+                    "end": "10:00"
                 },
                 "priority": {
                     "text": "Low",
@@ -35657,7 +35714,7 @@ const mockup = {
                 },
                 "time": {
                     "start": "08:00",
-                    "end": "18:00"
+                    "end": "10:00"
                 },
                 "priority": {
                     "text": "Low",
@@ -35718,7 +35775,7 @@ const mockup = {
         },
         "time": {
             "start": "08:00",
-            "end": "18:00"
+            "end": "10:00"
         },
         "priority": {
             "text": "Low",
@@ -36539,7 +36596,7 @@ const mockup = {
                 },
                 "time": {
                     "start": "08:00",
-                    "end": "18:00"
+                    "end": "10:00"
                 },
                 "priority": {
                     "text": "Low",
@@ -36666,6 +36723,130 @@ const mockup = {
         "address": {
             "text": "45",
             "value": "45"
+        }
+    }, {
+        "id": "100814",
+        "title": "Time Tracking Showcase Event",
+        "workorder": {
+            "text": "Testing Work Order - Ipad",
+            "value": "64"
+        },
+        "location": "New York",
+        "status": {
+            "text": "Confirmed",
+            "value": "CONFIRMED",
+            "code": "bg-success"
+        },
+        "date": {
+            "recurrence": "one time event on 9/20/2024",
+            "start": "2024-09-20",
+            "end": "2024-09-20"
+        },
+        "time": {
+            "start": "20:00",
+            "end": "21:00"
+        },
+        "priority": {
+            "text": "",
+            "value": ""
+        },
+        "note": "",
+        "url": "/app/crm/calendar/event.nl?id=100814&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {
+            "id": "64",
+            "name": "Testing Work Order - Ipad",
+            "title": "",
+            "project": {
+                "text": "",
+                "value": ""
+            },
+            "date": "",
+            "status": {
+                "text": "",
+                "value": ""
+            },
+            "type": {
+                "text": "",
+                "value": ""
+            },
+            "memo": "",
+            "salesorder": {
+                "text": " ",
+                "value": ""
+            },
+            "customer": {
+                "text": "",
+                "value": ""
+            },
+            "resourceGroup": {
+                "text": "",
+                "value": ""
+            },
+            "priority": "",
+            "resources": [],
+            "items": [],
+            "addresses": [],
+            "contacts": [],
+            "events": [{
+                "id": "100814",
+                "title": "Time Tracking Showcase Event",
+                "workorder": {
+                    "text": "Testing Work Order - Ipad",
+                    "value": "64"
+                },
+                "location": "New York",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/20/2024",
+                    "start": "2024-09-20",
+                    "end": "2024-09-20"
+                },
+                "time": {
+                    "start": "20:00",
+                    "end": "21:00"
+                },
+                "priority": {
+                    "text": "",
+                    "value": ""
+                },
+                "note": "",
+                "url": "/app/crm/calendar/event.nl?id=100814&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                }
+            }],
+            "projectUrl": "/app/accounting/project/project.nl?compid=TSTDRV2617106",
+            "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=64&compid=TSTDRV2617106",
+            "soUrl": "/app/accounting/transactions/salesord.nl?compid=TSTDRV2617106",
+            "esthours": ""
+        },
+        "resources": [],
+        "items": [],
+        "contacts": [],
+        "addresses": [],
+        "contact": {
+            "text": "",
+            "value": ""
+        },
+        "address": {
+            "text": "",
+            "value": ""
         }
     }],
     "contacts": [{

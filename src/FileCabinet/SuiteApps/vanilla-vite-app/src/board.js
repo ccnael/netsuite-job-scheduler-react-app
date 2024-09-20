@@ -75,11 +75,11 @@ export default class Board {
                                   data-bs-toggle="tooltip" 
                                   data-bs-placement="right" 
                                   title="<strong>${resource.employee.text}</strong><br/>
-        ${resource.type.text}<br/>
-        ${resource.resourceGroup.text}<br/>
-        ${resource.email}<br/>
-        ${resource.phone}<br/>
-        ${resource.location.text}">
+                                    ${resource.type.text}<br/>
+                                    ${resource.resourceGroup.text}<br/>
+                                    ${resource.email}<br/>
+                                    ${resource.phone}<br/>
+                                    ${resource.location.text}">
                                 <span class="initials">${resource.initials}</span>
                                 ${Boolean(resource.active) ? '<span class="status active"></span>' : '<span class="status busy"></span>'}
                             </div>
@@ -382,7 +382,7 @@ export default class Board {
     }
 
     initLeftSideBarFilters('#boardSection', resources);
-    initAvailableJobsFilters('#boardSection', workOrders);
+    initAvailableJobsFilters('#boardSection .secondColumn', workOrders);
     initEventFilters('#boardSection', events);
   }
 
@@ -421,7 +421,7 @@ export default class Board {
           }
         }, */
         {
-          text: 'In Progress',
+          text: 'Under Construction...',
           duration: 99999,
           close: true,
           gravity: 'top',
