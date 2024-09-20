@@ -207,7 +207,7 @@ define([
         const removedResources = srcEvents.filter(resource => !Boolean(selectedResourceIds.includes(resource.employee.value)));
         const newResources = selectedResources.filter(resource => !Boolean(srcEventIds.includes(resource.employee.value)));
 
-        log.debug('Updating WO Resource Event List', { removedResources, newResources });
+        log.audit('Updating WO Resource Event List', { removedResources, newResources });
 
         for (const resource of removedResources) {
           try {
@@ -860,18 +860,13 @@ define([
           filters,
           columns:
           [
-            search.createColumn({ 
-              name: 'internalid', 
-              label: 'Internal ID',
-              sort: search.Sort.ASC
-            }),
             search.createColumn({ name: 'title', label: 'Event'}),
             // search.createColumn({ name: 'custevent_cfi_fsl_project', label: 'Project'}),
             search.createColumn({ name: 'location', label: 'Location'}),
             search.createColumn({ name: 'response', label: 'Response'}),
             search.createColumn({ name: 'status', label: 'Status'}),
-            search.createColumn({ name: 'startdate', label: 'Start Date'}),
-            search.createColumn({ name: 'starttime', label: 'Start Time'}),
+            search.createColumn({ name: 'startdate', label: 'Start Date', sort: search.Sort.ASC}),
+            search.createColumn({ name: 'starttime', label: 'Start Time' }),
             search.createColumn({ name: 'endtime', label: 'End Time'}),
             search.createColumn({ name: 'owner', label: 'Organiser'}),
             search.createColumn({ name: 'organizer', label: 'Organizer'}),
@@ -1191,7 +1186,7 @@ define([
 
           log.audit('Field To Set > endtime field', { current: dataSrc.time.end, new : eventData.time.end, toSet: (dataSrc.time.end != eventData.time.end) });
           if (dataSrc.time.end != eventData.time.end) {
-            fieldToSet.endtime = Utils._toDateTimez(eventData.date.start, eventData.time.end);
+            fieldToSet.endtime = Utils._toDateTimez(eventData.date.end, eventData.time.end);
           }
 
           log.audit('Field To Set > note field', { current: dataSrc.note, new : eventData.note, toSet: (dataSrc.note != eventData.note) });
@@ -1199,19 +1194,25 @@ define([
             fieldToSet.custevent_esp_fop_memo = eventData.note;
           }
 
-          log.audit('Field To Set > priority field', { current: dataSrc.priority, new : eventData.priority, toSet: (dataSrc.priority != eventData.priority) });
-          if (dataSrc.priority != eventData.priority) {
-            fieldToSet.custevent_esp_fop_event_priority = eventData.priority;
+          if (eventData?.priority?.value) {
+            log.audit('Field To Set > priority field', { current: dataSrc.priority, new : eventData.priority.value, toSet: (dataSrc.priority != eventData.priority.value) });
+            if (dataSrc.priority != eventData.priority.value) {
+              fieldToSet.custevent_esp_fop_event_priority = eventData.priority.value;
+            }
           }
 
-          log.audit('Field To Set > selected contact field', { current: dataSrc.contact.id, new : eventData.selectedContact.id, toSet: (eventData.selectedContact.id != dataSrc.contact.id) });
-          if (eventData.selectedContact.id != dataSrc.contact.id) {
-            fieldToSet.custevent_esp_fop_event_contact = eventData.selectedContact.id;
+          if (eventData.selectedContact) {
+            log.audit('Field To Set > selected contact field', { current: dataSrc.contact.id, new : eventData.selectedContact.id, toSet: (eventData.selectedContact.id != dataSrc.contact.id) });
+            if (eventData.selectedContact.id != dataSrc.contact.id) {
+              fieldToSet.custevent_esp_fop_event_contact = eventData.selectedContact.id;
+            }
           }
 
-          log.audit('Field To Set > selected address field', { current: dataSrc.address.id, new : eventData.selectedAddress.id, toSet: (eventData.selectedAddress.id != dataSrc.address.id) });
-          if (eventData.selectedAddress.id != dataSrc.address.id) {
-            fieldToSet.custevent_esp_fop_event_address = eventData.selectedAddress.id;
+          if (eventData.selectedAddress) {
+            log.audit('Field To Set > selected address field', { current: dataSrc.address.id, new : eventData.selectedAddress.id, toSet: (eventData.selectedAddress.id != dataSrc.address.id) });
+            if (eventData.selectedAddress.id != dataSrc.address.id) {
+              fieldToSet.custevent_esp_fop_event_address = eventData.selectedAddress.id;
+            } 
           }
 
           log.audit('Fields to update', { dataSrc, fieldToSet });
@@ -1230,14 +1231,21 @@ define([
             log.audit('***** Update Event Record not needed! *****', { recordId: eventData.id });
           }
           
-          WorkOrderResource._updateEventListValues(eventData, eventDataSrc);
-          WorkOrderItem._updateEventListValues(eventData, eventDataSrc);
+          if (eventData.selectedResources) {
+            WorkOrderResource._updateEventListValues(eventData, eventDataSrc);
+          }
+
+          if (eventData.selectedItems) {
+            WorkOrderItem._updateEventListValues(eventData, eventDataSrc);
+          }
           
           response.write(JSON.stringify({
             code: 200,
             status: 'success'
           }));
         } catch (e) {
+          log.error('updateEventRecord() Unexpected Error', e.message);
+          
           response.write(JSON.stringify({
             code: 401,
             status: 'fail',

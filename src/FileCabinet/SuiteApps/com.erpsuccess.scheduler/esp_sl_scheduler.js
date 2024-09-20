@@ -87,7 +87,7 @@ define([
       mod.WorkOrder.fullMap(workOrders, events, items, contacts, addresses);
       mod.Event.fullMap(workOrders, events, resources, items, contacts, addresses);
 
-      mod.Utils.createLogFile('mockupDataSet', JSON.stringify({ suiteletUrl, workOrders, customers, resources, resourceGroups, events, contacts, addresses }), 2199);
+      // mod.Utils.createLogFile('mockupDataSet', JSON.stringify({ suiteletUrl, workOrders, customers, resources, resourceGroups, events, contacts, addresses }), 2199);
 
       const fileObj = {
         template: file.load('./vanilla-vite-app-bundle/index.html'),
