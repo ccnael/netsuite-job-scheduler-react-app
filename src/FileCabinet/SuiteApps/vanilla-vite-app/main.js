@@ -1,6 +1,6 @@
 import Board from './src/board';
 import Calendar from './src/calendar';
-import { DropDownAction as DropDown, Event } from './src/components/utils';
+import { WorkOrderAction, Event } from './src/components/utils';
 
 document.addEventListener('DOMContentLoaded', () => {
   Board.setup();
@@ -10,10 +10,10 @@ document.addEventListener('DOMContentLoaded', () => {
   
   // Set below actions globally
   // -----------------------------------------------------------------
-  window.holdWorkOrder = DropDown.holdWorkOrder;
-  window.printWorkOrder = DropDown.printWorkOrder;
-  window.cancelWorkOrder = DropDown.cancelWorkOrder;
-  window.printPickList = DropDown.printPickList;
+  window.holdWorkOrder = WorkOrderAction.holdWorkOrder;
+  window.printWorkOrder = WorkOrderAction.printWorkOrder;
+  window.cancelWorkOrder = WorkOrderAction.cancelWorkOrder;
+  window.printPickList = WorkOrderAction.printPickList;
   window.deleteEventRecord = Event.deleteEventRecord;
 });
 

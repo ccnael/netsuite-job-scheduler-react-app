@@ -1,6 +1,6 @@
 import mockup from './mockup';
 
-const DEV_MODE = false;
+const DEV_MODE = true;
 
 export const suiteletUrl = !DEV_MODE ? decodeURIComponent($('#suiteletUrl').val()) : mockup.suiteletUrl;
 export const workOrders = !DEV_MODE ? JSON.parse(decodeURIComponent($('#workOrders').val())) : mockup.workOrders;

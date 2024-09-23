@@ -281,3 +281,111 @@ export function initEventFilters(sectionId, events) {
     $(`${sectionId} .thirdColumn .card-header span.counter`).html(total);
   }
 }
+
+export function initCalendarFilters() {
+  const sectionId = '#calendar-filters';
+  const $dateFromFilter = $(`${sectionId} input#calendar-event-datefrom`);
+  const $dateToFilter = $(`${sectionId} input#calendar-event-dateto`);
+  const $resourceFilter = $(`${sectionId} select.multiple-resource-field`);
+  const $resourceGroupFilter = $(`${sectionId} select.multiple-resource-group-field`);
+  const $statusFilter = $(`${sectionId} select.multiple-event-status-field`);
+  const $priorityFilter = $(`${sectionId} select.multiple-event-priority-field`);
+  const $selected = {
+    dateFrom: '',
+    dateTo: '',
+    resources: [],
+    resourceGroups: [],
+    status: [],
+    priority: []
+  };
+
+  if ($dateFromFilter.length) {
+    $dateFromFilter.on('change', function() {
+      $selected.dateFrom = $(this).val() || [];
+      filterItems();
+    });
+  }
+
+  if ($dateToFilter.length) {
+    $dateToFilter.on('change', function() {
+      $selected.dateTo = $(this).val() || [];
+      filterItems();
+    });
+  }
+
+  if ($resourceFilter.length) {
+    $resourceFilter.on('change', function() {
+      $selected.resources = $(this).val() || [];
+      filterItems();
+    });
+  }
+
+  if ($resourceGroupFilter.length) {
+    $resourceGroupFilter.on('change', function() {
+      $selected.resourceGroups = $(this).val() || [];
+      filterItems();
+    });
+  }
+
+  if ($statusFilter.length) {
+    $statusFilter.on('change', function() {
+      $selected.status = $(this).val() || [];
+      filterItems();
+    });
+  }
+
+  if ($priorityFilter.length) {
+    $priorityFilter.on('change', function() {
+      $selected.priority = $(this).val() || [];
+      filterItems();
+    });
+  }
+
+  function filterItems() {
+    const calendarEvents = FullCalendar.getEvents();
+    for (const event of calendarEvents) {
+      // console.log('Filter Event', event);
+      const eventId = event.id;
+      const eventData = event.extendedProps;
+      
+      if (eventData) {
+        let date = eventData.date.end || eventData.date.start;
+        const eventResources = eventData.resources.map(resource => resource.employee.value);
+        const eventResourceGroups = eventData.resources.map(resource => resource.resourceGroup.value);
+        const eventStatus = eventData.status.value;
+        const eventPriority = eventData.priority.value;
+  
+        let withinRange = false;
+        if (date) {
+          date = moment(date);
+          $selected.dateFrom = $selected.dateFrom ? moment($selected.dateFrom) : '';
+          $selected.dateTo = $selected.dateTo ? moment($selected.dateTo) : '';
+  
+          if ($selected.dateFrom && $selected.dateTo) {
+            withinRange = date.isBetween($selected.dateFrom, $selected.dateTo, null, '[]');
+          } else if ($selected.dateFrom && !$selected.dateTo) {
+            withinRange = date.isSameOrAfter($selected.dateFrom);
+          } else if (!$selected.dateFrom && $selected.dateTo) {
+            withinRange = date.isSameOrBefore($selected.dateTo);
+          }
+        }
+  
+        if (!$selected.dateFrom && !$selected.dateTo) {
+          withinRange = true;
+        }
+  
+        const shouldDisplay = Boolean(
+          withinRange && 
+          (!$selected.resources.length || $selected.resources.some(value => new Set(eventResources).has(value))) && // Check if the selected resources is in the event resources
+          (!$selected.resourceGroups.length || $selected.resourceGroups.some(value => new Set(eventResourceGroups).has(value))) && // Check if the selected resource groups is in the event resource groups
+          (!$selected.status.length || $selected.status.includes(eventStatus)) && 
+          (!$selected.priority.length || $selected.priority.includes(eventPriority))
+        ); 
+
+        event.setProp('display', shouldDisplay ? 'block' : 'none');
+      }
+    }
+    /* a = FullCalendar.getEvents().findIndex(event => event.id == 100813)
+    FullCalendar.getEvents()[a].setProp('display', 'none') */
+  }
+}

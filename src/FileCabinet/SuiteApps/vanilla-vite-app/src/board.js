@@ -293,13 +293,13 @@ export default class Board {
       </div>
     `.replace(/,/g, ''));
 
-    this.initLayoutHandlers();
-    this.initToolTip();
+    this._initLayoutHandlers();
+    this._initToolTip();
   }
 
   // Instantiate column resizer etc.
   // -----------------------------------------------------------------
-  static initLayoutHandlers() {
+  static _initLayoutHandlers() {
     const leftSidebar = document.querySelector('#boardSection .leftSidebar');
     // Resizable columns functionality
     // -----------------------------------------------------------------
@@ -446,7 +446,7 @@ export default class Board {
     }, 250);
   }
 
-  static initToolTip() {
+  static _initToolTip() {
     const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
     tooltipTriggerList.forEach(tooltipTriggerEl => {
       new bootstrap.Tooltip(tooltipTriggerEl, {

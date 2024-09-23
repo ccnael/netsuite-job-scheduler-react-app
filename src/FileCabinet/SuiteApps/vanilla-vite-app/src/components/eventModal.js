@@ -5,7 +5,7 @@ import { Event } from './utils';
 let temp_woResourcesDataTable, temp_woItemsDataTable, temp_woContactsDataTable, temp_woAddressesDataTable;
 
 $(document).ready(() => {
-  $('#app').append(`<div class="modal fade" id="eventModal" mode="" woId="" eventId="" eventDataSrc="" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false">
+  $('#app').append(`<div class="modal fade" id="eventModal" mode="" woId="" eventId="" eventDataSrc="" prefillData="" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false">
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
         <div class="modal-header">
@@ -206,7 +206,7 @@ $(document).ready(() => {
     </div>
   </div>`);
 
-  window.openEventModal = (ev, woId, eventId) => {
+  window.openEventModal = (ev, woId, eventId, prefillData) => {
     if (ev) {
       const dataTransfer = ev?.dataTransfer;
       if (dataTransfer) {
@@ -222,6 +222,12 @@ $(document).ready(() => {
       if (woId) {
         $('#eventModal').attr('mode', 'create');
         $('#eventModal').attr('woId', woId);
+
+        // Calendar event > drag jobs create event scenario
+        if (prefillData) {
+          $('#eventModal').attr('prefillData', encodeURIComponent(JSON.stringify(prefillData)));
+        }
+
       } else if (eventId) {
         $('#eventModal').attr('mode', 'edit');
         $('#eventModal').attr('eventId', eventId);
@@ -254,6 +260,7 @@ $(document).ready(() => {
       const mode = $('#eventModal').attr('mode');
       const woId = $('#eventModal').attr('woId');
       const eventId = $('#eventModal').attr('eventId');
+      let prefillData = $('#eventModal').attr('prefillData');
       let woRef, eventData, modalTitle, eventTitle, activeResources;
   
       if (mode == 'create') {
@@ -261,6 +268,14 @@ $(document).ready(() => {
         woRef = workOrders.find(wo => wo.id == woId);
         eventTitle = woRef?.title;
         activeResources = resources.all;
+
+        if (prefillData) {
+          prefillData = JSON.parse(decodeURIComponent(prefillData));
+          $('#eventModal .datefrom').val(prefillData.date.start);
+          $('#eventModal .dateto').val(prefillData.date.end);
+          $('#eventModal .starttime').val(prefillData.time.start);
+          $('#eventModal .endtime').val(prefillData.time.end);
+        }
       }
       // Find Event Data to update from Work Orders
       else if (mode == 'edit') {

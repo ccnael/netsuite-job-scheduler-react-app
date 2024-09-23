@@ -185,4 +185,16 @@
   height: 15px;
   margin-left: 5px;
   margin-right: 5px;
+}
+#calendarSection .row-inputs {
+  gap: 10px;
+  box-sizing: border-box;
+  justify-content: center;
+}
+#calendarSection .row-inputs div.input-group {
+  display: block;
+  width: auto;
+}
+#calendarSection #calendar-event-datefrom, #calendarSection #calendar-event-dateto {
+  margin-top: -15px;
 }/*# sourceMappingURL=calendar.css.map */

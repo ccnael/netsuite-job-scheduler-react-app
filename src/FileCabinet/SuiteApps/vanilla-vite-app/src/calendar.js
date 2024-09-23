@@ -6,9 +6,13 @@ import listPlugin from '@fullcalendar/list';
 import timeGridPlugin from '@fullcalendar/timegrid';
 import resourceTimelinePlugin from '@fullcalendar/resource-timeline';
 import { customers, resources, resourceGroups, workOrders, events } from './components/dataSet';
-import { initAvailableJobsFilters } from './components/filterHandler';
+import { initCalendarFilters, initAvailableJobsFilters } from './components/filterHandler';
 import { Event } from './components/utils';
 import './calendar.css';
+
+const resourceCount = resources.all.length;
+const resourceOptions = resources.all.map(resource => `<option value="${resource.employee.value}">${resource.employee.text}</option>`);
+const resourceGroupOptions = resourceGroups.map(resourceGroup => `<option value="${resourceGroup.value}">${resourceGroup.text}</option>`);
 
 export default class Calendar {
   
@@ -106,11 +110,11 @@ export default class Calendar {
     </div>`
     .replace(/,/g, ''));
 
-    this.initFullCalendarIO();
-    this.initLayoutHandlers();
+    this._initFullCalendarIO();
+    this._initLayoutHandlers();
   }
 
-  static initFullCalendarIO() {
+  static _initFullCalendarIO() {
     
     const containerEl = document.querySelector('#calendarSection .thirdColumn');
     const calendarEl = document.getElementById('calendar');
@@ -167,15 +171,11 @@ export default class Calendar {
       eventResizableFromStart: true,
       // eventColor: '#02ac5a', // Default color class -> .confirmed
       scrollTime: '00:00', // Undo default 6am scrollTime
+      // Add legend and filter fields
+      // -----------------------------------------------------------------
       viewDidMount: info => {
-        if (!$('#legend').length) {
-          const legendHTML = `
-          <div id="legend">
-            <span class="confirmed"></span> Confirmed
-            <span class="tentative"></span> Tentative
-          </div>`;
-          $(legendHTML).insertAfter('.fc-toolbar-title');
-        }
+        console.log('viewDidMount')
+        this._appendHeaderFields();
       },
       headerToolbar: {
         left: 'todayBtn prev,next',
@@ -248,39 +248,44 @@ export default class Calendar {
       // -----------------------------------------------------------------
       eventDidMount: info => {
         const event = info.event.extendedProps;
-        try {
-          info.el.classList.add(event.status.value === 'TENTATIVE' ? 'tentative' : 'confirmed');
-
-          this.initDropDown(info);
-          this.initToolTip(info);
-        } catch (e) {
-          console.log('eventDidMount Unexpected Error', e.message);
+        if (event.id) {
+          try {
+            info.el.classList.add(event.status.value === 'TENTATIVE' ? 'tentative' : 'confirmed');
+  
+            this._initDropDown(info);
+            this._initToolTip(info);
+          } catch (e) {
+            console.log('eventDidMount Unexpected Error', e.message);
+          }
         }
       },
       eventContent: el => {
         const event = el.event.extendedProps;
-        try {
-          const html = `
-          <div style="margin-left: 15px; height: 110px" id="${event.id}">
-          <div class="card-head">
-            <div class="card-name"><a href="${event.url}" target="_blank"><strong>${event.title}</strong></a>
+        if (event.id) {
+          try {
+            const html = `
+            <div style="margin-left: 15px; height: 110px" id="${event.id}">
+            <div class="card-head">
+              <div class="card-name"><a href="${event.url}" target="_blank"><strong>${event.title}</strong></a>
+              </div>
             </div>
-          </div>
-          <div class="card-content" style="position: relative">
-            <div class="card-content-eventId" eventId="${event.id}">ID ${event.id}</div>
-            <div class="card-content-date">${event.date.start == event.date.end ? moment(event.date.start).format('M/D/YYYY') : `${moment(event.date.start).format('M/D/YYYY')} - ${moment(event.date.end).format('M/D/YYYY')}`}</div>
-            <div class="card-content-time">${moment(`1/1/1999 ${event.time.start}`).format('h:mm a')} - ${moment(`1/1/1999 ${event.time.end}`).format('h:mm a')}</div>
-            <div class="row">
-              <div class="col-2 fc-event-status">
-                <span class="badge py-1 px-2 rounded-pill text-uppercase" style="background-color: ${event.priority.code};">${event.priority.text}</span>
+            <div class="card-content" style="position: relative">
+              <div class="card-content-eventId" eventId="${event.id}">ID ${event.id}</div>
+              <div class="card-content-date">${event.date.start == event.date.end ? moment(event.date.start).format('M/D/YYYY') : `${moment(event.date.start).format('M/D/YYYY')} - ${moment(event.date.end).format('M/D/YYYY')}`}</div>
+              <div class="card-content-time">${moment(`1/1/1999 ${event.time.start}`).format('h:mm a')} - ${moment(`1/1/1999 ${event.time.end}`).format('h:mm a')}</div>
+              <div class="row">
+                <div class="col-2 fc-event-status">
+                  <span class="badge py-1 px-2 rounded-pill text-uppercase" style="background-color: ${event.priority.code};">${event.priority.text}</span>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-          `;
-          return { html };
-        } catch (e) {
-          console.log('eventContent Unexpected Error', e.message);
+            `;
+            this._updateEventCounter();
+            return { html };
+          } catch (e) {
+            console.log('eventContent Unexpected Error', e.message);
+          } 
         }
       },
       eventClick: event => {
@@ -293,31 +298,28 @@ export default class Calendar {
       // -----------------------------------------------------------------
       eventDrop: info => {
         info.action = 'eventDrop';
-        this.confirmEventUpdate(info);
+        this._confirmUpdateEvent(info);
       },
       eventDragStop: info => {
-        $('.tooltip').remove();
+        this._removeToolTip();
       },
       // Updates start and end time and day
       // -----------------------------------------------------------------
       eventResize: info => {
         info.action = 'eventResize';
-        this.confirmEventUpdate(info);
+        this._confirmUpdateEvent(info);
       },
       // Ex. Dropping external events/jobs
       // -----------------------------------------------------------------
       eventReceive: info => {
-        $('.tooltip').remove();
-
-        const woId = info.event.extendedProps.woId;
-        window.openEventModal(null, woId);
-        info.revert();
+        info.action = 'eventReceive';
+        this._prefillAddEvent(info);
       },
       // Disable event drop on Groups
       eventAllow: (dropInfo, draggedEvent) => {
         return !Boolean((dropInfo.resource.extendedProps.resourceCount));
       },
-      windowResize: () => {
+      windowResize: arg => {
         console.log('The calendar has adjusted to a window resize. Current view: ' + arg.view.type);
         window.FullCalendar.render();
       }
@@ -328,8 +330,8 @@ export default class Calendar {
 
   // Instantiate tab header switch, column resizer etc.
   // -----------------------------------------------------------------
-  static initLayoutHandlers() {
-    this.initTabSwitch();
+  static _initLayoutHandlers() {
+    this._initTabSwitch();
 
     const resizer = document.getElementById('calendarColumnResizer');
     const leftSide = document.querySelector('#calendarSection .secondColumn');
@@ -360,12 +362,15 @@ export default class Calendar {
 
     resizer.addEventListener('mousedown', mouseDownHandler);
 
-    initAvailableJobsFilters('#calendarSection', workOrders);
+    initAvailableJobsFilters('#calendarSection #collapseRight', workOrders);
+    initCalendarFilters();
+
+    this._updateEventCounter();
   }
 
   // Instantiate tab switch
   // -----------------------------------------------------------------
-  static initTabSwitch() {
+  static _initTabSwitch() {
     const tabs = document.querySelectorAll('.tab');
     const contents = document.querySelectorAll('.tab-content');
     document.getElementById('calendarSection').style.display = 'none';
@@ -392,8 +397,118 @@ export default class Calendar {
     });
   }
 
-  static confirmEventUpdate(info) {
-    $('.tooltip').remove();
+  static _appendHeaderFields() {
+    if (!$('#legend').length) {
+      const legendHTML = `
+      <div id="legend">
+        <span class="confirmed"></span> Confirmed
+        <span class="tentative"></span> Tentative
+      </div>`;
+      $(legendHTML).insertAfter('.fc-toolbar-title');
+    }
+    if (!$('#calendar-filters').length) {
+      $(`<div id="calendar-filters">
+        <div class="input-group inline-inputs" style="margin-top: 10px;">
+          <div class="input-group mb-3" style="border-radius: 5px 5px 0 0;">
+            <select class="selectpicker mx-auto multiple-resource-field" title="Filter by Resource Name" data-live-search="true" data-selected-text-format="count>2" data-style="" data-style-base="form-control" data-actions-box="true" multiple>
+              ${resourceOptions}
+            </select>
+          </div>
+          <div class="input-group mb-3">
+            <select class="selectpicker mx-auto multiple-resource-group-field" title="Filter by Resource Group" data-live-search="true" data-selected-text-format="count>2" data-style="" data-style-base="form-control" data-actions-box="true" multiple>
+            ${resourceGroupOptions}
+            </select>
+          </div>
+          <div class="mb-3">
+            <select class="selectpicker mx-auto multiple-event-status-field" title="Filter by Status" data-live-search="true" data-selected-text-format="count>2" data-style="" data-style-base="form-control" multiple>
+              <option value="TENTATIVE">Tentative</option>
+              <option value="CONFIRMED">Confirmed</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <select class="selectpicker mx-auto multiple-event-priority-field" title="Filter by Priority" data-live-search="true" data-selected-text-format="count>2" data-style="" data-style-base="form-control" data-actions-box="true" multiple>
+              <option value="1">Low</option>
+              <option value="2">Mid</option>
+              <option value="3">High</option>
+              <option value="4">Urgent</option>
+            </select>
+          </div>
+        </div>
+        <div class="input-group inline-inputs" style="margin-top: 10px;">
+         <div class="row align-items-center">
+            <label for="calendar-event-datefrom" class="col-form-label col-auto">From: </label>
+            <div class="col-auto">
+                <input type="date" class="form-control" id="calendar-event-datefrom">
+            </div>
+          </div>
+          <div class="row align-items-center">
+            <label for="calendar-event-dateto" class="col-form-label col-auto">To: </label>
+            <div class="col-auto">
+                <input type="date" class="form-control" id="calendar-event-dateto">
+            </div>
+          </div>
+        </div>
+      </div>`).insertAfter('.fc-header-toolbar');
+
+      if (!$('#eventsViewCounter').length) {
+        $('.fc-toolbar-title').append('<h6><span class="badge badge-danger badge-pill counter" style="display: inline-block" id="eventsViewCounter">TBD</span></h6>');
+      }
+
+      this._updateEventCounter();
+    }
+  }
+
+  // TBD
+  static _updateEventCounter() {
+    // setTimeout(() => {
+    //   const $eventIds = Array.from($('div.fc-event-main .card-content-eventId')).map(m => m.getAttribute('eventid'));
+    //   const counter = Array.from(new Set($eventIds)).length;
+    //   console.log('Current View Events Count: ', counter);
+
+    //   $('#eventsViewCounter').text(counter);
+    // });
+        // // Get the current view
+        // const currentView = FullCalendar.view;
+        // const start = currentView.currentStart; // Start date of the current view
+        // const end = currentView.currentEnd; // End date of the current view
+    
+        // // Filter events manually
+        // const currentEvents = calendar.getEvents().filter(event => {
+        //     if (event.id == 100786) {
+        //         console.log(event.end, ' isBetween, ', start, end, ' = ', moment(event.start).isBetween(start, end, null, '[]'))
+        //     }
+        //     // Check if the event is in the current view's date range
+        //     return moment(event.end).isBetween(start, end, null, '[]') ||  (moment(start).isBetween(event.start, event.end, null, '[]') && moment(end).isBetween(event.start, event.end, null, '[]'))
+        // });
+    
+        // // Get the count of the filtered events
+        // const count = currentEvents.length;
+    
+        // // Log and display the count
+        // // console.log('Current event count in view:', count);
+  }
+
+  static _prefillAddEvent(info) {
+    // this._removeToolTip();
+
+    const data = {};
+    data.date = {};
+    data.time = {};
+
+    const woId = info.event.extendedProps.woId;
+    const startSplit = moment(info.event.startStr).format('YYYY-MM-DDTHH:mm').split('T');
+    data.date.start = startSplit[0];
+    data.time.start = startSplit[1];
+    const endSplit = moment(info.event.endStr).format('YYYY-MM-DDTHH:mm').split('T');
+    data.date.end = endSplit[0];
+    data.time.end = endSplit[1];
+
+    openEventModal(null, woId, '', data);
+    info.revert();
+  }
+
+  static _confirmUpdateEvent(info) {
+    this._removeToolTip();
 
     const payload = {};
     payload.eventData = JSON.parse(JSON.stringify(info.event.extendedProps));
@@ -420,7 +535,7 @@ export default class Calendar {
     Event.updateEventRecord(payload, info);
   }
 
-  static initDropDown(info) {
+  static _initDropDown(info) {
     const event = info.event;
     const html = `<div class="card-header-options"><div class="dropdown" style="display:inline-block">
       <i class="fa-solid fa-angles-down" style="cursor: pointer"></i>
@@ -434,7 +549,7 @@ export default class Calendar {
     el.insertAdjacentHTML('afterend', html);
   }
 
-  static initToolTip(info) {
+  static _initToolTip(info) {
     const event = info.event.extendedProps;
     new bootstrap.Tooltip(info.el, {
       html: true,
@@ -446,5 +561,9 @@ export default class Calendar {
         ${moment(`1/1/1999 ${event.time.start}`).format('h:mm a')} - ${moment(`1/1/1999 ${event.time.end}`).format('h:mm a')}`,
       placement: 'left'
     });
+  }
+
+  static _removeToolTip() {
+    this._removeToolTip();
   }
 }

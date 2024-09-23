@@ -224,4 +224,17 @@ $background-color_19: #f0f0f0;
 			margin-right: 5px;
 		}
 	}
+	.row-inputs {
+		gap: 10px;
+		box-sizing: border-box;
+		justify-content: center;
+		div.input-group {
+			display: block;
+			width: auto;
+		}
+	}
+
+	#calendar-event-datefrom, #calendar-event-dateto {
+		margin-top: -15px;
+	}
 }

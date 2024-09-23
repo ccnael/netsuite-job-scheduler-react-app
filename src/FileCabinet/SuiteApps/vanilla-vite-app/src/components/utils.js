@@ -1,4 +1,4 @@
-import { suiteletUrl } from './dataSet';
+import { suiteletUrl, events } from './dataSet';
 
 export class Event {
 
@@ -142,6 +142,8 @@ export class Event {
     eventId = eventId || ev.target.closest('.card-item').getAttribute('id');
     console.log('deleteEventRecord() > Event ID', eventId);
 
+    const payload = events.find(event => event.id == eventId) || {};
+
     Swal.fire({
       title: `Delete Event Record ID ${eventId}?`,
       text: "You won't be able to revert this!",
@@ -157,7 +159,8 @@ export class Event {
           didOpen: () => {
             Swal.showLoading();
             fetch(`${suiteletUrl}&mode=deleteEventRecord&id=${eventId}`, { 
-              method: 'GET',
+              body: JSON.stringify(payload),
+              method: 'POST',
               headers: {
                 'Content-Type': 'application/json',
               }
@@ -192,7 +195,7 @@ export class Event {
   }
 }
 
-export class DropDownAction {
+export class WorkOrderAction {
   
   static holdWorkOrder(ev) {
     ev.preventDefault();
