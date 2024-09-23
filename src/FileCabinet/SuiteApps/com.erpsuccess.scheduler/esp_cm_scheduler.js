@@ -168,7 +168,7 @@ define([
       }
 
       // Link newly created event to the employee resources
-      static _appendEventToListValues(event) {
+      static _addEventToListValues(event) {
         const resources = event.selectedResources;
         for (let resource of resources) {
           try {
@@ -243,7 +243,42 @@ define([
 
         const clonedEventObj = JSON.parse(JSON.stringify(event));
         clonedEventObj.selectedResources = newResources;
-        this._appendEventToListValues(clonedEventObj);
+        this._addEventToListValues(clonedEventObj);
+      }
+
+      static _removeEventFromListValues(event) {
+        const resources = event.resources;
+        for (let resource of resources) {
+          try {
+            const lookUp = search.lookupFields({
+              type: 'employee', 
+              id: resource.employee.value, 
+              columns: 'custentity_esp_fop_events' 
+            });
+            const idToRemove = event.id;
+            let events = (lookUp.custentity_esp_fop_events[0]?.value || '').split(',');
+            const index = events.indexOf(idToRemove);
+
+            if (index > -1) {
+              events.splice(index, 1);
+            }
+
+            record.submitFields({
+              type: 'employee',
+              id: resource.employee.value,
+              values: {
+                custentity_esp_fop_events: events
+              },
+              options: {
+                ignoreMandatoryFieds: true
+              }
+            }); 
+            log.audit('***** Removed Event from Employee Record *****', resource);
+          } catch (e) {
+            log.error('Error on Resource/Employee > Remove Event', { resource, errorMsg: e.message });
+            resource.errorMsg = e.messasge;
+          }
+        }
       }
     }
 
@@ -591,7 +626,7 @@ define([
         return items;
       }
 
-      static _appendEventToListValues(event) {
+      static _addEventToListValues(event) {
         const items = event.selectedItems;
         for (let item of items) {
           try {
@@ -666,7 +701,42 @@ define([
 
         const clonedEventObj = JSON.parse(JSON.stringify(event));
         clonedEventObj.selectedItems = newItems;
-        this._appendEventToListValues(clonedEventObj);
+        this._addEventToListValues(clonedEventObj);
+      }
+
+      static _removeEventFromListValues(event) {
+        const items = event.items;
+        for (let item of items) {
+          try {
+            const lookUp = search.lookupFields({
+              type: 'customrecord_esp_fop_wo_item', 
+              id: item.id, 
+              columns: 'custrecord_esp_fop_wo_item_event' 
+            });
+            const idToRemove = event.id;
+            let events = (lookUp.custrecord_esp_fop_wo_item_event[0]?.value || '').split(',');
+            const index = events.indexOf(idToRemove);
+
+            if (index > -1) {
+              events.splice(index, 1);
+            }
+
+            record.submitFields({
+              type: 'customrecord_esp_fop_wo_item',
+              id: item.id,
+              values: {
+                custrecord_esp_fop_wo_item_event: events
+              },
+              options: {
+                ignoreMandatoryFieds: true
+              }
+            }); 
+            log.audit('***** Removed Event from WO Item Record *****', item);
+          } catch (e) {
+            log.error('Error on WO Item > Remove Event', { item: item, errorMsg: e.message });
+            item.errorMsg = e.message;
+          }
+        }
       }
     }
 
@@ -726,7 +796,7 @@ define([
         return contacts;
       }
 
-      static _appendEventToListValues(event) {
+      static _addEventToListValues(event) {
         const contacts = event.contacts;
         for (let contact of contacts) {
           try {
@@ -749,10 +819,45 @@ define([
                 ignoreMandatoryFieds: true
               }
             }); 
-            log.audit('***** Added Event to WO Contact Record *****', contact.id);
+            log.audit('***** Added Event from WO Contact Record *****', contact.id);
           } catch (e) {
-            log.error('Error on WO Item > Add Events', { item: item.item, errorMsg: e.message });
-            item.errorMsg = e.message;
+            log.error('Error on WO Contact > Add Events', { contact: contact.id, errorMsg: e.message });
+            contact.errorMsg = e.message;
+          }
+        }
+      }
+      
+      static _removeEventFromListValues(event) {
+        const contacts = event.contacts;
+        for (let contact of contacts) {
+          try {
+            const lookUp = search.lookupFields({
+              type: 'customrecord_esp_fop_wo_contact', 
+              id: item.id, 
+              columns: 'custrecord_esp_fop_wo_rel_event' 
+            });
+            const idToRemove = event.id;
+            let events = (lookUp.custrecord_esp_fop_wo_rel_event[0]?.value || '').split(',');
+            const index = events.indexOf(idToRemove);
+
+            if (index > -1) {
+              events.splice(index, 1);
+            }
+
+            record.submitFields({
+              type: 'customrecord_esp_fop_wo_contact',
+              id: contact.id,
+              values: {
+                custrecord_esp_fop_wo_rel_event: events
+              },
+              options: {
+                ignoreMandatoryFieds: true
+              }
+            });  
+            log.audit('***** Removed Event from WO Contact Record *****', contact);
+          } catch (e) {
+            log.error('Error on WO Contact > Remove Event', { contact, errorMsg: e.message });
+            contact.errorMsg = e.message;
           }
         }
       }
@@ -809,7 +914,7 @@ define([
         return addresses;
       }
 
-      static _appendEventToListValues(event) {
+      static _addEventToListValues(event) {
         const addresses = event.addresses;
         for (let address of addresses) {
           try {
@@ -832,9 +937,44 @@ define([
                 ignoreMandatoryFieds: true
               }
             }); 
-            log.audit('***** Added Event to WO Address Record *****', address.id);
+            log.audit('***** Added Event to WO Address Record *****', address);
           } catch (e) {
             log.error('Error on WO Address > Add Events', { address: address.address.text, errorMsg: e.message });
+            address.errorMsg = e.message;
+          }
+        }
+      }
+
+      static _removeEventFromListValues(event) {
+        const addresses = event.addresses;
+        for (let address of addresses) {
+          try {
+            const lookUp = search.lookupFields({
+              type: 'customrecord_esp_fop_wo_address', 
+              id: item.id, 
+              columns: 'custrecord_esp_fop_wo_add_event' 
+            });
+            const idToRemove = event.id;
+            let events = (lookUp.custrecord_esp_fop_wo_add_event[0]?.value || '').split(',');
+            const index = events.indexOf(idToRemove);
+
+            if (index > -1) {
+              events.splice(index, 1);
+            }
+
+            record.submitFields({
+              type: 'customrecord_esp_fop_wo_address',
+              id: address.id,
+              values: {
+                custrecord_esp_fop_wo_add_event: events
+              },
+              options: {
+                ignoreMandatoryFieds: true
+              }
+            });  
+            log.audit('***** Removed Event from WO Address Record *****', address);
+          } catch (e) {
+            log.error('Error on WO Address > Remove Event', { address, errorMsg: e.message });
             address.errorMsg = e.message;
           }
         }
@@ -1092,10 +1232,10 @@ define([
           eventData.id = rec.save({ ignoreMandatoryFieds: true });
           log.audit('***** Created Event Record *****', { recordId: eventData.id });
 
-          WorkOrderResource._appendEventToListValues(eventData);
-          WorkOrderItem._appendEventToListValues(eventData);
-          WorkOrderContact._appendEventToListValues(eventData);
-          WorkOrderAddress._appendEventToListValues(eventData);
+          WorkOrderResource._addEventToListValues(eventData);
+          WorkOrderItem._addEventToListValues(eventData);
+          WorkOrderContact._addEventToListValues(eventData);
+          WorkOrderAddress._addEventToListValues(eventData);
 
           response.write(JSON.stringify({
             code: 200,
@@ -1476,6 +1616,14 @@ define([
         const eventId = params.id;
 
         try {
+          const eventData = JSON.parse(reqBody);
+
+          // Unlink event from related child records before the deletion
+          WorkOrderResource._removeEventFromListValues(eventData);
+          WorkOrderItem._removeEventFromListValues(eventData);
+          WorkOrderContact._removeEventFromListValues(eventData);
+          WorkOrderAddress._removeEventFromListValues(eventData);
+
           record.delete({
             type: record.Type.CALENDAR_EVENT,
             id: eventId

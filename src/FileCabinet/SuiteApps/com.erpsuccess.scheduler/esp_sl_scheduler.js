@@ -42,9 +42,6 @@ define([
           case 'printPickList':
             mod.WorkOrder.printPickList(scriptContext);
             break;
-          case 'deleteEventRecord':
-            mod.Event.deleteEventRecord(scriptContext);
-            break;
           case 'getOrderPunchList':
             mod.Event.getOrderPunchList(scriptContext);
             break;
@@ -63,6 +60,9 @@ define([
             break;
           case 'completeEvent':
             mod.Event.completeEvent(scriptContext);
+            break;
+          case 'deleteEventRecord':
+            mod.Event.deleteEventRecord(scriptContext);
             break;
         }
       }
