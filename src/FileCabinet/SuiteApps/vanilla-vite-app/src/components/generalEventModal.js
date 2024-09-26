@@ -181,7 +181,7 @@ $(document).ready(() => {
       eventData: {},
       woRef: {}
     };
-    payload.eventData.title = $('#generalEventModal input.eventTitle').val();
+    payload.eventData.title = $('#generalEventModal input.eventTitleInput').val();
     payload.eventData.date = {
       start: $('#generalEventModal .datefrom').val(),
       end: $('#generalEventModal .dateto').val()
@@ -231,7 +231,7 @@ $(document).ready(() => {
   }
 
   function clearFieldValues() {
-    console.log('***** Clearing Fields *****');
+    console.log('----- Clearing Fields -----');
     
     showCustomLoader();
 

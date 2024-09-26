@@ -3,7 +3,7 @@ import { suiteletUrl, events } from './dataSet';
 export class Event {
 
   static createEventRecord(payload, modalId) {
-    console.log('***** createEventRecord() -> PAYLOAD *****', payload);
+    console.log('----- [createEventRecord() -> PAYLOAD] -----', payload);
 
     Swal.fire({
       title: 'Create Event Record?',
@@ -66,7 +66,7 @@ export class Event {
   }
 
   static updateEventRecord(payload, eventInfo) {
-    console.log('***** updateEventRecord() -> PAYLOAD *****', { payload, eventInfo: eventInfo || '' });
+    console.log('----- [updateEventRecord() -> PAYLOAD] -----', { payload, eventInfo: eventInfo || '' });
 
     Swal.fire({
       title: `Update Event Record?`,

@@ -322,7 +322,7 @@ $(document).ready(() => {
         });
       }
   
-      console.log('***** Work Order Data *****', { woId, eventId }, { woRef, eventData });
+      console.log('----- [Work Order Data] -----', { woId, eventId }, { woRef, eventData });
       if (!woRef) return;
   
       // Set Modal Title
@@ -521,7 +521,7 @@ $(document).ready(() => {
   }
   
   function clearFieldValues() {
-    console.log('***** Clearing Fields *****');
+    console.log('----- [Clearing Fields] -----');
     
     showCustomLoader();
   

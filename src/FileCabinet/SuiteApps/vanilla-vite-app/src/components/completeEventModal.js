@@ -368,7 +368,7 @@ $(document).ready(() => {
   }
 
   function clearFieldValues() {
-    console.log('***** Clearing Fields *****');
+    console.log('----- Clearing Fields -----');
     
     showCustomLoader();
 
