@@ -11,8 +11,7 @@ define([
   'N/render',
   'N/record',
   'N/format',
-  './lib/moment.min', 
-  './lib/mockup'
+  './lib/moment.min'
 ],
   /**
    * @param{file} file
@@ -24,7 +23,7 @@ define([
    * @param{record} record
    * @param{format} format
    */
-  (file, runtime, search, config, url, render, record, format, moment, mockup) => {
+  (file, runtime, search, config, url, render, record, format, moment) => {
 
     const EXPORT_DATE_FORMAT = 'YYYY-MM-DD', 
       IMPORT_DATE_FORMAT = 'M/D/YYYY', 
@@ -34,7 +33,6 @@ define([
     class WorkOrderResource {
 
       static getList(ids, eventIds) {
-        // return mockup.resources();
         let filters = [
           ['isinactive','is','F'],
           // 'AND',
@@ -110,7 +108,7 @@ define([
               text: result.getText('custentity_esp_fop_emp_resource_type'),
               value: result.getValue('custentity_esp_fop_emp_resource_type')
             },
-            color: mockup.resourceColorCode()[result.id],//`#${Math.floor(Math.random()*16777215).toString(16)}`, // '#29546d'
+            color: `#${Math.floor(Math.random()*16777215).toString(16)}`, // '#29546d' // TBR
             get url() {
               return encodeURIComponent(Url.resource(this.id))
             },
@@ -120,7 +118,7 @@ define([
         });
 
         const active = all.filter(resource => Boolean(resource.active));
-        // log.audit('***** Resources *****', all);
+        // log.audit('----- [Resources] -----', all);
 
         return {
           all,
@@ -191,7 +189,7 @@ define([
                 ignoreMandatoryFieds: true
               }
             }); 
-            log.audit('***** Added Event to Resource/Employee Record *****', resource.employee.value);
+            log.audit('----- [Added Event to Resource/Employee Record] -----', resource.employee.value);
           } catch (e) {
             log.error('Error on Resource/Employee > Add Events', { resource: resource.employee.value, errorMsg: e.message });
             resource.errorMsg = e.messasge;
@@ -234,7 +232,7 @@ define([
                 ignoreMandatoryFieds: true
               }
             }); 
-            log.audit('***** Updated Events of Resource/Employee Record *****', resource.employee.value);
+            log.audit('----- [Updated Events of Resource/Employee Record] -----', resource.employee.value);
           } catch (e) {
             log.error('Error on Resource/Employee > Update Events', { resource: resource.employee.value, errorMsg: e.message });
             resource.errorMsg = e.messasge;
@@ -273,7 +271,7 @@ define([
                 ignoreMandatoryFieds: true
               }
             }); 
-            log.audit('***** Removed Event from Employee Record *****', resource);
+            log.audit('----- [Removed Event from Employee Record] -----', resource);
           } catch (e) {
             log.error('Error on Resource/Employee > Remove Event', { resource, errorMsg: e.message });
             resource.errorMsg = e.messasge;
@@ -285,7 +283,6 @@ define([
     class WorkOrder {
 
       static getList() {
-        // return mockup.workOrders()
         const searchObj = search.create({
           type: 'customrecord_esp_fop_work_order',
           filters:
@@ -306,12 +303,6 @@ define([
             search.createColumn({ name: 'custrecord_esp_cfi_wo_project', label: 'Project' }),
             search.createColumn({ name: 'custrecord_esp_fop_wo_status', label: 'Status' }),
             search.createColumn({ name: 'custrecord_esp_cfi_wo_type', label: 'Work Order Type' }),
-            /* search.createColumn({ name: 'custrecord_esp_cfi_wo_location', label: 'Work Order Location' }),
-            search.createColumn({ name: 'internalid', join: 'CUSTRECORD_ESP_CFI_WO_LOCATION', label: 'Internal ID' }), 
-            search.createColumn({ name: 'name', join: 'CUSTRECORD_ESP_CFI_WO_LOCATION', label: 'Name' }), 
-            search.createColumn({ name: 'address1', join: 'CUSTRECORD_ESP_CFI_WO_LOCATION', label: 'Address 1' }), 
-            search.createColumn({ name: 'address2', join: 'CUSTRECORD_ESP_CFI_WO_LOCATION', label: 'Address 2' }), 
-            search.createColumn({ name: 'address3', join: 'CUSTRECORD_ESP_CFI_WO_LOCATION', label: 'Address 3' }), */
             search.createColumn({ name: 'custrecord_esp_cfi_wo_so', label: 'Related Sales Order' }),
             search.createColumn({ name: 'custrecord_esp_cfi_wo_customer', label: 'Customer' }),
             search.createColumn({ name: 'custrecord_esp_fop_wo_resource_group', label: 'Resource Group' }),
@@ -354,16 +345,6 @@ define([
               text: result.getText('custrecord_esp_cfi_wo_type'),
               value: result.getValue('custrecord_esp_cfi_wo_type')
             },
-            /* location: {
-              text: result.getText('custrecord_esp_cfi_wo_location'),
-              value: result.getValue('custrecord_esp_cfi_wo_location')
-            },
-            locationaddr: `${
-              (result.getValue({ name: 'address1', join: 'custrecord_esp_cfi_wo_location' }) || '', 
-               result.getValue({ name: 'address2', join: 'custrecord_esp_cfi_wo_location' }) || '', 
-               result.getValue({ name: 'address3', join: 'custrecord_esp_cfi_wo_location' }) || '').trim(),
-               result.getText('custrecord_esp_cfi_wo_location')
-            }`, */
             memo: result.getValue('custrecord_esp_cfi_wo_memo'),
             salesorder: {
               text: result.getText('custrecord_esp_cfi_wo_so'),
@@ -397,7 +378,7 @@ define([
           return true;
         });
 
-        // log.audit('***** Work Orders *****', workOrders);
+        // log.audit('----- [Work Orders] -----', workOrders);
         return workOrders;
       }
 
@@ -469,7 +450,7 @@ define([
           responseJson.message = `Unexpected Error: ${e.message}`;
         }
 
-        log.audit('***** Hold Work Order *****', { woId, responseJson });
+        log.audit('----- [Hold Work Order] -----', { woId, responseJson });
 
         response.write(JSON.stringify(responseJson));
       }
@@ -495,7 +476,7 @@ define([
           responseJson.message = `Unexpected Error: ${e.message}`;
         }
 
-        log.audit('***** Cancel Work Order *****', { woId, responseJson });
+        log.audit('----- [Cancel Work Order] -----', { woId, responseJson });
 
         response.write(JSON.stringify(responseJson));
       }
@@ -622,7 +603,7 @@ define([
           });
           return true;
         });
-        // log.audit('***** Work Order Items *****', items);
+        // log.audit('----- [Work Order Items] -----', items);
         return items;
       }
 
@@ -649,7 +630,7 @@ define([
                 ignoreMandatoryFieds: true
               }
             }); 
-            log.audit('***** Added Event to WO Item Record *****', item.id);
+            log.audit('----- [Added Event to WO Item Record] -----', item.id);
           } catch (e) {
             log.error('Error on WO Item > Add Events', { item: item.item, errorMsg: e.message });
             item.errorMsg = e.message;
@@ -692,7 +673,7 @@ define([
                 ignoreMandatoryFieds: true
               }
             });  
-            log.audit('***** Updated Events of WO Item Record *****', item.id);
+            log.audit('----- [Updated Events of WO Item Record] -----', item.id);
           } catch (e) {
             log.error('Error on WO Item > Update Events', { item: item.item, errorMsg: e.message });
             item.errorMsg = e.messasge;
@@ -731,7 +712,7 @@ define([
                 ignoreMandatoryFieds: true
               }
             }); 
-            log.audit('***** Removed Event from WO Item Record *****', item);
+            log.audit('----- [Removed Event from WO Item Record] -----', item);
           } catch (e) {
             log.error('Error on WO Item > Remove Event', { item: item, errorMsg: e.message });
             item.errorMsg = e.message;
@@ -792,7 +773,7 @@ define([
           });
           return true;
         });
-        // log.audit('***** Work Order Contacts *****', contacts.filter(contact => contact.workorder.value == 1));
+        // log.audit('----- [Work Order Contacts] -----', contacts.filter(contact => contact.workorder.value == 1));
         return contacts;
       }
 
@@ -819,7 +800,7 @@ define([
                 ignoreMandatoryFieds: true
               }
             }); 
-            log.audit('***** Added Event from WO Contact Record *****', contact.id);
+            log.audit('----- [Added Event from WO Contact Record] -----', contact.id);
           } catch (e) {
             log.error('Error on WO Contact > Add Events', { contact: contact.id, errorMsg: e.message });
             contact.errorMsg = e.message;
@@ -833,7 +814,7 @@ define([
           try {
             const lookUp = search.lookupFields({
               type: 'customrecord_esp_fop_wo_contact', 
-              id: item.id, 
+              id: contact.id, 
               columns: 'custrecord_esp_fop_wo_rel_event' 
             });
             const idToRemove = event.id;
@@ -854,7 +835,7 @@ define([
                 ignoreMandatoryFieds: true
               }
             });  
-            log.audit('***** Removed Event from WO Contact Record *****', contact);
+            log.audit('----- [Removed Event from WO Contact Record] -----', contact);
           } catch (e) {
             log.error('Error on WO Contact > Remove Event', { contact, errorMsg: e.message });
             contact.errorMsg = e.message;
@@ -910,7 +891,7 @@ define([
           });
           return true;
         });
-        // log.audit('***** Work Order Addresses *****', addresses);
+        // log.audit('----- [Work Order Addresses] -----', addresses);
         return addresses;
       }
 
@@ -937,7 +918,7 @@ define([
                 ignoreMandatoryFieds: true
               }
             }); 
-            log.audit('***** Added Event to WO Address Record *****', address);
+            log.audit('----- [Added Event to WO Address Record] -----', address);
           } catch (e) {
             log.error('Error on WO Address > Add Events', { address: address.address.text, errorMsg: e.message });
             address.errorMsg = e.message;
@@ -951,7 +932,7 @@ define([
           try {
             const lookUp = search.lookupFields({
               type: 'customrecord_esp_fop_wo_address', 
-              id: item.id, 
+              id: address.id, 
               columns: 'custrecord_esp_fop_wo_add_event' 
             });
             const idToRemove = event.id;
@@ -972,7 +953,7 @@ define([
                 ignoreMandatoryFieds: true
               }
             });  
-            log.audit('***** Removed Event from WO Address Record *****', address);
+            log.audit('----- [Removed Event from WO Address Record] -----', address);
           } catch (e) {
             log.error('Error on WO Address > Remove Event', { address, errorMsg: e.message });
             address.errorMsg = e.message;
@@ -989,9 +970,10 @@ define([
 
         const filters = [ 
           // ['organizer', 'anyof', '@CURRENT@']
+          ['response', 'is', 'ACCEPTED'] // To prevent duplicate results
         ];
         if (woIds.length) {
-          // filters.push('AND');
+          filters.push('AND');
           filters.push(['custevent_esp_fop_work_order', 'anyof', woIds]);
         }
         const events = [];
@@ -1028,10 +1010,6 @@ define([
               text: result.getText('custevent_esp_fop_work_order'),
               value: result.getValue('custevent_esp_fop_work_order')
             },
-            /* project: {
-              text: result.getText('custevent_cfi_fsl_project'),
-              value: result.getValue('custevent_cfi_fsl_project')
-            }, */
             location: result.getValue('location'),
             status: {
               text: result.getText('status'),
@@ -1111,7 +1089,7 @@ define([
           });
           return true;
        });
-      //  log.audit('***** Work Order Events *****', events);
+      //  log.audit('----- [Work Order Events] -----', events);
        return events;
       }
 
@@ -1165,10 +1143,6 @@ define([
               } 
             }
           }
-
-          // Utils.createLogFile(`logEvent()`, JSON.stringify(events.find(event => event.id == 100792) || {}), 2199);
-          // Utils.createLogFile(`items()`, JSON.stringify(items.find(item => item.workorder.value == 1) || {}), 2199);
-          // Utils.createLogFile(`contacts()`, JSON.stringify(contacts.find(contact => Boolean(contact.events.includes('100792'))) || {}), 2199);
         }
       }
 
@@ -1178,7 +1152,7 @@ define([
         let reqBody = request.body || '{}';
         const payload = JSON.parse(reqBody);
 
-        log.audit('***** Create Work Order Event *****', { payload });
+        log.audit('----- [Create Work Order Event] -----', { payload });
         
         const { eventData, woRef } = payload;
 
@@ -1190,14 +1164,11 @@ define([
 
           const fieldToSet = {};
           fieldToSet.title = eventData.title;
-          // fieldToSet.custevent_cfi_fsl_project = woRef?.project?.value || '';
-          // fieldToSet.alldayevent = eventData.allDay;
           fieldToSet.custevent_esp_fop_work_order = woRef?.id || '';
           fieldToSet.organizer = user.id;
           fieldToSet.status = eventData.status;
           fieldToSet.accesslevel = 'BUSY';
           fieldToSet.startdate = new Date(eventData.date.start);
-          // fieldToSet.endbydate = new Date(eventData.date.end);
           fieldToSet.starttime = Utils._toDateTimez(eventData.date.start, eventData.time.start);
           fieldToSet.endtime = Utils._toDateTimez(eventData.date.start, eventData.time.end);
           fieldToSet.custevent_esp_fop_event_priority = eventData.priority;
@@ -1206,7 +1177,6 @@ define([
           fieldToSet.custevent_esp_fop_event_address = eventData.selectedAddress.id;
 
           const numberOfDays = moment(eventData.date.end).diff(moment(eventData.date.start), 'days') + 1;
-          // log.audit('Number of Days', numberOfDays);
 
           if (numberOfDays > 1) {
             fieldToSet.frequency = 'DAY';
@@ -1230,7 +1200,7 @@ define([
           }
 
           eventData.id = rec.save({ ignoreMandatoryFieds: true });
-          log.audit('***** Created Event Record *****', { recordId: eventData.id });
+          log.audit('----- [Created Event Record] -----', { recordId: eventData.id });
 
           WorkOrderResource._addEventToListValues(eventData);
           WorkOrderItem._addEventToListValues(eventData);
@@ -1260,8 +1230,8 @@ define([
         const payload = JSON.parse(reqBody);
         const { eventDataSrc, eventData } = payload;
 
-        log.audit('***** Update Work Order Event *****', { payload });
-        Utils.createLogFile(`updateEventRecord()`, JSON.stringify(payload), 2199);
+        log.audit('----- [Update Work Order Event] -----', { payload });
+        // Utils.createLogFile(`updateEventRecord()`, JSON.stringify(payload), 2199);
 
         try {
           eventData.date.start = moment(eventData.date.start).format(IMPORT_DATE_FORMAT);
@@ -1373,9 +1343,9 @@ define([
               log.debug('Setting field ' + key, fieldToSet[key]);
             }
             rec.save({ ignoreMandatoryFieds: true });
-            log.audit('***** Updated Event Record *****', { recordId: eventData.id });
+            log.audit('----- [Updated Event Record] -----', { recordId: eventData.id });
           } else {
-            log.audit('***** Update Event Record not needed! *****', { recordId: eventData.id });
+            log.audit('----- [Update Event Record not needed!] -----', { recordId: eventData.id });
           }
           
           if (eventData.selectedResources) {
@@ -1461,7 +1431,7 @@ define([
             }
           }
         }
-        log.debug('***** Punch List *****', punchList);
+        log.debug('----- [Punch List] -----', punchList);
         return response.write(JSON.stringify(punchList));
       }
 
@@ -1473,7 +1443,7 @@ define([
         const eventId = eventDataSrc.id;
         const soId = eventDataSrc.woRef?.salesorder?.value;
 
-        log.audit('***** Complete Event *****', { timeSheets, fulfillItems });
+        log.audit('----- [Complete Event] -----', { timeSheets, fulfillItems });
 
         try {
           Event._createTimeTracking(eventDataSrc, timeSheets);
@@ -1529,7 +1499,7 @@ define([
         timeSheets = timeSheets.filter(timeSheet => Boolean(timeSheet.location)); // Location is mandatory in the event record timetracking sublist
 
         if (timeSheets.length) {
-          log.audit('***** Creating Timesheets *****', timeSheets);
+          log.audit('----- [Creating Timesheets] -----', timeSheets);
 
           const rec = record.load({
             type: record.Type.CALENDAR_EVENT,
@@ -1581,7 +1551,7 @@ define([
       }
 
       static _fulfillOrderItems(soId, items) {
-        log.audit('***** Fulfill Order Items *****', { soId, items });
+        log.audit('----- [Fulfill Order Items] -----', { soId, items });
         
         if (soId) {
           const rec = record.transform({
@@ -1631,6 +1601,27 @@ define([
           WorkOrderItem._removeEventFromListValues(eventData);
           WorkOrderContact._removeEventFromListValues(eventData);
           WorkOrderAddress._removeEventFromListValues(eventData);
+
+          // Remove timetracking lines
+          const rec = record.load({
+            type: record.Type.CALENDAR_EVENT,
+            id: eventId,
+            isDynamic: true
+          });
+          const lineCount = rec.getLineCount({ sublistId: 'timeitem' });
+          for (let i = lineCount - 1; i >= 0; i--) {
+            rec.removeLine({
+              sublistId: 'timeitem',
+              line: i
+            });
+          }
+          rec.setValue({ fieldId: 'custevent_esp_fop_event_contact', value: '' })
+          rec.setValue({ fieldId: 'custevent_esp_fop_event_address', value: '' })
+          rec.setValue({ fieldId: 'custevent_esp_fop_sales_order', value: '' })
+
+          rec.save({
+            ignoreMandatoryFieds: true
+          });
 
           record.delete({
             type: record.Type.CALENDAR_EVENT,
@@ -1744,7 +1735,7 @@ define([
           generalEventForm: file.load('./src (To Be Removed)/components/generalEventForm.html'),
           completeEventForm: file.load('./src (To Be Removed)/components/completeEventForm.html')
         };
-        log.audit('***** Load File *****', fileObj);
+        log.audit('----- [Load File] -----', fileObj);
         return fileObj;
       }
 

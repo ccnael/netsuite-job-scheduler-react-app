@@ -22,7 +22,7 @@ define([
       const { parameters: params, method } = request;
       const script = runtime.getCurrentScript();
       const mode = params?.mode;
-      log.audit('***** START *****', { mode });
+      log.audit('----- [START] -----', { mode });
 
       if (method == 'GET') {
         switch (mode) {
@@ -67,7 +67,7 @@ define([
         }
       }
 
-      log.audit('***** END *****', { remainingUsage: script.getRemainingUsage() });
+      log.audit('----- [END] -----', { remainingUsage: script.getRemainingUsage() });
     }
 
     function runApp(context) {
