@@ -167,7 +167,7 @@ define([
 
       // Link newly created event to the employee resources
       static _addEventToListValues(event) {
-        const resources = event.selectedResources;
+        const resources = event?.selectedResources || [];
         for (let resource of resources) {
           try {
             const lookUp = search.lookupFields({
@@ -608,7 +608,7 @@ define([
       }
 
       static _addEventToListValues(event) {
-        const items = event.selectedItems;
+        const items = event?.selectedItems || [];
         for (let item of items) {
           try {
             const lookUp = search.lookupFields({
@@ -778,7 +778,7 @@ define([
       }
 
       static _addEventToListValues(event) {
-        const contacts = event.contacts;
+        const contacts = event?.contacts || [];
         for (let contact of contacts) {
           try {
             const lookUp = search.lookupFields({
@@ -896,7 +896,7 @@ define([
       }
 
       static _addEventToListValues(event) {
-        const addresses = event.addresses;
+        const addresses = event?.addresses || [];
         for (let address of addresses) {
           try {
             const lookUp = search.lookupFields({
@@ -1086,7 +1086,10 @@ define([
               text: result.getText('custevent_esp_fop_event_address'),
               value: result.getValue('custevent_esp_fop_event_address')
             },
-            organizer: result.getValue('organizer')
+            organizer: {
+              text: result.getText('organizer'),
+              value: result.getValue('organizer')
+            }
           });
           return true;
        });

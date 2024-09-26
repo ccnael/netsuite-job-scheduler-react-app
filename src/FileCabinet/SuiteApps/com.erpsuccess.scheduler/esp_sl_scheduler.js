@@ -83,11 +83,17 @@ define([
       const contacts = mod.WorkOrderContact.getList(workOrders);
       const addresses = mod.WorkOrderAddress.getList(workOrders);
       const events = mod.Event.getList(workOrders); // Includes standalone/general events
+      let organizers = events.map(event => event.organizer);
+      organizers = organizers.filter((item, index, self) =>
+        index === self.findIndex((t) => (
+            t.text === item.text && t.value === item.value
+        ))
+      );
 
       mod.WorkOrder.fullMap(workOrders, events, items, contacts, addresses);
       mod.Event.fullMap(workOrders, events, resources, items, contacts, addresses);
 
-      mod.Utils.createLogFile('mockupDataSet', JSON.stringify({ suiteletUrl, workOrders, customers, resources, resourceGroups, events, contacts, addresses }), 2199);
+      mod.Utils.createLogFile('mockupDataSet', JSON.stringify({ suiteletUrl, workOrders, customers, resources, resourceGroups, events, contacts, addresses, organizers }), 2199);
 
       const fileObj = {
         template: file.load('./vanilla-vite-app-bundle/index.html'),
@@ -105,7 +111,8 @@ define([
         .replace('{{customers}}', encodeURIComponent(JSON.stringify(customers)))
         .replace('{{resources}}', encodeURIComponent(JSON.stringify(resources)))
         .replace('{{resourceGroups}}', encodeURIComponent(JSON.stringify(resourceGroups)))
-        .replace('{{events}}', encodeURIComponent(JSON.stringify(events)));
+        .replace('{{events}}', encodeURIComponent(JSON.stringify(events)))
+        .replace('{{organizers}}', encodeURIComponent(JSON.stringify(organizers)));
 
       response.write(htmlStr);
     }
