@@ -1085,7 +1085,8 @@ define([
             address: { // Selected address
               text: result.getText('custevent_esp_fop_event_address'),
               value: result.getValue('custevent_esp_fop_event_address')
-            }
+            },
+            organizer: result.getValue('organizer')
           });
           return true;
        });
