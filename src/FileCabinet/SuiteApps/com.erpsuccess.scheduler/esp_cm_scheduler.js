@@ -785,7 +785,7 @@ define([
             jobTitle: result.getValue('custrecord_esp_fop_wo_contact_jobtitle'),
             mobilePhone: result.getValue('custrecord_esp_fop_wo_mobile_no'),
             phone: result.getValue('custrecord_esp_fop_wo_phone_number'),
-            primary: Boolean((result.getText('custrecord_esp_fop_wo_contact_role') || '').match(/primary contact/gi)) ? 'checked' : '',
+            primary: Boolean((result.getText('custrecord_esp_fop_wo_contact_role') || '').match(/primary contact/gi)),
             get url() {
               return Url.contact(this.contact.value)
             }
@@ -1273,7 +1273,7 @@ define([
             type: record.Type.CALENDAR_EVENT, 
             id: eventData.id 
           });
-          const dataSrc = {
+          const _rec = {
             title: rec.getValue('title'),
             date: {
               start: rec.getText('startdate'),
@@ -1298,18 +1298,18 @@ define([
 
           const fieldToSet = {};
 
-          log.audit('Field To Set > title field', { current: dataSrc.title, new : eventData.title, toSet: (dataSrc.title != eventData.title) });
-          if (dataSrc.title != eventData.title) {
+          log.audit('Field To Set > title field', { current: _rec.title, new : eventData.title, toSet: (_rec.title != eventData.title) });
+          if (_rec.title != eventData.title) {
             fieldToSet.title = eventData.title;
           }
 
-          log.audit('Field To Set > datestart field', { current: dataSrc.date.start, new : eventData.date.start, toSet: (dataSrc.date.start != eventData.date.start) });
-          if (dataSrc.date.start != eventData.date.start) {
+          log.audit('Field To Set > datestart field', { current: _rec.date.start, new : eventData.date.start, toSet: (_rec.date.start != eventData.date.start) });
+          if (_rec.date.start != eventData.date.start) {
             fieldToSet.startdate = new Date(eventData.date.start);
           }
 
-          log.audit('Field To Set > endbydate field', { current: dataSrc.date.end, new : eventData.date.end, toSet: (dataSrc.date.end != eventData.date.end) });
-          if (dataSrc.date.end != eventData.date.end) {
+          log.audit('Field To Set > endbydate field', { current: _rec.date.end, new : eventData.date.end, toSet: (_rec.date.end != eventData.date.end) });
+          if (_rec.date.end != eventData.date.end) {
             const numberOfDays = moment(eventData.date.end).diff(moment(eventData.date.start), 'days') + 1;
 
             if (numberOfDays > 1) {
@@ -1319,43 +1319,50 @@ define([
             fieldToSet.endbydate = new Date(eventData.date.end);
           }
 
-          log.audit('Field To Set > starttime field', { current: dataSrc.time.start, new : eventData.time.start, toSet: (dataSrc.time.start != eventData.time.start) });
-          if (dataSrc.time.start != eventData.time.start) {
+          log.audit('Field To Set > starttime field', { current: _rec.time.start, new : eventData.time.start, toSet: (_rec.time.start != eventData.time.start) });
+          if (_rec.time.start != eventData.time.start) {
             fieldToSet.starttime = Utils._toDateTimez(eventData.date.start, eventData.time.start);
           }
 
-          log.audit('Field To Set > endtime field', { current: dataSrc.time.end, new : eventData.time.end, toSet: (dataSrc.time.end != eventData.time.end) });
-          if (dataSrc.time.end != eventData.time.end) {
+          log.audit('Field To Set > endtime field', { current: _rec.time.end, new : eventData.time.end, toSet: (_rec.time.end != eventData.time.end) });
+          if (_rec.time.end != eventData.time.end) {
             fieldToSet.endtime = Utils._toDateTimez(eventData.date.end, eventData.time.end);
           }
 
-          log.audit('Field To Set > note field', { current: dataSrc.note, new : eventData.note, toSet: (dataSrc.note != eventData.note) });
-          if (dataSrc.note != eventData.note) {
+          log.audit('Field To Set > note field', { current: _rec.note, new : eventData.note, toSet: (_rec.note != eventData.note) });
+          if (_rec.note != eventData.note) {
             fieldToSet.custevent_esp_fop_memo = eventData.note;
           }
 
-          if (eventData?.priority?.value) {
-            log.audit('Field To Set > priority field', { current: dataSrc.priority, new : eventData.priority.value, toSet: (dataSrc.priority != eventData.priority.value) });
-            if (dataSrc.priority != eventData.priority.value) {
-              fieldToSet.custevent_esp_fop_event_priority = eventData.priority.value;
+          if (eventData.priority) {
+            log.audit('Field To Set > priority field', { current: _rec.priority, new : eventData.priority, toSet: (_rec.priority != eventData.priority) });
+            if (_rec.priority != eventData.priority) {
+              fieldToSet.custevent_esp_fop_event_priority = eventData.priority;
+            }
+          }
+
+          if (eventData.status) {
+            log.audit('Field To Set > status field', { current: _rec.status, new : eventData.status, toSet: (_rec.status != eventData.status) });
+            if (_rec.status != eventData.status) {
+              fieldToSet.status = eventData.status;
             }
           }
 
           if (eventData.selectedContact) {
-            log.audit('Field To Set > selected contact field', { current: dataSrc.contact.id, new : eventData.selectedContact.id, toSet: (eventData.selectedContact.id != dataSrc.contact.id) });
-            if (eventData.selectedContact.id != dataSrc.contact.id) {
+            log.audit('Field To Set > selected contact field', { current: _rec.contact.id, new : eventData.selectedContact.id, toSet: (eventData.selectedContact.id != _rec.contact.id) });
+            if (eventData.selectedContact.id != _rec.contact.id) {
               fieldToSet.custevent_esp_fop_event_contact = eventData.selectedContact.id;
             }
           }
 
           if (eventData.selectedAddress) {
-            log.audit('Field To Set > selected address field', { current: dataSrc.address.id, new : eventData.selectedAddress.id, toSet: (eventData.selectedAddress.id != dataSrc.address.id) });
-            if (eventData.selectedAddress.id != dataSrc.address.id) {
+            log.audit('Field To Set > selected address field', { current: _rec.address.id, new : eventData.selectedAddress.id, toSet: (eventData.selectedAddress.id != _rec.address.id) });
+            if (eventData.selectedAddress.id != _rec.address.id) {
               fieldToSet.custevent_esp_fop_event_address = eventData.selectedAddress.id;
             } 
           }
 
-          log.audit('Fields to update', { dataSrc, fieldToSet });
+          log.audit('Fields to update', { _rec, fieldToSet });
 
           if (Object.keys(fieldToSet).length) {
             for (const key in fieldToSet) {
@@ -1613,6 +1620,7 @@ define([
       static deleteEventRecord(context) {
         const { request, response } = context;
         const { parameters: params } = request;
+        let reqBody = request.body || '{}';
         const eventId = params.id;
 
         try {
