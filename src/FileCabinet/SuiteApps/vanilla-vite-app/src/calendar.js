@@ -520,6 +520,8 @@ export default class Calendar {
     const endSplit = moment(info.event.endStr).format('YYYY-MM-DDTHH:mm').split('T');
     payload.eventData.date.end = endSplit[0];
     payload.eventData.time.end = endSplit[1];
+    payload.eventData.priority = payload.eventData.priority.value;
+    payload.eventData.status = payload.eventData.status.value;
 
     if (info.action == 'eventDrop') {
       const calEvents = window.FullCalendar.getEvents();
