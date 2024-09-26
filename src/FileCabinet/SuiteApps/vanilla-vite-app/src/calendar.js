@@ -206,7 +206,7 @@ export default class Calendar {
       slotLabelInterval: '04:00',
       resourceAreaHeaderContent: arg => {
         return {
-          html: `<div style="padding: 10px; width: 100%">
+          html: `<div style="padding: 10px; width: 100%" id="main-resource-header">
             <i class="fa-solid fa-icon-size fa-users-gear" style="font-size: 14px; margin-right: 5px"></i>
             <span style="display: inline-block;"><h5><strong>Resources</strong></h5></span>
             <span class="badge badge-danger badge-pill counter">${resources.all.length}</span>
@@ -363,7 +363,7 @@ export default class Calendar {
     resizer.addEventListener('mousedown', mouseDownHandler);
 
     initAvailableJobsFilters('#calendarSection #collapseRight', workOrders);
-    initCalendarFilters();
+    initCalendarFilters(resources, resourceGroups);
 
     this._updateEventCounter();
   }
@@ -451,7 +451,7 @@ export default class Calendar {
       </div>`).insertAfter('.fc-header-toolbar');
 
       if (!$('#eventsViewCounter').length) {
-        $('.fc-toolbar-title').append('<h6><span class="badge badge-danger badge-pill counter" style="display: inline-block" id="eventsViewCounter">TBD</span></h6>');
+        // $('.fc-toolbar-title').append('<h6><span class="badge badge-danger badge-pill counter" style="display: inline-block" id="eventsViewCounter">TBD</span></h6>');
       }
 
       this._updateEventCounter();
@@ -564,6 +564,6 @@ export default class Calendar {
   }
 
   static _removeToolTip() {
-    this._removeToolTip();
+    $('.tooltip').remove();
   }
 }

@@ -261,13 +261,22 @@ $(document).ready(() => {
       const woId = $('#eventModal').attr('woId');
       const eventId = $('#eventModal').attr('eventId');
       let prefillData = $('#eventModal').attr('prefillData');
-      let woRef, eventData, modalTitle, eventTitle, activeResources;
+      let woRef, eventData, modalTitle, eventTitle;
+      const dtLine = {
+        resources: [],
+        items: [],
+        contacts: [],
+        addresses: []
+      };
   
       if (mode == 'create') {
         modalTitle = 'Create New Event';
         woRef = workOrders.find(wo => wo.id == woId);
         eventTitle = woRef?.title;
-        activeResources = resources.all;
+        dtLine.resources = resources.all;
+        dtLine.items = woRef.items;
+        dtLine.contacts = woRef.contacts;
+        dtLine.addresses = woRef.addresses;
 
         if (prefillData) {
           prefillData = JSON.parse(decodeURIComponent(prefillData));
@@ -283,10 +292,25 @@ $(document).ready(() => {
         eventData = events.find(event => event.id == eventId);
         woRef = eventData.woRef;
         eventTitle = eventData?.title;
-        activeResources = JSON.parse(JSON.stringify(resources.all));
-        activeResources = activeResources.map(activeResource => {
-          activeResource.selected = Boolean(eventData.resources.find(resource => activeResource.employee.value == resource.employee.value));
-          return activeResource;
+        dtLine.resources = JSON.parse(JSON.stringify(resources.all));
+        dtLine.resources = dtLine.resources.map(allResource => {
+          allResource.selected = Boolean(eventData.resources.find(resource => resource.employee.value == allResource.employee.value));
+          return allResource;
+        });
+        dtLine.items = JSON.parse(JSON.stringify(woRef.items));
+        dtLine.items = dtLine.items.map(woItem => {
+          woItem.selected = Boolean(eventData.items.find(item => item.id == woItem.id));
+          return woItem;
+        });
+        dtLine.contacts = JSON.parse(JSON.stringify(woRef.contacts));
+        dtLine.contacts = dtLine.contacts.map(woContact => {
+          woContact.selected = woContact.id == eventData.contact.value;
+          return woContact;
+        });
+        dtLine.addresses = JSON.parse(JSON.stringify(woRef.addresses));
+        dtLine.addresses = dtLine.addresses.map(woAddress => {
+          woAddress.selected = woAddress.id == eventData.address.value;
+          return woAddress;
         });
       }
   
@@ -323,7 +347,7 @@ $(document).ready(() => {
         retrieve: true,
         ajax(_data, callback, _settings) {
           callback({
-            data: activeResources
+            data: dtLine.resources
           })
         },
         columns: woResourcesDtColumns,
@@ -337,7 +361,7 @@ $(document).ready(() => {
         retrieve: true,
         ajax(_data, callback, _settings) {
           callback({
-            data: (mode == 'create') ? woRef.items : eventData?.items || []
+            data: dtLine.items
           })
         },
         columns: woItemsDtColumns,
@@ -354,7 +378,7 @@ $(document).ready(() => {
         info: false,
         ajax(_data, callback, _settings) {
           callback({
-            data: (mode == 'create') ? woRef.contacts : eventData?.contacts || []
+            data: dtLine.contacts
           })
         },
         columns: woContactsDtColumns
@@ -368,7 +392,7 @@ $(document).ready(() => {
         info: false,
         ajax(_data, callback, _settings) {
           callback({
-            data: (mode == 'create') ? woRef.addresses : eventData?.addresses || []
+            data: dtLine.addresses
           })
         },
         columns: woAddressesDtColumns

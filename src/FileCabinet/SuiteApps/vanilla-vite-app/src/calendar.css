@@ -39,7 +39,6 @@
 }
 #calendarSection #calendar .fc-event:hover {
   cursor: pointer;
-  transform: scale(1.0123);
   transition: transform 0.3s, background-color 0.3s;
 }
 #calendarSection #calendar .fc-event-drag {

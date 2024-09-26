@@ -282,7 +282,7 @@ export function initEventFilters(sectionId, events) {
   }
 }
 
-export function initCalendarFilters() {
+export function initCalendarFilters(resources, resourceGroups) {
   const sectionId = '#calendar-filters';
   const $dateFromFilter = $(`${sectionId} input#calendar-event-datefrom`);
   const $dateToFilter = $(`${sectionId} input#calendar-event-dateto`);
@@ -343,6 +343,8 @@ export function initCalendarFilters() {
 
   function filterItems() {
     const calendarEvents = FullCalendar.getEvents();
+    const displayedEventIds = [];
+    let eventsResourceIds = [];
     for (const event of calendarEvents) {
       // console.log('Filter Event', event);
       const eventId = event.id;
@@ -380,12 +382,81 @@ export function initCalendarFilters() {
           (!$selected.resourceGroups.length || $selected.resourceGroups.some(value => new Set(eventResourceGroups).has(value))) && // Check if the selected resource groups is in the event resource groups
           (!$selected.status.length || $selected.status.includes(eventStatus)) && 
           (!$selected.priority.length || $selected.priority.includes(eventPriority))
-        ); 
+        );
 
-        event.setProp('display', shouldDisplay ? 'block' : 'none');
+        event.setProp('display', shouldDisplay ? '' : 'none');
+
+        if (shouldDisplay) {
+          displayedEventIds.push(eventId);
+          const resourceIds = eventData.resources.map(resource => resource.employee.value);
+          eventsResourceIds = [...eventsResourceIds, ...resourceIds];
+        }
       }
+    } 
+
+    const resourceGroupMap = {};
+    resourceGroups.forEach(resourceGroup => {
+      resourceGroupMap[resourceGroup.value] = [];
+    });
+
+    // Resources display
+    $('div.fc-scroller-harness tbody tr[role*="row"]').each(function() {
+      const rowId = $(this).find('td.fc-resource').attr('data-resource-id');
+
+      const isResourceGroup = Boolean(resourceGroups.find(resourceGroup => resourceGroup.value == rowId));
+      if (!isResourceGroup) {
+        let shouldDisplay = Boolean(eventsResourceIds.includes(rowId));
+
+        if (!$selected.resources.length && !$selected.resourceGroups.length && !$selected.status.length && !$selected.priority.length && !$selected.dateFrom && !$selected.dateTo) {
+          shouldDisplay = true;
+        }
+        
+        if (shouldDisplay) {
+          $(this).css('display', '');
+          $(this).find('div.fc-datagrid-cell-frame').css('height', '34px');
+          
+          const _resource = resources.all.find(resource => resource.employee.value == rowId);
+          if (_resource) {
+            if (resourceGroupMap[_resource.resourceGroup.value]) {
+              resourceGroupMap[_resource.resourceGroup.value].push(rowId);
+            }
+          }
+        } else {
+          $(this).css('display', 'none');
+        }
+      }
+    });
+
+    // Resource groups counter
+    $('div.fc-scroller-harness tbody tr[role*="row"]').each(function() {
+      const rowId = $(this).find('td.fc-resource').attr('data-resource-id');
+      const isResourceGroup = Boolean(resourceGroups.find(resourceGroup => resourceGroup.value == rowId));
+      if (isResourceGroup) {
+       const counter = $(this).find('span.counter').text();
+       if (counter) {
+        $(this).find('span.counter').text(resourceGroupMap[rowId].length);
+       }
+      }
+    });
+
+    setTimeout(() => {
+      window.FullCalendar.updateSize();
+    }, 250);
+
+    updateHeaderCount();
+    
+    // Update header column counter
+    function updateHeaderCount() {
+      let total = 0;
+      resourceGroups.forEach(resourceGroup => {
+        total += resourceGroupMap[resourceGroup.value].length;
+      })
+      $(`div#main-resource-header span.counter`).html(total);
+
+      // Reset
+      resourceGroups.forEach(resourceGroup => {
+        resourceGroupMap[resourceGroup.value] = [];
+      });
     }
-    /* a = FullCalendar.getEvents().findIndex(event => event.id == 100813)
-    FullCalendar.getEvents()[a].setProp('display', 'none') */
   }
 }

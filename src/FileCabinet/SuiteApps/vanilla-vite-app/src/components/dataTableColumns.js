@@ -76,7 +76,7 @@ export const woContactsDtColumns = [
     className: 'dt-head-center dr-body-center',
     title: ``,
     render: (_data, _type, row, _meta) => `<div class="form-group form-check container d-flex justify-content-center">
-        <input recordId="${row.id}" type="radio" class="form-check-input dt-line-select" style="left: 30px" name='woContact' ${row.primary}>
+        <input recordId="${row.id}" type="radio" class="form-check-input dt-line-select" style="left: 30px" name='woContact' ${row.selected?'checked':''}>
       </div>
       `,
     width: "5%",
@@ -113,7 +113,7 @@ export const woAddressesDtColumns = [{
     className: 'dt-head-center dr-body-center',
     title: ``,
     render: (_data, _type, row, _meta) => `<div class="form-group form-check container d-flex justify-content-center">
-         <input recordId="${row.id}" type="radio" class="form-check-input dt-line-select" style="left: 30px" name='woAddress' checked>
+         <input recordId="${row.id}" type="radio" class="form-check-input dt-line-select" style="left: 30px" name='woAddress' ${row.selected?'checked':''}>
       </div>
       `,
     width: "5%",
