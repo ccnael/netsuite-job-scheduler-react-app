@@ -133,7 +133,7 @@ $(document).ready(() => {
 
     $('#completeEventModal').attr('woId', woId);
     $('#completeEventModal').attr('eventDataSrc', encodeURIComponent(JSON.stringify(eventData))); // Data from NS
-
+    $('#completeEventModalLabel').text(`Complete Event [ID ${eventData.id}]`);
     $('#completeEventModal .eventTitle p').html(`<a href="${eventData.url}" target="_blank">${eventData.title}</a>`); 
     $('#completeEventModal .title p').html(`<a href="${woRef.woUrl}" target="_blank">${woRef.title}</a>`);
     $('#completeEventModal .project p').html(`<a href="${woRef.projectUrl}" target="_blank">${woRef.project.text}</a>`);
@@ -244,7 +244,7 @@ $(document).ready(() => {
     if (unresolvedPunchCount) {
       Swal.fire(
         'Unable to Proceed',
-        `There are ${unresolvedPunchCount} Remaining Unresolved Punch Item(s)`,
+        `There are remaining Unresolved Punch Item(s)`,
         'error'
       );
       return;

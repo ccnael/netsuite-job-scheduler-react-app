@@ -489,7 +489,7 @@ export default class Calendar {
   }
 
   static _prefillAddEvent(info) {
-    // this._removeToolTip();
+    this._removeToolTip();
 
     const data = {};
     data.date = {};

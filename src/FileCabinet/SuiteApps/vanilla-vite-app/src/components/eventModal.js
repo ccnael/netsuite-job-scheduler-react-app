@@ -270,13 +270,21 @@ $(document).ready(() => {
       };
   
       if (mode == 'create') {
-        modalTitle = 'Create New Event';
+        modalTitle = `Create New Event [ID ${woId}]`;
         woRef = workOrders.find(wo => wo.id == woId);
         eventTitle = woRef?.title;
         dtLine.resources = resources.all;
         dtLine.items = woRef.items;
-        dtLine.contacts = woRef.contacts;
-        dtLine.addresses = woRef.addresses;
+        dtLine.contacts = JSON.parse(JSON.stringify(woRef.contacts));
+        dtLine.contacts = dtLine.contacts.map(woContact => {
+          woContact.selected = woContact.primary
+          return woContact;
+        });
+        dtLine.addresses = JSON.parse(JSON.stringify(woRef.addresses));
+        dtLine.addresses = dtLine.addresses.map(woAddress => {
+          woAddress.selected = Boolean(dtLine.addresses.length == 1);
+          return woAddress;
+        });
 
         if (prefillData) {
           prefillData = JSON.parse(decodeURIComponent(prefillData));
@@ -288,7 +296,7 @@ $(document).ready(() => {
       }
       // Find Event Data to update from Work Orders
       else if (mode == 'edit') {
-        modalTitle = 'Update Event Details';
+        modalTitle = `Update Event Details [ID ${eventId}]`;
         eventData = events.find(event => event.id == eventId);
         woRef = eventData.woRef;
         eventTitle = eventData?.title;
