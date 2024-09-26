@@ -166,6 +166,7 @@ $background-color_19: #f0f0f0;
 		justify-content: center;
 	}
 	.card-item {
+		margin-top: 10px;
 		background-color: $background-color_2;
 		padding: 5px;
 		border-radius: 8px;
@@ -233,8 +234,9 @@ $background-color_19: #f0f0f0;
 			width: auto;
 		}
 	}
-
 	#calendar-event-datefrom, #calendar-event-dateto {
-		margin-top: -15px;
+		margin-top: -10px;
+		margin-bottom: 15px;
 	}
+
 }

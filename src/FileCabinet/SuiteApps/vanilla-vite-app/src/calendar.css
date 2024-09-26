@@ -131,6 +131,7 @@
   justify-content: center;
 }
 #calendarSection .card-item {
+  margin-top: 10px;
   background-color: #ffffff;
   padding: 5px;
   border-radius: 8px;
@@ -195,5 +196,6 @@
   width: auto;
 }
 #calendarSection #calendar-event-datefrom, #calendarSection #calendar-event-dateto {
-  margin-top: -15px;
+  margin-top: -10px;
+  margin-bottom: 15px;
 }/*# sourceMappingURL=calendar.css.map */

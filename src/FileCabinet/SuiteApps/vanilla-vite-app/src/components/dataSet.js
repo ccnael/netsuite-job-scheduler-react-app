@@ -8,5 +8,6 @@ export const customers = !DEV_MODE ? JSON.parse(decodeURIComponent($('#customers
 export const resources = !DEV_MODE ? JSON.parse(decodeURIComponent($('#resources').val())) : mockup.resources;
 export const resourceGroups = !DEV_MODE ? JSON.parse(decodeURIComponent($('#resourceGroups').val())) : mockup.resourceGroups;
 export const events = !DEV_MODE ? JSON.parse(decodeURIComponent($('#events').val())) : mockup.events;
+export const organizers = !DEV_MODE ? JSON.parse(decodeURIComponent($('#organizers').val())) : mockup.organizers;
 
 // Fetch promise?

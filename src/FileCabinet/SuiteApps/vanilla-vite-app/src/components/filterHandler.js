@@ -176,13 +176,15 @@ export function initEventFilters(sectionId, events) {
   const $resourceGroupFilter = $(`${sectionId} .thirdColumn select.multiple-resource-group-field`);
   const $statusFilter = $(`${sectionId} .thirdColumn select.multiple-event-status-field`);
   const $priorityFilter = $(`${sectionId} .thirdColumn select.multiple-event-priority-field`);
+  const $organizerFilter = $(`${sectionId} .thirdColumn select.multiple-event-organizer-field`);
   const $selected = {
     dateFrom: '',
     dateTo: '',
     resources: [],
     resourceGroups: [],
     status: [],
-    priority: []
+    priority: [],
+    organizer: []
   };
 
   if ($dateFromFilter.length) {
@@ -227,6 +229,13 @@ export function initEventFilters(sectionId, events) {
     });
   }
 
+  if ($organizerFilter.length) {
+    $organizerFilter.on('change', function() {
+      $selected.organizer = $(this).val() || [];
+      filterItems();
+    });
+  }
+
   function filterItems() {
     $items.each(function() {
       const $el = $(this);
@@ -239,6 +248,7 @@ export function initEventFilters(sectionId, events) {
         const eventResourceGroups = eventData.resources.map(resource => resource.resourceGroup.value);
         const eventStatus = eventData.status.value;
         const eventPriority = eventData.priority.value;
+        const eventOrganizer = eventData.organizer.value;
   
         let withinRange = false;
         if (date) {
@@ -264,7 +274,8 @@ export function initEventFilters(sectionId, events) {
           (!$selected.resources.length || $selected.resources.some(value => new Set(eventResources).has(value))) && // Check if the selected resources is in the event resources
           (!$selected.resourceGroups.length || $selected.resourceGroups.some(value => new Set(eventResourceGroups).has(value))) && // Check if the selected resource groups is in the event resource groups
           (!$selected.status.length || $selected.status.includes(eventStatus)) && 
-          (!$selected.priority.length || $selected.priority.includes(eventPriority))
+          (!$selected.priority.length || $selected.priority.includes(eventPriority)) &&
+          (!$selected.organizer.length || $selected.organizer.includes(eventOrganizer))
         ); 
 
         $el.toggle(shouldDisplay);
@@ -290,13 +301,15 @@ export function initCalendarFilters(resources, resourceGroups) {
   const $resourceGroupFilter = $(`${sectionId} select.multiple-resource-group-field`);
   const $statusFilter = $(`${sectionId} select.multiple-event-status-field`);
   const $priorityFilter = $(`${sectionId} select.multiple-event-priority-field`);
+  const $organizerFilter = $(`${sectionId} select.multiple-event-organizer-field`);
   const $selected = {
     dateFrom: '',
     dateTo: '',
     resources: [],
     resourceGroups: [],
     status: [],
-    priority: []
+    priority: [],
+    organizer: []
   };
 
   if ($dateFromFilter.length) {
@@ -341,6 +354,13 @@ export function initCalendarFilters(resources, resourceGroups) {
     });
   }
 
+  if ($organizerFilter.length) {
+    $organizerFilter.on('change', function() {
+      $selected.organizer = $(this).val() || [];
+      filterItems();
+    });
+  }
+
   function filterItems() {
     const calendarEvents = FullCalendar.getEvents();
     const displayedEventIds = [];
@@ -356,6 +376,7 @@ export function initCalendarFilters(resources, resourceGroups) {
         const eventResourceGroups = eventData.resources.map(resource => resource.resourceGroup.value);
         const eventStatus = eventData.status.value;
         const eventPriority = eventData.priority.value;
+        const eventOrganizer = eventData.organizer.value;
   
         let withinRange = false;
         if (date) {
@@ -381,8 +402,11 @@ export function initCalendarFilters(resources, resourceGroups) {
           (!$selected.resources.length || $selected.resources.some(value => new Set(eventResources).has(value))) && // Check if the selected resources is in the event resources
           (!$selected.resourceGroups.length || $selected.resourceGroups.some(value => new Set(eventResourceGroups).has(value))) && // Check if the selected resource groups is in the event resource groups
           (!$selected.status.length || $selected.status.includes(eventStatus)) && 
-          (!$selected.priority.length || $selected.priority.includes(eventPriority))
+          (!$selected.priority.length || $selected.priority.includes(eventPriority)) &&
+          (!$selected.organizer.length || $selected.organizer.includes(eventOrganizer))
         );
+
+        console.log('>>>', { eventOrganizer, '$selected.organizer': $selected.organizer, bool: $selected.organizer.includes(eventOrganizer), shouldDisplay })
 
         event.setProp('display', shouldDisplay ? '' : 'none');
 
@@ -407,7 +431,7 @@ export function initCalendarFilters(resources, resourceGroups) {
       if (!isResourceGroup) {
         let shouldDisplay = Boolean(eventsResourceIds.includes(rowId));
 
-        if (!$selected.resources.length && !$selected.resourceGroups.length && !$selected.status.length && !$selected.priority.length && !$selected.dateFrom && !$selected.dateTo) {
+        if (!$selected.resources.length && !$selected.resourceGroups.length && !$selected.status.length && !$selected.priority.length && !$selected.organizer.length && !$selected.dateFrom && !$selected.dateTo) {
           shouldDisplay = true;
         }
         

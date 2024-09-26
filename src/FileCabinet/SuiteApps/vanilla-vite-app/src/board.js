@@ -1,10 +1,6 @@
-import { customers, resources, resourceGroups, workOrders, events } from './components/dataSet';
+import { customers, resources, resourceGroups, workOrders, events, organizers } from './components/dataSet';
 import { initLeftSideBarFilters, initAvailableJobsFilters, initEventFilters } from './components/filterHandler';
 import './board.css';
-
-const resourceCount = resources.all.length;
-const resourceOptions = resources.all.map(resource => `<option value="${resource.employee.value}">${resource.employee.text}</option>`);
-const resourceGroupOptions = resourceGroups.map(resourceGroup => `<option value="${resourceGroup.value}">${resourceGroup.text}</option>`);
 
 export default class Board {
 
@@ -24,7 +20,7 @@ export default class Board {
                   <div style="padding: 10px; margin-top: 20px" class="card-header header">
                     <i class="fa-solid fa-icon-size fa-users-gear" style="font-size: 14px; margin-right: 5px"></i>
                     <span style="display: inline-block;"><h5><strong>Resources</strong></h5></span>
-                    <span class="badge badge-danger badge-pill counter">${resourceCount}</span>
+                    <span class="badge badge-danger badge-pill counter">${resources.all.length}</span>
                   </div>
                   <div id="col1-filter-tableWrapper" class="accordion accordion-flush">
                     <div class="accordion-item">
@@ -38,12 +34,12 @@ export default class Board {
                         <div class="input-group" style=" margin-top: 10px;">
                           <div class="input-group mb-3" style="border-radius: 5px 5px 0 0;">
                             <select class="selectpicker mx-auto multiple-resource-field" title="Filter by Name" data-live-search="true" data-selected-text-format="count>2" data-style="" data-style-base="form-control" data-actions-box="true" multiple>
-                              ${resourceOptions}
+                              ${resources.all.map(resource => `<option value="${resource.employee.value}">${resource.employee.text}</option>`)}
                             </select>
                           </div>
                           <div class="input-group mb-3">
                             <select class="selectpicker mx-auto multiple-resource-group-field" title="Filter by Group" data-live-search="true" data-selected-text-format="count>2" data-style="" data-style-base="form-control" data-actions-box="true" multiple>
-                            ${resourceGroupOptions}
+                            ${resourceGroups.map(resourceGroup => `<option value="${resourceGroup.value}">${resourceGroup.text}</option>`)}
                             </select>
                           </div>
                           <div class="input-group mb-3">
@@ -117,6 +113,16 @@ export default class Board {
                           </button>
                         </h2>
                         <div id="col2-filter-table" class="accordion-collapse collapse" aria-labelledby="col2-filter-tableHeading" data-parent="#col2-filter-tableWrapper">
+                          <div class="input-group inline-inputs">
+                            <div class="input-group mb-3" style="border-radius: 5px 5px 0 0; margin-top: 15px; margin-left: 10px;">
+                              <select class="selectpicker mx-auto multiple-customer-field" title="Filter by Customer" data-live-search="true" data-selected-text-format="count>2" data-style="" data-style-base="form-control" data-actions-box="true" multiple>
+                                ${customers.map(customer => `<option value="${customer.value}">${customer.text}</option>`)}
+                              </select>
+                            </div>
+                            <div class="mb-3" style="border-radius: 5px 5px 0 0; margin-top: 15px; margin-left: 10px;">
+                              <input type="text" class="form-control" id="woTitle" placeholder="Enter Work Order Title">
+                            </div>
+                          </div>
                           <div class="input-group inline-inputs" style="margin-top: 10px; margin-left: 10px;">
                             <div class="mb-3 row align-items-center">
                               <label for="board-job-datefrom" class="col-form-label col-auto">From: </label>
@@ -129,16 +135,6 @@ export default class Board {
                               <div class="col-auto">
                                   <input type="date" class="form-control" id="board-job-dateto">
                               </div>
-                            </div>
-                          </div>
-                          <div class="input-group inline-inputs">
-                            <div class="input-group mb-3" style="border-radius: 5px 5px 0 0; margin-left: 10px;">
-                              <select class="selectpicker mx-auto multiple-customer-field" title="Filter by Customer" data-live-search="true" data-selected-text-format="count>2" data-style="" data-style-base="form-control" data-actions-box="true" multiple>
-                                ${customers.map(customer => `<option value="${customer.value}">${customer.text}</option>`)}
-                              </select>
-                            </div>
-                            <div class="mb-3" style="border-radius: 5px 5px 0 0; margin-left: 10px;">
-                              <input type="text" class="form-control" id="woTitle" placeholder="Enter Work Order Title">
                             </div>
                           </div>
                         </div>
@@ -200,29 +196,15 @@ export default class Board {
                             </button>
                           </h2>
                           <div id="col3-filter-table" class="accordion-collapse collapse" aria-labelledby="col3-filter-tableHeading" data-parent="#col3-filter-tableWrapper">
-                            <div class="input-group inline-inputs" style="margin-top: 10px; margin-left: 10px;">
-                              <div class="row align-items-center">
-                                <label for="board-event-datefrom" class="col-form-label col-auto">From: </label>
-                                <div class="col-auto">
-                                    <input type="date" class="form-control" id="board-event-datefrom">
-                                </div>
-                              </div>
-                              <div class="row align-items-center">
-                                <label for="board-event-dateto" class="col-form-label col-auto">To: </label>
-                                <div class="col-auto">
-                                    <input type="date" class="form-control" id="board-event-dateto">
-                                </div>
-                              </div>
-                            </div>
                             <div class="input-group inline-inputs" style="margin-top: 10px;">
                               <div class="input-group mb-3" style="border-radius: 5px 5px 0 0;">
                                 <select class="selectpicker mx-auto multiple-resource-field" title="Filter by Resource Name" data-live-search="true" data-selected-text-format="count>2" data-style="" data-style-base="form-control" data-actions-box="true" multiple>
-                                  ${resourceOptions}
+                                  ${resources.all.map(resource => `<option value="${resource.employee.value}">${resource.employee.text}</option>`)}
                                 </select>
                               </div>
                               <div class="input-group mb-3">
                                 <select class="selectpicker mx-auto multiple-resource-group-field" title="Filter by Resource Group" data-live-search="true" data-selected-text-format="count>2" data-style="" data-style-base="form-control" data-actions-box="true" multiple>
-                                ${resourceGroupOptions}
+                                ${resourceGroups.map(resourceGroup => `<option value="${resourceGroup.value}">${resourceGroup.text}</option>`)}
                                 </select>
                               </div>
                             </div>
@@ -240,6 +222,27 @@ export default class Board {
                                   <option value="3">High</option>
                                   <option value="4">Urgent</option>
                                 </select>
+                              </div>
+                            </div>
+                            <div class="input-group inline-inputs" style="margin-left: 10px;">
+                              <div class="input-group mb-3">
+                                <select class="selectpicker mx-auto multiple-event-organizer-field" title="Filter by Organizer" data-live-search="true" data-selected-text-format="count>2" data-style="" data-style-base="form-control" data-actions-box="true" multiple>
+                                ${organizers.map(organizer => `<option value="${organizer.value}">${organizer.text}</option>`)}
+                                </select>
+                              </div>
+                            </div>
+                            <div class="input-group inline-inputs" style="margin-left: 10px; padding-bottom: 10px">
+                              <div class="row align-items-center">
+                                <label for="board-event-datefrom" class="col-form-label col-auto">From: </label>
+                                <div class="col-auto">
+                                    <input type="date" class="form-control" id="board-event-datefrom">
+                                </div>
+                              </div>
+                              <div class="row align-items-center">
+                                <label for="board-event-dateto" class="col-form-label col-auto">To: </label>
+                                <div class="col-auto">
+                                    <input type="date" class="form-control" id="board-event-dateto">
+                                </div>
                               </div>
                             </div>
                           </div>
@@ -274,6 +277,7 @@ export default class Board {
                             <div class="card-content-woText">${event.workorder.text}</div>
                             <div class="card-content-date">${event.date.start == event.date.end ? moment(event.date.start).format('M/D/YYYY') : `${moment(event.date.start).format('M/D/YYYY')} - ${moment(event.date.end).format('M/D/YYYY')}`}</div>
                             <div class="card-content-time">${moment(`1/1/1999 ${event.time.start}`).format('h:mm a')} - ${moment(`1/1/1999 ${event.time.end}`).format('h:mm a')}</div>
+                            <div>Organizer: ${event.organizer.text}</div>
                             <div class="row">
                               <div class="col-2 fc-event-status">
                                 <span class="badge py-1 px-2 ${event.status.code} rounded-pill text-uppercase">${event.status.text}</span>

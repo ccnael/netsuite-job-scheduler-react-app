@@ -273,7 +273,7 @@ $(document).ready(() => {
         modalTitle = `Create New Event [ID ${woId}]`;
         woRef = workOrders.find(wo => wo.id == woId);
         eventTitle = woRef?.title;
-        dtLine.resources = resources.all;
+        dtLine.resources = resources.active;
         dtLine.items = woRef.items;
         dtLine.contacts = JSON.parse(JSON.stringify(woRef.contacts));
         dtLine.contacts = dtLine.contacts.map(woContact => {
@@ -300,7 +300,7 @@ $(document).ready(() => {
         eventData = events.find(event => event.id == eventId);
         woRef = eventData.woRef;
         eventTitle = eventData?.title;
-        dtLine.resources = JSON.parse(JSON.stringify(resources.all));
+        dtLine.resources = JSON.parse(JSON.stringify(resources.active));
         dtLine.resources = dtLine.resources.map(allResource => {
           allResource.selected = Boolean(eventData.resources.find(resource => resource.employee.value == allResource.employee.value));
           return allResource;

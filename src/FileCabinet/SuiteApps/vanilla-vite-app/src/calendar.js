@@ -5,14 +5,10 @@ import dayGridPlugin from '@fullcalendar/daygrid';
 import listPlugin from '@fullcalendar/list';
 import timeGridPlugin from '@fullcalendar/timegrid';
 import resourceTimelinePlugin from '@fullcalendar/resource-timeline';
-import { customers, resources, resourceGroups, workOrders, events } from './components/dataSet';
+import { customers, resources, resourceGroups, workOrders, events, organizers } from './components/dataSet';
 import { initCalendarFilters, initAvailableJobsFilters } from './components/filterHandler';
 import { Event } from './components/utils';
 import './calendar.css';
-
-const resourceCount = resources.all.length;
-const resourceOptions = resources.all.map(resource => `<option value="${resource.employee.value}">${resource.employee.text}</option>`);
-const resourceGroupOptions = resourceGroups.map(resourceGroup => `<option value="${resourceGroup.value}">${resourceGroup.text}</option>`);
 
 export default class Calendar {
   
@@ -45,7 +41,17 @@ export default class Calendar {
                       </button>
                     </h2>
                     <div id="col2_2-filter-table" class="accordion-collapse collapse" aria-labelledby="col2_2-filter-tableHeading" data-parent="#col2_2-filter-tableWrapper">
-                      <div class="input-group inline-inputs" style="margin-top: 10px; margin-left: 10px;">
+                      <div class="input-group inline-inputs">
+                        <div class="input-group mb-3" style="border-radius: 5px 5px 0 0; margin-top: 15px; margin-left: 10px;">
+                          <select class="selectpicker mx-auto multiple-customer-field" title="Filter by Customer" data-live-search="true" data-selected-text-format="count>2" data-style="" data-style-base="form-control" data-actions-box="true" multiple>
+                            ${customers.map(customer => `<option value="${customer.value}">${customer.text}</option>`)}
+                          </select>
+                        </div>
+                        <div class="mb-3" style="border-radius: 5px 5px 0 0; margin-top: 15px; margin-left: 10px;">
+                          <input type="text" class="form-control" id="woTitle" placeholder="Enter Work Order Title">
+                        </div>
+                      </div>
+                      <div class="input-group inline-inputs" style="margin-left: 10px;">
                         <div class="mb-3 row align-items-center">
                           <label for="calendar-job-datefrom" class="col-form-label col-auto">From: </label>
                           <div class="col-auto">
@@ -57,16 +63,6 @@ export default class Calendar {
                           <div class="col-auto">
                               <input type="date" class="form-control" id="calendar-job-dateto">
                           </div>
-                        </div>
-                      </div>
-                      <div class="input-group inline-inputs">
-                        <div class="input-group mb-3" style="border-radius: 5px 5px 0 0; margin-left: 10px;">
-                          <select class="selectpicker mx-auto multiple-customer-field" title="Filter by Customer" data-live-search="true" data-selected-text-format="count>2" data-style="" data-style-base="form-control" data-actions-box="true" multiple>
-                            ${customers.map(customer => `<option value="${customer.value}">${customer.text}</option>`)}
-                          </select>
-                        </div>
-                        <div class="mb-3" style="border-radius: 5px 5px 0 0; margin-left: 10px;">
-                          <input type="text" class="form-control" id="woTitle" placeholder="Enter Work Order Title">
                         </div>
                       </div>
                     </div>
@@ -174,7 +170,6 @@ export default class Calendar {
       // Add legend and filter fields
       // -----------------------------------------------------------------
       viewDidMount: info => {
-        console.log('viewDidMount')
         this._appendHeaderFields();
       },
       headerToolbar: {
@@ -264,7 +259,7 @@ export default class Calendar {
         if (event.id) {
           try {
             const html = `
-            <div style="margin-left: 15px; height: 110px" id="${event.id}">
+            <div style="margin-left: 15px; height: 130px" id="${event.id}">
             <div class="card-head">
               <div class="card-name"><a href="${event.url}" target="_blank"><strong>${event.title}</strong></a>
               </div>
@@ -273,6 +268,7 @@ export default class Calendar {
               <div class="card-content-eventId" eventId="${event.id}">ID ${event.id}</div>
               <div class="card-content-date">${event.date.start == event.date.end ? moment(event.date.start).format('M/D/YYYY') : `${moment(event.date.start).format('M/D/YYYY')} - ${moment(event.date.end).format('M/D/YYYY')}`}</div>
               <div class="card-content-time">${moment(`1/1/1999 ${event.time.start}`).format('h:mm a')} - ${moment(`1/1/1999 ${event.time.end}`).format('h:mm a')}</div>
+              <div>Organizer: ${event.organizer.text}</div>
               <div class="row">
                 <div class="col-2 fc-event-status">
                   <span class="badge py-1 px-2 rounded-pill text-uppercase" style="background-color: ${event.priority.code};">${event.priority.text}</span>
@@ -411,12 +407,12 @@ export default class Calendar {
         <div class="input-group inline-inputs" style="margin-top: 10px;">
           <div class="input-group mb-3" style="border-radius: 5px 5px 0 0;">
             <select class="selectpicker mx-auto multiple-resource-field" title="Filter by Resource Name" data-live-search="true" data-selected-text-format="count>2" data-style="" data-style-base="form-control" data-actions-box="true" multiple>
-              ${resourceOptions}
+              ${resources.all.map(resource => `<option value="${resource.employee.value}">${resource.employee.text}</option>`)}
             </select>
           </div>
           <div class="input-group mb-3">
             <select class="selectpicker mx-auto multiple-resource-group-field" title="Filter by Resource Group" data-live-search="true" data-selected-text-format="count>2" data-style="" data-style-base="form-control" data-actions-box="true" multiple>
-            ${resourceGroupOptions}
+            ${resourceGroups.map(resourceGroup => `<option value="${resourceGroup.value}">${resourceGroup.text}</option>`)}
             </select>
           </div>
           <div class="mb-3">
@@ -435,14 +431,19 @@ export default class Calendar {
           </div>
         </div>
         <div class="input-group inline-inputs" style="margin-top: 10px;">
-         <div class="row align-items-center">
-            <label for="calendar-event-datefrom" class="col-form-label col-auto">From: </label>
+          <div class="input-group mb-3" style="margin-top: -10px">
+            <select class="selectpicker mx-auto multiple-event-organizer-field" title="Filter by Organizer" data-live-search="true" data-selected-text-format="count>2" data-style="" data-style-base="form-control" data-actions-box="true" multiple>
+            ${organizers.map(organizer => `<option value="${organizer.value}">${organizer.text}</option>`)}
+            </select>
+          </div>
+          <div class="row align-items-center">
+            <label for="calendar-event-datefrom" class="col-form-label col-auto" style="margin-top: -10px; margin-bottom: 15px;">From: </label>
             <div class="col-auto">
                 <input type="date" class="form-control" id="calendar-event-datefrom">
             </div>
           </div>
           <div class="row align-items-center">
-            <label for="calendar-event-dateto" class="col-form-label col-auto">To: </label>
+            <label for="calendar-event-dateto" class="col-form-label col-auto" style="margin-top: -10px; margin-bottom: 15px;">To: </label>
             <div class="col-auto">
                 <input type="date" class="form-control" id="calendar-event-dateto">
             </div>
