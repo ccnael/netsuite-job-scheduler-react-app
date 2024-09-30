@@ -1,6 +1,193 @@
 const mockup = {
     "suiteletUrl": "/app/site/hosting/scriptlet.nl?script=877&deploy=1&compid=TSTDRV2617106",
     "workOrders": [{
+        "id": "67",
+        "name": "Sample Work Order *DO NOT USE* - MEI",
+        "title": "Sample Work Order *DO NOT USE* - MEI",
+        "project": {
+            "text": "AB&I Holdings : Field Ops Pro Project",
+            "value": "1883"
+        },
+        "date": "9/26/2024",
+        "status": {
+            "text": "Not Started",
+            "value": "4",
+            "code": "#026adf"
+        },
+        "type": {
+            "text": "Demo",
+            "value": "1"
+        },
+        "memo": "<p><strong>Sample Work Order *DO NOT USE* - MEI</strong></p>",
+        "salesorder": {
+            "text": "Sales Order #SLS00000715",
+            "value": "19388"
+        },
+        "customer": {
+            "text": "AB&I Holdings",
+            "value": "1249"
+        },
+        "resourceGroup": {
+            "text": "",
+            "value": ""
+        },
+        "priority": "",
+        "resources": [],
+        "items": [{
+            "id": "79",
+            "workorder": {
+                "text": "Sample Work Order *DO NOT USE* - MEI",
+                "value": "67"
+            },
+            "events": [],
+            "uuid": "19388_1",
+            "line": "1",
+            "item": {
+                "text": "BIC00008",
+                "value": "467"
+            },
+            "description": "Iron Horse Bicycles",
+            "quantity": 10,
+            "note": ""
+        }, {
+            "id": "80",
+            "workorder": {
+                "text": "Sample Work Order *DO NOT USE* - MEI",
+                "value": "67"
+            },
+            "events": [],
+            "uuid": "19388_2",
+            "line": "2",
+            "item": {
+                "text": "2375-6727",
+                "value": "1426"
+            },
+            "description": "Haworth, Inc.",
+            "quantity": 25,
+            "note": ""
+        }, {
+            "id": "81",
+            "workorder": {
+                "text": "Sample Work Order *DO NOT USE* - MEI",
+                "value": "67"
+            },
+            "events": [],
+            "uuid": "19388_5",
+            "line": "5",
+            "item": {
+                "text": "Dealer Service Fee",
+                "value": "2331"
+            },
+            "description": "Dealer Service Fee",
+            "quantity": 5,
+            "note": ""
+        }, {
+            "id": "87",
+            "workorder": {
+                "text": "Sample Work Order *DO NOT USE* - MEI",
+                "value": "67"
+            },
+            "events": ["100838"],
+            "uuid": "19388_1",
+            "line": "1",
+            "item": {
+                "text": "BIC00008",
+                "value": "467"
+            },
+            "description": "Iron Horse Bicycles",
+            "quantity": 1,
+            "note": ""
+        }],
+        "addresses": [{
+            "id": "51",
+            "workorder": {
+                "text": "Sample Work Order *DO NOT USE* - MEI",
+                "value": "67"
+            },
+            "customer": {
+                "text": "AB&I Holdings",
+                "value": "1249"
+            },
+            "events": ["100838"],
+            "address": {
+                "text": "1701 Rollins Road",
+                "value": "244878"
+            },
+            "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+            "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+        }],
+        "contacts": [{
+            "id": "50",
+            "workorder": {
+                "text": "Sample Work Order *DO NOT USE* - MEI",
+                "value": "67"
+            },
+            "events": ["100838"],
+            "contact": {
+                "text": "AB&I Holdings : Test Prav",
+                "value": "1892"
+            },
+            "name": "Test Prav",
+            "email": "pravallika@erpsuccesspartners.com",
+            "jobTitle": "QA",
+            "mobilePhone": "",
+            "phone": "(916) 831-7299",
+            "primary": true,
+            "url": "/app/common/entity/contact.nl?id=1892&compid=TSTDRV2617106"
+        }],
+        "events": [{
+            "id": "100838",
+            "title": "Test Event 123",
+            "workorder": {
+                "text": "Sample Work Order *DO NOT USE* - MEI",
+                "value": "67"
+            },
+            "location": "",
+            "status": {
+                "text": "Confirmed",
+                "value": "CONFIRMED",
+                "code": "bg-success"
+            },
+            "date": {
+                "recurrence": "one time event on 9/27/2024",
+                "start": "2024-09-27",
+                "end": "2024-09-27"
+            },
+            "time": {
+                "start": "12:00",
+                "end": "13:00"
+            },
+            "priority": {
+                "text": "Low",
+                "value": "1",
+                "code": "#026adf"
+            },
+            "note": "Test Event 123",
+            "url": "/app/crm/calendar/event.nl?id=100838&compid=TSTDRV2617106&selectedtab=custom337",
+            "color": "#1a6756",
+            "woRef": {},
+            "resources": [],
+            "items": [],
+            "contacts": [],
+            "addresses": [],
+            "contact": {
+                "text": "",
+                "value": ""
+            },
+            "address": {
+                "text": "",
+                "value": ""
+            },
+            "organizer": {
+                "text": "Mei Matriano",
+                "value": "1647"
+            }
+        }],
+        "projectUrl": "/app/accounting/project/project.nl?id=1883&compid=TSTDRV2617106",
+        "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=67&compid=TSTDRV2617106",
+        "soUrl": "/app/accounting/transactions/salesord.nl?id=19388&compid=TSTDRV2617106",
+        "esthours": "100"
+    }, {
         "id": "66",
         "name": "TEST XYZ",
         "title": "TEST XYZ",
@@ -2520,7 +2707,7 @@ const mockup = {
                 "text": "Sample 6",
                 "value": "48"
             },
-            "events": ["100777"],
+            "events": ["100777", "100825"],
             "uuid": "16210_1",
             "line": "1",
             "item": {
@@ -2536,7 +2723,7 @@ const mockup = {
                 "text": "Sample 6",
                 "value": "48"
             },
-            "events": ["100777"],
+            "events": ["100777", "100825"],
             "uuid": "16211_10",
             "line": "5",
             "item": {
@@ -2640,25 +2827,25 @@ const mockup = {
             },
             "location": "",
             "status": {
-                "text": "Confirmed",
-                "value": "CONFIRMED",
-                "code": "bg-success"
+                "text": "Tentative",
+                "value": "TENTATIVE",
+                "code": "bg-secondary"
             },
             "date": {
-                "recurrence": "occurs every day from 9/25/2024 until 9/26/2024",
-                "start": "2024-09-25",
+                "recurrence": "occurs every day from 9/24/2024 until 9/26/2024",
+                "start": "2024-09-24",
                 "end": "2024-09-26"
             },
             "time": {
-                "start": "08:00",
-                "end": "20:00"
+                "start": "04:00",
+                "end": "17:00"
             },
             "priority": {
-                "text": "High",
-                "value": "3",
-                "code": "#ca6621"
+                "text": "Urgent",
+                "value": "4",
+                "code": "#9a2407"
             },
-            "note": "TEST\n12345\n777",
+            "note": "TEST\n12345\n777\n888",
             "url": "/app/crm/calendar/event.nl?id=100825&compid=TSTDRV2617106&selectedtab=custom337",
             "color": "#1a6756",
             "woRef": {},
@@ -8028,7 +8215,7 @@ const mockup = {
                 "text": "Delivery Driver",
                 "value": "2"
             },
-            "color": "#265524",
+            "color": "#7660c9",
             "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fcompid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
             "events": ["100682", "100834"]
         }, {
@@ -8052,7 +8239,7 @@ const mockup = {
                 "text": "Installer",
                 "value": "1"
             },
-            "color": "#c27b0c",
+            "color": "#f32f03",
             "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fcompid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
             "events": ["100682", "100834"]
         }, {
@@ -8076,9 +8263,9 @@ const mockup = {
                 "text": "Designer",
                 "value": "3"
             },
-            "color": "#a0cc57",
+            "color": "#4689c1",
             "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fcompid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-            "events": ["100682", "100834"]
+            "events": ["100682", "100825"]
         }, {
             "employee": {
                 "text": "Matt Nolan",
@@ -8100,9 +8287,9 @@ const mockup = {
                 "text": "Designer",
                 "value": "3"
             },
-            "color": "#feb8b1",
+            "color": "#4c1f50",
             "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fcompid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-            "events": ["100825", "100834"]
+            "events": []
         }, {
             "employee": {
                 "text": "Mei Matriano",
@@ -8124,9 +8311,9 @@ const mockup = {
                 "text": "Installer",
                 "value": "1"
             },
-            "color": "#db4147",
+            "color": "#e7f7a1",
             "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fcompid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-            "events": ["100829", "100834"]
+            "events": ["100825", "100829"]
         }, {
             "employee": {
                 "text": "Rowe Riomalos",
@@ -8148,7 +8335,7 @@ const mockup = {
                 "text": "",
                 "value": ""
             },
-            "color": "#fad492",
+            "color": "#caec82",
             "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fcompid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
             "events": []
         }, {
@@ -8172,7 +8359,7 @@ const mockup = {
                 "text": "Installer",
                 "value": "1"
             },
-            "color": "#d9e32c",
+            "color": "#788dee",
             "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fcompid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
             "events": ["100829", "100834"]
         }],
@@ -8197,7 +8384,7 @@ const mockup = {
                 "text": "Delivery Driver",
                 "value": "2"
             },
-            "color": "#265524",
+            "color": "#7660c9",
             "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fcompid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
             "events": ["100682", "100834"]
         }, {
@@ -8221,7 +8408,7 @@ const mockup = {
                 "text": "Installer",
                 "value": "1"
             },
-            "color": "#c27b0c",
+            "color": "#f32f03",
             "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fcompid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
             "events": ["100682", "100834"]
         }, {
@@ -8245,9 +8432,9 @@ const mockup = {
                 "text": "Designer",
                 "value": "3"
             },
-            "color": "#a0cc57",
+            "color": "#4689c1",
             "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fcompid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-            "events": ["100682", "100834"]
+            "events": ["100682", "100825"]
         }, {
             "employee": {
                 "text": "Matt Nolan",
@@ -8269,9 +8456,9 @@ const mockup = {
                 "text": "Designer",
                 "value": "3"
             },
-            "color": "#feb8b1",
+            "color": "#4c1f50",
             "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fcompid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-            "events": ["100825", "100834"]
+            "events": []
         }, {
             "employee": {
                 "text": "Mei Matriano",
@@ -8293,9 +8480,9 @@ const mockup = {
                 "text": "Installer",
                 "value": "1"
             },
-            "color": "#db4147",
+            "color": "#e7f7a1",
             "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fcompid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-            "events": ["100829", "100834"]
+            "events": ["100825", "100829"]
         }, {
             "employee": {
                 "text": "Youssef Ezz",
@@ -8317,7 +8504,7 @@ const mockup = {
                 "text": "Installer",
                 "value": "1"
             },
-            "color": "#d9e32c",
+            "color": "#788dee",
             "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fcompid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
             "events": ["100829", "100834"]
         }]
@@ -8346,7 +8533,7 @@ const mockup = {
                 "text": "Installer",
                 "value": "1"
             },
-            "color": "#c27b0c",
+            "color": "#f32f03",
             "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fcompid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
             "events": ["100682", "100834"]
         }, {
@@ -8370,9 +8557,9 @@ const mockup = {
                 "text": "Designer",
                 "value": "3"
             },
-            "color": "#a0cc57",
+            "color": "#4689c1",
             "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fcompid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-            "events": ["100682", "100834"]
+            "events": ["100682", "100825"]
         }, {
             "employee": {
                 "text": "Youssef Ezz",
@@ -8394,7 +8581,7 @@ const mockup = {
                 "text": "Installer",
                 "value": "1"
             },
-            "color": "#d9e32c",
+            "color": "#788dee",
             "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fcompid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
             "events": ["100829", "100834"]
         }],
@@ -8423,9 +8610,9 @@ const mockup = {
                 "text": "Designer",
                 "value": "3"
             },
-            "color": "#feb8b1",
+            "color": "#4c1f50",
             "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fcompid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-            "events": ["100825", "100834"]
+            "events": []
         }, {
             "employee": {
                 "text": "Mei Matriano",
@@ -8447,9 +8634,9 @@ const mockup = {
                 "text": "Installer",
                 "value": "1"
             },
-            "color": "#db4147",
+            "color": "#e7f7a1",
             "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fcompid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-            "events": ["100829", "100834"]
+            "events": ["100825", "100829"]
         }, {
             "employee": {
                 "text": "Rowe Riomalos",
@@ -8471,7 +8658,7 @@ const mockup = {
                 "text": "",
                 "value": ""
             },
-            "color": "#fad492",
+            "color": "#caec82",
             "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fcompid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
             "events": []
         }],
@@ -8500,7 +8687,7 @@ const mockup = {
                 "text": "Delivery Driver",
                 "value": "2"
             },
-            "color": "#265524",
+            "color": "#7660c9",
             "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fcompid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
             "events": ["100682", "100834"]
         }],
@@ -8965,7 +9152,7 @@ const mockup = {
                 "text": "Delivery Driver",
                 "value": "2"
             },
-            "color": "#265524",
+            "color": "#7660c9",
             "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fcompid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
             "events": ["100682", "100834"],
             "selected": true
@@ -8990,7 +9177,7 @@ const mockup = {
                 "text": "Installer",
                 "value": "1"
             },
-            "color": "#c27b0c",
+            "color": "#f32f03",
             "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fcompid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
             "events": ["100682", "100834"],
             "selected": true
@@ -9015,9 +9202,9 @@ const mockup = {
                 "text": "Designer",
                 "value": "3"
             },
-            "color": "#a0cc57",
+            "color": "#4689c1",
             "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fcompid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-            "events": ["100682", "100834"],
+            "events": ["100682", "100825"],
             "selected": true
         }],
         "items": [{
@@ -16569,7 +16756,7 @@ const mockup = {
                     "text": "Sample 6",
                     "value": "48"
                 },
-                "events": ["100777"],
+                "events": ["100777", "100825"],
                 "uuid": "16210_1",
                 "line": "1",
                 "item": {
@@ -16585,7 +16772,7 @@ const mockup = {
                     "text": "Sample 6",
                     "value": "48"
                 },
-                "events": ["100777"],
+                "events": ["100777", "100825"],
                 "uuid": "16211_10",
                 "line": "5",
                 "item": {
@@ -16689,25 +16876,25 @@ const mockup = {
                 },
                 "location": "",
                 "status": {
-                    "text": "Confirmed",
-                    "value": "CONFIRMED",
-                    "code": "bg-success"
+                    "text": "Tentative",
+                    "value": "TENTATIVE",
+                    "code": "bg-secondary"
                 },
                 "date": {
-                    "recurrence": "occurs every day from 9/25/2024 until 9/26/2024",
-                    "start": "2024-09-25",
+                    "recurrence": "occurs every day from 9/24/2024 until 9/26/2024",
+                    "start": "2024-09-24",
                     "end": "2024-09-26"
                 },
                 "time": {
-                    "start": "08:00",
-                    "end": "20:00"
+                    "start": "04:00",
+                    "end": "17:00"
                 },
                 "priority": {
-                    "text": "High",
-                    "value": "3",
-                    "code": "#ca6621"
+                    "text": "Urgent",
+                    "value": "4",
+                    "code": "#9a2407"
                 },
-                "note": "TEST\n12345\n777",
+                "note": "TEST\n12345\n777\n888",
                 "url": "/app/crm/calendar/event.nl?id=100825&compid=TSTDRV2617106&selectedtab=custom337",
                 "color": "#1a6756",
                 "woRef": {},
@@ -16740,7 +16927,7 @@ const mockup = {
                 "text": "Sample 6",
                 "value": "48"
             },
-            "events": ["100777"],
+            "events": ["100777", "100825"],
             "uuid": "16210_1",
             "line": "1",
             "item": {
@@ -16757,7 +16944,7 @@ const mockup = {
                 "text": "Sample 6",
                 "value": "48"
             },
-            "events": ["100777"],
+            "events": ["100777", "100825"],
             "uuid": "16211_10",
             "line": "5",
             "item": {
@@ -31197,6 +31384,339 @@ const mockup = {
             "value": "1770"
         }
     }, {
+        "id": "100825",
+        "title": "Sample 6",
+        "workorder": {
+            "text": "Sample 6",
+            "value": "48"
+        },
+        "location": "",
+        "status": {
+            "text": "Tentative",
+            "value": "TENTATIVE",
+            "code": "bg-secondary"
+        },
+        "date": {
+            "recurrence": "occurs every day from 9/24/2024 until 9/26/2024",
+            "start": "2024-09-24",
+            "end": "2024-09-26"
+        },
+        "time": {
+            "start": "04:00",
+            "end": "17:00"
+        },
+        "priority": {
+            "text": "Urgent",
+            "value": "4",
+            "code": "#9a2407"
+        },
+        "note": "TEST\n12345\n777\n888",
+        "url": "/app/crm/calendar/event.nl?id=100825&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {
+            "id": "48",
+            "name": "Sample 6",
+            "title": "Sample 6",
+            "project": {
+                "text": "AB&I Holdings : Field Ops Pro Project",
+                "value": "1883"
+            },
+            "date": "9/5/2024",
+            "status": {
+                "text": "Hold",
+                "value": "7",
+                "code": "#6c757d"
+            },
+            "type": {
+                "text": "Walls",
+                "value": "6"
+            },
+            "memo": "<p><strong>Sample 6</strong></p>",
+            "salesorder": {
+                "text": "Sales Order #SLS00000654",
+                "value": "16211"
+            },
+            "customer": {
+                "text": "AB&I Holdings",
+                "value": "1249"
+            },
+            "resourceGroup": {
+                "text": "",
+                "value": ""
+            },
+            "priority": "",
+            "resources": [],
+            "items": [{
+                "id": "51",
+                "workorder": {
+                    "text": "Sample 6",
+                    "value": "48"
+                },
+                "events": ["100777", "100825"],
+                "uuid": "16210_1",
+                "line": "1",
+                "item": {
+                    "text": "BIC00008",
+                    "value": "467"
+                },
+                "description": "Inventory Item",
+                "quantity": 0,
+                "note": ""
+            }, {
+                "id": "52",
+                "workorder": {
+                    "text": "Sample 6",
+                    "value": "48"
+                },
+                "events": ["100777", "100825"],
+                "uuid": "16211_10",
+                "line": "5",
+                "item": {
+                    "text": "Dealer Service Fee",
+                    "value": "2331"
+                },
+                "description": "Dealer Service Fee",
+                "quantity": 0,
+                "note": ""
+            }],
+            "addresses": [{
+                "id": "40",
+                "workorder": {
+                    "text": "Sample 6",
+                    "value": "48"
+                },
+                "customer": {
+                    "text": "AB&I Holdings",
+                    "value": "1249"
+                },
+                "events": ["100777"],
+                "address": {
+                    "text": "1701 Rollins Road",
+                    "value": "244878"
+                },
+                "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+                "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+            }],
+            "contacts": [{
+                "id": "30",
+                "workorder": {
+                    "text": "Sample 6",
+                    "value": "48"
+                },
+                "events": ["100777"],
+                "contact": {
+                    "text": "AB&I Holdings : Test Prav",
+                    "value": "1892"
+                },
+                "name": "Test Prav",
+                "email": "pravallika@erpsuccesspartners.com",
+                "jobTitle": "QA",
+                "mobilePhone": "",
+                "phone": "(916) 831-7299",
+                "primary": true,
+                "url": "/app/common/entity/contact.nl?id=1892&compid=TSTDRV2617106"
+            }],
+            "events": [{
+                "id": "100777",
+                "title": "Sample 656",
+                "workorder": {
+                    "text": "Sample 6",
+                    "value": "48"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 9/4/2024",
+                    "start": "2024-09-04",
+                    "end": "2024-09-04"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "18:00"
+                },
+                "priority": {
+                    "text": "High",
+                    "value": "3",
+                    "code": "#ca6621"
+                },
+                "note": "ASDASDASADASDBBB\nBBBBBB",
+                "url": "/app/crm/calendar/event.nl?id=100777&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                },
+                "organizer": {
+                    "text": "Lean  cendana",
+                    "value": "1765"
+                }
+            }, {
+                "id": "100825",
+                "title": "Sample 6",
+                "workorder": {
+                    "text": "Sample 6",
+                    "value": "48"
+                },
+                "location": "",
+                "status": {
+                    "text": "Tentative",
+                    "value": "TENTATIVE",
+                    "code": "bg-secondary"
+                },
+                "date": {
+                    "recurrence": "occurs every day from 9/24/2024 until 9/26/2024",
+                    "start": "2024-09-24",
+                    "end": "2024-09-26"
+                },
+                "time": {
+                    "start": "04:00",
+                    "end": "17:00"
+                },
+                "priority": {
+                    "text": "Urgent",
+                    "value": "4",
+                    "code": "#9a2407"
+                },
+                "note": "TEST\n12345\n777\n888",
+                "url": "/app/crm/calendar/event.nl?id=100825&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "30",
+                    "value": "30"
+                },
+                "address": {
+                    "text": "40",
+                    "value": "40"
+                },
+                "organizer": {
+                    "text": "Lean  cendana",
+                    "value": "1765"
+                }
+            }],
+            "projectUrl": "/app/accounting/project/project.nl?id=1883&compid=TSTDRV2617106",
+            "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=48&compid=TSTDRV2617106",
+            "soUrl": "/app/accounting/transactions/salesord.nl?id=16211&compid=TSTDRV2617106",
+            "esthours": "50"
+        },
+        "resources": [{
+            "employee": {
+                "text": "Gary Grant",
+                "value": "1312"
+            },
+            "initials": "GG",
+            "email": "garygrant@ramsey.com",
+            "phone": "(873) 775-6114",
+            "location": {
+                "text": "02: Boston",
+                "value": "1"
+            },
+            "active": true,
+            "resourceGroup": {
+                "text": "Installers",
+                "value": "1"
+            },
+            "type": {
+                "text": "Designer",
+                "value": "3"
+            },
+            "color": "#4689c1",
+            "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fcompid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
+            "events": ["100682", "100825"],
+            "selected": true
+        }, {
+            "employee": {
+                "text": "Mei Matriano",
+                "value": "1647"
+            },
+            "initials": "MM",
+            "email": "mei@erpsuccesspartners.com",
+            "phone": "",
+            "location": {
+                "text": "",
+                "value": ""
+            },
+            "active": true,
+            "resourceGroup": {
+                "text": "Designers",
+                "value": "2"
+            },
+            "type": {
+                "text": "Installer",
+                "value": "1"
+            },
+            "color": "#e7f7a1",
+            "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fcompid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
+            "events": ["100825", "100829"],
+            "selected": true
+        }],
+        "items": [{
+            "id": "51",
+            "workorder": {
+                "text": "Sample 6",
+                "value": "48"
+            },
+            "events": ["100777", "100825"],
+            "uuid": "16210_1",
+            "line": "1",
+            "item": {
+                "text": "BIC00008",
+                "value": "467"
+            },
+            "description": "Inventory Item",
+            "quantity": 0,
+            "note": "",
+            "selected": true
+        }, {
+            "id": "52",
+            "workorder": {
+                "text": "Sample 6",
+                "value": "48"
+            },
+            "events": ["100777", "100825"],
+            "uuid": "16211_10",
+            "line": "5",
+            "item": {
+                "text": "Dealer Service Fee",
+                "value": "2331"
+            },
+            "description": "Dealer Service Fee",
+            "quantity": 0,
+            "note": "",
+            "selected": true
+        }],
+        "contacts": [],
+        "addresses": [],
+        "contact": {
+            "text": "30",
+            "value": "30"
+        },
+        "address": {
+            "text": "40",
+            "value": "40"
+        },
+        "organizer": {
+            "text": "Lean  cendana",
+            "value": "1765"
+        }
+    }, {
         "id": "100819",
         "title": "Test Event - Mei",
         "workorder": {
@@ -37987,11 +38507,11 @@ const mockup = {
             "value": "1765"
         }
     }, {
-        "id": "100825",
-        "title": "Sample 6",
+        "id": "100838",
+        "title": "Test Event 123",
         "workorder": {
-            "text": "Sample 6",
-            "value": "48"
+            "text": "Sample Work Order *DO NOT USE* - MEI",
+            "value": "67"
         },
         "location": "",
         "status": {
@@ -38000,44 +38520,44 @@ const mockup = {
             "code": "bg-success"
         },
         "date": {
-            "recurrence": "occurs every day from 9/25/2024 until 9/26/2024",
-            "start": "2024-09-25",
-            "end": "2024-09-26"
+            "recurrence": "one time event on 9/27/2024",
+            "start": "2024-09-27",
+            "end": "2024-09-27"
         },
         "time": {
-            "start": "08:00",
-            "end": "20:00"
+            "start": "12:00",
+            "end": "13:00"
         },
         "priority": {
-            "text": "High",
-            "value": "3",
-            "code": "#ca6621"
+            "text": "Low",
+            "value": "1",
+            "code": "#026adf"
         },
-        "note": "TEST\n12345\n777",
-        "url": "/app/crm/calendar/event.nl?id=100825&compid=TSTDRV2617106&selectedtab=custom337",
+        "note": "Test Event 123",
+        "url": "/app/crm/calendar/event.nl?id=100838&compid=TSTDRV2617106&selectedtab=custom337",
         "color": "#1a6756",
         "woRef": {
-            "id": "48",
-            "name": "Sample 6",
-            "title": "Sample 6",
+            "id": "67",
+            "name": "Sample Work Order *DO NOT USE* - MEI",
+            "title": "Sample Work Order *DO NOT USE* - MEI",
             "project": {
                 "text": "AB&I Holdings : Field Ops Pro Project",
                 "value": "1883"
             },
-            "date": "9/5/2024",
+            "date": "9/26/2024",
             "status": {
-                "text": "Hold",
-                "value": "7",
-                "code": "#6c757d"
+                "text": "Not Started",
+                "value": "4",
+                "code": "#026adf"
             },
             "type": {
-                "text": "Walls",
-                "value": "6"
+                "text": "Demo",
+                "value": "1"
             },
-            "memo": "<p><strong>Sample 6</strong></p>",
+            "memo": "<p><strong>Sample Work Order *DO NOT USE* - MEI</strong></p>",
             "salesorder": {
-                "text": "Sales Order #SLS00000654",
-                "value": "16211"
+                "text": "Sales Order #SLS00000715",
+                "value": "19388"
             },
             "customer": {
                 "text": "AB&I Holdings",
@@ -38050,49 +38570,81 @@ const mockup = {
             "priority": "",
             "resources": [],
             "items": [{
-                "id": "51",
+                "id": "79",
                 "workorder": {
-                    "text": "Sample 6",
-                    "value": "48"
+                    "text": "Sample Work Order *DO NOT USE* - MEI",
+                    "value": "67"
                 },
-                "events": ["100777"],
-                "uuid": "16210_1",
+                "events": [],
+                "uuid": "19388_1",
                 "line": "1",
                 "item": {
                     "text": "BIC00008",
                     "value": "467"
                 },
-                "description": "Inventory Item",
-                "quantity": 0,
+                "description": "Iron Horse Bicycles",
+                "quantity": 10,
                 "note": ""
             }, {
-                "id": "52",
+                "id": "80",
                 "workorder": {
-                    "text": "Sample 6",
-                    "value": "48"
+                    "text": "Sample Work Order *DO NOT USE* - MEI",
+                    "value": "67"
                 },
-                "events": ["100777"],
-                "uuid": "16211_10",
+                "events": [],
+                "uuid": "19388_2",
+                "line": "2",
+                "item": {
+                    "text": "2375-6727",
+                    "value": "1426"
+                },
+                "description": "Haworth, Inc.",
+                "quantity": 25,
+                "note": ""
+            }, {
+                "id": "81",
+                "workorder": {
+                    "text": "Sample Work Order *DO NOT USE* - MEI",
+                    "value": "67"
+                },
+                "events": [],
+                "uuid": "19388_5",
                 "line": "5",
                 "item": {
                     "text": "Dealer Service Fee",
                     "value": "2331"
                 },
                 "description": "Dealer Service Fee",
-                "quantity": 0,
+                "quantity": 5,
+                "note": ""
+            }, {
+                "id": "87",
+                "workorder": {
+                    "text": "Sample Work Order *DO NOT USE* - MEI",
+                    "value": "67"
+                },
+                "events": ["100838"],
+                "uuid": "19388_1",
+                "line": "1",
+                "item": {
+                    "text": "BIC00008",
+                    "value": "467"
+                },
+                "description": "Iron Horse Bicycles",
+                "quantity": 1,
                 "note": ""
             }],
             "addresses": [{
-                "id": "40",
+                "id": "51",
                 "workorder": {
-                    "text": "Sample 6",
-                    "value": "48"
+                    "text": "Sample Work Order *DO NOT USE* - MEI",
+                    "value": "67"
                 },
                 "customer": {
                     "text": "AB&I Holdings",
                     "value": "1249"
                 },
-                "events": ["100777"],
+                "events": ["100838"],
                 "address": {
                     "text": "1701 Rollins Road",
                     "value": "244878"
@@ -38101,12 +38653,12 @@ const mockup = {
                 "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
             }],
             "contacts": [{
-                "id": "30",
+                "id": "50",
                 "workorder": {
-                    "text": "Sample 6",
-                    "value": "48"
+                    "text": "Sample Work Order *DO NOT USE* - MEI",
+                    "value": "67"
                 },
-                "events": ["100777"],
+                "events": ["100838"],
                 "contact": {
                     "text": "AB&I Holdings : Test Prav",
                     "value": "1892"
@@ -38120,11 +38672,11 @@ const mockup = {
                 "url": "/app/common/entity/contact.nl?id=1892&compid=TSTDRV2617106"
             }],
             "events": [{
-                "id": "100777",
-                "title": "Sample 656",
+                "id": "100838",
+                "title": "Test Event 123",
                 "workorder": {
-                    "text": "Sample 6",
-                    "value": "48"
+                    "text": "Sample Work Order *DO NOT USE* - MEI",
+                    "value": "67"
                 },
                 "location": "",
                 "status": {
@@ -38133,21 +38685,21 @@ const mockup = {
                     "code": "bg-success"
                 },
                 "date": {
-                    "recurrence": "one time event on 9/4/2024",
-                    "start": "2024-09-04",
-                    "end": "2024-09-04"
+                    "recurrence": "one time event on 9/27/2024",
+                    "start": "2024-09-27",
+                    "end": "2024-09-27"
                 },
                 "time": {
-                    "start": "08:00",
-                    "end": "18:00"
+                    "start": "12:00",
+                    "end": "13:00"
                 },
                 "priority": {
-                    "text": "High",
-                    "value": "3",
-                    "code": "#ca6621"
+                    "text": "Low",
+                    "value": "1",
+                    "code": "#026adf"
                 },
-                "note": "ASDASDASADASDBBB\nBBBBBB",
-                "url": "/app/crm/calendar/event.nl?id=100777&compid=TSTDRV2617106&selectedtab=custom337",
+                "note": "Test Event 123",
+                "url": "/app/crm/calendar/event.nl?id=100838&compid=TSTDRV2617106&selectedtab=custom337",
                 "color": "#1a6756",
                 "woRef": {},
                 "resources": [],
@@ -38163,102 +38715,84 @@ const mockup = {
                     "value": ""
                 },
                 "organizer": {
-                    "text": "Lean  cendana",
-                    "value": "1765"
-                }
-            }, {
-                "id": "100825",
-                "title": "Sample 6",
-                "workorder": {
-                    "text": "Sample 6",
-                    "value": "48"
-                },
-                "location": "",
-                "status": {
-                    "text": "Confirmed",
-                    "value": "CONFIRMED",
-                    "code": "bg-success"
-                },
-                "date": {
-                    "recurrence": "occurs every day from 9/25/2024 until 9/26/2024",
-                    "start": "2024-09-25",
-                    "end": "2024-09-26"
-                },
-                "time": {
-                    "start": "08:00",
-                    "end": "20:00"
-                },
-                "priority": {
-                    "text": "High",
-                    "value": "3",
-                    "code": "#ca6621"
-                },
-                "note": "TEST\n12345\n777",
-                "url": "/app/crm/calendar/event.nl?id=100825&compid=TSTDRV2617106&selectedtab=custom337",
-                "color": "#1a6756",
-                "woRef": {},
-                "resources": [],
-                "items": [],
-                "contacts": [],
-                "addresses": [],
-                "contact": {
-                    "text": "30",
-                    "value": "30"
-                },
-                "address": {
-                    "text": "40",
-                    "value": "40"
-                },
-                "organizer": {
-                    "text": "Lean  cendana",
-                    "value": "1765"
+                    "text": "Mei Matriano",
+                    "value": "1647"
                 }
             }],
             "projectUrl": "/app/accounting/project/project.nl?id=1883&compid=TSTDRV2617106",
-            "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=48&compid=TSTDRV2617106",
-            "soUrl": "/app/accounting/transactions/salesord.nl?id=16211&compid=TSTDRV2617106",
-            "esthours": "50"
+            "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=67&compid=TSTDRV2617106",
+            "soUrl": "/app/accounting/transactions/salesord.nl?id=19388&compid=TSTDRV2617106",
+            "esthours": "100"
         },
-        "resources": [{
-            "employee": {
-                "text": "Matt Nolan",
-                "value": "1292"
+        "resources": [],
+        "items": [{
+            "id": "87",
+            "workorder": {
+                "text": "Sample Work Order *DO NOT USE* - MEI",
+                "value": "67"
             },
-            "initials": "MN",
-            "email": "mnolan@ramsey.com",
-            "phone": "",
-            "location": {
-                "text": "01: San Francisco",
-                "value": "2"
+            "events": ["100838"],
+            "uuid": "19388_1",
+            "line": "1",
+            "item": {
+                "text": "BIC00008",
+                "value": "467"
             },
-            "active": true,
-            "resourceGroup": {
-                "text": "Designers",
-                "value": "2"
-            },
-            "type": {
-                "text": "Designer",
-                "value": "3"
-            },
-            "color": "#feb8b1",
-            "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fcompid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-            "events": ["100825", "100834"],
+            "description": "Iron Horse Bicycles",
+            "quantity": 1,
+            "note": "",
             "selected": true
         }],
-        "items": [],
-        "contacts": [],
-        "addresses": [],
+        "contacts": [{
+            "id": "50",
+            "workorder": {
+                "text": "Sample Work Order *DO NOT USE* - MEI",
+                "value": "67"
+            },
+            "events": ["100838"],
+            "contact": {
+                "text": "AB&I Holdings : Test Prav",
+                "value": "1892"
+            },
+            "name": "Test Prav",
+            "email": "pravallika@erpsuccesspartners.com",
+            "jobTitle": "QA",
+            "mobilePhone": "",
+            "phone": "(916) 831-7299",
+            "primary": true,
+            "url": "/app/common/entity/contact.nl?id=1892&compid=TSTDRV2617106",
+            "selected": true
+        }],
+        "addresses": [{
+            "id": "51",
+            "workorder": {
+                "text": "Sample Work Order *DO NOT USE* - MEI",
+                "value": "67"
+            },
+            "customer": {
+                "text": "AB&I Holdings",
+                "value": "1249"
+            },
+            "events": ["100838"],
+            "address": {
+                "text": "1701 Rollins Road",
+                "value": "244878"
+            },
+            "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+            "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106",
+            "selected": true
+        }],
         "contact": {
-            "text": "30",
-            "value": "30"
+            "text": "",
+            "value": ""
         },
         "address": {
-            "text": "40",
-            "value": "40"
+            "text": "",
+            "value": ""
         },
         "organizer": {
-            "text": "Lean  cendana",
-            "value": "1765"
+            "text": "Mei Matriano",
+            "value": "1647"
         }
     }],
     "contacts": [{
@@ -38970,6 +39504,24 @@ const mockup = {
             "value": "66"
         },
         "events": [],
+        "contact": {
+            "text": "AB&I Holdings : Test Prav",
+            "value": "1892"
+        },
+        "name": "Test Prav",
+        "email": "pravallika@erpsuccesspartners.com",
+        "jobTitle": "QA",
+        "mobilePhone": "",
+        "phone": "(916) 831-7299",
+        "primary": true,
+        "url": "/app/common/entity/contact.nl?id=1892&compid=TSTDRV2617106"
+    }, {
+        "id": "50",
+        "workorder": {
+            "text": "Sample Work Order *DO NOT USE* - MEI",
+            "value": "67"
+        },
+        "events": ["100838"],
         "contact": {
             "text": "AB&I Holdings : Test Prav",
             "value": "1892"
@@ -39792,6 +40344,23 @@ const mockup = {
             "value": "1249"
         },
         "events": [],
+        "address": {
+            "text": "1701 Rollins Road",
+            "value": "244878"
+        },
+        "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+        "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+    }, {
+        "id": "51",
+        "workorder": {
+            "text": "Sample Work Order *DO NOT USE* - MEI",
+            "value": "67"
+        },
+        "customer": {
+            "text": "AB&I Holdings",
+            "value": "1249"
+        },
+        "events": ["100838"],
         "address": {
             "text": "1701 Rollins Road",
             "value": "244878"

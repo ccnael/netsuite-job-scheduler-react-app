@@ -395,16 +395,6 @@ export default class Board {
 
       const toasties = [
         /* {
-          text: 'TBD Resource Dragging..',
-          duration: 99999,
-          close: true,
-          gravity: 'bottom',
-          position: 'left',
-          style: {
-            background: 'linear-gradient(to right, #00b09b, #96c93d)',
-          }
-        },
-        {
           text: 'TBD Resource Info, Schedules & Allocation View on click..',
           duration: 99999,
           close: true,
@@ -433,7 +423,7 @@ export default class Board {
           style: {
             background: 'linear-gradient(to right, #00b09b, #96c93d)',
           }
-        }/* ,
+        },
         {
           text: 'Drag Available Jobs to Events Column',
           duration: 99999,
@@ -443,7 +433,7 @@ export default class Board {
           style: {
             background: 'linear-gradient(to right, #00b09b, #96c93d)',
           }
-        } */
+        }
       ];
       
       toasties.map(toast => Toastify(toast).showToast());

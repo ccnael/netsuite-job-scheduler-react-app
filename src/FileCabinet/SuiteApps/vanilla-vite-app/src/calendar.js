@@ -124,11 +124,13 @@ export default class Calendar {
         extendedProps: resource
       })),
       extendedProps: resourceGroup
-    }))
+    }));
+    // Events with no resource gets assigned here
+    calendarResources.push({ id: 'general', title: 'General', children: [] });
 
     // Remap calendar events data
     // -----------------------------------------------------------------
-    const calendarEvents = events.map(event => {
+    let calendarEvents = events.map(event => {
       const map = {};
       map.id = event.id;
       map.title = event.title;
@@ -138,9 +140,13 @@ export default class Calendar {
       map.className = 'event-class-style-name';
       map.className += (event.status.value === 'TENTATIVE' ? ' tentative' : ' confirmed');
       map.resourceIds = event.resources.map(resource => resource.employee.value);
+      if (!map.resourceIds.length) {
+        map.resourceIds = ['general']
+      }
       map.extendedProps = JSON.parse(JSON.stringify(event));
       return map;
     });
+    calendarEvents = calendarEvents.filter(event => Boolean(event.resourceIds.length));
     
     // Instantiate draggable external events
     // -----------------------------------------------------------------
@@ -165,12 +171,14 @@ export default class Calendar {
       aspectRatio: 1,
       eventDurationEditable: true,
       eventResizableFromStart: true,
+      eventOverlap: false,
       // eventColor: '#02ac5a', // Default color class -> .confirmed
       scrollTime: '00:00', // Undo default 6am scrollTime
       // Add legend and filter fields
       // -----------------------------------------------------------------
       viewDidMount: info => {
         this._appendHeaderFields();
+        $('button.bs-deselect-all').click(); // Deselect filter fields
       },
       headerToolbar: {
         left: 'todayBtn prev,next',
@@ -208,7 +216,9 @@ export default class Calendar {
           </div>`
         }
       },
-      resources: calendarResources,
+      resources: (fetchInfo, successCallback, failureCallback) => {
+        successCallback(calendarResources);
+      },
       resourceLabelContent: arg => {
         const resource = arg.resource.extendedProps;
         if (resource.resourceCount) {
@@ -219,10 +229,13 @@ export default class Calendar {
             `
           };
         } else {
-          return resource.employee.text;
+          if (resource.employee)
+            return resource.employee.text;
         }
       },
-      events: calendarEvents,
+      events: (fetchInfo, successCallback, failureCallback) => {
+        successCallback(calendarEvents);
+      },
       customButtons: {
         todayBtn: {
           text: 'Today',
@@ -277,7 +290,7 @@ export default class Calendar {
             </div>
           </div>
             `;
-            this._updateEventCounter();
+            this._updateEventViewCounter();
             return { html };
           } catch (e) {
             console.log('eventContent Unexpected Error', e.message);
@@ -318,6 +331,9 @@ export default class Calendar {
       windowResize: arg => {
         console.log('The calendar has adjusted to a window resize. Current view: ' + arg.view.type);
         window.FullCalendar.render();
+      },
+      datesSet: info => {
+        this._updateEventViewCounter();
       }
     });
   
@@ -361,7 +377,7 @@ export default class Calendar {
     initAvailableJobsFilters('#calendarSection #collapseRight', workOrders);
     initCalendarFilters(resources, resourceGroups);
 
-    this._updateEventCounter();
+    this._updateEventViewCounter();
   }
 
   // Instantiate tab switch
@@ -415,8 +431,15 @@ export default class Calendar {
             ${resourceGroups.map(resourceGroup => `<option value="${resourceGroup.value}">${resourceGroup.text}</option>`)}
             </select>
           </div>
+          <div class="input-group mb-3">
+            <select class="selectpicker mx-auto multiple-event-organizer-field" title="Filter by Organizer" data-live-search="true" data-selected-text-format="count>2" data-style="" data-style-base="form-control" data-actions-box="true" multiple>
+            ${organizers.map(organizer => `<option value="${organizer.value}">${organizer.text}</option>`)}
+            </select>
+          </div>
+        </div>
+        <div class="input-group inline-inputs">
           <div class="mb-3">
-            <select class="selectpicker mx-auto multiple-event-status-field" title="Filter by Status" data-live-search="true" data-selected-text-format="count>2" data-style="" data-style-base="form-control" multiple>
+            <select class="selectpicker mx-auto multiple-event-status-field" title="Filter by Status" data-live-search="true" data-selected-text-format="count>2" data-style="" data-style-base="form-control" data-actions-box="true" multiple>
               <option value="TENTATIVE">Tentative</option>
               <option value="CONFIRMED">Confirmed</option>
             </select>
@@ -430,63 +453,26 @@ export default class Calendar {
             </select>
           </div>
         </div>
-        <div class="input-group inline-inputs" style="margin-top: 10px;">
-          <div class="input-group mb-3" style="margin-top: -10px">
-            <select class="selectpicker mx-auto multiple-event-organizer-field" title="Filter by Organizer" data-live-search="true" data-selected-text-format="count>2" data-style="" data-style-base="form-control" data-actions-box="true" multiple>
-            ${organizers.map(organizer => `<option value="${organizer.value}">${organizer.text}</option>`)}
-            </select>
-          </div>
-          <div class="row align-items-center">
-            <label for="calendar-event-datefrom" class="col-form-label col-auto" style="margin-top: -10px; margin-bottom: 15px;">From: </label>
-            <div class="col-auto">
-                <input type="date" class="form-control" id="calendar-event-datefrom">
-            </div>
-          </div>
-          <div class="row align-items-center">
-            <label for="calendar-event-dateto" class="col-form-label col-auto" style="margin-top: -10px; margin-bottom: 15px;">To: </label>
-            <div class="col-auto">
-                <input type="date" class="form-control" id="calendar-event-dateto">
-            </div>
-          </div>
-        </div>
       </div>`).insertAfter('.fc-header-toolbar');
 
       if (!$('#eventsViewCounter').length) {
-        // $('.fc-toolbar-title').append('<h6><span class="badge badge-danger badge-pill counter" style="display: inline-block" id="eventsViewCounter">TBD</span></h6>');
+        $('.fc-toolbar-title').append('<h6><span class="badge badge-danger badge-pill counter" style="display: inline-block" id="eventsViewCounter">TBD</span></h6>');
       }
 
-      this._updateEventCounter();
+      this._updateEventViewCounter();
     }
   }
 
-  // TBD
-  static _updateEventCounter() {
-    // setTimeout(() => {
-    //   const $eventIds = Array.from($('div.fc-event-main .card-content-eventId')).map(m => m.getAttribute('eventid'));
-    //   const counter = Array.from(new Set($eventIds)).length;
-    //   console.log('Current View Events Count: ', counter);
-
-    //   $('#eventsViewCounter').text(counter);
-    // });
-        // // Get the current view
-        // const currentView = FullCalendar.view;
-        // const start = currentView.currentStart; // Start date of the current view
-        // const end = currentView.currentEnd; // End date of the current view
+  static _updateEventViewCounter() {
+    const currentView = window.FullCalendar.view;
+    const start = moment(currentView.currentStart);
+    const end = moment(currentView.currentEnd);
     
-        // // Filter events manually
-        // const currentEvents = calendar.getEvents().filter(event => {
-        //     if (event.id == 100786) {
-        //         console.log(event.end, ' isBetween, ', start, end, ' = ', moment(event.start).isBetween(start, end, null, '[]'))
-        //     }
-        //     // Check if the event is in the current view's date range
-        //     return moment(event.end).isBetween(start, end, null, '[]') ||  (moment(start).isBetween(event.start, event.end, null, '[]') && moment(end).isBetween(event.start, event.end, null, '[]'))
-        // });
-    
-        // // Get the count of the filtered events
-        // const count = currentEvents.length;
-    
-        // // Log and display the count
-        // // console.log('Current event count in view:', count);
+    // Check if the event is in the current view's date range
+    const currentEvents = window.FullCalendar.getEvents().filter(event => {
+      return moment(event.end).isBetween(start, end, null, '[]') ||  moment(event.start).isSameOrBefore(start) && moment(event.end).isSameOrAfter(end);
+    });
+    $('#eventsViewCounter').text(currentEvents.length);
   }
 
   static _prefillAddEvent(info) {
