@@ -17,12 +17,12 @@ export const woResourcesDtColumns = [
   },
   {
     className: 'dt-head-center',
-    data: 'type.text',
+    render: (_data, _type, row, _meta) => `${row.resourceGroups.map(resourceGroup => resourceGroup.text).join(', ')}`,
     title: 'Type'
   },
   {
     className: 'dt-head-center',
-    data: 'resourceGroup.text',
+    render: (_data, _type, row, _meta) => `${row.types.map(type => type.text).join(', ')}`,
     title: 'Group'
   },
   {
@@ -34,6 +34,104 @@ export const woResourcesDtColumns = [
     className: 'dt-head-center',
     data: 'phone',
     title: 'Phone'
+  }
+];
+
+export const woVendorsDtColumns = [
+  {
+    className: 'dt-head-center dr-body-center',
+    title: `<div class="form-group form-check container d-flex justify-content-center">
+        <input type="checkbox" class="form-check-input" style="left: 30px" onclick="markAll(event);">
+      </div>`,
+    render: (_data, _type, row, _meta) => `<div class="form-group form-check container d-flex justify-content-center">
+        <input recordId="${row.id}" type="checkbox" class="form-check-input dt-line-select" ${row.selected?'checked':''}>
+      </div>`,
+    width: "5%",
+    orderable: false
+  },
+  {
+    className: 'dt-head-center',
+    data: 'vendor.text',
+    title: 'Vendor'
+  },
+  {
+    className: 'dt-head-center dt-body-center',
+    render: (_data, _type, row, _meta) => `<input type="number" class="quantity quantityRequired" value="${row.quantityRequired}" min="0" max="${row.quantityRequired}" required />`,
+    title: 'Manpower Required'
+  },
+  {
+    className: 'dt-head-center dt-body-center',
+    data: 'quantityAvailable',
+    title: 'Manpower Available'
+  },
+  {
+    className: 'dt-head-center dt-body-center',
+    data: 'purchaseorder.text',
+    title: 'Purchase Order'
+  }
+];
+
+export const woAssetsDtColumns = [
+  {
+    className: 'dt-head-center dr-body-center',
+    title: `<div class="form-group form-check container d-flex justify-content-center">
+        <input type="checkbox" class="form-check-input" style="left: 30px" onclick="markAll(event);">
+      </div>`,
+    render: (_data, _type, row, _meta) => `<div class="form-group form-check container d-flex justify-content-center">
+        <input recordId="${row.id}" type="checkbox" class="form-check-input dt-line-select" ${row.selected?'checked':''}>
+      </div>`,
+    width: "5%",
+    orderable: false
+  },
+  {
+    className: 'dt-head-center dt-body-center',
+    data: 'id',
+    title: 'ID'
+  },
+  {
+    className: 'dt-head-center',
+    data: 'equipment.text',
+    title: 'Item Code'
+  },
+  {
+    className: 'dt-head-center dt-body-center',
+    data: 'equipmentType.text',
+    title: 'Type'
+  },
+  {
+    className: 'dt-head-center dt-body-center',
+    render: (_data, _type, row, _meta) => `<input type="number" class="quantity" value="${row.quantity}" min="0" max="${row.quantity}" required />`,
+    title: 'Quantity'
+  },
+  {
+    className: 'dt-head-center dt-body-center',
+    render: (_data, _type, row, _meta) => `${row.owned ? 'Yes' : 'No'}`,
+    title: 'Owned?'
+  },
+  {
+    className: 'dt-head-center dt-body-center',
+    data: 'vendor.text',
+    title: 'Vendor'
+  },
+  {
+    className: 'dt-head-center dt-body-center',
+    data: 'rentalUnit.text',
+    title: 'Rental Unit'
+  },
+  {
+    className: 'dt-head-center dt-body-center',
+    data: 'rentalDuration',
+    title: 'Duration'
+  },
+  {
+    className: 'dt-head-center dt-body-center',
+    data: 'rentalRate',
+    title: 'Rate'
+  },
+  {
+    className: 'dt-head-center dt-body-center',
+    data: 'rentalAmount',
+    title: 'Amount'
   }
 ];
 
@@ -51,8 +149,8 @@ export const woItemsDtColumns = [
   },
   {
     className: 'dt-head-center dt-body-center',
-    data: 'line',
-    title: 'Line #'
+    data: 'id',
+    title: 'ID'
   },
   {
     className: 'dt-head-center',
@@ -66,9 +164,14 @@ export const woItemsDtColumns = [
   },
   {
     className: 'dt-head-center dt-body-center',
-    data: 'quantity',
+    render: (_data, _type, row, _meta) => `<input type="number" class="quantity" value="${row.quantity}" min="0" max="${row.quantity}" required />`,
     title: 'Quantity'
-  }
+  }/* ,
+  {
+    className: 'dt-head-center',
+    data: 'availableQty',
+    title: 'Available Qty'
+  } */
 ];
 
 export const woContactsDtColumns = [
@@ -135,6 +238,9 @@ export const woAddressesDtColumns = [{
     title: 'Full Address'
   }
 ];
+
+// COMPLETE EVENT
+// -----------------
 
 export const ceTimeSheetsDtColumns = [
   {
@@ -233,7 +339,7 @@ export const ceItemsDtColumns = [
   },
   {
     className: 'dt-head-center dt-body-center',
-    render: (_data, _type, row, _meta) => `<input type="number" class="completeQty" value="${row.quantity}" required />`,
+    render: (_data, _type, row, _meta) => `<input type="number" class="quantity completeQty" value="${row.quantity}" required />`,
     title: 'Complete Qty'
   }
 ];

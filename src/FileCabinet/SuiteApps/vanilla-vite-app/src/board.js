@@ -1,4 +1,4 @@
-import { customers, resources, resourceGroups, workOrders, events, organizers } from './components/dataSet';
+import { customers, resources, resourceGroups, vendors, vendorGrouped, workOrders, events, organizers } from './components/dataSet';
 import { initLeftSideBarFilters, initAvailableJobsFilters, initEventFilters } from './components/filterHandler';
 import './board.css';
 
@@ -20,7 +20,6 @@ export default class Board {
                   <div style="padding: 10px; margin-top: 20px" class="card-header header">
                     <i class="fa-solid fa-icon-size fa-users-gear" style="font-size: 14px; margin-right: 5px"></i>
                     <span style="display: inline-block;"><h5><strong>Resources</strong></h5></span>
-                    <span class="badge badge-danger badge-pill counter">${resources.all.length}</span>
                   </div>
                   <div id="col1-filter-tableWrapper" class="accordion accordion-flush">
                     <div class="accordion-item">
@@ -34,18 +33,20 @@ export default class Board {
                         <div class="input-group" style=" margin-top: 10px;">
                           <div class="input-group mb-3" style="border-radius: 5px 5px 0 0;">
                             <select class="selectpicker mx-auto multiple-resource-field" title="Filter by Name" data-live-search="true" data-selected-text-format="count>2" data-style="" data-style-base="form-control" data-actions-box="true" multiple>
-                              ${resources.all.map(resource => `<option value="${resource.employee.value}">${resource.employee.text}</option>`)}
+                              ${resources.map(resource => `<option value="${resource.employee.value}">${resource.employee.text}</option>`)}
+                              ${Object.keys(vendorGrouped).map(vendorId => `<option value="${vendorId}">${vendorGrouped[vendorId].vendor.text}</option>`)}
                             </select>
                           </div>
                           <div class="input-group mb-3">
                             <select class="selectpicker mx-auto multiple-resource-group-field" title="Filter by Group" data-live-search="true" data-selected-text-format="count>2" data-style="" data-style-base="form-control" data-actions-box="true" multiple>
                             ${resourceGroups.map(resourceGroup => `<option value="${resourceGroup.value}">${resourceGroup.text}</option>`)}
+                            <option value="vendor">Vendor Subcontractors</option>
                             </select>
                           </div>
                           <div class="input-group mb-3">
                             <select class="selectpicker mx-auto multiple-status-field" title="Filter by Status" data-live-search="true" data-selected-text-format="count>2" data-style="" data-style-base="form-control" data-actions-box="true" multiple>
-                              <option value="1">Available</option>
-                              <option value="0">Unavailable</option>
+                              <option value="1">Active</option>
+                              <option value="0">Inactive</option>
                             </select>
                           </div>
                         </div>
@@ -71,23 +72,54 @@ export default class Board {
                                   data-bs-toggle="tooltip" 
                                   data-bs-placement="right" 
                                   title="<strong>${resource.employee.text}</strong><br/>
-                                    ${resource.type.text}<br/>
-                                    ${resource.resourceGroup.text}<br/>
+                                    Types: ${resource.types.map(type => type.text).join('/')}<br/>
+                                    Groups: ${resource.resourceGroups.map(_resourceGroup => _resourceGroup.text).join('/')}<br/>
                                     ${resource.email}<br/>
                                     ${resource.phone}<br/>
                                     ${resource.location.text}">
                                 <span class="initials">${resource.initials}</span>
-                                ${Boolean(resource.active) ? '<span class="status active"></span>' : '<span class="status busy"></span>'}
+                                ${!!(resource.active) ? '<span class="status active"></span>' : '<span class="status busy"></span>'}
                             </div>
                             <div class="person-info">
                                 <span class="full-name">${resource.employee.text}</span>
-                                ${Boolean(resource.active) ? '<span class="status-text">Available</span>' : '<span class="status-text">Not Available</span>'}
+                                ${!!(resource.active) ? '<span class="status-text">Active</span>' : '<span class="status-text">Inactive</span>'}
                             </div>
                           </div>`)}
                         </div>
                       </div>
                     </div>`
                   )}
+                  ${`<div id="resourceGroup-vendor-filter-tableWrapper" class="accordion accordion-flush">
+                      <div class="accordion-item">
+                        <h2 class="accordion-header" id="resourceGroup-vendor-filter-tableHeading">
+                          <button class="accordion-button" type="button" data-toggle="collapse" data-target="#resourceGroup-vendor-filter-table" aria-expanded="true" aria-controls="resourceGroup-vendor-filter-table">
+                            <i class="fa-solid fa-icon-size fa-user-group"></i>
+                            <strong class="grid-header">&nbsp;Vendor Subcontractors&nbsp;</strong>
+                            <span class="badge badge-danger badge-pill counter">${Object.keys(vendorGrouped).length}</span>
+                          </button>
+                        </h2>
+                        <div id="resourceGroup-vendor-filter-table" class="accordion-collapse collapse show" aria-labelledby="resourceGroup-vendor-filter-tableHeading" data-parent="#resourceGroup-vendor-filter-tableWrapper">
+                          ${Object.keys(vendorGrouped).map(vendorId => `
+                          <div class="person-container" id="${vendorGrouped[vendorId].vendor.value}">
+                            <div class="person-circle" 
+                                  data-bs-toggle="tooltip" 
+                                  data-bs-placement="right" 
+                                  title="<strong>${vendorGrouped[vendorId].vendor.text}</strong><br/>
+                                    URL: ${vendorGrouped[vendorId].url}<br/>
+                                    Email: ${vendorGrouped[vendorId].email}<br/>
+                                    Quantity Available: ${vendorGrouped[vendorId].quantityAvailable}<br/>
+                                    Quantity Required: ${vendorGrouped[vendorId].quantityRequired}<br/>
+                                <span class="initials">${vendorGrouped[vendorId].initials}</span>
+                                ${!!(vendorGrouped[vendorId].active) ? '<span class="status active"></span>' : '<span class="status busy"></span>'}
+                            </div>
+                            <div class="person-info">
+                                <span class="full-name">${vendorGrouped[vendorId].vendor.text}</span>
+                                ${!!(vendorGrouped[vendorId].active) ? '<span class="status-text">Available</span>' : '<span class="status-text">Unavailable</span>'}
+                            </div>
+                          </div>`)}
+                        </div>
+                      </div>
+                    </div>`}
                 </div>
               </aside>
               <div class="collapse-btn">
@@ -199,12 +231,15 @@ export default class Board {
                             <div class="input-group inline-inputs" style="margin-top: 10px;">
                               <div class="input-group mb-3" style="border-radius: 5px 5px 0 0;">
                                 <select class="selectpicker mx-auto multiple-resource-field" title="Filter by Resource Name" data-live-search="true" data-selected-text-format="count>2" data-style="" data-style-base="form-control" data-actions-box="true" multiple>
-                                  ${resources.all.map(resource => `<option value="${resource.employee.value}">${resource.employee.text}</option>`)}
+                                  ${resources.map(resource => `<option value="${resource.employee.value}">${resource.employee.text}</option>`)}
+                                   ${Object.keys(vendorGrouped).map(vendorId => `<option value="${vendorId}">${vendorGrouped[vendorId].vendor.text}</option>`)}
                                 </select>
                               </div>
                               <div class="input-group mb-3">
                                 <select class="selectpicker mx-auto multiple-resource-group-field" title="Filter by Resource Group" data-live-search="true" data-selected-text-format="count>2" data-style="" data-style-base="form-control" data-actions-box="true" multiple>
                                 ${resourceGroups.map(resourceGroup => `<option value="${resourceGroup.value}">${resourceGroup.text}</option>`)}
+                                <option value="vendor">Vendor Subcontractors</option>
+                                <option value="unassigned">Unassigned</option>
                                 </select>
                               </div>
                             </div>
@@ -385,9 +420,9 @@ export default class Board {
       ev.preventDefault();
     }
 
-    initLeftSideBarFilters('#boardSection', resources);
-    initAvailableJobsFilters('#boardSection .secondColumn', workOrders);
-    initEventFilters('#boardSection', events);
+    initLeftSideBarFilters('#boardSection');
+    initAvailableJobsFilters('#boardSection .secondColumn');
+    initEventFilters('#boardSection');
   }
 
   static showBanners() {

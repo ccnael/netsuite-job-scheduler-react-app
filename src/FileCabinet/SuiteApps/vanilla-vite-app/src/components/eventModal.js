@@ -1,12 +1,12 @@
 import { resources, workOrders, events } from './dataSet';
-import { woResourcesDtColumns, woItemsDtColumns, woContactsDtColumns, woAddressesDtColumns } from './dataTableColumns';
+import { woResourcesDtColumns, woVendorsDtColumns, woAssetsDtColumns, woItemsDtColumns, woContactsDtColumns, woAddressesDtColumns } from './dataTableColumns';
 import { Event } from './utils';
 
-let temp_woResourcesDataTable, temp_woItemsDataTable, temp_woContactsDataTable, temp_woAddressesDataTable;
+let temp_woResourcesDataTable, temp_woVendorsDataTable, temp_woAssetsDataTable, temp_woItemsDataTable, temp_woContactsDataTable, temp_woAddressesDataTable;
 
 $(document).ready(() => {
   $('#app').append(`<div class="modal fade" id="eventModal" mode="" woId="" eventId="" eventDataSrc="" prefillData="" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false">
-    <div class="modal-dialog modal-lg">
+    <div class="modal-dialog modal-xl">
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="eventModalLabel"><strong class="table-header"></strong></h5>
@@ -15,16 +15,16 @@ $(document).ready(() => {
         <div class="spinner"></div>
         <div class="modal-body">
           <form id="eventSubmitForm" onsubmit="return validateForm()">
-            <!-- First Accordion Item -->
-            <div class="accordion" id="eventFirstAccordion">
+            <!-- 1st Accordion Item -->
+            <div class="accordion" id="event1stAccordion">
               <div class="accordion-item">
-                <h2 class="accordion-header" id="eventHeadingOne">
-                  <button class="accordion-button" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                <h2 class="accordion-header" id="eventHeading1st">
+                  <button class="accordion-button" type="button" data-toggle="collapse" data-target="#collapse1st" aria-expanded="true" aria-controls="collapse1st">
                     <!-- <strong class="grid-header">&nbsp;Primary Information</strong> -->
                     <strong class="table-header">Primary Information</strong>
                   </button>
                 </h2>
-                <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="eventHeadingOne" data-parent="#eventFirstAccordion">
+                <div id="collapse1st" class="accordion-collapse collapse show" aria-labelledby="eventHeadingOne" data-parent="#event1stAccordion">
                   <div class="accordion-body">
                     <form>
                       <table class="table w-100 table-borderless" id="wo-primaryinfo">
@@ -108,15 +108,15 @@ $(document).ready(() => {
                 </div>
               </div>
             </div>
-            <!-- Second Accordion Item -->
-            <div class="accordion" id="eventSecondAccordion" style="margin-top: 15px">
+            <!-- 2nd Accordion Item -->
+            <div class="accordion" id="event2ndAccordion" style="margin-top: 15px">
               <div class="accordion-item">
-                <h2 class="accordion-header" id="eventHeadingTwo">
-                  <button class="accordion-button" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                <h2 class="accordion-header" id="eventHeading2nd">
+                  <button class="accordion-button" type="button" data-toggle="collapse" data-target="#collapse2nd" aria-expanded="true" aria-controls="collapse2nd">
                     <strong class="table-header">Select Available Resources</strong>
                   </button>
                 </h2>
-                <div id="collapseTwo" class="accordion-collapse collapse show" aria-labelledby="eventHeadingTwo" data-parent="#eventSecondAccordion">
+                <div id="collapse2nd" class="accordion-collapse collapse show" aria-labelledby="eventHeading2nd" data-parent="#event2ndAccordion">
                   <div class="accordion-body">
                     <div class="table-responsive">
                       <table class="table table-striped" id="woResources_dt">
@@ -130,15 +130,59 @@ $(document).ready(() => {
                 </div>
               </div>
             </div>
-            <!-- Third Accordion Item -->
-            <div class="accordion" id="eventThirdAccordion" style="margin-top: 15px">
+            <!-- 3rd Accordion Item -->
+            <div class="accordion" id="event3rdAccordion" style="margin-top: 15px">
               <div class="accordion-item">
-                <h2 class="accordion-header" id="eventHeadingThree">
-                  <button class="accordion-button" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
+                <h2 class="accordion-header" id="eventHeading3rd">
+                  <button class="accordion-button" type="button" data-toggle="collapse" data-target="#collapse3rd" aria-expanded="true" aria-controls="collapse3rd">
+                    <strong class="table-header">Work Order Vendors</strong>
+                  </button>
+                </h2>
+                <div id="collapse3rd" class="accordion-collapse collapse show" aria-labelledby="eventHeading3rd" data-parent="#event3rdAccordion">
+                  <div class="accordion-body">
+                    <div class="table-responsive">
+                      <table class="table table-striped" id="vendors">
+                        <thead>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- 4th Accordion Item -->
+            <div class="accordion" id="event4thAccordion" style="margin-top: 15px">
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="eventHeading4th">
+                  <button class="accordion-button" type="button" data-toggle="collapse" data-target="#collapse4th" aria-expanded="true" aria-controls="collapse4th">
+                    <strong class="table-header">Work Order Assets</strong>
+                  </button>
+                </h2>
+                <div id="collapse4th" class="accordion-collapse collapse show" aria-labelledby="eventHeading4th" data-parent="#event4thAccordion">
+                  <div class="accordion-body">
+                    <div class="table-responsive">
+                      <table class="table table-striped" id="assets">
+                        <thead>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- 5th Accordion Item -->
+            <div class="accordion" id="event5thAccordion" style="margin-top: 15px">
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="eventHeading5th">
+                  <button class="accordion-button" type="button" data-toggle="collapse" data-target="#collapse5th" aria-expanded="true" aria-controls="collapse5th">
                     <strong class="table-header">Work Order Items</strong>
                   </button>
                 </h2>
-                <div id="collapseThree" class="accordion-collapse collapse show" aria-labelledby="eventHeadingThree" data-parent="#eventThirdAccordion">
+                <div id="collapse5th" class="accordion-collapse collapse show" aria-labelledby="eventHeading5th" data-parent="#event5thAccordion">
                   <div class="accordion-body">
                     <div class="table-responsive">
                       <table class="table table-striped" id="woItems_dt">
@@ -152,15 +196,15 @@ $(document).ready(() => {
                 </div>
               </div>
             </div>
-            <!-- Fourth Accordion Item -->
-            <div class="accordion" id="eventFourthAccordion" style="margin-top: 15px">
+            <!-- 6th Accordion Item -->
+            <div class="accordion" id="event6thAccordion" style="margin-top: 15px">
               <div class="accordion-item">
-                <h2 class="accordion-header" id="eventHeadingFourth">
-                  <button class="accordion-button" type="button" data-toggle="collapse" data-target="#collapseFourth" aria-expanded="true" aria-controls="collapseFourth">
+                <h2 class="accordion-header" id="eventHeading6th">
+                  <button class="accordion-button" type="button" data-toggle="collapse" data-target="#collapse6th" aria-expanded="true" aria-controls="collapse6th">
                     <strong class="table-header">Work Order Contacts</strong>
                   </button>
                 </h2>
-                <div id="collapseFourth" class="accordion-collapse collapse show" aria-labelledby="eventHeadingFourth" data-parent="#eventFourthAccordion">
+                <div id="collapse6th" class="accordion-collapse collapse show" aria-labelledby="eventHeading6th" data-parent="#event6thAccordion">
                   <div class="accordion-body">
                     <div class="table-responsive">
                       <table class="table table-striped" id="contacts">
@@ -174,15 +218,15 @@ $(document).ready(() => {
                 </div>
               </div>
             </div>
-            <!-- Fifth Accordion Item -->
-            <div class="accordion" id="eventFifthAccordion" style="margin-top: 15px">
+            <!-- 7th Accordion Item -->
+            <div class="accordion" id="event7thAccordion" style="margin-top: 15px">
               <div class="accordion-item">
-                <h2 class="accordion-header" id="eventHeadingFifth">
-                  <button class="accordion-button" type="button" data-toggle="collapse" data-target="#collapseFifth" aria-expanded="true" aria-controls="collapseFifth">
+                <h2 class="accordion-header" id="eventHeading7th">
+                  <button class="accordion-button" type="button" data-toggle="collapse" data-target="#collapse7th" aria-expanded="true" aria-controls="collapse7th">
                     <strong class="table-header">Work Order Addresses</strong>
                   </button>
                 </h2>
-                <div id="collapseFifth" class="accordion-collapse collapse show" aria-labelledby="eventHeadingFifth" data-parent="#eventFifthAccordion">
+                <div id="collapse7th" class="accordion-collapse collapse show" aria-labelledby="eventHeading7th" data-parent="#event7thAccordion">
                   <div class="accordion-body">
                     <div class="table-responsive">
                       <table class="table table-striped" id="addresses">
@@ -264,17 +308,49 @@ $(document).ready(() => {
       let woRef, eventData, modalTitle, eventTitle;
       const dtLine = {
         resources: [],
+        vendors: [],
+        assets: [],
         items: [],
         contacts: [],
         addresses: []
       };
   
       if (mode == 'create') {
-        modalTitle = `Create New Event [ID ${woId}]`;
+        modalTitle = `Create New Event [WO ID ${woId}]`;
         woRef = workOrders.find(wo => wo.id == woId);
         eventTitle = woRef?.title;
-        dtLine.resources = resources.active;
-        dtLine.items = woRef.items;
+        dtLine.resources = resources.filter(resource => !!resource.active);
+
+        const usedVendors = woRef.vendors.filter(vendor => !!vendor.event);
+        const usedAssets = woRef.assets.filter(asset => !!asset.event);
+        const usedItems = woRef.items.filter(item => !!item.event);
+
+        dtLine.vendors = woRef.vendors.filter(vendor => !!!vendor.event);
+        dtLine.assets = woRef.assets.filter(asset => !!!asset.event);
+        dtLine.items = woRef.items.filter(item => !!!item.event);
+
+        // Calculate remaining vendor quantities
+        // -------------------------------------
+        dtLine.vendors.forEach(vendor => {
+          const qtyUsed = usedVendors.filter(usedVendor => usedVendor.workorder.value == vendor.workorder.value && usedVendor.vendor.value == vendor.vendor.value)
+            .reduce((total, vendor) => total += vendor.quantityRequired, 0);
+          vendor.quantityAvailable -= qtyUsed;
+        });
+        // Calculate remaining asset quantities
+        // -------------------------------------
+        dtLine.assets.forEach(asset => {
+          const qtyUsed = usedAssets.filter(usedAsset => usedAsset.workorder.value == asset.workorder.value && usedAsset.equipment.value == asset.equipment.value)
+            .reduce((total, asset) => total += asset.quantity, 0);
+            asset.quantity -= qtyUsed;
+        });
+        // Calculate remaining item quantities
+        // -------------------------------------
+        dtLine.items.forEach(item => {
+          const qtyUsed = usedItems.filter(usedItem => usedItem.workorder.value == item.workorder.value && usedItem.uuid == item.uuid)
+            .reduce((total, item) => total += item.quantity, 0);
+          item.quantity -= qtyUsed;
+        });
+
         dtLine.contacts = JSON.parse(JSON.stringify(woRef.contacts));
         dtLine.contacts = dtLine.contacts.map(woContact => {
           woContact.selected = woContact.primary
@@ -282,7 +358,7 @@ $(document).ready(() => {
         });
         dtLine.addresses = JSON.parse(JSON.stringify(woRef.addresses));
         dtLine.addresses = dtLine.addresses.map(woAddress => {
-          woAddress.selected = Boolean(dtLine.addresses.length == 1);
+          woAddress.selected = !!(dtLine.addresses.length == 1);
           return woAddress;
         });
 
@@ -300,21 +376,39 @@ $(document).ready(() => {
         eventData = events.find(event => event.id == eventId);
         woRef = eventData.woRef;
         eventTitle = eventData?.title;
-        dtLine.resources = JSON.parse(JSON.stringify(resources.active));
+        dtLine.resources = JSON.parse(JSON.stringify(resources.filter(resource => !!resource.active)));
         dtLine.resources = dtLine.resources.map(allResource => {
-          allResource.selected = Boolean(eventData.resources.find(resource => resource.employee.value == allResource.employee.value));
+          allResource.selected = !!(eventData.resources.find(resource => resource.employee.value == allResource.employee.value));
           return allResource;
         });
+        
+        dtLine.vendors = JSON.parse(JSON.stringify(woRef.vendors));
+        dtLine.vendors = dtLine.vendors.map(woVendor => {
+          woVendor.selected = !!(eventData.vendors.find(vendor => vendor.id == woVendor.id));
+          return woVendor;
+        });
+        dtLine.vendors = dtLine.vendors.filter(vendor => vendor.event == eventId);
+
+        dtLine.assets = JSON.parse(JSON.stringify(woRef.assets));
+        dtLine.assets = dtLine.assets.map(woAsset => {
+          woAsset.selected = !!(eventData.assets.find(asset => asset.id == woAsset.id));
+          return woAsset;
+        });
+        dtLine.assets = dtLine.assets.filter(asset => asset.event == eventId);
+
         dtLine.items = JSON.parse(JSON.stringify(woRef.items));
         dtLine.items = dtLine.items.map(woItem => {
-          woItem.selected = Boolean(eventData.items.find(item => item.id == woItem.id));
+          woItem.selected = !!(eventData.items.find(item => item.id == woItem.id));
           return woItem;
         });
+        dtLine.items = dtLine.items.filter(item => item.event == eventId);
+
         dtLine.contacts = JSON.parse(JSON.stringify(woRef.contacts));
         dtLine.contacts = dtLine.contacts.map(woContact => {
           woContact.selected = woContact.id == eventData.contact.value;
           return woContact;
         });
+        
         dtLine.addresses = JSON.parse(JSON.stringify(woRef.addresses));
         dtLine.addresses = dtLine.addresses.map(woAddress => {
           woAddress.selected = woAddress.id == eventData.address.value;
@@ -360,6 +454,34 @@ $(document).ready(() => {
         },
         columns: woResourcesDtColumns,
         initComplete: () => {
+          eventFormHandlers();
+        }
+      });
+
+      temp_woVendorsDataTable = $('#vendors').DataTable({
+        processing: true,
+        retrieve: true,
+        ajax(_data, callback, _settings) {
+          callback({
+            data: dtLine.vendors
+          })
+        },
+        columns: woVendorsDtColumns,
+        initComplete: () => {  
+          eventFormHandlers();
+        }
+      });
+
+      temp_woAssetsDataTable = $('#assets').DataTable({
+        processing: true,
+        retrieve: true,
+        ajax(_data, callback, _settings) {
+          callback({
+            data: dtLine.assets
+          })
+        },
+        columns: woAssetsDtColumns,
+        initComplete: () => {  
           eventFormHandlers();
         }
       });
@@ -436,6 +558,8 @@ $(document).ready(() => {
     payload.eventData.status = $('#eventModal .status').val();
     payload.eventData.priority = $('#eventModal .priority').val();
     payload.eventData.selectedResources = [];
+    payload.eventData.selectedVendors = [];
+    payload.eventData.selectedAssets = [];
     payload.eventData.selectedItems = [];
     payload.eventData.selectedContact = {};
     payload.eventData.selectedAddress = {};
@@ -451,6 +575,38 @@ $(document).ready(() => {
         }
       }
     }
+
+    const vendorIds = [];
+    const woVendors_dt_tr = document.querySelectorAll('#vendors tbody .dt-line-select');
+    for (const line of woVendors_dt_tr) {
+      if (line.checked) {
+        const id = line.getAttribute('recordid');
+        if (id) {
+          const foundObj = woRef.vendors.find(vendor => vendor.id == id);
+          if (foundObj) {
+            const newQty = line.parentNode.parentNode.parentNode.querySelector('.quantity').value;
+            foundObj.quantityAvailable = newQty;
+          }
+          vendorIds.push(id);
+        }
+      }
+    }
+
+    const assetIds = [];
+    const woAssets_dt_tr = document.querySelectorAll('#assets tbody .dt-line-select');
+    for (const line of woAssets_dt_tr) {
+      if (line.checked) {
+        const id = line.getAttribute('recordid');
+        if (id) {
+          const foundObj = woRef.assets.find(asset => asset.id == id);
+          if (foundObj) {
+            const newQty = line.parentNode.parentNode.parentNode.querySelector('.quantity').value;
+            foundObj.quantity = newQty;
+          }
+          assetIds.push(id);
+        }
+      }
+    }
   
     const itemIds = [];
     const woItems_dt_tr = document.querySelectorAll('#woItems_dt tbody .dt-line-select');
@@ -458,6 +614,11 @@ $(document).ready(() => {
       if (line.checked) {
         const id = line.getAttribute('recordid');
         if (id) {
+          const foundObj = woRef.items.find(item => item.id == id);
+          if (foundObj) {
+            const newQty = line.parentNode.parentNode.parentNode.querySelector('.quantity').value;
+            foundObj.quantity = newQty;
+          }
           itemIds.push(id);
         }
       }
@@ -488,8 +649,10 @@ $(document).ready(() => {
     }
     
      // Filter objects by id
-    payload.eventData.selectedResources = resources.active.filter(resource => Boolean(resourceIds.includes(resource.employee.value)));
-    payload.eventData.selectedItems = woRef.items.filter(item => Boolean(itemIds.includes(item.id)));
+    payload.eventData.selectedResources = resources.filter(resource => !!resource.active && !!(resourceIds.includes(resource.employee.value)));
+    payload.eventData.selectedVendors = woRef.vendors.filter(vendor => !!(vendorIds.includes(vendor.id)));
+    payload.eventData.selectedAssets = woRef.assets.filter(asset => !!(assetIds.includes(asset.id)));
+    payload.eventData.selectedItems = woRef.items.filter(item => !!(itemIds.includes(item.id)));
     payload.eventData.selectedContact = woRef.contacts.find(contact => contact.id == contactId) || {};
     payload.eventData.selectedAddress = woRef.addresses.find(address => address.id == addressId) || {};
     payload.eventData.contacts = woRef.contacts;
@@ -539,13 +702,22 @@ $(document).ready(() => {
     document.querySelector(`#eventModal .status`).value = 'TENTATIVE'; // Default Tentative
     $(`#eventModal .alldayevent-switch`)[0].checked = false;
     
-    // Clear WO Resources
+    // Clear DataTable rows
     if (temp_woResourcesDataTable) {
       $('table#woResources_dt tbody').children().remove();
       temp_woResourcesDataTable = temp_woResourcesDataTable.destroy();
     }
   
-    // Clear DataTable rows
+    if (temp_woVendorsDataTable) {
+      $('table#vendors tbody').children().remove();
+      temp_woVendorsDataTable = temp_woVendorsDataTable.destroy();
+    }
+
+    if (temp_woAssetsDataTable) {
+      $('table#assets tbody').children().remove();
+      temp_woAssetsDataTable = temp_woAssetsDataTable.destroy();
+    }
+
     if (temp_woItemsDataTable) {
       $('table#woItems_dt tbody').children().remove();
       temp_woItemsDataTable = temp_woItemsDataTable.destroy();

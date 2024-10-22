@@ -162,7 +162,7 @@ $(document).ready(() => {
         retrieve: true,
         ajax(data, callback, settings) {
           callback({
-            data: resources.active
+            data: resources.filter(resource => !!resource.active)
           })
         },
         columns: woResourcesDtColumns,
@@ -210,7 +210,7 @@ $(document).ready(() => {
       }
     }
 
-    payload.eventData.selectedResources = resources.active.filter(resource => Boolean(resourceIds.includes(resource.employee.value)));
+    payload.eventData.selectedResources = resources.filter(resource => !!resource.active && !!(resourceIds.includes(resource.employee.value)));
     Event.createEventRecord(payload, 'generalEventModal');
   });
 

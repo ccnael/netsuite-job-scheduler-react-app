@@ -1,0 +1,18 @@
+$background-color_1: white;
+
+#completeEventModal {
+	width: 100%;
+	.ts-input-container {
+		display: flex;
+		gap: 5px;
+		input {
+			width: 40px;
+			background-color: $background-color_1;
+			border: none;
+			text-align: center;
+		}
+	}
+}
+#timeSheets_dt {
+	width: 100%;
+}

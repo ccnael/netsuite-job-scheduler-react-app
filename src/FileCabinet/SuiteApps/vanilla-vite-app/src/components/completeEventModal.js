@@ -239,7 +239,8 @@ $(document).ready(() => {
     const unresolvedPunchCount = punchLines.filter(punch => punch.status.value != 6).length; // 6 (Resolved)
     const eventId = payload.eventDataSrc.id;
 
-    console.log('Punch Items', punchLines);
+    console.log('----- Punch Items -----');
+    console.log(punchLines);
     
     if (unresolvedPunchCount) {
       Swal.fire(
@@ -276,6 +277,22 @@ $(document).ready(() => {
         payload.fulfillItems.push({ customRecordId, lineId, quantity, completeQty });
       }
     });
+
+    // Sanitize
+    payload.timeSheets = payload.timeSheets.filter(timeSheet => !!!timeSheet);
+    payload.fulfillItems = payload.fulfillItems.filter(fulfillItem => !!!fulfillItem);
+
+    console.log('----- Complete Event Payload -----');
+    console.log(payload);
+
+    if (!payload.timeSheets.length) {
+      Swal.fire(
+        'Unable to Proceed',
+        `Time Sheets Required`,
+        'error'
+      );
+      return;
+    }
 
     Swal.fire({
       title: 'Complete Event?',

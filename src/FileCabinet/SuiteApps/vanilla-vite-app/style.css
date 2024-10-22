@@ -510,4 +510,10 @@ div.form-check {
 .tooltip.bs-tooltip-end .tooltip-inner {
   /* Adjust the position if the tooltip is set to end */
   text-align: left; /* Align text to the left */
+}
+
+.quantity {
+  background-color: white;
+  border: none;
+  text-align: center;
 }/*# sourceMappingURL=style.css.map */

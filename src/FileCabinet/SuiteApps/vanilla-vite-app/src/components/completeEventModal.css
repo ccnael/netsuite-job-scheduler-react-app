@@ -1,12 +1,10 @@
-#completeEventModal, #timeSheets_dt {
+#completeEventModal {
   width: 100%;
 }
-
 #completeEventModal .ts-input-container {
   display: flex;
   gap: 5px;
 }
-
 #completeEventModal .ts-input-container input {
   width: 40px;
   background-color: white;
@@ -14,8 +12,6 @@
   text-align: center;
 }
 
-#completeEventModal .quantity, #completeEventModal .completeQty {
-  background-color: white;
-  border: none;
-  text-align: center;
-}
+#timeSheets_dt {
+  width: 100%;
+}/*# sourceMappingURL=completeEventModal.css.map */

@@ -5,7 +5,7 @@ import dayGridPlugin from '@fullcalendar/daygrid';
 import listPlugin from '@fullcalendar/list';
 import timeGridPlugin from '@fullcalendar/timegrid';
 import resourceTimelinePlugin from '@fullcalendar/resource-timeline';
-import { customers, resources, resourceGroups, workOrders, events, organizers } from './components/dataSet';
+import { customers, resources, resourceGroups, vendors, vendorGrouped, combinedResourceGroups, workOrders, events, organizers } from './components/dataSet';
 import { initCalendarFilters, initAvailableJobsFilters } from './components/filterHandler';
 import { Event } from './components/utils';
 import './calendar.css';
@@ -114,19 +114,23 @@ export default class Calendar {
     
     const containerEl = document.querySelector('#calendarSection .thirdColumn');
     const calendarEl = document.getElementById('calendar');
-
-    const calendarResources = resourceGroups.map(resourceGroup => ({
+    const calendarResources = combinedResourceGroups.map(resourceGroup => ({
       id: resourceGroup.value,
       title: resourceGroup.text,
       children: resourceGroup.resources.map(resource => ({
-        id: resource.employee.value,
+        id: `${resourceGroup.value}-${resource.employee.value}`,
         title: resource.employee.text,
         extendedProps: resource
       })),
       extendedProps: resourceGroup
     }));
+    
     // Events with no resource gets assigned here
-    calendarResources.push({ id: 'general', title: 'General', children: [] });
+    calendarResources.push({ 
+      id: 'z-unassigned', // Auto sorts by id, needs to ba after vendor group
+      title: 'Unassigned',
+      children: []
+    });
 
     // Remap calendar events data
     // -----------------------------------------------------------------
@@ -139,14 +143,22 @@ export default class Calendar {
       map.url = event.url;
       map.className = 'event-class-style-name';
       map.className += (event.status.value === 'TENTATIVE' ? ' tentative' : ' confirmed');
-      map.resourceIds = event.resources.map(resource => resource.employee.value);
-      if (!map.resourceIds.length) {
-        map.resourceIds = ['general']
+      map.resourceIds = [];
+      map.resourceIds = [...map.resourceIds, ...event.vendors.map(vendor => `vendor-${vendor.vendor.value}`)];
+      if (event.resources.length) {
+        event.resources.forEach(resource => {
+          resource.resourceGroups.forEach(resourceGroup => {
+            map.resourceIds.push(`${resourceGroup.value}-${resource.employee.value}`);
+          });
+        });
+      } else {
+        map.resourceIds = ['z-unassigned'];
       }
       map.extendedProps = JSON.parse(JSON.stringify(event));
       return map;
     });
-    calendarEvents = calendarEvents.filter(event => Boolean(event.resourceIds.length));
+    
+    calendarEvents = calendarEvents.filter(event => !!(event.resourceIds.length));
     
     // Instantiate draggable external events
     // -----------------------------------------------------------------
@@ -212,7 +224,6 @@ export default class Calendar {
           html: `<div style="padding: 10px; width: 100%" id="main-resource-header">
             <i class="fa-solid fa-icon-size fa-users-gear" style="font-size: 14px; margin-right: 5px"></i>
             <span style="display: inline-block;"><h5><strong>Resources</strong></h5></span>
-            <span class="badge badge-danger badge-pill counter">${resources.all.length}</span>
           </div>`
         }
       },
@@ -326,7 +337,7 @@ export default class Calendar {
       },
       // Disable event drop on Groups
       eventAllow: (dropInfo, draggedEvent) => {
-        return !Boolean((dropInfo.resource.extendedProps.resourceCount));
+        return !!!((dropInfo.resource.extendedProps.resourceCount));
       },
       windowResize: arg => {
         console.log('The calendar has adjusted to a window resize. Current view: ' + arg.view.type);
@@ -374,8 +385,8 @@ export default class Calendar {
 
     resizer.addEventListener('mousedown', mouseDownHandler);
 
-    initAvailableJobsFilters('#calendarSection #collapseRight', workOrders);
-    initCalendarFilters(resources, resourceGroups);
+    initCalendarFilters();
+    initAvailableJobsFilters('#calendarSection .thirdColumn');
 
     this._updateEventViewCounter();
   }
@@ -423,12 +434,15 @@ export default class Calendar {
         <div class="input-group inline-inputs" style="margin-top: 10px;">
           <div class="input-group mb-3" style="border-radius: 5px 5px 0 0;">
             <select class="selectpicker mx-auto multiple-resource-field" title="Filter by Resource Name" data-live-search="true" data-selected-text-format="count>2" data-style="" data-style-base="form-control" data-actions-box="true" multiple>
-              ${resources.all.map(resource => `<option value="${resource.employee.value}">${resource.employee.text}</option>`)}
+              ${resources.map(resource => `<option value="${resource.employee.value}">${resource.employee.text}</option>`)}
+              ${Object.keys(vendorGrouped).map(vendorId => `<option value="${vendorId}">${vendorGrouped[vendorId].vendor.text}</option>`)}
             </select>
           </div>
           <div class="input-group mb-3">
             <select class="selectpicker mx-auto multiple-resource-group-field" title="Filter by Resource Group" data-live-search="true" data-selected-text-format="count>2" data-style="" data-style-base="form-control" data-actions-box="true" multiple>
             ${resourceGroups.map(resourceGroup => `<option value="${resourceGroup.value}">${resourceGroup.text}</option>`)}
+            <option value="vendor">Vendor Subcontractors</option>
+            <option value="z-unassigned">Unassigned</option>
             </select>
           </div>
           <div class="input-group mb-3">
@@ -515,7 +529,7 @@ export default class Calendar {
         const calEvent = calEvents.find(event => event.id == info.event.id);
         if (calEvent) {
           const resourceIds = calEvent._def.resourceIds;
-          payload.eventData.selectedResources = resources.active.filter(resource => Boolean(resourceIds.includes(resource.employee.value)));
+          payload.eventData.selectedResources = resources.filter(resource => !!resource.active && !!(resourceIds.includes(resource.employee.value)));
         }
       }
     }

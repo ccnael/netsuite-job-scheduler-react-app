@@ -143,6 +143,7 @@ export class Event {
     console.log('deleteEventRecord() > Event ID', eventId);
 
     const payload = events.find(event => event.id == eventId) || {};
+    console.log('PAYLOAD', payload);
 
     Swal.fire({
       title: `Delete Event Record ID ${eventId}?`,
