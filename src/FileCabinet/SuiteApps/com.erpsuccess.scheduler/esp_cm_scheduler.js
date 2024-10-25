@@ -2000,6 +2000,8 @@ define([
             }
           }
           rec.save({ ignoreMandatoryFields: true });
+        } else {
+          throw new Error('Time tracking location is required.');
         }
       }
 
