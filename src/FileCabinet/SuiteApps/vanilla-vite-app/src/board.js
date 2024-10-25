@@ -1,4 +1,4 @@
-import { customers, resources, resourceGroups, vendors, vendorGrouped, workOrders, events, organizers } from './components/dataSet';
+import { customers, resources, resourceGroups, vendors, workOrders, events, organizers } from './components/dataSet';
 import { initLeftSideBarFilters, initAvailableJobsFilters, initEventFilters } from './components/filterHandler';
 import './board.css';
 
@@ -33,8 +33,8 @@ export default class Board {
                         <div class="input-group" style=" margin-top: 10px;">
                           <div class="input-group mb-3" style="border-radius: 5px 5px 0 0;">
                             <select class="selectpicker mx-auto multiple-resource-field" title="Filter by Name" data-live-search="true" data-selected-text-format="count>2" data-style="" data-style-base="form-control" data-actions-box="true" multiple>
-                              ${resources.map(resource => `<option value="${resource.employee.value}">${resource.employee.text}</option>`)}
-                              ${Object.keys(vendorGrouped).map(vendorId => `<option value="${vendorId}">${vendorGrouped[vendorId].vendor.text}</option>`)}
+                              ${resources.map(resource => `<option value="${resource.id}">${resource.name}</option>`)}
+                              ${vendors.map(vendor => `<option value="${vendor.id}">${vendor.name}</option>`)}
                             </select>
                           </div>
                           <div class="input-group mb-3">
@@ -67,11 +67,11 @@ export default class Board {
                         </h2>
                         <div id="resourceGroup-${resourceGroup.value}-filter-table" class="accordion-collapse collapse show" aria-labelledby="resourceGroup-${resourceGroup.value}-filter-tableHeading" data-parent="#resourceGroup-${resourceGroup.value}-filter-tableWrapper">
                           ${resourceGroup.resources.map(resource => `
-                          <div class="person-container" id="${resource.employee.value}">
+                          <div class="person-container" id="${resource.id}">
                             <div class="person-circle" 
                                   data-bs-toggle="tooltip" 
                                   data-bs-placement="right" 
-                                  title="<strong>${resource.employee.text}</strong><br/>
+                                  title="<strong>${resource.name}</strong><br/>
                                     Types: ${resource.types.map(type => type.text).join('/')}<br/>
                                     Groups: ${resource.resourceGroups.map(_resourceGroup => _resourceGroup.text).join('/')}<br/>
                                     ${resource.email}<br/>
@@ -81,7 +81,7 @@ export default class Board {
                                 ${!!(resource.active) ? '<span class="status active"></span>' : '<span class="status busy"></span>'}
                             </div>
                             <div class="person-info">
-                                <span class="full-name">${resource.employee.text}</span>
+                                <span class="full-name">${resource.name}</span>
                                 ${!!(resource.active) ? '<span class="status-text">Active</span>' : '<span class="status-text">Inactive</span>'}
                             </div>
                           </div>`)}
@@ -95,26 +95,25 @@ export default class Board {
                           <button class="accordion-button" type="button" data-toggle="collapse" data-target="#resourceGroup-vendor-filter-table" aria-expanded="true" aria-controls="resourceGroup-vendor-filter-table">
                             <i class="fa-solid fa-icon-size fa-user-group"></i>
                             <strong class="grid-header">&nbsp;Vendor Subcontractors&nbsp;</strong>
-                            <span class="badge badge-danger badge-pill counter">${Object.keys(vendorGrouped).length}</span>
+                            <span class="badge badge-danger badge-pill counter">${vendors.length}</span>
                           </button>
                         </h2>
                         <div id="resourceGroup-vendor-filter-table" class="accordion-collapse collapse show" aria-labelledby="resourceGroup-vendor-filter-tableHeading" data-parent="#resourceGroup-vendor-filter-tableWrapper">
-                          ${Object.keys(vendorGrouped).map(vendorId => `
-                          <div class="person-container" id="${vendorGrouped[vendorId].vendor.value}">
+                          ${vendors.map(vendor => `
+                          <div class="person-container" id="${vendor.id}">
                             <div class="person-circle" 
                                   data-bs-toggle="tooltip" 
                                   data-bs-placement="right" 
-                                  title="<strong>${vendorGrouped[vendorId].vendor.text}</strong><br/>
-                                    URL: ${vendorGrouped[vendorId].url}<br/>
-                                    Email: ${vendorGrouped[vendorId].email}<br/>
-                                    Quantity Available: ${vendorGrouped[vendorId].quantityAvailable}<br/>
-                                    Quantity Required: ${vendorGrouped[vendorId].quantityRequired}<br/>
-                                <span class="initials">${vendorGrouped[vendorId].initials}</span>
-                                ${!!(vendorGrouped[vendorId].active) ? '<span class="status active"></span>' : '<span class="status busy"></span>'}
+                                  title="<strong>${vendor.name}</strong><br/>
+                                    URL: ${vendor.url}<br/>
+                                    Email: ${vendor.email}<br/>
+                                    Quantity Available: ${vendor.quantityAvailable}<br/>
+                                <span class="initials">${vendor.initials}</span>
+                                ${!!(vendor.active) ? '<span class="status active"></span>' : '<span class="status busy"></span>'}
                             </div>
                             <div class="person-info">
-                                <span class="full-name">${vendorGrouped[vendorId].vendor.text}</span>
-                                ${!!(vendorGrouped[vendorId].active) ? '<span class="status-text">Available</span>' : '<span class="status-text">Unavailable</span>'}
+                                <span class="full-name">${vendor.name}</span>
+                                ${!!(vendor.active) ? '<span class="status-text">Active</span>' : '<span class="status-text">Inactive</span>'}
                             </div>
                           </div>`)}
                         </div>
@@ -231,8 +230,8 @@ export default class Board {
                             <div class="input-group inline-inputs" style="margin-top: 10px;">
                               <div class="input-group mb-3" style="border-radius: 5px 5px 0 0;">
                                 <select class="selectpicker mx-auto multiple-resource-field" title="Filter by Resource Name" data-live-search="true" data-selected-text-format="count>2" data-style="" data-style-base="form-control" data-actions-box="true" multiple>
-                                  ${resources.map(resource => `<option value="${resource.employee.value}">${resource.employee.text}</option>`)}
-                                   ${Object.keys(vendorGrouped).map(vendorId => `<option value="${vendorId}">${vendorGrouped[vendorId].vendor.text}</option>`)}
+                                  ${resources.map(resource => `<option value="${resource.id}">${resource.name}</option>`)}
+                                  ${vendors.map(vendor => `<option value="${vendor.id}">${vendor.name}</option>`)}
                                 </select>
                               </div>
                               <div class="input-group mb-3">
@@ -300,7 +299,7 @@ export default class Board {
                               <div class="dropdown">
                                 <i class="fa-solid fa-angles-down" style="cursor: pointer"></i>
                                 <div class="dropdown-content">
-                                  <a href="#" onclick="openEventModal(event)">Update Event</a>
+                                  ${(!event.workorder.value) ? `<a href="#" onclick="openGeneralEventModal(${event.id})">Update Event</a>` : '<a href="#" onclick="openEventModal(event)">Update Event</a>'}
                                   <a href="#" onclick="openCompleteEventModal(event)">Complete Event</a>
                                   <a href="#" onclick="deleteEventRecord(event)">Remove Event</a>
                                 </div>

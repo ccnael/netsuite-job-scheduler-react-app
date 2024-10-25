@@ -5,7 +5,7 @@ import dayGridPlugin from '@fullcalendar/daygrid';
 import listPlugin from '@fullcalendar/list';
 import timeGridPlugin from '@fullcalendar/timegrid';
 import resourceTimelinePlugin from '@fullcalendar/resource-timeline';
-import { customers, resources, resourceGroups, vendors, vendorGrouped, combinedResourceGroups, workOrders, events, organizers } from './components/dataSet';
+import { customers, resources, resourceGroups, vendors, combinedResourceGroups, workOrders, events, organizers } from './components/dataSet';
 import { initCalendarFilters, initAvailableJobsFilters } from './components/filterHandler';
 import { Event } from './components/utils';
 import './calendar.css';
@@ -118,8 +118,8 @@ export default class Calendar {
       id: resourceGroup.value,
       title: resourceGroup.text,
       children: resourceGroup.resources.map(resource => ({
-        id: `${resourceGroup.value}-${resource.employee.value}`,
-        title: resource.employee.text,
+        id: `${resourceGroup.value}-${resource.id}`,
+        title: resource.name,
         extendedProps: resource
       })),
       extendedProps: resourceGroup
@@ -148,7 +148,7 @@ export default class Calendar {
       if (event.resources.length) {
         event.resources.forEach(resource => {
           resource.resourceGroups.forEach(resourceGroup => {
-            map.resourceIds.push(`${resourceGroup.value}-${resource.employee.value}`);
+            map.resourceIds.push(`${resourceGroup.value}-${resource.id}`);
           });
         });
       } else {
@@ -240,8 +240,8 @@ export default class Calendar {
             `
           };
         } else {
-          if (resource.employee)
-            return resource.employee.text;
+          if (resource.id)
+            return resource.name;
         }
       },
       events: (fetchInfo, successCallback, failureCallback) => {
@@ -434,8 +434,8 @@ export default class Calendar {
         <div class="input-group inline-inputs" style="margin-top: 10px;">
           <div class="input-group mb-3" style="border-radius: 5px 5px 0 0;">
             <select class="selectpicker mx-auto multiple-resource-field" title="Filter by Resource Name" data-live-search="true" data-selected-text-format="count>2" data-style="" data-style-base="form-control" data-actions-box="true" multiple>
-              ${resources.map(resource => `<option value="${resource.employee.value}">${resource.employee.text}</option>`)}
-              ${Object.keys(vendorGrouped).map(vendorId => `<option value="${vendorId}">${vendorGrouped[vendorId].vendor.text}</option>`)}
+              ${resources.map(resource => `<option value="${resource.id}">${resource.name}</option>`)}
+              ${vendors.map(vendor => `<option value="${vendor.id}">${vendor.name}</option>`)}
             </select>
           </div>
           <div class="input-group mb-3">
@@ -529,13 +529,13 @@ export default class Calendar {
         const calEvent = calEvents.find(event => event.id == info.event.id);
         if (calEvent) {
           const resourceIds = calEvent._def.resourceIds;
-          payload.eventData.selectedResources = resources.filter(resource => !!resource.active && !!(resourceIds.includes(resource.employee.value)));
+          payload.eventData.selectedResources = resources.filter(resource => !!resource.active && !!(resourceIds.includes(resource.id)));
         }
       }
     }
 
     console.log('NEW PAYLOAD', payload, info);
-    Event.updateEventRecord(payload, info);
+    Event.updateEventRecord(payload, 'eventModal', info);
   }
 
   static _initDropDown(info) {

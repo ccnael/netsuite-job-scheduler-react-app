@@ -65,7 +65,7 @@ export class Event {
     });
   }
 
-  static updateEventRecord(payload, eventInfo) {
+  static updateEventRecord(payload, modalId, eventInfo) {
     console.log('----- [updateEventRecord() -> PAYLOAD] -----', { payload, eventInfo: eventInfo || '' });
 
     Swal.fire({
@@ -99,7 +99,7 @@ export class Event {
                   icon: 'success'
                 })
                 .then(() => {
-                  $(`#eventModal`).modal('hide');
+                  $(`#${modalId}`).modal('hide');
                   window.location.reload();
                 });
               } else {

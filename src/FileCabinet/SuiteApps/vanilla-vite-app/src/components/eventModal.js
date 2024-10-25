@@ -1,8 +1,8 @@
-import { resources, workOrders, events } from './dataSet';
-import { woResourcesDtColumns, woVendorsDtColumns, woAssetsDtColumns, woItemsDtColumns, woContactsDtColumns, woAddressesDtColumns } from './dataTableColumns';
+import { resources, vendors, assets, workOrders, events } from './dataSet';
+import { resourcesDtColumns, vendorsDtColumns, assetsDtColumns, itemsDtColumns, contactsDtColumns, addressesDtColumns } from './dataTableColumns';
 import { Event } from './utils';
 
-let temp_woResourcesDataTable, temp_woVendorsDataTable, temp_woAssetsDataTable, temp_woItemsDataTable, temp_woContactsDataTable, temp_woAddressesDataTable;
+let temp_resourcesDataTable, temp_vendorsDataTable, temp_assetsDataTable, temp_itemsDataTable, temp_contactsDataTable, temp_addressesDataTable;
 
 $(document).ready(() => {
   $('#app').append(`<div class="modal fade" id="eventModal" mode="" woId="" eventId="" eventDataSrc="" prefillData="" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false">
@@ -119,7 +119,7 @@ $(document).ready(() => {
                 <div id="collapse2nd" class="accordion-collapse collapse show" aria-labelledby="eventHeading2nd" data-parent="#event2ndAccordion">
                   <div class="accordion-body">
                     <div class="table-responsive">
-                      <table class="table table-striped" id="woResources_dt">
+                      <table class="table table-striped" id="resources">
                         <thead>
                         </thead>
                         <tbody>
@@ -185,7 +185,7 @@ $(document).ready(() => {
                 <div id="collapse5th" class="accordion-collapse collapse show" aria-labelledby="eventHeading5th" data-parent="#event5thAccordion">
                   <div class="accordion-body">
                     <div class="table-responsive">
-                      <table class="table table-striped" id="woItems_dt">
+                      <table class="table table-striped" id="items">
                         <thead>
                         </thead>
                         <tbody>
@@ -306,61 +306,11 @@ $(document).ready(() => {
       const eventId = $('#eventModal').attr('eventId');
       let prefillData = $('#eventModal').attr('prefillData');
       let woRef, eventData, modalTitle, eventTitle;
-      const dtLine = {
-        resources: [],
-        vendors: [],
-        assets: [],
-        items: [],
-        contacts: [],
-        addresses: []
-      };
-  
+
       if (mode == 'create') {
         modalTitle = `Create New Event [WO ID ${woId}]`;
         woRef = workOrders.find(wo => wo.id == woId);
         eventTitle = woRef?.title;
-        dtLine.resources = resources.filter(resource => !!resource.active);
-
-        const usedVendors = woRef.vendors.filter(vendor => !!vendor.event);
-        const usedAssets = woRef.assets.filter(asset => !!asset.event);
-        const usedItems = woRef.items.filter(item => !!item.event);
-
-        dtLine.vendors = woRef.vendors.filter(vendor => !!!vendor.event);
-        dtLine.assets = woRef.assets.filter(asset => !!!asset.event);
-        dtLine.items = woRef.items.filter(item => !!!item.event);
-
-        // Calculate remaining vendor quantities
-        // -------------------------------------
-        dtLine.vendors.forEach(vendor => {
-          const qtyUsed = usedVendors.filter(usedVendor => usedVendor.workorder.value == vendor.workorder.value && usedVendor.vendor.value == vendor.vendor.value)
-            .reduce((total, vendor) => total += vendor.quantityRequired, 0);
-          vendor.quantityAvailable -= qtyUsed;
-        });
-        // Calculate remaining asset quantities
-        // -------------------------------------
-        dtLine.assets.forEach(asset => {
-          const qtyUsed = usedAssets.filter(usedAsset => usedAsset.workorder.value == asset.workorder.value && usedAsset.equipment.value == asset.equipment.value)
-            .reduce((total, asset) => total += asset.quantity, 0);
-            asset.quantity -= qtyUsed;
-        });
-        // Calculate remaining item quantities
-        // -------------------------------------
-        dtLine.items.forEach(item => {
-          const qtyUsed = usedItems.filter(usedItem => usedItem.workorder.value == item.workorder.value && usedItem.uuid == item.uuid)
-            .reduce((total, item) => total += item.quantity, 0);
-          item.quantity -= qtyUsed;
-        });
-
-        dtLine.contacts = JSON.parse(JSON.stringify(woRef.contacts));
-        dtLine.contacts = dtLine.contacts.map(woContact => {
-          woContact.selected = woContact.primary
-          return woContact;
-        });
-        dtLine.addresses = JSON.parse(JSON.stringify(woRef.addresses));
-        dtLine.addresses = dtLine.addresses.map(woAddress => {
-          woAddress.selected = !!(dtLine.addresses.length == 1);
-          return woAddress;
-        });
 
         if (prefillData) {
           prefillData = JSON.parse(decodeURIComponent(prefillData));
@@ -376,55 +326,16 @@ $(document).ready(() => {
         eventData = events.find(event => event.id == eventId);
         woRef = eventData.woRef;
         eventTitle = eventData?.title;
-        dtLine.resources = JSON.parse(JSON.stringify(resources.filter(resource => !!resource.active)));
-        dtLine.resources = dtLine.resources.map(allResource => {
-          allResource.selected = !!(eventData.resources.find(resource => resource.employee.value == allResource.employee.value));
-          return allResource;
-        });
-        
-        dtLine.vendors = JSON.parse(JSON.stringify(woRef.vendors));
-        dtLine.vendors = dtLine.vendors.map(woVendor => {
-          woVendor.selected = !!(eventData.vendors.find(vendor => vendor.id == woVendor.id));
-          return woVendor;
-        });
-        dtLine.vendors = dtLine.vendors.filter(vendor => vendor.event == eventId);
-
-        dtLine.assets = JSON.parse(JSON.stringify(woRef.assets));
-        dtLine.assets = dtLine.assets.map(woAsset => {
-          woAsset.selected = !!(eventData.assets.find(asset => asset.id == woAsset.id));
-          return woAsset;
-        });
-        dtLine.assets = dtLine.assets.filter(asset => asset.event == eventId);
-
-        dtLine.items = JSON.parse(JSON.stringify(woRef.items));
-        dtLine.items = dtLine.items.map(woItem => {
-          woItem.selected = !!(eventData.items.find(item => item.id == woItem.id));
-          return woItem;
-        });
-        dtLine.items = dtLine.items.filter(item => item.event == eventId);
-
-        dtLine.contacts = JSON.parse(JSON.stringify(woRef.contacts));
-        dtLine.contacts = dtLine.contacts.map(woContact => {
-          woContact.selected = woContact.id == eventData.contact.value;
-          return woContact;
-        });
-        
-        dtLine.addresses = JSON.parse(JSON.stringify(woRef.addresses));
-        dtLine.addresses = dtLine.addresses.map(woAddress => {
-          woAddress.selected = woAddress.id == eventData.address.value;
-          return woAddress;
-        });
       }
   
       console.log('----- [Work Order Data] -----', { woId, eventId }, { woRef, eventData });
-      if (!woRef) return;
-  
-      // Set Modal Title
-      $('#eventModal .modal-title').text(modalTitle);
-      // Set primary info
-      $('#eventModal input.eventTitleInput').val(eventTitle);
-      $('#eventModal .title p').html(`<a href="${woRef.woUrl}" target="_blank">${woRef.title}</a>`);
-      $('#eventModal .project p').html(`<a href="${woRef.projectUrl}" target="_blank">${woRef.project.text}</a>`);
+      $('#eventModal .modal-title').text(modalTitle); // Set Modal Title
+      $('#eventModal input.eventTitleInput').val(eventTitle); // Set primary info
+
+      if (woRef.id) {
+        $('#eventModal .title p').html(`<a href="${woRef.woUrl}" target="_blank">${woRef.title}</a>`);
+        $('#eventModal .project p').html(`<a href="${woRef.projectUrl}" target="_blank">${woRef.project.text}</a>`);
+      }
   
       if (mode == 'edit') {
         if (eventData) {
@@ -444,63 +355,106 @@ $(document).ready(() => {
       // Set DataTable values
       $.fn.dataTable.ext.errMode = 'none';
     
-      temp_woResourcesDataTable = $('#woResources_dt').DataTable({
+      temp_resourcesDataTable = $('#resources').DataTable({
         processing: true,
         retrieve: true,
         ajax(_data, callback, _settings) {
           callback({
-            data: dtLine.resources
+            data: (() => {
+              if (mode == 'create') {
+                return resources.filter(resource => !!resource.active);
+              } else {
+                const activeResources = deepCopy(resources.filter(resource => !!resource.active));
+                return activeResources.map(allResource => {
+                  allResource.selected = !!(eventData.resources.find(resource => resource.id == allResource.id));
+                  return allResource;
+                });
+              }
+            })()
           })
         },
-        columns: woResourcesDtColumns,
+        columns: resourcesDtColumns,
         initComplete: () => {
           eventFormHandlers();
         }
       });
 
-      temp_woVendorsDataTable = $('#vendors').DataTable({
+      temp_vendorsDataTable = $('#vendors').DataTable({
         processing: true,
         retrieve: true,
         ajax(_data, callback, _settings) {
           callback({
-            data: dtLine.vendors
+            data: (() => {
+              if (mode == 'create') {
+                return vendors;
+              } else {
+                // Combine resource vendors and WO vendors
+                const unassignedVendors = deepCopy(vendors).filter(vendor => !!!eventData.vendors.map(vendor => vendor.vendor.value).includes(vendor.id));
+                return [...eventData.vendors, ...unassignedVendors];
+              }
+            })()
           })
         },
-        columns: woVendorsDtColumns,
+        columns: vendorsDtColumns,
         initComplete: () => {  
           eventFormHandlers();
         }
       });
 
-      temp_woAssetsDataTable = $('#assets').DataTable({
+      temp_assetsDataTable = $('#assets').DataTable({
         processing: true,
         retrieve: true,
         ajax(_data, callback, _settings) {
           callback({
-            data: dtLine.assets
+            data: (() => {
+              if (mode == 'create') {
+                return assets;
+              } else {
+                // Combine resource assets and WO assets
+                const unassignedAssets = deepCopy(assets).filter(asset => !!!eventData.assets.map(asset => asset.item.value).includes(asset.id));
+                return [...eventData.assets, ...unassignedAssets];
+              }
+            })()
           })
         },
-        columns: woAssetsDtColumns,
+        columns: assetsDtColumns,
         initComplete: () => {  
           eventFormHandlers();
         }
       });
     
-      temp_woItemsDataTable = $('#woItems_dt').DataTable({
+      temp_itemsDataTable = $('#items').DataTable({
         processing: true,
         retrieve: true,
         ajax(_data, callback, _settings) {
           callback({
-            data: dtLine.items
+            data: (() => {
+              if (mode == 'create') {
+                const usedItems = woRef.items.filter(item => !!item.event);
+                // Calculate remaining item quantities
+                // -------------------------------------
+                /* dtLine.items.forEach(item => {
+                  const qtyUsed = usedItems.filter(usedItem => usedItem.workorder.value == item.workorder.value && usedItem.uuid == item.uuid)
+                    .reduce((total, item) => total += item.quantity, 0);
+                  item.quantity -= qtyUsed;
+                });
+                */
+                return woRef.items.filter(item => !!!item.event);
+              } else {
+                let unassignedItems = deepCopy(woRef.items.filter(item => !!!item.event));
+                unassignedItems = unassignedItems.filter(item => !!!eventData.items.map(item => item.item.value).includes(item.item.value));
+                return [...eventData.items, ...unassignedItems];
+              }
+            })()
           })
         },
-        columns: woItemsDtColumns,
+        columns: itemsDtColumns,
         initComplete: () => {  
           eventFormHandlers();
         }
       });
   
-      temp_woContactsDataTable = $('#contacts').DataTable({
+      temp_contactsDataTable = $('#contacts').DataTable({
         processing: true,
         retrieve: true,
         searching: false,
@@ -508,13 +462,25 @@ $(document).ready(() => {
         info: false,
         ajax(_data, callback, _settings) {
           callback({
-            data: dtLine.contacts
+            data: (() => {
+              if (mode == 'create') {
+                return deepCopy(woRef.contacts).map(contact => {
+                  contact.selected = woRef.contacts.length == 1;
+                  return contact;
+                });
+              } else {
+                return deepCopy(eventData.contacts).map(contact => {
+                  contact.selected = contact.id == eventData.contact.value;
+                  return contact;
+                });
+              }
+            })()
           })
         },
-        columns: woContactsDtColumns
+        columns: contactsDtColumns
       });
   
-      temp_woAddressesDataTable = $('#addresses').DataTable({
+      temp_addressesDataTable = $('#addresses').DataTable({
         processing: true,
         retrieve: true,
         searching: false,
@@ -522,10 +488,22 @@ $(document).ready(() => {
         info: false,
         ajax(_data, callback, _settings) {
           callback({
-            data: dtLine.addresses
+            data: (() => {
+              if (mode == 'create') {
+                return deepCopy(woRef.addresses).map(address => {
+                  address.selected = woRef.addresses.length == 1;
+                  return address;
+                });
+              } else {
+                return deepCopy(eventData.addresses).map(address => {
+                  address.selected = address.id == eventData.address.value;
+                  return address;
+                });
+              }
+            })()
           })
         },
-        columns: woAddressesDtColumns
+        columns: addressesDtColumns
       });
     }, 250);
   });
@@ -537,7 +515,22 @@ $(document).ready(() => {
     const mode = $('#eventModal').attr('mode');
     const woId = $('#eventModal').attr('woId');
     const eventId = $('#eventModal').attr('eventId');
+    const eventData = events.find(event => event.id == eventId);
     const woRef = workOrders.find(wo => wo.id == woId);
+    let vendorsToUse = [], assetsToUse = [];
+
+    if (mode == 'create') {
+      vendorsToUse = vendors;
+      assetsToUse = assets;
+    } else {
+      let unassignedVendors = deepCopy(vendors).filter(vendor => !!!eventData.vendors.map(vendor => vendor.vendor.value).includes(vendor.id));
+      unassignedVendors = [...eventData.vendors, ...unassignedVendors];
+      vendorsToUse = unassignedVendors;
+
+      let unassignedAssets = deepCopy(assets).filter(asset => !!!eventData.assets.map(asset => asset.item.value).includes(asset.id));
+      unassignedAssets = [...eventData.assets, ...unassignedAssets];
+      assetsToUse = unassignedAssets;
+    }
     
     const payload = {
       eventDataSrc: {},
@@ -559,15 +552,14 @@ $(document).ready(() => {
     payload.eventData.priority = $('#eventModal .priority').val();
     payload.eventData.selectedResources = [];
     payload.eventData.selectedVendors = [];
-    payload.eventData.selectedAssets = [];
     payload.eventData.selectedItems = [];
     payload.eventData.selectedContact = {};
     payload.eventData.selectedAddress = {};
   
     // Extract Internal IDs
     const resourceIds = [];
-    const woResources_dt_tr = document.querySelectorAll('#woResources_dt tbody .dt-line-select');
-    for (const line of woResources_dt_tr) {
+    const resources_dt_tr = document.querySelectorAll('#resources tbody .dt-line-select');
+    for (const line of resources_dt_tr) {
       if (line.checked) {
         const id = line.getAttribute('recordid');
         if (id) {
@@ -577,15 +569,15 @@ $(document).ready(() => {
     }
 
     const vendorIds = [];
-    const woVendors_dt_tr = document.querySelectorAll('#vendors tbody .dt-line-select');
-    for (const line of woVendors_dt_tr) {
+    const vendors_dt_tr = document.querySelectorAll('#vendors tbody .dt-line-select');
+    for (const line of vendors_dt_tr) {
       if (line.checked) {
         const id = line.getAttribute('recordid');
         if (id) {
-          const foundObj = woRef.vendors.find(vendor => vendor.id == id);
+          const foundObj = vendorsToUse.find(vendor => vendor.id == id);
           if (foundObj) {
-            const newQty = line.parentNode.parentNode.parentNode.querySelector('.quantity').value;
-            foundObj.quantityAvailable = newQty;
+            const newQty = +line.parentNode.parentNode.parentNode.querySelector('.quantity').value;
+            foundObj.quantityRequired = newQty;
           }
           vendorIds.push(id);
         }
@@ -593,14 +585,14 @@ $(document).ready(() => {
     }
 
     const assetIds = [];
-    const woAssets_dt_tr = document.querySelectorAll('#assets tbody .dt-line-select');
-    for (const line of woAssets_dt_tr) {
+    const assets_dt_tr = document.querySelectorAll('#assets tbody .dt-line-select');
+    for (const line of assets_dt_tr) {
       if (line.checked) {
         const id = line.getAttribute('recordid');
         if (id) {
-          const foundObj = woRef.assets.find(asset => asset.id == id);
+          const foundObj = assetsToUse.find(asset => asset.id == id);
           if (foundObj) {
-            const newQty = line.parentNode.parentNode.parentNode.querySelector('.quantity').value;
+            const newQty = +line.parentNode.parentNode.parentNode.querySelector('.quantity').value;
             foundObj.quantity = newQty;
           }
           assetIds.push(id);
@@ -609,14 +601,14 @@ $(document).ready(() => {
     }
   
     const itemIds = [];
-    const woItems_dt_tr = document.querySelectorAll('#woItems_dt tbody .dt-line-select');
-    for (const line of woItems_dt_tr) {
+    const items_dt_tr = document.querySelectorAll('#items tbody .dt-line-select');
+    for (const line of items_dt_tr) {
       if (line.checked) {
         const id = line.getAttribute('recordid');
         if (id) {
           const foundObj = woRef.items.find(item => item.id == id);
           if (foundObj) {
-            const newQty = line.parentNode.parentNode.parentNode.querySelector('.quantity').value;
+            const newQty = +line.parentNode.parentNode.parentNode.querySelector('.quantity').value;
             foundObj.quantity = newQty;
           }
           itemIds.push(id);
@@ -625,8 +617,8 @@ $(document).ready(() => {
     }
   
     let contactId = '';
-    const woContacts_dt_tr = document.querySelectorAll('#contacts tbody input[name="woContact"]');
-    for (const line of woContacts_dt_tr) {
+    const contacts_dt_tr = document.querySelectorAll('#contacts tbody input[name="woContact"]');
+    for (const line of contacts_dt_tr) {
       if (line.checked) {
         const id = line.getAttribute('recordid');
         if (id) {
@@ -637,8 +629,8 @@ $(document).ready(() => {
     }
   
     let addressId = '';
-    const woAddresses_dt_tr = document.querySelectorAll('#addresses tbody input[name="woAddress"]');
-    for (const line of woAddresses_dt_tr) {
+    const addresses_dt_tr = document.querySelectorAll('#addresses tbody input[name="woAddress"]');
+    for (const line of addresses_dt_tr) {
       if (line.checked) {
         const id = line.getAttribute('recordid');
         if (id) {
@@ -649,9 +641,9 @@ $(document).ready(() => {
     }
     
      // Filter objects by id
-    payload.eventData.selectedResources = resources.filter(resource => !!resource.active && !!(resourceIds.includes(resource.employee.value)));
-    payload.eventData.selectedVendors = woRef.vendors.filter(vendor => !!(vendorIds.includes(vendor.id)));
-    payload.eventData.selectedAssets = woRef.assets.filter(asset => !!(assetIds.includes(asset.id)));
+    payload.eventData.selectedResources = resources.filter(resource => !!resource.active && !!(resourceIds.includes(resource.id)));
+    payload.eventData.selectedVendors = vendorsToUse.filter(vendor => !!(vendorIds.includes(vendor.id)));
+    payload.eventData.selectedAssets = assetsToUse.filter(asset => !!(assetIds.includes(asset.id)));
     payload.eventData.selectedItems = woRef.items.filter(item => !!(itemIds.includes(item.id)));
     payload.eventData.selectedContact = woRef.contacts.find(contact => contact.id == contactId) || {};
     payload.eventData.selectedAddress = woRef.addresses.find(address => address.id == addressId) || {};
@@ -663,7 +655,7 @@ $(document).ready(() => {
     } else if (mode == 'edit') {
       payload.eventData.id = eventId;
       payload.eventDataSrc = JSON.parse(decodeURIComponent($('#eventModal').attr('eventDataSrc')));
-      Event.updateEventRecord(payload); // Only MainForm has update
+      Event.updateEventRecord(payload, 'eventModal');
     }
   });
   
@@ -703,34 +695,34 @@ $(document).ready(() => {
     $(`#eventModal .alldayevent-switch`)[0].checked = false;
     
     // Clear DataTable rows
-    if (temp_woResourcesDataTable) {
-      $('table#woResources_dt tbody').children().remove();
-      temp_woResourcesDataTable = temp_woResourcesDataTable.destroy();
+    if (temp_resourcesDataTable) {
+      $('table#resources tbody').children().remove();
+      temp_resourcesDataTable = temp_resourcesDataTable.destroy();
     }
   
-    if (temp_woVendorsDataTable) {
+    if (temp_vendorsDataTable) {
       $('table#vendors tbody').children().remove();
-      temp_woVendorsDataTable = temp_woVendorsDataTable.destroy();
+      temp_vendorsDataTable = temp_vendorsDataTable.destroy();
     }
 
-    if (temp_woAssetsDataTable) {
+    if (temp_assetsDataTable) {
       $('table#assets tbody').children().remove();
-      temp_woAssetsDataTable = temp_woAssetsDataTable.destroy();
+      temp_assetsDataTable = temp_assetsDataTable.destroy();
     }
 
-    if (temp_woItemsDataTable) {
-      $('table#woItems_dt tbody').children().remove();
-      temp_woItemsDataTable = temp_woItemsDataTable.destroy();
+    if (temp_itemsDataTable) {
+      $('table#items tbody').children().remove();
+      temp_itemsDataTable = temp_itemsDataTable.destroy();
     }
     
-    if (temp_woContactsDataTable) {
+    if (temp_contactsDataTable) {
       $('table#contacts tbody').children().remove();
-      temp_woContactsDataTable = temp_woContactsDataTable.destroy();
+      temp_contactsDataTable = temp_contactsDataTable.destroy();
     }
   
-    if (temp_woAddressesDataTable) {
+    if (temp_addressesDataTable) {
       $('table#addresses tbody').children().remove();
-      temp_woAddressesDataTable = temp_woAddressesDataTable.destroy(); 
+      temp_addressesDataTable = temp_addressesDataTable.destroy(); 
     }
   }
   
@@ -742,5 +734,9 @@ $(document).ready(() => {
   function hideCustomLoader() {
     $(`#eventModal .spinner`).hide();
     $(`#eventModal .modal-body`).css('z-index', '1');
+  }
+
+  function deepCopy(obj) {
+    return JSON.parse(JSON.stringify(obj));
   }
 })

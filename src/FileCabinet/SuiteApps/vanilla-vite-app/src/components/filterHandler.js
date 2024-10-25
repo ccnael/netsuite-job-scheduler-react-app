@@ -1,4 +1,4 @@
-import { resources, resourceGroups, vendors, combinedResourceGroups, workOrders, events } from './dataSet';
+import { resources, vendors, combinedResourceGroups, workOrders, events } from './dataSet';
 
 export function initLeftSideBarFilters(sectionId) {
   const $items = $(`${sectionId} .leftSidebar .collapsible-list .person-container`);
@@ -41,8 +41,8 @@ export function initLeftSideBarFilters(sectionId) {
       const resourceId = $el[0].id;
       const containerId = $el.closest('div[id*="-filter-tableWrapper"]').attr('id');
       const groupId = (containerId.match('vendor')|| containerId.match(/\d+/))[0];
-      const _resource = resources.find(resource => resource.employee.value == resourceId);
-      const _vendor = vendors.find(vendor => vendor.vendor.value == resourceId);
+      const _resource = resources.find(resource => resource.id == resourceId);
+      const _vendor = vendors.find(vendor => vendor.id == resourceId);
       
       if (_resource || _vendor) {
         let _resourceGroup = [];
@@ -217,7 +217,7 @@ export function initEventFilters(sectionId) {
       
       if (eventData) {
         let date = eventData.date.end || eventData.date.start;
-        const eventResources = eventData.resources.map(resource => resource.employee.value);
+        const eventResources = eventData.resources.map(resource => resource.id);
         const eventVendors = eventData.vendors.map(vendor => vendor.vendor.value);
         const combinedResources = [...eventResources, ...eventVendors];
         let eventResourceGroups = [];
@@ -308,13 +308,13 @@ export function initCalendarFilters() {
     window.FullCalendar.getResources().forEach(resource => {
       resource.remove();
     });
-
+    
     let calendarResources = combinedResourceGroups.map(resourceGroup => ({
       id: resourceGroup.value,
       title: resourceGroup.text,
       children: resourceGroup.resources.map(resource => ({
-        id: `${resourceGroup.value}-${resource.employee.value}`,
-        title: resource.employee.text,
+        id: `${resourceGroup.value}-${resource.id}`,
+        title: resource.name,
         extendedProps: resource
       })),
       get resourceCount() {
@@ -356,12 +356,11 @@ export function initCalendarFilters() {
     calendarEvents.forEach(calendarEvent => {
       window.FullCalendar.addEvent(calendarEvent);
     });
-
-    const eventIds = calendarEvents.map(event => event.id);
-
+    // Remove unassigned resources
+    /* const eventIds = calendarEvents.map(event => event.id);
     calendarResources.forEach(calendarResource => {
       calendarResource.children = calendarResource.children.filter(resource => !!(eventIds.some(value => new Set(resource.extendedProps.events).has(value))));
-    });
+    }); */
     calendarResources.forEach(calendarResource => {
       window.FullCalendar.addResource(calendarResource);
     });

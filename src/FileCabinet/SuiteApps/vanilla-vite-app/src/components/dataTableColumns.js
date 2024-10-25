@@ -1,18 +1,18 @@
-export const woResourcesDtColumns = [
+export const resourcesDtColumns = [
   {
     className: 'dt-head-center dr-body-center',
     title: `<div class="form-group form-check container d-flex justify-content-center">
         <input type="checkbox" class="form-check-input" style="left: 30px" onclick="markAll(event);">
       </div>`,
     render: (_data, _type, row, _meta) => `<div class="form-group form-check container d-flex justify-content-center">
-        <input recordId="${row.employee.value}" type="checkbox" class="form-check-input dt-line-select" ${row.selected?'checked':''}>
+        <input recordId="${row.id}" type="checkbox" class="form-check-input dt-line-select" ${row.selected?'checked':''}>
       </div>`,
     width: "5%",
     orderable: false
   },
   {
     className: 'dt-head-center',
-    data: 'employee.text',
+    data: 'name',
     title: 'Name'
   },
   {
@@ -37,7 +37,7 @@ export const woResourcesDtColumns = [
   }
 ];
 
-export const woVendorsDtColumns = [
+export const vendorsDtColumns = [
   {
     className: 'dt-head-center dr-body-center',
     title: `<div class="form-group form-check container d-flex justify-content-center">
@@ -51,12 +51,12 @@ export const woVendorsDtColumns = [
   },
   {
     className: 'dt-head-center',
-    data: 'vendor.text',
+    data: 'name',
     title: 'Vendor'
   },
   {
     className: 'dt-head-center dt-body-center',
-    render: (_data, _type, row, _meta) => `<input type="number" class="quantity quantityRequired" value="${row.quantityRequired}" min="0" max="${row.quantityRequired}" required />`,
+    render: (_data, _type, row, _meta) => `<input type="number" class="quantity quantityRequired" value="${row.quantityRequired || 0}" min="0" max="${row.quantityAvailable}" required />`,
     title: 'Manpower Required'
   },
   {
@@ -71,7 +71,7 @@ export const woVendorsDtColumns = [
   }
 ];
 
-export const woAssetsDtColumns = [
+export const assetsDtColumns = [
   {
     className: 'dt-head-center dr-body-center',
     title: `<div class="form-group form-check container d-flex justify-content-center">
@@ -90,7 +90,7 @@ export const woAssetsDtColumns = [
   },
   {
     className: 'dt-head-center',
-    data: 'equipment.text',
+    data: 'name',
     title: 'Item Code'
   },
   {
@@ -135,7 +135,7 @@ export const woAssetsDtColumns = [
   }
 ];
 
-export const woItemsDtColumns = [
+export const itemsDtColumns = [
   {
     className: 'dt-head-center dr-body-center',
     title: `<div class="form-group form-check container d-flex justify-content-center">
@@ -153,12 +153,12 @@ export const woItemsDtColumns = [
     title: 'ID'
   },
   {
-    className: 'dt-head-center',
+    className: 'dt-head-center dt-body-center',
     data: 'item.text',
     title: 'Item'
   },
   {
-    className: 'dt-head-center',
+    className: 'dt-head-center dt-body-center',
     data: 'description',
     title: 'Description'
   },
@@ -174,7 +174,7 @@ export const woItemsDtColumns = [
   } */
 ];
 
-export const woContactsDtColumns = [
+export const contactsDtColumns = [
   {
     className: 'dt-head-center dr-body-center',
     title: ``,
@@ -212,7 +212,7 @@ export const woContactsDtColumns = [
   }
 ];
 
-export const woAddressesDtColumns = [{
+export const addressesDtColumns = [{
     className: 'dt-head-center dr-body-center',
     title: ``,
     render: (_data, _type, row, _meta) => `<div class="form-group form-check container d-flex justify-content-center">
@@ -245,7 +245,7 @@ export const woAddressesDtColumns = [{
 export const ceTimeSheetsDtColumns = [
   {
     className: 'dt-head-center resourceName',
-    render: (_data, _type, row, _meta) => `<p recordId="${row.employee.value}" locationId="${row.location.value}">${row.employee.text}</p>`,
+    render: (_data, _type, row, _meta) => `<p recordId="${row.id}" locationId="${row.location.value}">${row.name}</p>`,
     title: 'Name'
   },
   {
