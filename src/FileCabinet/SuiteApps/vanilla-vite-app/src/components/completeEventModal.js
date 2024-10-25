@@ -35,18 +35,18 @@ $(document).ready(() => {
                 </tbody>
               </table>
             </div>
-            <!-- First Accordion Item -->
-            <div class="accordion" id="completeEventFirstAccordion" style="margin-top: 15px">
+            <!-- 1st Accordion Item -->
+            <div class="accordion" id="completeEvent1stAccordion" style="margin-top: 15px">
               <div class="accordion-item">
-                <h2 class="accordion-header" id="completeEventHeadingFirst">
-                  <button class="accordion-button" type="button" data-toggle="collapse" data-target="#completeEventCollapseFirst" aria-expanded="true" aria-controls="completeEventCollapseFirst">
+                <h2 class="accordion-header" id="completeEventHeading1st">
+                  <button class="accordion-button" type="button" data-toggle="collapse" data-target="#completeEventCollapse1st" aria-expanded="true" aria-controls="completeEventCollapse1st">
                     <strong class="table-header">Time Sheets</strong>
                   </button>
                 </h2>
-                <div id="completeEventCollapseFirst" class="accordion-collapse collapse show" aria-labelledby="completeEventHeadingFirst" data-parent="#completeEventFirstAccordion">
+                <div id="completeEventCollapse1st" class="accordion-collapse collapse show" aria-labelledby="completeEventHeading1st" data-parent="#completeEvent1stAccordion">
                   <div class="accordion-body">
                     <div class="table-responsive">
-                      <table class="table table-striped" id="timeSheets_dt">
+                      <table class="table table-striped" id="timesheets">
                         <thead>
                         </thead>
                         <tbody>
@@ -60,15 +60,15 @@ $(document).ready(() => {
             <!-- Second Accordion Item -->
             <div class="accordion" id="completeEventSecondAccordion" style="margin-top: 15px">
               <div class="accordion-item">
-                <h2 class="accordion-header" id="completeEventHeadingTwo">
-                  <button class="accordion-button" type="button" data-toggle="collapse" data-target="#completeEventCollapseTwo" aria-expanded="true" aria-controls="completeEventCollapseTwo">
+                <h2 class="accordion-header" id="completeEventHeading2nd">
+                  <button class="accordion-button" type="button" data-toggle="collapse" data-target="#completeEventCollapse2nd" aria-expanded="true" aria-controls="completeEventCollapse2nd">
                     <strong class="table-header">Work Order Items</strong>
                   </button>
                 </h2>
-                <div id="completeEventCollapseTwo" class="accordion-collapse collapse show" aria-labelledby="completeEventHeadingTwo" data-parent="#completeEventSecondAccordion">
+                <div id="completeEventCollapse2nd" class="accordion-collapse collapse show" aria-labelledby="completeEventHeading2nd" data-parent="#completeEventSecondAccordion">
                   <div class="accordion-body">
                     <div class="table-responsive">
-                      <table class="table table-striped" id="woItems_dt_ce">
+                      <table class="table table-striped" id="items_ce">
                         <thead>
                         </thead>
                         <tbody>
@@ -85,18 +85,18 @@ $(document).ready(() => {
               </div>
             </div>
 
-            <!-- Third Accordion Item -->
-            <div class="accordion" id="completeEventThirdAccordion" style="margin-top: 15px">
+            <!-- 3rd Accordion Item -->
+            <div class="accordion" id="completeEvent3rdAccordion" style="margin-top: 15px">
               <div class="accordion-item">
-                <h2 class="accordion-header" id="completeeventHeadingThree">
-                  <button class="accordion-button" type="button" data-toggle="collapse" data-target="#completeEventCollapseThree" aria-expanded="true" aria-controls="completeEventCollapseThree">
+                <h2 class="accordion-header" id="completeeventHeading3rd">
+                  <button class="accordion-button" type="button" data-toggle="collapse" data-target="#completeEventCollapse3rd" aria-expanded="true" aria-controls="completeEventCollapse3rd">
                     <strong class="table-header">Punch Items</strong>
                   </button>
                 </h2>
-                <div id="completeEventCollapseThree" class="accordion-collapse collapse show" aria-labelledby="completeeventHeadingThree" data-parent="#completeEventThirdAccordion">
+                <div id="completeEventCollapse3rd" class="accordion-collapse collapse show" aria-labelledby="completeeventHeading3rd" data-parent="#completeEvent3rdAccordion">
                   <div class="accordion-body">
                     <div class="table-responsive">
-                      <table class="table table-striped" id="punchItems_dt">
+                      <table class="table table-striped" id="punchItems">
                         <thead>
                         </thead>
                         <tbody>
@@ -139,7 +139,7 @@ $(document).ready(() => {
     $('#completeEventModal .project p').html(`<a href="${woRef.projectUrl}" target="_blank">${woRef.project.text}</a>`);
     $('#completeEventModal .status p').text(eventData.status.text);
 
-    temp_ceTimeSheetDataTable = $('#timeSheets_dt').DataTable({
+    temp_ceTimeSheetDataTable = $('#timesheets').DataTable({
       processing: true,
       retrieve: true,
       info: false,
@@ -151,7 +151,7 @@ $(document).ready(() => {
       columns: ceTimeSheetsDtColumns
     });
 
-    temp_ceItemsDataTable = $('#woItems_dt_ce').DataTable({
+    temp_ceItemsDataTable = $('#items_ce').DataTable({
       processing: true,
       retrieve: true,
       info: false,
@@ -168,7 +168,7 @@ $(document).ready(() => {
 
     // Fetch order punch list
     /* $('#completeEventModal').attr('punchLines', encodeURIComponent('[]'));
-    temp_cePunchItemsDataTable = $('#punchItems_dt').DataTable({
+    temp_cePunchItemsDataTable = $('#punchItems').DataTable({
       processing: true,
       retrieve: true,
       searching: false,
@@ -196,7 +196,7 @@ $(document).ready(() => {
     .then(result => {
       $('#completeEventModal').attr('punchLines', encodeURIComponent(JSON.stringify(result)));
 
-      temp_cePunchItemsDataTable = $('#punchItems_dt').DataTable({
+      temp_cePunchItemsDataTable = $('#punchItems').DataTable({
         processing: true,
         retrieve: true,
         searching: false,
@@ -251,7 +251,7 @@ $(document).ready(() => {
       return;
     }
 
-    $('#timeSheets_dt tbody > tr').each(function() {
+    $('#timesheets tbody > tr').each(function() {
       payload.timeSheets.push({
         id: $(this).find('.resourceName p').attr('recordId'),
         location: $(this).find('.resourceName p').attr('locationId'),
@@ -267,7 +267,7 @@ $(document).ready(() => {
       });
     });
 
-    $('#woItems_dt_ce tbody > tr').each(function() {
+    $('#items_ce tbody > tr').each(function() {
       const customRecordId = $(this).find('.dt-line-select').attr('recordId');
       const checked = ($(this).find('.dt-line-select') || [])[0]?.checked || false;
       const lineId = $(this).find('.lineId').text();
@@ -279,8 +279,8 @@ $(document).ready(() => {
     });
 
     // Sanitize
-    payload.timeSheets = payload.timeSheets.filter(timeSheet => !!!timeSheet);
-    payload.fulfillItems = payload.fulfillItems.filter(fulfillItem => !!!fulfillItem);
+    payload.timeSheets = payload.timeSheets.filter(timeSheet => !!timeSheet);
+    payload.fulfillItems = payload.fulfillItems.filter(fulfillItem => !!fulfillItem);
 
     console.log('----- Complete Event Payload -----');
     console.log(payload);
@@ -371,14 +371,14 @@ $(document).ready(() => {
 
   function completeEventModalHandlers() {
     window.completeAll = () => {
-      $('#woItems_dt_ce tbody > tr').each(function() {
+      $('#items_ce tbody > tr').each(function() {
         const quantity = +$(this).find('.itemQty').text();
         +$(this).find('.completeQty').val(quantity);
       });
     }
 
     window.clearAll = () => {
-      $('#woItems_dt_ce tbody > tr').each(function() {
+      $('#items_ce tbody > tr').each(function() {
         +$(this).find('.completeQty').val(0);
       });
     }
@@ -399,17 +399,17 @@ $(document).ready(() => {
     $(`#completeEventModal status p`).html('');
 
     if (temp_ceTimeSheetDataTable) {
-      $('table#timeSheets_dt tbody').children().remove();
+      $('table#timesheets tbody').children().remove();
       temp_ceTimeSheetDataTable = temp_ceTimeSheetDataTable.destroy(); 
     }
 
     if (temp_ceItemsDataTable) {
-      $('table#woItems_dt_ce tbody').children().remove();
+      $('table#items_ce tbody').children().remove();
       temp_ceItemsDataTable = temp_ceItemsDataTable.destroy(); 
     }
 
     if (temp_cePunchItemsDataTable) {
-      $('table#punchItems_dt tbody').children().remove();
+      $('table#punchItems tbody').children().remove();
       temp_cePunchItemsDataTable = temp_cePunchItemsDataTable.destroy(); 
     }
   }
