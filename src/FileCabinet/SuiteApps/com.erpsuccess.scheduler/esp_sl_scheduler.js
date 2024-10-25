@@ -75,25 +75,31 @@ define([
       const suiteletUrl = mod.Url.suitelet();
       // Fetch needed data
       const workOrders = mod.WorkOrder.getList();
-      const customers = mod.WorkOrder.getCustomers(workOrders);
-      const resources = mod.WorkOrderResource.getList();
-      const resourceGroups = mod.WorkOrderResource.getResourceGroups(resources);
+      const events = mod.Event.getList(); // Includes standalone/general events
 
-      const items = mod.WorkOrderItem.getList(workOrders);
-      const contacts = mod.WorkOrderContact.getList(workOrders);
-      const addresses = mod.WorkOrderAddress.getList(workOrders);
-      const events = mod.Event.getList(workOrders); // Includes standalone/general events
+      const customers = mod.WorkOrder.getCustomers(workOrders);
+      const resources = mod.Resource.getEmployees();
+      const resourceGroups = mod.Resource.getResourceGroups(resources);
+      const vendors = mod.Resource.getVendors();
+      const assets = mod.Resource.getAssetsAndEquipments();
+
+      const woVendors = mod.WorkOrderVendor.getList(workOrders, events); // Needed in general events
+      const woAsset = mod.WorkOrderAsset.getList(workOrders, events); // Needed in general events
+      const woItems = mod.WorkOrderItem.getList(workOrders);
+      const woContacts = mod.WorkOrderContact.getList(workOrders);
+      const woAddresses = mod.WorkOrderAddress.getList(workOrders);
+
       let organizers = events.map(event => event.organizer);
       organizers = organizers.filter((item, index, self) =>
         index === self.findIndex((t) => (
-            t.text === item.text && t.value === item.value
+          t.text === item.text && t.value === item.value
         ))
       );
 
-      mod.WorkOrder.fullMap(workOrders, events, items, contacts, addresses);
-      mod.Event.fullMap(workOrders, events, resources, items, contacts, addresses);
+      mod.WorkOrder.fullMap(workOrders, events, woVendors, woAsset, woItems, woContacts, woAddresses);
+      mod.Event.fullMap(workOrders, events, resources, woVendors, woAsset, woItems, woContacts, woAddresses);
 
-      mod.Utils.createLogFile('mockupDataSet', JSON.stringify({ suiteletUrl, workOrders, customers, resources, resourceGroups, events, contacts, addresses, organizers }), 2199);
+      mod.Utils.createLogFile('mockupDataSet', JSON.stringify({ suiteletUrl, workOrders, customers, resources, resourceGroups, vendors, assets, events, woContacts, woAddresses, organizers }), 2199);
 
       const fileObj = {
         template: file.load('./vanilla-vite-app-bundle/index.html'),
@@ -102,7 +108,7 @@ define([
         svg: file.load('./vanilla-vite-app-bundle/assets/images/vite.svg')
       }
 
-      let htmlStr = fileObj.template.getContents()
+      const htmlStr = fileObj.template.getContents()
         .replace('<script type="module" crossorigin src="/app.js"></script>', `<script type="module" crossorigin src="${fileObj.js.url}"></script>`)
         .replace('<link rel="icon" type="image/svg+xml" href="/assets/images/vite.svg" />', `<link rel="icon" type="image/svg+xml" href="${fileObj.svg.url}" />`)
         .replace('<link rel="stylesheet" crossorigin href="/index.css">', `<link rel="stylesheet" crossorigin href="${fileObj.style.url}">`)
@@ -111,6 +117,8 @@ define([
         .replace('{{customers}}', encodeURIComponent(JSON.stringify(customers)))
         .replace('{{resources}}', encodeURIComponent(JSON.stringify(resources)))
         .replace('{{resourceGroups}}', encodeURIComponent(JSON.stringify(resourceGroups)))
+        .replace('{{assets}}', encodeURIComponent(JSON.stringify(assets)))
+        .replace('{{vendors}}', encodeURIComponent(JSON.stringify(vendors)))
         .replace('{{events}}', encodeURIComponent(JSON.stringify(events)))
         .replace('{{organizers}}', encodeURIComponent(JSON.stringify(organizers)));
 
