@@ -736,6 +736,30 @@ const mockup = {
             "active": false,
             "woVendor": true
         }, {
+            "id": "86",
+            "name": "Best Fixture, Inc.",
+            "vendor": {
+                "text": "Best Fixture, Inc.",
+                "value": "12"
+            },
+            "url": "",
+            "email": "",
+            "initials": "BF",
+            "workorder": {
+                "text": "Test Work Order - Mei",
+                "value": "86"
+            },
+            "event": "100947",
+            "quantityRequired": 0,
+            "quantityAvailable": 0,
+            "purchaseOrder": {
+                "text": " ",
+                "value": ""
+            },
+            "amount": 0,
+            "active": false,
+            "woVendor": true
+        }, {
             "id": "76",
             "name": "Best Fixture, Inc.",
             "vendor": {
@@ -799,6 +823,30 @@ const mockup = {
             },
             "event": "100938",
             "quantityRequired": 4,
+            "quantityAvailable": 20,
+            "purchaseOrder": {
+                "text": " ",
+                "value": ""
+            },
+            "amount": 0,
+            "active": true,
+            "woVendor": true
+        }, {
+            "id": "87",
+            "name": "Bridgepoint Industries",
+            "vendor": {
+                "text": "Bridgepoint Industries",
+                "value": "1473"
+            },
+            "url": "http://www.bridgepointindustries.com.de",
+            "email": "support@bridgempointindustries.com.de",
+            "initials": "BI",
+            "workorder": {
+                "text": "Test Work Order - Mei",
+                "value": "86"
+            },
+            "event": "100947",
+            "quantityRequired": 5,
             "quantityAvailable": 20,
             "purchaseOrder": {
                 "text": " ",
@@ -994,6 +1042,39 @@ const mockup = {
             },
             "owned": true,
             "rentalMatrix": 0
+        }, {
+            "id": "78",
+            "workorder": {
+                "text": "Test Work Order - Mei",
+                "value": "86"
+            },
+            "event": "100947",
+            "quantity": 2,
+            "item": {
+                "text": "ELE00002",
+                "value": "674"
+            },
+            "equipmentType": {
+                "text": "Hand Tools",
+                "value": "1"
+            },
+            "rentalUnit": {
+                "text": "",
+                "value": ""
+            },
+            "rentalDuration": 0,
+            "rentalRate": 0,
+            "rentalAmount": 0,
+            "purchaseOrder": {
+                "text": " ",
+                "value": " "
+            },
+            "vendor": {
+                "text": "Computer Depot Pacific",
+                "value": "965"
+            },
+            "owned": true,
+            "rentalMatrix": 0
         }],
         "items": [{
             "id": "241",
@@ -1100,6 +1181,48 @@ const mockup = {
             "quantity": 50,
             "availableQty": 50,
             "note": ""
+        }, {
+            "id": "274",
+            "workorder": {
+                "text": "Test Work Order - Mei",
+                "value": "86"
+            },
+            "salesorder": {
+                "text": "Sales Order #SLS00000739",
+                "value": "19521"
+            },
+            "event": "100947",
+            "uuid": "19521_2",
+            "line": "2",
+            "item": {
+                "text": "2375-6727",
+                "value": "1426"
+            },
+            "description": "",
+            "quantity": 50,
+            "availableQty": 50,
+            "note": ""
+        }, {
+            "id": "275",
+            "workorder": {
+                "text": "Test Work Order - Mei",
+                "value": "86"
+            },
+            "salesorder": {
+                "text": "Sales Order #SLS00000739",
+                "value": "19521"
+            },
+            "event": "100947",
+            "uuid": "19521_5",
+            "line": "5",
+            "item": {
+                "text": "Dealer Service Fee",
+                "value": "2331"
+            },
+            "description": "Dealer Service Fee",
+            "quantity": 5,
+            "availableQty": 5,
+            "note": ""
         }],
         "addresses": [{
             "id": "63",
@@ -1111,7 +1234,7 @@ const mockup = {
                 "text": "AB&I Holdings",
                 "value": "1249"
             },
-            "events": ["100927", "100946"],
+            "events": ["100927", "100947"],
             "address": {
                 "text": "1701 Rollins Road",
                 "value": "244878"
@@ -1125,7 +1248,7 @@ const mockup = {
                 "text": "Test Work Order - Mei",
                 "value": "86"
             },
-            "events": ["100927", "100946"],
+            "events": ["100927", "100947"],
             "contact": {
                 "text": "AB&I Holdings : Test Prav",
                 "value": "1892"
@@ -1461,6 +1584,55 @@ const mockup = {
             },
             "note": "1\n2\n3124",
             "url": "/app/crm/calendar/event.nl?id=100942&compid=TSTDRV2617106&selectedtab=custom337",
+            "color": "#1a6756",
+            "woRef": {},
+            "resources": [],
+            "vendors": [],
+            "assets": [],
+            "items": [],
+            "contacts": [],
+            "addresses": [],
+            "contact": {
+                "text": "75",
+                "value": "75"
+            },
+            "address": {
+                "text": "63",
+                "value": "63"
+            },
+            "organizer": {
+                "text": "Lean  cendana",
+                "value": "1765"
+            }
+        }, {
+            "id": "100947",
+            "title": "Test Work Order - Mei",
+            "workorder": {
+                "text": "Test Work Order - Mei",
+                "value": "86"
+            },
+            "location": "",
+            "status": {
+                "text": "Tentative",
+                "value": "TENTATIVE",
+                "code": "bg-secondary"
+            },
+            "date": {
+                "recurrence": "one time event on 10/25/2024",
+                "start": "2024-10-25",
+                "end": "2024-10-25"
+            },
+            "time": {
+                "start": "08:00",
+                "end": "18:00"
+            },
+            "priority": {
+                "text": "High",
+                "value": "3",
+                "code": "#ca6621"
+            },
+            "note": "BBBBB\nCCCC",
+            "url": "/app/crm/calendar/event.nl?id=100947&compid=TSTDRV2617106&selectedtab=custom337",
             "color": "#1a6756",
             "woRef": {},
             "resources": [],
@@ -20732,9 +20904,9 @@ const mockup = {
             "text": "Installer",
             "value": "1"
         }],
-        "color": "#4a07a",
+        "color": "#451315",
         "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1770%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-        "events": ["100681", "100946"]
+        "events": ["100681", "100947"]
     }, {
         "id": "1767",
         "name": "Bea Dashboards",
@@ -20766,9 +20938,9 @@ const mockup = {
             "text": "Installer",
             "value": "1"
         }],
-        "color": "#581c04",
+        "color": "#a7fcad",
         "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1767%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-        "events": ["100681"]
+        "events": ["100681", "100947"]
     }, {
         "id": "912",
         "name": "Bonita Kane",
@@ -20788,7 +20960,7 @@ const mockup = {
             "text": "Installer",
             "value": "1"
         }],
-        "color": "#fcbc0",
+        "color": "#6a4a09",
         "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D912%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
         "events": ["100682", "100834"]
     }, {
@@ -20810,7 +20982,7 @@ const mockup = {
             "text": "Installer",
             "value": "1"
         }],
-        "color": "#2b1f06",
+        "color": "#27f0e9",
         "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1312%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
         "events": []
     }, {
@@ -20832,7 +21004,7 @@ const mockup = {
             "text": "Designer",
             "value": "3"
         }],
-        "color": "#2f9341",
+        "color": "#811862",
         "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1292%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
         "events": []
     }, {
@@ -20854,7 +21026,7 @@ const mockup = {
             "text": "Installer",
             "value": "1"
         }],
-        "color": "#b6b41d",
+        "color": "#9d3311",
         "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1647%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
         "events": ["100847", "100875"]
     }, {
@@ -20873,7 +21045,7 @@ const mockup = {
             "value": "2"
         }],
         "types": [],
-        "color": "#730d58",
+        "color": "#56a81c",
         "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1766%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
         "events": []
     }, {
@@ -20895,7 +21067,7 @@ const mockup = {
             "text": "Installer",
             "value": "1"
         }],
-        "color": "#d990bf",
+        "color": "#8ac78a",
         "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1656%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
         "events": ["100921"]
     }],
@@ -20933,9 +21105,9 @@ const mockup = {
                 "text": "Installer",
                 "value": "1"
             }],
-            "color": "#4a07a",
+            "color": "#451315",
             "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1770%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-            "events": ["100681", "100946"]
+            "events": ["100681", "100947"]
         }, {
             "id": "1767",
             "name": "Bea Dashboards",
@@ -20967,9 +21139,9 @@ const mockup = {
                 "text": "Installer",
                 "value": "1"
             }],
-            "color": "#581c04",
+            "color": "#a7fcad",
             "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1767%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-            "events": ["100681"]
+            "events": ["100681", "100947"]
         }, {
             "id": "912",
             "name": "Bonita Kane",
@@ -20989,7 +21161,7 @@ const mockup = {
                 "text": "Installer",
                 "value": "1"
             }],
-            "color": "#fcbc0",
+            "color": "#6a4a09",
             "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D912%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
             "events": ["100682", "100834"]
         }, {
@@ -21011,7 +21183,7 @@ const mockup = {
                 "text": "Installer",
                 "value": "1"
             }],
-            "color": "#2b1f06",
+            "color": "#27f0e9",
             "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1312%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
             "events": []
         }, {
@@ -21033,7 +21205,7 @@ const mockup = {
                 "text": "Installer",
                 "value": "1"
             }],
-            "color": "#d990bf",
+            "color": "#8ac78a",
             "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1656%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
             "events": ["100921"]
         }],
@@ -21072,9 +21244,9 @@ const mockup = {
                 "text": "Installer",
                 "value": "1"
             }],
-            "color": "#4a07a",
+            "color": "#451315",
             "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1770%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-            "events": ["100681", "100946"]
+            "events": ["100681", "100947"]
         }, {
             "id": "1767",
             "name": "Bea Dashboards",
@@ -21106,9 +21278,9 @@ const mockup = {
                 "text": "Installer",
                 "value": "1"
             }],
-            "color": "#581c04",
+            "color": "#a7fcad",
             "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1767%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-            "events": ["100681"]
+            "events": ["100681", "100947"]
         }, {
             "id": "1292",
             "name": "Matt Nolan",
@@ -21128,7 +21300,7 @@ const mockup = {
                 "text": "Designer",
                 "value": "3"
             }],
-            "color": "#2f9341",
+            "color": "#811862",
             "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1292%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
             "events": []
         }, {
@@ -21150,7 +21322,7 @@ const mockup = {
                 "text": "Installer",
                 "value": "1"
             }],
-            "color": "#b6b41d",
+            "color": "#9d3311",
             "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1647%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
             "events": ["100847", "100875"]
         }, {
@@ -21169,7 +21341,7 @@ const mockup = {
                 "value": "2"
             }],
             "types": [],
-            "color": "#730d58",
+            "color": "#56a81c",
             "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1766%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
             "events": []
         }],
@@ -21208,9 +21380,9 @@ const mockup = {
                 "text": "Installer",
                 "value": "1"
             }],
-            "color": "#4a07a",
+            "color": "#451315",
             "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1770%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-            "events": ["100681", "100946"]
+            "events": ["100681", "100947"]
         }, {
             "id": "1767",
             "name": "Bea Dashboards",
@@ -21242,9 +21414,9 @@ const mockup = {
                 "text": "Installer",
                 "value": "1"
             }],
-            "color": "#581c04",
+            "color": "#a7fcad",
             "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1767%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-            "events": ["100681"]
+            "events": ["100681", "100947"]
         }],
         "resourceCount": 2
     }],
@@ -21400,9 +21572,9 @@ const mockup = {
                 "text": "Installer",
                 "value": "1"
             }],
-            "color": "#4a07a",
+            "color": "#451315",
             "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1770%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-            "events": ["100681", "100946"],
+            "events": ["100681", "100947"],
             "selected": true
         }, {
             "id": "1767",
@@ -21435,9 +21607,9 @@ const mockup = {
                 "text": "Installer",
                 "value": "1"
             }],
-            "color": "#581c04",
+            "color": "#a7fcad",
             "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1767%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-            "events": ["100681"],
+            "events": ["100681", "100947"],
             "selected": true
         }],
         "vendors": [],
@@ -24720,7 +24892,7 @@ const mockup = {
                 "text": "Installer",
                 "value": "1"
             }],
-            "color": "#fcbc0",
+            "color": "#6a4a09",
             "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D912%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
             "events": ["100682", "100834"],
             "selected": true
@@ -58683,7 +58855,7 @@ const mockup = {
                 "text": "Installer",
                 "value": "1"
             }],
-            "color": "#fcbc0",
+            "color": "#6a4a09",
             "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D912%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
             "events": ["100682", "100834"],
             "selected": true
@@ -71701,7 +71873,7 @@ const mockup = {
                 "text": "Installer",
                 "value": "1"
             }],
-            "color": "#b6b41d",
+            "color": "#9d3311",
             "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1647%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
             "events": ["100847", "100875"],
             "selected": true
@@ -146145,7 +146317,7 @@ const mockup = {
                 "text": "Installer",
                 "value": "1"
             }],
-            "color": "#b6b41d",
+            "color": "#9d3311",
             "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1647%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
             "events": ["100847", "100875"],
             "selected": true
@@ -161293,7 +161465,7 @@ const mockup = {
                 "text": "Installer",
                 "value": "1"
             }],
-            "color": "#d990bf",
+            "color": "#8ac78a",
             "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1656%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
             "events": ["100921"],
             "selected": true
@@ -166415,6 +166587,30 @@ const mockup = {
                 "active": false,
                 "woVendor": true
             }, {
+                "id": "86",
+                "name": "Best Fixture, Inc.",
+                "vendor": {
+                    "text": "Best Fixture, Inc.",
+                    "value": "12"
+                },
+                "url": "",
+                "email": "",
+                "initials": "BF",
+                "workorder": {
+                    "text": "Test Work Order - Mei",
+                    "value": "86"
+                },
+                "event": "100947",
+                "quantityRequired": 0,
+                "quantityAvailable": 0,
+                "purchaseOrder": {
+                    "text": " ",
+                    "value": ""
+                },
+                "amount": 0,
+                "active": false,
+                "woVendor": true
+            }, {
                 "id": "76",
                 "name": "Best Fixture, Inc.",
                 "vendor": {
@@ -166478,6 +166674,30 @@ const mockup = {
                 },
                 "event": "100938",
                 "quantityRequired": 4,
+                "quantityAvailable": 20,
+                "purchaseOrder": {
+                    "text": " ",
+                    "value": ""
+                },
+                "amount": 0,
+                "active": true,
+                "woVendor": true
+            }, {
+                "id": "87",
+                "name": "Bridgepoint Industries",
+                "vendor": {
+                    "text": "Bridgepoint Industries",
+                    "value": "1473"
+                },
+                "url": "http://www.bridgepointindustries.com.de",
+                "email": "support@bridgempointindustries.com.de",
+                "initials": "BI",
+                "workorder": {
+                    "text": "Test Work Order - Mei",
+                    "value": "86"
+                },
+                "event": "100947",
+                "quantityRequired": 5,
                 "quantityAvailable": 20,
                 "purchaseOrder": {
                     "text": " ",
@@ -166673,6 +166893,39 @@ const mockup = {
                 },
                 "owned": true,
                 "rentalMatrix": 0
+            }, {
+                "id": "78",
+                "workorder": {
+                    "text": "Test Work Order - Mei",
+                    "value": "86"
+                },
+                "event": "100947",
+                "quantity": 2,
+                "item": {
+                    "text": "ELE00002",
+                    "value": "674"
+                },
+                "equipmentType": {
+                    "text": "Hand Tools",
+                    "value": "1"
+                },
+                "rentalUnit": {
+                    "text": "",
+                    "value": ""
+                },
+                "rentalDuration": 0,
+                "rentalRate": 0,
+                "rentalAmount": 0,
+                "purchaseOrder": {
+                    "text": " ",
+                    "value": " "
+                },
+                "vendor": {
+                    "text": "Computer Depot Pacific",
+                    "value": "965"
+                },
+                "owned": true,
+                "rentalMatrix": 0
             }],
             "items": [{
                 "id": "241",
@@ -166779,6 +167032,48 @@ const mockup = {
                 "quantity": 50,
                 "availableQty": 50,
                 "note": ""
+            }, {
+                "id": "274",
+                "workorder": {
+                    "text": "Test Work Order - Mei",
+                    "value": "86"
+                },
+                "salesorder": {
+                    "text": "Sales Order #SLS00000739",
+                    "value": "19521"
+                },
+                "event": "100947",
+                "uuid": "19521_2",
+                "line": "2",
+                "item": {
+                    "text": "2375-6727",
+                    "value": "1426"
+                },
+                "description": "",
+                "quantity": 50,
+                "availableQty": 50,
+                "note": ""
+            }, {
+                "id": "275",
+                "workorder": {
+                    "text": "Test Work Order - Mei",
+                    "value": "86"
+                },
+                "salesorder": {
+                    "text": "Sales Order #SLS00000739",
+                    "value": "19521"
+                },
+                "event": "100947",
+                "uuid": "19521_5",
+                "line": "5",
+                "item": {
+                    "text": "Dealer Service Fee",
+                    "value": "2331"
+                },
+                "description": "Dealer Service Fee",
+                "quantity": 5,
+                "availableQty": 5,
+                "note": ""
             }],
             "addresses": [{
                 "id": "63",
@@ -166790,7 +167085,7 @@ const mockup = {
                     "text": "AB&I Holdings",
                     "value": "1249"
                 },
-                "events": ["100927", "100946"],
+                "events": ["100927", "100947"],
                 "address": {
                     "text": "1701 Rollins Road",
                     "value": "244878"
@@ -166804,7 +167099,7 @@ const mockup = {
                     "text": "Test Work Order - Mei",
                     "value": "86"
                 },
-                "events": ["100927", "100946"],
+                "events": ["100927", "100947"],
                 "contact": {
                     "text": "AB&I Holdings : Test Prav",
                     "value": "1892"
@@ -167161,6 +167456,55 @@ const mockup = {
                     "value": "1765"
                 }
             }, {
+                "id": "100947",
+                "title": "Test Work Order - Mei",
+                "workorder": {
+                    "text": "Test Work Order - Mei",
+                    "value": "86"
+                },
+                "location": "",
+                "status": {
+                    "text": "Tentative",
+                    "value": "TENTATIVE",
+                    "code": "bg-secondary"
+                },
+                "date": {
+                    "recurrence": "one time event on 10/25/2024",
+                    "start": "2024-10-25",
+                    "end": "2024-10-25"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "18:00"
+                },
+                "priority": {
+                    "text": "High",
+                    "value": "3",
+                    "code": "#ca6621"
+                },
+                "note": "BBBBB\nCCCC",
+                "url": "/app/crm/calendar/event.nl?id=100947&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "vendors": [],
+                "assets": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "75",
+                    "value": "75"
+                },
+                "address": {
+                    "text": "63",
+                    "value": "63"
+                },
+                "organizer": {
+                    "text": "Lean  cendana",
+                    "value": "1765"
+                }
+            }, {
                 "id": "100946",
                 "title": "Test Work Order - Mei",
                 "workorder": {
@@ -167284,7 +167628,7 @@ const mockup = {
                 "text": "Test Work Order - Mei",
                 "value": "86"
             },
-            "events": ["100927", "100946"],
+            "events": ["100927", "100947"],
             "contact": {
                 "text": "AB&I Holdings : Test Prav",
                 "value": "1892"
@@ -167308,7 +167652,7 @@ const mockup = {
                 "text": "AB&I Holdings",
                 "value": "1249"
             },
-            "events": ["100927", "100946"],
+            "events": ["100927", "100947"],
             "address": {
                 "text": "1701 Rollins Road",
                 "value": "244878"
@@ -226014,6 +226358,30 @@ const mockup = {
                 "active": false,
                 "woVendor": true
             }, {
+                "id": "86",
+                "name": "Best Fixture, Inc.",
+                "vendor": {
+                    "text": "Best Fixture, Inc.",
+                    "value": "12"
+                },
+                "url": "",
+                "email": "",
+                "initials": "BF",
+                "workorder": {
+                    "text": "Test Work Order - Mei",
+                    "value": "86"
+                },
+                "event": "100947",
+                "quantityRequired": 0,
+                "quantityAvailable": 0,
+                "purchaseOrder": {
+                    "text": " ",
+                    "value": ""
+                },
+                "amount": 0,
+                "active": false,
+                "woVendor": true
+            }, {
                 "id": "76",
                 "name": "Best Fixture, Inc.",
                 "vendor": {
@@ -226077,6 +226445,30 @@ const mockup = {
                 },
                 "event": "100938",
                 "quantityRequired": 4,
+                "quantityAvailable": 20,
+                "purchaseOrder": {
+                    "text": " ",
+                    "value": ""
+                },
+                "amount": 0,
+                "active": true,
+                "woVendor": true
+            }, {
+                "id": "87",
+                "name": "Bridgepoint Industries",
+                "vendor": {
+                    "text": "Bridgepoint Industries",
+                    "value": "1473"
+                },
+                "url": "http://www.bridgepointindustries.com.de",
+                "email": "support@bridgempointindustries.com.de",
+                "initials": "BI",
+                "workorder": {
+                    "text": "Test Work Order - Mei",
+                    "value": "86"
+                },
+                "event": "100947",
+                "quantityRequired": 5,
                 "quantityAvailable": 20,
                 "purchaseOrder": {
                     "text": " ",
@@ -226272,6 +226664,39 @@ const mockup = {
                 },
                 "owned": true,
                 "rentalMatrix": 0
+            }, {
+                "id": "78",
+                "workorder": {
+                    "text": "Test Work Order - Mei",
+                    "value": "86"
+                },
+                "event": "100947",
+                "quantity": 2,
+                "item": {
+                    "text": "ELE00002",
+                    "value": "674"
+                },
+                "equipmentType": {
+                    "text": "Hand Tools",
+                    "value": "1"
+                },
+                "rentalUnit": {
+                    "text": "",
+                    "value": ""
+                },
+                "rentalDuration": 0,
+                "rentalRate": 0,
+                "rentalAmount": 0,
+                "purchaseOrder": {
+                    "text": " ",
+                    "value": " "
+                },
+                "vendor": {
+                    "text": "Computer Depot Pacific",
+                    "value": "965"
+                },
+                "owned": true,
+                "rentalMatrix": 0
             }],
             "items": [{
                 "id": "241",
@@ -226378,6 +226803,48 @@ const mockup = {
                 "quantity": 50,
                 "availableQty": 50,
                 "note": ""
+            }, {
+                "id": "274",
+                "workorder": {
+                    "text": "Test Work Order - Mei",
+                    "value": "86"
+                },
+                "salesorder": {
+                    "text": "Sales Order #SLS00000739",
+                    "value": "19521"
+                },
+                "event": "100947",
+                "uuid": "19521_2",
+                "line": "2",
+                "item": {
+                    "text": "2375-6727",
+                    "value": "1426"
+                },
+                "description": "",
+                "quantity": 50,
+                "availableQty": 50,
+                "note": ""
+            }, {
+                "id": "275",
+                "workorder": {
+                    "text": "Test Work Order - Mei",
+                    "value": "86"
+                },
+                "salesorder": {
+                    "text": "Sales Order #SLS00000739",
+                    "value": "19521"
+                },
+                "event": "100947",
+                "uuid": "19521_5",
+                "line": "5",
+                "item": {
+                    "text": "Dealer Service Fee",
+                    "value": "2331"
+                },
+                "description": "Dealer Service Fee",
+                "quantity": 5,
+                "availableQty": 5,
+                "note": ""
             }],
             "addresses": [{
                 "id": "63",
@@ -226389,7 +226856,7 @@ const mockup = {
                     "text": "AB&I Holdings",
                     "value": "1249"
                 },
-                "events": ["100927", "100946"],
+                "events": ["100927", "100947"],
                 "address": {
                     "text": "1701 Rollins Road",
                     "value": "244878"
@@ -226403,7 +226870,7 @@ const mockup = {
                     "text": "Test Work Order - Mei",
                     "value": "86"
                 },
-                "events": ["100927", "100946"],
+                "events": ["100927", "100947"],
                 "contact": {
                     "text": "AB&I Holdings : Test Prav",
                     "value": "1892"
@@ -226739,6 +227206,55 @@ const mockup = {
                 },
                 "note": "1\n2\n3124",
                 "url": "/app/crm/calendar/event.nl?id=100942&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "vendors": [],
+                "assets": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "75",
+                    "value": "75"
+                },
+                "address": {
+                    "text": "63",
+                    "value": "63"
+                },
+                "organizer": {
+                    "text": "Lean  cendana",
+                    "value": "1765"
+                }
+            }, {
+                "id": "100947",
+                "title": "Test Work Order - Mei",
+                "workorder": {
+                    "text": "Test Work Order - Mei",
+                    "value": "86"
+                },
+                "location": "",
+                "status": {
+                    "text": "Tentative",
+                    "value": "TENTATIVE",
+                    "code": "bg-secondary"
+                },
+                "date": {
+                    "recurrence": "one time event on 10/25/2024",
+                    "start": "2024-10-25",
+                    "end": "2024-10-25"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "18:00"
+                },
+                "priority": {
+                    "text": "High",
+                    "value": "3",
+                    "code": "#ca6621"
+                },
+                "note": "BBBBB\nCCCC",
+                "url": "/app/crm/calendar/event.nl?id=100947&compid=TSTDRV2617106&selectedtab=custom337",
                 "color": "#1a6756",
                 "woRef": {},
                 "resources": [],
@@ -226920,6 +227436,30 @@ const mockup = {
                 "active": false,
                 "woVendor": true
             }, {
+                "id": "86",
+                "name": "Best Fixture, Inc.",
+                "vendor": {
+                    "text": "Best Fixture, Inc.",
+                    "value": "12"
+                },
+                "url": "",
+                "email": "",
+                "initials": "BF",
+                "workorder": {
+                    "text": "Test Work Order - Mei",
+                    "value": "86"
+                },
+                "event": "100947",
+                "quantityRequired": 0,
+                "quantityAvailable": 0,
+                "purchaseOrder": {
+                    "text": " ",
+                    "value": ""
+                },
+                "amount": 0,
+                "active": false,
+                "woVendor": true
+            }, {
                 "id": "76",
                 "name": "Best Fixture, Inc.",
                 "vendor": {
@@ -226983,6 +227523,30 @@ const mockup = {
                 },
                 "event": "100938",
                 "quantityRequired": 4,
+                "quantityAvailable": 20,
+                "purchaseOrder": {
+                    "text": " ",
+                    "value": ""
+                },
+                "amount": 0,
+                "active": true,
+                "woVendor": true
+            }, {
+                "id": "87",
+                "name": "Bridgepoint Industries",
+                "vendor": {
+                    "text": "Bridgepoint Industries",
+                    "value": "1473"
+                },
+                "url": "http://www.bridgepointindustries.com.de",
+                "email": "support@bridgempointindustries.com.de",
+                "initials": "BI",
+                "workorder": {
+                    "text": "Test Work Order - Mei",
+                    "value": "86"
+                },
+                "event": "100947",
+                "quantityRequired": 5,
                 "quantityAvailable": 20,
                 "purchaseOrder": {
                     "text": " ",
@@ -227178,6 +227742,39 @@ const mockup = {
                 },
                 "owned": true,
                 "rentalMatrix": 0
+            }, {
+                "id": "78",
+                "workorder": {
+                    "text": "Test Work Order - Mei",
+                    "value": "86"
+                },
+                "event": "100947",
+                "quantity": 2,
+                "item": {
+                    "text": "ELE00002",
+                    "value": "674"
+                },
+                "equipmentType": {
+                    "text": "Hand Tools",
+                    "value": "1"
+                },
+                "rentalUnit": {
+                    "text": "",
+                    "value": ""
+                },
+                "rentalDuration": 0,
+                "rentalRate": 0,
+                "rentalAmount": 0,
+                "purchaseOrder": {
+                    "text": " ",
+                    "value": " "
+                },
+                "vendor": {
+                    "text": "Computer Depot Pacific",
+                    "value": "965"
+                },
+                "owned": true,
+                "rentalMatrix": 0
             }],
             "items": [{
                 "id": "241",
@@ -227284,6 +227881,48 @@ const mockup = {
                 "quantity": 50,
                 "availableQty": 50,
                 "note": ""
+            }, {
+                "id": "274",
+                "workorder": {
+                    "text": "Test Work Order - Mei",
+                    "value": "86"
+                },
+                "salesorder": {
+                    "text": "Sales Order #SLS00000739",
+                    "value": "19521"
+                },
+                "event": "100947",
+                "uuid": "19521_2",
+                "line": "2",
+                "item": {
+                    "text": "2375-6727",
+                    "value": "1426"
+                },
+                "description": "",
+                "quantity": 50,
+                "availableQty": 50,
+                "note": ""
+            }, {
+                "id": "275",
+                "workorder": {
+                    "text": "Test Work Order - Mei",
+                    "value": "86"
+                },
+                "salesorder": {
+                    "text": "Sales Order #SLS00000739",
+                    "value": "19521"
+                },
+                "event": "100947",
+                "uuid": "19521_5",
+                "line": "5",
+                "item": {
+                    "text": "Dealer Service Fee",
+                    "value": "2331"
+                },
+                "description": "Dealer Service Fee",
+                "quantity": 5,
+                "availableQty": 5,
+                "note": ""
             }],
             "addresses": [{
                 "id": "63",
@@ -227295,7 +227934,7 @@ const mockup = {
                     "text": "AB&I Holdings",
                     "value": "1249"
                 },
-                "events": ["100927", "100946"],
+                "events": ["100927", "100947"],
                 "address": {
                     "text": "1701 Rollins Road",
                     "value": "244878"
@@ -227309,7 +227948,7 @@ const mockup = {
                     "text": "Test Work Order - Mei",
                     "value": "86"
                 },
-                "events": ["100927", "100946"],
+                "events": ["100927", "100947"],
                 "contact": {
                     "text": "AB&I Holdings : Test Prav",
                     "value": "1892"
@@ -227645,6 +228284,55 @@ const mockup = {
                 },
                 "note": "1\n2\n3124",
                 "url": "/app/crm/calendar/event.nl?id=100942&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "vendors": [],
+                "assets": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "75",
+                    "value": "75"
+                },
+                "address": {
+                    "text": "63",
+                    "value": "63"
+                },
+                "organizer": {
+                    "text": "Lean  cendana",
+                    "value": "1765"
+                }
+            }, {
+                "id": "100947",
+                "title": "Test Work Order - Mei",
+                "workorder": {
+                    "text": "Test Work Order - Mei",
+                    "value": "86"
+                },
+                "location": "",
+                "status": {
+                    "text": "Tentative",
+                    "value": "TENTATIVE",
+                    "code": "bg-secondary"
+                },
+                "date": {
+                    "recurrence": "one time event on 10/25/2024",
+                    "start": "2024-10-25",
+                    "end": "2024-10-25"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "18:00"
+                },
+                "priority": {
+                    "text": "High",
+                    "value": "3",
+                    "code": "#ca6621"
+                },
+                "note": "BBBBB\nCCCC",
+                "url": "/app/crm/calendar/event.nl?id=100947&compid=TSTDRV2617106&selectedtab=custom337",
                 "color": "#1a6756",
                 "woRef": {},
                 "resources": [],
@@ -227826,6 +228514,30 @@ const mockup = {
                 "active": false,
                 "woVendor": true
             }, {
+                "id": "86",
+                "name": "Best Fixture, Inc.",
+                "vendor": {
+                    "text": "Best Fixture, Inc.",
+                    "value": "12"
+                },
+                "url": "",
+                "email": "",
+                "initials": "BF",
+                "workorder": {
+                    "text": "Test Work Order - Mei",
+                    "value": "86"
+                },
+                "event": "100947",
+                "quantityRequired": 0,
+                "quantityAvailable": 0,
+                "purchaseOrder": {
+                    "text": " ",
+                    "value": ""
+                },
+                "amount": 0,
+                "active": false,
+                "woVendor": true
+            }, {
                 "id": "76",
                 "name": "Best Fixture, Inc.",
                 "vendor": {
@@ -227889,6 +228601,30 @@ const mockup = {
                 },
                 "event": "100938",
                 "quantityRequired": 4,
+                "quantityAvailable": 20,
+                "purchaseOrder": {
+                    "text": " ",
+                    "value": ""
+                },
+                "amount": 0,
+                "active": true,
+                "woVendor": true
+            }, {
+                "id": "87",
+                "name": "Bridgepoint Industries",
+                "vendor": {
+                    "text": "Bridgepoint Industries",
+                    "value": "1473"
+                },
+                "url": "http://www.bridgepointindustries.com.de",
+                "email": "support@bridgempointindustries.com.de",
+                "initials": "BI",
+                "workorder": {
+                    "text": "Test Work Order - Mei",
+                    "value": "86"
+                },
+                "event": "100947",
+                "quantityRequired": 5,
                 "quantityAvailable": 20,
                 "purchaseOrder": {
                     "text": " ",
@@ -228084,6 +228820,39 @@ const mockup = {
                 },
                 "owned": true,
                 "rentalMatrix": 0
+            }, {
+                "id": "78",
+                "workorder": {
+                    "text": "Test Work Order - Mei",
+                    "value": "86"
+                },
+                "event": "100947",
+                "quantity": 2,
+                "item": {
+                    "text": "ELE00002",
+                    "value": "674"
+                },
+                "equipmentType": {
+                    "text": "Hand Tools",
+                    "value": "1"
+                },
+                "rentalUnit": {
+                    "text": "",
+                    "value": ""
+                },
+                "rentalDuration": 0,
+                "rentalRate": 0,
+                "rentalAmount": 0,
+                "purchaseOrder": {
+                    "text": " ",
+                    "value": " "
+                },
+                "vendor": {
+                    "text": "Computer Depot Pacific",
+                    "value": "965"
+                },
+                "owned": true,
+                "rentalMatrix": 0
             }],
             "items": [{
                 "id": "241",
@@ -228190,6 +228959,48 @@ const mockup = {
                 "quantity": 50,
                 "availableQty": 50,
                 "note": ""
+            }, {
+                "id": "274",
+                "workorder": {
+                    "text": "Test Work Order - Mei",
+                    "value": "86"
+                },
+                "salesorder": {
+                    "text": "Sales Order #SLS00000739",
+                    "value": "19521"
+                },
+                "event": "100947",
+                "uuid": "19521_2",
+                "line": "2",
+                "item": {
+                    "text": "2375-6727",
+                    "value": "1426"
+                },
+                "description": "",
+                "quantity": 50,
+                "availableQty": 50,
+                "note": ""
+            }, {
+                "id": "275",
+                "workorder": {
+                    "text": "Test Work Order - Mei",
+                    "value": "86"
+                },
+                "salesorder": {
+                    "text": "Sales Order #SLS00000739",
+                    "value": "19521"
+                },
+                "event": "100947",
+                "uuid": "19521_5",
+                "line": "5",
+                "item": {
+                    "text": "Dealer Service Fee",
+                    "value": "2331"
+                },
+                "description": "Dealer Service Fee",
+                "quantity": 5,
+                "availableQty": 5,
+                "note": ""
             }],
             "addresses": [{
                 "id": "63",
@@ -228201,7 +229012,7 @@ const mockup = {
                     "text": "AB&I Holdings",
                     "value": "1249"
                 },
-                "events": ["100927", "100946"],
+                "events": ["100927", "100947"],
                 "address": {
                     "text": "1701 Rollins Road",
                     "value": "244878"
@@ -228215,7 +229026,7 @@ const mockup = {
                     "text": "Test Work Order - Mei",
                     "value": "86"
                 },
-                "events": ["100927", "100946"],
+                "events": ["100927", "100947"],
                 "contact": {
                     "text": "AB&I Holdings : Test Prav",
                     "value": "1892"
@@ -228551,6 +229362,55 @@ const mockup = {
                 },
                 "note": "1\n2\n3124",
                 "url": "/app/crm/calendar/event.nl?id=100942&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "vendors": [],
+                "assets": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "75",
+                    "value": "75"
+                },
+                "address": {
+                    "text": "63",
+                    "value": "63"
+                },
+                "organizer": {
+                    "text": "Lean  cendana",
+                    "value": "1765"
+                }
+            }, {
+                "id": "100947",
+                "title": "Test Work Order - Mei",
+                "workorder": {
+                    "text": "Test Work Order - Mei",
+                    "value": "86"
+                },
+                "location": "",
+                "status": {
+                    "text": "Tentative",
+                    "value": "TENTATIVE",
+                    "code": "bg-secondary"
+                },
+                "date": {
+                    "recurrence": "one time event on 10/25/2024",
+                    "start": "2024-10-25",
+                    "end": "2024-10-25"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "18:00"
+                },
+                "priority": {
+                    "text": "High",
+                    "value": "3",
+                    "code": "#ca6621"
+                },
+                "note": "BBBBB\nCCCC",
+                "url": "/app/crm/calendar/event.nl?id=100947&compid=TSTDRV2617106&selectedtab=custom337",
                 "color": "#1a6756",
                 "woRef": {},
                 "resources": [],
@@ -228779,6 +229639,30 @@ const mockup = {
                 "active": false,
                 "woVendor": true
             }, {
+                "id": "86",
+                "name": "Best Fixture, Inc.",
+                "vendor": {
+                    "text": "Best Fixture, Inc.",
+                    "value": "12"
+                },
+                "url": "",
+                "email": "",
+                "initials": "BF",
+                "workorder": {
+                    "text": "Test Work Order - Mei",
+                    "value": "86"
+                },
+                "event": "100947",
+                "quantityRequired": 0,
+                "quantityAvailable": 0,
+                "purchaseOrder": {
+                    "text": " ",
+                    "value": ""
+                },
+                "amount": 0,
+                "active": false,
+                "woVendor": true
+            }, {
                 "id": "76",
                 "name": "Best Fixture, Inc.",
                 "vendor": {
@@ -228842,6 +229726,30 @@ const mockup = {
                 },
                 "event": "100938",
                 "quantityRequired": 4,
+                "quantityAvailable": 20,
+                "purchaseOrder": {
+                    "text": " ",
+                    "value": ""
+                },
+                "amount": 0,
+                "active": true,
+                "woVendor": true
+            }, {
+                "id": "87",
+                "name": "Bridgepoint Industries",
+                "vendor": {
+                    "text": "Bridgepoint Industries",
+                    "value": "1473"
+                },
+                "url": "http://www.bridgepointindustries.com.de",
+                "email": "support@bridgempointindustries.com.de",
+                "initials": "BI",
+                "workorder": {
+                    "text": "Test Work Order - Mei",
+                    "value": "86"
+                },
+                "event": "100947",
+                "quantityRequired": 5,
                 "quantityAvailable": 20,
                 "purchaseOrder": {
                     "text": " ",
@@ -229037,6 +229945,39 @@ const mockup = {
                 },
                 "owned": true,
                 "rentalMatrix": 0
+            }, {
+                "id": "78",
+                "workorder": {
+                    "text": "Test Work Order - Mei",
+                    "value": "86"
+                },
+                "event": "100947",
+                "quantity": 2,
+                "item": {
+                    "text": "ELE00002",
+                    "value": "674"
+                },
+                "equipmentType": {
+                    "text": "Hand Tools",
+                    "value": "1"
+                },
+                "rentalUnit": {
+                    "text": "",
+                    "value": ""
+                },
+                "rentalDuration": 0,
+                "rentalRate": 0,
+                "rentalAmount": 0,
+                "purchaseOrder": {
+                    "text": " ",
+                    "value": " "
+                },
+                "vendor": {
+                    "text": "Computer Depot Pacific",
+                    "value": "965"
+                },
+                "owned": true,
+                "rentalMatrix": 0
             }],
             "items": [{
                 "id": "241",
@@ -229143,6 +230084,48 @@ const mockup = {
                 "quantity": 50,
                 "availableQty": 50,
                 "note": ""
+            }, {
+                "id": "274",
+                "workorder": {
+                    "text": "Test Work Order - Mei",
+                    "value": "86"
+                },
+                "salesorder": {
+                    "text": "Sales Order #SLS00000739",
+                    "value": "19521"
+                },
+                "event": "100947",
+                "uuid": "19521_2",
+                "line": "2",
+                "item": {
+                    "text": "2375-6727",
+                    "value": "1426"
+                },
+                "description": "",
+                "quantity": 50,
+                "availableQty": 50,
+                "note": ""
+            }, {
+                "id": "275",
+                "workorder": {
+                    "text": "Test Work Order - Mei",
+                    "value": "86"
+                },
+                "salesorder": {
+                    "text": "Sales Order #SLS00000739",
+                    "value": "19521"
+                },
+                "event": "100947",
+                "uuid": "19521_5",
+                "line": "5",
+                "item": {
+                    "text": "Dealer Service Fee",
+                    "value": "2331"
+                },
+                "description": "Dealer Service Fee",
+                "quantity": 5,
+                "availableQty": 5,
+                "note": ""
             }],
             "addresses": [{
                 "id": "63",
@@ -229154,7 +230137,7 @@ const mockup = {
                     "text": "AB&I Holdings",
                     "value": "1249"
                 },
-                "events": ["100927", "100946"],
+                "events": ["100927", "100947"],
                 "address": {
                     "text": "1701 Rollins Road",
                     "value": "244878"
@@ -229168,7 +230151,7 @@ const mockup = {
                     "text": "Test Work Order - Mei",
                     "value": "86"
                 },
-                "events": ["100927", "100946"],
+                "events": ["100927", "100947"],
                 "contact": {
                     "text": "AB&I Holdings : Test Prav",
                     "value": "1892"
@@ -229504,6 +230487,55 @@ const mockup = {
                 },
                 "note": "1\n2\n3124",
                 "url": "/app/crm/calendar/event.nl?id=100942&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "vendors": [],
+                "assets": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "75",
+                    "value": "75"
+                },
+                "address": {
+                    "text": "63",
+                    "value": "63"
+                },
+                "organizer": {
+                    "text": "Lean  cendana",
+                    "value": "1765"
+                }
+            }, {
+                "id": "100947",
+                "title": "Test Work Order - Mei",
+                "workorder": {
+                    "text": "Test Work Order - Mei",
+                    "value": "86"
+                },
+                "location": "",
+                "status": {
+                    "text": "Tentative",
+                    "value": "TENTATIVE",
+                    "code": "bg-secondary"
+                },
+                "date": {
+                    "recurrence": "one time event on 10/25/2024",
+                    "start": "2024-10-25",
+                    "end": "2024-10-25"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "18:00"
+                },
+                "priority": {
+                    "text": "High",
+                    "value": "3",
+                    "code": "#ca6621"
+                },
+                "note": "BBBBB\nCCCC",
+                "url": "/app/crm/calendar/event.nl?id=100947&compid=TSTDRV2617106&selectedtab=custom337",
                 "color": "#1a6756",
                 "woRef": {},
                 "resources": [],
@@ -229784,6 +230816,30 @@ const mockup = {
                 "active": false,
                 "woVendor": true
             }, {
+                "id": "86",
+                "name": "Best Fixture, Inc.",
+                "vendor": {
+                    "text": "Best Fixture, Inc.",
+                    "value": "12"
+                },
+                "url": "",
+                "email": "",
+                "initials": "BF",
+                "workorder": {
+                    "text": "Test Work Order - Mei",
+                    "value": "86"
+                },
+                "event": "100947",
+                "quantityRequired": 0,
+                "quantityAvailable": 0,
+                "purchaseOrder": {
+                    "text": " ",
+                    "value": ""
+                },
+                "amount": 0,
+                "active": false,
+                "woVendor": true
+            }, {
                 "id": "76",
                 "name": "Best Fixture, Inc.",
                 "vendor": {
@@ -229847,6 +230903,30 @@ const mockup = {
                 },
                 "event": "100938",
                 "quantityRequired": 4,
+                "quantityAvailable": 20,
+                "purchaseOrder": {
+                    "text": " ",
+                    "value": ""
+                },
+                "amount": 0,
+                "active": true,
+                "woVendor": true
+            }, {
+                "id": "87",
+                "name": "Bridgepoint Industries",
+                "vendor": {
+                    "text": "Bridgepoint Industries",
+                    "value": "1473"
+                },
+                "url": "http://www.bridgepointindustries.com.de",
+                "email": "support@bridgempointindustries.com.de",
+                "initials": "BI",
+                "workorder": {
+                    "text": "Test Work Order - Mei",
+                    "value": "86"
+                },
+                "event": "100947",
+                "quantityRequired": 5,
                 "quantityAvailable": 20,
                 "purchaseOrder": {
                     "text": " ",
@@ -230042,6 +231122,39 @@ const mockup = {
                 },
                 "owned": true,
                 "rentalMatrix": 0
+            }, {
+                "id": "78",
+                "workorder": {
+                    "text": "Test Work Order - Mei",
+                    "value": "86"
+                },
+                "event": "100947",
+                "quantity": 2,
+                "item": {
+                    "text": "ELE00002",
+                    "value": "674"
+                },
+                "equipmentType": {
+                    "text": "Hand Tools",
+                    "value": "1"
+                },
+                "rentalUnit": {
+                    "text": "",
+                    "value": ""
+                },
+                "rentalDuration": 0,
+                "rentalRate": 0,
+                "rentalAmount": 0,
+                "purchaseOrder": {
+                    "text": " ",
+                    "value": " "
+                },
+                "vendor": {
+                    "text": "Computer Depot Pacific",
+                    "value": "965"
+                },
+                "owned": true,
+                "rentalMatrix": 0
             }],
             "items": [{
                 "id": "241",
@@ -230148,6 +231261,48 @@ const mockup = {
                 "quantity": 50,
                 "availableQty": 50,
                 "note": ""
+            }, {
+                "id": "274",
+                "workorder": {
+                    "text": "Test Work Order - Mei",
+                    "value": "86"
+                },
+                "salesorder": {
+                    "text": "Sales Order #SLS00000739",
+                    "value": "19521"
+                },
+                "event": "100947",
+                "uuid": "19521_2",
+                "line": "2",
+                "item": {
+                    "text": "2375-6727",
+                    "value": "1426"
+                },
+                "description": "",
+                "quantity": 50,
+                "availableQty": 50,
+                "note": ""
+            }, {
+                "id": "275",
+                "workorder": {
+                    "text": "Test Work Order - Mei",
+                    "value": "86"
+                },
+                "salesorder": {
+                    "text": "Sales Order #SLS00000739",
+                    "value": "19521"
+                },
+                "event": "100947",
+                "uuid": "19521_5",
+                "line": "5",
+                "item": {
+                    "text": "Dealer Service Fee",
+                    "value": "2331"
+                },
+                "description": "Dealer Service Fee",
+                "quantity": 5,
+                "availableQty": 5,
+                "note": ""
             }],
             "addresses": [{
                 "id": "63",
@@ -230159,7 +231314,7 @@ const mockup = {
                     "text": "AB&I Holdings",
                     "value": "1249"
                 },
-                "events": ["100927", "100946"],
+                "events": ["100927", "100947"],
                 "address": {
                     "text": "1701 Rollins Road",
                     "value": "244878"
@@ -230173,7 +231328,7 @@ const mockup = {
                     "text": "Test Work Order - Mei",
                     "value": "86"
                 },
-                "events": ["100927", "100946"],
+                "events": ["100927", "100947"],
                 "contact": {
                     "text": "AB&I Holdings : Test Prav",
                     "value": "1892"
@@ -230509,6 +231664,55 @@ const mockup = {
                 },
                 "note": "1\n2\n3124",
                 "url": "/app/crm/calendar/event.nl?id=100942&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "vendors": [],
+                "assets": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "75",
+                    "value": "75"
+                },
+                "address": {
+                    "text": "63",
+                    "value": "63"
+                },
+                "organizer": {
+                    "text": "Lean  cendana",
+                    "value": "1765"
+                }
+            }, {
+                "id": "100947",
+                "title": "Test Work Order - Mei",
+                "workorder": {
+                    "text": "Test Work Order - Mei",
+                    "value": "86"
+                },
+                "location": "",
+                "status": {
+                    "text": "Tentative",
+                    "value": "TENTATIVE",
+                    "code": "bg-secondary"
+                },
+                "date": {
+                    "recurrence": "one time event on 10/25/2024",
+                    "start": "2024-10-25",
+                    "end": "2024-10-25"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "18:00"
+                },
+                "priority": {
+                    "text": "High",
+                    "value": "3",
+                    "code": "#ca6621"
+                },
+                "note": "BBBBB\nCCCC",
+                "url": "/app/crm/calendar/event.nl?id=100947&compid=TSTDRV2617106&selectedtab=custom337",
                 "color": "#1a6756",
                 "woRef": {},
                 "resources": [],
@@ -230740,6 +231944,30 @@ const mockup = {
                 "active": false,
                 "woVendor": true
             }, {
+                "id": "86",
+                "name": "Best Fixture, Inc.",
+                "vendor": {
+                    "text": "Best Fixture, Inc.",
+                    "value": "12"
+                },
+                "url": "",
+                "email": "",
+                "initials": "BF",
+                "workorder": {
+                    "text": "Test Work Order - Mei",
+                    "value": "86"
+                },
+                "event": "100947",
+                "quantityRequired": 0,
+                "quantityAvailable": 0,
+                "purchaseOrder": {
+                    "text": " ",
+                    "value": ""
+                },
+                "amount": 0,
+                "active": false,
+                "woVendor": true
+            }, {
                 "id": "76",
                 "name": "Best Fixture, Inc.",
                 "vendor": {
@@ -230803,6 +232031,30 @@ const mockup = {
                 },
                 "event": "100938",
                 "quantityRequired": 4,
+                "quantityAvailable": 20,
+                "purchaseOrder": {
+                    "text": " ",
+                    "value": ""
+                },
+                "amount": 0,
+                "active": true,
+                "woVendor": true
+            }, {
+                "id": "87",
+                "name": "Bridgepoint Industries",
+                "vendor": {
+                    "text": "Bridgepoint Industries",
+                    "value": "1473"
+                },
+                "url": "http://www.bridgepointindustries.com.de",
+                "email": "support@bridgempointindustries.com.de",
+                "initials": "BI",
+                "workorder": {
+                    "text": "Test Work Order - Mei",
+                    "value": "86"
+                },
+                "event": "100947",
+                "quantityRequired": 5,
                 "quantityAvailable": 20,
                 "purchaseOrder": {
                     "text": " ",
@@ -230998,6 +232250,39 @@ const mockup = {
                 },
                 "owned": true,
                 "rentalMatrix": 0
+            }, {
+                "id": "78",
+                "workorder": {
+                    "text": "Test Work Order - Mei",
+                    "value": "86"
+                },
+                "event": "100947",
+                "quantity": 2,
+                "item": {
+                    "text": "ELE00002",
+                    "value": "674"
+                },
+                "equipmentType": {
+                    "text": "Hand Tools",
+                    "value": "1"
+                },
+                "rentalUnit": {
+                    "text": "",
+                    "value": ""
+                },
+                "rentalDuration": 0,
+                "rentalRate": 0,
+                "rentalAmount": 0,
+                "purchaseOrder": {
+                    "text": " ",
+                    "value": " "
+                },
+                "vendor": {
+                    "text": "Computer Depot Pacific",
+                    "value": "965"
+                },
+                "owned": true,
+                "rentalMatrix": 0
             }],
             "items": [{
                 "id": "241",
@@ -231104,6 +232389,48 @@ const mockup = {
                 "quantity": 50,
                 "availableQty": 50,
                 "note": ""
+            }, {
+                "id": "274",
+                "workorder": {
+                    "text": "Test Work Order - Mei",
+                    "value": "86"
+                },
+                "salesorder": {
+                    "text": "Sales Order #SLS00000739",
+                    "value": "19521"
+                },
+                "event": "100947",
+                "uuid": "19521_2",
+                "line": "2",
+                "item": {
+                    "text": "2375-6727",
+                    "value": "1426"
+                },
+                "description": "",
+                "quantity": 50,
+                "availableQty": 50,
+                "note": ""
+            }, {
+                "id": "275",
+                "workorder": {
+                    "text": "Test Work Order - Mei",
+                    "value": "86"
+                },
+                "salesorder": {
+                    "text": "Sales Order #SLS00000739",
+                    "value": "19521"
+                },
+                "event": "100947",
+                "uuid": "19521_5",
+                "line": "5",
+                "item": {
+                    "text": "Dealer Service Fee",
+                    "value": "2331"
+                },
+                "description": "Dealer Service Fee",
+                "quantity": 5,
+                "availableQty": 5,
+                "note": ""
             }],
             "addresses": [{
                 "id": "63",
@@ -231115,7 +232442,7 @@ const mockup = {
                     "text": "AB&I Holdings",
                     "value": "1249"
                 },
-                "events": ["100927", "100946"],
+                "events": ["100927", "100947"],
                 "address": {
                     "text": "1701 Rollins Road",
                     "value": "244878"
@@ -231129,7 +232456,7 @@ const mockup = {
                     "text": "Test Work Order - Mei",
                     "value": "86"
                 },
-                "events": ["100927", "100946"],
+                "events": ["100927", "100947"],
                 "contact": {
                     "text": "AB&I Holdings : Test Prav",
                     "value": "1892"
@@ -231486,6 +232813,55 @@ const mockup = {
                     "value": "1765"
                 }
             }, {
+                "id": "100947",
+                "title": "Test Work Order - Mei",
+                "workorder": {
+                    "text": "Test Work Order - Mei",
+                    "value": "86"
+                },
+                "location": "",
+                "status": {
+                    "text": "Tentative",
+                    "value": "TENTATIVE",
+                    "code": "bg-secondary"
+                },
+                "date": {
+                    "recurrence": "one time event on 10/25/2024",
+                    "start": "2024-10-25",
+                    "end": "2024-10-25"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "18:00"
+                },
+                "priority": {
+                    "text": "High",
+                    "value": "3",
+                    "code": "#ca6621"
+                },
+                "note": "BBBBB\nCCCC",
+                "url": "/app/crm/calendar/event.nl?id=100947&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "vendors": [],
+                "assets": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "75",
+                    "value": "75"
+                },
+                "address": {
+                    "text": "63",
+                    "value": "63"
+                },
+                "organizer": {
+                    "text": "Lean  cendana",
+                    "value": "1765"
+                }
+            }, {
                 "id": "100946",
                 "title": "Test Work Order - Mei",
                 "workorder": {
@@ -231618,6 +232994,1319 @@ const mockup = {
         }],
         "contacts": [],
         "addresses": [],
+        "contact": {
+            "text": "75",
+            "value": "75"
+        },
+        "address": {
+            "text": "63",
+            "value": "63"
+        },
+        "organizer": {
+            "text": "Lean  cendana",
+            "value": "1765"
+        }
+    }, {
+        "id": "100947",
+        "title": "Test Work Order - Mei",
+        "workorder": {
+            "text": "Test Work Order - Mei",
+            "value": "86"
+        },
+        "location": "",
+        "status": {
+            "text": "Tentative",
+            "value": "TENTATIVE",
+            "code": "bg-secondary"
+        },
+        "date": {
+            "recurrence": "one time event on 10/25/2024",
+            "start": "2024-10-25",
+            "end": "2024-10-25"
+        },
+        "time": {
+            "start": "08:00",
+            "end": "18:00"
+        },
+        "priority": {
+            "text": "High",
+            "value": "3",
+            "code": "#ca6621"
+        },
+        "note": "BBBBB\nCCCC",
+        "url": "/app/crm/calendar/event.nl?id=100947&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {
+            "id": "86",
+            "name": "Test Work Order - Mei",
+            "title": "Test Work Order - Mei",
+            "project": {
+                "text": "AB&I Holdings : Field Ops Pro Project",
+                "value": "1883"
+            },
+            "date": "10/21/2024",
+            "status": {
+                "text": "Not Started",
+                "value": "4",
+                "code": "#026adf"
+            },
+            "type": {
+                "text": "Demo",
+                "value": "1"
+            },
+            "memo": "<p><strong>Test Work Order - Mei</strong></p>",
+            "salesorder": {
+                "text": "Sales Order #SLS00000739",
+                "value": "19521"
+            },
+            "customer": {
+                "text": "AB&I Holdings",
+                "value": "1249"
+            },
+            "resourceGroup": {
+                "text": "",
+                "value": ""
+            },
+            "priority": "",
+            "resources": [],
+            "vendors": [{
+                "id": "55",
+                "name": "55",
+                "vendor": {
+                    "text": "Best Fixture, Inc.",
+                    "value": "12"
+                },
+                "url": "",
+                "email": "",
+                "initials": "BF",
+                "workorder": {
+                    "text": "Test Work Order - Mei",
+                    "value": "86"
+                },
+                "event": "100927",
+                "quantityRequired": 5,
+                "quantityAvailable": 0,
+                "purchaseOrder": {
+                    "text": " ",
+                    "value": ""
+                },
+                "amount": 0,
+                "active": false,
+                "woVendor": true
+            }, {
+                "id": "86",
+                "name": "Best Fixture, Inc.",
+                "vendor": {
+                    "text": "Best Fixture, Inc.",
+                    "value": "12"
+                },
+                "url": "",
+                "email": "",
+                "initials": "BF",
+                "workorder": {
+                    "text": "Test Work Order - Mei",
+                    "value": "86"
+                },
+                "event": "100947",
+                "quantityRequired": 0,
+                "quantityAvailable": 0,
+                "purchaseOrder": {
+                    "text": " ",
+                    "value": ""
+                },
+                "amount": 0,
+                "active": false,
+                "woVendor": true
+            }, {
+                "id": "76",
+                "name": "Best Fixture, Inc.",
+                "vendor": {
+                    "text": "Best Fixture, Inc.",
+                    "value": "12"
+                },
+                "url": "",
+                "email": "",
+                "initials": "BF",
+                "workorder": {
+                    "text": "Test Work Order - Mei",
+                    "value": "86"
+                },
+                "event": "",
+                "quantityRequired": 0,
+                "quantityAvailable": 0,
+                "purchaseOrder": {
+                    "text": " ",
+                    "value": ""
+                },
+                "amount": 0,
+                "active": false,
+                "woVendor": true
+            }, {
+                "id": "74",
+                "name": "Best Fixture, Inc.",
+                "vendor": {
+                    "text": "Best Fixture, Inc.",
+                    "value": "12"
+                },
+                "url": "",
+                "email": "",
+                "initials": "BF",
+                "workorder": {
+                    "text": "Test Work Order - Mei",
+                    "value": "86"
+                },
+                "event": "100942",
+                "quantityRequired": 1,
+                "quantityAvailable": 0,
+                "purchaseOrder": {
+                    "text": " ",
+                    "value": ""
+                },
+                "amount": 0,
+                "active": false,
+                "woVendor": true
+            }, {
+                "id": "66",
+                "name": "Bridgepoint Industries",
+                "vendor": {
+                    "text": "Bridgepoint Industries",
+                    "value": "1473"
+                },
+                "url": "http://www.bridgepointindustries.com.de",
+                "email": "support@bridgempointindustries.com.de",
+                "initials": "BI",
+                "workorder": {
+                    "text": "Test Work Order - Mei",
+                    "value": "86"
+                },
+                "event": "100938",
+                "quantityRequired": 4,
+                "quantityAvailable": 20,
+                "purchaseOrder": {
+                    "text": " ",
+                    "value": ""
+                },
+                "amount": 0,
+                "active": true,
+                "woVendor": true
+            }, {
+                "id": "87",
+                "name": "Bridgepoint Industries",
+                "vendor": {
+                    "text": "Bridgepoint Industries",
+                    "value": "1473"
+                },
+                "url": "http://www.bridgepointindustries.com.de",
+                "email": "support@bridgempointindustries.com.de",
+                "initials": "BI",
+                "workorder": {
+                    "text": "Test Work Order - Mei",
+                    "value": "86"
+                },
+                "event": "100947",
+                "quantityRequired": 5,
+                "quantityAvailable": 20,
+                "purchaseOrder": {
+                    "text": " ",
+                    "value": ""
+                },
+                "amount": 0,
+                "active": true,
+                "woVendor": true
+            }, {
+                "id": "85",
+                "name": "Bridgepoint Industries",
+                "vendor": {
+                    "text": "Bridgepoint Industries",
+                    "value": "1473"
+                },
+                "url": "http://www.bridgepointindustries.com.de",
+                "email": "support@bridgempointindustries.com.de",
+                "initials": "BI",
+                "workorder": {
+                    "text": "Test Work Order - Mei",
+                    "value": "86"
+                },
+                "event": "100946",
+                "quantityRequired": 5,
+                "quantityAvailable": 20,
+                "purchaseOrder": {
+                    "text": " ",
+                    "value": ""
+                },
+                "amount": 0,
+                "active": true,
+                "woVendor": true
+            }, {
+                "id": "77",
+                "name": "Bridgepoint Industries",
+                "vendor": {
+                    "text": "Bridgepoint Industries",
+                    "value": "1473"
+                },
+                "url": "http://www.bridgepointindustries.com.de",
+                "email": "support@bridgempointindustries.com.de",
+                "initials": "BI",
+                "workorder": {
+                    "text": "Test Work Order - Mei",
+                    "value": "86"
+                },
+                "event": "",
+                "quantityRequired": 5,
+                "quantityAvailable": 20,
+                "purchaseOrder": {
+                    "text": " ",
+                    "value": ""
+                },
+                "amount": 0,
+                "active": true,
+                "woVendor": true
+            }, {
+                "id": "75",
+                "name": "Bridgepoint Industries",
+                "vendor": {
+                    "text": "Bridgepoint Industries",
+                    "value": "1473"
+                },
+                "url": "http://www.bridgepointindustries.com.de",
+                "email": "support@bridgempointindustries.com.de",
+                "initials": "BI",
+                "workorder": {
+                    "text": "Test Work Order - Mei",
+                    "value": "86"
+                },
+                "event": "100942",
+                "quantityRequired": 2,
+                "quantityAvailable": 20,
+                "purchaseOrder": {
+                    "text": " ",
+                    "value": ""
+                },
+                "amount": 0,
+                "active": true,
+                "woVendor": true
+            }, {
+                "id": "69",
+                "name": "Computer Depot Pacific",
+                "vendor": {
+                    "text": "Computer Depot Pacific",
+                    "value": "965"
+                },
+                "url": "http://www.cdp.com",
+                "email": "payables@cdp.com",
+                "initials": "CD",
+                "workorder": {
+                    "text": "Test Work Order - Mei",
+                    "value": "86"
+                },
+                "event": "100940",
+                "quantityRequired": 1,
+                "quantityAvailable": 0,
+                "purchaseOrder": {
+                    "text": " ",
+                    "value": ""
+                },
+                "amount": 0,
+                "active": false,
+                "woVendor": true
+            }, {
+                "id": "70",
+                "name": "Haworth, Inc.",
+                "vendor": {
+                    "text": "Haworth, Inc.",
+                    "value": "1664"
+                },
+                "url": "",
+                "email": "login+cbi2@erpsuccesspartners.com",
+                "initials": "HI",
+                "workorder": {
+                    "text": "Test Work Order - Mei",
+                    "value": "86"
+                },
+                "event": "100940",
+                "quantityRequired": 0,
+                "quantityAvailable": 0,
+                "purchaseOrder": {
+                    "text": " ",
+                    "value": ""
+                },
+                "amount": 0,
+                "active": false,
+                "woVendor": true
+            }],
+            "assets": [{
+                "id": "70",
+                "workorder": {
+                    "text": "Test Work Order - Mei",
+                    "value": "86"
+                },
+                "event": "100927",
+                "quantity": 5,
+                "item": {
+                    "text": "ELE00002",
+                    "value": "674"
+                },
+                "equipmentType": {
+                    "text": "Hand Tools",
+                    "value": "1"
+                },
+                "rentalUnit": {
+                    "text": "",
+                    "value": ""
+                },
+                "rentalDuration": 0,
+                "rentalRate": 0,
+                "rentalAmount": 0,
+                "purchaseOrder": {
+                    "text": " ",
+                    "value": " "
+                },
+                "vendor": {
+                    "text": "Computer Depot Pacific",
+                    "value": "965"
+                },
+                "owned": true,
+                "rentalMatrix": 0
+            }, {
+                "id": "77",
+                "workorder": {
+                    "text": "Test Work Order - Mei",
+                    "value": "86"
+                },
+                "event": "100946",
+                "quantity": 4,
+                "item": {
+                    "text": "ELE00002",
+                    "value": "674"
+                },
+                "equipmentType": {
+                    "text": "Hand Tools",
+                    "value": "1"
+                },
+                "rentalUnit": {
+                    "text": "",
+                    "value": ""
+                },
+                "rentalDuration": 0,
+                "rentalRate": 0,
+                "rentalAmount": 0,
+                "purchaseOrder": {
+                    "text": " ",
+                    "value": " "
+                },
+                "vendor": {
+                    "text": "Computer Depot Pacific",
+                    "value": "965"
+                },
+                "owned": true,
+                "rentalMatrix": 0
+            }, {
+                "id": "78",
+                "workorder": {
+                    "text": "Test Work Order - Mei",
+                    "value": "86"
+                },
+                "event": "100947",
+                "quantity": 2,
+                "item": {
+                    "text": "ELE00002",
+                    "value": "674"
+                },
+                "equipmentType": {
+                    "text": "Hand Tools",
+                    "value": "1"
+                },
+                "rentalUnit": {
+                    "text": "",
+                    "value": ""
+                },
+                "rentalDuration": 0,
+                "rentalRate": 0,
+                "rentalAmount": 0,
+                "purchaseOrder": {
+                    "text": " ",
+                    "value": " "
+                },
+                "vendor": {
+                    "text": "Computer Depot Pacific",
+                    "value": "965"
+                },
+                "owned": true,
+                "rentalMatrix": 0
+            }],
+            "items": [{
+                "id": "241",
+                "workorder": {
+                    "text": "Test Work Order - Mei",
+                    "value": "86"
+                },
+                "salesorder": {
+                    "text": "Sales Order #SLS00000739",
+                    "value": "19521"
+                },
+                "event": "",
+                "uuid": "19521_2",
+                "line": "2",
+                "item": {
+                    "text": "2375-6727",
+                    "value": "1426"
+                },
+                "description": "",
+                "quantity": 50,
+                "availableQty": 50,
+                "note": ""
+            }, {
+                "id": "242",
+                "workorder": {
+                    "text": "Test Work Order - Mei",
+                    "value": "86"
+                },
+                "salesorder": {
+                    "text": "Sales Order #SLS00000739",
+                    "value": "19521"
+                },
+                "event": "",
+                "uuid": "19521_5",
+                "line": "5",
+                "item": {
+                    "text": "Dealer Service Fee",
+                    "value": "2331"
+                },
+                "description": "Dealer Service Fee",
+                "quantity": 5,
+                "availableQty": 5,
+                "note": ""
+            }, {
+                "id": "261",
+                "workorder": {
+                    "text": "Test Work Order - Mei",
+                    "value": "86"
+                },
+                "salesorder": {
+                    "text": "Sales Order #SLS00000739",
+                    "value": "19521"
+                },
+                "event": "100938",
+                "uuid": "19521_2",
+                "line": "2",
+                "item": {
+                    "text": "2375-6727",
+                    "value": "1426"
+                },
+                "description": "",
+                "quantity": 5,
+                "availableQty": 5,
+                "note": ""
+            }, {
+                "id": "266",
+                "workorder": {
+                    "text": "Test Work Order - Mei",
+                    "value": "86"
+                },
+                "salesorder": {
+                    "text": "Sales Order #SLS00000739",
+                    "value": "19521"
+                },
+                "event": "100942",
+                "uuid": "19521_5",
+                "line": "5",
+                "item": {
+                    "text": "Dealer Service Fee",
+                    "value": "2331"
+                },
+                "description": "Dealer Service Fee",
+                "quantity": 5,
+                "availableQty": 5,
+                "note": ""
+            }, {
+                "id": "272",
+                "workorder": {
+                    "text": "Test Work Order - Mei",
+                    "value": "86"
+                },
+                "salesorder": {
+                    "text": "Sales Order #SLS00000739",
+                    "value": "19521"
+                },
+                "event": "100946",
+                "uuid": "19521_2",
+                "line": "2",
+                "item": {
+                    "text": "2375-6727",
+                    "value": "1426"
+                },
+                "description": "",
+                "quantity": 50,
+                "availableQty": 50,
+                "note": ""
+            }, {
+                "id": "274",
+                "workorder": {
+                    "text": "Test Work Order - Mei",
+                    "value": "86"
+                },
+                "salesorder": {
+                    "text": "Sales Order #SLS00000739",
+                    "value": "19521"
+                },
+                "event": "100947",
+                "uuid": "19521_2",
+                "line": "2",
+                "item": {
+                    "text": "2375-6727",
+                    "value": "1426"
+                },
+                "description": "",
+                "quantity": 50,
+                "availableQty": 50,
+                "note": ""
+            }, {
+                "id": "275",
+                "workorder": {
+                    "text": "Test Work Order - Mei",
+                    "value": "86"
+                },
+                "salesorder": {
+                    "text": "Sales Order #SLS00000739",
+                    "value": "19521"
+                },
+                "event": "100947",
+                "uuid": "19521_5",
+                "line": "5",
+                "item": {
+                    "text": "Dealer Service Fee",
+                    "value": "2331"
+                },
+                "description": "Dealer Service Fee",
+                "quantity": 5,
+                "availableQty": 5,
+                "note": ""
+            }],
+            "addresses": [{
+                "id": "63",
+                "workorder": {
+                    "text": "Test Work Order - Mei",
+                    "value": "86"
+                },
+                "customer": {
+                    "text": "AB&I Holdings",
+                    "value": "1249"
+                },
+                "events": ["100927", "100947"],
+                "address": {
+                    "text": "1701 Rollins Road",
+                    "value": "244878"
+                },
+                "addressDetails": "",
+                "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+            }],
+            "contacts": [{
+                "id": "75",
+                "workorder": {
+                    "text": "Test Work Order - Mei",
+                    "value": "86"
+                },
+                "events": ["100927", "100947"],
+                "contact": {
+                    "text": "AB&I Holdings : Test Prav",
+                    "value": "1892"
+                },
+                "name": "Test Prav",
+                "email": "pravallika@erpsuccesspartners.com",
+                "jobTitle": "QA",
+                "mobilePhone": "",
+                "phone": "",
+                "primary": true,
+                "url": "/app/common/entity/contact.nl?id=1892&compid=TSTDRV2617106"
+            }],
+            "events": [{
+                "id": "100927",
+                "title": "Test Event 123",
+                "workorder": {
+                    "text": "Test Work Order - Mei",
+                    "value": "86"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 10/21/2024",
+                    "start": "2024-10-21",
+                    "end": "2024-10-21"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "18:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Test Event 123",
+                "url": "/app/crm/calendar/event.nl?id=100927&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "vendors": [],
+                "assets": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                },
+                "organizer": {
+                    "text": "Mei Matriano",
+                    "value": "1647"
+                }
+            }, {
+                "id": "100934",
+                "title": "Test Work Order - Mei",
+                "workorder": {
+                    "text": "Test Work Order - Mei",
+                    "value": "86"
+                },
+                "location": "",
+                "status": {
+                    "text": "Tentative",
+                    "value": "TENTATIVE",
+                    "code": "bg-secondary"
+                },
+                "date": {
+                    "recurrence": "one time event on 10/23/2024",
+                    "start": "2024-10-23",
+                    "end": "2024-10-23"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "18:00"
+                },
+                "priority": {
+                    "text": "Low",
+                    "value": "1",
+                    "code": "#026adf"
+                },
+                "note": "TEST\n12345",
+                "url": "/app/crm/calendar/event.nl?id=100934&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "vendors": [],
+                "assets": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "75",
+                    "value": "75"
+                },
+                "address": {
+                    "text": "63",
+                    "value": "63"
+                },
+                "organizer": {
+                    "text": "Lean  cendana",
+                    "value": "1765"
+                }
+            }, {
+                "id": "100937",
+                "title": "Test Work Order - Mei 111222",
+                "workorder": {
+                    "text": "Test Work Order - Mei",
+                    "value": "86"
+                },
+                "location": "",
+                "status": {
+                    "text": "Tentative",
+                    "value": "TENTATIVE",
+                    "code": "bg-secondary"
+                },
+                "date": {
+                    "recurrence": "one time event on 10/24/2024",
+                    "start": "2024-10-24",
+                    "end": "2024-10-24"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "18:00"
+                },
+                "priority": {
+                    "text": "Low",
+                    "value": "1",
+                    "code": "#026adf"
+                },
+                "note": "111\n223123123",
+                "url": "/app/crm/calendar/event.nl?id=100937&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "vendors": [],
+                "assets": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "75",
+                    "value": "75"
+                },
+                "address": {
+                    "text": "63",
+                    "value": "63"
+                },
+                "organizer": {
+                    "text": "Lean  cendana",
+                    "value": "1765"
+                }
+            }, {
+                "id": "100938",
+                "title": "Test Work Order - Mei 122",
+                "workorder": {
+                    "text": "Test Work Order - Mei",
+                    "value": "86"
+                },
+                "location": "",
+                "status": {
+                    "text": "Tentative",
+                    "value": "TENTATIVE",
+                    "code": "bg-secondary"
+                },
+                "date": {
+                    "recurrence": "one time event on 10/24/2024",
+                    "start": "2024-10-24",
+                    "end": "2024-10-24"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "18:00"
+                },
+                "priority": {
+                    "text": "Low",
+                    "value": "1",
+                    "code": "#026adf"
+                },
+                "note": "123\n444",
+                "url": "/app/crm/calendar/event.nl?id=100938&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "vendors": [],
+                "assets": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "75",
+                    "value": "75"
+                },
+                "address": {
+                    "text": "63",
+                    "value": "63"
+                },
+                "organizer": {
+                    "text": "Lean  cendana",
+                    "value": "1765"
+                }
+            }, {
+                "id": "100936",
+                "title": "Test Work Order - Mei 111",
+                "workorder": {
+                    "text": "Test Work Order - Mei",
+                    "value": "86"
+                },
+                "location": "",
+                "status": {
+                    "text": "Tentative",
+                    "value": "TENTATIVE",
+                    "code": "bg-secondary"
+                },
+                "date": {
+                    "recurrence": "one time event on 10/24/2024",
+                    "start": "2024-10-24",
+                    "end": "2024-10-24"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "18:00"
+                },
+                "priority": {
+                    "text": "High",
+                    "value": "3",
+                    "code": "#ca6621"
+                },
+                "note": "TEST\n111",
+                "url": "/app/crm/calendar/event.nl?id=100936&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "vendors": [],
+                "assets": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "75",
+                    "value": "75"
+                },
+                "address": {
+                    "text": "63",
+                    "value": "63"
+                },
+                "organizer": {
+                    "text": "Lean  cendana",
+                    "value": "1765"
+                }
+            }, {
+                "id": "100940",
+                "title": "Test Work Order - Mei",
+                "workorder": {
+                    "text": "Test Work Order - Mei",
+                    "value": "86"
+                },
+                "location": "",
+                "status": {
+                    "text": "Tentative",
+                    "value": "TENTATIVE",
+                    "code": "bg-secondary"
+                },
+                "date": {
+                    "recurrence": "one time event on 10/25/2024",
+                    "start": "2024-10-25",
+                    "end": "2024-10-25"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "18:00"
+                },
+                "priority": {
+                    "text": "Low",
+                    "value": "1",
+                    "code": "#026adf"
+                },
+                "note": "AAA\nBBB",
+                "url": "/app/crm/calendar/event.nl?id=100940&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "vendors": [],
+                "assets": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "75",
+                    "value": "75"
+                },
+                "address": {
+                    "text": "63",
+                    "value": "63"
+                },
+                "organizer": {
+                    "text": "Lean  cendana",
+                    "value": "1765"
+                }
+            }, {
+                "id": "100942",
+                "title": "Test Work Order - Mei",
+                "workorder": {
+                    "text": "Test Work Order - Mei",
+                    "value": "86"
+                },
+                "location": "",
+                "status": {
+                    "text": "Tentative",
+                    "value": "TENTATIVE",
+                    "code": "bg-secondary"
+                },
+                "date": {
+                    "recurrence": "one time event on 10/25/2024",
+                    "start": "2024-10-25",
+                    "end": "2024-10-25"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "18:00"
+                },
+                "priority": {
+                    "text": "Low",
+                    "value": "1",
+                    "code": "#026adf"
+                },
+                "note": "1\n2\n3124",
+                "url": "/app/crm/calendar/event.nl?id=100942&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "vendors": [],
+                "assets": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "75",
+                    "value": "75"
+                },
+                "address": {
+                    "text": "63",
+                    "value": "63"
+                },
+                "organizer": {
+                    "text": "Lean  cendana",
+                    "value": "1765"
+                }
+            }, {
+                "id": "100947",
+                "title": "Test Work Order - Mei",
+                "workorder": {
+                    "text": "Test Work Order - Mei",
+                    "value": "86"
+                },
+                "location": "",
+                "status": {
+                    "text": "Tentative",
+                    "value": "TENTATIVE",
+                    "code": "bg-secondary"
+                },
+                "date": {
+                    "recurrence": "one time event on 10/25/2024",
+                    "start": "2024-10-25",
+                    "end": "2024-10-25"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "18:00"
+                },
+                "priority": {
+                    "text": "High",
+                    "value": "3",
+                    "code": "#ca6621"
+                },
+                "note": "BBBBB\nCCCC",
+                "url": "/app/crm/calendar/event.nl?id=100947&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "vendors": [],
+                "assets": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "75",
+                    "value": "75"
+                },
+                "address": {
+                    "text": "63",
+                    "value": "63"
+                },
+                "organizer": {
+                    "text": "Lean  cendana",
+                    "value": "1765"
+                }
+            }, {
+                "id": "100946",
+                "title": "Test Work Order - Mei",
+                "workorder": {
+                    "text": "Test Work Order - Mei",
+                    "value": "86"
+                },
+                "location": "",
+                "status": {
+                    "text": "Confirmed",
+                    "value": "CONFIRMED",
+                    "code": "bg-success"
+                },
+                "date": {
+                    "recurrence": "one time event on 10/25/2024",
+                    "start": "2024-10-25",
+                    "end": "2024-10-25"
+                },
+                "time": {
+                    "start": "12:00",
+                    "end": "22:47"
+                },
+                "priority": {
+                    "text": "Urgent",
+                    "value": "4",
+                    "code": "#9a2407"
+                },
+                "note": "BB\nCCCC\nDDD",
+                "url": "/app/crm/calendar/event.nl?id=100946&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "vendors": [],
+                "assets": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "75",
+                    "value": "75"
+                },
+                "address": {
+                    "text": "63",
+                    "value": "63"
+                },
+                "organizer": {
+                    "text": "Lean  cendana",
+                    "value": "1765"
+                }
+            }],
+            "projectUrl": "/app/accounting/project/project.nl?id=1883&compid=TSTDRV2617106",
+            "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=86&compid=TSTDRV2617106",
+            "soUrl": "/app/accounting/transactions/salesord.nl?id=19521&compid=TSTDRV2617106",
+            "esthours": "100"
+        },
+        "resources": [{
+            "id": "1770",
+            "name": "Arun Sharma",
+            "initials": "AS",
+            "email": "aruns.unlock2go@gmail.com",
+            "phone": "",
+            "location": {
+                "text": "",
+                "value": ""
+            },
+            "active": true,
+            "resourceGroups": [{
+                "text": "Designers",
+                "value": "2"
+            }, {
+                "text": "Drivers",
+                "value": "3"
+            }, {
+                "text": "Installers",
+                "value": "1"
+            }],
+            "types": [{
+                "text": "Delivery Driver",
+                "value": "2"
+            }, {
+                "text": "Designer",
+                "value": "3"
+            }, {
+                "text": "Installer",
+                "value": "1"
+            }],
+            "color": "#451315",
+            "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1770%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
+            "events": ["100681", "100947"],
+            "selected": true
+        }, {
+            "id": "1767",
+            "name": "Bea Dashboards",
+            "initials": "BD",
+            "email": "beatrice.q@erpsuccesspartners.com",
+            "phone": "",
+            "location": {
+                "text": "01: San Francisco",
+                "value": "2"
+            },
+            "active": true,
+            "resourceGroups": [{
+                "text": "Designers",
+                "value": "2"
+            }, {
+                "text": "Drivers",
+                "value": "3"
+            }, {
+                "text": "Installers",
+                "value": "1"
+            }],
+            "types": [{
+                "text": "Delivery Driver",
+                "value": "2"
+            }, {
+                "text": "Designer",
+                "value": "3"
+            }, {
+                "text": "Installer",
+                "value": "1"
+            }],
+            "color": "#a7fcad",
+            "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1767%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
+            "events": ["100681", "100947"],
+            "selected": true
+        }],
+        "vendors": [{
+            "id": "86",
+            "name": "Best Fixture, Inc.",
+            "vendor": {
+                "text": "Best Fixture, Inc.",
+                "value": "12"
+            },
+            "url": "",
+            "email": "",
+            "initials": "BF",
+            "workorder": {
+                "text": "Test Work Order - Mei",
+                "value": "86"
+            },
+            "event": "100947",
+            "quantityRequired": 0,
+            "quantityAvailable": 0,
+            "purchaseOrder": {
+                "text": " ",
+                "value": ""
+            },
+            "amount": 0,
+            "active": false,
+            "woVendor": true,
+            "selected": true
+        }, {
+            "id": "87",
+            "name": "Bridgepoint Industries",
+            "vendor": {
+                "text": "Bridgepoint Industries",
+                "value": "1473"
+            },
+            "url": "http://www.bridgepointindustries.com.de",
+            "email": "support@bridgempointindustries.com.de",
+            "initials": "BI",
+            "workorder": {
+                "text": "Test Work Order - Mei",
+                "value": "86"
+            },
+            "event": "100947",
+            "quantityRequired": 5,
+            "quantityAvailable": 20,
+            "purchaseOrder": {
+                "text": " ",
+                "value": ""
+            },
+            "amount": 0,
+            "active": true,
+            "woVendor": true,
+            "selected": true
+        }],
+        "assets": [{
+            "id": "78",
+            "workorder": {
+                "text": "Test Work Order - Mei",
+                "value": "86"
+            },
+            "event": "100947",
+            "quantity": 2,
+            "item": {
+                "text": "ELE00002",
+                "value": "674"
+            },
+            "equipmentType": {
+                "text": "Hand Tools",
+                "value": "1"
+            },
+            "rentalUnit": {
+                "text": "",
+                "value": ""
+            },
+            "rentalDuration": 0,
+            "rentalRate": 0,
+            "rentalAmount": 0,
+            "purchaseOrder": {
+                "text": " ",
+                "value": " "
+            },
+            "vendor": {
+                "text": "Computer Depot Pacific",
+                "value": "965"
+            },
+            "owned": true,
+            "rentalMatrix": 0,
+            "selected": true
+        }],
+        "items": [{
+            "id": "274",
+            "workorder": {
+                "text": "Test Work Order - Mei",
+                "value": "86"
+            },
+            "salesorder": {
+                "text": "Sales Order #SLS00000739",
+                "value": "19521"
+            },
+            "event": "100947",
+            "uuid": "19521_2",
+            "line": "2",
+            "item": {
+                "text": "2375-6727",
+                "value": "1426"
+            },
+            "description": "",
+            "quantity": 50,
+            "availableQty": 50,
+            "note": "",
+            "selected": true
+        }, {
+            "id": "275",
+            "workorder": {
+                "text": "Test Work Order - Mei",
+                "value": "86"
+            },
+            "salesorder": {
+                "text": "Sales Order #SLS00000739",
+                "value": "19521"
+            },
+            "event": "100947",
+            "uuid": "19521_5",
+            "line": "5",
+            "item": {
+                "text": "Dealer Service Fee",
+                "value": "2331"
+            },
+            "description": "Dealer Service Fee",
+            "quantity": 5,
+            "availableQty": 5,
+            "note": "",
+            "selected": true
+        }],
+        "contacts": [{
+            "id": "75",
+            "workorder": {
+                "text": "Test Work Order - Mei",
+                "value": "86"
+            },
+            "events": ["100927", "100947"],
+            "contact": {
+                "text": "AB&I Holdings : Test Prav",
+                "value": "1892"
+            },
+            "name": "Test Prav",
+            "email": "pravallika@erpsuccesspartners.com",
+            "jobTitle": "QA",
+            "mobilePhone": "",
+            "phone": "",
+            "primary": true,
+            "url": "/app/common/entity/contact.nl?id=1892&compid=TSTDRV2617106",
+            "selected": true
+        }],
+        "addresses": [{
+            "id": "63",
+            "workorder": {
+                "text": "Test Work Order - Mei",
+                "value": "86"
+            },
+            "customer": {
+                "text": "AB&I Holdings",
+                "value": "1249"
+            },
+            "events": ["100927", "100947"],
+            "address": {
+                "text": "1701 Rollins Road",
+                "value": "244878"
+            },
+            "addressDetails": "",
+            "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106",
+            "selected": true
+        }],
         "contact": {
             "text": "75",
             "value": "75"
@@ -231875,6 +234564,30 @@ const mockup = {
                 "active": false,
                 "woVendor": true
             }, {
+                "id": "86",
+                "name": "Best Fixture, Inc.",
+                "vendor": {
+                    "text": "Best Fixture, Inc.",
+                    "value": "12"
+                },
+                "url": "",
+                "email": "",
+                "initials": "BF",
+                "workorder": {
+                    "text": "Test Work Order - Mei",
+                    "value": "86"
+                },
+                "event": "100947",
+                "quantityRequired": 0,
+                "quantityAvailable": 0,
+                "purchaseOrder": {
+                    "text": " ",
+                    "value": ""
+                },
+                "amount": 0,
+                "active": false,
+                "woVendor": true
+            }, {
                 "id": "76",
                 "name": "Best Fixture, Inc.",
                 "vendor": {
@@ -231938,6 +234651,30 @@ const mockup = {
                 },
                 "event": "100938",
                 "quantityRequired": 4,
+                "quantityAvailable": 20,
+                "purchaseOrder": {
+                    "text": " ",
+                    "value": ""
+                },
+                "amount": 0,
+                "active": true,
+                "woVendor": true
+            }, {
+                "id": "87",
+                "name": "Bridgepoint Industries",
+                "vendor": {
+                    "text": "Bridgepoint Industries",
+                    "value": "1473"
+                },
+                "url": "http://www.bridgepointindustries.com.de",
+                "email": "support@bridgempointindustries.com.de",
+                "initials": "BI",
+                "workorder": {
+                    "text": "Test Work Order - Mei",
+                    "value": "86"
+                },
+                "event": "100947",
+                "quantityRequired": 5,
                 "quantityAvailable": 20,
                 "purchaseOrder": {
                     "text": " ",
@@ -232133,6 +234870,39 @@ const mockup = {
                 },
                 "owned": true,
                 "rentalMatrix": 0
+            }, {
+                "id": "78",
+                "workorder": {
+                    "text": "Test Work Order - Mei",
+                    "value": "86"
+                },
+                "event": "100947",
+                "quantity": 2,
+                "item": {
+                    "text": "ELE00002",
+                    "value": "674"
+                },
+                "equipmentType": {
+                    "text": "Hand Tools",
+                    "value": "1"
+                },
+                "rentalUnit": {
+                    "text": "",
+                    "value": ""
+                },
+                "rentalDuration": 0,
+                "rentalRate": 0,
+                "rentalAmount": 0,
+                "purchaseOrder": {
+                    "text": " ",
+                    "value": " "
+                },
+                "vendor": {
+                    "text": "Computer Depot Pacific",
+                    "value": "965"
+                },
+                "owned": true,
+                "rentalMatrix": 0
             }],
             "items": [{
                 "id": "241",
@@ -232239,6 +235009,48 @@ const mockup = {
                 "quantity": 50,
                 "availableQty": 50,
                 "note": ""
+            }, {
+                "id": "274",
+                "workorder": {
+                    "text": "Test Work Order - Mei",
+                    "value": "86"
+                },
+                "salesorder": {
+                    "text": "Sales Order #SLS00000739",
+                    "value": "19521"
+                },
+                "event": "100947",
+                "uuid": "19521_2",
+                "line": "2",
+                "item": {
+                    "text": "2375-6727",
+                    "value": "1426"
+                },
+                "description": "",
+                "quantity": 50,
+                "availableQty": 50,
+                "note": ""
+            }, {
+                "id": "275",
+                "workorder": {
+                    "text": "Test Work Order - Mei",
+                    "value": "86"
+                },
+                "salesorder": {
+                    "text": "Sales Order #SLS00000739",
+                    "value": "19521"
+                },
+                "event": "100947",
+                "uuid": "19521_5",
+                "line": "5",
+                "item": {
+                    "text": "Dealer Service Fee",
+                    "value": "2331"
+                },
+                "description": "Dealer Service Fee",
+                "quantity": 5,
+                "availableQty": 5,
+                "note": ""
             }],
             "addresses": [{
                 "id": "63",
@@ -232250,7 +235062,7 @@ const mockup = {
                     "text": "AB&I Holdings",
                     "value": "1249"
                 },
-                "events": ["100927", "100946"],
+                "events": ["100927", "100947"],
                 "address": {
                     "text": "1701 Rollins Road",
                     "value": "244878"
@@ -232264,7 +235076,7 @@ const mockup = {
                     "text": "Test Work Order - Mei",
                     "value": "86"
                 },
-                "events": ["100927", "100946"],
+                "events": ["100927", "100947"],
                 "contact": {
                     "text": "AB&I Holdings : Test Prav",
                     "value": "1892"
@@ -232621,6 +235433,55 @@ const mockup = {
                     "value": "1765"
                 }
             }, {
+                "id": "100947",
+                "title": "Test Work Order - Mei",
+                "workorder": {
+                    "text": "Test Work Order - Mei",
+                    "value": "86"
+                },
+                "location": "",
+                "status": {
+                    "text": "Tentative",
+                    "value": "TENTATIVE",
+                    "code": "bg-secondary"
+                },
+                "date": {
+                    "recurrence": "one time event on 10/25/2024",
+                    "start": "2024-10-25",
+                    "end": "2024-10-25"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "18:00"
+                },
+                "priority": {
+                    "text": "High",
+                    "value": "3",
+                    "code": "#ca6621"
+                },
+                "note": "BBBBB\nCCCC",
+                "url": "/app/crm/calendar/event.nl?id=100947&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "vendors": [],
+                "assets": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "75",
+                    "value": "75"
+                },
+                "address": {
+                    "text": "63",
+                    "value": "63"
+                },
+                "organizer": {
+                    "text": "Lean  cendana",
+                    "value": "1765"
+                }
+            }, {
                 "id": "100946",
                 "title": "Test Work Order - Mei",
                 "workorder": {
@@ -232675,42 +235536,7 @@ const mockup = {
             "soUrl": "/app/accounting/transactions/salesord.nl?id=19521&compid=TSTDRV2617106",
             "esthours": "100"
         },
-        "resources": [{
-            "id": "1770",
-            "name": "Arun Sharma",
-            "initials": "AS",
-            "email": "aruns.unlock2go@gmail.com",
-            "phone": "",
-            "location": {
-                "text": "",
-                "value": ""
-            },
-            "active": true,
-            "resourceGroups": [{
-                "text": "Designers",
-                "value": "2"
-            }, {
-                "text": "Drivers",
-                "value": "3"
-            }, {
-                "text": "Installers",
-                "value": "1"
-            }],
-            "types": [{
-                "text": "Delivery Driver",
-                "value": "2"
-            }, {
-                "text": "Designer",
-                "value": "3"
-            }, {
-                "text": "Installer",
-                "value": "1"
-            }],
-            "color": "#4a07a",
-            "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1770%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-            "events": ["100681", "100946"],
-            "selected": true
-        }],
+        "resources": [],
         "vendors": [{
             "id": "85",
             "name": "Bridgepoint Industries",
@@ -232795,45 +235621,8 @@ const mockup = {
             "note": "",
             "selected": true
         }],
-        "contacts": [{
-            "id": "75",
-            "workorder": {
-                "text": "Test Work Order - Mei",
-                "value": "86"
-            },
-            "events": ["100927", "100946"],
-            "contact": {
-                "text": "AB&I Holdings : Test Prav",
-                "value": "1892"
-            },
-            "name": "Test Prav",
-            "email": "pravallika@erpsuccesspartners.com",
-            "jobTitle": "QA",
-            "mobilePhone": "",
-            "phone": "",
-            "primary": true,
-            "url": "/app/common/entity/contact.nl?id=1892&compid=TSTDRV2617106",
-            "selected": true
-        }],
-        "addresses": [{
-            "id": "63",
-            "workorder": {
-                "text": "Test Work Order - Mei",
-                "value": "86"
-            },
-            "customer": {
-                "text": "AB&I Holdings",
-                "value": "1249"
-            },
-            "events": ["100927", "100946"],
-            "address": {
-                "text": "1701 Rollins Road",
-                "value": "244878"
-            },
-            "addressDetails": "",
-            "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106",
-            "selected": true
-        }],
+        "contacts": [],
+        "addresses": [],
         "contact": {
             "text": "75",
             "value": "75"
@@ -236533,7 +239322,7 @@ const mockup = {
             "text": "Test Work Order - Mei",
             "value": "86"
         },
-        "events": ["100927", "100946"],
+        "events": ["100927", "100947"],
         "contact": {
             "text": "AB&I Holdings : Test Prav",
             "value": "1892"
@@ -237580,7 +240369,7 @@ const mockup = {
             "text": "AB&I Holdings",
             "value": "1249"
         },
-        "events": ["100927", "100946"],
+        "events": ["100927", "100947"],
         "address": {
             "text": "1701 Rollins Road",
             "value": "244878"

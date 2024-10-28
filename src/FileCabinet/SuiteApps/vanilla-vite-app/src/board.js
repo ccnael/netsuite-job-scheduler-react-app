@@ -74,9 +74,10 @@ export default class Board {
                                   title="<strong>${resource.name}</strong><br/>
                                     Types: ${resource.types.map(type => type.text).join('/')}<br/>
                                     Groups: ${resource.resourceGroups.map(_resourceGroup => _resourceGroup.text).join('/')}<br/>
-                                    ${resource.email}<br/>
-                                    ${resource.phone}<br/>
-                                    ${resource.location.text}">
+                                    Email: ${resource.email}<br/>
+                                    Phone: ${resource.phone}<br/>
+                                    Location: ${resource.location.text}<br/>
+                                    Events: ${resource.events.length}<br/>
                                 <span class="initials">${resource.initials}</span>
                                 ${!!(resource.active) ? '<span class="status active"></span>' : '<span class="status busy"></span>'}
                             </div>
@@ -105,9 +106,9 @@ export default class Board {
                                   data-bs-toggle="tooltip" 
                                   data-bs-placement="right" 
                                   title="<strong>${vendor.name}</strong><br/>
-                                    URL: ${vendor.url}<br/>
-                                    Email: ${vendor.email}<br/>
-                                    Quantity Available: ${vendor.quantityAvailable}<br/>
+                                  URL: ${vendor.url}<br/>
+                                  Email: ${vendor.email}<br/>
+                                  Events: ${vendor.events.length}<br/>
                                 <span class="initials">${vendor.initials}</span>
                                 ${!!(vendor.active) ? '<span class="status active"></span>' : '<span class="status busy"></span>'}
                             </div>

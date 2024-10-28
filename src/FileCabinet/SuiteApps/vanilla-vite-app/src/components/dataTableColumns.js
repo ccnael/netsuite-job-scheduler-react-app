@@ -100,7 +100,7 @@ export const assetsDtColumns = [
   },
   {
     className: 'dt-head-center dt-body-center',
-    render: (_data, _type, row, _meta) => `<input type="number" class="quantity" value="${row.quantity}" min="0" max="${row.quantity}" required />`,
+    render: (_data, _type, row, _meta) => `<input type="number" class="quantity" value="${row?.quantity || 0}" min="0" max="${row?.quantity || 0}" required />`,
     title: 'Quantity'
   },
   {
