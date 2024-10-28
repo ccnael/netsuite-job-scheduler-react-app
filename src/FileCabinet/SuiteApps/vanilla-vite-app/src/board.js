@@ -449,7 +449,7 @@ export default class Board {
             background: 'linear-gradient(to right, #00b09b, #96c93d)',
           }
         }, */
-        {
+        /* {
           text: 'Under Construction...',
           duration: 99999,
           close: true,
@@ -458,7 +458,7 @@ export default class Board {
           style: {
             background: 'linear-gradient(to right, #00b09b, #96c93d)',
           }
-        },
+        }, */
         {
           text: 'Drag Available Jobs to Events Column',
           duration: 99999,
