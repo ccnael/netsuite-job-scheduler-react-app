@@ -67,9 +67,10 @@
                                   title="<strong>${t.name}</strong><br/>
                                     Types: ${t.types.map(r=>r.text).join("/")}<br/>
                                     Groups: ${t.resourceGroups.map(r=>r.text).join("/")}<br/>
-                                    ${t.email}<br/>
-                                    ${t.phone}<br/>
-                                    ${t.location.text}">
+                                    Email: ${t.email}<br/>
+                                    Phone: ${t.phone}<br/>
+                                    Location: ${t.location.text}<br/>
+                                    Events: ${t.events.length}<br/>
                                 <span class="initials">${t.initials}</span>
                                 ${t.active?'<span class="status active"></span>':'<span class="status busy"></span>'}
                             </div>
@@ -97,9 +98,9 @@
                                   data-bs-toggle="tooltip" 
                                   data-bs-placement="right" 
                                   title="<strong>${e.name}</strong><br/>
-                                    URL: ${e.url}<br/>
-                                    Email: ${e.email}<br/>
-                                    Quantity Available: ${e.quantityAvailable}<br/>
+                                  URL: ${e.url}<br/>
+                                  Email: ${e.email}<br/>
+                                  Events: ${e.events.length}<br/>
                                 <span class="initials">${e.initials}</span>
                                 ${e.active?'<span class="status active"></span>':'<span class="status busy"></span>'}
                             </div>
@@ -500,7 +501,7 @@
         <input type="checkbox" class="form-check-input" style="left: 30px" onclick="markAll(event);">
       </div>`,render:(n,e,t,r)=>`<div class="form-group form-check container d-flex justify-content-center">
         <input recordId="${t.id}" type="checkbox" class="form-check-input dt-line-select" ${t.selected?"checked":""}>
-      </div>`,width:"5%",orderable:!1},{className:"dt-head-center dt-body-center",data:"id",title:"ID"},{className:"dt-head-center",data:"name",title:"Item Code"},{className:"dt-head-center dt-body-center",data:"equipmentType.text",title:"Type"},{className:"dt-head-center dt-body-center",render:(n,e,t,r)=>`<input type="number" class="quantity" value="${t.quantity}" min="0" max="${t.quantity}" required />`,title:"Quantity"},{className:"dt-head-center dt-body-center",render:(n,e,t,r)=>`${t.owned?"Yes":"No"}`,title:"Owned?"},{className:"dt-head-center dt-body-center",data:"vendor.text",title:"Vendor"},{className:"dt-head-center dt-body-center",data:"rentalUnit.text",title:"Rental Unit"},{className:"dt-head-center dt-body-center",data:"rentalDuration",title:"Duration"},{className:"dt-head-center dt-body-center",data:"rentalRate",title:"Rate"},{className:"dt-head-center dt-body-center",data:"rentalAmount",title:"Amount"}],Jm=[{className:"dt-head-center dr-body-center",title:`<div class="form-group form-check container d-flex justify-content-center">
+      </div>`,width:"5%",orderable:!1},{className:"dt-head-center dt-body-center",data:"id",title:"ID"},{className:"dt-head-center",data:"name",title:"Item Code"},{className:"dt-head-center dt-body-center",data:"equipmentType.text",title:"Type"},{className:"dt-head-center dt-body-center",render:(n,e,t,r)=>`<input type="number" class="quantity" value="${(t==null?void 0:t.quantity)||0}" min="0" max="${(t==null?void 0:t.quantity)||0}" required />`,title:"Quantity"},{className:"dt-head-center dt-body-center",render:(n,e,t,r)=>`${t.owned?"Yes":"No"}`,title:"Owned?"},{className:"dt-head-center dt-body-center",data:"vendor.text",title:"Vendor"},{className:"dt-head-center dt-body-center",data:"rentalUnit.text",title:"Rental Unit"},{className:"dt-head-center dt-body-center",data:"rentalDuration",title:"Duration"},{className:"dt-head-center dt-body-center",data:"rentalRate",title:"Rate"},{className:"dt-head-center dt-body-center",data:"rentalAmount",title:"Amount"}],Jm=[{className:"dt-head-center dr-body-center",title:`<div class="form-group form-check container d-flex justify-content-center">
         <input type="checkbox" class="form-check-input" style="left: 30px" onclick="markAll(event);">
       </div>`,render:(n,e,t,r)=>`<div class="form-group form-check container d-flex justify-content-center">
         <input recordId="${t.id}" type="checkbox" class="form-check-input dt-line-select" ${t.selected?"checked":""}>

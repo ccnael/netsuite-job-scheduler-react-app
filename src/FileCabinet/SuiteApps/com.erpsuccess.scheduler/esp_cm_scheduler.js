@@ -167,7 +167,7 @@ define([
         return resourceGroups;
       }
       
-      static getVendors() {
+      static getVendors(events) {
         const searchObj = search.create({
           type: 'vendor',
           filters:
@@ -206,7 +206,8 @@ define([
               text: '',
               value: ''
             },
-            woVendor: false
+            woVendor: false,
+            events: events.filter(event => event.vendors.map(vendor => vendor.vendor.value).includes(String(result.id)))
           });
           return true;
         });
@@ -216,9 +217,9 @@ define([
         return vendors;
       }
 
-      static getAssetsAndEquipments() {
+      static getAssetsAndEquipments(events) {
         const searchObj = search.create({
-          type: "item",
+          type: 'item',
           filters:
           [
             ['custitem_esp_fop_asset_owned', 'is', 'T'], 
@@ -259,7 +260,8 @@ define([
             rentalUnit: {
               text: result.getText('custitem_esp_fop_rental_unit'),
               value: result.getValue('custitem_esp_fop_rental_unit')
-            }
+            },
+            events: events.filter(event => event.assets.map(asset => asset.item.value).includes(String(result.id)))
           });
           return true;
         });

@@ -80,8 +80,6 @@ define([
       const customers = mod.WorkOrder.getCustomers(workOrders);
       const resources = mod.Resource.getEmployees();
       const resourceGroups = mod.Resource.getResourceGroups(resources);
-      const vendors = mod.Resource.getVendors();
-      const assets = mod.Resource.getAssetsAndEquipments();
 
       const woVendors = mod.WorkOrderVendor.getList(workOrders, events); // Needed in general events
       const woAsset = mod.WorkOrderAsset.getList(workOrders, events); // Needed in general events
@@ -99,6 +97,9 @@ define([
       mod.WorkOrder.fullMap(workOrders, events, woVendors, woAsset, woItems, woContacts, woAddresses);
       mod.Event.fullMap(workOrders, events, resources, woVendors, woAsset, woItems, woContacts, woAddresses);
 
+      const vendors = mod.Resource.getVendors(events);
+      const assets = mod.Resource.getAssetsAndEquipments(events);
+      
       mod.Utils.createLogFile('mockupDataSet', JSON.stringify({ suiteletUrl, workOrders, customers, resources, resourceGroups, vendors, assets, events, woContacts, woAddresses, organizers }), 2199);
 
       const fileObj = {
