@@ -129,14 +129,16 @@ $(document).ready(() => {
     const eventId = $('#completeEventModal').attr('eventId');
     const eventData = events.find(event => event.id == eventId);
     const woRef = eventData.woRef;
-    const woId = woRef.id;
+    const woId = woRef?.id || '';
 
-    $('#completeEventModal').attr('woId', woId);
+    if (woId) {
+      $('#completeEventModal').attr('woId', woId);
+      $('#completeEventModal .title p').html(`<a href="${woRef.woUrl}" target="_blank">${woRef.title}</a>`);
+      $('#completeEventModal .project p').html(`<a href="${woRef.projectUrl}" target="_blank">${woRef.project.text}</a>`);
+    }
     $('#completeEventModal').attr('eventDataSrc', encodeURIComponent(JSON.stringify(eventData))); // Data from NS
     $('#completeEventModalLabel').text(`Complete Event [ID ${eventData.id}]`);
     $('#completeEventModal .eventTitle p').html(`<a href="${eventData.url}" target="_blank">${eventData.title}</a>`); 
-    $('#completeEventModal .title p').html(`<a href="${woRef.woUrl}" target="_blank">${woRef.title}</a>`);
-    $('#completeEventModal .project p').html(`<a href="${woRef.projectUrl}" target="_blank">${woRef.project.text}</a>`);
     $('#completeEventModal .status p').text(eventData.status.text);
 
     temp_ceTimeSheetDataTable = $('#timesheets').DataTable({
@@ -296,7 +298,7 @@ $(document).ready(() => {
 
     Swal.fire({
       title: 'Complete Event?',
-      text: `This will fulfill order items for Event ID ${eventId}`,
+      text: woId ? `This will fulfill order items for Event ID ${eventId}` : `Complete Event ID ${eventId}`,
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',

@@ -250,7 +250,8 @@ $(document).ready(() => {
     </div>
   </div>`);
 
-  window.openEventModal = (ev, woId, eventId, prefillData) => {
+  window.openEventModal = (ev, woId, eventId, prefillData, test) => {
+    console.log('Test', test)
     if (ev) {
       const dataTransfer = ev?.dataTransfer;
       if (dataTransfer) {

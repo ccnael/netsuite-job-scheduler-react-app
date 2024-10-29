@@ -111,7 +111,6 @@ export default class Calendar {
   }
 
   static _initFullCalendarIO() {
-    
     const containerEl = document.querySelector('#calendarSection .thirdColumn');
     const calendarEl = document.getElementById('calendar');
     const calendarResources = combinedResourceGroups.map(resourceGroup => ({
@@ -145,7 +144,8 @@ export default class Calendar {
       map.className += (event.status.value === 'TENTATIVE' ? ' tentative' : ' confirmed');
       map.resourceIds = [];
       map.resourceIds = [...map.resourceIds, ...event.vendors.map(vendor => `vendor-${vendor.vendor.value}`)];
-      if (event.resources.length) {
+
+      if (map.resourceIds.length) {
         event.resources.forEach(resource => {
           resource.resourceGroups.forEach(resourceGroup => {
             map.resourceIds.push(`${resourceGroup.value}-${resource.id}`);
@@ -154,7 +154,7 @@ export default class Calendar {
       } else {
         map.resourceIds = ['z-unassigned'];
       }
-      map.extendedProps = JSON.parse(JSON.stringify(event));
+      map.extendedProps = deepCopy(event);
       return map;
     });
     
@@ -522,13 +522,14 @@ export default class Calendar {
     payload.eventData.time.end = endSplit[1];
     payload.eventData.priority = payload.eventData.priority.value;
     payload.eventData.status = payload.eventData.status.value;
-
+    
     if (info.action == 'eventDrop') {
       const calEvents = window.FullCalendar.getEvents();
       if (calEvents.length) {
         const calEvent = calEvents.find(event => event.id == info.event.id);
         if (calEvent) {
-          const resourceIds = calEvent._def.resourceIds;
+          let resourceIds = calEvent._def.resourceIds.map(resourceId => resourceId.split('-').pop());
+          resourceIds = Array.from(new Set(resourceIds));
           payload.eventData.selectedResources = resources.filter(resource => !!resource.active && !!(resourceIds.includes(resource.id)));
         }
       }
@@ -539,15 +540,18 @@ export default class Calendar {
   }
 
   static _initDropDown(info) {
-    const event = info.event;
+    const eventId = info.event.id;
+    const event = events.find(event => event.id == eventId);
+
     const html = `<div class="card-header-options"><div class="dropdown" style="display:inline-block">
       <i class="fa-solid fa-angles-down" style="cursor: pointer"></i>
       <div class="dropdown-content">
-        <a href="#" onclick="openEventModal('', '', ${event.id})">Update Event</a>
-        <a href="#" onclick="openCompleteEventModal('', ${event.id})">Complete Event</a>
-        <a href="#" onclick="deleteEventRecord('', ${event.id})">Remove Event</a>
+        ${(!event.workorder.value) ? `<a href="#" onclick="openGeneralEventModal(${eventId})">Update Event</a>` : `<a href="#" onclick="openEventModal('', '', ${eventId})">Update Event</a>`}
+        <a href="#" onclick="openCompleteEventModal('', ${eventId})">Complete Event</a>
+        <a href="#" onclick="deleteEventRecord('', ${eventId})">Remove Event</a>
       </div>
     </div></div>`;
+    
     const el = info.el.querySelector('div.card-name');
     el.insertAdjacentHTML('afterend', html);
   }
@@ -569,4 +573,8 @@ export default class Calendar {
   static _removeToolTip() {
     $('.tooltip').remove();
   }
+}
+
+function deepCopy(obj) {
+  return JSON.parse(JSON.stringify(obj));
 }

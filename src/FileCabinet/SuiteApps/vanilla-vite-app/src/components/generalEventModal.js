@@ -178,8 +178,8 @@ $(document).ready(() => {
     </div>
   </div>`);
 
-  window.openGeneralEventModal = eventId => {
-    $('#generalEventModal').attr('mode', typeof eventId == 'object' ? 'create' : 'edit');
+  window.openGeneralEventModal = (eventId = '') => {
+    $('#generalEventModal').attr('mode', !eventId ||typeof eventId == 'object' ? 'create' : 'edit');
     $('#generalEventModal').attr('eventId', eventId);
     $('#generalEventModal').modal('toggle');
   }
