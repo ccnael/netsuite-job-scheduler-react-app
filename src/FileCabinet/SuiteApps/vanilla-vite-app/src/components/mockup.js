@@ -908,30 +908,6 @@ const mockup = {
             "active": false,
             "woVendor": true
         }, {
-            "id": "86",
-            "name": "Best Fixture, Inc.",
-            "vendor": {
-                "text": "Best Fixture, Inc.",
-                "value": "12"
-            },
-            "url": "",
-            "email": "",
-            "initials": "BF",
-            "workorder": {
-                "text": "Test Work Order - Mei",
-                "value": "86"
-            },
-            "event": "100947",
-            "quantityRequired": 0,
-            "quantityAvailable": 0,
-            "purchaseOrder": {
-                "text": " ",
-                "value": ""
-            },
-            "amount": 0,
-            "active": false,
-            "woVendor": true
-        }, {
             "id": "74",
             "name": "Best Fixture, Inc.",
             "vendor": {
@@ -947,6 +923,30 @@ const mockup = {
             },
             "event": "100942",
             "quantityRequired": 1,
+            "quantityAvailable": 0,
+            "purchaseOrder": {
+                "text": " ",
+                "value": ""
+            },
+            "amount": 0,
+            "active": false,
+            "woVendor": true
+        }, {
+            "id": "86",
+            "name": "Best Fixture, Inc.",
+            "vendor": {
+                "text": "Best Fixture, Inc.",
+                "value": "12"
+            },
+            "url": "",
+            "email": "",
+            "initials": "BF",
+            "workorder": {
+                "text": "Test Work Order - Mei",
+                "value": "86"
+            },
+            "event": "100947",
+            "quantityRequired": 0,
             "quantityAvailable": 0,
             "purchaseOrder": {
                 "text": " ",
@@ -980,7 +980,7 @@ const mockup = {
             "active": false,
             "woVendor": true
         }, {
-            "id": "66",
+            "id": "75",
             "name": "Bridgepoint Industries",
             "vendor": {
                 "text": "Bridgepoint Industries",
@@ -993,8 +993,8 @@ const mockup = {
                 "text": "Test Work Order - Mei",
                 "value": "86"
             },
-            "event": "100938",
-            "quantityRequired": 4,
+            "event": "100942",
+            "quantityRequired": 2,
             "quantityAvailable": 20,
             "purchaseOrder": {
                 "text": " ",
@@ -1076,7 +1076,7 @@ const mockup = {
             "active": true,
             "woVendor": true
         }, {
-            "id": "75",
+            "id": "66",
             "name": "Bridgepoint Industries",
             "vendor": {
                 "text": "Bridgepoint Industries",
@@ -1089,8 +1089,8 @@ const mockup = {
                 "text": "Test Work Order - Mei",
                 "value": "86"
             },
-            "event": "100942",
-            "quantityRequired": 2,
+            "event": "100938",
+            "quantityRequired": 4,
             "quantityAvailable": 20,
             "purchaseOrder": {
                 "text": " ",
@@ -21076,9 +21076,9 @@ const mockup = {
             "text": "Installer",
             "value": "1"
         }],
-        "color": "#f79f17",
+        "color": "#39218b",
         "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1770%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-        "events": ["100681"]
+        "events": ["100681", "100949"]
     }, {
         "id": "1767",
         "name": "Bea Dashboards",
@@ -21110,9 +21110,9 @@ const mockup = {
             "text": "Installer",
             "value": "1"
         }],
-        "color": "#fa87e9",
+        "color": "#2ae294",
         "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1767%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-        "events": ["100681"]
+        "events": ["100681", "100949"]
     }, {
         "id": "912",
         "name": "Bonita Kane",
@@ -21132,7 +21132,7 @@ const mockup = {
             "text": "Installer",
             "value": "1"
         }],
-        "color": "#f940c2",
+        "color": "#60d4ef",
         "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D912%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
         "events": ["100682", "100834"]
     }, {
@@ -21154,9 +21154,9 @@ const mockup = {
             "text": "Installer",
             "value": "1"
         }],
-        "color": "#9cbb03",
+        "color": "#1f013a",
         "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1312%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-        "events": ["100932"]
+        "events": ["100932", "100951"]
     }, {
         "id": "1292",
         "name": "Matt Nolan",
@@ -21176,7 +21176,7 @@ const mockup = {
             "text": "Designer",
             "value": "3"
         }],
-        "color": "#932d01",
+        "color": "#675dc9",
         "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1292%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
         "events": []
     }, {
@@ -21198,9 +21198,9 @@ const mockup = {
             "text": "Installer",
             "value": "1"
         }],
-        "color": "#a6d690",
+        "color": "#376dcb",
         "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1647%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-        "events": ["100847", "100932"]
+        "events": ["100847", "100951"]
     }, {
         "id": "1766",
         "name": "Rowe Riomalos",
@@ -21217,7 +21217,7 @@ const mockup = {
             "value": "2"
         }],
         "types": [],
-        "color": "#cc435",
+        "color": "#33d264",
         "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1766%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
         "events": []
     }, {
@@ -21239,9 +21239,9 @@ const mockup = {
             "text": "Installer",
             "value": "1"
         }],
-        "color": "#6cc3f3",
+        "color": "#39ec73",
         "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1656%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-        "events": ["100921", "100932"]
+        "events": ["100921", "100951"]
     }],
     "resourceGroups": [{
         "text": "Installers",
@@ -21277,9 +21277,9 @@ const mockup = {
                 "text": "Installer",
                 "value": "1"
             }],
-            "color": "#f79f17",
+            "color": "#39218b",
             "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1770%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-            "events": ["100681"]
+            "events": ["100681", "100949"]
         }, {
             "id": "1767",
             "name": "Bea Dashboards",
@@ -21311,9 +21311,9 @@ const mockup = {
                 "text": "Installer",
                 "value": "1"
             }],
-            "color": "#fa87e9",
+            "color": "#2ae294",
             "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1767%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-            "events": ["100681"]
+            "events": ["100681", "100949"]
         }, {
             "id": "912",
             "name": "Bonita Kane",
@@ -21333,7 +21333,7 @@ const mockup = {
                 "text": "Installer",
                 "value": "1"
             }],
-            "color": "#f940c2",
+            "color": "#60d4ef",
             "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D912%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
             "events": ["100682", "100834"]
         }, {
@@ -21355,9 +21355,9 @@ const mockup = {
                 "text": "Installer",
                 "value": "1"
             }],
-            "color": "#9cbb03",
+            "color": "#1f013a",
             "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1312%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-            "events": ["100932"]
+            "events": ["100932", "100951"]
         }, {
             "id": "1656",
             "name": "Youssef Ezz",
@@ -21377,9 +21377,9 @@ const mockup = {
                 "text": "Installer",
                 "value": "1"
             }],
-            "color": "#6cc3f3",
+            "color": "#39ec73",
             "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1656%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-            "events": ["100921", "100932"]
+            "events": ["100921", "100951"]
         }],
         "resourceCount": 5
     }, {
@@ -21416,9 +21416,9 @@ const mockup = {
                 "text": "Installer",
                 "value": "1"
             }],
-            "color": "#f79f17",
+            "color": "#39218b",
             "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1770%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-            "events": ["100681"]
+            "events": ["100681", "100949"]
         }, {
             "id": "1767",
             "name": "Bea Dashboards",
@@ -21450,9 +21450,9 @@ const mockup = {
                 "text": "Installer",
                 "value": "1"
             }],
-            "color": "#fa87e9",
+            "color": "#2ae294",
             "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1767%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-            "events": ["100681"]
+            "events": ["100681", "100949"]
         }, {
             "id": "1292",
             "name": "Matt Nolan",
@@ -21472,7 +21472,7 @@ const mockup = {
                 "text": "Designer",
                 "value": "3"
             }],
-            "color": "#932d01",
+            "color": "#675dc9",
             "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1292%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
             "events": []
         }, {
@@ -21494,9 +21494,9 @@ const mockup = {
                 "text": "Installer",
                 "value": "1"
             }],
-            "color": "#a6d690",
+            "color": "#376dcb",
             "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1647%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-            "events": ["100847", "100932"]
+            "events": ["100847", "100951"]
         }, {
             "id": "1766",
             "name": "Rowe Riomalos",
@@ -21513,7 +21513,7 @@ const mockup = {
                 "value": "2"
             }],
             "types": [],
-            "color": "#cc435",
+            "color": "#33d264",
             "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1766%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
             "events": []
         }],
@@ -21552,9 +21552,9 @@ const mockup = {
                 "text": "Installer",
                 "value": "1"
             }],
-            "color": "#f79f17",
+            "color": "#39218b",
             "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1770%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-            "events": ["100681"]
+            "events": ["100681", "100949"]
         }, {
             "id": "1767",
             "name": "Bea Dashboards",
@@ -21586,9 +21586,9 @@ const mockup = {
                 "text": "Installer",
                 "value": "1"
             }],
-            "color": "#fa87e9",
+            "color": "#2ae294",
             "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1767%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-            "events": ["100681"]
+            "events": ["100681", "100949"]
         }],
         "resourceCount": 2
     }],
@@ -34246,30 +34246,6 @@ const mockup = {
                     "active": false,
                     "woVendor": true
                 }, {
-                    "id": "86",
-                    "name": "Best Fixture, Inc.",
-                    "vendor": {
-                        "text": "Best Fixture, Inc.",
-                        "value": "12"
-                    },
-                    "url": "",
-                    "email": "",
-                    "initials": "BF",
-                    "workorder": {
-                        "text": "Test Work Order - Mei",
-                        "value": "86"
-                    },
-                    "event": "100947",
-                    "quantityRequired": 0,
-                    "quantityAvailable": 0,
-                    "purchaseOrder": {
-                        "text": " ",
-                        "value": ""
-                    },
-                    "amount": 0,
-                    "active": false,
-                    "woVendor": true
-                }, {
                     "id": "74",
                     "name": "Best Fixture, Inc.",
                     "vendor": {
@@ -34285,6 +34261,30 @@ const mockup = {
                     },
                     "event": "100942",
                     "quantityRequired": 1,
+                    "quantityAvailable": 0,
+                    "purchaseOrder": {
+                        "text": " ",
+                        "value": ""
+                    },
+                    "amount": 0,
+                    "active": false,
+                    "woVendor": true
+                }, {
+                    "id": "86",
+                    "name": "Best Fixture, Inc.",
+                    "vendor": {
+                        "text": "Best Fixture, Inc.",
+                        "value": "12"
+                    },
+                    "url": "",
+                    "email": "",
+                    "initials": "BF",
+                    "workorder": {
+                        "text": "Test Work Order - Mei",
+                        "value": "86"
+                    },
+                    "event": "100947",
+                    "quantityRequired": 0,
                     "quantityAvailable": 0,
                     "purchaseOrder": {
                         "text": " ",
@@ -34318,7 +34318,7 @@ const mockup = {
                     "active": false,
                     "woVendor": true
                 }, {
-                    "id": "66",
+                    "id": "75",
                     "name": "Bridgepoint Industries",
                     "vendor": {
                         "text": "Bridgepoint Industries",
@@ -34331,8 +34331,8 @@ const mockup = {
                         "text": "Test Work Order - Mei",
                         "value": "86"
                     },
-                    "event": "100938",
-                    "quantityRequired": 4,
+                    "event": "100942",
+                    "quantityRequired": 2,
                     "quantityAvailable": 20,
                     "purchaseOrder": {
                         "text": " ",
@@ -34414,7 +34414,7 @@ const mockup = {
                     "active": true,
                     "woVendor": true
                 }, {
-                    "id": "75",
+                    "id": "66",
                     "name": "Bridgepoint Industries",
                     "vendor": {
                         "text": "Bridgepoint Industries",
@@ -34427,8 +34427,8 @@ const mockup = {
                         "text": "Test Work Order - Mei",
                         "value": "86"
                     },
-                    "event": "100942",
-                    "quantityRequired": 2,
+                    "event": "100938",
+                    "quantityRequired": 4,
                     "quantityAvailable": 20,
                     "purchaseOrder": {
                         "text": " ",
@@ -90168,30 +90168,6 @@ const mockup = {
                     "active": false,
                     "woVendor": true
                 }, {
-                    "id": "86",
-                    "name": "Best Fixture, Inc.",
-                    "vendor": {
-                        "text": "Best Fixture, Inc.",
-                        "value": "12"
-                    },
-                    "url": "",
-                    "email": "",
-                    "initials": "BF",
-                    "workorder": {
-                        "text": "Test Work Order - Mei",
-                        "value": "86"
-                    },
-                    "event": "100947",
-                    "quantityRequired": 0,
-                    "quantityAvailable": 0,
-                    "purchaseOrder": {
-                        "text": " ",
-                        "value": ""
-                    },
-                    "amount": 0,
-                    "active": false,
-                    "woVendor": true
-                }, {
                     "id": "74",
                     "name": "Best Fixture, Inc.",
                     "vendor": {
@@ -90207,6 +90183,30 @@ const mockup = {
                     },
                     "event": "100942",
                     "quantityRequired": 1,
+                    "quantityAvailable": 0,
+                    "purchaseOrder": {
+                        "text": " ",
+                        "value": ""
+                    },
+                    "amount": 0,
+                    "active": false,
+                    "woVendor": true
+                }, {
+                    "id": "86",
+                    "name": "Best Fixture, Inc.",
+                    "vendor": {
+                        "text": "Best Fixture, Inc.",
+                        "value": "12"
+                    },
+                    "url": "",
+                    "email": "",
+                    "initials": "BF",
+                    "workorder": {
+                        "text": "Test Work Order - Mei",
+                        "value": "86"
+                    },
+                    "event": "100947",
+                    "quantityRequired": 0,
                     "quantityAvailable": 0,
                     "purchaseOrder": {
                         "text": " ",
@@ -90240,7 +90240,7 @@ const mockup = {
                     "active": false,
                     "woVendor": true
                 }, {
-                    "id": "66",
+                    "id": "75",
                     "name": "Bridgepoint Industries",
                     "vendor": {
                         "text": "Bridgepoint Industries",
@@ -90253,8 +90253,8 @@ const mockup = {
                         "text": "Test Work Order - Mei",
                         "value": "86"
                     },
-                    "event": "100938",
-                    "quantityRequired": 4,
+                    "event": "100942",
+                    "quantityRequired": 2,
                     "quantityAvailable": 20,
                     "purchaseOrder": {
                         "text": " ",
@@ -90336,7 +90336,7 @@ const mockup = {
                     "active": true,
                     "woVendor": true
                 }, {
-                    "id": "75",
+                    "id": "66",
                     "name": "Bridgepoint Industries",
                     "vendor": {
                         "text": "Bridgepoint Industries",
@@ -90349,8 +90349,8 @@ const mockup = {
                         "text": "Test Work Order - Mei",
                         "value": "86"
                     },
-                    "event": "100942",
-                    "quantityRequired": 2,
+                    "event": "100938",
+                    "quantityRequired": 4,
                     "quantityAvailable": 20,
                     "purchaseOrder": {
                         "text": " ",
@@ -91318,30 +91318,6 @@ const mockup = {
                     "active": false,
                     "woVendor": true
                 }, {
-                    "id": "86",
-                    "name": "Best Fixture, Inc.",
-                    "vendor": {
-                        "text": "Best Fixture, Inc.",
-                        "value": "12"
-                    },
-                    "url": "",
-                    "email": "",
-                    "initials": "BF",
-                    "workorder": {
-                        "text": "Test Work Order - Mei",
-                        "value": "86"
-                    },
-                    "event": "100947",
-                    "quantityRequired": 0,
-                    "quantityAvailable": 0,
-                    "purchaseOrder": {
-                        "text": " ",
-                        "value": ""
-                    },
-                    "amount": 0,
-                    "active": false,
-                    "woVendor": true
-                }, {
                     "id": "74",
                     "name": "Best Fixture, Inc.",
                     "vendor": {
@@ -91357,6 +91333,30 @@ const mockup = {
                     },
                     "event": "100942",
                     "quantityRequired": 1,
+                    "quantityAvailable": 0,
+                    "purchaseOrder": {
+                        "text": " ",
+                        "value": ""
+                    },
+                    "amount": 0,
+                    "active": false,
+                    "woVendor": true
+                }, {
+                    "id": "86",
+                    "name": "Best Fixture, Inc.",
+                    "vendor": {
+                        "text": "Best Fixture, Inc.",
+                        "value": "12"
+                    },
+                    "url": "",
+                    "email": "",
+                    "initials": "BF",
+                    "workorder": {
+                        "text": "Test Work Order - Mei",
+                        "value": "86"
+                    },
+                    "event": "100947",
+                    "quantityRequired": 0,
                     "quantityAvailable": 0,
                     "purchaseOrder": {
                         "text": " ",
@@ -91390,7 +91390,7 @@ const mockup = {
                     "active": false,
                     "woVendor": true
                 }, {
-                    "id": "66",
+                    "id": "75",
                     "name": "Bridgepoint Industries",
                     "vendor": {
                         "text": "Bridgepoint Industries",
@@ -91403,8 +91403,8 @@ const mockup = {
                         "text": "Test Work Order - Mei",
                         "value": "86"
                     },
-                    "event": "100938",
-                    "quantityRequired": 4,
+                    "event": "100942",
+                    "quantityRequired": 2,
                     "quantityAvailable": 20,
                     "purchaseOrder": {
                         "text": " ",
@@ -91486,7 +91486,7 @@ const mockup = {
                     "active": true,
                     "woVendor": true
                 }, {
-                    "id": "75",
+                    "id": "66",
                     "name": "Bridgepoint Industries",
                     "vendor": {
                         "text": "Bridgepoint Industries",
@@ -91499,8 +91499,8 @@ const mockup = {
                         "text": "Test Work Order - Mei",
                         "value": "86"
                     },
-                    "event": "100942",
-                    "quantityRequired": 2,
+                    "event": "100938",
+                    "quantityRequired": 4,
                     "quantityAvailable": 20,
                     "purchaseOrder": {
                         "text": " ",
@@ -94543,6 +94543,174 @@ const mockup = {
                 "value": "1647"
             }
         }, {
+            "id": "100951",
+            "title": "TEST 123",
+            "workorder": {
+                "text": "",
+                "value": ""
+            },
+            "location": "",
+            "status": {
+                "text": "Tentative",
+                "value": "TENTATIVE",
+                "code": "bg-secondary"
+            },
+            "date": {
+                "recurrence": "one time event on 10/30/2024",
+                "start": "2024-10-30",
+                "end": "2024-10-30"
+            },
+            "time": {
+                "start": "08:00",
+                "end": "18:00"
+            },
+            "priority": {
+                "text": "Low",
+                "value": "1",
+                "code": "#026adf"
+            },
+            "note": "1\n2\n3\n4\n5",
+            "url": "/app/crm/calendar/event.nl?id=100951&compid=TSTDRV2617106&selectedtab=custom337",
+            "color": "#1a6756",
+            "woRef": {},
+            "resources": [{
+                "id": "1312",
+                "name": "Gary Grant",
+                "initials": "GG",
+                "email": "garygrant@ramsey.com",
+                "phone": "(873) 775-6114",
+                "location": {
+                    "text": "02: Boston",
+                    "value": "1"
+                },
+                "active": true,
+                "resourceGroups": [{
+                    "text": "Installers",
+                    "value": "1"
+                }],
+                "types": [{
+                    "text": "Installer",
+                    "value": "1"
+                }],
+                "color": "#1f013a",
+                "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1312%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
+                "events": ["100932", "100951"],
+                "selected": true
+            }, {
+                "id": "1647",
+                "name": "Mei Matriano",
+                "initials": "MM",
+                "email": "mei@erpsuccesspartners.com",
+                "phone": "",
+                "location": {
+                    "text": "",
+                    "value": ""
+                },
+                "active": true,
+                "resourceGroups": [{
+                    "text": "Designers",
+                    "value": "2"
+                }],
+                "types": [{
+                    "text": "Installer",
+                    "value": "1"
+                }],
+                "color": "#376dcb",
+                "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1647%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
+                "events": ["100847", "100951"],
+                "selected": true
+            }, {
+                "id": "1656",
+                "name": "Youssef Ezz",
+                "initials": "YE",
+                "email": "yk@erpsuccesspartners.com",
+                "phone": "",
+                "location": {
+                    "text": "",
+                    "value": ""
+                },
+                "active": true,
+                "resourceGroups": [{
+                    "text": "Installers",
+                    "value": "1"
+                }],
+                "types": [{
+                    "text": "Installer",
+                    "value": "1"
+                }],
+                "color": "#39ec73",
+                "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1656%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
+                "events": ["100921", "100951"],
+                "selected": true
+            }],
+            "vendors": [{
+                "id": "97",
+                "name": "Best Fixture, Inc.",
+                "vendor": {
+                    "text": "Best Fixture, Inc.",
+                    "value": "12"
+                },
+                "url": "",
+                "email": "",
+                "initials": "BF",
+                "workorder": {
+                    "text": "",
+                    "value": ""
+                },
+                "event": "100951",
+                "quantityRequired": 0,
+                "quantityAvailable": 0,
+                "purchaseOrder": {
+                    "text": " ",
+                    "value": ""
+                },
+                "amount": 0,
+                "active": false,
+                "woVendor": true,
+                "selected": true
+            }, {
+                "id": "96",
+                "name": "Bridgepoint Industries",
+                "vendor": {
+                    "text": "Bridgepoint Industries",
+                    "value": "1473"
+                },
+                "url": "http://www.bridgepointindustries.com.de",
+                "email": "support@bridgempointindustries.com.de",
+                "initials": "BI",
+                "workorder": {
+                    "text": "",
+                    "value": ""
+                },
+                "event": "100951",
+                "quantityRequired": 2,
+                "quantityAvailable": 20,
+                "purchaseOrder": {
+                    "text": " ",
+                    "value": ""
+                },
+                "amount": 0,
+                "active": true,
+                "woVendor": true,
+                "selected": true
+            }],
+            "assets": [],
+            "items": [],
+            "contacts": [],
+            "addresses": [],
+            "contact": {
+                "text": "",
+                "value": ""
+            },
+            "address": {
+                "text": "",
+                "value": ""
+            },
+            "organizer": {
+                "text": "Lean  cendana",
+                "value": "1765"
+            }
+        }, {
             "id": "100949",
             "title": "TEST GENERAL EVENT",
             "workorder": {
@@ -94561,8 +94729,8 @@ const mockup = {
                 "end": "2024-10-31"
             },
             "time": {
-                "start": "08:00",
-                "end": "18:00"
+                "start": "16:00",
+                "end": "22:00"
             },
             "priority": {
                 "text": "Urgent",
@@ -94573,7 +94741,77 @@ const mockup = {
             "url": "/app/crm/calendar/event.nl?id=100949&compid=TSTDRV2617106&selectedtab=custom337",
             "color": "#1a6756",
             "woRef": {},
-            "resources": [],
+            "resources": [{
+                "id": "1770",
+                "name": "Arun Sharma",
+                "initials": "AS",
+                "email": "aruns.unlock2go@gmail.com",
+                "phone": "",
+                "location": {
+                    "text": "",
+                    "value": ""
+                },
+                "active": true,
+                "resourceGroups": [{
+                    "text": "Designers",
+                    "value": "2"
+                }, {
+                    "text": "Drivers",
+                    "value": "3"
+                }, {
+                    "text": "Installers",
+                    "value": "1"
+                }],
+                "types": [{
+                    "text": "Delivery Driver",
+                    "value": "2"
+                }, {
+                    "text": "Designer",
+                    "value": "3"
+                }, {
+                    "text": "Installer",
+                    "value": "1"
+                }],
+                "color": "#39218b",
+                "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1770%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
+                "events": ["100681", "100949"],
+                "selected": true
+            }, {
+                "id": "1767",
+                "name": "Bea Dashboards",
+                "initials": "BD",
+                "email": "beatrice.q@erpsuccesspartners.com",
+                "phone": "",
+                "location": {
+                    "text": "01: San Francisco",
+                    "value": "2"
+                },
+                "active": true,
+                "resourceGroups": [{
+                    "text": "Designers",
+                    "value": "2"
+                }, {
+                    "text": "Drivers",
+                    "value": "3"
+                }, {
+                    "text": "Installers",
+                    "value": "1"
+                }],
+                "types": [{
+                    "text": "Delivery Driver",
+                    "value": "2"
+                }, {
+                    "text": "Designer",
+                    "value": "3"
+                }, {
+                    "text": "Installer",
+                    "value": "1"
+                }],
+                "color": "#2ae294",
+                "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1767%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
+                "events": ["100681", "100949"],
+                "selected": true
+            }],
             "vendors": [{
                 "id": "89",
                 "name": "Best Fixture, Inc.",
@@ -116211,30 +116449,6 @@ const mockup = {
                     "active": false,
                     "woVendor": true
                 }, {
-                    "id": "86",
-                    "name": "Best Fixture, Inc.",
-                    "vendor": {
-                        "text": "Best Fixture, Inc.",
-                        "value": "12"
-                    },
-                    "url": "",
-                    "email": "",
-                    "initials": "BF",
-                    "workorder": {
-                        "text": "Test Work Order - Mei",
-                        "value": "86"
-                    },
-                    "event": "100947",
-                    "quantityRequired": 0,
-                    "quantityAvailable": 0,
-                    "purchaseOrder": {
-                        "text": " ",
-                        "value": ""
-                    },
-                    "amount": 0,
-                    "active": false,
-                    "woVendor": true
-                }, {
                     "id": "74",
                     "name": "Best Fixture, Inc.",
                     "vendor": {
@@ -116250,6 +116464,30 @@ const mockup = {
                     },
                     "event": "100942",
                     "quantityRequired": 1,
+                    "quantityAvailable": 0,
+                    "purchaseOrder": {
+                        "text": " ",
+                        "value": ""
+                    },
+                    "amount": 0,
+                    "active": false,
+                    "woVendor": true
+                }, {
+                    "id": "86",
+                    "name": "Best Fixture, Inc.",
+                    "vendor": {
+                        "text": "Best Fixture, Inc.",
+                        "value": "12"
+                    },
+                    "url": "",
+                    "email": "",
+                    "initials": "BF",
+                    "workorder": {
+                        "text": "Test Work Order - Mei",
+                        "value": "86"
+                    },
+                    "event": "100947",
+                    "quantityRequired": 0,
                     "quantityAvailable": 0,
                     "purchaseOrder": {
                         "text": " ",
@@ -116283,7 +116521,7 @@ const mockup = {
                     "active": false,
                     "woVendor": true
                 }, {
-                    "id": "66",
+                    "id": "75",
                     "name": "Bridgepoint Industries",
                     "vendor": {
                         "text": "Bridgepoint Industries",
@@ -116296,8 +116534,8 @@ const mockup = {
                         "text": "Test Work Order - Mei",
                         "value": "86"
                     },
-                    "event": "100938",
-                    "quantityRequired": 4,
+                    "event": "100942",
+                    "quantityRequired": 2,
                     "quantityAvailable": 20,
                     "purchaseOrder": {
                         "text": " ",
@@ -116379,7 +116617,7 @@ const mockup = {
                     "active": true,
                     "woVendor": true
                 }, {
-                    "id": "75",
+                    "id": "66",
                     "name": "Bridgepoint Industries",
                     "vendor": {
                         "text": "Bridgepoint Industries",
@@ -116392,8 +116630,8 @@ const mockup = {
                         "text": "Test Work Order - Mei",
                         "value": "86"
                     },
-                    "event": "100942",
-                    "quantityRequired": 2,
+                    "event": "100938",
+                    "quantityRequired": 4,
                     "quantityAvailable": 20,
                     "purchaseOrder": {
                         "text": " ",
@@ -117435,30 +117673,6 @@ const mockup = {
                     "active": false,
                     "woVendor": true
                 }, {
-                    "id": "86",
-                    "name": "Best Fixture, Inc.",
-                    "vendor": {
-                        "text": "Best Fixture, Inc.",
-                        "value": "12"
-                    },
-                    "url": "",
-                    "email": "",
-                    "initials": "BF",
-                    "workorder": {
-                        "text": "Test Work Order - Mei",
-                        "value": "86"
-                    },
-                    "event": "100947",
-                    "quantityRequired": 0,
-                    "quantityAvailable": 0,
-                    "purchaseOrder": {
-                        "text": " ",
-                        "value": ""
-                    },
-                    "amount": 0,
-                    "active": false,
-                    "woVendor": true
-                }, {
                     "id": "74",
                     "name": "Best Fixture, Inc.",
                     "vendor": {
@@ -117474,6 +117688,30 @@ const mockup = {
                     },
                     "event": "100942",
                     "quantityRequired": 1,
+                    "quantityAvailable": 0,
+                    "purchaseOrder": {
+                        "text": " ",
+                        "value": ""
+                    },
+                    "amount": 0,
+                    "active": false,
+                    "woVendor": true
+                }, {
+                    "id": "86",
+                    "name": "Best Fixture, Inc.",
+                    "vendor": {
+                        "text": "Best Fixture, Inc.",
+                        "value": "12"
+                    },
+                    "url": "",
+                    "email": "",
+                    "initials": "BF",
+                    "workorder": {
+                        "text": "Test Work Order - Mei",
+                        "value": "86"
+                    },
+                    "event": "100947",
+                    "quantityRequired": 0,
                     "quantityAvailable": 0,
                     "purchaseOrder": {
                         "text": " ",
@@ -117507,7 +117745,7 @@ const mockup = {
                     "active": false,
                     "woVendor": true
                 }, {
-                    "id": "66",
+                    "id": "75",
                     "name": "Bridgepoint Industries",
                     "vendor": {
                         "text": "Bridgepoint Industries",
@@ -117520,8 +117758,8 @@ const mockup = {
                         "text": "Test Work Order - Mei",
                         "value": "86"
                     },
-                    "event": "100938",
-                    "quantityRequired": 4,
+                    "event": "100942",
+                    "quantityRequired": 2,
                     "quantityAvailable": 20,
                     "purchaseOrder": {
                         "text": " ",
@@ -117603,7 +117841,7 @@ const mockup = {
                     "active": true,
                     "woVendor": true
                 }, {
-                    "id": "75",
+                    "id": "66",
                     "name": "Bridgepoint Industries",
                     "vendor": {
                         "text": "Bridgepoint Industries",
@@ -117616,8 +117854,8 @@ const mockup = {
                         "text": "Test Work Order - Mei",
                         "value": "86"
                     },
-                    "event": "100942",
-                    "quantityRequired": 2,
+                    "event": "100938",
+                    "quantityRequired": 4,
                     "quantityAvailable": 20,
                     "purchaseOrder": {
                         "text": " ",
@@ -118585,30 +118823,6 @@ const mockup = {
                     "active": false,
                     "woVendor": true
                 }, {
-                    "id": "86",
-                    "name": "Best Fixture, Inc.",
-                    "vendor": {
-                        "text": "Best Fixture, Inc.",
-                        "value": "12"
-                    },
-                    "url": "",
-                    "email": "",
-                    "initials": "BF",
-                    "workorder": {
-                        "text": "Test Work Order - Mei",
-                        "value": "86"
-                    },
-                    "event": "100947",
-                    "quantityRequired": 0,
-                    "quantityAvailable": 0,
-                    "purchaseOrder": {
-                        "text": " ",
-                        "value": ""
-                    },
-                    "amount": 0,
-                    "active": false,
-                    "woVendor": true
-                }, {
                     "id": "74",
                     "name": "Best Fixture, Inc.",
                     "vendor": {
@@ -118624,6 +118838,30 @@ const mockup = {
                     },
                     "event": "100942",
                     "quantityRequired": 1,
+                    "quantityAvailable": 0,
+                    "purchaseOrder": {
+                        "text": " ",
+                        "value": ""
+                    },
+                    "amount": 0,
+                    "active": false,
+                    "woVendor": true
+                }, {
+                    "id": "86",
+                    "name": "Best Fixture, Inc.",
+                    "vendor": {
+                        "text": "Best Fixture, Inc.",
+                        "value": "12"
+                    },
+                    "url": "",
+                    "email": "",
+                    "initials": "BF",
+                    "workorder": {
+                        "text": "Test Work Order - Mei",
+                        "value": "86"
+                    },
+                    "event": "100947",
+                    "quantityRequired": 0,
                     "quantityAvailable": 0,
                     "purchaseOrder": {
                         "text": " ",
@@ -118657,7 +118895,7 @@ const mockup = {
                     "active": false,
                     "woVendor": true
                 }, {
-                    "id": "66",
+                    "id": "75",
                     "name": "Bridgepoint Industries",
                     "vendor": {
                         "text": "Bridgepoint Industries",
@@ -118670,8 +118908,8 @@ const mockup = {
                         "text": "Test Work Order - Mei",
                         "value": "86"
                     },
-                    "event": "100938",
-                    "quantityRequired": 4,
+                    "event": "100942",
+                    "quantityRequired": 2,
                     "quantityAvailable": 20,
                     "purchaseOrder": {
                         "text": " ",
@@ -118753,7 +118991,7 @@ const mockup = {
                     "active": true,
                     "woVendor": true
                 }, {
-                    "id": "75",
+                    "id": "66",
                     "name": "Bridgepoint Industries",
                     "vendor": {
                         "text": "Bridgepoint Industries",
@@ -118766,8 +119004,8 @@ const mockup = {
                         "text": "Test Work Order - Mei",
                         "value": "86"
                     },
-                    "event": "100942",
-                    "quantityRequired": 2,
+                    "event": "100938",
+                    "quantityRequired": 4,
                     "quantityAvailable": 20,
                     "purchaseOrder": {
                         "text": " ",
@@ -119899,30 +120137,6 @@ const mockup = {
                     "active": false,
                     "woVendor": true
                 }, {
-                    "id": "86",
-                    "name": "Best Fixture, Inc.",
-                    "vendor": {
-                        "text": "Best Fixture, Inc.",
-                        "value": "12"
-                    },
-                    "url": "",
-                    "email": "",
-                    "initials": "BF",
-                    "workorder": {
-                        "text": "Test Work Order - Mei",
-                        "value": "86"
-                    },
-                    "event": "100947",
-                    "quantityRequired": 0,
-                    "quantityAvailable": 0,
-                    "purchaseOrder": {
-                        "text": " ",
-                        "value": ""
-                    },
-                    "amount": 0,
-                    "active": false,
-                    "woVendor": true
-                }, {
                     "id": "74",
                     "name": "Best Fixture, Inc.",
                     "vendor": {
@@ -119938,6 +120152,30 @@ const mockup = {
                     },
                     "event": "100942",
                     "quantityRequired": 1,
+                    "quantityAvailable": 0,
+                    "purchaseOrder": {
+                        "text": " ",
+                        "value": ""
+                    },
+                    "amount": 0,
+                    "active": false,
+                    "woVendor": true
+                }, {
+                    "id": "86",
+                    "name": "Best Fixture, Inc.",
+                    "vendor": {
+                        "text": "Best Fixture, Inc.",
+                        "value": "12"
+                    },
+                    "url": "",
+                    "email": "",
+                    "initials": "BF",
+                    "workorder": {
+                        "text": "Test Work Order - Mei",
+                        "value": "86"
+                    },
+                    "event": "100947",
+                    "quantityRequired": 0,
                     "quantityAvailable": 0,
                     "purchaseOrder": {
                         "text": " ",
@@ -119971,7 +120209,7 @@ const mockup = {
                     "active": false,
                     "woVendor": true
                 }, {
-                    "id": "66",
+                    "id": "75",
                     "name": "Bridgepoint Industries",
                     "vendor": {
                         "text": "Bridgepoint Industries",
@@ -119984,8 +120222,8 @@ const mockup = {
                         "text": "Test Work Order - Mei",
                         "value": "86"
                     },
-                    "event": "100938",
-                    "quantityRequired": 4,
+                    "event": "100942",
+                    "quantityRequired": 2,
                     "quantityAvailable": 20,
                     "purchaseOrder": {
                         "text": " ",
@@ -120067,7 +120305,7 @@ const mockup = {
                     "active": true,
                     "woVendor": true
                 }, {
-                    "id": "75",
+                    "id": "66",
                     "name": "Bridgepoint Industries",
                     "vendor": {
                         "text": "Bridgepoint Industries",
@@ -120080,8 +120318,8 @@ const mockup = {
                         "text": "Test Work Order - Mei",
                         "value": "86"
                     },
-                    "event": "100942",
-                    "quantityRequired": 2,
+                    "event": "100938",
+                    "quantityRequired": 4,
                     "quantityAvailable": 20,
                     "purchaseOrder": {
                         "text": " ",
@@ -123976,55 +124214,9 @@ const mockup = {
                     "text": "Installer",
                     "value": "1"
                 }],
-                "color": "#9cbb03",
+                "color": "#1f013a",
                 "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1312%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-                "events": ["100932"],
-                "selected": true
-            }, {
-                "id": "1647",
-                "name": "Mei Matriano",
-                "initials": "MM",
-                "email": "mei@erpsuccesspartners.com",
-                "phone": "",
-                "location": {
-                    "text": "",
-                    "value": ""
-                },
-                "active": true,
-                "resourceGroups": [{
-                    "text": "Designers",
-                    "value": "2"
-                }],
-                "types": [{
-                    "text": "Installer",
-                    "value": "1"
-                }],
-                "color": "#a6d690",
-                "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1647%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-                "events": ["100847", "100932"],
-                "selected": true
-            }, {
-                "id": "1656",
-                "name": "Youssef Ezz",
-                "initials": "YE",
-                "email": "yk@erpsuccesspartners.com",
-                "phone": "",
-                "location": {
-                    "text": "",
-                    "value": ""
-                },
-                "active": true,
-                "resourceGroups": [{
-                    "text": "Installers",
-                    "value": "1"
-                }],
-                "types": [{
-                    "text": "Installer",
-                    "value": "1"
-                }],
-                "color": "#6cc3f3",
-                "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1656%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-                "events": ["100921", "100932"],
+                "events": ["100932", "100951"],
                 "selected": true
             }],
             "vendors": [{
@@ -124210,6 +124402,174 @@ const mockup = {
                 "value": "1647"
             }
         }, {
+            "id": "100951",
+            "title": "TEST 123",
+            "workorder": {
+                "text": "",
+                "value": ""
+            },
+            "location": "",
+            "status": {
+                "text": "Tentative",
+                "value": "TENTATIVE",
+                "code": "bg-secondary"
+            },
+            "date": {
+                "recurrence": "one time event on 10/30/2024",
+                "start": "2024-10-30",
+                "end": "2024-10-30"
+            },
+            "time": {
+                "start": "08:00",
+                "end": "18:00"
+            },
+            "priority": {
+                "text": "Low",
+                "value": "1",
+                "code": "#026adf"
+            },
+            "note": "1\n2\n3\n4\n5",
+            "url": "/app/crm/calendar/event.nl?id=100951&compid=TSTDRV2617106&selectedtab=custom337",
+            "color": "#1a6756",
+            "woRef": {},
+            "resources": [{
+                "id": "1312",
+                "name": "Gary Grant",
+                "initials": "GG",
+                "email": "garygrant@ramsey.com",
+                "phone": "(873) 775-6114",
+                "location": {
+                    "text": "02: Boston",
+                    "value": "1"
+                },
+                "active": true,
+                "resourceGroups": [{
+                    "text": "Installers",
+                    "value": "1"
+                }],
+                "types": [{
+                    "text": "Installer",
+                    "value": "1"
+                }],
+                "color": "#1f013a",
+                "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1312%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
+                "events": ["100932", "100951"],
+                "selected": true
+            }, {
+                "id": "1647",
+                "name": "Mei Matriano",
+                "initials": "MM",
+                "email": "mei@erpsuccesspartners.com",
+                "phone": "",
+                "location": {
+                    "text": "",
+                    "value": ""
+                },
+                "active": true,
+                "resourceGroups": [{
+                    "text": "Designers",
+                    "value": "2"
+                }],
+                "types": [{
+                    "text": "Installer",
+                    "value": "1"
+                }],
+                "color": "#376dcb",
+                "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1647%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
+                "events": ["100847", "100951"],
+                "selected": true
+            }, {
+                "id": "1656",
+                "name": "Youssef Ezz",
+                "initials": "YE",
+                "email": "yk@erpsuccesspartners.com",
+                "phone": "",
+                "location": {
+                    "text": "",
+                    "value": ""
+                },
+                "active": true,
+                "resourceGroups": [{
+                    "text": "Installers",
+                    "value": "1"
+                }],
+                "types": [{
+                    "text": "Installer",
+                    "value": "1"
+                }],
+                "color": "#39ec73",
+                "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1656%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
+                "events": ["100921", "100951"],
+                "selected": true
+            }],
+            "vendors": [{
+                "id": "97",
+                "name": "Best Fixture, Inc.",
+                "vendor": {
+                    "text": "Best Fixture, Inc.",
+                    "value": "12"
+                },
+                "url": "",
+                "email": "",
+                "initials": "BF",
+                "workorder": {
+                    "text": "",
+                    "value": ""
+                },
+                "event": "100951",
+                "quantityRequired": 0,
+                "quantityAvailable": 0,
+                "purchaseOrder": {
+                    "text": " ",
+                    "value": ""
+                },
+                "amount": 0,
+                "active": false,
+                "woVendor": true,
+                "selected": true
+            }, {
+                "id": "96",
+                "name": "Bridgepoint Industries",
+                "vendor": {
+                    "text": "Bridgepoint Industries",
+                    "value": "1473"
+                },
+                "url": "http://www.bridgepointindustries.com.de",
+                "email": "support@bridgempointindustries.com.de",
+                "initials": "BI",
+                "workorder": {
+                    "text": "",
+                    "value": ""
+                },
+                "event": "100951",
+                "quantityRequired": 2,
+                "quantityAvailable": 20,
+                "purchaseOrder": {
+                    "text": " ",
+                    "value": ""
+                },
+                "amount": 0,
+                "active": true,
+                "woVendor": true,
+                "selected": true
+            }],
+            "assets": [],
+            "items": [],
+            "contacts": [],
+            "addresses": [],
+            "contact": {
+                "text": "",
+                "value": ""
+            },
+            "address": {
+                "text": "",
+                "value": ""
+            },
+            "organizer": {
+                "text": "Lean  cendana",
+                "value": "1765"
+            }
+        }, {
             "id": "100949",
             "title": "TEST GENERAL EVENT",
             "workorder": {
@@ -124228,8 +124588,8 @@ const mockup = {
                 "end": "2024-10-31"
             },
             "time": {
-                "start": "08:00",
-                "end": "18:00"
+                "start": "16:00",
+                "end": "22:00"
             },
             "priority": {
                 "text": "Urgent",
@@ -124240,7 +124600,77 @@ const mockup = {
             "url": "/app/crm/calendar/event.nl?id=100949&compid=TSTDRV2617106&selectedtab=custom337",
             "color": "#1a6756",
             "woRef": {},
-            "resources": [],
+            "resources": [{
+                "id": "1770",
+                "name": "Arun Sharma",
+                "initials": "AS",
+                "email": "aruns.unlock2go@gmail.com",
+                "phone": "",
+                "location": {
+                    "text": "",
+                    "value": ""
+                },
+                "active": true,
+                "resourceGroups": [{
+                    "text": "Designers",
+                    "value": "2"
+                }, {
+                    "text": "Drivers",
+                    "value": "3"
+                }, {
+                    "text": "Installers",
+                    "value": "1"
+                }],
+                "types": [{
+                    "text": "Delivery Driver",
+                    "value": "2"
+                }, {
+                    "text": "Designer",
+                    "value": "3"
+                }, {
+                    "text": "Installer",
+                    "value": "1"
+                }],
+                "color": "#39218b",
+                "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1770%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
+                "events": ["100681", "100949"],
+                "selected": true
+            }, {
+                "id": "1767",
+                "name": "Bea Dashboards",
+                "initials": "BD",
+                "email": "beatrice.q@erpsuccesspartners.com",
+                "phone": "",
+                "location": {
+                    "text": "01: San Francisco",
+                    "value": "2"
+                },
+                "active": true,
+                "resourceGroups": [{
+                    "text": "Designers",
+                    "value": "2"
+                }, {
+                    "text": "Drivers",
+                    "value": "3"
+                }, {
+                    "text": "Installers",
+                    "value": "1"
+                }],
+                "types": [{
+                    "text": "Delivery Driver",
+                    "value": "2"
+                }, {
+                    "text": "Designer",
+                    "value": "3"
+                }, {
+                    "text": "Installer",
+                    "value": "1"
+                }],
+                "color": "#2ae294",
+                "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1767%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
+                "events": ["100681", "100949"],
+                "selected": true
+            }],
             "vendors": [{
                 "id": "89",
                 "name": "Best Fixture, Inc.",
@@ -135888,55 +136318,9 @@ const mockup = {
                     "text": "Installer",
                     "value": "1"
                 }],
-                "color": "#9cbb03",
+                "color": "#1f013a",
                 "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1312%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-                "events": ["100932"],
-                "selected": true
-            }, {
-                "id": "1647",
-                "name": "Mei Matriano",
-                "initials": "MM",
-                "email": "mei@erpsuccesspartners.com",
-                "phone": "",
-                "location": {
-                    "text": "",
-                    "value": ""
-                },
-                "active": true,
-                "resourceGroups": [{
-                    "text": "Designers",
-                    "value": "2"
-                }],
-                "types": [{
-                    "text": "Installer",
-                    "value": "1"
-                }],
-                "color": "#a6d690",
-                "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1647%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-                "events": ["100847", "100932"],
-                "selected": true
-            }, {
-                "id": "1656",
-                "name": "Youssef Ezz",
-                "initials": "YE",
-                "email": "yk@erpsuccesspartners.com",
-                "phone": "",
-                "location": {
-                    "text": "",
-                    "value": ""
-                },
-                "active": true,
-                "resourceGroups": [{
-                    "text": "Installers",
-                    "value": "1"
-                }],
-                "types": [{
-                    "text": "Installer",
-                    "value": "1"
-                }],
-                "color": "#6cc3f3",
-                "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1656%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-                "events": ["100921", "100932"],
+                "events": ["100932", "100951"],
                 "selected": true
             }],
             "vendors": [{
@@ -136140,8 +136524,8 @@ const mockup = {
                 "end": "2024-10-31"
             },
             "time": {
-                "start": "08:00",
-                "end": "18:00"
+                "start": "16:00",
+                "end": "22:00"
             },
             "priority": {
                 "text": "Urgent",
@@ -136152,7 +136536,77 @@ const mockup = {
             "url": "/app/crm/calendar/event.nl?id=100949&compid=TSTDRV2617106&selectedtab=custom337",
             "color": "#1a6756",
             "woRef": {},
-            "resources": [],
+            "resources": [{
+                "id": "1770",
+                "name": "Arun Sharma",
+                "initials": "AS",
+                "email": "aruns.unlock2go@gmail.com",
+                "phone": "",
+                "location": {
+                    "text": "",
+                    "value": ""
+                },
+                "active": true,
+                "resourceGroups": [{
+                    "text": "Designers",
+                    "value": "2"
+                }, {
+                    "text": "Drivers",
+                    "value": "3"
+                }, {
+                    "text": "Installers",
+                    "value": "1"
+                }],
+                "types": [{
+                    "text": "Delivery Driver",
+                    "value": "2"
+                }, {
+                    "text": "Designer",
+                    "value": "3"
+                }, {
+                    "text": "Installer",
+                    "value": "1"
+                }],
+                "color": "#39218b",
+                "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1770%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
+                "events": ["100681", "100949"],
+                "selected": true
+            }, {
+                "id": "1767",
+                "name": "Bea Dashboards",
+                "initials": "BD",
+                "email": "beatrice.q@erpsuccesspartners.com",
+                "phone": "",
+                "location": {
+                    "text": "01: San Francisco",
+                    "value": "2"
+                },
+                "active": true,
+                "resourceGroups": [{
+                    "text": "Designers",
+                    "value": "2"
+                }, {
+                    "text": "Drivers",
+                    "value": "3"
+                }, {
+                    "text": "Installers",
+                    "value": "1"
+                }],
+                "types": [{
+                    "text": "Delivery Driver",
+                    "value": "2"
+                }, {
+                    "text": "Designer",
+                    "value": "3"
+                }, {
+                    "text": "Installer",
+                    "value": "1"
+                }],
+                "color": "#2ae294",
+                "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1767%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
+                "events": ["100681", "100949"],
+                "selected": true
+            }],
             "vendors": [{
                 "id": "89",
                 "name": "Best Fixture, Inc.",
@@ -140090,30 +140544,6 @@ const mockup = {
                     "active": false,
                     "woVendor": true
                 }, {
-                    "id": "86",
-                    "name": "Best Fixture, Inc.",
-                    "vendor": {
-                        "text": "Best Fixture, Inc.",
-                        "value": "12"
-                    },
-                    "url": "",
-                    "email": "",
-                    "initials": "BF",
-                    "workorder": {
-                        "text": "Test Work Order - Mei",
-                        "value": "86"
-                    },
-                    "event": "100947",
-                    "quantityRequired": 0,
-                    "quantityAvailable": 0,
-                    "purchaseOrder": {
-                        "text": " ",
-                        "value": ""
-                    },
-                    "amount": 0,
-                    "active": false,
-                    "woVendor": true
-                }, {
                     "id": "74",
                     "name": "Best Fixture, Inc.",
                     "vendor": {
@@ -140129,6 +140559,30 @@ const mockup = {
                     },
                     "event": "100942",
                     "quantityRequired": 1,
+                    "quantityAvailable": 0,
+                    "purchaseOrder": {
+                        "text": " ",
+                        "value": ""
+                    },
+                    "amount": 0,
+                    "active": false,
+                    "woVendor": true
+                }, {
+                    "id": "86",
+                    "name": "Best Fixture, Inc.",
+                    "vendor": {
+                        "text": "Best Fixture, Inc.",
+                        "value": "12"
+                    },
+                    "url": "",
+                    "email": "",
+                    "initials": "BF",
+                    "workorder": {
+                        "text": "Test Work Order - Mei",
+                        "value": "86"
+                    },
+                    "event": "100947",
+                    "quantityRequired": 0,
                     "quantityAvailable": 0,
                     "purchaseOrder": {
                         "text": " ",
@@ -140162,7 +140616,7 @@ const mockup = {
                     "active": false,
                     "woVendor": true
                 }, {
-                    "id": "66",
+                    "id": "75",
                     "name": "Bridgepoint Industries",
                     "vendor": {
                         "text": "Bridgepoint Industries",
@@ -140175,8 +140629,8 @@ const mockup = {
                         "text": "Test Work Order - Mei",
                         "value": "86"
                     },
-                    "event": "100938",
-                    "quantityRequired": 4,
+                    "event": "100942",
+                    "quantityRequired": 2,
                     "quantityAvailable": 20,
                     "purchaseOrder": {
                         "text": " ",
@@ -140258,7 +140712,7 @@ const mockup = {
                     "active": true,
                     "woVendor": true
                 }, {
-                    "id": "75",
+                    "id": "66",
                     "name": "Bridgepoint Industries",
                     "vendor": {
                         "text": "Bridgepoint Industries",
@@ -140271,8 +140725,8 @@ const mockup = {
                         "text": "Test Work Order - Mei",
                         "value": "86"
                     },
-                    "event": "100942",
-                    "quantityRequired": 2,
+                    "event": "100938",
+                    "quantityRequired": 4,
                     "quantityAvailable": 20,
                     "purchaseOrder": {
                         "text": " ",
@@ -141149,8 +141603,8 @@ const mockup = {
                 "end": "2024-10-31"
             },
             "time": {
-                "start": "08:00",
-                "end": "18:00"
+                "start": "16:00",
+                "end": "22:00"
             },
             "priority": {
                 "text": "Urgent",
@@ -141161,7 +141615,77 @@ const mockup = {
             "url": "/app/crm/calendar/event.nl?id=100949&compid=TSTDRV2617106&selectedtab=custom337",
             "color": "#1a6756",
             "woRef": {},
-            "resources": [],
+            "resources": [{
+                "id": "1770",
+                "name": "Arun Sharma",
+                "initials": "AS",
+                "email": "aruns.unlock2go@gmail.com",
+                "phone": "",
+                "location": {
+                    "text": "",
+                    "value": ""
+                },
+                "active": true,
+                "resourceGroups": [{
+                    "text": "Designers",
+                    "value": "2"
+                }, {
+                    "text": "Drivers",
+                    "value": "3"
+                }, {
+                    "text": "Installers",
+                    "value": "1"
+                }],
+                "types": [{
+                    "text": "Delivery Driver",
+                    "value": "2"
+                }, {
+                    "text": "Designer",
+                    "value": "3"
+                }, {
+                    "text": "Installer",
+                    "value": "1"
+                }],
+                "color": "#39218b",
+                "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1770%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
+                "events": ["100681", "100949"],
+                "selected": true
+            }, {
+                "id": "1767",
+                "name": "Bea Dashboards",
+                "initials": "BD",
+                "email": "beatrice.q@erpsuccesspartners.com",
+                "phone": "",
+                "location": {
+                    "text": "01: San Francisco",
+                    "value": "2"
+                },
+                "active": true,
+                "resourceGroups": [{
+                    "text": "Designers",
+                    "value": "2"
+                }, {
+                    "text": "Drivers",
+                    "value": "3"
+                }, {
+                    "text": "Installers",
+                    "value": "1"
+                }],
+                "types": [{
+                    "text": "Delivery Driver",
+                    "value": "2"
+                }, {
+                    "text": "Designer",
+                    "value": "3"
+                }, {
+                    "text": "Installer",
+                    "value": "1"
+                }],
+                "color": "#2ae294",
+                "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1767%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
+                "events": ["100681", "100949"],
+                "selected": true
+            }],
             "vendors": [{
                 "id": "89",
                 "name": "Best Fixture, Inc.",
@@ -142176,30 +142700,6 @@ const mockup = {
                     "active": false,
                     "woVendor": true
                 }, {
-                    "id": "86",
-                    "name": "Best Fixture, Inc.",
-                    "vendor": {
-                        "text": "Best Fixture, Inc.",
-                        "value": "12"
-                    },
-                    "url": "",
-                    "email": "",
-                    "initials": "BF",
-                    "workorder": {
-                        "text": "Test Work Order - Mei",
-                        "value": "86"
-                    },
-                    "event": "100947",
-                    "quantityRequired": 0,
-                    "quantityAvailable": 0,
-                    "purchaseOrder": {
-                        "text": " ",
-                        "value": ""
-                    },
-                    "amount": 0,
-                    "active": false,
-                    "woVendor": true
-                }, {
                     "id": "74",
                     "name": "Best Fixture, Inc.",
                     "vendor": {
@@ -142215,6 +142715,30 @@ const mockup = {
                     },
                     "event": "100942",
                     "quantityRequired": 1,
+                    "quantityAvailable": 0,
+                    "purchaseOrder": {
+                        "text": " ",
+                        "value": ""
+                    },
+                    "amount": 0,
+                    "active": false,
+                    "woVendor": true
+                }, {
+                    "id": "86",
+                    "name": "Best Fixture, Inc.",
+                    "vendor": {
+                        "text": "Best Fixture, Inc.",
+                        "value": "12"
+                    },
+                    "url": "",
+                    "email": "",
+                    "initials": "BF",
+                    "workorder": {
+                        "text": "Test Work Order - Mei",
+                        "value": "86"
+                    },
+                    "event": "100947",
+                    "quantityRequired": 0,
                     "quantityAvailable": 0,
                     "purchaseOrder": {
                         "text": " ",
@@ -142248,7 +142772,7 @@ const mockup = {
                     "active": false,
                     "woVendor": true
                 }, {
-                    "id": "66",
+                    "id": "75",
                     "name": "Bridgepoint Industries",
                     "vendor": {
                         "text": "Bridgepoint Industries",
@@ -142261,8 +142785,8 @@ const mockup = {
                         "text": "Test Work Order - Mei",
                         "value": "86"
                     },
-                    "event": "100938",
-                    "quantityRequired": 4,
+                    "event": "100942",
+                    "quantityRequired": 2,
                     "quantityAvailable": 20,
                     "purchaseOrder": {
                         "text": " ",
@@ -142344,7 +142868,7 @@ const mockup = {
                     "active": true,
                     "woVendor": true
                 }, {
-                    "id": "75",
+                    "id": "66",
                     "name": "Bridgepoint Industries",
                     "vendor": {
                         "text": "Bridgepoint Industries",
@@ -142357,8 +142881,8 @@ const mockup = {
                         "text": "Test Work Order - Mei",
                         "value": "86"
                     },
-                    "event": "100942",
-                    "quantityRequired": 2,
+                    "event": "100938",
+                    "quantityRequired": 4,
                     "quantityAvailable": 20,
                     "purchaseOrder": {
                         "text": " ",
@@ -143235,8 +143759,8 @@ const mockup = {
                 "end": "2024-10-31"
             },
             "time": {
-                "start": "08:00",
-                "end": "18:00"
+                "start": "16:00",
+                "end": "22:00"
             },
             "priority": {
                 "text": "Urgent",
@@ -143247,7 +143771,77 @@ const mockup = {
             "url": "/app/crm/calendar/event.nl?id=100949&compid=TSTDRV2617106&selectedtab=custom337",
             "color": "#1a6756",
             "woRef": {},
-            "resources": [],
+            "resources": [{
+                "id": "1770",
+                "name": "Arun Sharma",
+                "initials": "AS",
+                "email": "aruns.unlock2go@gmail.com",
+                "phone": "",
+                "location": {
+                    "text": "",
+                    "value": ""
+                },
+                "active": true,
+                "resourceGroups": [{
+                    "text": "Designers",
+                    "value": "2"
+                }, {
+                    "text": "Drivers",
+                    "value": "3"
+                }, {
+                    "text": "Installers",
+                    "value": "1"
+                }],
+                "types": [{
+                    "text": "Delivery Driver",
+                    "value": "2"
+                }, {
+                    "text": "Designer",
+                    "value": "3"
+                }, {
+                    "text": "Installer",
+                    "value": "1"
+                }],
+                "color": "#39218b",
+                "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1770%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
+                "events": ["100681", "100949"],
+                "selected": true
+            }, {
+                "id": "1767",
+                "name": "Bea Dashboards",
+                "initials": "BD",
+                "email": "beatrice.q@erpsuccesspartners.com",
+                "phone": "",
+                "location": {
+                    "text": "01: San Francisco",
+                    "value": "2"
+                },
+                "active": true,
+                "resourceGroups": [{
+                    "text": "Designers",
+                    "value": "2"
+                }, {
+                    "text": "Drivers",
+                    "value": "3"
+                }, {
+                    "text": "Installers",
+                    "value": "1"
+                }],
+                "types": [{
+                    "text": "Delivery Driver",
+                    "value": "2"
+                }, {
+                    "text": "Designer",
+                    "value": "3"
+                }, {
+                    "text": "Installer",
+                    "value": "1"
+                }],
+                "color": "#2ae294",
+                "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1767%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
+                "events": ["100681", "100949"],
+                "selected": true
+            }],
             "vendors": [{
                 "id": "89",
                 "name": "Best Fixture, Inc.",
@@ -204212,30 +204806,6 @@ const mockup = {
                     "active": false,
                     "woVendor": true
                 }, {
-                    "id": "86",
-                    "name": "Best Fixture, Inc.",
-                    "vendor": {
-                        "text": "Best Fixture, Inc.",
-                        "value": "12"
-                    },
-                    "url": "",
-                    "email": "",
-                    "initials": "BF",
-                    "workorder": {
-                        "text": "Test Work Order - Mei",
-                        "value": "86"
-                    },
-                    "event": "100947",
-                    "quantityRequired": 0,
-                    "quantityAvailable": 0,
-                    "purchaseOrder": {
-                        "text": " ",
-                        "value": ""
-                    },
-                    "amount": 0,
-                    "active": false,
-                    "woVendor": true
-                }, {
                     "id": "74",
                     "name": "Best Fixture, Inc.",
                     "vendor": {
@@ -204251,6 +204821,30 @@ const mockup = {
                     },
                     "event": "100942",
                     "quantityRequired": 1,
+                    "quantityAvailable": 0,
+                    "purchaseOrder": {
+                        "text": " ",
+                        "value": ""
+                    },
+                    "amount": 0,
+                    "active": false,
+                    "woVendor": true
+                }, {
+                    "id": "86",
+                    "name": "Best Fixture, Inc.",
+                    "vendor": {
+                        "text": "Best Fixture, Inc.",
+                        "value": "12"
+                    },
+                    "url": "",
+                    "email": "",
+                    "initials": "BF",
+                    "workorder": {
+                        "text": "Test Work Order - Mei",
+                        "value": "86"
+                    },
+                    "event": "100947",
+                    "quantityRequired": 0,
                     "quantityAvailable": 0,
                     "purchaseOrder": {
                         "text": " ",
@@ -204284,7 +204878,7 @@ const mockup = {
                     "active": false,
                     "woVendor": true
                 }, {
-                    "id": "66",
+                    "id": "75",
                     "name": "Bridgepoint Industries",
                     "vendor": {
                         "text": "Bridgepoint Industries",
@@ -204297,8 +204891,8 @@ const mockup = {
                         "text": "Test Work Order - Mei",
                         "value": "86"
                     },
-                    "event": "100938",
-                    "quantityRequired": 4,
+                    "event": "100942",
+                    "quantityRequired": 2,
                     "quantityAvailable": 20,
                     "purchaseOrder": {
                         "text": " ",
@@ -204380,7 +204974,7 @@ const mockup = {
                     "active": true,
                     "woVendor": true
                 }, {
-                    "id": "75",
+                    "id": "66",
                     "name": "Bridgepoint Industries",
                     "vendor": {
                         "text": "Bridgepoint Industries",
@@ -204393,8 +204987,8 @@ const mockup = {
                         "text": "Test Work Order - Mei",
                         "value": "86"
                     },
-                    "event": "100942",
-                    "quantityRequired": 2,
+                    "event": "100938",
+                    "quantityRequired": 4,
                     "quantityAvailable": 20,
                     "purchaseOrder": {
                         "text": " ",
@@ -260840,30 +261434,6 @@ const mockup = {
                     "active": false,
                     "woVendor": true
                 }, {
-                    "id": "86",
-                    "name": "Best Fixture, Inc.",
-                    "vendor": {
-                        "text": "Best Fixture, Inc.",
-                        "value": "12"
-                    },
-                    "url": "",
-                    "email": "",
-                    "initials": "BF",
-                    "workorder": {
-                        "text": "Test Work Order - Mei",
-                        "value": "86"
-                    },
-                    "event": "100947",
-                    "quantityRequired": 0,
-                    "quantityAvailable": 0,
-                    "purchaseOrder": {
-                        "text": " ",
-                        "value": ""
-                    },
-                    "amount": 0,
-                    "active": false,
-                    "woVendor": true
-                }, {
                     "id": "74",
                     "name": "Best Fixture, Inc.",
                     "vendor": {
@@ -260879,6 +261449,30 @@ const mockup = {
                     },
                     "event": "100942",
                     "quantityRequired": 1,
+                    "quantityAvailable": 0,
+                    "purchaseOrder": {
+                        "text": " ",
+                        "value": ""
+                    },
+                    "amount": 0,
+                    "active": false,
+                    "woVendor": true
+                }, {
+                    "id": "86",
+                    "name": "Best Fixture, Inc.",
+                    "vendor": {
+                        "text": "Best Fixture, Inc.",
+                        "value": "12"
+                    },
+                    "url": "",
+                    "email": "",
+                    "initials": "BF",
+                    "workorder": {
+                        "text": "Test Work Order - Mei",
+                        "value": "86"
+                    },
+                    "event": "100947",
+                    "quantityRequired": 0,
                     "quantityAvailable": 0,
                     "purchaseOrder": {
                         "text": " ",
@@ -260912,7 +261506,7 @@ const mockup = {
                     "active": false,
                     "woVendor": true
                 }, {
-                    "id": "66",
+                    "id": "75",
                     "name": "Bridgepoint Industries",
                     "vendor": {
                         "text": "Bridgepoint Industries",
@@ -260925,8 +261519,8 @@ const mockup = {
                         "text": "Test Work Order - Mei",
                         "value": "86"
                     },
-                    "event": "100938",
-                    "quantityRequired": 4,
+                    "event": "100942",
+                    "quantityRequired": 2,
                     "quantityAvailable": 20,
                     "purchaseOrder": {
                         "text": " ",
@@ -261008,7 +261602,7 @@ const mockup = {
                     "active": true,
                     "woVendor": true
                 }, {
-                    "id": "75",
+                    "id": "66",
                     "name": "Bridgepoint Industries",
                     "vendor": {
                         "text": "Bridgepoint Industries",
@@ -261021,8 +261615,8 @@ const mockup = {
                         "text": "Test Work Order - Mei",
                         "value": "86"
                     },
-                    "event": "100942",
-                    "quantityRequired": 2,
+                    "event": "100938",
+                    "quantityRequired": 4,
                     "quantityAvailable": 20,
                     "purchaseOrder": {
                         "text": " ",
@@ -262154,30 +262748,6 @@ const mockup = {
                     "active": false,
                     "woVendor": true
                 }, {
-                    "id": "86",
-                    "name": "Best Fixture, Inc.",
-                    "vendor": {
-                        "text": "Best Fixture, Inc.",
-                        "value": "12"
-                    },
-                    "url": "",
-                    "email": "",
-                    "initials": "BF",
-                    "workorder": {
-                        "text": "Test Work Order - Mei",
-                        "value": "86"
-                    },
-                    "event": "100947",
-                    "quantityRequired": 0,
-                    "quantityAvailable": 0,
-                    "purchaseOrder": {
-                        "text": " ",
-                        "value": ""
-                    },
-                    "amount": 0,
-                    "active": false,
-                    "woVendor": true
-                }, {
                     "id": "74",
                     "name": "Best Fixture, Inc.",
                     "vendor": {
@@ -262193,6 +262763,30 @@ const mockup = {
                     },
                     "event": "100942",
                     "quantityRequired": 1,
+                    "quantityAvailable": 0,
+                    "purchaseOrder": {
+                        "text": " ",
+                        "value": ""
+                    },
+                    "amount": 0,
+                    "active": false,
+                    "woVendor": true
+                }, {
+                    "id": "86",
+                    "name": "Best Fixture, Inc.",
+                    "vendor": {
+                        "text": "Best Fixture, Inc.",
+                        "value": "12"
+                    },
+                    "url": "",
+                    "email": "",
+                    "initials": "BF",
+                    "workorder": {
+                        "text": "Test Work Order - Mei",
+                        "value": "86"
+                    },
+                    "event": "100947",
+                    "quantityRequired": 0,
                     "quantityAvailable": 0,
                     "purchaseOrder": {
                         "text": " ",
@@ -262226,7 +262820,7 @@ const mockup = {
                     "active": false,
                     "woVendor": true
                 }, {
-                    "id": "66",
+                    "id": "75",
                     "name": "Bridgepoint Industries",
                     "vendor": {
                         "text": "Bridgepoint Industries",
@@ -262239,8 +262833,8 @@ const mockup = {
                         "text": "Test Work Order - Mei",
                         "value": "86"
                     },
-                    "event": "100938",
-                    "quantityRequired": 4,
+                    "event": "100942",
+                    "quantityRequired": 2,
                     "quantityAvailable": 20,
                     "purchaseOrder": {
                         "text": " ",
@@ -262322,7 +262916,7 @@ const mockup = {
                     "active": true,
                     "woVendor": true
                 }, {
-                    "id": "75",
+                    "id": "66",
                     "name": "Bridgepoint Industries",
                     "vendor": {
                         "text": "Bridgepoint Industries",
@@ -262335,8 +262929,8 @@ const mockup = {
                         "text": "Test Work Order - Mei",
                         "value": "86"
                     },
-                    "event": "100942",
-                    "quantityRequired": 2,
+                    "event": "100938",
+                    "quantityRequired": 4,
                     "quantityAvailable": 20,
                     "purchaseOrder": {
                         "text": " ",
@@ -266231,55 +266825,9 @@ const mockup = {
                     "text": "Installer",
                     "value": "1"
                 }],
-                "color": "#9cbb03",
+                "color": "#1f013a",
                 "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1312%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-                "events": ["100932"],
-                "selected": true
-            }, {
-                "id": "1647",
-                "name": "Mei Matriano",
-                "initials": "MM",
-                "email": "mei@erpsuccesspartners.com",
-                "phone": "",
-                "location": {
-                    "text": "",
-                    "value": ""
-                },
-                "active": true,
-                "resourceGroups": [{
-                    "text": "Designers",
-                    "value": "2"
-                }],
-                "types": [{
-                    "text": "Installer",
-                    "value": "1"
-                }],
-                "color": "#a6d690",
-                "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1647%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-                "events": ["100847", "100932"],
-                "selected": true
-            }, {
-                "id": "1656",
-                "name": "Youssef Ezz",
-                "initials": "YE",
-                "email": "yk@erpsuccesspartners.com",
-                "phone": "",
-                "location": {
-                    "text": "",
-                    "value": ""
-                },
-                "active": true,
-                "resourceGroups": [{
-                    "text": "Installers",
-                    "value": "1"
-                }],
-                "types": [{
-                    "text": "Installer",
-                    "value": "1"
-                }],
-                "color": "#6cc3f3",
-                "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1656%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-                "events": ["100921", "100932"],
+                "events": ["100932", "100951"],
                 "selected": true
             }],
             "vendors": [{
@@ -266483,8 +267031,8 @@ const mockup = {
                 "end": "2024-10-31"
             },
             "time": {
-                "start": "08:00",
-                "end": "18:00"
+                "start": "16:00",
+                "end": "22:00"
             },
             "priority": {
                 "text": "Urgent",
@@ -266495,7 +267043,77 @@ const mockup = {
             "url": "/app/crm/calendar/event.nl?id=100949&compid=TSTDRV2617106&selectedtab=custom337",
             "color": "#1a6756",
             "woRef": {},
-            "resources": [],
+            "resources": [{
+                "id": "1770",
+                "name": "Arun Sharma",
+                "initials": "AS",
+                "email": "aruns.unlock2go@gmail.com",
+                "phone": "",
+                "location": {
+                    "text": "",
+                    "value": ""
+                },
+                "active": true,
+                "resourceGroups": [{
+                    "text": "Designers",
+                    "value": "2"
+                }, {
+                    "text": "Drivers",
+                    "value": "3"
+                }, {
+                    "text": "Installers",
+                    "value": "1"
+                }],
+                "types": [{
+                    "text": "Delivery Driver",
+                    "value": "2"
+                }, {
+                    "text": "Designer",
+                    "value": "3"
+                }, {
+                    "text": "Installer",
+                    "value": "1"
+                }],
+                "color": "#39218b",
+                "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1770%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
+                "events": ["100681", "100949"],
+                "selected": true
+            }, {
+                "id": "1767",
+                "name": "Bea Dashboards",
+                "initials": "BD",
+                "email": "beatrice.q@erpsuccesspartners.com",
+                "phone": "",
+                "location": {
+                    "text": "01: San Francisco",
+                    "value": "2"
+                },
+                "active": true,
+                "resourceGroups": [{
+                    "text": "Designers",
+                    "value": "2"
+                }, {
+                    "text": "Drivers",
+                    "value": "3"
+                }, {
+                    "text": "Installers",
+                    "value": "1"
+                }],
+                "types": [{
+                    "text": "Delivery Driver",
+                    "value": "2"
+                }, {
+                    "text": "Designer",
+                    "value": "3"
+                }, {
+                    "text": "Installer",
+                    "value": "1"
+                }],
+                "color": "#2ae294",
+                "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1767%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
+                "events": ["100681", "100949"],
+                "selected": true
+            }],
             "vendors": [{
                 "id": "89",
                 "name": "Best Fixture, Inc.",
@@ -266735,9 +267353,9 @@ const mockup = {
                 "text": "Installer",
                 "value": "1"
             }],
-            "color": "#f79f17",
+            "color": "#39218b",
             "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1770%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-            "events": ["100681"],
+            "events": ["100681", "100949"],
             "selected": true
         }, {
             "id": "1767",
@@ -266770,9 +267388,9 @@ const mockup = {
                 "text": "Installer",
                 "value": "1"
             }],
-            "color": "#fa87e9",
+            "color": "#2ae294",
             "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1767%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-            "events": ["100681"],
+            "events": ["100681", "100949"],
             "selected": true
         }],
         "vendors": [],
@@ -270055,7 +270673,7 @@ const mockup = {
                 "text": "Installer",
                 "value": "1"
             }],
-            "color": "#f940c2",
+            "color": "#60d4ef",
             "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D912%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
             "events": ["100682", "100834"],
             "selected": true
@@ -304018,7 +304636,7 @@ const mockup = {
                 "text": "Installer",
                 "value": "1"
             }],
-            "color": "#f940c2",
+            "color": "#60d4ef",
             "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D912%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
             "events": ["100682", "100834"],
             "selected": true
@@ -317036,9 +317654,9 @@ const mockup = {
                 "text": "Installer",
                 "value": "1"
             }],
-            "color": "#a6d690",
+            "color": "#376dcb",
             "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1647%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-            "events": ["100847", "100932"],
+            "events": ["100847", "100951"],
             "selected": true
         }],
         "vendors": [],
@@ -407669,9 +408287,9 @@ const mockup = {
                 "text": "Installer",
                 "value": "1"
             }],
-            "color": "#6cc3f3",
+            "color": "#39ec73",
             "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1656%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-            "events": ["100921", "100932"],
+            "events": ["100921", "100951"],
             "selected": true
         }],
         "vendors": [],
@@ -412791,30 +413409,6 @@ const mockup = {
                 "active": false,
                 "woVendor": true
             }, {
-                "id": "86",
-                "name": "Best Fixture, Inc.",
-                "vendor": {
-                    "text": "Best Fixture, Inc.",
-                    "value": "12"
-                },
-                "url": "",
-                "email": "",
-                "initials": "BF",
-                "workorder": {
-                    "text": "Test Work Order - Mei",
-                    "value": "86"
-                },
-                "event": "100947",
-                "quantityRequired": 0,
-                "quantityAvailable": 0,
-                "purchaseOrder": {
-                    "text": " ",
-                    "value": ""
-                },
-                "amount": 0,
-                "active": false,
-                "woVendor": true
-            }, {
                 "id": "74",
                 "name": "Best Fixture, Inc.",
                 "vendor": {
@@ -412830,6 +413424,30 @@ const mockup = {
                 },
                 "event": "100942",
                 "quantityRequired": 1,
+                "quantityAvailable": 0,
+                "purchaseOrder": {
+                    "text": " ",
+                    "value": ""
+                },
+                "amount": 0,
+                "active": false,
+                "woVendor": true
+            }, {
+                "id": "86",
+                "name": "Best Fixture, Inc.",
+                "vendor": {
+                    "text": "Best Fixture, Inc.",
+                    "value": "12"
+                },
+                "url": "",
+                "email": "",
+                "initials": "BF",
+                "workorder": {
+                    "text": "Test Work Order - Mei",
+                    "value": "86"
+                },
+                "event": "100947",
+                "quantityRequired": 0,
                 "quantityAvailable": 0,
                 "purchaseOrder": {
                     "text": " ",
@@ -412863,7 +413481,7 @@ const mockup = {
                 "active": false,
                 "woVendor": true
             }, {
-                "id": "66",
+                "id": "75",
                 "name": "Bridgepoint Industries",
                 "vendor": {
                     "text": "Bridgepoint Industries",
@@ -412876,8 +413494,8 @@ const mockup = {
                     "text": "Test Work Order - Mei",
                     "value": "86"
                 },
-                "event": "100938",
-                "quantityRequired": 4,
+                "event": "100942",
+                "quantityRequired": 2,
                 "quantityAvailable": 20,
                 "purchaseOrder": {
                     "text": " ",
@@ -412959,7 +413577,7 @@ const mockup = {
                 "active": true,
                 "woVendor": true
             }, {
-                "id": "75",
+                "id": "66",
                 "name": "Bridgepoint Industries",
                 "vendor": {
                     "text": "Bridgepoint Industries",
@@ -412972,8 +413590,8 @@ const mockup = {
                     "text": "Test Work Order - Mei",
                     "value": "86"
                 },
-                "event": "100942",
-                "quantityRequired": 2,
+                "event": "100938",
+                "quantityRequired": 4,
                 "quantityAvailable": 20,
                 "purchaseOrder": {
                     "text": " ",
@@ -472562,30 +473180,6 @@ const mockup = {
                 "active": false,
                 "woVendor": true
             }, {
-                "id": "86",
-                "name": "Best Fixture, Inc.",
-                "vendor": {
-                    "text": "Best Fixture, Inc.",
-                    "value": "12"
-                },
-                "url": "",
-                "email": "",
-                "initials": "BF",
-                "workorder": {
-                    "text": "Test Work Order - Mei",
-                    "value": "86"
-                },
-                "event": "100947",
-                "quantityRequired": 0,
-                "quantityAvailable": 0,
-                "purchaseOrder": {
-                    "text": " ",
-                    "value": ""
-                },
-                "amount": 0,
-                "active": false,
-                "woVendor": true
-            }, {
                 "id": "74",
                 "name": "Best Fixture, Inc.",
                 "vendor": {
@@ -472601,6 +473195,30 @@ const mockup = {
                 },
                 "event": "100942",
                 "quantityRequired": 1,
+                "quantityAvailable": 0,
+                "purchaseOrder": {
+                    "text": " ",
+                    "value": ""
+                },
+                "amount": 0,
+                "active": false,
+                "woVendor": true
+            }, {
+                "id": "86",
+                "name": "Best Fixture, Inc.",
+                "vendor": {
+                    "text": "Best Fixture, Inc.",
+                    "value": "12"
+                },
+                "url": "",
+                "email": "",
+                "initials": "BF",
+                "workorder": {
+                    "text": "Test Work Order - Mei",
+                    "value": "86"
+                },
+                "event": "100947",
+                "quantityRequired": 0,
                 "quantityAvailable": 0,
                 "purchaseOrder": {
                     "text": " ",
@@ -472634,7 +473252,7 @@ const mockup = {
                 "active": false,
                 "woVendor": true
             }, {
-                "id": "66",
+                "id": "75",
                 "name": "Bridgepoint Industries",
                 "vendor": {
                     "text": "Bridgepoint Industries",
@@ -472647,8 +473265,8 @@ const mockup = {
                     "text": "Test Work Order - Mei",
                     "value": "86"
                 },
-                "event": "100938",
-                "quantityRequired": 4,
+                "event": "100942",
+                "quantityRequired": 2,
                 "quantityAvailable": 20,
                 "purchaseOrder": {
                     "text": " ",
@@ -472730,7 +473348,7 @@ const mockup = {
                 "active": true,
                 "woVendor": true
             }, {
-                "id": "75",
+                "id": "66",
                 "name": "Bridgepoint Industries",
                 "vendor": {
                     "text": "Bridgepoint Industries",
@@ -472743,8 +473361,8 @@ const mockup = {
                     "text": "Test Work Order - Mei",
                     "value": "86"
                 },
-                "event": "100942",
-                "quantityRequired": 2,
+                "event": "100938",
+                "quantityRequired": 4,
                 "quantityAvailable": 20,
                 "purchaseOrder": {
                     "text": " ",
@@ -473640,30 +474258,6 @@ const mockup = {
                 "active": false,
                 "woVendor": true
             }, {
-                "id": "86",
-                "name": "Best Fixture, Inc.",
-                "vendor": {
-                    "text": "Best Fixture, Inc.",
-                    "value": "12"
-                },
-                "url": "",
-                "email": "",
-                "initials": "BF",
-                "workorder": {
-                    "text": "Test Work Order - Mei",
-                    "value": "86"
-                },
-                "event": "100947",
-                "quantityRequired": 0,
-                "quantityAvailable": 0,
-                "purchaseOrder": {
-                    "text": " ",
-                    "value": ""
-                },
-                "amount": 0,
-                "active": false,
-                "woVendor": true
-            }, {
                 "id": "74",
                 "name": "Best Fixture, Inc.",
                 "vendor": {
@@ -473679,6 +474273,30 @@ const mockup = {
                 },
                 "event": "100942",
                 "quantityRequired": 1,
+                "quantityAvailable": 0,
+                "purchaseOrder": {
+                    "text": " ",
+                    "value": ""
+                },
+                "amount": 0,
+                "active": false,
+                "woVendor": true
+            }, {
+                "id": "86",
+                "name": "Best Fixture, Inc.",
+                "vendor": {
+                    "text": "Best Fixture, Inc.",
+                    "value": "12"
+                },
+                "url": "",
+                "email": "",
+                "initials": "BF",
+                "workorder": {
+                    "text": "Test Work Order - Mei",
+                    "value": "86"
+                },
+                "event": "100947",
+                "quantityRequired": 0,
                 "quantityAvailable": 0,
                 "purchaseOrder": {
                     "text": " ",
@@ -473712,7 +474330,7 @@ const mockup = {
                 "active": false,
                 "woVendor": true
             }, {
-                "id": "66",
+                "id": "75",
                 "name": "Bridgepoint Industries",
                 "vendor": {
                     "text": "Bridgepoint Industries",
@@ -473725,8 +474343,8 @@ const mockup = {
                     "text": "Test Work Order - Mei",
                     "value": "86"
                 },
-                "event": "100938",
-                "quantityRequired": 4,
+                "event": "100942",
+                "quantityRequired": 2,
                 "quantityAvailable": 20,
                 "purchaseOrder": {
                     "text": " ",
@@ -473808,7 +474426,7 @@ const mockup = {
                 "active": true,
                 "woVendor": true
             }, {
-                "id": "75",
+                "id": "66",
                 "name": "Bridgepoint Industries",
                 "vendor": {
                     "text": "Bridgepoint Industries",
@@ -473821,8 +474439,8 @@ const mockup = {
                     "text": "Test Work Order - Mei",
                     "value": "86"
                 },
-                "event": "100942",
-                "quantityRequired": 2,
+                "event": "100938",
+                "quantityRequired": 4,
                 "quantityAvailable": 20,
                 "purchaseOrder": {
                     "text": " ",
@@ -474718,30 +475336,6 @@ const mockup = {
                 "active": false,
                 "woVendor": true
             }, {
-                "id": "86",
-                "name": "Best Fixture, Inc.",
-                "vendor": {
-                    "text": "Best Fixture, Inc.",
-                    "value": "12"
-                },
-                "url": "",
-                "email": "",
-                "initials": "BF",
-                "workorder": {
-                    "text": "Test Work Order - Mei",
-                    "value": "86"
-                },
-                "event": "100947",
-                "quantityRequired": 0,
-                "quantityAvailable": 0,
-                "purchaseOrder": {
-                    "text": " ",
-                    "value": ""
-                },
-                "amount": 0,
-                "active": false,
-                "woVendor": true
-            }, {
                 "id": "74",
                 "name": "Best Fixture, Inc.",
                 "vendor": {
@@ -474757,6 +475351,30 @@ const mockup = {
                 },
                 "event": "100942",
                 "quantityRequired": 1,
+                "quantityAvailable": 0,
+                "purchaseOrder": {
+                    "text": " ",
+                    "value": ""
+                },
+                "amount": 0,
+                "active": false,
+                "woVendor": true
+            }, {
+                "id": "86",
+                "name": "Best Fixture, Inc.",
+                "vendor": {
+                    "text": "Best Fixture, Inc.",
+                    "value": "12"
+                },
+                "url": "",
+                "email": "",
+                "initials": "BF",
+                "workorder": {
+                    "text": "Test Work Order - Mei",
+                    "value": "86"
+                },
+                "event": "100947",
+                "quantityRequired": 0,
                 "quantityAvailable": 0,
                 "purchaseOrder": {
                     "text": " ",
@@ -474790,7 +475408,7 @@ const mockup = {
                 "active": false,
                 "woVendor": true
             }, {
-                "id": "66",
+                "id": "75",
                 "name": "Bridgepoint Industries",
                 "vendor": {
                     "text": "Bridgepoint Industries",
@@ -474803,8 +475421,8 @@ const mockup = {
                     "text": "Test Work Order - Mei",
                     "value": "86"
                 },
-                "event": "100938",
-                "quantityRequired": 4,
+                "event": "100942",
+                "quantityRequired": 2,
                 "quantityAvailable": 20,
                 "purchaseOrder": {
                     "text": " ",
@@ -474886,7 +475504,7 @@ const mockup = {
                 "active": true,
                 "woVendor": true
             }, {
-                "id": "75",
+                "id": "66",
                 "name": "Bridgepoint Industries",
                 "vendor": {
                     "text": "Bridgepoint Industries",
@@ -474899,8 +475517,8 @@ const mockup = {
                     "text": "Test Work Order - Mei",
                     "value": "86"
                 },
-                "event": "100942",
-                "quantityRequired": 2,
+                "event": "100938",
+                "quantityRequired": 4,
                 "quantityAvailable": 20,
                 "purchaseOrder": {
                     "text": " ",
@@ -475843,30 +476461,6 @@ const mockup = {
                 "active": false,
                 "woVendor": true
             }, {
-                "id": "86",
-                "name": "Best Fixture, Inc.",
-                "vendor": {
-                    "text": "Best Fixture, Inc.",
-                    "value": "12"
-                },
-                "url": "",
-                "email": "",
-                "initials": "BF",
-                "workorder": {
-                    "text": "Test Work Order - Mei",
-                    "value": "86"
-                },
-                "event": "100947",
-                "quantityRequired": 0,
-                "quantityAvailable": 0,
-                "purchaseOrder": {
-                    "text": " ",
-                    "value": ""
-                },
-                "amount": 0,
-                "active": false,
-                "woVendor": true
-            }, {
                 "id": "74",
                 "name": "Best Fixture, Inc.",
                 "vendor": {
@@ -475882,6 +476476,30 @@ const mockup = {
                 },
                 "event": "100942",
                 "quantityRequired": 1,
+                "quantityAvailable": 0,
+                "purchaseOrder": {
+                    "text": " ",
+                    "value": ""
+                },
+                "amount": 0,
+                "active": false,
+                "woVendor": true
+            }, {
+                "id": "86",
+                "name": "Best Fixture, Inc.",
+                "vendor": {
+                    "text": "Best Fixture, Inc.",
+                    "value": "12"
+                },
+                "url": "",
+                "email": "",
+                "initials": "BF",
+                "workorder": {
+                    "text": "Test Work Order - Mei",
+                    "value": "86"
+                },
+                "event": "100947",
+                "quantityRequired": 0,
                 "quantityAvailable": 0,
                 "purchaseOrder": {
                     "text": " ",
@@ -475915,7 +476533,7 @@ const mockup = {
                 "active": false,
                 "woVendor": true
             }, {
-                "id": "66",
+                "id": "75",
                 "name": "Bridgepoint Industries",
                 "vendor": {
                     "text": "Bridgepoint Industries",
@@ -475928,8 +476546,8 @@ const mockup = {
                     "text": "Test Work Order - Mei",
                     "value": "86"
                 },
-                "event": "100938",
-                "quantityRequired": 4,
+                "event": "100942",
+                "quantityRequired": 2,
                 "quantityAvailable": 20,
                 "purchaseOrder": {
                     "text": " ",
@@ -476011,7 +476629,7 @@ const mockup = {
                 "active": true,
                 "woVendor": true
             }, {
-                "id": "75",
+                "id": "66",
                 "name": "Bridgepoint Industries",
                 "vendor": {
                     "text": "Bridgepoint Industries",
@@ -476024,8 +476642,8 @@ const mockup = {
                     "text": "Test Work Order - Mei",
                     "value": "86"
                 },
-                "event": "100942",
-                "quantityRequired": 2,
+                "event": "100938",
+                "quantityRequired": 4,
                 "quantityAvailable": 20,
                 "purchaseOrder": {
                     "text": " ",
@@ -477020,30 +477638,6 @@ const mockup = {
                 "active": false,
                 "woVendor": true
             }, {
-                "id": "86",
-                "name": "Best Fixture, Inc.",
-                "vendor": {
-                    "text": "Best Fixture, Inc.",
-                    "value": "12"
-                },
-                "url": "",
-                "email": "",
-                "initials": "BF",
-                "workorder": {
-                    "text": "Test Work Order - Mei",
-                    "value": "86"
-                },
-                "event": "100947",
-                "quantityRequired": 0,
-                "quantityAvailable": 0,
-                "purchaseOrder": {
-                    "text": " ",
-                    "value": ""
-                },
-                "amount": 0,
-                "active": false,
-                "woVendor": true
-            }, {
                 "id": "74",
                 "name": "Best Fixture, Inc.",
                 "vendor": {
@@ -477059,6 +477653,30 @@ const mockup = {
                 },
                 "event": "100942",
                 "quantityRequired": 1,
+                "quantityAvailable": 0,
+                "purchaseOrder": {
+                    "text": " ",
+                    "value": ""
+                },
+                "amount": 0,
+                "active": false,
+                "woVendor": true
+            }, {
+                "id": "86",
+                "name": "Best Fixture, Inc.",
+                "vendor": {
+                    "text": "Best Fixture, Inc.",
+                    "value": "12"
+                },
+                "url": "",
+                "email": "",
+                "initials": "BF",
+                "workorder": {
+                    "text": "Test Work Order - Mei",
+                    "value": "86"
+                },
+                "event": "100947",
+                "quantityRequired": 0,
                 "quantityAvailable": 0,
                 "purchaseOrder": {
                     "text": " ",
@@ -477092,7 +477710,7 @@ const mockup = {
                 "active": false,
                 "woVendor": true
             }, {
-                "id": "66",
+                "id": "75",
                 "name": "Bridgepoint Industries",
                 "vendor": {
                     "text": "Bridgepoint Industries",
@@ -477105,8 +477723,8 @@ const mockup = {
                     "text": "Test Work Order - Mei",
                     "value": "86"
                 },
-                "event": "100938",
-                "quantityRequired": 4,
+                "event": "100942",
+                "quantityRequired": 2,
                 "quantityAvailable": 20,
                 "purchaseOrder": {
                     "text": " ",
@@ -477188,7 +477806,7 @@ const mockup = {
                 "active": true,
                 "woVendor": true
             }, {
-                "id": "75",
+                "id": "66",
                 "name": "Bridgepoint Industries",
                 "vendor": {
                     "text": "Bridgepoint Industries",
@@ -477201,8 +477819,8 @@ const mockup = {
                     "text": "Test Work Order - Mei",
                     "value": "86"
                 },
-                "event": "100942",
-                "quantityRequired": 2,
+                "event": "100938",
+                "quantityRequired": 4,
                 "quantityAvailable": 20,
                 "purchaseOrder": {
                     "text": " ",
@@ -478148,30 +478766,6 @@ const mockup = {
                 "active": false,
                 "woVendor": true
             }, {
-                "id": "86",
-                "name": "Best Fixture, Inc.",
-                "vendor": {
-                    "text": "Best Fixture, Inc.",
-                    "value": "12"
-                },
-                "url": "",
-                "email": "",
-                "initials": "BF",
-                "workorder": {
-                    "text": "Test Work Order - Mei",
-                    "value": "86"
-                },
-                "event": "100947",
-                "quantityRequired": 0,
-                "quantityAvailable": 0,
-                "purchaseOrder": {
-                    "text": " ",
-                    "value": ""
-                },
-                "amount": 0,
-                "active": false,
-                "woVendor": true
-            }, {
                 "id": "74",
                 "name": "Best Fixture, Inc.",
                 "vendor": {
@@ -478187,6 +478781,30 @@ const mockup = {
                 },
                 "event": "100942",
                 "quantityRequired": 1,
+                "quantityAvailable": 0,
+                "purchaseOrder": {
+                    "text": " ",
+                    "value": ""
+                },
+                "amount": 0,
+                "active": false,
+                "woVendor": true
+            }, {
+                "id": "86",
+                "name": "Best Fixture, Inc.",
+                "vendor": {
+                    "text": "Best Fixture, Inc.",
+                    "value": "12"
+                },
+                "url": "",
+                "email": "",
+                "initials": "BF",
+                "workorder": {
+                    "text": "Test Work Order - Mei",
+                    "value": "86"
+                },
+                "event": "100947",
+                "quantityRequired": 0,
                 "quantityAvailable": 0,
                 "purchaseOrder": {
                     "text": " ",
@@ -478220,7 +478838,7 @@ const mockup = {
                 "active": false,
                 "woVendor": true
             }, {
-                "id": "66",
+                "id": "75",
                 "name": "Bridgepoint Industries",
                 "vendor": {
                     "text": "Bridgepoint Industries",
@@ -478233,8 +478851,8 @@ const mockup = {
                     "text": "Test Work Order - Mei",
                     "value": "86"
                 },
-                "event": "100938",
-                "quantityRequired": 4,
+                "event": "100942",
+                "quantityRequired": 2,
                 "quantityAvailable": 20,
                 "purchaseOrder": {
                     "text": " ",
@@ -478316,7 +478934,7 @@ const mockup = {
                 "active": true,
                 "woVendor": true
             }, {
-                "id": "75",
+                "id": "66",
                 "name": "Bridgepoint Industries",
                 "vendor": {
                     "text": "Bridgepoint Industries",
@@ -478329,8 +478947,8 @@ const mockup = {
                     "text": "Test Work Order - Mei",
                     "value": "86"
                 },
-                "event": "100942",
-                "quantityRequired": 2,
+                "event": "100938",
+                "quantityRequired": 4,
                 "quantityAvailable": 20,
                 "purchaseOrder": {
                     "text": " ",
@@ -479298,30 +479916,6 @@ const mockup = {
                 "active": false,
                 "woVendor": true
             }, {
-                "id": "86",
-                "name": "Best Fixture, Inc.",
-                "vendor": {
-                    "text": "Best Fixture, Inc.",
-                    "value": "12"
-                },
-                "url": "",
-                "email": "",
-                "initials": "BF",
-                "workorder": {
-                    "text": "Test Work Order - Mei",
-                    "value": "86"
-                },
-                "event": "100947",
-                "quantityRequired": 0,
-                "quantityAvailable": 0,
-                "purchaseOrder": {
-                    "text": " ",
-                    "value": ""
-                },
-                "amount": 0,
-                "active": false,
-                "woVendor": true
-            }, {
                 "id": "74",
                 "name": "Best Fixture, Inc.",
                 "vendor": {
@@ -479337,6 +479931,30 @@ const mockup = {
                 },
                 "event": "100942",
                 "quantityRequired": 1,
+                "quantityAvailable": 0,
+                "purchaseOrder": {
+                    "text": " ",
+                    "value": ""
+                },
+                "amount": 0,
+                "active": false,
+                "woVendor": true
+            }, {
+                "id": "86",
+                "name": "Best Fixture, Inc.",
+                "vendor": {
+                    "text": "Best Fixture, Inc.",
+                    "value": "12"
+                },
+                "url": "",
+                "email": "",
+                "initials": "BF",
+                "workorder": {
+                    "text": "Test Work Order - Mei",
+                    "value": "86"
+                },
+                "event": "100947",
+                "quantityRequired": 0,
                 "quantityAvailable": 0,
                 "purchaseOrder": {
                     "text": " ",
@@ -479370,7 +479988,7 @@ const mockup = {
                 "active": false,
                 "woVendor": true
             }, {
-                "id": "66",
+                "id": "75",
                 "name": "Bridgepoint Industries",
                 "vendor": {
                     "text": "Bridgepoint Industries",
@@ -479383,8 +480001,8 @@ const mockup = {
                     "text": "Test Work Order - Mei",
                     "value": "86"
                 },
-                "event": "100938",
-                "quantityRequired": 4,
+                "event": "100942",
+                "quantityRequired": 2,
                 "quantityAvailable": 20,
                 "purchaseOrder": {
                     "text": " ",
@@ -479466,7 +480084,7 @@ const mockup = {
                 "active": true,
                 "woVendor": true
             }, {
-                "id": "75",
+                "id": "66",
                 "name": "Bridgepoint Industries",
                 "vendor": {
                     "text": "Bridgepoint Industries",
@@ -479479,8 +480097,8 @@ const mockup = {
                     "text": "Test Work Order - Mei",
                     "value": "86"
                 },
-                "event": "100942",
-                "quantityRequired": 2,
+                "event": "100938",
+                "quantityRequired": 4,
                 "quantityAvailable": 20,
                 "purchaseOrder": {
                     "text": " ",
@@ -480661,30 +481279,6 @@ const mockup = {
                 "active": false,
                 "woVendor": true
             }, {
-                "id": "86",
-                "name": "Best Fixture, Inc.",
-                "vendor": {
-                    "text": "Best Fixture, Inc.",
-                    "value": "12"
-                },
-                "url": "",
-                "email": "",
-                "initials": "BF",
-                "workorder": {
-                    "text": "Test Work Order - Mei",
-                    "value": "86"
-                },
-                "event": "100947",
-                "quantityRequired": 0,
-                "quantityAvailable": 0,
-                "purchaseOrder": {
-                    "text": " ",
-                    "value": ""
-                },
-                "amount": 0,
-                "active": false,
-                "woVendor": true
-            }, {
                 "id": "74",
                 "name": "Best Fixture, Inc.",
                 "vendor": {
@@ -480700,6 +481294,30 @@ const mockup = {
                 },
                 "event": "100942",
                 "quantityRequired": 1,
+                "quantityAvailable": 0,
+                "purchaseOrder": {
+                    "text": " ",
+                    "value": ""
+                },
+                "amount": 0,
+                "active": false,
+                "woVendor": true
+            }, {
+                "id": "86",
+                "name": "Best Fixture, Inc.",
+                "vendor": {
+                    "text": "Best Fixture, Inc.",
+                    "value": "12"
+                },
+                "url": "",
+                "email": "",
+                "initials": "BF",
+                "workorder": {
+                    "text": "Test Work Order - Mei",
+                    "value": "86"
+                },
+                "event": "100947",
+                "quantityRequired": 0,
                 "quantityAvailable": 0,
                 "purchaseOrder": {
                     "text": " ",
@@ -480733,7 +481351,7 @@ const mockup = {
                 "active": false,
                 "woVendor": true
             }, {
-                "id": "66",
+                "id": "75",
                 "name": "Bridgepoint Industries",
                 "vendor": {
                     "text": "Bridgepoint Industries",
@@ -480746,8 +481364,8 @@ const mockup = {
                     "text": "Test Work Order - Mei",
                     "value": "86"
                 },
-                "event": "100938",
-                "quantityRequired": 4,
+                "event": "100942",
+                "quantityRequired": 2,
                 "quantityAvailable": 20,
                 "purchaseOrder": {
                     "text": " ",
@@ -480829,7 +481447,7 @@ const mockup = {
                 "active": true,
                 "woVendor": true
             }, {
-                "id": "75",
+                "id": "66",
                 "name": "Bridgepoint Industries",
                 "vendor": {
                     "text": "Bridgepoint Industries",
@@ -480842,8 +481460,8 @@ const mockup = {
                     "text": "Test Work Order - Mei",
                     "value": "86"
                 },
-                "event": "100942",
-                "quantityRequired": 2,
+                "event": "100938",
+                "quantityRequired": 4,
                 "quantityAvailable": 20,
                 "purchaseOrder": {
                     "text": " ",
@@ -484738,55 +485356,9 @@ const mockup = {
                 "text": "Installer",
                 "value": "1"
             }],
-            "color": "#9cbb03",
+            "color": "#1f013a",
             "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1312%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-            "events": ["100932"],
-            "selected": true
-        }, {
-            "id": "1647",
-            "name": "Mei Matriano",
-            "initials": "MM",
-            "email": "mei@erpsuccesspartners.com",
-            "phone": "",
-            "location": {
-                "text": "",
-                "value": ""
-            },
-            "active": true,
-            "resourceGroups": [{
-                "text": "Designers",
-                "value": "2"
-            }],
-            "types": [{
-                "text": "Installer",
-                "value": "1"
-            }],
-            "color": "#a6d690",
-            "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1647%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-            "events": ["100847", "100932"],
-            "selected": true
-        }, {
-            "id": "1656",
-            "name": "Youssef Ezz",
-            "initials": "YE",
-            "email": "yk@erpsuccesspartners.com",
-            "phone": "",
-            "location": {
-                "text": "",
-                "value": ""
-            },
-            "active": true,
-            "resourceGroups": [{
-                "text": "Installers",
-                "value": "1"
-            }],
-            "types": [{
-                "text": "Installer",
-                "value": "1"
-            }],
-            "color": "#6cc3f3",
-            "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1656%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-            "events": ["100921", "100932"],
+            "events": ["100932", "100951"],
             "selected": true
         }],
         "vendors": [{
@@ -484972,6 +485544,174 @@ const mockup = {
             "value": "1647"
         }
     }, {
+        "id": "100951",
+        "title": "TEST 123",
+        "workorder": {
+            "text": "",
+            "value": ""
+        },
+        "location": "",
+        "status": {
+            "text": "Tentative",
+            "value": "TENTATIVE",
+            "code": "bg-secondary"
+        },
+        "date": {
+            "recurrence": "one time event on 10/30/2024",
+            "start": "2024-10-30",
+            "end": "2024-10-30"
+        },
+        "time": {
+            "start": "08:00",
+            "end": "18:00"
+        },
+        "priority": {
+            "text": "Low",
+            "value": "1",
+            "code": "#026adf"
+        },
+        "note": "1\n2\n3\n4\n5",
+        "url": "/app/crm/calendar/event.nl?id=100951&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {},
+        "resources": [{
+            "id": "1312",
+            "name": "Gary Grant",
+            "initials": "GG",
+            "email": "garygrant@ramsey.com",
+            "phone": "(873) 775-6114",
+            "location": {
+                "text": "02: Boston",
+                "value": "1"
+            },
+            "active": true,
+            "resourceGroups": [{
+                "text": "Installers",
+                "value": "1"
+            }],
+            "types": [{
+                "text": "Installer",
+                "value": "1"
+            }],
+            "color": "#1f013a",
+            "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1312%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
+            "events": ["100932", "100951"],
+            "selected": true
+        }, {
+            "id": "1647",
+            "name": "Mei Matriano",
+            "initials": "MM",
+            "email": "mei@erpsuccesspartners.com",
+            "phone": "",
+            "location": {
+                "text": "",
+                "value": ""
+            },
+            "active": true,
+            "resourceGroups": [{
+                "text": "Designers",
+                "value": "2"
+            }],
+            "types": [{
+                "text": "Installer",
+                "value": "1"
+            }],
+            "color": "#376dcb",
+            "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1647%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
+            "events": ["100847", "100951"],
+            "selected": true
+        }, {
+            "id": "1656",
+            "name": "Youssef Ezz",
+            "initials": "YE",
+            "email": "yk@erpsuccesspartners.com",
+            "phone": "",
+            "location": {
+                "text": "",
+                "value": ""
+            },
+            "active": true,
+            "resourceGroups": [{
+                "text": "Installers",
+                "value": "1"
+            }],
+            "types": [{
+                "text": "Installer",
+                "value": "1"
+            }],
+            "color": "#39ec73",
+            "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1656%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
+            "events": ["100921", "100951"],
+            "selected": true
+        }],
+        "vendors": [{
+            "id": "97",
+            "name": "Best Fixture, Inc.",
+            "vendor": {
+                "text": "Best Fixture, Inc.",
+                "value": "12"
+            },
+            "url": "",
+            "email": "",
+            "initials": "BF",
+            "workorder": {
+                "text": "",
+                "value": ""
+            },
+            "event": "100951",
+            "quantityRequired": 0,
+            "quantityAvailable": 0,
+            "purchaseOrder": {
+                "text": " ",
+                "value": ""
+            },
+            "amount": 0,
+            "active": false,
+            "woVendor": true,
+            "selected": true
+        }, {
+            "id": "96",
+            "name": "Bridgepoint Industries",
+            "vendor": {
+                "text": "Bridgepoint Industries",
+                "value": "1473"
+            },
+            "url": "http://www.bridgepointindustries.com.de",
+            "email": "support@bridgempointindustries.com.de",
+            "initials": "BI",
+            "workorder": {
+                "text": "",
+                "value": ""
+            },
+            "event": "100951",
+            "quantityRequired": 2,
+            "quantityAvailable": 20,
+            "purchaseOrder": {
+                "text": " ",
+                "value": ""
+            },
+            "amount": 0,
+            "active": true,
+            "woVendor": true,
+            "selected": true
+        }],
+        "assets": [],
+        "items": [],
+        "contacts": [],
+        "addresses": [],
+        "contact": {
+            "text": "",
+            "value": ""
+        },
+        "address": {
+            "text": "",
+            "value": ""
+        },
+        "organizer": {
+            "text": "Lean  cendana",
+            "value": "1765"
+        }
+    }, {
         "id": "100949",
         "title": "TEST GENERAL EVENT",
         "workorder": {
@@ -484990,8 +485730,8 @@ const mockup = {
             "end": "2024-10-31"
         },
         "time": {
-            "start": "08:00",
-            "end": "18:00"
+            "start": "16:00",
+            "end": "22:00"
         },
         "priority": {
             "text": "Urgent",
@@ -485002,7 +485742,77 @@ const mockup = {
         "url": "/app/crm/calendar/event.nl?id=100949&compid=TSTDRV2617106&selectedtab=custom337",
         "color": "#1a6756",
         "woRef": {},
-        "resources": [],
+        "resources": [{
+            "id": "1770",
+            "name": "Arun Sharma",
+            "initials": "AS",
+            "email": "aruns.unlock2go@gmail.com",
+            "phone": "",
+            "location": {
+                "text": "",
+                "value": ""
+            },
+            "active": true,
+            "resourceGroups": [{
+                "text": "Designers",
+                "value": "2"
+            }, {
+                "text": "Drivers",
+                "value": "3"
+            }, {
+                "text": "Installers",
+                "value": "1"
+            }],
+            "types": [{
+                "text": "Delivery Driver",
+                "value": "2"
+            }, {
+                "text": "Designer",
+                "value": "3"
+            }, {
+                "text": "Installer",
+                "value": "1"
+            }],
+            "color": "#39218b",
+            "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1770%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
+            "events": ["100681", "100949"],
+            "selected": true
+        }, {
+            "id": "1767",
+            "name": "Bea Dashboards",
+            "initials": "BD",
+            "email": "beatrice.q@erpsuccesspartners.com",
+            "phone": "",
+            "location": {
+                "text": "01: San Francisco",
+                "value": "2"
+            },
+            "active": true,
+            "resourceGroups": [{
+                "text": "Designers",
+                "value": "2"
+            }, {
+                "text": "Drivers",
+                "value": "3"
+            }, {
+                "text": "Installers",
+                "value": "1"
+            }],
+            "types": [{
+                "text": "Delivery Driver",
+                "value": "2"
+            }, {
+                "text": "Designer",
+                "value": "3"
+            }, {
+                "text": "Installer",
+                "value": "1"
+            }],
+            "color": "#2ae294",
+            "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1767%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
+            "events": ["100681", "100949"],
+            "selected": true
+        }],
         "vendors": [{
             "id": "89",
             "name": "Best Fixture, Inc.",

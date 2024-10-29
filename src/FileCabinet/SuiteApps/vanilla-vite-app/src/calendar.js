@@ -512,7 +512,7 @@ export default class Calendar {
     this._removeToolTip();
 
     const payload = {};
-    payload.eventData = JSON.parse(JSON.stringify(info.event.extendedProps));
+    payload.eventData = deepCopy(info.event.extendedProps);
     payload.eventDataSrc = events.find(event => event.id == payload.eventData.id) || {};
     const startSplit = moment(info.event.startStr).format('YYYY-MM-DDTHH:mm').split('T');
     payload.eventData.date.start = startSplit[0];

@@ -250,8 +250,7 @@ $(document).ready(() => {
     </div>
   </div>`);
 
-  window.openEventModal = (ev, woId, eventId, prefillData, test) => {
-    console.log('Test', test)
+  window.openEventModal = (ev, woId, eventId, prefillData) => {
     if (ev) {
       const dataTransfer = ev?.dataTransfer;
       if (dataTransfer) {
@@ -650,6 +649,18 @@ $(document).ready(() => {
     payload.eventData.selectedAddress = woRef.addresses.find(address => address.id == addressId) || {};
     payload.eventData.contacts = woRef.contacts;
     payload.eventData.addresses = woRef.addresses;
+
+    // TBD
+    /* const startDate = moment(payload.eventData.date.start);
+    const endDate = moment(payload.eventData.date.end);
+    const startTime = moment(payload.eventData.time.start);
+    const endTime = moment(payload.eventData.time.end);
+    const conflictEvents = events.filter(event => {
+      return (moment(event.date.end).isBetween(startDate, endDate, null, '[]') ||  moment(event.date.start).isSameOrBefore(startDate) && moment(event.date.end).isSameOrAfter(endDate))
+      && moment(event.time.start).isSameOrAfter(endTime) && moment(event.time.end).isSameOrBefore(endTime)
+    });
+
+    console.log('conflictEvents', conflictEvents); */
   
     if (mode == 'create') {
       Event.createEventRecord(payload, 'eventModal');
