@@ -107,7 +107,7 @@ $(document).ready(() => {
               <div class="accordion-item">
                 <h2 class="accordion-header" id="generalEventHeading2nd">
                   <button class="accordion-button" type="button" data-toggle="collapse" data-target="#generalEventCollapse2nd" aria-expanded="true" aria-controls="generalEventCollapse2nd">
-                    <strong class="table-header">Select Available Resources</strong>
+                    <strong class="table-header">Available Resources</strong>
                   </button>
                 </h2>
                 <div id="generalEventCollapse2nd" class="accordion-collapse collapse show" aria-labelledby="generalEventHeading2nd" data-parent="#generalEvent2ndAccordion">
@@ -129,7 +129,7 @@ $(document).ready(() => {
               <div class="accordion-item">
                 <h2 class="accordion-header" id="generalEventHeading3rd">
                   <button class="accordion-button" type="button" data-toggle="collapse" data-target="#generalEventCollapse3rd" aria-expanded="true" aria-controls="generalEventCollapse3rd">
-                    <strong class="table-header">Work Order Vendors</strong>
+                    <strong class="table-header">Vendor Subcontractors</strong>
                   </button>
                 </h2>
                 <div id="generalEventCollapse3rd" class="accordion-collapse collapse show" aria-labelledby="generalEventHeading3rd" data-parent="#generalEvent3rdAccordion">
@@ -151,7 +151,7 @@ $(document).ready(() => {
               <div class="accordion-item">
                 <h2 class="accordion-header" id="generalEventHeading4th">
                   <button class="accordion-button" type="button" data-toggle="collapse" data-target="#generalEventCollapse4th" aria-expanded="true" aria-controls="generalEventCollapse4th">
-                    <strong class="table-header">Work Order Assets</strong>
+                    <strong class="table-header">Assets & Equipments</strong>
                   </button>
                 </h2>
                 <div id="generalEventCollapse4th" class="accordion-collapse collapse show" aria-labelledby="generalEventHeading4th" data-parent="#generalEvent4thAccordion">

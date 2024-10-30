@@ -113,7 +113,7 @@ $(document).ready(() => {
               <div class="accordion-item">
                 <h2 class="accordion-header" id="eventHeading2nd">
                   <button class="accordion-button" type="button" data-toggle="collapse" data-target="#collapse2nd" aria-expanded="true" aria-controls="collapse2nd">
-                    <strong class="table-header">Select Available Resources</strong>
+                    <strong class="table-header">Available Resources</strong>
                   </button>
                 </h2>
                 <div id="collapse2nd" class="accordion-collapse collapse show" aria-labelledby="eventHeading2nd" data-parent="#event2ndAccordion">
@@ -135,7 +135,7 @@ $(document).ready(() => {
               <div class="accordion-item">
                 <h2 class="accordion-header" id="eventHeading3rd">
                   <button class="accordion-button" type="button" data-toggle="collapse" data-target="#collapse3rd" aria-expanded="true" aria-controls="collapse3rd">
-                    <strong class="table-header">Work Order Vendors</strong>
+                    <strong class="table-header">Vendor Subcontractors</strong>
                   </button>
                 </h2>
                 <div id="collapse3rd" class="accordion-collapse collapse show" aria-labelledby="eventHeading3rd" data-parent="#event3rdAccordion">
@@ -157,7 +157,7 @@ $(document).ready(() => {
               <div class="accordion-item">
                 <h2 class="accordion-header" id="eventHeading4th">
                   <button class="accordion-button" type="button" data-toggle="collapse" data-target="#collapse4th" aria-expanded="true" aria-controls="collapse4th">
-                    <strong class="table-header">Work Order Assets</strong>
+                    <strong class="table-header">Assets & Equipments</strong>
                   </button>
                 </h2>
                 <div id="collapse4th" class="accordion-collapse collapse show" aria-labelledby="eventHeading4th" data-parent="#event4thAccordion">
