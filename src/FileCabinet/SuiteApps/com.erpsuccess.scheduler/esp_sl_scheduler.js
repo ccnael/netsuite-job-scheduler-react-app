@@ -24,7 +24,7 @@ define([
       const mode = params?.mode;
       log.audit('----- [START] -----', { mode });
 
-      if (method == 'GET') {
+      if (method === 'GET') {
         switch (mode) {
           case 'rescheduleEvent':
             break;
@@ -50,7 +50,7 @@ define([
             runApp(scriptContext);
             break;
         }
-      } else if (method == 'POST') {
+      } else if (method === 'POST') {
         switch (mode) {
           case 'createEventRecord':
             mod.Event.createEventRecord(scriptContext);
@@ -76,13 +76,10 @@ define([
       // Fetch needed data
       const workOrders = mod.WorkOrder.getList();
       const events = mod.Event.getList(); // Includes standalone/general events
-
       const customers = mod.WorkOrder.getCustomers(workOrders);
-      const resources = mod.Resource.getEmployees();
-      const resourceGroups = mod.Resource.getResourceGroups(resources);
-
-      const woVendors = mod.WorkOrderVendor.getList(workOrders, events); // Needed in general events
-      const woAsset = mod.WorkOrderAsset.getList(workOrders, events); // Needed in general events
+      const woResources = mod.WorkOrderResource.getList(workOrders, events);
+      const woVendors = mod.WorkOrderVendor.getList(workOrders, events);
+      const woAsset = mod.WorkOrderAsset.getList(workOrders, events);
       const woItems = mod.WorkOrderItem.getList(workOrders);
       const woContacts = mod.WorkOrderContact.getList(workOrders);
       const woAddresses = mod.WorkOrderAddress.getList(workOrders);
@@ -95,12 +92,17 @@ define([
       );
 
       mod.WorkOrder.fullMap(workOrders, events, woVendors, woAsset, woItems, woContacts, woAddresses);
-      mod.Event.fullMap(workOrders, events, resources, woVendors, woAsset, woItems, woContacts, woAddresses);
+      mod.Event.fullMap(workOrders, events, woResources, woVendors, woAsset, woItems, woContacts, woAddresses);
 
+      const resources = mod.Resource.getEmployees(events);
+      const resourceGroups = mod.Resource.getResourceGroups(resources);
       const vendors = mod.Resource.getVendors(events);
       const assets = mod.Resource.getAssetsAndEquipments(events);
+
+      const sampleWOs = workOrders.filter(wo => +wo.id > 65);
+      const sampleEvents = events.filter(event => event.id.match(/1009/g));
       
-      mod.Utils.createLogFile('mockupDataSet', JSON.stringify({ suiteletUrl, workOrders, customers, resources, resourceGroups, vendors, assets, events, woContacts, woAddresses, organizers }), 2199);
+      mod.Utils.createLogFile('mockupDataSet', JSON.stringify({ suiteletUrl, workOrders: sampleWOs, customers, resources, resourceGroups, woResources, vendors, assets, events: sampleEvents, woContacts, woAddresses, organizers }), 2199);
 
       const fileObj = {
         template: file.load('./vanilla-vite-app-bundle/index.html'),
@@ -118,6 +120,7 @@ define([
         .replace('{{customers}}', encodeURIComponent(JSON.stringify(customers)))
         .replace('{{resources}}', encodeURIComponent(JSON.stringify(resources)))
         .replace('{{resourceGroups}}', encodeURIComponent(JSON.stringify(resourceGroups)))
+        .replace('{{woResources}}', encodeURIComponent(JSON.stringify(woResources)))
         .replace('{{assets}}', encodeURIComponent(JSON.stringify(assets)))
         .replace('{{vendors}}', encodeURIComponent(JSON.stringify(vendors)))
         .replace('{{events}}', encodeURIComponent(JSON.stringify(events)))
