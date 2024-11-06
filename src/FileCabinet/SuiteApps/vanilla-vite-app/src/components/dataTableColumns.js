@@ -5,10 +5,15 @@ export const resourcesDtColumns = [
         <input type="checkbox" class="form-check-input" style="left: 30px" onclick="markAll(event);">
       </div>`,
     render: (_data, _type, row, _meta) => `<div class="form-group form-check container d-flex justify-content-center">
-        <input recordId="${row.id}" type="checkbox" class="form-check-input dt-line-select" ${row.selected?'checked':''}>
+        <input recordId="${row.id}" employeeId="${row.employee.value}" type="checkbox" class="form-check-input dt-line-select" ${row.selected?'checked':''}>
       </div>`,
     width: "5%",
     orderable: false
+  },
+  {
+    className: 'dt-head-center dt-body-center',
+    data: 'id',
+    title: 'ID'
   },
   {
     className: 'dt-head-center',
@@ -49,26 +54,31 @@ export const vendorsDtColumns = [
     width: "5%",
     orderable: false
   },
+  /* {
+    className: 'dt-head-center dt-body-center',
+    data: 'id',
+    title: 'ID'
+  }, */
   {
-    className: 'dt-head-center',
-    data: 'name',
+    className: 'dt-head-center dt-body-center',
+    render: (_data, _type, row, _meta) => row?.vendor?.text || row.name,
     title: 'Vendor'
   },
   {
     className: 'dt-head-center dt-body-center',
-    render: (_data, _type, row, _meta) => `<input type="number" class="quantity quantityRequired" value="${row.quantityRequired || 0}" min="0" max="${row.quantityAvailable}" required />`,
+    render: (_data, _type, row, _meta) => `<input type="number" class="quantity quantityRequired" value="${row.quantityRequired || 0}" min="0" required />`,
     title: 'Manpower Required'
   },
   {
     className: 'dt-head-center dt-body-center',
-    data: 'quantityAvailable',
-    title: 'Manpower Available'
+    render: (_data, _type, row, _meta) => `<textarea class="form-control note" rows="3">${row.memo}</textarea>`,
+    title: 'Comments'
   },
-  {
+  /* {
     className: 'dt-head-center dt-body-center',
-    data: 'purchaseorder.text',
+    data: 'purchaseOrder.text',
     title: 'Purchase Order'
-  }
+  } */
 ];
 
 export const assetsDtColumns = [
@@ -83,15 +93,20 @@ export const assetsDtColumns = [
     width: "5%",
     orderable: false
   },
-  {
+  /* {
     className: 'dt-head-center dt-body-center',
     data: 'id',
     title: 'ID'
-  },
+  }, */
   {
-    className: 'dt-head-center',
+    className: 'dt-head-center dt-body-center',
     data: 'name',
     title: 'Item Code'
+  },
+  {
+    className: 'dt-head-center dt-body-center',
+    data: 'description',
+    title: 'Description'
   },
   {
     className: 'dt-head-center dt-body-center',
@@ -100,38 +115,8 @@ export const assetsDtColumns = [
   },
   {
     className: 'dt-head-center dt-body-center',
-    render: (_data, _type, row, _meta) => `<input type="number" class="quantity" value="${row?.quantity || 0}" min="0" max="${row?.quantity || 0}" required />`,
+    render: (_data, _type, row, _meta) => `<input type="number" class="quantity" value="${row?.quantity || 0}" min="0" required />`,
     title: 'Quantity'
-  },
-  {
-    className: 'dt-head-center dt-body-center',
-    render: (_data, _type, row, _meta) => `${row.owned ? 'Yes' : 'No'}`,
-    title: 'Owned?'
-  },
-  {
-    className: 'dt-head-center dt-body-center',
-    data: 'vendor.text',
-    title: 'Vendor'
-  },
-  {
-    className: 'dt-head-center dt-body-center',
-    data: 'rentalUnit.text',
-    title: 'Rental Unit'
-  },
-  {
-    className: 'dt-head-center dt-body-center',
-    data: 'rentalDuration',
-    title: 'Duration'
-  },
-  {
-    className: 'dt-head-center dt-body-center',
-    data: 'rentalRate',
-    title: 'Rate'
-  },
-  {
-    className: 'dt-head-center dt-body-center',
-    data: 'rentalAmount',
-    title: 'Amount'
   }
 ];
 
@@ -147,11 +132,11 @@ export const itemsDtColumns = [
     width: "5%",
     orderable: false
   },
-  {
+  /* {
     className: 'dt-head-center dt-body-center',
     data: 'id',
     title: 'ID'
-  },
+  }, */
   {
     className: 'dt-head-center dt-body-center',
     data: 'item.text',
@@ -185,18 +170,23 @@ export const contactsDtColumns = [
     width: "5%",
     orderable: false
   },
+  /* {
+    className: 'dt-head-center dt-body-center',
+    data: 'id',
+    title: 'ID'
+  }, */
   {
     className: 'dt-head-center dt-body-center',
     data: 'name',
     title: 'Name'
   },
   {
-    className: 'dt-head-center',
+    className: 'dt-head-center dt-body-center',
     data: 'email',
     title: 'Email'
   },
   {
-    className: 'dt-head-center',
+    className: 'dt-head-center dt-body-center',
     data: 'jobTitle',
     title: 'Job Title'
   },
@@ -212,7 +202,8 @@ export const contactsDtColumns = [
   }
 ];
 
-export const addressesDtColumns = [{
+export const addressesDtColumns = [
+  {
     className: 'dt-head-center dr-body-center',
     title: ``,
     render: (_data, _type, row, _meta) => `<div class="form-group form-check container d-flex justify-content-center">
@@ -222,18 +213,23 @@ export const addressesDtColumns = [{
     width: "5%",
     orderable: false
   },
+  /* {
+    className: 'dt-head-center dt-body-center',
+    data: 'id',
+    title: 'ID'
+  }, */
   {
     className: 'dt-head-center dt-body-center',
     data: 'customer.text',
     title: 'Customer'
   },
   {
-    className: 'dt-head-center',
+    className: 'dt-head-center dt-body-center',
     data: 'address.text',
     title: 'Address'
   },
   {
-    className: 'dt-head-center',
+    className: 'dt-head-center dt-body-center',
     data: 'addressDetails',
     title: 'Full Address'
   }
@@ -245,7 +241,7 @@ export const addressesDtColumns = [{
 export const ceTimeSheetsDtColumns = [
   {
     className: 'dt-head-center resourceName',
-    render: (_data, _type, row, _meta) => `<p recordId="${row.id}" locationId="${row.location.value}">${row.name}</p>`,
+    render: (_data, _type, row, _meta) => `<p recordId="${row.employee.value}" locationId="${row.location.value}">${row.name}</p>`,
     title: 'Name'
   },
   {
@@ -272,11 +268,11 @@ export const ceTimeSheetsDtColumns = [
     className: 'dt-head-center',
     render: () => `
       <div class="ts-input-container">
-        <input type="number" placeholder="hrs" class="reg-hrs" min="0" max="12" />
-        <input type="number" placeholder="min" class="reg-mins" min="0" max="60" />
+        <input type="number" placeholder="hrs" class="st-hrs" min="0" max="12" />
+        <input type="number" placeholder="min" class="st-mins" min="0" max="60" />
       </div>
     `,
-    title: 'Reg'
+    title: 'ST'
   },
   {
     className: 'dt-head-center',
@@ -317,6 +313,11 @@ export const ceItemsDtColumns = [
     width: "5%",
     orderable: false
   },
+  /* {
+    className: 'dt-head-center dt-body-center',
+    data: 'id',
+    title: 'ID'
+  }, */
   {
     className: 'dt-head-center dt-body-center lineId',
     data: 'line',
@@ -346,22 +347,22 @@ export const ceItemsDtColumns = [
 
 export const cePunchItemsDtColumns = [
   {
-    className: 'dt-head-center dt-body-left',
+    className: 'dt-head-center dt-body-center',
     data: 'status.text',
     title: 'Status'
   },
   {
-    className: 'dt-head-center',
+    className: 'dt-head-center dt-body-center',
     data: 'reason',
     title: 'Reason'
   },
   {
-    className: 'dt-head-center',
+    className: 'dt-head-center dt-body-center',
     data: 'description',
     title: 'Description'
   },
   {
-    className: 'dt-head-center',
+    className: 'dt-head-center dt-body-center',
     data: 'resolution',
     title: 'Resolution'
   },

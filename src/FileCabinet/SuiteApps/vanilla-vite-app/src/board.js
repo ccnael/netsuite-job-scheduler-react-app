@@ -67,8 +67,8 @@ export default class Board {
                         </h2>
                         <div id="resourceGroup-${resourceGroup.value}-filter-table" class="accordion-collapse collapse show" aria-labelledby="resourceGroup-${resourceGroup.value}-filter-tableHeading" data-parent="#resourceGroup-${resourceGroup.value}-filter-tableWrapper">
                           ${resourceGroup.resources.map(resource => `
-                          <div class="person-container" id="${resource.id}">
-                            <div class="person-circle" 
+                          <div class="person-container cursor-grab" resourceType="employee" id="${resource.id}">
+                            <div draggable=${!!(resource.active) ? "true" : "false"} ondragstart="dragResourceFunctions(event);" ondragend="dragResourceFunctions(event);" class="person-circle" 
                                   data-bs-toggle="tooltip" 
                                   data-bs-placement="right" 
                                   title="<strong>${resource.name}</strong><br/>
@@ -101,8 +101,8 @@ export default class Board {
                         </h2>
                         <div id="resourceGroup-vendor-filter-table" class="accordion-collapse collapse show" aria-labelledby="resourceGroup-vendor-filter-tableHeading" data-parent="#resourceGroup-vendor-filter-tableWrapper">
                           ${vendors.map(vendor => `
-                          <div class="person-container" id="${vendor.id}">
-                            <div class="person-circle" 
+                          <div class="person-container" resourceType="vendor" id="${vendor.id}">
+                            <div draggable="true" ondragstart="dragResourceFunctions(event);" ondragend="dragResourceFunctions(event);" class="person-circle" 
                                   data-bs-toggle="tooltip" 
                                   data-bs-placement="right" 
                                   title="<strong>${vendor.name}</strong><br/>
@@ -123,7 +123,7 @@ export default class Board {
                 </div>
               </aside>
               <div class="collapse-btn">
-                <i class="fa-solid fa-square-caret-left toggleLeft"></i>
+                <i class="fa-solid fa-angle-left toggleLeft"></i>
               </div>
               <div class="grid-container">
                 <!-- Resizable Second Column -->
@@ -174,7 +174,7 @@ export default class Board {
                     </div>
                     <div class="card-wrapper">
                       ${workOrders.map(wo => `
-                        <div class="card-item" id="${wo.id}" draggable="true" ondragstart="dragFunctions(event);" ondragend="dragFunctions(event);">
+                        <div type="workorder" class="card-item" id="${wo.id}" draggable="true" ondragstart="dragJobFunctions(event);" ondragend="dragJobFunctions(event);">
                           <div class="card-head">
                             <div class="card-name"><a href="${wo.woUrl}" target="_blank"><strong>${wo.name}</strong></a></div>
                             <div class="card-header-options">
@@ -210,7 +210,7 @@ export default class Board {
                 <div class="resizer" id="boardColumnResizer"></div>
 
                 <!-- Resizable Third Column -->
-                <div class="column resizable thirdColumn" ondragenter="dragFunctions(event);" ondragover="dragFunctions(event);" ondrop="dragFunctions(event);" ondragleave="dragFunctions(event);">
+                <div class="column resizable thirdColumn" ondragenter="dragJobFunctions(event);" ondragover="dragJobFunctions(event);" ondrop="dragJobFunctions(event);" ondragleave="dragJobFunctions(event);">
                   <div class="content">
                     <div class="card-header header">
                       <div style="text-align: center;">
@@ -259,10 +259,16 @@ export default class Board {
                                 </select>
                               </div>
                             </div>
-                            <div class="input-group inline-inputs" style="margin-left: 10px;">
+                            <div class="input-group inline-inputs">
                               <div class="input-group mb-3">
                                 <select class="selectpicker mx-auto multiple-event-organizer-field" title="Filter by Organizer" data-live-search="true" data-selected-text-format="count>2" data-style="" data-style-base="form-control" data-actions-box="true" multiple>
                                 ${organizers.map(organizer => `<option value="${organizer.value}">${organizer.text}</option>`)}
+                                </select>
+                              </div>
+                              <div class="mb-3">
+                                <select class="selectpicker mx-auto multiple-event-type-field" title="Filter by Event Type" data-live-search="true" data-selected-text-format="count>2" data-style="" data-style-base="form-control" data-actions-box="true" multiple>
+                                  <option value="1">General Event</option>
+                                  <option value="2">Non General Event</option>
                                 </select>
                               </div>
                             </div>
@@ -293,7 +299,14 @@ export default class Board {
                     </div>
                     <div class="card-wrapper">
                       ${events.map(event => `
-                        <div class="card-item" id="${event.id}">
+                        <div type="event" class="card-item" id="${event.id}" data-bs-toggle="tooltip" data-bs-placement="left" 
+                        title="Resources:<br/>${(event.resources.length || event.vendors.length) ? 
+                          `
+                            ${event.resources.map((resource, counter) => `${+counter+1}. ${resource.employee.text}`).join('<br/>')}<br/>
+                            ${event.vendors.map((vendor, counter) => `${event.resources.length+counter+1}. ${vendor.vendor.text}`).join('<br/>')}
+                          `  
+                          : '- None -'}"
+                        >
                           <div class="card-head">
                             <div class="card-name"><a href="${event.url}" target="_blank"><strong>${event.title}</strong></a></div>
                             <div class="card-header-options">
@@ -309,7 +322,7 @@ export default class Board {
                           </div>
                           <div class="card-content">
                             <div class="card-content-eventId" eventId="${event.id}">ID ${event.id}</div>
-                            <div class="card-content-woText">${event.workorder.text}</div>
+                            <div class="card-content-woText">${!!event.workorder.text ? `<a href="${event.woRef.woUrl}" target="_blank">${event.woRef.name}</a>` : '<span class="badge py-1 px-2 rounded-pill text-uppercase general-bg">General</span>'}</div>
                             <div class="card-content-date">${event.date.start == event.date.end ? moment(event.date.start).format('M/D/YYYY') : `${moment(event.date.start).format('M/D/YYYY')} - ${moment(event.date.end).format('M/D/YYYY')}`}</div>
                             <div class="card-content-time">${moment(`1/1/1999 ${event.time.start}`).format('h:mm a')} - ${moment(`1/1/1999 ${event.time.end}`).format('h:mm a')}</div>
                             <div>Organizer: ${event.organizer.text}</div>
@@ -334,6 +347,7 @@ export default class Board {
 
     this._initLayoutHandlers();
     this._initToolTip();
+    this._initResourceDragFunctionsTempSwitch();
   }
 
   // Instantiate column resizer etc.
@@ -359,13 +373,13 @@ export default class Board {
       if (collapseLeft.style.display === 'none' || collapseLeft.style.display === '') {
         collapseLeft.style.display = 'block';
         leftSidebar.style.width = '18%'; // Adjust width as needed
-        toggleLeft.classList.remove('fa-square-caret-right');
-        toggleLeft.classList.add('fa-square-caret-left');
+        toggleLeft.classList.remove('fa-angle-right');
+        toggleLeft.classList.add('fa-angle-left');
       } else {
         collapseLeft.style.display = 'none';
         leftSidebar.style.width = '0'; // Adjust width as needed
-        toggleLeft.classList.remove('fa-square-caret-left');
-        toggleLeft.classList.add('fa-square-caret-right');
+        toggleLeft.classList.remove('fa-angle-left');
+        toggleLeft.classList.add('fa-angle-right');
       }
       secondColumn.style.width = '';
       thirdColumn.style.width = '';
@@ -394,18 +408,26 @@ export default class Board {
       }
     }
     
-    window.dragFunctions = ev => {
+    window.dragJobFunctions = ev => {
       const thirdColumn = document.querySelector('#boardSection .thirdColumn');
+
       switch (ev.type) {
         case 'dragstart':
           thirdColumn.style.border = '5px dashed #26CC4E';
           const el = ev.target.closest('.card-item');
           const woId = el.querySelector('.card-content-woId')?.getAttribute('woId');
-          ev.dataTransfer.setData('text/plain', woId);
+          ev.dataTransfer.setData('text/plain', JSON.stringify({
+            type: 'workorder',
+            id: woId
+          }));
           return;
 
         case 'drop':
-          window.openEventModal(ev);
+          const dataTransfer = ev?.dataTransfer;
+          const dataTransferObj = JSON.parse(dataTransfer.getData('text'));
+          if (dataTransferObj.type === 'workorder') {
+            window.openEventModal(ev);
+          }
           break;
 
         case 'dragend':
@@ -414,6 +436,105 @@ export default class Board {
 
         default:
           // console.log('Skip Reading Event.');
+          break;
+      }
+      ev.stopPropagation();
+      ev.preventDefault();
+    }
+
+    window.dragResourceFunctions = ev => {
+      let el, eventId, dataTransfer, draggedEl;
+
+      switch (ev.type) {
+        case 'dragstart':
+          el = ev.target.closest('.person-container');
+          const resourceType = el.getAttribute('resourceType');
+          const resourceId = el.id;
+
+          // ev.dataTransfer doesnt work
+          localStorage.setItem('dragResourceFunctions', JSON.stringify({
+            type: resourceType,
+            id: resourceId
+          }));
+
+          // TBD - events validation, green/red border per event card
+          $('.thirdColumn').find('div[type*="event"]').each(function() {
+            const id = $(this)[0].id;
+            const eventData = events.find(event => event.id == id);
+            
+            let foundObj;
+            if (resourceType == 'employee') {
+              foundObj = eventData.resources.find(resource => resource.employee.value == resourceId);
+            } else if (resourceType == 'vendor') {
+              foundObj = eventData.vendors.find(vendor => vendor.vendor.value == resourceId);
+            }
+            // console.log('Event ID', id, foundObj);
+            if (!foundObj) {
+              $(this).removeClass('border-unavailable');
+              $(this).addClass('border-available');
+            } else {
+              $(this).removeClass('border-available');
+              $(this).addClass('border-unavailable');
+            }
+          });
+          return;
+        
+        case 'dragenter':
+          el = ev.target.closest('.card-item');
+          eventId = el.id;
+          const eventData = events.find(event => event.id == eventId);
+          dataTransfer = JSON.parse(localStorage.getItem('dragResourceFunctions'));
+
+          let foundObj;
+          if (dataTransfer.type == 'employee') {
+            foundObj = eventData.resources.find(resource => resource.employee.value == dataTransfer.id);
+          } else if (dataTransfer.type == 'vendor') {
+            foundObj = eventData.vendors.find(vendor => vendor.vendor.value == dataTransfer.id);
+          }
+          
+          draggedEl = document.getElementById(dataTransfer.id);
+          if (foundObj) {
+            draggedEl.classList.remove('cursor-plus');
+            draggedEl.classList.add('cursor-x');
+          } else {
+            draggedEl.classList.remove('cursor-x');
+            draggedEl.classList.add('cursor-plus');
+          }
+          break;
+
+        case 'drop':
+          el =  ev.target.closest('.card-item');
+          eventId = el.id;
+          dataTransfer = JSON.parse(localStorage.getItem('dragResourceFunctions'));
+
+          if (!Array.from(el.classList).includes('border-unavailable')) {
+            if (dataTransfer.type.match(/employee|vendor/g)) {
+              window.openAddResourceModal(eventId, dataTransfer);
+            }
+          }
+          break;
+
+        case 'dragend':
+          // Set default classes
+          // --------------------------
+          dataTransfer = JSON.parse(localStorage.getItem('dragResourceFunctions'));
+          draggedEl = document.getElementById(dataTransfer.id);
+          if (!Array.from(draggedEl.classList).includes('cursor-grab')) {
+            draggedEl.classList.add('cursor-grab');
+          }
+          if (Array.from(draggedEl.classList).includes('cursor-plus')) {
+            draggedEl.classList.remove('cursor-plus');
+          }
+          if (Array.from(draggedEl.classList).includes('cursor-x')) {
+            draggedEl.classList.remove('cursor-x');
+          }
+          $('.thirdColumn').find('div[type*="event"]').each(function() {
+            $(this).removeClass('border-available');
+            $(this).removeClass('border-unavailable');
+          });
+          break;
+
+        default:
           break;
       }
       ev.stopPropagation();
@@ -481,6 +602,15 @@ export default class Board {
       new bootstrap.Tooltip(tooltipTriggerEl, {
         html: true
       });
+    });
+  }
+
+  static _initResourceDragFunctionsTempSwitch() {
+    $('.person-circle').on('dragstart', function(event) {
+      $('.thirdColumn').find('div[type*="event"]').on('dragenter dragover drop dragleave', dragResourceFunctions);
+    });
+    $('.person-circle').on('dragend', function(event) {
+      $('.thirdColumn').find('div[type*="event"]').off('dragenter dragover drop dragleave', dragResourceFunctions);
     });
   }
 }

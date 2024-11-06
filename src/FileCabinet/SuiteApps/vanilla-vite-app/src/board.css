@@ -13,6 +13,13 @@
 #boardSection .thirdColumn .card-header {
   background-color: #f9944a;
 }
+#boardSection .thirdColumn .border-available {
+  border: 5px dashed #26CC4E !important;
+}
+#boardSection .thirdColumn .border-unavailable {
+  border: 5px dashed #3c1509 !important;
+  background-color: #686767;
+}
 #boardSection .leftSidebar {
   width: 18%;
   height: 90%;
@@ -43,7 +50,7 @@
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   margin-bottom: 10px;
-  max-width: 200px;
+  width: 200px;
 }
 #boardSection .grid-container {
   display: grid;
@@ -51,4 +58,13 @@
   height: 100%;
   gap: 0;
   width: 100vw;
+}
+#boardSection .cursor-grab {
+  cursor: grab;
+}
+#boardSection .cursor-plus {
+  cursor: copy; /* Default '+' cursor for dragging */
+}
+#boardSection .cursor-x {
+  cursor: not-allowed; /* 'x' cursor to show restricted drag area */
 }/*# sourceMappingURL=board.css.map */

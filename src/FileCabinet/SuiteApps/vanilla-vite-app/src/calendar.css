@@ -76,12 +76,6 @@
   background-color: transparent !important;
   color: inherit !important;
 }
-#calendarSection #calendar .tentative {
-  background-color: #6d757d !important;
-}
-#calendarSection #calendar .confirmed {
-  background-color: #02ac5a !important;
-}
 #calendarSection #calendar .fc-list-event:hover {
   background-color: transparent !important;
   color: inherit !important;

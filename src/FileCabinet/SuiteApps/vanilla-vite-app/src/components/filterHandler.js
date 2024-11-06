@@ -179,6 +179,34 @@ export function initAvailableJobsFilters(selectorId) {
 }
 
 export function initEventFilters(sectionId) {
+  // On click resources
+  let resourceIds = [];
+  $('.person-container').on('click', function() {
+    const resourceId = $(this)[0].id;
+    if ($(this).hasClass('row-available')) {
+      $(this).removeClass('row-available');
+      const index = resourceIds.indexOf(resourceId);
+      if (index > -1) {
+        resourceIds.splice(index, 1);
+      }
+    } else {
+      $(this).addClass('row-available');
+      resourceIds.push(resourceId);
+    }
+
+    $('.person-container').each(function() {
+      const resourceId = $(this)[0].id;
+      if (resourceIds.includes(resourceId)) {
+        $(this).addClass('row-available');
+      } else {
+        $(this).removeClass('row-available');
+      }
+    });
+    
+    resourceIds = Array.from(new Set(resourceIds));
+    $(`${sectionId} .thirdColumn select.multiple-resource-field`).val(resourceIds).change();
+  });
+
   const $items = $(`${sectionId} .thirdColumn .card-wrapper .card-item`);
 
   const $field = {
@@ -188,7 +216,8 @@ export function initEventFilters(sectionId) {
     resourceGroup: $(`${sectionId} .thirdColumn select.multiple-resource-group-field`),
     status: $(`${sectionId} .thirdColumn select.multiple-event-status-field`),
     priority: $(`${sectionId} .thirdColumn select.multiple-event-priority-field`),
-    organizer:  $(`${sectionId} .thirdColumn select.multiple-event-organizer-field`)
+    organizer:  $(`${sectionId} .thirdColumn select.multiple-event-organizer-field`),
+    eventType:  $(`${sectionId} .thirdColumn select.multiple-event-type-field`),
   };
   const $selected = {
     dateFrom: '',
@@ -197,7 +226,8 @@ export function initEventFilters(sectionId) {
     resourceGroup: [],
     status: [],
     priority: [],
-    organizer: []
+    organizer: [],
+    eventType: []
   };
 
   for (const id in $field) {
@@ -205,6 +235,18 @@ export function initEventFilters(sectionId) {
       $field[id].on('change', function() {
         $selected[id] = $(this).val() || [];
         filterItems();
+
+        // Highligh resource rows
+        if (id == 'resource') {
+          $('.person-container').each(function() {
+            const resourceId = $(this)[0].id;
+            if ($selected[id].includes(resourceId)) {
+              $(this).addClass('row-available');
+            } else {
+              $(this).removeClass('row-available');
+            }
+          });
+        }
       });
     }
   }
@@ -217,7 +259,7 @@ export function initEventFilters(sectionId) {
       
       if (eventData) {
         let date = eventData.date.end || eventData.date.start;
-        const eventResources = eventData.resources.map(resource => resource.id);
+        const eventResources = eventData.resources.map(resource => resource.employee.value);
         const eventVendors = eventData.vendors.map(vendor => vendor.vendor.value);
         const combinedResources = [...eventResources, ...eventVendors];
         let eventResourceGroups = [];
@@ -232,6 +274,7 @@ export function initEventFilters(sectionId) {
         const eventStatus = eventData.status.value;
         const eventPriority = eventData.priority.value;
         const eventOrganizer = eventData.organizer.value;
+        const eventType = !!eventData.workorder.text ? '2' : '1';
   
         let withinRange = false;
         if (date) {
@@ -258,7 +301,8 @@ export function initEventFilters(sectionId) {
           (!$selected.resourceGroup.length || $selected.resourceGroup.some(value => new Set(eventResourceGroups).has(value))) && // Check if the selected resource groups is in the event resource groups
           (!$selected.status.length || $selected.status.includes(eventStatus)) && 
           (!$selected.priority.length || $selected.priority.includes(eventPriority)) &&
-          (!$selected.organizer.length || $selected.organizer.includes(eventOrganizer))
+          (!$selected.organizer.length || $selected.organizer.includes(eventOrganizer)) &&
+          (!$selected.eventType.length || $selected.eventType.includes(eventType))
         ); 
 
         $el.toggle(shouldDisplay);
@@ -282,14 +326,16 @@ export function initCalendarFilters() {
     resourceGroup: $(`#calendar-filters select.multiple-resource-group-field`),
     status: $(`#calendar-filters select.multiple-event-status-field`),
     priority: $(`#calendar-filters select.multiple-event-priority-field`),
-    organizer: $(`#calendar-filters select.multiple-event-organizer-field`)
+    organizer: $(`#calendar-filters select.multiple-event-organizer-field`),
+    eventType:  $(`#calendar-filters select.multiple-event-type-field`),
   };
   const $selected = {
     resource: [],
     resourceGroup: [],
     status: [],
     priority: [],
-    organizer: []
+    organizer: [],
+    eventType: []
   };
 
   for (const id in $field) {
@@ -343,6 +389,10 @@ export function initCalendarFilters() {
 
     if ($selected.organizer.length) {
       calendarEvents = calendarEvents.filter(event => !!($selected.organizer.includes(event.extendedProps.organizer.value)));
+    }
+
+    if ($selected.eventType.length) {
+      calendarEvents = calendarEvents.filter(event => !!($selected.eventType.includes(!!event.extendedProps.workorder.text ? '2' : '1')));
     }
     
     // Events with no resource gets assigned here

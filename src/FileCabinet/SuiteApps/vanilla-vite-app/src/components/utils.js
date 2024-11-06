@@ -2,6 +2,87 @@ import { suiteletUrl, events } from './dataSet';
 
 export class Event {
 
+  static validateResourcesOnLoad(tableId, resourceTblId, eventId) {
+    this.validateResources(tableId, resourceTblId, eventId);
+  }
+
+  static validateOnFieldChange(tableId, resourceTblId, eventId) {
+    const that = this;
+
+    $(`${tableId} input.datefrom, ${tableId} input.dateto, ${tableId} input.starttime, ${tableId} input.endtime`).on('change', function () {
+      if (!that.validateDateAndTime(this, tableId)) {
+        return;
+      }
+      // $('#resources tbody .dt-line-select').prop('checked', false);
+      that.validateResources(tableId, resourceTblId, eventId);
+    });
+  }
+
+  static validateResources(tableId, resourceTblId, eventId) {
+    const start = moment(`${$(`${tableId} input.datefrom`).val()} ${$(`${tableId} input.starttime`).val()}`);
+    const end = moment(`${$(`${tableId} input.dateto`).val()} ${$(`${tableId} input.endtime`).val()}`);
+
+    $(`${resourceTblId} tbody tr`).each(function() {
+      const checkbox = $(this).find('input.dt-line-select');
+      const resourceId = checkbox.attr('employeeId');
+      const resourceEvents = events.filter(event => event.resources.map(resource => resource.employee.value).includes(resourceId));
+      const conflictEvents = resourceEvents.filter(event => {
+        const eventStart = `${event.date.start} ${event.time.start}`;
+        const eventEnd = `${event.date.end} ${event.time.end}`;
+        if (eventId) {
+          return event.id != eventId && (moment(eventEnd).isBetween(start, end, null, '[]') ||  moment(eventStart).isSameOrBefore(start) && moment(eventEnd).isSameOrAfter(end));
+        } else {
+          return moment(eventEnd).isBetween(start, end, null, '[]') ||  moment(eventStart).isSameOrBefore(start) && moment(eventEnd).isSameOrAfter(end);
+        }
+      });
+
+      if (conflictEvents.length) {
+        checkbox.prop('checked', false);
+        checkbox.prop('disabled', true);
+        $(this).removeClass('row-available');
+        $(this).addClass('row-unavailable');
+      } else {
+        checkbox.prop('disabled', false);
+        $(this).removeClass('row-unavailable');
+        $(this).addClass('row-available');
+      }
+    });
+  }
+
+  static validateDateAndTime(that, tableId) {
+    const date = {
+      start: $(`${tableId} input.datefrom`).val(),
+      end: $(`${tableId} input.dateto`).val(),
+    }
+    const time = {
+      start: $(`${tableId} input.starttime`).val(),
+      end: $(`${tableId} input.endtime`).val(),
+    }
+    // console.log(date, time);
+    
+    if (!!date.start && !!date.end && moment(date.start).isAfter(moment(date.end))) {
+      Swal.fire(
+        'Invalid Date',
+        'Start Date must not be greater than End Date',
+        'warning'
+      );
+      $(that).val('');
+      return false;
+    } 
+    
+    if (!!time.start && !!time.end && moment(`1/1/1999 ${time.start}`).isAfter(moment(`1/1/1999 ${time.end}`))) {
+      Swal.fire(
+        'Invalid Time',
+        'Start Time must not be greater than End Time',
+        'warning'
+      );
+      $(that).val('');
+      return false;
+    }
+
+    return true;
+  }
+
   static createEventRecord(payload, modalId) {
     console.log('----- [createEventRecord() -> PAYLOAD] -----', payload);
 

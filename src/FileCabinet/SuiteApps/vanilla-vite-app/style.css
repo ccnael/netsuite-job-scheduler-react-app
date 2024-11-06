@@ -172,7 +172,7 @@ body {
   display: flex;
   align-items: center;
   padding: 5px;
-  border-radius: 5px;
+  cursor: pointer;
 }
 
 .person-circle {
@@ -414,14 +414,6 @@ div.form-check {
   border: 2px dashed #aaa;
 }
 
-.fa-square-caret-left {
-  transform: scale(1, 2);
-}
-
-.fa-square-caret-right {
-  transform: scale(1, 2);
-}
-
 .required:after {
   content: " *";
   color: red;
@@ -517,4 +509,24 @@ div.form-check {
   width: 60px;
   border: none;
   text-align: center;
+}
+
+.tentative {
+  background-color: #6d757d !important;
+}
+
+.confirmed {
+  background-color: #02ac5a !important;
+}
+
+.general-bg {
+  background-color: #9d1bb3 !important;
+}
+
+.row-available {
+  background-color: lightgreen !important;
+}
+
+.row-unavailable {
+  background-color: #e3dcdc !important;
 }/*# sourceMappingURL=style.css.map */

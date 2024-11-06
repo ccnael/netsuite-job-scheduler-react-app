@@ -148,7 +148,7 @@ export default class Calendar {
       if (map.resourceIds.length) {
         event.resources.forEach(resource => {
           resource.resourceGroups.forEach(resourceGroup => {
-            map.resourceIds.push(`${resourceGroup.value}-${resource.id}`);
+            map.resourceIds.push(`${resourceGroup.value}-${resource.employee.value}`);
           });
         });
       } else {
@@ -283,13 +283,14 @@ export default class Calendar {
         if (event.id) {
           try {
             const html = `
-            <div style="margin-left: 15px; height: 130px" id="${event.id}">
+            <div style="margin-left: 15px; height: 150px;" id="${event.id}">
             <div class="card-head">
               <div class="card-name"><a href="${event.url}" target="_blank"><strong>${event.title}</strong></a>
               </div>
             </div>
             <div class="card-content" style="position: relative">
               <div class="card-content-eventId" eventId="${event.id}">ID ${event.id}</div>
+              <div class="card-content-woText">${!!event.workorder.text ? `<a href="${event.woRef.woUrl}" target="_blank">${event.woRef.name}</a>` : '<span class="badge py-1 px-2 rounded-pill text-uppercase general-bg">General</span>'}</div>
               <div class="card-content-date">${event.date.start == event.date.end ? moment(event.date.start).format('M/D/YYYY') : `${moment(event.date.start).format('M/D/YYYY')} - ${moment(event.date.end).format('M/D/YYYY')}`}</div>
               <div class="card-content-time">${moment(`1/1/1999 ${event.time.start}`).format('h:mm a')} - ${moment(`1/1/1999 ${event.time.end}`).format('h:mm a')}</div>
               <div>Organizer: ${event.organizer.text}</div>
@@ -464,6 +465,12 @@ export default class Calendar {
               <option value="2">Mid</option>
               <option value="3">High</option>
               <option value="4">Urgent</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <select class="selectpicker mx-auto multiple-event-type-field" title="Filter by Event Type" data-live-search="true" data-selected-text-format="count>2" data-style="" data-style-base="form-control" data-actions-box="true" multiple>
+              <option value="1">General Event</option>
+              <option value="2">Non General Event</option>
             </select>
           </div>
         </div>

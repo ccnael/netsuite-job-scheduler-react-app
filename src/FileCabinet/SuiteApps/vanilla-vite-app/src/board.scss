@@ -20,6 +20,13 @@ $background-color_19: #f0f0f0;
 		.card-header {
 			background-color: $background-color_6;
 		}
+		.border-available {
+			border: 5px dashed #26CC4E !important;
+		}
+		.border-unavailable {
+			border: 5px dashed #3c1509 !important;
+			background-color: #686767;
+		}
 		overflow: auto;
 	}
 	.leftSidebar {
@@ -52,7 +59,8 @@ $background-color_19: #f0f0f0;
 		border-radius: 8px;
 		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 		margin-bottom: 10px;
-		max-width: 200px;
+		// max-width: 200px;
+		width: 200px;
 	}
 	.grid-container {
 		display: grid;
@@ -60,5 +68,14 @@ $background-color_19: #f0f0f0;
 		height: 100%;
 		gap: 0;
 		width: 100vw;
+	}
+	.cursor-grab {
+		cursor: grab;
+	}
+	.cursor-plus {
+		cursor: copy; /* Default '+' cursor for dragging */
+	}
+	.cursor-x {
+		cursor: not-allowed; /* 'x' cursor to show restricted drag area */
 	}
 }

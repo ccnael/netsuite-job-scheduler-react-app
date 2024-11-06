@@ -1,5 +1,5 @@
 import './completeEventModal.css';
-import { suiteletUrl, events } from './dataSet';
+import { suiteletUrl, resources, events } from './dataSet';
 import {  ceTimeSheetsDtColumns, ceItemsDtColumns, cePunchItemsDtColumns } from './dataTableColumns';
 
 let temp_ceTimeSheetDataTable, temp_ceItemsDataTable, temp_cePunchItemsDataTable;
@@ -240,6 +240,9 @@ $(document).ready(() => {
     const punchLines = JSON.parse(decodeURIComponent($('#completeEventModal').attr('punchLines')));
     const unresolvedPunchCount = punchLines.filter(punch => punch.status.value != 6).length; // 6 (Resolved)
     const eventId = payload.eventDataSrc.id;
+    const eventData = events.find(event => event.id == eventId);
+    const woRef = eventData.woRef;
+    const woId = woRef?.id || '';
 
     console.log('----- Punch Items -----');
     console.log(punchLines);
@@ -254,18 +257,59 @@ $(document).ready(() => {
     }
 
     $('#timesheets tbody > tr').each(function() {
+      const that = $(this);
       payload.timeSheets.push({
-        id: $(this).find('.resourceName p').attr('recordId'),
-        location: $(this).find('.resourceName p').attr('locationId'),
-        startTime: $(this).find('.starttime').val(),
-        endTime:$(this).find('.endtime').val(),
-        awayHrs: $(this).find('.away-hrs').val(),
-        awayMins: $(this).find('.away-mins').val(),
-        otHrs: $(this).find('.ot-hrs').val(),
-        otMins: $(this).find('.ot-mins').val(),
-        dtHrs: $(this).find('.dt-hrs').val(),
-        dtMins: $(this).find('.dt-mins').val(),
-        notes: $(this).find('.note').val(),
+        id: that.find('.resourceName p').attr('recordId'),
+        location: that.find('.resourceName p').attr('locationId'),
+        startTime: that.find('.starttime').val(),
+        endTime: that.find('.endtime').val(),
+        awayHrs: +that.find('.away-hrs').val(),
+        awayMins: +that.find('.away-mins').val(),
+        stHrs: +that.find('.st-hrs').val(),
+        stMins: +that.find('.st-mins').val(),
+        otHrs: +that.find('.ot-hrs').val(),
+        otMins: +that.find('.ot-mins').val(),
+        dtHrs: +that.find('.dt-hrs').val(),
+        dtMins: +that.find('.dt-mins').val(),
+        notes: that.find('.note').val(),
+        get labRates() {
+          const resource = resources.find(resource => resource.id == this.id);
+          return resource.labRates;
+        },
+        get stCost() {
+          const labRateData = this.labRates.find(el => el.labRateCatId == '1') || '';
+          return (this.stHrs * +labRateData?.labRate) + ((this.stMins / 60) * +labRateData?.labRate);
+        },
+        get otCost() {
+          const labRateData = this.labRates.find(el => el.labRateCatId == '2') || '';
+          return (this.otHrs * +labRateData?.labRate) + ((this.otMins / 60) * +labRateData?.labRate);
+        },
+        get dtCost() {
+          const labRateData = this.labRates.find(el => el.labRateCatId == '3') || '';
+          return (this.dtHrs * +labRateData?.labRate) + ((this.dtMins / 60) * +labRateData?.labRate);
+        },
+        get actualCost() {
+          return this.stCost + this.otCost + this.dtCost;
+        },
+        get actualCostData() {
+          return JSON.stringify({
+            st: {
+              hrs: this.stHrs,
+              mins: this.stMins,
+              cost: this.stCost
+            },
+            ot: {
+              hrs: this.otHrs,
+              mins: this.otMins,
+              cost: this.otCost
+            },
+            dt: {
+              hrs: this.dtHrs,
+              mins: this.dtMins,
+              cost: this.dtCost
+            }
+          });
+        }
       });
     });
 
@@ -359,12 +403,13 @@ $(document).ready(() => {
   $('#completeEventModal').on('hidden.bs.modal', ev => clearFieldValues());
 
   function eventFormHandlers() {
-    window.markAll = (ev) => {
+    window.markAll = ev => {
       const value = ev.target.checked;
       const el = ev.target.closest('.dataTable').querySelectorAll('.dt-line-select');
       for(let i = 0; i < el.length; i++) {  
-        if(el[i].type == 'checkbox')  
+        if(el[i].type === 'checkbox') {
           el[i].checked = value;//!el[i].checked;
+        }
       }
     }
   

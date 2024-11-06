@@ -179,7 +179,7 @@ $(document).ready(() => {
   </div>`);
 
   window.openGeneralEventModal = (eventId = '') => {
-    $('#generalEventModal').attr('mode', !eventId ||typeof eventId == 'object' ? 'create' : 'edit');
+    $('#generalEventModal').attr('mode', !eventId ||typeof eventId === 'object' ? 'create' : 'edit');
     $('#generalEventModal').attr('eventId', eventId);
     $('#generalEventModal').modal('toggle');
   }
@@ -207,10 +207,10 @@ $(document).ready(() => {
       const eventId = $('#generalEventModal').attr('eventId');
       let eventData, modalTitle, eventTitle;
 
-      if (mode == 'create') {
+      if (mode === 'create') {
         modalTitle = `Create New Event`;
         eventTitle = '';
-      } else if (mode == 'edit') {
+      } else if (mode === 'edit') {
         modalTitle = `Update Event Details [ID ${eventId}]`;
         eventData = events.find(event => event.id == eventId);
         eventTitle = eventData?.title;
@@ -219,7 +219,7 @@ $(document).ready(() => {
       $('#generalEventModal .modal-title').text(modalTitle); // Set Modal Title
       $('#generalEventModal input.eventTitleInput').val(eventTitle); // Set primary info
 
-      if (mode == 'edit') {
+      if (mode === 'edit') {
         if (eventData) {
           $('#generalEventModal').attr('eventDataSrc', encodeURIComponent(JSON.stringify(eventData))); // Data from NS
           $('#generalEventModal .datefrom').val(eventData.date.start);
@@ -242,13 +242,18 @@ $(document).ready(() => {
         ajax(data, callback, settings) {
           callback({
             data: (() => {
-              if (mode == 'create') {
-                return resources.filter(resource => !!resource.active);
+              const activeResources = resources.filter(resource => !!resource.active);
+              if (mode === 'create') {
+                return activeResources;
               } else {
-                const activeResources = deepCopy(resources.filter(resource => !!resource.active));
-                return activeResources.map(allResource => {
-                  allResource.selected = !!(eventData.resources.find(resource => resource.id == allResource.id));
-                  return allResource;
+                // Combine employees and Event resources
+                return activeResources.map(resource => {
+                  const id = resource.id;
+                  const foundObj = eventData.resources.find(eventResource => eventResource.employee.value == id);
+                  if (foundObj) {
+                    resource = deepCopy(foundObj);
+                  }
+                  return resource;
                 });
               }
             })()
@@ -265,12 +270,11 @@ $(document).ready(() => {
         retrieve: true,
         ajax(_data, callback, _settings) {
           callback({
-            // data: vendors
             data: (() => {
-              if (mode == 'create') {
+              if (mode === 'create') {
                 return vendors;
               } else {
-                // Combine resource vendors and WO vendors
+                // Combine vendors and WO vendors
                 const unassignedVendors = deepCopy(vendors).filter(vendor => !!!eventData.vendors.map(vendor => vendor.vendor.value).includes(vendor.id));
                 return [...eventData.vendors, ...unassignedVendors];
               }
@@ -289,10 +293,10 @@ $(document).ready(() => {
         ajax(_data, callback, _settings) {
           callback({
             data: (() => {
-              if (mode == 'create') {
+              if (mode === 'create') {
                 return assets;
               } else {
-                // Combine resource assets and WO assets
+                // Combine assets and WO assets
                 const unassignedAssets = deepCopy(assets).filter(asset => !!!eventData.assets.map(asset => asset.item.value).includes(asset.id));
                 return [...eventData.assets, ...unassignedAssets];
               }
@@ -304,6 +308,9 @@ $(document).ready(() => {
           eventFormHandlers();
         }
       });
+
+      Event.validateResourcesOnLoad('#wo-primaryinfo-ge', '#resources_ge', eventId);
+      Event.validateOnFieldChange('#wo-primaryinfo-ge', '#resources_ge', eventId);
     }, 250);
   });
 
@@ -314,12 +321,23 @@ $(document).ready(() => {
     const mode = $('#generalEventModal').attr('mode');
     const eventId = $('#generalEventModal').attr('eventId');
     const eventData = events.find(event => event.id == eventId);
-    let vendorsToUse = [], assetsToUse = [];
+    const activeResources = resources.filter(resource => !!resource.active);
+    let resourcesToUse = [], vendorsToUse = [], assetsToUse = [];
 
-    if (mode == 'create') {
+    if (mode === 'create') {
+      resourcesToUse = activeResources;
       vendorsToUse = vendors;
       assetsToUse = assets;
     } else {
+      resourcesToUse = activeResources.map(resource => {
+        const id = resource.id;
+        const foundObj = eventData.resources.find(eventResource => eventResource.employee.value == id);
+        if (foundObj) {
+          resource = deepCopy(foundObj);
+        }
+        return resource;
+      });
+
       let unassignedVendors = deepCopy(vendors).filter(vendor => !!!eventData.vendors.map(vendor => vendor.vendor.value).includes(vendor.id));
       unassignedVendors = [...eventData.vendors, ...unassignedVendors];
       vendorsToUse = unassignedVendors;
@@ -332,7 +350,8 @@ $(document).ready(() => {
     const payload = {
       eventDataSrc: {},
       woRef: {},
-      eventData: {}
+      eventData: {},
+      woResources: []
     };
     payload.eventData.title = $('#generalEventModal input.eventTitleInput').val();
     payload.eventData.date = {
@@ -372,7 +391,9 @@ $(document).ready(() => {
           const foundObj = vendorsToUse.find(vendor => vendor.id == id);
           if (foundObj) {
             const newQty = +line.parentNode.parentNode.parentNode.querySelector('.quantity').value;
+            const comment = line.parentNode.parentNode.parentNode.querySelector('.note').value;
             foundObj.quantityRequired = newQty;
+            foundObj.memo = comment;
           }
           vendorIds.push(id);
         }
@@ -395,13 +416,13 @@ $(document).ready(() => {
       }
     }
 
-    payload.eventData.selectedResources = resources.filter(resource => !!resource.active && !!(resourceIds.includes(resource.id)));
-    payload.eventData.selectedVendors = vendorsToUse.filter(vendor => !!(vendorIds.includes(vendor.id)));
-    payload.eventData.selectedAssets = assetsToUse.filter(asset => !!(assetIds.includes(asset.id)));
+    payload.eventData.selectedResources = resourcesToUse.filter(resource => !!resourceIds.includes(resource.id));
+    payload.eventData.selectedVendors = vendorsToUse.filter(vendor => !!vendorIds.includes(vendor.id));
+    payload.eventData.selectedAssets = assetsToUse.filter(asset => !!assetIds.includes(asset.id));
 
-    if (mode == 'create') {
+    if (mode === 'create') {
       Event.createEventRecord(payload, 'generalEventModal');
-    } else if (mode == 'edit') {
+    } else if (mode === 'edit') {
       payload.eventData.id = eventId;
       payload.eventDataSrc = JSON.parse(decodeURIComponent($('#generalEventModal').attr('eventDataSrc')));
       Event.updateEventRecord(payload, 'generalEventModal');
@@ -412,12 +433,13 @@ $(document).ready(() => {
   $('#generalEventModal').on('hidden.bs.modal', ev => clearFieldValues());
 
   function eventFormHandlers() {
-    window.markAll = (ev) => {
+    window.markAll = ev => {
       const value = ev.target.checked;
       const el = ev.target.closest('.dataTable').querySelectorAll('.dt-line-select');
       for(let i = 0; i < el.length; i++) {  
-        if(el[i].type == 'checkbox')  
-          el[i].checked = value;//!el[i].checked;
+        if(el[i].type === 'checkbox') {
+          el[i].checked = el[i].disabled ? false : value;//!el[i].checked;
+        }
       }
     }
   

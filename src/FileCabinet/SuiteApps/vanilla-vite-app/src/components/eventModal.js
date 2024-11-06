@@ -1,4 +1,4 @@
-import { resources, vendors, assets, workOrders, events } from './dataSet';
+import { resources, woResources, vendors, assets, workOrders, events } from './dataSet';
 import { resourcesDtColumns, vendorsDtColumns, assetsDtColumns, itemsDtColumns, contactsDtColumns, addressesDtColumns } from './dataTableColumns';
 import { Event } from './utils';
 
@@ -254,7 +254,8 @@ $(document).ready(() => {
     if (ev) {
       const dataTransfer = ev?.dataTransfer;
       if (dataTransfer) {
-        woId = dataTransfer.getData('text');
+        const dataTransferObj = JSON.parse(dataTransfer.getData('text'));
+        woId = dataTransferObj.id;
         $('#eventModal').attr('mode', 'create');
         $('#eventModal').attr('woId', woId);
       } else {
@@ -302,12 +303,12 @@ $(document).ready(() => {
       hideCustomLoader();
 
       const mode = $('#eventModal').attr('mode');
-      const woId = $('#eventModal').attr('woId');
+      let woId = $('#eventModal').attr('woId');
       const eventId = $('#eventModal').attr('eventId');
       let prefillData = $('#eventModal').attr('prefillData');
       let woRef, eventData, modalTitle, eventTitle;
-
-      if (mode == 'create') {
+      
+      if (mode === 'create') {
         modalTitle = `Create New Event [WO ID ${woId}]`;
         woRef = workOrders.find(wo => wo.id == woId);
         eventTitle = woRef?.title;
@@ -321,10 +322,11 @@ $(document).ready(() => {
         }
       }
       // Find Event Data to update from Work Orders
-      else if (mode == 'edit') {
+      else if (mode === 'edit') {
         modalTitle = `Update Event Details [ID ${eventId}]`;
         eventData = events.find(event => event.id == eventId);
         woRef = eventData.woRef;
+        woId = woRef.id;
         eventTitle = eventData?.title;
       }
   
@@ -337,7 +339,7 @@ $(document).ready(() => {
         $('#eventModal .project p').html(`<a href="${woRef.projectUrl}" target="_blank">${woRef.project.text}</a>`);
       }
   
-      if (mode == 'edit') {
+      if (mode === 'edit') {
         if (eventData) {
           $('#eventModal').attr('woId', eventData.workorder.value);
           $('#eventModal').attr('eventDataSrc', encodeURIComponent(JSON.stringify(eventData))); // Data from NS
@@ -361,13 +363,32 @@ $(document).ready(() => {
         ajax(_data, callback, _settings) {
           callback({
             data: (() => {
-              if (mode == 'create') {
-                return resources.filter(resource => !!resource.active);
+              const activeResources = resources.filter(resource => !!resource.active);
+              const woResourcesFiltered = woResources.filter(resource => resource.workorder.value == woId);
+
+              if (mode === 'create') {
+                // Combine employees and WO resources
+                return activeResources.map(resource => {
+                  const id = resource.id;
+                  const foundObj = woResourcesFiltered.find(woResource => woResource.employee.value == id);
+                  if (foundObj) {
+                    resource = deepCopy(foundObj);
+                  }
+                  return resource;
+                });
               } else {
-                const activeResources = deepCopy(resources.filter(resource => !!resource.active));
-                return activeResources.map(allResource => {
-                  allResource.selected = !!(eventData.resources.find(resource => resource.id == allResource.id));
-                  return allResource;
+                // Combine employees and WO resources and Event resources
+                return activeResources.map(resource => {
+                  const id = resource.id;
+                  let foundObj = woResourcesFiltered.find(woResource => woResource.employee.value == id);
+                  if (foundObj) {
+                    resource = deepCopy(foundObj);
+                  }
+                  foundObj = eventData.resources.find(eventResource => eventResource.employee.value == id);
+                  if (foundObj) {
+                    resource = deepCopy(foundObj);
+                  }
+                  return resource;
                 });
               }
             })()
@@ -385,10 +406,10 @@ $(document).ready(() => {
         ajax(_data, callback, _settings) {
           callback({
             data: (() => {
-              if (mode == 'create') {
+              if (mode === 'create') {
                 return vendors;
               } else {
-                // Combine resource vendors and WO vendors
+                // Combine vendors and WO vendors
                 const unassignedVendors = deepCopy(vendors).filter(vendor => !!!eventData.vendors.map(vendor => vendor.vendor.value).includes(vendor.id));
                 return [...eventData.vendors, ...unassignedVendors];
               }
@@ -407,10 +428,10 @@ $(document).ready(() => {
         ajax(_data, callback, _settings) {
           callback({
             data: (() => {
-              if (mode == 'create') {
+              if (mode === 'create') {
                 return assets;
               } else {
-                // Combine resource assets and WO assets
+                // Combine assets and WO assets
                 const unassignedAssets = deepCopy(assets).filter(asset => !!!eventData.assets.map(asset => asset.item.value).includes(asset.id));
                 return [...eventData.assets, ...unassignedAssets];
               }
@@ -429,16 +450,7 @@ $(document).ready(() => {
         ajax(_data, callback, _settings) {
           callback({
             data: (() => {
-              if (mode == 'create') {
-                const usedItems = woRef.items.filter(item => !!item.event);
-                // Calculate remaining item quantities
-                // -------------------------------------
-                /* dtLine.items.forEach(item => {
-                  const qtyUsed = usedItems.filter(usedItem => usedItem.workorder.value == item.workorder.value && usedItem.uuid == item.uuid)
-                    .reduce((total, item) => total += item.quantity, 0);
-                  item.quantity -= qtyUsed;
-                });
-                */
+              if (mode === 'create') {
                 return woRef.items.filter(item => !!!item.event);
               } else {
                 let unassignedItems = deepCopy(woRef.items.filter(item => !!!item.event));
@@ -463,7 +475,7 @@ $(document).ready(() => {
         ajax(_data, callback, _settings) {
           callback({
             data: (() => {
-              if (mode == 'create') {
+              if (mode === 'create') {
                 return deepCopy(woRef.contacts).map(contact => {
                   contact.selected = woRef.contacts.length == 1;
                   return contact;
@@ -489,7 +501,7 @@ $(document).ready(() => {
         ajax(_data, callback, _settings) {
           callback({
             data: (() => {
-              if (mode == 'create') {
+              if (mode === 'create') {
                 return deepCopy(woRef.addresses).map(address => {
                   address.selected = woRef.addresses.length == 1;
                   return address;
@@ -505,6 +517,9 @@ $(document).ready(() => {
         },
         columns: addressesDtColumns
       });
+
+      Event.validateResourcesOnLoad('#wo-primaryinfo', '#resources', eventId);
+      Event.validateOnFieldChange('#wo-primaryinfo', '#resources', eventId);
     }, 250);
   });
   
@@ -517,12 +532,36 @@ $(document).ready(() => {
     const eventId = $('#eventModal').attr('eventId');
     const eventData = events.find(event => event.id == eventId);
     const woRef = workOrders.find(wo => wo.id == woId);
-    let vendorsToUse = [], assetsToUse = [];
+    const woResourcesFiltered = woResources.filter(resource => resource.workorder.value == woId);
+    const activeResources = resources.filter(resource => !!resource.active);
+    let resourcesToUse = [], vendorsToUse = [], assetsToUse = [];
 
-    if (mode == 'create') {
+    if (mode === 'create') {
+      resourcesToUse = activeResources.map(resource => {
+        const id = resource.id;
+        const foundObj = woResourcesFiltered.find(woResource => woResource.employee.value == id);
+        if (foundObj) {
+          resource = deepCopy(foundObj);
+        }
+        return resource;
+      });
+
       vendorsToUse = vendors;
       assetsToUse = assets;
     } else {
+      resourcesToUse = activeResources.map(resource => {
+        const id = resource.id;
+        let foundObj = woResourcesFiltered.find(woResource => woResource.employee.value == id);
+        if (foundObj) {
+          resource = deepCopy(foundObj);
+        }
+        foundObj = eventData.resources.find(eventResource => eventResource.employee.value == id);
+        if (foundObj) {
+          resource = deepCopy(foundObj);
+        }
+        return resource;
+      });
+
       let unassignedVendors = deepCopy(vendors).filter(vendor => !!!eventData.vendors.map(vendor => vendor.vendor.value).includes(vendor.id));
       unassignedVendors = [...eventData.vendors, ...unassignedVendors];
       vendorsToUse = unassignedVendors;
@@ -535,7 +574,8 @@ $(document).ready(() => {
     const payload = {
       eventDataSrc: {},
       woRef,
-      eventData: {}
+      eventData: {},
+      woResources: woResourcesFiltered
     };
     payload.eventData.title = $('#eventModal input.eventTitleInput').val();
     payload.eventData.date = {
@@ -577,7 +617,9 @@ $(document).ready(() => {
           const foundObj = vendorsToUse.find(vendor => vendor.id == id);
           if (foundObj) {
             const newQty = +line.parentNode.parentNode.parentNode.querySelector('.quantity').value;
+            const memo = line.parentNode.parentNode.parentNode.querySelector('.note').value;
             foundObj.quantityRequired = newQty;
+            foundObj.memo = memo;
           }
           vendorIds.push(id);
         }
@@ -641,30 +683,21 @@ $(document).ready(() => {
     }
     
      // Filter objects by id
-    payload.eventData.selectedResources = resources.filter(resource => !!resource.active && !!(resourceIds.includes(resource.id)));
-    payload.eventData.selectedVendors = vendorsToUse.filter(vendor => !!(vendorIds.includes(vendor.id)));
-    payload.eventData.selectedAssets = assetsToUse.filter(asset => !!(assetIds.includes(asset.id)));
-    payload.eventData.selectedItems = woRef.items.filter(item => !!(itemIds.includes(item.id)));
+    payload.eventData.selectedResources = resourcesToUse.filter(resource => !!resourceIds.includes(resource.id));
+    payload.eventData.selectedVendors = vendorsToUse.filter(vendor => !!vendorIds.includes(vendor.id));
+    payload.eventData.selectedAssets = assetsToUse.filter(asset => !!assetIds.includes(asset.id));
+    payload.eventData.selectedItems = woRef.items.filter(item => !!itemIds.includes(item.id));
     payload.eventData.selectedContact = woRef.contacts.find(contact => contact.id == contactId) || {};
     payload.eventData.selectedAddress = woRef.addresses.find(address => address.id == addressId) || {};
     payload.eventData.contacts = woRef.contacts;
     payload.eventData.addresses = woRef.addresses;
 
-    // TBD
-    /* const startDate = moment(payload.eventData.date.start);
-    const endDate = moment(payload.eventData.date.end);
-    const startTime = moment(payload.eventData.time.start);
-    const endTime = moment(payload.eventData.time.end);
-    const conflictEvents = events.filter(event => {
-      return (moment(event.date.end).isBetween(startDate, endDate, null, '[]') ||  moment(event.date.start).isSameOrBefore(startDate) && moment(event.date.end).isSameOrAfter(endDate))
-      && moment(event.time.start).isSameOrAfter(endTime) && moment(event.time.end).isSameOrBefore(endTime)
-    });
+    // console.log('payload', payload)
+    // return;
 
-    console.log('conflictEvents', conflictEvents); */
-  
-    if (mode == 'create') {
+    if (mode === 'create') {
       Event.createEventRecord(payload, 'eventModal');
-    } else if (mode == 'edit') {
+    } else if (mode === 'edit') {
       payload.eventData.id = eventId;
       payload.eventDataSrc = JSON.parse(decodeURIComponent($('#eventModal').attr('eventDataSrc')));
       Event.updateEventRecord(payload, 'eventModal');
@@ -675,12 +708,13 @@ $(document).ready(() => {
   $('#eventModal').on('hidden.bs.modal', ev => clearFieldValues());
   
   function eventFormHandlers() {
-    window.markAll = (ev) => {
+    window.markAll = ev => {
       const value = ev.target.checked;
       const el = ev.target.closest('.dataTable').querySelectorAll('.dt-line-select');
       for(let i = 0; i < el.length; i++) {  
-        if(el[i].type == 'checkbox')  
-          el[i].checked = value;//!el[i].checked;
+        if(el[i].type === 'checkbox') {
+          el[i].checked = el[i].disabled ? false : value;//!el[i].checked;
+        }
       }
     }
   
