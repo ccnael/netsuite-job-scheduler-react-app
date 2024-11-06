@@ -3,7 +3,6 @@ import { suiteletUrl, resources, woResources, vendors, workOrders, events } from
 $(document).ready(() => {
   window.openAddResourceModal = (eventId, dataTransfer) => {
     const { type, id } = dataTransfer;
-    console.log('dataTransfer', { type, id })
     const eventData = events.find(event => event.id == eventId);
     const woId = eventData.workorder.value;
     const woRef = woId ? workOrders.find(wo => wo.id == woId) : {};
@@ -15,14 +14,11 @@ $(document).ready(() => {
       
       let foundObj, resourceToUse;
       if (woResourcesFiltered.length) {
-        console.log('woResourcesFiltered.length', woResourcesFiltered)
         foundObj = woResourcesFiltered.find(woResource => woResource.employee.value == id);
-        console.log('woResourcesFiltered.length foundObj', foundObj)
         if (!!foundObj) {
           resourceToUse = deepCopy(foundObj);
         }
       }
-      console.log('eventDataeventDataeventData', eventData)
       foundObj = eventData.resources.find(eventResource => eventResource.employee.value == id);
       if (!!foundObj) {
         resourceToUse = deepCopy(foundObj);
