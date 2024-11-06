@@ -1,16 +1,16 @@
-import { suiteletUrl, resources, woResources, vendors, workOrders, events } from './dataSet';
+import * as dataSet from './dataSet';
 
 $(document).ready(() => {
   window.openAddResourceModal = (eventId, dataTransfer) => {
     const { type, id } = dataTransfer;
-    const eventData = events.find(event => event.id == eventId);
+    const eventData = dataSet.events.find(event => event.id == eventId);
     const woId = eventData.workorder.value;
-    const woRef = woId ? workOrders.find(wo => wo.id == woId) : {};
+    const woRef = woId ? dataSet.workOrders.find(wo => wo.id == woId) : {};
     let payload, resourceName;
 
     if (type === 'employee') {
-      resourceName = resources.find(resource => resource.id == id).name;
-      const woResourcesFiltered = woId ? woResources.filter(resource => resource.workorder.value == woId) : [];
+      resourceName = dataSet.resources.find(resource => resource.id == id).name;
+      const woResourcesFiltered = woId ? dataSet.woResources.filter(resource => resource.workorder.value == woId) : [];
       
       let foundObj, resourceToUse;
       if (woResourcesFiltered.length) {
@@ -25,7 +25,7 @@ $(document).ready(() => {
       }
 
       if (!resourceToUse) {
-        resourceToUse = resources.find(resource => resource.id == id);
+        resourceToUse = dataSet.resources.find(resource => resource.id == id);
       }
 
       payload = {
@@ -55,7 +55,7 @@ $(document).ready(() => {
             didOpen: () => {
               Swal.showLoading();
               fetch(
-                `${suiteletUrl}&mode=updateEventRecord`, {
+                `${dataSet.suiteletUrl}&mode=updateEventRecord`, {
                   method: 'POST',
                   body: JSON.stringify(payload),
                   headers: {
@@ -99,8 +99,8 @@ $(document).ready(() => {
       });
 
     } else if (type === 'vendor') {
-      resourceName = vendors.find(vendor => vendor.id == id).name;
-      let unassignedVendors = deepCopy(vendors).filter(vendor => !!!eventData.vendors.map(vendor => vendor.vendor.value).includes(vendor.id));
+      resourceName = dataSet.vendors.find(vendor => vendor.id == id).name;
+      let unassignedVendors = deepCopy(dataSet.vendors).filter(vendor => !!!eventData.vendors.map(vendor => vendor.vendor.value).includes(vendor.id));
       unassignedVendors = [...eventData.vendors, ...unassignedVendors];
       const vendorToUse = unassignedVendors.find(vendor => vendor.id == id);
       
@@ -149,7 +149,7 @@ $(document).ready(() => {
             didOpen: () => {
               Swal.showLoading();
               fetch(
-                `${suiteletUrl}&mode=updateEventRecord`, {
+                `${dataSet.suiteletUrl}&mode=updateEventRecord`, {
                   method: 'POST',
                   body: JSON.stringify(payload),
                   headers: {

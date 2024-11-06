@@ -1,4 +1,4 @@
-import { customers, resources, resourceGroups, vendors, workOrders, events, organizers } from './components/dataSet';
+import * as dataSet from './components/dataSet';
 import { initLeftSideBarFilters, initAvailableJobsFilters, initEventFilters } from './components/filterHandler';
 import './board.css';
 
@@ -33,13 +33,13 @@ export default class Board {
                         <div class="input-group" style=" margin-top: 10px;">
                           <div class="input-group mb-3" style="border-radius: 5px 5px 0 0;">
                             <select class="selectpicker mx-auto multiple-resource-field" title="Filter by Name" data-live-search="true" data-selected-text-format="count>2" data-style="" data-style-base="form-control" data-actions-box="true" multiple>
-                              ${resources.map(resource => `<option value="${resource.id}">${resource.name}</option>`)}
-                              ${vendors.map(vendor => `<option value="${vendor.id}">${vendor.name}</option>`)}
+                              ${dataSet.resources.map(resource => `<option value="${resource.id}">${resource.name}</option>`)}
+                              ${dataSet.vendors.map(vendor => `<option value="${vendor.id}">${vendor.name}</option>`)}
                             </select>
                           </div>
                           <div class="input-group mb-3">
                             <select class="selectpicker mx-auto multiple-resource-group-field" title="Filter by Group" data-live-search="true" data-selected-text-format="count>2" data-style="" data-style-base="form-control" data-actions-box="true" multiple>
-                            ${resourceGroups.map(resourceGroup => `<option value="${resourceGroup.value}">${resourceGroup.text}</option>`)}
+                            ${dataSet.resourceGroups.map(resourceGroup => `<option value="${resourceGroup.value}">${resourceGroup.text}</option>`)}
                             <option value="vendor">Vendor Subcontractors</option>
                             </select>
                           </div>
@@ -55,7 +55,7 @@ export default class Board {
                   </div>
                 </div>
                 <div class="collapsible-list overflow-auto" style="height: 100%; overflow: scroll">
-                  ${resourceGroups.map(resourceGroup => `
+                  ${dataSet.resourceGroups.map(resourceGroup => `
                     <div id="resourceGroup-${resourceGroup.value}-filter-tableWrapper" class="accordion accordion-flush">
                       <div class="accordion-item">
                         <h2 class="accordion-header" id="resourceGroup-${resourceGroup.value}-filter-tableHeading">
@@ -96,11 +96,11 @@ export default class Board {
                           <button class="accordion-button" type="button" data-toggle="collapse" data-target="#resourceGroup-vendor-filter-table" aria-expanded="true" aria-controls="resourceGroup-vendor-filter-table">
                             <i class="fa-solid fa-icon-size fa-user-group"></i>
                             <strong class="grid-header">&nbsp;Vendor Subcontractors&nbsp;</strong>
-                            <span class="badge badge-danger badge-pill counter">${vendors.length}</span>
+                            <span class="badge badge-danger badge-pill counter">${dataSet.vendors.length}</span>
                           </button>
                         </h2>
                         <div id="resourceGroup-vendor-filter-table" class="accordion-collapse collapse show" aria-labelledby="resourceGroup-vendor-filter-tableHeading" data-parent="#resourceGroup-vendor-filter-tableWrapper">
-                          ${vendors.map(vendor => `
+                          ${dataSet.vendors.map(vendor => `
                           <div class="person-container" resourceType="vendor" id="${vendor.id}">
                             <div draggable="true" ondragstart="dragResourceFunctions(event);" ondragend="dragResourceFunctions(event);" class="person-circle" 
                                   data-bs-toggle="tooltip" 
@@ -133,7 +133,7 @@ export default class Board {
                       <div style="text-align: center;">
                         <i class="fa-solid fa-screwdriver-wrench" style="font-size: 16px"></i>
                         <span style="display: inline-block; margin-left: 5px"><h5><strong>Available Jobs</strong></h5></span>&nbsp;
-                        <span class="badge badge-danger badge-pill counter">${workOrders.length}</span>
+                        <span class="badge badge-danger badge-pill counter">${dataSet.workOrders.length}</span>
                       </div>
                     </div>
                     <div id="col2-filter-tableWrapper" class="accordion accordion-flush">
@@ -148,7 +148,7 @@ export default class Board {
                           <div class="input-group inline-inputs">
                             <div class="input-group mb-3" style="border-radius: 5px 5px 0 0; margin-top: 15px; margin-left: 10px;">
                               <select class="selectpicker mx-auto multiple-customer-field" title="Filter by Customer" data-live-search="true" data-selected-text-format="count>2" data-style="" data-style-base="form-control" data-actions-box="true" multiple>
-                                ${customers.map(customer => `<option value="${customer.value}">${customer.text}</option>`)}
+                                ${dataSet.customers.map(customer => `<option value="${customer.value}">${customer.text}</option>`)}
                               </select>
                             </div>
                             <div class="mb-3" style="border-radius: 5px 5px 0 0; margin-top: 15px; margin-left: 10px;">
@@ -173,7 +173,7 @@ export default class Board {
                       </div>
                     </div>
                     <div class="card-wrapper">
-                      ${workOrders.map(wo => `
+                      ${dataSet.workOrders.map(wo => `
                         <div type="workorder" class="card-item" id="${wo.id}" draggable="true" ondragstart="dragJobFunctions(event);" ondragend="dragJobFunctions(event);">
                           <div class="card-head">
                             <div class="card-name"><a href="${wo.woUrl}" target="_blank"><strong>${wo.name}</strong></a></div>
@@ -216,7 +216,7 @@ export default class Board {
                       <div style="text-align: center;">
                         <i class="fa-regular fa-icon-size fa-calendar-check" style="font-size: 18px;"></i>
                         <span style="display: inline-block; margin-left: 5px"><h5><strong>Events</strong></h5></span>
-                        <span class="badge badge-danger badge-pill counter">${events.length}</span>
+                        <span class="badge badge-danger badge-pill counter">${dataSet.events.length}</span>
                       </div>
                     </div>
                     <div id="col3-filter-tableWrapper" class="accordion accordion-flush">
@@ -231,13 +231,13 @@ export default class Board {
                             <div class="input-group inline-inputs" style="margin-top: 10px;">
                               <div class="input-group mb-3" style="border-radius: 5px 5px 0 0;">
                                 <select class="selectpicker mx-auto multiple-resource-field" title="Filter by Resource Name" data-live-search="true" data-selected-text-format="count>2" data-style="" data-style-base="form-control" data-actions-box="true" multiple>
-                                  ${resources.map(resource => `<option value="${resource.id}">${resource.name}</option>`)}
-                                  ${vendors.map(vendor => `<option value="${vendor.id}">${vendor.name}</option>`)}
+                                  ${dataSet.resources.map(resource => `<option value="${resource.id}">${resource.name}</option>`)}
+                                  ${dataSet.vendors.map(vendor => `<option value="${vendor.id}">${vendor.name}</option>`)}
                                 </select>
                               </div>
                               <div class="input-group mb-3">
                                 <select class="selectpicker mx-auto multiple-resource-group-field" title="Filter by Resource Group" data-live-search="true" data-selected-text-format="count>2" data-style="" data-style-base="form-control" data-actions-box="true" multiple>
-                                ${resourceGroups.map(resourceGroup => `<option value="${resourceGroup.value}">${resourceGroup.text}</option>`)}
+                                ${dataSet.resourceGroups.map(resourceGroup => `<option value="${resourceGroup.value}">${resourceGroup.text}</option>`)}
                                 <option value="vendor">Vendor Subcontractors</option>
                                 <option value="unassigned">Unassigned</option>
                                 </select>
@@ -262,7 +262,7 @@ export default class Board {
                             <div class="input-group inline-inputs">
                               <div class="input-group mb-3">
                                 <select class="selectpicker mx-auto multiple-event-organizer-field" title="Filter by Organizer" data-live-search="true" data-selected-text-format="count>2" data-style="" data-style-base="form-control" data-actions-box="true" multiple>
-                                ${organizers.map(organizer => `<option value="${organizer.value}">${organizer.text}</option>`)}
+                                ${dataSet.organizers.map(organizer => `<option value="${organizer.value}">${organizer.text}</option>`)}
                                 </select>
                               </div>
                               <div class="mb-3">
@@ -298,12 +298,12 @@ export default class Board {
                       </button>
                     </div>
                     <div class="card-wrapper">
-                      ${events.map(event => `
+                      ${dataSet.events.map(event => `
                         <div type="event" class="card-item" id="${event.id}" data-bs-toggle="tooltip" data-bs-placement="left" 
                         title="Resources:<br/>${(event.resources.length || event.vendors.length) ? 
                           `
                             ${event.resources.map((resource, counter) => `${+counter+1}. ${resource.employee.text}`).join('<br/>')}<br/>
-                            ${event.vendors.map((vendor, counter) => `${event.resources.length+counter+1}. ${vendor.vendor.text}`).join('<br/>')}
+                            ${event.vendors.map((vendor, counter) => `${event.resources.length+counter+1}. ${vendor.vendor.text || vendor.name}`).join('<br/>')}
                           `  
                           : '- None -'}"
                         >
@@ -460,7 +460,7 @@ export default class Board {
           // TBD - events validation, green/red border per event card
           $('.thirdColumn').find('div[type*="event"]').each(function() {
             const id = $(this)[0].id;
-            const eventData = events.find(event => event.id == id);
+            const eventData = dataSet.events.find(event => event.id == id);
             
             let foundObj;
             if (resourceType == 'employee') {
@@ -482,7 +482,7 @@ export default class Board {
         case 'dragenter':
           el = ev.target.closest('.card-item');
           eventId = el.id;
-          const eventData = events.find(event => event.id == eventId);
+          const eventData = dataSet.events.find(event => event.id == eventId);
           dataTransfer = JSON.parse(localStorage.getItem('dragResourceFunctions'));
 
           let foundObj;

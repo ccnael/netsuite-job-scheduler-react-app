@@ -294,7 +294,7 @@
                         <div type="event" class="card-item" id="${e.id}" data-bs-toggle="tooltip" data-bs-placement="left" 
                         title="Resources:<br/>${e.resources.length||e.vendors.length?`
                             ${e.resources.map((t,r)=>`${+r+1}. ${t.employee.text}`).join("<br/>")}<br/>
-                            ${e.vendors.map((t,r)=>`${e.resources.length+r+1}. ${t.vendor.text}`).join("<br/>")}
+                            ${e.vendors.map((t,r)=>`${e.resources.length+r+1}. ${t.vendor.text||t.name}`).join("<br/>")}
                           `:"- None -"}"
                         >
                           <div class="card-head">
@@ -507,7 +507,12 @@
         ID ${t.id}<br/>
         ${t.workorder.text}<br/>
         ${t.date.start==t.date.end?moment(t.date.start).format("M/D/YYYY"):`${moment(t.date.start).format("M/D/YYYY")} - ${moment(t.date.end).format("M/D/YYYY")}`}<br/>
-        ${moment(`1/1/1999 ${t.time.start}`).format("h:mm a")} - ${moment(`1/1/1999 ${t.time.end}`).format("h:mm a")}`,placement:"left"})}static _removeToolTip(){$(".tooltip").remove()}}function ws(n){return JSON.parse(JSON.stringify(n))}document.addEventListener("DOMContentLoaded",()=>{di.setup(),di.showBanners(),iv.setup(),window.holdWorkOrder=Lt.holdWorkOrder,window.printWorkOrder=Lt.printWorkOrder,window.cancelWorkOrder=Lt.cancelWorkOrder,window.printPickList=Lt.printPickList,window.deleteEventRecord=ce.deleteEventRecord});const Zo=[{className:"dt-head-center dr-body-center",title:`<div class="form-group form-check container d-flex justify-content-center">
+        ${moment(`1/1/1999 ${t.time.start}`).format("h:mm a")} - ${moment(`1/1/1999 ${t.time.end}`).format("h:mm a")}<br/>
+        <br/>
+        Resources:<br/>
+        ${t.resources.map((r,i)=>`${+i+1}. ${r.employee.text}`).join("<br/>")}<br/>
+        ${t.vendors.map((r,i)=>`${t.resources.length+i+1}. ${r.vendor.text||r.name}`).join("<br/>")}
+        `,placement:"left"})}static _removeToolTip(){$(".tooltip").remove()}}function ws(n){return JSON.parse(JSON.stringify(n))}document.addEventListener("DOMContentLoaded",()=>{di.setup(),di.showBanners(),iv.setup(),window.holdWorkOrder=Lt.holdWorkOrder,window.printWorkOrder=Lt.printWorkOrder,window.cancelWorkOrder=Lt.cancelWorkOrder,window.printPickList=Lt.printPickList,window.deleteEventRecord=ce.deleteEventRecord});const Zo=[{className:"dt-head-center dr-body-center",title:`<div class="form-group form-check container d-flex justify-content-center">
         <input type="checkbox" class="form-check-input" style="left: 30px" onclick="markAll(event);">
       </div>`,render:(n,e,t,r)=>`<div class="form-group form-check container d-flex justify-content-center">
         <input recordId="${t.id}" employeeId="${t.employee.value}" type="checkbox" class="form-check-input dt-line-select" ${t.selected?"checked":""}>

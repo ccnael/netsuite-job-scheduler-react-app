@@ -5,7 +5,7 @@ import dayGridPlugin from '@fullcalendar/daygrid';
 import listPlugin from '@fullcalendar/list';
 import timeGridPlugin from '@fullcalendar/timegrid';
 import resourceTimelinePlugin from '@fullcalendar/resource-timeline';
-import { customers, resources, resourceGroups, vendors, combinedResourceGroups, workOrders, events, organizers } from './components/dataSet';
+import * as dataSet from './components/dataSet';
 import { initCalendarFilters, initAvailableJobsFilters } from './components/filterHandler';
 import { Event } from './components/utils';
 import './calendar.css';
@@ -30,7 +30,7 @@ export default class Calendar {
                 <div style="padding: 10px;" class="card-header header">
                   <i class="fa-solid fa-icon-size fa-users-gear" style="font-size: 14px; margin-right: 5px"></i>
                   <span style="display: inline-block; text-align: center"><h5><strong>Available Jobs</strong></h5></span>
-                  <span class="badge badge-danger badge-pill counter">${workOrders.length}</span>
+                  <span class="badge badge-danger badge-pill counter">${dataSet.workOrders.length}</span>
                 </div>
                 <div id="col2_2-filter-tableWrapper" class="accordion accordion-flush">
                   <div class="accordion-item">
@@ -44,7 +44,7 @@ export default class Calendar {
                       <div class="input-group inline-inputs">
                         <div class="input-group mb-3" style="border-radius: 5px 5px 0 0; margin-top: 15px; margin-left: 10px;">
                           <select class="selectpicker mx-auto multiple-customer-field" title="Filter by Customer" data-live-search="true" data-selected-text-format="count>2" data-style="" data-style-base="form-control" data-actions-box="true" multiple>
-                            ${customers.map(customer => `<option value="${customer.value}">${customer.text}</option>`)}
+                            ${dataSet.customers.map(customer => `<option value="${customer.value}">${customer.text}</option>`)}
                           </select>
                         </div>
                         <div class="mb-3" style="border-radius: 5px 5px 0 0; margin-top: 15px; margin-left: 10px;">
@@ -70,7 +70,7 @@ export default class Calendar {
                 </div>
                 <div class="collapsible-list overflow-auto" style="height: 100%; overflow: scroll">
                   <div class="card-wrapper">
-                    ${workOrders.map(wo => `
+                    ${dataSet.workOrders.map(wo => `
                       <div class="card-item" id="${wo.id}" draggable="true">
                         <div class="card-head">
                           <div class="card-name"><a href="${wo.woUrl}" target="_blank"><strong>${wo.name}</strong></a></div>
@@ -113,7 +113,7 @@ export default class Calendar {
   static _initFullCalendarIO() {
     const containerEl = document.querySelector('#calendarSection .thirdColumn');
     const calendarEl = document.getElementById('calendar');
-    const calendarResources = combinedResourceGroups.map(resourceGroup => ({
+    const calendarResources = dataSet.combinedResourceGroups.map(resourceGroup => ({
       id: resourceGroup.value,
       title: resourceGroup.text,
       children: resourceGroup.resources.map(resource => ({
@@ -133,7 +133,7 @@ export default class Calendar {
 
     // Remap calendar events data
     // -----------------------------------------------------------------
-    let calendarEvents = events.map(event => {
+    let calendarEvents = dataSet.events.map(event => {
       const map = {};
       map.id = event.id;
       map.title = event.title;
@@ -435,20 +435,20 @@ export default class Calendar {
         <div class="input-group inline-inputs" style="margin-top: 10px;">
           <div class="input-group mb-3" style="border-radius: 5px 5px 0 0;">
             <select class="selectpicker mx-auto multiple-resource-field" title="Filter by Resource Name" data-live-search="true" data-selected-text-format="count>2" data-style="" data-style-base="form-control" data-actions-box="true" multiple>
-              ${resources.map(resource => `<option value="${resource.id}">${resource.name}</option>`)}
-              ${vendors.map(vendor => `<option value="${vendor.id}">${vendor.name}</option>`)}
+              ${dataSet.resources.map(resource => `<option value="${resource.id}">${resource.name}</option>`)}
+              ${dataSet.vendors.map(vendor => `<option value="${vendor.id}">${vendor.name}</option>`)}
             </select>
           </div>
           <div class="input-group mb-3">
             <select class="selectpicker mx-auto multiple-resource-group-field" title="Filter by Resource Group" data-live-search="true" data-selected-text-format="count>2" data-style="" data-style-base="form-control" data-actions-box="true" multiple>
-            ${resourceGroups.map(resourceGroup => `<option value="${resourceGroup.value}">${resourceGroup.text}</option>`)}
+            ${dataSet.resourceGroups.map(resourceGroup => `<option value="${resourceGroup.value}">${resourceGroup.text}</option>`)}
             <option value="vendor">Vendor Subcontractors</option>
             <option value="z-unassigned">Unassigned</option>
             </select>
           </div>
           <div class="input-group mb-3">
             <select class="selectpicker mx-auto multiple-event-organizer-field" title="Filter by Organizer" data-live-search="true" data-selected-text-format="count>2" data-style="" data-style-base="form-control" data-actions-box="true" multiple>
-            ${organizers.map(organizer => `<option value="${organizer.value}">${organizer.text}</option>`)}
+            ${dataSet.organizers.map(organizer => `<option value="${organizer.value}">${organizer.text}</option>`)}
             </select>
           </div>
         </div>
@@ -520,7 +520,7 @@ export default class Calendar {
 
     const payload = {};
     payload.eventData = deepCopy(info.event.extendedProps);
-    payload.eventDataSrc = events.find(event => event.id == payload.eventData.id) || {};
+    payload.eventDataSrc = dataSet.events.find(event => event.id == payload.eventData.id) || {};
     const startSplit = moment(info.event.startStr).format('YYYY-MM-DDTHH:mm').split('T');
     payload.eventData.date.start = startSplit[0];
     payload.eventData.time.start = startSplit[1];
@@ -537,7 +537,7 @@ export default class Calendar {
         if (calEvent) {
           let resourceIds = calEvent._def.resourceIds.map(resourceId => resourceId.split('-').pop());
           resourceIds = Array.from(new Set(resourceIds));
-          payload.eventData.selectedResources = resources.filter(resource => !!resource.active && !!(resourceIds.includes(resource.id)));
+          payload.eventData.selectedResources = dataSet.resources.filter(resource => !!resource.active && !!(resourceIds.includes(resource.id)));
         }
       }
     }
@@ -548,7 +548,7 @@ export default class Calendar {
 
   static _initDropDown(info) {
     const eventId = info.event.id;
-    const event = events.find(event => event.id == eventId);
+    const event = dataSet.events.find(event => event.id == eventId);
 
     const html = `<div class="card-header-options"><div class="dropdown" style="display:inline-block">
       <i class="fa-solid fa-angles-down" style="cursor: pointer"></i>
@@ -572,7 +572,12 @@ export default class Calendar {
         ID ${event.id}<br/>
         ${event.workorder.text}<br/>
         ${event.date.start == event.date.end ? moment(event.date.start).format('M/D/YYYY') : `${moment(event.date.start).format('M/D/YYYY')} - ${moment(event.date.end).format('M/D/YYYY')}`}<br/>
-        ${moment(`1/1/1999 ${event.time.start}`).format('h:mm a')} - ${moment(`1/1/1999 ${event.time.end}`).format('h:mm a')}`,
+        ${moment(`1/1/1999 ${event.time.start}`).format('h:mm a')} - ${moment(`1/1/1999 ${event.time.end}`).format('h:mm a')}<br/>
+        <br/>
+        Resources:<br/>
+        ${event.resources.map((resource, counter) => `${+counter+1}. ${resource.employee.text}`).join('<br/>')}<br/>
+        ${event.vendors.map((vendor, counter) => `${event.resources.length+counter+1}. ${vendor.vendor.text || vendor.name}`).join('<br/>')}
+        `,
       placement: 'left'
     });
   }

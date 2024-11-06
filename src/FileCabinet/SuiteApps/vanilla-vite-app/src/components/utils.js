@@ -35,7 +35,7 @@ export class Event {
           return moment(eventEnd).isBetween(start, end, null, '[]') ||  moment(eventStart).isSameOrBefore(start) && moment(eventEnd).isSameOrAfter(end);
         }
       });
-
+      // console.log(checkbox.prop('checked'))
       if (conflictEvents.length) {
         checkbox.prop('checked', false);
         checkbox.prop('disabled', true);
