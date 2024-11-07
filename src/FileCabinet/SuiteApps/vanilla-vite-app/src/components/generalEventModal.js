@@ -1,6 +1,8 @@
-import { resources, vendors, assets, events } from './dataSet';
+import * as dataSet from './dataSet';
 import { resourcesDtColumns, vendorsDtColumns, assetsDtColumns } from './dataTableColumns';
 import { Event } from './utils';
+import { initResourceDtCustomFilters } from './filterHandler';
+import './generalEventModal.css';
 
 let temp_resourcesDataTable, temp_vendorsDataTable, temp_assetsDataTable;
 
@@ -212,7 +214,7 @@ $(document).ready(() => {
         eventTitle = '';
       } else if (mode === 'edit') {
         modalTitle = `Update Event Details [ID ${eventId}]`;
-        eventData = events.find(event => event.id == eventId);
+        eventData = dataSet.events.find(event => event.id == eventId);
         eventTitle = eventData?.title;
       }
 
@@ -237,12 +239,13 @@ $(document).ready(() => {
       $.fn.dataTable.ext.errMode = 'none';
 
       temp_resourcesDataTable = $('#resources_ge').DataTable({
+        dom: '<"d-flex justify-content-between align-items-center"<"left-col"l><"middle-col"><"right-col"f>>tip',
         processing: true,
         retrieve: true,
         ajax(data, callback, settings) {
           callback({
             data: (() => {
-              const activeResources = resources.filter(resource => !!resource.active);
+              const activeResources = dataSet.resources.filter(resource => !!resource.active);
               if (mode === 'create') {
                 return activeResources;
               } else {
@@ -265,6 +268,8 @@ $(document).ready(() => {
         }
       });
 
+      initResourceDtCustomFilters(temp_resourcesDataTable, 'multiple-resource-field-ge', 'multiple-resource-group-field-ge');
+
       temp_vendorsDataTable = $('#vendors_ge').DataTable({
         processing: true,
         retrieve: true,
@@ -272,10 +277,10 @@ $(document).ready(() => {
           callback({
             data: (() => {
               if (mode === 'create') {
-                return vendors;
+                return dataSet.vendors;
               } else {
                 // Combine vendors and WO vendors
-                const unassignedVendors = deepCopy(vendors).filter(vendor => !!!eventData.vendors.map(vendor => vendor.vendor.value).includes(vendor.id));
+                const unassignedVendors = deepCopy(dataSet.vendors).filter(vendor => !!!eventData.vendors.map(vendor => vendor.vendor.value).includes(vendor.id));
                 return [...eventData.vendors, ...unassignedVendors];
               }
             })()
@@ -294,10 +299,10 @@ $(document).ready(() => {
           callback({
             data: (() => {
               if (mode === 'create') {
-                return assets;
+                return dataSet.assets;
               } else {
                 // Combine assets and WO assets
-                const unassignedAssets = deepCopy(assets).filter(asset => !!!eventData.assets.map(asset => asset.item.value).includes(asset.id));
+                const unassignedAssets = deepCopy(dataSet.assets).filter(asset => !!!eventData.assets.map(asset => asset.item.value).includes(asset.id));
                 return [...eventData.assets, ...unassignedAssets];
               }
             })()
@@ -320,14 +325,14 @@ $(document).ready(() => {
     
     const mode = $('#generalEventModal').attr('mode');
     const eventId = $('#generalEventModal').attr('eventId');
-    const eventData = events.find(event => event.id == eventId);
-    const activeResources = resources.filter(resource => !!resource.active);
+    const eventData = dataSet.events.find(event => event.id == eventId);
+    const activeResources = dataSet.resources.filter(resource => !!resource.active);
     let resourcesToUse = [], vendorsToUse = [], assetsToUse = [];
 
     if (mode === 'create') {
       resourcesToUse = activeResources;
-      vendorsToUse = vendors;
-      assetsToUse = assets;
+      vendorsToUse = dataSet.vendors;
+      assetsToUse = dataSet.assets;
     } else {
       resourcesToUse = activeResources.map(resource => {
         const id = resource.id;
@@ -338,11 +343,11 @@ $(document).ready(() => {
         return resource;
       });
 
-      let unassignedVendors = deepCopy(vendors).filter(vendor => !!!eventData.vendors.map(vendor => vendor.vendor.value).includes(vendor.id));
+      let unassignedVendors = deepCopy(dataSet.vendors).filter(vendor => !!!eventData.vendors.map(vendor => vendor.vendor.value).includes(vendor.id));
       unassignedVendors = [...eventData.vendors, ...unassignedVendors];
       vendorsToUse = unassignedVendors;
 
-      let unassignedAssets = deepCopy(assets).filter(asset => !!!eventData.assets.map(asset => asset.item.value).includes(asset.id));
+      let unassignedAssets = deepCopy(dataSet.assets).filter(asset => !!!eventData.assets.map(asset => asset.item.value).includes(asset.id));
       unassignedAssets = [...eventData.assets, ...unassignedAssets];
       assetsToUse = unassignedAssets;
     }

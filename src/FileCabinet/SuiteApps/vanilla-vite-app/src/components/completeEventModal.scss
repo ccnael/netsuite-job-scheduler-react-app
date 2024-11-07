@@ -2,6 +2,10 @@ $background-color_1: white;
 
 #completeEventModal {
 	width: 100%;
+	button.accordion-button {
+		background-color: $background-color_22;
+		color: $color_11;
+	}
 	.ts-input-container {
 		display: flex;
 		gap: 5px;
@@ -12,7 +16,10 @@ $background-color_1: white;
 			text-align: center;
 		}
 	}
-}
-#timeSheets_dt {
-	width: 100%;
+	#timeSheets_dt {
+		width: 100%;
+	}
+	.modal-body {
+		z-index: -1;
+	}
 }

@@ -1,6 +1,6 @@
-import './completeEventModal.css';
 import { suiteletUrl, resources, events } from './dataSet';
 import {  ceTimeSheetsDtColumns, ceItemsDtColumns, cePunchItemsDtColumns } from './dataTableColumns';
+import './completeEventModal.css';
 
 let temp_ceTimeSheetDataTable, temp_ceItemsDataTable, temp_cePunchItemsDataTable;
 
@@ -274,19 +274,19 @@ $(document).ready(() => {
         notes: that.find('.note').val(),
         get labRates() {
           const resource = resources.find(resource => resource.id == this.id);
-          return resource.labRates;
+          return resource?.labRates || [];
         },
         get stCost() {
           const labRateData = this.labRates.find(el => el.labRateCatId == '1') || '';
-          return (this.stHrs * +labRateData?.labRate) + ((this.stMins / 60) * +labRateData?.labRate);
+          return labRateData ? (this.stHrs * +labRateData?.labRate) + ((this.stMins / 60) * +labRateData?.labRate) : 0;
         },
         get otCost() {
           const labRateData = this.labRates.find(el => el.labRateCatId == '2') || '';
-          return (this.otHrs * +labRateData?.labRate) + ((this.otMins / 60) * +labRateData?.labRate);
+          return labRateData ? (this.otHrs * +labRateData?.labRate) + ((this.otMins / 60) * +labRateData?.labRate) : 0;
         },
         get dtCost() {
           const labRateData = this.labRates.find(el => el.labRateCatId == '3') || '';
-          return (this.dtHrs * +labRateData?.labRate) + ((this.dtMins / 60) * +labRateData?.labRate);
+          return labRateData ? (this.dtHrs * +labRateData?.labRate) + ((this.dtMins / 60) * +labRateData?.labRate) : 0;
         },
         get actualCost() {
           return this.stCost + this.otCost + this.dtCost;
@@ -324,9 +324,29 @@ $(document).ready(() => {
       }
     });
 
-    // Sanitize
-    payload.timeSheets = payload.timeSheets.filter(timeSheet => !!timeSheet);
-    payload.fulfillItems = payload.fulfillItems.filter(fulfillItem => !!fulfillItem);
+    // Sanitize: Filter out undefined, null etc values
+    payload.timeSheets = payload.timeSheets.filter(timeSheet => {
+      Object.keys(timeSheet).forEach(key => {
+        if (!!!timeSheet[key])
+          delete timeSheet[key];     
+      })
+      return timeSheet;
+    })
+    
+    const allowedProperties = ['id', 'location', 'startTime', 'endTime', 'awayHrs', 'awayMins', 'stHrs', 'stMins', 'otHrs', 'otMins', 'dtHrs', 'dtMins', 'notes'];
+
+    // Check if any object property is in the allowedProperties array
+    payload.timeSheets = payload.timeSheets.filter(obj =>
+      Object.keys(obj).some(key => allowedProperties.includes(key))
+    );
+
+    payload.fulfillItems= payload.fulfillItems.filter(fulfillItem => {
+      Object.keys(fulfillItem).forEach(key => {
+        if (!!!fulfillItem[key])
+          delete fulfillItem[key];
+      })
+      return fulfillItem;
+    }).filter(fulfillItem => !!Object.keys(fulfillItem).length);
 
     console.log('----- Complete Event Payload -----');
     console.log(payload);

@@ -472,6 +472,48 @@ const mockup = {
             "quantity": 7,
             "availableQty": 7,
             "note": ""
+        }, {
+            "id": "359",
+            "workorder": {
+                "text": "Work Order for Testing Nov 5",
+                "value": "96"
+            },
+            "salesorder": {
+                "text": "Sales Order #SLS00000755",
+                "value": "20872"
+            },
+            "event": "101012",
+            "uuid": "20872_1",
+            "line": "1",
+            "item": {
+                "text": "VZCC-0024-A",
+                "value": "1144"
+            },
+            "description": "Compose,Top Trim 24In.W,Alumn",
+            "quantity": 1,
+            "availableQty": 1,
+            "note": ""
+        }, {
+            "id": "360",
+            "workorder": {
+                "text": "Work Order for Testing Nov 5",
+                "value": "96"
+            },
+            "salesorder": {
+                "text": "Sales Order #SLS00000755",
+                "value": "20872"
+            },
+            "event": "101012",
+            "uuid": "20872_2",
+            "line": "2",
+            "item": {
+                "text": "VZCC-0054-HSS1_NEW2",
+                "value": "2935"
+            },
+            "description": "Compose,Top Trim 54In.W,Stl, Pnl Frame",
+            "quantity": 2,
+            "availableQty": 2,
+            "note": ""
         }],
         "addresses": [{
             "id": "124",
@@ -870,7 +912,7 @@ const mockup = {
                 "text": "Test Address 3",
                 "value": "245152"
             },
-            "addressDetails": "",
+            "addressDetails": "Test Details",
             "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
         }, {
             "id": "121",
@@ -15781,31 +15823,6 @@ const mockup = {
         "priority": "",
         "resources": [],
         "vendors": [{
-            "id": "113",
-            "name": "Bridgepoint Industries",
-            "vendor": {
-                "text": "Bridgepoint Industries",
-                "value": "1473"
-            },
-            "url": "http://www.bridgepointindustries.com.de",
-            "email": "support@bridgempointindustries.com.de",
-            "initials": "BI",
-            "workorder": {
-                "text": "TEST XYZ",
-                "value": "66"
-            },
-            "event": "100968",
-            "quantityRequired": 4,
-            "quantityAvailable": 20,
-            "purchaseOrder": {
-                "text": " ",
-                "value": ""
-            },
-            "amount": 0,
-            "active": true,
-            "woVendor": true,
-            "memo": "CCC\nDDDD\nEE"
-        }, {
             "id": "108",
             "name": "Bridgepoint Industries",
             "vendor": {
@@ -15830,6 +15847,31 @@ const mockup = {
             "active": true,
             "woVendor": true,
             "memo": ""
+        }, {
+            "id": "113",
+            "name": "Bridgepoint Industries",
+            "vendor": {
+                "text": "Bridgepoint Industries",
+                "value": "1473"
+            },
+            "url": "http://www.bridgepointindustries.com.de",
+            "email": "support@bridgempointindustries.com.de",
+            "initials": "BI",
+            "workorder": {
+                "text": "TEST XYZ",
+                "value": "66"
+            },
+            "event": "100968",
+            "quantityRequired": 4,
+            "quantityAvailable": 20,
+            "purchaseOrder": {
+                "text": " ",
+                "value": ""
+            },
+            "amount": 0,
+            "active": true,
+            "woVendor": true,
+            "memo": "CCC\nDDDD\nEE"
         }],
         "assets": [{
             "id": "90",
@@ -16315,7 +16357,7 @@ const mockup = {
             "value": "1"
         },
         "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1770%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-        "events": ["100681", "39", "100682", "100723", "100857", "100950", "100860", "100862", "100864", "100861", "100865", "100866", "100867", "100869", "100870", "100868", "100871", "100875", "100876", "100924", "100922", "100923", "100927", "100903", "100904", "100905", "100906", "100915", "100916", "100933", "100931", "100932", "100952", "100953", "100954", "100959", "101008", "101006", "101007", "101012", "101011", "101010"],
+        "events": ["39", "26", "100682", "100723", "100739", "100857", "100950", "100860", "100862", "100864", "100861", "100865", "100866", "100867", "100869", "100870", "100868", "100871", "100875", "100876", "100907", "100924", "100922", "100923", "100927", "100903", "100904", "100905", "100906", "100915", "100916", "100933", "100931", "100932", "100952", "100953", "100954", "100959", "101008", "101006", "101007", "101012", "101011", "101010"],
         "labRates": [{
             "labRateCatId": "1",
             "labRate": 50
@@ -16376,7 +16418,7 @@ const mockup = {
             "value": "1"
         },
         "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1767%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-        "events": ["100682", "100723", "100724", "100812", "100857", "100860", "100862", "100864", "100861", "100865", "100866", "100867", "100869", "100870", "100868", "100871", "100875", "100876", "100924", "100922", "100923", "100927", "100903", "100904", "100905", "100915", "100916", "100931", "100959", "101006", "101005", "101007", "101010"],
+        "events": ["39", "100682", "100723", "100724", "100812", "100857", "100860", "100862", "100864", "100861", "100865", "100866", "100867", "100869", "100870", "100868", "100871", "100875", "100876", "100924", "100922", "100923", "100927", "100903", "100904", "100905", "100915", "100916", "100931", "100959", "101006", "101005", "101007", "101010"],
         "labRates": [{
             "labRateCatId": "1",
             "labRate": 100
@@ -16696,7 +16738,7 @@ const mockup = {
                 "value": "1"
             },
             "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1770%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-            "events": ["100681", "39", "100682", "100723", "100857", "100950", "100860", "100862", "100864", "100861", "100865", "100866", "100867", "100869", "100870", "100868", "100871", "100875", "100876", "100924", "100922", "100923", "100927", "100903", "100904", "100905", "100906", "100915", "100916", "100933", "100931", "100932", "100952", "100953", "100954", "100959", "101008", "101006", "101007", "101012", "101011", "101010"],
+            "events": ["39", "26", "100682", "100723", "100739", "100857", "100950", "100860", "100862", "100864", "100861", "100865", "100866", "100867", "100869", "100870", "100868", "100871", "100875", "100876", "100907", "100924", "100922", "100923", "100927", "100903", "100904", "100905", "100906", "100915", "100916", "100933", "100931", "100932", "100952", "100953", "100954", "100959", "101008", "101006", "101007", "101012", "101011", "101010"],
             "labRates": [{
                 "labRateCatId": "1",
                 "labRate": 50
@@ -16757,7 +16799,7 @@ const mockup = {
                 "value": "1"
             },
             "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1767%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-            "events": ["100682", "100723", "100724", "100812", "100857", "100860", "100862", "100864", "100861", "100865", "100866", "100867", "100869", "100870", "100868", "100871", "100875", "100876", "100924", "100922", "100923", "100927", "100903", "100904", "100905", "100915", "100916", "100931", "100959", "101006", "101005", "101007", "101010"],
+            "events": ["39", "100682", "100723", "100724", "100812", "100857", "100860", "100862", "100864", "100861", "100865", "100866", "100867", "100869", "100870", "100868", "100871", "100875", "100876", "100924", "100922", "100923", "100927", "100903", "100904", "100905", "100915", "100916", "100931", "100959", "101006", "101005", "101007", "101010"],
             "labRates": [{
                 "labRateCatId": "1",
                 "labRate": 100
@@ -16943,7 +16985,7 @@ const mockup = {
                 "value": "1"
             },
             "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1770%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-            "events": ["100681", "39", "100682", "100723", "100857", "100950", "100860", "100862", "100864", "100861", "100865", "100866", "100867", "100869", "100870", "100868", "100871", "100875", "100876", "100924", "100922", "100923", "100927", "100903", "100904", "100905", "100906", "100915", "100916", "100933", "100931", "100932", "100952", "100953", "100954", "100959", "101008", "101006", "101007", "101012", "101011", "101010"],
+            "events": ["39", "26", "100682", "100723", "100739", "100857", "100950", "100860", "100862", "100864", "100861", "100865", "100866", "100867", "100869", "100870", "100868", "100871", "100875", "100876", "100907", "100924", "100922", "100923", "100927", "100903", "100904", "100905", "100906", "100915", "100916", "100933", "100931", "100932", "100952", "100953", "100954", "100959", "101008", "101006", "101007", "101012", "101011", "101010"],
             "labRates": [{
                 "labRateCatId": "1",
                 "labRate": 50
@@ -17004,7 +17046,7 @@ const mockup = {
                 "value": "1"
             },
             "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1767%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-            "events": ["100682", "100723", "100724", "100812", "100857", "100860", "100862", "100864", "100861", "100865", "100866", "100867", "100869", "100870", "100868", "100871", "100875", "100876", "100924", "100922", "100923", "100927", "100903", "100904", "100905", "100915", "100916", "100931", "100959", "101006", "101005", "101007", "101010"],
+            "events": ["39", "100682", "100723", "100724", "100812", "100857", "100860", "100862", "100864", "100861", "100865", "100866", "100867", "100869", "100870", "100868", "100871", "100875", "100876", "100924", "100922", "100923", "100927", "100903", "100904", "100905", "100915", "100916", "100931", "100959", "101006", "101005", "101007", "101010"],
             "labRates": [{
                 "labRateCatId": "1",
                 "labRate": 100
@@ -17205,7 +17247,7 @@ const mockup = {
                 "value": "1"
             },
             "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1770%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-            "events": ["100681", "39", "100682", "100723", "100857", "100950", "100860", "100862", "100864", "100861", "100865", "100866", "100867", "100869", "100870", "100868", "100871", "100875", "100876", "100924", "100922", "100923", "100927", "100903", "100904", "100905", "100906", "100915", "100916", "100933", "100931", "100932", "100952", "100953", "100954", "100959", "101008", "101006", "101007", "101012", "101011", "101010"],
+            "events": ["39", "26", "100682", "100723", "100739", "100857", "100950", "100860", "100862", "100864", "100861", "100865", "100866", "100867", "100869", "100870", "100868", "100871", "100875", "100876", "100907", "100924", "100922", "100923", "100927", "100903", "100904", "100905", "100906", "100915", "100916", "100933", "100931", "100932", "100952", "100953", "100954", "100959", "101008", "101006", "101007", "101012", "101011", "101010"],
             "labRates": [{
                 "labRateCatId": "1",
                 "labRate": 50
@@ -17266,7 +17308,7 @@ const mockup = {
                 "value": "1"
             },
             "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1767%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-            "events": ["100682", "100723", "100724", "100812", "100857", "100860", "100862", "100864", "100861", "100865", "100866", "100867", "100869", "100870", "100868", "100871", "100875", "100876", "100924", "100922", "100923", "100927", "100903", "100904", "100905", "100915", "100916", "100931", "100959", "101006", "101005", "101007", "101010"],
+            "events": ["39", "100682", "100723", "100724", "100812", "100857", "100860", "100862", "100864", "100861", "100865", "100866", "100867", "100869", "100870", "100868", "100871", "100875", "100876", "100924", "100922", "100923", "100927", "100903", "100904", "100905", "100915", "100916", "100931", "100959", "101006", "101005", "101007", "101010"],
             "labRates": [{
                 "labRateCatId": "1",
                 "labRate": 100
@@ -23386,60 +23428,6 @@ const mockup = {
             "value": "1"
         }
     }, {
-        "id": "207",
-        "name": "Arun Sharma",
-        "initials": "AS",
-        "email": "aruns.unlock2go@gmail.com",
-        "phone": "",
-        "location": {
-            "text": "Atlanta",
-            "value": "8"
-        },
-        "active": true,
-        "workorder": {
-            "text": "",
-            "value": ""
-        },
-        "events": ["100681"],
-        "employee": {
-            "text": "Arun Sharma",
-            "value": "1770"
-        },
-        "resourceGroups": [{
-            "text": "Designers",
-            "value": "2"
-        }, {
-            "text": "Drivers",
-            "value": "3"
-        }, {
-            "text": "Installers",
-            "value": "1"
-        }],
-        "types": [{
-            "text": "Delivery Driver",
-            "value": "2"
-        }, {
-            "text": "Designer",
-            "value": "3"
-        }, {
-            "text": "Installer",
-            "value": "1"
-        }],
-        "subTypes": [],
-        "rate": 0,
-        "vendor": {
-            "text": "",
-            "value": ""
-        },
-        "purchaseOrder": {
-            "text": " ",
-            "value": ""
-        },
-        "affiliationType": {
-            "text": "In-House",
-            "value": "1"
-        }
-    }, {
         "id": "210",
         "name": "Arun Sharma",
         "initials": "AS",
@@ -23715,6 +23703,264 @@ const mockup = {
             "text": "",
             "value": ""
         }
+    }, {
+        "id": "217",
+        "name": "Arun Sharma",
+        "initials": "AS",
+        "email": "aruns.unlock2go@gmail.com",
+        "phone": "",
+        "location": {
+            "text": "Atlanta",
+            "value": "8"
+        },
+        "active": true,
+        "workorder": {
+            "text": "",
+            "value": ""
+        },
+        "events": ["26"],
+        "employee": {
+            "text": "Arun Sharma",
+            "value": "1770"
+        },
+        "resourceGroups": [{
+            "text": "Designers",
+            "value": "2"
+        }, {
+            "text": "Drivers",
+            "value": "3"
+        }, {
+            "text": "Installers",
+            "value": "1"
+        }],
+        "types": [{
+            "text": "Delivery Driver",
+            "value": "2"
+        }, {
+            "text": "Designer",
+            "value": "3"
+        }, {
+            "text": "Installer",
+            "value": "1"
+        }],
+        "subTypes": [],
+        "rate": 0,
+        "vendor": {
+            "text": "",
+            "value": ""
+        },
+        "purchaseOrder": {
+            "text": " ",
+            "value": ""
+        },
+        "affiliationType": {
+            "text": "In-House",
+            "value": "1"
+        }
+    }, {
+        "id": "218",
+        "name": "Arun Sharma",
+        "initials": "AS",
+        "email": "aruns.unlock2go@gmail.com",
+        "phone": "",
+        "location": {
+            "text": "Atlanta",
+            "value": "8"
+        },
+        "active": true,
+        "workorder": {
+            "text": "SLS00000621_WRKORDR001",
+            "value": "32"
+        },
+        "events": ["100739"],
+        "employee": {
+            "text": "Arun Sharma",
+            "value": "1770"
+        },
+        "resourceGroups": [{
+            "text": "Designers",
+            "value": "2"
+        }, {
+            "text": "Drivers",
+            "value": "3"
+        }, {
+            "text": "Installers",
+            "value": "1"
+        }],
+        "types": [{
+            "text": "Delivery Driver",
+            "value": "2"
+        }, {
+            "text": "Designer",
+            "value": "3"
+        }, {
+            "text": "Installer",
+            "value": "1"
+        }],
+        "subTypes": [],
+        "rate": 0,
+        "vendor": {
+            "text": "",
+            "value": ""
+        },
+        "purchaseOrder": {
+            "text": " ",
+            "value": ""
+        },
+        "affiliationType": {
+            "text": "In-House",
+            "value": "1"
+        }
+    }, {
+        "id": "219",
+        "name": "Arun Sharma",
+        "initials": "AS",
+        "email": "aruns.unlock2go@gmail.com",
+        "phone": "",
+        "location": {
+            "text": "Atlanta",
+            "value": "8"
+        },
+        "active": true,
+        "workorder": {
+            "text": "Work Order Test 4",
+            "value": "79"
+        },
+        "events": ["100907"],
+        "employee": {
+            "text": "Arun Sharma",
+            "value": "1770"
+        },
+        "resourceGroups": [{
+            "text": "Designers",
+            "value": "2"
+        }, {
+            "text": "Drivers",
+            "value": "3"
+        }, {
+            "text": "Installers",
+            "value": "1"
+        }],
+        "types": [{
+            "text": "Delivery Driver",
+            "value": "2"
+        }, {
+            "text": "Designer",
+            "value": "3"
+        }, {
+            "text": "Installer",
+            "value": "1"
+        }],
+        "subTypes": [],
+        "rate": 0,
+        "vendor": {
+            "text": "",
+            "value": ""
+        },
+        "purchaseOrder": {
+            "text": " ",
+            "value": ""
+        },
+        "affiliationType": {
+            "text": "In-House",
+            "value": "1"
+        }
+    }, {
+        "id": "220",
+        "name": " ",
+        "initials": "",
+        "email": "",
+        "phone": "",
+        "location": {
+            "text": "",
+            "value": ""
+        },
+        "active": false,
+        "workorder": {
+            "text": "Test Fop Dry Run Part 2",
+            "value": "75"
+        },
+        "events": [],
+        "employee": {
+            "text": "Template - Sales Person",
+            "value": "1"
+        },
+        "resourceGroups": [{
+            "text": "Designers",
+            "value": "2"
+        }],
+        "types": [{
+            "text": "Delivery Driver",
+            "value": "2"
+        }],
+        "subTypes": [],
+        "rate": 0,
+        "vendor": {
+            "text": "",
+            "value": ""
+        },
+        "purchaseOrder": {
+            "text": " ",
+            "value": ""
+        },
+        "affiliationType": {
+            "text": "In-House",
+            "value": "1"
+        }
+    }, {
+        "id": "221",
+        "name": "Bea Dashboards",
+        "initials": "BD",
+        "email": "beatrice.q@erpsuccesspartners.com",
+        "phone": "",
+        "location": {
+            "text": "01: San Francisco",
+            "value": "2"
+        },
+        "active": true,
+        "workorder": {
+            "text": "",
+            "value": ""
+        },
+        "events": ["39"],
+        "employee": {
+            "text": "Bea Dashboards",
+            "value": "1767"
+        },
+        "resourceGroups": [{
+            "text": "Designers",
+            "value": "2"
+        }, {
+            "text": "Drivers",
+            "value": "3"
+        }, {
+            "text": "Installers",
+            "value": "1"
+        }],
+        "types": [{
+            "text": "Delivery Driver",
+            "value": "2"
+        }, {
+            "text": "Designer",
+            "value": "3"
+        }, {
+            "text": "Installer",
+            "value": "1"
+        }],
+        "subTypes": [],
+        "rate": 0,
+        "vendor": {
+            "text": "",
+            "value": ""
+        },
+        "purchaseOrder": {
+            "text": " ",
+            "value": ""
+        },
+        "affiliationType": {
+            "text": "In-House",
+            "value": "1"
+        }
     }],
     "vendors": [{
         "id": "12",
@@ -23754,7 +24000,7 @@ const mockup = {
             "value": ""
         },
         "woVendor": false,
-        "events": ["39", "100874", "100875", "100876", "100877", "100878", "100879", "100924", "100885", "100887", "100916", "100938", "100939", "100942", "100947", "100945", "100946", "100933", "100931", "100932", "100951", "100955", "100956", "100960", "100968", "100969", "100970", "101008", "101005", "101010"],
+        "events": ["39", "100682", "100874", "100875", "100876", "100877", "100878", "100879", "100924", "100885", "100887", "100916", "100938", "100939", "100942", "100947", "100945", "100946", "100933", "100931", "100932", "100951", "100955", "100956", "100960", "100968", "100969", "100970", "101008", "101005", "101010"],
         "memo": ""
     }, {
         "id": "1661",
@@ -23794,7 +24040,7 @@ const mockup = {
             "value": ""
         },
         "woVendor": false,
-        "events": ["39", "100875", "100885", "100940", "101011"],
+        "events": ["39", "100739", "100875", "100885", "100940", "101011"],
         "memo": ""
     }, {
         "id": "1664",
@@ -26366,7 +26612,62 @@ const mockup = {
             "soUrl": "/app/accounting/transactions/salesord.nl?id=19400&compid=TSTDRV2617106",
             "esthours": "5"
         },
-        "resources": [],
+        "resources": [{
+            "id": "219",
+            "name": "Arun Sharma",
+            "initials": "AS",
+            "email": "aruns.unlock2go@gmail.com",
+            "phone": "",
+            "location": {
+                "text": "Atlanta",
+                "value": "8"
+            },
+            "active": true,
+            "workorder": {
+                "text": "Work Order Test 4",
+                "value": "79"
+            },
+            "events": ["100907"],
+            "employee": {
+                "text": "Arun Sharma",
+                "value": "1770"
+            },
+            "resourceGroups": [{
+                "text": "Designers",
+                "value": "2"
+            }, {
+                "text": "Drivers",
+                "value": "3"
+            }, {
+                "text": "Installers",
+                "value": "1"
+            }],
+            "types": [{
+                "text": "Delivery Driver",
+                "value": "2"
+            }, {
+                "text": "Designer",
+                "value": "3"
+            }, {
+                "text": "Installer",
+                "value": "1"
+            }],
+            "subTypes": [],
+            "rate": 0,
+            "vendor": {
+                "text": "",
+                "value": ""
+            },
+            "purchaseOrder": {
+                "text": " ",
+                "value": ""
+            },
+            "affiliationType": {
+                "text": "In-House",
+                "value": "1"
+            },
+            "selected": true
+        }],
         "vendors": [],
         "assets": [],
         "items": [{
@@ -81818,31 +82119,6 @@ const mockup = {
             "priority": "",
             "resources": [],
             "vendors": [{
-                "id": "113",
-                "name": "Bridgepoint Industries",
-                "vendor": {
-                    "text": "Bridgepoint Industries",
-                    "value": "1473"
-                },
-                "url": "http://www.bridgepointindustries.com.de",
-                "email": "support@bridgempointindustries.com.de",
-                "initials": "BI",
-                "workorder": {
-                    "text": "TEST XYZ",
-                    "value": "66"
-                },
-                "event": "100968",
-                "quantityRequired": 4,
-                "quantityAvailable": 20,
-                "purchaseOrder": {
-                    "text": " ",
-                    "value": ""
-                },
-                "amount": 0,
-                "active": true,
-                "woVendor": true,
-                "memo": "CCC\nDDDD\nEE"
-            }, {
                 "id": "108",
                 "name": "Bridgepoint Industries",
                 "vendor": {
@@ -81867,6 +82143,31 @@ const mockup = {
                 "active": true,
                 "woVendor": true,
                 "memo": ""
+            }, {
+                "id": "113",
+                "name": "Bridgepoint Industries",
+                "vendor": {
+                    "text": "Bridgepoint Industries",
+                    "value": "1473"
+                },
+                "url": "http://www.bridgepointindustries.com.de",
+                "email": "support@bridgempointindustries.com.de",
+                "initials": "BI",
+                "workorder": {
+                    "text": "TEST XYZ",
+                    "value": "66"
+                },
+                "event": "100968",
+                "quantityRequired": 4,
+                "quantityAvailable": 20,
+                "purchaseOrder": {
+                    "text": " ",
+                    "value": ""
+                },
+                "amount": 0,
+                "active": true,
+                "woVendor": true,
+                "memo": "CCC\nDDDD\nEE"
             }],
             "assets": [{
                 "id": "90",
@@ -82356,31 +82657,6 @@ const mockup = {
             "priority": "",
             "resources": [],
             "vendors": [{
-                "id": "113",
-                "name": "Bridgepoint Industries",
-                "vendor": {
-                    "text": "Bridgepoint Industries",
-                    "value": "1473"
-                },
-                "url": "http://www.bridgepointindustries.com.de",
-                "email": "support@bridgempointindustries.com.de",
-                "initials": "BI",
-                "workorder": {
-                    "text": "TEST XYZ",
-                    "value": "66"
-                },
-                "event": "100968",
-                "quantityRequired": 4,
-                "quantityAvailable": 20,
-                "purchaseOrder": {
-                    "text": " ",
-                    "value": ""
-                },
-                "amount": 0,
-                "active": true,
-                "woVendor": true,
-                "memo": "CCC\nDDDD\nEE"
-            }, {
                 "id": "108",
                 "name": "Bridgepoint Industries",
                 "vendor": {
@@ -82405,6 +82681,31 @@ const mockup = {
                 "active": true,
                 "woVendor": true,
                 "memo": ""
+            }, {
+                "id": "113",
+                "name": "Bridgepoint Industries",
+                "vendor": {
+                    "text": "Bridgepoint Industries",
+                    "value": "1473"
+                },
+                "url": "http://www.bridgepointindustries.com.de",
+                "email": "support@bridgempointindustries.com.de",
+                "initials": "BI",
+                "workorder": {
+                    "text": "TEST XYZ",
+                    "value": "66"
+                },
+                "event": "100968",
+                "quantityRequired": 4,
+                "quantityAvailable": 20,
+                "purchaseOrder": {
+                    "text": " ",
+                    "value": ""
+                },
+                "amount": 0,
+                "active": true,
+                "woVendor": true,
+                "memo": "CCC\nDDDD\nEE"
             }],
             "assets": [{
                 "id": "90",
@@ -83056,31 +83357,6 @@ const mockup = {
             "priority": "",
             "resources": [],
             "vendors": [{
-                "id": "113",
-                "name": "Bridgepoint Industries",
-                "vendor": {
-                    "text": "Bridgepoint Industries",
-                    "value": "1473"
-                },
-                "url": "http://www.bridgepointindustries.com.de",
-                "email": "support@bridgempointindustries.com.de",
-                "initials": "BI",
-                "workorder": {
-                    "text": "TEST XYZ",
-                    "value": "66"
-                },
-                "event": "100968",
-                "quantityRequired": 4,
-                "quantityAvailable": 20,
-                "purchaseOrder": {
-                    "text": " ",
-                    "value": ""
-                },
-                "amount": 0,
-                "active": true,
-                "woVendor": true,
-                "memo": "CCC\nDDDD\nEE"
-            }, {
                 "id": "108",
                 "name": "Bridgepoint Industries",
                 "vendor": {
@@ -83105,6 +83381,31 @@ const mockup = {
                 "active": true,
                 "woVendor": true,
                 "memo": ""
+            }, {
+                "id": "113",
+                "name": "Bridgepoint Industries",
+                "vendor": {
+                    "text": "Bridgepoint Industries",
+                    "value": "1473"
+                },
+                "url": "http://www.bridgepointindustries.com.de",
+                "email": "support@bridgempointindustries.com.de",
+                "initials": "BI",
+                "workorder": {
+                    "text": "TEST XYZ",
+                    "value": "66"
+                },
+                "event": "100968",
+                "quantityRequired": 4,
+                "quantityAvailable": 20,
+                "purchaseOrder": {
+                    "text": " ",
+                    "value": ""
+                },
+                "amount": 0,
+                "active": true,
+                "woVendor": true,
+                "memo": "CCC\nDDDD\nEE"
             }],
             "assets": [{
                 "id": "90",
@@ -92085,7 +92386,7 @@ const mockup = {
             "text": "Test Address 3",
             "value": "245152"
         },
-        "addressDetails": "",
+        "addressDetails": "Test Details",
         "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
     }, {
         "id": "121",

@@ -1,6 +1,8 @@
 import { resources, woResources, vendors, assets, workOrders, events } from './dataSet';
 import { resourcesDtColumns, vendorsDtColumns, assetsDtColumns, itemsDtColumns, contactsDtColumns, addressesDtColumns } from './dataTableColumns';
 import { Event } from './utils';
+import { initResourceDtCustomFilters } from './filterHandler';
+import './eventModal.css';
 
 let temp_resourcesDataTable, temp_vendorsDataTable, temp_assetsDataTable, temp_itemsDataTable, temp_contactsDataTable, temp_addressesDataTable;
 
@@ -358,6 +360,7 @@ $(document).ready(() => {
       $.fn.dataTable.ext.errMode = 'none';
     
       temp_resourcesDataTable = $('#resources').DataTable({
+        dom: '<"d-flex justify-content-between align-items-center"<"left-col"l><"middle-col"><"right-col"f>>tip',
         processing: true,
         retrieve: true,
         ajax(_data, callback, _settings) {
@@ -399,6 +402,8 @@ $(document).ready(() => {
           eventFormHandlers();
         }
       });
+
+      initResourceDtCustomFilters(temp_resourcesDataTable, 'multiple-resource-field-ev', 'multiple-resource-group-field-ev');
 
       temp_vendorsDataTable = $('#vendors').DataTable({
         processing: true,

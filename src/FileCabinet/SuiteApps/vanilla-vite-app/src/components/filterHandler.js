@@ -1,4 +1,4 @@
-import { resources, vendors, combinedResourceGroups, workOrders, events } from './dataSet';
+import * as dataSet from './dataSet';
 
 export function initLeftSideBarFilters(sectionId) {
   const $items = $(`${sectionId} .leftSidebar .collapsible-list .person-container`);
@@ -41,8 +41,8 @@ export function initLeftSideBarFilters(sectionId) {
       const resourceId = $el[0].id;
       const containerId = $el.closest('div[id*="-filter-tableWrapper"]').attr('id');
       const groupId = (containerId.match('vendor')|| containerId.match(/\d+/))[0];
-      const _resource = resources.find(resource => resource.id == resourceId);
-      const _vendor = vendors.find(vendor => vendor.id == resourceId);
+      const _resource = dataSet.resources.find(resource => resource.id == resourceId);
+      const _vendor = dataSet.vendors.find(vendor => vendor.id == resourceId);
       
       if (_resource || _vendor) {
         let _resourceGroup = [];
@@ -131,7 +131,7 @@ export function initAvailableJobsFilters(selectorId) {
     $items.each(function() {
       const $el = $(this);
       const woId = $el[0].id;
-      const woRef = workOrders.find(wo => wo.id == woId);
+      const woRef = dataSet.workOrders.find(wo => wo.id == woId);
       
       if (woRef) {
         let date = woRef.date;
@@ -255,7 +255,7 @@ export function initEventFilters(sectionId) {
     $items.each(function() {
       const $el = $(this);
       const eventId = $el[0].id;
-      const eventData = events.find(event => event.id == eventId);
+      const eventData = dataSet.events.find(event => event.id == eventId);
       
       if (eventData) {
         let date = eventData.date.end || eventData.date.start;
@@ -320,6 +320,48 @@ export function initEventFilters(sectionId) {
   }
 }
 
+export function initResourceDtCustomFilters(dataTable, resourceFieldId, resourceGroupFieldId) {
+  const resourceFilter = $(`<select class="selectpicker mx-auto ${resourceFieldId}" title="Filter by Name" data-live-search="true" data-selected-text-format="count>2" data-style="" data-style-base="form-control" data-actions-box="true" multiple style="margin-bottom: 35px">
+    ${dataSet.resources.map(resource => `<option value="${resource.id}">${resource.name}</option>`)}
+    </select>`);
+  const resourceGroupFilter = $(`<select class="selectpicker mx-auto ${resourceGroupFieldId}" title="Filter by Group" data-live-search="true" data-selected-text-format="count>2" data-style="" data-style-base="form-control" data-actions-box="true" multiple>
+    ${dataSet.resourceGroups.map(resourceGroup => `<option value="${resourceGroup.value}">${resourceGroup.text}</option>`)}
+  </select>`);
+  
+  // Append filters in the middle section
+  $('div.middle-col').append(resourceFilter).append(resourceGroupFilter);
+  
+  // Resource custom filtering
+  $.fn.dataTable.ext.search.push(function(settings, data, dataIndex) {
+    const resourceValues = resourceFilter.find('option:selected').map(function() {
+      return $(this).text();
+    }).get();
+    if (!resourceValues.length) {
+      return true; // No filter applied, show all rows
+    }
+    const cellContent = $(dataTable.cell(dataIndex, 1).node()).text(); // Change index to target your rendered column
+    return resourceValues.includes(cellContent);
+  });
+  // Resource Group custom filtering
+  $.fn.dataTable.ext.search.push(function(settings, data, dataIndex) {
+    const resourceGroupValues = resourceGroupFilter.find('option:selected').map(function() {
+      return $(this).text();
+    }).get();
+    if (!resourceGroupValues.length) {
+      return true; // No filter applied, show all rows
+    }
+    let cellContent = $(dataTable.cell(dataIndex, 2).node()).text(); // Change index to target your rendered column
+    cellContent = cellContent.split(', ');
+    return resourceGroupValues.some(value => cellContent.includes(value));
+  });
+
+  resourceFilter.on('change', () => dataTable.draw());
+  resourceGroupFilter.on('change', () => dataTable.draw());
+
+  resourceFilter.selectpicker();
+  resourceGroupFilter.selectpicker();
+}
+
 export function initCalendarFilters() {
   const $field = {
     resource: $(`#calendar-filters select.multiple-resource-field`),
@@ -355,7 +397,7 @@ export function initCalendarFilters() {
       resource.remove();
     });
     
-    let calendarResources = combinedResourceGroups.map(resourceGroup => ({
+    let calendarResources = dataSet.combinedResourceGroups.map(resourceGroup => ({
       id: resourceGroup.value,
       title: resourceGroup.text,
       children: resourceGroup.resources.map(resource => ({

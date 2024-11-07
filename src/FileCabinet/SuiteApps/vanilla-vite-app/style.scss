@@ -291,33 +291,6 @@ body {
 	background-color: $background-color_21;
 	color: $color_10;
 }
-#eventModal {
-	button.accordion-button {
-		background-color: $background-color_22;
-		color: $color_11;
-	}
-	.modal-body {
-		z-index: -1;
-	}
-}
-#completeEventModal {
-	button.accordion-button {
-		background-color: $background-color_22;
-		color: $color_11;
-	}
-	.modal-body {
-		z-index: -1;
-	}
-}
-#generalEventModal {
-	button.accordion-button {
-		background-color: $background-color_22;
-		color: $color_11;
-	}
-	.modal-body {
-		z-index: -1;
-	}
-}
 table.dataTable {
 	td.dt-control {
 		text-align: center;

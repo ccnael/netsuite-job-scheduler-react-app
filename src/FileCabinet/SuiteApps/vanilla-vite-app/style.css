@@ -283,30 +283,6 @@ body {
   color: #FFF;
 }
 
-#eventModal button.accordion-button {
-  background-color: #dfe4eb;
-  color: #234678;
-}
-#eventModal .modal-body {
-  z-index: -1;
-}
-
-#completeEventModal button.accordion-button {
-  background-color: #dfe4eb;
-  color: #234678;
-}
-#completeEventModal .modal-body {
-  z-index: -1;
-}
-
-#generalEventModal button.accordion-button {
-  background-color: #dfe4eb;
-  color: #234678;
-}
-#generalEventModal .modal-body {
-  z-index: -1;
-}
-
 table.dataTable td.dt-control {
   text-align: center;
   cursor: pointer;

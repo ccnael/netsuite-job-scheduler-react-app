@@ -4,8 +4,6 @@ import { WorkOrderAction, Event } from './src/components/utils';
 
 document.addEventListener('DOMContentLoaded', () => {
   Board.setup();
-  Board.showBanners();
-  
   Calendar.setup();
   
   // Set below actions globally

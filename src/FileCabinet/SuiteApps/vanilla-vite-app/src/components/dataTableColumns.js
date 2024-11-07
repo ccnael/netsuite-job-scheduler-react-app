@@ -10,11 +10,11 @@ export const resourcesDtColumns = [
     width: "5%",
     orderable: false
   },
-  {
+  /* {
     className: 'dt-head-center dt-body-center',
     data: 'id',
     title: 'ID'
-  },
+  }, */
   {
     className: 'dt-head-center',
     data: 'name',
@@ -23,12 +23,12 @@ export const resourcesDtColumns = [
   {
     className: 'dt-head-center',
     render: (_data, _type, row, _meta) => `${row.resourceGroups.map(resourceGroup => resourceGroup.text).join(', ')}`,
-    title: 'Type'
+    title: 'Group'
   },
   {
     className: 'dt-head-center',
     render: (_data, _type, row, _meta) => `${row.types.map(type => type.text).join(', ')}`,
-    title: 'Group'
+    title: 'Type'
   },
   {
     className: 'dt-head-center',

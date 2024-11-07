@@ -348,6 +348,7 @@ export default class Board {
     this._initLayoutHandlers();
     this._initToolTip();
     this._initResourceDragFunctionsTempSwitch();
+    this._showBanners();
   }
 
   // Instantiate column resizer etc.
@@ -457,7 +458,6 @@ export default class Board {
             id: resourceId
           }));
 
-          // TBD - events validation, green/red border per event card
           $('.thirdColumn').find('div[type*="event"]').each(function() {
             const id = $(this)[0].id;
             const eventData = dataSet.events.find(event => event.id == id);
@@ -546,7 +546,7 @@ export default class Board {
     initEventFilters('#boardSection');
   }
 
-  static showBanners() {
+  static _showBanners() {
     setTimeout(() => {
 
       const toasties = [

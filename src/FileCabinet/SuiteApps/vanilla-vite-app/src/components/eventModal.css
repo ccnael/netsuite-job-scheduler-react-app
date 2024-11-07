@@ -1,0 +1,24 @@
+#eventModal button.accordion-button {
+  background-color: #dfe4eb;
+  color: #234678;
+}
+#eventModal .modal-body {
+  z-index: -1;
+}
+#eventModal .selectpicker, #eventModal .dropdown-menu {
+  z-index: 999;
+}
+#eventModal .multiple-resource-field-ev {
+  margin-bottom: 10px;
+  z-index: 999;
+}
+#eventModal .multiple-resource-group-field-ev {
+  padding-left: 10pt;
+  z-index: 999;
+}
+#eventModal #resources_wrapper .dt-paging {
+  margin-top: -15px;
+  display: flex;
+  justify-content: flex-end; /* Ensure pagination is aligned to the right */
+  width: 100%; /* Ensure it takes up the full width of the parent container */
+}/*# sourceMappingURL=eventModal.css.map */
