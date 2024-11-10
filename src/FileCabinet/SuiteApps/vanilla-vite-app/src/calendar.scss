@@ -8,6 +8,8 @@ $background-color_18: #ddd;
 $background-color_19: #f0f0f0;
 
 #calendarSection {
+	display: block;
+	
 	#calendar {
 		height: 90%;
 		width: 100%;
@@ -15,6 +17,12 @@ $background-color_19: #f0f0f0;
 		margin-top: 10px;
 		padding-bottom: 10px;
 		background-color: #f0f0f0;
+		overflow: scroll;
+
+		.fc-timeline-body, .fc-timeline-header-row, .fc-view-harness, .fc-scroller {
+			white-space: nowrap;
+    		overflow-x: scroll !important;
+		}
 
 		.fc-license-message {
 			display: none;
@@ -206,7 +214,7 @@ $background-color_19: #f0f0f0;
 	}
 	#legend {
 		display: inline-block; 
-		margin-left: 20px;
+		margin-left: -20px;
 		margin-top: 10px;
 		font-size: 12px;
 

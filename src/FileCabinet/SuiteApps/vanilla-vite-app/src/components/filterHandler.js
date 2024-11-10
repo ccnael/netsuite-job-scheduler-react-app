@@ -182,7 +182,9 @@ export function initEventFilters(sectionId) {
   // On click resources
   let resourceIds = [];
   $('.person-container').on('click', function() {
-    const resourceId = $(this)[0].id;
+    const elementId = $(this)[0].id;
+    const resourceId = elementId.split('-').pop();
+
     if ($(this).hasClass('row-available')) {
       $(this).removeClass('row-available');
       const index = resourceIds.indexOf(resourceId);
@@ -195,14 +197,15 @@ export function initEventFilters(sectionId) {
     }
 
     $('.person-container').each(function() {
-      const resourceId = $(this)[0].id;
+      const elementId =  $(this)[0].id;
+      const resourceId = elementId.split('-').pop();
+      console.log('resourceId >>', elementId, resourceId, resourceIds.includes(resourceId), $(this).prop('className'))
       if (resourceIds.includes(resourceId)) {
         $(this).addClass('row-available');
       } else {
         $(this).removeClass('row-available');
       }
     });
-    
     resourceIds = Array.from(new Set(resourceIds));
     $(`${sectionId} .thirdColumn select.multiple-resource-field`).val(resourceIds).change();
   });
@@ -239,7 +242,8 @@ export function initEventFilters(sectionId) {
         // Highligh resource rows
         if (id == 'resource') {
           $('.person-container').each(function() {
-            const resourceId = $(this)[0].id;
+            const elementId = $(this)[0].id;
+            const resourceId = elementId.split('-').pop();
             if ($selected[id].includes(resourceId)) {
               $(this).addClass('row-available');
             } else {
@@ -362,7 +366,7 @@ export function initResourceDtCustomFilters(dataTable, resourceFieldId, resource
   resourceGroupFilter.selectpicker();
 }
 
-export function initCalendarFilters() {
+export function initCalendarFilters(pageSwitched, info) {
   const $field = {
     resource: $(`#calendar-filters select.multiple-resource-field`),
     resourceGroup: $(`#calendar-filters select.multiple-resource-group-field`),
@@ -380,12 +384,27 @@ export function initCalendarFilters() {
     eventType: []
   };
 
-  for (const id in $field) {
-    if ($field[id].length) {
-      $field[id].on('change', function() {
-        $selected[id] = $(this).val() || [];
-        filterItems();
-      });
+  if (pageSwitched) {
+    let hasDefaultFilter = false;
+    for (const id in $field) {
+      if ($field[id].length) {
+        $selected[id] = $field[id].val() || [];
+        if ($selected[id].length) {
+          hasDefaultFilter = true;
+        }
+      }
+    }
+    if (hasDefaultFilter) {
+      filterItems();
+    }
+  } else {
+    for (const id in $field) {
+      if ($field[id].length) {
+        $field[id].on('change', function() {
+          $selected[id] = $(this).val() || [];
+          filterItems();
+        });
+      }
     }
   }
 
@@ -424,24 +443,19 @@ export function initCalendarFilters() {
     if ($selected.status.length) {
       calendarEvents = calendarEvents.filter(event => !!($selected.status.includes(event.extendedProps.status.value)));
     }
-
     if ($selected.priority.length) {
       calendarEvents = calendarEvents.filter(event => !!($selected.priority.includes(event.extendedProps.priority.value)));
     }
-
     if ($selected.organizer.length) {
       calendarEvents = calendarEvents.filter(event => !!($selected.organizer.includes(event.extendedProps.organizer.value)));
     }
-
     if ($selected.eventType.length) {
       calendarEvents = calendarEvents.filter(event => !!($selected.eventType.includes(!!event.extendedProps.workorder.text ? '2' : '1')));
     }
-    
     // Events with no resource gets assigned here
     if (!$selected.resource.length && !$selected.resourceGroup.length || $selected.resourceGroup.includes('z-unassigned')) {
       calendarResources.push({ id: 'z-unassigned', title: 'Unassigned', children: [] });
     }
-
     window.FullCalendar.getEvents().forEach(event => {
       event.remove();
     });
@@ -457,35 +471,60 @@ export function initCalendarFilters() {
       window.FullCalendar.addResource(calendarResource);
     });
 
-    const currentView = window.FullCalendar.view;
-    const start = moment(currentView.currentStart);
-    const end = moment(currentView.currentEnd);
-
     // Resource groups counter
-    $('div.fc-scroller-harness tbody tr[role*="row"]').each(function() {
+    /* $('div.fc-scroller-harness tbody tr[role*="row"]').each(function() {
       const rowId = $(this).find('td.fc-resource').attr('data-resource-id');
       const resourceGroup = calendarResources.find(resourceGroup => resourceGroup.id == rowId);
       if (resourceGroup) {
        const counter = $(this).find('span.counter').text();
        if (counter) {
         $(this).find('span.counter').text(resourceGroup.resourceCount);
+        // console.log('counter', counter, resourceGroup.resourceCount)
        }
       }
-    });
-
-    setTimeout(() => window.FullCalendar.updateSize(), 250);
-
-    updateHeaderCount();
+    }); */
     
-    // Update header column counter
-    function updateHeaderCount() {
-      /* let total = 0;
-      calendarResources.forEach(resourceGroup => {
-        total += +resourceGroup?.resourceCount || 0;
-        console.log(resourceGroup.resourceCount, total);
-      });
-      $(`div#main-resource-header span.counter`).html(total); */
-      // $('#eventsViewCounter').text(total);
+    if (pageSwitched) {
+      setTimeout(() => {
+        for (const id in $field) {
+          if ($selected[id].length) {
+            $field[id].change();
+          }
+        }
+        updateCurrentCalendarPageEventCount(info);
+      })
     }
+
+    // setTimeout(() => window.FullCalendar.updateSize(), 250);
+  }
+}
+
+export function updateCurrentCalendarPageEventCount(info) {
+  const currentView = window.FullCalendar.view;
+  const start = moment(currentView.currentStart);
+  const end = moment(currentView.currentEnd);
+  
+  // Check if the event is in the current view's date range
+  const currentEvents = window.FullCalendar.getEvents().filter(event => {
+    return moment(event.end).isBetween(start, end, null, '[]') ||  moment(event.start).isSameOrBefore(start) && moment(event.end).isSameOrAfter(end);
+  });
+  $('#eventsViewCounter').text(currentEvents.length);
+
+  // 2nd approach (catch)
+  if (!currentEvents.length) {
+    const allEvents = window.FullCalendar.getEvents(); // Get all loaded events
+    const currentPageEvents = [];
+  
+    // Filter events that fall within the current view date range
+    allEvents.forEach(event => {
+      const eventStart = event.start;
+      const eventEnd = event.end || event.start; // Use start if end is not defined
+  
+      // Check if the event falls within the current view's date range
+      if (eventStart < info.end && eventEnd >= info.start) {
+        currentPageEvents.push(event);
+      }
+    });
+    $('#eventsViewCounter').text(currentPageEvents.length);
   }
 }

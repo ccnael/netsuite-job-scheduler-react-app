@@ -29,13 +29,25 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.min.css" />
   </head>
   <body>
-    <div id="app"></div>
+    <div id="app">
+      <header class="header tab-container">
+        <div class="tab active board" data-target="boardSection">Board</div>
+        <div class="tab calendar" data-target="calendarSection">Calendar</div>
+      </header>
+      <footer>
+        <div class="floating-logo" data-bs-toggle="tooltip" data-bs-placement="right" title="N/A">
+          <img src="dist/assets/magic-wand-sample-3.png" alt="Logo" />
+        </div>
+      </footer>
+    </div>
+
     <script type="module" src="main.js" defer></script>
     <link rel="stylesheet" href="style.css" />
     <script type="module" src="/src/components/eventModal.js" defer></script>
     <script type="module" src="/src/components/generalEventModal.js" defer></script>
     <script type="module" src="/src/components/completeEventModal.js" defer></script>
     <script type="module" src="/src/components/addResourceModal.js" defer></script>
+    <input type="hidden" id="userId" value="{{userId}}" />
     <input type="hidden" id="suiteletUrl" value="{{suiteletUrl}}" />
     <input type="hidden" id="workOrders" value="{{workOrders}}" />
     <input type="hidden" id="customers" value="{{customers}}" />
@@ -46,5 +58,6 @@
     <input type="hidden" id="assets" value="{{assets}}" />
     <input type="hidden" id="events" value="{{events}}" />
     <input type="hidden" id="organizers" value="{{organizers}}" />
+    
   </body>
 </html>

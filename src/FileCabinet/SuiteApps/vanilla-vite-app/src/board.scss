@@ -7,6 +7,7 @@ $background-color_18: #ddd;
 $background-color_19: #f0f0f0;
 
 #boardSection {
+	display: block;
 	.secondColumn {
 		.card-header {
 			background-color: $background-color_5;
@@ -20,12 +21,14 @@ $background-color_19: #f0f0f0;
 		.card-header {
 			background-color: $background-color_6;
 		}
-		.border-available {
+		.event-available {
 			border: 5px dashed #26CC4E !important;
 		}
-		.border-unavailable {
-			// border: 5px dashed #3c1509 !important;
-			background-color: #686767;
+		.event-unavailable {
+			opacity: 0.6; /* Makes the card look faded */
+			// pointer-events: none; /* Disables interaction (clicks, hovers, etc.) */
+  			// cursor: not-allowed; /* Changes the cursor to a "not-allowed" icon */
+			filter: grayscale(100%);
 		}
 		overflow: auto;
 	}

@@ -11,10 +11,12 @@ export default defineConfig({
         assetFileNames: ({ name }) => {
           if (name && name.endsWith('.css')) {
             return 'index.css'; // For CSS files
-          } else if (name === 'vite.svg') {
+          } else if (name.match(/vite|magic/gi)) {
+            console.log('>>>', 'assets/images/[name].[ext]')
             return 'assets/images/[name].[ext]'; // Move vite.svg to assets/images folder
+          } else {
+            return 'assets/[name].[ext]'; // Other assets like images, fonts, etc.
           }
-          return 'assets/[name].[ext]'; // Other assets like images, fonts, etc.
         },
       }
     },

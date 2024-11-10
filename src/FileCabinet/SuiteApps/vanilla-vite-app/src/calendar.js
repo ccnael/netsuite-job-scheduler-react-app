@@ -6,108 +6,110 @@ import listPlugin from '@fullcalendar/list';
 import timeGridPlugin from '@fullcalendar/timegrid';
 import resourceTimelinePlugin from '@fullcalendar/resource-timeline';
 import * as dataSet from './components/dataSet';
-import { initCalendarFilters, initAvailableJobsFilters } from './components/filterHandler';
+import { initCalendarFilters, initAvailableJobsFilters, updateCurrentCalendarPageEventCount } from './components/filterHandler';
 import { Event } from './components/utils';
 import './calendar.css';
 
 export default class Calendar {
   
   static setup() {
-    $('#app').append(`
-    <div class="tab-content" id="calendarSection">
-      <div class="main-container">
-        <!-- Collapsible First Column -->
-        <div class="grid-container">
-          <div class="container resizable secondColumn">
-            <div id="calendar"></div>
-          </div>
-          <!-- Resizer Between Second and Third Columns -->
-          <div class="resizer" id="calendarColumnResizer"></div>
-
-          <aside class="sidebar resizable thirdColumn">
-            <div class="collapse-content collapseRight">
-                <!-- Available Jobs -->
-                <div style="padding: 10px;" class="card-header header">
-                  <i class="fa-solid fa-icon-size fa-users-gear" style="font-size: 14px; margin-right: 5px"></i>
-                  <span style="display: inline-block; text-align: center"><h5><strong>Available Jobs</strong></h5></span>
-                  <span class="badge badge-danger badge-pill counter">${dataSet.workOrders.length}</span>
-                </div>
-                <div id="col2_2-filter-tableWrapper" class="accordion accordion-flush">
-                  <div class="accordion-item">
-                    <h2 class="accordion-header" id="col2_2-filter-tableHeading">
-                      <button class="accordion-button collapsed" type="button" data-toggle="collapse" data-target="#col2_2-filter-table" aria-expanded="false" aria-controls="col2_2-filter-table">
-                        <i class="fa fa-filter"></i>
-                        <strong class="grid-header">&nbsp;Filters</strong>
-                      </button>
-                    </h2>
-                    <div id="col2_2-filter-table" class="accordion-collapse collapse" aria-labelledby="col2_2-filter-tableHeading" data-parent="#col2_2-filter-tableWrapper">
-                      <div class="input-group inline-inputs">
-                        <div class="input-group mb-3" style="border-radius: 5px 5px 0 0; margin-top: 15px; margin-left: 10px;">
-                          <select class="selectpicker mx-auto multiple-customer-field" title="Filter by Customer" data-live-search="true" data-selected-text-format="count>2" data-style="" data-style-base="form-control" data-actions-box="true" multiple>
-                            ${dataSet.customers.map(customer => `<option value="${customer.value}">${customer.text}</option>`)}
-                          </select>
-                        </div>
-                        <div class="mb-3" style="border-radius: 5px 5px 0 0; margin-top: 15px; margin-left: 10px;">
-                          <input type="text" class="form-control" id="woTitle" placeholder="Enter Work Order Title">
-                        </div>
-                      </div>
-                      <div class="input-group inline-inputs" style="margin-left: 10px;">
-                        <div class="mb-3 row align-items-center">
-                          <label for="calendar-job-datefrom" class="col-form-label col-auto">From: </label>
-                          <div class="col-auto">
-                              <input type="date" class="form-control" id="calendar-job-datefrom">
-                          </div>
-                        </div>
-                        <div class="mb-3 row align-items-center">
-                          <label for="calendar-job-dateto" class="col-form-label col-auto">To: </label>
-                          <div class="col-auto">
-                              <input type="date" class="form-control" id="calendar-job-dateto">
-                          </div>
-                        </div>
-                      </div>
+    setTimeout(() => {
+      $(`<div class="tab-content" id="calendarSection">
+          <div class="main-container">
+            <!-- Collapsible First Column -->
+            <div class="grid-container">
+              <div class="container resizable secondColumn">
+                <div id="calendar"></div>
+              </div>
+              <!-- Resizer Between Second and Third Columns -->
+              <div class="resizer" id="calendarColumnResizer"></div>
+    
+              <aside class="sidebar resizable thirdColumn">
+                <div class="collapse-content collapseRight">
+                    <!-- Available Jobs -->
+                    <div style="padding: 10px;" class="card-header header">
+                      <i class="fa-solid fa-icon-size fa-users-gear" style="font-size: 14px; margin-right: 5px"></i>
+                      <span style="display: inline-block; text-align: center"><h5><strong>Available Jobs</strong></h5></span>
+                      <span class="badge badge-danger badge-pill counter">${dataSet.workOrders.length}</span>
                     </div>
-                  </div>
-                </div>
-                <div class="collapsible-list overflow-auto" style="height: 100%; overflow: scroll">
-                  <div class="card-wrapper">
-                    ${dataSet.workOrders.map(wo => `
-                      <div class="card-item" id="${wo.id}" draggable="true">
-                        <div class="card-head">
-                          <div class="card-name"><a href="${wo.woUrl}" target="_blank"><strong>${wo.name}</strong></a></div>
-                          <div class="card-header-options">
-                            <div class="dropdown">
-                              <i class="fa-solid fa-angles-down" style="cursor: pointer"></i>
-                              <div class="dropdown-content">
-                                <a href="#" onclick="holdWorkOrder(event)">Hold</a>
-                                <a href="#" onclick="printWorkOrder(event)">Print</a>
-                                <a href="#" onclick="cancelWorkOrder(event)">Cancel</a>
-                                <a href="#" onclick="printPickList(event)">Print Pick List</a>
+                    <div id="col2_2-filter-tableWrapper" class="accordion accordion-flush">
+                      <div class="accordion-item">
+                        <h2 class="accordion-header" id="col2_2-filter-tableHeading">
+                          <button class="accordion-button collapsed" type="button" data-toggle="collapse" data-target="#col2_2-filter-table" aria-expanded="false" aria-controls="col2_2-filter-table">
+                            <i class="fa fa-filter"></i>
+                            <strong class="grid-header">&nbsp;Filters</strong>
+                          </button>
+                        </h2>
+                        <div id="col2_2-filter-table" class="accordion-collapse collapse" aria-labelledby="col2_2-filter-tableHeading" data-parent="#col2_2-filter-tableWrapper">
+                          <div class="input-group inline-inputs">
+                            <div class="input-group mb-3" style="border-radius: 5px 5px 0 0; margin-top: 15px; margin-left: 10px;">
+                              <select class="selectpicker mx-auto multiple-customer-field" title="Filter by Customer" data-live-search="true" data-selected-text-format="count>2" data-style="" data-style-base="form-control" data-actions-box="true" multiple>
+                                ${dataSet.customers.map(customer => `<option value="${customer.value}">${customer.text}</option>`)}
+                              </select>
+                            </div>
+                            <div class="mb-3" style="border-radius: 5px 5px 0 0; margin-top: 15px; margin-left: 10px;">
+                              <input type="text" class="form-control" id="woTitle" placeholder="Enter Work Order Title">
+                            </div>
+                          </div>
+                          <div class="input-group inline-inputs" style="margin-left: 10px;">
+                            <div class="mb-3 row align-items-center">
+                              <label for="calendar-job-datefrom" class="col-form-label col-auto">From: </label>
+                              <div class="col-auto">
+                                  <input type="date" class="form-control" id="calendar-job-datefrom">
+                              </div>
+                            </div>
+                            <div class="mb-3 row align-items-center">
+                              <label for="calendar-job-dateto" class="col-form-label col-auto">To: </label>
+                              <div class="col-auto">
+                                  <input type="date" class="form-control" id="calendar-job-dateto">
                               </div>
                             </div>
                           </div>
                         </div>
-                        <div class="card-content">
-                          <div class="card-content-woId" woId="${wo.id}">ID ${wo.id}</div>
-                          <div class="card-content-customer" customerId="${wo.customer.value}"><strong>${wo.customer.text}</strong></div>
-                          <div class="card-content-date">${wo.date}</div>
-                          <div class="card-content-project"><strong>EST Hours: </strong>${wo.esthours}</div>
-                          <div>
-                            <span class="badge py-1 px-2 rounded-pill text-uppercase" style="background-color: ${wo.status.code};">${wo.status.text}</span>
-                          </div>
-                        </div>
-                      </div>  
-                    `)}
-                  </div>
+                      </div>
+                    </div>
+                    <div class="collapsible-list overflow-auto" style="height: 100%; overflow: scroll">
+                      <div class="card-wrapper">
+                        ${dataSet.workOrders.map(wo => `
+                          <div class="card-item" id="${wo.id}" draggable="true">
+                            <div class="card-head">
+                              <div class="card-name"><a href="${wo.woUrl}" target="_blank"><strong>${wo.name}</strong></a></div>
+                              <div class="card-header-options">
+                                <div class="dropdown">
+                                  <i class="fa-solid fa-angles-down" style="cursor: pointer"></i>
+                                  <div class="dropdown-content">
+                                    <a href="#" onclick="holdWorkOrder(event)">Hold</a>
+                                    <a href="#" onclick="printWorkOrder(event)">Print</a>
+                                    <a href="#" onclick="cancelWorkOrder(event)">Cancel</a>
+                                    <a href="#" onclick="printPickList(event)">Print Pick List</a>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="card-content">
+                              <div class="card-content-woId" woId="${wo.id}">ID ${wo.id}</div>
+                              <div class="card-content-customer" customerId="${wo.customer.value}"><strong>${wo.customer.text}</strong></div>
+                              <div class="card-content-date">${wo.date}</div>
+                              <div class="card-content-project"><strong>EST Hours: </strong>${wo.esthours}</div>
+                              <div>
+                                <span class="badge py-1 px-2 rounded-pill text-uppercase" style="background-color: ${wo.status.code};">${wo.status.text}</span>
+                              </div>
+                            </div>
+                          </div>  
+                        `)}
+                      </div>
+                    </div>
                 </div>
+              </aside>
             </div>
-          </aside>
-        </div>
-      </div>
-    </div>`
-    .replace(/,/g, ''));
-
-    this._initFullCalendarIO();
-    this._initLayoutHandlers();
+          </div>
+        </div>`
+        .replace(/,/g, ''))
+        .insertAfter('header');
+    
+        this._initFullCalendarIO();
+        this._initLayoutHandlers();
+    });
   }
 
   static _initFullCalendarIO() {
@@ -141,7 +143,18 @@ export default class Calendar {
       map.end = `${event.date.end}T${event.time.end}`;
       map.url = event.url;
       map.className = 'event-class-style-name';
-      map.className += (event.status.value === 'TENTATIVE' ? ' tentative' : ' confirmed');
+      
+      switch (event.status.value) {
+        case 'TENTATIVE':
+          map.className += ' tentative';
+          break;
+        case 'CONFIRMED':
+          map.className += ' confirmed';
+          break;
+        case 'COMPLETED':
+          map.className += ' confirmed';
+          break;
+      }
       map.resourceIds = [];
       map.resourceIds = [...map.resourceIds, ...event.vendors.map(vendor => `vendor-${vendor.vendor.value}`)];
 
@@ -183,14 +196,20 @@ export default class Calendar {
       aspectRatio: 1,
       eventDurationEditable: true,
       eventResizableFromStart: true,
-      eventOverlap: false,
+      eventOverlap: true,
       // eventColor: '#02ac5a', // Default color class -> .confirmed
-      scrollTime: '00:00', // Undo default 6am scrollTime
+      // scrollTime: '00:00', // Undo default 6am scrollTime
       // Add legend and filter fields
+      contentHeight: 'auto', // or a specific value like 600
+      scrollTime: '08:00:00', // Set default scroll start time
+      dayMinWidth: 100, // Adjust as needed
+      slotMinWidth: 75, // Adjust this value based on your needs
       // -----------------------------------------------------------------
       viewDidMount: info => {
-        this._appendHeaderFields();
-        $('button.bs-deselect-all').click(); // Deselect filter fields
+        this._appendHeaderAndFilterFields();
+        // $('button.bs-deselect-all').click(); // Deselect filter fields
+        // this._setDefaultEvents();
+        updateCurrentCalendarPageEventCount(info);
       },
       headerToolbar: {
         left: 'todayBtn prev,next',
@@ -245,7 +264,7 @@ export default class Calendar {
         }
       },
       events: (fetchInfo, successCallback, failureCallback) => {
-        successCallback(calendarEvents);
+        successCallback(calendarEvents/* .filter(event => event.extendedProps.status.value !== 'COMPLETED') */);
       },
       customButtons: {
         todayBtn: {
@@ -269,8 +288,17 @@ export default class Calendar {
         const event = info.event.extendedProps;
         if (event.id) {
           try {
-            info.el.classList.add(event.status.value === 'TENTATIVE' ? 'tentative' : 'confirmed');
-  
+            switch (event.status.value) {
+              case 'TENTATIVE':
+                info.el.classList.add('tentative');
+                break;
+              case 'CONFIRMED':
+                info.el.classList.add('confirmed');
+                break;
+              case 'COMPLETED':
+                info.el.classList.add('completed');
+                break;
+            }
             this._initDropDown(info);
             this._initToolTip(info);
           } catch (e) {
@@ -285,7 +313,7 @@ export default class Calendar {
             const html = `
             <div style="margin-left: 15px; height: 150px;" id="${event.id}">
             <div class="card-head">
-              <div class="card-name"><a href="${event.url}" target="_blank"><strong>${event.title}</strong></a>
+              <div class="card-name"><a href="${event.url}" target="_blank" onclick="window.open('/app/crm/calendar/event.nl?id=${event.id}', '_blank')"><strong>${event.title}</strong></a>
               </div>
             </div>
             <div class="card-content" style="position: relative">
@@ -302,7 +330,8 @@ export default class Calendar {
             </div>
           </div>
             `;
-            this._updateEventViewCounter();
+            // console.log('eventContent', el.event)
+            updateCurrentCalendarPageEventCount(el.event);
             return { html };
           } catch (e) {
             console.log('eventContent Unexpected Error', e.message);
@@ -333,6 +362,7 @@ export default class Calendar {
       // Ex. Dropping external events/jobs
       // -----------------------------------------------------------------
       eventReceive: info => {
+        // console.log('Job dropped');
         info.action = 'eventReceive';
         this._prefillAddEvent(info);
       },
@@ -345,18 +375,28 @@ export default class Calendar {
         window.FullCalendar.render();
       },
       datesSet: info => {
-        this._updateEventViewCounter();
+        // console.log('Page changed');
+        initCalendarFilters(true, info);
+        updateCurrentCalendarPageEventCount(info);
+
+        /* $('#calendar .fc-timeline-body').css({
+          'white-space': 'nowrap',
+    		  'overflow-x': 'scroll'
+        }); */
       }
     });
   
     window.FullCalendar.render();
   }
 
+  static _setDefaultEvents() {
+    $('#calendar-filters select.multiple-event-status-field').val(['TENTATIVE', 'CONFIRMED']);
+    $('#calendar-filters select.multiple-event-status-field').change();
+  }
+
   // Instantiate tab header switch, column resizer etc.
   // -----------------------------------------------------------------
   static _initLayoutHandlers() {
-    this._initTabSwitch();
-
     const resizer = document.getElementById('calendarColumnResizer');
     const leftSide = document.querySelector('#calendarSection .secondColumn');
     const rightSide = document.querySelector('#calendarSection .thirdColumn');
@@ -386,47 +426,19 @@ export default class Calendar {
 
     resizer.addEventListener('mousedown', mouseDownHandler);
 
-    initCalendarFilters();
+    initCalendarFilters(false);
     initAvailableJobsFilters('#calendarSection .thirdColumn');
 
-    this._updateEventViewCounter();
+    // updateCurrentCalendarPageEventCount();
   }
 
-  // Instantiate tab switch
-  // -----------------------------------------------------------------
-  static _initTabSwitch() {
-    const tabs = document.querySelectorAll('.tab');
-    const contents = document.querySelectorAll('.tab-content');
-    document.getElementById('calendarSection').style.display = 'none';
-  
-    tabs.forEach(tab => {
-      tab.addEventListener('click', () => {
-        const tabId = tab.getAttribute('data-target');
-        // Remove active class from all tabs and content
-        tabs.forEach(item => item.classList.remove('active'));
-        contents.forEach(content => content.classList.remove('active'));
-  
-        // Add active class to clicked tab and corresponding content
-        tab.classList.add('active');
-        document.getElementById(tabId).classList.add('active');
-  
-        if (tabId == 'boardSection') {
-          document.getElementById(tabId).style.display = 'block';
-          document.getElementById('calendarSection').style.display = 'none';
-        } else {
-          document.getElementById(tabId).style.display = 'block';
-          document.getElementById('boardSection').style.display = 'none';
-        }
-      });
-    });
-  }
-
-  static _appendHeaderFields() {
+  static _appendHeaderAndFilterFields() {
     if (!$('#legend').length) {
       const legendHTML = `
       <div id="legend">
         <span class="confirmed"></span> Confirmed
         <span class="tentative"></span> Tentative
+        <span class="completed"></span> Completed
       </div>`;
       $(legendHTML).insertAfter('.fc-toolbar-title');
     }
@@ -457,6 +469,7 @@ export default class Calendar {
             <select class="selectpicker mx-auto multiple-event-status-field" title="Filter by Status" data-live-search="true" data-selected-text-format="count>2" data-style="" data-style-base="form-control" data-actions-box="true" multiple>
               <option value="TENTATIVE">Tentative</option>
               <option value="CONFIRMED">Confirmed</option>
+              <option value="COMPLETED">Completed</option>
             </select>
           </div>
           <div class="mb-3">
@@ -479,24 +492,13 @@ export default class Calendar {
       if (!$('#eventsViewCounter').length) {
         $('.fc-toolbar-title').append('<h6><span class="badge badge-danger badge-pill counter" style="display: inline-block" id="eventsViewCounter">TBD</span></h6>');
       }
-
-      this._updateEventViewCounter();
     }
   }
 
-  static _updateEventViewCounter() {
-    const currentView = window.FullCalendar.view;
-    const start = moment(currentView.currentStart);
-    const end = moment(currentView.currentEnd);
-    
-    // Check if the event is in the current view's date range
-    const currentEvents = window.FullCalendar.getEvents().filter(event => {
-      return moment(event.end).isBetween(start, end, null, '[]') ||  moment(event.start).isSameOrBefore(start) && moment(event.end).isSameOrAfter(end);
-    });
-    $('#eventsViewCounter').text(currentEvents.length);
-  }
+  // static _updateEventViewCounter
 
   static _prefillAddEvent(info) {
+    console.log('Event Received', info);
     this._removeToolTip();
 
     const data = {};
@@ -511,6 +513,11 @@ export default class Calendar {
     data.date.end = endSplit[0];
     data.time.end = endSplit[1];
 
+    const selectedResourceIds = info.event._def.resourceIds;
+    data.selectedResourceIds = selectedResourceIds.filter(id => id.split('-').shift() !== 'vendor').map(id => id.split('-').pop());
+    data.selectedVendorIds = selectedResourceIds.filter(id => id.split('-').shift() === 'vendor').map(id => id.split('-').pop());
+
+    console.log('Prefill Data', data);
     openEventModal(null, woId, '', data);
     info.revert();
   }
@@ -531,18 +538,92 @@ export default class Calendar {
     payload.eventData.status = payload.eventData.status.value;
     
     if (info.action == 'eventDrop') {
+      console.log('Event Drop info', info);
+
       const calEvents = window.FullCalendar.getEvents();
       if (calEvents.length) {
         const calEvent = calEvents.find(event => event.id == info.event.id);
         if (calEvent) {
-          let resourceIds = calEvent._def.resourceIds.map(resourceId => resourceId.split('-').pop());
-          resourceIds = Array.from(new Set(resourceIds));
-          payload.eventData.selectedResources = dataSet.resources.filter(resource => !!resource.active && !!(resourceIds.includes(resource.id)));
+          // Validate new resource
+          if (info.newResource) {
+            const woRef = !!Object.keys(payload.eventData.woRef).length ? payload.eventData.woRef : null;
+            const woResourcesFiltered = woRef ? dataSet.woResources.filter(resource => resource.workorder.value == woRef.id) : [];
+            payload.woRef = woRef;
+            payload.woResources = woResourcesFiltered;
+
+            let resourceType, resourceKey;
+            if (info.newResource.extendedProps.employee) {
+              resourceType = 'employee';
+              resourceKey = 'resources';
+            } else {
+              resourceType = 'vendor';
+              resourceKey = 'vendors';
+            }
+
+            const elementId = info.newResource._resource.id;
+            const resourceId = elementId.split('-').pop();
+            let foundObj, allowEvent = false;
+
+            if (resourceType === 'employee') {
+              foundObj = payload.eventData.resources.find(resource => resource.employee.value == resourceId);
+              const hasConflict = Event.draggedResourceHasConflicEvent(payload.eventData, resourceId);
+              allowEvent = !!!foundObj && !hasConflict;
+            } else if (resourceType === 'vendor') {
+              foundObj = payload.eventData.vendors.find(vendor => vendor.vendor.value == resourceId);
+              allowEvent = !!!foundObj;
+            }
+
+            if (allowEvent) {
+              if (resourceKey === 'resources') {
+                const resourcesToUse = dataSet.activeResources.map(resource => {
+                  const id = resource.id;
+                  let foundObj = woResourcesFiltered.find(woResource => woResource.employee.value == id);
+                  if (foundObj) {
+                    resource = deepCopy(foundObj);
+                  }
+                  foundObj = payload.eventData.resources.find(eventResource => eventResource.employee.value == id);
+                  if (foundObj) {
+                    resource = deepCopy(foundObj);
+                  }
+                  return resource;
+                });
+                payload.eventData.selectedResources = resourcesToUse.filter(resource => resourceId == resource.id);
+                payload.eventData.selectedResources = [...payload.eventData.resources, ...payload.eventData.selectedResources];
+                if (info.oldResource) {
+                  const index = payload.eventData.selectedResources.map(resource => resource.employee.value).indexOf(info.oldResource.extendedProps.employee.value);
+                  if (index > -1) {
+                    payload.eventData.selectedResources.splice(index, 1); // Removed resource
+                  }
+                }
+                
+              } else if (resourceKey === 'vendors') {
+                let unassignedVendors = deepCopy(dataSet.vendors).filter(vendor => !!!payload.eventData.vendors.map(vendor => vendor.vendor.value).includes(vendor.id));
+                unassignedVendors = [...payload.eventData.vendors, ...unassignedVendors];
+                const vendorsToUse = unassignedVendors;
+  
+                payload.eventData.selectedVendors = vendorsToUse.filter(vendor => resourceId == vendor.id);
+                payload.eventData.selectedVendors = [...payload.eventData.vendors, ...payload.eventData.selectedVendors];
+                if (info.oldResource) {
+                  const index = payload.eventData.selectedVendors.map(vendor => vendor.vendor.value).indexOf(info.oldResource.extendedProps.vendor.value);
+                  if (index > -1) {
+                    payload.eventData.selectedVendors.splice(index, 1); // Removed vendor
+                  }
+                }
+              }
+            } else {
+              Swal.fire(
+                'Notice',
+                `Unable to proceed due to conflict event`,
+                'error'
+              );
+              info.revert();
+              return;
+            }
+          }
         }
       }
     }
-
-    console.log('NEW PAYLOAD', payload, info);
+    // console.log('----- [Updated Event Details] -----', payload, info);
     Event.updateEventRecord(payload, 'eventModal', info);
   }
 

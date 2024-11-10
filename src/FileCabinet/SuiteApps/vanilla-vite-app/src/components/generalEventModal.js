@@ -89,6 +89,7 @@ $(document).ready(() => {
                             <select class="form-select status">
                               <option value="TENTATIVE" selected>Tentative</option>
                               <option value="CONFIRMED">Confirmed</option>
+                              <option value="COMPLETED">Completed</option>
                             </select>
                           </td>
                           <td>
@@ -245,12 +246,11 @@ $(document).ready(() => {
         ajax(data, callback, settings) {
           callback({
             data: (() => {
-              const activeResources = dataSet.resources.filter(resource => !!resource.active);
               if (mode === 'create') {
-                return activeResources;
+                return dataSet.activeResources;
               } else {
                 // Combine employees and Event resources
-                return activeResources.map(resource => {
+                return dataSet.activeResources.map(resource => {
                   const id = resource.id;
                   const foundObj = eventData.resources.find(eventResource => eventResource.employee.value == id);
                   if (foundObj) {
@@ -326,15 +326,14 @@ $(document).ready(() => {
     const mode = $('#generalEventModal').attr('mode');
     const eventId = $('#generalEventModal').attr('eventId');
     const eventData = dataSet.events.find(event => event.id == eventId);
-    const activeResources = dataSet.resources.filter(resource => !!resource.active);
     let resourcesToUse = [], vendorsToUse = [], assetsToUse = [];
 
     if (mode === 'create') {
-      resourcesToUse = activeResources;
+      resourcesToUse = dataSet.activeResources;
       vendorsToUse = dataSet.vendors;
       assetsToUse = dataSet.assets;
     } else {
-      resourcesToUse = activeResources.map(resource => {
+      resourcesToUse = dataSet.activeResources.map(resource => {
         const id = resource.id;
         const foundObj = eventData.resources.find(eventResource => eventResource.employee.value == id);
         if (foundObj) {
@@ -372,9 +371,8 @@ $(document).ready(() => {
     payload.eventData.status = $('#generalEventModal .status').val();
     payload.eventData.priority = $('#generalEventModal .priority').val();
     payload.eventData.selectedResources = [];
-    payload.eventData.selectedItems = [];
-    payload.eventData.selectedContact = {};
-    payload.eventData.selectedAddress = {};
+    payload.eventData.selectedVendors = [];
+    payload.eventData.selectedAssets = [];
 
     const resourceIds = [];
     const resources_dt_tr = document.querySelectorAll('#resources_ge tbody .dt-line-select');

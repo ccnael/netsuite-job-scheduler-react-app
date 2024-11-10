@@ -257,7 +257,7 @@ define([
             search.createColumn({ name: 'displayname', label: 'Display Name' }),
             search.createColumn({ name: 'salesdescription', label: 'Description' }),
             search.createColumn({ name: 'type', label: 'Type' }),
-            search.createColumn({ name: 'custitem_esp_fop_equipment_type', label: 'Equipment Type' }),
+            // search.createColumn({ name: 'custitem_esp_fop_equipment_type', label: 'Equipment Type' }),
             search.createColumn({ name: 'vendor', label: 'Preferred Vendor' }),
             search.createColumn({ name: 'custitem_esp_fop_rental_duration', label: 'Rental Duration' }),
             search.createColumn({ name: 'custitem_esp_fop_rental_matrix', label: 'Rental Matrix' }),
@@ -272,10 +272,10 @@ define([
             name: result.getValue('itemid'),
             displayname: result.getValue('displayname'),
             description: result.getValue('salesdescription'),
-            equipmentType: {
+            /* equipmentType: {
               text: result.getText('custitem_esp_fop_equipment_type'),
               value: result.getValue('custitem_esp_fop_equipment_type')
-            },
+            }, */
             vendor: {
               text: result.getText('vendor'),
               value: result.getValue('vendor')
@@ -791,7 +791,7 @@ define([
         const srcEventIds = srcEvents.map(resource => resource.id);
         const removedResources = srcEvents.filter(resource => !!!(selectedResourceIds.includes(resource.id)));
         const newResources = selectedResources.filter(resource => !!!(srcEventIds.includes(resource.id)));
-
+        // Utils.createLogFile(`updateEventRecord()`, JSON.stringify({ event, dataSrc, woRef, woResources }), 2199);
         log.audit('Updating WO Resource Event List', { removedResources, newResources });
 
         if (woRef?.id) {
@@ -1543,7 +1543,9 @@ define([
       static getList() {
         const filters = [ 
           // ['organizer', 'anyof', '@CURRENT@']
-          ['response', 'is', 'ACCEPTED'] // To prevent duplicate results
+          ['response', 'is', 'ACCEPTED'], // To prevent duplicate results
+          'AND',
+          ['status', 'noneof', ['CANCELLED'/* , 'COMPLETE' */]]
         ];
         const events = [];
         const searchObj = search.create({
@@ -1582,13 +1584,21 @@ define([
             location: result.getValue('location'),
             status: {
               text: result.getText('status'),
-              value: result.getValue('status'),
+              get value() {
+                let val = result.getValue('status');
+                if (val === 'COMPLETE') {
+                  val = 'COMPLETED';
+                }
+                return val;
+              } ,
               get code() {
                 switch (this.value) {
-                  case 'TENTATIVE': // Low
+                  case 'TENTATIVE':
                     return 'bg-secondary';
-                  case 'CONFIRMED': // Mid
+                  case 'CONFIRMED': 
                     return 'bg-success';
+                  case 'COMPLETED':
+                    return 'btn-info';
                 }
               }
             },
@@ -2069,16 +2079,16 @@ define([
           }
           
           // TBD
-          /* record.submitFields({
+          record.submitFields({
             type: record.Type.CALENDAR_EVENT,
             id: eventId,
             values: {
-              custevent_esp_fop_event_completed: true
+              status: 'COMPLETE'
             },
             options: {
               ignoreMandatoryFieds: true
             }
-          }); */
+          });
           
           response.write(JSON.stringify({
             code: 200,

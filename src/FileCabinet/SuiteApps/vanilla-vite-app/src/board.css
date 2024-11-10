@@ -1,3 +1,6 @@
+#boardSection {
+  display: block;
+}
 #boardSection .secondColumn {
   overflow: auto;
 }
@@ -13,11 +16,12 @@
 #boardSection .thirdColumn .card-header {
   background-color: #f9944a;
 }
-#boardSection .thirdColumn .border-available {
+#boardSection .thirdColumn .event-available {
   border: 5px dashed #26CC4E !important;
 }
-#boardSection .thirdColumn .border-unavailable {
-  background-color: #686767;
+#boardSection .thirdColumn .event-unavailable {
+  opacity: 0.6; /* Makes the card look faded */
+  filter: grayscale(100%);
 }
 #boardSection .leftSidebar {
   width: 18%;

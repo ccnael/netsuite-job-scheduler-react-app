@@ -1,9 +1,56 @@
-import { suiteletUrl, events } from './dataSet';
+import { userId, suiteletUrl, events } from './dataSet';
+
+export function initTabSwitch() {
+  const sessionKey = /netsuite\.com/.test(window.location.href) ? `${userId}:lastClickedTab` : 'lastClickedTab';
+  const lastTab = localStorage.getItem(sessionKey);
+
+  if (lastTab) {
+    $('.tab').removeClass('active');
+    $(`div[data-target="${lastTab}"]`).closest(`.${lastTab.replace('Section', '')}`).addClass('active');
+    $('.tab-content').hide();
+    $(`#${lastTab}`).show();
+
+    if (lastTab === 'calendarSection') {
+      setTimeout(() => {
+        window.FullCalendar.render();
+      })
+    } else {
+      setTimeout(() => {
+        $('#calendarSection').hide();
+      }) 
+    }
+  } else {
+    setTimeout(() => {
+      $('#calendarSection').hide();
+    })  
+  }
+
+  $('header div.tab').on('click', function() {
+    $('.tab').removeClass('active');
+    $(this).addClass('active');
+    
+    const targetSectionId = $(this).data('target');
+    localStorage.setItem(sessionKey, targetSectionId);
+
+    $('.tab-content').hide();
+    $(`#${targetSectionId}`).show();
+
+    if (targetSectionId === 'boardSection') {
+      // Custom code for Board tab
+    }
+
+    if (targetSectionId === 'calendarSection') {
+      setTimeout(() => {
+        window.FullCalendar.render();
+      })
+    }
+  });
+}
 
 export class Event {
 
   static validateResourcesOnLoad(tableId, resourceTblId, eventId) {
-    this.validateResources(tableId, resourceTblId, eventId);
+    this.validateResourceLines(tableId, resourceTblId, eventId);
   }
 
   static validateOnFieldChange(tableId, resourceTblId, eventId) {
@@ -14,14 +61,14 @@ export class Event {
         return;
       }
       // $('#resources tbody .dt-line-select').prop('checked', false);
-      that.validateResources(tableId, resourceTblId, eventId);
+      that.validateResourceLines(tableId, resourceTblId, eventId, true);
     });
   }
 
-  static validateResources(tableId, resourceTblId, eventId) {
+  static validateResourceLines(tableId, resourceTblId, eventId, onFieldChanged = false) {
     const start = moment(`${$(`${tableId} input.datefrom`).val()} ${$(`${tableId} input.starttime`).val()}`);
     const end = moment(`${$(`${tableId} input.dateto`).val()} ${$(`${tableId} input.endtime`).val()}`);
-
+    
     $(`${resourceTblId} tbody tr`).each(function() {
       const checkbox = $(this).find('input.dt-line-select');
       const resourceId = checkbox.attr('employeeId');
@@ -37,7 +84,9 @@ export class Event {
       });
       // console.log(checkbox.prop('checked'))
       if (conflictEvents.length) {
-        checkbox.prop('checked', false);
+        if (!eventId || (onFieldChanged && checkbox.prop('checked'))) {
+          checkbox.prop('checked', false);
+        }
         checkbox.prop('disabled', true);
         $(this).removeClass('row-available');
         $(this).addClass('row-unavailable');
@@ -83,6 +132,19 @@ export class Event {
     return true;
   }
 
+  static draggedResourceHasConflicEvent(eventData, resourceId) {
+    const eventId = eventData.id;
+    const start = moment(`${eventData.date.start} ${eventData.time.start}`);
+    const end = moment(`${eventData.date.end} ${eventData.time.end}`);
+    const resourceEvents = events.filter(event => event.resources.map(resource => resource.employee.value).includes(resourceId));
+    const conflictEvents = resourceEvents.filter(event => {
+      const eventStart = `${event.date.start} ${event.time.start}`;
+      const eventEnd = `${event.date.end} ${event.time.end}`;
+      return event.id != eventId && (moment(eventEnd).isBetween(start, end, null, '[]') ||  moment(eventStart).isSameOrBefore(start) && moment(eventEnd).isSameOrAfter(end));
+    });
+    return !!conflictEvents.length;
+  }
+
   static createEventRecord(payload, modalId) {
     console.log('----- [createEventRecord() -> PAYLOAD] -----', payload);
 
@@ -113,7 +175,7 @@ export class Event {
                if (result.code == 200) {
                 Swal.fire({
                   title: 'Success!',
-                  text: `New Event Record ID ${result.recordId} has been created`,
+                  text: `Event ${payload.eventData.title} [ID ${result.recordId}] has been created`,
                   icon: 'success'
                 })
                 .then(() => {
@@ -176,7 +238,7 @@ export class Event {
               if (result.code == 200) {
                 Swal.fire({
                   title: 'Success!',
-                  text: `Event Record ID ${payload.eventData.id} has been updated`,
+                  text: `Event ${payload.eventData.title} [ID ${payload.eventData.id}] has been updated`,
                   icon: 'success'
                 })
                 .then(() => {
@@ -251,7 +313,7 @@ export class Event {
             .then(result => {
               Swal.fire({
                 title: 'Deleted!',
-                text: `Event Record ID ${eventId} has been deleted`,
+                text: `Event ${payload.eventData.title} [ID ${eventId}] has been deleted`,
                 icon: 'success'
               })
               .then(() => {

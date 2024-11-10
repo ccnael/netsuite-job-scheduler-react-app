@@ -522,12 +522,29 @@ div.form-check {
 .confirmed {
 	background-color: #02ac5a !important;
 }
+.completed {
+	background-color: #2596be !important;
+}
 .general-bg {
 	background-color: #9d1bb3 !important;
 }
 .row-available {
 	background-color: lightgreen !important;
+	z-index: 1;
 }
 .row-unavailable {
 	background-color: #e3dcdc !important;
 }
+.floating-logo {
+	position: fixed;
+	bottom: 20px;
+	right: 20px;
+	width: 50px;
+	height: auto;
+	z-index: 999;
+  }
+  
+  .floating-logo img {
+	width: 100%;
+	height: auto;
+  }

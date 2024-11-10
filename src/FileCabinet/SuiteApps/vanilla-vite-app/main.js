@@ -1,11 +1,14 @@
 import Board from './src/board';
 import Calendar from './src/calendar';
-import { WorkOrderAction, Event } from './src/components/utils';
+import { initTabSwitch, Event, WorkOrderAction } from './src/components/utils';
 
-document.addEventListener('DOMContentLoaded', () => {
+$(document).ready(() => {
+
   Board.setup();
   Calendar.setup();
   
+  initTabSwitch();
+
   // Set below actions globally
   // -----------------------------------------------------------------
   window.holdWorkOrder = WorkOrderAction.holdWorkOrder;
@@ -14,4 +17,3 @@ document.addEventListener('DOMContentLoaded', () => {
   window.printPickList = WorkOrderAction.printPickList;
   window.deleteEventRecord = Event.deleteEventRecord;
 });
-

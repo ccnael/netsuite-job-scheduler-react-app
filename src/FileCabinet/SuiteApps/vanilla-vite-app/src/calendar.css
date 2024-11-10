@@ -1,3 +1,6 @@
+#calendarSection {
+  display: block;
+}
 #calendarSection #calendar {
   height: 90%;
   width: 100%;
@@ -5,6 +8,11 @@
   margin-top: 10px;
   padding-bottom: 10px;
   background-color: #f0f0f0;
+  overflow: scroll;
+}
+#calendarSection #calendar .fc-timeline-body, #calendarSection #calendar .fc-timeline-header-row, #calendarSection #calendar .fc-view-harness, #calendarSection #calendar .fc-scroller {
+  white-space: nowrap;
+  overflow-x: scroll !important;
 }
 #calendarSection #calendar .fc-license-message {
   display: none;
@@ -169,7 +177,7 @@
 }
 #calendarSection #legend {
   display: inline-block;
-  margin-left: 20px;
+  margin-left: -20px;
   margin-top: 10px;
   font-size: 12px;
 }

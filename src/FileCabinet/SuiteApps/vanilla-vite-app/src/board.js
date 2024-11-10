@@ -1,16 +1,12 @@
 import * as dataSet from './components/dataSet';
 import { initLeftSideBarFilters, initAvailableJobsFilters, initEventFilters } from './components/filterHandler';
+import { Event } from './components/utils';
 import './board.css';
 
 export default class Board {
 
   static setup() {
-    $('#app').append(`
-      <div id="container">
-        <header class="header tab-container">
-          <div class="tab active" data-target="boardSection">Board</div>
-          <div class="tab" data-target="calendarSection">Calendar</div>
-        </header>
+    $(`<div id="container">
         <div id="tabSections">
           <div class="tab-content active" id="boardSection">
             <div class="main-container">
@@ -67,8 +63,8 @@ export default class Board {
                         </h2>
                         <div id="resourceGroup-${resourceGroup.value}-filter-table" class="accordion-collapse collapse show" aria-labelledby="resourceGroup-${resourceGroup.value}-filter-tableHeading" data-parent="#resourceGroup-${resourceGroup.value}-filter-tableWrapper">
                           ${resourceGroup.resources.map(resource => `
-                          <div class="person-container cursor-grab" resourceType="employee" id="${resource.id}">
-                            <div draggable=${!!(resource.active) ? "true" : "false"} ondragstart="dragResourceFunctions(event);" ondragend="dragResourceFunctions(event);" class="person-circle" 
+                          <div class="person-container" resourceType="employee" id="${resourceGroup.value}-${resource.id}">
+                            <div draggable=${!!(resource.active) ? "true" : "false"} ondragstart="dragResourceFunctions(event);" ondragend="dragResourceFunctions(event);" class="person-circle cursor-grab" 
                                   data-bs-toggle="tooltip" 
                                   data-bs-placement="right" 
                                   title="<strong>${resource.name}</strong><br/>
@@ -102,7 +98,7 @@ export default class Board {
                         <div id="resourceGroup-vendor-filter-table" class="accordion-collapse collapse show" aria-labelledby="resourceGroup-vendor-filter-tableHeading" data-parent="#resourceGroup-vendor-filter-tableWrapper">
                           ${dataSet.vendors.map(vendor => `
                           <div class="person-container" resourceType="vendor" id="${vendor.id}">
-                            <div draggable="true" ondragstart="dragResourceFunctions(event);" ondragend="dragResourceFunctions(event);" class="person-circle" 
+                            <div draggable="true" ondragstart="dragResourceFunctions(event);" ondragend="dragResourceFunctions(event);" class="person-circle cursor-grab" 
                                   data-bs-toggle="tooltip" 
                                   data-bs-placement="right" 
                                   title="<strong>${vendor.name}</strong><br/>
@@ -216,7 +212,7 @@ export default class Board {
                       <div style="text-align: center;">
                         <i class="fa-regular fa-icon-size fa-calendar-check" style="font-size: 18px;"></i>
                         <span style="display: inline-block; margin-left: 5px"><h5><strong>Events</strong></h5></span>
-                        <span class="badge badge-danger badge-pill counter">${dataSet.events.length}</span>
+                        <span class="badge badge-danger badge-pill counter">${dataSet.events/* .filter(event => event.status.value !== 'COMPLETED') */.length}</span>
                       </div>
                     </div>
                     <div id="col3-filter-tableWrapper" class="accordion accordion-flush">
@@ -248,6 +244,7 @@ export default class Board {
                                 <select class="selectpicker mx-auto multiple-event-status-field" title="Filter by Status" data-live-search="true" data-selected-text-format="count>2" data-style="" data-style-base="form-control" multiple>
                                   <option value="TENTATIVE">Tentative</option>
                                   <option value="CONFIRMED">Confirmed</option>
+                                  <option value="COMPLETED">Completed</option>
                                 </select>
                               </div>
                               <div class="mb-3">
@@ -306,7 +303,7 @@ export default class Board {
                             ${event.vendors.map((vendor, counter) => `${event.resources.length+counter+1}. ${vendor.vendor.text || vendor.name}`).join('<br/>')}
                           `  
                           : '- None -'}"
-                        >
+                        style="${''/* event.status.value === 'COMPLETED' ? 'display: none' : 'display: initial' */}">
                           <div class="card-head">
                             <div class="card-name"><a href="${event.url}" target="_blank"><strong>${event.title}</strong></a></div>
                             <div class="card-header-options">
@@ -342,8 +339,9 @@ export default class Board {
             </div>
           </div>
         </div>
-      </div>
-    `.replace(/,/g, ''));
+      </div>`
+      .replace(/,/g, ''))
+      .insertAfter('header');
 
     this._initLayoutHandlers();
     this._initToolTip();
@@ -410,13 +408,13 @@ export default class Board {
     }
     
     window.dragJobFunctions = ev => {
-      const thirdColumn = document.querySelector('#boardSection .thirdColumn');
-
+      const $thirdColumn = $('#boardSection .thirdColumn');
+  
       switch (ev.type) {
         case 'dragstart':
-          thirdColumn.style.border = '5px dashed #26CC4E';
-          const el = ev.target.closest('.card-item');
-          const woId = el.querySelector('.card-content-woId')?.getAttribute('woId');
+          $thirdColumn.css('border', '5px dashed #26CC4E');
+          const $el = $(ev.target).closest('.card-item');
+          const woId = $el.find('.card-content-woId').attr('woId');
           ev.dataTransfer.setData('text/plain', JSON.stringify({
             type: 'workorder',
             id: woId
@@ -424,90 +422,93 @@ export default class Board {
           return;
 
         case 'drop':
-          const dataTransfer = ev?.dataTransfer;
-          const dataTransferObj = JSON.parse(dataTransfer.getData('text'));
-          if (dataTransferObj.type === 'workorder') {
+          const dataTransfer = ev.dataTransfer;
+          const dataTransferObj = JSON.parse(dataTransfer.getData('text') || '{}');
+          if (dataTransferObj?.type === 'workorder') {
             window.openEventModal(ev);
           }
           break;
 
         case 'dragend':
-          thirdColumn.style.border = '';
+          $thirdColumn.css('border', '');
           break;
-
+  
         default:
           // console.log('Skip Reading Event.');
           break;
       }
       ev.stopPropagation();
       ev.preventDefault();
-    }
-
+    };
+  
     window.dragResourceFunctions = ev => {
-      let el, eventId, dataTransfer, draggedEl;
-
+      let $el, eventId, dataTransfer, $draggedEl;
+  
       switch (ev.type) {
         case 'dragstart':
-          el = ev.target.closest('.person-container');
-          const resourceType = el.getAttribute('resourceType');
-          const resourceId = el.id;
+          $el = $(ev.target).closest('.person-container');
+          const resourceType = $el.attr('resourceType');
+          const resourceId = $el.attr('id').split('-').pop();
 
-          // ev.dataTransfer doesnt work
+          // ev.dataTransfer doesn't work
           localStorage.setItem('dragResourceFunctions', JSON.stringify({
             type: resourceType,
-            id: resourceId
+            id: resourceId,
+            elementId: $el.attr('id')
           }));
 
           $('.thirdColumn').find('div[type*="event"]').each(function() {
-            const id = $(this)[0].id;
+            const id = this.id;
             const eventData = dataSet.events.find(event => event.id == id);
             
-            let foundObj;
+            let foundObj, allowEvent = false;
             if (resourceType == 'employee') {
               foundObj = eventData.resources.find(resource => resource.employee.value == resourceId);
+              const hasConflict = Event.draggedResourceHasConflicEvent(eventData, resourceId);
+              allowEvent = !!!foundObj && !hasConflict;
             } else if (resourceType == 'vendor') {
               foundObj = eventData.vendors.find(vendor => vendor.vendor.value == resourceId);
+              allowEvent = !!!foundObj;
             }
-            // console.log('Event ID', id, foundObj);
-            if (!foundObj) {
-              $(this).removeClass('border-unavailable');
-              $(this).addClass('border-available');
+
+            if (allowEvent) {
+              $(this).removeClass('event-unavailable').addClass('event-available');
             } else {
-              $(this).removeClass('border-available');
-              $(this).addClass('border-unavailable');
+              $(this).removeClass('event-available').addClass('event-unavailable');
             }
           });
           return;
         
         case 'dragenter':
-          el = ev.target.closest('.card-item');
-          eventId = el.id;
+          $el = $(ev.target).closest('.card-item');
+          eventId = $el.attr('id');
           const eventData = dataSet.events.find(event => event.id == eventId);
           dataTransfer = JSON.parse(localStorage.getItem('dragResourceFunctions'));
 
-          let foundObj;
+          let foundObj, allowResource = false;
           if (dataTransfer.type == 'employee') {
             foundObj = eventData.resources.find(resource => resource.employee.value == dataTransfer.id);
+            const hasConflict = Event.draggedResourceHasConflicEvent(eventData, dataTransfer.id);
+            allowResource = !!!foundObj && !hasConflict;
           } else if (dataTransfer.type == 'vendor') {
             foundObj = eventData.vendors.find(vendor => vendor.vendor.value == dataTransfer.id);
+            allowResource = !!!foundObj;
           }
-          
-          draggedEl = document.getElementById(dataTransfer.id);
-          if (foundObj) {
-            draggedEl.classList.remove('cursor-plus');
-            draggedEl.classList.add('cursor-x');
+
+          $draggedEl = $(`#${dataTransfer.elementId}`).find('.person-circle');
+          if (allowResource) {
+            $draggedEl.removeClass('cursor-x').addClass('cursor-plus');
           } else {
-            draggedEl.classList.remove('cursor-x');
-            draggedEl.classList.add('cursor-plus');
+            $draggedEl.removeClass('cursor-plus').addClass('cursor-x');
           }
           break;
 
         case 'drop':
-          el =  ev.target.closest('.card-item');
-          eventId = el.id;
+          $el = $(ev.target).closest('.card-item');
+          eventId = $el.attr('id');
           dataTransfer = JSON.parse(localStorage.getItem('dragResourceFunctions'));
 
-          if (!Array.from(el.classList).includes('border-unavailable')) {
+          if (!$el.hasClass('event-unavailable')) {
             if (dataTransfer.type.match(/employee|vendor/g)) {
               window.openAddResourceModal(eventId, dataTransfer);
             }
@@ -516,21 +517,15 @@ export default class Board {
 
         case 'dragend':
           // Set default classes
-          // --------------------------
           dataTransfer = JSON.parse(localStorage.getItem('dragResourceFunctions'));
-          draggedEl = document.getElementById(dataTransfer.id);
-          if (!Array.from(draggedEl.classList).includes('cursor-grab')) {
-            draggedEl.classList.add('cursor-grab');
+          $draggedEl = $(`#${dataTransfer.elementId}`).find('.person-circle');
+          if (!$draggedEl.hasClass('cursor-grab')) {
+            $draggedEl.addClass('cursor-grab');
           }
-          if (Array.from(draggedEl.classList).includes('cursor-plus')) {
-            draggedEl.classList.remove('cursor-plus');
-          }
-          if (Array.from(draggedEl.classList).includes('cursor-x')) {
-            draggedEl.classList.remove('cursor-x');
-          }
+          $draggedEl.removeClass('cursor-plus cursor-x');
+
           $('.thirdColumn').find('div[type*="event"]').each(function() {
-            $(this).removeClass('border-available');
-            $(this).removeClass('border-unavailable');
+            $(this).removeClass('event-available event-unavailable');
           });
           break;
 
@@ -539,8 +534,8 @@ export default class Board {
       }
       ev.stopPropagation();
       ev.preventDefault();
-    }
-
+    };
+  
     initLeftSideBarFilters('#boardSection');
     initAvailableJobsFilters('#boardSection .secondColumn');
     initEventFilters('#boardSection');
@@ -597,14 +592,14 @@ export default class Board {
   }
 
   static _initToolTip() {
-    const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
-    tooltipTriggerList.forEach(tooltipTriggerEl => {
-      new bootstrap.Tooltip(tooltipTriggerEl, {
-        html: true
+    $('[data-bs-toggle="tooltip"]').each(function() {
+      new bootstrap.Tooltip(this, {
+          html: true
       });
     });
   }
 
+  // This prevents conflict dropping conflict with the job items drag and drop
   static _initResourceDragFunctionsTempSwitch() {
     $('.person-circle').on('dragstart', function(event) {
       $('.thirdColumn').find('div[type*="event"]').on('dragenter dragover drop dragleave', dragResourceFunctions);

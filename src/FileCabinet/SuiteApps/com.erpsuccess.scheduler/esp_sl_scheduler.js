@@ -72,6 +72,7 @@ define([
 
     function runApp(context) {
       const { request, response } = context;
+      const user = runtime.getCurrentUser();
       const suiteletUrl = mod.Url.suitelet();
       // Fetch needed data
       const workOrders = mod.WorkOrder.getList();
@@ -85,11 +86,7 @@ define([
       const woAddresses = mod.WorkOrderAddress.getList(workOrders);
 
       let organizers = events.map(event => event.organizer);
-      organizers = organizers.filter((item, index, self) =>
-        index === self.findIndex((t) => (
-          t.text === item.text && t.value === item.value
-        ))
-      );
+      organizers = organizers.filter((item, index, self) => index === self.findIndex(t => t.text === item.text && t.value === item.value));
 
       mod.WorkOrder.fullMap(workOrders, events, woVendors, woAsset, woItems, woContacts, woAddresses);
       mod.Event.fullMap(workOrders, events, woResources, woVendors, woAsset, woItems, woContacts, woAddresses);
@@ -100,21 +97,24 @@ define([
       const assets = mod.Resource.getAssetsAndEquipments(events);
 
       const sampleWOs = workOrders.filter(wo => +wo.id > 65);
-      const sampleEvents = events.filter(event => event.id.match(/1009/g));
+      const sampleEvents = events.filter(event => event.id.match(/1010/g));
       
-      mod.Utils.createLogFile('mockupDataSet', JSON.stringify({ suiteletUrl, workOrders: sampleWOs, customers, resources, resourceGroups, woResources, vendors, assets, events: sampleEvents, woContacts, woAddresses, organizers }), 2199);
+      mod.Utils.createLogFile('mockupDataSet', JSON.stringify({ userId: user.id, suiteletUrl, workOrders: sampleWOs, customers, resources, resourceGroups, woResources, vendors, assets, events: sampleEvents, woContacts, woAddresses, organizers }), 2199);
 
       const fileObj = {
         template: file.load('./vanilla-vite-app-bundle/index.html'),
         style: file.load('./vanilla-vite-app-bundle/index.css'),
         js: file.load('./vanilla-vite-app-bundle/app.js'),
-        svg: file.load('./vanilla-vite-app-bundle/assets/images/vite.svg')
+        svg: file.load('./vanilla-vite-app-bundle/assets/images/vite.svg'),
+        magicWand: file.load('./vanilla-vite-app-bundle/assets/images/magic-wand-sample-3.png'),
       }
 
       const htmlStr = fileObj.template.getContents()
         .replace('<script type="module" crossorigin src="/app.js"></script>', `<script type="module" crossorigin src="${fileObj.js.url}"></script>`)
-        .replace('<link rel="icon" type="image/svg+xml" href="/assets/images/vite.svg" />', `<link rel="icon" type="image/svg+xml" href="${fileObj.svg.url}" />`)
         .replace('<link rel="stylesheet" crossorigin href="/index.css">', `<link rel="stylesheet" crossorigin href="${fileObj.style.url}">`)
+        .replace('<link rel="icon" type="image/svg+xml" href="/public/vite.svg" />', `<link rel="icon" type="image/svg+xml" href="${fileObj.svg.url}" />`)
+        .replace('<img src="/assets/images/magic-wand-sample-3.png" alt="Logo" />', `<img src="${fileObj.magicWand.url}" alt="Logo" />`)
+        .replace('{{userId}}', user.id)
         .replace('{{suiteletUrl}}', encodeURIComponent(suiteletUrl))
         .replace('{{workOrders}}', encodeURIComponent(JSON.stringify(workOrders)))
         .replace('{{customers}}', encodeURIComponent(JSON.stringify(customers)))
@@ -125,7 +125,7 @@ define([
         .replace('{{vendors}}', encodeURIComponent(JSON.stringify(vendors)))
         .replace('{{events}}', encodeURIComponent(JSON.stringify(events)))
         .replace('{{organizers}}', encodeURIComponent(JSON.stringify(organizers)));
-
+      
       response.write(htmlStr);
     }
 
