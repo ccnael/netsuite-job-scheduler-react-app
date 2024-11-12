@@ -1241,6 +1241,7 @@ define([
               id: item.id,
               isDynamic: true
             });
+            rec.setValue({ fieldId: 'name', value: item.item.text });
             rec.setValue({ fieldId: 'custrecord_esp_fop_wo_item_event', value: event.id });
             rec.setValue({ fieldId: 'custrecord_esp_fop_wo_item_quantity', value: item.quantity });
             item.id = rec.save({ ignoreMandatoryFieds: true }); 

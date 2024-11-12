@@ -495,8 +495,6 @@ export default class Calendar {
     }
   }
 
-  // static _updateEventViewCounter
-
   static _prefillAddEvent(info) {
     console.log('Event Received', info);
     this._removeToolTip();
@@ -513,7 +511,20 @@ export default class Calendar {
     data.date.end = endSplit[0];
     data.time.end = endSplit[1];
 
+    const start = moment(`${data.date.start} ${data.time.start}`);
     const selectedResourceIds = info.event._def.resourceIds;
+
+    const hasConflict = Event.draggedJobHasConflictEvent(start, selectedResourceIds[0]);
+    if (hasConflict) {
+      Swal.fire(
+        'Notice',
+        `Unable to proceed due to conflict event`,
+        'error'
+      );
+      info.revert();
+      return;
+    }
+
     data.selectedResourceIds = selectedResourceIds.filter(id => id.split('-').shift() !== 'vendor').map(id => id.split('-').pop());
     data.selectedVendorIds = selectedResourceIds.filter(id => id.split('-').shift() === 'vendor').map(id => id.split('-').pop());
 

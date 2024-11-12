@@ -2,11 +2,2583 @@ const mockup = {
     "userId": 1765,
     "suiteletUrl": "/app/site/hosting/scriptlet.nl?script=877&deploy=1&compid=TSTDRV2617106",
     "workOrders": [{
+        "id": "109",
+        "name": "Install Light Fixtures",
+        "title": "Install Light Fixtures",
+        "project": {
+            "text": "World Bank : World Bank Office Furniture Installation",
+            "value": "1515"
+        },
+        "date": "11/12/2024",
+        "status": {
+            "text": "Not Started",
+            "value": "4",
+            "code": "#026adf"
+        },
+        "type": {
+            "text": "Service",
+            "value": "2"
+        },
+        "memo": "",
+        "salesorder": {
+            "text": "Sales Order #SLS00000774",
+            "value": "20903"
+        },
+        "customer": {
+            "text": "World Bank",
+            "value": "1249"
+        },
+        "resourceGroup": {
+            "text": "",
+            "value": ""
+        },
+        "priority": "",
+        "resources": [],
+        "vendors": [],
+        "assets": [],
+        "items": [{
+            "id": "432",
+            "workorder": {
+                "text": "Install Light Fixtures",
+                "value": "109"
+            },
+            "salesorder": {
+                "text": "Sales Order #SLS00000774",
+                "value": "20903"
+            },
+            "event": "",
+            "uuid": "20903_1",
+            "line": "1",
+            "item": {
+                "text": "Dealer Service Fee",
+                "value": "2331"
+            },
+            "description": "",
+            "quantity": 1,
+            "availableQty": 1,
+            "note": ""
+        }, {
+            "id": "433",
+            "workorder": {
+                "text": "Install Light Fixtures",
+                "value": "109"
+            },
+            "salesorder": {
+                "text": "Sales Order #SLS00000774",
+                "value": "20903"
+            },
+            "event": "101035",
+            "uuid": "20903_6",
+            "line": "6",
+            "item": {
+                "text": "VZTI-1654-FNNS1",
+                "value": "2035"
+            },
+            "description": "Compose,Single Tile,16In.HX54In.W,Fabric/Tackable,Std Core,No Tech",
+            "quantity": 0,
+            "availableQty": 0,
+            "note": ""
+        }, {
+            "id": "427",
+            "workorder": {
+                "text": "Install Light Fixtures",
+                "value": "109"
+            },
+            "salesorder": {
+                "text": "Sales Order #SLS00000774",
+                "value": "20903"
+            },
+            "event": "",
+            "uuid": "20903_7",
+            "line": "7",
+            "item": {
+                "text": "J2HB-5124-SS1RS1",
+                "value": "2036"
+            },
+            "description": "X Series PST,HngdDr,51.5Hx24Wx24D,B/B/F,Valet,RH,PtdDwr,Ptd/StlDr,Ellipse Pull,Reg Top,Glide",
+            "quantity": 3,
+            "availableQty": 3,
+            "note": ""
+        }, {
+            "id": "428",
+            "workorder": {
+                "text": "Install Light Fixtures",
+                "value": "109"
+            },
+            "salesorder": {
+                "text": "Sales Order #SLS00000774",
+                "value": "20903"
+            },
+            "event": "",
+            "uuid": "20903_8",
+            "line": "8",
+            "item": {
+                "text": "JCTB-24S1",
+                "value": "2037"
+            },
+            "description": "X Series,Pedestal,Cushion Top Kit, 24\"D",
+            "quantity": 3,
+            "availableQty": 3,
+            "note": ""
+        }, {
+            "id": "429",
+            "workorder": {
+                "text": "Install Light Fixtures",
+                "value": "109"
+            },
+            "salesorder": {
+                "text": "Sales Order #SLS00000774",
+                "value": "20903"
+            },
+            "event": "",
+            "uuid": "20903_9",
+            "line": "9",
+            "item": {
+                "text": "JPMA-24-S1CS1",
+                "value": "2038"
+            },
+            "description": "X Series,Pedestal,Mobile,B/F,24\"D,PtdDrwFrt, Stl Lkrl,Ellipse Pull,Cstr,No Top",
+            "quantity": 3,
+            "availableQty": 3,
+            "note": ""
+        }, {
+            "id": "422",
+            "workorder": {
+                "text": "Install Light Fixtures",
+                "value": "109"
+            },
+            "salesorder": {
+                "text": "Sales Order #SLS00000774",
+                "value": "20903"
+            },
+            "event": "",
+            "uuid": "20903_2",
+            "line": "2",
+            "item": {
+                "text": "VZCC-0054-HSS1",
+                "value": "2031"
+            },
+            "description": "Compose,Top Trim 54In.W,Stl, Pnl Frame",
+            "quantity": 1,
+            "availableQty": 1,
+            "note": ""
+        }, {
+            "id": "430",
+            "workorder": {
+                "text": "Install Light Fixtures",
+                "value": "109"
+            },
+            "salesorder": {
+                "text": "Sales Order #SLS00000774",
+                "value": "20903"
+            },
+            "event": "",
+            "uuid": "20903_10",
+            "line": "10",
+            "item": {
+                "text": "VZCC-0054-HSS1",
+                "value": "2031"
+            },
+            "description": "Compose,Top Trim 54In.W,Stl, Pnl Frame",
+            "quantity": 1,
+            "availableQty": 1,
+            "note": ""
+        }, {
+            "id": "431",
+            "workorder": {
+                "text": "Install Light Fixtures",
+                "value": "109"
+            },
+            "salesorder": {
+                "text": "Sales Order #SLS00000774",
+                "value": "20903"
+            },
+            "event": "",
+            "uuid": "20903_11",
+            "line": "11",
+            "item": {
+                "text": "VZCE-7400-HS1",
+                "value": "2032"
+            },
+            "description": "Compose,Panel Trim,End-Of-Run 74In.H, Steel",
+            "quantity": 3,
+            "availableQty": 3,
+            "note": ""
+        }, {
+            "id": "423",
+            "workorder": {
+                "text": "Install Light Fixtures",
+                "value": "109"
+            },
+            "salesorder": {
+                "text": "Sales Order #SLS00000774",
+                "value": "20903"
+            },
+            "event": "",
+            "uuid": "20903_3",
+            "line": "3",
+            "item": {
+                "text": "VZCE-7400-HS1",
+                "value": "2032"
+            },
+            "description": "Compose,Panel Trim,End-Of-Run 74In.H, Steel",
+            "quantity": 3,
+            "availableQty": 3,
+            "note": ""
+        }, {
+            "id": "424",
+            "workorder": {
+                "text": "Install Light Fixtures",
+                "value": "109"
+            },
+            "salesorder": {
+                "text": "Sales Order #SLS00000774",
+                "value": "20903"
+            },
+            "event": "",
+            "uuid": "20903_4",
+            "line": "4",
+            "item": {
+                "text": "VZCW-0000-PS1S1",
+                "value": "2033"
+            },
+            "description": "Compose,Wall Mount,Fits All Heights",
+            "quantity": 3,
+            "availableQty": 3,
+            "note": ""
+        }, {
+            "id": "425",
+            "workorder": {
+                "text": "Install Light Fixtures",
+                "value": "109"
+            },
+            "salesorder": {
+                "text": "Sales Order #SLS00000774",
+                "value": "20903"
+            },
+            "event": "",
+            "uuid": "20903_5",
+            "line": "5",
+            "item": {
+                "text": "VZFS-1654-RS1",
+                "value": "2034"
+            },
+            "description": "Compose,Stack Frame 16In.H X 54In.W,Std Accoust,NoPwr",
+            "quantity": 6,
+            "availableQty": 6,
+            "note": ""
+        }, {
+            "id": "426",
+            "workorder": {
+                "text": "Install Light Fixtures",
+                "value": "109"
+            },
+            "salesorder": {
+                "text": "Sales Order #SLS00000774",
+                "value": "20903"
+            },
+            "event": "",
+            "uuid": "20903_6",
+            "line": "6",
+            "item": {
+                "text": "VZTI-1654-FNNS1",
+                "value": "2035"
+            },
+            "description": "Compose,Single Tile,16In.HX54In.W,Fabric/Tackable,Std Core,No Tech",
+            "quantity": 12,
+            "availableQty": 12,
+            "note": ""
+        }],
+        "addresses": [{
+            "id": "151",
+            "workorder": {
+                "text": "Install Light Fixtures",
+                "value": "109"
+            },
+            "customer": {
+                "text": "World Bank",
+                "value": "1249"
+            },
+            "events": [],
+            "address": {
+                "text": "434 Carlaw",
+                "value": "244878"
+            },
+            "addressDetails": "434 Carlaw Road<br/>Los Angeles NY 12412<br/>United States",
+            "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+        }, {
+            "id": "152",
+            "workorder": {
+                "text": "Install Light Fixtures",
+                "value": "109"
+            },
+            "customer": {
+                "text": "World Bank",
+                "value": "1249"
+            },
+            "events": ["101035"],
+            "address": {
+                "text": "54 Tale",
+                "value": "245152"
+            },
+            "addressDetails": "54 Tale AV<br/>Akron OH 123123<br/>United States",
+            "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+        }, {
+            "id": "153",
+            "workorder": {
+                "text": "Install Light Fixtures",
+                "value": "109"
+            },
+            "customer": {
+                "text": "World Bank",
+                "value": "1249"
+            },
+            "events": [],
+            "address": {
+                "text": "343 York",
+                "value": "245154"
+            },
+            "addressDetails": "343 York AV<br/>NY 121312<br/>United States",
+            "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+        }, {
+            "id": "154",
+            "workorder": {
+                "text": "Install Light Fixtures",
+                "value": "109"
+            },
+            "customer": {
+                "text": "World Bank",
+                "value": "1249"
+            },
+            "events": [],
+            "address": {
+                "text": "22 Dundas",
+                "value": "245145"
+            },
+            "addressDetails": "22 Dundas East<br/>New York  211123<br/>United States",
+            "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+        }, {
+            "id": "155",
+            "workorder": {
+                "text": "Install Light Fixtures",
+                "value": "109"
+            },
+            "customer": {
+                "text": "World Bank",
+                "value": "1249"
+            },
+            "events": [],
+            "address": {
+                "text": "490 Richmond",
+                "value": "245149"
+            },
+            "addressDetails": "490 Richmond Lane<br/>San Francisco CA 12311<br/>United States",
+            "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+        }],
+        "contacts": [{
+            "id": "135",
+            "workorder": {
+                "text": "Install Light Fixtures",
+                "value": "109"
+            },
+            "events": ["101035"],
+            "contact": {
+                "text": "World Bank : John Smith",
+                "value": "1892"
+            },
+            "name": "John Smith",
+            "email": "jsmith@worldbank.com",
+            "jobTitle": "Logistics",
+            "mobilePhone": "",
+            "phone": "",
+            "primary": true,
+            "url": "/app/common/entity/contact.nl?id=1892&compid=TSTDRV2617106"
+        }],
+        "events": [{
+            "id": "101035",
+            "title": "Deliver Materials",
+            "workorder": {
+                "text": "Install Light Fixtures",
+                "value": "109"
+            },
+            "location": "",
+            "status": {
+                "text": "Tentative",
+                "value": "TENTATIVE",
+                "code": "bg-secondary"
+            },
+            "date": {
+                "recurrence": "one time event on 11/12/2024",
+                "start": "2024-11-12",
+                "end": "2024-11-12"
+            },
+            "time": {
+                "start": "09:00",
+                "end": "12:00"
+            },
+            "priority": {
+                "text": "Medium",
+                "value": "2",
+                "code": "#dfcf02"
+            },
+            "note": "",
+            "url": "/app/crm/calendar/event.nl?id=101035&compid=TSTDRV2617106&selectedtab=custom337",
+            "color": "#1a6756",
+            "woRef": {},
+            "resources": [],
+            "vendors": [],
+            "assets": [],
+            "items": [],
+            "contacts": [],
+            "addresses": [],
+            "contact": {
+                "text": "",
+                "value": ""
+            },
+            "address": {
+                "text": "",
+                "value": ""
+            },
+            "organizer": {
+                "text": "Bea Quilinguin",
+                "value": "1767"
+            }
+        }],
+        "projectUrl": "/app/accounting/project/project.nl?id=1515&compid=TSTDRV2617106",
+        "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=109&compid=TSTDRV2617106",
+        "soUrl": "/app/accounting/transactions/salesord.nl?id=20903&compid=TSTDRV2617106",
+        "esthours": "30"
+    }, {
+        "id": "108",
+        "name": "Furniture Installation",
+        "title": "Furniture Installation",
+        "project": {
+            "text": "World Bank : World Bank Office Furniture Installation",
+            "value": "1515"
+        },
+        "date": "11/11/2024",
+        "status": {
+            "text": "In Progress",
+            "value": "1",
+            "code": "#026adf"
+        },
+        "type": {
+            "text": "Service",
+            "value": "2"
+        },
+        "memo": "<p>- **Review Furniture Layout Plans**: Confirm placement and orientation according to layout plans before beginning installation.</p><p>- **Unpack and Inventory Parts**: Carefully unpack each item and inventory all parts and hardware to ensure nothing is missing.</p><p>- **Organize Tools and Hardware**: Set up necessary tools (e.g., screwdriver, drill, wrench) and organize hardware for easy access during installation.</p><p>- **Assemble Base Components First**: Start by assembling the base or foundational components, such as legs or frames, ensuring they are stable and level.</p><p>- **Secure Structural Pieces**: Attach any primary structural pieces (e.g., tabletops, seat bases) to the base, following manufacturer instructions closely.</p><p>- **Install Secondary Components**: Add any secondary components, such as drawers, shelves, or panels, making sure they are properly aligned and secure.</p><p>- **Tighten All Screws and Bolts**: Go over all screws, bolts, and connectors to ensure everything is tightly secured and stable.</p><p>- **Check for Stability and Leveling**: Test the furniture for stability and make any necessary adjustments to ensure it is level.</p><p>- **Attach Accessories or Finishing Pieces**: Add finishing touches like knobs, covers, or cushions according to specifications.</p><p>- **Final Inspection**: Conduct a final inspection to ensure that all parts are securely assembled, aligned, and free of damage. Clean the area and remove any debris or packaging.</p>",
+        "salesorder": {
+            "text": "Sales Order #SLS00000772",
+            "value": "20901"
+        },
+        "customer": {
+            "text": "World Bank",
+            "value": "1249"
+        },
+        "resourceGroup": {
+            "text": "",
+            "value": ""
+        },
+        "priority": "",
+        "resources": [],
+        "vendors": [],
+        "assets": [],
+        "items": [{
+            "id": "411",
+            "workorder": {
+                "text": "Furniture Installation",
+                "value": "108"
+            },
+            "salesorder": {
+                "text": "Sales Order #SLS00000772",
+                "value": "20901"
+            },
+            "event": "",
+            "uuid": "20901_3",
+            "line": "3",
+            "item": {
+                "text": "BIC00008",
+                "value": "467"
+            },
+            "description": "Trail Bike - Maverik Disc",
+            "quantity": 10,
+            "availableQty": 10,
+            "note": ""
+        }, {
+            "id": "412",
+            "workorder": {
+                "text": "Furniture Installation",
+                "value": "108"
+            },
+            "salesorder": {
+                "text": "Sales Order #SLS00000772",
+                "value": "20901"
+            },
+            "event": "",
+            "uuid": "20901_4",
+            "line": "4",
+            "item": {
+                "text": "BIC00008",
+                "value": "467"
+            },
+            "description": "Trail Bike - Maverik Disc",
+            "quantity": 10,
+            "availableQty": 10,
+            "note": ""
+        }, {
+            "id": "410",
+            "workorder": {
+                "text": "Furniture Installation",
+                "value": "108"
+            },
+            "salesorder": {
+                "text": "Sales Order #SLS00000772",
+                "value": "20901"
+            },
+            "event": "",
+            "uuid": "20901_2",
+            "line": "2",
+            "item": {
+                "text": "BIC00008",
+                "value": "467"
+            },
+            "description": "Trail Bike - Maverik Disc",
+            "quantity": 10,
+            "availableQty": 10,
+            "note": ""
+        }, {
+            "id": "409",
+            "workorder": {
+                "text": "Furniture Installation",
+                "value": "108"
+            },
+            "salesorder": {
+                "text": "Sales Order #SLS00000772",
+                "value": "20901"
+            },
+            "event": "",
+            "uuid": "20901_1",
+            "line": "1",
+            "item": {
+                "text": "BIC00008",
+                "value": "467"
+            },
+            "description": "Trail Bike - Maverik Disc",
+            "quantity": 7,
+            "availableQty": 7,
+            "note": ""
+        }],
+        "addresses": [{
+            "id": "147",
+            "workorder": {
+                "text": "Furniture Installation",
+                "value": "108"
+            },
+            "customer": {
+                "text": "World Bank",
+                "value": "1249"
+            },
+            "events": [],
+            "address": {
+                "text": "434 Carlaw",
+                "value": "244878"
+            },
+            "addressDetails": "434 Carlaw Road<br/>Los Angeles NY 12412<br/>United States",
+            "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+        }, {
+            "id": "148",
+            "workorder": {
+                "text": "Furniture Installation",
+                "value": "108"
+            },
+            "customer": {
+                "text": "World Bank",
+                "value": "1249"
+            },
+            "events": [],
+            "address": {
+                "text": "12 Carlton Av",
+                "value": "245148"
+            },
+            "addressDetails": "12 Carlton Ave<br/>San Francisco CA 1241<br/>United States",
+            "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+        }, {
+            "id": "149",
+            "workorder": {
+                "text": "Furniture Installation",
+                "value": "108"
+            },
+            "customer": {
+                "text": "World Bank",
+                "value": "1249"
+            },
+            "events": [],
+            "address": {
+                "text": "54 Tale",
+                "value": "245152"
+            },
+            "addressDetails": "54 Tale AV<br/>Akron OH 123123<br/>United States",
+            "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+        }],
+        "contacts": [{
+            "id": "132",
+            "workorder": {
+                "text": "Furniture Installation",
+                "value": "108"
+            },
+            "events": [],
+            "contact": {
+                "text": "World Bank : Chad Bass",
+                "value": "1382"
+            },
+            "name": "Chad Bass",
+            "email": "cbass@worldbank.com",
+            "jobTitle": "President",
+            "mobilePhone": "",
+            "phone": "",
+            "primary": false,
+            "url": "/app/common/entity/contact.nl?id=1382&compid=TSTDRV2617106"
+        }, {
+            "id": "133",
+            "workorder": {
+                "text": "Furniture Installation",
+                "value": "108"
+            },
+            "events": [],
+            "contact": {
+                "text": "World Bank : Jim Carrey",
+                "value": "2041"
+            },
+            "name": "Jim Carrey",
+            "email": "jcarrery@worldbank.com",
+            "jobTitle": "Administrative Manager",
+            "mobilePhone": "",
+            "phone": "",
+            "primary": false,
+            "url": "/app/common/entity/contact.nl?id=2041&compid=TSTDRV2617106"
+        }, {
+            "id": "134",
+            "workorder": {
+                "text": "Furniture Installation",
+                "value": "108"
+            },
+            "events": [],
+            "contact": {
+                "text": "World Bank : John Smith",
+                "value": "1892"
+            },
+            "name": "John Smith",
+            "email": "jsmith@worldbank.com",
+            "jobTitle": "Logistics",
+            "mobilePhone": "",
+            "phone": "",
+            "primary": true,
+            "url": "/app/common/entity/contact.nl?id=1892&compid=TSTDRV2617106"
+        }],
+        "events": [],
+        "projectUrl": "/app/accounting/project/project.nl?id=1515&compid=TSTDRV2617106",
+        "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=108&compid=TSTDRV2617106",
+        "soUrl": "/app/accounting/transactions/salesord.nl?id=20901&compid=TSTDRV2617106",
+        "esthours": "200"
+    }, {
+        "id": "107",
+        "name": "Install Cove Lights - Follow Up",
+        "title": "Install Cove Lights - Follow Up",
+        "project": {
+            "text": "3M : Light Fixtures Installation",
+            "value": "2042"
+        },
+        "date": "11/11/2024",
+        "status": {
+            "text": "Not Started",
+            "value": "4",
+            "code": "#026adf"
+        },
+        "type": {
+            "text": "Service",
+            "value": "2"
+        },
+        "memo": "",
+        "salesorder": {
+            "text": "Sales Order #SLS00000771",
+            "value": "20900"
+        },
+        "customer": {
+            "text": "3M",
+            "value": "1397"
+        },
+        "resourceGroup": {
+            "text": "",
+            "value": ""
+        },
+        "priority": "",
+        "resources": [],
+        "vendors": [],
+        "assets": [],
+        "items": [{
+            "id": "407",
+            "workorder": {
+                "text": "Install Cove Lights - Follow Up",
+                "value": "107"
+            },
+            "salesorder": {
+                "text": "Sales Order #SLS00000771",
+                "value": "20900"
+            },
+            "event": "",
+            "uuid": "20900_1",
+            "line": "1",
+            "item": {
+                "text": "CON00001",
+                "value": "713"
+            },
+            "description": "",
+            "quantity": 1,
+            "availableQty": 1,
+            "note": ""
+        }, {
+            "id": "408",
+            "workorder": {
+                "text": "Install Cove Lights - Follow Up",
+                "value": "107"
+            },
+            "salesorder": {
+                "text": "Sales Order #SLS00000771",
+                "value": "20900"
+            },
+            "event": "",
+            "uuid": "20900_2",
+            "line": "2",
+            "item": {
+                "text": "MNT00001",
+                "value": "642"
+            },
+            "description": "Maintenance for all our products",
+            "quantity": 1,
+            "availableQty": 1,
+            "note": ""
+        }, {
+            "id": "402",
+            "workorder": {
+                "text": "Install Cove Lights - Follow Up",
+                "value": "107"
+            },
+            "salesorder": {
+                "text": "Sales Order #SLS00000771",
+                "value": "20900"
+            },
+            "event": "",
+            "uuid": "20900_3",
+            "line": "3",
+            "item": {
+                "text": "VZCC-0054-HSS1",
+                "value": "2031"
+            },
+            "description": "Compose,Top Trim 54In.W,Stl, Pnl Frame",
+            "quantity": 1,
+            "availableQty": 1,
+            "note": ""
+        }, {
+            "id": "403",
+            "workorder": {
+                "text": "Install Cove Lights - Follow Up",
+                "value": "107"
+            },
+            "salesorder": {
+                "text": "Sales Order #SLS00000771",
+                "value": "20900"
+            },
+            "event": "",
+            "uuid": "20900_4",
+            "line": "4",
+            "item": {
+                "text": "VZCE-7400-HS1",
+                "value": "2032"
+            },
+            "description": "Compose,Panel Trim,End-Of-Run 74In.H, Steel",
+            "quantity": 3,
+            "availableQty": 3,
+            "note": ""
+        }, {
+            "id": "404",
+            "workorder": {
+                "text": "Install Cove Lights - Follow Up",
+                "value": "107"
+            },
+            "salesorder": {
+                "text": "Sales Order #SLS00000771",
+                "value": "20900"
+            },
+            "event": "",
+            "uuid": "20900_5",
+            "line": "5",
+            "item": {
+                "text": "VZCW-0000-PS1S1",
+                "value": "2033"
+            },
+            "description": "Compose,Wall Mount,Fits All Heights",
+            "quantity": 3,
+            "availableQty": 3,
+            "note": ""
+        }, {
+            "id": "405",
+            "workorder": {
+                "text": "Install Cove Lights - Follow Up",
+                "value": "107"
+            },
+            "salesorder": {
+                "text": "Sales Order #SLS00000771",
+                "value": "20900"
+            },
+            "event": "",
+            "uuid": "20900_6",
+            "line": "6",
+            "item": {
+                "text": "VZFS-1654-RS1",
+                "value": "2034"
+            },
+            "description": "Compose,Stack Frame 16In.H X 54In.W,Std Accoust,NoPwr",
+            "quantity": 6,
+            "availableQty": 6,
+            "note": ""
+        }, {
+            "id": "406",
+            "workorder": {
+                "text": "Install Cove Lights - Follow Up",
+                "value": "107"
+            },
+            "salesorder": {
+                "text": "Sales Order #SLS00000771",
+                "value": "20900"
+            },
+            "event": "",
+            "uuid": "20900_7",
+            "line": "7",
+            "item": {
+                "text": "VZTI-1654-FNNS1",
+                "value": "2035"
+            },
+            "description": "Compose,Single Tile,16In.HX54In.W,Fabric/Tackable,Std Core,No Tech",
+            "quantity": 12,
+            "availableQty": 12,
+            "note": ""
+        }],
+        "addresses": [{
+            "id": "146",
+            "workorder": {
+                "text": "Install Cove Lights - Follow Up",
+                "value": "107"
+            },
+            "customer": {
+                "text": "3M",
+                "value": "1397"
+            },
+            "events": [],
+            "address": {
+                "text": "4966 Hilltop Street",
+                "value": "245162"
+            },
+            "addressDetails": "Amaya Randell<br/>3M<br/>4966 Hilltop Street<br/>Northadams MA 01247<br/>United States",
+            "customerUrl": "/app/common/entity/custjob.nl?id=1397&compid=TSTDRV2617106"
+        }],
+        "contacts": [{
+            "id": "130",
+            "workorder": {
+                "text": "Install Cove Lights - Follow Up",
+                "value": "107"
+            },
+            "events": [],
+            "contact": {
+                "text": "3M : Astra Gully",
+                "value": "2043"
+            },
+            "name": "Astra Gully",
+            "email": "3m@3m.com",
+            "jobTitle": "Senior Applications Director",
+            "mobilePhone": "",
+            "phone": "",
+            "primary": false,
+            "url": "/app/common/entity/contact.nl?id=2043&compid=TSTDRV2617106"
+        }, {
+            "id": "131",
+            "workorder": {
+                "text": "Install Cove Lights - Follow Up",
+                "value": "107"
+            },
+            "events": [],
+            "contact": {
+                "text": "3M : Kaelea Peel",
+                "value": "2044"
+            },
+            "name": "Kaelea Peel",
+            "email": "",
+            "jobTitle": "Dynamic Configuration Liason",
+            "mobilePhone": "",
+            "phone": "",
+            "primary": false,
+            "url": "/app/common/entity/contact.nl?id=2044&compid=TSTDRV2617106"
+        }],
+        "events": [],
+        "projectUrl": "/app/accounting/project/project.nl?id=2042&compid=TSTDRV2617106",
+        "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=107&compid=TSTDRV2617106",
+        "soUrl": "/app/accounting/transactions/salesord.nl?id=20900&compid=TSTDRV2617106",
+        "esthours": "40"
+    }, {
+        "id": "106",
+        "name": "Install Cove Lights",
+        "title": "Install Cove Lights",
+        "project": {
+            "text": "3M : Light Fixtures Installation",
+            "value": "2042"
+        },
+        "date": "11/11/2024",
+        "status": {
+            "text": "Not Started",
+            "value": "4",
+            "code": "#026adf"
+        },
+        "type": {
+            "text": "Service",
+            "value": "2"
+        },
+        "memo": "",
+        "salesorder": {
+            "text": "Sales Order #SLS00000771",
+            "value": "20900"
+        },
+        "customer": {
+            "text": "3M",
+            "value": "1397"
+        },
+        "resourceGroup": {
+            "text": "",
+            "value": ""
+        },
+        "priority": "",
+        "resources": [],
+        "vendors": [{
+            "id": "165",
+            "name": "165",
+            "vendor": {
+                "text": "Best Fixture, Inc.",
+                "value": "12"
+            },
+            "url": "",
+            "email": "",
+            "initials": "BF",
+            "workorder": {
+                "text": "Install Cove Lights",
+                "value": "106"
+            },
+            "event": "101032",
+            "quantityRequired": 2,
+            "quantityAvailable": 0,
+            "purchaseOrder": {
+                "text": " ",
+                "value": ""
+            },
+            "amount": 0,
+            "active": false,
+            "woVendor": true,
+            "memo": ""
+        }, {
+            "id": "166",
+            "name": "166",
+            "vendor": {
+                "text": "Best Fixture, Inc.",
+                "value": "12"
+            },
+            "url": "",
+            "email": "",
+            "initials": "BF",
+            "workorder": {
+                "text": "Install Cove Lights",
+                "value": "106"
+            },
+            "event": "101033",
+            "quantityRequired": 2,
+            "quantityAvailable": 0,
+            "purchaseOrder": {
+                "text": " ",
+                "value": ""
+            },
+            "amount": 0,
+            "active": false,
+            "woVendor": true,
+            "memo": ""
+        }],
+        "assets": [{
+            "id": "114",
+            "name": "ELE00002",
+            "workorder": {
+                "text": "Install Cove Lights",
+                "value": "106"
+            },
+            "event": "101033",
+            "quantity": 0,
+            "description": "Serialized 1 Sales Description",
+            "item": {
+                "text": "ELE00002",
+                "value": "674"
+            },
+            "equipmentType": {
+                "text": "Hand Tools",
+                "value": "1"
+            },
+            "rentalUnit": {
+                "text": "",
+                "value": ""
+            },
+            "rentalDuration": 0,
+            "rentalRate": 0,
+            "rentalAmount": 0,
+            "purchaseOrder": {
+                "text": " ",
+                "value": " "
+            },
+            "vendor": {
+                "text": "Computer Depot Pacific",
+                "value": "965"
+            },
+            "owned": true,
+            "rentalMatrix": 0
+        }],
+        "items": [{
+            "id": "400",
+            "workorder": {
+                "text": "Install Cove Lights",
+                "value": "106"
+            },
+            "salesorder": {
+                "text": "Sales Order #SLS00000771",
+                "value": "20900"
+            },
+            "event": "",
+            "uuid": "20900_1",
+            "line": "1",
+            "item": {
+                "text": "CON00001",
+                "value": "713"
+            },
+            "description": "",
+            "quantity": 1,
+            "availableQty": 1,
+            "note": ""
+        }, {
+            "id": "401",
+            "workorder": {
+                "text": "Install Cove Lights",
+                "value": "106"
+            },
+            "salesorder": {
+                "text": "Sales Order #SLS00000771",
+                "value": "20900"
+            },
+            "event": "",
+            "uuid": "20900_2",
+            "line": "2",
+            "item": {
+                "text": "MNT00001",
+                "value": "642"
+            },
+            "description": "Maintenance for all our products",
+            "quantity": 1,
+            "availableQty": 1,
+            "note": ""
+        }, {
+            "id": "413",
+            "workorder": {
+                "text": "Install Cove Lights",
+                "value": "106"
+            },
+            "salesorder": {
+                "text": "Sales Order #SLS00000771",
+                "value": "20900"
+            },
+            "event": "101032",
+            "uuid": "20900_1",
+            "line": "1",
+            "item": {
+                "text": "CON00001",
+                "value": "713"
+            },
+            "description": "",
+            "quantity": 0,
+            "availableQty": 0,
+            "note": ""
+        }, {
+            "id": "414",
+            "workorder": {
+                "text": "Install Cove Lights",
+                "value": "106"
+            },
+            "salesorder": {
+                "text": "Sales Order #SLS00000771",
+                "value": "20900"
+            },
+            "event": "101032",
+            "uuid": "20900_4",
+            "line": "4",
+            "item": {
+                "text": "VZCE-7400-HS1",
+                "value": "2032"
+            },
+            "description": "Compose,Panel Trim,End-Of-Run 74In.H, Steel",
+            "quantity": 0,
+            "availableQty": 0,
+            "note": ""
+        }, {
+            "id": "415",
+            "workorder": {
+                "text": "Install Cove Lights",
+                "value": "106"
+            },
+            "salesorder": {
+                "text": "Sales Order #SLS00000771",
+                "value": "20900"
+            },
+            "event": "101033",
+            "uuid": "20900_1",
+            "line": "1",
+            "item": {
+                "text": "CON00001",
+                "value": "713"
+            },
+            "description": "",
+            "quantity": 1,
+            "availableQty": 1,
+            "note": ""
+        }, {
+            "id": "416",
+            "workorder": {
+                "text": "Install Cove Lights",
+                "value": "106"
+            },
+            "salesorder": {
+                "text": "Sales Order #SLS00000771",
+                "value": "20900"
+            },
+            "event": "101033",
+            "uuid": "20900_5",
+            "line": "5",
+            "item": {
+                "text": "VZCW-0000-PS1S1",
+                "value": "2033"
+            },
+            "description": "Compose,Wall Mount,Fits All Heights",
+            "quantity": 1,
+            "availableQty": 1,
+            "note": ""
+        }, {
+            "id": "417",
+            "workorder": {
+                "text": "Install Cove Lights",
+                "value": "106"
+            },
+            "salesorder": {
+                "text": "Sales Order #SLS00000771",
+                "value": "20900"
+            },
+            "event": "101034",
+            "uuid": "20900_3",
+            "line": "3",
+            "item": {
+                "text": "VZCC-0054-HSS1",
+                "value": "2031"
+            },
+            "description": "Compose,Top Trim 54In.W,Stl, Pnl Frame",
+            "quantity": 1,
+            "availableQty": 1,
+            "note": ""
+        }, {
+            "id": "418",
+            "workorder": {
+                "text": "Install Cove Lights",
+                "value": "106"
+            },
+            "salesorder": {
+                "text": "Sales Order #SLS00000771",
+                "value": "20900"
+            },
+            "event": "101034",
+            "uuid": "20900_4",
+            "line": "4",
+            "item": {
+                "text": "VZCE-7400-HS1",
+                "value": "2032"
+            },
+            "description": "Compose,Panel Trim,End-Of-Run 74In.H, Steel",
+            "quantity": 3,
+            "availableQty": 3,
+            "note": ""
+        }, {
+            "id": "419",
+            "workorder": {
+                "text": "Install Cove Lights",
+                "value": "106"
+            },
+            "salesorder": {
+                "text": "Sales Order #SLS00000771",
+                "value": "20900"
+            },
+            "event": "101034",
+            "uuid": "20900_5",
+            "line": "5",
+            "item": {
+                "text": "VZCW-0000-PS1S1",
+                "value": "2033"
+            },
+            "description": "Compose,Wall Mount,Fits All Heights",
+            "quantity": 3,
+            "availableQty": 3,
+            "note": ""
+        }, {
+            "id": "420",
+            "workorder": {
+                "text": "Install Cove Lights",
+                "value": "106"
+            },
+            "salesorder": {
+                "text": "Sales Order #SLS00000771",
+                "value": "20900"
+            },
+            "event": "101034",
+            "uuid": "20900_6",
+            "line": "6",
+            "item": {
+                "text": "VZFS-1654-RS1",
+                "value": "2034"
+            },
+            "description": "Compose,Stack Frame 16In.H X 54In.W,Std Accoust,NoPwr",
+            "quantity": 6,
+            "availableQty": 6,
+            "note": ""
+        }, {
+            "id": "421",
+            "workorder": {
+                "text": "Install Cove Lights",
+                "value": "106"
+            },
+            "salesorder": {
+                "text": "Sales Order #SLS00000771",
+                "value": "20900"
+            },
+            "event": "101034",
+            "uuid": "20900_7",
+            "line": "7",
+            "item": {
+                "text": "VZTI-1654-FNNS1",
+                "value": "2035"
+            },
+            "description": "Compose,Single Tile,16In.HX54In.W,Fabric/Tackable,Std Core,No Tech",
+            "quantity": 12,
+            "availableQty": 12,
+            "note": ""
+        }, {
+            "id": "395",
+            "workorder": {
+                "text": "Install Cove Lights",
+                "value": "106"
+            },
+            "salesorder": {
+                "text": "Sales Order #SLS00000771",
+                "value": "20900"
+            },
+            "event": "",
+            "uuid": "20900_3",
+            "line": "3",
+            "item": {
+                "text": "VZCC-0054-HSS1",
+                "value": "2031"
+            },
+            "description": "Compose,Top Trim 54In.W,Stl, Pnl Frame",
+            "quantity": 1,
+            "availableQty": 1,
+            "note": ""
+        }, {
+            "id": "396",
+            "workorder": {
+                "text": "Install Cove Lights",
+                "value": "106"
+            },
+            "salesorder": {
+                "text": "Sales Order #SLS00000771",
+                "value": "20900"
+            },
+            "event": "",
+            "uuid": "20900_4",
+            "line": "4",
+            "item": {
+                "text": "VZCE-7400-HS1",
+                "value": "2032"
+            },
+            "description": "Compose,Panel Trim,End-Of-Run 74In.H, Steel",
+            "quantity": 3,
+            "availableQty": 3,
+            "note": ""
+        }, {
+            "id": "397",
+            "workorder": {
+                "text": "Install Cove Lights",
+                "value": "106"
+            },
+            "salesorder": {
+                "text": "Sales Order #SLS00000771",
+                "value": "20900"
+            },
+            "event": "",
+            "uuid": "20900_5",
+            "line": "5",
+            "item": {
+                "text": "VZCW-0000-PS1S1",
+                "value": "2033"
+            },
+            "description": "Compose,Wall Mount,Fits All Heights",
+            "quantity": 3,
+            "availableQty": 3,
+            "note": ""
+        }, {
+            "id": "398",
+            "workorder": {
+                "text": "Install Cove Lights",
+                "value": "106"
+            },
+            "salesorder": {
+                "text": "Sales Order #SLS00000771",
+                "value": "20900"
+            },
+            "event": "",
+            "uuid": "20900_6",
+            "line": "6",
+            "item": {
+                "text": "VZFS-1654-RS1",
+                "value": "2034"
+            },
+            "description": "Compose,Stack Frame 16In.H X 54In.W,Std Accoust,NoPwr",
+            "quantity": 6,
+            "availableQty": 6,
+            "note": ""
+        }, {
+            "id": "399",
+            "workorder": {
+                "text": "Install Cove Lights",
+                "value": "106"
+            },
+            "salesorder": {
+                "text": "Sales Order #SLS00000771",
+                "value": "20900"
+            },
+            "event": "",
+            "uuid": "20900_7",
+            "line": "7",
+            "item": {
+                "text": "VZTI-1654-FNNS1",
+                "value": "2035"
+            },
+            "description": "Compose,Single Tile,16In.HX54In.W,Fabric/Tackable,Std Core,No Tech",
+            "quantity": 12,
+            "availableQty": 12,
+            "note": ""
+        }],
+        "addresses": [{
+            "id": "150",
+            "workorder": {
+                "text": "Install Cove Lights",
+                "value": "106"
+            },
+            "customer": {
+                "text": "3M",
+                "value": "1397"
+            },
+            "events": ["101032", "101033", "101034"],
+            "address": {
+                "text": "4966 Hilltop Street",
+                "value": "245162"
+            },
+            "addressDetails": "Amaya Randell<br/>3M<br/>4966 Hilltop Street<br/>Northadams MA 01247<br/>United States",
+            "customerUrl": "/app/common/entity/custjob.nl?id=1397&compid=TSTDRV2617106"
+        }],
+        "contacts": [{
+            "id": "128",
+            "workorder": {
+                "text": "Install Cove Lights",
+                "value": "106"
+            },
+            "events": ["101032", "101033", "101034"],
+            "contact": {
+                "text": "3M : Astra Gully",
+                "value": "2043"
+            },
+            "name": "Astra Gully",
+            "email": "3m@3m.com",
+            "jobTitle": "Senior Applications Director",
+            "mobilePhone": "",
+            "phone": "",
+            "primary": false,
+            "url": "/app/common/entity/contact.nl?id=2043&compid=TSTDRV2617106"
+        }, {
+            "id": "129",
+            "workorder": {
+                "text": "Install Cove Lights",
+                "value": "106"
+            },
+            "events": ["101032", "101033", "101034"],
+            "contact": {
+                "text": "3M : Kaelea Peel",
+                "value": "2044"
+            },
+            "name": "Kaelea Peel",
+            "email": "",
+            "jobTitle": "Dynamic Configuration Liason",
+            "mobilePhone": "",
+            "phone": "",
+            "primary": false,
+            "url": "/app/common/entity/contact.nl?id=2044&compid=TSTDRV2617106"
+        }],
+        "events": [{
+            "id": "101032",
+            "title": "Install LED Light Strips",
+            "workorder": {
+                "text": "Install Cove Lights",
+                "value": "106"
+            },
+            "location": "",
+            "status": {
+                "text": "Tentative",
+                "value": "TENTATIVE",
+                "code": "bg-secondary"
+            },
+            "date": {
+                "recurrence": "occurs every day from 11/11/2024 until 11/15/2024",
+                "start": "2024-11-11",
+                "end": "2024-11-15"
+            },
+            "time": {
+                "start": "09:00",
+                "end": "17:00"
+            },
+            "priority": {
+                "text": "Medium",
+                "value": "2",
+                "code": "#dfcf02"
+            },
+            "note": "",
+            "url": "/app/crm/calendar/event.nl?id=101032&compid=TSTDRV2617106&selectedtab=custom337",
+            "color": "#1a6756",
+            "woRef": {},
+            "resources": [],
+            "vendors": [],
+            "assets": [],
+            "items": [],
+            "contacts": [],
+            "addresses": [],
+            "contact": {
+                "text": "",
+                "value": ""
+            },
+            "address": {
+                "text": "",
+                "value": ""
+            },
+            "organizer": {
+                "text": "Mei Matriano",
+                "value": "1647"
+            }
+        }, {
+            "id": "101033",
+            "title": "Install Light Switches",
+            "workorder": {
+                "text": "Install Cove Lights",
+                "value": "106"
+            },
+            "location": "",
+            "status": {
+                "text": "Tentative",
+                "value": "TENTATIVE",
+                "code": "bg-secondary"
+            },
+            "date": {
+                "recurrence": "occurs every day from 11/11/2024 until 11/15/2024",
+                "start": "2024-11-11",
+                "end": "2024-11-15"
+            },
+            "time": {
+                "start": "09:00",
+                "end": "17:00"
+            },
+            "priority": {
+                "text": "Medium",
+                "value": "2",
+                "code": "#dfcf02"
+            },
+            "note": "",
+            "url": "/app/crm/calendar/event.nl?id=101033&compid=TSTDRV2617106&selectedtab=custom337",
+            "color": "#1a6756",
+            "woRef": {},
+            "resources": [],
+            "vendors": [],
+            "assets": [],
+            "items": [],
+            "contacts": [],
+            "addresses": [],
+            "contact": {
+                "text": "",
+                "value": ""
+            },
+            "address": {
+                "text": "",
+                "value": ""
+            },
+            "organizer": {
+                "text": "Mei Matriano",
+                "value": "1647"
+            }
+        }, {
+            "id": "101034",
+            "title": "Deliver Materials",
+            "workorder": {
+                "text": "Install Cove Lights",
+                "value": "106"
+            },
+            "location": "",
+            "status": {
+                "text": "Tentative",
+                "value": "TENTATIVE",
+                "code": "bg-secondary"
+            },
+            "date": {
+                "recurrence": "occurs every day from 11/11/2024 until 11/13/2024",
+                "start": "2024-11-11",
+                "end": "2024-11-13"
+            },
+            "time": {
+                "start": "09:00",
+                "end": "15:00"
+            },
+            "priority": {
+                "text": "Medium",
+                "value": "2",
+                "code": "#dfcf02"
+            },
+            "note": "",
+            "url": "/app/crm/calendar/event.nl?id=101034&compid=TSTDRV2617106&selectedtab=custom337",
+            "color": "#1a6756",
+            "woRef": {},
+            "resources": [],
+            "vendors": [],
+            "assets": [],
+            "items": [],
+            "contacts": [],
+            "addresses": [],
+            "contact": {
+                "text": "",
+                "value": ""
+            },
+            "address": {
+                "text": "",
+                "value": ""
+            },
+            "organizer": {
+                "text": "Mei Matriano",
+                "value": "1647"
+            }
+        }],
+        "projectUrl": "/app/accounting/project/project.nl?id=2042&compid=TSTDRV2617106",
+        "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=106&compid=TSTDRV2617106",
+        "soUrl": "/app/accounting/transactions/salesord.nl?id=20900&compid=TSTDRV2617106",
+        "esthours": "40"
+    }, {
+        "id": "105",
+        "name": "Furniture Installation",
+        "title": "Furniture Installation",
+        "project": {
+            "text": "World Bank : World Bank Office Furniture Installation",
+            "value": "1515"
+        },
+        "date": "11/10/2024",
+        "status": {
+            "text": "Not Started",
+            "value": "4",
+            "code": "#026adf"
+        },
+        "type": {
+            "text": "Service",
+            "value": "2"
+        },
+        "memo": "<ol><li>- **Review Furniture Layout Plans**: Confirm placement and orientation according to layout plans before beginning installation.</li><li>- **Unpack and Inventory Parts**: Carefully unpack each item and inventory all parts and hardware to ensure nothing is missing.</li><li>- **Organize Tools and Hardware**: Set up necessary tools (e.g., screwdriver, drill, wrench) and organize hardware for easy access during installation.</li><li>- **Assemble Base Components First**: Start by assembling the base or foundational components, such as legs or frames, ensuring they are stable and level.</li><li>- **Secure Structural Pieces**: Attach any primary structural pieces (e.g., tabletops, seat bases) to the base, following manufacturer instructions closely.</li><li>- **Install Secondary Components**: Add any secondary components, such as drawers, shelves, or panels, making sure they are properly aligned and secure.</li><li>- **Tighten All Screws and Bolts**: Go over all screws, bolts, and connectors to ensure everything is tightly secured and stable.</li><li>- **Check for Stability and Leveling**: Test the furniture for stability and make any necessary adjustments to ensure it is level.</li><li>- **Attach Accessories or Finishing Pieces**: Add finishing touches like knobs, covers, or cushions according to specifications.</li><li>- **Final Inspection**: Conduct a final inspection to ensure that all parts are securely assembled, aligned, and free of damage. Clean the area and remove any debris or packaging.</li></ol>",
+        "salesorder": {
+            "text": "Sales Order #SLS00000770",
+            "value": "20899"
+        },
+        "customer": {
+            "text": "World Bank",
+            "value": "1249"
+        },
+        "resourceGroup": {
+            "text": "",
+            "value": ""
+        },
+        "priority": "",
+        "resources": [],
+        "vendors": [],
+        "assets": [],
+        "items": [{
+            "id": "394",
+            "workorder": {
+                "text": "Furniture Installation",
+                "value": "105"
+            },
+            "salesorder": {
+                "text": "Sales Order #SLS00000770",
+                "value": "20899"
+            },
+            "event": "101031",
+            "uuid": "20899_1",
+            "line": "1",
+            "item": {
+                "text": "BIC00008",
+                "value": "467"
+            },
+            "description": "Trail Bike - Maverik Disc",
+            "quantity": 1,
+            "availableQty": 1,
+            "note": ""
+        }, {
+            "id": "393",
+            "workorder": {
+                "text": "Furniture Installation",
+                "value": "105"
+            },
+            "salesorder": {
+                "text": "Sales Order #SLS00000770",
+                "value": "20899"
+            },
+            "event": "",
+            "uuid": "20899_1",
+            "line": "1",
+            "item": {
+                "text": "BIC00008",
+                "value": "467"
+            },
+            "description": "Trail Bike - Maverik Disc",
+            "quantity": 1,
+            "availableQty": 1,
+            "note": ""
+        }],
+        "addresses": [{
+            "id": "144",
+            "workorder": {
+                "text": "Furniture Installation",
+                "value": "105"
+            },
+            "customer": {
+                "text": "World Bank",
+                "value": "1249"
+            },
+            "events": ["101031"],
+            "address": {
+                "text": "12 Carlton Av",
+                "value": "245148"
+            },
+            "addressDetails": "12 Carlton Ave<br/>San Francisco CA 1241<br/>United States",
+            "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+        }],
+        "contacts": [{
+            "id": "126",
+            "workorder": {
+                "text": "Furniture Installation",
+                "value": "105"
+            },
+            "events": ["101031"],
+            "contact": {
+                "text": "World Bank : Chad Bass",
+                "value": "1382"
+            },
+            "name": "Chad Bass",
+            "email": "cbass@worldbank.com",
+            "jobTitle": "President",
+            "mobilePhone": "",
+            "phone": "",
+            "primary": false,
+            "url": "/app/common/entity/contact.nl?id=1382&compid=TSTDRV2617106"
+        }, {
+            "id": "127",
+            "workorder": {
+                "text": "Furniture Installation",
+                "value": "105"
+            },
+            "events": ["101031"],
+            "contact": {
+                "text": "World Bank : Jim Carrey",
+                "value": "2041"
+            },
+            "name": "Jim Carrey",
+            "email": "jcarrery@worldbank.com",
+            "jobTitle": "Administrative Manager",
+            "mobilePhone": "",
+            "phone": "",
+            "primary": false,
+            "url": "/app/common/entity/contact.nl?id=2041&compid=TSTDRV2617106"
+        }],
+        "events": [{
+            "id": "101031",
+            "title": "Furniture Installation",
+            "workorder": {
+                "text": "Furniture Installation",
+                "value": "105"
+            },
+            "location": "",
+            "status": {
+                "text": "Tentative",
+                "value": "TENTATIVE",
+                "code": "bg-secondary"
+            },
+            "date": {
+                "recurrence": "one time event on 11/13/2024",
+                "start": "2024-11-13",
+                "end": "2024-11-13"
+            },
+            "time": {
+                "start": "08:00",
+                "end": "18:00"
+            },
+            "priority": {
+                "text": "High",
+                "value": "3",
+                "code": "#ca6621"
+            },
+            "note": "Furniture Installation and site clean up",
+            "url": "/app/crm/calendar/event.nl?id=101031&compid=TSTDRV2617106&selectedtab=custom337",
+            "color": "#1a6756",
+            "woRef": {},
+            "resources": [],
+            "vendors": [],
+            "assets": [],
+            "items": [],
+            "contacts": [],
+            "addresses": [],
+            "contact": {
+                "text": "",
+                "value": ""
+            },
+            "address": {
+                "text": "",
+                "value": ""
+            },
+            "organizer": {
+                "text": "Arun Sharma",
+                "value": "1770"
+            }
+        }],
+        "projectUrl": "/app/accounting/project/project.nl?id=1515&compid=TSTDRV2617106",
+        "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=105&compid=TSTDRV2617106",
+        "soUrl": "/app/accounting/transactions/salesord.nl?id=20899&compid=TSTDRV2617106",
+        "esthours": "200"
+    }, {
+        "id": "104",
+        "name": "AV Installation Only",
+        "title": "AV Installation Only",
+        "project": {
+            "text": "World Bank : World Bank Office Furniture Installation",
+            "value": "1515"
+        },
+        "date": "11/10/2024",
+        "status": {
+            "text": "Not Started",
+            "value": "4",
+            "code": "#026adf"
+        },
+        "type": {
+            "text": "Service",
+            "value": "2"
+        },
+        "memo": "<ol><li>- **Review Furniture Layout Plans**: Confirm placement and orientation according to layout plans before beginning installation.</li><li>- **Unpack and Inventory Parts**: Carefully unpack each item and inventory all parts and hardware to ensure nothing is missing.</li><li>- **Organize Tools and Hardware**: Set up necessary tools (e.g., screwdriver, drill, wrench) and organize hardware for easy access during installation.</li><li>- **Assemble Base Components First**: Start by assembling the base or foundational components, such as legs or frames, ensuring they are stable and level.</li><li>- **Secure Structural Pieces**: Attach any primary structural pieces (e.g., tabletops, seat bases) to the base, following manufacturer instructions closely.</li><li>- **Install Secondary Components**: Add any secondary components, such as drawers, shelves, or panels, making sure they are properly aligned and secure.</li><li>- **Tighten All Screws and Bolts**: Go over all screws, bolts, and connectors to ensure everything is tightly secured and stable.</li><li>- **Check for Stability and Leveling**: Test the furniture for stability and make any necessary adjustments to ensure it is level.</li><li>- **Attach Accessories or Finishing Pieces**: Add finishing touches like knobs, covers, or cushions according to specifications.</li><li>- **Final Inspection**: Conduct a final inspection to ensure that all parts are securely assembled, aligned, and free of damage. Clean the area and remove any debris or packaging.</li></ol>",
+        "salesorder": {
+            "text": "Sales Order #SLS00000770",
+            "value": "20899"
+        },
+        "customer": {
+            "text": "World Bank",
+            "value": "1249"
+        },
+        "resourceGroup": {
+            "text": "",
+            "value": ""
+        },
+        "priority": "",
+        "resources": [],
+        "vendors": [],
+        "assets": [],
+        "items": [{
+            "id": "392",
+            "workorder": {
+                "text": "AV Installation Only",
+                "value": "104"
+            },
+            "salesorder": {
+                "text": "Sales Order #SLS00000770",
+                "value": "20899"
+            },
+            "event": "101029",
+            "uuid": "20899_1",
+            "line": "1",
+            "item": {
+                "text": "BIC00008",
+                "value": "467"
+            },
+            "description": "Trail Bike - Maverik Disc",
+            "quantity": 1,
+            "availableQty": 1,
+            "note": ""
+        }, {
+            "id": "390",
+            "workorder": {
+                "text": "AV Installation Only",
+                "value": "104"
+            },
+            "salesorder": {
+                "text": "Sales Order #SLS00000770",
+                "value": "20899"
+            },
+            "event": "",
+            "uuid": "20899_2",
+            "line": "2",
+            "item": {
+                "text": "BIC00008",
+                "value": "467"
+            },
+            "description": "Trail Bike - Maverik Disc",
+            "quantity": 1,
+            "availableQty": 1,
+            "note": ""
+        }, {
+            "id": "391",
+            "workorder": {
+                "text": "AV Installation Only",
+                "value": "104"
+            },
+            "salesorder": {
+                "text": "Sales Order #SLS00000770",
+                "value": "20899"
+            },
+            "event": "",
+            "uuid": "20899_3",
+            "line": "3",
+            "item": {
+                "text": "BIC00008",
+                "value": "467"
+            },
+            "description": "Trail Bike - Maverik Disc",
+            "quantity": 1,
+            "availableQty": 1,
+            "note": ""
+        }, {
+            "id": "389",
+            "workorder": {
+                "text": "AV Installation Only",
+                "value": "104"
+            },
+            "salesorder": {
+                "text": "Sales Order #SLS00000770",
+                "value": "20899"
+            },
+            "event": "",
+            "uuid": "20899_1",
+            "line": "1",
+            "item": {
+                "text": "BIC00008",
+                "value": "467"
+            },
+            "description": "Trail Bike - Maverik Disc",
+            "quantity": 1,
+            "availableQty": 1,
+            "note": ""
+        }],
+        "addresses": [{
+            "id": "143",
+            "workorder": {
+                "text": "AV Installation Only",
+                "value": "104"
+            },
+            "customer": {
+                "text": "World Bank",
+                "value": "1249"
+            },
+            "events": ["101029"],
+            "address": {
+                "text": "434 Carlaw",
+                "value": "244878"
+            },
+            "addressDetails": "434 Carlaw Road<br/>Los Angeles NY 12412<br/>United States",
+            "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+        }],
+        "contacts": [{
+            "id": "123",
+            "workorder": {
+                "text": "AV Installation Only",
+                "value": "104"
+            },
+            "events": ["101029"],
+            "contact": {
+                "text": "World Bank : Chad Bass",
+                "value": "1382"
+            },
+            "name": "Chad Bass",
+            "email": "cbass@worldbank.com",
+            "jobTitle": "President",
+            "mobilePhone": "",
+            "phone": "",
+            "primary": false,
+            "url": "/app/common/entity/contact.nl?id=1382&compid=TSTDRV2617106"
+        }, {
+            "id": "124",
+            "workorder": {
+                "text": "AV Installation Only",
+                "value": "104"
+            },
+            "events": ["101029"],
+            "contact": {
+                "text": "World Bank : Jim Carrey",
+                "value": "2041"
+            },
+            "name": "Jim Carrey",
+            "email": "jcarrery@worldbank.com",
+            "jobTitle": "Administrative Manager",
+            "mobilePhone": "",
+            "phone": "",
+            "primary": false,
+            "url": "/app/common/entity/contact.nl?id=2041&compid=TSTDRV2617106"
+        }, {
+            "id": "125",
+            "workorder": {
+                "text": "AV Installation Only",
+                "value": "104"
+            },
+            "events": ["101029"],
+            "contact": {
+                "text": "World Bank : John Smith",
+                "value": "1892"
+            },
+            "name": "John Smith",
+            "email": "jsmith@worldbank.com",
+            "jobTitle": "Logistics",
+            "mobilePhone": "",
+            "phone": "",
+            "primary": true,
+            "url": "/app/common/entity/contact.nl?id=1892&compid=TSTDRV2617106"
+        }],
+        "events": [{
+            "id": "101029",
+            "title": "AV Installation Only",
+            "workorder": {
+                "text": "AV Installation Only",
+                "value": "104"
+            },
+            "location": "",
+            "status": {
+                "text": "Tentative",
+                "value": "TENTATIVE",
+                "code": "bg-secondary"
+            },
+            "date": {
+                "recurrence": "one time event on 11/12/2024",
+                "start": "2024-11-12",
+                "end": "2024-11-12"
+            },
+            "time": {
+                "start": "09:00",
+                "end": "17:00"
+            },
+            "priority": {
+                "text": "High",
+                "value": "3",
+                "code": "#ca6621"
+            },
+            "note": "AV Installation Only",
+            "url": "/app/crm/calendar/event.nl?id=101029&compid=TSTDRV2617106&selectedtab=custom337",
+            "color": "#1a6756",
+            "woRef": {},
+            "resources": [],
+            "vendors": [],
+            "assets": [],
+            "items": [],
+            "contacts": [],
+            "addresses": [],
+            "contact": {
+                "text": "",
+                "value": ""
+            },
+            "address": {
+                "text": "",
+                "value": ""
+            },
+            "organizer": {
+                "text": "Arun Sharma",
+                "value": "1770"
+            }
+        }],
+        "projectUrl": "/app/accounting/project/project.nl?id=1515&compid=TSTDRV2617106",
+        "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=104&compid=TSTDRV2617106",
+        "soUrl": "/app/accounting/transactions/salesord.nl?id=20899&compid=TSTDRV2617106",
+        "esthours": "200"
+    }, {
+        "id": "103",
+        "name": "Furniture Installation",
+        "title": "Furniture Installation",
+        "project": {
+            "text": "World Bank : Furniture and AV Installation",
+            "value": "1883"
+        },
+        "date": "11/10/2024",
+        "status": {
+            "text": "Not Started",
+            "value": "4",
+            "code": "#026adf"
+        },
+        "type": {
+            "text": "Service",
+            "value": "2"
+        },
+        "memo": "<ol><li>- **Review Furniture Layout Plans**: Confirm placement and orientation according to layout plans before beginning installation.</li><li>- **Unpack and Inventory Parts**: Carefully unpack each item and inventory all parts and hardware to ensure nothing is missing.</li><li>- **Organize Tools and Hardware**: Set up necessary tools (e.g., screwdriver, drill, wrench) and organize hardware for easy access during installation.</li><li>- **Assemble Base Components First**: Start by assembling the base or foundational components, such as legs or frames, ensuring they are stable and level.</li><li>- **Secure Structural Pieces**: Attach any primary structural pieces (e.g., tabletops, seat bases) to the base, following manufacturer instructions closely.</li><li>- **Install Secondary Components**: Add any secondary components, such as drawers, shelves, or panels, making sure they are properly aligned and secure.</li><li>- **Tighten All Screws and Bolts**: Go over all screws, bolts, and connectors to ensure everything is tightly secured and stable.</li><li>- **Check for Stability and Leveling**: Test the furniture for stability and make any necessary adjustments to ensure it is level.</li><li>- **Attach Accessories or Finishing Pieces**: Add finishing touches like knobs, covers, or cushions according to specifications.</li><li>- **Final Inspection**: Conduct a final inspection to ensure that all parts are securely assembled, aligned, and free of damage. Clean the area and remove any debris or packaging.</li></ol>",
+        "salesorder": {
+            "text": "Sales Order #SLS00000769",
+            "value": "20898"
+        },
+        "customer": {
+            "text": "World Bank",
+            "value": "1249"
+        },
+        "resourceGroup": {
+            "text": "",
+            "value": ""
+        },
+        "priority": "",
+        "resources": [],
+        "vendors": [{
+            "id": "164",
+            "name": "164",
+            "vendor": {
+                "text": "Best Fixture, Inc.",
+                "value": "12"
+            },
+            "url": "",
+            "email": "",
+            "initials": "BF",
+            "workorder": {
+                "text": "Furniture Installation",
+                "value": "103"
+            },
+            "event": "101028",
+            "quantityRequired": 1,
+            "quantityAvailable": 0,
+            "purchaseOrder": {
+                "text": " ",
+                "value": ""
+            },
+            "amount": 0,
+            "active": false,
+            "woVendor": true,
+            "memo": ""
+        }],
+        "assets": [{
+            "id": "113",
+            "name": "ELE00002",
+            "workorder": {
+                "text": "Furniture Installation",
+                "value": "103"
+            },
+            "event": "101028",
+            "quantity": 1,
+            "description": "Serialized 1 Sales Description",
+            "item": {
+                "text": "ELE00002",
+                "value": "674"
+            },
+            "equipmentType": {
+                "text": "Hand Tools",
+                "value": "1"
+            },
+            "rentalUnit": {
+                "text": "",
+                "value": ""
+            },
+            "rentalDuration": 0,
+            "rentalRate": 0,
+            "rentalAmount": 0,
+            "purchaseOrder": {
+                "text": " ",
+                "value": " "
+            },
+            "vendor": {
+                "text": "Computer Depot Pacific",
+                "value": "965"
+            },
+            "owned": true,
+            "rentalMatrix": 0
+        }],
+        "items": [{
+            "id": "384",
+            "workorder": {
+                "text": "Furniture Installation",
+                "value": "103"
+            },
+            "salesorder": {
+                "text": "Sales Order #SLS00000769",
+                "value": "20898"
+            },
+            "event": "",
+            "uuid": "20898_2",
+            "line": "2",
+            "item": {
+                "text": "2375-6727",
+                "value": "1426"
+            },
+            "description": "PANEL, TOP CAP, STANDARD, 60IN W, PREMISE, SVC",
+            "quantity": 10,
+            "availableQty": 10,
+            "note": ""
+        }, {
+            "id": "387",
+            "workorder": {
+                "text": "Furniture Installation",
+                "value": "103"
+            },
+            "salesorder": {
+                "text": "Sales Order #SLS00000769",
+                "value": "20898"
+            },
+            "event": "101028",
+            "uuid": "20898_2",
+            "line": "2",
+            "item": {
+                "text": "2375-6727",
+                "value": "1426"
+            },
+            "description": "PANEL, TOP CAP, STANDARD, 60IN W, PREMISE, SVC",
+            "quantity": 1,
+            "availableQty": 1,
+            "note": ""
+        }, {
+            "id": "388",
+            "workorder": {
+                "text": "Furniture Installation",
+                "value": "103"
+            },
+            "salesorder": {
+                "text": "Sales Order #SLS00000769",
+                "value": "20898"
+            },
+            "event": "101028",
+            "uuid": "20898_3",
+            "line": "3",
+            "item": {
+                "text": "45XQ-2424-LJ4SCA",
+                "value": "1013"
+            },
+            "description": "450 Series,Sq,24\"x24\",Lam,Edgeband,29\"H,X Base,Stat,No Mod,Cstr,Ptd",
+            "quantity": 1,
+            "availableQty": 1,
+            "note": ""
+        }, {
+            "id": "385",
+            "workorder": {
+                "text": "Furniture Installation",
+                "value": "103"
+            },
+            "salesorder": {
+                "text": "Sales Order #SLS00000769",
+                "value": "20898"
+            },
+            "event": "",
+            "uuid": "20898_3",
+            "line": "3",
+            "item": {
+                "text": "45XQ-2424-LJ4SCA",
+                "value": "1013"
+            },
+            "description": "450 Series,Sq,24\"x24\",Lam,Edgeband,29\"H,X Base,Stat,No Mod,Cstr,Ptd",
+            "quantity": 10,
+            "availableQty": 10,
+            "note": ""
+        }, {
+            "id": "386",
+            "workorder": {
+                "text": "Furniture Installation",
+                "value": "103"
+            },
+            "salesorder": {
+                "text": "Sales Order #SLS00000769",
+                "value": "20898"
+            },
+            "event": "",
+            "uuid": "20898_4",
+            "line": "4",
+            "item": {
+                "text": "ACQUA/CARAVEL AU0641",
+                "value": "1062"
+            },
+            "description": "SPINNEYBECK LEATHER ACQUA/CARAVEL AU0641 for cushion of Ciji_Cushions COL 35 sq ft ea",
+            "quantity": 10,
+            "availableQty": 10,
+            "note": ""
+        }, {
+            "id": "383",
+            "workorder": {
+                "text": "Furniture Installation",
+                "value": "103"
+            },
+            "salesorder": {
+                "text": "Sales Order #SLS00000769",
+                "value": "20898"
+            },
+            "event": "",
+            "uuid": "20898_1",
+            "line": "1",
+            "item": {
+                "text": "BIC00008",
+                "value": "467"
+            },
+            "description": "Trail Bike - Maverik Disc",
+            "quantity": 10,
+            "availableQty": 10,
+            "note": ""
+        }],
+        "addresses": [{
+            "id": "140",
+            "workorder": {
+                "text": "Furniture Installation",
+                "value": "103"
+            },
+            "customer": {
+                "text": "World Bank",
+                "value": "1249"
+            },
+            "events": ["101028", "101030"],
+            "address": {
+                "text": "434 Carlaw",
+                "value": "244878"
+            },
+            "addressDetails": "434 Carlaw Road<br/>Los Angeles NY 12412<br/>United States",
+            "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+        }, {
+            "id": "141",
+            "workorder": {
+                "text": "Furniture Installation",
+                "value": "103"
+            },
+            "customer": {
+                "text": "World Bank",
+                "value": "1249"
+            },
+            "events": ["101030"],
+            "address": {
+                "text": "12 Carlton Av",
+                "value": "245148"
+            },
+            "addressDetails": "12 Carlton Ave<br/>San Francisco CA 1241<br/>United States",
+            "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+        }, {
+            "id": "142",
+            "workorder": {
+                "text": "Furniture Installation",
+                "value": "103"
+            },
+            "customer": {
+                "text": "World Bank",
+                "value": "1249"
+            },
+            "events": ["101030"],
+            "address": {
+                "text": "54 Tale",
+                "value": "245152"
+            },
+            "addressDetails": "54 Tale AV<br/>Akron OH 123123<br/>United States",
+            "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+        }],
+        "contacts": [{
+            "id": "119",
+            "workorder": {
+                "text": "Furniture Installation",
+                "value": "103"
+            },
+            "events": ["101028", "101030"],
+            "contact": {
+                "text": "World Bank : Chad Bass",
+                "value": "1382"
+            },
+            "name": "Chad Bass",
+            "email": "cbass@worldbank.com",
+            "jobTitle": "President",
+            "mobilePhone": "",
+            "phone": "",
+            "primary": false,
+            "url": "/app/common/entity/contact.nl?id=1382&compid=TSTDRV2617106"
+        }, {
+            "id": "120",
+            "workorder": {
+                "text": "Furniture Installation",
+                "value": "103"
+            },
+            "events": ["101028", "101030"],
+            "contact": {
+                "text": "World Bank : John Smith",
+                "value": "1892"
+            },
+            "name": "John Smith",
+            "email": "jsmith@worldbank.com",
+            "jobTitle": "Logistics",
+            "mobilePhone": "",
+            "phone": "",
+            "primary": true,
+            "url": "/app/common/entity/contact.nl?id=1892&compid=TSTDRV2617106"
+        }],
+        "events": [{
+            "id": "101030",
+            "title": "Furniture Installation",
+            "workorder": {
+                "text": "Furniture Installation",
+                "value": "103"
+            },
+            "location": "",
+            "status": {
+                "text": "Tentative",
+                "value": "TENTATIVE",
+                "code": "bg-secondary"
+            },
+            "date": {
+                "recurrence": "occurs every day from 11/11/2024 until 11/13/2024",
+                "start": "2024-11-11",
+                "end": "2024-11-13"
+            },
+            "time": {
+                "start": "08:00",
+                "end": "18:00"
+            },
+            "priority": {
+                "text": "High",
+                "value": "3",
+                "code": "#ca6621"
+            },
+            "note": "",
+            "url": "/app/crm/calendar/event.nl?id=101030&compid=TSTDRV2617106&selectedtab=custom337",
+            "color": "#1a6756",
+            "woRef": {},
+            "resources": [],
+            "vendors": [],
+            "assets": [],
+            "items": [],
+            "contacts": [],
+            "addresses": [],
+            "contact": {
+                "text": "119",
+                "value": "119"
+            },
+            "address": {
+                "text": "140",
+                "value": "140"
+            },
+            "organizer": {
+                "text": "Alex Wolfe",
+                "value": "-5"
+            }
+        }, {
+            "id": "101028",
+            "title": "Furniture Installation",
+            "workorder": {
+                "text": "Furniture Installation",
+                "value": "103"
+            },
+            "location": "",
+            "status": {
+                "text": "Tentative",
+                "value": "TENTATIVE",
+                "code": "bg-secondary"
+            },
+            "date": {
+                "recurrence": "one time event on 11/22/2024",
+                "start": "2024-11-22",
+                "end": "2024-11-22"
+            },
+            "time": {
+                "start": "10:00",
+                "end": "17:00"
+            },
+            "priority": {
+                "text": "Medium",
+                "value": "2",
+                "code": "#dfcf02"
+            },
+            "note": "Furniture Installation only and post-install cleaning",
+            "url": "/app/crm/calendar/event.nl?id=101028&compid=TSTDRV2617106&selectedtab=custom337",
+            "color": "#1a6756",
+            "woRef": {},
+            "resources": [],
+            "vendors": [],
+            "assets": [],
+            "items": [],
+            "contacts": [],
+            "addresses": [],
+            "contact": {
+                "text": "",
+                "value": ""
+            },
+            "address": {
+                "text": "",
+                "value": ""
+            },
+            "organizer": {
+                "text": "Arun Sharma",
+                "value": "1770"
+            }
+        }],
+        "projectUrl": "/app/accounting/project/project.nl?id=1883&compid=TSTDRV2617106",
+        "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=103&compid=TSTDRV2617106",
+        "soUrl": "/app/accounting/transactions/salesord.nl?id=20898&compid=TSTDRV2617106",
+        "esthours": "100"
+    }, {
+        "id": "102",
+        "name": "Furniture Installation and Pickup - Mei",
+        "title": "Furniture Installation and Pickup - Mei",
+        "project": {
+            "text": "World Bank : World Bank Office Furniture Installation",
+            "value": "1515"
+        },
+        "date": "11/11/2024",
+        "status": {
+            "text": "Not Started",
+            "value": "4",
+            "code": "#026adf"
+        },
+        "type": {
+            "text": "Demo",
+            "value": "5"
+        },
+        "memo": "<p>Furniture Installation and Pickup - Mei</p>",
+        "salesorder": {
+            "text": "Sales Order #SLS00000768",
+            "value": "20897"
+        },
+        "customer": {
+            "text": "World Bank",
+            "value": "1249"
+        },
+        "resourceGroup": {
+            "text": "",
+            "value": ""
+        },
+        "priority": "",
+        "resources": [],
+        "vendors": [],
+        "assets": [],
+        "items": [{
+            "id": "375",
+            "workorder": {
+                "text": "Furniture Installation and Pickup - Mei",
+                "value": "102"
+            },
+            "salesorder": {
+                "text": "Sales Order #SLS00000768",
+                "value": "20897"
+            },
+            "event": "",
+            "uuid": "20897_1",
+            "line": "1",
+            "item": {
+                "text": "LOT00001",
+                "value": "677"
+            },
+            "description": "Lot Enabled Item 1 Sales Description",
+            "quantity": 1,
+            "availableQty": 1,
+            "note": ""
+        }, {
+            "id": "376",
+            "workorder": {
+                "text": "Furniture Installation and Pickup - Mei",
+                "value": "102"
+            },
+            "salesorder": {
+                "text": "Sales Order #SLS00000768",
+                "value": "20897"
+            },
+            "event": "",
+            "uuid": "20897_2",
+            "line": "2",
+            "item": {
+                "text": "LOT00002",
+                "value": "678"
+            },
+            "description": "Lot Enabled Item 2 Sales Description",
+            "quantity": 1,
+            "availableQty": 1,
+            "note": ""
+        }],
+        "addresses": [{
+            "id": "139",
+            "workorder": {
+                "text": "Furniture Installation and Pickup - Mei",
+                "value": "102"
+            },
+            "customer": {
+                "text": "World Bank",
+                "value": "1249"
+            },
+            "events": [],
+            "address": {
+                "text": "434 Carlaw",
+                "value": "244878"
+            },
+            "addressDetails": "Test Address 1<br/>Test Address 1<br/>Test Address 1<br/>Test Address 1<br/>Test Address 1<br/>Los Angeles NY 12412<br/>United States",
+            "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+        }],
+        "contacts": [{
+            "id": "114",
+            "workorder": {
+                "text": "Furniture Installation and Pickup - Mei",
+                "value": "102"
+            },
+            "events": [],
+            "contact": {
+                "text": "World Bank : Chad Bass",
+                "value": "1382"
+            },
+            "name": "Chad Bass",
+            "email": "cbass@sbi.com",
+            "jobTitle": "President",
+            "mobilePhone": "",
+            "phone": "",
+            "primary": false,
+            "url": "/app/common/entity/contact.nl?id=1382&compid=TSTDRV2617106"
+        }, {
+            "id": "115",
+            "workorder": {
+                "text": "Furniture Installation and Pickup - Mei",
+                "value": "102"
+            },
+            "events": [],
+            "contact": {
+                "text": "World Bank : John Smith",
+                "value": "1892"
+            },
+            "name": "Test Prav",
+            "email": "pravallika@erpsuccesspartners.com",
+            "jobTitle": "QA",
+            "mobilePhone": "",
+            "phone": "",
+            "primary": true,
+            "url": "/app/common/entity/contact.nl?id=1892&compid=TSTDRV2617106"
+        }],
+        "events": [],
+        "projectUrl": "/app/accounting/project/project.nl?id=1515&compid=TSTDRV2617106",
+        "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=102&compid=TSTDRV2617106",
+        "soUrl": "/app/accounting/transactions/salesord.nl?id=20897&compid=TSTDRV2617106",
+        "esthours": "200"
+    }, {
         "id": "101",
         "name": "Furniture Installation and Pickup",
         "title": "Furniture Installation and Pickup",
         "project": {
-            "text": "AB&I Holdings : Parking Lot Construction",
+            "text": "World Bank : World Bank Office Furniture Installation",
             "value": "1515"
         },
         "date": "11/10/2024",
@@ -25,7 +2597,7 @@ const mockup = {
             "value": "19372"
         },
         "customer": {
-            "text": "AB&I Holdings",
+            "text": "World Bank",
             "value": "1249"
         },
         "resourceGroup": {
@@ -49,31 +2621,6 @@ const mockup = {
                 "value": "101"
             },
             "event": "101017",
-            "quantityRequired": 1,
-            "quantityAvailable": 0,
-            "purchaseOrder": {
-                "text": " ",
-                "value": ""
-            },
-            "amount": 0,
-            "active": false,
-            "woVendor": true,
-            "memo": ""
-        }, {
-            "id": "162",
-            "name": "Best Fixture, Inc.",
-            "vendor": {
-                "text": "Best Fixture, Inc.",
-                "value": "12"
-            },
-            "url": "",
-            "email": "",
-            "initials": "BF",
-            "workorder": {
-                "text": "Furniture Installation and Pickup",
-                "value": "101"
-            },
-            "event": "101018",
             "quantityRequired": 1,
             "quantityAvailable": 0,
             "purchaseOrder": {
@@ -136,12 +2683,12 @@ const mockup = {
                 "value": "101"
             },
             "customer": {
-                "text": "AB&I Holdings",
+                "text": "World Bank",
                 "value": "1249"
             },
             "events": ["101017", "101018"],
             "address": {
-                "text": "1701 Rollins Road",
+                "text": "434 Carlaw",
                 "value": "244878"
             },
             "addressDetails": "Test Address 1<br/>Test Address 1<br/>Test Address 1<br/>Test Address 1<br/>Test Address 1<br/>Los Angeles NY 12412<br/>United States",
@@ -155,7 +2702,7 @@ const mockup = {
             },
             "events": ["101017", "101018"],
             "contact": {
-                "text": "AB&I Holdings : Chad Bass",
+                "text": "World Bank : Chad Bass",
                 "value": "1382"
             },
             "name": "Chad Bass",
@@ -173,7 +2720,7 @@ const mockup = {
             },
             "events": ["101017", "101018"],
             "contact": {
-                "text": "AB&I Holdings : Test Prav",
+                "text": "World Bank : John Smith",
                 "value": "1892"
             },
             "name": "Test Prav",
@@ -193,9 +2740,9 @@ const mockup = {
             },
             "location": "",
             "status": {
-                "text": "Tentative",
-                "value": "TENTATIVE",
-                "code": "bg-secondary"
+                "text": "Completed",
+                "value": "COMPLETED",
+                "code": "btn-info"
             },
             "date": {
                 "recurrence": "occurs every day from 11/11/2024 until 11/12/2024",
@@ -292,7 +2839,7 @@ const mockup = {
         "name": "Work Order Dry Run - Nov 8",
         "title": "Work Order Dry Run - Nov 8",
         "project": {
-            "text": "AB&I Holdings : Furniture Project",
+            "text": "World Bank : Design, Furniture and Flooring Project",
             "value": "1612"
         },
         "date": "11/8/2024",
@@ -311,7 +2858,7 @@ const mockup = {
             "value": "20892"
         },
         "customer": {
-            "text": "AB&I Holdings",
+            "text": "World Bank",
             "value": "1249"
         },
         "resourceGroup": {
@@ -537,12 +3084,12 @@ const mockup = {
                 "value": "100"
             },
             "customer": {
-                "text": "AB&I Holdings",
+                "text": "World Bank",
                 "value": "1249"
             },
             "events": ["101015", "101016"],
             "address": {
-                "text": "1701 Rollins Road",
+                "text": "434 Carlaw",
                 "value": "244878"
             },
             "addressDetails": "",
@@ -554,12 +3101,12 @@ const mockup = {
                 "value": "100"
             },
             "customer": {
-                "text": "AB&I Holdings",
+                "text": "World Bank",
                 "value": "1249"
             },
             "events": ["101016"],
             "address": {
-                "text": "Test Address 3",
+                "text": "54 Tale",
                 "value": "245152"
             },
             "addressDetails": "",
@@ -571,12 +3118,12 @@ const mockup = {
                 "value": "100"
             },
             "customer": {
-                "text": "AB&I Holdings",
+                "text": "World Bank",
                 "value": "1249"
             },
             "events": ["101016"],
             "address": {
-                "text": "Test Address 4",
+                "text": "343 York",
                 "value": "245154"
             },
             "addressDetails": "",
@@ -588,12 +3135,12 @@ const mockup = {
                 "value": "100"
             },
             "customer": {
-                "text": "AB&I Holdings",
+                "text": "World Bank",
                 "value": "1249"
             },
             "events": ["101016"],
             "address": {
-                "text": "Test New Address",
+                "text": "234 Kristen AV",
                 "value": "245146"
             },
             "addressDetails": "",
@@ -607,7 +3154,7 @@ const mockup = {
             },
             "events": ["101015", "101016"],
             "contact": {
-                "text": "AB&I Holdings : Chad Bass",
+                "text": "World Bank : Chad Bass",
                 "value": "1382"
             },
             "name": "Chad Bass",
@@ -625,7 +3172,7 @@ const mockup = {
             },
             "events": ["101015", "101016"],
             "contact": {
-                "text": "AB&I Holdings : Test Prav",
+                "text": "World Bank : John Smith",
                 "value": "1892"
             },
             "name": "Test Prav",
@@ -744,7 +3291,7 @@ const mockup = {
         "name": "Furniture Installation",
         "title": "Furniture Installation",
         "project": {
-            "text": "AB&I Holdings : Field Ops Pro Project",
+            "text": "World Bank : Furniture and AV Installation",
             "value": "1883"
         },
         "date": "11/7/2024",
@@ -763,7 +3310,7 @@ const mockup = {
             "value": "20024"
         },
         "customer": {
-            "text": "AB&I Holdings",
+            "text": "World Bank",
             "value": "1249"
         },
         "resourceGroup": {
@@ -866,12 +3413,12 @@ const mockup = {
                 "value": "99"
             },
             "customer": {
-                "text": "AB&I Holdings",
+                "text": "World Bank",
                 "value": "1249"
             },
             "events": [],
             "address": {
-                "text": "1701 Rollins Road",
+                "text": "434 Carlaw",
                 "value": "244878"
             },
             "addressDetails": "",
@@ -885,7 +3432,7 @@ const mockup = {
             },
             "events": [],
             "contact": {
-                "text": "AB&I Holdings : Chad Bass",
+                "text": "World Bank : Chad Bass",
                 "value": "1382"
             },
             "name": "Chad Bass",
@@ -903,7 +3450,7 @@ const mockup = {
             },
             "events": [],
             "contact": {
-                "text": "AB&I Holdings : Test Prav",
+                "text": "World Bank : John Smith",
                 "value": "1892"
             },
             "name": "Test Prav",
@@ -924,7 +3471,7 @@ const mockup = {
         "name": "Work Order for Testing Nov 5 -3",
         "title": "Work Order for Testing Nov 5 -3",
         "project": {
-            "text": "AB&I Holdings : Furniture Project",
+            "text": "World Bank : Design, Furniture and Flooring Project",
             "value": "1612"
         },
         "date": "11/6/2024",
@@ -943,7 +3490,7 @@ const mockup = {
             "value": "20872"
         },
         "customer": {
-            "text": "AB&I Holdings",
+            "text": "World Bank",
             "value": "1249"
         },
         "resourceGroup": {
@@ -1004,12 +3551,12 @@ const mockup = {
                 "value": "98"
             },
             "customer": {
-                "text": "AB&I Holdings",
+                "text": "World Bank",
                 "value": "1249"
             },
             "events": [],
             "address": {
-                "text": "Test Address 4",
+                "text": "343 York",
                 "value": "245154"
             },
             "addressDetails": "",
@@ -1023,7 +3570,7 @@ const mockup = {
             },
             "events": [],
             "contact": {
-                "text": "AB&I Holdings : Chad Bass",
+                "text": "World Bank : Chad Bass",
                 "value": "1382"
             },
             "name": "Chad Bass",
@@ -1041,7 +3588,7 @@ const mockup = {
             },
             "events": [],
             "contact": {
-                "text": "AB&I Holdings : Test Prav",
+                "text": "World Bank : John Smith",
                 "value": "1892"
             },
             "name": "Test Prav",
@@ -1062,7 +3609,7 @@ const mockup = {
         "name": "Work Order for Testing Nov 5 - 2",
         "title": "Work Order for Testing Nov 5 - 2",
         "project": {
-            "text": "AB&I Holdings : Furniture Project",
+            "text": "World Bank : Design, Furniture and Flooring Project",
             "value": "1612"
         },
         "date": "12/1/2024",
@@ -1081,7 +3628,7 @@ const mockup = {
             "value": "20872"
         },
         "customer": {
-            "text": "AB&I Holdings",
+            "text": "World Bank",
             "value": "1249"
         },
         "resourceGroup": {
@@ -1142,12 +3689,12 @@ const mockup = {
                 "value": "97"
             },
             "customer": {
-                "text": "AB&I Holdings",
+                "text": "World Bank",
                 "value": "1249"
             },
             "events": [],
             "address": {
-                "text": "Test Address 3",
+                "text": "54 Tale",
                 "value": "245152"
             },
             "addressDetails": "",
@@ -1159,12 +3706,12 @@ const mockup = {
                 "value": "97"
             },
             "customer": {
-                "text": "AB&I Holdings",
+                "text": "World Bank",
                 "value": "1249"
             },
             "events": [],
             "address": {
-                "text": "Test Address 4",
+                "text": "43 Carlo",
                 "value": "245153"
             },
             "addressDetails": "",
@@ -1176,12 +3723,12 @@ const mockup = {
                 "value": "97"
             },
             "customer": {
-                "text": "AB&I Holdings",
+                "text": "World Bank",
                 "value": "1249"
             },
             "events": [],
             "address": {
-                "text": "Test New Address",
+                "text": "234 Kristen AV",
                 "value": "245146"
             },
             "addressDetails": "",
@@ -1195,7 +3742,7 @@ const mockup = {
             },
             "events": [],
             "contact": {
-                "text": "AB&I Holdings : Chad Bass",
+                "text": "World Bank : Chad Bass",
                 "value": "1382"
             },
             "name": "Chad Bass",
@@ -1213,7 +3760,7 @@ const mockup = {
             },
             "events": [],
             "contact": {
-                "text": "AB&I Holdings : Test Prav",
+                "text": "World Bank : John Smith",
                 "value": "1892"
             },
             "name": "Test Prav",
@@ -1234,7 +3781,7 @@ const mockup = {
         "name": "Work Order for Testing Nov 5",
         "title": "Work Order for Testing Nov 5",
         "project": {
-            "text": "AB&I Holdings : Furniture Project",
+            "text": "World Bank : Design, Furniture and Flooring Project",
             "value": "1612"
         },
         "date": "11/5/2024",
@@ -1253,7 +3800,7 @@ const mockup = {
             "value": "20872"
         },
         "customer": {
-            "text": "AB&I Holdings",
+            "text": "World Bank",
             "value": "1249"
         },
         "resourceGroup": {
@@ -1350,27 +3897,6 @@ const mockup = {
             "rentalMatrix": 0
         }],
         "items": [{
-            "id": "359",
-            "workorder": {
-                "text": "Work Order for Testing Nov 5",
-                "value": "96"
-            },
-            "salesorder": {
-                "text": "Sales Order #SLS00000755",
-                "value": "20872"
-            },
-            "event": "101012",
-            "uuid": "20872_1",
-            "line": "1",
-            "item": {
-                "text": "VZCC-0024-A",
-                "value": "1144"
-            },
-            "description": "Compose,Top Trim 24In.W,Alumn",
-            "quantity": 60,
-            "availableQty": 60,
-            "note": ""
-        }, {
             "id": "353",
             "workorder": {
                 "text": "Work Order for Testing Nov 5",
@@ -1392,7 +3918,7 @@ const mockup = {
             "availableQty": 60,
             "note": ""
         }, {
-            "id": "360",
+            "id": "359",
             "workorder": {
                 "text": "Work Order for Testing Nov 5",
                 "value": "96"
@@ -1402,15 +3928,15 @@ const mockup = {
                 "value": "20872"
             },
             "event": "101012",
-            "uuid": "20872_2",
-            "line": "2",
+            "uuid": "20872_1",
+            "line": "1",
             "item": {
-                "text": "VZCC-0054-HSS1_NEW2",
-                "value": "2935"
+                "text": "VZCC-0024-A",
+                "value": "1144"
             },
-            "description": "Compose,Top Trim 54In.W,Stl, Pnl Frame",
-            "quantity": 7,
-            "availableQty": 7,
+            "description": "Compose,Top Trim 24In.W,Alumn",
+            "quantity": 60,
+            "availableQty": 60,
             "note": ""
         }, {
             "id": "354",
@@ -1433,6 +3959,27 @@ const mockup = {
             "quantity": 7,
             "availableQty": 7,
             "note": ""
+        }, {
+            "id": "360",
+            "workorder": {
+                "text": "Work Order for Testing Nov 5",
+                "value": "96"
+            },
+            "salesorder": {
+                "text": "Sales Order #SLS00000755",
+                "value": "20872"
+            },
+            "event": "101012",
+            "uuid": "20872_2",
+            "line": "2",
+            "item": {
+                "text": "VZCC-0054-HSS1_NEW2",
+                "value": "2935"
+            },
+            "description": "Compose,Top Trim 54In.W,Stl, Pnl Frame",
+            "quantity": 7,
+            "availableQty": 7,
+            "note": ""
         }],
         "addresses": [{
             "id": "124",
@@ -1441,12 +3988,12 @@ const mockup = {
                 "value": "96"
             },
             "customer": {
-                "text": "AB&I Holdings",
+                "text": "World Bank",
                 "value": "1249"
             },
             "events": ["101012"],
             "address": {
-                "text": "1701 Rollins Road",
+                "text": "434 Carlaw",
                 "value": "244878"
             },
             "addressDetails": "Test Address 1<br/>Test Address 1<br/>Test Address 1<br/>Test Address 1<br/>Test Address 1<br/>Los Angeles NY 12412<br/>United States",
@@ -1458,12 +4005,12 @@ const mockup = {
                 "value": "96"
             },
             "customer": {
-                "text": "AB&I Holdings",
+                "text": "World Bank",
                 "value": "1249"
             },
             "events": [],
             "address": {
-                "text": "Address 1",
+                "text": "12 Carlton Av",
                 "value": "245148"
             },
             "addressDetails": "Address 1<br/>Address 1<br/>Address 1<br/>Address 1<br/>Address 1<br/>San Francisco California 1241<br/>United States",
@@ -1475,12 +4022,12 @@ const mockup = {
                 "value": "96"
             },
             "customer": {
-                "text": "AB&I Holdings",
+                "text": "World Bank",
                 "value": "1249"
             },
             "events": [],
             "address": {
-                "text": "Test Address 4",
+                "text": "343 York",
                 "value": "245154"
             },
             "addressDetails": "Test Address 4<br/>Test Address 4<br/>Test Address 4<br/>Test Address 4<br/>Test Address 4<br/>Test Address 4 NY 121312<br/>United States",
@@ -1492,12 +4039,12 @@ const mockup = {
                 "value": "96"
             },
             "customer": {
-                "text": "AB&I Holdings",
+                "text": "World Bank",
                 "value": "1249"
             },
             "events": [],
             "address": {
-                "text": "Test Address 222",
+                "text": "22 Dundas",
                 "value": "245145"
             },
             "addressDetails": "Test Address 222<br/>Test Address 222<br/>Test Address 222<br/>Test Address 222<br/>Test Address 222<br/>Los Angeles California 211123<br/>United States",
@@ -1509,12 +4056,12 @@ const mockup = {
                 "value": "96"
             },
             "customer": {
-                "text": "AB&I Holdings",
+                "text": "World Bank",
                 "value": "1249"
             },
             "events": [],
             "address": {
-                "text": "Test New Address",
+                "text": "234 Kristen AV",
                 "value": "245146"
             },
             "addressDetails": "Test New Address<br/>Test New Address<br/>Test New Address<br/>Test New Address<br/>Test New Address<br/>Las Vegas Nevada 123131<br/>United States",
@@ -1528,7 +4075,7 @@ const mockup = {
             },
             "events": ["101012"],
             "contact": {
-                "text": "AB&I Holdings : Chad Bass",
+                "text": "World Bank : Chad Bass",
                 "value": "1382"
             },
             "name": "Chad Bass",
@@ -1546,7 +4093,7 @@ const mockup = {
             },
             "events": ["101012"],
             "contact": {
-                "text": "AB&I Holdings : Test Prav",
+                "text": "World Bank : John Smith",
                 "value": "1892"
             },
             "name": "Test Prav",
@@ -1616,7 +4163,7 @@ const mockup = {
         "name": "Work Order - Nov 4 Dry run",
         "title": "Work Order - Nov 4 Dry run",
         "project": {
-            "text": "AB&I Holdings : Furniture Project",
+            "text": "World Bank : Design, Furniture and Flooring Project",
             "value": "1612"
         },
         "date": "11/11/2024",
@@ -1635,7 +4182,7 @@ const mockup = {
             "value": "20868"
         },
         "customer": {
-            "text": "AB&I Holdings",
+            "text": "World Bank",
             "value": "1249"
         },
         "resourceGroup": {
@@ -1823,12 +4370,12 @@ const mockup = {
                 "value": "95"
             },
             "customer": {
-                "text": "AB&I Holdings",
+                "text": "World Bank",
                 "value": "1249"
             },
             "events": ["101010"],
             "address": {
-                "text": "Test Address 3",
+                "text": "54 Tale",
                 "value": "245152"
             },
             "addressDetails": "Test Details",
@@ -1840,12 +4387,12 @@ const mockup = {
                 "value": "95"
             },
             "customer": {
-                "text": "AB&I Holdings",
+                "text": "World Bank",
                 "value": "1249"
             },
             "events": [],
             "address": {
-                "text": "Test Address 4",
+                "text": "43 Carlo",
                 "value": "245153"
             },
             "addressDetails": "",
@@ -1857,12 +4404,12 @@ const mockup = {
                 "value": "95"
             },
             "customer": {
-                "text": "AB&I Holdings",
+                "text": "World Bank",
                 "value": "1249"
             },
             "events": [],
             "address": {
-                "text": "Address Test 1",
+                "text": "234 Carlaw",
                 "value": "245140"
             },
             "addressDetails": "",
@@ -1874,12 +4421,12 @@ const mockup = {
                 "value": "95"
             },
             "customer": {
-                "text": "AB&I Holdings",
+                "text": "World Bank",
                 "value": "1249"
             },
             "events": [],
             "address": {
-                "text": "Test Address 222",
+                "text": "22 Dundas",
                 "value": "245145"
             },
             "addressDetails": "",
@@ -1893,7 +4440,7 @@ const mockup = {
             },
             "events": [],
             "contact": {
-                "text": "AB&I Holdings : Chad Bass",
+                "text": "World Bank : Chad Bass",
                 "value": "1382"
             },
             "name": "Chad Bass",
@@ -1911,7 +4458,7 @@ const mockup = {
             },
             "events": ["101010"],
             "contact": {
-                "text": "AB&I Holdings : Test Prav",
+                "text": "World Bank : John Smith",
                 "value": "1892"
             },
             "name": "Test Prav",
@@ -1981,7 +4528,7 @@ const mockup = {
         "name": "Test Work Order - Nov 4",
         "title": "Test Work Order - Nov 4",
         "project": {
-            "text": "AB&I Holdings : Furniture Project",
+            "text": "World Bank : Design, Furniture and Flooring Project",
             "value": "1612"
         },
         "date": "11/18/2024",
@@ -2000,7 +4547,7 @@ const mockup = {
             "value": "20867"
         },
         "customer": {
-            "text": "AB&I Holdings",
+            "text": "World Bank",
             "value": "1249"
         },
         "resourceGroup": {
@@ -2188,12 +4735,12 @@ const mockup = {
                 "value": "94"
             },
             "customer": {
-                "text": "AB&I Holdings",
+                "text": "World Bank",
                 "value": "1249"
             },
             "events": ["101011"],
             "address": {
-                "text": "Address 1",
+                "text": "12 Carlton Av",
                 "value": "245148"
             },
             "addressDetails": "",
@@ -2205,12 +4752,12 @@ const mockup = {
                 "value": "94"
             },
             "customer": {
-                "text": "AB&I Holdings",
+                "text": "World Bank",
                 "value": "1249"
             },
             "events": [],
             "address": {
-                "text": "Test Address 3",
+                "text": "54 Tale",
                 "value": "245152"
             },
             "addressDetails": "",
@@ -2222,12 +4769,12 @@ const mockup = {
                 "value": "94"
             },
             "customer": {
-                "text": "AB&I Holdings",
+                "text": "World Bank",
                 "value": "1249"
             },
             "events": [],
             "address": {
-                "text": "Test Address 4",
+                "text": "343 York",
                 "value": "245154"
             },
             "addressDetails": "",
@@ -2239,12 +4786,12 @@ const mockup = {
                 "value": "94"
             },
             "customer": {
-                "text": "AB&I Holdings",
+                "text": "World Bank",
                 "value": "1249"
             },
             "events": [],
             "address": {
-                "text": "Address Test 1",
+                "text": "234 Carlaw",
                 "value": "245140"
             },
             "addressDetails": "",
@@ -2258,7 +4805,7 @@ const mockup = {
             },
             "events": ["101011"],
             "contact": {
-                "text": "AB&I Holdings : Chad Bass",
+                "text": "World Bank : Chad Bass",
                 "value": "1382"
             },
             "name": "Chad Bass",
@@ -2276,7 +4823,7 @@ const mockup = {
             },
             "events": ["101011"],
             "contact": {
-                "text": "AB&I Holdings : Test Prav",
+                "text": "World Bank : John Smith",
                 "value": "1892"
             },
             "name": "Test Prav",
@@ -2289,7 +4836,7 @@ const mockup = {
         }],
         "events": [{
             "id": "101011",
-            "title": "Nov 4 - Test Event",
+            "title": "Furniture Installation",
             "workorder": {
                 "text": "Test Work Order - Nov 4",
                 "value": "94"
@@ -2346,7 +4893,7 @@ const mockup = {
         "name": "Work Order Nov 4 - Test only",
         "title": "Work Order Nov 4 - Test only",
         "project": {
-            "text": "AB&I Holdings : Furniture Project",
+            "text": "World Bank : Design, Furniture and Flooring Project",
             "value": "1612"
         },
         "date": "11/18/2024",
@@ -2365,7 +4912,7 @@ const mockup = {
             "value": "20852"
         },
         "customer": {
-            "text": "AB&I Holdings",
+            "text": "World Bank",
             "value": "1249"
         },
         "resourceGroup": {
@@ -2426,12 +4973,12 @@ const mockup = {
                 "value": "93"
             },
             "customer": {
-                "text": "AB&I Holdings",
+                "text": "World Bank",
                 "value": "1249"
             },
             "events": [],
             "address": {
-                "text": "1701 Rollins Road",
+                "text": "434 Carlaw",
                 "value": "244878"
             },
             "addressDetails": "",
@@ -2443,12 +4990,12 @@ const mockup = {
                 "value": "93"
             },
             "customer": {
-                "text": "AB&I Holdings",
+                "text": "World Bank",
                 "value": "1249"
             },
             "events": [],
             "address": {
-                "text": "Address 1",
+                "text": "12 Carlton Av",
                 "value": "245148"
             },
             "addressDetails": "",
@@ -2460,12 +5007,12 @@ const mockup = {
                 "value": "93"
             },
             "customer": {
-                "text": "AB&I Holdings",
+                "text": "World Bank",
                 "value": "1249"
             },
             "events": [],
             "address": {
-                "text": "Address Test 1",
+                "text": "234 Carlaw",
                 "value": "245140"
             },
             "addressDetails": "",
@@ -2477,12 +5024,12 @@ const mockup = {
                 "value": "93"
             },
             "customer": {
-                "text": "AB&I Holdings",
+                "text": "World Bank",
                 "value": "1249"
             },
             "events": [],
             "address": {
-                "text": "Test Address 222",
+                "text": "22 Dundas",
                 "value": "245145"
             },
             "addressDetails": "",
@@ -2496,7 +5043,7 @@ const mockup = {
             },
             "events": [],
             "contact": {
-                "text": "AB&I Holdings : Chad Bass",
+                "text": "World Bank : Chad Bass",
                 "value": "1382"
             },
             "name": "Chad Bass",
@@ -2514,7 +5061,7 @@ const mockup = {
             },
             "events": [],
             "contact": {
-                "text": "AB&I Holdings : Test Prav",
+                "text": "World Bank : John Smith",
                 "value": "1892"
             },
             "name": "Test Prav",
@@ -2535,7 +5082,7 @@ const mockup = {
         "name": "Work Order - Oct 31 - Test 1",
         "title": "Work Order - Oct 31 - Test 1",
         "project": {
-            "text": "AB&I Holdings : Furniture Project",
+            "text": "World Bank : Design, Furniture and Flooring Project",
             "value": "1612"
         },
         "date": "11/1/2024",
@@ -2554,7 +5101,7 @@ const mockup = {
             "value": "20852"
         },
         "customer": {
-            "text": "AB&I Holdings",
+            "text": "World Bank",
             "value": "1249"
         },
         "resourceGroup": {
@@ -2932,12 +5479,12 @@ const mockup = {
                 "value": "92"
             },
             "customer": {
-                "text": "AB&I Holdings",
+                "text": "World Bank",
                 "value": "1249"
             },
             "events": ["101008"],
             "address": {
-                "text": "Address 1",
+                "text": "12 Carlton Av",
                 "value": "245148"
             },
             "addressDetails": "",
@@ -2949,12 +5496,12 @@ const mockup = {
                 "value": "92"
             },
             "customer": {
-                "text": "AB&I Holdings",
+                "text": "World Bank",
                 "value": "1249"
             },
             "events": [],
             "address": {
-                "text": "Test Address 3",
+                "text": "54 Tale",
                 "value": "245152"
             },
             "addressDetails": "",
@@ -2968,7 +5515,7 @@ const mockup = {
             },
             "events": ["101006", "101007"],
             "contact": {
-                "text": "AB&I Holdings : Test Prav",
+                "text": "World Bank : John Smith",
                 "value": "1892"
             },
             "name": "Test Prav",
@@ -2986,7 +5533,7 @@ const mockup = {
             },
             "events": ["101008"],
             "contact": {
-                "text": "AB&I Holdings : Chad Bass",
+                "text": "World Bank : Chad Bass",
                 "value": "1382"
             },
             "name": "Chad Bass",
@@ -2999,7 +5546,7 @@ const mockup = {
         }],
         "events": [{
             "id": "100964",
-            "title": "Test Event 1",
+            "title": "Flooring Installation",
             "workorder": {
                 "text": "Work Order - Oct 31 - Test 1",
                 "value": "92"
@@ -3252,7 +5799,7 @@ const mockup = {
         "name": "Work Order - Oct 31",
         "title": "Work Order - Oct 31",
         "project": {
-            "text": "AB&I Holdings : Furniture Project",
+            "text": "World Bank : Design, Furniture and Flooring Project",
             "value": "1612"
         },
         "date": "11/1/2024",
@@ -3271,7 +5818,7 @@ const mockup = {
             "value": "20851"
         },
         "customer": {
-            "text": "AB&I Holdings",
+            "text": "World Bank",
             "value": "1249"
         },
         "resourceGroup": {
@@ -3395,12 +5942,12 @@ const mockup = {
                 "value": "91"
             },
             "customer": {
-                "text": "AB&I Holdings",
+                "text": "World Bank",
                 "value": "1249"
             },
             "events": [],
             "address": {
-                "text": "1701 Rollins Road",
+                "text": "434 Carlaw",
                 "value": "244878"
             },
             "addressDetails": "",
@@ -3412,12 +5959,12 @@ const mockup = {
                 "value": "91"
             },
             "customer": {
-                "text": "AB&I Holdings",
+                "text": "World Bank",
                 "value": "1249"
             },
             "events": [],
             "address": {
-                "text": "Test Address 3",
+                "text": "54 Tale",
                 "value": "245152"
             },
             "addressDetails": "",
@@ -3429,12 +5976,12 @@ const mockup = {
                 "value": "91"
             },
             "customer": {
-                "text": "AB&I Holdings",
+                "text": "World Bank",
                 "value": "1249"
             },
             "events": [],
             "address": {
-                "text": "Test Address 4",
+                "text": "43 Carlo",
                 "value": "245153"
             },
             "addressDetails": "",
@@ -3451,7 +5998,7 @@ const mockup = {
         "name": "Test WO",
         "title": "Test WO",
         "project": {
-            "text": "AB&I Holdings : Furniture Project",
+            "text": "World Bank : Design, Furniture and Flooring Project",
             "value": "1612"
         },
         "date": "11/1/2024",
@@ -3470,7 +6017,7 @@ const mockup = {
             "value": "20845"
         },
         "customer": {
-            "text": "AB&I Holdings",
+            "text": "World Bank",
             "value": "1249"
         },
         "resourceGroup": {
@@ -3510,12 +6057,12 @@ const mockup = {
                 "value": "90"
             },
             "customer": {
-                "text": "AB&I Holdings",
+                "text": "World Bank",
                 "value": "1249"
             },
             "events": [],
             "address": {
-                "text": "1701 Rollins Road",
+                "text": "434 Carlaw",
                 "value": "244878"
             },
             "addressDetails": "",
@@ -3527,12 +6074,12 @@ const mockup = {
                 "value": "90"
             },
             "customer": {
-                "text": "AB&I Holdings",
+                "text": "World Bank",
                 "value": "1249"
             },
             "events": [],
             "address": {
-                "text": "Address 1",
+                "text": "12 Carlton Av",
                 "value": "245148"
             },
             "addressDetails": "",
@@ -3546,7 +6093,7 @@ const mockup = {
             },
             "events": [],
             "contact": {
-                "text": "AB&I Holdings : Test Prav",
+                "text": "World Bank : John Smith",
                 "value": "1892"
             },
             "name": "Test Prav",
@@ -3567,7 +6114,7 @@ const mockup = {
         "name": "Work Order Oct 31 - Mei",
         "title": "Work Order Oct 31 - Mei",
         "project": {
-            "text": "AB&I Holdings : Furniture Project",
+            "text": "World Bank : Design, Furniture and Flooring Project",
             "value": "1612"
         },
         "date": "11/1/2024",
@@ -3586,7 +6133,7 @@ const mockup = {
             "value": "20845"
         },
         "customer": {
-            "text": "AB&I Holdings",
+            "text": "World Bank",
             "value": "1249"
         },
         "resourceGroup": {
@@ -3778,7 +6325,7 @@ const mockup = {
         "name": "Test Dry Run Oct 31",
         "title": "Test Dry Run Oct 31",
         "project": {
-            "text": "AB&I Holdings : Furniture Project",
+            "text": "World Bank : Design, Furniture and Flooring Project",
             "value": "1612"
         },
         "date": "11/1/2024",
@@ -3797,7 +6344,7 @@ const mockup = {
             "value": "20845"
         },
         "customer": {
-            "text": "AB&I Holdings",
+            "text": "World Bank",
             "value": "1249"
         },
         "resourceGroup": {
@@ -3943,12 +6490,12 @@ const mockup = {
                 "value": "88"
             },
             "customer": {
-                "text": "AB&I Holdings",
+                "text": "World Bank",
                 "value": "1249"
             },
             "events": ["100959"],
             "address": {
-                "text": "1701 Rollins Road",
+                "text": "434 Carlaw",
                 "value": "244878"
             },
             "addressDetails": "",
@@ -3960,12 +6507,12 @@ const mockup = {
                 "value": "88"
             },
             "customer": {
-                "text": "AB&I Holdings",
+                "text": "World Bank",
                 "value": "1249"
             },
             "events": [],
             "address": {
-                "text": "Test Address 3",
+                "text": "54 Tale",
                 "value": "245152"
             },
             "addressDetails": "",
@@ -3977,12 +6524,12 @@ const mockup = {
                 "value": "88"
             },
             "customer": {
-                "text": "AB&I Holdings",
+                "text": "World Bank",
                 "value": "1249"
             },
             "events": [],
             "address": {
-                "text": "Test Address 4",
+                "text": "43 Carlo",
                 "value": "245153"
             },
             "addressDetails": "",
@@ -3996,7 +6543,7 @@ const mockup = {
             },
             "events": ["100959"],
             "contact": {
-                "text": "AB&I Holdings : Test Prav",
+                "text": "World Bank : John Smith",
                 "value": "1892"
             },
             "name": "Test Prav",
@@ -4009,7 +6556,7 @@ const mockup = {
         }],
         "events": [{
             "id": "100959",
-            "title": "Event for Dry Run Oct 31",
+            "title": "Furniture Installation",
             "workorder": {
                 "text": "Test Dry Run Oct 31",
                 "value": "88"
@@ -4063,10 +6610,10 @@ const mockup = {
         "esthours": "1000"
     }, {
         "id": "87",
-        "name": "FOP Dry Run Oct 22",
-        "title": "FOP Dry Run Oct 22",
+        "name": "Furniture Installation",
+        "title": "Furniture Installation",
         "project": {
-            "text": "AB&I Holdings : Field Ops Pro Project",
+            "text": "World Bank : Furniture and AV Installation",
             "value": "1883"
         },
         "date": "9/30/2024",
@@ -4079,13 +6626,13 @@ const mockup = {
             "text": "Service",
             "value": "2"
         },
-        "memo": "<p><strong>FOP Dry Run Oct Instructions</strong></p>",
+        "memo": "<p>Furniture Installation</p>",
         "salesorder": {
             "text": "Sales Order #SLS00000740",
             "value": "20024"
         },
         "customer": {
-            "text": "AB&I Holdings",
+            "text": "World Bank",
             "value": "1249"
         },
         "resourceGroup": {
@@ -4105,7 +6652,7 @@ const mockup = {
             "email": "",
             "initials": "BF",
             "workorder": {
-                "text": "FOP Dry Run Oct 22",
+                "text": "Furniture Installation",
                 "value": "87"
             },
             "event": "100953",
@@ -4130,7 +6677,7 @@ const mockup = {
             "email": "login+plural@erpsuccesspartners.com",
             "initials": "CF",
             "workorder": {
-                "text": "FOP Dry Run Oct 22",
+                "text": "Furniture Installation",
                 "value": "87"
             },
             "event": "100953",
@@ -4155,7 +6702,7 @@ const mockup = {
             "email": "",
             "initials": "BF",
             "workorder": {
-                "text": "FOP Dry Run Oct 22",
+                "text": "Furniture Installation",
                 "value": "87"
             },
             "event": "100954",
@@ -4180,7 +6727,7 @@ const mockup = {
             "email": "",
             "initials": "BF",
             "workorder": {
-                "text": "FOP Dry Run Oct 22",
+                "text": "Furniture Installation",
                 "value": "87"
             },
             "event": "100931",
@@ -4205,7 +6752,7 @@ const mockup = {
             "email": "support@bridgempointindustries.com.de",
             "initials": "BI",
             "workorder": {
-                "text": "FOP Dry Run Oct 22",
+                "text": "Furniture Installation",
                 "value": "87"
             },
             "event": "100931",
@@ -4230,7 +6777,7 @@ const mockup = {
             "email": "support@bridgempointindustries.com.de",
             "initials": "BI",
             "workorder": {
-                "text": "FOP Dry Run Oct 22",
+                "text": "Furniture Installation",
                 "value": "87"
             },
             "event": "100932",
@@ -4255,7 +6802,7 @@ const mockup = {
             "email": "login+plural@erpsuccesspartners.com",
             "initials": "CF",
             "workorder": {
-                "text": "FOP Dry Run Oct 22",
+                "text": "Furniture Installation",
                 "value": "87"
             },
             "event": "100932",
@@ -4280,7 +6827,7 @@ const mockup = {
             "email": "",
             "initials": "BF",
             "workorder": {
-                "text": "FOP Dry Run Oct 22",
+                "text": "Furniture Installation",
                 "value": "87"
             },
             "event": "100933",
@@ -4305,7 +6852,7 @@ const mockup = {
             "email": "support@bridgempointindustries.com.de",
             "initials": "BI",
             "workorder": {
-                "text": "FOP Dry Run Oct 22",
+                "text": "Furniture Installation",
                 "value": "87"
             },
             "event": "100933",
@@ -4330,7 +6877,7 @@ const mockup = {
             "email": "",
             "initials": "BF",
             "workorder": {
-                "text": "FOP Dry Run Oct 22",
+                "text": "Furniture Installation",
                 "value": "87"
             },
             "event": "100950",
@@ -4355,7 +6902,7 @@ const mockup = {
             "email": "login+plural@erpsuccesspartners.com",
             "initials": "CF",
             "workorder": {
-                "text": "FOP Dry Run Oct 22",
+                "text": "Furniture Installation",
                 "value": "87"
             },
             "event": "100950",
@@ -4380,7 +6927,7 @@ const mockup = {
             "email": "",
             "initials": "BF",
             "workorder": {
-                "text": "FOP Dry Run Oct 22",
+                "text": "Furniture Installation",
                 "value": "87"
             },
             "event": "100952",
@@ -4405,7 +6952,7 @@ const mockup = {
             "email": "login+plural@erpsuccesspartners.com",
             "initials": "CF",
             "workorder": {
-                "text": "FOP Dry Run Oct 22",
+                "text": "Furniture Installation",
                 "value": "87"
             },
             "event": "100952",
@@ -4424,7 +6971,7 @@ const mockup = {
             "id": "71",
             "name": "ELE00002",
             "workorder": {
-                "text": "FOP Dry Run Oct 22",
+                "text": "Furniture Installation",
                 "value": "87"
             },
             "event": "100931",
@@ -4459,7 +7006,7 @@ const mockup = {
             "id": "72",
             "name": "ELE00002",
             "workorder": {
-                "text": "FOP Dry Run Oct 22",
+                "text": "Furniture Installation",
                 "value": "87"
             },
             "event": "100932",
@@ -4494,7 +7041,7 @@ const mockup = {
             "id": "73",
             "name": "ELE00002",
             "workorder": {
-                "text": "FOP Dry Run Oct 22",
+                "text": "Furniture Installation",
                 "value": "87"
             },
             "event": "100933",
@@ -4529,7 +7076,7 @@ const mockup = {
             "id": "81",
             "name": "ELE00002",
             "workorder": {
-                "text": "FOP Dry Run Oct 22",
+                "text": "Furniture Installation",
                 "value": "87"
             },
             "event": "100950",
@@ -4564,7 +7111,7 @@ const mockup = {
             "id": "83",
             "name": "ELE00002",
             "workorder": {
-                "text": "FOP Dry Run Oct 22",
+                "text": "Furniture Installation",
                 "value": "87"
             },
             "event": "100952",
@@ -4599,7 +7146,7 @@ const mockup = {
             "id": "84",
             "name": "ELE00002",
             "workorder": {
-                "text": "FOP Dry Run Oct 22",
+                "text": "Furniture Installation",
                 "value": "87"
             },
             "event": "100953",
@@ -4634,7 +7181,7 @@ const mockup = {
             "id": "85",
             "name": "ELE00002",
             "workorder": {
-                "text": "FOP Dry Run Oct 22",
+                "text": "Furniture Installation",
                 "value": "87"
             },
             "event": "100954",
@@ -4667,30 +7214,9 @@ const mockup = {
             "rentalMatrix": 0
         }],
         "items": [{
-            "id": "245",
-            "workorder": {
-                "text": "FOP Dry Run Oct 22",
-                "value": "87"
-            },
-            "salesorder": {
-                "text": "Sales Order #SLS00000740",
-                "value": "20024"
-            },
-            "event": "",
-            "uuid": "20024_1",
-            "line": "1",
-            "item": {
-                "text": "BIC00008",
-                "value": "467"
-            },
-            "description": "Trail Bike - Maverik Disc",
-            "quantity": 20,
-            "availableQty": 20,
-            "note": ""
-        }, {
             "id": "246",
             "workorder": {
-                "text": "FOP Dry Run Oct 22",
+                "text": "Furniture Installation",
                 "value": "87"
             },
             "salesorder": {
@@ -4711,7 +7237,7 @@ const mockup = {
         }, {
             "id": "249",
             "workorder": {
-                "text": "FOP Dry Run Oct 22",
+                "text": "Furniture Installation",
                 "value": "87"
             },
             "salesorder": {
@@ -4730,30 +7256,9 @@ const mockup = {
             "availableQty": 5,
             "note": ""
         }, {
-            "id": "250",
-            "workorder": {
-                "text": "FOP Dry Run Oct 22",
-                "value": "87"
-            },
-            "salesorder": {
-                "text": "Sales Order #SLS00000740",
-                "value": "20024"
-            },
-            "event": "100931",
-            "uuid": "20024_1",
-            "line": "1",
-            "item": {
-                "text": "BIC00008",
-                "value": "467"
-            },
-            "description": "Trail Bike - Maverik Disc",
-            "quantity": 20,
-            "availableQty": 20,
-            "note": ""
-        }, {
             "id": "251",
             "workorder": {
-                "text": "FOP Dry Run Oct 22",
+                "text": "Furniture Installation",
                 "value": "87"
             },
             "salesorder": {
@@ -4774,7 +7279,7 @@ const mockup = {
         }, {
             "id": "254",
             "workorder": {
-                "text": "FOP Dry Run Oct 22",
+                "text": "Furniture Installation",
                 "value": "87"
             },
             "salesorder": {
@@ -4795,7 +7300,7 @@ const mockup = {
         }, {
             "id": "278",
             "workorder": {
-                "text": "FOP Dry Run Oct 22",
+                "text": "Furniture Installation",
                 "value": "87"
             },
             "salesorder": {
@@ -4816,7 +7321,7 @@ const mockup = {
         }, {
             "id": "280",
             "workorder": {
-                "text": "FOP Dry Run Oct 22",
+                "text": "Furniture Installation",
                 "value": "87"
             },
             "salesorder": {
@@ -4837,7 +7342,7 @@ const mockup = {
         }, {
             "id": "281",
             "workorder": {
-                "text": "FOP Dry Run Oct 22",
+                "text": "Furniture Installation",
                 "value": "87"
             },
             "salesorder": {
@@ -4858,7 +7363,7 @@ const mockup = {
         }, {
             "id": "282",
             "workorder": {
-                "text": "FOP Dry Run Oct 22",
+                "text": "Furniture Installation",
                 "value": "87"
             },
             "salesorder": {
@@ -4876,90 +7381,132 @@ const mockup = {
             "quantity": 5,
             "availableQty": 5,
             "note": ""
+        }, {
+            "id": "245",
+            "workorder": {
+                "text": "Furniture Installation",
+                "value": "87"
+            },
+            "salesorder": {
+                "text": "Sales Order #SLS00000740",
+                "value": "20024"
+            },
+            "event": "",
+            "uuid": "20024_1",
+            "line": "1",
+            "item": {
+                "text": "BIC00008",
+                "value": "467"
+            },
+            "description": "Trail Bike - Maverik Disc",
+            "quantity": 20,
+            "availableQty": 20,
+            "note": ""
+        }, {
+            "id": "250",
+            "workorder": {
+                "text": "Furniture Installation",
+                "value": "87"
+            },
+            "salesorder": {
+                "text": "Sales Order #SLS00000740",
+                "value": "20024"
+            },
+            "event": "100931",
+            "uuid": "20024_1",
+            "line": "1",
+            "item": {
+                "text": "BIC00008",
+                "value": "467"
+            },
+            "description": "Trail Bike - Maverik Disc",
+            "quantity": 20,
+            "availableQty": 20,
+            "note": ""
         }],
         "addresses": [{
             "id": "75",
             "workorder": {
-                "text": "FOP Dry Run Oct 22",
+                "text": "Furniture Installation",
                 "value": "87"
             },
             "customer": {
-                "text": "AB&I Holdings",
+                "text": "World Bank",
                 "value": "1249"
             },
             "events": [],
             "address": {
-                "text": "1701 Rollins Road",
+                "text": "434 Carlaw",
                 "value": "244878"
             },
-            "addressDetails": "",
+            "addressDetails": "434 Carlaw Road<br/>Los Angeles NY 12412<br/>United States",
             "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
         }, {
             "id": "76",
             "workorder": {
-                "text": "FOP Dry Run Oct 22",
+                "text": "Furniture Installation",
                 "value": "87"
             },
             "customer": {
-                "text": "AB&I Holdings",
+                "text": "World Bank",
                 "value": "1249"
             },
             "events": [],
             "address": {
-                "text": "Test Address 3",
+                "text": "54 Tale",
                 "value": "245152"
             },
-            "addressDetails": "",
+            "addressDetails": "54 Tale AV<br/>Akron OH 123123<br/>United States",
             "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
         }, {
             "id": "77",
             "workorder": {
-                "text": "FOP Dry Run Oct 22",
+                "text": "Furniture Installation",
                 "value": "87"
             },
             "customer": {
-                "text": "AB&I Holdings",
+                "text": "World Bank",
                 "value": "1249"
             },
             "events": [],
             "address": {
-                "text": "Test Address 4",
+                "text": "43 Carlo",
                 "value": "245153"
             },
-            "addressDetails": "",
+            "addressDetails": "432 Carlo AV<br/>Vegas NV 111111<br/>United States",
             "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
         }, {
             "id": "78",
             "workorder": {
-                "text": "FOP Dry Run Oct 22",
+                "text": "Furniture Installation",
                 "value": "87"
             },
             "customer": {
-                "text": "AB&I Holdings",
+                "text": "World Bank",
                 "value": "1249"
             },
             "events": [],
             "address": {
-                "text": "Test New Address",
+                "text": "234 Kristen AV",
                 "value": "245146"
             },
-            "addressDetails": "",
+            "addressDetails": "234 Kristen Av<br/>Las Vegas NV 123131<br/>United States",
             "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
         }],
         "contacts": [{
             "id": "77",
             "workorder": {
-                "text": "FOP Dry Run Oct 22",
+                "text": "Furniture Installation",
                 "value": "87"
             },
             "events": ["100931", "100932", "100933", "100950", "100952", "100953"],
             "contact": {
-                "text": "AB&I Holdings : Test Prav",
+                "text": "World Bank : John Smith",
                 "value": "1892"
             },
-            "name": "Test Prav",
-            "email": "pravallika@erpsuccesspartners.com",
-            "jobTitle": "QA",
+            "name": "John Smith",
+            "email": "jsmith@worldbank.com",
+            "jobTitle": "Logistics",
             "mobilePhone": "",
             "phone": "",
             "primary": true,
@@ -4967,12 +7514,12 @@ const mockup = {
         }, {
             "id": "81",
             "workorder": {
-                "text": "FOP Dry Run Oct 22",
+                "text": "Furniture Installation",
                 "value": "87"
             },
             "events": [],
             "contact": {
-                "text": "AB&I Holdings : Test Prav",
+                "text": "World Bank : John Smith",
                 "value": "1892"
             },
             "name": "Test Prav",
@@ -4985,12 +7532,12 @@ const mockup = {
         }, {
             "id": "82",
             "workorder": {
-                "text": "FOP Dry Run Oct 22",
+                "text": "Furniture Installation",
                 "value": "87"
             },
             "events": [],
             "contact": {
-                "text": "AB&I Holdings : Test Prav",
+                "text": "World Bank : John Smith",
                 "value": "1892"
             },
             "name": "Test Prav",
@@ -5003,12 +7550,12 @@ const mockup = {
         }, {
             "id": "83",
             "workorder": {
-                "text": "FOP Dry Run Oct 22",
+                "text": "Furniture Installation",
                 "value": "87"
             },
             "events": [],
             "contact": {
-                "text": "AB&I Holdings : Test Prav",
+                "text": "World Bank : John Smith",
                 "value": "1892"
             },
             "name": "Test Prav",
@@ -5021,12 +7568,12 @@ const mockup = {
         }, {
             "id": "84",
             "workorder": {
-                "text": "FOP Dry Run Oct 22",
+                "text": "Furniture Installation",
                 "value": "87"
             },
             "events": [],
             "contact": {
-                "text": "AB&I Holdings : Test Prav",
+                "text": "World Bank : John Smith",
                 "value": "1892"
             },
             "name": "Test Prav",
@@ -5036,12 +7583,30 @@ const mockup = {
             "phone": "",
             "primary": true,
             "url": "/app/common/entity/contact.nl?id=1892&compid=TSTDRV2617106"
+        }, {
+            "id": "121",
+            "workorder": {
+                "text": "Furniture Installation",
+                "value": "87"
+            },
+            "events": [],
+            "contact": {
+                "text": "World Bank : Chad Bass",
+                "value": "1382"
+            },
+            "name": "Chad Bass",
+            "email": "cbass@worldbank.com",
+            "jobTitle": "President",
+            "mobilePhone": "",
+            "phone": "",
+            "primary": false,
+            "url": "/app/common/entity/contact.nl?id=1382&compid=TSTDRV2617106"
         }],
         "events": [{
             "id": "100950",
             "title": "Test Event 1234",
             "workorder": {
-                "text": "FOP Dry Run Oct 22",
+                "text": "Furniture Installation",
                 "value": "87"
             },
             "location": "",
@@ -5088,9 +7653,9 @@ const mockup = {
             }
         }, {
             "id": "100933",
-            "title": "Test Event - Mei 123",
+            "title": "Flooring Installation",
             "workorder": {
-                "text": "FOP Dry Run Oct 22",
+                "text": "Furniture Installation",
                 "value": "87"
             },
             "location": "",
@@ -5137,9 +7702,9 @@ const mockup = {
             }
         }, {
             "id": "100931",
-            "title": "FOP Dry Run Oct 2",
+            "title": "Furniture Installation and Drop Off",
             "workorder": {
-                "text": "FOP Dry Run Oct 22",
+                "text": "Furniture Installation",
                 "value": "87"
             },
             "location": "",
@@ -5188,7 +7753,7 @@ const mockup = {
             "id": "100932",
             "title": "Test Event 2 for Dry run",
             "workorder": {
-                "text": "FOP Dry Run Oct 22",
+                "text": "Furniture Installation",
                 "value": "87"
             },
             "location": "",
@@ -5237,7 +7802,7 @@ const mockup = {
             "id": "100952",
             "title": "This is an Event",
             "workorder": {
-                "text": "FOP Dry Run Oct 22",
+                "text": "Furniture Installation",
                 "value": "87"
             },
             "location": "",
@@ -5286,7 +7851,7 @@ const mockup = {
             "id": "100953",
             "title": "This is an Event",
             "workorder": {
-                "text": "FOP Dry Run Oct 22",
+                "text": "Furniture Installation",
                 "value": "87"
             },
             "location": "",
@@ -5335,7 +7900,7 @@ const mockup = {
             "id": "100954",
             "title": "This is an Event 2",
             "workorder": {
-                "text": "FOP Dry Run Oct 22",
+                "text": "Furniture Installation",
                 "value": "87"
             },
             "location": "",
@@ -5387,10 +7952,10 @@ const mockup = {
         "esthours": "1000"
     }, {
         "id": "86",
-        "name": "Test Work Order - Mei",
-        "title": "Test Work Order - Mei",
+        "name": "Furniture Installation",
+        "title": "Furniture Installation",
         "project": {
-            "text": "AB&I Holdings : Field Ops Pro Project",
+            "text": "World Bank : Furniture and AV Installation",
             "value": "1883"
         },
         "date": "10/21/2024",
@@ -5409,7 +7974,7 @@ const mockup = {
             "value": "19521"
         },
         "customer": {
-            "text": "AB&I Holdings",
+            "text": "World Bank",
             "value": "1249"
         },
         "resourceGroup": {
@@ -5429,7 +7994,7 @@ const mockup = {
             "email": "",
             "initials": "BF",
             "workorder": {
-                "text": "Test Work Order - Mei",
+                "text": "Furniture Installation",
                 "value": "86"
             },
             "event": "100927",
@@ -5454,7 +8019,7 @@ const mockup = {
             "email": "",
             "initials": "BF",
             "workorder": {
-                "text": "Test Work Order - Mei",
+                "text": "Furniture Installation",
                 "value": "86"
             },
             "event": "100947",
@@ -5479,7 +8044,7 @@ const mockup = {
             "email": "",
             "initials": "BF",
             "workorder": {
-                "text": "Test Work Order - Mei",
+                "text": "Furniture Installation",
                 "value": "86"
             },
             "event": "100942",
@@ -5504,7 +8069,7 @@ const mockup = {
             "email": "",
             "initials": "BF",
             "workorder": {
-                "text": "Test Work Order - Mei",
+                "text": "Furniture Installation",
                 "value": "86"
             },
             "event": "101003",
@@ -5529,7 +8094,7 @@ const mockup = {
             "email": "support@bridgempointindustries.com.de",
             "initials": "BI",
             "workorder": {
-                "text": "Test Work Order - Mei",
+                "text": "Furniture Installation",
                 "value": "86"
             },
             "event": "100942",
@@ -5554,7 +8119,7 @@ const mockup = {
             "email": "support@bridgempointindustries.com.de",
             "initials": "BI",
             "workorder": {
-                "text": "Test Work Order - Mei",
+                "text": "Furniture Installation",
                 "value": "86"
             },
             "event": "100946",
@@ -5579,7 +8144,7 @@ const mockup = {
             "email": "support@bridgempointindustries.com.de",
             "initials": "BI",
             "workorder": {
-                "text": "Test Work Order - Mei",
+                "text": "Furniture Installation",
                 "value": "86"
             },
             "event": "100947",
@@ -5604,7 +8169,7 @@ const mockup = {
             "email": "support@bridgempointindustries.com.de",
             "initials": "BI",
             "workorder": {
-                "text": "Test Work Order - Mei",
+                "text": "Furniture Installation",
                 "value": "86"
             },
             "event": "100938",
@@ -5629,7 +8194,7 @@ const mockup = {
             "email": "support@bridgempointindustries.com.de",
             "initials": "BI",
             "workorder": {
-                "text": "Test Work Order - Mei",
+                "text": "Furniture Installation",
                 "value": "86"
             },
             "event": "100955",
@@ -5654,7 +8219,7 @@ const mockup = {
             "email": "support@bridgempointindustries.com.de",
             "initials": "BI",
             "workorder": {
-                "text": "Test Work Order - Mei",
+                "text": "Furniture Installation",
                 "value": "86"
             },
             "event": "100970",
@@ -5679,7 +8244,7 @@ const mockup = {
             "email": "payables@cdp.com",
             "initials": "CD",
             "workorder": {
-                "text": "Test Work Order - Mei",
+                "text": "Furniture Installation",
                 "value": "86"
             },
             "event": "100940",
@@ -5704,7 +8269,7 @@ const mockup = {
             "email": "login+cbi2@erpsuccesspartners.com",
             "initials": "HI",
             "workorder": {
-                "text": "Test Work Order - Mei",
+                "text": "Furniture Installation",
                 "value": "86"
             },
             "event": "100940",
@@ -5723,7 +8288,7 @@ const mockup = {
             "id": "70",
             "name": "ELE00002",
             "workorder": {
-                "text": "Test Work Order - Mei",
+                "text": "Furniture Installation",
                 "value": "86"
             },
             "event": "100927",
@@ -5758,7 +8323,7 @@ const mockup = {
             "id": "77",
             "name": "ELE00002",
             "workorder": {
-                "text": "Test Work Order - Mei",
+                "text": "Furniture Installation",
                 "value": "86"
             },
             "event": "100946",
@@ -5793,7 +8358,7 @@ const mockup = {
             "id": "78",
             "name": "ELE00002",
             "workorder": {
-                "text": "Test Work Order - Mei",
+                "text": "Furniture Installation",
                 "value": "86"
             },
             "event": "100947",
@@ -5828,7 +8393,7 @@ const mockup = {
             "id": "86",
             "name": "ELE00002",
             "workorder": {
-                "text": "Test Work Order - Mei",
+                "text": "Furniture Installation",
                 "value": "86"
             },
             "event": "100955",
@@ -5863,7 +8428,7 @@ const mockup = {
             "id": "97",
             "name": "ELE00002",
             "workorder": {
-                "text": "Test Work Order - Mei",
+                "text": "Furniture Installation",
                 "value": "86"
             },
             "event": "100970",
@@ -5898,7 +8463,7 @@ const mockup = {
             "id": "101",
             "name": "ELE00002",
             "workorder": {
-                "text": "Test Work Order - Mei",
+                "text": "Furniture Installation",
                 "value": "86"
             },
             "event": "101003",
@@ -5933,7 +8498,7 @@ const mockup = {
         "items": [{
             "id": "241",
             "workorder": {
-                "text": "Test Work Order - Mei",
+                "text": "Furniture Installation",
                 "value": "86"
             },
             "salesorder": {
@@ -5954,7 +8519,7 @@ const mockup = {
         }, {
             "id": "242",
             "workorder": {
-                "text": "Test Work Order - Mei",
+                "text": "Furniture Installation",
                 "value": "86"
             },
             "salesorder": {
@@ -5975,7 +8540,7 @@ const mockup = {
         }, {
             "id": "261",
             "workorder": {
-                "text": "Test Work Order - Mei",
+                "text": "Furniture Installation",
                 "value": "86"
             },
             "salesorder": {
@@ -5996,7 +8561,7 @@ const mockup = {
         }, {
             "id": "266",
             "workorder": {
-                "text": "Test Work Order - Mei",
+                "text": "Furniture Installation",
                 "value": "86"
             },
             "salesorder": {
@@ -6017,7 +8582,7 @@ const mockup = {
         }, {
             "id": "272",
             "workorder": {
-                "text": "Test Work Order - Mei",
+                "text": "Furniture Installation",
                 "value": "86"
             },
             "salesorder": {
@@ -6038,7 +8603,7 @@ const mockup = {
         }, {
             "id": "274",
             "workorder": {
-                "text": "Test Work Order - Mei",
+                "text": "Furniture Installation",
                 "value": "86"
             },
             "salesorder": {
@@ -6059,7 +8624,7 @@ const mockup = {
         }, {
             "id": "275",
             "workorder": {
-                "text": "Test Work Order - Mei",
+                "text": "Furniture Installation",
                 "value": "86"
             },
             "salesorder": {
@@ -6080,7 +8645,7 @@ const mockup = {
         }, {
             "id": "283",
             "workorder": {
-                "text": "Test Work Order - Mei",
+                "text": "Furniture Installation",
                 "value": "86"
             },
             "salesorder": {
@@ -6101,7 +8666,7 @@ const mockup = {
         }, {
             "id": "284",
             "workorder": {
-                "text": "Test Work Order - Mei",
+                "text": "Furniture Installation",
                 "value": "86"
             },
             "salesorder": {
@@ -6122,7 +8687,7 @@ const mockup = {
         }, {
             "id": "312",
             "workorder": {
-                "text": "Test Work Order - Mei",
+                "text": "Furniture Installation",
                 "value": "86"
             },
             "salesorder": {
@@ -6143,7 +8708,7 @@ const mockup = {
         }, {
             "id": "313",
             "workorder": {
-                "text": "Test Work Order - Mei",
+                "text": "Furniture Installation",
                 "value": "86"
             },
             "salesorder": {
@@ -6164,7 +8729,7 @@ const mockup = {
         }, {
             "id": "320",
             "workorder": {
-                "text": "Test Work Order - Mei",
+                "text": "Furniture Installation",
                 "value": "86"
             },
             "salesorder": {
@@ -6185,7 +8750,7 @@ const mockup = {
         }, {
             "id": "321",
             "workorder": {
-                "text": "Test Work Order - Mei",
+                "text": "Furniture Installation",
                 "value": "86"
             },
             "salesorder": {
@@ -6207,35 +8772,35 @@ const mockup = {
         "addresses": [{
             "id": "63",
             "workorder": {
-                "text": "Test Work Order - Mei",
+                "text": "Furniture Installation",
                 "value": "86"
             },
             "customer": {
-                "text": "AB&I Holdings",
+                "text": "World Bank",
                 "value": "1249"
             },
             "events": ["100927"],
             "address": {
-                "text": "1701 Rollins Road",
+                "text": "434 Carlaw",
                 "value": "244878"
             },
-            "addressDetails": "",
+            "addressDetails": "434 Carlaw Road<br/>Los Angeles NY 12412<br/>United States",
             "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
         }],
         "contacts": [{
             "id": "75",
             "workorder": {
-                "text": "Test Work Order - Mei",
+                "text": "Furniture Installation",
                 "value": "86"
             },
             "events": ["100927"],
             "contact": {
-                "text": "AB&I Holdings : Test Prav",
+                "text": "World Bank : John Smith",
                 "value": "1892"
             },
-            "name": "Test Prav",
-            "email": "pravallika@erpsuccesspartners.com",
-            "jobTitle": "QA",
+            "name": "John Smith",
+            "email": "jsmith@worldbank.com",
+            "jobTitle": "Logistics",
             "mobilePhone": "",
             "phone": "",
             "primary": true,
@@ -6245,7 +8810,7 @@ const mockup = {
             "id": "100927",
             "title": "Test Event 123",
             "workorder": {
-                "text": "Test Work Order - Mei",
+                "text": "Furniture Installation",
                 "value": "86"
             },
             "location": "",
@@ -6294,7 +8859,7 @@ const mockup = {
             "id": "100934",
             "title": "Test Work Order - Mei",
             "workorder": {
-                "text": "Test Work Order - Mei",
+                "text": "Furniture Installation",
                 "value": "86"
             },
             "location": "",
@@ -6343,7 +8908,7 @@ const mockup = {
             "id": "100937",
             "title": "Test Work Order - Mei 111222",
             "workorder": {
-                "text": "Test Work Order - Mei",
+                "text": "Furniture Installation",
                 "value": "86"
             },
             "location": "",
@@ -6392,7 +8957,7 @@ const mockup = {
             "id": "100938",
             "title": "Test Work Order - Mei 122",
             "workorder": {
-                "text": "Test Work Order - Mei",
+                "text": "Furniture Installation",
                 "value": "86"
             },
             "location": "",
@@ -6441,7 +9006,7 @@ const mockup = {
             "id": "100936",
             "title": "Test Work Order - Mei 111",
             "workorder": {
-                "text": "Test Work Order - Mei",
+                "text": "Furniture Installation",
                 "value": "86"
             },
             "location": "",
@@ -6490,7 +9055,7 @@ const mockup = {
             "id": "100940",
             "title": "Test Work Order - Mei",
             "workorder": {
-                "text": "Test Work Order - Mei",
+                "text": "Furniture Installation",
                 "value": "86"
             },
             "location": "",
@@ -6539,7 +9104,7 @@ const mockup = {
             "id": "100942",
             "title": "Test Work Order - Mei",
             "workorder": {
-                "text": "Test Work Order - Mei",
+                "text": "Furniture Installation",
                 "value": "86"
             },
             "location": "",
@@ -6588,7 +9153,7 @@ const mockup = {
             "id": "100947",
             "title": "Test Work Order - Mei",
             "workorder": {
-                "text": "Test Work Order - Mei",
+                "text": "Furniture Installation",
                 "value": "86"
             },
             "location": "",
@@ -6637,7 +9202,7 @@ const mockup = {
             "id": "100946",
             "title": "Test Work Order - Mei",
             "workorder": {
-                "text": "Test Work Order - Mei",
+                "text": "Furniture Installation",
                 "value": "86"
             },
             "location": "",
@@ -6686,7 +9251,7 @@ const mockup = {
             "id": "100955",
             "title": "Test Work Order - Mei",
             "workorder": {
-                "text": "Test Work Order - Mei",
+                "text": "Furniture Installation",
                 "value": "86"
             },
             "location": "",
@@ -6735,7 +9300,7 @@ const mockup = {
             "id": "100970",
             "title": "Test Work Order - Mei",
             "workorder": {
-                "text": "Test Work Order - Mei",
+                "text": "Furniture Installation",
                 "value": "86"
             },
             "location": "",
@@ -6784,7 +9349,7 @@ const mockup = {
             "id": "100971",
             "title": "Test Work Order - Mei",
             "workorder": {
-                "text": "Test Work Order - Mei",
+                "text": "Furniture Installation",
                 "value": "86"
             },
             "location": "",
@@ -6833,7 +9398,7 @@ const mockup = {
             "id": "101003",
             "title": "Test Work Order - Mei",
             "workorder": {
-                "text": "Test Work Order - Mei",
+                "text": "Furniture Installation",
                 "value": "86"
             },
             "location": "",
@@ -6885,10 +9450,10 @@ const mockup = {
         "esthours": "100"
     }, {
         "id": "85",
-        "name": "Test Work Order - Mei",
-        "title": "Test Work Order - Mei",
+        "name": "Furniture Installation",
+        "title": "Furniture Installation",
         "project": {
-            "text": "AB&I Holdings : Field Ops Pro Project",
+            "text": "World Bank : Furniture and AV Installation",
             "value": "1883"
         },
         "date": "10/21/2024",
@@ -6898,16 +9463,16 @@ const mockup = {
             "code": "#026adf"
         },
         "type": {
-            "text": "",
-            "value": ""
+            "text": "Service",
+            "value": "2"
         },
-        "memo": "<p><strong>Test Work Order - Mei</strong></p>",
+        "memo": "<p><strong>Furniture Installation</strong></p>",
         "salesorder": {
             "text": "Sales Order #SLS00000739",
             "value": "19521"
         },
         "customer": {
-            "text": "AB&I Holdings",
+            "text": "World Bank",
             "value": "1249"
         },
         "resourceGroup": {
@@ -6927,7 +9492,7 @@ const mockup = {
             "email": "",
             "initials": "BF",
             "workorder": {
-                "text": "Test Work Order - Mei",
+                "text": "Furniture Installation",
                 "value": "85"
             },
             "event": "100922",
@@ -6952,7 +9517,7 @@ const mockup = {
             "email": "",
             "initials": "BF",
             "workorder": {
-                "text": "Test Work Order - Mei",
+                "text": "Furniture Installation",
                 "value": "85"
             },
             "event": "100923",
@@ -6977,7 +9542,7 @@ const mockup = {
             "email": "support@bridgempointindustries.com.de",
             "initials": "BI",
             "workorder": {
-                "text": "Test Work Order - Mei",
+                "text": "Furniture Installation",
                 "value": "85"
             },
             "event": "100924",
@@ -6996,7 +9561,7 @@ const mockup = {
             "id": "67",
             "name": "ELE00002",
             "workorder": {
-                "text": "Test Work Order - Mei",
+                "text": "Furniture Installation",
                 "value": "85"
             },
             "event": "100922",
@@ -7031,7 +9596,7 @@ const mockup = {
             "id": "68",
             "name": "ELE00002",
             "workorder": {
-                "text": "Test Work Order - Mei",
+                "text": "Furniture Installation",
                 "value": "85"
             },
             "event": "100923",
@@ -7066,7 +9631,7 @@ const mockup = {
             "id": "69",
             "name": "ELE00002",
             "workorder": {
-                "text": "Test Work Order - Mei",
+                "text": "Furniture Installation",
                 "value": "85"
             },
             "event": "100924",
@@ -7099,30 +9664,9 @@ const mockup = {
             "rentalMatrix": 0
         }],
         "items": [{
-            "id": "231",
-            "workorder": {
-                "text": "Test Work Order - Mei",
-                "value": "85"
-            },
-            "salesorder": {
-                "text": "Sales Order #SLS00000739",
-                "value": "19521"
-            },
-            "event": "",
-            "uuid": "19521_1",
-            "line": "1",
-            "item": {
-                "text": "BIC00008",
-                "value": "467"
-            },
-            "description": "Trail Bike - Maverik Disc",
-            "quantity": 20,
-            "availableQty": 20,
-            "note": ""
-        }, {
             "id": "232",
             "workorder": {
-                "text": "Test Work Order - Mei",
+                "text": "Furniture Installation",
                 "value": "85"
             },
             "salesorder": {
@@ -7143,7 +9687,7 @@ const mockup = {
         }, {
             "id": "238",
             "workorder": {
-                "text": "Test Work Order - Mei",
+                "text": "Furniture Installation",
                 "value": "85"
             },
             "salesorder": {
@@ -7164,7 +9708,7 @@ const mockup = {
         }, {
             "id": "239",
             "workorder": {
-                "text": "Test Work Order - Mei",
+                "text": "Furniture Installation",
                 "value": "85"
             },
             "salesorder": {
@@ -7185,7 +9729,7 @@ const mockup = {
         }, {
             "id": "240",
             "workorder": {
-                "text": "Test Work Order - Mei",
+                "text": "Furniture Installation",
                 "value": "85"
             },
             "salesorder": {
@@ -7203,39 +9747,60 @@ const mockup = {
             "quantity": 10,
             "availableQty": 10,
             "note": ""
+        }, {
+            "id": "231",
+            "workorder": {
+                "text": "Furniture Installation",
+                "value": "85"
+            },
+            "salesorder": {
+                "text": "Sales Order #SLS00000739",
+                "value": "19521"
+            },
+            "event": "",
+            "uuid": "19521_1",
+            "line": "1",
+            "item": {
+                "text": "BIC00008",
+                "value": "467"
+            },
+            "description": "Trail Bike - Maverik Disc",
+            "quantity": 20,
+            "availableQty": 20,
+            "note": ""
         }],
         "addresses": [{
             "id": "62",
             "workorder": {
-                "text": "Test Work Order - Mei",
+                "text": "Furniture Installation",
                 "value": "85"
             },
             "customer": {
-                "text": "AB&I Holdings",
+                "text": "World Bank",
                 "value": "1249"
             },
             "events": ["100922", "100923", "100924"],
             "address": {
-                "text": "1701 Rollins Road",
+                "text": "434 Carlaw",
                 "value": "244878"
             },
-            "addressDetails": "",
+            "addressDetails": "434 Carlaw Road<br/>Los Angeles NY 12412<br/>United States",
             "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
         }],
         "contacts": [{
             "id": "74",
             "workorder": {
-                "text": "Test Work Order - Mei",
+                "text": "Furniture Installation",
                 "value": "85"
             },
             "events": ["100922", "100923", "100924"],
             "contact": {
-                "text": "AB&I Holdings : Test Prav",
+                "text": "World Bank : John Smith",
                 "value": "1892"
             },
-            "name": "Test Prav",
-            "email": "pravallika@erpsuccesspartners.com",
-            "jobTitle": "QA",
+            "name": "John Smith",
+            "email": "jsmith@worldbank.com",
+            "jobTitle": "Logistics",
             "mobilePhone": "",
             "phone": "",
             "primary": true,
@@ -7245,7 +9810,7 @@ const mockup = {
             "id": "100924",
             "title": "Test Event 3",
             "workorder": {
-                "text": "Test Work Order - Mei",
+                "text": "Furniture Installation",
                 "value": "85"
             },
             "location": "",
@@ -7292,9 +9857,9 @@ const mockup = {
             }
         }, {
             "id": "100922",
-            "title": "Test Event 1",
+            "title": "Flooring Installation",
             "workorder": {
-                "text": "Test Work Order - Mei",
+                "text": "Furniture Installation",
                 "value": "85"
             },
             "location": "",
@@ -7343,7 +9908,7 @@ const mockup = {
             "id": "100923",
             "title": "Test Event 2",
             "workorder": {
-                "text": "Test Work Order - Mei",
+                "text": "Furniture Installation",
                 "value": "85"
             },
             "location": "",
@@ -7398,7 +9963,7 @@ const mockup = {
         "name": "Test Work order",
         "title": "Test Work order",
         "project": {
-            "text": "Kumari Pravallika : Test Kumari",
+            "text": "Deloitte New York : Design, Furniture and Flooring Installation",
             "value": "2026"
         },
         "date": "10/18/2024",
@@ -7417,7 +9982,7 @@ const mockup = {
             "value": "19413"
         },
         "customer": {
-            "text": "Kumari Pravallika",
+            "text": "Deloitte New York",
             "value": "2024"
         },
         "resourceGroup": {
@@ -7541,7 +10106,7 @@ const mockup = {
                 "value": "84"
             },
             "customer": {
-                "text": "Kumari Pravallika",
+                "text": "Deloitte New York",
                 "value": "2024"
             },
             "events": [],
@@ -7560,7 +10125,7 @@ const mockup = {
             },
             "events": [],
             "contact": {
-                "text": "Kumari Pravallika : Pravallika Kumari",
+                "text": "Deloitte New York : Pravallika Kumari",
                 "value": "2025"
             },
             "name": "Pravallika Kumari",
@@ -7578,7 +10143,7 @@ const mockup = {
             },
             "events": [],
             "contact": {
-                "text": "Kumari Pravallika : Pravallika Kumari",
+                "text": "Deloitte New York : Pravallika Kumari",
                 "value": "2025"
             },
             "name": "Pravallika Kumari",
@@ -7596,10 +10161,10 @@ const mockup = {
         "esthours": "1"
     }, {
         "id": "83",
-        "name": "Test Work Order - Mei",
-        "title": "Test Work Order - Mei",
+        "name": "Furniture Installation",
+        "title": "Furniture Installation",
         "project": {
-            "text": "AB&I Holdings : Field Ops Pro Project",
+            "text": "World Bank : Furniture and AV Installation",
             "value": "1883"
         },
         "date": "10/21/2024",
@@ -7618,7 +10183,7 @@ const mockup = {
             "value": "19418"
         },
         "customer": {
-            "text": "AB&I Holdings",
+            "text": "World Bank",
             "value": "1249"
         },
         "resourceGroup": {
@@ -7638,7 +10203,7 @@ const mockup = {
             "email": "",
             "initials": "BF",
             "workorder": {
-                "text": "Test Work Order - Mei",
+                "text": "Furniture Installation",
                 "value": "83"
             },
             "event": "100912",
@@ -7663,7 +10228,7 @@ const mockup = {
             "email": "",
             "initials": "BF",
             "workorder": {
-                "text": "Test Work Order - Mei",
+                "text": "Furniture Installation",
                 "value": "83"
             },
             "event": "100913",
@@ -7688,7 +10253,7 @@ const mockup = {
             "email": "",
             "initials": "BF",
             "workorder": {
-                "text": "Test Work Order - Mei",
+                "text": "Furniture Installation",
                 "value": "83"
             },
             "event": "100915",
@@ -7713,7 +10278,7 @@ const mockup = {
             "email": "support@bridgempointindustries.com.de",
             "initials": "BI",
             "workorder": {
-                "text": "Test Work Order - Mei",
+                "text": "Furniture Installation",
                 "value": "83"
             },
             "event": "100916",
@@ -7738,7 +10303,7 @@ const mockup = {
             "email": "support@bridgempointindustries.com.de",
             "initials": "BI",
             "workorder": {
-                "text": "Test Work Order - Mei",
+                "text": "Furniture Installation",
                 "value": "83"
             },
             "event": "100956",
@@ -7757,7 +10322,7 @@ const mockup = {
             "id": "63",
             "name": "ELE00002",
             "workorder": {
-                "text": "Test Work Order - Mei",
+                "text": "Furniture Installation",
                 "value": "83"
             },
             "event": "100912",
@@ -7792,7 +10357,7 @@ const mockup = {
             "id": "64",
             "name": "ELE00002",
             "workorder": {
-                "text": "Test Work Order - Mei",
+                "text": "Furniture Installation",
                 "value": "83"
             },
             "event": "100913",
@@ -7827,7 +10392,7 @@ const mockup = {
             "id": "65",
             "name": "ELE00002",
             "workorder": {
-                "text": "Test Work Order - Mei",
+                "text": "Furniture Installation",
                 "value": "83"
             },
             "event": "100915",
@@ -7862,7 +10427,7 @@ const mockup = {
             "id": "66",
             "name": "ELE00002",
             "workorder": {
-                "text": "Test Work Order - Mei",
+                "text": "Furniture Installation",
                 "value": "83"
             },
             "event": "100916",
@@ -7897,7 +10462,7 @@ const mockup = {
             "id": "87",
             "name": "ELE00002",
             "workorder": {
-                "text": "Test Work Order - Mei",
+                "text": "Furniture Installation",
                 "value": "83"
             },
             "event": "100956",
@@ -7930,30 +10495,9 @@ const mockup = {
             "rentalMatrix": 0
         }],
         "items": [{
-            "id": "218",
-            "workorder": {
-                "text": "Test Work Order - Mei",
-                "value": "83"
-            },
-            "salesorder": {
-                "text": "Sales Order #SLS00000736",
-                "value": "19418"
-            },
-            "event": "",
-            "uuid": "19418_1",
-            "line": "1",
-            "item": {
-                "text": "BIC00008",
-                "value": "467"
-            },
-            "description": "Trail Bike - Maverik Disc",
-            "quantity": 20,
-            "availableQty": 20,
-            "note": ""
-        }, {
             "id": "219",
             "workorder": {
-                "text": "Test Work Order - Mei",
+                "text": "Furniture Installation",
                 "value": "83"
             },
             "salesorder": {
@@ -7974,7 +10518,7 @@ const mockup = {
         }, {
             "id": "220",
             "workorder": {
-                "text": "Test Work Order - Mei",
+                "text": "Furniture Installation",
                 "value": "83"
             },
             "salesorder": {
@@ -7995,7 +10539,7 @@ const mockup = {
         }, {
             "id": "221",
             "workorder": {
-                "text": "Test Work Order - Mei",
+                "text": "Furniture Installation",
                 "value": "83"
             },
             "salesorder": {
@@ -8016,7 +10560,7 @@ const mockup = {
         }, {
             "id": "224",
             "workorder": {
-                "text": "Test Work Order - Mei",
+                "text": "Furniture Installation",
                 "value": "83"
             },
             "salesorder": {
@@ -8037,7 +10581,7 @@ const mockup = {
         }, {
             "id": "225",
             "workorder": {
-                "text": "Test Work Order - Mei",
+                "text": "Furniture Installation",
                 "value": "83"
             },
             "salesorder": {
@@ -8058,7 +10602,7 @@ const mockup = {
         }, {
             "id": "285",
             "workorder": {
-                "text": "Test Work Order - Mei",
+                "text": "Furniture Installation",
                 "value": "83"
             },
             "salesorder": {
@@ -8076,39 +10620,60 @@ const mockup = {
             "quantity": 20,
             "availableQty": 20,
             "note": ""
+        }, {
+            "id": "218",
+            "workorder": {
+                "text": "Furniture Installation",
+                "value": "83"
+            },
+            "salesorder": {
+                "text": "Sales Order #SLS00000736",
+                "value": "19418"
+            },
+            "event": "",
+            "uuid": "19418_1",
+            "line": "1",
+            "item": {
+                "text": "BIC00008",
+                "value": "467"
+            },
+            "description": "Trail Bike - Maverik Disc",
+            "quantity": 20,
+            "availableQty": 20,
+            "note": ""
         }],
         "addresses": [{
             "id": "60",
             "workorder": {
-                "text": "Test Work Order - Mei",
+                "text": "Furniture Installation",
                 "value": "83"
             },
             "customer": {
-                "text": "AB&I Holdings",
+                "text": "World Bank",
                 "value": "1249"
             },
             "events": ["100912", "100956"],
             "address": {
-                "text": "1701 Rollins Road",
+                "text": "434 Carlaw",
                 "value": "244878"
             },
-            "addressDetails": "",
+            "addressDetails": "434 Carlaw Road<br/>Los Angeles NY 12412<br/>United States",
             "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
         }],
         "contacts": [{
             "id": "71",
             "workorder": {
-                "text": "Test Work Order - Mei",
+                "text": "Furniture Installation",
                 "value": "83"
             },
             "events": ["100912", "100956"],
             "contact": {
-                "text": "AB&I Holdings : Test Prav",
+                "text": "World Bank : John Smith",
                 "value": "1892"
             },
-            "name": "Test Prav",
-            "email": "pravallika@erpsuccesspartners.com",
-            "jobTitle": "QA",
+            "name": "John Smith",
+            "email": "jsmith@worldbank.com",
+            "jobTitle": "Logistics",
             "mobilePhone": "",
             "phone": "",
             "primary": true,
@@ -8116,9 +10681,9 @@ const mockup = {
         }],
         "events": [{
             "id": "100912",
-            "title": "Test Event 1",
+            "title": "Flooring Installation",
             "workorder": {
-                "text": "Test Work Order - Mei",
+                "text": "Furniture Installation",
                 "value": "83"
             },
             "location": "",
@@ -8166,7 +10731,7 @@ const mockup = {
             "id": "100913",
             "title": "Test Event 2",
             "workorder": {
-                "text": "Test Work Order - Mei",
+                "text": "Furniture Installation",
                 "value": "83"
             },
             "location": "",
@@ -8214,7 +10779,7 @@ const mockup = {
             "id": "100915",
             "title": "Test Event 3",
             "workorder": {
-                "text": "Test Work Order - Mei",
+                "text": "Furniture Installation",
                 "value": "83"
             },
             "location": "",
@@ -8262,7 +10827,7 @@ const mockup = {
             "id": "100916",
             "title": "Test Event 4",
             "workorder": {
-                "text": "Test Work Order - Mei",
+                "text": "Furniture Installation",
                 "value": "83"
             },
             "location": "",
@@ -8308,9 +10873,9 @@ const mockup = {
             }
         }, {
             "id": "100956",
-            "title": "Test Work Order - Mei",
+            "title": "Flooring Installation",
             "workorder": {
-                "text": "Test Work Order - Mei",
+                "text": "Furniture Installation",
                 "value": "83"
             },
             "location": "",
@@ -8365,7 +10930,7 @@ const mockup = {
         "name": "Work Order Test **Do not use** - Mei",
         "title": "Work Order Test **Do not use** - Mei",
         "project": {
-            "text": "AB&I Holdings : Field Ops Pro Project",
+            "text": "World Bank : Furniture and AV Installation",
             "value": "1883"
         },
         "date": "10/21/2024",
@@ -8384,7 +10949,7 @@ const mockup = {
             "value": "19414"
         },
         "customer": {
-            "text": "AB&I Holdings",
+            "text": "World Bank",
             "value": "1249"
         },
         "resourceGroup": {
@@ -10197,12 +12762,12 @@ const mockup = {
                 "value": "82"
             },
             "customer": {
-                "text": "AB&I Holdings",
+                "text": "World Bank",
                 "value": "1249"
             },
             "events": ["100903", "100906"],
             "address": {
-                "text": "1701 Rollins Road",
+                "text": "434 Carlaw",
                 "value": "244878"
             },
             "addressDetails": "",
@@ -10216,7 +12781,7 @@ const mockup = {
             },
             "events": ["100903", "100906"],
             "contact": {
-                "text": "AB&I Holdings : Test Prav",
+                "text": "World Bank : John Smith",
                 "value": "1892"
             },
             "name": "Test Prav",
@@ -10229,7 +12794,7 @@ const mockup = {
         }],
         "events": [{
             "id": "100880",
-            "title": "Test Event 1",
+            "title": "Flooring Installation",
             "workorder": {
                 "text": "Work Order Test **Do not use** - Mei",
                 "value": "82"
@@ -11197,7 +13762,7 @@ const mockup = {
         "name": "FOP User Guide TEST",
         "title": "FOP User Guide TEST",
         "project": {
-            "text": "Kumari Pravallika : Test Kumari",
+            "text": "Deloitte New York : Design, Furniture and Flooring Installation",
             "value": "2026"
         },
         "date": "10/14/2024",
@@ -11216,7 +13781,7 @@ const mockup = {
             "value": "19413"
         },
         "customer": {
-            "text": "Kumari Pravallika",
+            "text": "Deloitte New York",
             "value": "2024"
         },
         "resourceGroup": {
@@ -11605,7 +14170,7 @@ const mockup = {
                 "value": "81"
             },
             "customer": {
-                "text": "Kumari Pravallika",
+                "text": "Deloitte New York",
                 "value": "2024"
             },
             "events": ["100875"],
@@ -11624,7 +14189,7 @@ const mockup = {
             },
             "events": ["100875"],
             "contact": {
-                "text": "Kumari Pravallika : Pravallika Kumari",
+                "text": "Deloitte New York : Pravallika Kumari",
                 "value": "2025"
             },
             "name": "Pravallika Kumari",
@@ -11637,7 +14202,7 @@ const mockup = {
         }],
         "events": [{
             "id": "100875",
-            "title": "FOP User Guide",
+            "title": "Office Reconfiguration",
             "workorder": {
                 "text": "FOP User Guide TEST",
                 "value": "81"
@@ -11694,7 +14259,7 @@ const mockup = {
         "name": "FOP User Guide ",
         "title": "FOP User Guide",
         "project": {
-            "text": "Kumari Pravallika : Test Kumari",
+            "text": "Deloitte New York : Design, Furniture and Flooring Installation",
             "value": "2026"
         },
         "date": "10/14/2024",
@@ -11713,7 +14278,7 @@ const mockup = {
             "value": "19413"
         },
         "customer": {
-            "text": "Kumari Pravallika",
+            "text": "Deloitte New York",
             "value": "2024"
         },
         "resourceGroup": {
@@ -11967,7 +14532,7 @@ const mockup = {
                 "value": "80"
             },
             "customer": {
-                "text": "Kumari Pravallika",
+                "text": "Deloitte New York",
                 "value": "2024"
             },
             "events": ["100874"],
@@ -11986,7 +14551,7 @@ const mockup = {
             },
             "events": ["100874"],
             "contact": {
-                "text": "Kumari Pravallika : Pravallika Kumari",
+                "text": "Deloitte New York : Pravallika Kumari",
                 "value": "2025"
             },
             "name": "Pravallika Kumari",
@@ -12004,7 +14569,7 @@ const mockup = {
             },
             "events": [],
             "contact": {
-                "text": "Kumari Pravallika : Pravallika Kumari",
+                "text": "Deloitte New York : Pravallika Kumari",
                 "value": "2025"
             },
             "name": "Pravallika Kumari",
@@ -12022,7 +14587,7 @@ const mockup = {
             },
             "events": [],
             "contact": {
-                "text": "Kumari Pravallika : Pravallika Kumari",
+                "text": "Deloitte New York : Pravallika Kumari",
                 "value": "2025"
             },
             "name": "Pravallika Kumari",
@@ -12035,7 +14600,7 @@ const mockup = {
         }],
         "events": [{
             "id": "100874",
-            "title": "FOP User Guide",
+            "title": "Office Reconfiguration",
             "workorder": {
                 "text": "FOP User Guide ",
                 "value": "80"
@@ -12092,7 +14657,7 @@ const mockup = {
         "name": "Work Order Test 4",
         "title": "Work Order Test 4",
         "project": {
-            "text": "AB&I Holdings : Field Ops Pro Project",
+            "text": "World Bank : Furniture and AV Installation",
             "value": "1883"
         },
         "date": "10/14/2024",
@@ -12111,7 +14676,7 @@ const mockup = {
             "value": "19400"
         },
         "customer": {
-            "text": "AB&I Holdings",
+            "text": "World Bank",
             "value": "1249"
         },
         "resourceGroup": {
@@ -12542,7 +15107,7 @@ const mockup = {
         "name": "Test Work Order 3",
         "title": "Test Work Order 3",
         "project": {
-            "text": "AB&I Holdings : Field Ops Pro Project",
+            "text": "World Bank : Furniture and AV Installation",
             "value": "1883"
         },
         "date": "10/7/2024",
@@ -12561,7 +15126,7 @@ const mockup = {
             "value": "19400"
         },
         "customer": {
-            "text": "AB&I Holdings",
+            "text": "World Bank",
             "value": "1249"
         },
         "resourceGroup": {
@@ -12622,12 +15187,12 @@ const mockup = {
                 "value": "78"
             },
             "customer": {
-                "text": "AB&I Holdings",
+                "text": "World Bank",
                 "value": "1249"
             },
             "events": [],
             "address": {
-                "text": "1701 Rollins Road",
+                "text": "434 Carlaw",
                 "value": "244878"
             },
             "addressDetails": "",
@@ -12641,7 +15206,7 @@ const mockup = {
             },
             "events": [],
             "contact": {
-                "text": "AB&I Holdings : Test Prav",
+                "text": "World Bank : John Smith",
                 "value": "1892"
             },
             "name": "Test Prav",
@@ -12662,7 +15227,7 @@ const mockup = {
         "name": "Test Work Order 2",
         "title": "Test Work Order 2",
         "project": {
-            "text": "AB&I Holdings : Field Ops Pro Project",
+            "text": "World Bank : Furniture and AV Installation",
             "value": "1883"
         },
         "date": "10/7/2024",
@@ -12681,7 +15246,7 @@ const mockup = {
             "value": "19400"
         },
         "customer": {
-            "text": "AB&I Holdings",
+            "text": "World Bank",
             "value": "1249"
         },
         "resourceGroup": {
@@ -12702,10 +15267,10 @@ const mockup = {
         "esthours": "5"
     }, {
         "id": "76",
-        "name": "Test Work Order 1",
-        "title": "Test Work Order 1",
+        "name": "AV Installation",
+        "title": "AV Installation",
         "project": {
-            "text": "AB&I Holdings : Field Ops Pro Project",
+            "text": "World Bank : Furniture and AV Installation",
             "value": "1883"
         },
         "date": "10/7/2024",
@@ -12715,16 +15280,16 @@ const mockup = {
             "code": "#026adf"
         },
         "type": {
-            "text": "",
-            "value": ""
+            "text": "Repair",
+            "value": "26"
         },
-        "memo": "",
+        "memo": "<p>Furniture Installation</p>",
         "salesorder": {
             "text": "Sales Order #SLS00000726",
             "value": "19400"
         },
         "customer": {
-            "text": "AB&I Holdings",
+            "text": "World Bank",
             "value": "1249"
         },
         "resourceGroup": {
@@ -12748,7 +15313,7 @@ const mockup = {
         "name": "Test Fop Dry Run Part 2",
         "title": "Test Fop Dry Run Part 2",
         "project": {
-            "text": "Kumari Pravallika : Test Kumari",
+            "text": "Deloitte New York : Design, Furniture and Flooring Installation",
             "value": "2026"
         },
         "date": "10/7/2024",
@@ -12767,7 +15332,7 @@ const mockup = {
             "value": "19399"
         },
         "customer": {
-            "text": "Kumari Pravallika",
+            "text": "Deloitte New York",
             "value": "2024"
         },
         "resourceGroup": {
@@ -12788,7 +15353,7 @@ const mockup = {
             },
             "events": ["100872"],
             "contact": {
-                "text": "Kumari Pravallika : Pravallika Kumari",
+                "text": "Deloitte New York : Pravallika Kumari",
                 "value": "2025"
             },
             "name": "Pravallika Kumari",
@@ -12855,10 +15420,10 @@ const mockup = {
         "esthours": ""
     }, {
         "id": "74",
-        "name": "Test Work Order **DO NOT USE** - MEI",
-        "title": "Test Work Order **DO NOT USE** - MEI",
+        "name": "Furniture Installation",
+        "title": "Furniture Installation",
         "project": {
-            "text": "AB&I Holdings : Field Ops Pro Project",
+            "text": "World Bank : Furniture and AV Installation",
             "value": "1883"
         },
         "date": "10/8/2024",
@@ -12868,16 +15433,16 @@ const mockup = {
             "code": "#026adf"
         },
         "type": {
-            "text": "",
-            "value": ""
+            "text": "Service",
+            "value": "2"
         },
-        "memo": "<p><strong>Test Work Order **DO NOT USE** - MEI</strong></p>",
+        "memo": "<p><strong>Furniture Installation</strong></p>",
         "salesorder": {
             "text": "Sales Order #SLS00000715",
             "value": "19388"
         },
         "customer": {
-            "text": "AB&I Holdings",
+            "text": "World Bank",
             "value": "1249"
         },
         "resourceGroup": {
@@ -12901,7 +15466,7 @@ const mockup = {
         "name": "Test FOP Dry Run2",
         "title": "Test FOP Dry Run2",
         "project": {
-            "text": "Kumari Pravallika : Test Kumari",
+            "text": "Deloitte New York : Design, Furniture and Flooring Installation",
             "value": "2026"
         },
         "date": "9/26/2024",
@@ -12920,7 +15485,7 @@ const mockup = {
             "value": "19391"
         },
         "customer": {
-            "text": "Kumari Pravallika",
+            "text": "Deloitte New York",
             "value": "2024"
         },
         "resourceGroup": {
@@ -13287,7 +15852,7 @@ const mockup = {
         "name": "1 Oct Test Work Order",
         "title": "1 Oct Test Work Order",
         "project": {
-            "text": "test : Test FOP Project",
+            "text": "White House Administration : Furniture Installation",
             "value": "1903"
         },
         "date": "9/30/2024",
@@ -13306,7 +15871,7 @@ const mockup = {
             "value": "19394"
         },
         "customer": {
-            "text": "test",
+            "text": "White House Administration",
             "value": "1387"
         },
         "resourceGroup": {
@@ -13378,16 +15943,16 @@ const mockup = {
         }],
         "events": [{
             "id": "100930",
-            "title": "Dry Run Event",
+            "title": "Furniture Installation",
             "workorder": {
                 "text": "1 Oct Test Work Order",
                 "value": "72"
             },
             "location": "New York",
             "status": {
-                "text": "Confirmed",
-                "value": "CONFIRMED",
-                "code": "bg-success"
+                "text": "Completed",
+                "value": "COMPLETED",
+                "code": "btn-info"
             },
             "date": {
                 "recurrence": "one time event on 10/22/2024",
@@ -13434,7 +15999,7 @@ const mockup = {
         "name": "Test",
         "title": "Test",
         "project": {
-            "text": "Kumari Pravallika : Test Kumari",
+            "text": "Deloitte New York : Design, Furniture and Flooring Installation",
             "value": "2026"
         },
         "date": "9/30/2024",
@@ -13453,7 +16018,7 @@ const mockup = {
             "value": "19391"
         },
         "customer": {
-            "text": "Kumari Pravallika",
+            "text": "Deloitte New York",
             "value": "2024"
         },
         "resourceGroup": {
@@ -13477,7 +16042,7 @@ const mockup = {
         "name": "Test FOP Dry Run",
         "title": "Test FOP Dry Run",
         "project": {
-            "text": "Kumari Pravallika : Test Kumari",
+            "text": "Deloitte New York : Design, Furniture and Flooring Installation",
             "value": "2026"
         },
         "date": "9/30/2024",
@@ -13496,7 +16061,7 @@ const mockup = {
             "value": "19391"
         },
         "customer": {
-            "text": "Kumari Pravallika",
+            "text": "Deloitte New York",
             "value": "2024"
         },
         "resourceGroup": {
@@ -13520,7 +16085,7 @@ const mockup = {
         "name": "Test customer center",
         "title": "Test customer center",
         "project": {
-            "text": "Kumari Pravallika : Test Kumari",
+            "text": "Deloitte New York : Design, Furniture and Flooring Installation",
             "value": "2026"
         },
         "date": "9/30/2024",
@@ -13539,7 +16104,7 @@ const mockup = {
             "value": "19390"
         },
         "customer": {
-            "text": "Kumari Pravallika",
+            "text": "Deloitte New York",
             "value": "2024"
         },
         "resourceGroup": {
@@ -13560,7 +16125,7 @@ const mockup = {
             },
             "events": [],
             "contact": {
-                "text": "Kumari Pravallika : Pravallika Kumari",
+                "text": "Deloitte New York : Pravallika Kumari",
                 "value": "2025"
             },
             "name": "Pravallika Kumari",
@@ -13578,10 +16143,10 @@ const mockup = {
         "esthours": ""
     }, {
         "id": "67",
-        "name": "Sample Work Order *DO NOT USE* - MEI",
-        "title": "Sample Work Order *DO NOT USE* - MEI",
+        "name": "Furniture Installation",
+        "title": "Furniture Installation",
         "project": {
-            "text": "AB&I Holdings : Field Ops Pro Project",
+            "text": "World Bank : Furniture and AV Installation",
             "value": "1883"
         },
         "date": "9/26/2024",
@@ -13591,16 +16156,16 @@ const mockup = {
             "code": "#026adf"
         },
         "type": {
-            "text": "",
-            "value": ""
+            "text": "Repair",
+            "value": "26"
         },
-        "memo": "<p><strong>Sample Work Order *DO NOT USE* - MEI</strong></p>",
+        "memo": "<p><strong>Furniture Installation</strong></p>",
         "salesorder": {
             "text": "Sales Order #SLS00000715",
             "value": "19388"
         },
         "customer": {
-            "text": "AB&I Holdings",
+            "text": "World Bank",
             "value": "1249"
         },
         "resourceGroup": {
@@ -13620,7 +16185,7 @@ const mockup = {
             "email": "support@bridgempointindustries.com.de",
             "initials": "BI",
             "workorder": {
-                "text": "Sample Work Order *DO NOT USE* - MEI",
+                "text": "Furniture Installation",
                 "value": "67"
             },
             "event": "100876",
@@ -13645,7 +16210,7 @@ const mockup = {
             "email": "support@bridgempointindustries.com.de",
             "initials": "BI",
             "workorder": {
-                "text": "Sample Work Order *DO NOT USE* - MEI",
+                "text": "Furniture Installation",
                 "value": "67"
             },
             "event": "100877",
@@ -13670,7 +16235,7 @@ const mockup = {
             "email": "support@bridgempointindustries.com.de",
             "initials": "BI",
             "workorder": {
-                "text": "Sample Work Order *DO NOT USE* - MEI",
+                "text": "Furniture Installation",
                 "value": "67"
             },
             "event": "100878",
@@ -13695,7 +16260,7 @@ const mockup = {
             "email": "support@bridgempointindustries.com.de",
             "initials": "BI",
             "workorder": {
-                "text": "Sample Work Order *DO NOT USE* - MEI",
+                "text": "Furniture Installation",
                 "value": "67"
             },
             "event": "100879",
@@ -13720,7 +16285,7 @@ const mockup = {
             "email": "support@bridgempointindustries.com.de",
             "initials": "BI",
             "workorder": {
-                "text": "Sample Work Order *DO NOT USE* - MEI",
+                "text": "Furniture Installation",
                 "value": "67"
             },
             "event": "",
@@ -13745,7 +16310,7 @@ const mockup = {
             "email": "support@bridgempointindustries.com.de",
             "initials": "BI",
             "workorder": {
-                "text": "Sample Work Order *DO NOT USE* - MEI",
+                "text": "Furniture Installation",
                 "value": "67"
             },
             "event": "",
@@ -13770,7 +16335,7 @@ const mockup = {
             "email": "support@bridgempointindustries.com.de",
             "initials": "BI",
             "workorder": {
-                "text": "Sample Work Order *DO NOT USE* - MEI",
+                "text": "Furniture Installation",
                 "value": "67"
             },
             "event": "",
@@ -13795,7 +16360,7 @@ const mockup = {
             "email": "",
             "initials": "BF",
             "workorder": {
-                "text": "Sample Work Order *DO NOT USE* - MEI",
+                "text": "Furniture Installation",
                 "value": "67"
             },
             "event": "100870",
@@ -13820,7 +16385,7 @@ const mockup = {
             "email": "",
             "initials": "BF",
             "workorder": {
-                "text": "Sample Work Order *DO NOT USE* - MEI",
+                "text": "Furniture Installation",
                 "value": "67"
             },
             "event": "100871",
@@ -13839,7 +16404,7 @@ const mockup = {
             "id": "27",
             "name": "ELE00002",
             "workorder": {
-                "text": "Sample Work Order *DO NOT USE* - MEI",
+                "text": "Furniture Installation",
                 "value": "67"
             },
             "event": "100858",
@@ -13874,7 +16439,7 @@ const mockup = {
             "id": "28",
             "name": "ELE00002",
             "workorder": {
-                "text": "Sample Work Order *DO NOT USE* - MEI",
+                "text": "Furniture Installation",
                 "value": "67"
             },
             "event": "100859",
@@ -13909,7 +16474,7 @@ const mockup = {
             "id": "29",
             "name": "ELE00002",
             "workorder": {
-                "text": "Sample Work Order *DO NOT USE* - MEI",
+                "text": "Furniture Installation",
                 "value": "67"
             },
             "event": "100860",
@@ -13944,7 +16509,7 @@ const mockup = {
             "id": "30",
             "name": "ELE00002",
             "workorder": {
-                "text": "Sample Work Order *DO NOT USE* - MEI",
+                "text": "Furniture Installation",
                 "value": "67"
             },
             "event": "100861",
@@ -13979,7 +16544,7 @@ const mockup = {
             "id": "31",
             "name": "ELE00002",
             "workorder": {
-                "text": "Sample Work Order *DO NOT USE* - MEI",
+                "text": "Furniture Installation",
                 "value": "67"
             },
             "event": "100862",
@@ -14014,7 +16579,7 @@ const mockup = {
             "id": "32",
             "name": "ELE00002",
             "workorder": {
-                "text": "Sample Work Order *DO NOT USE* - MEI",
+                "text": "Furniture Installation",
                 "value": "67"
             },
             "event": "100863",
@@ -14049,7 +16614,7 @@ const mockup = {
             "id": "33",
             "name": "ELE00002",
             "workorder": {
-                "text": "Sample Work Order *DO NOT USE* - MEI",
+                "text": "Furniture Installation",
                 "value": "67"
             },
             "event": "100866",
@@ -14084,7 +16649,7 @@ const mockup = {
             "id": "34",
             "name": "ELE00002",
             "workorder": {
-                "text": "Sample Work Order *DO NOT USE* - MEI",
+                "text": "Furniture Installation",
                 "value": "67"
             },
             "event": "100867",
@@ -14119,7 +16684,7 @@ const mockup = {
             "id": "35",
             "name": "ELE00002",
             "workorder": {
-                "text": "Sample Work Order *DO NOT USE* - MEI",
+                "text": "Furniture Installation",
                 "value": "67"
             },
             "event": "100868",
@@ -14154,7 +16719,7 @@ const mockup = {
             "id": "36",
             "name": "ELE00002",
             "workorder": {
-                "text": "Sample Work Order *DO NOT USE* - MEI",
+                "text": "Furniture Installation",
                 "value": "67"
             },
             "event": "100869",
@@ -14189,7 +16754,7 @@ const mockup = {
             "id": "37",
             "name": "ELE00002",
             "workorder": {
-                "text": "Sample Work Order *DO NOT USE* - MEI",
+                "text": "Furniture Installation",
                 "value": "67"
             },
             "event": "100870",
@@ -14224,7 +16789,7 @@ const mockup = {
             "id": "38",
             "name": "ELE00002",
             "workorder": {
-                "text": "Sample Work Order *DO NOT USE* - MEI",
+                "text": "Furniture Installation",
                 "value": "67"
             },
             "event": "100871",
@@ -14259,7 +16824,7 @@ const mockup = {
             "id": "40",
             "name": "ELE00002",
             "workorder": {
-                "text": "Sample Work Order *DO NOT USE* - MEI",
+                "text": "Furniture Installation",
                 "value": "67"
             },
             "event": "100876",
@@ -14294,7 +16859,7 @@ const mockup = {
             "id": "41",
             "name": "ELE00002",
             "workorder": {
-                "text": "Sample Work Order *DO NOT USE* - MEI",
+                "text": "Furniture Installation",
                 "value": "67"
             },
             "event": "100877",
@@ -14329,7 +16894,7 @@ const mockup = {
             "id": "42",
             "name": "ELE00002",
             "workorder": {
-                "text": "Sample Work Order *DO NOT USE* - MEI",
+                "text": "Furniture Installation",
                 "value": "67"
             },
             "event": "100878",
@@ -14364,7 +16929,7 @@ const mockup = {
             "id": "43",
             "name": "ELE00002",
             "workorder": {
-                "text": "Sample Work Order *DO NOT USE* - MEI",
+                "text": "Furniture Installation",
                 "value": "67"
             },
             "event": "100879",
@@ -14397,93 +16962,9 @@ const mockup = {
             "rentalMatrix": 0
         }],
         "items": [{
-            "id": "103",
-            "workorder": {
-                "text": "Sample Work Order *DO NOT USE* - MEI",
-                "value": "67"
-            },
-            "salesorder": {
-                "text": "Sales Order #SLS00000715",
-                "value": "19388"
-            },
-            "event": "",
-            "uuid": "19388_1",
-            "line": "1",
-            "item": {
-                "text": "BIC00008",
-                "value": "467"
-            },
-            "description": "Trail Bike - Maverik Disc",
-            "quantity": 5,
-            "availableQty": 5,
-            "note": ""
-        }, {
-            "id": "104",
-            "workorder": {
-                "text": "Sample Work Order *DO NOT USE* - MEI",
-                "value": "67"
-            },
-            "salesorder": {
-                "text": "Sales Order #SLS00000715",
-                "value": "19388"
-            },
-            "event": "",
-            "uuid": "19388_2",
-            "line": "2",
-            "item": {
-                "text": "2375-6727",
-                "value": "1426"
-            },
-            "description": "PANEL, TOP CAP, STANDARD, 60IN W, PREMISE, SVC",
-            "quantity": 5,
-            "availableQty": 5,
-            "note": ""
-        }, {
-            "id": "105",
-            "workorder": {
-                "text": "Sample Work Order *DO NOT USE* - MEI",
-                "value": "67"
-            },
-            "salesorder": {
-                "text": "Sales Order #SLS00000715",
-                "value": "19388"
-            },
-            "event": "",
-            "uuid": "19388_1",
-            "line": "1",
-            "item": {
-                "text": "BIC00008",
-                "value": "467"
-            },
-            "description": "Trail Bike - Maverik Disc",
-            "quantity": 2,
-            "availableQty": 2,
-            "note": ""
-        }, {
-            "id": "106",
-            "workorder": {
-                "text": "Sample Work Order *DO NOT USE* - MEI",
-                "value": "67"
-            },
-            "salesorder": {
-                "text": "Sales Order #SLS00000715",
-                "value": "19388"
-            },
-            "event": "",
-            "uuid": "19388_2",
-            "line": "2",
-            "item": {
-                "text": "2375-6727",
-                "value": "1426"
-            },
-            "description": "PANEL, TOP CAP, STANDARD, 60IN W, PREMISE, SVC",
-            "quantity": 1,
-            "availableQty": 1,
-            "note": ""
-        }, {
             "id": "121",
             "workorder": {
-                "text": "Sample Work Order *DO NOT USE* - MEI",
+                "text": "Furniture Installation",
                 "value": "67"
             },
             "salesorder": {
@@ -14504,7 +16985,7 @@ const mockup = {
         }, {
             "id": "122",
             "workorder": {
-                "text": "Sample Work Order *DO NOT USE* - MEI",
+                "text": "Furniture Installation",
                 "value": "67"
             },
             "salesorder": {
@@ -14525,7 +17006,7 @@ const mockup = {
         }, {
             "id": "123",
             "workorder": {
-                "text": "Sample Work Order *DO NOT USE* - MEI",
+                "text": "Furniture Installation",
                 "value": "67"
             },
             "salesorder": {
@@ -14546,7 +17027,7 @@ const mockup = {
         }, {
             "id": "124",
             "workorder": {
-                "text": "Sample Work Order *DO NOT USE* - MEI",
+                "text": "Furniture Installation",
                 "value": "67"
             },
             "salesorder": {
@@ -14567,7 +17048,7 @@ const mockup = {
         }, {
             "id": "125",
             "workorder": {
-                "text": "Sample Work Order *DO NOT USE* - MEI",
+                "text": "Furniture Installation",
                 "value": "67"
             },
             "salesorder": {
@@ -14588,7 +17069,7 @@ const mockup = {
         }, {
             "id": "126",
             "workorder": {
-                "text": "Sample Work Order *DO NOT USE* - MEI",
+                "text": "Furniture Installation",
                 "value": "67"
             },
             "salesorder": {
@@ -14609,7 +17090,7 @@ const mockup = {
         }, {
             "id": "127",
             "workorder": {
-                "text": "Sample Work Order *DO NOT USE* - MEI",
+                "text": "Furniture Installation",
                 "value": "67"
             },
             "salesorder": {
@@ -14630,7 +17111,7 @@ const mockup = {
         }, {
             "id": "128",
             "workorder": {
-                "text": "Sample Work Order *DO NOT USE* - MEI",
+                "text": "Furniture Installation",
                 "value": "67"
             },
             "salesorder": {
@@ -14651,7 +17132,7 @@ const mockup = {
         }, {
             "id": "129",
             "workorder": {
-                "text": "Sample Work Order *DO NOT USE* - MEI",
+                "text": "Furniture Installation",
                 "value": "67"
             },
             "salesorder": {
@@ -14672,7 +17153,7 @@ const mockup = {
         }, {
             "id": "130",
             "workorder": {
-                "text": "Sample Work Order *DO NOT USE* - MEI",
+                "text": "Furniture Installation",
                 "value": "67"
             },
             "salesorder": {
@@ -14693,7 +17174,7 @@ const mockup = {
         }, {
             "id": "131",
             "workorder": {
-                "text": "Sample Work Order *DO NOT USE* - MEI",
+                "text": "Furniture Installation",
                 "value": "67"
             },
             "salesorder": {
@@ -14714,7 +17195,7 @@ const mockup = {
         }, {
             "id": "132",
             "workorder": {
-                "text": "Sample Work Order *DO NOT USE* - MEI",
+                "text": "Furniture Installation",
                 "value": "67"
             },
             "salesorder": {
@@ -14735,7 +17216,7 @@ const mockup = {
         }, {
             "id": "133",
             "workorder": {
-                "text": "Sample Work Order *DO NOT USE* - MEI",
+                "text": "Furniture Installation",
                 "value": "67"
             },
             "salesorder": {
@@ -14756,7 +17237,7 @@ const mockup = {
         }, {
             "id": "134",
             "workorder": {
-                "text": "Sample Work Order *DO NOT USE* - MEI",
+                "text": "Furniture Installation",
                 "value": "67"
             },
             "salesorder": {
@@ -14777,7 +17258,7 @@ const mockup = {
         }, {
             "id": "135",
             "workorder": {
-                "text": "Sample Work Order *DO NOT USE* - MEI",
+                "text": "Furniture Installation",
                 "value": "67"
             },
             "salesorder": {
@@ -14798,7 +17279,7 @@ const mockup = {
         }, {
             "id": "136",
             "workorder": {
-                "text": "Sample Work Order *DO NOT USE* - MEI",
+                "text": "Furniture Installation",
                 "value": "67"
             },
             "salesorder": {
@@ -14819,7 +17300,7 @@ const mockup = {
         }, {
             "id": "137",
             "workorder": {
-                "text": "Sample Work Order *DO NOT USE* - MEI",
+                "text": "Furniture Installation",
                 "value": "67"
             },
             "salesorder": {
@@ -14840,7 +17321,7 @@ const mockup = {
         }, {
             "id": "138",
             "workorder": {
-                "text": "Sample Work Order *DO NOT USE* - MEI",
+                "text": "Furniture Installation",
                 "value": "67"
             },
             "salesorder": {
@@ -14861,7 +17342,7 @@ const mockup = {
         }, {
             "id": "139",
             "workorder": {
-                "text": "Sample Work Order *DO NOT USE* - MEI",
+                "text": "Furniture Installation",
                 "value": "67"
             },
             "salesorder": {
@@ -14882,7 +17363,7 @@ const mockup = {
         }, {
             "id": "140",
             "workorder": {
-                "text": "Sample Work Order *DO NOT USE* - MEI",
+                "text": "Furniture Installation",
                 "value": "67"
             },
             "salesorder": {
@@ -14903,7 +17384,7 @@ const mockup = {
         }, {
             "id": "141",
             "workorder": {
-                "text": "Sample Work Order *DO NOT USE* - MEI",
+                "text": "Furniture Installation",
                 "value": "67"
             },
             "salesorder": {
@@ -14924,7 +17405,7 @@ const mockup = {
         }, {
             "id": "142",
             "workorder": {
-                "text": "Sample Work Order *DO NOT USE* - MEI",
+                "text": "Furniture Installation",
                 "value": "67"
             },
             "salesorder": {
@@ -14945,7 +17426,7 @@ const mockup = {
         }, {
             "id": "143",
             "workorder": {
-                "text": "Sample Work Order *DO NOT USE* - MEI",
+                "text": "Furniture Installation",
                 "value": "67"
             },
             "salesorder": {
@@ -14966,7 +17447,7 @@ const mockup = {
         }, {
             "id": "144",
             "workorder": {
-                "text": "Sample Work Order *DO NOT USE* - MEI",
+                "text": "Furniture Installation",
                 "value": "67"
             },
             "salesorder": {
@@ -14987,7 +17468,7 @@ const mockup = {
         }, {
             "id": "169",
             "workorder": {
-                "text": "Sample Work Order *DO NOT USE* - MEI",
+                "text": "Furniture Installation",
                 "value": "67"
             },
             "salesorder": {
@@ -15008,7 +17489,7 @@ const mockup = {
         }, {
             "id": "170",
             "workorder": {
-                "text": "Sample Work Order *DO NOT USE* - MEI",
+                "text": "Furniture Installation",
                 "value": "67"
             },
             "salesorder": {
@@ -15029,7 +17510,7 @@ const mockup = {
         }, {
             "id": "171",
             "workorder": {
-                "text": "Sample Work Order *DO NOT USE* - MEI",
+                "text": "Furniture Installation",
                 "value": "67"
             },
             "salesorder": {
@@ -15050,7 +17531,7 @@ const mockup = {
         }, {
             "id": "172",
             "workorder": {
-                "text": "Sample Work Order *DO NOT USE* - MEI",
+                "text": "Furniture Installation",
                 "value": "67"
             },
             "salesorder": {
@@ -15069,9 +17550,51 @@ const mockup = {
             "availableQty": 5,
             "note": ""
         }, {
+            "id": "106",
+            "workorder": {
+                "text": "Furniture Installation",
+                "value": "67"
+            },
+            "salesorder": {
+                "text": "Sales Order #SLS00000715",
+                "value": "19388"
+            },
+            "event": "",
+            "uuid": "19388_2",
+            "line": "2",
+            "item": {
+                "text": "2375-6727",
+                "value": "1426"
+            },
+            "description": "PANEL, TOP CAP, STANDARD, 60IN W, PREMISE, SVC",
+            "quantity": 5,
+            "availableQty": 5,
+            "note": ""
+        }, {
+            "id": "104",
+            "workorder": {
+                "text": "Furniture Installation",
+                "value": "67"
+            },
+            "salesorder": {
+                "text": "Sales Order #SLS00000715",
+                "value": "19388"
+            },
+            "event": "",
+            "uuid": "19388_2",
+            "line": "2",
+            "item": {
+                "text": "2375-6727",
+                "value": "1426"
+            },
+            "description": "PANEL, TOP CAP, STANDARD, 60IN W, PREMISE, SVC",
+            "quantity": 5,
+            "availableQty": 5,
+            "note": ""
+        }, {
             "id": "79",
             "workorder": {
-                "text": "Sample Work Order *DO NOT USE* - MEI",
+                "text": "Furniture Installation",
                 "value": "67"
             },
             "salesorder": {
@@ -15092,7 +17615,7 @@ const mockup = {
         }, {
             "id": "80",
             "workorder": {
-                "text": "Sample Work Order *DO NOT USE* - MEI",
+                "text": "Furniture Installation",
                 "value": "67"
             },
             "salesorder": {
@@ -15113,7 +17636,7 @@ const mockup = {
         }, {
             "id": "81",
             "workorder": {
-                "text": "Sample Work Order *DO NOT USE* - MEI",
+                "text": "Furniture Installation",
                 "value": "67"
             },
             "salesorder": {
@@ -15131,52 +17654,94 @@ const mockup = {
             "quantity": 5,
             "availableQty": 5,
             "note": ""
+        }, {
+            "id": "105",
+            "workorder": {
+                "text": "Furniture Installation",
+                "value": "67"
+            },
+            "salesorder": {
+                "text": "Sales Order #SLS00000715",
+                "value": "19388"
+            },
+            "event": "",
+            "uuid": "19388_1",
+            "line": "1",
+            "item": {
+                "text": "BIC00008",
+                "value": "467"
+            },
+            "description": "Trail Bike - Maverik Disc",
+            "quantity": 5,
+            "availableQty": 5,
+            "note": ""
+        }, {
+            "id": "103",
+            "workorder": {
+                "text": "Furniture Installation",
+                "value": "67"
+            },
+            "salesorder": {
+                "text": "Sales Order #SLS00000715",
+                "value": "19388"
+            },
+            "event": "",
+            "uuid": "19388_1",
+            "line": "1",
+            "item": {
+                "text": "BIC00008",
+                "value": "467"
+            },
+            "description": "Trail Bike - Maverik Disc",
+            "quantity": 5,
+            "availableQty": 5,
+            "note": ""
         }],
         "addresses": [{
             "id": "51",
             "workorder": {
-                "text": "Sample Work Order *DO NOT USE* - MEI",
+                "text": "Furniture Installation",
                 "value": "67"
             },
             "customer": {
-                "text": "AB&I Holdings",
+                "text": "World Bank",
                 "value": "1249"
             },
             "events": ["100853", "100855", "100860", "100861", "100862", "100863", "100864", "100865", "100866", "100867", "100868", "100869", "100870", "100871", "100876"],
             "address": {
-                "text": "1701 Rollins Road",
+                "text": "434 Carlaw",
                 "value": "244878"
             },
-            "addressDetails": "Chad Bass\r<br/>AB&I Holdings\r<br/>1701 Rollins Road\r<br/>Sacramento CA 94207\r<br/>United States",
+            "addressDetails": "434 Carlaw Road<br/>Los Angeles NY 12412<br/>United States",
             "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
         }],
         "contacts": [{
             "id": "50",
             "workorder": {
-                "text": "Sample Work Order *DO NOT USE* - MEI",
+                "text": "Furniture Installation",
                 "value": "67"
             },
             "events": ["100853", "100855", "100860", "100861", "100862", "100863", "100864", "100865", "100866", "100867", "100868", "100869", "100870", "100871", "100876"],
             "contact": {
-                "text": "AB&I Holdings : Test Prav",
+                "text": "World Bank : John Smith",
                 "value": "1892"
             },
-            "name": "Test Prav",
-            "email": "pravallika@erpsuccesspartners.com",
-            "jobTitle": "QA",
+            "name": "John Smith",
+            "email": "jsmith@worldbank.com",
+            "jobTitle": "Logistics",
             "mobilePhone": "",
             "phone": "",
-            "primary": false,
+            "primary": true,
             "url": "/app/common/entity/contact.nl?id=1892&compid=TSTDRV2617106"
         }, {
             "id": "63",
             "workorder": {
-                "text": "Sample Work Order *DO NOT USE* - MEI",
+                "text": "Furniture Installation",
                 "value": "67"
             },
             "events": [],
             "contact": {
-                "text": "AB&I Holdings : Test Prav",
+                "text": "World Bank : John Smith",
                 "value": "1892"
             },
             "name": "Test Prav",
@@ -15191,7 +17756,7 @@ const mockup = {
             "id": "100843",
             "title": "Test Event 6",
             "workorder": {
-                "text": "Sample Work Order *DO NOT USE* - MEI",
+                "text": "Furniture Installation",
                 "value": "67"
             },
             "location": "",
@@ -15240,7 +17805,7 @@ const mockup = {
             "id": "100846",
             "title": "Test Event 8",
             "workorder": {
-                "text": "Sample Work Order *DO NOT USE* - MEI",
+                "text": "Furniture Installation",
                 "value": "67"
             },
             "location": "",
@@ -15289,7 +17854,7 @@ const mockup = {
             "id": "100844",
             "title": "Test Event 7",
             "workorder": {
-                "text": "Sample Work Order *DO NOT USE* - MEI",
+                "text": "Furniture Installation",
                 "value": "67"
             },
             "location": "",
@@ -15338,7 +17903,7 @@ const mockup = {
             "id": "100845",
             "title": "Test Event 8",
             "workorder": {
-                "text": "Sample Work Order *DO NOT USE* - MEI",
+                "text": "Furniture Installation",
                 "value": "67"
             },
             "location": "",
@@ -15387,7 +17952,7 @@ const mockup = {
             "id": "100849",
             "title": "Test Event 8",
             "workorder": {
-                "text": "Sample Work Order *DO NOT USE* - MEI",
+                "text": "Furniture Installation",
                 "value": "67"
             },
             "location": "",
@@ -15436,7 +18001,7 @@ const mockup = {
             "id": "100850",
             "title": "Test Event 10",
             "workorder": {
-                "text": "Sample Work Order *DO NOT USE* - MEI",
+                "text": "Furniture Installation",
                 "value": "67"
             },
             "location": "",
@@ -15485,7 +18050,7 @@ const mockup = {
             "id": "100851",
             "title": "Test Event 10",
             "workorder": {
-                "text": "Sample Work Order *DO NOT USE* - MEI",
+                "text": "Furniture Installation",
                 "value": "67"
             },
             "location": "",
@@ -15534,7 +18099,7 @@ const mockup = {
             "id": "100852",
             "title": "Test Event 12",
             "workorder": {
-                "text": "Sample Work Order *DO NOT USE* - MEI",
+                "text": "Furniture Installation",
                 "value": "67"
             },
             "location": "",
@@ -15583,7 +18148,7 @@ const mockup = {
             "id": "100854",
             "title": "Test Event 14",
             "workorder": {
-                "text": "Sample Work Order *DO NOT USE* - MEI",
+                "text": "Furniture Installation",
                 "value": "67"
             },
             "location": "",
@@ -15632,7 +18197,7 @@ const mockup = {
             "id": "100855",
             "title": "Test Event 15",
             "workorder": {
-                "text": "Sample Work Order *DO NOT USE* - MEI",
+                "text": "Furniture Installation",
                 "value": "67"
             },
             "location": "",
@@ -15681,7 +18246,7 @@ const mockup = {
             "id": "100853",
             "title": "Test Event 13",
             "workorder": {
-                "text": "Sample Work Order *DO NOT USE* - MEI",
+                "text": "Furniture Installation",
                 "value": "67"
             },
             "location": "",
@@ -15730,7 +18295,7 @@ const mockup = {
             "id": "100856",
             "title": "Test Event 14",
             "workorder": {
-                "text": "Sample Work Order *DO NOT USE* - MEI",
+                "text": "Furniture Installation",
                 "value": "67"
             },
             "location": "",
@@ -15779,7 +18344,7 @@ const mockup = {
             "id": "100857",
             "title": "Test Event 15",
             "workorder": {
-                "text": "Sample Work Order *DO NOT USE* - MEI",
+                "text": "Furniture Installation",
                 "value": "67"
             },
             "location": "",
@@ -15828,7 +18393,7 @@ const mockup = {
             "id": "100858",
             "title": "Test Event 16",
             "workorder": {
-                "text": "Sample Work Order *DO NOT USE* - MEI",
+                "text": "Furniture Installation",
                 "value": "67"
             },
             "location": "",
@@ -15877,7 +18442,7 @@ const mockup = {
             "id": "100859",
             "title": "Test Event 17",
             "workorder": {
-                "text": "Sample Work Order *DO NOT USE* - MEI",
+                "text": "Furniture Installation",
                 "value": "67"
             },
             "location": "",
@@ -15926,7 +18491,7 @@ const mockup = {
             "id": "100860",
             "title": "Test Event 18",
             "workorder": {
-                "text": "Sample Work Order *DO NOT USE* - MEI",
+                "text": "Furniture Installation",
                 "value": "67"
             },
             "location": "",
@@ -15975,7 +18540,7 @@ const mockup = {
             "id": "100862",
             "title": "Test Event 20",
             "workorder": {
-                "text": "Sample Work Order *DO NOT USE* - MEI",
+                "text": "Furniture Installation",
                 "value": "67"
             },
             "location": "",
@@ -16024,7 +18589,7 @@ const mockup = {
             "id": "100863",
             "title": "Test Event 21",
             "workorder": {
-                "text": "Sample Work Order *DO NOT USE* - MEI",
+                "text": "Furniture Installation",
                 "value": "67"
             },
             "location": "",
@@ -16073,7 +18638,7 @@ const mockup = {
             "id": "100864",
             "title": "Test Event 22",
             "workorder": {
-                "text": "Sample Work Order *DO NOT USE* - MEI",
+                "text": "Furniture Installation",
                 "value": "67"
             },
             "location": "",
@@ -16122,7 +18687,7 @@ const mockup = {
             "id": "100861",
             "title": "Test Event 19",
             "workorder": {
-                "text": "Sample Work Order *DO NOT USE* - MEI",
+                "text": "Furniture Installation",
                 "value": "67"
             },
             "location": "",
@@ -16171,7 +18736,7 @@ const mockup = {
             "id": "100865",
             "title": "Test Event 23",
             "workorder": {
-                "text": "Sample Work Order *DO NOT USE* - MEI",
+                "text": "Furniture Installation",
                 "value": "67"
             },
             "location": "",
@@ -16220,7 +18785,7 @@ const mockup = {
             "id": "100866",
             "title": "Test Event 24",
             "workorder": {
-                "text": "Sample Work Order *DO NOT USE* - MEI",
+                "text": "Furniture Installation",
                 "value": "67"
             },
             "location": "",
@@ -16269,7 +18834,7 @@ const mockup = {
             "id": "100867",
             "title": "Test Event 25",
             "workorder": {
-                "text": "Sample Work Order *DO NOT USE* - MEI",
+                "text": "Furniture Installation",
                 "value": "67"
             },
             "location": "",
@@ -16318,7 +18883,7 @@ const mockup = {
             "id": "100869",
             "title": "Test Event 27",
             "workorder": {
-                "text": "Sample Work Order *DO NOT USE* - MEI",
+                "text": "Furniture Installation",
                 "value": "67"
             },
             "location": "",
@@ -16367,7 +18932,7 @@ const mockup = {
             "id": "100870",
             "title": "Test Event 28",
             "workorder": {
-                "text": "Sample Work Order *DO NOT USE* - MEI",
+                "text": "Furniture Installation",
                 "value": "67"
             },
             "location": "",
@@ -16416,7 +18981,7 @@ const mockup = {
             "id": "100868",
             "title": "Test Event 26",
             "workorder": {
-                "text": "Sample Work Order *DO NOT USE* - MEI",
+                "text": "Furniture Installation",
                 "value": "67"
             },
             "location": "",
@@ -16465,7 +19030,7 @@ const mockup = {
             "id": "100871",
             "title": "Test Event 29",
             "workorder": {
-                "text": "Sample Work Order *DO NOT USE* - MEI",
+                "text": "Furniture Installation",
                 "value": "67"
             },
             "location": "",
@@ -16514,7 +19079,7 @@ const mockup = {
             "id": "100876",
             "title": "Test Event 30",
             "workorder": {
-                "text": "Sample Work Order *DO NOT USE* - MEI",
+                "text": "Furniture Installation",
                 "value": "67"
             },
             "location": "",
@@ -16563,7 +19128,7 @@ const mockup = {
             "id": "100877",
             "title": "Test Event 31",
             "workorder": {
-                "text": "Sample Work Order *DO NOT USE* - MEI",
+                "text": "Furniture Installation",
                 "value": "67"
             },
             "location": "",
@@ -16611,7 +19176,7 @@ const mockup = {
             "id": "100878",
             "title": "Test Event 32",
             "workorder": {
-                "text": "Sample Work Order *DO NOT USE* - MEI",
+                "text": "Furniture Installation",
                 "value": "67"
             },
             "location": "",
@@ -16659,7 +19224,7 @@ const mockup = {
             "id": "100879",
             "title": "Test Event 33",
             "workorder": {
-                "text": "Sample Work Order *DO NOT USE* - MEI",
+                "text": "Furniture Installation",
                 "value": "67"
             },
             "location": "",
@@ -16710,10 +19275,10 @@ const mockup = {
         "esthours": "100"
     }, {
         "id": "66",
-        "name": "TEST XYZ",
-        "title": "TEST XYZ",
+        "name": "Furniture Installation",
+        "title": "Furniture Installation",
         "project": {
-            "text": "AB&I Holdings : Parking Lot Construction",
+            "text": "World Bank : World Bank Office Furniture Installation",
             "value": "1515"
         },
         "date": "9/26/2024",
@@ -16723,8 +19288,8 @@ const mockup = {
             "code": "#026adf"
         },
         "type": {
-            "text": "",
-            "value": ""
+            "text": "Service",
+            "value": "2"
         },
         "memo": "",
         "salesorder": {
@@ -16732,7 +19297,7 @@ const mockup = {
             "value": "19372"
         },
         "customer": {
-            "text": "AB&I Holdings",
+            "text": "World Bank",
             "value": "1249"
         },
         "resourceGroup": {
@@ -16752,7 +19317,7 @@ const mockup = {
             "email": "",
             "initials": "BF",
             "workorder": {
-                "text": "TEST XYZ",
+                "text": "Furniture Installation",
                 "value": "66"
             },
             "event": "100968",
@@ -16777,7 +19342,7 @@ const mockup = {
             "email": "support@bridgempointindustries.com.de",
             "initials": "BI",
             "workorder": {
-                "text": "TEST XYZ",
+                "text": "Furniture Installation",
                 "value": "66"
             },
             "event": "100960",
@@ -16802,7 +19367,7 @@ const mockup = {
             "email": "support@bridgempointindustries.com.de",
             "initials": "BI",
             "workorder": {
-                "text": "TEST XYZ",
+                "text": "Furniture Installation",
                 "value": "66"
             },
             "event": "100968",
@@ -16821,7 +19386,7 @@ const mockup = {
             "id": "90",
             "name": "ELE00002",
             "workorder": {
-                "text": "TEST XYZ",
+                "text": "Furniture Installation",
                 "value": "66"
             },
             "event": "100960",
@@ -16856,7 +19421,7 @@ const mockup = {
             "id": "95",
             "name": "ELE00002",
             "workorder": {
-                "text": "TEST XYZ",
+                "text": "Furniture Installation",
                 "value": "66"
             },
             "event": "100968",
@@ -16889,51 +19454,9 @@ const mockup = {
             "rentalMatrix": 0
         }],
         "items": [{
-            "id": "305",
-            "workorder": {
-                "text": "TEST XYZ",
-                "value": "66"
-            },
-            "salesorder": {
-                "text": "Sales Order #SLS00000713",
-                "value": "19372"
-            },
-            "event": "100960",
-            "uuid": "19372_1",
-            "line": "1",
-            "item": {
-                "text": "LOT00001",
-                "value": "677"
-            },
-            "description": "Lot Enabled Item 1 Sales Description",
-            "quantity": 1,
-            "availableQty": 1,
-            "note": ""
-        }, {
-            "id": "306",
-            "workorder": {
-                "text": "TEST XYZ",
-                "value": "66"
-            },
-            "salesorder": {
-                "text": "Sales Order #SLS00000713",
-                "value": "19372"
-            },
-            "event": "100960",
-            "uuid": "19372_2",
-            "line": "2",
-            "item": {
-                "text": "LOT00002",
-                "value": "678"
-            },
-            "description": "Lot Enabled Item 2 Sales Description",
-            "quantity": 1,
-            "availableQty": 1,
-            "note": ""
-        }, {
             "id": "310",
             "workorder": {
-                "text": "TEST XYZ",
+                "text": "Furniture Installation",
                 "value": "66"
             },
             "salesorder": {
@@ -16954,7 +19477,7 @@ const mockup = {
         }, {
             "id": "311",
             "workorder": {
-                "text": "TEST XYZ",
+                "text": "Furniture Installation",
                 "value": "66"
             },
             "salesorder": {
@@ -16975,7 +19498,7 @@ const mockup = {
         }, {
             "id": "77",
             "workorder": {
-                "text": "TEST XYZ",
+                "text": "Furniture Installation",
                 "value": "66"
             },
             "salesorder": {
@@ -16996,7 +19519,7 @@ const mockup = {
         }, {
             "id": "78",
             "workorder": {
-                "text": "TEST XYZ",
+                "text": "Furniture Installation",
                 "value": "66"
             },
             "salesorder": {
@@ -17014,38 +19537,80 @@ const mockup = {
             "quantity": 1,
             "availableQty": 1,
             "note": ""
+        }, {
+            "id": "305",
+            "workorder": {
+                "text": "Furniture Installation",
+                "value": "66"
+            },
+            "salesorder": {
+                "text": "Sales Order #SLS00000713",
+                "value": "19372"
+            },
+            "event": "100960",
+            "uuid": "19372_1",
+            "line": "1",
+            "item": {
+                "text": "LOT00001",
+                "value": "677"
+            },
+            "description": "Lot Enabled Item 1 Sales Description",
+            "quantity": 1,
+            "availableQty": 1,
+            "note": ""
+        }, {
+            "id": "306",
+            "workorder": {
+                "text": "Furniture Installation",
+                "value": "66"
+            },
+            "salesorder": {
+                "text": "Sales Order #SLS00000713",
+                "value": "19372"
+            },
+            "event": "100960",
+            "uuid": "19372_2",
+            "line": "2",
+            "item": {
+                "text": "LOT00002",
+                "value": "678"
+            },
+            "description": "Lot Enabled Item 2 Sales Description",
+            "quantity": 1,
+            "availableQty": 1,
+            "note": ""
         }],
         "addresses": [{
             "id": "50",
             "workorder": {
-                "text": "TEST XYZ",
+                "text": "Furniture Installation",
                 "value": "66"
             },
             "customer": {
-                "text": "AB&I Holdings",
+                "text": "World Bank",
                 "value": "1249"
             },
             "events": ["100960", "100968"],
             "address": {
-                "text": "1701 Rollins Road",
+                "text": "434 Carlaw",
                 "value": "244878"
             },
-            "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+            "addressDetails": "434 Carlaw Road<br/>Los Angeles NY 12412<br/>United States",
             "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
         }],
         "contacts": [{
             "id": "48",
             "workorder": {
-                "text": "TEST XYZ",
+                "text": "Furniture Installation",
                 "value": "66"
             },
             "events": ["100960", "100968"],
             "contact": {
-                "text": "AB&I Holdings : Chad Bass",
+                "text": "World Bank : Chad Bass",
                 "value": "1382"
             },
             "name": "Chad Bass",
-            "email": "cbass@sbi.com",
+            "email": "cbass@worldbank.com",
             "jobTitle": "President",
             "mobilePhone": "",
             "phone": "",
@@ -17054,27 +19619,27 @@ const mockup = {
         }, {
             "id": "49",
             "workorder": {
-                "text": "TEST XYZ",
+                "text": "Furniture Installation",
                 "value": "66"
             },
             "events": ["100960", "100968"],
             "contact": {
-                "text": "AB&I Holdings : Test Prav",
+                "text": "World Bank : John Smith",
                 "value": "1892"
             },
-            "name": "Test Prav",
-            "email": "pravallika@erpsuccesspartners.com",
-            "jobTitle": "QA",
+            "name": "John Smith",
+            "email": "jsmith@worldbank.com",
+            "jobTitle": "Logistics",
             "mobilePhone": "",
             "phone": "",
-            "primary": false,
+            "primary": true,
             "url": "/app/common/entity/contact.nl?id=1892&compid=TSTDRV2617106"
         }],
         "events": [{
             "id": "100961",
-            "title": "TEST XYZ",
+            "title": "Flooring Installation",
             "workorder": {
-                "text": "TEST XYZ",
+                "text": "Furniture Installation",
                 "value": "66"
             },
             "location": "",
@@ -17084,9 +19649,9 @@ const mockup = {
                 "code": "bg-success"
             },
             "date": {
-                "recurrence": "one time event on 11/1/2024",
-                "start": "2024-11-01",
-                "end": "2024-11-01"
+                "recurrence": "one time event on 9/6/2024",
+                "start": "2024-09-06",
+                "end": "2024-09-06"
             },
             "time": {
                 "start": "03:00",
@@ -17097,7 +19662,7 @@ const mockup = {
                 "value": "1",
                 "code": "#026adf"
             },
-            "note": "TEST\n123",
+            "note": "Furniture Installation",
             "url": "/app/crm/calendar/event.nl?id=100961&compid=TSTDRV2617106&selectedtab=custom337",
             "color": "#1a6756",
             "woRef": {},
@@ -17120,10 +19685,59 @@ const mockup = {
                 "value": "1770"
             }
         }, {
-            "id": "100960",
-            "title": "TEST XYZ",
+            "id": "100968",
+            "title": "Furniture Installation",
             "workorder": {
-                "text": "TEST XYZ",
+                "text": "Furniture Installation",
+                "value": "66"
+            },
+            "location": "",
+            "status": {
+                "text": "Completed",
+                "value": "COMPLETED",
+                "code": "btn-info"
+            },
+            "date": {
+                "recurrence": "one time event on 9/6/2024",
+                "start": "2024-09-06",
+                "end": "2024-09-06"
+            },
+            "time": {
+                "start": "08:00",
+                "end": "18:00"
+            },
+            "priority": {
+                "text": "Low",
+                "value": "1",
+                "code": "#026adf"
+            },
+            "note": "Furniture Installation",
+            "url": "/app/crm/calendar/event.nl?id=100968&compid=TSTDRV2617106&selectedtab=custom337",
+            "color": "#1a6756",
+            "woRef": {},
+            "resources": [],
+            "vendors": [],
+            "assets": [],
+            "items": [],
+            "contacts": [],
+            "addresses": [],
+            "contact": {
+                "text": "49",
+                "value": "49"
+            },
+            "address": {
+                "text": "50",
+                "value": "50"
+            },
+            "organizer": {
+                "text": "Arun Sharma",
+                "value": "1770"
+            }
+        }, {
+            "id": "100960",
+            "title": "Punch Survey",
+            "workorder": {
+                "text": "Furniture Installation",
                 "value": "66"
             },
             "location": "",
@@ -17168,55 +19782,6 @@ const mockup = {
                 "text": "Arun Sharma",
                 "value": "1770"
             }
-        }, {
-            "id": "100968",
-            "title": "TEST XYZ",
-            "workorder": {
-                "text": "TEST XYZ",
-                "value": "66"
-            },
-            "location": "",
-            "status": {
-                "text": "Completed",
-                "value": "COMPLETED",
-                "code": "btn-info"
-            },
-            "date": {
-                "recurrence": "one time event on 11/1/2024",
-                "start": "2024-11-01",
-                "end": "2024-11-01"
-            },
-            "time": {
-                "start": "08:00",
-                "end": "18:00"
-            },
-            "priority": {
-                "text": "Low",
-                "value": "1",
-                "code": "#026adf"
-            },
-            "note": "AAA\nBB",
-            "url": "/app/crm/calendar/event.nl?id=100968&compid=TSTDRV2617106&selectedtab=custom337",
-            "color": "#1a6756",
-            "woRef": {},
-            "resources": [],
-            "vendors": [],
-            "assets": [],
-            "items": [],
-            "contacts": [],
-            "addresses": [],
-            "contact": {
-                "text": "49",
-                "value": "49"
-            },
-            "address": {
-                "text": "50",
-                "value": "50"
-            },
-            "organizer": {
-                "text": "Arun Sharma",
-                "value": "1770"
-            }
         }],
         "projectUrl": "/app/accounting/project/project.nl?id=1515&compid=TSTDRV2617106",
         "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=66&compid=TSTDRV2617106",
@@ -17224,13 +19789,16 @@ const mockup = {
         "esthours": "99"
     }],
     "customers": [{
-        "text": "AB&I Holdings",
+        "text": "World Bank",
         "value": "1249"
     }, {
-        "text": "Kumari Pravallika",
+        "text": "3M",
+        "value": "1397"
+    }, {
+        "text": "Deloitte New York",
         "value": "2024"
     }, {
-        "text": "test",
+        "text": "White House Administration",
         "value": "1387"
     }, {
         "text": "Pravallika",
@@ -17239,19 +19807,56 @@ const mockup = {
         "text": "Test site test",
         "value": "1898"
     }, {
-        "text": "3M",
-        "value": "1397"
-    }, {
         "text": "Test For site checklist",
         "value": "1888"
     }, {
-        "text": "Test Test",
+        "text": "California Airport",
         "value": "1493"
     }, {
         "text": "Anonymous Customer HQ",
         "value": "1599"
     }],
     "resources": [{
+        "id": "1524",
+        "name": "Aiden Somerhalder",
+        "initials": "AS",
+        "email": "admin@ramsey.com",
+        "phone": "",
+        "location": {
+            "text": "01: San Francisco",
+            "value": "2"
+        },
+        "active": true,
+        "employee": {
+            "text": "Aiden Somerhalder",
+            "value": "1524"
+        },
+        "resourceGroups": [{
+            "text": "Installers",
+            "value": "1"
+        }],
+        "types": [{
+            "text": "Installer",
+            "value": "1"
+        }],
+        "subTypes": [],
+        "rate": 0,
+        "vendor": {
+            "text": "",
+            "value": ""
+        },
+        "purchaseOrder": {
+            "text": "",
+            "value": ""
+        },
+        "affiliationType": {
+            "text": "In-House",
+            "value": "1"
+        },
+        "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1524%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
+        "events": ["39", "100953", "101029", "101031"],
+        "labRates": []
+    }, {
         "id": "1770",
         "name": "Arun Sharma",
         "initials": "AS",
@@ -17301,7 +19906,7 @@ const mockup = {
             "value": "1"
         },
         "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1770%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-        "events": ["39", "26", "6", "100039", "100682", "100723", "100724", "100739", "100740", "100857", "100950", "100860", "100862", "100864", "100861", "100865", "100866", "100867", "100869", "100870", "100868", "100871", "100875", "100876", "100907", "100924", "100922", "100923", "100927", "100903", "100904", "100905", "100906", "100915", "100916", "100936", "100933", "100931", "100932", "100952", "100953", "100954", "100959", "101008", "101006", "101007", "101011", "101010"],
+        "events": ["39", "6", "100039", "100682", "100724", "100723", "100739", "100857", "100950", "100860", "100862", "100864", "100861", "100865", "100866", "100867", "100869", "100870", "100868", "100871", "100875", "100876", "100907", "100924", "100922", "100923", "100927", "100903", "100904", "100905", "100906", "100915", "100916", "100936", "100933", "100931", "100932", "100952", "100953", "100954", "100959", "101008", "101006", "100740", "101007", "101011", "101010"],
         "labRates": [{
             "labRateCatId": "1",
             "labRate": 50
@@ -17362,7 +19967,7 @@ const mockup = {
             "value": "1"
         },
         "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1767%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-        "events": ["39", "100682", "100723", "100724", "100812", "100857", "100860", "100862", "100864", "100861", "100865", "100866", "100867", "100869", "100870", "100868", "100871", "100875", "100876", "100924", "100922", "100923", "100927", "100903", "100904", "100905", "100915", "100916", "100931", "100961", "100959", "101006", "101005", "101007", "101010"],
+        "events": ["39", "100682", "100724", "100723", "100961", "100812", "100857", "100860", "100862", "100864", "100861", "100865", "100866", "100867", "100869", "100870", "100868", "100871", "100875", "100876", "100924", "100922", "100923", "100927", "100903", "100904", "100905", "100915", "100916", "100931", "100959", "101006", "101005", "101007", "101010"],
         "labRates": [{
             "labRateCatId": "1",
             "labRate": 100
@@ -17411,7 +20016,327 @@ const mockup = {
             "value": "2"
         },
         "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D912%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-        "events": ["100723", "100724"],
+        "events": ["100724", "100723"],
+        "labRates": []
+    }, {
+        "id": "27",
+        "name": "Brad Sparling",
+        "initials": "BS",
+        "email": "jc@erpsuccesspartners.com",
+        "phone": "650-555-3226",
+        "location": {
+            "text": "01: San Francisco",
+            "value": "2"
+        },
+        "active": false,
+        "employee": {
+            "text": "Brad Sparling",
+            "value": "27"
+        },
+        "resourceGroups": [{
+            "text": "Drivers",
+            "value": "3"
+        }],
+        "types": [{
+            "text": "Delivery Driver",
+            "value": "2"
+        }],
+        "subTypes": [],
+        "rate": 0,
+        "vendor": {
+            "text": "",
+            "value": ""
+        },
+        "purchaseOrder": {
+            "text": "",
+            "value": ""
+        },
+        "affiliationType": {
+            "text": "In-House",
+            "value": "1"
+        },
+        "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D27%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
+        "events": [],
+        "labRates": []
+    }, {
+        "id": "1545",
+        "name": "Brandy Samms",
+        "initials": "BS",
+        "email": "adminaccess2@ramsey.com",
+        "phone": "(713) 456-7878",
+        "location": {
+            "text": "",
+            "value": ""
+        },
+        "active": true,
+        "employee": {
+            "text": "Brandy Samms",
+            "value": "1545"
+        },
+        "resourceGroups": [{
+            "text": "Installers",
+            "value": "1"
+        }],
+        "types": [{
+            "text": "Installer",
+            "value": "1"
+        }],
+        "subTypes": [],
+        "rate": 0,
+        "vendor": {
+            "text": "",
+            "value": ""
+        },
+        "purchaseOrder": {
+            "text": "",
+            "value": ""
+        },
+        "affiliationType": {
+            "text": "In-House",
+            "value": "1"
+        },
+        "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1545%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
+        "events": ["101029"],
+        "labRates": []
+    }, {
+        "id": "1516",
+        "name": "Brenda Jones",
+        "initials": "BJ",
+        "email": "bjones@ramsey.com",
+        "phone": "",
+        "location": {
+            "text": "01: San Francisco",
+            "value": "2"
+        },
+        "active": true,
+        "employee": {
+            "text": "Brenda Jones",
+            "value": "1516"
+        },
+        "resourceGroups": [{
+            "text": "Installers",
+            "value": "1"
+        }],
+        "types": [{
+            "text": "Installer",
+            "value": "1"
+        }],
+        "subTypes": [],
+        "rate": 0,
+        "vendor": {
+            "text": "",
+            "value": ""
+        },
+        "purchaseOrder": {
+            "text": "",
+            "value": ""
+        },
+        "affiliationType": {
+            "text": "In-House",
+            "value": "1"
+        },
+        "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1516%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
+        "events": ["101030"],
+        "labRates": []
+    }, {
+        "id": "1513",
+        "name": "Brenda Wilson",
+        "initials": "BW",
+        "email": "bwilson@ramsey.com",
+        "phone": "",
+        "location": {
+            "text": "01: San Francisco : QA Hold",
+            "value": "5"
+        },
+        "active": true,
+        "employee": {
+            "text": "Brenda Wilson",
+            "value": "1513"
+        },
+        "resourceGroups": [{
+            "text": "Installers",
+            "value": "1"
+        }],
+        "types": [{
+            "text": "Installer",
+            "value": "1"
+        }],
+        "subTypes": [],
+        "rate": 0,
+        "vendor": {
+            "text": "",
+            "value": ""
+        },
+        "purchaseOrder": {
+            "text": "",
+            "value": ""
+        },
+        "affiliationType": {
+            "text": "In-House",
+            "value": "1"
+        },
+        "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1513%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
+        "events": ["101005", "101030"],
+        "labRates": []
+    }, {
+        "id": "31",
+        "name": "Brian Harris",
+        "initials": "BH",
+        "email": "myohai@avectra.com",
+        "phone": "510-555-5290",
+        "location": {
+            "text": "01: San Francisco : QA Hold",
+            "value": "5"
+        },
+        "active": true,
+        "employee": {
+            "text": "Brian Harris",
+            "value": "31"
+        },
+        "resourceGroups": [{
+            "text": "Installers",
+            "value": "1"
+        }],
+        "types": [{
+            "text": "Installer",
+            "value": "1"
+        }],
+        "subTypes": [],
+        "rate": 0,
+        "vendor": {
+            "text": "",
+            "value": ""
+        },
+        "purchaseOrder": {
+            "text": "",
+            "value": ""
+        },
+        "affiliationType": {
+            "text": "In-House",
+            "value": "1"
+        },
+        "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D31%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
+        "events": ["101007"],
+        "labRates": []
+    }, {
+        "id": "24",
+        "name": "Carmen Matthews",
+        "initials": "CM",
+        "email": "cmatthews@ramsey.com",
+        "phone": "415-555-3696",
+        "location": {
+            "text": "01: San Francisco",
+            "value": "2"
+        },
+        "active": true,
+        "employee": {
+            "text": "Carmen Matthews",
+            "value": "24"
+        },
+        "resourceGroups": [{
+            "text": "Installers",
+            "value": "1"
+        }],
+        "types": [{
+            "text": "Installer",
+            "value": "1"
+        }],
+        "subTypes": [],
+        "rate": 40,
+        "vendor": {
+            "text": "",
+            "value": ""
+        },
+        "purchaseOrder": {
+            "text": "",
+            "value": ""
+        },
+        "affiliationType": {
+            "text": "Crew Enhancement",
+            "value": "3"
+        },
+        "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D24%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
+        "events": ["101033"],
+        "labRates": []
+    }, {
+        "id": "23",
+        "name": "Clark Koozer",
+        "initials": "CK",
+        "email": "jc@erpsuccesspartners.com",
+        "phone": "650-555-8300",
+        "location": {
+            "text": "01: San Francisco",
+            "value": "2"
+        },
+        "active": true,
+        "employee": {
+            "text": "Clark Koozer",
+            "value": "23"
+        },
+        "resourceGroups": [{
+            "text": "Drivers",
+            "value": "3"
+        }],
+        "types": [{
+            "text": "Delivery Driver",
+            "value": "2"
+        }],
+        "subTypes": [],
+        "rate": 40,
+        "vendor": {
+            "text": "",
+            "value": ""
+        },
+        "purchaseOrder": {
+            "text": "",
+            "value": ""
+        },
+        "affiliationType": {
+            "text": "In-House",
+            "value": "1"
+        },
+        "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D23%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
+        "events": ["101032", "101033", "101034", "101035"],
+        "labRates": []
+    }, {
+        "id": "224",
+        "name": "Dale Williams",
+        "initials": "DW",
+        "email": "jc@erpsuccesspartners.com",
+        "phone": "",
+        "location": {
+            "text": "01: San Francisco",
+            "value": "2"
+        },
+        "active": true,
+        "employee": {
+            "text": "Dale Williams",
+            "value": "224"
+        },
+        "resourceGroups": [{
+            "text": "Installers",
+            "value": "1"
+        }],
+        "types": [{
+            "text": "Installer",
+            "value": "1"
+        }],
+        "subTypes": [],
+        "rate": 0,
+        "vendor": {
+            "text": "",
+            "value": ""
+        },
+        "purchaseOrder": {
+            "text": "",
+            "value": ""
+        },
+        "affiliationType": {
+            "text": "Crew Enhancement",
+            "value": "3"
+        },
+        "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D224%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
+        "events": ["101032"],
         "labRates": []
     }, {
         "id": "1312",
@@ -17451,7 +20376,7 @@ const mockup = {
             "value": "3"
         },
         "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1312%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-        "events": ["100682", "100724", "100812", "100857", "100864", "100867", "100869", "100870", "100868", "100871", "100875", "100876", "100878", "100879", "100880", "100924", "100923", "100927", "100881", "100883", "100885", "100886", "100887", "100889", "100890", "100891", "100902", "100903", "100904", "100905", "100906", "100882", "100931", "100961", "101004", "101008", "101006", "101005", "101007", "101011", "101010"],
+        "events": ["100682", "100724", "100961", "100812", "100857", "100864", "100867", "100869", "100870", "100868", "100871", "100875", "100876", "100878", "100879", "100880", "100924", "100923", "100927", "100881", "100883", "100885", "100886", "100887", "100889", "100890", "100891", "100902", "100903", "100904", "100905", "100906", "100882", "100931", "101004", "101006", "101011", "101010", "101028"],
         "labRates": []
     }, {
         "id": "1292",
@@ -17463,18 +20388,18 @@ const mockup = {
             "text": "01: San Francisco",
             "value": "2"
         },
-        "active": false,
+        "active": true,
         "employee": {
             "text": "Matt Nolan",
             "value": "1292"
         },
         "resourceGroups": [{
-            "text": "Designers",
-            "value": "2"
+            "text": "Installers",
+            "value": "1"
         }],
         "types": [{
-            "text": "Designer",
-            "value": "3"
+            "text": "Installer",
+            "value": "1"
         }],
         "subTypes": [],
         "rate": 0,
@@ -17491,7 +20416,7 @@ const mockup = {
             "value": "3"
         },
         "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1292%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-        "events": ["100718", "100724", "100812", "100865", "100866", "100867", "100869", "100870", "100868", "100871", "100875", "100876"],
+        "events": ["100724", "100718", "100812", "100865", "100866", "100867", "100869", "100870", "100868", "100871", "100875", "100876"],
         "labRates": [{
             "labRateCatId": "1",
             "labRate": 10
@@ -17589,6 +20514,126 @@ const mockup = {
             "labRate": 200
         }]
     }, {
+        "id": "1539",
+        "name": "Ruth Smith",
+        "initials": "RS",
+        "email": "jc@erpsuccesspartners.com",
+        "phone": "(713) 555-1212",
+        "location": {
+            "text": "01: San Francisco",
+            "value": "2"
+        },
+        "active": true,
+        "employee": {
+            "text": "Ruth Smith",
+            "value": "1539"
+        },
+        "resourceGroups": [{
+            "text": "Installers",
+            "value": "1"
+        }],
+        "types": [{
+            "text": "Installer",
+            "value": "1"
+        }],
+        "subTypes": [],
+        "rate": 50,
+        "vendor": {
+            "text": "",
+            "value": ""
+        },
+        "purchaseOrder": {
+            "text": "",
+            "value": ""
+        },
+        "affiliationType": {
+            "text": "In-House",
+            "value": "1"
+        },
+        "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1539%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
+        "events": ["101032", "101033"],
+        "labRates": []
+    }, {
+        "id": "18",
+        "name": "Sam Cruz",
+        "initials": "SC",
+        "email": "scruz@ramsey.com",
+        "phone": "408-555-4344",
+        "location": {
+            "text": "01: San Francisco",
+            "value": "2"
+        },
+        "active": true,
+        "employee": {
+            "text": "Sam Cruz",
+            "value": "18"
+        },
+        "resourceGroups": [{
+            "text": "Installers",
+            "value": "1"
+        }],
+        "types": [{
+            "text": "Installer",
+            "value": "1"
+        }],
+        "subTypes": [],
+        "rate": 60,
+        "vendor": {
+            "text": "",
+            "value": ""
+        },
+        "purchaseOrder": {
+            "text": "",
+            "value": ""
+        },
+        "affiliationType": {
+            "text": "In-House",
+            "value": "1"
+        },
+        "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D18%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
+        "events": [],
+        "labRates": []
+    }, {
+        "id": "918",
+        "name": "Walter Reagan",
+        "initials": "WR",
+        "email": "wreagan@ramsey.com",
+        "phone": "",
+        "location": {
+            "text": "02: Boston",
+            "value": "1"
+        },
+        "active": true,
+        "employee": {
+            "text": "Walter Reagan",
+            "value": "918"
+        },
+        "resourceGroups": [{
+            "text": "Installers",
+            "value": "1"
+        }],
+        "types": [{
+            "text": "Installer",
+            "value": "1"
+        }],
+        "subTypes": [],
+        "rate": 50,
+        "vendor": {
+            "text": "",
+            "value": ""
+        },
+        "purchaseOrder": {
+            "text": "",
+            "value": ""
+        },
+        "affiliationType": {
+            "text": "Crew Enhancement",
+            "value": "3"
+        },
+        "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D918%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
+        "events": ["101032"],
+        "labRates": []
+    }, {
         "id": "1656",
         "name": "Youssef Ezz",
         "initials": "YE",
@@ -17633,6 +20678,46 @@ const mockup = {
         "text": "Installers",
         "value": "1",
         "resources": [{
+            "id": "1524",
+            "name": "Aiden Somerhalder",
+            "initials": "AS",
+            "email": "admin@ramsey.com",
+            "phone": "",
+            "location": {
+                "text": "01: San Francisco",
+                "value": "2"
+            },
+            "active": true,
+            "employee": {
+                "text": "Aiden Somerhalder",
+                "value": "1524"
+            },
+            "resourceGroups": [{
+                "text": "Installers",
+                "value": "1"
+            }],
+            "types": [{
+                "text": "Installer",
+                "value": "1"
+            }],
+            "subTypes": [],
+            "rate": 0,
+            "vendor": {
+                "text": "",
+                "value": ""
+            },
+            "purchaseOrder": {
+                "text": "",
+                "value": ""
+            },
+            "affiliationType": {
+                "text": "In-House",
+                "value": "1"
+            },
+            "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1524%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
+            "events": ["39", "100953", "101029", "101031"],
+            "labRates": []
+        }, {
             "id": "1770",
             "name": "Arun Sharma",
             "initials": "AS",
@@ -17682,7 +20767,7 @@ const mockup = {
                 "value": "1"
             },
             "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1770%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-            "events": ["39", "26", "6", "100039", "100682", "100723", "100724", "100739", "100740", "100857", "100950", "100860", "100862", "100864", "100861", "100865", "100866", "100867", "100869", "100870", "100868", "100871", "100875", "100876", "100907", "100924", "100922", "100923", "100927", "100903", "100904", "100905", "100906", "100915", "100916", "100936", "100933", "100931", "100932", "100952", "100953", "100954", "100959", "101008", "101006", "101007", "101011", "101010"],
+            "events": ["39", "6", "100039", "100682", "100724", "100723", "100739", "100857", "100950", "100860", "100862", "100864", "100861", "100865", "100866", "100867", "100869", "100870", "100868", "100871", "100875", "100876", "100907", "100924", "100922", "100923", "100927", "100903", "100904", "100905", "100906", "100915", "100916", "100936", "100933", "100931", "100932", "100952", "100953", "100954", "100959", "101008", "101006", "100740", "101007", "101011", "101010"],
             "labRates": [{
                 "labRateCatId": "1",
                 "labRate": 50
@@ -17743,7 +20828,7 @@ const mockup = {
                 "value": "1"
             },
             "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1767%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-            "events": ["39", "100682", "100723", "100724", "100812", "100857", "100860", "100862", "100864", "100861", "100865", "100866", "100867", "100869", "100870", "100868", "100871", "100875", "100876", "100924", "100922", "100923", "100927", "100903", "100904", "100905", "100915", "100916", "100931", "100961", "100959", "101006", "101005", "101007", "101010"],
+            "events": ["39", "100682", "100724", "100723", "100961", "100812", "100857", "100860", "100862", "100864", "100861", "100865", "100866", "100867", "100869", "100870", "100868", "100871", "100875", "100876", "100924", "100922", "100923", "100927", "100903", "100904", "100905", "100915", "100916", "100931", "100959", "101006", "101005", "101007", "101010"],
             "labRates": [{
                 "labRateCatId": "1",
                 "labRate": 100
@@ -17792,7 +20877,247 @@ const mockup = {
                 "value": "2"
             },
             "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D912%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-            "events": ["100723", "100724"],
+            "events": ["100724", "100723"],
+            "labRates": []
+        }, {
+            "id": "1545",
+            "name": "Brandy Samms",
+            "initials": "BS",
+            "email": "adminaccess2@ramsey.com",
+            "phone": "(713) 456-7878",
+            "location": {
+                "text": "",
+                "value": ""
+            },
+            "active": true,
+            "employee": {
+                "text": "Brandy Samms",
+                "value": "1545"
+            },
+            "resourceGroups": [{
+                "text": "Installers",
+                "value": "1"
+            }],
+            "types": [{
+                "text": "Installer",
+                "value": "1"
+            }],
+            "subTypes": [],
+            "rate": 0,
+            "vendor": {
+                "text": "",
+                "value": ""
+            },
+            "purchaseOrder": {
+                "text": "",
+                "value": ""
+            },
+            "affiliationType": {
+                "text": "In-House",
+                "value": "1"
+            },
+            "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1545%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
+            "events": ["101029"],
+            "labRates": []
+        }, {
+            "id": "1516",
+            "name": "Brenda Jones",
+            "initials": "BJ",
+            "email": "bjones@ramsey.com",
+            "phone": "",
+            "location": {
+                "text": "01: San Francisco",
+                "value": "2"
+            },
+            "active": true,
+            "employee": {
+                "text": "Brenda Jones",
+                "value": "1516"
+            },
+            "resourceGroups": [{
+                "text": "Installers",
+                "value": "1"
+            }],
+            "types": [{
+                "text": "Installer",
+                "value": "1"
+            }],
+            "subTypes": [],
+            "rate": 0,
+            "vendor": {
+                "text": "",
+                "value": ""
+            },
+            "purchaseOrder": {
+                "text": "",
+                "value": ""
+            },
+            "affiliationType": {
+                "text": "In-House",
+                "value": "1"
+            },
+            "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1516%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
+            "events": ["101030"],
+            "labRates": []
+        }, {
+            "id": "1513",
+            "name": "Brenda Wilson",
+            "initials": "BW",
+            "email": "bwilson@ramsey.com",
+            "phone": "",
+            "location": {
+                "text": "01: San Francisco : QA Hold",
+                "value": "5"
+            },
+            "active": true,
+            "employee": {
+                "text": "Brenda Wilson",
+                "value": "1513"
+            },
+            "resourceGroups": [{
+                "text": "Installers",
+                "value": "1"
+            }],
+            "types": [{
+                "text": "Installer",
+                "value": "1"
+            }],
+            "subTypes": [],
+            "rate": 0,
+            "vendor": {
+                "text": "",
+                "value": ""
+            },
+            "purchaseOrder": {
+                "text": "",
+                "value": ""
+            },
+            "affiliationType": {
+                "text": "In-House",
+                "value": "1"
+            },
+            "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1513%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
+            "events": ["101005", "101030"],
+            "labRates": []
+        }, {
+            "id": "31",
+            "name": "Brian Harris",
+            "initials": "BH",
+            "email": "myohai@avectra.com",
+            "phone": "510-555-5290",
+            "location": {
+                "text": "01: San Francisco : QA Hold",
+                "value": "5"
+            },
+            "active": true,
+            "employee": {
+                "text": "Brian Harris",
+                "value": "31"
+            },
+            "resourceGroups": [{
+                "text": "Installers",
+                "value": "1"
+            }],
+            "types": [{
+                "text": "Installer",
+                "value": "1"
+            }],
+            "subTypes": [],
+            "rate": 0,
+            "vendor": {
+                "text": "",
+                "value": ""
+            },
+            "purchaseOrder": {
+                "text": "",
+                "value": ""
+            },
+            "affiliationType": {
+                "text": "In-House",
+                "value": "1"
+            },
+            "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D31%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
+            "events": ["101007"],
+            "labRates": []
+        }, {
+            "id": "24",
+            "name": "Carmen Matthews",
+            "initials": "CM",
+            "email": "cmatthews@ramsey.com",
+            "phone": "415-555-3696",
+            "location": {
+                "text": "01: San Francisco",
+                "value": "2"
+            },
+            "active": true,
+            "employee": {
+                "text": "Carmen Matthews",
+                "value": "24"
+            },
+            "resourceGroups": [{
+                "text": "Installers",
+                "value": "1"
+            }],
+            "types": [{
+                "text": "Installer",
+                "value": "1"
+            }],
+            "subTypes": [],
+            "rate": 40,
+            "vendor": {
+                "text": "",
+                "value": ""
+            },
+            "purchaseOrder": {
+                "text": "",
+                "value": ""
+            },
+            "affiliationType": {
+                "text": "Crew Enhancement",
+                "value": "3"
+            },
+            "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D24%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
+            "events": ["101033"],
+            "labRates": []
+        }, {
+            "id": "224",
+            "name": "Dale Williams",
+            "initials": "DW",
+            "email": "jc@erpsuccesspartners.com",
+            "phone": "",
+            "location": {
+                "text": "01: San Francisco",
+                "value": "2"
+            },
+            "active": true,
+            "employee": {
+                "text": "Dale Williams",
+                "value": "224"
+            },
+            "resourceGroups": [{
+                "text": "Installers",
+                "value": "1"
+            }],
+            "types": [{
+                "text": "Installer",
+                "value": "1"
+            }],
+            "subTypes": [],
+            "rate": 0,
+            "vendor": {
+                "text": "",
+                "value": ""
+            },
+            "purchaseOrder": {
+                "text": "",
+                "value": ""
+            },
+            "affiliationType": {
+                "text": "Crew Enhancement",
+                "value": "3"
+            },
+            "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D224%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
+            "events": ["101032"],
             "labRates": []
         }, {
             "id": "1312",
@@ -17832,7 +21157,176 @@ const mockup = {
                 "value": "3"
             },
             "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1312%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-            "events": ["100682", "100724", "100812", "100857", "100864", "100867", "100869", "100870", "100868", "100871", "100875", "100876", "100878", "100879", "100880", "100924", "100923", "100927", "100881", "100883", "100885", "100886", "100887", "100889", "100890", "100891", "100902", "100903", "100904", "100905", "100906", "100882", "100931", "100961", "101004", "101008", "101006", "101005", "101007", "101011", "101010"],
+            "events": ["100682", "100724", "100961", "100812", "100857", "100864", "100867", "100869", "100870", "100868", "100871", "100875", "100876", "100878", "100879", "100880", "100924", "100923", "100927", "100881", "100883", "100885", "100886", "100887", "100889", "100890", "100891", "100902", "100903", "100904", "100905", "100906", "100882", "100931", "101004", "101006", "101011", "101010", "101028"],
+            "labRates": []
+        }, {
+            "id": "1292",
+            "name": "Matt Nolan",
+            "initials": "MN",
+            "email": "mnolan@ramsey.com",
+            "phone": "",
+            "location": {
+                "text": "01: San Francisco",
+                "value": "2"
+            },
+            "active": true,
+            "employee": {
+                "text": "Matt Nolan",
+                "value": "1292"
+            },
+            "resourceGroups": [{
+                "text": "Installers",
+                "value": "1"
+            }],
+            "types": [{
+                "text": "Installer",
+                "value": "1"
+            }],
+            "subTypes": [],
+            "rate": 0,
+            "vendor": {
+                "text": "",
+                "value": ""
+            },
+            "purchaseOrder": {
+                "text": "",
+                "value": ""
+            },
+            "affiliationType": {
+                "text": "Crew Enhancement",
+                "value": "3"
+            },
+            "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1292%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
+            "events": ["100724", "100718", "100812", "100865", "100866", "100867", "100869", "100870", "100868", "100871", "100875", "100876"],
+            "labRates": [{
+                "labRateCatId": "1",
+                "labRate": 10
+            }, {
+                "labRateCatId": "2",
+                "labRate": 12
+            }, {
+                "labRateCatId": "3",
+                "labRate": 13
+            }]
+        }, {
+            "id": "1539",
+            "name": "Ruth Smith",
+            "initials": "RS",
+            "email": "jc@erpsuccesspartners.com",
+            "phone": "(713) 555-1212",
+            "location": {
+                "text": "01: San Francisco",
+                "value": "2"
+            },
+            "active": true,
+            "employee": {
+                "text": "Ruth Smith",
+                "value": "1539"
+            },
+            "resourceGroups": [{
+                "text": "Installers",
+                "value": "1"
+            }],
+            "types": [{
+                "text": "Installer",
+                "value": "1"
+            }],
+            "subTypes": [],
+            "rate": 50,
+            "vendor": {
+                "text": "",
+                "value": ""
+            },
+            "purchaseOrder": {
+                "text": "",
+                "value": ""
+            },
+            "affiliationType": {
+                "text": "In-House",
+                "value": "1"
+            },
+            "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1539%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
+            "events": ["101032", "101033"],
+            "labRates": []
+        }, {
+            "id": "18",
+            "name": "Sam Cruz",
+            "initials": "SC",
+            "email": "scruz@ramsey.com",
+            "phone": "408-555-4344",
+            "location": {
+                "text": "01: San Francisco",
+                "value": "2"
+            },
+            "active": true,
+            "employee": {
+                "text": "Sam Cruz",
+                "value": "18"
+            },
+            "resourceGroups": [{
+                "text": "Installers",
+                "value": "1"
+            }],
+            "types": [{
+                "text": "Installer",
+                "value": "1"
+            }],
+            "subTypes": [],
+            "rate": 60,
+            "vendor": {
+                "text": "",
+                "value": ""
+            },
+            "purchaseOrder": {
+                "text": "",
+                "value": ""
+            },
+            "affiliationType": {
+                "text": "In-House",
+                "value": "1"
+            },
+            "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D18%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
+            "events": [],
+            "labRates": []
+        }, {
+            "id": "918",
+            "name": "Walter Reagan",
+            "initials": "WR",
+            "email": "wreagan@ramsey.com",
+            "phone": "",
+            "location": {
+                "text": "02: Boston",
+                "value": "1"
+            },
+            "active": true,
+            "employee": {
+                "text": "Walter Reagan",
+                "value": "918"
+            },
+            "resourceGroups": [{
+                "text": "Installers",
+                "value": "1"
+            }],
+            "types": [{
+                "text": "Installer",
+                "value": "1"
+            }],
+            "subTypes": [],
+            "rate": 50,
+            "vendor": {
+                "text": "",
+                "value": ""
+            },
+            "purchaseOrder": {
+                "text": "",
+                "value": ""
+            },
+            "affiliationType": {
+                "text": "Crew Enhancement",
+                "value": "3"
+            },
+            "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D918%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
+            "events": ["101032"],
             "labRates": []
         }, {
             "id": "1656",
@@ -17875,7 +21369,7 @@ const mockup = {
             "events": ["39", "100812", "100864", "100865", "100866", "100867", "100869", "100870", "100868", "100871", "100875", "100876", "100939", "100931", "101004", "101003", "100959", "101008", "101012", "101015", "101010"],
             "labRates": []
         }],
-        "resourceCount": 5
+        "resourceCount": 16
     }, {
         "text": "Designers",
         "value": "2",
@@ -17929,7 +21423,7 @@ const mockup = {
                 "value": "1"
             },
             "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1770%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-            "events": ["39", "26", "6", "100039", "100682", "100723", "100724", "100739", "100740", "100857", "100950", "100860", "100862", "100864", "100861", "100865", "100866", "100867", "100869", "100870", "100868", "100871", "100875", "100876", "100907", "100924", "100922", "100923", "100927", "100903", "100904", "100905", "100906", "100915", "100916", "100936", "100933", "100931", "100932", "100952", "100953", "100954", "100959", "101008", "101006", "101007", "101011", "101010"],
+            "events": ["39", "6", "100039", "100682", "100724", "100723", "100739", "100857", "100950", "100860", "100862", "100864", "100861", "100865", "100866", "100867", "100869", "100870", "100868", "100871", "100875", "100876", "100907", "100924", "100922", "100923", "100927", "100903", "100904", "100905", "100906", "100915", "100916", "100936", "100933", "100931", "100932", "100952", "100953", "100954", "100959", "101008", "101006", "100740", "101007", "101011", "101010"],
             "labRates": [{
                 "labRateCatId": "1",
                 "labRate": 50
@@ -17990,7 +21484,7 @@ const mockup = {
                 "value": "1"
             },
             "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1767%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-            "events": ["39", "100682", "100723", "100724", "100812", "100857", "100860", "100862", "100864", "100861", "100865", "100866", "100867", "100869", "100870", "100868", "100871", "100875", "100876", "100924", "100922", "100923", "100927", "100903", "100904", "100905", "100915", "100916", "100931", "100961", "100959", "101006", "101005", "101007", "101010"],
+            "events": ["39", "100682", "100724", "100723", "100961", "100812", "100857", "100860", "100862", "100864", "100861", "100865", "100866", "100867", "100869", "100870", "100868", "100871", "100875", "100876", "100924", "100922", "100923", "100927", "100903", "100904", "100905", "100915", "100916", "100931", "100959", "101006", "101005", "101007", "101010"],
             "labRates": [{
                 "labRateCatId": "1",
                 "labRate": 100
@@ -18000,55 +21494,6 @@ const mockup = {
             }, {
                 "labRateCatId": "3",
                 "labRate": 300
-            }]
-        }, {
-            "id": "1292",
-            "name": "Matt Nolan",
-            "initials": "MN",
-            "email": "mnolan@ramsey.com",
-            "phone": "",
-            "location": {
-                "text": "01: San Francisco",
-                "value": "2"
-            },
-            "active": false,
-            "employee": {
-                "text": "Matt Nolan",
-                "value": "1292"
-            },
-            "resourceGroups": [{
-                "text": "Designers",
-                "value": "2"
-            }],
-            "types": [{
-                "text": "Designer",
-                "value": "3"
-            }],
-            "subTypes": [],
-            "rate": 0,
-            "vendor": {
-                "text": "",
-                "value": ""
-            },
-            "purchaseOrder": {
-                "text": "",
-                "value": ""
-            },
-            "affiliationType": {
-                "text": "Crew Enhancement",
-                "value": "3"
-            },
-            "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1292%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-            "events": ["100718", "100724", "100812", "100865", "100866", "100867", "100869", "100870", "100868", "100871", "100875", "100876"],
-            "labRates": [{
-                "labRateCatId": "1",
-                "labRate": 10
-            }, {
-                "labRateCatId": "2",
-                "labRate": 12
-            }, {
-                "labRateCatId": "3",
-                "labRate": 13
             }]
         }, {
             "id": "1647",
@@ -18137,7 +21582,7 @@ const mockup = {
                 "labRate": 200
             }]
         }],
-        "resourceCount": 5
+        "resourceCount": 4
     }, {
         "text": "Drivers",
         "value": "3",
@@ -18191,7 +21636,7 @@ const mockup = {
                 "value": "1"
             },
             "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1770%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-            "events": ["39", "26", "6", "100039", "100682", "100723", "100724", "100739", "100740", "100857", "100950", "100860", "100862", "100864", "100861", "100865", "100866", "100867", "100869", "100870", "100868", "100871", "100875", "100876", "100907", "100924", "100922", "100923", "100927", "100903", "100904", "100905", "100906", "100915", "100916", "100936", "100933", "100931", "100932", "100952", "100953", "100954", "100959", "101008", "101006", "101007", "101011", "101010"],
+            "events": ["39", "6", "100039", "100682", "100724", "100723", "100739", "100857", "100950", "100860", "100862", "100864", "100861", "100865", "100866", "100867", "100869", "100870", "100868", "100871", "100875", "100876", "100907", "100924", "100922", "100923", "100927", "100903", "100904", "100905", "100906", "100915", "100916", "100936", "100933", "100931", "100932", "100952", "100953", "100954", "100959", "101008", "101006", "100740", "101007", "101011", "101010"],
             "labRates": [{
                 "labRateCatId": "1",
                 "labRate": 50
@@ -18252,7 +21697,7 @@ const mockup = {
                 "value": "1"
             },
             "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1767%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-            "events": ["39", "100682", "100723", "100724", "100812", "100857", "100860", "100862", "100864", "100861", "100865", "100866", "100867", "100869", "100870", "100868", "100871", "100875", "100876", "100924", "100922", "100923", "100927", "100903", "100904", "100905", "100915", "100916", "100931", "100961", "100959", "101006", "101005", "101007", "101010"],
+            "events": ["39", "100682", "100724", "100723", "100961", "100812", "100857", "100860", "100862", "100864", "100861", "100865", "100866", "100867", "100869", "100870", "100868", "100871", "100875", "100876", "100924", "100922", "100923", "100927", "100903", "100904", "100905", "100915", "100916", "100931", "100959", "101006", "101005", "101007", "101010"],
             "labRates": [{
                 "labRateCatId": "1",
                 "labRate": 100
@@ -18263,8 +21708,88 @@ const mockup = {
                 "labRateCatId": "3",
                 "labRate": 300
             }]
+        }, {
+            "id": "27",
+            "name": "Brad Sparling",
+            "initials": "BS",
+            "email": "jc@erpsuccesspartners.com",
+            "phone": "650-555-3226",
+            "location": {
+                "text": "01: San Francisco",
+                "value": "2"
+            },
+            "active": false,
+            "employee": {
+                "text": "Brad Sparling",
+                "value": "27"
+            },
+            "resourceGroups": [{
+                "text": "Drivers",
+                "value": "3"
+            }],
+            "types": [{
+                "text": "Delivery Driver",
+                "value": "2"
+            }],
+            "subTypes": [],
+            "rate": 0,
+            "vendor": {
+                "text": "",
+                "value": ""
+            },
+            "purchaseOrder": {
+                "text": "",
+                "value": ""
+            },
+            "affiliationType": {
+                "text": "In-House",
+                "value": "1"
+            },
+            "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D27%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
+            "events": [],
+            "labRates": []
+        }, {
+            "id": "23",
+            "name": "Clark Koozer",
+            "initials": "CK",
+            "email": "jc@erpsuccesspartners.com",
+            "phone": "650-555-8300",
+            "location": {
+                "text": "01: San Francisco",
+                "value": "2"
+            },
+            "active": true,
+            "employee": {
+                "text": "Clark Koozer",
+                "value": "23"
+            },
+            "resourceGroups": [{
+                "text": "Drivers",
+                "value": "3"
+            }],
+            "types": [{
+                "text": "Delivery Driver",
+                "value": "2"
+            }],
+            "subTypes": [],
+            "rate": 40,
+            "vendor": {
+                "text": "",
+                "value": ""
+            },
+            "purchaseOrder": {
+                "text": "",
+                "value": ""
+            },
+            "affiliationType": {
+                "text": "In-House",
+                "value": "1"
+            },
+            "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D23%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
+            "events": ["101032", "101033", "101034", "101035"],
+            "labRates": []
         }],
-        "resourceCount": 2
+        "resourceCount": 4
     }],
     "woResources": [{
         "id": "1",
@@ -18386,7 +21911,7 @@ const mockup = {
         },
         "active": false,
         "workorder": {
-            "text": "Installation of Furnitures - Edit",
+            "text": "Installation of Furnitures",
             "value": "3"
         },
         "events": [],
@@ -18422,7 +21947,7 @@ const mockup = {
         },
         "active": true,
         "workorder": {
-            "text": "Installation of Furnitures - Edit",
+            "text": "Installation of Furnitures",
             "value": "3"
         },
         "events": [],
@@ -18458,7 +21983,7 @@ const mockup = {
         },
         "active": true,
         "workorder": {
-            "text": "Installation of Furnitures - Edit",
+            "text": "Installation of Furnitures",
             "value": "3"
         },
         "events": [],
@@ -18494,7 +22019,7 @@ const mockup = {
         },
         "active": false,
         "workorder": {
-            "text": "Demo",
+            "text": "Crates Pick up",
             "value": "4"
         },
         "events": [],
@@ -18530,7 +22055,7 @@ const mockup = {
         },
         "active": true,
         "workorder": {
-            "text": "Demo",
+            "text": "Crates Pick up",
             "value": "4"
         },
         "events": [],
@@ -18564,7 +22089,7 @@ const mockup = {
             "text": "01: San Francisco",
             "value": "2"
         },
-        "active": false,
+        "active": true,
         "workorder": {
             "text": "Installation of chairs",
             "value": "5"
@@ -18602,7 +22127,7 @@ const mockup = {
         },
         "active": true,
         "workorder": {
-            "text": "Demo",
+            "text": "Crates Pick up",
             "value": "4"
         },
         "events": [],
@@ -18744,9 +22269,9 @@ const mockup = {
             "text": "01: San Francisco",
             "value": "2"
         },
-        "active": false,
+        "active": true,
         "workorder": {
-            "text": "Install Walls",
+            "text": "Walls Installation",
             "value": "13"
         },
         "events": [],
@@ -18782,7 +22307,7 @@ const mockup = {
         },
         "active": true,
         "workorder": {
-            "text": "Install Walls",
+            "text": "Walls Installation",
             "value": "13"
         },
         "events": [],
@@ -18818,7 +22343,7 @@ const mockup = {
         },
         "active": true,
         "workorder": {
-            "text": "Install Walls",
+            "text": "Walls Installation",
             "value": "13"
         },
         "events": [],
@@ -18854,7 +22379,7 @@ const mockup = {
         },
         "active": false,
         "workorder": {
-            "text": "Install Walls",
+            "text": "Walls Installation",
             "value": "13"
         },
         "events": [],
@@ -18888,7 +22413,7 @@ const mockup = {
             "text": "01: San Francisco",
             "value": "2"
         },
-        "active": false,
+        "active": true,
         "workorder": {
             "text": "Install Walls",
             "value": "14"
@@ -19032,9 +22557,9 @@ const mockup = {
             "text": "01: San Francisco",
             "value": "2"
         },
-        "active": false,
+        "active": true,
         "workorder": {
-            "text": "Install Walls Test Work Order",
+            "text": "Drop off and Walls Installation",
             "value": "15"
         },
         "events": [],
@@ -19070,7 +22595,7 @@ const mockup = {
         },
         "active": true,
         "workorder": {
-            "text": "Install Walls Test Work Order",
+            "text": "Drop off and Walls Installation",
             "value": "15"
         },
         "events": [],
@@ -19106,7 +22631,7 @@ const mockup = {
         },
         "active": false,
         "workorder": {
-            "text": "Install Walls Test Work Order",
+            "text": "Drop off and Walls Installation",
             "value": "15"
         },
         "events": [],
@@ -19142,7 +22667,7 @@ const mockup = {
         },
         "active": true,
         "workorder": {
-            "text": "Install Walls Test Work Order",
+            "text": "Drop off and Walls Installation",
             "value": "15"
         },
         "events": [],
@@ -19178,7 +22703,7 @@ const mockup = {
         },
         "active": false,
         "workorder": {
-            "text": "Install Furniture",
+            "text": "Furniture Installation",
             "value": "1"
         },
         "events": [],
@@ -19214,7 +22739,7 @@ const mockup = {
         },
         "active": false,
         "workorder": {
-            "text": "Install Furniture",
+            "text": "Furniture Installation",
             "value": "1"
         },
         "events": [],
@@ -19250,7 +22775,7 @@ const mockup = {
         },
         "active": true,
         "workorder": {
-            "text": "Install Furniture",
+            "text": "Furniture Installation",
             "value": "1"
         },
         "events": [],
@@ -19286,7 +22811,7 @@ const mockup = {
         },
         "active": true,
         "workorder": {
-            "text": "Install Furniture",
+            "text": "Furniture Installation",
             "value": "1"
         },
         "events": [],
@@ -19322,7 +22847,7 @@ const mockup = {
         },
         "active": false,
         "workorder": {
-            "text": "Install Furniture",
+            "text": "Furniture Installation",
             "value": "1"
         },
         "events": [],
@@ -19358,7 +22883,7 @@ const mockup = {
         },
         "active": true,
         "workorder": {
-            "text": "Install Furniture",
+            "text": "Furniture Installation",
             "value": "1"
         },
         "events": [],
@@ -19394,7 +22919,7 @@ const mockup = {
         },
         "active": true,
         "workorder": {
-            "text": "Install Furniture",
+            "text": "Furniture Installation",
             "value": "1"
         },
         "events": [],
@@ -19428,9 +22953,9 @@ const mockup = {
             "text": "01: San Francisco",
             "value": "2"
         },
-        "active": false,
+        "active": true,
         "workorder": {
-            "text": "Install Furniture",
+            "text": "Furniture Installation",
             "value": "1"
         },
         "events": ["100718"],
@@ -19466,7 +22991,7 @@ const mockup = {
         },
         "active": true,
         "workorder": {
-            "text": "Install Furniture",
+            "text": "Furniture Installation",
             "value": "1"
         },
         "events": ["100718"],
@@ -19502,7 +23027,7 @@ const mockup = {
         },
         "active": false,
         "workorder": {
-            "text": "Install Furniture",
+            "text": "Furniture Installation",
             "value": "1"
         },
         "events": ["100718"],
@@ -19538,7 +23063,7 @@ const mockup = {
         },
         "active": true,
         "workorder": {
-            "text": "Install Furniture",
+            "text": "Furniture Installation",
             "value": "1"
         },
         "events": [],
@@ -19574,7 +23099,7 @@ const mockup = {
         },
         "active": false,
         "workorder": {
-            "text": "Install Furniture",
+            "text": "Furniture Installation",
             "value": "1"
         },
         "events": [],
@@ -19610,7 +23135,7 @@ const mockup = {
         },
         "active": true,
         "workorder": {
-            "text": "Test",
+            "text": "Conference Table Delivery",
             "value": "28"
         },
         "events": [],
@@ -19646,7 +23171,7 @@ const mockup = {
         },
         "active": true,
         "workorder": {
-            "text": "Test",
+            "text": "Security Camera Installation",
             "value": "29"
         },
         "events": [],
@@ -19682,7 +23207,7 @@ const mockup = {
         },
         "active": false,
         "workorder": {
-            "text": "Test",
+            "text": "Flooring Installation ",
             "value": "30"
         },
         "events": [],
@@ -19718,7 +23243,7 @@ const mockup = {
         },
         "active": false,
         "workorder": {
-            "text": "Test",
+            "text": "Flooring Installation",
             "value": "31"
         },
         "events": [],
@@ -19754,7 +23279,7 @@ const mockup = {
         },
         "active": false,
         "workorder": {
-            "text": "Install Furniture",
+            "text": "Furniture Installation",
             "value": "1"
         },
         "events": [],
@@ -19790,7 +23315,7 @@ const mockup = {
         },
         "active": true,
         "workorder": {
-            "text": "Install Furniture",
+            "text": "Furniture Installation",
             "value": "1"
         },
         "events": [],
@@ -19826,7 +23351,7 @@ const mockup = {
         },
         "active": false,
         "workorder": {
-            "text": "Test",
+            "text": "Flooring Installation",
             "value": "31"
         },
         "events": ["100723"],
@@ -19862,7 +23387,7 @@ const mockup = {
         },
         "active": true,
         "workorder": {
-            "text": "Test",
+            "text": "Flooring Installation",
             "value": "31"
         },
         "events": ["100723"],
@@ -19898,7 +23423,7 @@ const mockup = {
         },
         "active": true,
         "workorder": {
-            "text": "Test",
+            "text": "Flooring Installation",
             "value": "31"
         },
         "events": ["100723"],
@@ -19932,9 +23457,9 @@ const mockup = {
             "text": "01: San Francisco",
             "value": "2"
         },
-        "active": false,
+        "active": true,
         "workorder": {
-            "text": "Demo",
+            "text": "Crates Pick up",
             "value": "4"
         },
         "events": [],
@@ -19970,7 +23495,7 @@ const mockup = {
         },
         "active": true,
         "workorder": {
-            "text": "Work Order Sample July 22",
+            "text": "AV Installation",
             "value": "33"
         },
         "events": [],
@@ -20004,9 +23529,9 @@ const mockup = {
             "text": "01: San Francisco",
             "value": "2"
         },
-        "active": false,
+        "active": true,
         "workorder": {
-            "text": "Work Order Sample July 22",
+            "text": "AV Installation",
             "value": "33"
         },
         "events": [],
@@ -20040,9 +23565,9 @@ const mockup = {
             "text": "01: San Francisco",
             "value": "2"
         },
-        "active": false,
+        "active": true,
         "workorder": {
-            "text": "Test",
+            "text": "Flooring Installation",
             "value": "31"
         },
         "events": ["100724"],
@@ -20078,7 +23603,7 @@ const mockup = {
         },
         "active": true,
         "workorder": {
-            "text": "Test",
+            "text": "Flooring Installation",
             "value": "31"
         },
         "events": ["100724"],
@@ -20114,7 +23639,7 @@ const mockup = {
         },
         "active": false,
         "workorder": {
-            "text": "Test",
+            "text": "Flooring Installation",
             "value": "31"
         },
         "events": ["100724"],
@@ -20150,7 +23675,7 @@ const mockup = {
         },
         "active": true,
         "workorder": {
-            "text": "Test",
+            "text": "Flooring Installation",
             "value": "31"
         },
         "events": ["100724"],
@@ -20184,9 +23709,9 @@ const mockup = {
             "text": "01: San Francisco",
             "value": "2"
         },
-        "active": false,
+        "active": true,
         "workorder": {
-            "text": "Test",
+            "text": "Flooring Installation",
             "value": "31"
         },
         "events": [],
@@ -20222,7 +23747,7 @@ const mockup = {
         },
         "active": true,
         "workorder": {
-            "text": "Work Order Sample July 31",
+            "text": "Furniture and Flooring Installation",
             "value": "34"
         },
         "events": [],
@@ -20256,9 +23781,9 @@ const mockup = {
             "text": "01: San Francisco",
             "value": "2"
         },
-        "active": false,
+        "active": true,
         "workorder": {
-            "text": "Work Order Sample July 31",
+            "text": "Furniture and Flooring Installation",
             "value": "34"
         },
         "events": [],
@@ -20364,7 +23889,7 @@ const mockup = {
             "text": "01: San Francisco",
             "value": "2"
         },
-        "active": false,
+        "active": true,
         "workorder": {
             "text": "Test Site Checklist",
             "value": "39"
@@ -20474,7 +23999,7 @@ const mockup = {
         },
         "active": true,
         "workorder": {
-            "text": "Test Work Order",
+            "text": "Furniture Installation",
             "value": "42"
         },
         "events": [],
@@ -20510,7 +24035,7 @@ const mockup = {
         },
         "active": true,
         "workorder": {
-            "text": "Sample Work Order",
+            "text": "Furniture Installation",
             "value": "43"
         },
         "events": [],
@@ -20546,7 +24071,7 @@ const mockup = {
         },
         "active": true,
         "workorder": {
-            "text": "Sample 2",
+            "text": "Furniture Installation",
             "value": "44"
         },
         "events": [],
@@ -20582,7 +24107,7 @@ const mockup = {
         },
         "active": true,
         "workorder": {
-            "text": "Sample 5",
+            "text": "AV Installation",
             "value": "47"
         },
         "events": [],
@@ -20618,7 +24143,7 @@ const mockup = {
         },
         "active": true,
         "workorder": {
-            "text": "Sample 5",
+            "text": "AV Installation",
             "value": "47"
         },
         "events": [],
@@ -20654,7 +24179,7 @@ const mockup = {
         },
         "active": true,
         "workorder": {
-            "text": "Sample 6",
+            "text": "Flooring Installation",
             "value": "48"
         },
         "events": [],
@@ -20690,7 +24215,7 @@ const mockup = {
         },
         "active": true,
         "workorder": {
-            "text": "Sample 6",
+            "text": "Flooring Installation",
             "value": "48"
         },
         "events": [],
@@ -20726,7 +24251,7 @@ const mockup = {
         },
         "active": true,
         "workorder": {
-            "text": "Sample Work Order - Mei - DO NOT USE - 61",
+            "text": "Furniture Installation",
             "value": "61"
         },
         "events": ["100812"],
@@ -20762,7 +24287,7 @@ const mockup = {
         },
         "active": true,
         "workorder": {
-            "text": "Demo",
+            "text": "Crates Pick up",
             "value": "4"
         },
         "events": ["100812"],
@@ -20798,7 +24323,7 @@ const mockup = {
         },
         "active": true,
         "workorder": {
-            "text": "Sample Work Order - Mei - DO NOT USE - 61",
+            "text": "Furniture Installation",
             "value": "61"
         },
         "events": ["100812"],
@@ -20832,9 +24357,9 @@ const mockup = {
             "text": "01: San Francisco",
             "value": "2"
         },
-        "active": false,
+        "active": true,
         "workorder": {
-            "text": "Sample Work Order - Mei - DO NOT USE - 61",
+            "text": "Furniture Installation",
             "value": "61"
         },
         "events": ["100812"],
@@ -20870,7 +24395,7 @@ const mockup = {
         },
         "active": true,
         "workorder": {
-            "text": "Sample Work Order *DO NOT USE* - MEI",
+            "text": "Furniture Installation",
             "value": "67"
         },
         "events": ["100857", "100860", "100861", "100862", "100864", "100865", "100866", "100867", "100868", "100869", "100870", "100871"],
@@ -20906,7 +24431,7 @@ const mockup = {
         },
         "active": true,
         "workorder": {
-            "text": "Sample Work Order *DO NOT USE* - MEI",
+            "text": "Furniture Installation",
             "value": "67"
         },
         "events": ["100857", "100864", "100867", "100868", "100869", "100870", "100871"],
@@ -20942,7 +24467,7 @@ const mockup = {
         },
         "active": true,
         "workorder": {
-            "text": "Sample Work Order *DO NOT USE* - MEI",
+            "text": "Furniture Installation",
             "value": "67"
         },
         "events": ["100864", "100865", "100866", "100867", "100868", "100869", "100870", "100871"],
@@ -20976,9 +24501,9 @@ const mockup = {
             "text": "01: San Francisco",
             "value": "2"
         },
-        "active": false,
+        "active": true,
         "workorder": {
-            "text": "Sample Work Order *DO NOT USE* - MEI",
+            "text": "Furniture Installation",
             "value": "67"
         },
         "events": ["100865", "100866", "100867", "100868", "100869", "100870", "100871"],
@@ -21014,7 +24539,7 @@ const mockup = {
         },
         "active": true,
         "workorder": {
-            "text": "Sample Work Order *DO NOT USE* - MEI",
+            "text": "Furniture Installation",
             "value": "67"
         },
         "events": ["100857", "100860", "100861", "100862", "100864", "100865", "100866", "100867", "100868", "100869", "100870", "100871"],
@@ -21228,7 +24753,7 @@ const mockup = {
             "text": "01: San Francisco",
             "value": "2"
         },
-        "active": false,
+        "active": true,
         "workorder": {
             "text": "FOP User Guide TEST",
             "value": "81"
@@ -21275,7 +24800,7 @@ const mockup = {
         },
         "active": true,
         "workorder": {
-            "text": "Sample Work Order *DO NOT USE* - MEI",
+            "text": "Furniture Installation",
             "value": "67"
         },
         "events": ["100876"],
@@ -21311,7 +24836,7 @@ const mockup = {
         },
         "active": true,
         "workorder": {
-            "text": "Sample Work Order *DO NOT USE* - MEI",
+            "text": "Furniture Installation",
             "value": "67"
         },
         "events": ["100876"],
@@ -21347,7 +24872,7 @@ const mockup = {
         },
         "active": true,
         "workorder": {
-            "text": "Sample Work Order *DO NOT USE* - MEI",
+            "text": "Furniture Installation",
             "value": "67"
         },
         "events": ["100876"],
@@ -21383,7 +24908,7 @@ const mockup = {
         },
         "active": true,
         "workorder": {
-            "text": "Sample Work Order *DO NOT USE* - MEI",
+            "text": "Furniture Installation",
             "value": "67"
         },
         "events": ["100876"],
@@ -21417,9 +24942,9 @@ const mockup = {
             "text": "01: San Francisco",
             "value": "2"
         },
-        "active": false,
+        "active": true,
         "workorder": {
-            "text": "Sample Work Order *DO NOT USE* - MEI",
+            "text": "Furniture Installation",
             "value": "67"
         },
         "events": ["100876"],
@@ -21455,7 +24980,7 @@ const mockup = {
         },
         "active": true,
         "workorder": {
-            "text": "Sample Work Order *DO NOT USE* - MEI",
+            "text": "Furniture Installation",
             "value": "67"
         },
         "events": ["100878"],
@@ -21491,7 +25016,7 @@ const mockup = {
         },
         "active": true,
         "workorder": {
-            "text": "Sample Work Order *DO NOT USE* - MEI",
+            "text": "Furniture Installation",
             "value": "67"
         },
         "events": ["100879"],
@@ -22508,7 +26033,7 @@ const mockup = {
         },
         "active": true,
         "workorder": {
-            "text": "Test Work Order - Mei",
+            "text": "Furniture Installation",
             "value": "83"
         },
         "events": ["100915", "100916"],
@@ -22553,7 +26078,7 @@ const mockup = {
         },
         "active": true,
         "workorder": {
-            "text": "Test Work Order - Mei",
+            "text": "Furniture Installation",
             "value": "83"
         },
         "events": ["100915", "100916"],
@@ -22643,7 +26168,7 @@ const mockup = {
         },
         "active": true,
         "workorder": {
-            "text": "Test Work Order - Mei",
+            "text": "Furniture Installation",
             "value": "85"
         },
         "events": ["100922", "100923", "100924"],
@@ -22688,7 +26213,7 @@ const mockup = {
         },
         "active": true,
         "workorder": {
-            "text": "Test Work Order - Mei",
+            "text": "Furniture Installation",
             "value": "85"
         },
         "events": ["100922", "100923", "100924"],
@@ -22733,7 +26258,7 @@ const mockup = {
         },
         "active": true,
         "workorder": {
-            "text": "Test Work Order - Mei",
+            "text": "Furniture Installation",
             "value": "85"
         },
         "events": ["100923", "100924"],
@@ -22775,7 +26300,7 @@ const mockup = {
         },
         "active": true,
         "workorder": {
-            "text": "Test Work Order - Mei",
+            "text": "Furniture Installation",
             "value": "86"
         },
         "events": ["100927"],
@@ -22820,7 +26345,7 @@ const mockup = {
         },
         "active": true,
         "workorder": {
-            "text": "Test Work Order - Mei",
+            "text": "Furniture Installation",
             "value": "86"
         },
         "events": ["100927"],
@@ -22865,7 +26390,7 @@ const mockup = {
         },
         "active": true,
         "workorder": {
-            "text": "Test Work Order - Mei",
+            "text": "Furniture Installation",
             "value": "86"
         },
         "events": ["100927"],
@@ -22907,7 +26432,7 @@ const mockup = {
         },
         "active": true,
         "workorder": {
-            "text": "FOP Dry Run Oct 22",
+            "text": "Furniture Installation",
             "value": "87"
         },
         "events": ["100931", "100932", "100933", "100950", "100952", "100953", "100954"],
@@ -22952,7 +26477,7 @@ const mockup = {
         },
         "active": true,
         "workorder": {
-            "text": "FOP Dry Run Oct 22",
+            "text": "Furniture Installation",
             "value": "87"
         },
         "events": ["100931"],
@@ -22997,7 +26522,7 @@ const mockup = {
         },
         "active": true,
         "workorder": {
-            "text": "FOP Dry Run Oct 22",
+            "text": "Furniture Installation",
             "value": "87"
         },
         "events": ["100931"],
@@ -23036,7 +26561,7 @@ const mockup = {
         },
         "active": true,
         "workorder": {
-            "text": "FOP Dry Run Oct 22",
+            "text": "Furniture Installation",
             "value": "87"
         },
         "events": ["100931"],
@@ -23348,7 +26873,7 @@ const mockup = {
             "text": "Work Order - Oct 31 - Test 1",
             "value": "92"
         },
-        "events": ["101006", "101007", "101008"],
+        "events": ["101006"],
         "employee": {
             "text": "Gary Grant",
             "value": "1312"
@@ -23387,7 +26912,7 @@ const mockup = {
         },
         "active": true,
         "workorder": {
-            "text": "Test Work Order - Mei",
+            "text": "Furniture Installation",
             "value": "86"
         },
         "events": ["101003"],
@@ -23429,7 +26954,7 @@ const mockup = {
         },
         "active": true,
         "workorder": {
-            "text": "Test Work Order - Mei",
+            "text": "Furniture Installation",
             "value": "86"
         },
         "events": ["101003"],
@@ -24053,7 +27578,7 @@ const mockup = {
         },
         "active": true,
         "workorder": {
-            "text": "Install Furniture",
+            "text": "Furniture Installation",
             "value": "1"
         },
         "events": [],
@@ -24107,7 +27632,7 @@ const mockup = {
         },
         "active": true,
         "workorder": {
-            "text": "Test",
+            "text": "Flooring Installation",
             "value": "31"
         },
         "events": ["100723"],
@@ -24257,7 +27782,7 @@ const mockup = {
         },
         "active": true,
         "workorder": {
-            "text": "Install Furniture",
+            "text": "Furniture Installation",
             "value": "1"
         },
         "events": ["100682"],
@@ -24311,7 +27836,7 @@ const mockup = {
         },
         "active": true,
         "workorder": {
-            "text": "Install Furniture",
+            "text": "Furniture Installation",
             "value": "1"
         },
         "events": ["100682"],
@@ -24347,7 +27872,7 @@ const mockup = {
         },
         "active": true,
         "workorder": {
-            "text": "Install Furniture",
+            "text": "Furniture Installation",
             "value": "1"
         },
         "events": ["100682"],
@@ -24386,7 +27911,7 @@ const mockup = {
             "text": "",
             "value": ""
         },
-        "events": ["26"],
+        "events": [],
         "employee": {
             "text": "Arun Sharma",
             "value": "1770"
@@ -24641,7 +28166,7 @@ const mockup = {
         },
         "active": true,
         "workorder": {
-            "text": "Test",
+            "text": "Flooring Installation",
             "value": "31"
         },
         "events": ["100724"],
@@ -24749,7 +28274,7 @@ const mockup = {
         },
         "active": true,
         "workorder": {
-            "text": "Work Order Sample July 22",
+            "text": "AV Installation",
             "value": "33"
         },
         "events": ["100740"],
@@ -24803,7 +28328,7 @@ const mockup = {
         },
         "active": true,
         "workorder": {
-            "text": "TEST XYZ",
+            "text": "Furniture Installation",
             "value": "66"
         },
         "events": ["100961"],
@@ -24857,7 +28382,7 @@ const mockup = {
         },
         "active": true,
         "workorder": {
-            "text": "Test Work Order - Mei",
+            "text": "Furniture Installation",
             "value": "86"
         },
         "events": ["100936"],
@@ -24997,48 +28522,6 @@ const mockup = {
         "affiliationType": {
             "text": "In-House",
             "value": "1"
-        }
-    }, {
-        "id": "241",
-        "name": "Gary Grant",
-        "initials": "GG",
-        "email": "garygrant@ramsey.com",
-        "phone": "(873) 775-6114",
-        "location": {
-            "text": "02: Boston",
-            "value": "1"
-        },
-        "active": true,
-        "workorder": {
-            "text": "",
-            "value": ""
-        },
-        "events": ["101005"],
-        "employee": {
-            "text": "Gary Grant",
-            "value": "1312"
-        },
-        "resourceGroups": [{
-            "text": "Installers",
-            "value": "1"
-        }],
-        "types": [{
-            "text": "Installer",
-            "value": "1"
-        }],
-        "subTypes": [],
-        "rate": 30,
-        "vendor": {
-            "text": "",
-            "value": ""
-        },
-        "purchaseOrder": {
-            "text": " ",
-            "value": ""
-        },
-        "affiliationType": {
-            "text": "Crew Enhancement",
-            "value": "3"
         }
     }, {
         "id": "242",
@@ -25220,7 +28703,7 @@ const mockup = {
         },
         "active": true,
         "workorder": {
-            "text": "TEST XYZ",
+            "text": "Furniture Installation",
             "value": "66"
         },
         "events": ["100961"],
@@ -25262,7 +28745,7 @@ const mockup = {
         },
         "active": true,
         "workorder": {
-            "text": "TEST XYZ",
+            "text": "Furniture Installation",
             "value": "66"
         },
         "events": [],
@@ -25376,6 +28859,678 @@ const mockup = {
             "text": "In-House",
             "value": "1"
         }
+    }, {
+        "id": "253",
+        "name": "Gary Grant",
+        "initials": "GG",
+        "email": "garygrant@ramsey.com",
+        "phone": "(873) 775-6114",
+        "location": {
+            "text": "02: Boston",
+            "value": "1"
+        },
+        "active": true,
+        "workorder": {
+            "text": "Furniture Installation",
+            "value": "103"
+        },
+        "events": ["101028"],
+        "employee": {
+            "text": "Gary Grant",
+            "value": "1312"
+        },
+        "resourceGroups": [{
+            "text": "Installers",
+            "value": "1"
+        }],
+        "types": [{
+            "text": "Installer",
+            "value": "1"
+        }],
+        "subTypes": [],
+        "rate": 0,
+        "vendor": {
+            "text": "",
+            "value": ""
+        },
+        "purchaseOrder": {
+            "text": " ",
+            "value": ""
+        },
+        "affiliationType": {
+            "text": "Crew Enhancement",
+            "value": "3"
+        }
+    }, {
+        "id": "254",
+        "name": "Aiden Somerhalder",
+        "initials": "AS",
+        "email": "admin@ramsey.com",
+        "phone": "",
+        "location": {
+            "text": "01: San Francisco",
+            "value": "2"
+        },
+        "active": true,
+        "workorder": {
+            "text": "AV Installation Only",
+            "value": "104"
+        },
+        "events": ["101029"],
+        "employee": {
+            "text": "Aiden Somerhalder",
+            "value": "1524"
+        },
+        "resourceGroups": [{
+            "text": "Installers",
+            "value": "1"
+        }],
+        "types": [{
+            "text": "Installer",
+            "value": "1"
+        }],
+        "subTypes": [],
+        "rate": 0,
+        "vendor": {
+            "text": "",
+            "value": ""
+        },
+        "purchaseOrder": {
+            "text": " ",
+            "value": ""
+        },
+        "affiliationType": {
+            "text": "In-House",
+            "value": "1"
+        }
+    }, {
+        "id": "255",
+        "name": "Brandy Samms",
+        "initials": "BS",
+        "email": "adminaccess2@ramsey.com",
+        "phone": "(713) 456-7878",
+        "location": {
+            "text": "",
+            "value": ""
+        },
+        "active": true,
+        "workorder": {
+            "text": "AV Installation Only",
+            "value": "104"
+        },
+        "events": ["101029"],
+        "employee": {
+            "text": "Brandy Samms",
+            "value": "1545"
+        },
+        "resourceGroups": [{
+            "text": "Installers",
+            "value": "1"
+        }],
+        "types": [{
+            "text": "Installer",
+            "value": "1"
+        }],
+        "subTypes": [],
+        "rate": 0,
+        "vendor": {
+            "text": "",
+            "value": ""
+        },
+        "purchaseOrder": {
+            "text": " ",
+            "value": ""
+        },
+        "affiliationType": {
+            "text": "In-House",
+            "value": "1"
+        }
+    }, {
+        "id": "256",
+        "name": "Brenda Jones",
+        "initials": "BJ",
+        "email": "bjones@ramsey.com",
+        "phone": "",
+        "location": {
+            "text": "01: San Francisco",
+            "value": "2"
+        },
+        "active": true,
+        "workorder": {
+            "text": "Furniture Installation",
+            "value": "103"
+        },
+        "events": ["101030"],
+        "employee": {
+            "text": "Brenda Jones",
+            "value": "1516"
+        },
+        "resourceGroups": [{
+            "text": "Installers",
+            "value": "1"
+        }],
+        "types": [{
+            "text": "Installer",
+            "value": "1"
+        }],
+        "subTypes": [],
+        "rate": 0,
+        "vendor": {
+            "text": "",
+            "value": ""
+        },
+        "purchaseOrder": {
+            "text": " ",
+            "value": ""
+        },
+        "affiliationType": {
+            "text": "In-House",
+            "value": "1"
+        }
+    }, {
+        "id": "257",
+        "name": "Brenda Wilson",
+        "initials": "BW",
+        "email": "bwilson@ramsey.com",
+        "phone": "",
+        "location": {
+            "text": "01: San Francisco : QA Hold",
+            "value": "5"
+        },
+        "active": true,
+        "workorder": {
+            "text": "Furniture Installation",
+            "value": "103"
+        },
+        "events": ["101030"],
+        "employee": {
+            "text": "Brenda Wilson",
+            "value": "1513"
+        },
+        "resourceGroups": [{
+            "text": "Installers",
+            "value": "1"
+        }],
+        "types": [{
+            "text": "Installer",
+            "value": "1"
+        }],
+        "subTypes": [],
+        "rate": 0,
+        "vendor": {
+            "text": "",
+            "value": ""
+        },
+        "purchaseOrder": {
+            "text": " ",
+            "value": ""
+        },
+        "affiliationType": {
+            "text": "In-House",
+            "value": "1"
+        }
+    }, {
+        "id": "258",
+        "name": "Aiden Somerhalder",
+        "initials": "AS",
+        "email": "admin@ramsey.com",
+        "phone": "",
+        "location": {
+            "text": "01: San Francisco",
+            "value": "2"
+        },
+        "active": true,
+        "workorder": {
+            "text": "",
+            "value": ""
+        },
+        "events": ["39"],
+        "employee": {
+            "text": "Aiden Somerhalder",
+            "value": "1524"
+        },
+        "resourceGroups": [{
+            "text": "Installers",
+            "value": "1"
+        }],
+        "types": [{
+            "text": "Installer",
+            "value": "1"
+        }],
+        "subTypes": [],
+        "rate": 0,
+        "vendor": {
+            "text": "",
+            "value": ""
+        },
+        "purchaseOrder": {
+            "text": " ",
+            "value": ""
+        },
+        "affiliationType": {
+            "text": "In-House",
+            "value": "1"
+        }
+    }, {
+        "id": "259",
+        "name": "Aiden Somerhalder",
+        "initials": "AS",
+        "email": "admin@ramsey.com",
+        "phone": "",
+        "location": {
+            "text": "01: San Francisco",
+            "value": "2"
+        },
+        "active": true,
+        "workorder": {
+            "text": "Furniture Installation",
+            "value": "105"
+        },
+        "events": ["101031"],
+        "employee": {
+            "text": "Aiden Somerhalder",
+            "value": "1524"
+        },
+        "resourceGroups": [{
+            "text": "Installers",
+            "value": "1"
+        }],
+        "types": [{
+            "text": "Installer",
+            "value": "1"
+        }],
+        "subTypes": [],
+        "rate": 0,
+        "vendor": {
+            "text": "",
+            "value": ""
+        },
+        "purchaseOrder": {
+            "text": " ",
+            "value": ""
+        },
+        "affiliationType": {
+            "text": "In-House",
+            "value": "1"
+        }
+    }, {
+        "id": "260",
+        "name": "Aiden Somerhalder",
+        "initials": "AS",
+        "email": "admin@ramsey.com",
+        "phone": "",
+        "location": {
+            "text": "01: San Francisco",
+            "value": "2"
+        },
+        "active": true,
+        "workorder": {
+            "text": "Furniture Installation",
+            "value": "87"
+        },
+        "events": ["100953"],
+        "employee": {
+            "text": "Aiden Somerhalder",
+            "value": "1524"
+        },
+        "resourceGroups": [{
+            "text": "Installers",
+            "value": "1"
+        }],
+        "types": [{
+            "text": "Installer",
+            "value": "1"
+        }],
+        "subTypes": [],
+        "rate": 0,
+        "vendor": {
+            "text": "",
+            "value": ""
+        },
+        "purchaseOrder": {
+            "text": " ",
+            "value": ""
+        },
+        "affiliationType": {
+            "text": "In-House",
+            "value": "1"
+        }
+    }, {
+        "id": "261",
+        "name": "Clark Koozer",
+        "initials": "CK",
+        "email": "jc@erpsuccesspartners.com",
+        "phone": "650-555-8300",
+        "location": {
+            "text": "01: San Francisco",
+            "value": "2"
+        },
+        "active": true,
+        "workorder": {
+            "text": "Install Cove Lights",
+            "value": "106"
+        },
+        "events": ["101032", "101033", "101034"],
+        "employee": {
+            "text": "Clark Koozer",
+            "value": "23"
+        },
+        "resourceGroups": [{
+            "text": "Drivers",
+            "value": "3"
+        }],
+        "types": [{
+            "text": "Delivery Driver",
+            "value": "2"
+        }],
+        "subTypes": [],
+        "rate": 0,
+        "vendor": {
+            "text": "",
+            "value": ""
+        },
+        "purchaseOrder": {
+            "text": " ",
+            "value": ""
+        },
+        "affiliationType": {
+            "text": "In-House",
+            "value": "1"
+        }
+    }, {
+        "id": "262",
+        "name": "Ruth Smith",
+        "initials": "RS",
+        "email": "jc@erpsuccesspartners.com",
+        "phone": "(713) 555-1212",
+        "location": {
+            "text": "01: San Francisco",
+            "value": "2"
+        },
+        "active": true,
+        "workorder": {
+            "text": "Install Cove Lights",
+            "value": "106"
+        },
+        "events": ["101032", "101033"],
+        "employee": {
+            "text": "Ruth Smith",
+            "value": "1539"
+        },
+        "resourceGroups": [{
+            "text": "Installers",
+            "value": "1"
+        }],
+        "types": [{
+            "text": "Installer",
+            "value": "1"
+        }],
+        "subTypes": [],
+        "rate": 0,
+        "vendor": {
+            "text": "",
+            "value": ""
+        },
+        "purchaseOrder": {
+            "text": " ",
+            "value": ""
+        },
+        "affiliationType": {
+            "text": "In-House",
+            "value": "1"
+        }
+    }, {
+        "id": "263",
+        "name": "Dale Williams",
+        "initials": "DW",
+        "email": "jc@erpsuccesspartners.com",
+        "phone": "",
+        "location": {
+            "text": "01: San Francisco",
+            "value": "2"
+        },
+        "active": true,
+        "workorder": {
+            "text": "Install Cove Lights",
+            "value": "106"
+        },
+        "events": ["101032"],
+        "employee": {
+            "text": "Dale Williams",
+            "value": "224"
+        },
+        "resourceGroups": [{
+            "text": "Installers",
+            "value": "1"
+        }],
+        "types": [{
+            "text": "Installer",
+            "value": "1"
+        }],
+        "subTypes": [],
+        "rate": 0,
+        "vendor": {
+            "text": "",
+            "value": ""
+        },
+        "purchaseOrder": {
+            "text": " ",
+            "value": ""
+        },
+        "affiliationType": {
+            "text": "Crew Enhancement",
+            "value": "3"
+        }
+    }, {
+        "id": "264",
+        "name": "Walter Reagan",
+        "initials": "WR",
+        "email": "wreagan@ramsey.com",
+        "phone": "",
+        "location": {
+            "text": "02: Boston",
+            "value": "1"
+        },
+        "active": true,
+        "workorder": {
+            "text": "Install Cove Lights",
+            "value": "106"
+        },
+        "events": ["101032"],
+        "employee": {
+            "text": "Walter Reagan",
+            "value": "918"
+        },
+        "resourceGroups": [{
+            "text": "Installers",
+            "value": "1"
+        }],
+        "types": [{
+            "text": "Installer",
+            "value": "1"
+        }],
+        "subTypes": [],
+        "rate": 0,
+        "vendor": {
+            "text": "",
+            "value": ""
+        },
+        "purchaseOrder": {
+            "text": " ",
+            "value": ""
+        },
+        "affiliationType": {
+            "text": "Crew Enhancement",
+            "value": "3"
+        }
+    }, {
+        "id": "265",
+        "name": "Brian Harris",
+        "initials": "BH",
+        "email": "myohai@avectra.com",
+        "phone": "510-555-5290",
+        "location": {
+            "text": "01: San Francisco : QA Hold",
+            "value": "5"
+        },
+        "active": true,
+        "workorder": {
+            "text": "Work Order - Oct 31 - Test 1",
+            "value": "92"
+        },
+        "events": ["101007"],
+        "employee": {
+            "text": "Brian K Harris",
+            "value": "31"
+        },
+        "resourceGroups": [{
+            "text": "Installers",
+            "value": "1"
+        }],
+        "types": [{
+            "text": "Installer",
+            "value": "1"
+        }],
+        "subTypes": [],
+        "rate": 0,
+        "vendor": {
+            "text": "",
+            "value": ""
+        },
+        "purchaseOrder": {
+            "text": " ",
+            "value": ""
+        },
+        "affiliationType": {
+            "text": "In-House",
+            "value": "1"
+        }
+    }, {
+        "id": "266",
+        "name": "Carmen Matthews",
+        "initials": "CM",
+        "email": "cmatthews@ramsey.com",
+        "phone": "415-555-3696",
+        "location": {
+            "text": "01: San Francisco",
+            "value": "2"
+        },
+        "active": true,
+        "workorder": {
+            "text": "Install Cove Lights",
+            "value": "106"
+        },
+        "events": ["101033"],
+        "employee": {
+            "text": "Carmen Matthews",
+            "value": "24"
+        },
+        "resourceGroups": [{
+            "text": "Installers",
+            "value": "1"
+        }],
+        "types": [{
+            "text": "Installer",
+            "value": "1"
+        }],
+        "subTypes": [],
+        "rate": 0,
+        "vendor": {
+            "text": "",
+            "value": ""
+        },
+        "purchaseOrder": {
+            "text": " ",
+            "value": ""
+        },
+        "affiliationType": {
+            "text": "Crew Enhancement",
+            "value": "3"
+        }
+    }, {
+        "id": "267",
+        "name": "Brenda Wilson",
+        "initials": "BW",
+        "email": "bwilson@ramsey.com",
+        "phone": "",
+        "location": {
+            "text": "01: San Francisco : QA Hold",
+            "value": "5"
+        },
+        "active": true,
+        "workorder": {
+            "text": "",
+            "value": ""
+        },
+        "events": ["101005"],
+        "employee": {
+            "text": "Brenda Wilson",
+            "value": "1513"
+        },
+        "resourceGroups": [{
+            "text": "Installers",
+            "value": "1"
+        }],
+        "types": [{
+            "text": "Installer",
+            "value": "1"
+        }],
+        "subTypes": [],
+        "rate": 0,
+        "vendor": {
+            "text": "",
+            "value": ""
+        },
+        "purchaseOrder": {
+            "text": " ",
+            "value": ""
+        },
+        "affiliationType": {
+            "text": "In-House",
+            "value": "1"
+        }
+    }, {
+        "id": "268",
+        "name": "Clark Koozer",
+        "initials": "CK",
+        "email": "jc@erpsuccesspartners.com",
+        "phone": "650-555-8300",
+        "location": {
+            "text": "01: San Francisco",
+            "value": "2"
+        },
+        "active": true,
+        "workorder": {
+            "text": "Install Light Fixtures",
+            "value": "109"
+        },
+        "events": ["101035"],
+        "employee": {
+            "text": "Clark Koozer",
+            "value": "23"
+        },
+        "resourceGroups": [{
+            "text": "Drivers",
+            "value": "3"
+        }],
+        "types": [{
+            "text": "Delivery Driver",
+            "value": "2"
+        }],
+        "subTypes": [],
+        "rate": 0,
+        "vendor": {
+            "text": "",
+            "value": ""
+        },
+        "purchaseOrder": {
+            "text": " ",
+            "value": ""
+        },
+        "affiliationType": {
+            "text": "In-House",
+            "value": "1"
+        }
     }],
     "vendors": [{
         "id": "12",
@@ -25395,7 +29550,7 @@ const mockup = {
             "value": ""
         },
         "woVendor": false,
-        "events": ["39", "20", "100682", "100950", "100870", "100871", "100875", "100880", "100922", "100923", "100927", "100881", "100883", "100884", "100886", "100887", "100888", "100889", "100890", "100891", "100899", "100900", "100902", "100903", "100904", "100905", "100906", "100912", "100913", "100915", "100882", "100901", "100939", "100942", "100947", "100933", "100931", "100951", "100952", "100953", "100954", "100968", "101004", "101003", "101008", "101006", "101005", "101012", "101015", "101017", "101018", "101007", "101011", "101010"],
+        "events": ["39", "20", "100682", "100968", "100950", "100870", "100871", "100875", "100880", "100922", "100923", "100927", "100881", "100883", "100884", "100886", "100887", "100888", "100889", "100890", "100891", "100899", "100900", "100902", "100903", "100904", "100905", "100906", "100912", "100913", "100915", "100882", "100901", "100939", "100942", "100947", "100933", "100931", "100951", "100952", "100953", "100954", "101004", "101003", "101008", "101006", "101005", "101012", "101015", "101032", "101033", "101017", "101007", "101011", "101010", "101028"],
         "memo": ""
     }, {
         "id": "1473",
@@ -25415,7 +29570,7 @@ const mockup = {
             "value": ""
         },
         "woVendor": false,
-        "events": ["39", "6", "100682", "100874", "100875", "100876", "100877", "100878", "100879", "100924", "100885", "100887", "100916", "100939", "100938", "100945", "100942", "100947", "100946", "100933", "100931", "100932", "100951", "100955", "100956", "100969", "100960", "100968", "100970", "101008", "101005", "101010"],
+        "events": ["39", "6", "100682", "100968", "100874", "100875", "100876", "100877", "100878", "100879", "100924", "100885", "100887", "100916", "100939", "100938", "100945", "100942", "100947", "100946", "100933", "100931", "100932", "100951", "100955", "100956", "100969", "100960", "100970", "101008", "101005", "101010"],
         "memo": ""
     }, {
         "id": "1661",
@@ -25493,7 +29648,7 @@ const mockup = {
             "text": "",
             "value": ""
         },
-        "events": ["39", "100750", "100812", "100816", "100858", "100950", "100859", "100860", "100862", "100863", "100861", "100866", "100867", "100869", "100870", "100868", "100871", "100875", "100876", "100877", "100878", "100879", "100880", "100924", "100922", "100923", "100927", "100881", "100883", "100885", "100886", "100887", "100888", "100889", "100890", "100891", "100899", "100900", "100902", "100903", "100904", "100905", "100906", "100912", "100913", "100915", "100916", "100882", "100901", "100945", "100947", "100946", "100933", "100931", "100932", "100955", "100956", "100952", "100953", "100954", "100969", "100960", "100968", "100970", "101003", "101008", "101006", "101012", "101015", "101007", "101011", "101010"]
+        "events": ["39", "100968", "100812", "100816", "100858", "100950", "100859", "100860", "100862", "100863", "100861", "100866", "100867", "100869", "100870", "100868", "100871", "100875", "100876", "100877", "100878", "100879", "100880", "100924", "100922", "100923", "100927", "100881", "100883", "100885", "100886", "100887", "100888", "100889", "100890", "100891", "100899", "100900", "100902", "100903", "100904", "100905", "100906", "100912", "100913", "100915", "100916", "100882", "100901", "100945", "100947", "100946", "100933", "100931", "100932", "100955", "100956", "100952", "100953", "100954", "100969", "100960", "100970", "101003", "101008", "101006", "101012", "101015", "101033", "101007", "101011", "101010", "101028", "100750"]
     }],
     "events": [{
         "id": "101004",
@@ -25515,7 +29670,7 @@ const mockup = {
         },
         "time": {
             "start": "08:00",
-            "end": "18:00"
+            "end": "22:00"
         },
         "priority": {
             "text": "Low",
@@ -25703,7 +29858,7 @@ const mockup = {
         "id": "101003",
         "title": "Test Work Order - Mei",
         "workorder": {
-            "text": "Test Work Order - Mei",
+            "text": "Furniture Installation",
             "value": "86"
         },
         "location": "",
@@ -25731,10 +29886,10 @@ const mockup = {
         "color": "#1a6756",
         "woRef": {
             "id": "86",
-            "name": "Test Work Order - Mei",
-            "title": "Test Work Order - Mei",
+            "name": "Furniture Installation",
+            "title": "Furniture Installation",
             "project": {
-                "text": "AB&I Holdings : Field Ops Pro Project",
+                "text": "World Bank : Furniture and AV Installation",
                 "value": "1883"
             },
             "date": "10/21/2024",
@@ -25753,7 +29908,7 @@ const mockup = {
                 "value": "19521"
             },
             "customer": {
-                "text": "AB&I Holdings",
+                "text": "World Bank",
                 "value": "1249"
             },
             "resourceGroup": {
@@ -25773,7 +29928,7 @@ const mockup = {
                 "email": "",
                 "initials": "BF",
                 "workorder": {
-                    "text": "Test Work Order - Mei",
+                    "text": "Furniture Installation",
                     "value": "86"
                 },
                 "event": "100927",
@@ -25798,7 +29953,7 @@ const mockup = {
                 "email": "",
                 "initials": "BF",
                 "workorder": {
-                    "text": "Test Work Order - Mei",
+                    "text": "Furniture Installation",
                     "value": "86"
                 },
                 "event": "100947",
@@ -25823,7 +29978,7 @@ const mockup = {
                 "email": "",
                 "initials": "BF",
                 "workorder": {
-                    "text": "Test Work Order - Mei",
+                    "text": "Furniture Installation",
                     "value": "86"
                 },
                 "event": "100942",
@@ -25848,7 +30003,7 @@ const mockup = {
                 "email": "",
                 "initials": "BF",
                 "workorder": {
-                    "text": "Test Work Order - Mei",
+                    "text": "Furniture Installation",
                     "value": "86"
                 },
                 "event": "101003",
@@ -25873,7 +30028,7 @@ const mockup = {
                 "email": "support@bridgempointindustries.com.de",
                 "initials": "BI",
                 "workorder": {
-                    "text": "Test Work Order - Mei",
+                    "text": "Furniture Installation",
                     "value": "86"
                 },
                 "event": "100942",
@@ -25898,7 +30053,7 @@ const mockup = {
                 "email": "support@bridgempointindustries.com.de",
                 "initials": "BI",
                 "workorder": {
-                    "text": "Test Work Order - Mei",
+                    "text": "Furniture Installation",
                     "value": "86"
                 },
                 "event": "100946",
@@ -25923,7 +30078,7 @@ const mockup = {
                 "email": "support@bridgempointindustries.com.de",
                 "initials": "BI",
                 "workorder": {
-                    "text": "Test Work Order - Mei",
+                    "text": "Furniture Installation",
                     "value": "86"
                 },
                 "event": "100947",
@@ -25948,7 +30103,7 @@ const mockup = {
                 "email": "support@bridgempointindustries.com.de",
                 "initials": "BI",
                 "workorder": {
-                    "text": "Test Work Order - Mei",
+                    "text": "Furniture Installation",
                     "value": "86"
                 },
                 "event": "100938",
@@ -25973,7 +30128,7 @@ const mockup = {
                 "email": "support@bridgempointindustries.com.de",
                 "initials": "BI",
                 "workorder": {
-                    "text": "Test Work Order - Mei",
+                    "text": "Furniture Installation",
                     "value": "86"
                 },
                 "event": "100955",
@@ -25998,7 +30153,7 @@ const mockup = {
                 "email": "support@bridgempointindustries.com.de",
                 "initials": "BI",
                 "workorder": {
-                    "text": "Test Work Order - Mei",
+                    "text": "Furniture Installation",
                     "value": "86"
                 },
                 "event": "100970",
@@ -26023,7 +30178,7 @@ const mockup = {
                 "email": "payables@cdp.com",
                 "initials": "CD",
                 "workorder": {
-                    "text": "Test Work Order - Mei",
+                    "text": "Furniture Installation",
                     "value": "86"
                 },
                 "event": "100940",
@@ -26048,7 +30203,7 @@ const mockup = {
                 "email": "login+cbi2@erpsuccesspartners.com",
                 "initials": "HI",
                 "workorder": {
-                    "text": "Test Work Order - Mei",
+                    "text": "Furniture Installation",
                     "value": "86"
                 },
                 "event": "100940",
@@ -26067,7 +30222,7 @@ const mockup = {
                 "id": "70",
                 "name": "ELE00002",
                 "workorder": {
-                    "text": "Test Work Order - Mei",
+                    "text": "Furniture Installation",
                     "value": "86"
                 },
                 "event": "100927",
@@ -26102,7 +30257,7 @@ const mockup = {
                 "id": "77",
                 "name": "ELE00002",
                 "workorder": {
-                    "text": "Test Work Order - Mei",
+                    "text": "Furniture Installation",
                     "value": "86"
                 },
                 "event": "100946",
@@ -26137,7 +30292,7 @@ const mockup = {
                 "id": "78",
                 "name": "ELE00002",
                 "workorder": {
-                    "text": "Test Work Order - Mei",
+                    "text": "Furniture Installation",
                     "value": "86"
                 },
                 "event": "100947",
@@ -26172,7 +30327,7 @@ const mockup = {
                 "id": "86",
                 "name": "ELE00002",
                 "workorder": {
-                    "text": "Test Work Order - Mei",
+                    "text": "Furniture Installation",
                     "value": "86"
                 },
                 "event": "100955",
@@ -26207,7 +30362,7 @@ const mockup = {
                 "id": "97",
                 "name": "ELE00002",
                 "workorder": {
-                    "text": "Test Work Order - Mei",
+                    "text": "Furniture Installation",
                     "value": "86"
                 },
                 "event": "100970",
@@ -26242,7 +30397,7 @@ const mockup = {
                 "id": "101",
                 "name": "ELE00002",
                 "workorder": {
-                    "text": "Test Work Order - Mei",
+                    "text": "Furniture Installation",
                     "value": "86"
                 },
                 "event": "101003",
@@ -26277,7 +30432,7 @@ const mockup = {
             "items": [{
                 "id": "241",
                 "workorder": {
-                    "text": "Test Work Order - Mei",
+                    "text": "Furniture Installation",
                     "value": "86"
                 },
                 "salesorder": {
@@ -26298,7 +30453,7 @@ const mockup = {
             }, {
                 "id": "242",
                 "workorder": {
-                    "text": "Test Work Order - Mei",
+                    "text": "Furniture Installation",
                     "value": "86"
                 },
                 "salesorder": {
@@ -26319,7 +30474,7 @@ const mockup = {
             }, {
                 "id": "261",
                 "workorder": {
-                    "text": "Test Work Order - Mei",
+                    "text": "Furniture Installation",
                     "value": "86"
                 },
                 "salesorder": {
@@ -26340,7 +30495,7 @@ const mockup = {
             }, {
                 "id": "266",
                 "workorder": {
-                    "text": "Test Work Order - Mei",
+                    "text": "Furniture Installation",
                     "value": "86"
                 },
                 "salesorder": {
@@ -26361,7 +30516,7 @@ const mockup = {
             }, {
                 "id": "272",
                 "workorder": {
-                    "text": "Test Work Order - Mei",
+                    "text": "Furniture Installation",
                     "value": "86"
                 },
                 "salesorder": {
@@ -26382,7 +30537,7 @@ const mockup = {
             }, {
                 "id": "274",
                 "workorder": {
-                    "text": "Test Work Order - Mei",
+                    "text": "Furniture Installation",
                     "value": "86"
                 },
                 "salesorder": {
@@ -26403,7 +30558,7 @@ const mockup = {
             }, {
                 "id": "275",
                 "workorder": {
-                    "text": "Test Work Order - Mei",
+                    "text": "Furniture Installation",
                     "value": "86"
                 },
                 "salesorder": {
@@ -26424,7 +30579,7 @@ const mockup = {
             }, {
                 "id": "283",
                 "workorder": {
-                    "text": "Test Work Order - Mei",
+                    "text": "Furniture Installation",
                     "value": "86"
                 },
                 "salesorder": {
@@ -26445,7 +30600,7 @@ const mockup = {
             }, {
                 "id": "284",
                 "workorder": {
-                    "text": "Test Work Order - Mei",
+                    "text": "Furniture Installation",
                     "value": "86"
                 },
                 "salesorder": {
@@ -26466,7 +30621,7 @@ const mockup = {
             }, {
                 "id": "312",
                 "workorder": {
-                    "text": "Test Work Order - Mei",
+                    "text": "Furniture Installation",
                     "value": "86"
                 },
                 "salesorder": {
@@ -26487,7 +30642,7 @@ const mockup = {
             }, {
                 "id": "313",
                 "workorder": {
-                    "text": "Test Work Order - Mei",
+                    "text": "Furniture Installation",
                     "value": "86"
                 },
                 "salesorder": {
@@ -26508,7 +30663,7 @@ const mockup = {
             }, {
                 "id": "320",
                 "workorder": {
-                    "text": "Test Work Order - Mei",
+                    "text": "Furniture Installation",
                     "value": "86"
                 },
                 "salesorder": {
@@ -26529,7 +30684,7 @@ const mockup = {
             }, {
                 "id": "321",
                 "workorder": {
-                    "text": "Test Work Order - Mei",
+                    "text": "Furniture Installation",
                     "value": "86"
                 },
                 "salesorder": {
@@ -26551,35 +30706,35 @@ const mockup = {
             "addresses": [{
                 "id": "63",
                 "workorder": {
-                    "text": "Test Work Order - Mei",
+                    "text": "Furniture Installation",
                     "value": "86"
                 },
                 "customer": {
-                    "text": "AB&I Holdings",
+                    "text": "World Bank",
                     "value": "1249"
                 },
                 "events": ["100927"],
                 "address": {
-                    "text": "1701 Rollins Road",
+                    "text": "434 Carlaw",
                     "value": "244878"
                 },
-                "addressDetails": "",
+                "addressDetails": "434 Carlaw Road<br/>Los Angeles NY 12412<br/>United States",
                 "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
             }],
             "contacts": [{
                 "id": "75",
                 "workorder": {
-                    "text": "Test Work Order - Mei",
+                    "text": "Furniture Installation",
                     "value": "86"
                 },
                 "events": ["100927"],
                 "contact": {
-                    "text": "AB&I Holdings : Test Prav",
+                    "text": "World Bank : John Smith",
                     "value": "1892"
                 },
-                "name": "Test Prav",
-                "email": "pravallika@erpsuccesspartners.com",
-                "jobTitle": "QA",
+                "name": "John Smith",
+                "email": "jsmith@worldbank.com",
+                "jobTitle": "Logistics",
                 "mobilePhone": "",
                 "phone": "",
                 "primary": true,
@@ -26589,7 +30744,7 @@ const mockup = {
                 "id": "100927",
                 "title": "Test Event 123",
                 "workorder": {
-                    "text": "Test Work Order - Mei",
+                    "text": "Furniture Installation",
                     "value": "86"
                 },
                 "location": "",
@@ -26638,7 +30793,7 @@ const mockup = {
                 "id": "100934",
                 "title": "Test Work Order - Mei",
                 "workorder": {
-                    "text": "Test Work Order - Mei",
+                    "text": "Furniture Installation",
                     "value": "86"
                 },
                 "location": "",
@@ -26687,7 +30842,7 @@ const mockup = {
                 "id": "100937",
                 "title": "Test Work Order - Mei 111222",
                 "workorder": {
-                    "text": "Test Work Order - Mei",
+                    "text": "Furniture Installation",
                     "value": "86"
                 },
                 "location": "",
@@ -26736,7 +30891,7 @@ const mockup = {
                 "id": "100938",
                 "title": "Test Work Order - Mei 122",
                 "workorder": {
-                    "text": "Test Work Order - Mei",
+                    "text": "Furniture Installation",
                     "value": "86"
                 },
                 "location": "",
@@ -26785,7 +30940,7 @@ const mockup = {
                 "id": "100936",
                 "title": "Test Work Order - Mei 111",
                 "workorder": {
-                    "text": "Test Work Order - Mei",
+                    "text": "Furniture Installation",
                     "value": "86"
                 },
                 "location": "",
@@ -26834,7 +30989,7 @@ const mockup = {
                 "id": "100940",
                 "title": "Test Work Order - Mei",
                 "workorder": {
-                    "text": "Test Work Order - Mei",
+                    "text": "Furniture Installation",
                     "value": "86"
                 },
                 "location": "",
@@ -26883,7 +31038,7 @@ const mockup = {
                 "id": "100942",
                 "title": "Test Work Order - Mei",
                 "workorder": {
-                    "text": "Test Work Order - Mei",
+                    "text": "Furniture Installation",
                     "value": "86"
                 },
                 "location": "",
@@ -26932,7 +31087,7 @@ const mockup = {
                 "id": "100947",
                 "title": "Test Work Order - Mei",
                 "workorder": {
-                    "text": "Test Work Order - Mei",
+                    "text": "Furniture Installation",
                     "value": "86"
                 },
                 "location": "",
@@ -26981,7 +31136,7 @@ const mockup = {
                 "id": "100946",
                 "title": "Test Work Order - Mei",
                 "workorder": {
-                    "text": "Test Work Order - Mei",
+                    "text": "Furniture Installation",
                     "value": "86"
                 },
                 "location": "",
@@ -27030,7 +31185,7 @@ const mockup = {
                 "id": "100955",
                 "title": "Test Work Order - Mei",
                 "workorder": {
-                    "text": "Test Work Order - Mei",
+                    "text": "Furniture Installation",
                     "value": "86"
                 },
                 "location": "",
@@ -27079,7 +31234,7 @@ const mockup = {
                 "id": "100970",
                 "title": "Test Work Order - Mei",
                 "workorder": {
-                    "text": "Test Work Order - Mei",
+                    "text": "Furniture Installation",
                     "value": "86"
                 },
                 "location": "",
@@ -27128,7 +31283,7 @@ const mockup = {
                 "id": "100971",
                 "title": "Test Work Order - Mei",
                 "workorder": {
-                    "text": "Test Work Order - Mei",
+                    "text": "Furniture Installation",
                     "value": "86"
                 },
                 "location": "",
@@ -27177,7 +31332,7 @@ const mockup = {
                 "id": "101003",
                 "title": "Test Work Order - Mei",
                 "workorder": {
-                    "text": "Test Work Order - Mei",
+                    "text": "Furniture Installation",
                     "value": "86"
                 },
                 "location": "",
@@ -27240,7 +31395,7 @@ const mockup = {
             },
             "active": true,
             "workorder": {
-                "text": "Test Work Order - Mei",
+                "text": "Furniture Installation",
                 "value": "86"
             },
             "events": ["101003"],
@@ -27283,7 +31438,7 @@ const mockup = {
             },
             "active": true,
             "workorder": {
-                "text": "Test Work Order - Mei",
+                "text": "Furniture Installation",
                 "value": "86"
             },
             "events": ["101003"],
@@ -27326,7 +31481,7 @@ const mockup = {
             "email": "",
             "initials": "BF",
             "workorder": {
-                "text": "Test Work Order - Mei",
+                "text": "Furniture Installation",
                 "value": "86"
             },
             "event": "101003",
@@ -27346,7 +31501,7 @@ const mockup = {
             "id": "101",
             "name": "ELE00002",
             "workorder": {
-                "text": "Test Work Order - Mei",
+                "text": "Furniture Installation",
                 "value": "86"
             },
             "event": "101003",
@@ -27382,7 +31537,7 @@ const mockup = {
         "items": [{
             "id": "320",
             "workorder": {
-                "text": "Test Work Order - Mei",
+                "text": "Furniture Installation",
                 "value": "86"
             },
             "salesorder": {
@@ -27404,7 +31559,7 @@ const mockup = {
         }, {
             "id": "321",
             "workorder": {
-                "text": "Test Work Order - Mei",
+                "text": "Furniture Installation",
                 "value": "86"
             },
             "salesorder": {
@@ -27473,7 +31628,7 @@ const mockup = {
             "name": "Work Order - Oct 31 - Test 1",
             "title": "Work Order - Oct 31 - Test 1",
             "project": {
-                "text": "AB&I Holdings : Furniture Project",
+                "text": "World Bank : Design, Furniture and Flooring Project",
                 "value": "1612"
             },
             "date": "11/1/2024",
@@ -27492,7 +31647,7 @@ const mockup = {
                 "value": "20852"
             },
             "customer": {
-                "text": "AB&I Holdings",
+                "text": "World Bank",
                 "value": "1249"
             },
             "resourceGroup": {
@@ -27870,12 +32025,12 @@ const mockup = {
                     "value": "92"
                 },
                 "customer": {
-                    "text": "AB&I Holdings",
+                    "text": "World Bank",
                     "value": "1249"
                 },
                 "events": ["101008"],
                 "address": {
-                    "text": "Address 1",
+                    "text": "12 Carlton Av",
                     "value": "245148"
                 },
                 "addressDetails": "",
@@ -27887,12 +32042,12 @@ const mockup = {
                     "value": "92"
                 },
                 "customer": {
-                    "text": "AB&I Holdings",
+                    "text": "World Bank",
                     "value": "1249"
                 },
                 "events": [],
                 "address": {
-                    "text": "Test Address 3",
+                    "text": "54 Tale",
                     "value": "245152"
                 },
                 "addressDetails": "",
@@ -27906,7 +32061,7 @@ const mockup = {
                 },
                 "events": ["101006", "101007"],
                 "contact": {
-                    "text": "AB&I Holdings : Test Prav",
+                    "text": "World Bank : John Smith",
                     "value": "1892"
                 },
                 "name": "Test Prav",
@@ -27924,7 +32079,7 @@ const mockup = {
                 },
                 "events": ["101008"],
                 "contact": {
-                    "text": "AB&I Holdings : Chad Bass",
+                    "text": "World Bank : Chad Bass",
                     "value": "1382"
                 },
                 "name": "Chad Bass",
@@ -27937,7 +32092,7 @@ const mockup = {
             }],
             "events": [{
                 "id": "100964",
-                "title": "Test Event 1",
+                "title": "Flooring Installation",
                 "workorder": {
                     "text": "Work Order - Oct 31 - Test 1",
                     "value": "92"
@@ -28242,49 +32397,6 @@ const mockup = {
             },
             "selected": true
         }, {
-            "id": "155",
-            "name": "Gary Grant",
-            "initials": "GG",
-            "email": "garygrant@ramsey.com",
-            "phone": "(873) 775-6114",
-            "location": {
-                "text": "02: Boston",
-                "value": "1"
-            },
-            "active": true,
-            "workorder": {
-                "text": "Work Order - Oct 31 - Test 1",
-                "value": "92"
-            },
-            "events": ["101006", "101007", "101008"],
-            "employee": {
-                "text": "Gary Grant",
-                "value": "1312"
-            },
-            "resourceGroups": [{
-                "text": "Installers",
-                "value": "1"
-            }],
-            "types": [{
-                "text": "Installer",
-                "value": "1"
-            }],
-            "subTypes": [],
-            "rate": 0,
-            "vendor": {
-                "text": "",
-                "value": ""
-            },
-            "purchaseOrder": {
-                "text": " ",
-                "value": ""
-            },
-            "affiliationType": {
-                "text": "Crew Enhancement",
-                "value": "3"
-            },
-            "selected": true
-        }, {
             "id": "191",
             "name": "Youssef Ezz",
             "initials": "YE",
@@ -28449,7 +32561,7 @@ const mockup = {
             },
             "events": ["101008"],
             "contact": {
-                "text": "AB&I Holdings : Chad Bass",
+                "text": "World Bank : Chad Bass",
                 "value": "1382"
             },
             "name": "Chad Bass",
@@ -28468,12 +32580,12 @@ const mockup = {
                 "value": "92"
             },
             "customer": {
-                "text": "AB&I Holdings",
+                "text": "World Bank",
                 "value": "1249"
             },
             "events": ["101008"],
             "address": {
-                "text": "Address 1",
+                "text": "12 Carlton Av",
                 "value": "245148"
             },
             "addressDetails": "",
@@ -28527,7 +32639,7 @@ const mockup = {
             "name": "Work Order - Oct 31 - Test 1",
             "title": "Work Order - Oct 31 - Test 1",
             "project": {
-                "text": "AB&I Holdings : Furniture Project",
+                "text": "World Bank : Design, Furniture and Flooring Project",
                 "value": "1612"
             },
             "date": "11/1/2024",
@@ -28546,7 +32658,7 @@ const mockup = {
                 "value": "20852"
             },
             "customer": {
-                "text": "AB&I Holdings",
+                "text": "World Bank",
                 "value": "1249"
             },
             "resourceGroup": {
@@ -28924,12 +33036,12 @@ const mockup = {
                     "value": "92"
                 },
                 "customer": {
-                    "text": "AB&I Holdings",
+                    "text": "World Bank",
                     "value": "1249"
                 },
                 "events": ["101008"],
                 "address": {
-                    "text": "Address 1",
+                    "text": "12 Carlton Av",
                     "value": "245148"
                 },
                 "addressDetails": "",
@@ -28941,12 +33053,12 @@ const mockup = {
                     "value": "92"
                 },
                 "customer": {
-                    "text": "AB&I Holdings",
+                    "text": "World Bank",
                     "value": "1249"
                 },
                 "events": [],
                 "address": {
-                    "text": "Test Address 3",
+                    "text": "54 Tale",
                     "value": "245152"
                 },
                 "addressDetails": "",
@@ -28960,7 +33072,7 @@ const mockup = {
                 },
                 "events": ["101006", "101007"],
                 "contact": {
-                    "text": "AB&I Holdings : Test Prav",
+                    "text": "World Bank : John Smith",
                     "value": "1892"
                 },
                 "name": "Test Prav",
@@ -28978,7 +33090,7 @@ const mockup = {
                 },
                 "events": ["101008"],
                 "contact": {
-                    "text": "AB&I Holdings : Chad Bass",
+                    "text": "World Bank : Chad Bass",
                     "value": "1382"
                 },
                 "name": "Chad Bass",
@@ -28991,7 +33103,7 @@ const mockup = {
             }],
             "events": [{
                 "id": "100964",
-                "title": "Test Event 1",
+                "title": "Flooring Installation",
                 "workorder": {
                     "text": "Work Order - Oct 31 - Test 1",
                     "value": "92"
@@ -29365,7 +33477,7 @@ const mockup = {
                 "text": "Work Order - Oct 31 - Test 1",
                 "value": "92"
             },
-            "events": ["101006", "101007", "101008"],
+            "events": ["101006"],
             "employee": {
                 "text": "Gary Grant",
                 "value": "1312"
@@ -29489,7 +33601,7 @@ const mockup = {
             },
             "events": ["101006", "101007"],
             "contact": {
-                "text": "AB&I Holdings : Test Prav",
+                "text": "World Bank : John Smith",
                 "value": "1892"
             },
             "name": "Test Prav",
@@ -29533,7 +33645,7 @@ const mockup = {
             "end": "2024-11-10"
         },
         "time": {
-            "start": "04:00",
+            "start": "00:00",
             "end": "14:00"
         },
         "priority": {
@@ -29601,14 +33713,14 @@ const mockup = {
             },
             "selected": true
         }, {
-            "id": "241",
-            "name": "Gary Grant",
-            "initials": "GG",
-            "email": "garygrant@ramsey.com",
-            "phone": "(873) 775-6114",
+            "id": "267",
+            "name": "Brenda Wilson",
+            "initials": "BW",
+            "email": "bwilson@ramsey.com",
+            "phone": "",
             "location": {
-                "text": "02: Boston",
-                "value": "1"
+                "text": "01: San Francisco : QA Hold",
+                "value": "5"
             },
             "active": true,
             "workorder": {
@@ -29617,8 +33729,8 @@ const mockup = {
             },
             "events": ["101005"],
             "employee": {
-                "text": "Gary Grant",
-                "value": "1312"
+                "text": "Brenda Wilson",
+                "value": "1513"
             },
             "resourceGroups": [{
                 "text": "Installers",
@@ -29629,7 +33741,7 @@ const mockup = {
                 "value": "1"
             }],
             "subTypes": [],
-            "rate": 30,
+            "rate": 0,
             "vendor": {
                 "text": "",
                 "value": ""
@@ -29639,8 +33751,8 @@ const mockup = {
                 "value": ""
             },
             "affiliationType": {
-                "text": "Crew Enhancement",
-                "value": "3"
+                "text": "In-House",
+                "value": "1"
             },
             "selected": true
         }],
@@ -29714,6 +33826,647 @@ const mockup = {
             "value": "1765"
         }
     }, {
+        "id": "101030",
+        "title": "Furniture Installation",
+        "workorder": {
+            "text": "Furniture Installation",
+            "value": "103"
+        },
+        "location": "",
+        "status": {
+            "text": "Tentative",
+            "value": "TENTATIVE",
+            "code": "bg-secondary"
+        },
+        "date": {
+            "recurrence": "occurs every day from 11/11/2024 until 11/13/2024",
+            "start": "2024-11-11",
+            "end": "2024-11-13"
+        },
+        "time": {
+            "start": "08:00",
+            "end": "18:00"
+        },
+        "priority": {
+            "text": "High",
+            "value": "3",
+            "code": "#ca6621"
+        },
+        "note": "",
+        "url": "/app/crm/calendar/event.nl?id=101030&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {
+            "id": "103",
+            "name": "Furniture Installation",
+            "title": "Furniture Installation",
+            "project": {
+                "text": "World Bank : Furniture and AV Installation",
+                "value": "1883"
+            },
+            "date": "11/10/2024",
+            "status": {
+                "text": "Not Started",
+                "value": "4",
+                "code": "#026adf"
+            },
+            "type": {
+                "text": "Service",
+                "value": "2"
+            },
+            "memo": "<ol><li>- **Review Furniture Layout Plans**: Confirm placement and orientation according to layout plans before beginning installation.</li><li>- **Unpack and Inventory Parts**: Carefully unpack each item and inventory all parts and hardware to ensure nothing is missing.</li><li>- **Organize Tools and Hardware**: Set up necessary tools (e.g., screwdriver, drill, wrench) and organize hardware for easy access during installation.</li><li>- **Assemble Base Components First**: Start by assembling the base or foundational components, such as legs or frames, ensuring they are stable and level.</li><li>- **Secure Structural Pieces**: Attach any primary structural pieces (e.g., tabletops, seat bases) to the base, following manufacturer instructions closely.</li><li>- **Install Secondary Components**: Add any secondary components, such as drawers, shelves, or panels, making sure they are properly aligned and secure.</li><li>- **Tighten All Screws and Bolts**: Go over all screws, bolts, and connectors to ensure everything is tightly secured and stable.</li><li>- **Check for Stability and Leveling**: Test the furniture for stability and make any necessary adjustments to ensure it is level.</li><li>- **Attach Accessories or Finishing Pieces**: Add finishing touches like knobs, covers, or cushions according to specifications.</li><li>- **Final Inspection**: Conduct a final inspection to ensure that all parts are securely assembled, aligned, and free of damage. Clean the area and remove any debris or packaging.</li></ol>",
+            "salesorder": {
+                "text": "Sales Order #SLS00000769",
+                "value": "20898"
+            },
+            "customer": {
+                "text": "World Bank",
+                "value": "1249"
+            },
+            "resourceGroup": {
+                "text": "",
+                "value": ""
+            },
+            "priority": "",
+            "resources": [],
+            "vendors": [{
+                "id": "164",
+                "name": "164",
+                "vendor": {
+                    "text": "Best Fixture, Inc.",
+                    "value": "12"
+                },
+                "url": "",
+                "email": "",
+                "initials": "BF",
+                "workorder": {
+                    "text": "Furniture Installation",
+                    "value": "103"
+                },
+                "event": "101028",
+                "quantityRequired": 1,
+                "quantityAvailable": 0,
+                "purchaseOrder": {
+                    "text": " ",
+                    "value": ""
+                },
+                "amount": 0,
+                "active": false,
+                "woVendor": true,
+                "memo": ""
+            }],
+            "assets": [{
+                "id": "113",
+                "name": "ELE00002",
+                "workorder": {
+                    "text": "Furniture Installation",
+                    "value": "103"
+                },
+                "event": "101028",
+                "quantity": 1,
+                "description": "Serialized 1 Sales Description",
+                "item": {
+                    "text": "ELE00002",
+                    "value": "674"
+                },
+                "equipmentType": {
+                    "text": "Hand Tools",
+                    "value": "1"
+                },
+                "rentalUnit": {
+                    "text": "",
+                    "value": ""
+                },
+                "rentalDuration": 0,
+                "rentalRate": 0,
+                "rentalAmount": 0,
+                "purchaseOrder": {
+                    "text": " ",
+                    "value": " "
+                },
+                "vendor": {
+                    "text": "Computer Depot Pacific",
+                    "value": "965"
+                },
+                "owned": true,
+                "rentalMatrix": 0
+            }],
+            "items": [{
+                "id": "384",
+                "workorder": {
+                    "text": "Furniture Installation",
+                    "value": "103"
+                },
+                "salesorder": {
+                    "text": "Sales Order #SLS00000769",
+                    "value": "20898"
+                },
+                "event": "",
+                "uuid": "20898_2",
+                "line": "2",
+                "item": {
+                    "text": "2375-6727",
+                    "value": "1426"
+                },
+                "description": "PANEL, TOP CAP, STANDARD, 60IN W, PREMISE, SVC",
+                "quantity": 10,
+                "availableQty": 10,
+                "note": ""
+            }, {
+                "id": "387",
+                "workorder": {
+                    "text": "Furniture Installation",
+                    "value": "103"
+                },
+                "salesorder": {
+                    "text": "Sales Order #SLS00000769",
+                    "value": "20898"
+                },
+                "event": "101028",
+                "uuid": "20898_2",
+                "line": "2",
+                "item": {
+                    "text": "2375-6727",
+                    "value": "1426"
+                },
+                "description": "PANEL, TOP CAP, STANDARD, 60IN W, PREMISE, SVC",
+                "quantity": 1,
+                "availableQty": 1,
+                "note": ""
+            }, {
+                "id": "388",
+                "workorder": {
+                    "text": "Furniture Installation",
+                    "value": "103"
+                },
+                "salesorder": {
+                    "text": "Sales Order #SLS00000769",
+                    "value": "20898"
+                },
+                "event": "101028",
+                "uuid": "20898_3",
+                "line": "3",
+                "item": {
+                    "text": "45XQ-2424-LJ4SCA",
+                    "value": "1013"
+                },
+                "description": "450 Series,Sq,24\"x24\",Lam,Edgeband,29\"H,X Base,Stat,No Mod,Cstr,Ptd",
+                "quantity": 1,
+                "availableQty": 1,
+                "note": ""
+            }, {
+                "id": "385",
+                "workorder": {
+                    "text": "Furniture Installation",
+                    "value": "103"
+                },
+                "salesorder": {
+                    "text": "Sales Order #SLS00000769",
+                    "value": "20898"
+                },
+                "event": "",
+                "uuid": "20898_3",
+                "line": "3",
+                "item": {
+                    "text": "45XQ-2424-LJ4SCA",
+                    "value": "1013"
+                },
+                "description": "450 Series,Sq,24\"x24\",Lam,Edgeband,29\"H,X Base,Stat,No Mod,Cstr,Ptd",
+                "quantity": 10,
+                "availableQty": 10,
+                "note": ""
+            }, {
+                "id": "386",
+                "workorder": {
+                    "text": "Furniture Installation",
+                    "value": "103"
+                },
+                "salesorder": {
+                    "text": "Sales Order #SLS00000769",
+                    "value": "20898"
+                },
+                "event": "",
+                "uuid": "20898_4",
+                "line": "4",
+                "item": {
+                    "text": "ACQUA/CARAVEL AU0641",
+                    "value": "1062"
+                },
+                "description": "SPINNEYBECK LEATHER ACQUA/CARAVEL AU0641 for cushion of Ciji_Cushions COL 35 sq ft ea",
+                "quantity": 10,
+                "availableQty": 10,
+                "note": ""
+            }, {
+                "id": "383",
+                "workorder": {
+                    "text": "Furniture Installation",
+                    "value": "103"
+                },
+                "salesorder": {
+                    "text": "Sales Order #SLS00000769",
+                    "value": "20898"
+                },
+                "event": "",
+                "uuid": "20898_1",
+                "line": "1",
+                "item": {
+                    "text": "BIC00008",
+                    "value": "467"
+                },
+                "description": "Trail Bike - Maverik Disc",
+                "quantity": 10,
+                "availableQty": 10,
+                "note": ""
+            }],
+            "addresses": [{
+                "id": "140",
+                "workorder": {
+                    "text": "Furniture Installation",
+                    "value": "103"
+                },
+                "customer": {
+                    "text": "World Bank",
+                    "value": "1249"
+                },
+                "events": ["101028", "101030"],
+                "address": {
+                    "text": "434 Carlaw",
+                    "value": "244878"
+                },
+                "addressDetails": "434 Carlaw Road<br/>Los Angeles NY 12412<br/>United States",
+                "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+            }, {
+                "id": "141",
+                "workorder": {
+                    "text": "Furniture Installation",
+                    "value": "103"
+                },
+                "customer": {
+                    "text": "World Bank",
+                    "value": "1249"
+                },
+                "events": ["101030"],
+                "address": {
+                    "text": "12 Carlton Av",
+                    "value": "245148"
+                },
+                "addressDetails": "12 Carlton Ave<br/>San Francisco CA 1241<br/>United States",
+                "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+            }, {
+                "id": "142",
+                "workorder": {
+                    "text": "Furniture Installation",
+                    "value": "103"
+                },
+                "customer": {
+                    "text": "World Bank",
+                    "value": "1249"
+                },
+                "events": ["101030"],
+                "address": {
+                    "text": "54 Tale",
+                    "value": "245152"
+                },
+                "addressDetails": "54 Tale AV<br/>Akron OH 123123<br/>United States",
+                "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+            }],
+            "contacts": [{
+                "id": "119",
+                "workorder": {
+                    "text": "Furniture Installation",
+                    "value": "103"
+                },
+                "events": ["101028", "101030"],
+                "contact": {
+                    "text": "World Bank : Chad Bass",
+                    "value": "1382"
+                },
+                "name": "Chad Bass",
+                "email": "cbass@worldbank.com",
+                "jobTitle": "President",
+                "mobilePhone": "",
+                "phone": "",
+                "primary": false,
+                "url": "/app/common/entity/contact.nl?id=1382&compid=TSTDRV2617106"
+            }, {
+                "id": "120",
+                "workorder": {
+                    "text": "Furniture Installation",
+                    "value": "103"
+                },
+                "events": ["101028", "101030"],
+                "contact": {
+                    "text": "World Bank : John Smith",
+                    "value": "1892"
+                },
+                "name": "John Smith",
+                "email": "jsmith@worldbank.com",
+                "jobTitle": "Logistics",
+                "mobilePhone": "",
+                "phone": "",
+                "primary": true,
+                "url": "/app/common/entity/contact.nl?id=1892&compid=TSTDRV2617106"
+            }],
+            "events": [{
+                "id": "101030",
+                "title": "Furniture Installation",
+                "workorder": {
+                    "text": "Furniture Installation",
+                    "value": "103"
+                },
+                "location": "",
+                "status": {
+                    "text": "Tentative",
+                    "value": "TENTATIVE",
+                    "code": "bg-secondary"
+                },
+                "date": {
+                    "recurrence": "occurs every day from 11/11/2024 until 11/13/2024",
+                    "start": "2024-11-11",
+                    "end": "2024-11-13"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "18:00"
+                },
+                "priority": {
+                    "text": "High",
+                    "value": "3",
+                    "code": "#ca6621"
+                },
+                "note": "",
+                "url": "/app/crm/calendar/event.nl?id=101030&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "vendors": [],
+                "assets": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "119",
+                    "value": "119"
+                },
+                "address": {
+                    "text": "140",
+                    "value": "140"
+                },
+                "organizer": {
+                    "text": "Alex Wolfe",
+                    "value": "-5"
+                }
+            }, {
+                "id": "101028",
+                "title": "Furniture Installation",
+                "workorder": {
+                    "text": "Furniture Installation",
+                    "value": "103"
+                },
+                "location": "",
+                "status": {
+                    "text": "Tentative",
+                    "value": "TENTATIVE",
+                    "code": "bg-secondary"
+                },
+                "date": {
+                    "recurrence": "one time event on 11/22/2024",
+                    "start": "2024-11-22",
+                    "end": "2024-11-22"
+                },
+                "time": {
+                    "start": "10:00",
+                    "end": "17:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Furniture Installation only and post-install cleaning",
+                "url": "/app/crm/calendar/event.nl?id=101028&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "vendors": [],
+                "assets": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                },
+                "organizer": {
+                    "text": "Arun Sharma",
+                    "value": "1770"
+                }
+            }],
+            "projectUrl": "/app/accounting/project/project.nl?id=1883&compid=TSTDRV2617106",
+            "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=103&compid=TSTDRV2617106",
+            "soUrl": "/app/accounting/transactions/salesord.nl?id=20898&compid=TSTDRV2617106",
+            "esthours": "100"
+        },
+        "resources": [{
+            "id": "256",
+            "name": "Brenda Jones",
+            "initials": "BJ",
+            "email": "bjones@ramsey.com",
+            "phone": "",
+            "location": {
+                "text": "01: San Francisco",
+                "value": "2"
+            },
+            "active": true,
+            "workorder": {
+                "text": "Furniture Installation",
+                "value": "103"
+            },
+            "events": ["101030"],
+            "employee": {
+                "text": "Brenda Jones",
+                "value": "1516"
+            },
+            "resourceGroups": [{
+                "text": "Installers",
+                "value": "1"
+            }],
+            "types": [{
+                "text": "Installer",
+                "value": "1"
+            }],
+            "subTypes": [],
+            "rate": 0,
+            "vendor": {
+                "text": "",
+                "value": ""
+            },
+            "purchaseOrder": {
+                "text": " ",
+                "value": ""
+            },
+            "affiliationType": {
+                "text": "In-House",
+                "value": "1"
+            },
+            "selected": true
+        }, {
+            "id": "257",
+            "name": "Brenda Wilson",
+            "initials": "BW",
+            "email": "bwilson@ramsey.com",
+            "phone": "",
+            "location": {
+                "text": "01: San Francisco : QA Hold",
+                "value": "5"
+            },
+            "active": true,
+            "workorder": {
+                "text": "Furniture Installation",
+                "value": "103"
+            },
+            "events": ["101030"],
+            "employee": {
+                "text": "Brenda Wilson",
+                "value": "1513"
+            },
+            "resourceGroups": [{
+                "text": "Installers",
+                "value": "1"
+            }],
+            "types": [{
+                "text": "Installer",
+                "value": "1"
+            }],
+            "subTypes": [],
+            "rate": 0,
+            "vendor": {
+                "text": "",
+                "value": ""
+            },
+            "purchaseOrder": {
+                "text": " ",
+                "value": ""
+            },
+            "affiliationType": {
+                "text": "In-House",
+                "value": "1"
+            },
+            "selected": true
+        }],
+        "vendors": [],
+        "assets": [],
+        "items": [],
+        "contacts": [{
+            "id": "119",
+            "workorder": {
+                "text": "Furniture Installation",
+                "value": "103"
+            },
+            "events": ["101028", "101030"],
+            "contact": {
+                "text": "World Bank : Chad Bass",
+                "value": "1382"
+            },
+            "name": "Chad Bass",
+            "email": "cbass@worldbank.com",
+            "jobTitle": "President",
+            "mobilePhone": "",
+            "phone": "",
+            "primary": false,
+            "url": "/app/common/entity/contact.nl?id=1382&compid=TSTDRV2617106",
+            "selected": true
+        }, {
+            "id": "120",
+            "workorder": {
+                "text": "Furniture Installation",
+                "value": "103"
+            },
+            "events": ["101028", "101030"],
+            "contact": {
+                "text": "World Bank : John Smith",
+                "value": "1892"
+            },
+            "name": "John Smith",
+            "email": "jsmith@worldbank.com",
+            "jobTitle": "Logistics",
+            "mobilePhone": "",
+            "phone": "",
+            "primary": true,
+            "url": "/app/common/entity/contact.nl?id=1892&compid=TSTDRV2617106",
+            "selected": true
+        }],
+        "addresses": [{
+            "id": "140",
+            "workorder": {
+                "text": "Furniture Installation",
+                "value": "103"
+            },
+            "customer": {
+                "text": "World Bank",
+                "value": "1249"
+            },
+            "events": ["101028", "101030"],
+            "address": {
+                "text": "434 Carlaw",
+                "value": "244878"
+            },
+            "addressDetails": "434 Carlaw Road<br/>Los Angeles NY 12412<br/>United States",
+            "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106",
+            "selected": true
+        }, {
+            "id": "141",
+            "workorder": {
+                "text": "Furniture Installation",
+                "value": "103"
+            },
+            "customer": {
+                "text": "World Bank",
+                "value": "1249"
+            },
+            "events": ["101030"],
+            "address": {
+                "text": "12 Carlton Av",
+                "value": "245148"
+            },
+            "addressDetails": "12 Carlton Ave<br/>San Francisco CA 1241<br/>United States",
+            "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106",
+            "selected": true
+        }, {
+            "id": "142",
+            "workorder": {
+                "text": "Furniture Installation",
+                "value": "103"
+            },
+            "customer": {
+                "text": "World Bank",
+                "value": "1249"
+            },
+            "events": ["101030"],
+            "address": {
+                "text": "54 Tale",
+                "value": "245152"
+            },
+            "addressDetails": "54 Tale AV<br/>Akron OH 123123<br/>United States",
+            "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106",
+            "selected": true
+        }],
+        "contact": {
+            "text": "119",
+            "value": "119"
+        },
+        "address": {
+            "text": "140",
+            "value": "140"
+        },
+        "organizer": {
+            "text": "Alex Wolfe",
+            "value": "-5"
+        }
+    }, {
         "id": "101012",
         "title": "Test Event 1",
         "workorder": {
@@ -29748,7 +34501,7 @@ const mockup = {
             "name": "Work Order for Testing Nov 5",
             "title": "Work Order for Testing Nov 5",
             "project": {
-                "text": "AB&I Holdings : Furniture Project",
+                "text": "World Bank : Design, Furniture and Flooring Project",
                 "value": "1612"
             },
             "date": "11/5/2024",
@@ -29767,7 +34520,7 @@ const mockup = {
                 "value": "20872"
             },
             "customer": {
-                "text": "AB&I Holdings",
+                "text": "World Bank",
                 "value": "1249"
             },
             "resourceGroup": {
@@ -29864,27 +34617,6 @@ const mockup = {
                 "rentalMatrix": 0
             }],
             "items": [{
-                "id": "359",
-                "workorder": {
-                    "text": "Work Order for Testing Nov 5",
-                    "value": "96"
-                },
-                "salesorder": {
-                    "text": "Sales Order #SLS00000755",
-                    "value": "20872"
-                },
-                "event": "101012",
-                "uuid": "20872_1",
-                "line": "1",
-                "item": {
-                    "text": "VZCC-0024-A",
-                    "value": "1144"
-                },
-                "description": "Compose,Top Trim 24In.W,Alumn",
-                "quantity": 60,
-                "availableQty": 60,
-                "note": ""
-            }, {
                 "id": "353",
                 "workorder": {
                     "text": "Work Order for Testing Nov 5",
@@ -29906,7 +34638,7 @@ const mockup = {
                 "availableQty": 60,
                 "note": ""
             }, {
-                "id": "360",
+                "id": "359",
                 "workorder": {
                     "text": "Work Order for Testing Nov 5",
                     "value": "96"
@@ -29916,15 +34648,15 @@ const mockup = {
                     "value": "20872"
                 },
                 "event": "101012",
-                "uuid": "20872_2",
-                "line": "2",
+                "uuid": "20872_1",
+                "line": "1",
                 "item": {
-                    "text": "VZCC-0054-HSS1_NEW2",
-                    "value": "2935"
+                    "text": "VZCC-0024-A",
+                    "value": "1144"
                 },
-                "description": "Compose,Top Trim 54In.W,Stl, Pnl Frame",
-                "quantity": 7,
-                "availableQty": 7,
+                "description": "Compose,Top Trim 24In.W,Alumn",
+                "quantity": 60,
+                "availableQty": 60,
                 "note": ""
             }, {
                 "id": "354",
@@ -29947,6 +34679,27 @@ const mockup = {
                 "quantity": 7,
                 "availableQty": 7,
                 "note": ""
+            }, {
+                "id": "360",
+                "workorder": {
+                    "text": "Work Order for Testing Nov 5",
+                    "value": "96"
+                },
+                "salesorder": {
+                    "text": "Sales Order #SLS00000755",
+                    "value": "20872"
+                },
+                "event": "101012",
+                "uuid": "20872_2",
+                "line": "2",
+                "item": {
+                    "text": "VZCC-0054-HSS1_NEW2",
+                    "value": "2935"
+                },
+                "description": "Compose,Top Trim 54In.W,Stl, Pnl Frame",
+                "quantity": 7,
+                "availableQty": 7,
+                "note": ""
             }],
             "addresses": [{
                 "id": "124",
@@ -29955,12 +34708,12 @@ const mockup = {
                     "value": "96"
                 },
                 "customer": {
-                    "text": "AB&I Holdings",
+                    "text": "World Bank",
                     "value": "1249"
                 },
                 "events": ["101012"],
                 "address": {
-                    "text": "1701 Rollins Road",
+                    "text": "434 Carlaw",
                     "value": "244878"
                 },
                 "addressDetails": "Test Address 1<br/>Test Address 1<br/>Test Address 1<br/>Test Address 1<br/>Test Address 1<br/>Los Angeles NY 12412<br/>United States",
@@ -29972,12 +34725,12 @@ const mockup = {
                     "value": "96"
                 },
                 "customer": {
-                    "text": "AB&I Holdings",
+                    "text": "World Bank",
                     "value": "1249"
                 },
                 "events": [],
                 "address": {
-                    "text": "Address 1",
+                    "text": "12 Carlton Av",
                     "value": "245148"
                 },
                 "addressDetails": "Address 1<br/>Address 1<br/>Address 1<br/>Address 1<br/>Address 1<br/>San Francisco California 1241<br/>United States",
@@ -29989,12 +34742,12 @@ const mockup = {
                     "value": "96"
                 },
                 "customer": {
-                    "text": "AB&I Holdings",
+                    "text": "World Bank",
                     "value": "1249"
                 },
                 "events": [],
                 "address": {
-                    "text": "Test Address 4",
+                    "text": "343 York",
                     "value": "245154"
                 },
                 "addressDetails": "Test Address 4<br/>Test Address 4<br/>Test Address 4<br/>Test Address 4<br/>Test Address 4<br/>Test Address 4 NY 121312<br/>United States",
@@ -30006,12 +34759,12 @@ const mockup = {
                     "value": "96"
                 },
                 "customer": {
-                    "text": "AB&I Holdings",
+                    "text": "World Bank",
                     "value": "1249"
                 },
                 "events": [],
                 "address": {
-                    "text": "Test Address 222",
+                    "text": "22 Dundas",
                     "value": "245145"
                 },
                 "addressDetails": "Test Address 222<br/>Test Address 222<br/>Test Address 222<br/>Test Address 222<br/>Test Address 222<br/>Los Angeles California 211123<br/>United States",
@@ -30023,12 +34776,12 @@ const mockup = {
                     "value": "96"
                 },
                 "customer": {
-                    "text": "AB&I Holdings",
+                    "text": "World Bank",
                     "value": "1249"
                 },
                 "events": [],
                 "address": {
-                    "text": "Test New Address",
+                    "text": "234 Kristen AV",
                     "value": "245146"
                 },
                 "addressDetails": "Test New Address<br/>Test New Address<br/>Test New Address<br/>Test New Address<br/>Test New Address<br/>Las Vegas Nevada 123131<br/>United States",
@@ -30042,7 +34795,7 @@ const mockup = {
                 },
                 "events": ["101012"],
                 "contact": {
-                    "text": "AB&I Holdings : Chad Bass",
+                    "text": "World Bank : Chad Bass",
                     "value": "1382"
                 },
                 "name": "Chad Bass",
@@ -30060,7 +34813,7 @@ const mockup = {
                 },
                 "events": ["101012"],
                 "contact": {
-                    "text": "AB&I Holdings : Test Prav",
+                    "text": "World Bank : John Smith",
                     "value": "1892"
                 },
                 "name": "Test Prav",
@@ -30356,7 +35109,7 @@ const mockup = {
             },
             "events": ["101012"],
             "contact": {
-                "text": "AB&I Holdings : Chad Bass",
+                "text": "World Bank : Chad Bass",
                 "value": "1382"
             },
             "name": "Chad Bass",
@@ -30375,7 +35128,7 @@ const mockup = {
             },
             "events": ["101012"],
             "contact": {
-                "text": "AB&I Holdings : Test Prav",
+                "text": "World Bank : John Smith",
                 "value": "1892"
             },
             "name": "Test Prav",
@@ -30394,12 +35147,12 @@ const mockup = {
                 "value": "96"
             },
             "customer": {
-                "text": "AB&I Holdings",
+                "text": "World Bank",
                 "value": "1249"
             },
             "events": ["101012"],
             "address": {
-                "text": "1701 Rollins Road",
+                "text": "434 Carlaw",
                 "value": "244878"
             },
             "addressDetails": "Test Address 1<br/>Test Address 1<br/>Test Address 1<br/>Test Address 1<br/>Test Address 1<br/>Los Angeles NY 12412<br/>United States",
@@ -30453,7 +35206,7 @@ const mockup = {
             "name": "Work Order Dry Run - Nov 8",
             "title": "Work Order Dry Run - Nov 8",
             "project": {
-                "text": "AB&I Holdings : Furniture Project",
+                "text": "World Bank : Design, Furniture and Flooring Project",
                 "value": "1612"
             },
             "date": "11/8/2024",
@@ -30472,7 +35225,7 @@ const mockup = {
                 "value": "20892"
             },
             "customer": {
-                "text": "AB&I Holdings",
+                "text": "World Bank",
                 "value": "1249"
             },
             "resourceGroup": {
@@ -30698,12 +35451,12 @@ const mockup = {
                     "value": "100"
                 },
                 "customer": {
-                    "text": "AB&I Holdings",
+                    "text": "World Bank",
                     "value": "1249"
                 },
                 "events": ["101015", "101016"],
                 "address": {
-                    "text": "1701 Rollins Road",
+                    "text": "434 Carlaw",
                     "value": "244878"
                 },
                 "addressDetails": "",
@@ -30715,12 +35468,12 @@ const mockup = {
                     "value": "100"
                 },
                 "customer": {
-                    "text": "AB&I Holdings",
+                    "text": "World Bank",
                     "value": "1249"
                 },
                 "events": ["101016"],
                 "address": {
-                    "text": "Test Address 3",
+                    "text": "54 Tale",
                     "value": "245152"
                 },
                 "addressDetails": "",
@@ -30732,12 +35485,12 @@ const mockup = {
                     "value": "100"
                 },
                 "customer": {
-                    "text": "AB&I Holdings",
+                    "text": "World Bank",
                     "value": "1249"
                 },
                 "events": ["101016"],
                 "address": {
-                    "text": "Test Address 4",
+                    "text": "343 York",
                     "value": "245154"
                 },
                 "addressDetails": "",
@@ -30749,12 +35502,12 @@ const mockup = {
                     "value": "100"
                 },
                 "customer": {
-                    "text": "AB&I Holdings",
+                    "text": "World Bank",
                     "value": "1249"
                 },
                 "events": ["101016"],
                 "address": {
-                    "text": "Test New Address",
+                    "text": "234 Kristen AV",
                     "value": "245146"
                 },
                 "addressDetails": "",
@@ -30768,7 +35521,7 @@ const mockup = {
                 },
                 "events": ["101015", "101016"],
                 "contact": {
-                    "text": "AB&I Holdings : Chad Bass",
+                    "text": "World Bank : Chad Bass",
                     "value": "1382"
                 },
                 "name": "Chad Bass",
@@ -30786,7 +35539,7 @@ const mockup = {
                 },
                 "events": ["101015", "101016"],
                 "contact": {
-                    "text": "AB&I Holdings : Test Prav",
+                    "text": "World Bank : John Smith",
                     "value": "1892"
                 },
                 "name": "Test Prav",
@@ -31105,7 +35858,7 @@ const mockup = {
             },
             "events": ["101015", "101016"],
             "contact": {
-                "text": "AB&I Holdings : Chad Bass",
+                "text": "World Bank : Chad Bass",
                 "value": "1382"
             },
             "name": "Chad Bass",
@@ -31124,7 +35877,7 @@ const mockup = {
             },
             "events": ["101015", "101016"],
             "contact": {
-                "text": "AB&I Holdings : Test Prav",
+                "text": "World Bank : John Smith",
                 "value": "1892"
             },
             "name": "Test Prav",
@@ -31143,12 +35896,12 @@ const mockup = {
                 "value": "100"
             },
             "customer": {
-                "text": "AB&I Holdings",
+                "text": "World Bank",
                 "value": "1249"
             },
             "events": ["101015", "101016"],
             "address": {
-                "text": "1701 Rollins Road",
+                "text": "434 Carlaw",
                 "value": "244878"
             },
             "addressDetails": "",
@@ -31168,6 +35921,2943 @@ const mockup = {
             "value": "1770"
         }
     }, {
+        "id": "101032",
+        "title": "Install LED Light Strips",
+        "workorder": {
+            "text": "Install Cove Lights",
+            "value": "106"
+        },
+        "location": "",
+        "status": {
+            "text": "Tentative",
+            "value": "TENTATIVE",
+            "code": "bg-secondary"
+        },
+        "date": {
+            "recurrence": "occurs every day from 11/11/2024 until 11/15/2024",
+            "start": "2024-11-11",
+            "end": "2024-11-15"
+        },
+        "time": {
+            "start": "09:00",
+            "end": "17:00"
+        },
+        "priority": {
+            "text": "Medium",
+            "value": "2",
+            "code": "#dfcf02"
+        },
+        "note": "",
+        "url": "/app/crm/calendar/event.nl?id=101032&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {
+            "id": "106",
+            "name": "Install Cove Lights",
+            "title": "Install Cove Lights",
+            "project": {
+                "text": "3M : Light Fixtures Installation",
+                "value": "2042"
+            },
+            "date": "11/11/2024",
+            "status": {
+                "text": "Not Started",
+                "value": "4",
+                "code": "#026adf"
+            },
+            "type": {
+                "text": "Service",
+                "value": "2"
+            },
+            "memo": "",
+            "salesorder": {
+                "text": "Sales Order #SLS00000771",
+                "value": "20900"
+            },
+            "customer": {
+                "text": "3M",
+                "value": "1397"
+            },
+            "resourceGroup": {
+                "text": "",
+                "value": ""
+            },
+            "priority": "",
+            "resources": [],
+            "vendors": [{
+                "id": "165",
+                "name": "165",
+                "vendor": {
+                    "text": "Best Fixture, Inc.",
+                    "value": "12"
+                },
+                "url": "",
+                "email": "",
+                "initials": "BF",
+                "workorder": {
+                    "text": "Install Cove Lights",
+                    "value": "106"
+                },
+                "event": "101032",
+                "quantityRequired": 2,
+                "quantityAvailable": 0,
+                "purchaseOrder": {
+                    "text": " ",
+                    "value": ""
+                },
+                "amount": 0,
+                "active": false,
+                "woVendor": true,
+                "memo": ""
+            }, {
+                "id": "166",
+                "name": "166",
+                "vendor": {
+                    "text": "Best Fixture, Inc.",
+                    "value": "12"
+                },
+                "url": "",
+                "email": "",
+                "initials": "BF",
+                "workorder": {
+                    "text": "Install Cove Lights",
+                    "value": "106"
+                },
+                "event": "101033",
+                "quantityRequired": 2,
+                "quantityAvailable": 0,
+                "purchaseOrder": {
+                    "text": " ",
+                    "value": ""
+                },
+                "amount": 0,
+                "active": false,
+                "woVendor": true,
+                "memo": ""
+            }],
+            "assets": [{
+                "id": "114",
+                "name": "ELE00002",
+                "workorder": {
+                    "text": "Install Cove Lights",
+                    "value": "106"
+                },
+                "event": "101033",
+                "quantity": 0,
+                "description": "Serialized 1 Sales Description",
+                "item": {
+                    "text": "ELE00002",
+                    "value": "674"
+                },
+                "equipmentType": {
+                    "text": "Hand Tools",
+                    "value": "1"
+                },
+                "rentalUnit": {
+                    "text": "",
+                    "value": ""
+                },
+                "rentalDuration": 0,
+                "rentalRate": 0,
+                "rentalAmount": 0,
+                "purchaseOrder": {
+                    "text": " ",
+                    "value": " "
+                },
+                "vendor": {
+                    "text": "Computer Depot Pacific",
+                    "value": "965"
+                },
+                "owned": true,
+                "rentalMatrix": 0
+            }],
+            "items": [{
+                "id": "400",
+                "workorder": {
+                    "text": "Install Cove Lights",
+                    "value": "106"
+                },
+                "salesorder": {
+                    "text": "Sales Order #SLS00000771",
+                    "value": "20900"
+                },
+                "event": "",
+                "uuid": "20900_1",
+                "line": "1",
+                "item": {
+                    "text": "CON00001",
+                    "value": "713"
+                },
+                "description": "",
+                "quantity": 1,
+                "availableQty": 1,
+                "note": ""
+            }, {
+                "id": "401",
+                "workorder": {
+                    "text": "Install Cove Lights",
+                    "value": "106"
+                },
+                "salesorder": {
+                    "text": "Sales Order #SLS00000771",
+                    "value": "20900"
+                },
+                "event": "",
+                "uuid": "20900_2",
+                "line": "2",
+                "item": {
+                    "text": "MNT00001",
+                    "value": "642"
+                },
+                "description": "Maintenance for all our products",
+                "quantity": 1,
+                "availableQty": 1,
+                "note": ""
+            }, {
+                "id": "413",
+                "workorder": {
+                    "text": "Install Cove Lights",
+                    "value": "106"
+                },
+                "salesorder": {
+                    "text": "Sales Order #SLS00000771",
+                    "value": "20900"
+                },
+                "event": "101032",
+                "uuid": "20900_1",
+                "line": "1",
+                "item": {
+                    "text": "CON00001",
+                    "value": "713"
+                },
+                "description": "",
+                "quantity": 0,
+                "availableQty": 0,
+                "note": ""
+            }, {
+                "id": "414",
+                "workorder": {
+                    "text": "Install Cove Lights",
+                    "value": "106"
+                },
+                "salesorder": {
+                    "text": "Sales Order #SLS00000771",
+                    "value": "20900"
+                },
+                "event": "101032",
+                "uuid": "20900_4",
+                "line": "4",
+                "item": {
+                    "text": "VZCE-7400-HS1",
+                    "value": "2032"
+                },
+                "description": "Compose,Panel Trim,End-Of-Run 74In.H, Steel",
+                "quantity": 0,
+                "availableQty": 0,
+                "note": ""
+            }, {
+                "id": "415",
+                "workorder": {
+                    "text": "Install Cove Lights",
+                    "value": "106"
+                },
+                "salesorder": {
+                    "text": "Sales Order #SLS00000771",
+                    "value": "20900"
+                },
+                "event": "101033",
+                "uuid": "20900_1",
+                "line": "1",
+                "item": {
+                    "text": "CON00001",
+                    "value": "713"
+                },
+                "description": "",
+                "quantity": 1,
+                "availableQty": 1,
+                "note": ""
+            }, {
+                "id": "416",
+                "workorder": {
+                    "text": "Install Cove Lights",
+                    "value": "106"
+                },
+                "salesorder": {
+                    "text": "Sales Order #SLS00000771",
+                    "value": "20900"
+                },
+                "event": "101033",
+                "uuid": "20900_5",
+                "line": "5",
+                "item": {
+                    "text": "VZCW-0000-PS1S1",
+                    "value": "2033"
+                },
+                "description": "Compose,Wall Mount,Fits All Heights",
+                "quantity": 1,
+                "availableQty": 1,
+                "note": ""
+            }, {
+                "id": "417",
+                "workorder": {
+                    "text": "Install Cove Lights",
+                    "value": "106"
+                },
+                "salesorder": {
+                    "text": "Sales Order #SLS00000771",
+                    "value": "20900"
+                },
+                "event": "101034",
+                "uuid": "20900_3",
+                "line": "3",
+                "item": {
+                    "text": "VZCC-0054-HSS1",
+                    "value": "2031"
+                },
+                "description": "Compose,Top Trim 54In.W,Stl, Pnl Frame",
+                "quantity": 1,
+                "availableQty": 1,
+                "note": ""
+            }, {
+                "id": "418",
+                "workorder": {
+                    "text": "Install Cove Lights",
+                    "value": "106"
+                },
+                "salesorder": {
+                    "text": "Sales Order #SLS00000771",
+                    "value": "20900"
+                },
+                "event": "101034",
+                "uuid": "20900_4",
+                "line": "4",
+                "item": {
+                    "text": "VZCE-7400-HS1",
+                    "value": "2032"
+                },
+                "description": "Compose,Panel Trim,End-Of-Run 74In.H, Steel",
+                "quantity": 3,
+                "availableQty": 3,
+                "note": ""
+            }, {
+                "id": "419",
+                "workorder": {
+                    "text": "Install Cove Lights",
+                    "value": "106"
+                },
+                "salesorder": {
+                    "text": "Sales Order #SLS00000771",
+                    "value": "20900"
+                },
+                "event": "101034",
+                "uuid": "20900_5",
+                "line": "5",
+                "item": {
+                    "text": "VZCW-0000-PS1S1",
+                    "value": "2033"
+                },
+                "description": "Compose,Wall Mount,Fits All Heights",
+                "quantity": 3,
+                "availableQty": 3,
+                "note": ""
+            }, {
+                "id": "420",
+                "workorder": {
+                    "text": "Install Cove Lights",
+                    "value": "106"
+                },
+                "salesorder": {
+                    "text": "Sales Order #SLS00000771",
+                    "value": "20900"
+                },
+                "event": "101034",
+                "uuid": "20900_6",
+                "line": "6",
+                "item": {
+                    "text": "VZFS-1654-RS1",
+                    "value": "2034"
+                },
+                "description": "Compose,Stack Frame 16In.H X 54In.W,Std Accoust,NoPwr",
+                "quantity": 6,
+                "availableQty": 6,
+                "note": ""
+            }, {
+                "id": "421",
+                "workorder": {
+                    "text": "Install Cove Lights",
+                    "value": "106"
+                },
+                "salesorder": {
+                    "text": "Sales Order #SLS00000771",
+                    "value": "20900"
+                },
+                "event": "101034",
+                "uuid": "20900_7",
+                "line": "7",
+                "item": {
+                    "text": "VZTI-1654-FNNS1",
+                    "value": "2035"
+                },
+                "description": "Compose,Single Tile,16In.HX54In.W,Fabric/Tackable,Std Core,No Tech",
+                "quantity": 12,
+                "availableQty": 12,
+                "note": ""
+            }, {
+                "id": "395",
+                "workorder": {
+                    "text": "Install Cove Lights",
+                    "value": "106"
+                },
+                "salesorder": {
+                    "text": "Sales Order #SLS00000771",
+                    "value": "20900"
+                },
+                "event": "",
+                "uuid": "20900_3",
+                "line": "3",
+                "item": {
+                    "text": "VZCC-0054-HSS1",
+                    "value": "2031"
+                },
+                "description": "Compose,Top Trim 54In.W,Stl, Pnl Frame",
+                "quantity": 1,
+                "availableQty": 1,
+                "note": ""
+            }, {
+                "id": "396",
+                "workorder": {
+                    "text": "Install Cove Lights",
+                    "value": "106"
+                },
+                "salesorder": {
+                    "text": "Sales Order #SLS00000771",
+                    "value": "20900"
+                },
+                "event": "",
+                "uuid": "20900_4",
+                "line": "4",
+                "item": {
+                    "text": "VZCE-7400-HS1",
+                    "value": "2032"
+                },
+                "description": "Compose,Panel Trim,End-Of-Run 74In.H, Steel",
+                "quantity": 3,
+                "availableQty": 3,
+                "note": ""
+            }, {
+                "id": "397",
+                "workorder": {
+                    "text": "Install Cove Lights",
+                    "value": "106"
+                },
+                "salesorder": {
+                    "text": "Sales Order #SLS00000771",
+                    "value": "20900"
+                },
+                "event": "",
+                "uuid": "20900_5",
+                "line": "5",
+                "item": {
+                    "text": "VZCW-0000-PS1S1",
+                    "value": "2033"
+                },
+                "description": "Compose,Wall Mount,Fits All Heights",
+                "quantity": 3,
+                "availableQty": 3,
+                "note": ""
+            }, {
+                "id": "398",
+                "workorder": {
+                    "text": "Install Cove Lights",
+                    "value": "106"
+                },
+                "salesorder": {
+                    "text": "Sales Order #SLS00000771",
+                    "value": "20900"
+                },
+                "event": "",
+                "uuid": "20900_6",
+                "line": "6",
+                "item": {
+                    "text": "VZFS-1654-RS1",
+                    "value": "2034"
+                },
+                "description": "Compose,Stack Frame 16In.H X 54In.W,Std Accoust,NoPwr",
+                "quantity": 6,
+                "availableQty": 6,
+                "note": ""
+            }, {
+                "id": "399",
+                "workorder": {
+                    "text": "Install Cove Lights",
+                    "value": "106"
+                },
+                "salesorder": {
+                    "text": "Sales Order #SLS00000771",
+                    "value": "20900"
+                },
+                "event": "",
+                "uuid": "20900_7",
+                "line": "7",
+                "item": {
+                    "text": "VZTI-1654-FNNS1",
+                    "value": "2035"
+                },
+                "description": "Compose,Single Tile,16In.HX54In.W,Fabric/Tackable,Std Core,No Tech",
+                "quantity": 12,
+                "availableQty": 12,
+                "note": ""
+            }],
+            "addresses": [{
+                "id": "150",
+                "workorder": {
+                    "text": "Install Cove Lights",
+                    "value": "106"
+                },
+                "customer": {
+                    "text": "3M",
+                    "value": "1397"
+                },
+                "events": ["101032", "101033", "101034"],
+                "address": {
+                    "text": "4966 Hilltop Street",
+                    "value": "245162"
+                },
+                "addressDetails": "Amaya Randell<br/>3M<br/>4966 Hilltop Street<br/>Northadams MA 01247<br/>United States",
+                "customerUrl": "/app/common/entity/custjob.nl?id=1397&compid=TSTDRV2617106"
+            }],
+            "contacts": [{
+                "id": "128",
+                "workorder": {
+                    "text": "Install Cove Lights",
+                    "value": "106"
+                },
+                "events": ["101032", "101033", "101034"],
+                "contact": {
+                    "text": "3M : Astra Gully",
+                    "value": "2043"
+                },
+                "name": "Astra Gully",
+                "email": "3m@3m.com",
+                "jobTitle": "Senior Applications Director",
+                "mobilePhone": "",
+                "phone": "",
+                "primary": false,
+                "url": "/app/common/entity/contact.nl?id=2043&compid=TSTDRV2617106"
+            }, {
+                "id": "129",
+                "workorder": {
+                    "text": "Install Cove Lights",
+                    "value": "106"
+                },
+                "events": ["101032", "101033", "101034"],
+                "contact": {
+                    "text": "3M : Kaelea Peel",
+                    "value": "2044"
+                },
+                "name": "Kaelea Peel",
+                "email": "",
+                "jobTitle": "Dynamic Configuration Liason",
+                "mobilePhone": "",
+                "phone": "",
+                "primary": false,
+                "url": "/app/common/entity/contact.nl?id=2044&compid=TSTDRV2617106"
+            }],
+            "events": [{
+                "id": "101032",
+                "title": "Install LED Light Strips",
+                "workorder": {
+                    "text": "Install Cove Lights",
+                    "value": "106"
+                },
+                "location": "",
+                "status": {
+                    "text": "Tentative",
+                    "value": "TENTATIVE",
+                    "code": "bg-secondary"
+                },
+                "date": {
+                    "recurrence": "occurs every day from 11/11/2024 until 11/15/2024",
+                    "start": "2024-11-11",
+                    "end": "2024-11-15"
+                },
+                "time": {
+                    "start": "09:00",
+                    "end": "17:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "",
+                "url": "/app/crm/calendar/event.nl?id=101032&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "vendors": [],
+                "assets": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                },
+                "organizer": {
+                    "text": "Mei Matriano",
+                    "value": "1647"
+                }
+            }, {
+                "id": "101033",
+                "title": "Install Light Switches",
+                "workorder": {
+                    "text": "Install Cove Lights",
+                    "value": "106"
+                },
+                "location": "",
+                "status": {
+                    "text": "Tentative",
+                    "value": "TENTATIVE",
+                    "code": "bg-secondary"
+                },
+                "date": {
+                    "recurrence": "occurs every day from 11/11/2024 until 11/15/2024",
+                    "start": "2024-11-11",
+                    "end": "2024-11-15"
+                },
+                "time": {
+                    "start": "09:00",
+                    "end": "17:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "",
+                "url": "/app/crm/calendar/event.nl?id=101033&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "vendors": [],
+                "assets": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                },
+                "organizer": {
+                    "text": "Mei Matriano",
+                    "value": "1647"
+                }
+            }, {
+                "id": "101034",
+                "title": "Deliver Materials",
+                "workorder": {
+                    "text": "Install Cove Lights",
+                    "value": "106"
+                },
+                "location": "",
+                "status": {
+                    "text": "Tentative",
+                    "value": "TENTATIVE",
+                    "code": "bg-secondary"
+                },
+                "date": {
+                    "recurrence": "occurs every day from 11/11/2024 until 11/13/2024",
+                    "start": "2024-11-11",
+                    "end": "2024-11-13"
+                },
+                "time": {
+                    "start": "09:00",
+                    "end": "15:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "",
+                "url": "/app/crm/calendar/event.nl?id=101034&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "vendors": [],
+                "assets": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                },
+                "organizer": {
+                    "text": "Mei Matriano",
+                    "value": "1647"
+                }
+            }],
+            "projectUrl": "/app/accounting/project/project.nl?id=2042&compid=TSTDRV2617106",
+            "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=106&compid=TSTDRV2617106",
+            "soUrl": "/app/accounting/transactions/salesord.nl?id=20900&compid=TSTDRV2617106",
+            "esthours": "40"
+        },
+        "resources": [{
+            "id": "261",
+            "name": "Clark Koozer",
+            "initials": "CK",
+            "email": "jc@erpsuccesspartners.com",
+            "phone": "650-555-8300",
+            "location": {
+                "text": "01: San Francisco",
+                "value": "2"
+            },
+            "active": true,
+            "workorder": {
+                "text": "Install Cove Lights",
+                "value": "106"
+            },
+            "events": ["101032", "101033", "101034"],
+            "employee": {
+                "text": "Clark Koozer",
+                "value": "23"
+            },
+            "resourceGroups": [{
+                "text": "Drivers",
+                "value": "3"
+            }],
+            "types": [{
+                "text": "Delivery Driver",
+                "value": "2"
+            }],
+            "subTypes": [],
+            "rate": 0,
+            "vendor": {
+                "text": "",
+                "value": ""
+            },
+            "purchaseOrder": {
+                "text": " ",
+                "value": ""
+            },
+            "affiliationType": {
+                "text": "In-House",
+                "value": "1"
+            },
+            "selected": true
+        }, {
+            "id": "262",
+            "name": "Ruth Smith",
+            "initials": "RS",
+            "email": "jc@erpsuccesspartners.com",
+            "phone": "(713) 555-1212",
+            "location": {
+                "text": "01: San Francisco",
+                "value": "2"
+            },
+            "active": true,
+            "workorder": {
+                "text": "Install Cove Lights",
+                "value": "106"
+            },
+            "events": ["101032", "101033"],
+            "employee": {
+                "text": "Ruth Smith",
+                "value": "1539"
+            },
+            "resourceGroups": [{
+                "text": "Installers",
+                "value": "1"
+            }],
+            "types": [{
+                "text": "Installer",
+                "value": "1"
+            }],
+            "subTypes": [],
+            "rate": 0,
+            "vendor": {
+                "text": "",
+                "value": ""
+            },
+            "purchaseOrder": {
+                "text": " ",
+                "value": ""
+            },
+            "affiliationType": {
+                "text": "In-House",
+                "value": "1"
+            },
+            "selected": true
+        }, {
+            "id": "263",
+            "name": "Dale Williams",
+            "initials": "DW",
+            "email": "jc@erpsuccesspartners.com",
+            "phone": "",
+            "location": {
+                "text": "01: San Francisco",
+                "value": "2"
+            },
+            "active": true,
+            "workorder": {
+                "text": "Install Cove Lights",
+                "value": "106"
+            },
+            "events": ["101032"],
+            "employee": {
+                "text": "Dale Williams",
+                "value": "224"
+            },
+            "resourceGroups": [{
+                "text": "Installers",
+                "value": "1"
+            }],
+            "types": [{
+                "text": "Installer",
+                "value": "1"
+            }],
+            "subTypes": [],
+            "rate": 0,
+            "vendor": {
+                "text": "",
+                "value": ""
+            },
+            "purchaseOrder": {
+                "text": " ",
+                "value": ""
+            },
+            "affiliationType": {
+                "text": "Crew Enhancement",
+                "value": "3"
+            },
+            "selected": true
+        }, {
+            "id": "264",
+            "name": "Walter Reagan",
+            "initials": "WR",
+            "email": "wreagan@ramsey.com",
+            "phone": "",
+            "location": {
+                "text": "02: Boston",
+                "value": "1"
+            },
+            "active": true,
+            "workorder": {
+                "text": "Install Cove Lights",
+                "value": "106"
+            },
+            "events": ["101032"],
+            "employee": {
+                "text": "Walter Reagan",
+                "value": "918"
+            },
+            "resourceGroups": [{
+                "text": "Installers",
+                "value": "1"
+            }],
+            "types": [{
+                "text": "Installer",
+                "value": "1"
+            }],
+            "subTypes": [],
+            "rate": 0,
+            "vendor": {
+                "text": "",
+                "value": ""
+            },
+            "purchaseOrder": {
+                "text": " ",
+                "value": ""
+            },
+            "affiliationType": {
+                "text": "Crew Enhancement",
+                "value": "3"
+            },
+            "selected": true
+        }],
+        "vendors": [{
+            "id": "165",
+            "name": "165",
+            "vendor": {
+                "text": "Best Fixture, Inc.",
+                "value": "12"
+            },
+            "url": "",
+            "email": "",
+            "initials": "BF",
+            "workorder": {
+                "text": "Install Cove Lights",
+                "value": "106"
+            },
+            "event": "101032",
+            "quantityRequired": 2,
+            "quantityAvailable": 0,
+            "purchaseOrder": {
+                "text": " ",
+                "value": ""
+            },
+            "amount": 0,
+            "active": false,
+            "woVendor": true,
+            "memo": "",
+            "selected": true
+        }],
+        "assets": [],
+        "items": [{
+            "id": "413",
+            "workorder": {
+                "text": "Install Cove Lights",
+                "value": "106"
+            },
+            "salesorder": {
+                "text": "Sales Order #SLS00000771",
+                "value": "20900"
+            },
+            "event": "101032",
+            "uuid": "20900_1",
+            "line": "1",
+            "item": {
+                "text": "CON00001",
+                "value": "713"
+            },
+            "description": "",
+            "quantity": 0,
+            "availableQty": 0,
+            "note": "",
+            "selected": true
+        }, {
+            "id": "414",
+            "workorder": {
+                "text": "Install Cove Lights",
+                "value": "106"
+            },
+            "salesorder": {
+                "text": "Sales Order #SLS00000771",
+                "value": "20900"
+            },
+            "event": "101032",
+            "uuid": "20900_4",
+            "line": "4",
+            "item": {
+                "text": "VZCE-7400-HS1",
+                "value": "2032"
+            },
+            "description": "Compose,Panel Trim,End-Of-Run 74In.H, Steel",
+            "quantity": 0,
+            "availableQty": 0,
+            "note": "",
+            "selected": true
+        }],
+        "contacts": [{
+            "id": "128",
+            "workorder": {
+                "text": "Install Cove Lights",
+                "value": "106"
+            },
+            "events": ["101032", "101033", "101034"],
+            "contact": {
+                "text": "3M : Astra Gully",
+                "value": "2043"
+            },
+            "name": "Astra Gully",
+            "email": "3m@3m.com",
+            "jobTitle": "Senior Applications Director",
+            "mobilePhone": "",
+            "phone": "",
+            "primary": false,
+            "url": "/app/common/entity/contact.nl?id=2043&compid=TSTDRV2617106",
+            "selected": true
+        }, {
+            "id": "129",
+            "workorder": {
+                "text": "Install Cove Lights",
+                "value": "106"
+            },
+            "events": ["101032", "101033", "101034"],
+            "contact": {
+                "text": "3M : Kaelea Peel",
+                "value": "2044"
+            },
+            "name": "Kaelea Peel",
+            "email": "",
+            "jobTitle": "Dynamic Configuration Liason",
+            "mobilePhone": "",
+            "phone": "",
+            "primary": false,
+            "url": "/app/common/entity/contact.nl?id=2044&compid=TSTDRV2617106",
+            "selected": true
+        }],
+        "addresses": [{
+            "id": "150",
+            "workorder": {
+                "text": "Install Cove Lights",
+                "value": "106"
+            },
+            "customer": {
+                "text": "3M",
+                "value": "1397"
+            },
+            "events": ["101032", "101033", "101034"],
+            "address": {
+                "text": "4966 Hilltop Street",
+                "value": "245162"
+            },
+            "addressDetails": "Amaya Randell<br/>3M<br/>4966 Hilltop Street<br/>Northadams MA 01247<br/>United States",
+            "customerUrl": "/app/common/entity/custjob.nl?id=1397&compid=TSTDRV2617106",
+            "selected": true
+        }],
+        "contact": {
+            "text": "",
+            "value": ""
+        },
+        "address": {
+            "text": "",
+            "value": ""
+        },
+        "organizer": {
+            "text": "Mei Matriano",
+            "value": "1647"
+        }
+    }, {
+        "id": "101033",
+        "title": "Install Light Switches",
+        "workorder": {
+            "text": "Install Cove Lights",
+            "value": "106"
+        },
+        "location": "",
+        "status": {
+            "text": "Tentative",
+            "value": "TENTATIVE",
+            "code": "bg-secondary"
+        },
+        "date": {
+            "recurrence": "occurs every day from 11/11/2024 until 11/15/2024",
+            "start": "2024-11-11",
+            "end": "2024-11-15"
+        },
+        "time": {
+            "start": "09:00",
+            "end": "17:00"
+        },
+        "priority": {
+            "text": "Medium",
+            "value": "2",
+            "code": "#dfcf02"
+        },
+        "note": "",
+        "url": "/app/crm/calendar/event.nl?id=101033&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {
+            "id": "106",
+            "name": "Install Cove Lights",
+            "title": "Install Cove Lights",
+            "project": {
+                "text": "3M : Light Fixtures Installation",
+                "value": "2042"
+            },
+            "date": "11/11/2024",
+            "status": {
+                "text": "Not Started",
+                "value": "4",
+                "code": "#026adf"
+            },
+            "type": {
+                "text": "Service",
+                "value": "2"
+            },
+            "memo": "",
+            "salesorder": {
+                "text": "Sales Order #SLS00000771",
+                "value": "20900"
+            },
+            "customer": {
+                "text": "3M",
+                "value": "1397"
+            },
+            "resourceGroup": {
+                "text": "",
+                "value": ""
+            },
+            "priority": "",
+            "resources": [],
+            "vendors": [{
+                "id": "165",
+                "name": "165",
+                "vendor": {
+                    "text": "Best Fixture, Inc.",
+                    "value": "12"
+                },
+                "url": "",
+                "email": "",
+                "initials": "BF",
+                "workorder": {
+                    "text": "Install Cove Lights",
+                    "value": "106"
+                },
+                "event": "101032",
+                "quantityRequired": 2,
+                "quantityAvailable": 0,
+                "purchaseOrder": {
+                    "text": " ",
+                    "value": ""
+                },
+                "amount": 0,
+                "active": false,
+                "woVendor": true,
+                "memo": ""
+            }, {
+                "id": "166",
+                "name": "166",
+                "vendor": {
+                    "text": "Best Fixture, Inc.",
+                    "value": "12"
+                },
+                "url": "",
+                "email": "",
+                "initials": "BF",
+                "workorder": {
+                    "text": "Install Cove Lights",
+                    "value": "106"
+                },
+                "event": "101033",
+                "quantityRequired": 2,
+                "quantityAvailable": 0,
+                "purchaseOrder": {
+                    "text": " ",
+                    "value": ""
+                },
+                "amount": 0,
+                "active": false,
+                "woVendor": true,
+                "memo": ""
+            }],
+            "assets": [{
+                "id": "114",
+                "name": "ELE00002",
+                "workorder": {
+                    "text": "Install Cove Lights",
+                    "value": "106"
+                },
+                "event": "101033",
+                "quantity": 0,
+                "description": "Serialized 1 Sales Description",
+                "item": {
+                    "text": "ELE00002",
+                    "value": "674"
+                },
+                "equipmentType": {
+                    "text": "Hand Tools",
+                    "value": "1"
+                },
+                "rentalUnit": {
+                    "text": "",
+                    "value": ""
+                },
+                "rentalDuration": 0,
+                "rentalRate": 0,
+                "rentalAmount": 0,
+                "purchaseOrder": {
+                    "text": " ",
+                    "value": " "
+                },
+                "vendor": {
+                    "text": "Computer Depot Pacific",
+                    "value": "965"
+                },
+                "owned": true,
+                "rentalMatrix": 0
+            }],
+            "items": [{
+                "id": "400",
+                "workorder": {
+                    "text": "Install Cove Lights",
+                    "value": "106"
+                },
+                "salesorder": {
+                    "text": "Sales Order #SLS00000771",
+                    "value": "20900"
+                },
+                "event": "",
+                "uuid": "20900_1",
+                "line": "1",
+                "item": {
+                    "text": "CON00001",
+                    "value": "713"
+                },
+                "description": "",
+                "quantity": 1,
+                "availableQty": 1,
+                "note": ""
+            }, {
+                "id": "401",
+                "workorder": {
+                    "text": "Install Cove Lights",
+                    "value": "106"
+                },
+                "salesorder": {
+                    "text": "Sales Order #SLS00000771",
+                    "value": "20900"
+                },
+                "event": "",
+                "uuid": "20900_2",
+                "line": "2",
+                "item": {
+                    "text": "MNT00001",
+                    "value": "642"
+                },
+                "description": "Maintenance for all our products",
+                "quantity": 1,
+                "availableQty": 1,
+                "note": ""
+            }, {
+                "id": "413",
+                "workorder": {
+                    "text": "Install Cove Lights",
+                    "value": "106"
+                },
+                "salesorder": {
+                    "text": "Sales Order #SLS00000771",
+                    "value": "20900"
+                },
+                "event": "101032",
+                "uuid": "20900_1",
+                "line": "1",
+                "item": {
+                    "text": "CON00001",
+                    "value": "713"
+                },
+                "description": "",
+                "quantity": 0,
+                "availableQty": 0,
+                "note": ""
+            }, {
+                "id": "414",
+                "workorder": {
+                    "text": "Install Cove Lights",
+                    "value": "106"
+                },
+                "salesorder": {
+                    "text": "Sales Order #SLS00000771",
+                    "value": "20900"
+                },
+                "event": "101032",
+                "uuid": "20900_4",
+                "line": "4",
+                "item": {
+                    "text": "VZCE-7400-HS1",
+                    "value": "2032"
+                },
+                "description": "Compose,Panel Trim,End-Of-Run 74In.H, Steel",
+                "quantity": 0,
+                "availableQty": 0,
+                "note": ""
+            }, {
+                "id": "415",
+                "workorder": {
+                    "text": "Install Cove Lights",
+                    "value": "106"
+                },
+                "salesorder": {
+                    "text": "Sales Order #SLS00000771",
+                    "value": "20900"
+                },
+                "event": "101033",
+                "uuid": "20900_1",
+                "line": "1",
+                "item": {
+                    "text": "CON00001",
+                    "value": "713"
+                },
+                "description": "",
+                "quantity": 1,
+                "availableQty": 1,
+                "note": ""
+            }, {
+                "id": "416",
+                "workorder": {
+                    "text": "Install Cove Lights",
+                    "value": "106"
+                },
+                "salesorder": {
+                    "text": "Sales Order #SLS00000771",
+                    "value": "20900"
+                },
+                "event": "101033",
+                "uuid": "20900_5",
+                "line": "5",
+                "item": {
+                    "text": "VZCW-0000-PS1S1",
+                    "value": "2033"
+                },
+                "description": "Compose,Wall Mount,Fits All Heights",
+                "quantity": 1,
+                "availableQty": 1,
+                "note": ""
+            }, {
+                "id": "417",
+                "workorder": {
+                    "text": "Install Cove Lights",
+                    "value": "106"
+                },
+                "salesorder": {
+                    "text": "Sales Order #SLS00000771",
+                    "value": "20900"
+                },
+                "event": "101034",
+                "uuid": "20900_3",
+                "line": "3",
+                "item": {
+                    "text": "VZCC-0054-HSS1",
+                    "value": "2031"
+                },
+                "description": "Compose,Top Trim 54In.W,Stl, Pnl Frame",
+                "quantity": 1,
+                "availableQty": 1,
+                "note": ""
+            }, {
+                "id": "418",
+                "workorder": {
+                    "text": "Install Cove Lights",
+                    "value": "106"
+                },
+                "salesorder": {
+                    "text": "Sales Order #SLS00000771",
+                    "value": "20900"
+                },
+                "event": "101034",
+                "uuid": "20900_4",
+                "line": "4",
+                "item": {
+                    "text": "VZCE-7400-HS1",
+                    "value": "2032"
+                },
+                "description": "Compose,Panel Trim,End-Of-Run 74In.H, Steel",
+                "quantity": 3,
+                "availableQty": 3,
+                "note": ""
+            }, {
+                "id": "419",
+                "workorder": {
+                    "text": "Install Cove Lights",
+                    "value": "106"
+                },
+                "salesorder": {
+                    "text": "Sales Order #SLS00000771",
+                    "value": "20900"
+                },
+                "event": "101034",
+                "uuid": "20900_5",
+                "line": "5",
+                "item": {
+                    "text": "VZCW-0000-PS1S1",
+                    "value": "2033"
+                },
+                "description": "Compose,Wall Mount,Fits All Heights",
+                "quantity": 3,
+                "availableQty": 3,
+                "note": ""
+            }, {
+                "id": "420",
+                "workorder": {
+                    "text": "Install Cove Lights",
+                    "value": "106"
+                },
+                "salesorder": {
+                    "text": "Sales Order #SLS00000771",
+                    "value": "20900"
+                },
+                "event": "101034",
+                "uuid": "20900_6",
+                "line": "6",
+                "item": {
+                    "text": "VZFS-1654-RS1",
+                    "value": "2034"
+                },
+                "description": "Compose,Stack Frame 16In.H X 54In.W,Std Accoust,NoPwr",
+                "quantity": 6,
+                "availableQty": 6,
+                "note": ""
+            }, {
+                "id": "421",
+                "workorder": {
+                    "text": "Install Cove Lights",
+                    "value": "106"
+                },
+                "salesorder": {
+                    "text": "Sales Order #SLS00000771",
+                    "value": "20900"
+                },
+                "event": "101034",
+                "uuid": "20900_7",
+                "line": "7",
+                "item": {
+                    "text": "VZTI-1654-FNNS1",
+                    "value": "2035"
+                },
+                "description": "Compose,Single Tile,16In.HX54In.W,Fabric/Tackable,Std Core,No Tech",
+                "quantity": 12,
+                "availableQty": 12,
+                "note": ""
+            }, {
+                "id": "395",
+                "workorder": {
+                    "text": "Install Cove Lights",
+                    "value": "106"
+                },
+                "salesorder": {
+                    "text": "Sales Order #SLS00000771",
+                    "value": "20900"
+                },
+                "event": "",
+                "uuid": "20900_3",
+                "line": "3",
+                "item": {
+                    "text": "VZCC-0054-HSS1",
+                    "value": "2031"
+                },
+                "description": "Compose,Top Trim 54In.W,Stl, Pnl Frame",
+                "quantity": 1,
+                "availableQty": 1,
+                "note": ""
+            }, {
+                "id": "396",
+                "workorder": {
+                    "text": "Install Cove Lights",
+                    "value": "106"
+                },
+                "salesorder": {
+                    "text": "Sales Order #SLS00000771",
+                    "value": "20900"
+                },
+                "event": "",
+                "uuid": "20900_4",
+                "line": "4",
+                "item": {
+                    "text": "VZCE-7400-HS1",
+                    "value": "2032"
+                },
+                "description": "Compose,Panel Trim,End-Of-Run 74In.H, Steel",
+                "quantity": 3,
+                "availableQty": 3,
+                "note": ""
+            }, {
+                "id": "397",
+                "workorder": {
+                    "text": "Install Cove Lights",
+                    "value": "106"
+                },
+                "salesorder": {
+                    "text": "Sales Order #SLS00000771",
+                    "value": "20900"
+                },
+                "event": "",
+                "uuid": "20900_5",
+                "line": "5",
+                "item": {
+                    "text": "VZCW-0000-PS1S1",
+                    "value": "2033"
+                },
+                "description": "Compose,Wall Mount,Fits All Heights",
+                "quantity": 3,
+                "availableQty": 3,
+                "note": ""
+            }, {
+                "id": "398",
+                "workorder": {
+                    "text": "Install Cove Lights",
+                    "value": "106"
+                },
+                "salesorder": {
+                    "text": "Sales Order #SLS00000771",
+                    "value": "20900"
+                },
+                "event": "",
+                "uuid": "20900_6",
+                "line": "6",
+                "item": {
+                    "text": "VZFS-1654-RS1",
+                    "value": "2034"
+                },
+                "description": "Compose,Stack Frame 16In.H X 54In.W,Std Accoust,NoPwr",
+                "quantity": 6,
+                "availableQty": 6,
+                "note": ""
+            }, {
+                "id": "399",
+                "workorder": {
+                    "text": "Install Cove Lights",
+                    "value": "106"
+                },
+                "salesorder": {
+                    "text": "Sales Order #SLS00000771",
+                    "value": "20900"
+                },
+                "event": "",
+                "uuid": "20900_7",
+                "line": "7",
+                "item": {
+                    "text": "VZTI-1654-FNNS1",
+                    "value": "2035"
+                },
+                "description": "Compose,Single Tile,16In.HX54In.W,Fabric/Tackable,Std Core,No Tech",
+                "quantity": 12,
+                "availableQty": 12,
+                "note": ""
+            }],
+            "addresses": [{
+                "id": "150",
+                "workorder": {
+                    "text": "Install Cove Lights",
+                    "value": "106"
+                },
+                "customer": {
+                    "text": "3M",
+                    "value": "1397"
+                },
+                "events": ["101032", "101033", "101034"],
+                "address": {
+                    "text": "4966 Hilltop Street",
+                    "value": "245162"
+                },
+                "addressDetails": "Amaya Randell<br/>3M<br/>4966 Hilltop Street<br/>Northadams MA 01247<br/>United States",
+                "customerUrl": "/app/common/entity/custjob.nl?id=1397&compid=TSTDRV2617106"
+            }],
+            "contacts": [{
+                "id": "128",
+                "workorder": {
+                    "text": "Install Cove Lights",
+                    "value": "106"
+                },
+                "events": ["101032", "101033", "101034"],
+                "contact": {
+                    "text": "3M : Astra Gully",
+                    "value": "2043"
+                },
+                "name": "Astra Gully",
+                "email": "3m@3m.com",
+                "jobTitle": "Senior Applications Director",
+                "mobilePhone": "",
+                "phone": "",
+                "primary": false,
+                "url": "/app/common/entity/contact.nl?id=2043&compid=TSTDRV2617106"
+            }, {
+                "id": "129",
+                "workorder": {
+                    "text": "Install Cove Lights",
+                    "value": "106"
+                },
+                "events": ["101032", "101033", "101034"],
+                "contact": {
+                    "text": "3M : Kaelea Peel",
+                    "value": "2044"
+                },
+                "name": "Kaelea Peel",
+                "email": "",
+                "jobTitle": "Dynamic Configuration Liason",
+                "mobilePhone": "",
+                "phone": "",
+                "primary": false,
+                "url": "/app/common/entity/contact.nl?id=2044&compid=TSTDRV2617106"
+            }],
+            "events": [{
+                "id": "101032",
+                "title": "Install LED Light Strips",
+                "workorder": {
+                    "text": "Install Cove Lights",
+                    "value": "106"
+                },
+                "location": "",
+                "status": {
+                    "text": "Tentative",
+                    "value": "TENTATIVE",
+                    "code": "bg-secondary"
+                },
+                "date": {
+                    "recurrence": "occurs every day from 11/11/2024 until 11/15/2024",
+                    "start": "2024-11-11",
+                    "end": "2024-11-15"
+                },
+                "time": {
+                    "start": "09:00",
+                    "end": "17:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "",
+                "url": "/app/crm/calendar/event.nl?id=101032&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "vendors": [],
+                "assets": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                },
+                "organizer": {
+                    "text": "Mei Matriano",
+                    "value": "1647"
+                }
+            }, {
+                "id": "101033",
+                "title": "Install Light Switches",
+                "workorder": {
+                    "text": "Install Cove Lights",
+                    "value": "106"
+                },
+                "location": "",
+                "status": {
+                    "text": "Tentative",
+                    "value": "TENTATIVE",
+                    "code": "bg-secondary"
+                },
+                "date": {
+                    "recurrence": "occurs every day from 11/11/2024 until 11/15/2024",
+                    "start": "2024-11-11",
+                    "end": "2024-11-15"
+                },
+                "time": {
+                    "start": "09:00",
+                    "end": "17:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "",
+                "url": "/app/crm/calendar/event.nl?id=101033&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "vendors": [],
+                "assets": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                },
+                "organizer": {
+                    "text": "Mei Matriano",
+                    "value": "1647"
+                }
+            }, {
+                "id": "101034",
+                "title": "Deliver Materials",
+                "workorder": {
+                    "text": "Install Cove Lights",
+                    "value": "106"
+                },
+                "location": "",
+                "status": {
+                    "text": "Tentative",
+                    "value": "TENTATIVE",
+                    "code": "bg-secondary"
+                },
+                "date": {
+                    "recurrence": "occurs every day from 11/11/2024 until 11/13/2024",
+                    "start": "2024-11-11",
+                    "end": "2024-11-13"
+                },
+                "time": {
+                    "start": "09:00",
+                    "end": "15:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "",
+                "url": "/app/crm/calendar/event.nl?id=101034&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "vendors": [],
+                "assets": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                },
+                "organizer": {
+                    "text": "Mei Matriano",
+                    "value": "1647"
+                }
+            }],
+            "projectUrl": "/app/accounting/project/project.nl?id=2042&compid=TSTDRV2617106",
+            "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=106&compid=TSTDRV2617106",
+            "soUrl": "/app/accounting/transactions/salesord.nl?id=20900&compid=TSTDRV2617106",
+            "esthours": "40"
+        },
+        "resources": [{
+            "id": "261",
+            "name": "Clark Koozer",
+            "initials": "CK",
+            "email": "jc@erpsuccesspartners.com",
+            "phone": "650-555-8300",
+            "location": {
+                "text": "01: San Francisco",
+                "value": "2"
+            },
+            "active": true,
+            "workorder": {
+                "text": "Install Cove Lights",
+                "value": "106"
+            },
+            "events": ["101032", "101033", "101034"],
+            "employee": {
+                "text": "Clark Koozer",
+                "value": "23"
+            },
+            "resourceGroups": [{
+                "text": "Drivers",
+                "value": "3"
+            }],
+            "types": [{
+                "text": "Delivery Driver",
+                "value": "2"
+            }],
+            "subTypes": [],
+            "rate": 0,
+            "vendor": {
+                "text": "",
+                "value": ""
+            },
+            "purchaseOrder": {
+                "text": " ",
+                "value": ""
+            },
+            "affiliationType": {
+                "text": "In-House",
+                "value": "1"
+            },
+            "selected": true
+        }, {
+            "id": "262",
+            "name": "Ruth Smith",
+            "initials": "RS",
+            "email": "jc@erpsuccesspartners.com",
+            "phone": "(713) 555-1212",
+            "location": {
+                "text": "01: San Francisco",
+                "value": "2"
+            },
+            "active": true,
+            "workorder": {
+                "text": "Install Cove Lights",
+                "value": "106"
+            },
+            "events": ["101032", "101033"],
+            "employee": {
+                "text": "Ruth Smith",
+                "value": "1539"
+            },
+            "resourceGroups": [{
+                "text": "Installers",
+                "value": "1"
+            }],
+            "types": [{
+                "text": "Installer",
+                "value": "1"
+            }],
+            "subTypes": [],
+            "rate": 0,
+            "vendor": {
+                "text": "",
+                "value": ""
+            },
+            "purchaseOrder": {
+                "text": " ",
+                "value": ""
+            },
+            "affiliationType": {
+                "text": "In-House",
+                "value": "1"
+            },
+            "selected": true
+        }, {
+            "id": "266",
+            "name": "Carmen Matthews",
+            "initials": "CM",
+            "email": "cmatthews@ramsey.com",
+            "phone": "415-555-3696",
+            "location": {
+                "text": "01: San Francisco",
+                "value": "2"
+            },
+            "active": true,
+            "workorder": {
+                "text": "Install Cove Lights",
+                "value": "106"
+            },
+            "events": ["101033"],
+            "employee": {
+                "text": "Carmen Matthews",
+                "value": "24"
+            },
+            "resourceGroups": [{
+                "text": "Installers",
+                "value": "1"
+            }],
+            "types": [{
+                "text": "Installer",
+                "value": "1"
+            }],
+            "subTypes": [],
+            "rate": 0,
+            "vendor": {
+                "text": "",
+                "value": ""
+            },
+            "purchaseOrder": {
+                "text": " ",
+                "value": ""
+            },
+            "affiliationType": {
+                "text": "Crew Enhancement",
+                "value": "3"
+            },
+            "selected": true
+        }],
+        "vendors": [{
+            "id": "166",
+            "name": "166",
+            "vendor": {
+                "text": "Best Fixture, Inc.",
+                "value": "12"
+            },
+            "url": "",
+            "email": "",
+            "initials": "BF",
+            "workorder": {
+                "text": "Install Cove Lights",
+                "value": "106"
+            },
+            "event": "101033",
+            "quantityRequired": 2,
+            "quantityAvailable": 0,
+            "purchaseOrder": {
+                "text": " ",
+                "value": ""
+            },
+            "amount": 0,
+            "active": false,
+            "woVendor": true,
+            "memo": "",
+            "selected": true
+        }],
+        "assets": [{
+            "id": "114",
+            "name": "ELE00002",
+            "workorder": {
+                "text": "Install Cove Lights",
+                "value": "106"
+            },
+            "event": "101033",
+            "quantity": 0,
+            "description": "Serialized 1 Sales Description",
+            "item": {
+                "text": "ELE00002",
+                "value": "674"
+            },
+            "equipmentType": {
+                "text": "Hand Tools",
+                "value": "1"
+            },
+            "rentalUnit": {
+                "text": "",
+                "value": ""
+            },
+            "rentalDuration": 0,
+            "rentalRate": 0,
+            "rentalAmount": 0,
+            "purchaseOrder": {
+                "text": " ",
+                "value": " "
+            },
+            "vendor": {
+                "text": "Computer Depot Pacific",
+                "value": "965"
+            },
+            "owned": true,
+            "rentalMatrix": 0,
+            "selected": true
+        }],
+        "items": [{
+            "id": "415",
+            "workorder": {
+                "text": "Install Cove Lights",
+                "value": "106"
+            },
+            "salesorder": {
+                "text": "Sales Order #SLS00000771",
+                "value": "20900"
+            },
+            "event": "101033",
+            "uuid": "20900_1",
+            "line": "1",
+            "item": {
+                "text": "CON00001",
+                "value": "713"
+            },
+            "description": "",
+            "quantity": 1,
+            "availableQty": 1,
+            "note": "",
+            "selected": true
+        }, {
+            "id": "416",
+            "workorder": {
+                "text": "Install Cove Lights",
+                "value": "106"
+            },
+            "salesorder": {
+                "text": "Sales Order #SLS00000771",
+                "value": "20900"
+            },
+            "event": "101033",
+            "uuid": "20900_5",
+            "line": "5",
+            "item": {
+                "text": "VZCW-0000-PS1S1",
+                "value": "2033"
+            },
+            "description": "Compose,Wall Mount,Fits All Heights",
+            "quantity": 1,
+            "availableQty": 1,
+            "note": "",
+            "selected": true
+        }],
+        "contacts": [{
+            "id": "128",
+            "workorder": {
+                "text": "Install Cove Lights",
+                "value": "106"
+            },
+            "events": ["101032", "101033", "101034"],
+            "contact": {
+                "text": "3M : Astra Gully",
+                "value": "2043"
+            },
+            "name": "Astra Gully",
+            "email": "3m@3m.com",
+            "jobTitle": "Senior Applications Director",
+            "mobilePhone": "",
+            "phone": "",
+            "primary": false,
+            "url": "/app/common/entity/contact.nl?id=2043&compid=TSTDRV2617106",
+            "selected": true
+        }, {
+            "id": "129",
+            "workorder": {
+                "text": "Install Cove Lights",
+                "value": "106"
+            },
+            "events": ["101032", "101033", "101034"],
+            "contact": {
+                "text": "3M : Kaelea Peel",
+                "value": "2044"
+            },
+            "name": "Kaelea Peel",
+            "email": "",
+            "jobTitle": "Dynamic Configuration Liason",
+            "mobilePhone": "",
+            "phone": "",
+            "primary": false,
+            "url": "/app/common/entity/contact.nl?id=2044&compid=TSTDRV2617106",
+            "selected": true
+        }],
+        "addresses": [{
+            "id": "150",
+            "workorder": {
+                "text": "Install Cove Lights",
+                "value": "106"
+            },
+            "customer": {
+                "text": "3M",
+                "value": "1397"
+            },
+            "events": ["101032", "101033", "101034"],
+            "address": {
+                "text": "4966 Hilltop Street",
+                "value": "245162"
+            },
+            "addressDetails": "Amaya Randell<br/>3M<br/>4966 Hilltop Street<br/>Northadams MA 01247<br/>United States",
+            "customerUrl": "/app/common/entity/custjob.nl?id=1397&compid=TSTDRV2617106",
+            "selected": true
+        }],
+        "contact": {
+            "text": "",
+            "value": ""
+        },
+        "address": {
+            "text": "",
+            "value": ""
+        },
+        "organizer": {
+            "text": "Mei Matriano",
+            "value": "1647"
+        }
+    }, {
+        "id": "101034",
+        "title": "Deliver Materials",
+        "workorder": {
+            "text": "Install Cove Lights",
+            "value": "106"
+        },
+        "location": "",
+        "status": {
+            "text": "Tentative",
+            "value": "TENTATIVE",
+            "code": "bg-secondary"
+        },
+        "date": {
+            "recurrence": "occurs every day from 11/11/2024 until 11/13/2024",
+            "start": "2024-11-11",
+            "end": "2024-11-13"
+        },
+        "time": {
+            "start": "09:00",
+            "end": "15:00"
+        },
+        "priority": {
+            "text": "Medium",
+            "value": "2",
+            "code": "#dfcf02"
+        },
+        "note": "",
+        "url": "/app/crm/calendar/event.nl?id=101034&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {
+            "id": "106",
+            "name": "Install Cove Lights",
+            "title": "Install Cove Lights",
+            "project": {
+                "text": "3M : Light Fixtures Installation",
+                "value": "2042"
+            },
+            "date": "11/11/2024",
+            "status": {
+                "text": "Not Started",
+                "value": "4",
+                "code": "#026adf"
+            },
+            "type": {
+                "text": "Service",
+                "value": "2"
+            },
+            "memo": "",
+            "salesorder": {
+                "text": "Sales Order #SLS00000771",
+                "value": "20900"
+            },
+            "customer": {
+                "text": "3M",
+                "value": "1397"
+            },
+            "resourceGroup": {
+                "text": "",
+                "value": ""
+            },
+            "priority": "",
+            "resources": [],
+            "vendors": [{
+                "id": "165",
+                "name": "165",
+                "vendor": {
+                    "text": "Best Fixture, Inc.",
+                    "value": "12"
+                },
+                "url": "",
+                "email": "",
+                "initials": "BF",
+                "workorder": {
+                    "text": "Install Cove Lights",
+                    "value": "106"
+                },
+                "event": "101032",
+                "quantityRequired": 2,
+                "quantityAvailable": 0,
+                "purchaseOrder": {
+                    "text": " ",
+                    "value": ""
+                },
+                "amount": 0,
+                "active": false,
+                "woVendor": true,
+                "memo": ""
+            }, {
+                "id": "166",
+                "name": "166",
+                "vendor": {
+                    "text": "Best Fixture, Inc.",
+                    "value": "12"
+                },
+                "url": "",
+                "email": "",
+                "initials": "BF",
+                "workorder": {
+                    "text": "Install Cove Lights",
+                    "value": "106"
+                },
+                "event": "101033",
+                "quantityRequired": 2,
+                "quantityAvailable": 0,
+                "purchaseOrder": {
+                    "text": " ",
+                    "value": ""
+                },
+                "amount": 0,
+                "active": false,
+                "woVendor": true,
+                "memo": ""
+            }],
+            "assets": [{
+                "id": "114",
+                "name": "ELE00002",
+                "workorder": {
+                    "text": "Install Cove Lights",
+                    "value": "106"
+                },
+                "event": "101033",
+                "quantity": 0,
+                "description": "Serialized 1 Sales Description",
+                "item": {
+                    "text": "ELE00002",
+                    "value": "674"
+                },
+                "equipmentType": {
+                    "text": "Hand Tools",
+                    "value": "1"
+                },
+                "rentalUnit": {
+                    "text": "",
+                    "value": ""
+                },
+                "rentalDuration": 0,
+                "rentalRate": 0,
+                "rentalAmount": 0,
+                "purchaseOrder": {
+                    "text": " ",
+                    "value": " "
+                },
+                "vendor": {
+                    "text": "Computer Depot Pacific",
+                    "value": "965"
+                },
+                "owned": true,
+                "rentalMatrix": 0
+            }],
+            "items": [{
+                "id": "400",
+                "workorder": {
+                    "text": "Install Cove Lights",
+                    "value": "106"
+                },
+                "salesorder": {
+                    "text": "Sales Order #SLS00000771",
+                    "value": "20900"
+                },
+                "event": "",
+                "uuid": "20900_1",
+                "line": "1",
+                "item": {
+                    "text": "CON00001",
+                    "value": "713"
+                },
+                "description": "",
+                "quantity": 1,
+                "availableQty": 1,
+                "note": ""
+            }, {
+                "id": "401",
+                "workorder": {
+                    "text": "Install Cove Lights",
+                    "value": "106"
+                },
+                "salesorder": {
+                    "text": "Sales Order #SLS00000771",
+                    "value": "20900"
+                },
+                "event": "",
+                "uuid": "20900_2",
+                "line": "2",
+                "item": {
+                    "text": "MNT00001",
+                    "value": "642"
+                },
+                "description": "Maintenance for all our products",
+                "quantity": 1,
+                "availableQty": 1,
+                "note": ""
+            }, {
+                "id": "413",
+                "workorder": {
+                    "text": "Install Cove Lights",
+                    "value": "106"
+                },
+                "salesorder": {
+                    "text": "Sales Order #SLS00000771",
+                    "value": "20900"
+                },
+                "event": "101032",
+                "uuid": "20900_1",
+                "line": "1",
+                "item": {
+                    "text": "CON00001",
+                    "value": "713"
+                },
+                "description": "",
+                "quantity": 0,
+                "availableQty": 0,
+                "note": ""
+            }, {
+                "id": "414",
+                "workorder": {
+                    "text": "Install Cove Lights",
+                    "value": "106"
+                },
+                "salesorder": {
+                    "text": "Sales Order #SLS00000771",
+                    "value": "20900"
+                },
+                "event": "101032",
+                "uuid": "20900_4",
+                "line": "4",
+                "item": {
+                    "text": "VZCE-7400-HS1",
+                    "value": "2032"
+                },
+                "description": "Compose,Panel Trim,End-Of-Run 74In.H, Steel",
+                "quantity": 0,
+                "availableQty": 0,
+                "note": ""
+            }, {
+                "id": "415",
+                "workorder": {
+                    "text": "Install Cove Lights",
+                    "value": "106"
+                },
+                "salesorder": {
+                    "text": "Sales Order #SLS00000771",
+                    "value": "20900"
+                },
+                "event": "101033",
+                "uuid": "20900_1",
+                "line": "1",
+                "item": {
+                    "text": "CON00001",
+                    "value": "713"
+                },
+                "description": "",
+                "quantity": 1,
+                "availableQty": 1,
+                "note": ""
+            }, {
+                "id": "416",
+                "workorder": {
+                    "text": "Install Cove Lights",
+                    "value": "106"
+                },
+                "salesorder": {
+                    "text": "Sales Order #SLS00000771",
+                    "value": "20900"
+                },
+                "event": "101033",
+                "uuid": "20900_5",
+                "line": "5",
+                "item": {
+                    "text": "VZCW-0000-PS1S1",
+                    "value": "2033"
+                },
+                "description": "Compose,Wall Mount,Fits All Heights",
+                "quantity": 1,
+                "availableQty": 1,
+                "note": ""
+            }, {
+                "id": "417",
+                "workorder": {
+                    "text": "Install Cove Lights",
+                    "value": "106"
+                },
+                "salesorder": {
+                    "text": "Sales Order #SLS00000771",
+                    "value": "20900"
+                },
+                "event": "101034",
+                "uuid": "20900_3",
+                "line": "3",
+                "item": {
+                    "text": "VZCC-0054-HSS1",
+                    "value": "2031"
+                },
+                "description": "Compose,Top Trim 54In.W,Stl, Pnl Frame",
+                "quantity": 1,
+                "availableQty": 1,
+                "note": ""
+            }, {
+                "id": "418",
+                "workorder": {
+                    "text": "Install Cove Lights",
+                    "value": "106"
+                },
+                "salesorder": {
+                    "text": "Sales Order #SLS00000771",
+                    "value": "20900"
+                },
+                "event": "101034",
+                "uuid": "20900_4",
+                "line": "4",
+                "item": {
+                    "text": "VZCE-7400-HS1",
+                    "value": "2032"
+                },
+                "description": "Compose,Panel Trim,End-Of-Run 74In.H, Steel",
+                "quantity": 3,
+                "availableQty": 3,
+                "note": ""
+            }, {
+                "id": "419",
+                "workorder": {
+                    "text": "Install Cove Lights",
+                    "value": "106"
+                },
+                "salesorder": {
+                    "text": "Sales Order #SLS00000771",
+                    "value": "20900"
+                },
+                "event": "101034",
+                "uuid": "20900_5",
+                "line": "5",
+                "item": {
+                    "text": "VZCW-0000-PS1S1",
+                    "value": "2033"
+                },
+                "description": "Compose,Wall Mount,Fits All Heights",
+                "quantity": 3,
+                "availableQty": 3,
+                "note": ""
+            }, {
+                "id": "420",
+                "workorder": {
+                    "text": "Install Cove Lights",
+                    "value": "106"
+                },
+                "salesorder": {
+                    "text": "Sales Order #SLS00000771",
+                    "value": "20900"
+                },
+                "event": "101034",
+                "uuid": "20900_6",
+                "line": "6",
+                "item": {
+                    "text": "VZFS-1654-RS1",
+                    "value": "2034"
+                },
+                "description": "Compose,Stack Frame 16In.H X 54In.W,Std Accoust,NoPwr",
+                "quantity": 6,
+                "availableQty": 6,
+                "note": ""
+            }, {
+                "id": "421",
+                "workorder": {
+                    "text": "Install Cove Lights",
+                    "value": "106"
+                },
+                "salesorder": {
+                    "text": "Sales Order #SLS00000771",
+                    "value": "20900"
+                },
+                "event": "101034",
+                "uuid": "20900_7",
+                "line": "7",
+                "item": {
+                    "text": "VZTI-1654-FNNS1",
+                    "value": "2035"
+                },
+                "description": "Compose,Single Tile,16In.HX54In.W,Fabric/Tackable,Std Core,No Tech",
+                "quantity": 12,
+                "availableQty": 12,
+                "note": ""
+            }, {
+                "id": "395",
+                "workorder": {
+                    "text": "Install Cove Lights",
+                    "value": "106"
+                },
+                "salesorder": {
+                    "text": "Sales Order #SLS00000771",
+                    "value": "20900"
+                },
+                "event": "",
+                "uuid": "20900_3",
+                "line": "3",
+                "item": {
+                    "text": "VZCC-0054-HSS1",
+                    "value": "2031"
+                },
+                "description": "Compose,Top Trim 54In.W,Stl, Pnl Frame",
+                "quantity": 1,
+                "availableQty": 1,
+                "note": ""
+            }, {
+                "id": "396",
+                "workorder": {
+                    "text": "Install Cove Lights",
+                    "value": "106"
+                },
+                "salesorder": {
+                    "text": "Sales Order #SLS00000771",
+                    "value": "20900"
+                },
+                "event": "",
+                "uuid": "20900_4",
+                "line": "4",
+                "item": {
+                    "text": "VZCE-7400-HS1",
+                    "value": "2032"
+                },
+                "description": "Compose,Panel Trim,End-Of-Run 74In.H, Steel",
+                "quantity": 3,
+                "availableQty": 3,
+                "note": ""
+            }, {
+                "id": "397",
+                "workorder": {
+                    "text": "Install Cove Lights",
+                    "value": "106"
+                },
+                "salesorder": {
+                    "text": "Sales Order #SLS00000771",
+                    "value": "20900"
+                },
+                "event": "",
+                "uuid": "20900_5",
+                "line": "5",
+                "item": {
+                    "text": "VZCW-0000-PS1S1",
+                    "value": "2033"
+                },
+                "description": "Compose,Wall Mount,Fits All Heights",
+                "quantity": 3,
+                "availableQty": 3,
+                "note": ""
+            }, {
+                "id": "398",
+                "workorder": {
+                    "text": "Install Cove Lights",
+                    "value": "106"
+                },
+                "salesorder": {
+                    "text": "Sales Order #SLS00000771",
+                    "value": "20900"
+                },
+                "event": "",
+                "uuid": "20900_6",
+                "line": "6",
+                "item": {
+                    "text": "VZFS-1654-RS1",
+                    "value": "2034"
+                },
+                "description": "Compose,Stack Frame 16In.H X 54In.W,Std Accoust,NoPwr",
+                "quantity": 6,
+                "availableQty": 6,
+                "note": ""
+            }, {
+                "id": "399",
+                "workorder": {
+                    "text": "Install Cove Lights",
+                    "value": "106"
+                },
+                "salesorder": {
+                    "text": "Sales Order #SLS00000771",
+                    "value": "20900"
+                },
+                "event": "",
+                "uuid": "20900_7",
+                "line": "7",
+                "item": {
+                    "text": "VZTI-1654-FNNS1",
+                    "value": "2035"
+                },
+                "description": "Compose,Single Tile,16In.HX54In.W,Fabric/Tackable,Std Core,No Tech",
+                "quantity": 12,
+                "availableQty": 12,
+                "note": ""
+            }],
+            "addresses": [{
+                "id": "150",
+                "workorder": {
+                    "text": "Install Cove Lights",
+                    "value": "106"
+                },
+                "customer": {
+                    "text": "3M",
+                    "value": "1397"
+                },
+                "events": ["101032", "101033", "101034"],
+                "address": {
+                    "text": "4966 Hilltop Street",
+                    "value": "245162"
+                },
+                "addressDetails": "Amaya Randell<br/>3M<br/>4966 Hilltop Street<br/>Northadams MA 01247<br/>United States",
+                "customerUrl": "/app/common/entity/custjob.nl?id=1397&compid=TSTDRV2617106"
+            }],
+            "contacts": [{
+                "id": "128",
+                "workorder": {
+                    "text": "Install Cove Lights",
+                    "value": "106"
+                },
+                "events": ["101032", "101033", "101034"],
+                "contact": {
+                    "text": "3M : Astra Gully",
+                    "value": "2043"
+                },
+                "name": "Astra Gully",
+                "email": "3m@3m.com",
+                "jobTitle": "Senior Applications Director",
+                "mobilePhone": "",
+                "phone": "",
+                "primary": false,
+                "url": "/app/common/entity/contact.nl?id=2043&compid=TSTDRV2617106"
+            }, {
+                "id": "129",
+                "workorder": {
+                    "text": "Install Cove Lights",
+                    "value": "106"
+                },
+                "events": ["101032", "101033", "101034"],
+                "contact": {
+                    "text": "3M : Kaelea Peel",
+                    "value": "2044"
+                },
+                "name": "Kaelea Peel",
+                "email": "",
+                "jobTitle": "Dynamic Configuration Liason",
+                "mobilePhone": "",
+                "phone": "",
+                "primary": false,
+                "url": "/app/common/entity/contact.nl?id=2044&compid=TSTDRV2617106"
+            }],
+            "events": [{
+                "id": "101032",
+                "title": "Install LED Light Strips",
+                "workorder": {
+                    "text": "Install Cove Lights",
+                    "value": "106"
+                },
+                "location": "",
+                "status": {
+                    "text": "Tentative",
+                    "value": "TENTATIVE",
+                    "code": "bg-secondary"
+                },
+                "date": {
+                    "recurrence": "occurs every day from 11/11/2024 until 11/15/2024",
+                    "start": "2024-11-11",
+                    "end": "2024-11-15"
+                },
+                "time": {
+                    "start": "09:00",
+                    "end": "17:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "",
+                "url": "/app/crm/calendar/event.nl?id=101032&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "vendors": [],
+                "assets": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                },
+                "organizer": {
+                    "text": "Mei Matriano",
+                    "value": "1647"
+                }
+            }, {
+                "id": "101033",
+                "title": "Install Light Switches",
+                "workorder": {
+                    "text": "Install Cove Lights",
+                    "value": "106"
+                },
+                "location": "",
+                "status": {
+                    "text": "Tentative",
+                    "value": "TENTATIVE",
+                    "code": "bg-secondary"
+                },
+                "date": {
+                    "recurrence": "occurs every day from 11/11/2024 until 11/15/2024",
+                    "start": "2024-11-11",
+                    "end": "2024-11-15"
+                },
+                "time": {
+                    "start": "09:00",
+                    "end": "17:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "",
+                "url": "/app/crm/calendar/event.nl?id=101033&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "vendors": [],
+                "assets": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                },
+                "organizer": {
+                    "text": "Mei Matriano",
+                    "value": "1647"
+                }
+            }, {
+                "id": "101034",
+                "title": "Deliver Materials",
+                "workorder": {
+                    "text": "Install Cove Lights",
+                    "value": "106"
+                },
+                "location": "",
+                "status": {
+                    "text": "Tentative",
+                    "value": "TENTATIVE",
+                    "code": "bg-secondary"
+                },
+                "date": {
+                    "recurrence": "occurs every day from 11/11/2024 until 11/13/2024",
+                    "start": "2024-11-11",
+                    "end": "2024-11-13"
+                },
+                "time": {
+                    "start": "09:00",
+                    "end": "15:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "",
+                "url": "/app/crm/calendar/event.nl?id=101034&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "vendors": [],
+                "assets": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                },
+                "organizer": {
+                    "text": "Mei Matriano",
+                    "value": "1647"
+                }
+            }],
+            "projectUrl": "/app/accounting/project/project.nl?id=2042&compid=TSTDRV2617106",
+            "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=106&compid=TSTDRV2617106",
+            "soUrl": "/app/accounting/transactions/salesord.nl?id=20900&compid=TSTDRV2617106",
+            "esthours": "40"
+        },
+        "resources": [{
+            "id": "261",
+            "name": "Clark Koozer",
+            "initials": "CK",
+            "email": "jc@erpsuccesspartners.com",
+            "phone": "650-555-8300",
+            "location": {
+                "text": "01: San Francisco",
+                "value": "2"
+            },
+            "active": true,
+            "workorder": {
+                "text": "Install Cove Lights",
+                "value": "106"
+            },
+            "events": ["101032", "101033", "101034"],
+            "employee": {
+                "text": "Clark Koozer",
+                "value": "23"
+            },
+            "resourceGroups": [{
+                "text": "Drivers",
+                "value": "3"
+            }],
+            "types": [{
+                "text": "Delivery Driver",
+                "value": "2"
+            }],
+            "subTypes": [],
+            "rate": 0,
+            "vendor": {
+                "text": "",
+                "value": ""
+            },
+            "purchaseOrder": {
+                "text": " ",
+                "value": ""
+            },
+            "affiliationType": {
+                "text": "In-House",
+                "value": "1"
+            },
+            "selected": true
+        }],
+        "vendors": [],
+        "assets": [],
+        "items": [{
+            "id": "417",
+            "workorder": {
+                "text": "Install Cove Lights",
+                "value": "106"
+            },
+            "salesorder": {
+                "text": "Sales Order #SLS00000771",
+                "value": "20900"
+            },
+            "event": "101034",
+            "uuid": "20900_3",
+            "line": "3",
+            "item": {
+                "text": "VZCC-0054-HSS1",
+                "value": "2031"
+            },
+            "description": "Compose,Top Trim 54In.W,Stl, Pnl Frame",
+            "quantity": 1,
+            "availableQty": 1,
+            "note": "",
+            "selected": true
+        }, {
+            "id": "418",
+            "workorder": {
+                "text": "Install Cove Lights",
+                "value": "106"
+            },
+            "salesorder": {
+                "text": "Sales Order #SLS00000771",
+                "value": "20900"
+            },
+            "event": "101034",
+            "uuid": "20900_4",
+            "line": "4",
+            "item": {
+                "text": "VZCE-7400-HS1",
+                "value": "2032"
+            },
+            "description": "Compose,Panel Trim,End-Of-Run 74In.H, Steel",
+            "quantity": 3,
+            "availableQty": 3,
+            "note": "",
+            "selected": true
+        }, {
+            "id": "419",
+            "workorder": {
+                "text": "Install Cove Lights",
+                "value": "106"
+            },
+            "salesorder": {
+                "text": "Sales Order #SLS00000771",
+                "value": "20900"
+            },
+            "event": "101034",
+            "uuid": "20900_5",
+            "line": "5",
+            "item": {
+                "text": "VZCW-0000-PS1S1",
+                "value": "2033"
+            },
+            "description": "Compose,Wall Mount,Fits All Heights",
+            "quantity": 3,
+            "availableQty": 3,
+            "note": "",
+            "selected": true
+        }, {
+            "id": "420",
+            "workorder": {
+                "text": "Install Cove Lights",
+                "value": "106"
+            },
+            "salesorder": {
+                "text": "Sales Order #SLS00000771",
+                "value": "20900"
+            },
+            "event": "101034",
+            "uuid": "20900_6",
+            "line": "6",
+            "item": {
+                "text": "VZFS-1654-RS1",
+                "value": "2034"
+            },
+            "description": "Compose,Stack Frame 16In.H X 54In.W,Std Accoust,NoPwr",
+            "quantity": 6,
+            "availableQty": 6,
+            "note": "",
+            "selected": true
+        }, {
+            "id": "421",
+            "workorder": {
+                "text": "Install Cove Lights",
+                "value": "106"
+            },
+            "salesorder": {
+                "text": "Sales Order #SLS00000771",
+                "value": "20900"
+            },
+            "event": "101034",
+            "uuid": "20900_7",
+            "line": "7",
+            "item": {
+                "text": "VZTI-1654-FNNS1",
+                "value": "2035"
+            },
+            "description": "Compose,Single Tile,16In.HX54In.W,Fabric/Tackable,Std Core,No Tech",
+            "quantity": 12,
+            "availableQty": 12,
+            "note": "",
+            "selected": true
+        }],
+        "contacts": [{
+            "id": "128",
+            "workorder": {
+                "text": "Install Cove Lights",
+                "value": "106"
+            },
+            "events": ["101032", "101033", "101034"],
+            "contact": {
+                "text": "3M : Astra Gully",
+                "value": "2043"
+            },
+            "name": "Astra Gully",
+            "email": "3m@3m.com",
+            "jobTitle": "Senior Applications Director",
+            "mobilePhone": "",
+            "phone": "",
+            "primary": false,
+            "url": "/app/common/entity/contact.nl?id=2043&compid=TSTDRV2617106",
+            "selected": true
+        }, {
+            "id": "129",
+            "workorder": {
+                "text": "Install Cove Lights",
+                "value": "106"
+            },
+            "events": ["101032", "101033", "101034"],
+            "contact": {
+                "text": "3M : Kaelea Peel",
+                "value": "2044"
+            },
+            "name": "Kaelea Peel",
+            "email": "",
+            "jobTitle": "Dynamic Configuration Liason",
+            "mobilePhone": "",
+            "phone": "",
+            "primary": false,
+            "url": "/app/common/entity/contact.nl?id=2044&compid=TSTDRV2617106",
+            "selected": true
+        }],
+        "addresses": [{
+            "id": "150",
+            "workorder": {
+                "text": "Install Cove Lights",
+                "value": "106"
+            },
+            "customer": {
+                "text": "3M",
+                "value": "1397"
+            },
+            "events": ["101032", "101033", "101034"],
+            "address": {
+                "text": "4966 Hilltop Street",
+                "value": "245162"
+            },
+            "addressDetails": "Amaya Randell<br/>3M<br/>4966 Hilltop Street<br/>Northadams MA 01247<br/>United States",
+            "customerUrl": "/app/common/entity/custjob.nl?id=1397&compid=TSTDRV2617106",
+            "selected": true
+        }],
+        "contact": {
+            "text": "",
+            "value": ""
+        },
+        "address": {
+            "text": "",
+            "value": ""
+        },
+        "organizer": {
+            "text": "Mei Matriano",
+            "value": "1647"
+        }
+    }, {
         "id": "101017",
         "title": "Furniture Installation and Pickup",
         "workorder": {
@@ -31176,9 +38866,9 @@ const mockup = {
         },
         "location": "",
         "status": {
-            "text": "Tentative",
-            "value": "TENTATIVE",
-            "code": "bg-secondary"
+            "text": "Completed",
+            "value": "COMPLETED",
+            "code": "btn-info"
         },
         "date": {
             "recurrence": "occurs every day from 11/11/2024 until 11/12/2024",
@@ -31202,7 +38892,7 @@ const mockup = {
             "name": "Furniture Installation and Pickup",
             "title": "Furniture Installation and Pickup",
             "project": {
-                "text": "AB&I Holdings : Parking Lot Construction",
+                "text": "World Bank : World Bank Office Furniture Installation",
                 "value": "1515"
             },
             "date": "11/10/2024",
@@ -31221,7 +38911,7 @@ const mockup = {
                 "value": "19372"
             },
             "customer": {
-                "text": "AB&I Holdings",
+                "text": "World Bank",
                 "value": "1249"
             },
             "resourceGroup": {
@@ -31245,31 +38935,6 @@ const mockup = {
                     "value": "101"
                 },
                 "event": "101017",
-                "quantityRequired": 1,
-                "quantityAvailable": 0,
-                "purchaseOrder": {
-                    "text": " ",
-                    "value": ""
-                },
-                "amount": 0,
-                "active": false,
-                "woVendor": true,
-                "memo": ""
-            }, {
-                "id": "162",
-                "name": "Best Fixture, Inc.",
-                "vendor": {
-                    "text": "Best Fixture, Inc.",
-                    "value": "12"
-                },
-                "url": "",
-                "email": "",
-                "initials": "BF",
-                "workorder": {
-                    "text": "Furniture Installation and Pickup",
-                    "value": "101"
-                },
-                "event": "101018",
                 "quantityRequired": 1,
                 "quantityAvailable": 0,
                 "purchaseOrder": {
@@ -31332,12 +38997,12 @@ const mockup = {
                     "value": "101"
                 },
                 "customer": {
-                    "text": "AB&I Holdings",
+                    "text": "World Bank",
                     "value": "1249"
                 },
                 "events": ["101017", "101018"],
                 "address": {
-                    "text": "1701 Rollins Road",
+                    "text": "434 Carlaw",
                     "value": "244878"
                 },
                 "addressDetails": "Test Address 1<br/>Test Address 1<br/>Test Address 1<br/>Test Address 1<br/>Test Address 1<br/>Los Angeles NY 12412<br/>United States",
@@ -31351,7 +39016,7 @@ const mockup = {
                 },
                 "events": ["101017", "101018"],
                 "contact": {
-                    "text": "AB&I Holdings : Chad Bass",
+                    "text": "World Bank : Chad Bass",
                     "value": "1382"
                 },
                 "name": "Chad Bass",
@@ -31369,7 +39034,7 @@ const mockup = {
                 },
                 "events": ["101017", "101018"],
                 "contact": {
-                    "text": "AB&I Holdings : Test Prav",
+                    "text": "World Bank : John Smith",
                     "value": "1892"
                 },
                 "name": "Test Prav",
@@ -31389,9 +39054,9 @@ const mockup = {
                 },
                 "location": "",
                 "status": {
-                    "text": "Tentative",
-                    "value": "TENTATIVE",
-                    "code": "bg-secondary"
+                    "text": "Completed",
+                    "value": "COMPLETED",
+                    "code": "btn-info"
                 },
                 "date": {
                     "recurrence": "occurs every day from 11/11/2024 until 11/12/2024",
@@ -31522,7 +39187,7 @@ const mockup = {
             },
             "events": ["101017", "101018"],
             "contact": {
-                "text": "AB&I Holdings : Chad Bass",
+                "text": "World Bank : Chad Bass",
                 "value": "1382"
             },
             "name": "Chad Bass",
@@ -31541,7 +39206,7 @@ const mockup = {
             },
             "events": ["101017", "101018"],
             "contact": {
-                "text": "AB&I Holdings : Test Prav",
+                "text": "World Bank : John Smith",
                 "value": "1892"
             },
             "name": "Test Prav",
@@ -31560,12 +39225,12 @@ const mockup = {
                 "value": "101"
             },
             "customer": {
-                "text": "AB&I Holdings",
+                "text": "World Bank",
                 "value": "1249"
             },
             "events": ["101017", "101018"],
             "address": {
-                "text": "1701 Rollins Road",
+                "text": "434 Carlaw",
                 "value": "244878"
             },
             "addressDetails": "Test Address 1<br/>Test Address 1<br/>Test Address 1<br/>Test Address 1<br/>Test Address 1<br/>Los Angeles NY 12412<br/>United States",
@@ -31619,7 +39284,7 @@ const mockup = {
             "name": "Furniture Installation and Pickup",
             "title": "Furniture Installation and Pickup",
             "project": {
-                "text": "AB&I Holdings : Parking Lot Construction",
+                "text": "World Bank : World Bank Office Furniture Installation",
                 "value": "1515"
             },
             "date": "11/10/2024",
@@ -31638,7 +39303,7 @@ const mockup = {
                 "value": "19372"
             },
             "customer": {
-                "text": "AB&I Holdings",
+                "text": "World Bank",
                 "value": "1249"
             },
             "resourceGroup": {
@@ -31662,31 +39327,6 @@ const mockup = {
                     "value": "101"
                 },
                 "event": "101017",
-                "quantityRequired": 1,
-                "quantityAvailable": 0,
-                "purchaseOrder": {
-                    "text": " ",
-                    "value": ""
-                },
-                "amount": 0,
-                "active": false,
-                "woVendor": true,
-                "memo": ""
-            }, {
-                "id": "162",
-                "name": "Best Fixture, Inc.",
-                "vendor": {
-                    "text": "Best Fixture, Inc.",
-                    "value": "12"
-                },
-                "url": "",
-                "email": "",
-                "initials": "BF",
-                "workorder": {
-                    "text": "Furniture Installation and Pickup",
-                    "value": "101"
-                },
-                "event": "101018",
                 "quantityRequired": 1,
                 "quantityAvailable": 0,
                 "purchaseOrder": {
@@ -31749,12 +39389,12 @@ const mockup = {
                     "value": "101"
                 },
                 "customer": {
-                    "text": "AB&I Holdings",
+                    "text": "World Bank",
                     "value": "1249"
                 },
                 "events": ["101017", "101018"],
                 "address": {
-                    "text": "1701 Rollins Road",
+                    "text": "434 Carlaw",
                     "value": "244878"
                 },
                 "addressDetails": "Test Address 1<br/>Test Address 1<br/>Test Address 1<br/>Test Address 1<br/>Test Address 1<br/>Los Angeles NY 12412<br/>United States",
@@ -31768,7 +39408,7 @@ const mockup = {
                 },
                 "events": ["101017", "101018"],
                 "contact": {
-                    "text": "AB&I Holdings : Chad Bass",
+                    "text": "World Bank : Chad Bass",
                     "value": "1382"
                 },
                 "name": "Chad Bass",
@@ -31786,7 +39426,7 @@ const mockup = {
                 },
                 "events": ["101017", "101018"],
                 "contact": {
-                    "text": "AB&I Holdings : Test Prav",
+                    "text": "World Bank : John Smith",
                     "value": "1892"
                 },
                 "name": "Test Prav",
@@ -31806,9 +39446,9 @@ const mockup = {
                 },
                 "location": "",
                 "status": {
-                    "text": "Tentative",
-                    "value": "TENTATIVE",
-                    "code": "bg-secondary"
+                    "text": "Completed",
+                    "value": "COMPLETED",
+                    "code": "btn-info"
                 },
                 "date": {
                     "recurrence": "occurs every day from 11/11/2024 until 11/12/2024",
@@ -31902,33 +39542,7 @@ const mockup = {
             "esthours": "200"
         },
         "resources": [],
-        "vendors": [{
-            "id": "162",
-            "name": "Best Fixture, Inc.",
-            "vendor": {
-                "text": "Best Fixture, Inc.",
-                "value": "12"
-            },
-            "url": "",
-            "email": "",
-            "initials": "BF",
-            "workorder": {
-                "text": "Furniture Installation and Pickup",
-                "value": "101"
-            },
-            "event": "101018",
-            "quantityRequired": 1,
-            "quantityAvailable": 0,
-            "purchaseOrder": {
-                "text": " ",
-                "value": ""
-            },
-            "amount": 0,
-            "active": false,
-            "woVendor": true,
-            "memo": "",
-            "selected": true
-        }],
+        "vendors": [],
         "assets": [],
         "items": [],
         "contacts": [{
@@ -31939,7 +39553,7 @@ const mockup = {
             },
             "events": ["101017", "101018"],
             "contact": {
-                "text": "AB&I Holdings : Chad Bass",
+                "text": "World Bank : Chad Bass",
                 "value": "1382"
             },
             "name": "Chad Bass",
@@ -31958,7 +39572,7 @@ const mockup = {
             },
             "events": ["101017", "101018"],
             "contact": {
-                "text": "AB&I Holdings : Test Prav",
+                "text": "World Bank : John Smith",
                 "value": "1892"
             },
             "name": "Test Prav",
@@ -31977,12 +39591,12 @@ const mockup = {
                 "value": "101"
             },
             "customer": {
-                "text": "AB&I Holdings",
+                "text": "World Bank",
                 "value": "1249"
             },
             "events": ["101017", "101018"],
             "address": {
-                "text": "1701 Rollins Road",
+                "text": "434 Carlaw",
                 "value": "244878"
             },
             "addressDetails": "Test Address 1<br/>Test Address 1<br/>Test Address 1<br/>Test Address 1<br/>Test Address 1<br/>Los Angeles NY 12412<br/>United States",
@@ -32036,7 +39650,7 @@ const mockup = {
             "name": "Work Order - Oct 31 - Test 1",
             "title": "Work Order - Oct 31 - Test 1",
             "project": {
-                "text": "AB&I Holdings : Furniture Project",
+                "text": "World Bank : Design, Furniture and Flooring Project",
                 "value": "1612"
             },
             "date": "11/1/2024",
@@ -32055,7 +39669,7 @@ const mockup = {
                 "value": "20852"
             },
             "customer": {
-                "text": "AB&I Holdings",
+                "text": "World Bank",
                 "value": "1249"
             },
             "resourceGroup": {
@@ -32433,12 +40047,12 @@ const mockup = {
                     "value": "92"
                 },
                 "customer": {
-                    "text": "AB&I Holdings",
+                    "text": "World Bank",
                     "value": "1249"
                 },
                 "events": ["101008"],
                 "address": {
-                    "text": "Address 1",
+                    "text": "12 Carlton Av",
                     "value": "245148"
                 },
                 "addressDetails": "",
@@ -32450,12 +40064,12 @@ const mockup = {
                     "value": "92"
                 },
                 "customer": {
-                    "text": "AB&I Holdings",
+                    "text": "World Bank",
                     "value": "1249"
                 },
                 "events": [],
                 "address": {
-                    "text": "Test Address 3",
+                    "text": "54 Tale",
                     "value": "245152"
                 },
                 "addressDetails": "",
@@ -32469,7 +40083,7 @@ const mockup = {
                 },
                 "events": ["101006", "101007"],
                 "contact": {
-                    "text": "AB&I Holdings : Test Prav",
+                    "text": "World Bank : John Smith",
                     "value": "1892"
                 },
                 "name": "Test Prav",
@@ -32487,7 +40101,7 @@ const mockup = {
                 },
                 "events": ["101008"],
                 "contact": {
-                    "text": "AB&I Holdings : Chad Bass",
+                    "text": "World Bank : Chad Bass",
                     "value": "1382"
                 },
                 "name": "Chad Bass",
@@ -32500,7 +40114,7 @@ const mockup = {
             }],
             "events": [{
                 "id": "100964",
-                "title": "Test Event 1",
+                "title": "Flooring Installation",
                 "workorder": {
                     "text": "Work Order - Oct 31 - Test 1",
                     "value": "92"
@@ -32860,24 +40474,24 @@ const mockup = {
             },
             "selected": true
         }, {
-            "id": "155",
-            "name": "Gary Grant",
-            "initials": "GG",
-            "email": "garygrant@ramsey.com",
-            "phone": "(873) 775-6114",
+            "id": "265",
+            "name": "Brian Harris",
+            "initials": "BH",
+            "email": "myohai@avectra.com",
+            "phone": "510-555-5290",
             "location": {
-                "text": "02: Boston",
-                "value": "1"
+                "text": "01: San Francisco : QA Hold",
+                "value": "5"
             },
             "active": true,
             "workorder": {
                 "text": "Work Order - Oct 31 - Test 1",
                 "value": "92"
             },
-            "events": ["101006", "101007", "101008"],
+            "events": ["101007"],
             "employee": {
-                "text": "Gary Grant",
-                "value": "1312"
+                "text": "Brian K Harris",
+                "value": "31"
             },
             "resourceGroups": [{
                 "text": "Installers",
@@ -32898,8 +40512,8 @@ const mockup = {
                 "value": ""
             },
             "affiliationType": {
-                "text": "Crew Enhancement",
-                "value": "3"
+                "text": "In-House",
+                "value": "1"
             },
             "selected": true
         }],
@@ -32998,7 +40612,7 @@ const mockup = {
             },
             "events": ["101006", "101007"],
             "contact": {
-                "text": "AB&I Holdings : Test Prav",
+                "text": "World Bank : John Smith",
                 "value": "1892"
             },
             "name": "Test Prav",
@@ -33024,8 +40638,1442 @@ const mockup = {
             "value": "1770"
         }
     }, {
+        "id": "101029",
+        "title": "AV Installation Only",
+        "workorder": {
+            "text": "AV Installation Only",
+            "value": "104"
+        },
+        "location": "",
+        "status": {
+            "text": "Tentative",
+            "value": "TENTATIVE",
+            "code": "bg-secondary"
+        },
+        "date": {
+            "recurrence": "one time event on 11/12/2024",
+            "start": "2024-11-12",
+            "end": "2024-11-12"
+        },
+        "time": {
+            "start": "09:00",
+            "end": "17:00"
+        },
+        "priority": {
+            "text": "High",
+            "value": "3",
+            "code": "#ca6621"
+        },
+        "note": "AV Installation Only",
+        "url": "/app/crm/calendar/event.nl?id=101029&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {
+            "id": "104",
+            "name": "AV Installation Only",
+            "title": "AV Installation Only",
+            "project": {
+                "text": "World Bank : World Bank Office Furniture Installation",
+                "value": "1515"
+            },
+            "date": "11/10/2024",
+            "status": {
+                "text": "Not Started",
+                "value": "4",
+                "code": "#026adf"
+            },
+            "type": {
+                "text": "Service",
+                "value": "2"
+            },
+            "memo": "<ol><li>- **Review Furniture Layout Plans**: Confirm placement and orientation according to layout plans before beginning installation.</li><li>- **Unpack and Inventory Parts**: Carefully unpack each item and inventory all parts and hardware to ensure nothing is missing.</li><li>- **Organize Tools and Hardware**: Set up necessary tools (e.g., screwdriver, drill, wrench) and organize hardware for easy access during installation.</li><li>- **Assemble Base Components First**: Start by assembling the base or foundational components, such as legs or frames, ensuring they are stable and level.</li><li>- **Secure Structural Pieces**: Attach any primary structural pieces (e.g., tabletops, seat bases) to the base, following manufacturer instructions closely.</li><li>- **Install Secondary Components**: Add any secondary components, such as drawers, shelves, or panels, making sure they are properly aligned and secure.</li><li>- **Tighten All Screws and Bolts**: Go over all screws, bolts, and connectors to ensure everything is tightly secured and stable.</li><li>- **Check for Stability and Leveling**: Test the furniture for stability and make any necessary adjustments to ensure it is level.</li><li>- **Attach Accessories or Finishing Pieces**: Add finishing touches like knobs, covers, or cushions according to specifications.</li><li>- **Final Inspection**: Conduct a final inspection to ensure that all parts are securely assembled, aligned, and free of damage. Clean the area and remove any debris or packaging.</li></ol>",
+            "salesorder": {
+                "text": "Sales Order #SLS00000770",
+                "value": "20899"
+            },
+            "customer": {
+                "text": "World Bank",
+                "value": "1249"
+            },
+            "resourceGroup": {
+                "text": "",
+                "value": ""
+            },
+            "priority": "",
+            "resources": [],
+            "vendors": [],
+            "assets": [],
+            "items": [{
+                "id": "392",
+                "workorder": {
+                    "text": "AV Installation Only",
+                    "value": "104"
+                },
+                "salesorder": {
+                    "text": "Sales Order #SLS00000770",
+                    "value": "20899"
+                },
+                "event": "101029",
+                "uuid": "20899_1",
+                "line": "1",
+                "item": {
+                    "text": "BIC00008",
+                    "value": "467"
+                },
+                "description": "Trail Bike - Maverik Disc",
+                "quantity": 1,
+                "availableQty": 1,
+                "note": ""
+            }, {
+                "id": "390",
+                "workorder": {
+                    "text": "AV Installation Only",
+                    "value": "104"
+                },
+                "salesorder": {
+                    "text": "Sales Order #SLS00000770",
+                    "value": "20899"
+                },
+                "event": "",
+                "uuid": "20899_2",
+                "line": "2",
+                "item": {
+                    "text": "BIC00008",
+                    "value": "467"
+                },
+                "description": "Trail Bike - Maverik Disc",
+                "quantity": 1,
+                "availableQty": 1,
+                "note": ""
+            }, {
+                "id": "391",
+                "workorder": {
+                    "text": "AV Installation Only",
+                    "value": "104"
+                },
+                "salesorder": {
+                    "text": "Sales Order #SLS00000770",
+                    "value": "20899"
+                },
+                "event": "",
+                "uuid": "20899_3",
+                "line": "3",
+                "item": {
+                    "text": "BIC00008",
+                    "value": "467"
+                },
+                "description": "Trail Bike - Maverik Disc",
+                "quantity": 1,
+                "availableQty": 1,
+                "note": ""
+            }, {
+                "id": "389",
+                "workorder": {
+                    "text": "AV Installation Only",
+                    "value": "104"
+                },
+                "salesorder": {
+                    "text": "Sales Order #SLS00000770",
+                    "value": "20899"
+                },
+                "event": "",
+                "uuid": "20899_1",
+                "line": "1",
+                "item": {
+                    "text": "BIC00008",
+                    "value": "467"
+                },
+                "description": "Trail Bike - Maverik Disc",
+                "quantity": 1,
+                "availableQty": 1,
+                "note": ""
+            }],
+            "addresses": [{
+                "id": "143",
+                "workorder": {
+                    "text": "AV Installation Only",
+                    "value": "104"
+                },
+                "customer": {
+                    "text": "World Bank",
+                    "value": "1249"
+                },
+                "events": ["101029"],
+                "address": {
+                    "text": "434 Carlaw",
+                    "value": "244878"
+                },
+                "addressDetails": "434 Carlaw Road<br/>Los Angeles NY 12412<br/>United States",
+                "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+            }],
+            "contacts": [{
+                "id": "123",
+                "workorder": {
+                    "text": "AV Installation Only",
+                    "value": "104"
+                },
+                "events": ["101029"],
+                "contact": {
+                    "text": "World Bank : Chad Bass",
+                    "value": "1382"
+                },
+                "name": "Chad Bass",
+                "email": "cbass@worldbank.com",
+                "jobTitle": "President",
+                "mobilePhone": "",
+                "phone": "",
+                "primary": false,
+                "url": "/app/common/entity/contact.nl?id=1382&compid=TSTDRV2617106"
+            }, {
+                "id": "124",
+                "workorder": {
+                    "text": "AV Installation Only",
+                    "value": "104"
+                },
+                "events": ["101029"],
+                "contact": {
+                    "text": "World Bank : Jim Carrey",
+                    "value": "2041"
+                },
+                "name": "Jim Carrey",
+                "email": "jcarrery@worldbank.com",
+                "jobTitle": "Administrative Manager",
+                "mobilePhone": "",
+                "phone": "",
+                "primary": false,
+                "url": "/app/common/entity/contact.nl?id=2041&compid=TSTDRV2617106"
+            }, {
+                "id": "125",
+                "workorder": {
+                    "text": "AV Installation Only",
+                    "value": "104"
+                },
+                "events": ["101029"],
+                "contact": {
+                    "text": "World Bank : John Smith",
+                    "value": "1892"
+                },
+                "name": "John Smith",
+                "email": "jsmith@worldbank.com",
+                "jobTitle": "Logistics",
+                "mobilePhone": "",
+                "phone": "",
+                "primary": true,
+                "url": "/app/common/entity/contact.nl?id=1892&compid=TSTDRV2617106"
+            }],
+            "events": [{
+                "id": "101029",
+                "title": "AV Installation Only",
+                "workorder": {
+                    "text": "AV Installation Only",
+                    "value": "104"
+                },
+                "location": "",
+                "status": {
+                    "text": "Tentative",
+                    "value": "TENTATIVE",
+                    "code": "bg-secondary"
+                },
+                "date": {
+                    "recurrence": "one time event on 11/12/2024",
+                    "start": "2024-11-12",
+                    "end": "2024-11-12"
+                },
+                "time": {
+                    "start": "09:00",
+                    "end": "17:00"
+                },
+                "priority": {
+                    "text": "High",
+                    "value": "3",
+                    "code": "#ca6621"
+                },
+                "note": "AV Installation Only",
+                "url": "/app/crm/calendar/event.nl?id=101029&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "vendors": [],
+                "assets": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                },
+                "organizer": {
+                    "text": "Arun Sharma",
+                    "value": "1770"
+                }
+            }],
+            "projectUrl": "/app/accounting/project/project.nl?id=1515&compid=TSTDRV2617106",
+            "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=104&compid=TSTDRV2617106",
+            "soUrl": "/app/accounting/transactions/salesord.nl?id=20899&compid=TSTDRV2617106",
+            "esthours": "200"
+        },
+        "resources": [{
+            "id": "254",
+            "name": "Aiden Somerhalder",
+            "initials": "AS",
+            "email": "admin@ramsey.com",
+            "phone": "",
+            "location": {
+                "text": "01: San Francisco",
+                "value": "2"
+            },
+            "active": true,
+            "workorder": {
+                "text": "AV Installation Only",
+                "value": "104"
+            },
+            "events": ["101029"],
+            "employee": {
+                "text": "Aiden Somerhalder",
+                "value": "1524"
+            },
+            "resourceGroups": [{
+                "text": "Installers",
+                "value": "1"
+            }],
+            "types": [{
+                "text": "Installer",
+                "value": "1"
+            }],
+            "subTypes": [],
+            "rate": 0,
+            "vendor": {
+                "text": "",
+                "value": ""
+            },
+            "purchaseOrder": {
+                "text": " ",
+                "value": ""
+            },
+            "affiliationType": {
+                "text": "In-House",
+                "value": "1"
+            },
+            "selected": true
+        }, {
+            "id": "255",
+            "name": "Brandy Samms",
+            "initials": "BS",
+            "email": "adminaccess2@ramsey.com",
+            "phone": "(713) 456-7878",
+            "location": {
+                "text": "",
+                "value": ""
+            },
+            "active": true,
+            "workorder": {
+                "text": "AV Installation Only",
+                "value": "104"
+            },
+            "events": ["101029"],
+            "employee": {
+                "text": "Brandy Samms",
+                "value": "1545"
+            },
+            "resourceGroups": [{
+                "text": "Installers",
+                "value": "1"
+            }],
+            "types": [{
+                "text": "Installer",
+                "value": "1"
+            }],
+            "subTypes": [],
+            "rate": 0,
+            "vendor": {
+                "text": "",
+                "value": ""
+            },
+            "purchaseOrder": {
+                "text": " ",
+                "value": ""
+            },
+            "affiliationType": {
+                "text": "In-House",
+                "value": "1"
+            },
+            "selected": true
+        }],
+        "vendors": [],
+        "assets": [],
+        "items": [{
+            "id": "392",
+            "workorder": {
+                "text": "AV Installation Only",
+                "value": "104"
+            },
+            "salesorder": {
+                "text": "Sales Order #SLS00000770",
+                "value": "20899"
+            },
+            "event": "101029",
+            "uuid": "20899_1",
+            "line": "1",
+            "item": {
+                "text": "BIC00008",
+                "value": "467"
+            },
+            "description": "Trail Bike - Maverik Disc",
+            "quantity": 1,
+            "availableQty": 1,
+            "note": "",
+            "selected": true
+        }],
+        "contacts": [{
+            "id": "123",
+            "workorder": {
+                "text": "AV Installation Only",
+                "value": "104"
+            },
+            "events": ["101029"],
+            "contact": {
+                "text": "World Bank : Chad Bass",
+                "value": "1382"
+            },
+            "name": "Chad Bass",
+            "email": "cbass@worldbank.com",
+            "jobTitle": "President",
+            "mobilePhone": "",
+            "phone": "",
+            "primary": false,
+            "url": "/app/common/entity/contact.nl?id=1382&compid=TSTDRV2617106",
+            "selected": true
+        }, {
+            "id": "124",
+            "workorder": {
+                "text": "AV Installation Only",
+                "value": "104"
+            },
+            "events": ["101029"],
+            "contact": {
+                "text": "World Bank : Jim Carrey",
+                "value": "2041"
+            },
+            "name": "Jim Carrey",
+            "email": "jcarrery@worldbank.com",
+            "jobTitle": "Administrative Manager",
+            "mobilePhone": "",
+            "phone": "",
+            "primary": false,
+            "url": "/app/common/entity/contact.nl?id=2041&compid=TSTDRV2617106",
+            "selected": true
+        }, {
+            "id": "125",
+            "workorder": {
+                "text": "AV Installation Only",
+                "value": "104"
+            },
+            "events": ["101029"],
+            "contact": {
+                "text": "World Bank : John Smith",
+                "value": "1892"
+            },
+            "name": "John Smith",
+            "email": "jsmith@worldbank.com",
+            "jobTitle": "Logistics",
+            "mobilePhone": "",
+            "phone": "",
+            "primary": true,
+            "url": "/app/common/entity/contact.nl?id=1892&compid=TSTDRV2617106",
+            "selected": true
+        }],
+        "addresses": [{
+            "id": "143",
+            "workorder": {
+                "text": "AV Installation Only",
+                "value": "104"
+            },
+            "customer": {
+                "text": "World Bank",
+                "value": "1249"
+            },
+            "events": ["101029"],
+            "address": {
+                "text": "434 Carlaw",
+                "value": "244878"
+            },
+            "addressDetails": "434 Carlaw Road<br/>Los Angeles NY 12412<br/>United States",
+            "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106",
+            "selected": true
+        }],
+        "contact": {
+            "text": "",
+            "value": ""
+        },
+        "address": {
+            "text": "",
+            "value": ""
+        },
+        "organizer": {
+            "text": "Arun Sharma",
+            "value": "1770"
+        }
+    }, {
+        "id": "101035",
+        "title": "Deliver Materials",
+        "workorder": {
+            "text": "Install Light Fixtures",
+            "value": "109"
+        },
+        "location": "",
+        "status": {
+            "text": "Tentative",
+            "value": "TENTATIVE",
+            "code": "bg-secondary"
+        },
+        "date": {
+            "recurrence": "one time event on 11/12/2024",
+            "start": "2024-11-12",
+            "end": "2024-11-12"
+        },
+        "time": {
+            "start": "09:00",
+            "end": "12:00"
+        },
+        "priority": {
+            "text": "Medium",
+            "value": "2",
+            "code": "#dfcf02"
+        },
+        "note": "",
+        "url": "/app/crm/calendar/event.nl?id=101035&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {
+            "id": "109",
+            "name": "Install Light Fixtures",
+            "title": "Install Light Fixtures",
+            "project": {
+                "text": "World Bank : World Bank Office Furniture Installation",
+                "value": "1515"
+            },
+            "date": "11/12/2024",
+            "status": {
+                "text": "Not Started",
+                "value": "4",
+                "code": "#026adf"
+            },
+            "type": {
+                "text": "Service",
+                "value": "2"
+            },
+            "memo": "",
+            "salesorder": {
+                "text": "Sales Order #SLS00000774",
+                "value": "20903"
+            },
+            "customer": {
+                "text": "World Bank",
+                "value": "1249"
+            },
+            "resourceGroup": {
+                "text": "",
+                "value": ""
+            },
+            "priority": "",
+            "resources": [],
+            "vendors": [],
+            "assets": [],
+            "items": [{
+                "id": "432",
+                "workorder": {
+                    "text": "Install Light Fixtures",
+                    "value": "109"
+                },
+                "salesorder": {
+                    "text": "Sales Order #SLS00000774",
+                    "value": "20903"
+                },
+                "event": "",
+                "uuid": "20903_1",
+                "line": "1",
+                "item": {
+                    "text": "Dealer Service Fee",
+                    "value": "2331"
+                },
+                "description": "",
+                "quantity": 1,
+                "availableQty": 1,
+                "note": ""
+            }, {
+                "id": "433",
+                "workorder": {
+                    "text": "Install Light Fixtures",
+                    "value": "109"
+                },
+                "salesorder": {
+                    "text": "Sales Order #SLS00000774",
+                    "value": "20903"
+                },
+                "event": "101035",
+                "uuid": "20903_6",
+                "line": "6",
+                "item": {
+                    "text": "VZTI-1654-FNNS1",
+                    "value": "2035"
+                },
+                "description": "Compose,Single Tile,16In.HX54In.W,Fabric/Tackable,Std Core,No Tech",
+                "quantity": 0,
+                "availableQty": 0,
+                "note": ""
+            }, {
+                "id": "427",
+                "workorder": {
+                    "text": "Install Light Fixtures",
+                    "value": "109"
+                },
+                "salesorder": {
+                    "text": "Sales Order #SLS00000774",
+                    "value": "20903"
+                },
+                "event": "",
+                "uuid": "20903_7",
+                "line": "7",
+                "item": {
+                    "text": "J2HB-5124-SS1RS1",
+                    "value": "2036"
+                },
+                "description": "X Series PST,HngdDr,51.5Hx24Wx24D,B/B/F,Valet,RH,PtdDwr,Ptd/StlDr,Ellipse Pull,Reg Top,Glide",
+                "quantity": 3,
+                "availableQty": 3,
+                "note": ""
+            }, {
+                "id": "428",
+                "workorder": {
+                    "text": "Install Light Fixtures",
+                    "value": "109"
+                },
+                "salesorder": {
+                    "text": "Sales Order #SLS00000774",
+                    "value": "20903"
+                },
+                "event": "",
+                "uuid": "20903_8",
+                "line": "8",
+                "item": {
+                    "text": "JCTB-24S1",
+                    "value": "2037"
+                },
+                "description": "X Series,Pedestal,Cushion Top Kit, 24\"D",
+                "quantity": 3,
+                "availableQty": 3,
+                "note": ""
+            }, {
+                "id": "429",
+                "workorder": {
+                    "text": "Install Light Fixtures",
+                    "value": "109"
+                },
+                "salesorder": {
+                    "text": "Sales Order #SLS00000774",
+                    "value": "20903"
+                },
+                "event": "",
+                "uuid": "20903_9",
+                "line": "9",
+                "item": {
+                    "text": "JPMA-24-S1CS1",
+                    "value": "2038"
+                },
+                "description": "X Series,Pedestal,Mobile,B/F,24\"D,PtdDrwFrt, Stl Lkrl,Ellipse Pull,Cstr,No Top",
+                "quantity": 3,
+                "availableQty": 3,
+                "note": ""
+            }, {
+                "id": "422",
+                "workorder": {
+                    "text": "Install Light Fixtures",
+                    "value": "109"
+                },
+                "salesorder": {
+                    "text": "Sales Order #SLS00000774",
+                    "value": "20903"
+                },
+                "event": "",
+                "uuid": "20903_2",
+                "line": "2",
+                "item": {
+                    "text": "VZCC-0054-HSS1",
+                    "value": "2031"
+                },
+                "description": "Compose,Top Trim 54In.W,Stl, Pnl Frame",
+                "quantity": 1,
+                "availableQty": 1,
+                "note": ""
+            }, {
+                "id": "430",
+                "workorder": {
+                    "text": "Install Light Fixtures",
+                    "value": "109"
+                },
+                "salesorder": {
+                    "text": "Sales Order #SLS00000774",
+                    "value": "20903"
+                },
+                "event": "",
+                "uuid": "20903_10",
+                "line": "10",
+                "item": {
+                    "text": "VZCC-0054-HSS1",
+                    "value": "2031"
+                },
+                "description": "Compose,Top Trim 54In.W,Stl, Pnl Frame",
+                "quantity": 1,
+                "availableQty": 1,
+                "note": ""
+            }, {
+                "id": "431",
+                "workorder": {
+                    "text": "Install Light Fixtures",
+                    "value": "109"
+                },
+                "salesorder": {
+                    "text": "Sales Order #SLS00000774",
+                    "value": "20903"
+                },
+                "event": "",
+                "uuid": "20903_11",
+                "line": "11",
+                "item": {
+                    "text": "VZCE-7400-HS1",
+                    "value": "2032"
+                },
+                "description": "Compose,Panel Trim,End-Of-Run 74In.H, Steel",
+                "quantity": 3,
+                "availableQty": 3,
+                "note": ""
+            }, {
+                "id": "423",
+                "workorder": {
+                    "text": "Install Light Fixtures",
+                    "value": "109"
+                },
+                "salesorder": {
+                    "text": "Sales Order #SLS00000774",
+                    "value": "20903"
+                },
+                "event": "",
+                "uuid": "20903_3",
+                "line": "3",
+                "item": {
+                    "text": "VZCE-7400-HS1",
+                    "value": "2032"
+                },
+                "description": "Compose,Panel Trim,End-Of-Run 74In.H, Steel",
+                "quantity": 3,
+                "availableQty": 3,
+                "note": ""
+            }, {
+                "id": "424",
+                "workorder": {
+                    "text": "Install Light Fixtures",
+                    "value": "109"
+                },
+                "salesorder": {
+                    "text": "Sales Order #SLS00000774",
+                    "value": "20903"
+                },
+                "event": "",
+                "uuid": "20903_4",
+                "line": "4",
+                "item": {
+                    "text": "VZCW-0000-PS1S1",
+                    "value": "2033"
+                },
+                "description": "Compose,Wall Mount,Fits All Heights",
+                "quantity": 3,
+                "availableQty": 3,
+                "note": ""
+            }, {
+                "id": "425",
+                "workorder": {
+                    "text": "Install Light Fixtures",
+                    "value": "109"
+                },
+                "salesorder": {
+                    "text": "Sales Order #SLS00000774",
+                    "value": "20903"
+                },
+                "event": "",
+                "uuid": "20903_5",
+                "line": "5",
+                "item": {
+                    "text": "VZFS-1654-RS1",
+                    "value": "2034"
+                },
+                "description": "Compose,Stack Frame 16In.H X 54In.W,Std Accoust,NoPwr",
+                "quantity": 6,
+                "availableQty": 6,
+                "note": ""
+            }, {
+                "id": "426",
+                "workorder": {
+                    "text": "Install Light Fixtures",
+                    "value": "109"
+                },
+                "salesorder": {
+                    "text": "Sales Order #SLS00000774",
+                    "value": "20903"
+                },
+                "event": "",
+                "uuid": "20903_6",
+                "line": "6",
+                "item": {
+                    "text": "VZTI-1654-FNNS1",
+                    "value": "2035"
+                },
+                "description": "Compose,Single Tile,16In.HX54In.W,Fabric/Tackable,Std Core,No Tech",
+                "quantity": 12,
+                "availableQty": 12,
+                "note": ""
+            }],
+            "addresses": [{
+                "id": "151",
+                "workorder": {
+                    "text": "Install Light Fixtures",
+                    "value": "109"
+                },
+                "customer": {
+                    "text": "World Bank",
+                    "value": "1249"
+                },
+                "events": [],
+                "address": {
+                    "text": "434 Carlaw",
+                    "value": "244878"
+                },
+                "addressDetails": "434 Carlaw Road<br/>Los Angeles NY 12412<br/>United States",
+                "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+            }, {
+                "id": "152",
+                "workorder": {
+                    "text": "Install Light Fixtures",
+                    "value": "109"
+                },
+                "customer": {
+                    "text": "World Bank",
+                    "value": "1249"
+                },
+                "events": ["101035"],
+                "address": {
+                    "text": "54 Tale",
+                    "value": "245152"
+                },
+                "addressDetails": "54 Tale AV<br/>Akron OH 123123<br/>United States",
+                "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+            }, {
+                "id": "153",
+                "workorder": {
+                    "text": "Install Light Fixtures",
+                    "value": "109"
+                },
+                "customer": {
+                    "text": "World Bank",
+                    "value": "1249"
+                },
+                "events": [],
+                "address": {
+                    "text": "343 York",
+                    "value": "245154"
+                },
+                "addressDetails": "343 York AV<br/>NY 121312<br/>United States",
+                "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+            }, {
+                "id": "154",
+                "workorder": {
+                    "text": "Install Light Fixtures",
+                    "value": "109"
+                },
+                "customer": {
+                    "text": "World Bank",
+                    "value": "1249"
+                },
+                "events": [],
+                "address": {
+                    "text": "22 Dundas",
+                    "value": "245145"
+                },
+                "addressDetails": "22 Dundas East<br/>New York  211123<br/>United States",
+                "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+            }, {
+                "id": "155",
+                "workorder": {
+                    "text": "Install Light Fixtures",
+                    "value": "109"
+                },
+                "customer": {
+                    "text": "World Bank",
+                    "value": "1249"
+                },
+                "events": [],
+                "address": {
+                    "text": "490 Richmond",
+                    "value": "245149"
+                },
+                "addressDetails": "490 Richmond Lane<br/>San Francisco CA 12311<br/>United States",
+                "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+            }],
+            "contacts": [{
+                "id": "135",
+                "workorder": {
+                    "text": "Install Light Fixtures",
+                    "value": "109"
+                },
+                "events": ["101035"],
+                "contact": {
+                    "text": "World Bank : John Smith",
+                    "value": "1892"
+                },
+                "name": "John Smith",
+                "email": "jsmith@worldbank.com",
+                "jobTitle": "Logistics",
+                "mobilePhone": "",
+                "phone": "",
+                "primary": true,
+                "url": "/app/common/entity/contact.nl?id=1892&compid=TSTDRV2617106"
+            }],
+            "events": [{
+                "id": "101035",
+                "title": "Deliver Materials",
+                "workorder": {
+                    "text": "Install Light Fixtures",
+                    "value": "109"
+                },
+                "location": "",
+                "status": {
+                    "text": "Tentative",
+                    "value": "TENTATIVE",
+                    "code": "bg-secondary"
+                },
+                "date": {
+                    "recurrence": "one time event on 11/12/2024",
+                    "start": "2024-11-12",
+                    "end": "2024-11-12"
+                },
+                "time": {
+                    "start": "09:00",
+                    "end": "12:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "",
+                "url": "/app/crm/calendar/event.nl?id=101035&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "vendors": [],
+                "assets": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                },
+                "organizer": {
+                    "text": "Bea Quilinguin",
+                    "value": "1767"
+                }
+            }],
+            "projectUrl": "/app/accounting/project/project.nl?id=1515&compid=TSTDRV2617106",
+            "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=109&compid=TSTDRV2617106",
+            "soUrl": "/app/accounting/transactions/salesord.nl?id=20903&compid=TSTDRV2617106",
+            "esthours": "30"
+        },
+        "resources": [{
+            "id": "268",
+            "name": "Clark Koozer",
+            "initials": "CK",
+            "email": "jc@erpsuccesspartners.com",
+            "phone": "650-555-8300",
+            "location": {
+                "text": "01: San Francisco",
+                "value": "2"
+            },
+            "active": true,
+            "workorder": {
+                "text": "Install Light Fixtures",
+                "value": "109"
+            },
+            "events": ["101035"],
+            "employee": {
+                "text": "Clark Koozer",
+                "value": "23"
+            },
+            "resourceGroups": [{
+                "text": "Drivers",
+                "value": "3"
+            }],
+            "types": [{
+                "text": "Delivery Driver",
+                "value": "2"
+            }],
+            "subTypes": [],
+            "rate": 0,
+            "vendor": {
+                "text": "",
+                "value": ""
+            },
+            "purchaseOrder": {
+                "text": " ",
+                "value": ""
+            },
+            "affiliationType": {
+                "text": "In-House",
+                "value": "1"
+            },
+            "selected": true
+        }],
+        "vendors": [],
+        "assets": [],
+        "items": [{
+            "id": "433",
+            "workorder": {
+                "text": "Install Light Fixtures",
+                "value": "109"
+            },
+            "salesorder": {
+                "text": "Sales Order #SLS00000774",
+                "value": "20903"
+            },
+            "event": "101035",
+            "uuid": "20903_6",
+            "line": "6",
+            "item": {
+                "text": "VZTI-1654-FNNS1",
+                "value": "2035"
+            },
+            "description": "Compose,Single Tile,16In.HX54In.W,Fabric/Tackable,Std Core,No Tech",
+            "quantity": 0,
+            "availableQty": 0,
+            "note": "",
+            "selected": true
+        }],
+        "contacts": [{
+            "id": "135",
+            "workorder": {
+                "text": "Install Light Fixtures",
+                "value": "109"
+            },
+            "events": ["101035"],
+            "contact": {
+                "text": "World Bank : John Smith",
+                "value": "1892"
+            },
+            "name": "John Smith",
+            "email": "jsmith@worldbank.com",
+            "jobTitle": "Logistics",
+            "mobilePhone": "",
+            "phone": "",
+            "primary": true,
+            "url": "/app/common/entity/contact.nl?id=1892&compid=TSTDRV2617106",
+            "selected": true
+        }],
+        "addresses": [{
+            "id": "152",
+            "workorder": {
+                "text": "Install Light Fixtures",
+                "value": "109"
+            },
+            "customer": {
+                "text": "World Bank",
+                "value": "1249"
+            },
+            "events": ["101035"],
+            "address": {
+                "text": "54 Tale",
+                "value": "245152"
+            },
+            "addressDetails": "54 Tale AV<br/>Akron OH 123123<br/>United States",
+            "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106",
+            "selected": true
+        }],
+        "contact": {
+            "text": "",
+            "value": ""
+        },
+        "address": {
+            "text": "",
+            "value": ""
+        },
+        "organizer": {
+            "text": "Bea Quilinguin",
+            "value": "1767"
+        }
+    }, {
+        "id": "101031",
+        "title": "Furniture Installation",
+        "workorder": {
+            "text": "Furniture Installation",
+            "value": "105"
+        },
+        "location": "",
+        "status": {
+            "text": "Tentative",
+            "value": "TENTATIVE",
+            "code": "bg-secondary"
+        },
+        "date": {
+            "recurrence": "one time event on 11/13/2024",
+            "start": "2024-11-13",
+            "end": "2024-11-13"
+        },
+        "time": {
+            "start": "08:00",
+            "end": "18:00"
+        },
+        "priority": {
+            "text": "High",
+            "value": "3",
+            "code": "#ca6621"
+        },
+        "note": "Furniture Installation and site clean up",
+        "url": "/app/crm/calendar/event.nl?id=101031&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {
+            "id": "105",
+            "name": "Furniture Installation",
+            "title": "Furniture Installation",
+            "project": {
+                "text": "World Bank : World Bank Office Furniture Installation",
+                "value": "1515"
+            },
+            "date": "11/10/2024",
+            "status": {
+                "text": "Not Started",
+                "value": "4",
+                "code": "#026adf"
+            },
+            "type": {
+                "text": "Service",
+                "value": "2"
+            },
+            "memo": "<ol><li>- **Review Furniture Layout Plans**: Confirm placement and orientation according to layout plans before beginning installation.</li><li>- **Unpack and Inventory Parts**: Carefully unpack each item and inventory all parts and hardware to ensure nothing is missing.</li><li>- **Organize Tools and Hardware**: Set up necessary tools (e.g., screwdriver, drill, wrench) and organize hardware for easy access during installation.</li><li>- **Assemble Base Components First**: Start by assembling the base or foundational components, such as legs or frames, ensuring they are stable and level.</li><li>- **Secure Structural Pieces**: Attach any primary structural pieces (e.g., tabletops, seat bases) to the base, following manufacturer instructions closely.</li><li>- **Install Secondary Components**: Add any secondary components, such as drawers, shelves, or panels, making sure they are properly aligned and secure.</li><li>- **Tighten All Screws and Bolts**: Go over all screws, bolts, and connectors to ensure everything is tightly secured and stable.</li><li>- **Check for Stability and Leveling**: Test the furniture for stability and make any necessary adjustments to ensure it is level.</li><li>- **Attach Accessories or Finishing Pieces**: Add finishing touches like knobs, covers, or cushions according to specifications.</li><li>- **Final Inspection**: Conduct a final inspection to ensure that all parts are securely assembled, aligned, and free of damage. Clean the area and remove any debris or packaging.</li></ol>",
+            "salesorder": {
+                "text": "Sales Order #SLS00000770",
+                "value": "20899"
+            },
+            "customer": {
+                "text": "World Bank",
+                "value": "1249"
+            },
+            "resourceGroup": {
+                "text": "",
+                "value": ""
+            },
+            "priority": "",
+            "resources": [],
+            "vendors": [],
+            "assets": [],
+            "items": [{
+                "id": "394",
+                "workorder": {
+                    "text": "Furniture Installation",
+                    "value": "105"
+                },
+                "salesorder": {
+                    "text": "Sales Order #SLS00000770",
+                    "value": "20899"
+                },
+                "event": "101031",
+                "uuid": "20899_1",
+                "line": "1",
+                "item": {
+                    "text": "BIC00008",
+                    "value": "467"
+                },
+                "description": "Trail Bike - Maverik Disc",
+                "quantity": 1,
+                "availableQty": 1,
+                "note": ""
+            }, {
+                "id": "393",
+                "workorder": {
+                    "text": "Furniture Installation",
+                    "value": "105"
+                },
+                "salesorder": {
+                    "text": "Sales Order #SLS00000770",
+                    "value": "20899"
+                },
+                "event": "",
+                "uuid": "20899_1",
+                "line": "1",
+                "item": {
+                    "text": "BIC00008",
+                    "value": "467"
+                },
+                "description": "Trail Bike - Maverik Disc",
+                "quantity": 1,
+                "availableQty": 1,
+                "note": ""
+            }],
+            "addresses": [{
+                "id": "144",
+                "workorder": {
+                    "text": "Furniture Installation",
+                    "value": "105"
+                },
+                "customer": {
+                    "text": "World Bank",
+                    "value": "1249"
+                },
+                "events": ["101031"],
+                "address": {
+                    "text": "12 Carlton Av",
+                    "value": "245148"
+                },
+                "addressDetails": "12 Carlton Ave<br/>San Francisco CA 1241<br/>United States",
+                "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+            }],
+            "contacts": [{
+                "id": "126",
+                "workorder": {
+                    "text": "Furniture Installation",
+                    "value": "105"
+                },
+                "events": ["101031"],
+                "contact": {
+                    "text": "World Bank : Chad Bass",
+                    "value": "1382"
+                },
+                "name": "Chad Bass",
+                "email": "cbass@worldbank.com",
+                "jobTitle": "President",
+                "mobilePhone": "",
+                "phone": "",
+                "primary": false,
+                "url": "/app/common/entity/contact.nl?id=1382&compid=TSTDRV2617106"
+            }, {
+                "id": "127",
+                "workorder": {
+                    "text": "Furniture Installation",
+                    "value": "105"
+                },
+                "events": ["101031"],
+                "contact": {
+                    "text": "World Bank : Jim Carrey",
+                    "value": "2041"
+                },
+                "name": "Jim Carrey",
+                "email": "jcarrery@worldbank.com",
+                "jobTitle": "Administrative Manager",
+                "mobilePhone": "",
+                "phone": "",
+                "primary": false,
+                "url": "/app/common/entity/contact.nl?id=2041&compid=TSTDRV2617106"
+            }],
+            "events": [{
+                "id": "101031",
+                "title": "Furniture Installation",
+                "workorder": {
+                    "text": "Furniture Installation",
+                    "value": "105"
+                },
+                "location": "",
+                "status": {
+                    "text": "Tentative",
+                    "value": "TENTATIVE",
+                    "code": "bg-secondary"
+                },
+                "date": {
+                    "recurrence": "one time event on 11/13/2024",
+                    "start": "2024-11-13",
+                    "end": "2024-11-13"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "18:00"
+                },
+                "priority": {
+                    "text": "High",
+                    "value": "3",
+                    "code": "#ca6621"
+                },
+                "note": "Furniture Installation and site clean up",
+                "url": "/app/crm/calendar/event.nl?id=101031&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "vendors": [],
+                "assets": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                },
+                "organizer": {
+                    "text": "Arun Sharma",
+                    "value": "1770"
+                }
+            }],
+            "projectUrl": "/app/accounting/project/project.nl?id=1515&compid=TSTDRV2617106",
+            "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=105&compid=TSTDRV2617106",
+            "soUrl": "/app/accounting/transactions/salesord.nl?id=20899&compid=TSTDRV2617106",
+            "esthours": "200"
+        },
+        "resources": [{
+            "id": "259",
+            "name": "Aiden Somerhalder",
+            "initials": "AS",
+            "email": "admin@ramsey.com",
+            "phone": "",
+            "location": {
+                "text": "01: San Francisco",
+                "value": "2"
+            },
+            "active": true,
+            "workorder": {
+                "text": "Furniture Installation",
+                "value": "105"
+            },
+            "events": ["101031"],
+            "employee": {
+                "text": "Aiden Somerhalder",
+                "value": "1524"
+            },
+            "resourceGroups": [{
+                "text": "Installers",
+                "value": "1"
+            }],
+            "types": [{
+                "text": "Installer",
+                "value": "1"
+            }],
+            "subTypes": [],
+            "rate": 0,
+            "vendor": {
+                "text": "",
+                "value": ""
+            },
+            "purchaseOrder": {
+                "text": " ",
+                "value": ""
+            },
+            "affiliationType": {
+                "text": "In-House",
+                "value": "1"
+            },
+            "selected": true
+        }],
+        "vendors": [],
+        "assets": [],
+        "items": [{
+            "id": "394",
+            "workorder": {
+                "text": "Furniture Installation",
+                "value": "105"
+            },
+            "salesorder": {
+                "text": "Sales Order #SLS00000770",
+                "value": "20899"
+            },
+            "event": "101031",
+            "uuid": "20899_1",
+            "line": "1",
+            "item": {
+                "text": "BIC00008",
+                "value": "467"
+            },
+            "description": "Trail Bike - Maverik Disc",
+            "quantity": 1,
+            "availableQty": 1,
+            "note": "",
+            "selected": true
+        }],
+        "contacts": [{
+            "id": "126",
+            "workorder": {
+                "text": "Furniture Installation",
+                "value": "105"
+            },
+            "events": ["101031"],
+            "contact": {
+                "text": "World Bank : Chad Bass",
+                "value": "1382"
+            },
+            "name": "Chad Bass",
+            "email": "cbass@worldbank.com",
+            "jobTitle": "President",
+            "mobilePhone": "",
+            "phone": "",
+            "primary": false,
+            "url": "/app/common/entity/contact.nl?id=1382&compid=TSTDRV2617106",
+            "selected": true
+        }, {
+            "id": "127",
+            "workorder": {
+                "text": "Furniture Installation",
+                "value": "105"
+            },
+            "events": ["101031"],
+            "contact": {
+                "text": "World Bank : Jim Carrey",
+                "value": "2041"
+            },
+            "name": "Jim Carrey",
+            "email": "jcarrery@worldbank.com",
+            "jobTitle": "Administrative Manager",
+            "mobilePhone": "",
+            "phone": "",
+            "primary": false,
+            "url": "/app/common/entity/contact.nl?id=2041&compid=TSTDRV2617106",
+            "selected": true
+        }],
+        "addresses": [{
+            "id": "144",
+            "workorder": {
+                "text": "Furniture Installation",
+                "value": "105"
+            },
+            "customer": {
+                "text": "World Bank",
+                "value": "1249"
+            },
+            "events": ["101031"],
+            "address": {
+                "text": "12 Carlton Av",
+                "value": "245148"
+            },
+            "addressDetails": "12 Carlton Ave<br/>San Francisco CA 1241<br/>United States",
+            "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106",
+            "selected": true
+        }],
+        "contact": {
+            "text": "",
+            "value": ""
+        },
+        "address": {
+            "text": "",
+            "value": ""
+        },
+        "organizer": {
+            "text": "Arun Sharma",
+            "value": "1770"
+        }
+    }, {
         "id": "101011",
-        "title": "Nov 4 - Test Event",
+        "title": "Furniture Installation",
         "workorder": {
             "text": "Test Work Order - Nov 4",
             "value": "94"
@@ -33058,7 +42106,7 @@ const mockup = {
             "name": "Test Work Order - Nov 4",
             "title": "Test Work Order - Nov 4",
             "project": {
-                "text": "AB&I Holdings : Furniture Project",
+                "text": "World Bank : Design, Furniture and Flooring Project",
                 "value": "1612"
             },
             "date": "11/18/2024",
@@ -33077,7 +42125,7 @@ const mockup = {
                 "value": "20867"
             },
             "customer": {
-                "text": "AB&I Holdings",
+                "text": "World Bank",
                 "value": "1249"
             },
             "resourceGroup": {
@@ -33265,12 +42313,12 @@ const mockup = {
                     "value": "94"
                 },
                 "customer": {
-                    "text": "AB&I Holdings",
+                    "text": "World Bank",
                     "value": "1249"
                 },
                 "events": ["101011"],
                 "address": {
-                    "text": "Address 1",
+                    "text": "12 Carlton Av",
                     "value": "245148"
                 },
                 "addressDetails": "",
@@ -33282,12 +42330,12 @@ const mockup = {
                     "value": "94"
                 },
                 "customer": {
-                    "text": "AB&I Holdings",
+                    "text": "World Bank",
                     "value": "1249"
                 },
                 "events": [],
                 "address": {
-                    "text": "Test Address 3",
+                    "text": "54 Tale",
                     "value": "245152"
                 },
                 "addressDetails": "",
@@ -33299,12 +42347,12 @@ const mockup = {
                     "value": "94"
                 },
                 "customer": {
-                    "text": "AB&I Holdings",
+                    "text": "World Bank",
                     "value": "1249"
                 },
                 "events": [],
                 "address": {
-                    "text": "Test Address 4",
+                    "text": "343 York",
                     "value": "245154"
                 },
                 "addressDetails": "",
@@ -33316,12 +42364,12 @@ const mockup = {
                     "value": "94"
                 },
                 "customer": {
-                    "text": "AB&I Holdings",
+                    "text": "World Bank",
                     "value": "1249"
                 },
                 "events": [],
                 "address": {
-                    "text": "Address Test 1",
+                    "text": "234 Carlaw",
                     "value": "245140"
                 },
                 "addressDetails": "",
@@ -33335,7 +42383,7 @@ const mockup = {
                 },
                 "events": ["101011"],
                 "contact": {
-                    "text": "AB&I Holdings : Chad Bass",
+                    "text": "World Bank : Chad Bass",
                     "value": "1382"
                 },
                 "name": "Chad Bass",
@@ -33353,7 +42401,7 @@ const mockup = {
                 },
                 "events": ["101011"],
                 "contact": {
-                    "text": "AB&I Holdings : Test Prav",
+                    "text": "World Bank : John Smith",
                     "value": "1892"
                 },
                 "name": "Test Prav",
@@ -33366,7 +42414,7 @@ const mockup = {
             }],
             "events": [{
                 "id": "101011",
-                "title": "Nov 4 - Test Event",
+                "title": "Furniture Installation",
                 "workorder": {
                     "text": "Test Work Order - Nov 4",
                     "value": "94"
@@ -33661,7 +42709,7 @@ const mockup = {
             },
             "events": ["101011"],
             "contact": {
-                "text": "AB&I Holdings : Chad Bass",
+                "text": "World Bank : Chad Bass",
                 "value": "1382"
             },
             "name": "Chad Bass",
@@ -33680,7 +42728,7 @@ const mockup = {
             },
             "events": ["101011"],
             "contact": {
-                "text": "AB&I Holdings : Test Prav",
+                "text": "World Bank : John Smith",
                 "value": "1892"
             },
             "name": "Test Prav",
@@ -33699,12 +42747,12 @@ const mockup = {
                 "value": "94"
             },
             "customer": {
-                "text": "AB&I Holdings",
+                "text": "World Bank",
                 "value": "1249"
             },
             "events": ["101011"],
             "address": {
-                "text": "Address 1",
+                "text": "12 Carlton Av",
                 "value": "245148"
             },
             "addressDetails": "",
@@ -33758,7 +42806,7 @@ const mockup = {
             "name": "Work Order - Nov 4 Dry run",
             "title": "Work Order - Nov 4 Dry run",
             "project": {
-                "text": "AB&I Holdings : Furniture Project",
+                "text": "World Bank : Design, Furniture and Flooring Project",
                 "value": "1612"
             },
             "date": "11/11/2024",
@@ -33777,7 +42825,7 @@ const mockup = {
                 "value": "20868"
             },
             "customer": {
-                "text": "AB&I Holdings",
+                "text": "World Bank",
                 "value": "1249"
             },
             "resourceGroup": {
@@ -33965,12 +43013,12 @@ const mockup = {
                     "value": "95"
                 },
                 "customer": {
-                    "text": "AB&I Holdings",
+                    "text": "World Bank",
                     "value": "1249"
                 },
                 "events": ["101010"],
                 "address": {
-                    "text": "Test Address 3",
+                    "text": "54 Tale",
                     "value": "245152"
                 },
                 "addressDetails": "Test Details",
@@ -33982,12 +43030,12 @@ const mockup = {
                     "value": "95"
                 },
                 "customer": {
-                    "text": "AB&I Holdings",
+                    "text": "World Bank",
                     "value": "1249"
                 },
                 "events": [],
                 "address": {
-                    "text": "Test Address 4",
+                    "text": "43 Carlo",
                     "value": "245153"
                 },
                 "addressDetails": "",
@@ -33999,12 +43047,12 @@ const mockup = {
                     "value": "95"
                 },
                 "customer": {
-                    "text": "AB&I Holdings",
+                    "text": "World Bank",
                     "value": "1249"
                 },
                 "events": [],
                 "address": {
-                    "text": "Address Test 1",
+                    "text": "234 Carlaw",
                     "value": "245140"
                 },
                 "addressDetails": "",
@@ -34016,12 +43064,12 @@ const mockup = {
                     "value": "95"
                 },
                 "customer": {
-                    "text": "AB&I Holdings",
+                    "text": "World Bank",
                     "value": "1249"
                 },
                 "events": [],
                 "address": {
-                    "text": "Test Address 222",
+                    "text": "22 Dundas",
                     "value": "245145"
                 },
                 "addressDetails": "",
@@ -34035,7 +43083,7 @@ const mockup = {
                 },
                 "events": [],
                 "contact": {
-                    "text": "AB&I Holdings : Chad Bass",
+                    "text": "World Bank : Chad Bass",
                     "value": "1382"
                 },
                 "name": "Chad Bass",
@@ -34053,7 +43101,7 @@ const mockup = {
                 },
                 "events": ["101010"],
                 "contact": {
-                    "text": "AB&I Holdings : Test Prav",
+                    "text": "World Bank : John Smith",
                     "value": "1892"
                 },
                 "name": "Test Prav",
@@ -34502,7 +43550,7 @@ const mockup = {
             },
             "events": ["101010"],
             "contact": {
-                "text": "AB&I Holdings : Test Prav",
+                "text": "World Bank : John Smith",
                 "value": "1892"
             },
             "name": "Test Prav",
@@ -34521,12 +43569,12 @@ const mockup = {
                 "value": "95"
             },
             "customer": {
-                "text": "AB&I Holdings",
+                "text": "World Bank",
                 "value": "1249"
             },
             "events": ["101010"],
             "address": {
-                "text": "Test Address 3",
+                "text": "54 Tale",
                 "value": "245152"
             },
             "addressDetails": "Test Details",
@@ -34540,6 +43588,674 @@ const mockup = {
         "address": {
             "text": "120",
             "value": "120"
+        },
+        "organizer": {
+            "text": "Arun Sharma",
+            "value": "1770"
+        }
+    }, {
+        "id": "101028",
+        "title": "Furniture Installation",
+        "workorder": {
+            "text": "Furniture Installation",
+            "value": "103"
+        },
+        "location": "",
+        "status": {
+            "text": "Tentative",
+            "value": "TENTATIVE",
+            "code": "bg-secondary"
+        },
+        "date": {
+            "recurrence": "one time event on 11/22/2024",
+            "start": "2024-11-22",
+            "end": "2024-11-22"
+        },
+        "time": {
+            "start": "10:00",
+            "end": "17:00"
+        },
+        "priority": {
+            "text": "Medium",
+            "value": "2",
+            "code": "#dfcf02"
+        },
+        "note": "Furniture Installation only and post-install cleaning",
+        "url": "/app/crm/calendar/event.nl?id=101028&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {
+            "id": "103",
+            "name": "Furniture Installation",
+            "title": "Furniture Installation",
+            "project": {
+                "text": "World Bank : Furniture and AV Installation",
+                "value": "1883"
+            },
+            "date": "11/10/2024",
+            "status": {
+                "text": "Not Started",
+                "value": "4",
+                "code": "#026adf"
+            },
+            "type": {
+                "text": "Service",
+                "value": "2"
+            },
+            "memo": "<ol><li>- **Review Furniture Layout Plans**: Confirm placement and orientation according to layout plans before beginning installation.</li><li>- **Unpack and Inventory Parts**: Carefully unpack each item and inventory all parts and hardware to ensure nothing is missing.</li><li>- **Organize Tools and Hardware**: Set up necessary tools (e.g., screwdriver, drill, wrench) and organize hardware for easy access during installation.</li><li>- **Assemble Base Components First**: Start by assembling the base or foundational components, such as legs or frames, ensuring they are stable and level.</li><li>- **Secure Structural Pieces**: Attach any primary structural pieces (e.g., tabletops, seat bases) to the base, following manufacturer instructions closely.</li><li>- **Install Secondary Components**: Add any secondary components, such as drawers, shelves, or panels, making sure they are properly aligned and secure.</li><li>- **Tighten All Screws and Bolts**: Go over all screws, bolts, and connectors to ensure everything is tightly secured and stable.</li><li>- **Check for Stability and Leveling**: Test the furniture for stability and make any necessary adjustments to ensure it is level.</li><li>- **Attach Accessories or Finishing Pieces**: Add finishing touches like knobs, covers, or cushions according to specifications.</li><li>- **Final Inspection**: Conduct a final inspection to ensure that all parts are securely assembled, aligned, and free of damage. Clean the area and remove any debris or packaging.</li></ol>",
+            "salesorder": {
+                "text": "Sales Order #SLS00000769",
+                "value": "20898"
+            },
+            "customer": {
+                "text": "World Bank",
+                "value": "1249"
+            },
+            "resourceGroup": {
+                "text": "",
+                "value": ""
+            },
+            "priority": "",
+            "resources": [],
+            "vendors": [{
+                "id": "164",
+                "name": "164",
+                "vendor": {
+                    "text": "Best Fixture, Inc.",
+                    "value": "12"
+                },
+                "url": "",
+                "email": "",
+                "initials": "BF",
+                "workorder": {
+                    "text": "Furniture Installation",
+                    "value": "103"
+                },
+                "event": "101028",
+                "quantityRequired": 1,
+                "quantityAvailable": 0,
+                "purchaseOrder": {
+                    "text": " ",
+                    "value": ""
+                },
+                "amount": 0,
+                "active": false,
+                "woVendor": true,
+                "memo": ""
+            }],
+            "assets": [{
+                "id": "113",
+                "name": "ELE00002",
+                "workorder": {
+                    "text": "Furniture Installation",
+                    "value": "103"
+                },
+                "event": "101028",
+                "quantity": 1,
+                "description": "Serialized 1 Sales Description",
+                "item": {
+                    "text": "ELE00002",
+                    "value": "674"
+                },
+                "equipmentType": {
+                    "text": "Hand Tools",
+                    "value": "1"
+                },
+                "rentalUnit": {
+                    "text": "",
+                    "value": ""
+                },
+                "rentalDuration": 0,
+                "rentalRate": 0,
+                "rentalAmount": 0,
+                "purchaseOrder": {
+                    "text": " ",
+                    "value": " "
+                },
+                "vendor": {
+                    "text": "Computer Depot Pacific",
+                    "value": "965"
+                },
+                "owned": true,
+                "rentalMatrix": 0
+            }],
+            "items": [{
+                "id": "384",
+                "workorder": {
+                    "text": "Furniture Installation",
+                    "value": "103"
+                },
+                "salesorder": {
+                    "text": "Sales Order #SLS00000769",
+                    "value": "20898"
+                },
+                "event": "",
+                "uuid": "20898_2",
+                "line": "2",
+                "item": {
+                    "text": "2375-6727",
+                    "value": "1426"
+                },
+                "description": "PANEL, TOP CAP, STANDARD, 60IN W, PREMISE, SVC",
+                "quantity": 10,
+                "availableQty": 10,
+                "note": ""
+            }, {
+                "id": "387",
+                "workorder": {
+                    "text": "Furniture Installation",
+                    "value": "103"
+                },
+                "salesorder": {
+                    "text": "Sales Order #SLS00000769",
+                    "value": "20898"
+                },
+                "event": "101028",
+                "uuid": "20898_2",
+                "line": "2",
+                "item": {
+                    "text": "2375-6727",
+                    "value": "1426"
+                },
+                "description": "PANEL, TOP CAP, STANDARD, 60IN W, PREMISE, SVC",
+                "quantity": 1,
+                "availableQty": 1,
+                "note": ""
+            }, {
+                "id": "388",
+                "workorder": {
+                    "text": "Furniture Installation",
+                    "value": "103"
+                },
+                "salesorder": {
+                    "text": "Sales Order #SLS00000769",
+                    "value": "20898"
+                },
+                "event": "101028",
+                "uuid": "20898_3",
+                "line": "3",
+                "item": {
+                    "text": "45XQ-2424-LJ4SCA",
+                    "value": "1013"
+                },
+                "description": "450 Series,Sq,24\"x24\",Lam,Edgeband,29\"H,X Base,Stat,No Mod,Cstr,Ptd",
+                "quantity": 1,
+                "availableQty": 1,
+                "note": ""
+            }, {
+                "id": "385",
+                "workorder": {
+                    "text": "Furniture Installation",
+                    "value": "103"
+                },
+                "salesorder": {
+                    "text": "Sales Order #SLS00000769",
+                    "value": "20898"
+                },
+                "event": "",
+                "uuid": "20898_3",
+                "line": "3",
+                "item": {
+                    "text": "45XQ-2424-LJ4SCA",
+                    "value": "1013"
+                },
+                "description": "450 Series,Sq,24\"x24\",Lam,Edgeband,29\"H,X Base,Stat,No Mod,Cstr,Ptd",
+                "quantity": 10,
+                "availableQty": 10,
+                "note": ""
+            }, {
+                "id": "386",
+                "workorder": {
+                    "text": "Furniture Installation",
+                    "value": "103"
+                },
+                "salesorder": {
+                    "text": "Sales Order #SLS00000769",
+                    "value": "20898"
+                },
+                "event": "",
+                "uuid": "20898_4",
+                "line": "4",
+                "item": {
+                    "text": "ACQUA/CARAVEL AU0641",
+                    "value": "1062"
+                },
+                "description": "SPINNEYBECK LEATHER ACQUA/CARAVEL AU0641 for cushion of Ciji_Cushions COL 35 sq ft ea",
+                "quantity": 10,
+                "availableQty": 10,
+                "note": ""
+            }, {
+                "id": "383",
+                "workorder": {
+                    "text": "Furniture Installation",
+                    "value": "103"
+                },
+                "salesorder": {
+                    "text": "Sales Order #SLS00000769",
+                    "value": "20898"
+                },
+                "event": "",
+                "uuid": "20898_1",
+                "line": "1",
+                "item": {
+                    "text": "BIC00008",
+                    "value": "467"
+                },
+                "description": "Trail Bike - Maverik Disc",
+                "quantity": 10,
+                "availableQty": 10,
+                "note": ""
+            }],
+            "addresses": [{
+                "id": "140",
+                "workorder": {
+                    "text": "Furniture Installation",
+                    "value": "103"
+                },
+                "customer": {
+                    "text": "World Bank",
+                    "value": "1249"
+                },
+                "events": ["101028", "101030"],
+                "address": {
+                    "text": "434 Carlaw",
+                    "value": "244878"
+                },
+                "addressDetails": "434 Carlaw Road<br/>Los Angeles NY 12412<br/>United States",
+                "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+            }, {
+                "id": "141",
+                "workorder": {
+                    "text": "Furniture Installation",
+                    "value": "103"
+                },
+                "customer": {
+                    "text": "World Bank",
+                    "value": "1249"
+                },
+                "events": ["101030"],
+                "address": {
+                    "text": "12 Carlton Av",
+                    "value": "245148"
+                },
+                "addressDetails": "12 Carlton Ave<br/>San Francisco CA 1241<br/>United States",
+                "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+            }, {
+                "id": "142",
+                "workorder": {
+                    "text": "Furniture Installation",
+                    "value": "103"
+                },
+                "customer": {
+                    "text": "World Bank",
+                    "value": "1249"
+                },
+                "events": ["101030"],
+                "address": {
+                    "text": "54 Tale",
+                    "value": "245152"
+                },
+                "addressDetails": "54 Tale AV<br/>Akron OH 123123<br/>United States",
+                "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+            }],
+            "contacts": [{
+                "id": "119",
+                "workorder": {
+                    "text": "Furniture Installation",
+                    "value": "103"
+                },
+                "events": ["101028", "101030"],
+                "contact": {
+                    "text": "World Bank : Chad Bass",
+                    "value": "1382"
+                },
+                "name": "Chad Bass",
+                "email": "cbass@worldbank.com",
+                "jobTitle": "President",
+                "mobilePhone": "",
+                "phone": "",
+                "primary": false,
+                "url": "/app/common/entity/contact.nl?id=1382&compid=TSTDRV2617106"
+            }, {
+                "id": "120",
+                "workorder": {
+                    "text": "Furniture Installation",
+                    "value": "103"
+                },
+                "events": ["101028", "101030"],
+                "contact": {
+                    "text": "World Bank : John Smith",
+                    "value": "1892"
+                },
+                "name": "John Smith",
+                "email": "jsmith@worldbank.com",
+                "jobTitle": "Logistics",
+                "mobilePhone": "",
+                "phone": "",
+                "primary": true,
+                "url": "/app/common/entity/contact.nl?id=1892&compid=TSTDRV2617106"
+            }],
+            "events": [{
+                "id": "101030",
+                "title": "Furniture Installation",
+                "workorder": {
+                    "text": "Furniture Installation",
+                    "value": "103"
+                },
+                "location": "",
+                "status": {
+                    "text": "Tentative",
+                    "value": "TENTATIVE",
+                    "code": "bg-secondary"
+                },
+                "date": {
+                    "recurrence": "occurs every day from 11/11/2024 until 11/13/2024",
+                    "start": "2024-11-11",
+                    "end": "2024-11-13"
+                },
+                "time": {
+                    "start": "08:00",
+                    "end": "18:00"
+                },
+                "priority": {
+                    "text": "High",
+                    "value": "3",
+                    "code": "#ca6621"
+                },
+                "note": "",
+                "url": "/app/crm/calendar/event.nl?id=101030&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "vendors": [],
+                "assets": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "119",
+                    "value": "119"
+                },
+                "address": {
+                    "text": "140",
+                    "value": "140"
+                },
+                "organizer": {
+                    "text": "Alex Wolfe",
+                    "value": "-5"
+                }
+            }, {
+                "id": "101028",
+                "title": "Furniture Installation",
+                "workorder": {
+                    "text": "Furniture Installation",
+                    "value": "103"
+                },
+                "location": "",
+                "status": {
+                    "text": "Tentative",
+                    "value": "TENTATIVE",
+                    "code": "bg-secondary"
+                },
+                "date": {
+                    "recurrence": "one time event on 11/22/2024",
+                    "start": "2024-11-22",
+                    "end": "2024-11-22"
+                },
+                "time": {
+                    "start": "10:00",
+                    "end": "17:00"
+                },
+                "priority": {
+                    "text": "Medium",
+                    "value": "2",
+                    "code": "#dfcf02"
+                },
+                "note": "Furniture Installation only and post-install cleaning",
+                "url": "/app/crm/calendar/event.nl?id=101028&compid=TSTDRV2617106&selectedtab=custom337",
+                "color": "#1a6756",
+                "woRef": {},
+                "resources": [],
+                "vendors": [],
+                "assets": [],
+                "items": [],
+                "contacts": [],
+                "addresses": [],
+                "contact": {
+                    "text": "",
+                    "value": ""
+                },
+                "address": {
+                    "text": "",
+                    "value": ""
+                },
+                "organizer": {
+                    "text": "Arun Sharma",
+                    "value": "1770"
+                }
+            }],
+            "projectUrl": "/app/accounting/project/project.nl?id=1883&compid=TSTDRV2617106",
+            "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=103&compid=TSTDRV2617106",
+            "soUrl": "/app/accounting/transactions/salesord.nl?id=20898&compid=TSTDRV2617106",
+            "esthours": "100"
+        },
+        "resources": [{
+            "id": "253",
+            "name": "Gary Grant",
+            "initials": "GG",
+            "email": "garygrant@ramsey.com",
+            "phone": "(873) 775-6114",
+            "location": {
+                "text": "02: Boston",
+                "value": "1"
+            },
+            "active": true,
+            "workorder": {
+                "text": "Furniture Installation",
+                "value": "103"
+            },
+            "events": ["101028"],
+            "employee": {
+                "text": "Gary Grant",
+                "value": "1312"
+            },
+            "resourceGroups": [{
+                "text": "Installers",
+                "value": "1"
+            }],
+            "types": [{
+                "text": "Installer",
+                "value": "1"
+            }],
+            "subTypes": [],
+            "rate": 0,
+            "vendor": {
+                "text": "",
+                "value": ""
+            },
+            "purchaseOrder": {
+                "text": " ",
+                "value": ""
+            },
+            "affiliationType": {
+                "text": "Crew Enhancement",
+                "value": "3"
+            },
+            "selected": true
+        }],
+        "vendors": [{
+            "id": "164",
+            "name": "164",
+            "vendor": {
+                "text": "Best Fixture, Inc.",
+                "value": "12"
+            },
+            "url": "",
+            "email": "",
+            "initials": "BF",
+            "workorder": {
+                "text": "Furniture Installation",
+                "value": "103"
+            },
+            "event": "101028",
+            "quantityRequired": 1,
+            "quantityAvailable": 0,
+            "purchaseOrder": {
+                "text": " ",
+                "value": ""
+            },
+            "amount": 0,
+            "active": false,
+            "woVendor": true,
+            "memo": "",
+            "selected": true
+        }],
+        "assets": [{
+            "id": "113",
+            "name": "ELE00002",
+            "workorder": {
+                "text": "Furniture Installation",
+                "value": "103"
+            },
+            "event": "101028",
+            "quantity": 1,
+            "description": "Serialized 1 Sales Description",
+            "item": {
+                "text": "ELE00002",
+                "value": "674"
+            },
+            "equipmentType": {
+                "text": "Hand Tools",
+                "value": "1"
+            },
+            "rentalUnit": {
+                "text": "",
+                "value": ""
+            },
+            "rentalDuration": 0,
+            "rentalRate": 0,
+            "rentalAmount": 0,
+            "purchaseOrder": {
+                "text": " ",
+                "value": " "
+            },
+            "vendor": {
+                "text": "Computer Depot Pacific",
+                "value": "965"
+            },
+            "owned": true,
+            "rentalMatrix": 0,
+            "selected": true
+        }],
+        "items": [{
+            "id": "387",
+            "workorder": {
+                "text": "Furniture Installation",
+                "value": "103"
+            },
+            "salesorder": {
+                "text": "Sales Order #SLS00000769",
+                "value": "20898"
+            },
+            "event": "101028",
+            "uuid": "20898_2",
+            "line": "2",
+            "item": {
+                "text": "2375-6727",
+                "value": "1426"
+            },
+            "description": "PANEL, TOP CAP, STANDARD, 60IN W, PREMISE, SVC",
+            "quantity": 1,
+            "availableQty": 1,
+            "note": "",
+            "selected": true
+        }, {
+            "id": "388",
+            "workorder": {
+                "text": "Furniture Installation",
+                "value": "103"
+            },
+            "salesorder": {
+                "text": "Sales Order #SLS00000769",
+                "value": "20898"
+            },
+            "event": "101028",
+            "uuid": "20898_3",
+            "line": "3",
+            "item": {
+                "text": "45XQ-2424-LJ4SCA",
+                "value": "1013"
+            },
+            "description": "450 Series,Sq,24\"x24\",Lam,Edgeband,29\"H,X Base,Stat,No Mod,Cstr,Ptd",
+            "quantity": 1,
+            "availableQty": 1,
+            "note": "",
+            "selected": true
+        }],
+        "contacts": [{
+            "id": "119",
+            "workorder": {
+                "text": "Furniture Installation",
+                "value": "103"
+            },
+            "events": ["101028", "101030"],
+            "contact": {
+                "text": "World Bank : Chad Bass",
+                "value": "1382"
+            },
+            "name": "Chad Bass",
+            "email": "cbass@worldbank.com",
+            "jobTitle": "President",
+            "mobilePhone": "",
+            "phone": "",
+            "primary": false,
+            "url": "/app/common/entity/contact.nl?id=1382&compid=TSTDRV2617106",
+            "selected": true
+        }, {
+            "id": "120",
+            "workorder": {
+                "text": "Furniture Installation",
+                "value": "103"
+            },
+            "events": ["101028", "101030"],
+            "contact": {
+                "text": "World Bank : John Smith",
+                "value": "1892"
+            },
+            "name": "John Smith",
+            "email": "jsmith@worldbank.com",
+            "jobTitle": "Logistics",
+            "mobilePhone": "",
+            "phone": "",
+            "primary": true,
+            "url": "/app/common/entity/contact.nl?id=1892&compid=TSTDRV2617106",
+            "selected": true
+        }],
+        "addresses": [{
+            "id": "140",
+            "workorder": {
+                "text": "Furniture Installation",
+                "value": "103"
+            },
+            "customer": {
+                "text": "World Bank",
+                "value": "1249"
+            },
+            "events": ["101028", "101030"],
+            "address": {
+                "text": "434 Carlaw",
+                "value": "244878"
+            },
+            "addressDetails": "434 Carlaw Road<br/>Los Angeles NY 12412<br/>United States",
+            "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106",
+            "selected": true
+        }],
+        "contact": {
+            "text": "",
+            "value": ""
+        },
+        "address": {
+            "text": "",
+            "value": ""
         },
         "organizer": {
             "text": "Arun Sharma",
@@ -34580,7 +44296,7 @@ const mockup = {
             "name": "Work Order Dry Run - Nov 8",
             "title": "Work Order Dry Run - Nov 8",
             "project": {
-                "text": "AB&I Holdings : Furniture Project",
+                "text": "World Bank : Design, Furniture and Flooring Project",
                 "value": "1612"
             },
             "date": "11/8/2024",
@@ -34599,7 +44315,7 @@ const mockup = {
                 "value": "20892"
             },
             "customer": {
-                "text": "AB&I Holdings",
+                "text": "World Bank",
                 "value": "1249"
             },
             "resourceGroup": {
@@ -34825,12 +44541,12 @@ const mockup = {
                     "value": "100"
                 },
                 "customer": {
-                    "text": "AB&I Holdings",
+                    "text": "World Bank",
                     "value": "1249"
                 },
                 "events": ["101015", "101016"],
                 "address": {
-                    "text": "1701 Rollins Road",
+                    "text": "434 Carlaw",
                     "value": "244878"
                 },
                 "addressDetails": "",
@@ -34842,12 +44558,12 @@ const mockup = {
                     "value": "100"
                 },
                 "customer": {
-                    "text": "AB&I Holdings",
+                    "text": "World Bank",
                     "value": "1249"
                 },
                 "events": ["101016"],
                 "address": {
-                    "text": "Test Address 3",
+                    "text": "54 Tale",
                     "value": "245152"
                 },
                 "addressDetails": "",
@@ -34859,12 +44575,12 @@ const mockup = {
                     "value": "100"
                 },
                 "customer": {
-                    "text": "AB&I Holdings",
+                    "text": "World Bank",
                     "value": "1249"
                 },
                 "events": ["101016"],
                 "address": {
-                    "text": "Test Address 4",
+                    "text": "343 York",
                     "value": "245154"
                 },
                 "addressDetails": "",
@@ -34876,12 +44592,12 @@ const mockup = {
                     "value": "100"
                 },
                 "customer": {
-                    "text": "AB&I Holdings",
+                    "text": "World Bank",
                     "value": "1249"
                 },
                 "events": ["101016"],
                 "address": {
-                    "text": "Test New Address",
+                    "text": "234 Kristen AV",
                     "value": "245146"
                 },
                 "addressDetails": "",
@@ -34895,7 +44611,7 @@ const mockup = {
                 },
                 "events": ["101015", "101016"],
                 "contact": {
-                    "text": "AB&I Holdings : Chad Bass",
+                    "text": "World Bank : Chad Bass",
                     "value": "1382"
                 },
                 "name": "Chad Bass",
@@ -34913,7 +44629,7 @@ const mockup = {
                 },
                 "events": ["101015", "101016"],
                 "contact": {
-                    "text": "AB&I Holdings : Test Prav",
+                    "text": "World Bank : John Smith",
                     "value": "1892"
                 },
                 "name": "Test Prav",
@@ -35040,7 +44756,7 @@ const mockup = {
             },
             "events": ["101015", "101016"],
             "contact": {
-                "text": "AB&I Holdings : Chad Bass",
+                "text": "World Bank : Chad Bass",
                 "value": "1382"
             },
             "name": "Chad Bass",
@@ -35059,7 +44775,7 @@ const mockup = {
             },
             "events": ["101015", "101016"],
             "contact": {
-                "text": "AB&I Holdings : Test Prav",
+                "text": "World Bank : John Smith",
                 "value": "1892"
             },
             "name": "Test Prav",
@@ -35078,12 +44794,12 @@ const mockup = {
                 "value": "100"
             },
             "customer": {
-                "text": "AB&I Holdings",
+                "text": "World Bank",
                 "value": "1249"
             },
             "events": ["101015", "101016"],
             "address": {
-                "text": "1701 Rollins Road",
+                "text": "434 Carlaw",
                 "value": "244878"
             },
             "addressDetails": "",
@@ -35096,12 +44812,12 @@ const mockup = {
                 "value": "100"
             },
             "customer": {
-                "text": "AB&I Holdings",
+                "text": "World Bank",
                 "value": "1249"
             },
             "events": ["101016"],
             "address": {
-                "text": "Test Address 3",
+                "text": "54 Tale",
                 "value": "245152"
             },
             "addressDetails": "",
@@ -35114,12 +44830,12 @@ const mockup = {
                 "value": "100"
             },
             "customer": {
-                "text": "AB&I Holdings",
+                "text": "World Bank",
                 "value": "1249"
             },
             "events": ["101016"],
             "address": {
-                "text": "Test Address 4",
+                "text": "343 York",
                 "value": "245154"
             },
             "addressDetails": "",
@@ -35132,12 +44848,12 @@ const mockup = {
                 "value": "100"
             },
             "customer": {
-                "text": "AB&I Holdings",
+                "text": "World Bank",
                 "value": "1249"
             },
             "events": ["101016"],
             "address": {
-                "text": "Test New Address",
+                "text": "234 Kristen AV",
                 "value": "245146"
             },
             "addressDetails": "",
@@ -35160,12 +44876,12 @@ const mockup = {
     "woContacts": [{
         "id": "1",
         "workorder": {
-            "text": "Install Furniture",
+            "text": "Furniture Installation",
             "value": "1"
         },
         "events": [],
         "contact": {
-            "text": "AB&I Holdings : Chad Bass",
+            "text": "World Bank : Chad Bass",
             "value": "1382"
         },
         "name": "Chad Bass",
@@ -35183,7 +44899,7 @@ const mockup = {
         },
         "events": [],
         "contact": {
-            "text": "AB&I Holdings : Chad Bass",
+            "text": "World Bank : Chad Bass",
             "value": "1382"
         },
         "name": "Chad Bass",
@@ -35196,12 +44912,12 @@ const mockup = {
     }, {
         "id": "3",
         "workorder": {
-            "text": "Installation of Furnitures - Edit",
+            "text": "Installation of Furnitures",
             "value": "3"
         },
         "events": [],
         "contact": {
-            "text": "AB&I Holdings : Chad Bass",
+            "text": "World Bank : Chad Bass",
             "value": "1382"
         },
         "name": "Chad Bass",
@@ -35214,12 +44930,12 @@ const mockup = {
     }, {
         "id": "4",
         "workorder": {
-            "text": "Demo",
+            "text": "Crates Pick up",
             "value": "4"
         },
         "events": [],
         "contact": {
-            "text": "AB&I Holdings : Chad Bass",
+            "text": "World Bank : Chad Bass",
             "value": "1382"
         },
         "name": "Chad Bass",
@@ -35237,7 +44953,7 @@ const mockup = {
         },
         "events": [],
         "contact": {
-            "text": "AB&I Holdings : Chad Bass",
+            "text": "World Bank : Chad Bass",
             "value": "1382"
         },
         "name": "Chad Bass",
@@ -35255,7 +44971,7 @@ const mockup = {
         },
         "events": [],
         "contact": {
-            "text": "AB&I Holdings : Chad Bass",
+            "text": "World Bank : Chad Bass",
             "value": "1382"
         },
         "name": "Chad Bass",
@@ -35268,12 +44984,12 @@ const mockup = {
     }, {
         "id": "7",
         "workorder": {
-            "text": "Install Walls",
+            "text": "Walls Installation",
             "value": "13"
         },
         "events": [],
         "contact": {
-            "text": "AB&I Holdings : Chad Bass",
+            "text": "World Bank : Chad Bass",
             "value": "1382"
         },
         "name": "Chad Bass",
@@ -35291,7 +45007,7 @@ const mockup = {
         },
         "events": [],
         "contact": {
-            "text": "AB&I Holdings : Chad Bass",
+            "text": "World Bank : Chad Bass",
             "value": "1382"
         },
         "name": "Chad Bass",
@@ -35304,12 +45020,12 @@ const mockup = {
     }, {
         "id": "9",
         "workorder": {
-            "text": "Install Walls Test Work Order",
+            "text": "Drop off and Walls Installation",
             "value": "15"
         },
         "events": [],
         "contact": {
-            "text": "AB&I Holdings : Chad Bass",
+            "text": "World Bank : Chad Bass",
             "value": "1382"
         },
         "name": "Chad Bass",
@@ -35322,12 +45038,12 @@ const mockup = {
     }, {
         "id": "10",
         "workorder": {
-            "text": "Test",
+            "text": "Conference Table Delivery",
             "value": "28"
         },
         "events": [],
         "contact": {
-            "text": "AB&I Holdings : Chad Bass",
+            "text": "World Bank : Chad Bass",
             "value": "1382"
         },
         "name": "Chad Bass",
@@ -35340,12 +45056,12 @@ const mockup = {
     }, {
         "id": "11",
         "workorder": {
-            "text": "Test",
+            "text": "Security Camera Installation",
             "value": "29"
         },
         "events": [],
         "contact": {
-            "text": "AB&I Holdings : Chad Bass",
+            "text": "World Bank : Chad Bass",
             "value": "1382"
         },
         "name": "Chad Bass",
@@ -35358,12 +45074,12 @@ const mockup = {
     }, {
         "id": "12",
         "workorder": {
-            "text": "Test",
+            "text": "Flooring Installation ",
             "value": "30"
         },
         "events": [],
         "contact": {
-            "text": "AB&I Holdings : Chad Bass",
+            "text": "World Bank : Chad Bass",
             "value": "1382"
         },
         "name": "Chad Bass",
@@ -35376,12 +45092,12 @@ const mockup = {
     }, {
         "id": "13",
         "workorder": {
-            "text": "Test",
+            "text": "Flooring Installation",
             "value": "31"
         },
         "events": [],
         "contact": {
-            "text": "AB&I Holdings : Chad Bass",
+            "text": "World Bank : Chad Bass",
             "value": "1382"
         },
         "name": "Chad Bass",
@@ -35394,16 +45110,16 @@ const mockup = {
     }, {
         "id": "14",
         "workorder": {
-            "text": "Work Order Sample July 22",
+            "text": "AV Installation",
             "value": "33"
         },
         "events": [],
         "contact": {
-            "text": "AB&I Holdings : Chad Bass",
+            "text": "World Bank : Chad Bass",
             "value": "1382"
         },
         "name": "Chad Bass",
-        "email": "cbass@sbi.com",
+        "email": "cbass@worldbank.com",
         "jobTitle": "President",
         "mobilePhone": "",
         "phone": "",
@@ -35412,7 +45128,7 @@ const mockup = {
     }, {
         "id": "15",
         "workorder": {
-            "text": "Install Furniture",
+            "text": "Furniture Installation",
             "value": "1"
         },
         "events": [],
@@ -35430,16 +45146,16 @@ const mockup = {
     }, {
         "id": "16",
         "workorder": {
-            "text": "Work Order Sample July 31",
+            "text": "Furniture and Flooring Installation",
             "value": "34"
         },
         "events": [],
         "contact": {
-            "text": "AB&I Holdings : Chad Bass",
+            "text": "World Bank : Chad Bass",
             "value": "1382"
         },
         "name": "Chad Bass",
-        "email": "cbass@sbi.com",
+        "email": "cbass@worldbank.com",
         "jobTitle": "President",
         "mobilePhone": "",
         "phone": "",
@@ -35471,7 +45187,7 @@ const mockup = {
         },
         "events": [],
         "contact": {
-            "text": "AB&I Holdings : Chad Bass",
+            "text": "World Bank : Chad Bass",
             "value": "1382"
         },
         "name": "Chad Bass",
@@ -35481,24 +45197,6 @@ const mockup = {
         "phone": "",
         "primary": false,
         "url": "/app/common/entity/contact.nl?id=1382&compid=TSTDRV2617106"
-    }, {
-        "id": "20",
-        "workorder": {
-            "text": "Work Order Sample July 31",
-            "value": "34"
-        },
-        "events": [],
-        "contact": {
-            "text": "",
-            "value": ""
-        },
-        "name": "Test",
-        "email": "pravallika@erpsuccesspartners.com",
-        "jobTitle": "Developer",
-        "mobilePhone": "",
-        "phone": "",
-        "primary": false,
-        "url": "/app/common/entity/contact.nl?compid=TSTDRV2617106"
     }, {
         "id": "21",
         "workorder": {
@@ -35538,129 +45236,111 @@ const mockup = {
     }, {
         "id": "25",
         "workorder": {
-            "text": "Sample Work Order",
+            "text": "Furniture Installation",
             "value": "43"
         },
         "events": [],
         "contact": {
-            "text": "AB&I Holdings : Test Prav",
+            "text": "World Bank : John Smith",
             "value": "1892"
         },
-        "name": "Test Prav",
-        "email": "pravallika@erpsuccesspartners.com",
-        "jobTitle": "QA",
+        "name": "John Smith",
+        "email": "jsmith@worldbank.com",
+        "jobTitle": "Logistics",
         "mobilePhone": "",
         "phone": "",
-        "primary": false,
+        "primary": true,
         "url": "/app/common/entity/contact.nl?id=1892&compid=TSTDRV2617106"
     }, {
         "id": "26",
         "workorder": {
-            "text": "Sample 2",
+            "text": "Furniture Installation",
             "value": "44"
         },
         "events": [],
         "contact": {
-            "text": "AB&I Holdings : Test Prav",
+            "text": "World Bank : John Smith",
             "value": "1892"
         },
-        "name": "Test Prav",
-        "email": "pravallika@erpsuccesspartners.com",
-        "jobTitle": "QA",
+        "name": "John Smith",
+        "email": "jsmith@worldbank.com",
+        "jobTitle": "Logistics",
         "mobilePhone": "",
         "phone": "",
-        "primary": false,
+        "primary": true,
         "url": "/app/common/entity/contact.nl?id=1892&compid=TSTDRV2617106"
     }, {
         "id": "27",
         "workorder": {
-            "text": "Sample 3",
+            "text": "Furniture Installation",
             "value": "45"
         },
         "events": [],
         "contact": {
-            "text": "AB&I Holdings : Test Prav",
+            "text": "World Bank : John Smith",
             "value": "1892"
         },
-        "name": "Test Prav",
-        "email": "pravallika@erpsuccesspartners.com",
-        "jobTitle": "QA",
+        "name": "John Smith",
+        "email": "jsmith@worldbank.com",
+        "jobTitle": "Logistics",
         "mobilePhone": "",
         "phone": "",
-        "primary": false,
+        "primary": true,
         "url": "/app/common/entity/contact.nl?id=1892&compid=TSTDRV2617106"
     }, {
         "id": "28",
         "workorder": {
-            "text": "Sample 4",
+            "text": "Furniture Installation",
             "value": "46"
         },
         "events": [],
         "contact": {
-            "text": "AB&I Holdings : Test Prav",
+            "text": "World Bank : John Smith",
             "value": "1892"
         },
-        "name": "Test Prav",
-        "email": "pravallika@erpsuccesspartners.com",
-        "jobTitle": "QA",
+        "name": "John Smith",
+        "email": "jsmith@worldbank.com",
+        "jobTitle": "Logistics",
         "mobilePhone": "",
         "phone": "",
-        "primary": false,
+        "primary": true,
         "url": "/app/common/entity/contact.nl?id=1892&compid=TSTDRV2617106"
     }, {
         "id": "29",
         "workorder": {
-            "text": "Sample 5",
+            "text": "AV Installation",
             "value": "47"
         },
         "events": [],
         "contact": {
-            "text": "AB&I Holdings : Test Prav",
+            "text": "World Bank : John Smith",
             "value": "1892"
         },
-        "name": "Test Prav",
-        "email": "pravallika@erpsuccesspartners.com",
-        "jobTitle": "QA",
+        "name": "John Smith",
+        "email": "jsmith@worldbank.com",
+        "jobTitle": "Logistics",
         "mobilePhone": "",
         "phone": "",
-        "primary": false,
+        "primary": true,
         "url": "/app/common/entity/contact.nl?id=1892&compid=TSTDRV2617106"
     }, {
         "id": "30",
         "workorder": {
-            "text": "Sample 6",
+            "text": "Flooring Installation",
             "value": "48"
         },
         "events": [],
         "contact": {
-            "text": "AB&I Holdings : Test Prav",
+            "text": "World Bank : John Smith",
             "value": "1892"
         },
-        "name": "Test Prav",
-        "email": "pravallika@erpsuccesspartners.com",
-        "jobTitle": "QA",
+        "name": "John Smith",
+        "email": "jsmith@worldbank.com",
+        "jobTitle": "Logistics",
         "mobilePhone": "",
         "phone": "",
-        "primary": false,
+        "primary": true,
         "url": "/app/common/entity/contact.nl?id=1892&compid=TSTDRV2617106"
-    }, {
-        "id": "31",
-        "workorder": {
-            "text": "Test Site Checklist",
-            "value": "38"
-        },
-        "events": [],
-        "contact": {
-            "text": "",
-            "value": ""
-        },
-        "name": "test",
-        "email": "desettipravallika@gmail.com",
-        "jobTitle": "developer",
-        "mobilePhone": "",
-        "phone": "",
-        "primary": false,
-        "url": "/app/common/entity/contact.nl?compid=TSTDRV2617106"
     }, {
         "id": "33",
         "workorder": {
@@ -35669,7 +45349,7 @@ const mockup = {
         },
         "events": [],
         "contact": {
-            "text": "AB&I Holdings : Test Prav",
+            "text": "World Bank : John Smith",
             "value": "1892"
         },
         "name": "Test Prav",
@@ -35700,92 +45380,92 @@ const mockup = {
     }, {
         "id": "40",
         "workorder": {
-            "text": "Sample Work Order - Mei - DO NOT USE",
+            "text": "Furniture Installation",
             "value": "57"
         },
         "events": [],
         "contact": {
-            "text": "AB&I Holdings : Test Prav",
+            "text": "World Bank : John Smith",
             "value": "1892"
         },
-        "name": "Test Prav",
-        "email": "pravallika@erpsuccesspartners.com",
-        "jobTitle": "QA",
+        "name": "John Smith",
+        "email": "jsmith@worldbank.com",
+        "jobTitle": "Logistics",
         "mobilePhone": "",
         "phone": "",
-        "primary": false,
+        "primary": true,
         "url": "/app/common/entity/contact.nl?id=1892&compid=TSTDRV2617106"
     }, {
         "id": "41",
         "workorder": {
-            "text": "Sample Work Order - Mei - DO NOT USE",
+            "text": "Furniture Installation",
             "value": "58"
         },
         "events": [],
         "contact": {
-            "text": "AB&I Holdings : Test Prav",
+            "text": "World Bank : John Smith",
             "value": "1892"
         },
-        "name": "Test Prav",
-        "email": "pravallika@erpsuccesspartners.com",
-        "jobTitle": "QA",
+        "name": "John Smith",
+        "email": "jsmith@worldbank.com",
+        "jobTitle": "Logistics",
         "mobilePhone": "",
         "phone": "",
-        "primary": false,
+        "primary": true,
         "url": "/app/common/entity/contact.nl?id=1892&compid=TSTDRV2617106"
     }, {
         "id": "42",
         "workorder": {
-            "text": "Sample Work Order - Mei - DO NOT USE",
+            "text": "Furniture Installation",
             "value": "59"
         },
         "events": [],
         "contact": {
-            "text": "AB&I Holdings : Test Prav",
+            "text": "World Bank : John Smith",
             "value": "1892"
         },
-        "name": "Test Prav",
-        "email": "pravallika@erpsuccesspartners.com",
-        "jobTitle": "QA",
+        "name": "John Smith",
+        "email": "jsmith@worldbank.com",
+        "jobTitle": "Logistics",
         "mobilePhone": "",
         "phone": "",
-        "primary": false,
+        "primary": true,
         "url": "/app/common/entity/contact.nl?id=1892&compid=TSTDRV2617106"
     }, {
         "id": "43",
         "workorder": {
-            "text": "Sample Work Order - Mei - DO NOT USE",
+            "text": "Furniture Installation",
             "value": "60"
         },
         "events": [],
         "contact": {
-            "text": "AB&I Holdings : Test Prav",
+            "text": "World Bank : John Smith",
             "value": "1892"
         },
-        "name": "Test Prav",
-        "email": "pravallika@erpsuccesspartners.com",
-        "jobTitle": "QA",
+        "name": "John Smith",
+        "email": "jsmith@worldbank.com",
+        "jobTitle": "Logistics",
         "mobilePhone": "",
         "phone": "",
-        "primary": false,
+        "primary": true,
         "url": "/app/common/entity/contact.nl?id=1892&compid=TSTDRV2617106"
     }, {
         "id": "44",
         "workorder": {
-            "text": "Sample Work Order - Mei - DO NOT USE - 61",
+            "text": "Furniture Installation",
             "value": "61"
         },
         "events": [],
         "contact": {
-            "text": "AB&I Holdings : Test Prav",
+            "text": "World Bank : John Smith",
             "value": "1892"
         },
-        "name": "Test Prav",
-        "email": "pravallika@erpsuccesspartners.com",
-        "jobTitle": "QA",
+        "name": "John Smith",
+        "email": "jsmith@worldbank.com",
+        "jobTitle": "Logistics",
         "mobilePhone": "",
         "phone": "",
-        "primary": false,
+        "primary": true,
         "url": "/app/common/entity/contact.nl?id=1892&compid=TSTDRV2617106"
     }, {
         "id": "45",
@@ -35813,7 +45493,7 @@ const mockup = {
         },
         "events": [],
         "contact": {
-            "text": "AB&I Holdings : Chad Bass",
+            "text": "World Bank : Chad Bass",
             "value": "1382"
         },
         "name": "Chad Bass",
@@ -35831,7 +45511,7 @@ const mockup = {
         },
         "events": [],
         "contact": {
-            "text": "AB&I Holdings : Test Prav",
+            "text": "World Bank : John Smith",
             "value": "1892"
         },
         "name": "Test Prav",
@@ -35844,16 +45524,16 @@ const mockup = {
     }, {
         "id": "48",
         "workorder": {
-            "text": "TEST XYZ",
+            "text": "Furniture Installation",
             "value": "66"
         },
         "events": ["100960", "100968"],
         "contact": {
-            "text": "AB&I Holdings : Chad Bass",
+            "text": "World Bank : Chad Bass",
             "value": "1382"
         },
         "name": "Chad Bass",
-        "email": "cbass@sbi.com",
+        "email": "cbass@worldbank.com",
         "jobTitle": "President",
         "mobilePhone": "",
         "phone": "",
@@ -35862,38 +45542,38 @@ const mockup = {
     }, {
         "id": "49",
         "workorder": {
-            "text": "TEST XYZ",
+            "text": "Furniture Installation",
             "value": "66"
         },
         "events": ["100960", "100968"],
         "contact": {
-            "text": "AB&I Holdings : Test Prav",
+            "text": "World Bank : John Smith",
             "value": "1892"
         },
-        "name": "Test Prav",
-        "email": "pravallika@erpsuccesspartners.com",
-        "jobTitle": "QA",
+        "name": "John Smith",
+        "email": "jsmith@worldbank.com",
+        "jobTitle": "Logistics",
         "mobilePhone": "",
         "phone": "",
-        "primary": false,
+        "primary": true,
         "url": "/app/common/entity/contact.nl?id=1892&compid=TSTDRV2617106"
     }, {
         "id": "50",
         "workorder": {
-            "text": "Sample Work Order *DO NOT USE* - MEI",
+            "text": "Furniture Installation",
             "value": "67"
         },
         "events": ["100853", "100855", "100860", "100861", "100862", "100863", "100864", "100865", "100866", "100867", "100868", "100869", "100870", "100871", "100876"],
         "contact": {
-            "text": "AB&I Holdings : Test Prav",
+            "text": "World Bank : John Smith",
             "value": "1892"
         },
-        "name": "Test Prav",
-        "email": "pravallika@erpsuccesspartners.com",
-        "jobTitle": "QA",
+        "name": "John Smith",
+        "email": "jsmith@worldbank.com",
+        "jobTitle": "Logistics",
         "mobilePhone": "",
         "phone": "",
-        "primary": false,
+        "primary": true,
         "url": "/app/common/entity/contact.nl?id=1892&compid=TSTDRV2617106"
     }, {
         "id": "53",
@@ -35903,7 +45583,7 @@ const mockup = {
         },
         "events": [],
         "contact": {
-            "text": "Kumari Pravallika : Pravallika Kumari",
+            "text": "Deloitte New York : Pravallika Kumari",
             "value": "2025"
         },
         "name": "Pravallika Kumari",
@@ -35916,12 +45596,12 @@ const mockup = {
     }, {
         "id": "55",
         "workorder": {
-            "text": "Demo",
+            "text": "Crates Pick up",
             "value": "4"
         },
         "events": [],
         "contact": {
-            "text": "AB&I Holdings : Chad Bass",
+            "text": "World Bank : Chad Bass",
             "value": "1382"
         },
         "name": "Chad Bass",
@@ -35934,12 +45614,12 @@ const mockup = {
     }, {
         "id": "56",
         "workorder": {
-            "text": "Demo",
+            "text": "Crates Pick up",
             "value": "4"
         },
         "events": [],
         "contact": {
-            "text": "AB&I Holdings : Chad Bass",
+            "text": "World Bank : Chad Bass",
             "value": "1382"
         },
         "name": "Chad Bass",
@@ -35952,12 +45632,12 @@ const mockup = {
     }, {
         "id": "57",
         "workorder": {
-            "text": "Demo",
+            "text": "Crates Pick up",
             "value": "4"
         },
         "events": [],
         "contact": {
-            "text": "AB&I Holdings : Chad Bass",
+            "text": "World Bank : Chad Bass",
             "value": "1382"
         },
         "name": "Chad Bass",
@@ -35970,12 +45650,12 @@ const mockup = {
     }, {
         "id": "58",
         "workorder": {
-            "text": "Demo",
+            "text": "Crates Pick up",
             "value": "4"
         },
         "events": [],
         "contact": {
-            "text": "AB&I Holdings : Chad Bass",
+            "text": "World Bank : Chad Bass",
             "value": "1382"
         },
         "name": "Chad Bass",
@@ -35988,12 +45668,12 @@ const mockup = {
     }, {
         "id": "63",
         "workorder": {
-            "text": "Sample Work Order *DO NOT USE* - MEI",
+            "text": "Furniture Installation",
             "value": "67"
         },
         "events": [],
         "contact": {
-            "text": "AB&I Holdings : Test Prav",
+            "text": "World Bank : John Smith",
             "value": "1892"
         },
         "name": "Test Prav",
@@ -36011,7 +45691,7 @@ const mockup = {
         },
         "events": ["100872"],
         "contact": {
-            "text": "Kumari Pravallika : Pravallika Kumari",
+            "text": "Deloitte New York : Pravallika Kumari",
             "value": "2025"
         },
         "name": "Pravallika Kumari",
@@ -36029,7 +45709,7 @@ const mockup = {
         },
         "events": [],
         "contact": {
-            "text": "AB&I Holdings : Test Prav",
+            "text": "World Bank : John Smith",
             "value": "1892"
         },
         "name": "Test Prav",
@@ -36065,7 +45745,7 @@ const mockup = {
         },
         "events": ["100874"],
         "contact": {
-            "text": "Kumari Pravallika : Pravallika Kumari",
+            "text": "Deloitte New York : Pravallika Kumari",
             "value": "2025"
         },
         "name": "Pravallika Kumari",
@@ -36083,7 +45763,7 @@ const mockup = {
         },
         "events": ["100875"],
         "contact": {
-            "text": "Kumari Pravallika : Pravallika Kumari",
+            "text": "Deloitte New York : Pravallika Kumari",
             "value": "2025"
         },
         "name": "Pravallika Kumari",
@@ -36101,7 +45781,7 @@ const mockup = {
         },
         "events": ["100903", "100906"],
         "contact": {
-            "text": "AB&I Holdings : Test Prav",
+            "text": "World Bank : John Smith",
             "value": "1892"
         },
         "name": "Test Prav",
@@ -36114,17 +45794,17 @@ const mockup = {
     }, {
         "id": "71",
         "workorder": {
-            "text": "Test Work Order - Mei",
+            "text": "Furniture Installation",
             "value": "83"
         },
         "events": ["100912", "100956"],
         "contact": {
-            "text": "AB&I Holdings : Test Prav",
+            "text": "World Bank : John Smith",
             "value": "1892"
         },
-        "name": "Test Prav",
-        "email": "pravallika@erpsuccesspartners.com",
-        "jobTitle": "QA",
+        "name": "John Smith",
+        "email": "jsmith@worldbank.com",
+        "jobTitle": "Logistics",
         "mobilePhone": "",
         "phone": "",
         "primary": true,
@@ -36137,7 +45817,7 @@ const mockup = {
         },
         "events": [],
         "contact": {
-            "text": "Kumari Pravallika : Pravallika Kumari",
+            "text": "Deloitte New York : Pravallika Kumari",
             "value": "2025"
         },
         "name": "Pravallika Kumari",
@@ -36155,7 +45835,7 @@ const mockup = {
         },
         "events": [],
         "contact": {
-            "text": "Kumari Pravallika : Pravallika Kumari",
+            "text": "Deloitte New York : Pravallika Kumari",
             "value": "2025"
         },
         "name": "Pravallika Kumari",
@@ -36168,17 +45848,17 @@ const mockup = {
     }, {
         "id": "74",
         "workorder": {
-            "text": "Test Work Order - Mei",
+            "text": "Furniture Installation",
             "value": "85"
         },
         "events": ["100922", "100923", "100924"],
         "contact": {
-            "text": "AB&I Holdings : Test Prav",
+            "text": "World Bank : John Smith",
             "value": "1892"
         },
-        "name": "Test Prav",
-        "email": "pravallika@erpsuccesspartners.com",
-        "jobTitle": "QA",
+        "name": "John Smith",
+        "email": "jsmith@worldbank.com",
+        "jobTitle": "Logistics",
         "mobilePhone": "",
         "phone": "",
         "primary": true,
@@ -36186,17 +45866,17 @@ const mockup = {
     }, {
         "id": "75",
         "workorder": {
-            "text": "Test Work Order - Mei",
+            "text": "Furniture Installation",
             "value": "86"
         },
         "events": ["100927"],
         "contact": {
-            "text": "AB&I Holdings : Test Prav",
+            "text": "World Bank : John Smith",
             "value": "1892"
         },
-        "name": "Test Prav",
-        "email": "pravallika@erpsuccesspartners.com",
-        "jobTitle": "QA",
+        "name": "John Smith",
+        "email": "jsmith@worldbank.com",
+        "jobTitle": "Logistics",
         "mobilePhone": "",
         "phone": "",
         "primary": true,
@@ -36222,17 +45902,17 @@ const mockup = {
     }, {
         "id": "77",
         "workorder": {
-            "text": "FOP Dry Run Oct 22",
+            "text": "Furniture Installation",
             "value": "87"
         },
         "events": ["100931", "100932", "100933", "100950", "100952", "100953"],
         "contact": {
-            "text": "AB&I Holdings : Test Prav",
+            "text": "World Bank : John Smith",
             "value": "1892"
         },
-        "name": "Test Prav",
-        "email": "pravallika@erpsuccesspartners.com",
-        "jobTitle": "QA",
+        "name": "John Smith",
+        "email": "jsmith@worldbank.com",
+        "jobTitle": "Logistics",
         "mobilePhone": "",
         "phone": "",
         "primary": true,
@@ -36245,7 +45925,7 @@ const mockup = {
         },
         "events": [],
         "contact": {
-            "text": "Kumari Pravallika : Pravallika Kumari",
+            "text": "Deloitte New York : Pravallika Kumari",
             "value": "2025"
         },
         "name": "Pravallika Kumari",
@@ -36263,7 +45943,7 @@ const mockup = {
         },
         "events": [],
         "contact": {
-            "text": "Kumari Pravallika : Pravallika Kumari",
+            "text": "Deloitte New York : Pravallika Kumari",
             "value": "2025"
         },
         "name": "Pravallika Kumari",
@@ -36276,12 +45956,12 @@ const mockup = {
     }, {
         "id": "81",
         "workorder": {
-            "text": "FOP Dry Run Oct 22",
+            "text": "Furniture Installation",
             "value": "87"
         },
         "events": [],
         "contact": {
-            "text": "AB&I Holdings : Test Prav",
+            "text": "World Bank : John Smith",
             "value": "1892"
         },
         "name": "Test Prav",
@@ -36294,12 +45974,12 @@ const mockup = {
     }, {
         "id": "82",
         "workorder": {
-            "text": "FOP Dry Run Oct 22",
+            "text": "Furniture Installation",
             "value": "87"
         },
         "events": [],
         "contact": {
-            "text": "AB&I Holdings : Test Prav",
+            "text": "World Bank : John Smith",
             "value": "1892"
         },
         "name": "Test Prav",
@@ -36312,12 +45992,12 @@ const mockup = {
     }, {
         "id": "83",
         "workorder": {
-            "text": "FOP Dry Run Oct 22",
+            "text": "Furniture Installation",
             "value": "87"
         },
         "events": [],
         "contact": {
-            "text": "AB&I Holdings : Test Prav",
+            "text": "World Bank : John Smith",
             "value": "1892"
         },
         "name": "Test Prav",
@@ -36330,12 +46010,12 @@ const mockup = {
     }, {
         "id": "84",
         "workorder": {
-            "text": "FOP Dry Run Oct 22",
+            "text": "Furniture Installation",
             "value": "87"
         },
         "events": [],
         "contact": {
-            "text": "AB&I Holdings : Test Prav",
+            "text": "World Bank : John Smith",
             "value": "1892"
         },
         "name": "Test Prav",
@@ -36353,7 +46033,7 @@ const mockup = {
         },
         "events": ["100959"],
         "contact": {
-            "text": "AB&I Holdings : Test Prav",
+            "text": "World Bank : John Smith",
             "value": "1892"
         },
         "name": "Test Prav",
@@ -36371,7 +46051,7 @@ const mockup = {
         },
         "events": [],
         "contact": {
-            "text": "AB&I Holdings : Test Prav",
+            "text": "World Bank : John Smith",
             "value": "1892"
         },
         "name": "Test Prav",
@@ -36389,7 +46069,7 @@ const mockup = {
         },
         "events": ["101006", "101007"],
         "contact": {
-            "text": "AB&I Holdings : Test Prav",
+            "text": "World Bank : John Smith",
             "value": "1892"
         },
         "name": "Test Prav",
@@ -36407,7 +46087,7 @@ const mockup = {
         },
         "events": ["101008"],
         "contact": {
-            "text": "AB&I Holdings : Chad Bass",
+            "text": "World Bank : Chad Bass",
             "value": "1382"
         },
         "name": "Chad Bass",
@@ -36425,7 +46105,7 @@ const mockup = {
         },
         "events": [],
         "contact": {
-            "text": "AB&I Holdings : Chad Bass",
+            "text": "World Bank : Chad Bass",
             "value": "1382"
         },
         "name": "Chad Bass",
@@ -36443,7 +46123,7 @@ const mockup = {
         },
         "events": [],
         "contact": {
-            "text": "AB&I Holdings : Test Prav",
+            "text": "World Bank : John Smith",
             "value": "1892"
         },
         "name": "Test Prav",
@@ -36461,7 +46141,7 @@ const mockup = {
         },
         "events": ["101011"],
         "contact": {
-            "text": "AB&I Holdings : Chad Bass",
+            "text": "World Bank : Chad Bass",
             "value": "1382"
         },
         "name": "Chad Bass",
@@ -36479,7 +46159,7 @@ const mockup = {
         },
         "events": ["101011"],
         "contact": {
-            "text": "AB&I Holdings : Test Prav",
+            "text": "World Bank : John Smith",
             "value": "1892"
         },
         "name": "Test Prav",
@@ -36497,7 +46177,7 @@ const mockup = {
         },
         "events": [],
         "contact": {
-            "text": "AB&I Holdings : Chad Bass",
+            "text": "World Bank : Chad Bass",
             "value": "1382"
         },
         "name": "Chad Bass",
@@ -36515,7 +46195,7 @@ const mockup = {
         },
         "events": ["101010"],
         "contact": {
-            "text": "AB&I Holdings : Test Prav",
+            "text": "World Bank : John Smith",
             "value": "1892"
         },
         "name": "Test Prav",
@@ -36533,7 +46213,7 @@ const mockup = {
         },
         "events": ["101012"],
         "contact": {
-            "text": "AB&I Holdings : Chad Bass",
+            "text": "World Bank : Chad Bass",
             "value": "1382"
         },
         "name": "Chad Bass",
@@ -36551,7 +46231,7 @@ const mockup = {
         },
         "events": ["101012"],
         "contact": {
-            "text": "AB&I Holdings : Test Prav",
+            "text": "World Bank : John Smith",
             "value": "1892"
         },
         "name": "Test Prav",
@@ -36569,7 +46249,7 @@ const mockup = {
         },
         "events": [],
         "contact": {
-            "text": "AB&I Holdings : Chad Bass",
+            "text": "World Bank : Chad Bass",
             "value": "1382"
         },
         "name": "Chad Bass",
@@ -36587,7 +46267,7 @@ const mockup = {
         },
         "events": [],
         "contact": {
-            "text": "AB&I Holdings : Test Prav",
+            "text": "World Bank : John Smith",
             "value": "1892"
         },
         "name": "Test Prav",
@@ -36605,7 +46285,7 @@ const mockup = {
         },
         "events": [],
         "contact": {
-            "text": "AB&I Holdings : Chad Bass",
+            "text": "World Bank : Chad Bass",
             "value": "1382"
         },
         "name": "Chad Bass",
@@ -36623,7 +46303,7 @@ const mockup = {
         },
         "events": [],
         "contact": {
-            "text": "AB&I Holdings : Test Prav",
+            "text": "World Bank : John Smith",
             "value": "1892"
         },
         "name": "Test Prav",
@@ -36641,7 +46321,7 @@ const mockup = {
         },
         "events": [],
         "contact": {
-            "text": "AB&I Holdings : Chad Bass",
+            "text": "World Bank : Chad Bass",
             "value": "1382"
         },
         "name": "Chad Bass",
@@ -36659,7 +46339,7 @@ const mockup = {
         },
         "events": [],
         "contact": {
-            "text": "AB&I Holdings : Test Prav",
+            "text": "World Bank : John Smith",
             "value": "1892"
         },
         "name": "Test Prav",
@@ -36677,7 +46357,7 @@ const mockup = {
         },
         "events": ["101015", "101016"],
         "contact": {
-            "text": "AB&I Holdings : Chad Bass",
+            "text": "World Bank : Chad Bass",
             "value": "1382"
         },
         "name": "Chad Bass",
@@ -36695,7 +46375,7 @@ const mockup = {
         },
         "events": ["101015", "101016"],
         "contact": {
-            "text": "AB&I Holdings : Test Prav",
+            "text": "World Bank : John Smith",
             "value": "1892"
         },
         "name": "Test Prav",
@@ -36713,7 +46393,7 @@ const mockup = {
         },
         "events": ["101017", "101018"],
         "contact": {
-            "text": "AB&I Holdings : Chad Bass",
+            "text": "World Bank : Chad Bass",
             "value": "1382"
         },
         "name": "Chad Bass",
@@ -36731,7 +46411,7 @@ const mockup = {
         },
         "events": ["101017", "101018"],
         "contact": {
-            "text": "AB&I Holdings : Test Prav",
+            "text": "World Bank : John Smith",
             "value": "1892"
         },
         "name": "Test Prav",
@@ -36741,23 +46421,419 @@ const mockup = {
         "phone": "",
         "primary": true,
         "url": "/app/common/entity/contact.nl?id=1892&compid=TSTDRV2617106"
+    }, {
+        "id": "114",
+        "workorder": {
+            "text": "Furniture Installation and Pickup - Mei",
+            "value": "102"
+        },
+        "events": [],
+        "contact": {
+            "text": "World Bank : Chad Bass",
+            "value": "1382"
+        },
+        "name": "Chad Bass",
+        "email": "cbass@sbi.com",
+        "jobTitle": "President",
+        "mobilePhone": "",
+        "phone": "",
+        "primary": false,
+        "url": "/app/common/entity/contact.nl?id=1382&compid=TSTDRV2617106"
+    }, {
+        "id": "115",
+        "workorder": {
+            "text": "Furniture Installation and Pickup - Mei",
+            "value": "102"
+        },
+        "events": [],
+        "contact": {
+            "text": "World Bank : John Smith",
+            "value": "1892"
+        },
+        "name": "Test Prav",
+        "email": "pravallika@erpsuccesspartners.com",
+        "jobTitle": "QA",
+        "mobilePhone": "",
+        "phone": "",
+        "primary": true,
+        "url": "/app/common/entity/contact.nl?id=1892&compid=TSTDRV2617106"
+    }, {
+        "id": "116",
+        "workorder": {
+            "text": "Desks Installation",
+            "value": "20"
+        },
+        "events": [],
+        "contact": {
+            "text": "World Bank : Chad Bass",
+            "value": "1382"
+        },
+        "name": "Chad Bass",
+        "email": "cbass@sbi.com",
+        "jobTitle": "President",
+        "mobilePhone": "",
+        "phone": "",
+        "primary": false,
+        "url": "/app/common/entity/contact.nl?id=1382&compid=TSTDRV2617106"
+    }, {
+        "id": "117",
+        "workorder": {
+            "text": "Desks Installation",
+            "value": "20"
+        },
+        "events": [],
+        "contact": {
+            "text": "World Bank : John Smith",
+            "value": "1892"
+        },
+        "name": "Test Prav",
+        "email": "pravallika@erpsuccesspartners.com",
+        "jobTitle": "QA",
+        "mobilePhone": "",
+        "phone": "",
+        "primary": true,
+        "url": "/app/common/entity/contact.nl?id=1892&compid=TSTDRV2617106"
+    }, {
+        "id": "118",
+        "workorder": {
+            "text": "Furniture Installation",
+            "value": "38"
+        },
+        "events": [],
+        "contact": {
+            "text": "Test For site checklist : Test WO Contact",
+            "value": "1889"
+        },
+        "name": "Test WO Contact",
+        "email": "pravallika@erpsuccesspartners.com",
+        "jobTitle": "Developer",
+        "mobilePhone": "",
+        "phone": "",
+        "primary": true,
+        "url": "/app/common/entity/contact.nl?id=1889&compid=TSTDRV2617106"
+    }, {
+        "id": "119",
+        "workorder": {
+            "text": "Furniture Installation",
+            "value": "103"
+        },
+        "events": ["101028", "101030"],
+        "contact": {
+            "text": "World Bank : Chad Bass",
+            "value": "1382"
+        },
+        "name": "Chad Bass",
+        "email": "cbass@worldbank.com",
+        "jobTitle": "President",
+        "mobilePhone": "",
+        "phone": "",
+        "primary": false,
+        "url": "/app/common/entity/contact.nl?id=1382&compid=TSTDRV2617106"
+    }, {
+        "id": "120",
+        "workorder": {
+            "text": "Furniture Installation",
+            "value": "103"
+        },
+        "events": ["101028", "101030"],
+        "contact": {
+            "text": "World Bank : John Smith",
+            "value": "1892"
+        },
+        "name": "John Smith",
+        "email": "jsmith@worldbank.com",
+        "jobTitle": "Logistics",
+        "mobilePhone": "",
+        "phone": "",
+        "primary": true,
+        "url": "/app/common/entity/contact.nl?id=1892&compid=TSTDRV2617106"
+    }, {
+        "id": "121",
+        "workorder": {
+            "text": "Furniture Installation",
+            "value": "87"
+        },
+        "events": [],
+        "contact": {
+            "text": "World Bank : Chad Bass",
+            "value": "1382"
+        },
+        "name": "Chad Bass",
+        "email": "cbass@worldbank.com",
+        "jobTitle": "President",
+        "mobilePhone": "",
+        "phone": "",
+        "primary": false,
+        "url": "/app/common/entity/contact.nl?id=1382&compid=TSTDRV2617106"
+    }, {
+        "id": "122",
+        "workorder": {
+            "text": "Furniture Installation",
+            "value": "44"
+        },
+        "events": [],
+        "contact": {
+            "text": "World Bank : Chad Bass",
+            "value": "1382"
+        },
+        "name": "Chad Bass",
+        "email": "cbass@worldbank.com",
+        "jobTitle": "President",
+        "mobilePhone": "",
+        "phone": "",
+        "primary": false,
+        "url": "/app/common/entity/contact.nl?id=1382&compid=TSTDRV2617106"
+    }, {
+        "id": "123",
+        "workorder": {
+            "text": "AV Installation Only",
+            "value": "104"
+        },
+        "events": ["101029"],
+        "contact": {
+            "text": "World Bank : Chad Bass",
+            "value": "1382"
+        },
+        "name": "Chad Bass",
+        "email": "cbass@worldbank.com",
+        "jobTitle": "President",
+        "mobilePhone": "",
+        "phone": "",
+        "primary": false,
+        "url": "/app/common/entity/contact.nl?id=1382&compid=TSTDRV2617106"
+    }, {
+        "id": "124",
+        "workorder": {
+            "text": "AV Installation Only",
+            "value": "104"
+        },
+        "events": ["101029"],
+        "contact": {
+            "text": "World Bank : Jim Carrey",
+            "value": "2041"
+        },
+        "name": "Jim Carrey",
+        "email": "jcarrery@worldbank.com",
+        "jobTitle": "Administrative Manager",
+        "mobilePhone": "",
+        "phone": "",
+        "primary": false,
+        "url": "/app/common/entity/contact.nl?id=2041&compid=TSTDRV2617106"
+    }, {
+        "id": "125",
+        "workorder": {
+            "text": "AV Installation Only",
+            "value": "104"
+        },
+        "events": ["101029"],
+        "contact": {
+            "text": "World Bank : John Smith",
+            "value": "1892"
+        },
+        "name": "John Smith",
+        "email": "jsmith@worldbank.com",
+        "jobTitle": "Logistics",
+        "mobilePhone": "",
+        "phone": "",
+        "primary": true,
+        "url": "/app/common/entity/contact.nl?id=1892&compid=TSTDRV2617106"
+    }, {
+        "id": "126",
+        "workorder": {
+            "text": "Furniture Installation",
+            "value": "105"
+        },
+        "events": ["101031"],
+        "contact": {
+            "text": "World Bank : Chad Bass",
+            "value": "1382"
+        },
+        "name": "Chad Bass",
+        "email": "cbass@worldbank.com",
+        "jobTitle": "President",
+        "mobilePhone": "",
+        "phone": "",
+        "primary": false,
+        "url": "/app/common/entity/contact.nl?id=1382&compid=TSTDRV2617106"
+    }, {
+        "id": "127",
+        "workorder": {
+            "text": "Furniture Installation",
+            "value": "105"
+        },
+        "events": ["101031"],
+        "contact": {
+            "text": "World Bank : Jim Carrey",
+            "value": "2041"
+        },
+        "name": "Jim Carrey",
+        "email": "jcarrery@worldbank.com",
+        "jobTitle": "Administrative Manager",
+        "mobilePhone": "",
+        "phone": "",
+        "primary": false,
+        "url": "/app/common/entity/contact.nl?id=2041&compid=TSTDRV2617106"
+    }, {
+        "id": "128",
+        "workorder": {
+            "text": "Install Cove Lights",
+            "value": "106"
+        },
+        "events": ["101032", "101033", "101034"],
+        "contact": {
+            "text": "3M : Astra Gully",
+            "value": "2043"
+        },
+        "name": "Astra Gully",
+        "email": "3m@3m.com",
+        "jobTitle": "Senior Applications Director",
+        "mobilePhone": "",
+        "phone": "",
+        "primary": false,
+        "url": "/app/common/entity/contact.nl?id=2043&compid=TSTDRV2617106"
+    }, {
+        "id": "129",
+        "workorder": {
+            "text": "Install Cove Lights",
+            "value": "106"
+        },
+        "events": ["101032", "101033", "101034"],
+        "contact": {
+            "text": "3M : Kaelea Peel",
+            "value": "2044"
+        },
+        "name": "Kaelea Peel",
+        "email": "",
+        "jobTitle": "Dynamic Configuration Liason",
+        "mobilePhone": "",
+        "phone": "",
+        "primary": false,
+        "url": "/app/common/entity/contact.nl?id=2044&compid=TSTDRV2617106"
+    }, {
+        "id": "130",
+        "workorder": {
+            "text": "Install Cove Lights - Follow Up",
+            "value": "107"
+        },
+        "events": [],
+        "contact": {
+            "text": "3M : Astra Gully",
+            "value": "2043"
+        },
+        "name": "Astra Gully",
+        "email": "3m@3m.com",
+        "jobTitle": "Senior Applications Director",
+        "mobilePhone": "",
+        "phone": "",
+        "primary": false,
+        "url": "/app/common/entity/contact.nl?id=2043&compid=TSTDRV2617106"
+    }, {
+        "id": "131",
+        "workorder": {
+            "text": "Install Cove Lights - Follow Up",
+            "value": "107"
+        },
+        "events": [],
+        "contact": {
+            "text": "3M : Kaelea Peel",
+            "value": "2044"
+        },
+        "name": "Kaelea Peel",
+        "email": "",
+        "jobTitle": "Dynamic Configuration Liason",
+        "mobilePhone": "",
+        "phone": "",
+        "primary": false,
+        "url": "/app/common/entity/contact.nl?id=2044&compid=TSTDRV2617106"
+    }, {
+        "id": "132",
+        "workorder": {
+            "text": "Furniture Installation",
+            "value": "108"
+        },
+        "events": [],
+        "contact": {
+            "text": "World Bank : Chad Bass",
+            "value": "1382"
+        },
+        "name": "Chad Bass",
+        "email": "cbass@worldbank.com",
+        "jobTitle": "President",
+        "mobilePhone": "",
+        "phone": "",
+        "primary": false,
+        "url": "/app/common/entity/contact.nl?id=1382&compid=TSTDRV2617106"
+    }, {
+        "id": "133",
+        "workorder": {
+            "text": "Furniture Installation",
+            "value": "108"
+        },
+        "events": [],
+        "contact": {
+            "text": "World Bank : Jim Carrey",
+            "value": "2041"
+        },
+        "name": "Jim Carrey",
+        "email": "jcarrery@worldbank.com",
+        "jobTitle": "Administrative Manager",
+        "mobilePhone": "",
+        "phone": "",
+        "primary": false,
+        "url": "/app/common/entity/contact.nl?id=2041&compid=TSTDRV2617106"
+    }, {
+        "id": "134",
+        "workorder": {
+            "text": "Furniture Installation",
+            "value": "108"
+        },
+        "events": [],
+        "contact": {
+            "text": "World Bank : John Smith",
+            "value": "1892"
+        },
+        "name": "John Smith",
+        "email": "jsmith@worldbank.com",
+        "jobTitle": "Logistics",
+        "mobilePhone": "",
+        "phone": "",
+        "primary": true,
+        "url": "/app/common/entity/contact.nl?id=1892&compid=TSTDRV2617106"
+    }, {
+        "id": "135",
+        "workorder": {
+            "text": "Install Light Fixtures",
+            "value": "109"
+        },
+        "events": ["101035"],
+        "contact": {
+            "text": "World Bank : John Smith",
+            "value": "1892"
+        },
+        "name": "John Smith",
+        "email": "jsmith@worldbank.com",
+        "jobTitle": "Logistics",
+        "mobilePhone": "",
+        "phone": "",
+        "primary": true,
+        "url": "/app/common/entity/contact.nl?id=1892&compid=TSTDRV2617106"
     }],
     "woAddresses": [{
         "id": "1",
         "workorder": {
-            "text": "Install Furniture",
+            "text": "Furniture Installation",
             "value": "1"
         },
         "customer": {
-            "text": "AB&I Holdings",
+            "text": "World Bank",
             "value": "1249"
         },
         "events": ["100792", "100798"],
         "address": {
-            "text": "1701 Rollins Road",
+            "text": "434 Carlaw",
             "value": "244878"
         },
-        "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+        "addressDetails": "Test Address 1<br/>Test Address 1<br/>Test Address 1<br/>Test Address 1<br/>Test Address 1<br/>Los Angeles NY 12412<br/>United States",
         "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
     }, {
         "id": "2",
@@ -36766,12 +46842,12 @@ const mockup = {
             "value": "2"
         },
         "customer": {
-            "text": "AB&I Holdings",
+            "text": "World Bank",
             "value": "1249"
         },
         "events": [],
         "address": {
-            "text": "1701 Rollins Road",
+            "text": "434 Carlaw",
             "value": "244878"
         },
         "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
@@ -36779,36 +46855,36 @@ const mockup = {
     }, {
         "id": "3",
         "workorder": {
-            "text": "Installation of Furnitures - Edit",
+            "text": "Installation of Furnitures",
             "value": "3"
         },
         "customer": {
-            "text": "AB&I Holdings",
+            "text": "World Bank",
             "value": "1249"
         },
         "events": [],
         "address": {
-            "text": "1701 Rollins Road",
+            "text": "434 Carlaw",
             "value": "244878"
         },
-        "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+        "addressDetails": "Test Address 1<br/>Test Address 1<br/>Test Address 1<br/>Test Address 1<br/>Test Address 1<br/>Los Angeles NY 12412<br/>United States",
         "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
     }, {
         "id": "4",
         "workorder": {
-            "text": "Demo",
+            "text": "Crates Pick up",
             "value": "4"
         },
         "customer": {
-            "text": "AB&I Holdings",
+            "text": "World Bank",
             "value": "1249"
         },
         "events": [],
         "address": {
-            "text": "1701 Rollins Road",
+            "text": "434 Carlaw",
             "value": "244878"
         },
-        "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+        "addressDetails": "Test Address 1<br/>Test Address 1<br/>Test Address 1<br/>Test Address 1<br/>Test Address 1<br/>Los Angeles NY 12412<br/>United States",
         "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
     }, {
         "id": "5",
@@ -36817,12 +46893,12 @@ const mockup = {
             "value": "7"
         },
         "customer": {
-            "text": "AB&I Holdings",
+            "text": "World Bank",
             "value": "1249"
         },
         "events": [],
         "address": {
-            "text": "1701 Rollins Road",
+            "text": "434 Carlaw",
             "value": "244878"
         },
         "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
@@ -36830,19 +46906,19 @@ const mockup = {
     }, {
         "id": "6",
         "workorder": {
-            "text": "Install Walls",
+            "text": "Walls Installation",
             "value": "13"
         },
         "customer": {
-            "text": "AB&I Holdings",
+            "text": "World Bank",
             "value": "1249"
         },
         "events": [],
         "address": {
-            "text": "1701 Rollins Road",
+            "text": "434 Carlaw",
             "value": "244878"
         },
-        "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+        "addressDetails": "Test Address 1<br/>Test Address 1<br/>Test Address 1<br/>Test Address 1<br/>Test Address 1<br/>Los Angeles NY 12412<br/>United States",
         "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
     }, {
         "id": "7",
@@ -36851,12 +46927,12 @@ const mockup = {
             "value": "14"
         },
         "customer": {
-            "text": "AB&I Holdings",
+            "text": "World Bank",
             "value": "1249"
         },
         "events": [],
         "address": {
-            "text": "1701 Rollins Road",
+            "text": "434 Carlaw",
             "value": "244878"
         },
         "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
@@ -36864,19 +46940,19 @@ const mockup = {
     }, {
         "id": "8",
         "workorder": {
-            "text": "Install Walls Test Work Order",
+            "text": "Drop off and Walls Installation",
             "value": "15"
         },
         "customer": {
-            "text": "AB&I Holdings",
+            "text": "World Bank",
             "value": "1249"
         },
         "events": [],
         "address": {
-            "text": "1701 Rollins Road",
+            "text": "434 Carlaw",
             "value": "244878"
         },
-        "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+        "addressDetails": "Test Address 1<br/>Test Address 1<br/>Test Address 1<br/>Test Address 1<br/>Test Address 1<br/>Los Angeles NY 12412<br/>United States",
         "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
     }, {
         "id": "9",
@@ -36885,12 +46961,12 @@ const mockup = {
             "value": "16"
         },
         "customer": {
-            "text": "AB&I Holdings",
+            "text": "World Bank",
             "value": "1249"
         },
         "events": [],
         "address": {
-            "text": "1701 Rollins Road",
+            "text": "434 Carlaw",
             "value": "244878"
         },
         "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
@@ -36898,19 +46974,19 @@ const mockup = {
     }, {
         "id": "10",
         "workorder": {
-            "text": "Install Walls",
+            "text": "Walls Installation",
             "value": "17"
         },
         "customer": {
-            "text": "AB&I Holdings",
+            "text": "World Bank",
             "value": "1249"
         },
         "events": [],
         "address": {
-            "text": "1701 Rollins Road",
+            "text": "434 Carlaw",
             "value": "244878"
         },
-        "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+        "addressDetails": "Test Address 1<br/>Test Address 1<br/>Test Address 1<br/>Test Address 1<br/>Test Address 1<br/>Los Angeles NY 12412<br/>United States",
         "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
     }, {
         "id": "11",
@@ -36919,12 +46995,12 @@ const mockup = {
             "value": "18"
         },
         "customer": {
-            "text": "AB&I Holdings",
+            "text": "World Bank",
             "value": "1249"
         },
         "events": [],
         "address": {
-            "text": "1701 Rollins Road",
+            "text": "434 Carlaw",
             "value": "244878"
         },
         "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
@@ -36932,53 +47008,53 @@ const mockup = {
     }, {
         "id": "12",
         "workorder": {
-            "text": "Install Walls",
+            "text": "Walls Installation Only",
             "value": "19"
         },
         "customer": {
-            "text": "AB&I Holdings",
+            "text": "World Bank",
             "value": "1249"
         },
         "events": [],
         "address": {
-            "text": "1701 Rollins Road",
+            "text": "434 Carlaw",
             "value": "244878"
         },
-        "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+        "addressDetails": "Test Address 1<br/>Test Address 1<br/>Test Address 1<br/>Test Address 1<br/>Test Address 1<br/>Los Angeles NY 12412<br/>United States",
         "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
     }, {
         "id": "13",
         "workorder": {
-            "text": "Install Furniture Test Work Order",
+            "text": "Desks Installation",
             "value": "20"
         },
         "customer": {
-            "text": "AB&I Holdings",
+            "text": "World Bank",
             "value": "1249"
         },
         "events": [],
         "address": {
-            "text": "1701 Rollins Road",
+            "text": "434 Carlaw",
             "value": "244878"
         },
-        "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+        "addressDetails": "Test Address 1<br/>Test Address 1<br/>Test Address 1<br/>Test Address 1<br/>Test Address 1<br/>Los Angeles NY 12412<br/>United States",
         "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
     }, {
         "id": "14",
         "workorder": {
-            "text": "Test Work Order",
+            "text": "Maintenance Survey",
             "value": "21"
         },
         "customer": {
-            "text": "AB&I Holdings",
+            "text": "World Bank",
             "value": "1249"
         },
         "events": [],
         "address": {
-            "text": "1701 Rollins Road",
+            "text": "434 Carlaw",
             "value": "244878"
         },
-        "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+        "addressDetails": "Test Address 1<br/>Test Address 1<br/>Test Address 1<br/>Test Address 1<br/>Test Address 1<br/>Los Angeles NY 12412<br/>United States",
         "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
     }, {
         "id": "15",
@@ -36987,12 +47063,12 @@ const mockup = {
             "value": "22"
         },
         "customer": {
-            "text": "AB&I Holdings",
+            "text": "World Bank",
             "value": "1249"
         },
         "events": [],
         "address": {
-            "text": "1701 Rollins Road",
+            "text": "434 Carlaw",
             "value": "244878"
         },
         "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
@@ -37004,12 +47080,12 @@ const mockup = {
             "value": "23"
         },
         "customer": {
-            "text": "AB&I Holdings",
+            "text": "World Bank",
             "value": "1249"
         },
         "events": [],
         "address": {
-            "text": "1701 Rollins Road",
+            "text": "434 Carlaw",
             "value": "244878"
         },
         "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
@@ -37021,12 +47097,12 @@ const mockup = {
             "value": "24"
         },
         "customer": {
-            "text": "AB&I Holdings",
+            "text": "World Bank",
             "value": "1249"
         },
         "events": [],
         "address": {
-            "text": "1701 Rollins Road",
+            "text": "434 Carlaw",
             "value": "244878"
         },
         "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
@@ -37034,19 +47110,19 @@ const mockup = {
     }, {
         "id": "18",
         "workorder": {
-            "text": "Install Furniture Test Work Order",
+            "text": "Furniture Installation",
             "value": "25"
         },
         "customer": {
-            "text": "AB&I Holdings",
+            "text": "World Bank",
             "value": "1249"
         },
         "events": [],
         "address": {
-            "text": "1701 Rollins Road",
+            "text": "434 Carlaw",
             "value": "244878"
         },
-        "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+        "addressDetails": "Test Address 1<br/>Test Address 1<br/>Test Address 1<br/>Test Address 1<br/>Test Address 1<br/>Los Angeles NY 12412<br/>United States",
         "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
     }, {
         "id": "19",
@@ -37055,12 +47131,12 @@ const mockup = {
             "value": "26"
         },
         "customer": {
-            "text": "AB&I Holdings",
+            "text": "World Bank",
             "value": "1249"
         },
         "events": [],
         "address": {
-            "text": "1701 Rollins Road",
+            "text": "434 Carlaw",
             "value": "244878"
         },
         "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
@@ -37072,12 +47148,12 @@ const mockup = {
             "value": "27"
         },
         "customer": {
-            "text": "AB&I Holdings",
+            "text": "World Bank",
             "value": "1249"
         },
         "events": [],
         "address": {
-            "text": "1701 Rollins Road",
+            "text": "434 Carlaw",
             "value": "244878"
         },
         "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
@@ -37085,70 +47161,70 @@ const mockup = {
     }, {
         "id": "21",
         "workorder": {
-            "text": "Test",
+            "text": "Conference Table Delivery",
             "value": "28"
         },
         "customer": {
-            "text": "AB&I Holdings",
+            "text": "World Bank",
             "value": "1249"
         },
         "events": [],
         "address": {
-            "text": "1701 Rollins Road",
+            "text": "434 Carlaw",
             "value": "244878"
         },
-        "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+        "addressDetails": "Test Address 1<br/>Test Address 1<br/>Test Address 1<br/>Test Address 1<br/>Test Address 1<br/>Los Angeles NY 12412<br/>United States",
         "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
     }, {
         "id": "22",
         "workorder": {
-            "text": "Test",
+            "text": "Security Camera Installation",
             "value": "29"
         },
         "customer": {
-            "text": "AB&I Holdings",
+            "text": "World Bank",
             "value": "1249"
         },
         "events": [],
         "address": {
-            "text": "1701 Rollins Road",
+            "text": "434 Carlaw",
             "value": "244878"
         },
-        "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+        "addressDetails": "Test Address 1<br/>Test Address 1<br/>Test Address 1<br/>Test Address 1<br/>Test Address 1<br/>Los Angeles NY 12412<br/>United States",
         "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
     }, {
         "id": "23",
         "workorder": {
-            "text": "Test",
+            "text": "Flooring Installation ",
             "value": "30"
         },
         "customer": {
-            "text": "AB&I Holdings",
+            "text": "World Bank",
             "value": "1249"
         },
         "events": [],
         "address": {
-            "text": "1701 Rollins Road",
+            "text": "434 Carlaw",
             "value": "244878"
         },
-        "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+        "addressDetails": "Test Address 1<br/>Test Address 1<br/>Test Address 1<br/>Test Address 1<br/>Test Address 1<br/>Los Angeles NY 12412<br/>United States",
         "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
     }, {
         "id": "24",
         "workorder": {
-            "text": "Test",
+            "text": "Flooring Installation",
             "value": "31"
         },
         "customer": {
-            "text": "AB&I Holdings",
+            "text": "World Bank",
             "value": "1249"
         },
         "events": [],
         "address": {
-            "text": "1701 Rollins Road",
+            "text": "434 Carlaw",
             "value": "244878"
         },
-        "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+        "addressDetails": "Test Address 1<br/>Test Address 1<br/>Test Address 1<br/>Test Address 1<br/>Test Address 1<br/>Los Angeles NY 12412<br/>United States",
         "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
     }, {
         "id": "25",
@@ -37157,7 +47233,7 @@ const mockup = {
             "value": "5"
         },
         "customer": {
-            "text": "AB&I Holdings",
+            "text": "World Bank",
             "value": "1249"
         },
         "events": [],
@@ -37174,7 +47250,7 @@ const mockup = {
             "value": "32"
         },
         "customer": {
-            "text": "Test Test",
+            "text": "California Airport",
             "value": "1493"
         },
         "events": ["100739"],
@@ -37187,36 +47263,36 @@ const mockup = {
     }, {
         "id": "27",
         "workorder": {
-            "text": "Work Order Sample July 22",
+            "text": "AV Installation",
             "value": "33"
         },
         "customer": {
-            "text": "AB&I Holdings",
+            "text": "World Bank",
             "value": "1249"
         },
         "events": ["100740"],
         "address": {
-            "text": "1701 Rollins Road",
+            "text": "434 Carlaw",
             "value": "244878"
         },
-        "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+        "addressDetails": "434 Carlaw Road<br/>Los Angeles NY 12412<br/>United States",
         "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
     }, {
         "id": "28",
         "workorder": {
-            "text": "Work Order Sample July 31",
+            "text": "Furniture and Flooring Installation",
             "value": "34"
         },
         "customer": {
-            "text": "AB&I Holdings",
+            "text": "World Bank",
             "value": "1249"
         },
         "events": ["100767", "100786"],
         "address": {
-            "text": "1701 Rollins Road",
+            "text": "434 Carlaw",
             "value": "244878"
         },
-        "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+        "addressDetails": "434 Carlaw Road<br/>Los Angeles NY 12412<br/>United States",
         "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
     }, {
         "id": "29",
@@ -37255,7 +47331,7 @@ const mockup = {
     }, {
         "id": "31",
         "workorder": {
-            "text": "Test Site Checklist",
+            "text": "Furniture Installation",
             "value": "38"
         },
         "customer": {
@@ -37323,104 +47399,104 @@ const mockup = {
     }, {
         "id": "35",
         "workorder": {
-            "text": "Sample Work Order",
+            "text": "Furniture Installation",
             "value": "43"
         },
         "customer": {
-            "text": "AB&I Holdings",
+            "text": "World Bank",
             "value": "1249"
         },
         "events": [],
         "address": {
-            "text": "1701 Rollins Road",
+            "text": "434 Carlaw",
             "value": "244878"
         },
-        "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+        "addressDetails": "434 Carlaw Road<br/>Los Angeles NY 12412<br/>United States",
         "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
     }, {
         "id": "36",
         "workorder": {
-            "text": "Sample 2",
+            "text": "Furniture Installation",
             "value": "44"
         },
         "customer": {
-            "text": "AB&I Holdings",
+            "text": "World Bank",
             "value": "1249"
         },
         "events": ["100787"],
         "address": {
-            "text": "1701 Rollins Road",
+            "text": "434 Carlaw",
             "value": "244878"
         },
-        "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+        "addressDetails": "434 Carlaw Road<br/>Los Angeles NY 12412<br/>United States",
         "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
     }, {
         "id": "37",
         "workorder": {
-            "text": "Sample 3",
+            "text": "Furniture Installation",
             "value": "45"
         },
         "customer": {
-            "text": "AB&I Holdings",
+            "text": "World Bank",
             "value": "1249"
         },
         "events": ["100815"],
         "address": {
-            "text": "1701 Rollins Road",
+            "text": "434 Carlaw",
             "value": "244878"
         },
-        "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+        "addressDetails": "434 Carlaw Road<br/>Los Angeles NY 12412<br/>United States",
         "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
     }, {
         "id": "38",
         "workorder": {
-            "text": "Sample 4",
+            "text": "Furniture Installation",
             "value": "46"
         },
         "customer": {
-            "text": "AB&I Holdings",
+            "text": "World Bank",
             "value": "1249"
         },
         "events": ["100778", "100795"],
         "address": {
-            "text": "1701 Rollins Road",
+            "text": "434 Carlaw",
             "value": "244878"
         },
-        "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+        "addressDetails": "434 Carlaw Road<br/>Los Angeles NY 12412<br/>United States",
         "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
     }, {
         "id": "39",
         "workorder": {
-            "text": "Sample 5",
+            "text": "AV Installation",
             "value": "47"
         },
         "customer": {
-            "text": "AB&I Holdings",
+            "text": "World Bank",
             "value": "1249"
         },
         "events": ["100769"],
         "address": {
-            "text": "1701 Rollins Road",
+            "text": "434 Carlaw",
             "value": "244878"
         },
-        "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+        "addressDetails": "434 Carlaw Road<br/>Los Angeles NY 12412<br/>United States",
         "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
     }, {
         "id": "40",
         "workorder": {
-            "text": "Sample 6",
+            "text": "Flooring Installation",
             "value": "48"
         },
         "customer": {
-            "text": "AB&I Holdings",
+            "text": "World Bank",
             "value": "1249"
         },
         "events": ["100777"],
         "address": {
-            "text": "1701 Rollins Road",
+            "text": "434 Carlaw",
             "value": "244878"
         },
-        "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+        "addressDetails": "434 Carlaw Road<br/>Los Angeles NY 12412<br/>United States",
         "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
     }, {
         "id": "41",
@@ -37429,12 +47505,12 @@ const mockup = {
             "value": "49"
         },
         "customer": {
-            "text": "AB&I Holdings",
+            "text": "World Bank",
             "value": "1249"
         },
         "events": ["100782"],
         "address": {
-            "text": "1701 Rollins Road",
+            "text": "434 Carlaw",
             "value": "244878"
         },
         "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
@@ -37442,70 +47518,70 @@ const mockup = {
     }, {
         "id": "42",
         "workorder": {
-            "text": "Sample Work Order - Mei - DO NOT USE",
+            "text": "Furniture Installation",
             "value": "58"
         },
         "customer": {
-            "text": "AB&I Holdings",
+            "text": "World Bank",
             "value": "1249"
         },
         "events": [],
         "address": {
-            "text": "1701 Rollins Road",
+            "text": "434 Carlaw",
             "value": "244878"
         },
-        "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+        "addressDetails": "434 Carlaw Road<br/>Los Angeles NY 12412<br/>United States",
         "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
     }, {
         "id": "43",
         "workorder": {
-            "text": "Sample Work Order - Mei - DO NOT USE",
+            "text": "Furniture Installation",
             "value": "59"
         },
         "customer": {
-            "text": "AB&I Holdings",
+            "text": "World Bank",
             "value": "1249"
         },
         "events": ["100803"],
         "address": {
-            "text": "1701 Rollins Road",
+            "text": "434 Carlaw",
             "value": "244878"
         },
-        "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+        "addressDetails": "434 Carlaw Road<br/>Los Angeles NY 12412<br/>United States",
         "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
     }, {
         "id": "44",
         "workorder": {
-            "text": "Sample Work Order - Mei - DO NOT USE",
+            "text": "Furniture Installation",
             "value": "60"
         },
         "customer": {
-            "text": "AB&I Holdings",
+            "text": "World Bank",
             "value": "1249"
         },
         "events": [],
         "address": {
-            "text": "1701 Rollins Road",
+            "text": "434 Carlaw",
             "value": "244878"
         },
-        "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+        "addressDetails": "434 Carlaw Road<br/>Los Angeles NY 12412<br/>United States",
         "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
     }, {
         "id": "45",
         "workorder": {
-            "text": "Sample Work Order - Mei - DO NOT USE - 61",
+            "text": "Furniture Installation",
             "value": "61"
         },
         "customer": {
-            "text": "AB&I Holdings",
+            "text": "World Bank",
             "value": "1249"
         },
         "events": ["100813"],
         "address": {
-            "text": "1701 Rollins Road",
+            "text": "434 Carlaw",
             "value": "244878"
         },
-        "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+        "addressDetails": "434 Carlaw Road<br/>Los Angeles NY 12412<br/>United States",
         "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
     }, {
         "id": "46",
@@ -37531,12 +47607,12 @@ const mockup = {
             "value": "65"
         },
         "customer": {
-            "text": "AB&I Holdings",
+            "text": "World Bank",
             "value": "1249"
         },
         "events": [],
         "address": {
-            "text": "1701 Rollins Road",
+            "text": "434 Carlaw",
             "value": "244878"
         },
         "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
@@ -37544,36 +47620,36 @@ const mockup = {
     }, {
         "id": "50",
         "workorder": {
-            "text": "TEST XYZ",
+            "text": "Furniture Installation",
             "value": "66"
         },
         "customer": {
-            "text": "AB&I Holdings",
+            "text": "World Bank",
             "value": "1249"
         },
         "events": ["100960", "100968"],
         "address": {
-            "text": "1701 Rollins Road",
+            "text": "434 Carlaw",
             "value": "244878"
         },
-        "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+        "addressDetails": "434 Carlaw Road<br/>Los Angeles NY 12412<br/>United States",
         "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
     }, {
         "id": "51",
         "workorder": {
-            "text": "Sample Work Order *DO NOT USE* - MEI",
+            "text": "Furniture Installation",
             "value": "67"
         },
         "customer": {
-            "text": "AB&I Holdings",
+            "text": "World Bank",
             "value": "1249"
         },
         "events": ["100853", "100855", "100860", "100861", "100862", "100863", "100864", "100865", "100866", "100867", "100868", "100869", "100870", "100871", "100876"],
         "address": {
-            "text": "1701 Rollins Road",
+            "text": "434 Carlaw",
             "value": "244878"
         },
-        "addressDetails": "Chad Bass\r<br/>AB&I Holdings\r<br/>1701 Rollins Road\r<br/>Sacramento CA 94207\r<br/>United States",
+        "addressDetails": "434 Carlaw Road<br/>Los Angeles NY 12412<br/>United States",
         "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
     }, {
         "id": "56",
@@ -37582,12 +47658,12 @@ const mockup = {
             "value": "78"
         },
         "customer": {
-            "text": "AB&I Holdings",
+            "text": "World Bank",
             "value": "1249"
         },
         "events": [],
         "address": {
-            "text": "1701 Rollins Road",
+            "text": "434 Carlaw",
             "value": "244878"
         },
         "addressDetails": "",
@@ -37599,7 +47675,7 @@ const mockup = {
             "value": "80"
         },
         "customer": {
-            "text": "Kumari Pravallika",
+            "text": "Deloitte New York",
             "value": "2024"
         },
         "events": ["100874"],
@@ -37616,7 +47692,7 @@ const mockup = {
             "value": "81"
         },
         "customer": {
-            "text": "Kumari Pravallika",
+            "text": "Deloitte New York",
             "value": "2024"
         },
         "events": ["100875"],
@@ -37633,12 +47709,12 @@ const mockup = {
             "value": "82"
         },
         "customer": {
-            "text": "AB&I Holdings",
+            "text": "World Bank",
             "value": "1249"
         },
         "events": ["100903", "100906"],
         "address": {
-            "text": "1701 Rollins Road",
+            "text": "434 Carlaw",
             "value": "244878"
         },
         "addressDetails": "",
@@ -37646,19 +47722,19 @@ const mockup = {
     }, {
         "id": "60",
         "workorder": {
-            "text": "Test Work Order - Mei",
+            "text": "Furniture Installation",
             "value": "83"
         },
         "customer": {
-            "text": "AB&I Holdings",
+            "text": "World Bank",
             "value": "1249"
         },
         "events": ["100912", "100956"],
         "address": {
-            "text": "1701 Rollins Road",
+            "text": "434 Carlaw",
             "value": "244878"
         },
-        "addressDetails": "",
+        "addressDetails": "434 Carlaw Road<br/>Los Angeles NY 12412<br/>United States",
         "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
     }, {
         "id": "61",
@@ -37667,7 +47743,7 @@ const mockup = {
             "value": "84"
         },
         "customer": {
-            "text": "Kumari Pravallika",
+            "text": "Deloitte New York",
             "value": "2024"
         },
         "events": [],
@@ -37680,36 +47756,36 @@ const mockup = {
     }, {
         "id": "62",
         "workorder": {
-            "text": "Test Work Order - Mei",
+            "text": "Furniture Installation",
             "value": "85"
         },
         "customer": {
-            "text": "AB&I Holdings",
+            "text": "World Bank",
             "value": "1249"
         },
         "events": ["100922", "100923", "100924"],
         "address": {
-            "text": "1701 Rollins Road",
+            "text": "434 Carlaw",
             "value": "244878"
         },
-        "addressDetails": "",
+        "addressDetails": "434 Carlaw Road<br/>Los Angeles NY 12412<br/>United States",
         "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
     }, {
         "id": "63",
         "workorder": {
-            "text": "Test Work Order - Mei",
+            "text": "Furniture Installation",
             "value": "86"
         },
         "customer": {
-            "text": "AB&I Holdings",
+            "text": "World Bank",
             "value": "1249"
         },
         "events": ["100927"],
         "address": {
-            "text": "1701 Rollins Road",
+            "text": "434 Carlaw",
             "value": "244878"
         },
-        "addressDetails": "",
+        "addressDetails": "434 Carlaw Road<br/>Los Angeles NY 12412<br/>United States",
         "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
     }, {
         "id": "64",
@@ -37731,70 +47807,70 @@ const mockup = {
     }, {
         "id": "75",
         "workorder": {
-            "text": "FOP Dry Run Oct 22",
+            "text": "Furniture Installation",
             "value": "87"
         },
         "customer": {
-            "text": "AB&I Holdings",
+            "text": "World Bank",
             "value": "1249"
         },
         "events": [],
         "address": {
-            "text": "1701 Rollins Road",
+            "text": "434 Carlaw",
             "value": "244878"
         },
-        "addressDetails": "",
+        "addressDetails": "434 Carlaw Road<br/>Los Angeles NY 12412<br/>United States",
         "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
     }, {
         "id": "76",
         "workorder": {
-            "text": "FOP Dry Run Oct 22",
+            "text": "Furniture Installation",
             "value": "87"
         },
         "customer": {
-            "text": "AB&I Holdings",
+            "text": "World Bank",
             "value": "1249"
         },
         "events": [],
         "address": {
-            "text": "Test Address 3",
+            "text": "54 Tale",
             "value": "245152"
         },
-        "addressDetails": "",
+        "addressDetails": "54 Tale AV<br/>Akron OH 123123<br/>United States",
         "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
     }, {
         "id": "77",
         "workorder": {
-            "text": "FOP Dry Run Oct 22",
+            "text": "Furniture Installation",
             "value": "87"
         },
         "customer": {
-            "text": "AB&I Holdings",
+            "text": "World Bank",
             "value": "1249"
         },
         "events": [],
         "address": {
-            "text": "Test Address 4",
+            "text": "43 Carlo",
             "value": "245153"
         },
-        "addressDetails": "",
+        "addressDetails": "432 Carlo AV<br/>Vegas NV 111111<br/>United States",
         "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
     }, {
         "id": "78",
         "workorder": {
-            "text": "FOP Dry Run Oct 22",
+            "text": "Furniture Installation",
             "value": "87"
         },
         "customer": {
-            "text": "AB&I Holdings",
+            "text": "World Bank",
             "value": "1249"
         },
         "events": [],
         "address": {
-            "text": "Test New Address",
+            "text": "234 Kristen AV",
             "value": "245146"
         },
-        "addressDetails": "",
+        "addressDetails": "234 Kristen Av<br/>Las Vegas NV 123131<br/>United States",
         "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
     }, {
         "id": "79",
@@ -37803,12 +47879,12 @@ const mockup = {
             "value": "88"
         },
         "customer": {
-            "text": "AB&I Holdings",
+            "text": "World Bank",
             "value": "1249"
         },
         "events": ["100959"],
         "address": {
-            "text": "1701 Rollins Road",
+            "text": "434 Carlaw",
             "value": "244878"
         },
         "addressDetails": "",
@@ -37820,12 +47896,12 @@ const mockup = {
             "value": "88"
         },
         "customer": {
-            "text": "AB&I Holdings",
+            "text": "World Bank",
             "value": "1249"
         },
         "events": [],
         "address": {
-            "text": "Test Address 3",
+            "text": "54 Tale",
             "value": "245152"
         },
         "addressDetails": "",
@@ -37837,12 +47913,12 @@ const mockup = {
             "value": "88"
         },
         "customer": {
-            "text": "AB&I Holdings",
+            "text": "World Bank",
             "value": "1249"
         },
         "events": [],
         "address": {
-            "text": "Test Address 4",
+            "text": "43 Carlo",
             "value": "245153"
         },
         "addressDetails": "",
@@ -37854,12 +47930,12 @@ const mockup = {
             "value": "90"
         },
         "customer": {
-            "text": "AB&I Holdings",
+            "text": "World Bank",
             "value": "1249"
         },
         "events": [],
         "address": {
-            "text": "1701 Rollins Road",
+            "text": "434 Carlaw",
             "value": "244878"
         },
         "addressDetails": "",
@@ -37871,12 +47947,12 @@ const mockup = {
             "value": "90"
         },
         "customer": {
-            "text": "AB&I Holdings",
+            "text": "World Bank",
             "value": "1249"
         },
         "events": [],
         "address": {
-            "text": "Address 1",
+            "text": "12 Carlton Av",
             "value": "245148"
         },
         "addressDetails": "",
@@ -37888,12 +47964,12 @@ const mockup = {
             "value": "91"
         },
         "customer": {
-            "text": "AB&I Holdings",
+            "text": "World Bank",
             "value": "1249"
         },
         "events": [],
         "address": {
-            "text": "1701 Rollins Road",
+            "text": "434 Carlaw",
             "value": "244878"
         },
         "addressDetails": "",
@@ -37905,12 +47981,12 @@ const mockup = {
             "value": "91"
         },
         "customer": {
-            "text": "AB&I Holdings",
+            "text": "World Bank",
             "value": "1249"
         },
         "events": [],
         "address": {
-            "text": "Test Address 3",
+            "text": "54 Tale",
             "value": "245152"
         },
         "addressDetails": "",
@@ -37922,12 +47998,12 @@ const mockup = {
             "value": "91"
         },
         "customer": {
-            "text": "AB&I Holdings",
+            "text": "World Bank",
             "value": "1249"
         },
         "events": [],
         "address": {
-            "text": "Test Address 4",
+            "text": "43 Carlo",
             "value": "245153"
         },
         "addressDetails": "",
@@ -37939,12 +48015,12 @@ const mockup = {
             "value": "92"
         },
         "customer": {
-            "text": "AB&I Holdings",
+            "text": "World Bank",
             "value": "1249"
         },
         "events": ["101008"],
         "address": {
-            "text": "Address 1",
+            "text": "12 Carlton Av",
             "value": "245148"
         },
         "addressDetails": "",
@@ -37956,12 +48032,12 @@ const mockup = {
             "value": "92"
         },
         "customer": {
-            "text": "AB&I Holdings",
+            "text": "World Bank",
             "value": "1249"
         },
         "events": [],
         "address": {
-            "text": "Test Address 3",
+            "text": "54 Tale",
             "value": "245152"
         },
         "addressDetails": "",
@@ -37973,12 +48049,12 @@ const mockup = {
             "value": "93"
         },
         "customer": {
-            "text": "AB&I Holdings",
+            "text": "World Bank",
             "value": "1249"
         },
         "events": [],
         "address": {
-            "text": "1701 Rollins Road",
+            "text": "434 Carlaw",
             "value": "244878"
         },
         "addressDetails": "",
@@ -37990,12 +48066,12 @@ const mockup = {
             "value": "93"
         },
         "customer": {
-            "text": "AB&I Holdings",
+            "text": "World Bank",
             "value": "1249"
         },
         "events": [],
         "address": {
-            "text": "Address 1",
+            "text": "12 Carlton Av",
             "value": "245148"
         },
         "addressDetails": "",
@@ -38007,12 +48083,12 @@ const mockup = {
             "value": "93"
         },
         "customer": {
-            "text": "AB&I Holdings",
+            "text": "World Bank",
             "value": "1249"
         },
         "events": [],
         "address": {
-            "text": "Address Test 1",
+            "text": "234 Carlaw",
             "value": "245140"
         },
         "addressDetails": "",
@@ -38024,12 +48100,12 @@ const mockup = {
             "value": "93"
         },
         "customer": {
-            "text": "AB&I Holdings",
+            "text": "World Bank",
             "value": "1249"
         },
         "events": [],
         "address": {
-            "text": "Test Address 222",
+            "text": "22 Dundas",
             "value": "245145"
         },
         "addressDetails": "",
@@ -38041,12 +48117,12 @@ const mockup = {
             "value": "94"
         },
         "customer": {
-            "text": "AB&I Holdings",
+            "text": "World Bank",
             "value": "1249"
         },
         "events": ["101011"],
         "address": {
-            "text": "Address 1",
+            "text": "12 Carlton Av",
             "value": "245148"
         },
         "addressDetails": "",
@@ -38058,12 +48134,12 @@ const mockup = {
             "value": "94"
         },
         "customer": {
-            "text": "AB&I Holdings",
+            "text": "World Bank",
             "value": "1249"
         },
         "events": [],
         "address": {
-            "text": "Test Address 3",
+            "text": "54 Tale",
             "value": "245152"
         },
         "addressDetails": "",
@@ -38075,12 +48151,12 @@ const mockup = {
             "value": "94"
         },
         "customer": {
-            "text": "AB&I Holdings",
+            "text": "World Bank",
             "value": "1249"
         },
         "events": [],
         "address": {
-            "text": "Test Address 4",
+            "text": "343 York",
             "value": "245154"
         },
         "addressDetails": "",
@@ -38092,12 +48168,12 @@ const mockup = {
             "value": "94"
         },
         "customer": {
-            "text": "AB&I Holdings",
+            "text": "World Bank",
             "value": "1249"
         },
         "events": [],
         "address": {
-            "text": "Address Test 1",
+            "text": "234 Carlaw",
             "value": "245140"
         },
         "addressDetails": "",
@@ -38109,12 +48185,12 @@ const mockup = {
             "value": "95"
         },
         "customer": {
-            "text": "AB&I Holdings",
+            "text": "World Bank",
             "value": "1249"
         },
         "events": ["101010"],
         "address": {
-            "text": "Test Address 3",
+            "text": "54 Tale",
             "value": "245152"
         },
         "addressDetails": "Test Details",
@@ -38126,12 +48202,12 @@ const mockup = {
             "value": "95"
         },
         "customer": {
-            "text": "AB&I Holdings",
+            "text": "World Bank",
             "value": "1249"
         },
         "events": [],
         "address": {
-            "text": "Test Address 4",
+            "text": "43 Carlo",
             "value": "245153"
         },
         "addressDetails": "",
@@ -38143,12 +48219,12 @@ const mockup = {
             "value": "95"
         },
         "customer": {
-            "text": "AB&I Holdings",
+            "text": "World Bank",
             "value": "1249"
         },
         "events": [],
         "address": {
-            "text": "Address Test 1",
+            "text": "234 Carlaw",
             "value": "245140"
         },
         "addressDetails": "",
@@ -38160,12 +48236,12 @@ const mockup = {
             "value": "95"
         },
         "customer": {
-            "text": "AB&I Holdings",
+            "text": "World Bank",
             "value": "1249"
         },
         "events": [],
         "address": {
-            "text": "Test Address 222",
+            "text": "22 Dundas",
             "value": "245145"
         },
         "addressDetails": "",
@@ -38177,12 +48253,12 @@ const mockup = {
             "value": "96"
         },
         "customer": {
-            "text": "AB&I Holdings",
+            "text": "World Bank",
             "value": "1249"
         },
         "events": ["101012"],
         "address": {
-            "text": "1701 Rollins Road",
+            "text": "434 Carlaw",
             "value": "244878"
         },
         "addressDetails": "Test Address 1<br/>Test Address 1<br/>Test Address 1<br/>Test Address 1<br/>Test Address 1<br/>Los Angeles NY 12412<br/>United States",
@@ -38194,12 +48270,12 @@ const mockup = {
             "value": "96"
         },
         "customer": {
-            "text": "AB&I Holdings",
+            "text": "World Bank",
             "value": "1249"
         },
         "events": [],
         "address": {
-            "text": "Address 1",
+            "text": "12 Carlton Av",
             "value": "245148"
         },
         "addressDetails": "Address 1<br/>Address 1<br/>Address 1<br/>Address 1<br/>Address 1<br/>San Francisco California 1241<br/>United States",
@@ -38211,12 +48287,12 @@ const mockup = {
             "value": "96"
         },
         "customer": {
-            "text": "AB&I Holdings",
+            "text": "World Bank",
             "value": "1249"
         },
         "events": [],
         "address": {
-            "text": "Test Address 4",
+            "text": "343 York",
             "value": "245154"
         },
         "addressDetails": "Test Address 4<br/>Test Address 4<br/>Test Address 4<br/>Test Address 4<br/>Test Address 4<br/>Test Address 4 NY 121312<br/>United States",
@@ -38228,12 +48304,12 @@ const mockup = {
             "value": "96"
         },
         "customer": {
-            "text": "AB&I Holdings",
+            "text": "World Bank",
             "value": "1249"
         },
         "events": [],
         "address": {
-            "text": "Test Address 222",
+            "text": "22 Dundas",
             "value": "245145"
         },
         "addressDetails": "Test Address 222<br/>Test Address 222<br/>Test Address 222<br/>Test Address 222<br/>Test Address 222<br/>Los Angeles California 211123<br/>United States",
@@ -38245,12 +48321,12 @@ const mockup = {
             "value": "96"
         },
         "customer": {
-            "text": "AB&I Holdings",
+            "text": "World Bank",
             "value": "1249"
         },
         "events": [],
         "address": {
-            "text": "Test New Address",
+            "text": "234 Kristen AV",
             "value": "245146"
         },
         "addressDetails": "Test New Address<br/>Test New Address<br/>Test New Address<br/>Test New Address<br/>Test New Address<br/>Las Vegas Nevada 123131<br/>United States",
@@ -38262,12 +48338,12 @@ const mockup = {
             "value": "97"
         },
         "customer": {
-            "text": "AB&I Holdings",
+            "text": "World Bank",
             "value": "1249"
         },
         "events": [],
         "address": {
-            "text": "Test Address 3",
+            "text": "54 Tale",
             "value": "245152"
         },
         "addressDetails": "",
@@ -38279,12 +48355,12 @@ const mockup = {
             "value": "97"
         },
         "customer": {
-            "text": "AB&I Holdings",
+            "text": "World Bank",
             "value": "1249"
         },
         "events": [],
         "address": {
-            "text": "Test Address 4",
+            "text": "43 Carlo",
             "value": "245153"
         },
         "addressDetails": "",
@@ -38296,12 +48372,12 @@ const mockup = {
             "value": "97"
         },
         "customer": {
-            "text": "AB&I Holdings",
+            "text": "World Bank",
             "value": "1249"
         },
         "events": [],
         "address": {
-            "text": "Test New Address",
+            "text": "234 Kristen AV",
             "value": "245146"
         },
         "addressDetails": "",
@@ -38313,12 +48389,12 @@ const mockup = {
             "value": "98"
         },
         "customer": {
-            "text": "AB&I Holdings",
+            "text": "World Bank",
             "value": "1249"
         },
         "events": [],
         "address": {
-            "text": "Test Address 4",
+            "text": "343 York",
             "value": "245154"
         },
         "addressDetails": "",
@@ -38330,12 +48406,12 @@ const mockup = {
             "value": "99"
         },
         "customer": {
-            "text": "AB&I Holdings",
+            "text": "World Bank",
             "value": "1249"
         },
         "events": [],
         "address": {
-            "text": "1701 Rollins Road",
+            "text": "434 Carlaw",
             "value": "244878"
         },
         "addressDetails": "",
@@ -38347,12 +48423,12 @@ const mockup = {
             "value": "100"
         },
         "customer": {
-            "text": "AB&I Holdings",
+            "text": "World Bank",
             "value": "1249"
         },
         "events": ["101015", "101016"],
         "address": {
-            "text": "1701 Rollins Road",
+            "text": "434 Carlaw",
             "value": "244878"
         },
         "addressDetails": "",
@@ -38364,12 +48440,12 @@ const mockup = {
             "value": "100"
         },
         "customer": {
-            "text": "AB&I Holdings",
+            "text": "World Bank",
             "value": "1249"
         },
         "events": ["101016"],
         "address": {
-            "text": "Test Address 3",
+            "text": "54 Tale",
             "value": "245152"
         },
         "addressDetails": "",
@@ -38381,12 +48457,12 @@ const mockup = {
             "value": "100"
         },
         "customer": {
-            "text": "AB&I Holdings",
+            "text": "World Bank",
             "value": "1249"
         },
         "events": ["101016"],
         "address": {
-            "text": "Test Address 4",
+            "text": "343 York",
             "value": "245154"
         },
         "addressDetails": "",
@@ -38398,12 +48474,12 @@ const mockup = {
             "value": "100"
         },
         "customer": {
-            "text": "AB&I Holdings",
+            "text": "World Bank",
             "value": "1249"
         },
         "events": ["101016"],
         "address": {
-            "text": "Test New Address",
+            "text": "234 Kristen AV",
             "value": "245146"
         },
         "addressDetails": "",
@@ -38415,15 +48491,304 @@ const mockup = {
             "value": "101"
         },
         "customer": {
-            "text": "AB&I Holdings",
+            "text": "World Bank",
             "value": "1249"
         },
         "events": ["101017", "101018"],
         "address": {
-            "text": "1701 Rollins Road",
+            "text": "434 Carlaw",
             "value": "244878"
         },
         "addressDetails": "Test Address 1<br/>Test Address 1<br/>Test Address 1<br/>Test Address 1<br/>Test Address 1<br/>Los Angeles NY 12412<br/>United States",
+        "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+    }, {
+        "id": "139",
+        "workorder": {
+            "text": "Furniture Installation and Pickup - Mei",
+            "value": "102"
+        },
+        "customer": {
+            "text": "World Bank",
+            "value": "1249"
+        },
+        "events": [],
+        "address": {
+            "text": "434 Carlaw",
+            "value": "244878"
+        },
+        "addressDetails": "Test Address 1<br/>Test Address 1<br/>Test Address 1<br/>Test Address 1<br/>Test Address 1<br/>Los Angeles NY 12412<br/>United States",
+        "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+    }, {
+        "id": "140",
+        "workorder": {
+            "text": "Furniture Installation",
+            "value": "103"
+        },
+        "customer": {
+            "text": "World Bank",
+            "value": "1249"
+        },
+        "events": ["101028", "101030"],
+        "address": {
+            "text": "434 Carlaw",
+            "value": "244878"
+        },
+        "addressDetails": "434 Carlaw Road<br/>Los Angeles NY 12412<br/>United States",
+        "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+    }, {
+        "id": "141",
+        "workorder": {
+            "text": "Furniture Installation",
+            "value": "103"
+        },
+        "customer": {
+            "text": "World Bank",
+            "value": "1249"
+        },
+        "events": ["101030"],
+        "address": {
+            "text": "12 Carlton Av",
+            "value": "245148"
+        },
+        "addressDetails": "12 Carlton Ave<br/>San Francisco CA 1241<br/>United States",
+        "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+    }, {
+        "id": "142",
+        "workorder": {
+            "text": "Furniture Installation",
+            "value": "103"
+        },
+        "customer": {
+            "text": "World Bank",
+            "value": "1249"
+        },
+        "events": ["101030"],
+        "address": {
+            "text": "54 Tale",
+            "value": "245152"
+        },
+        "addressDetails": "54 Tale AV<br/>Akron OH 123123<br/>United States",
+        "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+    }, {
+        "id": "143",
+        "workorder": {
+            "text": "AV Installation Only",
+            "value": "104"
+        },
+        "customer": {
+            "text": "World Bank",
+            "value": "1249"
+        },
+        "events": ["101029"],
+        "address": {
+            "text": "434 Carlaw",
+            "value": "244878"
+        },
+        "addressDetails": "434 Carlaw Road<br/>Los Angeles NY 12412<br/>United States",
+        "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+    }, {
+        "id": "144",
+        "workorder": {
+            "text": "Furniture Installation",
+            "value": "105"
+        },
+        "customer": {
+            "text": "World Bank",
+            "value": "1249"
+        },
+        "events": ["101031"],
+        "address": {
+            "text": "12 Carlton Av",
+            "value": "245148"
+        },
+        "addressDetails": "12 Carlton Ave<br/>San Francisco CA 1241<br/>United States",
+        "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+    }, {
+        "id": "145",
+        "workorder": {
+            "text": "AV Installation",
+            "value": "47"
+        },
+        "customer": {
+            "text": "World Bank Office Furniture Installation",
+            "value": "1515"
+        },
+        "events": ["100682"],
+        "address": {
+            "text": "1701 Rollins Road",
+            "value": "244931"
+        },
+        "addressDetails": "",
+        "customerUrl": "/app/common/entity/custjob.nl?id=1515&compid=TSTDRV2617106"
+    }, {
+        "id": "146",
+        "workorder": {
+            "text": "Install Cove Lights - Follow Up",
+            "value": "107"
+        },
+        "customer": {
+            "text": "3M",
+            "value": "1397"
+        },
+        "events": [],
+        "address": {
+            "text": "4966 Hilltop Street",
+            "value": "245162"
+        },
+        "addressDetails": "Amaya Randell<br/>3M<br/>4966 Hilltop Street<br/>Northadams MA 01247<br/>United States",
+        "customerUrl": "/app/common/entity/custjob.nl?id=1397&compid=TSTDRV2617106"
+    }, {
+        "id": "147",
+        "workorder": {
+            "text": "Furniture Installation",
+            "value": "108"
+        },
+        "customer": {
+            "text": "World Bank",
+            "value": "1249"
+        },
+        "events": [],
+        "address": {
+            "text": "434 Carlaw",
+            "value": "244878"
+        },
+        "addressDetails": "434 Carlaw Road<br/>Los Angeles NY 12412<br/>United States",
+        "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+    }, {
+        "id": "148",
+        "workorder": {
+            "text": "Furniture Installation",
+            "value": "108"
+        },
+        "customer": {
+            "text": "World Bank",
+            "value": "1249"
+        },
+        "events": [],
+        "address": {
+            "text": "12 Carlton Av",
+            "value": "245148"
+        },
+        "addressDetails": "12 Carlton Ave<br/>San Francisco CA 1241<br/>United States",
+        "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+    }, {
+        "id": "149",
+        "workorder": {
+            "text": "Furniture Installation",
+            "value": "108"
+        },
+        "customer": {
+            "text": "World Bank",
+            "value": "1249"
+        },
+        "events": [],
+        "address": {
+            "text": "54 Tale",
+            "value": "245152"
+        },
+        "addressDetails": "54 Tale AV<br/>Akron OH 123123<br/>United States",
+        "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+    }, {
+        "id": "150",
+        "workorder": {
+            "text": "Install Cove Lights",
+            "value": "106"
+        },
+        "customer": {
+            "text": "3M",
+            "value": "1397"
+        },
+        "events": ["101032", "101033", "101034"],
+        "address": {
+            "text": "4966 Hilltop Street",
+            "value": "245162"
+        },
+        "addressDetails": "Amaya Randell<br/>3M<br/>4966 Hilltop Street<br/>Northadams MA 01247<br/>United States",
+        "customerUrl": "/app/common/entity/custjob.nl?id=1397&compid=TSTDRV2617106"
+    }, {
+        "id": "151",
+        "workorder": {
+            "text": "Install Light Fixtures",
+            "value": "109"
+        },
+        "customer": {
+            "text": "World Bank",
+            "value": "1249"
+        },
+        "events": [],
+        "address": {
+            "text": "434 Carlaw",
+            "value": "244878"
+        },
+        "addressDetails": "434 Carlaw Road<br/>Los Angeles NY 12412<br/>United States",
+        "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+    }, {
+        "id": "152",
+        "workorder": {
+            "text": "Install Light Fixtures",
+            "value": "109"
+        },
+        "customer": {
+            "text": "World Bank",
+            "value": "1249"
+        },
+        "events": ["101035"],
+        "address": {
+            "text": "54 Tale",
+            "value": "245152"
+        },
+        "addressDetails": "54 Tale AV<br/>Akron OH 123123<br/>United States",
+        "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+    }, {
+        "id": "153",
+        "workorder": {
+            "text": "Install Light Fixtures",
+            "value": "109"
+        },
+        "customer": {
+            "text": "World Bank",
+            "value": "1249"
+        },
+        "events": [],
+        "address": {
+            "text": "343 York",
+            "value": "245154"
+        },
+        "addressDetails": "343 York AV<br/>NY 121312<br/>United States",
+        "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+    }, {
+        "id": "154",
+        "workorder": {
+            "text": "Install Light Fixtures",
+            "value": "109"
+        },
+        "customer": {
+            "text": "World Bank",
+            "value": "1249"
+        },
+        "events": [],
+        "address": {
+            "text": "22 Dundas",
+            "value": "245145"
+        },
+        "addressDetails": "22 Dundas East<br/>New York  211123<br/>United States",
+        "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+    }, {
+        "id": "155",
+        "workorder": {
+            "text": "Install Light Fixtures",
+            "value": "109"
+        },
+        "customer": {
+            "text": "World Bank",
+            "value": "1249"
+        },
+        "events": [],
+        "address": {
+            "text": "490 Richmond",
+            "value": "245149"
+        },
+        "addressDetails": "490 Richmond Lane<br/>San Francisco CA 12311<br/>United States",
         "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
     }],
     "organizers": [{
@@ -38433,7 +48798,7 @@ const mockup = {
         "text": "Brian K Harris",
         "value": "31"
     }, {
-        "text": "Mark Grogan",
+        "text": "Mark Grogans",
         "value": "19"
     }, {
         "text": "Brad M Sparling",
@@ -38489,6 +48854,9 @@ const mockup = {
     }, {
         "text": "Bea Quilinguin",
         "value": "1767"
+    }, {
+        "text": "Mei Matriano",
+        "value": "1647"
     }]
 }
 

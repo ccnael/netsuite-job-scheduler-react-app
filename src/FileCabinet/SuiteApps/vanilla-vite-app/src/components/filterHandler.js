@@ -199,7 +199,7 @@ export function initEventFilters(sectionId) {
     $('.person-container').each(function() {
       const elementId =  $(this)[0].id;
       const resourceId = elementId.split('-').pop();
-      console.log('resourceId >>', elementId, resourceId, resourceIds.includes(resourceId), $(this).prop('className'))
+
       if (resourceIds.includes(resourceId)) {
         $(this).addClass('row-available');
       } else {

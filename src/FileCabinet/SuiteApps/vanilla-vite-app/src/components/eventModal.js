@@ -618,16 +618,19 @@ $(document).ready(() => {
     payload.eventData.selectedContact = {};
     payload.eventData.selectedAddress = {};
   
-    // Extract Internal IDs
+    // Extract selected rows
     const resourceIds = [];
-    const resources_dt_tr = document.querySelectorAll('#resources tbody .dt-line-select');
-    for (const line of resources_dt_tr) {
-      if (line.checked) {
-        const id = line.getAttribute('recordid');
-        if (id) {
-          resourceIds.push(id);
+    if (temp_resourcesDataTable) {
+      const resources_dt_tr = temp_resourcesDataTable.rows({ search: 'applied' }).nodes();
+      resources_dt_tr.each(function(node) {
+        const line = $(node).find('input.dt-line-select');
+        if (line.is(':checked')) {
+          const id = line.attr('recordId');
+          if (id) {
+            resourceIds.push(id);
+          }
         }
-      }
+      });
     }
 
     const vendorIds = [];
@@ -731,11 +734,14 @@ $(document).ready(() => {
   
   function eventFormHandlers() {
     window.markAll = ev => {
+      const value = ev.target.checked;
       const el = ev.target.closest('.dataTable').querySelectorAll('.dt-line-select');
       for(let i = 0; i < el.length; i++) {  
         if(el[i].type === 'checkbox') {
           if (!el[i].disabled) {
-            el[i].checked = !el[i].checked;
+            if (value == !el[i].checked) {
+              el[i].checked = !el[i].checked;
+            }
           }
         }
       }

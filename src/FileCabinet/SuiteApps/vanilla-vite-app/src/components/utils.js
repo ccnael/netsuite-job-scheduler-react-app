@@ -51,6 +51,13 @@ export class Event {
 
   static validateResourcesOnLoad(tableId, resourceTblId, eventId) {
     this.validateResourceLines(tableId, resourceTblId, eventId);
+
+    // Initialize on page change
+    const that = this;
+    const table = $(resourceTblId).DataTable();
+    table.on('draw', function() {
+      that.validateResourceLines(tableId, resourceTblId, eventId);
+    });
   }
 
   static validateOnFieldChange(tableId, resourceTblId, eventId) {
@@ -141,6 +148,17 @@ export class Event {
       const eventStart = `${event.date.start} ${event.time.start}`;
       const eventEnd = `${event.date.end} ${event.time.end}`;
       return event.id != eventId && (moment(eventEnd).isBetween(start, end, null, '[]') ||  moment(eventStart).isSameOrBefore(start) && moment(eventEnd).isSameOrAfter(end));
+    });
+    return !!conflictEvents.length;
+  }
+
+  static draggedJobHasConflictEvent(startDateTime, elementId = '') {
+    const resourceId = elementId.split('-').pop();
+    const resourceEvents = events.filter(event => event.resources.map(resource => resource.employee.value).includes(resourceId));
+    const conflictEvents = resourceEvents.filter(event => {
+      const eventStart = moment(`${event.date.start} ${event.time.start}`);
+      const eventEnd = moment(`${event.date.end} ${event.time.end}`);
+      return startDateTime.isSameOrAfter(eventStart) && startDateTime.isSameOrBefore(eventEnd);
     });
     return !!conflictEvents.length;
   }
@@ -313,7 +331,7 @@ export class Event {
             .then(result => {
               Swal.fire({
                 title: 'Deleted!',
-                text: `Event ${payload.eventData.title} [ID ${eventId}] has been deleted`,
+                text: `Event ${payload.eventData?.title || ''} [ID ${eventId}] has been deleted`,
                 icon: 'success'
               })
               .then(() => {
