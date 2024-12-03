@@ -1,7 +1,7 @@
 import mockup from './mockup';
 
-const DEV_MODE = true;
-// const DEV_MODE = false;
+// const DEV_MODE = true;
+const DEV_MODE = false;
 
 export const userId = !DEV_MODE ? $('#userId').val() : mockup.userId;
 export const suiteletUrl = !DEV_MODE ? decodeURIComponent($('#suiteletUrl').val()) : mockup.suiteletUrl;
