@@ -19,7 +19,7 @@ export const activeResources = resources.filter(resource => !!resource.active);
 export const combinedResourceGroups = (() => {
   let combined = JSON.parse(JSON.stringify(resourceGroups));
   const vendorObj = {
-    text: 'Vendor Subcontractors',
+    text: 'Vendor Subcons',
     value: 'vendor',
     resources: vendors,
     resourceCount: 0

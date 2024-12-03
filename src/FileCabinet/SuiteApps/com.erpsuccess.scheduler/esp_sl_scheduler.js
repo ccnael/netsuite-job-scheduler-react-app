@@ -96,8 +96,8 @@ define([
       const vendors = mod.Resource.getVendors(events);
       const assets = mod.Resource.getAssetsAndEquipments(events);
 
-      const sampleWOs = workOrders.filter(wo => +wo.id > 65);
-      const sampleEvents = events.filter(event => event.id.match(/1010/g));
+      const sampleWOs = workOrders//.filter(wo => +wo.id > 65);
+      const sampleEvents = events//.filter(event => event.id.match(/1010/g));
       
       mod.Utils.createLogFile('mockupDataSet', JSON.stringify({ userId: user.id, suiteletUrl, workOrders: sampleWOs, customers, resources, resourceGroups, woResources, vendors, assets, events: sampleEvents, woContacts, woAddresses, organizers }), 2199);
 

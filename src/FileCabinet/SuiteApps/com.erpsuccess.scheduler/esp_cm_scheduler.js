@@ -152,7 +152,7 @@ define([
       static getResourceGroups(resources) {
         let resourceGroupIds = [];
         resources.map(resource => resourceGroupIds = [...resourceGroupIds, ...resource.resourceGroups.map(resourceGroup => resourceGroup.value)]);
-        resourceGroupIds = Array.from(new Set(resourceGroupIds)).filter(resourceGroupId => !!resourceGroupId);
+        resourceGroupIds = Array.from(new Set(resourceGroupIds)).filter(Boolean);
         const resourceGroups = [];
 
         if (resourceGroupIds.length) {
@@ -220,8 +220,15 @@ define([
             url: result.getValue('url'),
             email: result.getValue('email'),
             get initials() {
-              const split = this.name.split(' ').map(name => name.replace(/[^a-zA-Z]/g, ''));
-              return `${split[0][0]}${split[1][0] || ''}`;
+              let split = this.name.split(' ').map(name => name.replace(/[^a-zA-Z]/g, ''));
+              split = split.filter(Boolean);
+              if (split.length > 1) {
+                return `${split[0][0]}${split[1][0] || ''}`;
+              } else if (split.length == 1) {
+                return split[0][0];
+              } else {
+                return this.name;
+              }
             },
             quantityRequired: 0,
             quantityAvailable: +result.getValue('custentity_esp_fop_ven_avail_resources'),
@@ -764,7 +771,7 @@ define([
             });
             let events = (lookUp.custrecord_esp_fop_res_rel_wo_event[0]?.value || '').split(',');
             events.push(event.id);
-            events = events.filter(event => !!(event));
+            events = events.filter(Boolean);
 
             record.submitFields({
               type: 'customrecord_esp_fop_wo_resources_select',
@@ -906,7 +913,7 @@ define([
             email: result.getValue(result.columns[3]),
             get initials() {
               let split = this.vendor.text.split(' ').map(name => name.replace(/[^a-zA-Z]/g, ''));
-              split = split.filter(el => !!el);
+              split = split.filter(Boolean);
               if (split.length > 1) {
                 return `${split[0][0]}${split[1][0] || ''}`;
               } else if (split.length == 1) {
@@ -1366,7 +1373,7 @@ define([
             });
             let events = (lookUp.custrecord_esp_fop_wo_rel_event[0]?.value || '').split(',');
             events.push(event.id);
-            events = events.filter(event => !!(event));
+            events = events.filter(Boolean);
   
             record.submitFields({
               type: 'customrecord_esp_fop_wo_contact',
@@ -1483,7 +1490,7 @@ define([
             });
             let events = (lookUp.custrecord_esp_fop_wo_add_event[0]?.value || '').split(',');
             events.push(event.id);
-            events = events.filter(event => !!(event));
+            events = events.filter(Boolean);
   
             record.submitFields({
               type: 'customrecord_esp_fop_wo_address',
@@ -2374,7 +2381,7 @@ define([
 
     class Utils {
 
-      static _stringToArray = str => (str || '').split(',').filter(el => !!(el));
+      static _stringToArray = str => (str || '').split(',').filter(Boolean);
 
       static _toDate = dateStr => dateStr ? moment(dateStr).format(this._dateFormat) : '';
 

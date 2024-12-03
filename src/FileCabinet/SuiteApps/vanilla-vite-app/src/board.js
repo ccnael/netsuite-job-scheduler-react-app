@@ -91,7 +91,7 @@ export default class Board {
                         <h2 class="accordion-header" id="resourceGroup-vendor-filter-tableHeading">
                           <button class="accordion-button" type="button" data-toggle="collapse" data-target="#resourceGroup-vendor-filter-table" aria-expanded="true" aria-controls="resourceGroup-vendor-filter-table">
                             <i class="fa-solid fa-icon-size fa-user-group"></i>
-                            <strong class="grid-header">&nbsp;Vendor Subcontractors&nbsp;</strong>
+                            <strong class="grid-header">&nbsp;Vendor Subcons&nbsp;</strong>
                             <span class="badge badge-danger badge-pill counter">${dataSet.vendors.length}</span>
                           </button>
                         </h2>
