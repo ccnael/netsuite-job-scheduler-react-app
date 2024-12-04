@@ -36,7 +36,7 @@ export default class Board {
                           <div class="input-group mb-3">
                             <select class="selectpicker mx-auto multiple-resource-group-field" title="Filter by Group" data-live-search="true" data-selected-text-format="count>2" data-style="" data-style-base="form-control" data-actions-box="true" multiple>
                             ${dataSet.resourceGroups.map(resourceGroup => `<option value="${resourceGroup.value}">${resourceGroup.text}</option>`)}
-                            <option value="vendor">Vendor Subcontractors</option>
+                            <option value="vendor">Vendor Subcons</option>
                             </select>
                           </div>
                           <div class="input-group mb-3">
@@ -234,7 +234,7 @@ export default class Board {
                               <div class="input-group mb-3">
                                 <select class="selectpicker mx-auto multiple-resource-group-field" title="Filter by Resource Group" data-live-search="true" data-selected-text-format="count>2" data-style="" data-style-base="form-control" data-actions-box="true" multiple>
                                 ${dataSet.resourceGroups.map(resourceGroup => `<option value="${resourceGroup.value}">${resourceGroup.text}</option>`)}
-                                <option value="vendor">Vendor Subcontractors</option>
+                                <option value="vendor">Vendor Subcons</option>
                                 <option value="unassigned">Unassigned</option>
                                 </select>
                               </div>

@@ -132,7 +132,7 @@ $(document).ready(() => {
               <div class="accordion-item">
                 <h2 class="accordion-header" id="generalEventHeading3rd">
                   <button class="accordion-button" type="button" data-toggle="collapse" data-target="#generalEventCollapse3rd" aria-expanded="true" aria-controls="generalEventCollapse3rd">
-                    <strong class="table-header">Vendor Subcontractors</strong>
+                    <strong class="table-header">Vendor Subcons</strong>
                   </button>
                 </h2>
                 <div id="generalEventCollapse3rd" class="accordion-collapse collapse show" aria-labelledby="generalEventHeading3rd" data-parent="#generalEvent3rdAccordion">

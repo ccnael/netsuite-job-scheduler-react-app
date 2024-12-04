@@ -125,6 +125,7 @@ export default class Calendar {
       })),
       extendedProps: resourceGroup
     }));
+    console.log('calendarResources', calendarResources)
     
     // Events with no resource gets assigned here
     calendarResources.push({ 
@@ -158,14 +159,14 @@ export default class Calendar {
       map.resourceIds = [];
       map.resourceIds = [...map.resourceIds, ...event.vendors.map(vendor => `vendor-${vendor.vendor.value}`)];
 
-      if (map.resourceIds.length) {
-        event.resources.forEach(resource => {
-          resource.resourceGroups.forEach(resourceGroup => {
-            map.resourceIds.push(`${resourceGroup.value}-${resource.employee.value}`);
-          });
+      event.resources.forEach(resource => {
+        resource.resourceGroups.forEach(resourceGroup => {
+          map.resourceIds.push(`${resourceGroup.value}-${resource.employee.value}`);
         });
-      } else {
-        map.resourceIds = ['z-unassigned'];
+      });
+
+      if (!map.resourceIds.length) {
+        map.resourceIds = ['z-unassigned']; 
       }
       map.extendedProps = deepCopy(event);
       return map;
@@ -219,7 +220,7 @@ export default class Calendar {
       // Resource etc settings
       // -----------------------------------------------------------------
       initialView: 'resourceTimelineDefault',
-      resourceAreaWidth: '20%',
+      resourceAreaWidth: '15%',
       views: {
         resourceTimelineDay: {
           buttonText: 'Day'
@@ -311,19 +312,15 @@ export default class Calendar {
         if (event.id) {
           try {
             const html = `
-            <div style="margin-left: 15px; height: 150px;" id="${event.id}">
+            <div style="margin-left: 15px; height: 60px;" id="${event.id}">
             <div class="card-head">
               <div class="card-name"><a href="${event.url}" target="_blank" onclick="window.open('/app/crm/calendar/event.nl?id=${event.id}', '_blank')"><strong>${event.title}</strong></a>
               </div>
             </div>
             <div class="card-content" style="position: relative">
-              <div class="card-content-eventId" eventId="${event.id}">ID ${event.id}</div>
-              <div class="card-content-woText">${!!event.workorder.text ? `<a href="${event.woRef.woUrl}" target="_blank">${event.woRef.name}</a>` : '<span class="badge py-1 px-2 rounded-pill text-uppercase general-bg">General</span>'}</div>
-              <div class="card-content-date">${event.date.start == event.date.end ? moment(event.date.start).format('M/D/YYYY') : `${moment(event.date.start).format('M/D/YYYY')} - ${moment(event.date.end).format('M/D/YYYY')}`}</div>
-              <div class="card-content-time">${moment(`1/1/1999 ${event.time.start}`).format('h:mm a')} - ${moment(`1/1/1999 ${event.time.end}`).format('h:mm a')}</div>
-              <div>Organizer: ${event.organizer.text}</div>
               <div class="row">
                 <div class="col-2 fc-event-status">
+                  <div class="card-content-eventId" eventId="${event.id}">ID ${event.id}</div>
                   <span class="badge py-1 px-2 rounded-pill text-uppercase" style="background-color: ${event.priority.code};">${event.priority.text}</span>
                 </div>
               </div>
@@ -454,7 +451,7 @@ export default class Calendar {
           <div class="input-group mb-3">
             <select class="selectpicker mx-auto multiple-resource-group-field" title="Filter by Resource Group" data-live-search="true" data-selected-text-format="count>2" data-style="" data-style-base="form-control" data-actions-box="true" multiple>
             ${dataSet.resourceGroups.map(resourceGroup => `<option value="${resourceGroup.value}">${resourceGroup.text}</option>`)}
-            <option value="vendor">Vendor Subcontractors</option>
+            <option value="vendor">Vendor Subcons</option>
             <option value="z-unassigned">Unassigned</option>
             </select>
           </div>
@@ -538,6 +535,7 @@ export default class Calendar {
 
     const payload = {};
     payload.eventData = deepCopy(info.event.extendedProps);
+    console.log('payload.eventData', payload.eventData)
     payload.eventDataSrc = dataSet.events.find(event => event.id == payload.eventData.id) || {};
     const startSplit = moment(info.event.startStr).format('YYYY-MM-DDTHH:mm').split('T');
     payload.eventData.date.start = startSplit[0];

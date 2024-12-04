@@ -412,7 +412,7 @@ define([
         const woIds = workOrders.map(wo => wo.id);
         if (woIds.length) {
           // Push Events to related WO
-          for (let event of events) {
+          for (const event of events) {
             const woRef = workOrders.find(wo => wo.id == event.workorder.value);
             if (woRef) {
               const _event = deepCopy(event);
@@ -420,7 +420,7 @@ define([
             }
           }
           // Push Vendors to related WO
-          for (let vendor of vendors) {
+          for (const vendor of vendors) {
             const woRef = workOrders.find(wo => wo.id == vendor.workorder.value);
             if (woRef) {
               const _vendor = deepCopy(vendor);
@@ -428,7 +428,7 @@ define([
             }
           }
           // Push Assets to related WO
-          for (let asset of assets) {
+          for (const asset of assets) {
             const woRef = workOrders.find(wo => wo.id == asset.workorder.value);
             if (woRef) {
               const _asset = deepCopy(asset);
@@ -436,7 +436,7 @@ define([
             }
           }
           // Push Items to related WO
-          for (let item of items) {
+          for (const item of items) {
             const woRef = workOrders.find(wo => wo.id == item.workorder.value);
             if (woRef) {
               const _item = deepCopy(item);
@@ -444,7 +444,7 @@ define([
             }
           }
           // Push Contacts to related WO
-          for (let contact of contacts) {
+          for (const contact of contacts) {
             const woRef = workOrders.find(wo => wo.id == contact.workorder.value);
             if (woRef) {
               const _contact = deepCopy(contact);
@@ -452,7 +452,7 @@ define([
             }
           }
           // Push Addresses to related WO
-          for (let address of addresses) {
+          for (const address of addresses) {
             const woRef = workOrders.find(wo => wo.id == address.workorder.value);
             if (woRef) {
               const _address = deepCopy(address);
@@ -1612,12 +1612,21 @@ define([
             },
             date: {
               recurrence: result.getValue('recurrence') || '',
-              start: moment(result.getValue('startdate')).format(EXPORT_DATE_FORMAT),
-              get end() {
+              get dates() {
                 const dateRegex = /\b(\d{1,2}\/\d{1,2}\/\d{4})\b/g;
-                const dates = this.recurrence.match(dateRegex);
-                if (dates.length) {
-                  return moment(dates[dates.length - 1]).format(EXPORT_DATE_FORMAT);
+                return this.recurrence.match(dateRegex);
+              },
+              // start: moment(result.getValue('startdate')).format(EXPORT_DATE_FORMAT), // Returns the main body field date
+              get start() {
+                if (this.dates.length) {
+                  return moment(this.dates[0]).format(EXPORT_DATE_FORMAT);
+                } else {
+                  return ''
+                }
+              },
+              get end() {
+                if (this.dates.length) {
+                  return moment(this.dates[this.dates.length - 1]).format(EXPORT_DATE_FORMAT);
                 } else {
                   return this.start; // TBR
                 }
@@ -1687,74 +1696,77 @@ define([
       }
 
       static fullMap(workOrders, events, resources, vendors, assets, items, contacts, addresses) {
-          // Map WO dataset per Event
-          for (let event of events) {
-            const woRef = workOrders.find(wo => wo.id == event.workorder.value);
-            if (woRef) {
-              const _woRef = deepCopy(woRef)
-              event.woRef = _woRef;
-            }
+        // Map WO dataset per Event
+        for (const event of events) {
+          const woRef = workOrders.find(wo => wo.id == event.workorder.value);
+          if (woRef) {
+            const _woRef = deepCopy(woRef)
+            event.woRef = _woRef;
           }
-          // Push assigned resources to related Events.
-          for (let resource of resources) {
-            for (let event of events) {
-              if (resource.events.includes(event.id)) {
-                const _resource = deepCopy(resource);
-                _resource.selected = true;
-                event.resources.push(_resource);
-              } 
-            }
+        }
+        // Push assigned resources to related Events.
+        for (const resource of resources) {
+          for (const event of events) {
+            if (resource.events.includes(event.id)) {
+              const _resource = deepCopy(resource);
+              _resource.selected = true;
+              event.resources.push(_resource)
+            } 
           }
-          // Push WO vendors to related Events
-          for (let vendor of vendors) {
-            for (let event of events) {
-              if (vendor.event == event.id) {
-                const _vendor = deepCopy(vendor);
-                _vendor.selected = true;
-                event.vendors.push(_vendor);
-              } 
-            }
+        }
+        // Push WO vendors to related Events
+        for (const vendor of vendors) {
+          for (const event of events) {
+            if (vendor.event == event.id) {
+              const _vendor = deepCopy(vendor);
+              _vendor.selected = true;
+              event.vendors.push(_vendor);
+            } 
           }
-          // Push Assets to related WO
-          for (let asset of assets) {
-            for (let event of events) {
-              if (asset.event == event.id) {
-                const _asset = deepCopy(asset);
-                _asset.selected = true;
-                event.assets.push(_asset);
-              } 
-            }
+        }
+        // Push Assets to related WO
+        for (const asset of assets) {
+          for (const event of events) {
+            if (asset.event == event.id) {
+              const _asset = deepCopy(asset);
+              _asset.selected = true;
+              event.assets.push(_asset);
+            } 
           }
-          // Push WO vendors to related Events
-          for (let item of items) {
-            for (let event of events) {
-              if (item.event == event.id) {
-                const _item = deepCopy(item);
-                _item.selected = true;
-                event.items.push(_item);
-              } 
-            }
+        }
+        // Push WO vendors to related Events
+        for (const item of items) {
+          for (const event of events) {
+            if (item.event == event.id) {
+              const _item = deepCopy(item);
+              _item.selected = true;
+              event.items.push(_item);
+            } 
           }
-          // Push WO contacts to related Events
-          for (let contact of contacts) {
-            for (let event of events) {
-              if (contact.events.includes(event.id)) {
-                const _contact = deepCopy(contact);
-                _contact.selected = true;
-                event.contacts.push(_contact);
-              } 
-            }
+        }
+        // Push WO contacts to related Events
+        for (const contact of contacts) {
+          for (const event of events) {
+            if (contact.events.includes(event.id)) {
+              const _contact = deepCopy(contact);
+              _contact.selected = true;
+              event.contacts.push(_contact);
+            } 
           }
-          // Push WO addresses to related Events
-          for (let address of addresses) {
-            for (let event of events) {
-              if (address.events.includes(event.id)) {
-                const _address = deepCopy(address);
-                _address.selected = true;
-                event.addresses.push(_address);
-              } 
-            }
+        }
+        // Push WO addresses to related Events
+        for (const address of addresses) {
+          for (const event of events) {
+            if (address.events.includes(event.id)) {
+              const _address = deepCopy(address);
+              _address.selected = true;
+              event.addresses.push(_address);
+            } 
           }
+        }
+        
+        // const logEvent = events.find(event => event.id == 516);
+        // Utils.createLogFile(`logEventID516`, JSON.stringify(logEvent), -15);
       }
 
       static createEventRecord(context) {
