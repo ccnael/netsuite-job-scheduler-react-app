@@ -38,11 +38,12 @@ export function initLeftSideBarFilters(sectionId) {
 
     $items.each(function() {
       const $el = $(this);
-      const resourceId = $el[0].id;
+      const elementId = $(this)[0].id;
+      const resourceId = elementId.split('-').pop();
       const containerId = $el.closest('div[id*="-filter-tableWrapper"]').attr('id');
       const groupId = (containerId.match('vendor')|| containerId.match(/\d+/))[0];
-      const _resource = dataSet.resources.find(resource => resource.id == resourceId);
-      const _vendor = dataSet.vendors.find(vendor => vendor.id == resourceId);
+      const _resource = dataSet.resources.find(resource => resource.employee.value == resourceId);
+      const _vendor = dataSet.vendors.find(vendor => vendor.vendor.value == resourceId);
       
       if (_resource || _vendor) {
         let _resourceGroup = [];

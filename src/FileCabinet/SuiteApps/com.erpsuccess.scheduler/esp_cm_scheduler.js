@@ -482,7 +482,7 @@ define([
             type: 'customrecord_esp_fop_work_order',
             id: woId,
             values: {
-              custrecord_esp_fop_wo_status: 7 //Hold
+              custrecord_esp_fop_wo_status: 5 //Hold
             }
           });
           responseJson.status = 'success';
