@@ -1,2 +1,6 @@
 /.DS_Store
 /Do Not Deploy
+/src/FileCabinet/SuiteApps/vanilla-vite-app/dist
+/src/FileCabinet/SuiteApps/vanilla-vite-app/node_modules
+/src/FileCabinet/SuiteApps/react-vite-app/dist
+/src/FileCabinet/SuiteApps/react-vite-app/node_modules
