@@ -5,16 +5,11 @@ export const resourcesDtColumns = [
         <input type="checkbox" class="form-check-input" style="left: 30px" onclick="markAll(event);">
       </div>`,
     render: (_data, _type, row, _meta) => `<div class="form-group form-check container d-flex justify-content-center">
-        <input recordId="${row.id}" employeeId="${row.employee.value}" type="checkbox" class="form-check-input dt-line-select" ${row.selected?'checked':''}>
+        <input recordId="${row.id}" employeeId="${row.employee.value}" type="checkbox" class="form-check-input dt-line-select" ${row.selected ? 'checked' : ''}>
       </div>`,
     width: "5%",
     orderable: false
   },
-  /* {
-    className: 'dt-head-center dt-body-center',
-    data: 'id',
-    title: 'ID'
-  }, */
   {
     className: 'dt-head-center',
     data: 'name',
@@ -39,6 +34,18 @@ export const resourcesDtColumns = [
     className: 'dt-head-center',
     data: 'phone',
     title: 'Phone'
+  },
+  {
+    className: 'dt-head-center',
+    render: (_data, _type, row, _meta) => `<input type="time" class="form-control starttime-resource" value="${row?.time?.start}" required>`,
+    title: 'Start Time <span class="required"></span>',
+    orderable: false
+  },
+  {
+    className: 'dt-head-center',
+    render: (_data, _type, row, _meta) => `<input type="time" class="form-control endtime-resource" value="${row?.time?.end}" required>`,
+    title: 'End Time <span class="required"></span>',
+    orderable: false
   }
 ];
 
@@ -49,16 +56,11 @@ export const vendorsDtColumns = [
         <input type="checkbox" class="form-check-input" style="left: 30px" onclick="markAll(event);">
       </div>`,
     render: (_data, _type, row, _meta) => `<div class="form-group form-check container d-flex justify-content-center">
-        <input recordId="${row.id}" type="checkbox" class="form-check-input dt-line-select" ${row.selected?'checked':''}>
+        <input recordId="${row.id}" type="checkbox" class="form-check-input dt-line-select" ${row.selected ? 'checked' : ''}>
       </div>`,
     width: "5%",
     orderable: false
   },
-  /* {
-    className: 'dt-head-center dt-body-center',
-    data: 'id',
-    title: 'ID'
-  }, */
   {
     className: 'dt-head-center dt-body-center',
     render: (_data, _type, row, _meta) => row?.vendor?.text || row.name,
@@ -73,12 +75,7 @@ export const vendorsDtColumns = [
     className: 'dt-head-center dt-body-center',
     render: (_data, _type, row, _meta) => `<textarea class="form-control note" rows="3">${row.memo}</textarea>`,
     title: 'Comments'
-  },
-  /* {
-    className: 'dt-head-center dt-body-center',
-    data: 'purchaseOrder.text',
-    title: 'Purchase Order'
-  } */
+  }
 ];
 
 export const assetsDtColumns = [
@@ -88,16 +85,11 @@ export const assetsDtColumns = [
         <input type="checkbox" class="form-check-input" style="left: 30px" onclick="markAll(event);">
       </div>`,
     render: (_data, _type, row, _meta) => `<div class="form-group form-check container d-flex justify-content-center">
-        <input recordId="${row.id}" type="checkbox" class="form-check-input dt-line-select" ${row.selected?'checked':''}>
+        <input recordId="${row.id}" type="checkbox" class="form-check-input dt-line-select" ${row.selected ? 'checked' : ''}>
       </div>`,
     width: "5%",
     orderable: false
   },
-  /* {
-    className: 'dt-head-center dt-body-center',
-    data: 'id',
-    title: 'ID'
-  }, */
   {
     className: 'dt-head-center dt-body-center',
     data: 'name',
@@ -127,16 +119,11 @@ export const itemsDtColumns = [
         <input type="checkbox" class="form-check-input" style="left: 30px" onclick="markAll(event);">
       </div>`,
     render: (_data, _type, row, _meta) => `<div class="form-group form-check container d-flex justify-content-center">
-        <input recordId="${row.id}" type="checkbox" class="form-check-input dt-line-select" ${row.selected?'checked':''}>
+        <input recordId="${row.id}" type="checkbox" class="form-check-input dt-line-select" ${row.selected ? 'checked' : ''}>
       </div>`,
     width: "5%",
     orderable: false
   },
-  /* {
-    className: 'dt-head-center dt-body-center',
-    data: 'id',
-    title: 'ID'
-  }, */
   {
     className: 'dt-head-center dt-body-center',
     data: 'item.text',
@@ -151,30 +138,21 @@ export const itemsDtColumns = [
     className: 'dt-head-center dt-body-center',
     render: (_data, _type, row, _meta) => `<input type="number" class="quantity" value="${row.quantity}" min="0" max="${row.quantity}" required />`,
     title: 'Quantity'
-  }/* ,
-  {
-    className: 'dt-head-center',
-    data: 'availableQty',
-    title: 'Available Qty'
-  } */
+  }
 ];
 
 export const contactsDtColumns = [
   {
     className: 'dt-head-center dr-body-center',
-    title: ``,
+    title: `<div class="form-group form-check container d-flex justify-content-center">
+        <input type="checkbox" class="form-check-input" style="left: 30px" onclick="markAll(event);">
+      </div>`,
     render: (_data, _type, row, _meta) => `<div class="form-group form-check container d-flex justify-content-center">
-        <input recordId="${row.id}" type="radio" class="form-check-input dt-line-select" style="left: 30px" name='woContact' ${row.selected?'checked':''}>
-      </div>
-      `,
+        <input recordId="${row.id}" type="checkbox" class="form-check-input dt-line-select" ${row.selected ? 'checked' : ''}>
+      </div>`,
     width: "5%",
     orderable: false
   },
-  /* {
-    className: 'dt-head-center dt-body-center',
-    data: 'id',
-    title: 'ID'
-  }, */
   {
     className: 'dt-head-center dt-body-center',
     data: 'name',
@@ -207,17 +185,12 @@ export const addressesDtColumns = [
     className: 'dt-head-center dr-body-center',
     title: ``,
     render: (_data, _type, row, _meta) => `<div class="form-group form-check container d-flex justify-content-center">
-         <input recordId="${row.id}" type="radio" class="form-check-input dt-line-select" style="left: 30px" name='woAddress' ${row.selected?'checked':''}>
+         <input recordId="${row.id}" type="radio" class="form-check-input dt-line-select" style="left: 30px" name='woAddress' ${row.selected ? 'checked' : ''}>
       </div>
       `,
     width: "5%",
     orderable: false
   },
-  /* {
-    className: 'dt-head-center dt-body-center',
-    data: 'id',
-    title: 'ID'
-  }, */
   {
     className: 'dt-head-center dt-body-center',
     data: 'customer.text',
@@ -237,7 +210,6 @@ export const addressesDtColumns = [
 
 // COMPLETE EVENT
 // -----------------
-
 export const ceTimeSheetsDtColumns = [
   {
     className: 'dt-head-center resourceName',
@@ -308,7 +280,7 @@ export const ceItemsDtColumns = [
         <input type="checkbox" class="form-check-input" style="left: 30px" onclick="markAll(event);">
       </div>`,
     render: (_data, _type, row, _meta) => `<div class="form-group form-check container d-flex justify-content-center">
-        <input recordId="${row.id}" type="checkbox" class="form-check-input dt-line-select" ${row.selected?'checked':''}>
+        <input recordId="${row.id}" type="checkbox" class="form-check-input dt-line-select" ${row.selected ? 'checked' : ''}>
       </div>`,
     width: "5%",
     orderable: false

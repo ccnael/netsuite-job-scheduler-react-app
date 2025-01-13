@@ -1,5 +1,5 @@
 import { suiteletUrl, resources, events } from './dataSet';
-import {  ceTimeSheetsDtColumns, ceItemsDtColumns, cePunchItemsDtColumns } from './dataTableColumns';
+import {  ceTimeSheetsDtColumns, ceItemsDtColumns, cePunchItemsDtColumns } from './dataTable';
 import './completeEventModal.css';
 
 let temp_ceTimeSheetDataTable, temp_ceItemsDataTable, temp_cePunchItemsDataTable;

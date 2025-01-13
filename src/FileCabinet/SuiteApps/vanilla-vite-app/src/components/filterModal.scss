@@ -1,0 +1,48 @@
+/* Background overlay */
+#filter-modal {
+  .modal {
+    display: none; /* Hidden by default */
+    position: absolute; /* Position relative to the nearest positioned ancestor */
+    top: 100%; /* Place below the filter icon */
+    right: 0; /* Align to the right of the icon */
+    width: 300px;
+    background-color: white;
+    padding: 15px;
+    z-index: 10;
+  }
+
+  .modal-header {
+    font-size: 18px;
+    margin-bottom: 15px;
+    font-weight: bold;
+    text-align: center;
+  }
+
+  .filter-group {
+    margin: 10px 0;
+  }
+
+  label {
+    display: block;
+    margin-bottom: 5px;
+  }
+
+  select {
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+
+  /* Background overlay */
+  .overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+  }
+}

@@ -4,12 +4,12 @@
  * @author lc
  */
 define([
-  'N/runtime', 
+  'N/runtime',
   'N/file',
   './esp_cm_scheduler'
 ],
 
-  (runtime, file,  mod) => {
+  (runtime, file, mod) => {
     /**
      * Defines the Suitelet script trigger point.
      * @param {Object} scriptContext
@@ -45,8 +45,8 @@ define([
           case 'getOrderPunchList':
             mod.Event.getOrderPunchList(scriptContext);
             break;
-            
-          default: 
+
+          default:
             runApp(scriptContext);
             break;
         }
@@ -96,9 +96,9 @@ define([
       const vendors = mod.Resource.getVendors(events);
       const assets = mod.Resource.getAssetsAndEquipments(events);
 
-      const sampleWOs = workOrders//.filter(wo => +wo.id > 65);
-      const sampleEvents = events//.filter(event => event.id.match(/1010/g));
-      
+      const sampleWOs = workOrders.filter(wo => +wo.id > 65);
+      const sampleEvents = events.filter(event => event.id.match(/1010/g));
+
       mod.Utils.createLogFile('mockupDataSet', JSON.stringify({ userId: user.id, suiteletUrl, workOrders: sampleWOs, customers, resources, resourceGroups, woResources, vendors, assets, events: sampleEvents, woContacts, woAddresses, organizers }), 2199);
 
       const fileObj = {
@@ -125,7 +125,7 @@ define([
         .replace('{{vendors}}', encodeURIComponent(JSON.stringify(vendors)))
         .replace('{{events}}', encodeURIComponent(JSON.stringify(events)))
         .replace('{{organizers}}', encodeURIComponent(JSON.stringify(organizers)));
-      
+
       response.write(htmlStr);
     }
 

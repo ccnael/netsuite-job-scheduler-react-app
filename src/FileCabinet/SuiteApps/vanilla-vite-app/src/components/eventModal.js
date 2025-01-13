@@ -1,7 +1,7 @@
 import * as dataSet from './dataSet';
-import { resourcesDtColumns, vendorsDtColumns, assetsDtColumns, itemsDtColumns, contactsDtColumns, addressesDtColumns } from './dataTableColumns';
+import { resourcesDtColumns, vendorsDtColumns, assetsDtColumns, itemsDtColumns, contactsDtColumns, addressesDtColumns } from './dataTable';
 import { Event } from './utils';
-import { initResourceDtCustomFilters } from './filterHandler';
+import { initResourceDtCustomFilters } from './filters';
 import './eventModal.css';
 
 let temp_resourcesDataTable, temp_vendorsDataTable, temp_assetsDataTable, temp_itemsDataTable, temp_contactsDataTable, temp_addressesDataTable;
@@ -116,7 +116,7 @@ $(document).ready(() => {
               <div class="accordion-item">
                 <h2 class="accordion-header" id="eventHeading2nd">
                   <button class="accordion-button" type="button" data-toggle="collapse" data-target="#collapse2nd" aria-expanded="true" aria-controls="collapse2nd">
-                    <strong class="table-header">Available Resources</strong>
+                    <strong class="table-header">Resources</strong>
                   </button>
                 </h2>
                 <div id="collapse2nd" class="accordion-collapse collapse show" aria-labelledby="eventHeading2nd" data-parent="#event2ndAccordion">
@@ -138,7 +138,7 @@ $(document).ready(() => {
               <div class="accordion-item">
                 <h2 class="accordion-header" id="eventHeading3rd">
                   <button class="accordion-button" type="button" data-toggle="collapse" data-target="#collapse3rd" aria-expanded="true" aria-controls="collapse3rd">
-                    <strong class="table-header">Vendor Subcons</strong>
+                    <strong class="table-header">Vendor Subcontractors</strong>
                   </button>
                 </h2>
                 <div id="collapse3rd" class="accordion-collapse collapse show" aria-labelledby="eventHeading3rd" data-parent="#event3rdAccordion">
@@ -287,21 +287,8 @@ $(document).ready(() => {
   }
 
   // Load Event Form
-  // All day event switch function
-  $('#eventModal .alldayevent-switch').on('change', ev => {
-    if (ev.target.checked) {
-      $('#eventModal .starttime').val('08:00'); // NS default starttime
-      $('#eventModal .endtime').val('18:00'); // NS default endtime
-      $('#eventModal .starttime').prop('disabled', true);
-      $('#eventModal .endtime').prop('disabled', true);
-    } else {
-      $('#eventModal .starttime').prop('disabled', false);
-      $('#eventModal .endtime').prop('disabled', false);
-    }
-  });
-  
   // Main Event Form -> On Load
-  $('#eventModal').on('shown.bs.modal', function(ev) {
+  $('#eventModal').on('shown.bs.modal', function (ev) {
     setTimeout(() => {
       hideCustomLoader();
 
@@ -310,9 +297,9 @@ $(document).ready(() => {
       const eventId = $('#eventModal').attr('eventId');
       let prefillData = $('#eventModal').attr('prefillData');
       let woRef, eventData, modalTitle, eventTitle;
-      
+
       if (mode === 'create') {
-        modalTitle = `Create New Event [WO ID ${woId}]`;
+        modalTitle = `Create Event [WO ID ${woId}]`;
         woRef = dataSet.workOrders.find(wo => wo.id == woId);
         eventTitle = woRef?.title;
 
@@ -330,7 +317,7 @@ $(document).ready(() => {
         woId = woRef.id;
         eventTitle = eventData?.title;
       }
-  
+
       console.log('----- [Work Order Data] -----', { woId, eventId }, { woRef, eventData });
       $('#eventModal .modal-title').text(modalTitle); // Set Modal Title
       $('#eventModal input.eventTitleInput').val(eventTitle); // Set primary info
@@ -339,7 +326,7 @@ $(document).ready(() => {
         $('#eventModal .title p').html(`<a href="${woRef.woUrl}" target="_blank">${woRef.title}</a>`);
         $('#eventModal .project p').html(`<a href="${woRef.projectUrl}" target="_blank">${woRef.project.text}</a>`);
       }
-  
+
       if (mode === 'edit') {
         if (eventData) {
           $('#eventModal').attr('woId', eventData.workorder.value);
@@ -354,10 +341,10 @@ $(document).ready(() => {
           $('#eventModal .priority').val(eventData.priority.value);
         }
       }
-      
+
       // Set DataTable values
       $.fn.dataTable.ext.errMode = 'none';
-    
+
       temp_resourcesDataTable = $('#resources').DataTable({
         dom: '<"d-flex justify-content-between align-items-center"<"left-col"l><"middle-col"><"right-col"f>>tip',
         processing: true,
@@ -411,8 +398,6 @@ $(document).ready(() => {
         }
       });
 
-      initResourceDtCustomFilters(temp_resourcesDataTable, 'multiple-resource-field-ev', 'multiple-resource-group-field-ev');
-
       temp_vendorsDataTable = $('#vendors').DataTable({
         processing: true,
         retrieve: true,
@@ -439,7 +424,7 @@ $(document).ready(() => {
           })
         },
         columns: vendorsDtColumns,
-        initComplete: () => {  
+        initComplete: () => {
           eventFormHandlers();
         }
       });
@@ -461,11 +446,11 @@ $(document).ready(() => {
           })
         },
         columns: assetsDtColumns,
-        initComplete: () => {  
+        initComplete: () => {
           eventFormHandlers();
         }
       });
-    
+
       temp_itemsDataTable = $('#items').DataTable({
         processing: true,
         retrieve: true,
@@ -483,42 +468,38 @@ $(document).ready(() => {
           })
         },
         columns: itemsDtColumns,
-        initComplete: () => {  
+        initComplete: () => {
           eventFormHandlers();
         }
       });
-  
+
       temp_contactsDataTable = $('#contacts').DataTable({
         processing: true,
         retrieve: true,
         searching: false,
-        paging: false, 
+        paging: false,
         info: false,
         ajax(_data, callback, _settings) {
           callback({
             data: (() => {
               if (mode === 'create') {
-                return deepCopy(woRef.contacts).map(contact => {
-                  contact.selected = woRef.contacts.length == 1;
-                  return contact;
-                });
+                return woRef.contacts.filter(contact => !!!contact.event);
               } else {
-                return deepCopy(eventData.contacts).map(contact => {
-                  contact.selected = contact.id == eventData.contact.value;
-                  return contact;
-                });
+                let unassignedContacts = deepCopy(woRef.contacts.filter(contact => !!!contact.event));
+                unassignedContacts = unassignedContacts.filter(contact => !!!eventData.contacts.map(contact => contact.contact.value).includes(contact.contact.value));
+                return [...eventData.contacts, ...unassignedContacts];
               }
             })()
           })
         },
         columns: contactsDtColumns
       });
-  
+
       temp_addressesDataTable = $('#addresses').DataTable({
         processing: true,
         retrieve: true,
         searching: false,
-        paging: false, 
+        paging: false,
         info: false,
         ajax(_data, callback, _settings) {
           callback({
@@ -540,15 +521,18 @@ $(document).ready(() => {
         columns: addressesDtColumns
       });
 
+      Event.initAllDaySwitch('#eventModal'); // All day event switch function
+      initResourceDtCustomFilters(temp_resourcesDataTable, 'multiple-resource-field-ev', 'multiple-resource-group-field-ev');
       Event.validateResourcesOnLoad('#wo-primaryinfo', '#resources', eventId);
-      Event.validateOnFieldChange('#wo-primaryinfo', '#resources', eventId);
+      Event.validateOnHeaderFieldChange('#wo-primaryinfo', '#resources', eventId);
+      Event.validateOnLineFieldChange('#wo-primaryinfo', '#resources', eventId);
     }, 250);
   });
-  
+
   // Main Event Form -> On Submit
   $('#eventSubmitForm').on('submit', ev => {
     ev.preventDefault();
-    
+
     const mode = $('#eventModal').attr('mode');
     const woId = $('#eventModal').attr('woId');
     const eventId = $('#eventModal').attr('eventId');
@@ -591,7 +575,7 @@ $(document).ready(() => {
       unassignedAssets = [...eventData.assets, ...unassignedAssets];
       assetsToUse = unassignedAssets;
     }
-    
+
     const payload = {
       eventDataSrc: {},
       woRef,
@@ -615,18 +599,25 @@ $(document).ready(() => {
     payload.eventData.selectedVendors = [];
     payload.eventData.selectedAssets = [];
     payload.eventData.selectedItems = [];
-    payload.eventData.selectedContact = {};
+    payload.eventData.selectedContacts = [];
     payload.eventData.selectedAddress = {};
-  
+
     // Extract selected rows
     const resourceIds = [];
     if (temp_resourcesDataTable) {
       const resources_dt_tr = temp_resourcesDataTable.rows({ search: 'applied' }).nodes();
-      resources_dt_tr.each(function(node) {
+      resources_dt_tr.each(function (node) {
         const line = $(node).find('input.dt-line-select');
         if (line.is(':checked')) {
           const id = line.attr('recordId');
           if (id) {
+            const foundObj = resourcesToUse.find(resource => resource.id == id);
+            if (foundObj) {
+              const startTime = $(node).find('input.starttime-resource').val();
+              const endTime = $(node).find('input.endtime-resource').val();
+              foundObj.time.start = startTime;
+              foundObj.time.end = endTime;
+            }
             resourceIds.push(id);
           }
         }
@@ -666,7 +657,7 @@ $(document).ready(() => {
         }
       }
     }
-  
+
     const itemIds = [];
     const items_dt_tr = document.querySelectorAll('#items tbody .dt-line-select');
     for (const line of items_dt_tr) {
@@ -682,19 +673,18 @@ $(document).ready(() => {
         }
       }
     }
-  
-    let contactId = '';
-    const contacts_dt_tr = document.querySelectorAll('#contacts tbody input[name="woContact"]');
+
+    const contactIds = [];
+    const contacts_dt_tr = document.querySelectorAll('#contacts tbody .dt-line-select');
     for (const line of contacts_dt_tr) {
       if (line.checked) {
         const id = line.getAttribute('recordid');
         if (id) {
-          contactId = id;
-          break;
+          contactIds.push(id);
         }
       }
     }
-  
+
     let addressId = '';
     const addresses_dt_tr = document.querySelectorAll('#addresses tbody input[name="woAddress"]');
     for (const line of addresses_dt_tr) {
@@ -706,19 +696,15 @@ $(document).ready(() => {
         }
       }
     }
-    
-     // Filter objects by id
+
+    // Filter objects by id
     payload.eventData.selectedResources = resourcesToUse.filter(resource => !!resourceIds.includes(resource.id));
     payload.eventData.selectedVendors = vendorsToUse.filter(vendor => !!vendorIds.includes(vendor.id));
     payload.eventData.selectedAssets = assetsToUse.filter(asset => !!assetIds.includes(asset.id));
     payload.eventData.selectedItems = woRef.items.filter(item => !!itemIds.includes(item.id));
-    payload.eventData.selectedContact = woRef.contacts.find(contact => contact.id == contactId) || {};
+    payload.eventData.selectedContacts = woRef.contacts.filter(contact => !!contactIds.includes(contact.id));
     payload.eventData.selectedAddress = woRef.addresses.find(address => address.id == addressId) || {};
-    payload.eventData.contacts = woRef.contacts;
     payload.eventData.addresses = woRef.addresses;
-
-    // console.log('payload', payload)
-    // return;
 
     if (mode === 'create') {
       Event.createEventRecord(payload, 'eventModal');
@@ -728,16 +714,16 @@ $(document).ready(() => {
       Event.updateEventRecord(payload, 'eventModal');
     }
   });
-  
+
   // Main Event Form -> On Close
   $('#eventModal').on('hidden.bs.modal', ev => clearFieldValues());
-  
+
   function eventFormHandlers() {
     window.markAll = ev => {
       const value = ev.target.checked;
       const el = ev.target.closest('.dataTable').querySelectorAll('.dt-line-select');
-      for(let i = 0; i < el.length; i++) {  
-        if(el[i].type === 'checkbox') {
+      for (let i = 0; i < el.length; i++) {
+        if (el[i].type === 'checkbox') {
           if (!el[i].disabled) {
             if (value == !el[i].checked) {
               el[i].checked = !el[i].checked;
@@ -746,15 +732,14 @@ $(document).ready(() => {
         }
       }
     }
-  
     window.validateForm = () => true;
   }
-  
+
   function clearFieldValues() {
     console.log('----- [Clearing Fields] -----');
-    
+
     showCustomLoader();
-  
+
     $(`#eventModal`).attr('mode', '');
     $(`#eventModal`).attr('woId', '');
     $(`#eventModal`).attr('eventId', '');
@@ -765,17 +750,17 @@ $(document).ready(() => {
     $(`#eventModal .starttime`).val('');
     $(`#eventModal .endtime`).val('');
     $(`#eventModal .note`).val('');
-  
+
     document.querySelector(`#eventModal .priority`).value = '1'; // Default Low
     document.querySelector(`#eventModal .status`).value = 'TENTATIVE'; // Default Tentative
     $(`#eventModal .alldayevent-switch`)[0].checked = false;
-    
+
     // Clear DataTable rows
     if (temp_resourcesDataTable) {
       $('table#resources tbody').children().remove();
       temp_resourcesDataTable = temp_resourcesDataTable.destroy();
     }
-  
+
     if (temp_vendorsDataTable) {
       $('table#vendors tbody').children().remove();
       temp_vendorsDataTable = temp_vendorsDataTable.destroy();
@@ -790,23 +775,23 @@ $(document).ready(() => {
       $('table#items tbody').children().remove();
       temp_itemsDataTable = temp_itemsDataTable.destroy();
     }
-    
+
     if (temp_contactsDataTable) {
       $('table#contacts tbody').children().remove();
       temp_contactsDataTable = temp_contactsDataTable.destroy();
     }
-  
+
     if (temp_addressesDataTable) {
       $('table#addresses tbody').children().remove();
-      temp_addressesDataTable = temp_addressesDataTable.destroy(); 
+      temp_addressesDataTable = temp_addressesDataTable.destroy();
     }
   }
-  
+
   function showCustomLoader() {
     $(`#eventModal .spinner`).show();
     $(`#eventModal .modal-body`).css('z-index', '-1');
   }
-  
+
   function hideCustomLoader() {
     $(`#eventModal .spinner`).hide();
     $(`#eventModal .modal-body`).css('z-index', '1');

@@ -1,32 +1,32 @@
 import mockup from './mockup';
 
-const DEV_MODE = true;
-// const DEV_MODE = false;
+// const DEV_MODE = true;
+const DEV_MODE = false;
+
+const getValue = (selector, mockValue) => !DEV_MODE ? JSON.parse(decodeURIComponent($(selector).val())) : mockValue;
 
 export const userId = !DEV_MODE ? $('#userId').val() : mockup.userId;
 export const suiteletUrl = !DEV_MODE ? decodeURIComponent($('#suiteletUrl').val()) : mockup.suiteletUrl;
-export const workOrders = !DEV_MODE ? JSON.parse(decodeURIComponent($('#workOrders').val())) : mockup.workOrders;
-export const customers = !DEV_MODE ? JSON.parse(decodeURIComponent($('#customers').val())) : mockup.customers;
-export const resources = !DEV_MODE ? JSON.parse(decodeURIComponent($('#resources').val())) : mockup.resources;
-export const resourceGroups = !DEV_MODE ? JSON.parse(decodeURIComponent($('#resourceGroups').val())) : mockup.resourceGroups;
-export const woResources = !DEV_MODE ? JSON.parse(decodeURIComponent($('#woResources').val())) : mockup.woResources;
-export const assets = !DEV_MODE ? JSON.parse(decodeURIComponent($('#assets').val())) : mockup.assets;
-export const vendors = !DEV_MODE ? JSON.parse(decodeURIComponent($('#vendors').val())) : mockup.vendors;
-export const events = !DEV_MODE ? JSON.parse(decodeURIComponent($('#events').val())) : mockup.events;
-export const organizers = !DEV_MODE ? JSON.parse(decodeURIComponent($('#organizers').val())) : mockup.organizers;
+export const workOrders = getValue('#workOrders', mockup.workOrders);
+export const customers = getValue('#customers', mockup.customers);
+export const resources = getValue('#resources', mockup.resources);
+export const resourceGroups = getValue('#resourceGroups', mockup.resourceGroups);
+export const woResources = getValue('#woResources', mockup.woResources);
+export const assets = getValue('#assets', mockup.assets);
+export const vendors = getValue('#vendors', mockup.vendors);
+export const events = getValue('#events', mockup.events);
+export const organizers = getValue('#organizers', mockup.organizers);
+
 export const activeResources = resources.filter(resource => !!resource.active);
 
 export const combinedResourceGroups = (() => {
-  let combined = JSON.parse(JSON.stringify(resourceGroups));
+  const combinedGroup = JSON.parse(JSON.stringify(resourceGroups));
   const vendorObj = {
     text: 'Vendor Subcons',
     value: 'vendor',
     resources: vendors,
-    resourceCount: 0
+    resourceCount: vendors.length
   };
-  vendorObj.resourceCount = vendorObj.resources.length;
-  combined.push(vendorObj);
-  return combined;
+  combinedGroup.push(vendorObj);
+  return combinedGroup;
 })();
-
-// Fetch promise?

@@ -3,15 +3,16 @@
  * @NModuleScope Public
  */
 define([
-  'N/file', 
-  'N/runtime', 
-  'N/search', 
-  'N/config', 
-  'N/url', 
+  'N/file',
+  'N/runtime',
+  'N/search',
+  'N/config',
+  'N/url',
   'N/render',
   'N/record',
   'N/format',
-  './lib/moment.min'
+  './lib/moment.min',
+  './lib/constants'
 ],
   /**
    * @param{file} file
@@ -23,29 +24,24 @@ define([
    * @param{record} record
    * @param{format} format
    */
-  (file, runtime, search, config, url, render, record, format, moment) => {
+  (file, runtime, search, config, url, render, record, format, moment, env) => {
 
-    const EXPORT_DATE_FORMAT = 'YYYY-MM-DD', 
-      IMPORT_DATE_FORMAT = 'M/D/YYYY', 
-      EXPORT_TIME_FORMAT = 'HH:mm', 
-      IMPORT_TIME_FORMAT = 'h:mm a';
-    
     // INITIAL RESOURCE
     // -------------------------
     class Resource {
 
       static getEmployees(events) {
         const filters = [
-          ['isinactive','is','F'],
+          ['isinactive', 'is', 'F'],
           'AND',
-          ['custentity_esp_fop_is_wo_resource','is','T']
+          ['custentity_esp_fop_is_wo_resource', 'is', 'T']
         ];
 
         const searchObj = search.create({
           type: 'employee',
           filters,
           columns: [
-            search.createColumn({name: 'custentity_esp_fop_resource_group', label: 'Resource Group'}),
+            search.createColumn({ name: 'custentity_esp_fop_resource_group', label: 'Resource Group' }),
             search.createColumn({
               name: 'formulatext',
               formula: 'SUBSTR(TO_CHAR({firstname}), 0, 1) || SUBSTR(TO_CHAR({lastname}), 0, 1)',
@@ -74,7 +70,7 @@ define([
           ]
         });
 
-         const resources = [];
+        const resources = [];
         searchObj.run().each(result => {
           resources.push({
             id: result.id,
@@ -140,7 +136,11 @@ define([
               return encodeURIComponent(Url.resource(this.id))
             },
             events: events.filter(event => event.resources.map(resource => resource.employee.value).includes(result.id)).map(event => event.id),
-            labRates: JSON.parse(result.getValue('custentity_esp_fop_labour_rate_matrix') || '[]')
+            labRates: JSON.parse(result.getValue('custentity_esp_fop_labour_rate_matrix') || '[]'),
+            time: {
+              start: '',
+              end: ''
+            }
           });
           return true;
         });
@@ -157,18 +157,18 @@ define([
 
         if (resourceGroupIds.length) {
           const searchObj = search.create({
-            type: 'customrecord_esp_fop_wo_resources',
+            type: env.RecordType.RESOURCE_GROUP,
             filters:
-            [
-              ['internalid', 'anyof', resourceGroupIds]
-            ],
+              [
+                ['internalid', 'anyof', resourceGroupIds]
+              ],
             columns:
-            [
-              search.createColumn({ name: 'internalid', label: 'Internal ID', sort: search.Sort.ASC }),
-              search.createColumn({ name: 'name', label: 'Name' }),
-              search.createColumn({ name: 'custrecord_esp_fop_res_grp_subsidiary', label: 'Subsidiary' }),
-              search.createColumn({ name: 'custrecord_esp_fop_res_grp_location', label: 'Location' }),
-            ]
+              [
+                search.createColumn({ name: 'internalid', label: 'Internal ID', sort: search.Sort.ASC }),
+                search.createColumn({ name: 'name', label: 'Name' }),
+                search.createColumn({ name: 'custrecord_esp_fop_res_grp_subsidiary', label: 'Subsidiary' }),
+                search.createColumn({ name: 'custrecord_esp_fop_res_grp_location', label: 'Location' }),
+              ]
           });
           searchObj.run().each(result => {
             let _resources = deepCopy(resources);
@@ -184,26 +184,26 @@ define([
         }
         return resourceGroups;
       }
-      
+
       static getVendors(events) {
         const searchObj = search.create({
           type: 'vendor',
           filters:
-          [
-            ['custentity_esp_fop_is_wo_vendor', 'is', 'T']
-          ],
+            [
+              ['custentity_esp_fop_is_wo_vendor', 'is', 'T']
+            ],
           columns:
-          [
-            search.createColumn({ name: 'entityid', label: 'Name'}),
-            search.createColumn({ name: 'email', label: 'Email'}),
-            search.createColumn({ name: 'url', label: 'Web Address' }),
-            search.createColumn({ name: 'phone', label: 'Phone'}),
-            search.createColumn({ name: 'altphone', label: 'Office Phone'}),
-            search.createColumn({ name: 'fax', label: 'Fax'}),
-            search.createColumn({ name: 'altemail', label: 'Alt. Email'}),
-            search.createColumn({ name: 'custentity_esp_fop_ven_avail_resources', label: 'Available Resources'}),
-            search.createColumn({ name: 'isinactive', label: 'Isinactive'})
-          ]
+            [
+              search.createColumn({ name: 'entityid', label: 'Name' }),
+              search.createColumn({ name: 'email', label: 'Email' }),
+              search.createColumn({ name: 'url', label: 'Web Address' }),
+              search.createColumn({ name: 'phone', label: 'Phone' }),
+              search.createColumn({ name: 'altphone', label: 'Office Phone' }),
+              search.createColumn({ name: 'fax', label: 'Fax' }),
+              search.createColumn({ name: 'altemail', label: 'Alt. Email' }),
+              search.createColumn({ name: 'custentity_esp_fop_ven_avail_resources', label: 'Available Resources' }),
+              search.createColumn({ name: 'isinactive', label: 'Isinactive' })
+            ]
         });
 
         const vendors = [];
@@ -242,10 +242,8 @@ define([
             memo: ''
           });
           return true;
-        });
-
+        })
         // log.audit('----- [Vendors] -----', vendors);
-
         return vendors;
       }
 
@@ -253,23 +251,23 @@ define([
         const searchObj = search.create({
           type: 'item',
           filters:
-          [
-            ['custitem_esp_fop_asset_owned', 'is', 'T'], 
-            'AND', 
-            ['custitem_esp_fop_resource_item_asset', 'is', 'T']
-          ],
+            [
+              ['custitem_esp_fop_asset_owned', 'is', 'T'],
+              'AND',
+              ['custitem_esp_fop_resource_item_asset', 'is', 'T']
+            ],
           columns:
-          [
-            search.createColumn({ name: 'itemid', label: 'Name' }),
-            search.createColumn({ name: 'displayname', label: 'Display Name' }),
-            search.createColumn({ name: 'salesdescription', label: 'Description' }),
-            search.createColumn({ name: 'type', label: 'Type' }),
-            // search.createColumn({ name: 'custitem_esp_fop_equipment_type', label: 'Equipment Type' }),
-            search.createColumn({ name: 'vendor', label: 'Preferred Vendor' }),
-            search.createColumn({ name: 'custitem_esp_fop_rental_duration', label: 'Rental Duration' }),
-            search.createColumn({ name: 'custitem_esp_fop_rental_matrix', label: 'Rental Matrix' }),
-            search.createColumn({ name: 'custitem_esp_fop_rental_unit', label: 'Rental Unit' })
-          ]
+            [
+              search.createColumn({ name: 'itemid', label: 'Name' }),
+              search.createColumn({ name: 'displayname', label: 'Display Name' }),
+              search.createColumn({ name: 'salesdescription', label: 'Description' }),
+              search.createColumn({ name: 'type', label: 'Type' }),
+              // search.createColumn({ name: 'custitem_esp_fop_equipment_type', label: 'Equipment Type' }),
+              search.createColumn({ name: 'vendor', label: 'Preferred Vendor' }),
+              search.createColumn({ name: 'custitem_esp_fop_rental_duration', label: 'Rental Duration' }),
+              search.createColumn({ name: 'custitem_esp_fop_rental_matrix', label: 'Rental Matrix' }),
+              search.createColumn({ name: 'custitem_esp_fop_rental_unit', label: 'Rental Unit' })
+            ]
         });
 
         const assets = [];
@@ -308,32 +306,32 @@ define([
 
       static getList() {
         const searchObj = search.create({
-          type: 'customrecord_esp_fop_work_order',
+          type: env.RecordType.WORK_ORDER,
           filters:
-          [
-             ['isinactive', 'is', 'F']
-          ],
+            [
+              ['isinactive', 'is', 'F']
+            ],
           columns:
-          [
-            search.createColumn({ 
-              name: 'internalid', 
-              label: 'Internal ID',
-              sort: search.Sort.DESC
-            }),
-            search.createColumn({ name: 'id', label: 'ID' }),
-            search.createColumn({ name: 'name', label: 'Name' }),
-            search.createColumn({ name: 'custrecord_esp_cfi_wo_trandate', label: 'Date' }),
-            search.createColumn({ name: 'custrecord_esp_cfi_wo_title', label: 'Title' }),
-            search.createColumn({ name: 'custrecord_esp_cfi_wo_project', label: 'Project' }),
-            search.createColumn({ name: 'custrecord_esp_fop_wo_status', label: 'Status' }),
-            search.createColumn({ name: 'custrecord_esp_cfi_wo_type', label: 'Work Order Type' }),
-            search.createColumn({ name: 'custrecord_esp_cfi_wo_so', label: 'Related Sales Order' }),
-            search.createColumn({ name: 'custrecord_esp_cfi_wo_customer', label: 'Customer' }),
-            search.createColumn({ name: 'custrecord_esp_fop_wo_resource_group', label: 'Resource Group' }),
-            search.createColumn({ name: 'custrecord_esp_cfi_wo_memo', label: 'Work Order Memo' }),
-            search.createColumn({ name: 'created', label: 'Date Created' }),
-            search.createColumn({ name: 'custrecord_esp_cfi_wo_est_hours', label: 'Estimated Hours' })
-          ]
+            [
+              search.createColumn({
+                name: 'internalid',
+                label: 'Internal ID',
+                sort: search.Sort.DESC
+              }),
+              search.createColumn({ name: 'id', label: 'ID' }),
+              search.createColumn({ name: 'name', label: 'Name' }),
+              search.createColumn({ name: 'custrecord_esp_cfi_wo_trandate', label: 'Date' }),
+              search.createColumn({ name: 'custrecord_esp_cfi_wo_title', label: 'Title' }),
+              search.createColumn({ name: 'custrecord_esp_cfi_wo_project', label: 'Project' }),
+              search.createColumn({ name: 'custrecord_esp_fop_wo_status', label: 'Status' }),
+              search.createColumn({ name: 'custrecord_esp_cfi_wo_type', label: 'Work Order Type' }),
+              search.createColumn({ name: 'custrecord_esp_cfi_wo_so', label: 'Related Sales Order' }),
+              search.createColumn({ name: 'custrecord_esp_cfi_wo_customer', label: 'Customer' }),
+              search.createColumn({ name: 'custrecord_esp_fop_wo_resource_group', label: 'Resource Group' }),
+              search.createColumn({ name: 'custrecord_esp_cfi_wo_memo', label: 'Work Order Memo' }),
+              search.createColumn({ name: 'created', label: 'Date Created' }),
+              search.createColumn({ name: 'custrecord_esp_cfi_wo_est_hours', label: 'Estimated Hours' })
+            ]
         });
 
         const workOrders = [];
@@ -353,15 +351,15 @@ define([
               get code() {
                 switch (this.text.toLowerCase()) {
                   case 'not started':
-                    return '#026adf';
+                    return env.WorkOrderCode.NOT_STARTED;
                   case 'in progress':
-                    return '#026adf';
+                    return env.WorkOrderCode.IN_PROGRESS;
                   case 'completed':
-                    return '#28a745';
+                    return env.WorkOrderCode.COMPLETED;
                   case 'hold':
-                    return '#6c757d';
+                    return env.WorkOrderCode.ON_HOLD;
                   case 'closed':
-                    return '#6c757d';
+                    return env.WorkOrderCode.CLOSED;
                 }
               }
             },
@@ -464,13 +462,13 @@ define([
 
       static getCustomers(wokrOrders) {
         return wokrOrders
-        .map(wo => wo.customer)
-        .filter(customer => !!(customer.value))
-        .filter((x, i, arr) => 
-          arr.findIndex(y => (y.value === x.value)) === i // Merge duplicates
-        );
+          .map(wo => wo.customer)
+          .filter(customer => !!(customer.value))
+          .filter((x, i, arr) =>
+            arr.findIndex(y => (y.value === x.value)) === i // Merge duplicates
+          );
       }
-      
+
       static hold(context) {
         const { request, response } = context;
         const { parameters: params } = request;
@@ -479,10 +477,10 @@ define([
 
         try {
           record.submitFields({
-            type: 'customrecord_esp_fop_work_order',
+            type: env.RecordType.WORK_ORDER,
             id: woId,
             values: {
-              custrecord_esp_fop_wo_status: 5 //Hold
+              custrecord_esp_fop_wo_status: env.Status.ON_HOLD
             }
           });
           responseJson.status = 'success';
@@ -505,10 +503,10 @@ define([
 
         try {
           record.submitFields({
-            type: 'customrecord_esp_fop_work_order',
+            type: env.RecordType.WORK_ORDER,
             id: woId,
             values: {
-              custrecord_esp_fop_wo_status: 3 //Closed
+              custrecord_esp_fop_wo_status: env.status.CLOSED
             }
           });
           responseJson.status = 'success';
@@ -529,7 +527,7 @@ define([
         const woId = params.woId;
 
         const woRec = record.load({
-          type: 'customrecord_esp_fop_work_order',
+          type: env.RecordType.WORK_ORDER,
           id: woId
         });
 
@@ -541,7 +539,7 @@ define([
           type: 'subsidiary',
           id: subsidiaryId
         });
-        
+
         const renderer = render.create();
         renderer.addRecord({
           templateName: 'record',
@@ -570,7 +568,7 @@ define([
         const woId = params.woId;
 
         const woLookUp = search.lookupFields({
-          type: 'customrecord_esp_fop_work_order',
+          type: env.RecordType.WORK_ORDER,
           id: woId,
           columns: 'custrecord_esp_cfi_wo_so'
         });
@@ -602,11 +600,9 @@ define([
       static getList(workOrders, events) {
         const woIds = workOrders.map(wo => wo.id);
         const eventIds = events.map(event => event.id);
-
         const filters = [
           ['isinactive', 'is', 'F']
         ];
-
         /* if (woIds.length) {
           filters.push('AND');
           filters.push(['custrecord_esp_fop_res_rel_wo', 'anyof', woIds]);
@@ -616,39 +612,39 @@ define([
           filters.pu1sh('AND');
           filters.push(['custrecord_esp_fop_res_rel_wo_event', 'anyof', eventIds]);
         } */
-
         const searchObj = search.create({
-          type: "customrecord_esp_fop_wo_resources_select",
+          type: env.RecordType.WORK_ORDER_RESOURCE,
           filters,
           columns:
-          [
-            search.createColumn({ name: 'custrecord_esp_fop_res_employee', label: 'Resource Employee' }),
-            search.createColumn({
-              name: 'formulatext',
-              formula: 'SUBSTR(TO_CHAR({custrecord_esp_fop_res_employee.firstname}), 0, 1) || SUBSTR(TO_CHAR({custrecord_esp_fop_res_employee.lastname}), 0, 1)',
-              label: 'Formula (Text)'
-            }),
-            search.createColumn({
-              name: 'formulatext',
-              formula: "{custrecord_esp_fop_res_employee.firstname} || ' ' || {custrecord_esp_fop_res_employee.lastname}",
-              label: 'Formula (Text)'
-            }),
-            search.createColumn({ name: 'email', join: 'custrecord_esp_fop_res_employee', label: 'Email' }),
-            search.createColumn({ name: 'phone', join: 'custrecord_esp_fop_res_employee', label: 'Phone' }),
-            search.createColumn({ name: 'location', join: 'custrecord_esp_fop_res_employee', label: 'Location' }),
-            search.createColumn({ name: 'custrecord_esp_fop_res_rel_wo', label: 'Work Order' }),
-            search.createColumn({ name: 'custrecord_esp_fop_res_rel_wo_event', label: 'Work Order Event' }),
-            search.createColumn({ name: 'custrecord_esp_fop_res_rel_resource_grp', label: 'Resource Group' }),
-            search.createColumn({ name: 'custrecord_esp_fop_res_resource_type', label: 'Resource Type' }),
-            search.createColumn({ name: 'custrecord_esp_fop_res_resource_subtype', label: 'Resource Subtype' }),
-            search.createColumn({ name: 'custrecord_esp_fop_res_rate', label: 'Rate' }),
-            search.createColumn({ name: 'custrecord_esp_fop_res_vendor', label: 'Vendor' }),
-            search.createColumn({ name: 'custrecord_esp_fop_res_rel_po', label: 'Purchase Order' }),
-            search.createColumn({ name: 'custrecord_esp_fop_res_aff_type', label: 'Affiliation Type' }),
-            search.createColumn({ name: 'custentity_esp_fop_is_employee_active', join: 'custrecord_esp_fop_res_employee', label: 'Active' })
-          ]
-       });
-
+            [
+              search.createColumn({ name: 'custrecord_esp_fop_res_employee', label: 'Resource Employee' }),
+              search.createColumn({
+                name: 'formulatext',
+                formula: 'SUBSTR(TO_CHAR({custrecord_esp_fop_res_employee.firstname}), 0, 1) || SUBSTR(TO_CHAR({custrecord_esp_fop_res_employee.lastname}), 0, 1)',
+                label: 'Formula (Text)'
+              }),
+              search.createColumn({
+                name: 'formulatext',
+                formula: "{custrecord_esp_fop_res_employee.firstname} || ' ' || {custrecord_esp_fop_res_employee.lastname}",
+                label: 'Formula (Text)'
+              }),
+              search.createColumn({ name: 'email', join: 'custrecord_esp_fop_res_employee', label: 'Email' }),
+              search.createColumn({ name: 'phone', join: 'custrecord_esp_fop_res_employee', label: 'Phone' }),
+              search.createColumn({ name: 'location', join: 'custrecord_esp_fop_res_employee', label: 'Location' }),
+              search.createColumn({ name: 'custrecord_esp_fop_res_rel_wo', label: 'Work Order' }),
+              search.createColumn({ name: 'custrecord_esp_fop_res_rel_wo_event', label: 'Work Order Event' }),
+              search.createColumn({ name: 'custrecord_esp_fop_res_rel_resource_grp', label: 'Resource Group' }),
+              search.createColumn({ name: 'custrecord_esp_fop_res_resource_type', label: 'Resource Type' }),
+              search.createColumn({ name: 'custrecord_esp_fop_res_resource_subtype', label: 'Resource Subtype' }),
+              search.createColumn({ name: 'custrecord_esp_fop_res_rate', label: 'Rate' }),
+              search.createColumn({ name: 'custrecord_esp_fop_res_vendor', label: 'Vendor' }),
+              search.createColumn({ name: 'custrecord_esp_fop_res_rel_po', label: 'Purchase Order' }),
+              search.createColumn({ name: 'custrecord_esp_fop_res_aff_type', label: 'Affiliation Type' }),
+              search.createColumn({ name: 'custentity_esp_fop_is_employee_active', join: 'custrecord_esp_fop_res_employee', label: 'Active' }),
+              search.createColumn({ name: 'custrecord_esp_fop_res_start_time', label: 'Start Time' }),
+              search.createColumn({ name: 'custrecord_esp_fop_res_end_time', label: 'End Time' })
+            ]
+        });
         const resources = [];
         searchObj.run().each(result => {
           resources.push({
@@ -713,6 +709,14 @@ define([
             affiliationType: {
               text: result.getText('custrecord_esp_fop_res_aff_type'),
               value: result.getValue('custrecord_esp_fop_res_aff_type')
+            },
+            get time() {
+              const startTime = result.getValue('custrecord_esp_fop_res_start_time');
+              const endTime = result.getValue('custrecord_esp_fop_res_end_time');
+              return {
+                start: startTime && moment(`1/1/1999 ${startTime}`).format(env.Format.EXPORT_TIME),
+                end: endTime && moment(`1/1/1999 ${endTime}`).format(env.Format.EXPORT_TIME)
+              }
             }
           });
           return true;
@@ -722,34 +726,33 @@ define([
       }
 
       // Employee to Work Order Resource
-      static _createRecords(event, woRef) {
+      static _createResources(event, woRef) {
         const resources = event?.selectedResources || [];
-        for (let resource of resources) {
+        for (const resource of resources) {
           try {
             const rec = record.create({
-              type: 'customrecord_esp_fop_wo_resources_select', 
+              type: env.RecordType.WORK_ORDER_RESOURCE,
               isDynamic: false
             });
             rec.setValue({ fieldId: 'custrecord_esp_fop_res_rel_wo', value: woRef?.id || '' });
-            rec.setValue({ fieldId: 'custrecord_esp_fop_res_rel_wo_event', value: [event.id] });
+            rec.setValue({ fieldId: 'custrecord_esp_fop_res_rel_wo_event', value: event.id });
             rec.setValue({ fieldId: 'custrecord_esp_fop_res_employee', value: resource.employee.value });
 
             if (resource.resourceGroups.length) {
               rec.setValue({ fieldId: 'custrecord_esp_fop_res_rel_resource_grp', value: resource.resourceGroups.map(resourceGroup => resourceGroup.value) });
             }
-
             if (resource.types.length) {
               rec.setValue({ fieldId: 'custrecord_esp_fop_res_resource_type', value: resource.types.map(type => type.value) });
             }
-
             if (resource.subTypes.length) {
               rec.setValue({ fieldId: 'custrecord_esp_fop_res_resource_subtype', value: resource.subTypes.map(subType => subType.value) });
             }
-            
             rec.setValue({ fieldId: 'custrecord_esp_fop_res_rate', value: resource.rate });
             rec.setValue({ fieldId: 'custrecord_esp_fop_res_vendor', value: resource.vendor.value });
             rec.setValue({ fieldId: 'custrecord_esp_fop_res_rel_po', value: resource.purchaseOrder.value });
             rec.setValue({ fieldId: 'custrecord_esp_fop_res_aff_type', value: resource.affiliationType.value });
+            rec.setValue({ fieldId: 'custrecord_esp_fop_res_start_time', value: Utils._toDateTimez(event.date.start, resource.time.start) });
+            rec.setValue({ fieldId: 'custrecord_esp_fop_res_end_time', value: Utils._toDateTimez(event.date.start, resource.time.end) });
             const newId = rec.save({ ignoreMandatoryFieds: true });
             log.audit('----- [Created WO Resource Record] -----', newId);
           } catch (e) {
@@ -759,113 +762,67 @@ define([
         }
       }
 
-      // Link newly created event to the employee resources
-      static _appendEventToRecords(event) {
-        const resources = event?.selectedResources || [];
-        for (let resource of resources) {
-          try {
-            const lookUp = search.lookupFields({
-              type: 'customrecord_esp_fop_wo_resources_select', 
-              id: resource.id, 
-              columns: 'custrecord_esp_fop_res_rel_wo_event' 
-            });
-            let events = (lookUp.custrecord_esp_fop_res_rel_wo_event[0]?.value || '').split(',');
-            events.push(event.id);
-            events = events.filter(Boolean);
-
-            record.submitFields({
-              type: 'customrecord_esp_fop_wo_resources_select',
-              id: resource.id,
-              values: {
-                custrecord_esp_fop_res_rel_wo_event: events
-              },
-              options: {
-                ignoreMandatoryFieds: true
-              }
-            }); 
-            log.audit('----- [Added Event to WO Resource Record] -----', resource.id);
-          } catch (e) {
-            log.error('Error on WO Resource > Add Events', { resource: resource.id, errorMsg: e.message });
-            resource.errorMsg = e.messasge;
-          }
-        }
-      }
-
-      static _updateEventResources(event, dataSrc, woRef, woResources) {
+      // Update existing resources start/end time etc
+      static _updateResources(event, dataSrc, woRef) {
         const selectedResources = event.selectedResources;
         const selectedResourceIds = selectedResources.map(resource => resource.id);
-        const srcEvents = dataSrc ? dataSrc.resources.filter(resource => !!(resource.selected)) : [];
-        const srcEventIds = srcEvents.map(resource => resource.id);
-        const removedResources = srcEvents.filter(resource => !!!(selectedResourceIds.includes(resource.id)));
-        const newResources = selectedResources.filter(resource => !!!(srcEventIds.includes(resource.id)));
-        // Utils.createLogFile(`updateEventRecord()`, JSON.stringify({ event, dataSrc, woRef, woResources }), 2199);
-        log.audit('Updating WO Resource Event List', { removedResources, newResources });
+        const srcResources = dataSrc.resources.filter(resource => !!(resource.selected));
+        const srcResourcesIds = srcResources.map(resource => resource.id);
+        const removedResources = srcResources.filter(resource => !!!(selectedResourceIds.includes(resource.id)));
+        const newResources = selectedResources.filter(resource => !!!(srcResourcesIds.includes(resource.id)));
 
-        if (woRef?.id) {
-          this._removeEventFromResources(removedResources, event.id);
-        } else {
-          Utils._deleteRecords('customrecord_esp_fop_wo_resources_select', removedResources.map(resource => resource.id)); // For general event scenario where 1 event = 1 WO resource
-        }
+        log.audit('Updating WO Resource Event List', { selectedResources, removedResources, newResources });
 
-        const createResources = newResources.filter(resource => !!!resource.events.includes(event.id) && !!!woResources.map(resource => resource.id).includes(resource.id));
-        const updateResources = newResources.filter(resource => !!!resource.events.includes(event.id) && !!woResources.map(resource => resource.id).includes(resource.id));
-
-         log.audit('Create/Update WO Resource', { createResources, updateResources });
-
-        const clonedEventObjCreate = deepCopy(event);
-        clonedEventObjCreate.selectedResources = createResources;
-        this._createRecords(clonedEventObjCreate, woRef);
-
-        const clonedEventObjUpdate = deepCopy(event);
-        clonedEventObjUpdate.selectedResources = updateResources;
-        this._appendEventToRecords(clonedEventObjUpdate);
-      }
-
-      static _removeEventFromResources(resources, eventId) {
-        for (let resource of resources) {
+        // If theres to start/end time to update
+        for (const resource of selectedResources) {
           try {
             const lookUp = search.lookupFields({
-              type: 'customrecord_esp_fop_wo_resources_select', 
-              id: resource.id, 
-              columns: 'custrecord_esp_fop_res_rel_wo_event' 
-            });
-            const idToRemove = eventId;
-            let events = (lookUp.custrecord_esp_fop_res_rel_wo_event[0]?.value || '').split(',');
-            const index = events.indexOf(idToRemove);
-
-            if (index > -1) {
-              events.splice(index, 1);
-            }
-
-            record.submitFields({
-              type: 'customrecord_esp_fop_wo_resources_select',
+              type: env.RecordType.WORK_ORDER_RESOURCE,
               id: resource.id,
-              values: {
-                custrecord_esp_fop_res_rel_wo_event: events
-              },
-              options: {
-                ignoreMandatoryFieds: true
-              }
-            }); 
-            log.audit('----- [Removed Event from WO Resource Record] -----', resource);
+              columns: ['custrecord_esp_fop_res_start_time', 'custrecord_esp_fop_res_end_time']
+            });
+            const values = {};
+            const startTime = moment(`1/1/1999 ${resource.time.start}`).format(env.Format.IMPORT_TIME);
+            if (lookUp.custrecord_esp_fop_res_start_time != startTime) {
+              values.custrecord_esp_fop_res_start_time = startTime;
+            }
+            const endTime = moment(`1/1/1999 ${resource.time.end}`).format(env.Format.IMPORT_TIME);
+            if (lookUp.custrecord_esp_fop_res_end_time != endTime) {
+              values.custrecord_esp_fop_res_end_time = endTime;
+            }
+            if (Object.keys(values).length) {
+              record.submitFields({
+                type: env.RecordType.WORK_ORDER_RESOURCE,
+                id: resource.id,
+                values,
+                options: {
+                  ignoreMandatoryFieds: true
+                }
+              });
+              log.audit('----- [Updated WO Resource Record] -----', { resource });
+            }
           } catch (e) {
-            log.error('Error on WO Resource > Remove Event', { resource, errorMsg: e.message });
-            resource.errorMsg = e.messasge;
+            log.error('Error on WO Resource > Update', { resource, errorMsg: e.message });
           }
         }
+        // If theres to remove
+        Utils._deleteRecords(env.RecordType.WORK_ORDER_RESOURCE, removedResources.map(resource => resource.id));
+
+        // If theres to create
+        const clonedEventObj = deepCopy(event);
+        clonedEventObj.selectedResources = newResources;
+        this._createResources(clonedEventObj, woRef);
       }
     }
 
     class WorkOrderVendor {
-      
+
       static getList(workOrders, events) {
         const woIds = workOrders.map(wo => wo.id);
         const eventIds = events.map(event => event.id);
-
         const filters = [
           ['isinactive', 'is', 'F']
         ];
-
         // To include general events
         /* if (woIds.length) {
           filters.push('AND');
@@ -876,28 +833,27 @@ define([
           filters.push('AND');
           filters.push(['custrecord_esp_fop_wo_sub_event', 'anyof', eventIds]);
         } */
-
         const searchObj = search.create({
-          type: 'customrecord_esp_fop_wo_subcons_select',
+          type: env.RecordType.WORK_ORDER_VENDOR,
           filters,
           columns:
-          [
-            search.createColumn({ name: 'name', label: 'Name'}),
-            search.createColumn({ name: 'custrecord_esp_fop_wo_sub_vendor', label: 'Vendor'}),
-            search.createColumn({ name: 'url', join: 'custrecord_esp_fop_wo_sub_vendor', label: 'Web Address'}),
-            search.createColumn({ name: 'email', join: 'custrecord_esp_fop_wo_sub_vendor', label: 'Email'}),
-            search.createColumn({ name: 'custrecord_esp_fop_wo_sub_rel_wo', label: 'Work Order'}),
-            search.createColumn({ name: 'custrecord_esp_fop_wo_sub_qty_rqd', label: 'Quantity Required'}),
-            search.createColumn({
-              name: 'custentity_esp_fop_ven_avail_resources',
-              join: 'CUSTRECORD_ESP_FOP_WO_SUB_VENDOR',
-              label: 'Available Resources'
-            }),
-            search.createColumn({ name: 'custrecord_esp_fop_wo_sub_event', label: 'Event'}),
-            search.createColumn({ name: 'custrecord_esp_fop_wo_sub_po', label: 'Purchase Order'}),
-            search.createColumn({ name: 'custrecord_esp_fop_wo_sub_amount', label: 'Amount'}),
-            search.createColumn({ name: 'custrecord_esp_fop_wo_sub_comment', label: 'Comments'})
-         ]
+            [
+              search.createColumn({ name: 'name', label: 'Name' }),
+              search.createColumn({ name: 'custrecord_esp_fop_wo_sub_vendor', label: 'Vendor' }),
+              search.createColumn({ name: 'url', join: 'custrecord_esp_fop_wo_sub_vendor', label: 'Web Address' }),
+              search.createColumn({ name: 'email', join: 'custrecord_esp_fop_wo_sub_vendor', label: 'Email' }),
+              search.createColumn({ name: 'custrecord_esp_fop_wo_sub_rel_wo', label: 'Work Order' }),
+              search.createColumn({ name: 'custrecord_esp_fop_wo_sub_qty_rqd', label: 'Quantity Required' }),
+              search.createColumn({
+                name: 'custentity_esp_fop_ven_avail_resources',
+                join: 'CUSTRECORD_ESP_FOP_WO_SUB_VENDOR',
+                label: 'Available Resources'
+              }),
+              search.createColumn({ name: 'custrecord_esp_fop_wo_sub_event', label: 'Event' }),
+              search.createColumn({ name: 'custrecord_esp_fop_wo_sub_po', label: 'Purchase Order' }),
+              search.createColumn({ name: 'custrecord_esp_fop_wo_sub_amount', label: 'Amount' }),
+              search.createColumn({ name: 'custrecord_esp_fop_wo_sub_comment', label: 'Comments' })
+            ]
         });
 
         const vendors = [];
@@ -944,12 +900,12 @@ define([
         return vendors;
       }
 
-      static _createRecords(event, woRef) {
+      static _createVendors(event, woRef) {
         const vendors = event?.selectedVendors || [];
-        for (let vendor of vendors) {
+        for (const vendor of vendors) {
           try {
             const rec = record.create({
-              type: 'customrecord_esp_fop_wo_subcons_select', 
+              type: env.RecordType.WORK_ORDER_VENDOR,
               isDynamic: true
             });
             rec.setValue({ fieldId: 'name', value: vendor.name });
@@ -967,7 +923,7 @@ define([
         }
       }
 
-      static _updateRecords(event, dataSrc, woRef) {
+      static _updateVendors(event, dataSrc, woRef) {
         const selectedVendors = event.selectedVendors;
         const selectedVendorIds = selectedVendors.map(vendor => vendor.id);
         const srcVendors = dataSrc.vendors.filter(vendor => !!(vendor.selected));
@@ -981,8 +937,8 @@ define([
         for (const vendor of selectedVendors) {
           try {
             const lookUp = search.lookupFields({
-              type: 'customrecord_esp_fop_wo_subcons_select', 
-              id: vendor.id, 
+              type: env.RecordType.WORK_ORDER_VENDOR,
+              id: vendor.id,
               columns: ['custrecord_esp_fop_wo_sub_qty_rqd', 'custrecord_esp_fop_wo_sub_comment']
             });
             const values = {};
@@ -995,7 +951,7 @@ define([
 
             if (Object.keys(values).length) {
               record.submitFields({
-                type: 'customrecord_esp_fop_wo_subcons_select',
+                type: env.RecordType.WORK_ORDER_VENDOR,
                 id: vendor.id,
                 values,
                 options: {
@@ -1009,12 +965,12 @@ define([
           }
         }
         // If theres to remove
-        Utils._deleteRecords('customrecord_esp_fop_wo_subcons_select', removedVendors.map(vendor => vendor.id));
+        Utils._deleteRecords(env.RecordType.WORK_ORDER_VENDOR, removedVendors.map(vendor => vendor.id));
 
         // If theres to create
         const clonedEventObj = deepCopy(event);
         clonedEventObj.selectedVendors = newVendors;
-        this._createRecords(clonedEventObj, woRef);
+        this._createVendors(clonedEventObj, woRef);
       }
     }
 
@@ -1023,11 +979,9 @@ define([
       static getList(workOrders, events) {
         const woIds = workOrders.map(wo => wo.id);
         const eventIds = events.map(event => event.id);
-
         const filters = [
           ['isinactive', 'is', 'F']
         ];
-
         // To include general events
         /* if (woIds.length) {
           filters.push('AND');
@@ -1038,28 +992,26 @@ define([
           filters.push('AND');
           filters.push(['custrecord_esp_fop_ast_wo_event', 'anyof', eventIds]);
         } */
-
         const searchObj = search.create({
-          type: 'customrecord_esp_fop_wo_asset_selected',
+          type: env.RecordType.WORK_ORDER_ASSET,
           filters,
           columns:
-          [
-            search.createColumn({ name: 'custrecord_esp_fop_ast_rel_wo', label: 'Work Order' }),
-            search.createColumn({ name: 'custrecord_esp_fop_ast_wo_event', label: 'Work Order Event' }),
-            search.createColumn({ name: 'custrecord_esp_fop_ast_quantity', label: 'Quantity' }),
-            search.createColumn({ name: 'custrecord_esp_fop_ast_item_desc', label: 'Item Description' }),
-            search.createColumn({ name: 'custrecord_esp_fop_ast_equipment', label: 'Equipment' }),
-            search.createColumn({ name: 'custrecordesp_fop_ast_rental_unit', label: 'Rental Unit' }),
-            search.createColumn({ name: 'custrecord_esp_fop_ast_rental_duration', label: 'Rental Duration' }),
-            search.createColumn({ name: 'custrecord_esp_fop_ast_rental_rate', label: 'Rental Rate' }),
-            search.createColumn({ name: 'custrecord_esp_fop_ast_rental_amount', label: 'Rental Amount' }),
-            search.createColumn({ name: 'custrecord_esp_fop_ast_related_po', label: 'Related Purchase Order' }),
-            search.createColumn({ name: 'custrecord_esp_fop_ast_primary_vendor', label: 'Vendor' }),
-            search.createColumn({ name: 'custrecord_esp_fop_ast_equip_type', label: 'Equipment Type' }),
-            search.createColumn({ name: 'custrecord_esp_fop_ast_is_owned', label: 'Is Owned' }),
-          ]
+            [
+              search.createColumn({ name: 'custrecord_esp_fop_ast_rel_wo', label: 'Work Order' }),
+              search.createColumn({ name: 'custrecord_esp_fop_ast_wo_event', label: 'Work Order Event' }),
+              search.createColumn({ name: 'custrecord_esp_fop_ast_quantity', label: 'Quantity' }),
+              search.createColumn({ name: 'custrecord_esp_fop_ast_item_desc', label: 'Item Description' }),
+              search.createColumn({ name: 'custrecord_esp_fop_ast_equipment', label: 'Equipment' }),
+              search.createColumn({ name: 'custrecordesp_fop_ast_rental_unit', label: 'Rental Unit' }),
+              search.createColumn({ name: 'custrecord_esp_fop_ast_rental_duration', label: 'Rental Duration' }),
+              search.createColumn({ name: 'custrecord_esp_fop_ast_rental_rate', label: 'Rental Rate' }),
+              search.createColumn({ name: 'custrecord_esp_fop_ast_rental_amount', label: 'Rental Amount' }),
+              search.createColumn({ name: 'custrecord_esp_fop_ast_related_po', label: 'Related Purchase Order' }),
+              search.createColumn({ name: 'custrecord_esp_fop_ast_primary_vendor', label: 'Vendor' }),
+              search.createColumn({ name: 'custrecord_esp_fop_ast_equip_type', label: 'Equipment Type' }),
+              search.createColumn({ name: 'custrecord_esp_fop_ast_is_owned', label: 'Is Owned' }),
+            ]
         });
-
         const assets = [];
         searchObj.run().each(result => {
           assets.push({
@@ -1105,12 +1057,12 @@ define([
         return assets;
       }
 
-      static _createRecords(event, woRef) {
+      static _createAssets(event, woRef) {
         const assets = event?.selectedAssets || [];
-        for (let asset of assets) {
+        for (const asset of assets) {
           try {
             const rec = record.create({
-              type: 'customrecord_esp_fop_wo_asset_selected',
+              type: env.RecordType.WORK_ORDER_ASSET,
               isDynamic: true
             });
             rec.setValue({ fieldId: 'custrecord_esp_fop_ast_equipment', value: asset.id });
@@ -1135,27 +1087,27 @@ define([
         }
       }
 
-      static _updateRecords(event, dataSrc, woRef) {
+      static _updateAssets(event, dataSrc, woRef) {
         const selectedAssets = event.selectedAssets;
         const selectedassetIds = selectedAssets.map(asset => asset.id);
         const srcassets = dataSrc.assets.filter(asset => !!(asset.selected));
         const srcassetIds = srcassets.map(asset => asset.id);
         const removedAssets = srcassets.filter(asset => !!!(selectedassetIds.includes(asset.id)));
         const newAssets = selectedAssets.filter(asset => !!!(srcassetIds.includes(asset.id)));
-      
+
         log.audit('Updating WO asset Event List', { selectedAssets, removedAssets, newAssets });
-      
+
         // If theres to quantity update
         for (const asset of selectedAssets) {
           try {
             const lookUp = search.lookupFields({
-              type: 'customrecord_esp_fop_wo_asset_selected', 
-              id: asset.id, 
-              columns: 'custrecord_esp_fop_ast_quantity' 
+              type: env.RecordType.WORK_ORDER_ASSET,
+              id: asset.id,
+              columns: 'custrecord_esp_fop_ast_quantity'
             });
             if (lookUp.custrecord_esp_fop_ast_quantity != asset.quantity) {
               record.submitFields({
-                type: 'customrecord_esp_fop_wo_asset_selected',
+                type: env.RecordType.WORK_ORDER_ASSET,
                 id: asset.id,
                 values: {
                   custrecord_esp_fop_ast_quantity: asset.quantity
@@ -1171,41 +1123,41 @@ define([
           }
         }
         // If theres to remove
-        Utils._deleteRecords('customrecord_esp_fop_wo_asset_selected', removedAssets.map(asset => asset.id));
-        
+        Utils._deleteRecords(env.RecordType.WORK_ORDER_ASSET, removedAssets.map(asset => asset.id));
+
         // If theres to create
         const clonedEventObj = deepCopy(event);
         clonedEventObj.selectedAssets = newAssets;
-        this._createRecords(clonedEventObj, woRef);
+        this._createAssets(clonedEventObj, woRef);
       }
     }
 
     class WorkOrderItem {
-      
+
       static getList(workOrders) {
         const woIds = workOrders.map(wo => wo.id);
         if (!woIds.length) return [];
 
         const searchObj = search.create({
-          type: 'customrecord_esp_fop_wo_item',
+          type: env.RecordType.WORK_ORDER_ITEM,
           filters:
-          [
-            ['isinactive', 'is', 'F'],
-            'AND',
-            ['custrecord_esp_fop_wo_item_rel_wo', 'anyof', woIds]
-          ],
+            [
+              ['isinactive', 'is', 'F'],
+              'AND',
+              ['custrecord_esp_fop_wo_item_rel_wo', 'anyof', woIds]
+            ],
           columns:
-          [
-            search.createColumn({ name: 'custrecord_esp_fop_wo_item_rel_wo', label: 'Work Order' }),
-            search.createColumn({ name: 'custrecord_esp_fop_wo_item_so', label: 'Sales Order' }),
-            search.createColumn({ name: 'custrecord_esp_fop_wo_item_event', label: 'Work Order Event' }),
-            search.createColumn({ name: 'custrecord_esp_fop_wo_item_name', label: 'Item' }),
-            search.createColumn({ name: 'custrecord_esp_fop_wo_item_description', label: 'Description' }),
-            search.createColumn({ name: 'custrecord_esp_fop_wo_item_quantity', label: 'Quantity' }),
-            search.createColumn({ name: 'custrecord_esp_fop_wo_item_memo', label: 'Memo' }),
-            search.createColumn({ name: 'custrecord_esp_fop_wo_item_line_id', label: 'Line ID' }),
-            search.createColumn({ name: 'custrecord_esp_fop_wo_item_uuid', label: 'UUID' }),
-          ]
+            [
+              search.createColumn({ name: 'custrecord_esp_fop_wo_item_rel_wo', label: 'Work Order' }),
+              search.createColumn({ name: 'custrecord_esp_fop_wo_item_so', label: 'Sales Order' }),
+              search.createColumn({ name: 'custrecord_esp_fop_wo_item_event', label: 'Work Order Event' }),
+              search.createColumn({ name: 'custrecord_esp_fop_wo_item_name', label: 'Item' }),
+              search.createColumn({ name: 'custrecord_esp_fop_wo_item_description', label: 'Description' }),
+              search.createColumn({ name: 'custrecord_esp_fop_wo_item_quantity', label: 'Quantity' }),
+              search.createColumn({ name: 'custrecord_esp_fop_wo_item_memo', label: 'Memo' }),
+              search.createColumn({ name: 'custrecord_esp_fop_wo_item_line_id', label: 'Line ID' }),
+              search.createColumn({ name: 'custrecord_esp_fop_wo_item_uuid', label: 'UUID' }),
+            ]
         });
 
         const items = [];
@@ -1239,19 +1191,19 @@ define([
         return items;
       }
 
-      static _createRecords(event) {
+      static _createItems(event) {
         const items = event?.selectedItems || [];
-        for (let item of items) {
+        for (const item of items) {
           try {
             const rec = record.copy({
-              type: 'customrecord_esp_fop_wo_item', 
+              type: env.RecordType.WORK_ORDER_ITEM,
               id: item.id,
               isDynamic: true
             });
             rec.setValue({ fieldId: 'name', value: item.item.text });
             rec.setValue({ fieldId: 'custrecord_esp_fop_wo_item_event', value: event.id });
             rec.setValue({ fieldId: 'custrecord_esp_fop_wo_item_quantity', value: item.quantity });
-            item.id = rec.save({ ignoreMandatoryFieds: true }); 
+            item.id = rec.save({ ignoreMandatoryFieds: true });
             log.audit('----- [Created WO Item Record] -----', item.id);
           } catch (e) {
             log.error('Error on WO Item > Create', { item: item.item, errorMsg: e.message });
@@ -1260,7 +1212,7 @@ define([
         }
       }
 
-      static _updateRecords(event, dataSrc) {
+      static _updateItems(event, dataSrc) {
         const selectedItems = event.selectedItems;
         const selectedItemIds = selectedItems.map(item => item.id);
         const srcItems = dataSrc.items.filter(item => !!(item.selected));
@@ -1274,13 +1226,13 @@ define([
         for (const item of selectedItems) {
           try {
             const lookUp = search.lookupFields({
-              type: 'customrecord_esp_fop_wo_item', 
-              id: item.id, 
-              columns: 'custrecord_esp_fop_wo_item_quantity' 
+              type: env.RecordType.WORK_ORDER_ITEM,
+              id: item.id,
+              columns: 'custrecord_esp_fop_wo_item_quantity'
             });
             if (lookUp.custrecord_esp_fop_wo_item_quantity != item.quantity) {
               record.submitFields({
-                type: 'customrecord_esp_fop_wo_item',
+                type: env.RecordType.WORK_ORDER_ITEM,
                 id: item.id,
                 values: {
                   custrecord_esp_fop_wo_item_quantity: item.quantity
@@ -1297,12 +1249,12 @@ define([
         }
 
         // If theres to remove
-        Utils._deleteRecords('customrecord_esp_fop_wo_item', removedItems.map(item => item.id));
+        Utils._deleteRecords(env.RecordType.WORK_ORDER_ITEM, removedItems.map(item => item.id));
 
         // If theres to create
         const clonedEventObj = deepCopy(event);
         clonedEventObj.selectedItems = newItems;
-        this._createRecords(clonedEventObj);
+        this._createItems(clonedEventObj);
       }
     }
 
@@ -1314,25 +1266,25 @@ define([
 
         const contacts = [];
         const searchObj = search.create({
-          type: 'customrecord_esp_fop_wo_contact',
+          type: env.RecordType.WORK_ORDER_CONTACT,
           filters:
-          [
-            ['isinactive', 'is', 'F'],
-            'AND',
-            ['custrecord_esp_fop_rel_wo', 'anyof', woIds]
-          ],
+            [
+              ['isinactive', 'is', 'F'],
+              'AND',
+              ['custrecord_esp_fop_rel_wo', 'anyof', woIds]
+            ],
           columns:
-          [
-            search.createColumn({ name: 'custrecord_esp_fop_rel_wo', label: 'Work Order' }),
-            search.createColumn({ name: 'custrecord_esp_fop_wo_rel_event', label: 'Work Order Event' }),
-            search.createColumn({ name: 'custrecord_esp_fop_wo_contact_rec', label: 'Contact' }),
-            search.createColumn({ name: 'custrecord_esp_fop_wo_contact_name', label: 'Contact Name' }),
-            search.createColumn({ name: 'custrecord_esp_fop_wo_contact_email', label: 'Email' }),
-            search.createColumn({ name: 'custrecord_esp_fop_wo_contact_jobtitle', label: 'Job Title' }),
-            search.createColumn({ name: 'custrecord_esp_fop_wo_mobile_no', label: 'Mobile Phone Number' }),
-            search.createColumn({ name: 'custrecord_esp_fop_wo_phone_number', label: 'Phone Number' }),
-            search.createColumn({ name: 'custrecord_esp_fop_wo_contact_role', label: 'Role' }),
-          ]
+            [
+              search.createColumn({ name: 'custrecord_esp_fop_rel_wo', label: 'Work Order' }),
+              search.createColumn({ name: 'custrecord_esp_fop_wo_rel_event', label: 'Work Order Event' }),
+              search.createColumn({ name: 'custrecord_esp_fop_wo_contact_rec', label: 'Contact' }),
+              search.createColumn({ name: 'custrecord_esp_fop_wo_contact_name', label: 'Contact Name' }),
+              search.createColumn({ name: 'custrecord_esp_fop_wo_contact_email', label: 'Email' }),
+              search.createColumn({ name: 'custrecord_esp_fop_wo_contact_jobtitle', label: 'Job Title' }),
+              search.createColumn({ name: 'custrecord_esp_fop_wo_mobile_no', label: 'Mobile Phone Number' }),
+              search.createColumn({ name: 'custrecord_esp_fop_wo_phone_number', label: 'Phone Number' }),
+              search.createColumn({ name: 'custrecord_esp_fop_wo_contact_role', label: 'Role' }),
+            ]
         });
         searchObj.run().each(result => {
           contacts.push({
@@ -1362,69 +1314,42 @@ define([
         return contacts;
       }
 
-      static _appendEventToRecords(event) {
-        const contacts = event?.contacts || [];
-        for (let contact of contacts) {
+      static _createContacts(event) {
+        const contacts = event?.selectedContacts || [];
+        for (const contact of contacts) {
           try {
-            const lookUp = search.lookupFields({
-              type: 'customrecord_esp_fop_wo_contact', 
-              id: contact.id, 
-              columns: 'custrecord_esp_fop_wo_rel_event' 
-            });
-            let events = (lookUp.custrecord_esp_fop_wo_rel_event[0]?.value || '').split(',');
-            events.push(event.id);
-            events = events.filter(Boolean);
-  
-            record.submitFields({
-              type: 'customrecord_esp_fop_wo_contact',
+            const rec = record.copy({
+              type: env.RecordType.WORK_ORDER_CONTACT,
               id: contact.id,
-              values: {
-                custrecord_esp_fop_wo_rel_event: events
-              },
-              options: {
-                ignoreMandatoryFieds: true
-              }
-            }); 
-            log.audit('----- [Added Event from WO Contact Record] -----', contact.id);
+              isDynamic: true
+            });
+            rec.setValue({ fieldId: 'custrecord_esp_fop_wo_rel_event', value: event.id });
+            contact.id = rec.save({ ignoreMandatoryFieds: true });
+            log.audit('----- [Created WO Contact Record] -----', contact.id);
           } catch (e) {
-            log.error('Error on WO Contact > Add Events', { contact: contact.id, errorMsg: e.message });
+            log.error('Error on WO Contact > Create', { id: contact.id, errorMsg: e.message });
             contact.errorMsg = e.message;
           }
         }
       }
-      
-      static _removeEventFromContacts(contacts, eventId) {
-        for (let contact of contacts) {
-          try {
-            const lookUp = search.lookupFields({
-              type: 'customrecord_esp_fop_wo_contact', 
-              id: contact.id, 
-              columns: 'custrecord_esp_fop_wo_rel_event' 
-            });
-            const idToRemove = eventId;
-            let events = (lookUp.custrecord_esp_fop_wo_rel_event[0]?.value || '').split(',');
-            const index = events.indexOf(idToRemove);
 
-            if (index > -1) {
-              events.splice(index, 1);
-            }
+      static _updateContacts(event, dataSrc) {
+        const selectedContacts = event.selectedContacts;
+        const selectedContactIds = selectedContacts.map(contact => contact.id);
+        const srcContacts = dataSrc.contacts.filter(contact => !!(contact.selected));
+        const srcContactIds = srcContacts.map(contact => contact.id);
+        const removedContacts = srcContacts.filter(contact => !!!(selectedContactIds.includes(contact.id)));
+        const newContacts = selectedContacts.filter(contact => !!!(srcContactIds.includes(contact.id)));
 
-            record.submitFields({
-              type: 'customrecord_esp_fop_wo_contact',
-              id: contact.id,
-              values: {
-                custrecord_esp_fop_wo_rel_event: events
-              },
-              options: {
-                ignoreMandatoryFieds: true
-              }
-            });  
-            log.audit('----- [Removed Event from WO Contact Record] -----', contact);
-          } catch (e) {
-            log.error('Error on WO Contact > Remove Event', { contact, errorMsg: e.message });
-            contact.errorMsg = e.message;
-          }
-        }
+        log.audit('Updating WO Contact Event List', { selectedContacts, removedContacts, newContacts });
+
+        // If theres to remove
+        Utils._deleteRecords(env.RecordType.WORK_ORDER_CONTACT, removedContacts.map(contact => contact.id));
+
+        // If theres to create
+        const clonedEventObj = deepCopy(event);
+        clonedEventObj.selectedContacts = newContacts;
+        this._createContacts(clonedEventObj);
       }
     }
 
@@ -1436,21 +1361,21 @@ define([
 
         const addresses = [];
         const searchObj = search.create({
-          type: 'customrecord_esp_fop_wo_address',
+          type: env.RecordType.WORK_ORDER_ADDRESS,
           filters:
-          [
-            ['isinactive', 'is', 'F'],
-            'AND',
-            ['custrecord_esp_fop_address_rel_wo', 'anyof', woIds]
-          ],
+            [
+              ['isinactive', 'is', 'F'],
+              'AND',
+              ['custrecord_esp_fop_address_rel_wo', 'anyof', woIds]
+            ],
           columns:
-          [
-            search.createColumn({ name: 'custrecord_esp_fop_address_rel_wo', label: 'Work Order' }),
-            search.createColumn({ name: 'custrecord_esp_fop_wo_add_customer', label: 'Customer' }),
-            search.createColumn({ name: 'custrecord_esp_fop_wo_add_event', label: 'Work Order Event' }),
-            search.createColumn({ name: 'custrecord_esp_fop_wo_address', label: 'Address' }),
-            search.createColumn({ name: 'custrecord_esp_fop_wo_add_details', label: 'Address Details' }),
-          ]
+            [
+              search.createColumn({ name: 'custrecord_esp_fop_address_rel_wo', label: 'Work Order' }),
+              search.createColumn({ name: 'custrecord_esp_fop_wo_add_customer', label: 'Customer' }),
+              search.createColumn({ name: 'custrecord_esp_fop_wo_add_event', label: 'Work Order Event' }),
+              search.createColumn({ name: 'custrecord_esp_fop_wo_address', label: 'Address' }),
+              search.createColumn({ name: 'custrecord_esp_fop_wo_add_details', label: 'Address Details' }),
+            ]
         });
         searchObj.run().each(result => {
           addresses.push({
@@ -1479,21 +1404,20 @@ define([
         return addresses;
       }
 
-      static _appendEventToRecords(event) {
+      static _appendEventToAddresses(event) {
         const addresses = event?.addresses || [];
-        for (let address of addresses) {
+        for (const address of addresses) {
           try {
             const lookUp = search.lookupFields({
-              type: 'customrecord_esp_fop_wo_address', 
-              id: address.id, 
-              columns: 'custrecord_esp_fop_wo_add_event' 
+              type: env.RecordType.WORK_ORDER_ADDRESS,
+              id: address.id,
+              columns: 'custrecord_esp_fop_wo_add_event'
             });
             let events = (lookUp.custrecord_esp_fop_wo_add_event[0]?.value || '').split(',');
             events.push(event.id);
             events = events.filter(Boolean);
-  
             record.submitFields({
-              type: 'customrecord_esp_fop_wo_address',
+              type: env.RecordType.WORK_ORDER_ADDRESS,
               id: address.id,
               values: {
                 custrecord_esp_fop_wo_add_event: events
@@ -1501,7 +1425,7 @@ define([
               options: {
                 ignoreMandatoryFieds: true
               }
-            }); 
+            });
             log.audit('----- [Added Event to WO Address Record] -----', address);
           } catch (e) {
             log.error('Error on WO Address > Add Events', { address: address.address.text, errorMsg: e.message });
@@ -1511,12 +1435,12 @@ define([
       }
 
       static _removeEventFromAddresses(addresses, eventId) {
-        for (let address of addresses) {
+        for (const address of addresses) {
           try {
             const lookUp = search.lookupFields({
-              type: 'customrecord_esp_fop_wo_address', 
-              id: address.id, 
-              columns: 'custrecord_esp_fop_wo_add_event' 
+              type: env.RecordType.WORK_ORDER_ADDRESS,
+              id: address.id,
+              columns: 'custrecord_esp_fop_wo_add_event'
             });
             const idToRemove = eventId;
             let events = (lookUp.custrecord_esp_fop_wo_add_event[0]?.value || '').split(',');
@@ -1527,7 +1451,7 @@ define([
             }
 
             record.submitFields({
-              type: 'customrecord_esp_fop_wo_address',
+              type: env.RecordType.WORK_ORDER_ADDRESS,
               id: address.id,
               values: {
                 custrecord_esp_fop_wo_add_event: events
@@ -1535,7 +1459,7 @@ define([
               options: {
                 ignoreMandatoryFieds: true
               }
-            });  
+            });
             log.audit('----- [Removed Event from WO Address Record] -----', address);
           } catch (e) {
             log.error('Error on WO Address > Remove Event', { address, errorMsg: e.message });
@@ -1546,10 +1470,10 @@ define([
     }
 
     class Event {
-      
-       // Includes standalone/general events
+
+      // Includes standalone/general events
       static getList() {
-        const filters = [ 
+        const filters = [
           // ['organizer', 'anyof', '@CURRENT@']
           ['response', 'is', 'ACCEPTED'], // To prevent duplicate results
           'AND',
@@ -1560,28 +1484,29 @@ define([
           type: record.Type.CALENDAR_EVENT,
           filters,
           columns:
-          [
-            search.createColumn({ name: 'title', label: 'Event'}),
-            // search.createColumn({ name: 'custevent_cfi_fsl_project', label: 'Project'}),
-            search.createColumn({ name: 'location', label: 'Location'}),
-            search.createColumn({ name: 'response', label: 'Response'}),
-            search.createColumn({ name: 'status', label: 'Status'}),
-            search.createColumn({ name: 'startdate', label: 'Start Date', sort: search.Sort.ASC}),
-            search.createColumn({ name: 'starttime', label: 'Start Time' }),
-            search.createColumn({ name: 'endtime', label: 'End Time'}),
-            search.createColumn({ name: 'owner', label: 'Organiser'}),
-            search.createColumn({ name: 'organizer', label: 'Organizer'}),
-            search.createColumn({ name: 'markdone', label: 'Mark'}),
-            search.createColumn({ name: 'custevent_esp_fop_work_order', label: 'Work Order'}),
-            search.createColumn({ name: 'custevent_esp_fop_event_priority', label: 'Priority'}),
-            search.createColumn({ name: 'custevent_esp_fop_memo', label: 'Memo'}),
-            search.createColumn({ name: 'recurrence', label: 'Recurrency'}), // Extract endbydate field. Ex. output "occurs every day from 9/10/2024 until 9/12/2024"
-            // search.createColumn({ name: 'alldayevent', label: 'All Day'}) // Invalid search column
-            search.createColumn({ name: 'custevent_esp_fop_event_contact', label: 'Selected Contact'}),
-            search.createColumn({ name: 'custevent_esp_fop_event_address', label: 'Selected Address'}),
-          ]
-       });
-       searchObj.run().each(result => {
+            [
+              search.createColumn({ name: 'internalid', label: 'Internal ID', sort: search.Sort.DESC }),
+              search.createColumn({ name: 'title', label: 'Event' }),
+              // search.createColumn({ name: 'custevent_cfi_fsl_project', label: 'Project'}),
+              search.createColumn({ name: 'location', label: 'Location' }),
+              search.createColumn({ name: 'response', label: 'Response' }),
+              search.createColumn({ name: 'status', label: 'Status' }),
+              search.createColumn({ name: 'startdate', label: 'Start Date' }),
+              search.createColumn({ name: 'starttime', label: 'Start Time' }),
+              search.createColumn({ name: 'endtime', label: 'End Time' }),
+              search.createColumn({ name: 'owner', label: 'Organiser' }),
+              search.createColumn({ name: 'organizer', label: 'Organizer' }),
+              search.createColumn({ name: 'markdone', label: 'Mark' }),
+              search.createColumn({ name: 'custevent_esp_fop_work_order', label: 'Work Order' }),
+              search.createColumn({ name: 'custevent_esp_fop_event_priority', label: 'Priority' }),
+              search.createColumn({ name: 'custevent_esp_fop_memo', label: 'Memo' }),
+              search.createColumn({ name: 'recurrence', label: 'Recurrency' }), // Extract endbydate field. Ex. output "occurs every day from 9/10/2024 until 9/12/2024"
+              // search.createColumn({ name: 'alldayevent', label: 'All Day'}) // Invalid search column
+              search.createColumn({ name: 'custevent_esp_fop_event_contact', label: 'Selected Contact' }),
+              search.createColumn({ name: 'custevent_esp_fop_event_address', label: 'Selected Address' }),
+            ]
+        });
+        searchObj.run().each(result => {
           events.push({
             id: result.id,
             title: result.getValue('title'),
@@ -1598,15 +1523,15 @@ define([
                   val = 'COMPLETED';
                 }
                 return val;
-              } ,
+              },
               get code() {
                 switch (this.value) {
                   case 'TENTATIVE':
-                    return 'bg-secondary';
-                  case 'CONFIRMED': 
-                    return 'bg-success';
+                    return env.EventCode.TENTATIVE;
+                  case 'CONFIRMED':
+                    return env.EventCode.CONFIRMED;
                   case 'COMPLETED':
-                    return 'btn-info';
+                    return env.EventCode.COMPLETED;
                 }
               }
             },
@@ -1616,48 +1541,39 @@ define([
                 const dateRegex = /\b(\d{1,2}\/\d{1,2}\/\d{4})\b/g;
                 return this.recurrence.match(dateRegex);
               },
-              // start: moment(result.getValue('startdate')).format(EXPORT_DATE_FORMAT), // Returns the main body field date
+              // start: moment(result.getValue('startdate')).format(env.Format.EXPORT_DATE), // Returns the main body field date
               get start() {
                 if (this.dates.length) {
-                  return moment(this.dates[0]).format(EXPORT_DATE_FORMAT);
+                  return moment(this.dates[0]).format(env.Format.EXPORT_DATE);
                 } else {
                   return ''
                 }
               },
               get end() {
                 if (this.dates.length) {
-                  return moment(this.dates[this.dates.length - 1]).format(EXPORT_DATE_FORMAT);
+                  return moment(this.dates[this.dates.length - 1]).format(env.Format.EXPORT_DATE);
                 } else {
                   return this.start; // TBR
                 }
               }
             },
             time: {
-              start: moment(`1/1/1999 ${result.getValue('starttime')}`).format(EXPORT_TIME_FORMAT),
-              end: moment(`1/1/1999 ${result.getValue('endtime')}`).format(EXPORT_TIME_FORMAT)
+              start: moment(`1/1/1999 ${result.getValue('starttime')}`).format(env.Format.EXPORT_TIME),
+              end: moment(`1/1/1999 ${result.getValue('endtime')}`).format(env.Format.EXPORT_TIME)
             },
             priority: {
               text: result.getText('custevent_esp_fop_event_priority'),
               value: result.getValue('custevent_esp_fop_event_priority'),
               get code() {
-                // switch (this.value) {
-                //   case '1': // Low
-                //     return 'bg-secondary';
-                //   case '2': // Mid
-                //     return 'bg-warning';
-                //   case '3': // High
-                //   case '4': // Urgent
-                //     return 'bg-danger';
-                // }
                 switch (this.value) {
-                  case '1': // Low
-                    return '#026adf';
-                  case '2': // Mid
-                    return '#dfcf02';
-                  case '3': // High
-                    return '#ca6621';
-                  case '4': // Urgent
-                    return '#9a2407';
+                  case '1':
+                    return env.PriorityCode.LOW;
+                  case '2':
+                    return env.PriorityCode.MEDIUM;
+                  case '3':
+                    return env.PriorityCode.HIGH;
+                  case '4':
+                    return env.PriorityCode.URGENT;
                 }
               }
             },
@@ -1690,9 +1606,9 @@ define([
             }
           });
           return true;
-       });
-      //  log.audit('----- [Work Order Events] -----', events);
-       return events;
+        });
+        //  log.audit('----- [Work Order Events] -----', events);
+        return events;
       }
 
       static fullMap(workOrders, events, resources, vendors, assets, items, contacts, addresses) {
@@ -1711,7 +1627,7 @@ define([
               const _resource = deepCopy(resource);
               _resource.selected = true;
               event.resources.push(_resource)
-            } 
+            }
           }
         }
         // Push WO vendors to related Events
@@ -1721,7 +1637,7 @@ define([
               const _vendor = deepCopy(vendor);
               _vendor.selected = true;
               event.vendors.push(_vendor);
-            } 
+            }
           }
         }
         // Push Assets to related WO
@@ -1731,7 +1647,7 @@ define([
               const _asset = deepCopy(asset);
               _asset.selected = true;
               event.assets.push(_asset);
-            } 
+            }
           }
         }
         // Push WO vendors to related Events
@@ -1741,17 +1657,17 @@ define([
               const _item = deepCopy(item);
               _item.selected = true;
               event.items.push(_item);
-            } 
+            }
           }
         }
         // Push WO contacts to related Events
         for (const contact of contacts) {
           for (const event of events) {
-            if (contact.events.includes(event.id)) {
+            if (contact.event == event.id) {
               const _contact = deepCopy(contact);
               _contact.selected = true;
               event.contacts.push(_contact);
-            } 
+            }
           }
         }
         // Push WO addresses to related Events
@@ -1761,10 +1677,10 @@ define([
               const _address = deepCopy(address);
               _address.selected = true;
               event.addresses.push(_address);
-            } 
+            }
           }
         }
-        
+
         // const logEvent = events.find(event => event.id == 516);
         // Utils.createLogFile(`logEventID516`, JSON.stringify(logEvent), -15);
       }
@@ -1776,14 +1692,14 @@ define([
         const payload = JSON.parse(reqBody);
 
         log.audit('----- [Create Work Order Event] -----', { payload });
-        
+
         const { eventData, woRef, woResources } = payload;
-        
+
         try {
-          eventData.date.start = moment(eventData.date.start).format(IMPORT_DATE_FORMAT);
-          eventData.date.end = moment(eventData.date.end).format(IMPORT_DATE_FORMAT);
-          eventData.time.start = moment(`1/1/1999 ${eventData.time.start}`).format(IMPORT_TIME_FORMAT);
-          eventData.time.end = moment(`1/1/1999 ${eventData.time.end}`).format(IMPORT_TIME_FORMAT);
+          eventData.date.start = moment(eventData.date.start).format(env.Format.IMPORT_DATE);
+          eventData.date.end = moment(eventData.date.end).format(env.Format.IMPORT_DATE);
+          eventData.time.start = moment(`1/1/1999 ${eventData.time.start}`).format(env.Format.IMPORT_TIME);
+          eventData.time.end = moment(`1/1/1999 ${eventData.time.end}`).format(env.Format.IMPORT_TIME);
 
           const fieldToSet = {};
           fieldToSet.title = eventData.title;
@@ -1796,7 +1712,6 @@ define([
           fieldToSet.endtime = Utils._toDateTimez(eventData.date.start, eventData.time.end);
           fieldToSet.custevent_esp_fop_event_priority = eventData.priority;
           fieldToSet.custevent_esp_fop_memo = eventData.note;
-          fieldToSet.custevent_esp_fop_event_contact = eventData.selectedContact.id;
           fieldToSet.custevent_esp_fop_event_address = eventData.selectedAddress.id;
 
           const numberOfDays = moment(eventData.date.end).diff(moment(eventData.date.start), 'days') + 1;
@@ -1810,27 +1725,27 @@ define([
 
           fieldToSet.endbydate = new Date(eventData.date.end);
 
-          const rec = record.create({ 
-            type: record.Type.CALENDAR_EVENT, 
-            isDynamic: true 
+          const rec = record.create({
+            type: record.Type.CALENDAR_EVENT,
+            isDynamic: true
           });
-          
-          for (let key in fieldToSet) {
-            rec.setValue({ 
-              fieldId: key, 
-              value: fieldToSet[key] 
+
+          for (const key in fieldToSet) {
+            rec.setValue({
+              fieldId: key,
+              value: fieldToSet[key]
             });
           }
 
           eventData.id = rec.save({ ignoreMandatoryFieds: true });
           log.audit('----- [Created Event Record] -----', { recordId: eventData.id });
 
-          WorkOrderResource._updateEventResources(eventData, null, woRef, woResources);
-          WorkOrderVendor._createRecords(eventData, woRef);
-          WorkOrderAsset._createRecords(eventData, woRef);
-          WorkOrderItem._createRecords(eventData);
-          WorkOrderContact._appendEventToRecords(eventData);
-          WorkOrderAddress._appendEventToRecords(eventData);
+          WorkOrderResource._createResources(eventData, woRef);
+          WorkOrderVendor._createVendors(eventData, woRef);
+          WorkOrderAsset._createAssets(eventData, woRef);
+          WorkOrderItem._createItems(eventData);
+          WorkOrderContact._createContacts(eventData);
+          WorkOrderAddress._appendEventToAddresses(eventData);
 
           response.write(JSON.stringify({
             code: 200,
@@ -1855,12 +1770,12 @@ define([
         const payload = JSON.parse(reqBody);
         const { eventDataSrc, eventData, woRef, woResources } = payload;
         const eventDataProps = Object.keys(eventData);
-        
+
         log.audit('----- [Update Work Order Event] -----', { eventDataProps, payload });
         // Utils.createLogFile(`updateEventRecord()`, JSON.stringify(payload), 2199);
 
         try {
-           // Drag single resource scenario
+          // Drag single resource scenario
           if (eventDataProps.length == 2 && eventDataProps[0] == 'id') {
             if (eventDataProps[1] == 'selectedResources') {
               WorkOrderResource._createRecords(eventData, woRef);
@@ -1868,14 +1783,14 @@ define([
               WorkOrderVendor._createRecords(eventData, woRef);
             }
           } else {
-            eventData.date.start = moment(eventData.date.start).format(IMPORT_DATE_FORMAT);
-            eventData.date.end = moment(eventData.date.end).format(IMPORT_DATE_FORMAT);
-            eventData.time.start = moment(`1/1/1999 ${eventData.time.start}`).format(IMPORT_TIME_FORMAT);
-            eventData.time.end = moment(`1/1/1999 ${eventData.time.end}`).format(IMPORT_TIME_FORMAT);
-            
-            const rec = record.load({ 
-              type: record.Type.CALENDAR_EVENT, 
-              id: eventData.id 
+            eventData.date.start = moment(eventData.date.start).format(env.Format.IMPORT_DATE);
+            eventData.date.end = moment(eventData.date.end).format(env.Format.IMPORT_DATE);
+            eventData.time.start = moment(`1/1/1999 ${eventData.time.start}`).format(env.Format.IMPORT_TIME);
+            eventData.time.end = moment(`1/1/1999 ${eventData.time.end}`).format(env.Format.IMPORT_TIME);
+
+            const rec = record.load({
+              type: record.Type.CALENDAR_EVENT,
+              id: eventData.id
             });
             const _rec = {
               title: rec.getValue('title'),
@@ -1899,80 +1814,63 @@ define([
                 value: rec.getText('custevent_esp_fop_event_address')
               }
             };
-  
+
             const fieldToSet = {};
-  
+
             // log.audit('Field To Set > title field', { current: _rec.title, new : eventData.title, toSet: (_rec.title != eventData.title) });
             if (_rec.title != eventData.title) {
               fieldToSet.title = eventData.title;
             }
-  
             // log.audit('Field To Set > datestart field', { current: _rec.date.start, new : eventData.date.start, toSet: (_rec.date.start != eventData.date.start) });
             if (_rec.date.start != eventData.date.start) {
               fieldToSet.startdate = new Date(eventData.date.start);
             }
-  
             // log.audit('Field To Set > endbydate field', { current: _rec.date.end, new : eventData.date.end, toSet: (_rec.date.end != eventData.date.end) });
             if (_rec.date.end != eventData.date.end) {
               const numberOfDays = moment(eventData.date.end).diff(moment(eventData.date.start), 'days') + 1;
-  
               if (numberOfDays > 1) {
                 fieldToSet.frequency = 'DAY';
                 fieldToSet.period = '1';
               }
               fieldToSet.endbydate = new Date(eventData.date.end);
             }
-  
             // log.audit('Field To Set > starttime field', { current: _rec.time.start, new : eventData.time.start, toSet: (_rec.time.start != eventData.time.start) });
             if (_rec.time.start != eventData.time.start) {
               fieldToSet.starttime = Utils._toDateTimez(eventData.date.start, eventData.time.start);
             }
-  
             // log.audit('Field To Set > endtime field', { current: _rec.time.end, new : eventData.time.end, toSet: (_rec.time.end != eventData.time.end) });
             if (_rec.time.end != eventData.time.end) {
               fieldToSet.endtime = Utils._toDateTimez(eventData.date.end, eventData.time.end);
             }
-  
             // log.audit('Field To Set > note field', { current: _rec.note, new : eventData.note, toSet: (_rec.note != eventData.note) });
             if (_rec.note != eventData.note) {
               fieldToSet.custevent_esp_fop_memo = eventData.note;
             }
-  
             if (eventData.priority) {
               // log.audit('Field To Set > priority field', { current: _rec.priority, new : eventData.priority, toSet: (_rec.priority != eventData.priority) });
               if (_rec.priority != eventData.priority) {
                 fieldToSet.custevent_esp_fop_event_priority = eventData.priority;
               }
             }
-  
             if (eventData.status) {
               // log.audit('Field To Set > status field', { current: _rec.status, new : eventData.status, toSet: (_rec.status != eventData.status) });
               if (_rec.status != eventData.status) {
                 fieldToSet.status = eventData.status;
               }
             }
-  
-            if (eventData.selectedContact) {
-              // log.audit('Field To Set > selected contact field', { current: _rec.contact.id, new : eventData.selectedContact.id, toSet: (eventData.selectedContact.id != _rec.contact.id) });
-              if (eventData.selectedContact.id != _rec.contact.id) {
-                fieldToSet.custevent_esp_fop_event_contact = eventData.selectedContact.id;
-              }
-            }
-  
             if (eventData.selectedAddress) {
               // log.audit('Field To Set > selected address field', { current: _rec.address.id, new : eventData.selectedAddress.id, toSet: (eventData.selectedAddress.id != _rec.address.id) });
               if (eventData.selectedAddress.id != _rec.address.id) {
                 fieldToSet.custevent_esp_fop_event_address = eventData.selectedAddress.id;
-              } 
+              }
             }
-  
             log.audit('Fields to update', { _rec, fieldToSet });
-  
+
             if (Object.keys(fieldToSet).length) {
               for (const key in fieldToSet) {
-                rec.setValue({ 
-                  fieldId: key, 
-                  value: fieldToSet[key] 
+                rec.setValue({
+                  fieldId: key,
+                  value: fieldToSet[key]
                 });
                 log.debug('Setting field ' + key, fieldToSet[key]);
               }
@@ -1981,31 +1879,31 @@ define([
             } else {
               log.audit('----- [Update Event Record not needed!] -----', { recordId: eventData.id });
             }
-            
+
             if (eventData.selectedResources) {
-              WorkOrderResource._updateEventResources(eventData, eventDataSrc, woRef, woResources);
+              WorkOrderResource._updateResources(eventData, eventDataSrc, woRef);
             }
-  
             if (eventData.selectedVendors) {
-              WorkOrderVendor._updateRecords(eventData, eventDataSrc, woRef);
+              WorkOrderVendor._updateVendors(eventData, eventDataSrc, woRef);
             }
-  
             if (eventData.selectedAssets) {
-              WorkOrderAsset._updateRecords(eventData, eventDataSrc, woRef);
+              WorkOrderAsset._updateAssets(eventData, eventDataSrc, woRef);
             }
-  
             if (eventData.selectedItems) {
-              WorkOrderItem._updateRecords(eventData, eventDataSrc);
+              WorkOrderItem._updateItems(eventData, eventDataSrc);
+            }
+            if (eventData.selectedContacts) {
+              WorkOrderItem._updateContacts(eventData, eventDataSrc);
             }
           }
-          
+
           response.write(JSON.stringify({
             code: 200,
             status: 'success'
           }));
         } catch (e) {
           log.error('updateEventRecord() Unexpected Error', e.message);
-          
+
           response.write(JSON.stringify({
             code: 401,
             status: 'fail',
@@ -2022,40 +1920,40 @@ define([
         const punchList = [];
         if (woId) {
           const woLookUp = search.lookupFields({
-            type: 'customrecord_esp_fop_work_order',
+            type: env.RecordType.WORK_ORDER,
             id: woId,
             columns: 'custrecord_esp_cfi_wo_so'
           });
           let soId;
           if (woLookUp.custrecord_esp_cfi_wo_so && woLookUp.custrecord_esp_cfi_wo_so.length) {
             soId = woLookUp.custrecord_esp_cfi_wo_so[0].value;
-  
+
             if (soId) {
               const searchObj = search.create({
-                type: 'customrecord_esp_pp_punch',
+                type: env.RecordType.PUNCH,
                 filters:
-                [
-                   ['custrecord_esp_pp_so', 'is', soId]
-                ],
+                  [
+                    ['custrecord_esp_pp_so', 'is', soId]
+                  ],
                 columns:
-                [
-                   search.createColumn({ name: 'custrecord_esp_pp_status', label: 'Status' }),
-                   search.createColumn({ name: 'custrecord_esp_pp_so', label: 'Sales Order' }),
-                   search.createColumn({ name: 'custrecord_esp_pp_linked_tran_line', label: 'Linked Transaction Line' }),
-                   search.createColumn({ name: 'custrecord_esp_pp_item', label: 'Item' }),
-                   search.createColumn({ name: 'custrecord_esp_pp_qty', label: 'Qty' }),
-                   search.createColumn({ name: 'custrecord_esp_pp_assign', label: 'Assigned To' }),
-                   search.createColumn({ name: 'custrecord_esp_pp_reason', label: 'Reason' }),
-                   search.createColumn({ name: 'custrecord_esp_pp_prod_loca', label: 'Product Location' }),
-                   search.createColumn({ name: 'custrecord_esp_pp_laborhours', label: 'Labor Cost & Hours to Fix' }),
-                   search.createColumn({ name: 'custrecord_esp_pp_intnotes', label: 'Resolutions Instructions' }),
-                   search.createColumn({ name: 'custrecord_esp_pp_reasoncode', label: 'Reason Code:' }),
-                   search.createColumn({ name: 'custrecord_esp_pp_hold_tillresolve', label: 'Do Not Invoice Till Resolved' }),
-                   search.createColumn({ name: 'custrecord_esp_pp_refnumber', label: 'Reference #' }),
-                   search.createColumn({ name: 'custrecord_esp_pp_descr', label: 'Description of Issue and CORRECT Part Number' }),
-                   search.createColumn({ name: 'custrecord_esp_pp_ackno', label: 'Original Acknoweldgement #' }),
-                   search.createColumn({ name: 'created', label: 'Date Created'})
-                ]
+                  [
+                    search.createColumn({ name: 'custrecord_esp_pp_status', label: 'Status' }),
+                    search.createColumn({ name: 'custrecord_esp_pp_so', label: 'Sales Order' }),
+                    search.createColumn({ name: 'custrecord_esp_pp_linked_tran_line', label: 'Linked Transaction Line' }),
+                    search.createColumn({ name: 'custrecord_esp_pp_item', label: 'Item' }),
+                    search.createColumn({ name: 'custrecord_esp_pp_qty', label: 'Qty' }),
+                    search.createColumn({ name: 'custrecord_esp_pp_assign', label: 'Assigned To' }),
+                    search.createColumn({ name: 'custrecord_esp_pp_reason', label: 'Reason' }),
+                    search.createColumn({ name: 'custrecord_esp_pp_prod_loca', label: 'Product Location' }),
+                    search.createColumn({ name: 'custrecord_esp_pp_laborhours', label: 'Labor Cost & Hours to Fix' }),
+                    search.createColumn({ name: 'custrecord_esp_pp_intnotes', label: 'Resolutions Instructions' }),
+                    search.createColumn({ name: 'custrecord_esp_pp_reasoncode', label: 'Reason Code:' }),
+                    search.createColumn({ name: 'custrecord_esp_pp_hold_tillresolve', label: 'Do Not Invoice Till Resolved' }),
+                    search.createColumn({ name: 'custrecord_esp_pp_refnumber', label: 'Reference #' }),
+                    search.createColumn({ name: 'custrecord_esp_pp_descr', label: 'Description of Issue and CORRECT Part Number' }),
+                    search.createColumn({ name: 'custrecord_esp_pp_ackno', label: 'Original Acknoweldgement #' }),
+                    search.createColumn({ name: 'created', label: 'Date Created' })
+                  ]
               });
               searchObj.run().each(result => {
                 punchList.push({
@@ -2090,15 +1988,14 @@ define([
 
         try {
           Event._createTimeTracking(eventDataSrc, timeSheets);
-          
+
           // Prevent blocker if something happens
           try {
             Event._fulfillOrderItems(soId, fulfillItems);
           } catch (e) {
             log.audit('Complete Event Fulfillment Unexpected Error', e.message);
           }
-          
-          // TBD
+
           record.submitFields({
             type: record.Type.CALENDAR_EVENT,
             id: eventId,
@@ -2109,7 +2006,7 @@ define([
               ignoreMandatoryFieds: true
             }
           });
-          
+
           response.write(JSON.stringify({
             code: 200,
             recordId: eventId,
@@ -2131,8 +2028,8 @@ define([
 
         // Map hours and location
         timeSheets = timeSheets.map(timeSheet => {
-          timeSheet.startTime = moment(`1/1/1999 ${timeSheet.startTime}`).format(IMPORT_TIME_FORMAT);
-          timeSheet.endTime = moment(`1/1/1999 ${timeSheet.endTime}`).format(IMPORT_TIME_FORMAT);
+          timeSheet.startTime = moment(`1/1/1999 ${timeSheet.startTime}`).format(env.Format.IMPORT_TIME);
+          timeSheet.endTime = moment(`1/1/1999 ${timeSheet.endTime}`).format(env.Format.IMPORT_TIME);
 
           const diffDate = Utils._diffDates(`1/1/1999 ${timeSheet.startTime}`, `1/1/1999 ${timeSheet.endTime}`);
           // timeSheet.hours = `${diffDate.hour}:${String(diffDate.minute).length == 1 ? `0${diffDate.minute}` : diffDate.minute}`;
@@ -2156,7 +2053,7 @@ define([
             id: eventId
           });
           const lineCount = rec.getLineCount({ sublistId: 'timeitem' });
-          
+
           for (let i in timeSheets) {
             const timeSheet = timeSheets[i];
             const line = +i + lineCount;
@@ -2216,7 +2113,7 @@ define([
 
       static _fulfillOrderItems(soId, items) {
         log.audit('----- [Fulfill Order Items] -----', { soId, items });
-        
+
         if (soId) {
           const rec = record.transform({
             fromType: record.Type.SALES_ORDER,
@@ -2259,15 +2156,12 @@ define([
 
         try {
           const eventData = JSON.parse(reqBody);
-
           // Unlink event from related child records before the deletion
-          WorkOrderResource._removeEventFromResources(eventData.resources, eventData.id);
-
-          Utils._deleteRecords('customrecord_esp_fop_wo_subcons_select', eventData.vendors.map(el => el.id)); // Delete WO Vendor records
-          Utils._deleteRecords('customrecord_esp_fop_wo_asset_selected', eventData.assets.map(el => el.id)); // Delete WO Assets records
-          Utils._deleteRecords('customrecord_esp_fop_wo_item', eventData.items.map(el => el.id)); // Delete WO Items records
-          
-          WorkOrderContact._removeEventFromContacts(eventData.contacts, eventData.id);
+          Utils._deleteRecords(env.RecordType.WORK_ORDER_RESOURCE, eventData.resources.map(el => el.id));
+          Utils._deleteRecords(env.RecordType.WORK_ORDER_VENDOR, eventData.vendors.map(el => el.id));
+          Utils._deleteRecords(env.RecordType.WORK_ORDER_ASSET, eventData.assets.map(el => el.id));
+          Utils._deleteRecords(env.RecordType.WORK_ORDER_ITEM, eventData.items.map(el => el.id));
+          Utils._deleteRecords(env.RecordType.WORK_ORDER_CONTACT, eventData.contacts.map(el => el.id));
           WorkOrderAddress._removeEventFromAddresses(eventData.addresses, eventData.id);
 
           // Remove timetracking lines
@@ -2286,11 +2180,9 @@ define([
           rec.setValue({ fieldId: 'custevent_esp_fop_event_contact', value: '' });
           rec.setValue({ fieldId: 'custevent_esp_fop_event_address', value: '' });
           rec.setValue({ fieldId: 'custevent_esp_fop_sales_order', value: '' });
-
           rec.save({
             ignoreMandatoryFieds: true
           });
-
           record.delete({
             type: record.Type.CALENDAR_EVENT,
             id: eventId
@@ -2301,7 +2193,6 @@ define([
           }));
         } catch (e) {
           log.audit('deleteRecord() Unexpected Error', e.message);
-          
           response.write(JSON.stringify({
             code: 401,
             status: 'fail',
@@ -2319,7 +2210,7 @@ define([
           scriptId: 'customscript_esp_sl_scheduler'
         })
       }
-      
+
       static resource(recordId = '') {
         return url.resolveRecord({
           isEditMode: false,
@@ -2335,7 +2226,7 @@ define([
         return url.resolveRecord({
           isEditMode: false,
           recordId,
-          recordType: 'customrecord_esp_fop_work_order'
+          recordType: env.RecordType.WORK_ORDER,
         })
       }
 
@@ -2394,14 +2285,12 @@ define([
     class Utils {
 
       static _stringToArray = str => (str || '').split(',').filter(Boolean);
-
       static _toDate = dateStr => dateStr ? moment(dateStr).format(this._dateFormat) : '';
-
       static _toDateTimez = (dateStr, timeStr) => moment(`${dateStr} ${timeStr}`)._d;
 
       static _dateFormat() {
         const user = runtime.getCurrentUser();
-        return user.getPreference ({ name: 'DATEFORMAT' });
+        return user.getPreference({ name: 'DATEFORMAT' });
       }
 
       static _diffDates(start, end) {
@@ -2410,17 +2299,17 @@ define([
         var d = Math.abs(end - start) / 1000 // delta
         var r = {} // result
         var s = { // structure
-            year: 31536000,
-            month: 2592000,
-            week: 604800, // uncomment row to ignore
-            day: 86400, // feel free to add your own row
-            hour: 3600,
-            minute: 60,
-            second: 1
+          year: 31536000,
+          month: 2592000,
+          week: 604800, // uncomment row to ignore
+          day: 86400, // feel free to add your own row
+          hour: 3600,
+          minute: 60,
+          second: 1
         }
         Object.keys(s).forEach(function (key) {
-            r[key] = Math.floor(d / s[key])
-            d -= r[key] * s[key]
+          r[key] = Math.floor(d / s[key])
+          d -= r[key] * s[key]
         });
         // Sample return
         /* {
@@ -2439,7 +2328,7 @@ define([
         const totalMinutes = (hours * 60) + minutes;
         return totalMinutes / 60;
       }
-      
+
       static createLogFile(name, contents, folderId) {
         try {
           // Already throwing error "This record already exists" ????
@@ -2457,7 +2346,7 @@ define([
       }
 
       static _deleteRecords(type, ids) {
-        for (let id of ids) {
+        for (const id of ids) {
           try {
             record.delete({ type, id });
             log.audit('----- [Removed/Unlinked] -----', { type, id });

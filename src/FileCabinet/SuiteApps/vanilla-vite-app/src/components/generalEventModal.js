@@ -1,7 +1,7 @@
 import * as dataSet from './dataSet';
-import { resourcesDtColumns, vendorsDtColumns, assetsDtColumns } from './dataTableColumns';
+import { resourcesDtColumns, vendorsDtColumns, assetsDtColumns } from './dataTable';
 import { Event } from './utils';
-import { initResourceDtCustomFilters } from './filterHandler';
+import { initResourceDtCustomFilters } from './filters';
 import './generalEventModal.css';
 
 let temp_resourcesDataTable, temp_vendorsDataTable, temp_assetsDataTable;
@@ -110,7 +110,7 @@ $(document).ready(() => {
               <div class="accordion-item">
                 <h2 class="accordion-header" id="generalEventHeading2nd">
                   <button class="accordion-button" type="button" data-toggle="collapse" data-target="#generalEventCollapse2nd" aria-expanded="true" aria-controls="generalEventCollapse2nd">
-                    <strong class="table-header">Available Resources</strong>
+                    <strong class="table-header">Resources</strong>
                   </button>
                 </h2>
                 <div id="generalEventCollapse2nd" class="accordion-collapse collapse show" aria-labelledby="generalEventHeading2nd" data-parent="#generalEvent2ndAccordion">
@@ -132,7 +132,7 @@ $(document).ready(() => {
               <div class="accordion-item">
                 <h2 class="accordion-header" id="generalEventHeading3rd">
                   <button class="accordion-button" type="button" data-toggle="collapse" data-target="#generalEventCollapse3rd" aria-expanded="true" aria-controls="generalEventCollapse3rd">
-                    <strong class="table-header">Vendor Subcons</strong>
+                    <strong class="table-header">Vendor Subcontractors</strong>
                   </button>
                 </h2>
                 <div id="generalEventCollapse3rd" class="accordion-collapse collapse show" aria-labelledby="generalEventHeading3rd" data-parent="#generalEvent3rdAccordion">
@@ -182,25 +182,10 @@ $(document).ready(() => {
   </div>`);
 
   window.openGeneralEventModal = (eventId = '') => {
-    $('#generalEventModal').attr('mode', !eventId ||typeof eventId === 'object' ? 'create' : 'edit');
+    $('#generalEventModal').attr('mode', !eventId || typeof eventId === 'object' ? 'create' : 'edit');
     $('#generalEventModal').attr('eventId', eventId);
     $('#generalEventModal').modal('toggle');
   }
-
-  // Load General Event Form
-  // All day event switch function
-  $('#generalEventModal .alldayevent-switch').on('change', ev => {
-    if (ev.target.checked) {
-      $('#generalEventModal .starttime').val('08:00'); // NS default starttime
-      $('#generalEventModal .endtime').val('18:00'); // NS default endtime
-      $('#generalEventModal .starttime').prop('disabled', true);
-      $('#generalEventModal .endtime').prop('disabled', true);
-    } else {
-      $('#generalEventModal .starttime').prop('disabled', false);
-      $('#generalEventModal .endtime').prop('disabled', false);
-    }
-  });
-
   // Load General Event Form
   $('#generalEventModal').on('shown.bs.modal', ev => {
     setTimeout(() => {
@@ -211,7 +196,7 @@ $(document).ready(() => {
       let eventData, modalTitle, eventTitle;
 
       if (mode === 'create') {
-        modalTitle = `Create New Event`;
+        modalTitle = `Create Event`;
         eventTitle = '';
       } else if (mode === 'edit') {
         modalTitle = `Update Event Details [ID ${eventId}]`;
@@ -268,8 +253,6 @@ $(document).ready(() => {
         }
       });
 
-      initResourceDtCustomFilters(temp_resourcesDataTable, 'multiple-resource-field-ge', 'multiple-resource-group-field-ge');
-
       temp_vendorsDataTable = $('#vendors_ge').DataTable({
         processing: true,
         retrieve: true,
@@ -287,7 +270,7 @@ $(document).ready(() => {
           })
         },
         columns: vendorsDtColumns,
-        initComplete: () => {  
+        initComplete: () => {
           eventFormHandlers();
         }
       });
@@ -309,20 +292,23 @@ $(document).ready(() => {
           })
         },
         columns: assetsDtColumns,
-        initComplete: () => {  
+        initComplete: () => {
           eventFormHandlers();
         }
       });
 
+      Event.initAllDaySwitch('#generalEventModal'); // All day event switch function
+      initResourceDtCustomFilters(temp_resourcesDataTable, 'multiple-resource-field-ge', 'multiple-resource-group-field-ge');
       Event.validateResourcesOnLoad('#wo-primaryinfo-ge', '#resources_ge', eventId);
-      Event.validateOnFieldChange('#wo-primaryinfo-ge', '#resources_ge', eventId);
+      Event.validateOnHeaderFieldChange('#wo-primaryinfo-ge', '#resources_ge', eventId);
+      Event.validateOnLineFieldChange('#wo-primaryinfo', '#resources', eventId);
     }, 250);
   });
 
   // General Event Form -> On Submit
   $('#generalEventSubmitForm').on('submit', ev => {
     ev.preventDefault();
-    
+
     const mode = $('#generalEventModal').attr('mode');
     const eventId = $('#generalEventModal').attr('eventId');
     const eventData = dataSet.events.find(event => event.id == eventId);
@@ -378,11 +364,18 @@ $(document).ready(() => {
     const resourceIds = [];
     if (temp_resourcesDataTable) {
       const resources_dt_tr = temp_resourcesDataTable.rows({ search: 'applied' }).nodes();
-      resources_dt_tr.each(function(node) {
+      resources_dt_tr.each(function (node) {
         const line = $(node).find('input.dt-line-select');
         if (line.is(':checked')) {
           const id = line.attr('recordId');
           if (id) {
+            const foundObj = resourcesToUse.find(resource => resource.id == id);
+            if (foundObj) {
+              const startTime = $(node).find('input.starttime-resource').val();
+              const endTime = $(node).find('input.endtime-resource').val();
+              foundObj.time.start = startTime;
+              foundObj.time.end = endTime;
+            }
             resourceIds.push(id);
           }
         }
@@ -443,8 +436,8 @@ $(document).ready(() => {
     window.markAll = ev => {
       const value = ev.target.checked;
       const el = ev.target.closest('.dataTable').querySelectorAll('.dt-line-select');
-      for(let i = 0; i < el.length; i++) {  
-        if(el[i].type === 'checkbox') {
+      for (let i = 0; i < el.length; i++) {
+        if (el[i].type === 'checkbox') {
           if (!el[i].disabled) {
             if (value == !el[i].checked) {
               el[i].checked = !el[i].checked;
@@ -453,13 +446,13 @@ $(document).ready(() => {
         }
       }
     }
-  
+
     window.validateForm = () => true;
   }
 
   function clearFieldValues() {
     console.log('----- Clearing Fields -----');
-    
+
     showCustomLoader();
 
     $(`#generalEventModal`).attr('mode', '');
@@ -475,7 +468,7 @@ $(document).ready(() => {
     document.querySelector(`#generalEventModal .priority`).value = '1'; // Default Low
     document.querySelector(`#generalEventModal .status`).value = 'TENTATIVE'; // Default Tentative
     $(`#generalEventModal .alldayevent-switch`)[0].checked = false;
-    
+
     // Clear DataTable rows
     if (temp_resourcesDataTable) {
       $('table#resources_ge tbody').children().remove();

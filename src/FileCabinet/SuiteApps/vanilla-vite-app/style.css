@@ -95,6 +95,18 @@ body {
   cursor: pointer;
 }
 
+.filter-icon {
+  margin-left: auto;
+  font-size: 14px;
+  cursor: pointer;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.filter-icon:hover {
+  transform: scale(1.2);
+  color: #007BFF; /* Change this to your preferred hover color */
+}
+
 .card-head {
   display: flex;
   justify-content: space-between;
@@ -376,7 +388,10 @@ div.form-check {
   justify-content: center;
 }
 .inline-inputs div.input-group {
-  display: inline-block;
+  display: flex;
+  flex-wrap: wrap; /* Allow wrapping of fields */
+  gap: 10px; /* Space between fields */
+  margin-top: 10px;
   width: auto;
 }
 
@@ -504,12 +519,13 @@ div.form-check {
 }
 
 .row-available {
-  background-color: lightgreen !important;
+  background-color: #bef7a8 !important;
   z-index: 1;
 }
 
 .row-unavailable {
-  background-color: #e3dcdc !important;
+  opacity: 0.6; /* Makes the card look faded */
+  filter: grayscale(100%);
 }
 
 .floating-logo {

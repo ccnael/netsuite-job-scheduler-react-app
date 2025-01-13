@@ -1,7 +1,7 @@
 import * as dataSet from './dataSet';
 
 $(document).ready(() => {
-  window.openAddResourceModal = (eventId, dataTransfer) => {
+  window.openDragResourceModal = (eventId, dataTransfer) => {
     const { type, id } = dataTransfer;
     const eventData = dataSet.events.find(event => event.id == eventId);
     const woId = eventData.workorder.value;
@@ -11,7 +11,7 @@ $(document).ready(() => {
     if (type === 'employee') {
       resourceName = dataSet.resources.find(resource => resource.id == id).name;
       const woResourcesFiltered = woId ? dataSet.woResources.filter(resource => resource.workorder.value == woId) : [];
-      
+
       let foundObj, resourceToUse;
       if (woResourcesFiltered.length) {
         foundObj = woResourcesFiltered.find(woResource => woResource.employee.value == id);
@@ -42,68 +42,68 @@ $(document).ready(() => {
 
       Swal.fire({
         title: 'Confirm Add',
-        text: `Add resource ${resourceName} to the Event ID ${eventId}?`,
+        text: `Add ${resourceName} to Event [ID ${eventId}]?`,
         icon: 'warning',
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
         cancelButtonColor: '#817c7c',
         confirmButtonText: 'Yes'
       })
-      .then(result => {
-        if (result.isConfirmed) {
-          Swal.fire({
-            didOpen: () => {
-              Swal.showLoading();
-              fetch(
-                `${dataSet.suiteletUrl}&mode=updateEventRecord`, {
+        .then(result => {
+          if (result.isConfirmed) {
+            Swal.fire({
+              didOpen: () => {
+                Swal.showLoading();
+                fetch(
+                  `${dataSet.suiteletUrl}&mode=updateEventRecord`, {
                   method: 'POST',
                   body: JSON.stringify(payload),
                   headers: {
                     'Content-Type': 'application/json',
                   }
-              })
-              .then(response => response.json())
-              .then(result => {
-                if (result.code == 200) {
-                  Swal.fire({
-                    title: 'Success!',
-                    text: `Resource ${resourceName} has been added to Event ID ${eventId}`,
-                    icon: 'success'
+                })
+                  .then(response => response.json())
+                  .then(result => {
+                    if (result.code == 200) {
+                      Swal.fire({
+                        title: 'Success!',
+                        text: `Resource ${resourceName} has been added to Event [ID ${eventId}]`,
+                        icon: 'success'
+                      })
+                        .then(() => {
+                          window.location.reload();
+                        });
+                    } else {
+                      Swal.fire({
+                        title: 'Unexpected Error',
+                        text: `Error: ${result.errorMsg}`,
+                        icon: 'error'
+                      });
+                    }
+                    Swal.hideLoading();
                   })
-                  .then(() => {
-                    window.location.reload();
+                  .catch(error => {
+                    Swal.fire(
+                      'Unexpected Error',
+                      error.message,
+                      'error'
+                    );
+                    Swal.hideLoading();
                   });
-                } else {
-                  Swal.fire({
-                    title: 'Unexpected Error',
-                    text: `Error: ${result.errorMsg}`,
-                    icon: 'error'
-                  });
-                }
-                Swal.hideLoading();
-              })
-              .catch(error => {
-                Swal.fire(
-                  'Unexpected Error',
-                  error.message,
-                  'error'
-                );
-                Swal.hideLoading();
-              });
-            },
-            allowOutsideClick: false,
-            allowEscapeKey: false,
-            text: `Adding resource to the Event Record ID ${eventId}...`
-          });
-        }
-      });
+              },
+              allowOutsideClick: false,
+              allowEscapeKey: false,
+              text: `Adding Resource to Event Record [ID ${eventId}]...`
+            });
+          }
+        });
 
     } else if (type === 'vendor') {
       resourceName = dataSet.vendors.find(vendor => vendor.id == id).name;
       let unassignedVendors = deepCopy(dataSet.vendors).filter(vendor => !!!eventData.vendors.map(vendor => vendor.vendor.value).includes(vendor.id));
       unassignedVendors = [...eventData.vendors, ...unassignedVendors];
       const vendorToUse = unassignedVendors.find(vendor => vendor.id == id);
-      
+
       payload = {
         // eventDataSrc: eventData,
         woRef,
@@ -140,58 +140,58 @@ $(document).ready(() => {
           return quantity; // Return the quantity entered by the user
         },
       })
-      .then(result => {
-        if (result.isConfirmed) {
-          const quantity = result.value;
-          payload.eventData.selectedVendors[0].quantityRequired = quantity;
+        .then(result => {
+          if (result.isConfirmed) {
+            const quantity = result.value;
+            payload.eventData.selectedVendors[0].quantityRequired = quantity;
 
-          Swal.fire({
-            didOpen: () => {
-              Swal.showLoading();
-              fetch(
-                `${dataSet.suiteletUrl}&mode=updateEventRecord`, {
+            Swal.fire({
+              didOpen: () => {
+                Swal.showLoading();
+                fetch(
+                  `${dataSet.suiteletUrl}&mode=updateEventRecord`, {
                   method: 'POST',
                   body: JSON.stringify(payload),
                   headers: {
                     'Content-Type': 'application/json',
                   }
-              })
-              .then(response => response.json())
-              .then(result => {
-                if (result.code == 200) {
-                  Swal.fire({
-                    title: 'Success!',
-                    text: `Vendor ${resourceName} has been added to Event ID ${eventId}`,
-                    icon: 'success'
+                })
+                  .then(response => response.json())
+                  .then(result => {
+                    if (result.code == 200) {
+                      Swal.fire({
+                        title: 'Success!',
+                        text: `Vendor ${resourceName} has been added to Event [ID ${eventId}]`,
+                        icon: 'success'
+                      })
+                        .then(() => {
+                          window.location.reload();
+                        });
+                    } else {
+                      Swal.fire({
+                        title: 'Unexpected Error',
+                        text: `Error: ${result.errorMsg}`,
+                        icon: 'error'
+                      });
+                    }
+                    Swal.hideLoading();
                   })
-                  .then(() => {
-                    window.location.reload();
+                  .catch(error => {
+                    Swal.fire(
+                      'Unexpected Error',
+                      error.message,
+                      'error'
+                    );
+                    Swal.hideLoading();
                   });
-                } else {
-                  Swal.fire({
-                    title: 'Unexpected Error',
-                    text: `Error: ${result.errorMsg}`,
-                    icon: 'error'
-                  });
-                }
-                Swal.hideLoading();
-              })
-              .catch(error => {
-                Swal.fire(
-                  'Unexpected Error',
-                  error.message,
-                  'error'
-                );
-                Swal.hideLoading();
-              });
-            },
-            allowOutsideClick: false,
-            allowEscapeKey: false,
-            text: `Adding vendor to the Event Record ID ${eventId}...`
-          });
-        }
-      });
-    }  
+              },
+              allowOutsideClick: false,
+              allowEscapeKey: false,
+              text: `Adding Vendor to Event Record [ID ${eventId}]...`
+            });
+          }
+        });
+    }
   }
 
   function deepCopy(obj) {

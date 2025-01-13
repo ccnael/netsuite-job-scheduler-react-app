@@ -97,7 +97,6 @@ body {
 	box-sizing: border-box;
 	flex: 1;
 }
-
 .toggle-btn {
 	position: absolute;
 	float: right;
@@ -119,6 +118,16 @@ body {
 	color: $color_5;
 	border: none;
 	cursor: pointer;
+}
+.filter-icon {
+    margin-left: auto;
+    font-size: 14px;
+    cursor: pointer;
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+.filter-icon:hover {
+	transform: scale(1.2);
+	color: #007BFF; /* Change this to your preferred hover color */
 }
 .card-head {
 	display: flex;
@@ -397,7 +406,10 @@ div.form-check {
 	box-sizing: border-box;
 	justify-content: center;
 	div.input-group {
-		display: inline-block;
+		display: flex;
+	    flex-wrap: wrap; /* Allow wrapping of fields */
+		gap: 10px; /* Space between fields */
+		margin-top: 10px;
 		width: auto;
 	}
 }
@@ -529,11 +541,14 @@ div.form-check {
 	background-color: #9d1bb3 !important;
 }
 .row-available {
-	background-color: lightgreen !important;
+	background-color: #bef7a8 !important;
 	z-index: 1;
 }
 .row-unavailable {
-	background-color: #e3dcdc !important;
+	opacity: 0.6; /* Makes the card look faded */
+	// pointer-events: none; /* Disables interaction (clicks, hovers, etc.) */
+	  // cursor: not-allowed; /* Changes the cursor to a "not-allowed" icon */
+	filter: grayscale(100%);
 }
 .floating-logo {
 	position: fixed;

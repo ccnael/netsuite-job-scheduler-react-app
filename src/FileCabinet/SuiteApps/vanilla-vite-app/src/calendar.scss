@@ -19,10 +19,10 @@ $background-color_19: #f0f0f0;
 		background-color: #f0f0f0;
 		overflow: scroll;
 
-		.fc-timeline-body, .fc-timeline-header-row, .fc-view-harness, .fc-scroller {
+		/* .fc-timeline-body, .fc-timeline-header-row, .fc-view-harness, .fc-scroller {
 			white-space: nowrap;
     		overflow-x: scroll !important;
-		}
+		} */
 
 		.fc-license-message {
 			display: none;
@@ -46,22 +46,25 @@ $background-color_19: #f0f0f0;
 		.fc-event {
 			border-radius: 8px;
 			padding: 8px;
-			font-size: 14px;
+			font-size: 11px;
 			box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+		}
+		.fc-event * {
+			font-size: 10px;
+		}
+		.card-content .badge {
+			zoom: 0.8;
 		}
 
 		.fc-event .card-name > a {
 			color: #fff !important;
 		}
-
 		.fc-event .card-content {
 			color: #fff !important;
 			overflow: hidden;
 			text-overflow: ellipsis;
 			white-space: nowrap;
 		}
-		
-	
 		.fc-event:hover {
 			// background-color: #2980b9;
 			cursor: pointer;
@@ -69,7 +72,6 @@ $background-color_19: #f0f0f0;
 			transition: transform 0.3s, background-color 0.3s;
 		}
 		
-	
 		.fc-event-drag {
 			border: 2px dashed #e74c3c;
 		}
@@ -144,6 +146,29 @@ $background-color_19: #f0f0f0;
 		.card-item {
 			cursor: grab;
 		}
+		.accordion-button {
+			font-size: 1rem;
+			font-weight: bold;
+		}
+		
+		.selectpicker, .form-control {
+			width: 100%; /* Ensure full-width for the input fields */
+			border-radius: 5px;
+		}
+		
+		#col2_2-filter-tableWrapper .container-fluid {
+			padding: 15px;
+		}
+		
+		.row {
+			margin: 10; /* Remove unnecessary gaps */
+		}
+		
+		@media (max-width: 768px) {
+			.row {
+				flex-direction: column; /* Stack inputs for smaller screens */
+			}
+		}		
 	}
 	.toggleLeft, .toggleRight {
 		font-size: 22px;
@@ -166,6 +191,9 @@ $background-color_19: #f0f0f0;
 		margin-top: 5px;
 		justify-content: center;
 	}
+	.card-name {
+		margin: 2;
+	}
 	.card-item {
 		margin-top: 10px;
 		background-color: $background-color_2;
@@ -184,7 +212,10 @@ $background-color_19: #f0f0f0;
 		width: 100%;
 		height: 100%;
 		zoom: 0.8;
-	  }
+	}
+	.fc-timeline-event-harness {
+		zoom: 1.25;
+	}
 	.resizer {
 		width: 10px;
 		background-color: #ccc;

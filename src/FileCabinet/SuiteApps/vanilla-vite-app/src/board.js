@@ -1,10 +1,8 @@
 import * as dataSet from './components/dataSet';
-import { initLeftSideBarFilters, initAvailableJobsFilters, initEventFilters } from './components/filterHandler';
 import { Event } from './components/utils';
 import './board.css';
 
 export default class Board {
-
   static setup() {
     $(`<div id="container">
         <div id="tabSections">
@@ -13,41 +11,11 @@ export default class Board {
               <!-- Collapsible First Column -->
               <aside class="sidebar leftSidebar">
                 <div class="collapse-content collapseLeft">
-                  <div style="padding: 10px; margin-top: 20px" class="card-header header">
-                    <i class="fa-solid fa-icon-size fa-users-gear" style="font-size: 14px; margin-right: 5px"></i>
-                    <span style="display: inline-block;"><h5><strong>Resources</strong></h5></span>
-                  </div>
-                  <div id="col1-filter-tableWrapper" class="accordion accordion-flush">
-                    <div class="accordion-item">
-                      <h2 class="accordion-header" id="col1-filter-tableHeading">
-                        <button class="accordion-button" type="button" data-toggle="collapse" data-target="#col1-filter-table" aria-expanded="true" aria-controls="col1-filter-table">
-                          <i class="fa fa-filter"></i>
-                          <strong class="grid-header">&nbsp;Filters</strong>
-                        </button>
-                      </h2>
-                      <div id="col1-filter-table" class="accordion-collapse collapse show" aria-labelledby="col1-filter-tableHeading" data-parent="#col1-filter-tableWrapper">
-                        <div class="input-group" style=" margin-top: 10px;">
-                          <div class="input-group mb-3" style="border-radius: 5px 5px 0 0;">
-                            <select class="selectpicker mx-auto multiple-resource-field" title="Filter by Name" data-live-search="true" data-selected-text-format="count>2" data-style="" data-style-base="form-control" data-actions-box="true" multiple>
-                              ${dataSet.resources.map(resource => `<option value="${resource.id}">${resource.name}</option>`)}
-                              ${dataSet.vendors.map(vendor => `<option value="${vendor.id}">${vendor.name}</option>`)}
-                            </select>
-                          </div>
-                          <div class="input-group mb-3">
-                            <select class="selectpicker mx-auto multiple-resource-group-field" title="Filter by Group" data-live-search="true" data-selected-text-format="count>2" data-style="" data-style-base="form-control" data-actions-box="true" multiple>
-                            ${dataSet.resourceGroups.map(resourceGroup => `<option value="${resourceGroup.value}">${resourceGroup.text}</option>`)}
-                            <option value="vendor">Vendor Subcons</option>
-                            </select>
-                          </div>
-                          <div class="input-group mb-3">
-                            <select class="selectpicker mx-auto multiple-status-field" title="Filter by Status" data-live-search="true" data-selected-text-format="count>2" data-style="" data-style-base="form-control" data-actions-box="true" multiple>
-                              <option value="1">Active</option>
-                              <option value="0">Inactive</option>
-                            </select>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
+                  <div style="padding: 10px; margin-top: 20px; display: flex; align-items: center;" class="card-header header">
+                    <i class="fa-solid fa-users-gear" style="font-size: 14px; margin-right: 5px;"></i>
+                    <h5 style="margin: 0;"><strong>Resources</strong></h5>
+                    <i class="fa-solid fa-filter filter-icon" style="margin-left: auto; font-size: 14px;" title="Filter" onclick="openFilterModal('Filter Resources');"></i>
+                    <span class="badge badge-danger badge-pill counter">0</span>
                   </div>
                 </div>
                 <div class="collapsible-list overflow-auto" style="height: 100%; overflow: scroll">
@@ -85,7 +53,7 @@ export default class Board {
                         </div>
                       </div>
                     </div>`
-                  )}
+    )}
                   ${`<div id="resourceGroup-vendor-filter-tableWrapper" class="accordion accordion-flush">
                       <div class="accordion-item">
                         <h2 class="accordion-header" id="resourceGroup-vendor-filter-tableHeading">
@@ -126,10 +94,16 @@ export default class Board {
                 <div class="column resizable secondColumn">
                   <div class="content">
                     <div class="card-header header">
-                      <div style="text-align: center;">
-                        <i class="fa-solid fa-screwdriver-wrench" style="font-size: 16px"></i>
-                        <span style="display: inline-block; margin-left: 5px"><h5><strong>Available Jobs</strong></h5></span>&nbsp;
-                        <span class="badge badge-danger badge-pill counter">${dataSet.workOrders.length}</span>
+                      <div style="display: flex; justify-content: space-between; align-items: center; text-align: center;">
+                        <div style="display: flex; align-items: center;">
+                          <i class="fa-solid fa-screwdriver-wrench" style="font-size: 16px"></i>
+                          <span style="display: inline-block; margin-left: 5px">
+                            <h5><strong>Available Jobs</strong></h5>
+                          </span>&nbsp;
+                          <span class="badge badge-danger badge-pill counter">${dataSet.workOrders.length}</span>
+                        </div>
+                        <i class="fa-solid fa-filter filter-icon" style="font-size: 14px;" title="Filter" onclick="alert('TBD')"></i>
+                        <span class="badge badge-danger badge-pill counter">0</span>
                       </div>
                     </div>
                     <div id="col2-filter-tableWrapper" class="accordion accordion-flush">
@@ -209,10 +183,16 @@ export default class Board {
                 <div class="column resizable thirdColumn" ondragenter="dragJobFunctions(event);" ondragover="dragJobFunctions(event);" ondrop="dragJobFunctions(event);" ondragleave="dragJobFunctions(event);">
                   <div class="content">
                     <div class="card-header header">
-                      <div style="text-align: center;">
-                        <i class="fa-regular fa-icon-size fa-calendar-check" style="font-size: 18px;"></i>
-                        <span style="display: inline-block; margin-left: 5px"><h5><strong>Events</strong></h5></span>
-                        <span class="badge badge-danger badge-pill counter">${dataSet.events/* .filter(event => event.status.value !== 'COMPLETED') */.length}</span>
+                      <div style="display: flex; justify-content: space-between; align-items: center; text-align: center;">
+                        <div style="display: flex; align-items: center;">
+                          <i class="fa-solid fa-calendar-check" style="font-size: 16px"></i>
+                          <span style="display: inline-block; margin-left: 5px">
+                            <h5><strong>Available Jobs</strong></h5>
+                          </span>&nbsp;
+                          <span class="badge badge-danger badge-pill counter">${dataSet.events/* .filter(event => event.status.value !== 'COMPLETED') */.length}</span>
+                        </div>
+                        <i class="fa-solid fa-filter filter-icon" style="font-size: 14px;" title="Filter" onclick="alert('TBD')"></i>
+                        <span class="badge badge-danger badge-pill counter">0</span>
                       </div>
                     </div>
                     <div id="col3-filter-tableWrapper" class="accordion accordion-flush">
@@ -297,12 +277,12 @@ export default class Board {
                     <div class="card-wrapper">
                       ${dataSet.events.map(event => `
                         <div type="event" class="card-item" id="${event.id}" data-bs-toggle="tooltip" data-bs-placement="left" 
-                        title="Resources:<br/>${(event.resources.length || event.vendors.length) ? 
+                        title="Resources:<br/>${(event.resources.length || event.vendors.length) ?
+        `
+                            ${event.resources.map((resource, counter) => `${+counter + 1}. ${resource.employee.text}`).join('<br/>')}<br/>
+                            ${event.vendors.map((vendor, counter) => `${event.resources.length + counter + 1}. ${vendor.vendor.text || vendor.name}`).join('<br/>')}
                           `
-                            ${event.resources.map((resource, counter) => `${+counter+1}. ${resource.employee.text}`).join('<br/>')}<br/>
-                            ${event.vendors.map((vendor, counter) => `${event.resources.length+counter+1}. ${vendor.vendor.text || vendor.name}`).join('<br/>')}
-                          `  
-                          : '- None -'}"
+        : '- None -'}"
                         style="${''/* event.status.value === 'COMPLETED' ? 'display: none' : 'display: initial' */}">
                           <div class="card-head">
                             <div class="card-name"><a href="${event.url}" target="_blank"><strong>${event.title}</strong></a></div>
@@ -364,10 +344,9 @@ export default class Board {
     // -----------------------------------------------------------------
     const toggleLeft = document.querySelector('#boardSection .toggleLeft');
     const collapseLeft = document.querySelector('#boardSection .collapseLeft');
-    
     collapseLeft.style.display = 'block';
     leftSidebar.style.width = '18%';
-    
+
     toggleLeft.addEventListener('click', el => {
       if (collapseLeft.style.display === 'none' || collapseLeft.style.display === '') {
         collapseLeft.style.display = 'block';
@@ -383,20 +362,18 @@ export default class Board {
       secondColumn.style.width = '';
       thirdColumn.style.width = '';
     });
-    
+
     let startX, startWidthSecond, startWidthThird;
-    
     resizer.addEventListener('mousedown', el => {
       startX = el.clientX;
       startWidthSecond = secondColumn.getBoundingClientRect().width;
       startWidthThird = thirdColumn.getBoundingClientRect().width;
-    
       document.addEventListener('mousemove', _handleMouseMove);
       document.addEventListener('mouseup', () => {
         document.removeEventListener('mousemove', _handleMouseMove);
       });
     });
-    
+
     function _handleMouseMove(el) {
       const dx = el.clientX - startX;
       const newWidthSecond = startWidthSecond + dx;
@@ -406,10 +383,10 @@ export default class Board {
         thirdColumn.style.width = `${newWidthThird}px`;
       }
     }
-    
+
     window.dragJobFunctions = ev => {
       const $thirdColumn = $('#boardSection .thirdColumn');
-  
+
       switch (ev.type) {
         case 'dragstart':
           $thirdColumn.css('border', '5px dashed #26CC4E');
@@ -432,7 +409,7 @@ export default class Board {
         case 'dragend':
           $thirdColumn.css('border', '');
           break;
-  
+
         default:
           // console.log('Skip Reading Event.');
           break;
@@ -440,10 +417,10 @@ export default class Board {
       ev.stopPropagation();
       ev.preventDefault();
     };
-  
+
     window.dragResourceFunctions = ev => {
       let $el, eventId, dataTransfer, $draggedEl;
-  
+
       switch (ev.type) {
         case 'dragstart':
           $el = $(ev.target).closest('.person-container');
@@ -457,14 +434,14 @@ export default class Board {
             elementId: $el.attr('id')
           }));
 
-          $('.thirdColumn').find('div[type*="event"]').each(function() {
+          $('.thirdColumn').find('div[type*="event"]').each(function () {
             const id = this.id;
             const eventData = dataSet.events.find(event => event.id == id);
-            
+
             let foundObj, allowEvent = false;
             if (resourceType == 'employee') {
               foundObj = eventData.resources.find(resource => resource.employee.value == resourceId);
-              const hasConflict = Event.draggedResourceHasConflicEvent(eventData, resourceId);
+              const hasConflict = Event.draggedResourceHasConflictEvent(eventData, resourceId);
               allowEvent = !!!foundObj && !hasConflict;
             } else if (resourceType == 'vendor') {
               foundObj = eventData.vendors.find(vendor => vendor.vendor.value == resourceId);
@@ -478,7 +455,7 @@ export default class Board {
             }
           });
           return;
-        
+
         case 'dragenter':
           $el = $(ev.target).closest('.card-item');
           eventId = $el.attr('id');
@@ -488,7 +465,7 @@ export default class Board {
           let foundObj, allowResource = false;
           if (dataTransfer.type == 'employee') {
             foundObj = eventData.resources.find(resource => resource.employee.value == dataTransfer.id);
-            const hasConflict = Event.draggedResourceHasConflicEvent(eventData, dataTransfer.id);
+            const hasConflict = Event.draggedResourceHasConflictEvent(eventData, dataTransfer.id);
             allowResource = !!!foundObj && !hasConflict;
           } else if (dataTransfer.type == 'vendor') {
             foundObj = eventData.vendors.find(vendor => vendor.vendor.value == dataTransfer.id);
@@ -510,7 +487,7 @@ export default class Board {
 
           if (!$el.hasClass('event-unavailable')) {
             if (dataTransfer.type.match(/employee|vendor/g)) {
-              window.openAddResourceModal(eventId, dataTransfer);
+              window.openDragResourceModal(eventId, dataTransfer);
             }
           }
           break;
@@ -524,7 +501,7 @@ export default class Board {
           }
           $draggedEl.removeClass('cursor-plus cursor-x');
 
-          $('.thirdColumn').find('div[type*="event"]').each(function() {
+          $('.thirdColumn').find('div[type*="event"]').each(function () {
             $(this).removeClass('event-available event-unavailable');
           });
           break;
@@ -534,16 +511,11 @@ export default class Board {
       }
       ev.stopPropagation();
       ev.preventDefault();
-    };
-  
-    initLeftSideBarFilters('#boardSection');
-    initAvailableJobsFilters('#boardSection .secondColumn');
-    initEventFilters('#boardSection');
+    }
   }
 
   static _showBanners() {
     setTimeout(() => {
-
       const toasties = [
         /* {
           text: 'TBD Resource Info, Schedules & Allocation View on click..',
@@ -577,7 +549,7 @@ export default class Board {
         }, */
         {
           text: 'Drag Available Jobs to Events Column',
-          duration: 99999,
+          duration: 3000,
           close: true,
           gravity: 'top',
           position: 'center',
@@ -586,25 +558,24 @@ export default class Board {
           }
         }
       ];
-      
       toasties.map(toast => Toastify(toast).showToast());
     }, 250);
   }
 
   static _initToolTip() {
-    $('[data-bs-toggle="tooltip"]').each(function() {
+    $('[data-bs-toggle="tooltip"]').each(function () {
       new bootstrap.Tooltip(this, {
-          html: true
+        html: true
       });
     });
   }
 
   // This prevents conflict dropping conflict with the job items drag and drop
   static _initResourceDragFunctionsTempSwitch() {
-    $('.person-circle').on('dragstart', function(event) {
+    $('.person-circle').on('dragstart', function (event) {
       $('.thirdColumn').find('div[type*="event"]').on('dragenter dragover drop dragleave', dragResourceFunctions);
     });
-    $('.person-circle').on('dragend', function(event) {
+    $('.person-circle').on('dragend', function (event) {
       $('.thirdColumn').find('div[type*="event"]').off('dragenter dragover drop dragleave', dragResourceFunctions);
     });
   }

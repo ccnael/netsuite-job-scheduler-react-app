@@ -6,7 +6,7 @@ $(document).ready(() => {
 
   Board.setup();
   Calendar.setup();
-  
+
   initTabSwitch();
 
   // Set below actions globally

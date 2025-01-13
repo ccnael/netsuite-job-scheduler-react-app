@@ -9,10 +9,10 @@
   padding-bottom: 10px;
   background-color: #f0f0f0;
   overflow: scroll;
-}
-#calendarSection #calendar .fc-timeline-body, #calendarSection #calendar .fc-timeline-header-row, #calendarSection #calendar .fc-view-harness, #calendarSection #calendar .fc-scroller {
-  white-space: nowrap;
-  overflow-x: scroll !important;
+  /* .fc-timeline-body, .fc-timeline-header-row, .fc-view-harness, .fc-scroller {
+  	white-space: nowrap;
+    		overflow-x: scroll !important;
+  } */
 }
 #calendarSection #calendar .fc-license-message {
   display: none;
@@ -33,8 +33,14 @@
 #calendarSection #calendar .fc-event {
   border-radius: 8px;
   padding: 8px;
-  font-size: 14px;
+  font-size: 11px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+#calendarSection #calendar .fc-event * {
+  font-size: 10px;
+}
+#calendarSection #calendar .card-content .badge {
+  zoom: 0.8;
 }
 #calendarSection #calendar .fc-event .card-name > a {
   color: #fff !important;
@@ -113,6 +119,25 @@
 #calendarSection .thirdColumn .card-item {
   cursor: grab;
 }
+#calendarSection .thirdColumn .accordion-button {
+  font-size: 1rem;
+  font-weight: bold;
+}
+#calendarSection .thirdColumn .selectpicker, #calendarSection .thirdColumn .form-control {
+  width: 100%; /* Ensure full-width for the input fields */
+  border-radius: 5px;
+}
+#calendarSection .thirdColumn #col2_2-filter-tableWrapper .container-fluid {
+  padding: 15px;
+}
+#calendarSection .thirdColumn .row {
+  margin: 10; /* Remove unnecessary gaps */
+}
+@media (max-width: 768px) {
+  #calendarSection .thirdColumn .row {
+    flex-direction: column; /* Stack inputs for smaller screens */
+  }
+}
 #calendarSection .toggleLeft, #calendarSection .toggleRight {
   font-size: 22px;
   z-index: 1;
@@ -132,6 +157,9 @@
   margin-top: 5px;
   justify-content: center;
 }
+#calendarSection .card-name {
+  margin: 2;
+}
 #calendarSection .card-item {
   margin-top: 10px;
   background-color: #ffffff;
@@ -150,6 +178,9 @@
   width: 100%;
   height: 100%;
   zoom: 0.8;
+}
+#calendarSection .fc-timeline-event-harness {
+  zoom: 1.25;
 }
 #calendarSection .resizer {
   width: 10px;

@@ -6,12 +6,11 @@ import listPlugin from '@fullcalendar/list';
 import timeGridPlugin from '@fullcalendar/timegrid';
 import resourceTimelinePlugin from '@fullcalendar/resource-timeline';
 import * as dataSet from './components/dataSet';
-import { initCalendarFilters, initAvailableJobsFilters, updateCurrentCalendarPageEventCount } from './components/filterHandler';
+import { initCalendarFilters, initAvailableJobsFilters, updateCurrentCalendarPageEventCount } from './components/filters';
 import { Event } from './components/utils';
 import './calendar.css';
 
 export default class Calendar {
-  
   static setup() {
     setTimeout(() => {
       $(`<div class="tab-content" id="calendarSection">
@@ -35,33 +34,37 @@ export default class Calendar {
                     <div id="col2_2-filter-tableWrapper" class="accordion accordion-flush">
                       <div class="accordion-item">
                         <h2 class="accordion-header" id="col2_2-filter-tableHeading">
-                          <button class="accordion-button collapsed" type="button" data-toggle="collapse" data-target="#col2_2-filter-table" aria-expanded="false" aria-controls="col2_2-filter-table">
+                          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#col2_2-filter-table" aria-expanded="false" aria-controls="col2_2-filter-table">
                             <i class="fa fa-filter"></i>
                             <strong class="grid-header">&nbsp;Filters</strong>
                           </button>
                         </h2>
-                        <div id="col2_2-filter-table" class="accordion-collapse collapse" aria-labelledby="col2_2-filter-tableHeading" data-parent="#col2_2-filter-tableWrapper">
-                          <div class="input-group inline-inputs">
-                            <div class="input-group mb-3" style="border-radius: 5px 5px 0 0; margin-top: 15px; margin-left: 10px;">
-                              <select class="selectpicker mx-auto multiple-customer-field" title="Filter by Customer" data-live-search="true" data-selected-text-format="count>2" data-style="" data-style-base="form-control" data-actions-box="true" multiple>
-                                ${dataSet.customers.map(customer => `<option value="${customer.value}">${customer.text}</option>`)}
-                              </select>
-                            </div>
-                            <div class="mb-3" style="border-radius: 5px 5px 0 0; margin-top: 15px; margin-left: 10px;">
-                              <input type="text" class="form-control" id="woTitle" placeholder="Enter Work Order Title">
-                            </div>
-                          </div>
-                          <div class="input-group inline-inputs" style="margin-left: 10px;">
-                            <div class="mb-3 row align-items-center">
-                              <label for="calendar-job-datefrom" class="col-form-label col-auto">From: </label>
-                              <div class="col-auto">
-                                  <input type="date" class="form-control" id="calendar-job-datefrom">
+                        <div id="col2_2-filter-table" class="accordion-collapse collapse" aria-labelledby="col2_2-filter-tableHeading" data-bs-parent="#col2_2-filter-tableWrapper">
+                          <div class="container-fluid mt-3">
+                            <!-- Customer Filter (First Row) -->
+                            <div class="row g-3">
+                              <div class="col-6">
+                                <select class="selectpicker mx-auto multiple-customer-field" title="Filter by Customer" data-live-search="true" data-selected-text-format="count>2" data-style="" data-style-base="form-control" data-actions-box="true" multiple>
+                                  ${dataSet.customers.map(customer => `<option value="${customer.value}">${customer.text}</option>`)}
+                                </select>
                               </div>
                             </div>
-                            <div class="mb-3 row align-items-center">
-                              <label for="calendar-job-dateto" class="col-form-label col-auto">To: </label>
-                              <div class="col-auto">
-                                  <input type="date" class="form-control" id="calendar-job-dateto">
+                            <!-- Work Order Title (Second Row) -->
+                            <div class="row g-3 mt-3">
+                              <div class="col-9">
+                                <input type="text" class="form-control" id="woTitle" placeholder="Enter Work Order Title">
+                              </div>
+                            </div>
+
+                            <!-- Date Filters (Third Row) -->
+                            <div class="row g-3 mt-3 align-items-center">
+                              <div class="col-md-6 d-flex align-items-center">
+                                <label for="calendar-job-datefrom" class="col-form-label me-2">From:</label>
+                                <input type="date" class="form-control" id="calendar-job-datefrom">
+                              </div>
+                              <div class="col-md-6 d-flex align-items-center">
+                                <label for="calendar-job-dateto" class="col-form-label me-2">To:</label>
+                                <input type="date" class="form-control" id="calendar-job-dateto">
                               </div>
                             </div>
                           </div>
@@ -106,9 +109,9 @@ export default class Calendar {
         </div>`
         .replace(/,/g, ''))
         .insertAfter('header');
-    
-        this._initFullCalendarIO();
-        this._initLayoutHandlers();
+
+      this._initFullCalendarIO();
+      this._initLayoutHandlers();
     });
   }
 
@@ -125,15 +128,13 @@ export default class Calendar {
       })),
       extendedProps: resourceGroup
     }));
-    console.log('calendarResources', calendarResources)
-    
+    // console.log('calendarResources', calendarResources);
     // Events with no resource gets assigned here
-    calendarResources.push({ 
+    calendarResources.push({
       id: 'z-unassigned', // Auto sorts by id, needs to ba after vendor group
       title: 'Unassigned',
       children: []
     });
-
     // Remap calendar events data
     // -----------------------------------------------------------------
     let calendarEvents = dataSet.events.map(event => {
@@ -144,7 +145,7 @@ export default class Calendar {
       map.end = `${event.date.end}T${event.time.end}`;
       map.url = event.url;
       map.className = 'event-class-style-name';
-      
+
       switch (event.status.value) {
         case 'TENTATIVE':
           map.className += ' tentative';
@@ -166,30 +167,22 @@ export default class Calendar {
       });
 
       if (!map.resourceIds.length) {
-        map.resourceIds = ['z-unassigned']; 
+        map.resourceIds = ['z-unassigned'];
       }
       map.extendedProps = deepCopy(event);
       return map;
     });
-    
+
     calendarEvents = calendarEvents.filter(event => !!(event.resourceIds.length));
-    
+
     // Instantiate draggable external events
     // -----------------------------------------------------------------
-    new Draggable(containerEl, {
-      itemSelector: '.card-item',
-      eventData: el => {
-        return {
-          title: el.innerText,
-          woId: el.getAttribute('id')
-        };
-      }
-    });
-    
+    this._initDraggableEvents(containerEl);
+
     // Instantiate calendar
     // -----------------------------------------------------------------
     window.FullCalendar = new FullCalendar(calendarEl, {
-      plugins: [ adaptivePlugin, interactionPlugin, dayGridPlugin, listPlugin, timeGridPlugin, resourceTimelinePlugin ],
+      plugins: [adaptivePlugin, interactionPlugin, dayGridPlugin, listPlugin, timeGridPlugin, resourceTimelinePlugin],
       schedulerLicenseKey: 'XXX',
       nowIndicator: true,
       editable: true,
@@ -205,6 +198,9 @@ export default class Calendar {
       scrollTime: '08:00:00', // Set default scroll start time
       dayMinWidth: 100, // Adjust as needed
       slotMinWidth: 75, // Adjust this value based on your needs
+      slotDuration: '04:00:00', // Set slot duration to 4 hours
+      slotLabelInterval: '04:00', // Optionally, set the slot label interval to 4 hours
+      snapDuration: '01:00:00', // Snap to 15 minutes
       // -----------------------------------------------------------------
       viewDidMount: info => {
         this._appendHeaderAndFilterFields();
@@ -215,7 +211,7 @@ export default class Calendar {
       headerToolbar: {
         left: 'todayBtn prev,next',
         center: 'title',
-        right: 'resourceTimelineDay,resourceTimelineDefault,resourceTimelineWeek,resourceTimelineMonth,listWeek createEventBtn'
+        right: 'resourceTimelineDay,resourceTimelineDefault,resourceTimelineWeek,resourceTimelineMonth createEventBtn'
       },
       // Resource etc settings
       // -----------------------------------------------------------------
@@ -235,10 +231,6 @@ export default class Calendar {
           ]
         }
       },
-      // Set slot duration to 4 hours
-      slotDuration: '04:00:00',
-      // Optionally, set the slot label interval to 4 hours
-      slotLabelInterval: '04:00',
       resourceAreaHeaderContent: arg => {
         return {
           html: `<div style="padding: 10px; width: 100%" id="main-resource-header">
@@ -272,7 +264,7 @@ export default class Calendar {
           text: 'Today',
           click: () => {
             const currentDate = new Date();
-            window.FullCalendar.changeView('resourceTimelineDay'); 
+            window.FullCalendar.changeView('resourceTimelineDay');
             window.FullCalendar.gotoDate(currentDate);
           }
         },
@@ -287,6 +279,7 @@ export default class Calendar {
       // -----------------------------------------------------------------
       eventDidMount: info => {
         const event = info.event.extendedProps;
+        // console.log('eventDidMount', event);
         if (event.id) {
           try {
             switch (event.status.value) {
@@ -312,7 +305,7 @@ export default class Calendar {
         if (event.id) {
           try {
             const html = `
-            <div style="margin-left: 15px; height: 60px;" id="${event.id}">
+            <div style="margin-left: 5px; height: 60px;" id="${event.id}">
             <div class="card-head">
               <div class="card-name"><a href="${event.url}" target="_blank" onclick="window.open('/app/crm/calendar/event.nl?id=${event.id}', '_blank')"><strong>${event.title}</strong></a>
               </div>
@@ -332,7 +325,7 @@ export default class Calendar {
             return { html };
           } catch (e) {
             console.log('eventContent Unexpected Error', e.message);
-          } 
+          }
         }
       },
       eventClick: event => {
@@ -369,27 +362,24 @@ export default class Calendar {
       },
       windowResize: arg => {
         console.log('The calendar has adjusted to a window resize. Current view: ' + arg.view.type);
+        this._adjustZoomLevel(arg);
         window.FullCalendar.render();
       },
       datesSet: info => {
-        // console.log('Page changed');
+        console.log('Page changed', info);
+        this._adjustZoomLevel(info);
         initCalendarFilters(true, info);
         updateCurrentCalendarPageEventCount(info);
-
-        /* $('#calendar .fc-timeline-body').css({
-          'white-space': 'nowrap',
-    		  'overflow-x': 'scroll'
-        }); */
       }
     });
-  
+
     window.FullCalendar.render();
   }
 
-  static _setDefaultEvents() {
+  /* static _setDefaultEvents() {
     $('#calendar-filters select.multiple-event-status-field').val(['TENTATIVE', 'CONFIRMED']);
     $('#calendar-filters select.multiple-event-status-field').change();
-  }
+  } */
 
   // Instantiate tab header switch, column resizer etc.
   // -----------------------------------------------------------------
@@ -397,7 +387,6 @@ export default class Calendar {
     const resizer = document.getElementById('calendarColumnResizer');
     const leftSide = document.querySelector('#calendarSection .secondColumn');
     const rightSide = document.querySelector('#calendarSection .thirdColumn');
-
     let x = 0;
     let leftWidth = 0;
 
@@ -407,26 +396,32 @@ export default class Calendar {
       leftSide.style.flexBasis = `${newLeftWidth}%`;
       rightSide.style.flexBasis = `${100 - newLeftWidth}%`;
     };
-
     const mouseUpHandler = () => {
       document.removeEventListener('mousemove', mouseMoveHandler);
       document.removeEventListener('mouseup', mouseUpHandler);
     };
-
     const mouseDownHandler = e => {
       x = e.clientX;
       leftWidth = leftSide.getBoundingClientRect().width;
-      
       document.addEventListener('mousemove', mouseMoveHandler);
       document.addEventListener('mouseup', mouseUpHandler);
     };
-
     resizer.addEventListener('mousedown', mouseDownHandler);
 
     initCalendarFilters(false);
     initAvailableJobsFilters('#calendarSection .thirdColumn');
 
     // updateCurrentCalendarPageEventCount();
+  }
+
+  static _adjustZoomLevel(el) {
+    if (el.view.type === 'resourceTimelineDay' || (screen.width > 1470 && screen.height > 956)) { // Restore original zoom level for resourceTimelineDay view
+      $('#calendarSection .grid-container').css('zoom', 1);
+      $('#calendarSection .fc-timeline-event-harness').css('zoom', 1);
+    } else {
+      $('#calendarSection .grid-container').css('zoom', 0.8);
+      $('#calendarSection .fc-timeline-event-harness').css('zoom', 1.25);
+    }
   }
 
   static _appendHeaderAndFilterFields() {
@@ -545,7 +540,7 @@ export default class Calendar {
     payload.eventData.time.end = endSplit[1];
     payload.eventData.priority = payload.eventData.priority.value;
     payload.eventData.status = payload.eventData.status.value;
-    
+
     if (info.action == 'eventDrop') {
       console.log('Event Drop info', info);
 
@@ -575,7 +570,7 @@ export default class Calendar {
 
             if (resourceType === 'employee') {
               foundObj = payload.eventData.resources.find(resource => resource.employee.value == resourceId);
-              const hasConflict = Event.draggedResourceHasConflicEvent(payload.eventData, resourceId);
+              const hasConflict = Event.draggedResourceHasConflictEvent(payload.eventData, resourceId);
               allowEvent = !!!foundObj && !hasConflict;
             } else if (resourceType === 'vendor') {
               foundObj = payload.eventData.vendors.find(vendor => vendor.vendor.value == resourceId);
@@ -604,12 +599,12 @@ export default class Calendar {
                     payload.eventData.selectedResources.splice(index, 1); // Removed resource
                   }
                 }
-                
+
               } else if (resourceKey === 'vendors') {
                 let unassignedVendors = deepCopy(dataSet.vendors).filter(vendor => !!!payload.eventData.vendors.map(vendor => vendor.vendor.value).includes(vendor.id));
                 unassignedVendors = [...payload.eventData.vendors, ...unassignedVendors];
                 const vendorsToUse = unassignedVendors;
-  
+
                 payload.eventData.selectedVendors = vendorsToUse.filter(vendor => resourceId == vendor.id);
                 payload.eventData.selectedVendors = [...payload.eventData.vendors, ...payload.eventData.selectedVendors];
                 if (info.oldResource) {
@@ -636,6 +631,18 @@ export default class Calendar {
     Event.updateEventRecord(payload, 'eventModal', info);
   }
 
+  static _initDraggableEvents(el) {
+    new Draggable(el, {
+      itemSelector: '.card-item',
+      eventData: el => {
+        return {
+          title: el.innerText,
+          woId: el.getAttribute('id')
+        };
+      }
+    });
+  }
+
   static _initDropDown(info) {
     const eventId = info.event.id;
     const event = dataSet.events.find(event => event.id == eventId);
@@ -648,7 +655,7 @@ export default class Calendar {
         <a href="#" onclick="deleteEventRecord('', ${eventId})">Remove Event</a>
       </div>
     </div></div>`;
-    
+
     const el = info.el.querySelector('div.card-name');
     el.insertAdjacentHTML('afterend', html);
   }
@@ -665,8 +672,8 @@ export default class Calendar {
         ${moment(`1/1/1999 ${event.time.start}`).format('h:mm a')} - ${moment(`1/1/1999 ${event.time.end}`).format('h:mm a')}<br/>
         <br/>
         Resources:<br/>
-        ${event.resources.map((resource, counter) => `${+counter+1}. ${resource.employee.text}`).join('<br/>')}<br/>
-        ${event.vendors.map((vendor, counter) => `${event.resources.length+counter+1}. ${vendor.vendor.text || vendor.name}`).join('<br/>')}
+        ${event.resources.map((resource, counter) => `${+counter + 1}. ${resource.employee.text}`).join('<br/>')}<br/>
+        ${event.vendors.map((vendor, counter) => `${event.resources.length + counter + 1}. ${vendor.vendor.text || vendor.name}`).join('<br/>')}
         `,
       placement: 'left'
     });

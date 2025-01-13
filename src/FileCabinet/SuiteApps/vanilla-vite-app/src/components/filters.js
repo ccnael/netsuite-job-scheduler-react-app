@@ -1,33 +1,36 @@
 import * as dataSet from './dataSet';
 
+// Board Filters
+// -----------------------------------------------------------------
 export function initLeftSideBarFilters(sectionId) {
   const $items = $(`${sectionId} .leftSidebar .collapsible-list .person-container`);
-  const $resourceFilter = $(`${sectionId} .leftSidebar select.multiple-resource-field`);
-  const $resourceGroupFilter = $(`${sectionId} .leftSidebar select.multiple-resource-group-field`);
-  const $statusFilter = $(`${sectionId} .leftSidebar select.multiple-status-field`);
+  const $resourceFilter = $(`#filterModal select.multiple-resource-field`);
+  const $resourceGroupFilter = $(`#filterModal select.multiple-resource-group-field`);
+  const $statusFilter = $(`#filterModal select.multiple-status-field`);
   const $selected = {
     resource: [],
     resourceGroup: [],
     status: []
   };
   let $groupCounterMap = {};
+  let $filterCounter = 0;
 
   if ($resourceFilter.length) {
-    $resourceFilter.on('change', function() {
+    $resourceFilter.on('change', function () {
       $selected.resource = $(this).val() || [];
       filterItems();
     });
   }
 
   if ($resourceGroupFilter.length) {
-    $resourceGroupFilter.on('change', function() {
+    $resourceGroupFilter.on('change', function () {
       $selected.resourceGroup = $(this).val() || [];
       filterItems();
     });
   }
 
   if ($statusFilter.length) {
-    $statusFilter.on('change', function() {
+    $statusFilter.on('change', function () {
       $selected.status = $(this).val() || [];
       filterItems();
     });
@@ -36,15 +39,15 @@ export function initLeftSideBarFilters(sectionId) {
   function filterItems() {
     $groupCounterMap = {};
 
-    $items.each(function() {
+    $items.each(function () {
       const $el = $(this);
       const elementId = $(this)[0].id;
       const resourceId = elementId.split('-').pop();
       const containerId = $el.closest('div[id*="-filter-tableWrapper"]').attr('id');
-      const groupId = (containerId.match('vendor')|| containerId.match(/\d+/))[0];
+      const groupId = (containerId.match('vendor') || containerId.match(/\d+/))[0];
       const _resource = dataSet.resources.find(resource => resource.employee.value == resourceId);
       const _vendor = dataSet.vendors.find(vendor => vendor.vendor.value == resourceId);
-      
+
       if (_resource || _vendor) {
         let _resourceGroup = [];
         if (_resource) {
@@ -54,7 +57,6 @@ export function initLeftSideBarFilters(sectionId) {
           _resourceGroup = ['vendor'];
         }
         const _resourceStatus = (_resource || _vendor).active ? '1' : '0';
-
         const shouldDisplay = !!(
           (!$selected.resource.length || $selected.resource.includes(resourceId)) &&
           (!$selected.resourceGroup.length || $selected.resourceGroup.includes(groupId)) &&
@@ -72,6 +74,7 @@ export function initLeftSideBarFilters(sectionId) {
       }
     });
     updateHeaderCount();
+    updateFilterCounter();
   }
 
   // Update header column counter
@@ -84,6 +87,10 @@ export function initLeftSideBarFilters(sectionId) {
       return $(this).css('display') !== 'none';
     }).length;
     $(`${sectionId} .leftSidebar .card-header span.counter`).html(total); */
+  }
+
+  function updateFilterCounter() {
+    $(`#resource-filter-counter`).html($filterCounter);
   }
 }
 
@@ -101,51 +108,51 @@ export function initAvailableJobsFilters(selectorId) {
   };
 
   if ($dateFromFilter.length) {
-    $dateFromFilter.on('change', function() {
+    $dateFromFilter.on('change', function () {
       $selected.dateFrom = $(this).val() || [];
       filterItems();
     });
   }
 
   if ($dateToFilter.length) {
-    $dateToFilter.on('change', function() {
+    $dateToFilter.on('change', function () {
       $selected.dateTo = $(this).val() || [];
       filterItems();
     });
   }
 
   if ($customerFilter.length) {
-    $customerFilter.on('change', function() {
+    $customerFilter.on('change', function () {
       $selected.customers = $(this).val() || [];
       filterItems();
     });
   }
 
   if ($woTitleFilter.length) {
-    $woTitleFilter.on('keyup', function() {
+    $woTitleFilter.on('keyup', function () {
       $selected.woTitle = $(this).val();
       filterItems();
     });
   }
 
   function filterItems() {
-    $items.each(function() {
+    $items.each(function () {
       const $el = $(this);
       const woId = $el[0].id;
       const woRef = dataSet.workOrders.find(wo => wo.id == woId);
-      
+
       if (woRef) {
         let date = woRef.date;
         const customerId = woRef.customer.value;
         const woTitle = woRef.title;
         const regExp = new RegExp($selected.woTitle, 'gi');
-  
+
         let withinRange = false;
         if (date) {
           date = moment(date);
           $selected.dateFrom = $selected.dateFrom ? moment($selected.dateFrom) : '';
           $selected.dateTo = $selected.dateTo ? moment($selected.dateTo) : '';
-  
+
           if ($selected.dateFrom && $selected.dateTo) {
             withinRange = date.isBetween($selected.dateFrom, $selected.dateTo, null, '[]');
           } else if ($selected.dateFrom && !$selected.dateTo) {
@@ -154,16 +161,16 @@ export function initAvailableJobsFilters(selectorId) {
             withinRange = date.isSameOrBefore($selected.dateTo);
           }
         }
-  
+
         if (!$selected.dateFrom && !$selected.dateTo) {
           withinRange = true;
         }
-  
+
         const shouldDisplay = !!(
-          withinRange && 
-          (!$selected.customers.length || $selected.customers.includes(customerId)) && 
+          withinRange &&
+          (!$selected.customers.length || $selected.customers.includes(customerId)) &&
           woTitle.match(regExp)
-        );      
+        );
         $el.toggle(shouldDisplay);
       }
     });
@@ -172,7 +179,7 @@ export function initAvailableJobsFilters(selectorId) {
 
   // Update header column counter
   function updateHeaderCount() {
-    const total = $items.filter(function() {
+    const total = $items.filter(function () {
       return $(this).css('display') !== 'none';
     }).length;
     $(`${selectorId} .card-header span.counter`).html(total);
@@ -182,7 +189,7 @@ export function initAvailableJobsFilters(selectorId) {
 export function initEventFilters(sectionId) {
   // On click resources
   let resourceIds = [];
-  $('.person-container').on('click', function() {
+  $('.person-container').on('click', function () {
     const elementId = $(this)[0].id;
     const resourceId = elementId.split('-').pop();
 
@@ -197,8 +204,8 @@ export function initEventFilters(sectionId) {
       resourceIds.push(resourceId);
     }
 
-    $('.person-container').each(function() {
-      const elementId =  $(this)[0].id;
+    $('.person-container').each(function () {
+      const elementId = $(this)[0].id;
       const resourceId = elementId.split('-').pop();
 
       if (resourceIds.includes(resourceId)) {
@@ -220,8 +227,8 @@ export function initEventFilters(sectionId) {
     resourceGroup: $(`${sectionId} .thirdColumn select.multiple-resource-group-field`),
     status: $(`${sectionId} .thirdColumn select.multiple-event-status-field`),
     priority: $(`${sectionId} .thirdColumn select.multiple-event-priority-field`),
-    organizer:  $(`${sectionId} .thirdColumn select.multiple-event-organizer-field`),
-    eventType:  $(`${sectionId} .thirdColumn select.multiple-event-type-field`),
+    organizer: $(`${sectionId} .thirdColumn select.multiple-event-organizer-field`),
+    eventType: $(`${sectionId} .thirdColumn select.multiple-event-type-field`),
   };
   const $selected = {
     dateFrom: '',
@@ -236,13 +243,13 @@ export function initEventFilters(sectionId) {
 
   for (const id in $field) {
     if ($field[id].length) {
-      $field[id].on('change', function() {
+      $field[id].on('change', function () {
         $selected[id] = $(this).val() || [];
         filterItems();
 
         // Highligh resource rows
         if (id == 'resource') {
-          $('.person-container').each(function() {
+          $('.person-container').each(function () {
             const elementId = $(this)[0].id;
             const resourceId = elementId.split('-').pop();
             if ($selected[id].includes(resourceId)) {
@@ -257,11 +264,11 @@ export function initEventFilters(sectionId) {
   }
 
   function filterItems() {
-    $items.each(function() {
+    $items.each(function () {
       const $el = $(this);
       const eventId = $el[0].id;
       const eventData = dataSet.events.find(event => event.id == eventId);
-      
+
       if (eventData) {
         let date = eventData.date.end || eventData.date.start;
         const eventResources = eventData.resources.map(resource => resource.employee.value);
@@ -272,7 +279,7 @@ export function initEventFilters(sectionId) {
         eventResourceGroups = Array.from(new Set(eventResourceGroups));
         if (eventVendors.length) {
           eventResourceGroups.push('vendor');
-         } else if (!eventData.resources.length && !eventVendors.length) {
+        } else if (!eventData.resources.length && !eventVendors.length) {
           eventResourceGroups.push('unassigned');
         }
 
@@ -280,13 +287,13 @@ export function initEventFilters(sectionId) {
         const eventPriority = eventData.priority.value;
         const eventOrganizer = eventData.organizer.value;
         const eventType = !!eventData.workorder.text ? '2' : '1';
-  
+
         let withinRange = false;
         if (date) {
           date = moment(date);
           $selected.dateFrom = $selected.dateFrom ? moment($selected.dateFrom) : '';
           $selected.dateTo = $selected.dateTo ? moment($selected.dateTo) : '';
-  
+
           if ($selected.dateFrom && $selected.dateTo) {
             withinRange = date.isBetween($selected.dateFrom, $selected.dateTo, null, '[]');
           } else if ($selected.dateFrom && !$selected.dateTo) {
@@ -295,20 +302,20 @@ export function initEventFilters(sectionId) {
             withinRange = date.isSameOrBefore($selected.dateTo);
           }
         }
-  
+
         if (!$selected.dateFrom && !$selected.dateTo) {
           withinRange = true;
         }
-  
+
         const shouldDisplay = !!(
-          withinRange && 
+          withinRange &&
           (!$selected.resource.length || $selected.resource.some(value => new Set(combinedResources).has(value))) && // Check if the selected resources is in the event resources
           (!$selected.resourceGroup.length || $selected.resourceGroup.some(value => new Set(eventResourceGroups).has(value))) && // Check if the selected resource groups is in the event resource groups
-          (!$selected.status.length || $selected.status.includes(eventStatus)) && 
+          (!$selected.status.length || $selected.status.includes(eventStatus)) &&
           (!$selected.priority.length || $selected.priority.includes(eventPriority)) &&
           (!$selected.organizer.length || $selected.organizer.includes(eventOrganizer)) &&
           (!$selected.eventType.length || $selected.eventType.includes(eventType))
-        ); 
+        );
 
         $el.toggle(shouldDisplay);
       }
@@ -318,7 +325,7 @@ export function initEventFilters(sectionId) {
 
   // Update header column counter
   function updateHeaderCount() {
-    const total = $items.filter(function() {
+    const total = $items.filter(function () {
       return $(this).css('display') !== 'none';
     }).length;
     $(`${sectionId} .thirdColumn .card-header span.counter`).html(total);
@@ -332,13 +339,13 @@ export function initResourceDtCustomFilters(dataTable, resourceFieldId, resource
   const resourceGroupFilter = $(`<select class="selectpicker mx-auto ${resourceGroupFieldId}" title="Filter by Group" data-live-search="true" data-selected-text-format="count>2" data-style="" data-style-base="form-control" data-actions-box="true" multiple>
     ${dataSet.resourceGroups.map(resourceGroup => `<option value="${resourceGroup.value}">${resourceGroup.text}</option>`)}
   </select>`);
-  
+
   // Append filters in the middle section
   $('div.middle-col').append(resourceFilter).append(resourceGroupFilter);
-  
+
   // Resource custom filtering
-  $.fn.dataTable.ext.search.push(function(settings, data, dataIndex) {
-    const resourceValues = resourceFilter.find('option:selected').map(function() {
+  $.fn.dataTable.ext.search.push(function (settings, data, dataIndex) {
+    const resourceValues = resourceFilter.find('option:selected').map(function () {
       return $(this).text();
     }).get();
     if (!resourceValues.length) {
@@ -348,8 +355,8 @@ export function initResourceDtCustomFilters(dataTable, resourceFieldId, resource
     return resourceValues.includes(cellContent);
   });
   // Resource Group custom filtering
-  $.fn.dataTable.ext.search.push(function(settings, data, dataIndex) {
-    const resourceGroupValues = resourceGroupFilter.find('option:selected').map(function() {
+  $.fn.dataTable.ext.search.push(function (settings, data, dataIndex) {
+    const resourceGroupValues = resourceGroupFilter.find('option:selected').map(function () {
       return $(this).text();
     }).get();
     if (!resourceGroupValues.length) {
@@ -367,6 +374,8 @@ export function initResourceDtCustomFilters(dataTable, resourceFieldId, resource
   resourceGroupFilter.selectpicker();
 }
 
+// Calendar Filters
+// -----------------------------------------------------------------
 export function initCalendarFilters(pageSwitched, info) {
   const $field = {
     resource: $(`#calendar-filters select.multiple-resource-field`),
@@ -374,7 +383,7 @@ export function initCalendarFilters(pageSwitched, info) {
     status: $(`#calendar-filters select.multiple-event-status-field`),
     priority: $(`#calendar-filters select.multiple-event-priority-field`),
     organizer: $(`#calendar-filters select.multiple-event-organizer-field`),
-    eventType:  $(`#calendar-filters select.multiple-event-type-field`),
+    eventType: $(`#calendar-filters select.multiple-event-type-field`),
   };
   const $selected = {
     resource: [],
@@ -401,7 +410,7 @@ export function initCalendarFilters(pageSwitched, info) {
   } else {
     for (const id in $field) {
       if ($field[id].length) {
-        $field[id].on('change', function() {
+        $field[id].on('change', function () {
           $selected[id] = $(this).val() || [];
           filterItems();
         });
@@ -416,7 +425,7 @@ export function initCalendarFilters(pageSwitched, info) {
     window.FullCalendar.getResources().forEach(resource => {
       resource.remove();
     });
-    
+
     let calendarResources = dataSet.combinedResourceGroups.map(resourceGroup => ({
       id: resourceGroup.value,
       title: resourceGroup.text,
@@ -437,7 +446,7 @@ export function initCalendarFilters(pageSwitched, info) {
     if ($selected.resource.length) {
       calendarResources.forEach(calendarResource => {
         calendarResource.children = calendarResource.children.filter(resource => $selected.resource.includes(resource.id.split('-').pop()));
-      });   
+      });
     }
 
     let calendarEvents = window.FullCalendar.getEvents();
@@ -484,7 +493,7 @@ export function initCalendarFilters(pageSwitched, info) {
        }
       }
     }); */
-    
+
     if (pageSwitched) {
       setTimeout(() => {
         for (const id in $field) {
@@ -504,10 +513,10 @@ export function updateCurrentCalendarPageEventCount(info) {
   const currentView = window.FullCalendar.view;
   const start = moment(currentView.currentStart);
   const end = moment(currentView.currentEnd);
-  
+
   // Check if the event is in the current view's date range
   const currentEvents = window.FullCalendar.getEvents().filter(event => {
-    return moment(event.end).isBetween(start, end, null, '[]') ||  moment(event.start).isSameOrBefore(start) && moment(event.end).isSameOrAfter(end);
+    return moment(event.end).isBetween(start, end, null, '[]') || moment(event.start).isSameOrBefore(start) && moment(event.end).isSameOrAfter(end);
   });
   $('#eventsViewCounter').text(currentEvents.length);
 
@@ -515,12 +524,12 @@ export function updateCurrentCalendarPageEventCount(info) {
   if (!currentEvents.length) {
     const allEvents = window.FullCalendar.getEvents(); // Get all loaded events
     const currentPageEvents = [];
-  
+
     // Filter events that fall within the current view date range
     allEvents.forEach(event => {
       const eventStart = event.start;
       const eventEnd = event.end || event.start; // Use start if end is not defined
-  
+
       // Check if the event falls within the current view's date range
       if (eventStart < info.end && eventEnd >= info.start) {
         currentPageEvents.push(event);
