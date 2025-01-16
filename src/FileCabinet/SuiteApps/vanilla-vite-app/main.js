@@ -1,13 +1,13 @@
 import Board from './src/board';
 import Calendar from './src/calendar';
-import { initTabSwitch, Event, WorkOrderAction } from './src/components/utils';
+import { cacheTabSwitch, Event, WorkOrderAction } from './src/components/utils';
 
 $(document).ready(() => {
 
   Board.setup();
   Calendar.setup();
 
-  initTabSwitch();
+  cacheTabSwitch();
 
   // Set below actions globally
   // -----------------------------------------------------------------

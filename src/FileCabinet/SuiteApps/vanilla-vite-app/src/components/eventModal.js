@@ -1,7 +1,7 @@
 import * as dataSet from './dataSet';
 import { resourcesDtColumns, vendorsDtColumns, assetsDtColumns, itemsDtColumns, contactsDtColumns, addressesDtColumns } from './dataTable';
 import { Event } from './utils';
-import { initResourceDtCustomFilters } from './filters';
+import { clearFilters } from './filterFunctions';
 import './eventModal.css';
 
 let temp_resourcesDataTable, temp_vendorsDataTable, temp_assetsDataTable, temp_itemsDataTable, temp_contactsDataTable, temp_addressesDataTable;
@@ -395,6 +395,7 @@ $(document).ready(() => {
         columns: resourcesDtColumns,
         initComplete: () => {
           eventFormHandlers();
+          addFilterIcon();
         }
       });
 
@@ -521,8 +522,7 @@ $(document).ready(() => {
         columns: addressesDtColumns
       });
 
-      Event.initAllDaySwitch('#eventModal'); // All day event switch function
-      initResourceDtCustomFilters(temp_resourcesDataTable, 'multiple-resource-field-ev', 'multiple-resource-group-field-ev');
+      Event.switchAllDay('#eventModal'); // All day event switch function
       Event.validateResourcesOnLoad('#wo-primaryinfo', '#resources', eventId);
       Event.validateOnHeaderFieldChange('#wo-primaryinfo', '#resources', eventId);
       Event.validateOnLineFieldChange('#wo-primaryinfo', '#resources', eventId);
@@ -735,9 +735,23 @@ $(document).ready(() => {
     window.validateForm = () => true;
   }
 
+  function addFilterIcon() {
+    const entriesLabel = $(`#resources_wrapper div.dt-length`);
+    entriesLabel.addClass('d-flex align-items-center mb-2'); // Align entries label with search bar
+    const dtSearch = $(`#resources_wrapper .dt-search`);
+    dtSearch.addClass('d-flex align-items-center mb-2'); // Align search bar as well
+    // Add filter icon beside the entries label
+    entriesLabel.append(`
+      <div class="d-flex align-items-center">
+        <i class="fa-solid fa-filter filter-icon" style="font-size: 20px; margin-left: 20px" title="Filter" data-bs-toggle="modal" data-bs-target="#filterFieldEventResource"></i>
+        <span class="badge badge-danger badge-pill counter" style="font-size: 8px" id="filter-eventresource-counter">0</span>
+      </div>
+    `);
+  }
+
   function clearFieldValues() {
     console.log('----- [Clearing Fields] -----');
-
+    clearFilters('#filterFieldEventResource');
     showCustomLoader();
 
     $(`#eventModal`).attr('mode', '');

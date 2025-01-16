@@ -34,7 +34,57 @@ const mockup = {
     },
     "priority": "",
     "resources": [],
-    "vendors": [],
+    "vendors": [{
+      "id": "189",
+      "name": "189",
+      "vendor": {
+        "text": "Best Fixture, Inc.",
+        "value": "12"
+      },
+      "url": "",
+      "email": "",
+      "initials": "BF",
+      "workorder": {
+        "text": "Test Work Order",
+        "value": "123"
+      },
+      "event": "101062",
+      "quantityRequired": 5,
+      "quantityAvailable": 0,
+      "purchaseOrder": {
+        "text": " ",
+        "value": ""
+      },
+      "amount": 0,
+      "active": false,
+      "woVendor": true,
+      "memo": ""
+    }, {
+      "id": "188",
+      "name": "Best Fixture, Inc.",
+      "vendor": {
+        "text": "Best Fixture, Inc.",
+        "value": "12"
+      },
+      "url": "",
+      "email": "",
+      "initials": "BF",
+      "workorder": {
+        "text": "Test Work Order",
+        "value": "123"
+      },
+      "event": "101075",
+      "quantityRequired": 0,
+      "quantityAvailable": 0,
+      "purchaseOrder": {
+        "text": " ",
+        "value": ""
+      },
+      "amount": 0,
+      "active": false,
+      "woVendor": true,
+      "memo": ""
+    }],
     "assets": [{
       "id": "123",
       "name": "ELE00002",
@@ -70,8 +120,176 @@ const mockup = {
       },
       "owned": true,
       "rentalMatrix": 0
+    }, {
+      "id": "124",
+      "name": "ELE00002",
+      "workorder": {
+        "text": "Test Work Order",
+        "value": "123"
+      },
+      "event": "101077",
+      "quantity": 5,
+      "description": "Serialized 1 Sales Description",
+      "item": {
+        "text": "ELE00002",
+        "value": "674"
+      },
+      "equipmentType": {
+        "text": "Hand Tools",
+        "value": "1"
+      },
+      "rentalUnit": {
+        "text": "",
+        "value": ""
+      },
+      "rentalDuration": 0,
+      "rentalRate": 0,
+      "rentalAmount": 0,
+      "purchaseOrder": {
+        "text": " ",
+        "value": " "
+      },
+      "vendor": {
+        "text": "Computer Depot Pacific",
+        "value": "965"
+      },
+      "owned": true,
+      "rentalMatrix": 0
+    }, {
+      "id": "125",
+      "name": "ELE00002",
+      "workorder": {
+        "text": "Test Work Order",
+        "value": "123"
+      },
+      "event": "101078",
+      "quantity": 4,
+      "description": "Serialized 1 Sales Description",
+      "item": {
+        "text": "ELE00002",
+        "value": "674"
+      },
+      "equipmentType": {
+        "text": "Hand Tools",
+        "value": "1"
+      },
+      "rentalUnit": {
+        "text": "",
+        "value": ""
+      },
+      "rentalDuration": 0,
+      "rentalRate": 0,
+      "rentalAmount": 0,
+      "purchaseOrder": {
+        "text": " ",
+        "value": " "
+      },
+      "vendor": {
+        "text": "Computer Depot Pacific",
+        "value": "965"
+      },
+      "owned": true,
+      "rentalMatrix": 0
+    }, {
+      "id": "126",
+      "name": "ELE00002",
+      "workorder": {
+        "text": "Test Work Order",
+        "value": "123"
+      },
+      "event": "101079",
+      "quantity": 5,
+      "description": "Serialized 1 Sales Description",
+      "item": {
+        "text": "ELE00002",
+        "value": "674"
+      },
+      "equipmentType": {
+        "text": "Hand Tools",
+        "value": "1"
+      },
+      "rentalUnit": {
+        "text": "",
+        "value": ""
+      },
+      "rentalDuration": 0,
+      "rentalRate": 0,
+      "rentalAmount": 0,
+      "purchaseOrder": {
+        "text": " ",
+        "value": " "
+      },
+      "vendor": {
+        "text": "Computer Depot Pacific",
+        "value": "965"
+      },
+      "owned": true,
+      "rentalMatrix": 0
     }],
     "items": [{
+      "id": "557",
+      "workorder": {
+        "text": "Test Work Order",
+        "value": "123"
+      },
+      "salesorder": {
+        "text": "Sales Order #SLS00000803",
+        "value": "22468"
+      },
+      "event": "101077",
+      "uuid": "22468_1",
+      "line": "1",
+      "item": {
+        "text": "BIC00008",
+        "value": "467"
+      },
+      "description": "Head Master Chair",
+      "quantity": 2,
+      "availableQty": 2,
+      "note": ""
+    }, {
+      "id": "558",
+      "workorder": {
+        "text": "Test Work Order",
+        "value": "123"
+      },
+      "salesorder": {
+        "text": "Sales Order #SLS00000803",
+        "value": "22468"
+      },
+      "event": "101078",
+      "uuid": "22468_1",
+      "line": "1",
+      "item": {
+        "text": "BIC00008",
+        "value": "467"
+      },
+      "description": "Head Master Chair",
+      "quantity": 2,
+      "availableQty": 2,
+      "note": ""
+    }, {
+      "id": "559",
+      "workorder": {
+        "text": "Test Work Order",
+        "value": "123"
+      },
+      "salesorder": {
+        "text": "Sales Order #SLS00000803",
+        "value": "22468"
+      },
+      "event": "101079",
+      "uuid": "22468_3",
+      "line": "3",
+      "item": {
+        "text": "BIC00008",
+        "value": "467"
+      },
+      "description": "Working Table",
+      "quantity": 5,
+      "availableQty": 5,
+      "note": ""
+    }, {
       "id": "547",
       "workorder": {
         "text": "Test Work Order",
@@ -91,6 +309,48 @@ const mockup = {
       "description": "Head Master Chair",
       "quantity": 7,
       "availableQty": 7,
+      "note": ""
+    }, {
+      "id": "555",
+      "workorder": {
+        "text": "Test Work Order",
+        "value": "123"
+      },
+      "salesorder": {
+        "text": "Sales Order #SLS00000803",
+        "value": "22468"
+      },
+      "event": "101075",
+      "uuid": "22468_2",
+      "line": "2",
+      "item": {
+        "text": "BIC00008",
+        "value": "467"
+      },
+      "description": "Diana Chair",
+      "quantity": 10,
+      "availableQty": 10,
+      "note": ""
+    }, {
+      "id": "556",
+      "workorder": {
+        "text": "Test Work Order",
+        "value": "123"
+      },
+      "salesorder": {
+        "text": "Sales Order #SLS00000803",
+        "value": "22468"
+      },
+      "event": "101075",
+      "uuid": "22468_3",
+      "line": "3",
+      "item": {
+        "text": "BIC00008",
+        "value": "467"
+      },
+      "description": "Working Table",
+      "quantity": 5,
+      "availableQty": 5,
       "note": ""
     }, {
       "id": "548",
@@ -187,7 +447,7 @@ const mockup = {
         "text": "World Bank",
         "value": "1249"
       },
-      "events": ["101062"],
+      "events": ["101062", "101076", "101077", "101078", "101079"],
       "address": {
         "text": "434 Carlaw",
         "value": "244878"
@@ -201,7 +461,25 @@ const mockup = {
         "text": "Test Work Order",
         "value": "123"
       },
-      "events": ["101062"],
+      "events": ["101062", "101077", "101078"],
+      "contact": {
+        "text": "World Bank : Chad Bass",
+        "value": "1382"
+      },
+      "name": "Chad Bass",
+      "email": "cbass@worldbank.com",
+      "jobTitle": "President",
+      "mobilePhone": "",
+      "phone": "",
+      "primary": false,
+      "url": "/app/common/entity/contact.nl?id=1382&compid=TSTDRV2617106"
+    }, {
+      "id": "169",
+      "workorder": {
+        "text": "Test Work Order",
+        "value": "123"
+      },
+      "events": ["101075", "101079"],
       "contact": {
         "text": "World Bank : Chad Bass",
         "value": "1382"
@@ -214,7 +492,257 @@ const mockup = {
       "primary": false,
       "url": "/app/common/entity/contact.nl?id=1382&compid=TSTDRV2617106"
     }],
-    "events": [],
+    "events": [{
+      "id": "101079",
+      "title": "AC Installation - 3",
+      "workorder": {
+        "text": "Test Work Order",
+        "value": "123"
+      },
+      "location": "",
+      "status": {
+        "text": "Tentative",
+        "value": "TENTATIVE",
+        "code": "bg-secondary"
+      },
+      "date": {
+        "recurrence": "one time event on 1/17/2025",
+        "dates": ["1/17/2025"],
+        "start": "2025-01-17",
+        "end": "2025-01-17"
+      },
+      "time": {
+        "start": "08:00",
+        "end": "18:00"
+      },
+      "priority": {
+        "text": "High",
+        "value": "3",
+        "code": "#ca6621"
+      },
+      "note": "AC Installation - 3",
+      "url": "/app/crm/calendar/event.nl?id=101079&compid=TSTDRV2617106&selectedtab=custom337",
+      "color": "#1a6756",
+      "woRef": {},
+      "resources": [],
+      "vendors": [],
+      "assets": [],
+      "items": [],
+      "contacts": [],
+      "addresses": [],
+      "contact": {
+        "text": "",
+        "value": ""
+      },
+      "address": {
+        "text": "",
+        "value": ""
+      },
+      "organizer": {
+        "text": "Mei Matriano",
+        "value": "1647"
+      }
+    }, {
+      "id": "101078",
+      "title": "AC Installation 2",
+      "workorder": {
+        "text": "Test Work Order",
+        "value": "123"
+      },
+      "location": "",
+      "status": {
+        "text": "Tentative",
+        "value": "TENTATIVE",
+        "code": "bg-secondary"
+      },
+      "date": {
+        "recurrence": "one time event on 1/16/2025",
+        "dates": ["1/16/2025"],
+        "start": "2025-01-16",
+        "end": "2025-01-16"
+      },
+      "time": {
+        "start": "08:00",
+        "end": "18:00"
+      },
+      "priority": {
+        "text": "High",
+        "value": "3",
+        "code": "#ca6621"
+      },
+      "note": "AC Installation 2",
+      "url": "/app/crm/calendar/event.nl?id=101078&compid=TSTDRV2617106&selectedtab=custom337",
+      "color": "#1a6756",
+      "woRef": {},
+      "resources": [],
+      "vendors": [],
+      "assets": [],
+      "items": [],
+      "contacts": [],
+      "addresses": [],
+      "contact": {
+        "text": "",
+        "value": ""
+      },
+      "address": {
+        "text": "",
+        "value": ""
+      },
+      "organizer": {
+        "text": "Mei Matriano",
+        "value": "1647"
+      }
+    }, {
+      "id": "101077",
+      "title": "AC Installation",
+      "workorder": {
+        "text": "Test Work Order",
+        "value": "123"
+      },
+      "location": "",
+      "status": {
+        "text": "Tentative",
+        "value": "TENTATIVE",
+        "code": "bg-secondary"
+      },
+      "date": {
+        "recurrence": "one time event on 1/16/2025",
+        "dates": ["1/16/2025"],
+        "start": "2025-01-16",
+        "end": "2025-01-16"
+      },
+      "time": {
+        "start": "08:00",
+        "end": "18:00"
+      },
+      "priority": {
+        "text": "Medium",
+        "value": "2",
+        "code": "#dfcf02"
+      },
+      "note": "AC Installation",
+      "url": "/app/crm/calendar/event.nl?id=101077&compid=TSTDRV2617106&selectedtab=custom337",
+      "color": "#1a6756",
+      "woRef": {},
+      "resources": [],
+      "vendors": [],
+      "assets": [],
+      "items": [],
+      "contacts": [],
+      "addresses": [],
+      "contact": {
+        "text": "",
+        "value": ""
+      },
+      "address": {
+        "text": "",
+        "value": ""
+      },
+      "organizer": {
+        "text": "Mei Matriano",
+        "value": "1647"
+      }
+    }, {
+      "id": "101076",
+      "title": "Test Work Order",
+      "workorder": {
+        "text": "Test Work Order",
+        "value": "123"
+      },
+      "location": "",
+      "status": {
+        "text": "Tentative",
+        "value": "TENTATIVE",
+        "code": "bg-secondary"
+      },
+      "date": {
+        "recurrence": "one time event on 1/15/2025",
+        "dates": ["1/15/2025"],
+        "start": "2025-01-15",
+        "end": "2025-01-15"
+      },
+      "time": {
+        "start": "08:00",
+        "end": "18:00"
+      },
+      "priority": {
+        "text": "Low",
+        "value": "1",
+        "code": "#026adf"
+      },
+      "note": "",
+      "url": "/app/crm/calendar/event.nl?id=101076&compid=TSTDRV2617106&selectedtab=custom337",
+      "color": "#1a6756",
+      "woRef": {},
+      "resources": [],
+      "vendors": [],
+      "assets": [],
+      "items": [],
+      "contacts": [],
+      "addresses": [],
+      "contact": {
+        "text": "",
+        "value": ""
+      },
+      "address": {
+        "text": "207",
+        "value": "207"
+      },
+      "organizer": {
+        "text": "Lean  cendana",
+        "value": "1765"
+      }
+    }, {
+      "id": "101075",
+      "title": "Test Work Order",
+      "workorder": {
+        "text": "Test Work Order",
+        "value": "123"
+      },
+      "location": "",
+      "status": {
+        "text": "Tentative",
+        "value": "TENTATIVE",
+        "code": "bg-secondary"
+      },
+      "date": {
+        "recurrence": "one time event on 1/12/2025",
+        "dates": ["1/12/2025"],
+        "start": "2025-01-12",
+        "end": "2025-01-12"
+      },
+      "time": {
+        "start": "08:00",
+        "end": "18:00"
+      },
+      "priority": {
+        "text": "Low",
+        "value": "1",
+        "code": "#026adf"
+      },
+      "note": "X\nY\nZ",
+      "url": "/app/crm/calendar/event.nl?id=101075&compid=TSTDRV2617106&selectedtab=custom337",
+      "color": "#1a6756",
+      "woRef": {},
+      "resources": [],
+      "vendors": [],
+      "assets": [],
+      "items": [],
+      "contacts": [],
+      "addresses": [],
+      "contact": {
+        "text": "",
+        "value": ""
+      },
+      "address": {
+        "text": "207",
+        "value": "207"
+      },
+      "organizer": {
+        "text": "Lean  cendana",
+        "value": "1765"
+      }
+    }],
     "projectUrl": "/app/accounting/project/project.nl?id=1515&compid=TSTDRV2617106",
     "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=123&compid=TSTDRV2617106",
     "soUrl": "/app/accounting/transactions/salesord.nl?id=22468&compid=TSTDRV2617106",
@@ -808,7 +1336,7 @@ const mockup = {
       },
       "time": {
         "start": "10:00",
-        "end": "14:00"
+        "end": "15:00"
       },
       "priority": {
         "text": "Low",
@@ -2078,7 +2606,7 @@ const mockup = {
       "status": {
         "text": "Completed",
         "value": "COMPLETED",
-        "code": "btn-info"
+        "code": "bg-info"
       },
       "date": {
         "recurrence": "one time event on 12/2/2024",
@@ -2360,7 +2888,7 @@ const mockup = {
       "status": {
         "text": "Completed",
         "value": "COMPLETED",
-        "code": "btn-info"
+        "code": "bg-info"
       },
       "date": {
         "recurrence": "one time event on 11/13/2024",
@@ -4362,7 +4890,7 @@ const mockup = {
       "status": {
         "text": "Completed",
         "value": "COMPLETED",
-        "code": "btn-info"
+        "code": "bg-info"
       },
       "date": {
         "recurrence": "one time event on 11/11/2024",
@@ -8621,7 +9149,7 @@ const mockup = {
       "status": {
         "text": "Completed",
         "value": "COMPLETED",
-        "code": "btn-info"
+        "code": "bg-info"
       },
       "date": {
         "recurrence": "occurs every day from 11/11/2024 until 11/12/2024",
@@ -21850,7 +22378,7 @@ const mockup = {
       "status": {
         "text": "Completed",
         "value": "COMPLETED",
-        "code": "btn-info"
+        "code": "bg-info"
       },
       "date": {
         "recurrence": "one time event on 10/22/2024",
@@ -25787,8 +26315,19 @@ const mockup = {
       "value": "1"
     },
     "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1524%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-    "events": ["101072"],
-    "labRates": []
+    "events": ["101079", "101075", "101072"],
+    "labRates": [],
+    "time": {
+      "start": "",
+      "end": ""
+    },
+    "resourceSkills": [{
+      "text": "Welding",
+      "value": "6"
+    }, {
+      "text": "Woodworking",
+      "value": "4"
+    }]
   }, {
     "id": "1770",
     "name": "Arun Sharma",
@@ -25839,8 +26378,19 @@ const mockup = {
       "value": "1"
     },
     "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1770%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-    "events": [],
-    "labRates": []
+    "events": ["101076", "101075"],
+    "labRates": [],
+    "time": {
+      "start": "",
+      "end": ""
+    },
+    "resourceSkills": [{
+      "text": "Driving",
+      "value": "3"
+    }, {
+      "text": "Plumbing",
+      "value": "2"
+    }]
   }, {
     "id": "1767",
     "name": "Bea Quilinguin",
@@ -25901,6 +26451,20 @@ const mockup = {
     }, {
       "labRateCatId": "3",
       "labRate": 30
+    }],
+    "time": {
+      "start": "",
+      "end": ""
+    },
+    "resourceSkills": [{
+      "text": "CNC Machining",
+      "value": "12"
+    }, {
+      "text": "Furniture Design",
+      "value": "7"
+    }, {
+      "text": "Interior Design",
+      "value": "14"
     }]
   }, {
     "id": "912",
@@ -25941,7 +26505,21 @@ const mockup = {
     },
     "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D912%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
     "events": [],
-    "labRates": []
+    "labRates": [],
+    "time": {
+      "start": "",
+      "end": ""
+    },
+    "resourceSkills": [{
+      "text": "Computer-Aided Design (CAD)",
+      "value": "8"
+    }, {
+      "text": "Furniture Assembly",
+      "value": "1"
+    }, {
+      "text": "Quality Control",
+      "value": "13"
+    }]
   }, {
     "id": "27",
     "name": "Brad Sparling",
@@ -25981,7 +26559,21 @@ const mockup = {
     },
     "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D27%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
     "events": [],
-    "labRates": []
+    "labRates": [],
+    "time": {
+      "start": "",
+      "end": ""
+    },
+    "resourceSkills": [{
+      "text": "CNC Machining",
+      "value": "12"
+    }, {
+      "text": "Carpentry and Joinery",
+      "value": "10"
+    }, {
+      "text": "Material Knowledge",
+      "value": "9"
+    }]
   }, {
     "id": "1545",
     "name": "Brandy Samms",
@@ -26021,7 +26613,18 @@ const mockup = {
     },
     "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1545%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
     "events": [],
-    "labRates": []
+    "labRates": [],
+    "time": {
+      "start": "",
+      "end": ""
+    },
+    "resourceSkills": [{
+      "text": "Painting and Finishing",
+      "value": "15"
+    }, {
+      "text": "Woodworking",
+      "value": "4"
+    }]
   }, {
     "id": "1516",
     "name": "Brenda Jones",
@@ -26060,8 +26663,22 @@ const mockup = {
       "value": "1"
     },
     "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1516%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-    "events": [],
-    "labRates": []
+    "events": ["101079"],
+    "labRates": [],
+    "time": {
+      "start": "",
+      "end": ""
+    },
+    "resourceSkills": [{
+      "text": "Furniture Assembly",
+      "value": "1"
+    }, {
+      "text": "Metalworking",
+      "value": "5"
+    }, {
+      "text": "Painting and Finishing",
+      "value": "15"
+    }]
   }, {
     "id": "1513",
     "name": "Brenda Wilson",
@@ -26100,8 +26717,19 @@ const mockup = {
       "value": "1"
     },
     "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1513%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-    "events": [],
-    "labRates": []
+    "events": ["101079"],
+    "labRates": [],
+    "time": {
+      "start": "",
+      "end": ""
+    },
+    "resourceSkills": [{
+      "text": "Furniture Assembly",
+      "value": "1"
+    }, {
+      "text": "Painting and Finishing",
+      "value": "15"
+    }]
   }, {
     "id": "31",
     "name": "Brian Harris",
@@ -26141,7 +26769,21 @@ const mockup = {
     },
     "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D31%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
     "events": [],
-    "labRates": []
+    "labRates": [],
+    "time": {
+      "start": "",
+      "end": ""
+    },
+    "resourceSkills": [{
+      "text": "Furniture Assembly",
+      "value": "1"
+    }, {
+      "text": "Furniture Design",
+      "value": "7"
+    }, {
+      "text": "Interior Design",
+      "value": "14"
+    }]
   }, {
     "id": "24",
     "name": "Carmen Matthews",
@@ -26181,7 +26823,18 @@ const mockup = {
     },
     "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D24%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
     "events": [],
-    "labRates": []
+    "labRates": [],
+    "time": {
+      "start": "",
+      "end": ""
+    },
+    "resourceSkills": [{
+      "text": "Computer-Aided Design (CAD)",
+      "value": "8"
+    }, {
+      "text": "Interior Design",
+      "value": "14"
+    }]
   }, {
     "id": "23",
     "name": "Clark Koozer",
@@ -26221,7 +26874,18 @@ const mockup = {
     },
     "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D23%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
     "events": [],
-    "labRates": []
+    "labRates": [],
+    "time": {
+      "start": "",
+      "end": ""
+    },
+    "resourceSkills": [{
+      "text": "Carpentry and Joinery",
+      "value": "10"
+    }, {
+      "text": "Furniture Assembly",
+      "value": "1"
+    }]
   }, {
     "id": "224",
     "name": "Dale Williams",
@@ -26261,7 +26925,21 @@ const mockup = {
     },
     "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D224%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
     "events": [],
-    "labRates": []
+    "labRates": [],
+    "time": {
+      "start": "",
+      "end": ""
+    },
+    "resourceSkills": [{
+      "text": "Material Knowledge",
+      "value": "9"
+    }, {
+      "text": "Plumbing",
+      "value": "2"
+    }, {
+      "text": "Quality Control",
+      "value": "13"
+    }]
   }, {
     "id": "1312",
     "name": "Gary Grant",
@@ -26301,7 +26979,18 @@ const mockup = {
     },
     "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1312%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
     "events": [],
-    "labRates": []
+    "labRates": [],
+    "time": {
+      "start": "",
+      "end": ""
+    },
+    "resourceSkills": [{
+      "text": "CNC Machining",
+      "value": "12"
+    }, {
+      "text": "Driving",
+      "value": "3"
+    }]
   }, {
     "id": "1292",
     "name": "Matt Nolan",
@@ -26341,7 +27030,21 @@ const mockup = {
     },
     "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1292%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
     "events": [],
-    "labRates": []
+    "labRates": [],
+    "time": {
+      "start": "",
+      "end": ""
+    },
+    "resourceSkills": [{
+      "text": "Interior Design",
+      "value": "14"
+    }, {
+      "text": "Material Knowledge",
+      "value": "9"
+    }, {
+      "text": "Quality Control",
+      "value": "13"
+    }]
   }, {
     "id": "1647",
     "name": "Mei Matriano",
@@ -26381,7 +27084,21 @@ const mockup = {
     },
     "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1647%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
     "events": [],
-    "labRates": []
+    "labRates": [],
+    "time": {
+      "start": "",
+      "end": ""
+    },
+    "resourceSkills": [{
+      "text": "Material Knowledge",
+      "value": "9"
+    }, {
+      "text": "Metalworking",
+      "value": "5"
+    }, {
+      "text": "Welding",
+      "value": "6"
+    }]
   }, {
     "id": "1766",
     "name": "Rowe Riomalos",
@@ -26418,7 +27135,21 @@ const mockup = {
     },
     "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1766%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
     "events": [],
-    "labRates": []
+    "labRates": [],
+    "time": {
+      "start": "",
+      "end": ""
+    },
+    "resourceSkills": [{
+      "text": "Plumbing",
+      "value": "2"
+    }, {
+      "text": "Upholstery",
+      "value": "11"
+    }, {
+      "text": "Woodworking",
+      "value": "4"
+    }]
   }, {
     "id": "1539",
     "name": "Ruth Smith",
@@ -26458,7 +27189,21 @@ const mockup = {
     },
     "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1539%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
     "events": [],
-    "labRates": []
+    "labRates": [],
+    "time": {
+      "start": "",
+      "end": ""
+    },
+    "resourceSkills": [{
+      "text": "CNC Machining",
+      "value": "12"
+    }, {
+      "text": "Carpentry and Joinery",
+      "value": "10"
+    }, {
+      "text": "Computer-Aided Design (CAD)",
+      "value": "8"
+    }]
   }, {
     "id": "18",
     "name": "Sam Cruz",
@@ -26498,7 +27243,21 @@ const mockup = {
     },
     "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D18%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
     "events": [],
-    "labRates": []
+    "labRates": [],
+    "time": {
+      "start": "",
+      "end": ""
+    },
+    "resourceSkills": [{
+      "text": "Driving",
+      "value": "3"
+    }, {
+      "text": "Furniture Assembly",
+      "value": "1"
+    }, {
+      "text": "Furniture Design",
+      "value": "7"
+    }]
   }, {
     "id": "918",
     "name": "Walter Reagan",
@@ -26538,7 +27297,21 @@ const mockup = {
     },
     "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D918%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
     "events": [],
-    "labRates": []
+    "labRates": [],
+    "time": {
+      "start": "",
+      "end": ""
+    },
+    "resourceSkills": [{
+      "text": "Interior Design",
+      "value": "14"
+    }, {
+      "text": "Material Knowledge",
+      "value": "9"
+    }, {
+      "text": "Painting and Finishing",
+      "value": "15"
+    }]
   }, {
     "id": "1656",
     "name": "Youssef Ezz",
@@ -26578,7 +27351,21 @@ const mockup = {
     },
     "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1656%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
     "events": [],
-    "labRates": []
+    "labRates": [],
+    "time": {
+      "start": "",
+      "end": ""
+    },
+    "resourceSkills": [{
+      "text": "Carpentry and Joinery",
+      "value": "10"
+    }, {
+      "text": "Quality Control",
+      "value": "13"
+    }, {
+      "text": "Upholstery",
+      "value": "11"
+    }]
   }],
   "resourceGroups": [{
     "text": "Installers",
@@ -26621,8 +27408,19 @@ const mockup = {
         "value": "1"
       },
       "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1524%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-      "events": ["101072"],
-      "labRates": []
+      "events": ["101079", "101075", "101072"],
+      "labRates": [],
+      "time": {
+        "start": "",
+        "end": ""
+      },
+      "resourceSkills": [{
+        "text": "Welding",
+        "value": "6"
+      }, {
+        "text": "Woodworking",
+        "value": "4"
+      }]
     }, {
       "id": "1770",
       "name": "Arun Sharma",
@@ -26673,8 +27471,19 @@ const mockup = {
         "value": "1"
       },
       "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1770%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-      "events": [],
-      "labRates": []
+      "events": ["101076", "101075"],
+      "labRates": [],
+      "time": {
+        "start": "",
+        "end": ""
+      },
+      "resourceSkills": [{
+        "text": "Driving",
+        "value": "3"
+      }, {
+        "text": "Plumbing",
+        "value": "2"
+      }]
     }, {
       "id": "1767",
       "name": "Bea Quilinguin",
@@ -26735,6 +27544,20 @@ const mockup = {
       }, {
         "labRateCatId": "3",
         "labRate": 30
+      }],
+      "time": {
+        "start": "",
+        "end": ""
+      },
+      "resourceSkills": [{
+        "text": "CNC Machining",
+        "value": "12"
+      }, {
+        "text": "Furniture Design",
+        "value": "7"
+      }, {
+        "text": "Interior Design",
+        "value": "14"
       }]
     }, {
       "id": "912",
@@ -26775,7 +27598,21 @@ const mockup = {
       },
       "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D912%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
       "events": [],
-      "labRates": []
+      "labRates": [],
+      "time": {
+        "start": "",
+        "end": ""
+      },
+      "resourceSkills": [{
+        "text": "Computer-Aided Design (CAD)",
+        "value": "8"
+      }, {
+        "text": "Furniture Assembly",
+        "value": "1"
+      }, {
+        "text": "Quality Control",
+        "value": "13"
+      }]
     }, {
       "id": "1545",
       "name": "Brandy Samms",
@@ -26815,7 +27652,18 @@ const mockup = {
       },
       "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1545%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
       "events": [],
-      "labRates": []
+      "labRates": [],
+      "time": {
+        "start": "",
+        "end": ""
+      },
+      "resourceSkills": [{
+        "text": "Painting and Finishing",
+        "value": "15"
+      }, {
+        "text": "Woodworking",
+        "value": "4"
+      }]
     }, {
       "id": "1516",
       "name": "Brenda Jones",
@@ -26854,8 +27702,22 @@ const mockup = {
         "value": "1"
       },
       "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1516%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-      "events": [],
-      "labRates": []
+      "events": ["101079"],
+      "labRates": [],
+      "time": {
+        "start": "",
+        "end": ""
+      },
+      "resourceSkills": [{
+        "text": "Furniture Assembly",
+        "value": "1"
+      }, {
+        "text": "Metalworking",
+        "value": "5"
+      }, {
+        "text": "Painting and Finishing",
+        "value": "15"
+      }]
     }, {
       "id": "1513",
       "name": "Brenda Wilson",
@@ -26894,8 +27756,19 @@ const mockup = {
         "value": "1"
       },
       "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1513%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-      "events": [],
-      "labRates": []
+      "events": ["101079"],
+      "labRates": [],
+      "time": {
+        "start": "",
+        "end": ""
+      },
+      "resourceSkills": [{
+        "text": "Furniture Assembly",
+        "value": "1"
+      }, {
+        "text": "Painting and Finishing",
+        "value": "15"
+      }]
     }, {
       "id": "31",
       "name": "Brian Harris",
@@ -26935,7 +27808,21 @@ const mockup = {
       },
       "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D31%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
       "events": [],
-      "labRates": []
+      "labRates": [],
+      "time": {
+        "start": "",
+        "end": ""
+      },
+      "resourceSkills": [{
+        "text": "Furniture Assembly",
+        "value": "1"
+      }, {
+        "text": "Furniture Design",
+        "value": "7"
+      }, {
+        "text": "Interior Design",
+        "value": "14"
+      }]
     }, {
       "id": "24",
       "name": "Carmen Matthews",
@@ -26975,7 +27862,18 @@ const mockup = {
       },
       "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D24%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
       "events": [],
-      "labRates": []
+      "labRates": [],
+      "time": {
+        "start": "",
+        "end": ""
+      },
+      "resourceSkills": [{
+        "text": "Computer-Aided Design (CAD)",
+        "value": "8"
+      }, {
+        "text": "Interior Design",
+        "value": "14"
+      }]
     }, {
       "id": "224",
       "name": "Dale Williams",
@@ -27015,7 +27913,21 @@ const mockup = {
       },
       "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D224%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
       "events": [],
-      "labRates": []
+      "labRates": [],
+      "time": {
+        "start": "",
+        "end": ""
+      },
+      "resourceSkills": [{
+        "text": "Material Knowledge",
+        "value": "9"
+      }, {
+        "text": "Plumbing",
+        "value": "2"
+      }, {
+        "text": "Quality Control",
+        "value": "13"
+      }]
     }, {
       "id": "1312",
       "name": "Gary Grant",
@@ -27055,7 +27967,18 @@ const mockup = {
       },
       "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1312%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
       "events": [],
-      "labRates": []
+      "labRates": [],
+      "time": {
+        "start": "",
+        "end": ""
+      },
+      "resourceSkills": [{
+        "text": "CNC Machining",
+        "value": "12"
+      }, {
+        "text": "Driving",
+        "value": "3"
+      }]
     }, {
       "id": "1292",
       "name": "Matt Nolan",
@@ -27095,7 +28018,21 @@ const mockup = {
       },
       "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1292%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
       "events": [],
-      "labRates": []
+      "labRates": [],
+      "time": {
+        "start": "",
+        "end": ""
+      },
+      "resourceSkills": [{
+        "text": "Interior Design",
+        "value": "14"
+      }, {
+        "text": "Material Knowledge",
+        "value": "9"
+      }, {
+        "text": "Quality Control",
+        "value": "13"
+      }]
     }, {
       "id": "1539",
       "name": "Ruth Smith",
@@ -27135,7 +28072,21 @@ const mockup = {
       },
       "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1539%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
       "events": [],
-      "labRates": []
+      "labRates": [],
+      "time": {
+        "start": "",
+        "end": ""
+      },
+      "resourceSkills": [{
+        "text": "CNC Machining",
+        "value": "12"
+      }, {
+        "text": "Carpentry and Joinery",
+        "value": "10"
+      }, {
+        "text": "Computer-Aided Design (CAD)",
+        "value": "8"
+      }]
     }, {
       "id": "18",
       "name": "Sam Cruz",
@@ -27175,7 +28126,21 @@ const mockup = {
       },
       "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D18%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
       "events": [],
-      "labRates": []
+      "labRates": [],
+      "time": {
+        "start": "",
+        "end": ""
+      },
+      "resourceSkills": [{
+        "text": "Driving",
+        "value": "3"
+      }, {
+        "text": "Furniture Assembly",
+        "value": "1"
+      }, {
+        "text": "Furniture Design",
+        "value": "7"
+      }]
     }, {
       "id": "918",
       "name": "Walter Reagan",
@@ -27215,7 +28180,21 @@ const mockup = {
       },
       "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D918%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
       "events": [],
-      "labRates": []
+      "labRates": [],
+      "time": {
+        "start": "",
+        "end": ""
+      },
+      "resourceSkills": [{
+        "text": "Interior Design",
+        "value": "14"
+      }, {
+        "text": "Material Knowledge",
+        "value": "9"
+      }, {
+        "text": "Painting and Finishing",
+        "value": "15"
+      }]
     }, {
       "id": "1656",
       "name": "Youssef Ezz",
@@ -27255,7 +28234,21 @@ const mockup = {
       },
       "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1656%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
       "events": [],
-      "labRates": []
+      "labRates": [],
+      "time": {
+        "start": "",
+        "end": ""
+      },
+      "resourceSkills": [{
+        "text": "Carpentry and Joinery",
+        "value": "10"
+      }, {
+        "text": "Quality Control",
+        "value": "13"
+      }, {
+        "text": "Upholstery",
+        "value": "11"
+      }]
     }],
     "resourceCount": 16
   }, {
@@ -27311,8 +28304,19 @@ const mockup = {
         "value": "1"
       },
       "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1770%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-      "events": [],
-      "labRates": []
+      "events": ["101076", "101075"],
+      "labRates": [],
+      "time": {
+        "start": "",
+        "end": ""
+      },
+      "resourceSkills": [{
+        "text": "Driving",
+        "value": "3"
+      }, {
+        "text": "Plumbing",
+        "value": "2"
+      }]
     }, {
       "id": "1767",
       "name": "Bea Quilinguin",
@@ -27373,6 +28377,20 @@ const mockup = {
       }, {
         "labRateCatId": "3",
         "labRate": 30
+      }],
+      "time": {
+        "start": "",
+        "end": ""
+      },
+      "resourceSkills": [{
+        "text": "CNC Machining",
+        "value": "12"
+      }, {
+        "text": "Furniture Design",
+        "value": "7"
+      }, {
+        "text": "Interior Design",
+        "value": "14"
       }]
     }, {
       "id": "1647",
@@ -27413,7 +28431,21 @@ const mockup = {
       },
       "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1647%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
       "events": [],
-      "labRates": []
+      "labRates": [],
+      "time": {
+        "start": "",
+        "end": ""
+      },
+      "resourceSkills": [{
+        "text": "Material Knowledge",
+        "value": "9"
+      }, {
+        "text": "Metalworking",
+        "value": "5"
+      }, {
+        "text": "Welding",
+        "value": "6"
+      }]
     }, {
       "id": "1766",
       "name": "Rowe Riomalos",
@@ -27450,7 +28482,21 @@ const mockup = {
       },
       "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1766%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
       "events": [],
-      "labRates": []
+      "labRates": [],
+      "time": {
+        "start": "",
+        "end": ""
+      },
+      "resourceSkills": [{
+        "text": "Plumbing",
+        "value": "2"
+      }, {
+        "text": "Upholstery",
+        "value": "11"
+      }, {
+        "text": "Woodworking",
+        "value": "4"
+      }]
     }],
     "resourceCount": 4
   }, {
@@ -27506,8 +28552,19 @@ const mockup = {
         "value": "1"
       },
       "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1770%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-      "events": [],
-      "labRates": []
+      "events": ["101076", "101075"],
+      "labRates": [],
+      "time": {
+        "start": "",
+        "end": ""
+      },
+      "resourceSkills": [{
+        "text": "Driving",
+        "value": "3"
+      }, {
+        "text": "Plumbing",
+        "value": "2"
+      }]
     }, {
       "id": "1767",
       "name": "Bea Quilinguin",
@@ -27568,6 +28625,20 @@ const mockup = {
       }, {
         "labRateCatId": "3",
         "labRate": 30
+      }],
+      "time": {
+        "start": "",
+        "end": ""
+      },
+      "resourceSkills": [{
+        "text": "CNC Machining",
+        "value": "12"
+      }, {
+        "text": "Furniture Design",
+        "value": "7"
+      }, {
+        "text": "Interior Design",
+        "value": "14"
       }]
     }, {
       "id": "27",
@@ -27608,7 +28679,21 @@ const mockup = {
       },
       "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D27%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
       "events": [],
-      "labRates": []
+      "labRates": [],
+      "time": {
+        "start": "",
+        "end": ""
+      },
+      "resourceSkills": [{
+        "text": "CNC Machining",
+        "value": "12"
+      }, {
+        "text": "Carpentry and Joinery",
+        "value": "10"
+      }, {
+        "text": "Material Knowledge",
+        "value": "9"
+      }]
     }, {
       "id": "23",
       "name": "Clark Koozer",
@@ -27648,7 +28733,18 @@ const mockup = {
       },
       "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D23%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
       "events": [],
-      "labRates": []
+      "labRates": [],
+      "time": {
+        "start": "",
+        "end": ""
+      },
+      "resourceSkills": [{
+        "text": "Carpentry and Joinery",
+        "value": "10"
+      }, {
+        "text": "Furniture Assembly",
+        "value": "1"
+      }]
     }],
     "resourceCount": 4
   }],
@@ -27691,7 +28787,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "2",
     "name": " ",
@@ -27731,7 +28828,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "3",
     "name": "Mei Matriano",
@@ -27771,7 +28869,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "4",
     "name": "Bonita Kane",
@@ -27811,7 +28910,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "5",
     "name": "Gary Grant",
@@ -27851,7 +28951,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "6",
     "name": "Mei Matriano",
@@ -27891,7 +28992,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "7",
     "name": "Bonita Kane",
@@ -27931,7 +29033,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "8",
     "name": "Gary Grant",
@@ -27971,7 +29074,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "9",
     "name": "Matt Nolan",
@@ -28011,7 +29115,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "10",
     "name": "Mei Matriano",
@@ -28051,7 +29156,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "11",
     "name": "Bonita Kane",
@@ -28091,7 +29197,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "12",
     "name": "Mei Matriano",
@@ -28131,7 +29238,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "13",
     "name": "Bea Quilinguin",
@@ -28171,7 +29279,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "14",
     "name": "Matt Nolan",
@@ -28211,7 +29320,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "15",
     "name": "Mei Matriano",
@@ -28251,7 +29361,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "16",
     "name": "Bea Quilinguin",
@@ -28291,7 +29402,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "17",
     "name": "Rowe Riomalos",
@@ -28331,7 +29443,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "18",
     "name": "Matt Nolan",
@@ -28371,7 +29484,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "19",
     "name": "Mei Matriano",
@@ -28411,7 +29525,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "20",
     "name": "Bea Quilinguin",
@@ -28451,7 +29566,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "21",
     "name": "Rowe Riomalos",
@@ -28491,7 +29607,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "22",
     "name": "Matt Nolan",
@@ -28531,7 +29648,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "23",
     "name": "Mei Matriano",
@@ -28571,7 +29689,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "25",
     "name": "Rowe Riomalos",
@@ -28611,7 +29730,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "26",
     "name": "Gary Grant",
@@ -28651,7 +29771,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "27",
     "name": "Bonita Kane",
@@ -28691,7 +29812,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "28",
     "name": "Bonita Kane",
@@ -28731,7 +29853,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "29",
     "name": "Gary Grant",
@@ -28771,7 +29894,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "30",
     "name": "Mei Matriano",
@@ -28811,7 +29935,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "31",
     "name": "Bonita Kane",
@@ -28851,7 +29976,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "32",
     "name": "Gary Grant",
@@ -28891,7 +30017,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "33",
     "name": "Bea Quilinguin",
@@ -28931,7 +30058,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "34",
     "name": "Matt Nolan",
@@ -28971,7 +30099,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "35",
     "name": "Mei Matriano",
@@ -29011,7 +30140,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "36",
     "name": "Rowe Riomalos",
@@ -29051,7 +30181,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "37",
     "name": "Bea Quilinguin",
@@ -29091,7 +30222,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "38",
     "name": "Bonita Kane",
@@ -29131,7 +30263,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "39",
     "name": "Gary Grant",
@@ -29171,7 +30304,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "40",
     "name": "Bea Quilinguin",
@@ -29211,7 +30345,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "41",
     "name": "Rowe Riomalos",
@@ -29251,7 +30386,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "42",
     "name": "Rowe Riomalos",
@@ -29291,7 +30427,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "43",
     "name": "Bonita Kane",
@@ -29331,7 +30468,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "44",
     "name": "Gary Grant",
@@ -29371,7 +30509,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "45",
     "name": "Bonita Kane",
@@ -29411,7 +30550,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "46",
     "name": "Bea Quilinguin",
@@ -29451,7 +30591,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "47",
     "name": "Bea Quilinguin",
@@ -29491,7 +30632,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "48",
     "name": "Matt Nolan",
@@ -29531,7 +30673,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "49",
     "name": "Gary Grant",
@@ -29571,7 +30714,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "50",
     "name": "Matt Nolan",
@@ -29611,7 +30755,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "51",
     "name": "Matt Nolan",
@@ -29651,7 +30796,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "52",
     "name": "Gary Grant",
@@ -29691,7 +30837,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "53",
     "name": "Bonita Kane",
@@ -29731,7 +30878,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "54",
     "name": "Bea Quilinguin",
@@ -29771,7 +30919,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "55",
     "name": "Matt Nolan",
@@ -29811,7 +30960,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "56",
     "name": "Gary Grant",
@@ -29851,7 +31001,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "57",
     "name": "Matt Nolan",
@@ -29891,7 +31042,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "59",
     "name": "Bonita Kane",
@@ -29931,7 +31083,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "60",
     "name": "Gary Grant",
@@ -29971,7 +31124,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "61",
     "name": "Matt Nolan",
@@ -30011,7 +31165,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "62",
     "name": "Mei Matriano",
@@ -30051,7 +31206,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "63",
     "name": "Bea Quilinguin",
@@ -30091,7 +31247,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "64",
     "name": "Bea Quilinguin",
@@ -30131,7 +31288,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "65",
     "name": "Bea Quilinguin",
@@ -30171,7 +31329,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "66",
     "name": "Bea Quilinguin",
@@ -30211,7 +31370,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "67",
     "name": "Youssef Ezz",
@@ -30251,7 +31411,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "68",
     "name": "Gary Grant",
@@ -30291,7 +31452,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "69",
     "name": "Bea Quilinguin",
@@ -30331,7 +31493,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "70",
     "name": "Gary Grant",
@@ -30371,7 +31534,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "71",
     "name": "Bea Quilinguin",
@@ -30411,7 +31575,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "72",
     "name": "Youssef Ezz",
@@ -30451,7 +31616,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "73",
     "name": "Gary Grant",
@@ -30491,7 +31657,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "74",
     "name": "Matt Nolan",
@@ -30531,7 +31698,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "75",
     "name": "Arun Sharma",
@@ -30571,7 +31739,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "76",
     "name": "Gary Grant",
@@ -30611,7 +31780,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "84",
     "name": "Youssef Ezz",
@@ -30651,7 +31821,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "85",
     "name": "Matt Nolan",
@@ -30691,7 +31862,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "86",
     "name": "Bea Quilinguin",
@@ -30731,7 +31903,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "87",
     "name": "Arun Sharma",
@@ -30780,7 +31953,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "88",
     "name": "Bea Quilinguin",
@@ -30829,7 +32003,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "89",
     "name": "Youssef Ezz",
@@ -30878,7 +32053,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "90",
     "name": "Gary Grant",
@@ -30927,7 +32103,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "91",
     "name": "Matt Nolan",
@@ -30976,7 +32153,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "92",
     "name": "Arun Sharma",
@@ -31016,7 +32194,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "93",
     "name": "Bea Quilinguin",
@@ -31056,7 +32235,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "94",
     "name": "Youssef Ezz",
@@ -31096,7 +32276,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "95",
     "name": "Gary Grant",
@@ -31136,7 +32317,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "96",
     "name": "Matt Nolan",
@@ -31176,7 +32358,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "97",
     "name": "Gary Grant",
@@ -31216,7 +32399,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "98",
     "name": "Gary Grant",
@@ -31256,7 +32440,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "99",
     "name": "Gary Grant",
@@ -31296,7 +32481,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "100",
     "name": "Gary Grant",
@@ -31336,7 +32522,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "101",
     "name": "Gary Grant",
@@ -31376,7 +32563,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "102",
     "name": "Gary Grant",
@@ -31416,7 +32604,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "103",
     "name": "Gary Grant",
@@ -31456,7 +32645,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "104",
     "name": "Gary Grant",
@@ -31496,7 +32686,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "105",
     "name": "Gary Grant",
@@ -31536,7 +32727,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "106",
     "name": "Arun Sharma",
@@ -31585,7 +32777,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "107",
     "name": "Bea Quilinguin",
@@ -31634,7 +32827,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "108",
     "name": "Gary Grant",
@@ -31674,7 +32868,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "109",
     "name": "Gary Grant",
@@ -31714,7 +32909,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "110",
     "name": "Gary Grant",
@@ -31754,7 +32950,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "111",
     "name": "Gary Grant",
@@ -31794,7 +32991,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "112",
     "name": "Gary Grant",
@@ -31834,7 +33032,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "113",
     "name": "Arun Sharma",
@@ -31883,7 +33082,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "114",
     "name": "Bea Quilinguin",
@@ -31932,7 +33132,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "115",
     "name": "Gary Grant",
@@ -31972,7 +33173,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "116",
     "name": "Arun Sharma",
@@ -32021,7 +33223,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "117",
     "name": "Bea Quilinguin",
@@ -32070,7 +33273,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "118",
     "name": "Gary Grant",
@@ -32110,7 +33314,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "119",
     "name": "Arun Sharma",
@@ -32159,7 +33364,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "120",
     "name": "Bea Quilinguin",
@@ -32208,7 +33414,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "121",
     "name": "Gary Grant",
@@ -32248,7 +33455,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "122",
     "name": "Arun Sharma",
@@ -32297,7 +33505,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "123",
     "name": "Gary Grant",
@@ -32337,7 +33546,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "128",
     "name": "Arun Sharma",
@@ -32386,7 +33596,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "129",
     "name": "Bea Quilinguin",
@@ -32435,7 +33646,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "131",
     "name": "Joanne Miller",
@@ -32484,7 +33696,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "132",
     "name": "Arun Sharma",
@@ -32533,7 +33746,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "133",
     "name": "Bea Quilinguin",
@@ -32582,7 +33796,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "135",
     "name": "Gary Grant",
@@ -32628,7 +33843,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "136",
     "name": "Arun Sharma",
@@ -32677,7 +33893,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "137",
     "name": "Bea Quilinguin",
@@ -32726,7 +33943,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "138",
     "name": "Gary Grant",
@@ -32772,7 +33990,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "139",
     "name": "Arun Sharma",
@@ -32821,7 +34040,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "140",
     "name": "Bea Quilinguin",
@@ -32870,7 +34090,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "141",
     "name": "Youssef Ezz",
@@ -32913,7 +34134,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "142",
     "name": "Gary Grant",
@@ -32959,7 +34181,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "143",
     "name": "Bea Quilinguin",
@@ -33002,7 +34225,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "144",
     "name": "Arun Sharma",
@@ -33048,7 +34272,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "145",
     "name": "Youssef Ezz",
@@ -33094,7 +34319,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "146",
     "name": " ",
@@ -33134,7 +34360,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "153",
     "name": "Arun Sharma",
@@ -33192,7 +34419,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "154",
     "name": "Bea Quilinguin",
@@ -33250,7 +34478,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "155",
     "name": "Gary Grant",
@@ -33296,7 +34525,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "170",
     "name": "Mei Matriano",
@@ -33342,7 +34572,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "180",
     "name": "Youssef Ezz",
@@ -33388,7 +34619,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "181",
     "name": "Gary Grant",
@@ -33434,7 +34666,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "182",
     "name": "Mei Matriano",
@@ -33480,7 +34713,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "183",
     "name": "Youssef Ezz",
@@ -33526,7 +34760,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "185",
     "name": "Gary Grant",
@@ -33572,7 +34807,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "191",
     "name": "Youssef Ezz",
@@ -33618,7 +34854,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "194",
     "name": "Arun Sharma",
@@ -33676,7 +34913,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "195",
     "name": "Youssef Ezz",
@@ -33722,7 +34960,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "196",
     "name": "Gary Grant",
@@ -33768,7 +35007,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "197",
     "name": "Bea Quilinguin",
@@ -33826,7 +35066,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "198",
     "name": "Mei Matriano",
@@ -33872,7 +35113,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "199",
     "name": "Arun Sharma",
@@ -33930,7 +35172,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "200",
     "name": "Youssef Ezz",
@@ -33976,7 +35219,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "201",
     "name": "Gary Grant",
@@ -34022,7 +35266,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "205",
     "name": "Arun Sharma",
@@ -34080,7 +35325,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "210",
     "name": "Arun Sharma",
@@ -34138,7 +35384,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "211",
     "name": "Arun Sharma",
@@ -34196,7 +35443,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "212",
     "name": "Youssef Ezz",
@@ -34242,7 +35490,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "214",
     "name": "Arun Sharma",
@@ -34300,7 +35549,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "215",
     "name": "Bea Quilinguin",
@@ -34340,7 +35590,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "216",
     "name": "Gary Grant",
@@ -34380,7 +35631,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "217",
     "name": "Arun Sharma",
@@ -34438,7 +35690,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "218",
     "name": "Arun Sharma",
@@ -34496,7 +35749,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "219",
     "name": "Arun Sharma",
@@ -34554,7 +35808,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "220",
     "name": " ",
@@ -34600,7 +35855,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "221",
     "name": "Bea Quilinguin",
@@ -34658,7 +35914,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "222",
     "name": "Arun Sharma",
@@ -34716,7 +35973,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "223",
     "name": "Arun Sharma",
@@ -34774,7 +36032,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "224",
     "name": "Arun Sharma",
@@ -34832,7 +36091,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "227",
     "name": "Bea Quilinguin",
@@ -34890,7 +36150,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "231",
     "name": "Arun Sharma",
@@ -34939,7 +36200,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "233",
     "name": "Arun Sharma",
@@ -34997,7 +36259,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "240",
     "name": "Bea Quilinguin",
@@ -35055,7 +36318,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "242",
     "name": "Mei Matriano",
@@ -35101,7 +36365,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "243",
     "name": "Youssef Ezz",
@@ -35147,7 +36412,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "244",
     "name": "Mei Matriano",
@@ -35193,7 +36459,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "245",
     "name": "Youssef Ezz",
@@ -35239,7 +36506,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "246",
     "name": "Gary Grant",
@@ -35285,7 +36553,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "247",
     "name": "Mei Matriano",
@@ -35331,7 +36600,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "251",
     "name": "Mei Matriano",
@@ -35377,7 +36647,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "252",
     "name": "Youssef Ezz",
@@ -35423,7 +36694,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "253",
     "name": "Gary Grant",
@@ -35469,7 +36741,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "254",
     "name": "Aiden Somerhalder",
@@ -35515,7 +36788,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "255",
     "name": "Brandy Samms",
@@ -35561,7 +36835,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "256",
     "name": "Brenda Jones",
@@ -35607,7 +36882,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "257",
     "name": "Brenda Wilson",
@@ -35653,7 +36929,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "258",
     "name": "Aiden Somerhalder",
@@ -35699,7 +36976,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "259",
     "name": "Aiden Somerhalder",
@@ -35745,7 +37023,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "260",
     "name": "Aiden Somerhalder",
@@ -35791,7 +37070,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "261",
     "name": "Clark Koozer",
@@ -35837,7 +37117,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "262",
     "name": "Ruth Smith",
@@ -35883,7 +37164,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "263",
     "name": "Dale Williams",
@@ -35929,7 +37211,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "264",
     "name": "Walter Reagan",
@@ -35975,7 +37258,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "265",
     "name": "Brian Harris",
@@ -36021,7 +37305,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "266",
     "name": "Carmen Matthews",
@@ -36067,7 +37352,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "267",
     "name": "Brenda Wilson",
@@ -36113,7 +37399,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "268",
     "name": "Clark Koozer",
@@ -36159,7 +37446,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "269",
     "name": "Aiden Somerhalder",
@@ -36205,7 +37493,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "270",
     "name": "Brenda Jones",
@@ -36251,7 +37540,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "271",
     "name": "Brian Harris",
@@ -36297,7 +37587,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "272",
     "name": "Dale Williams",
@@ -36343,7 +37634,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "273",
     "name": "Matt Nolan",
@@ -36389,7 +37681,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "274",
     "name": "Brandy Samms",
@@ -36435,7 +37728,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "275",
     "name": "Ruth Smith",
@@ -36481,7 +37775,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "276",
     "name": "Youssef Ezz",
@@ -36527,7 +37822,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "277",
     "name": "Gary Grant",
@@ -36573,7 +37869,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "278",
     "name": "Clark Koozer",
@@ -36619,7 +37916,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "279",
     "name": "Aiden Somerhalder",
@@ -36665,7 +37963,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "280",
     "name": "Brandy Samms",
@@ -36711,7 +38010,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "281",
     "name": "Brenda Jones",
@@ -36757,7 +38057,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "282",
     "name": "Brenda Wilson",
@@ -36803,7 +38104,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "283",
     "name": "Dale Williams",
@@ -36849,7 +38151,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "284",
     "name": "Gary Grant",
@@ -36895,7 +38198,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "285",
     "name": "Matt Nolan",
@@ -36941,7 +38245,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "286",
     "name": "Arun Sharma",
@@ -36999,7 +38304,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "287",
     "name": "Brenda Wilson",
@@ -37045,7 +38351,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "288",
     "name": "Matt Nolan",
@@ -37091,7 +38398,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "289",
     "name": "Brandy Samms",
@@ -37137,7 +38445,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "290",
     "name": "Aiden Somerhalder",
@@ -37183,7 +38492,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "291",
     "name": "Brian Harris",
@@ -37229,7 +38539,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "292",
     "name": "Bea Quilinguin",
@@ -37287,7 +38598,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "293",
     "name": "Aiden Somerhalder",
@@ -37333,7 +38645,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "294",
     "name": "Aiden Somerhalder",
@@ -37379,7 +38692,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "295",
     "name": "Arun Sharma",
@@ -37437,7 +38751,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "296",
     "name": "Brandy Samms",
@@ -37483,7 +38798,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "297",
     "name": "Brenda Jones",
@@ -37529,7 +38845,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "298",
     "name": "Brenda Wilson",
@@ -37575,7 +38892,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "299",
     "name": "Brian Harris",
@@ -37621,7 +38939,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "300",
     "name": "Carmen Matthews",
@@ -37667,7 +38986,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "301",
     "name": "Clark Koozer",
@@ -37713,7 +39033,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "302",
     "name": "Dale Williams",
@@ -37759,7 +39080,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "303",
     "name": "Matt Nolan",
@@ -37805,7 +39127,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "304",
     "name": "Youssef Ezz",
@@ -37851,7 +39174,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "305",
     "name": "Aiden Somerhalder",
@@ -37897,7 +39221,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "306",
     "name": "Clark Koozer",
@@ -37943,7 +39268,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "307",
     "name": "Arun Sharma",
@@ -38001,7 +39327,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "308",
     "name": "Arun Sharma",
@@ -38059,7 +39386,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "309",
     "name": "Aiden Somerhalder",
@@ -38105,7 +39433,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "310",
     "name": "Brandy Samms",
@@ -38151,7 +39480,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "311",
     "name": "Aiden Somerhalder",
@@ -38197,7 +39527,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "312",
     "name": "Brandy Samms",
@@ -38243,7 +39574,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "313",
     "name": "Aiden Somerhalder",
@@ -38289,7 +39621,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "314",
     "name": "Aiden Somerhalder",
@@ -38335,7 +39668,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "315",
     "name": "Brandy Samms",
@@ -38381,7 +39715,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "316",
     "name": "Brenda Wilson",
@@ -38427,7 +39762,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "317",
     "name": "Brian Harris",
@@ -38473,7 +39809,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "318",
     "name": "Dale Williams",
@@ -38519,7 +39856,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "319",
     "name": "Aiden Somerhalder",
@@ -38565,7 +39903,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "320",
     "name": "Aiden Somerhalder",
@@ -38611,7 +39950,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "321",
     "name": "Brandy Samms",
@@ -38657,7 +39997,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "322",
     "name": "Brenda Jones",
@@ -38703,7 +40044,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "323",
     "name": "Carmen Matthews",
@@ -38749,7 +40091,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "324",
     "name": "Dale Williams",
@@ -38795,7 +40138,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "325",
     "name": "Aiden Somerhalder",
@@ -38841,7 +40185,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "326",
     "name": "Clark Koozer",
@@ -38887,7 +40232,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "327",
     "name": "Gary Grant",
@@ -38933,7 +40279,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "328",
     "name": "Aiden Somerhalder",
@@ -38979,7 +40326,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "329",
     "name": "Arun Sharma",
@@ -39037,7 +40385,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "330",
     "name": "Bea Quilinguin",
@@ -39095,7 +40444,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "331",
     "name": "Brian Harris",
@@ -39141,7 +40491,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "332",
     "name": "Aiden Somerhalder",
@@ -39187,7 +40538,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "333",
     "name": "Bea Quilinguin",
@@ -39245,7 +40597,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "334",
     "name": "Bea Quilinguin",
@@ -39303,7 +40656,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "335",
     "name": "Brenda Wilson",
@@ -39349,7 +40703,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "336",
     "name": "Brian Harris",
@@ -39395,7 +40750,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "337",
     "name": "Bea Quilinguin",
@@ -39453,7 +40809,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "338",
     "name": "Youssef Ezz",
@@ -39499,7 +40856,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "339",
     "name": "Aiden Somerhalder",
@@ -39515,7 +40873,7 @@ const mockup = {
       "text": "Test Work Order",
       "value": "123"
     },
-    "events": [],
+    "events": ["101079"],
     "employee": {
       "text": "Aiden Somerhalder",
       "value": "1524"
@@ -39545,7 +40903,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "340",
     "name": "Brenda Jones",
@@ -39561,7 +40920,7 @@ const mockup = {
       "text": "Test Work Order",
       "value": "123"
     },
-    "events": [],
+    "events": ["101079"],
     "employee": {
       "text": "Brenda Jones",
       "value": "1516"
@@ -39591,7 +40950,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "341",
     "name": "Dale Williams",
@@ -39637,7 +40997,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "342",
     "name": "Gary Grant",
@@ -39683,7 +41044,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "343",
     "name": "Bea Quilinguin",
@@ -39723,7 +41085,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "344",
     "name": "Bea Quilinguin",
@@ -39763,7 +41126,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "345",
     "name": "Ruth Smith",
@@ -39809,7 +41173,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "346",
     "name": "Bea Quilinguin",
@@ -39849,7 +41214,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "347",
     "name": "Matt Nolan",
@@ -39895,7 +41261,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "348",
     "name": "Bea Quilinguin",
@@ -39935,7 +41302,8 @@ const mockup = {
     "time": {
       "start": "",
       "end": ""
-    }
+    },
+    "resourceSkills": []
   }, {
     "id": "353",
     "name": "Aiden Somerhalder",
@@ -39981,7 +41349,408 @@ const mockup = {
     "time": {
       "start": "07:00",
       "end": "15:00"
-    }
+    },
+    "resourceSkills": []
+  }, {
+    "id": "358",
+    "name": "Aiden Somerhalder",
+    "initials": "AS",
+    "email": "admin@ramsey.com",
+    "phone": "",
+    "location": {
+      "text": "01: San Francisco",
+      "value": "2"
+    },
+    "active": true,
+    "workorder": {
+      "text": "Test Work Order",
+      "value": "123"
+    },
+    "events": ["101075"],
+    "employee": {
+      "text": "Aiden Somerhalder",
+      "value": "1524"
+    },
+    "resourceGroups": [{
+      "text": "Installers",
+      "value": "1"
+    }],
+    "types": [{
+      "text": "Installer",
+      "value": "1"
+    }],
+    "subTypes": [],
+    "rate": 0,
+    "vendor": {
+      "text": "",
+      "value": ""
+    },
+    "purchaseOrder": {
+      "text": " ",
+      "value": ""
+    },
+    "affiliationType": {
+      "text": "In-House",
+      "value": "1"
+    },
+    "time": {
+      "start": "09:00",
+      "end": "17:00"
+    },
+    "resourceSkills": []
+  }, {
+    "id": "359",
+    "name": "Arun Sharma",
+    "initials": "AS",
+    "email": "aruns.unlock2go@gmail.com",
+    "phone": "",
+    "location": {
+      "text": "",
+      "value": ""
+    },
+    "active": true,
+    "workorder": {
+      "text": "Test Work Order",
+      "value": "123"
+    },
+    "events": ["101075"],
+    "employee": {
+      "text": "Arun Sharma",
+      "value": "1770"
+    },
+    "resourceGroups": [{
+      "text": "Designers",
+      "value": "2"
+    }, {
+      "text": "Drivers",
+      "value": "3"
+    }, {
+      "text": "Installers",
+      "value": "1"
+    }],
+    "types": [{
+      "text": "Delivery Driver",
+      "value": "2"
+    }, {
+      "text": "Designer",
+      "value": "3"
+    }, {
+      "text": "Installer",
+      "value": "1"
+    }],
+    "subTypes": [],
+    "rate": 0,
+    "vendor": {
+      "text": "",
+      "value": ""
+    },
+    "purchaseOrder": {
+      "text": " ",
+      "value": ""
+    },
+    "affiliationType": {
+      "text": "In-House",
+      "value": "1"
+    },
+    "time": {
+      "start": "10:00",
+      "end": "18:00"
+    },
+    "resourceSkills": []
+  }, {
+    "id": "360",
+    "name": "Arun Sharma",
+    "initials": "AS",
+    "email": "aruns.unlock2go@gmail.com",
+    "phone": "",
+    "location": {
+      "text": "",
+      "value": ""
+    },
+    "active": true,
+    "workorder": {
+      "text": "Test Work Order",
+      "value": "123"
+    },
+    "events": ["101076"],
+    "employee": {
+      "text": "Arun Sharma",
+      "value": "1770"
+    },
+    "resourceGroups": [{
+      "text": "Designers",
+      "value": "2"
+    }, {
+      "text": "Drivers",
+      "value": "3"
+    }, {
+      "text": "Installers",
+      "value": "1"
+    }],
+    "types": [{
+      "text": "Delivery Driver",
+      "value": "2"
+    }, {
+      "text": "Designer",
+      "value": "3"
+    }, {
+      "text": "Installer",
+      "value": "1"
+    }],
+    "subTypes": [],
+    "rate": 0,
+    "vendor": {
+      "text": "",
+      "value": ""
+    },
+    "purchaseOrder": {
+      "text": " ",
+      "value": ""
+    },
+    "affiliationType": {
+      "text": "In-House",
+      "value": "1"
+    },
+    "time": {
+      "start": "08:00",
+      "end": "17:00"
+    },
+    "resourceSkills": []
+  }, {
+    "id": "361",
+    "name": "Aiden Somerhalder",
+    "initials": "AS",
+    "email": "admin@ramsey.com",
+    "phone": "",
+    "location": {
+      "text": "01: San Francisco",
+      "value": "2"
+    },
+    "active": true,
+    "workorder": {
+      "text": "Test Work Order",
+      "value": "123"
+    },
+    "events": ["101062"],
+    "employee": {
+      "text": "Aiden Somerhalder",
+      "value": "1524"
+    },
+    "resourceGroups": [{
+      "text": "Installers",
+      "value": "1"
+    }],
+    "types": [{
+      "text": "Installer",
+      "value": "1"
+    }],
+    "subTypes": [],
+    "rate": 0,
+    "vendor": {
+      "text": "",
+      "value": ""
+    },
+    "purchaseOrder": {
+      "text": " ",
+      "value": ""
+    },
+    "affiliationType": {
+      "text": "In-House",
+      "value": "1"
+    },
+    "time": {
+      "start": "",
+      "end": ""
+    },
+    "resourceSkills": []
+  }, {
+    "id": "362",
+    "name": "Brenda Jones",
+    "initials": "BJ",
+    "email": "bjones@ramsey.com",
+    "phone": "",
+    "location": {
+      "text": "01: San Francisco",
+      "value": "2"
+    },
+    "active": true,
+    "workorder": {
+      "text": "Test Work Order",
+      "value": "123"
+    },
+    "events": ["101062"],
+    "employee": {
+      "text": "Brenda Jones",
+      "value": "1516"
+    },
+    "resourceGroups": [{
+      "text": "Installers",
+      "value": "1"
+    }],
+    "types": [{
+      "text": "Installer",
+      "value": "1"
+    }],
+    "subTypes": [],
+    "rate": 0,
+    "vendor": {
+      "text": "",
+      "value": ""
+    },
+    "purchaseOrder": {
+      "text": " ",
+      "value": ""
+    },
+    "affiliationType": {
+      "text": "In-House",
+      "value": "1"
+    },
+    "time": {
+      "start": "",
+      "end": ""
+    },
+    "resourceSkills": []
+  }, {
+    "id": "363",
+    "name": "Carmen Matthews",
+    "initials": "CM",
+    "email": "cmatthews@ramsey.com",
+    "phone": "415-555-3696",
+    "location": {
+      "text": "01: San Francisco",
+      "value": "2"
+    },
+    "active": true,
+    "workorder": {
+      "text": "Test Work Order",
+      "value": "123"
+    },
+    "events": ["101062"],
+    "employee": {
+      "text": "Carmen Matthews",
+      "value": "24"
+    },
+    "resourceGroups": [{
+      "text": "Installers",
+      "value": "1"
+    }],
+    "types": [{
+      "text": "Installer",
+      "value": "1"
+    }],
+    "subTypes": [],
+    "rate": 0,
+    "vendor": {
+      "text": "",
+      "value": ""
+    },
+    "purchaseOrder": {
+      "text": " ",
+      "value": ""
+    },
+    "affiliationType": {
+      "text": "Crew Enhancement",
+      "value": "3"
+    },
+    "time": {
+      "start": "",
+      "end": ""
+    },
+    "resourceSkills": []
+  }, {
+    "id": "366",
+    "name": "Sam Cruz",
+    "initials": "SC",
+    "email": "scruz@ramsey.com",
+    "phone": "408-555-4344",
+    "location": {
+      "text": "01: San Francisco",
+      "value": "2"
+    },
+    "active": true,
+    "workorder": {
+      "text": "Test Work Order",
+      "value": "123"
+    },
+    "events": ["101062"],
+    "employee": {
+      "text": "Sam R Cruz",
+      "value": "18"
+    },
+    "resourceGroups": [{
+      "text": "Installers",
+      "value": "1"
+    }],
+    "types": [{
+      "text": "Installer",
+      "value": "1"
+    }],
+    "subTypes": [],
+    "rate": 0,
+    "vendor": {
+      "text": "",
+      "value": ""
+    },
+    "purchaseOrder": {
+      "text": " ",
+      "value": ""
+    },
+    "affiliationType": {
+      "text": "In-House",
+      "value": "1"
+    },
+    "time": {
+      "start": "",
+      "end": ""
+    },
+    "resourceSkills": []
+  }, {
+    "id": "367",
+    "name": "Brenda Wilson",
+    "initials": "BW",
+    "email": "bwilson@ramsey.com",
+    "phone": "",
+    "location": {
+      "text": "01: San Francisco : QA Hold",
+      "value": "5"
+    },
+    "active": true,
+    "workorder": {
+      "text": "Test Work Order",
+      "value": "123"
+    },
+    "events": ["101079"],
+    "employee": {
+      "text": "Brenda Wilson",
+      "value": "1513"
+    },
+    "resourceGroups": [{
+      "text": "Installers",
+      "value": "1"
+    }],
+    "types": [{
+      "text": "Installer",
+      "value": "1"
+    }],
+    "subTypes": [],
+    "rate": 0,
+    "vendor": {
+      "text": "",
+      "value": ""
+    },
+    "purchaseOrder": {
+      "text": " ",
+      "value": ""
+    },
+    "affiliationType": {
+      "text": "In-House",
+      "value": "1"
+    },
+    "time": {
+      "start": "",
+      "end": ""
+    },
+    "resourceSkills": []
   }],
   "vendors": [{
     "id": "12",
@@ -40001,7 +41770,7 @@ const mockup = {
       "value": ""
     },
     "woVendor": false,
-    "events": ["101057", "101056", "101055", "101040", "101028", "101017", "101015", "101012", "101011", "101010", "101008", "101007", "101006", "101005", "101004", "101003", "100968", "100954", "100953", "100952", "100951", "100950", "100947", "100942", "100939", "100933", "100931", "100927", "100923", "100922", "100915", "100913", "100912", "100906", "100905", "100904", "100903", "100902", "100901", "100900", "100899", "100891", "100890", "100889", "100888", "100887", "100886", "100884", "100883", "100882", "100881", "100880", "100875", "100871", "100870", "100682", "39", "20"],
+    "events": ["101075", "101057", "101056", "101055", "101040", "101028", "101017", "101015", "101012", "101011", "101010", "101008", "101007", "101006", "101005", "101004", "101003", "100968", "100954", "100953", "100952", "100951", "100950", "100947", "100942", "100939", "100933", "100931", "100927", "100923", "100922", "100915", "100913", "100912", "100906", "100905", "100904", "100903", "100902", "100901", "100900", "100899", "100891", "100890", "100889", "100888", "100887", "100886", "100884", "100883", "100882", "100881", "100880", "100875", "100871", "100870", "100682", "39", "20"],
     "memo": ""
   }, {
     "id": "1473",
@@ -40099,9 +41868,4617 @@ const mockup = {
       "text": "",
       "value": ""
     },
-    "events": ["101041", "101037", "101028", "101015", "101012", "101011", "101010", "101008", "101007", "101006", "101003", "100970", "100969", "100968", "100960", "100956", "100955", "100954", "100953", "100952", "100950", "100947", "100946", "100945", "100933", "100932", "100931", "100927", "100924", "100923", "100922", "100916", "100915", "100913", "100912", "100906", "100905", "100904", "100903", "100902", "100901", "100900", "100899", "100891", "100890", "100889", "100888", "100887", "100886", "100885", "100883", "100882", "100881", "100880", "100879", "100878", "100877", "100876", "100875", "100871", "100870", "100869", "100868", "100867", "100866", "100863", "100862", "100861", "100860", "100859", "100858", "100816", "100812", "100750", "39"]
+    "events": ["101079", "101078", "101077", "101041", "101037", "101028", "101015", "101012", "101011", "101010", "101008", "101007", "101006", "101003", "100970", "100969", "100968", "100960", "100956", "100955", "100954", "100953", "100952", "100950", "100947", "100946", "100945", "100933", "100932", "100931", "100927", "100924", "100923", "100922", "100916", "100915", "100913", "100912", "100906", "100905", "100904", "100903", "100902", "100901", "100900", "100899", "100891", "100890", "100889", "100888", "100887", "100886", "100885", "100883", "100882", "100881", "100880", "100879", "100878", "100877", "100876", "100875", "100871", "100870", "100869", "100868", "100867", "100866", "100863", "100862", "100861", "100860", "100859", "100858", "100816", "100812", "100750", "39"]
   }],
   "events": [{
+    "id": "101079",
+    "title": "AC Installation - 3",
+    "workorder": {
+      "text": "Test Work Order",
+      "value": "123"
+    },
+    "location": "",
+    "status": {
+      "text": "Tentative",
+      "value": "TENTATIVE",
+      "code": "bg-secondary"
+    },
+    "date": {
+      "recurrence": "one time event on 1/17/2025",
+      "dates": ["1/17/2025"],
+      "start": "2025-01-17",
+      "end": "2025-01-17"
+    },
+    "time": {
+      "start": "08:00",
+      "end": "18:00"
+    },
+    "priority": {
+      "text": "High",
+      "value": "3",
+      "code": "#ca6621"
+    },
+    "note": "AC Installation - 3",
+    "url": "/app/crm/calendar/event.nl?id=101079&compid=TSTDRV2617106&selectedtab=custom337",
+    "color": "#1a6756",
+    "woRef": {
+      "id": "123",
+      "name": "Test Work Order",
+      "title": "Test Work Order",
+      "project": {
+        "text": "World Bank : World Bank Office Furniture Installation",
+        "value": "1515"
+      },
+      "date": "1/8/2025",
+      "status": {
+        "text": "Not Started",
+        "value": "4",
+        "code": "#026adf"
+      },
+      "type": {
+        "text": "Service",
+        "value": "2"
+      },
+      "memo": "",
+      "salesorder": {
+        "text": "Sales Order #SLS00000803",
+        "value": "22468"
+      },
+      "customer": {
+        "text": "World Bank",
+        "value": "1249"
+      },
+      "resourceGroup": {
+        "text": "",
+        "value": ""
+      },
+      "priority": "",
+      "resources": [],
+      "vendors": [{
+        "id": "189",
+        "name": "189",
+        "vendor": {
+          "text": "Best Fixture, Inc.",
+          "value": "12"
+        },
+        "url": "",
+        "email": "",
+        "initials": "BF",
+        "workorder": {
+          "text": "Test Work Order",
+          "value": "123"
+        },
+        "event": "101062",
+        "quantityRequired": 5,
+        "quantityAvailable": 0,
+        "purchaseOrder": {
+          "text": " ",
+          "value": ""
+        },
+        "amount": 0,
+        "active": false,
+        "woVendor": true,
+        "memo": ""
+      }, {
+        "id": "188",
+        "name": "Best Fixture, Inc.",
+        "vendor": {
+          "text": "Best Fixture, Inc.",
+          "value": "12"
+        },
+        "url": "",
+        "email": "",
+        "initials": "BF",
+        "workorder": {
+          "text": "Test Work Order",
+          "value": "123"
+        },
+        "event": "101075",
+        "quantityRequired": 0,
+        "quantityAvailable": 0,
+        "purchaseOrder": {
+          "text": " ",
+          "value": ""
+        },
+        "amount": 0,
+        "active": false,
+        "woVendor": true,
+        "memo": ""
+      }],
+      "assets": [{
+        "id": "123",
+        "name": "ELE00002",
+        "workorder": {
+          "text": "Test Work Order",
+          "value": "123"
+        },
+        "event": "101062",
+        "quantity": 4,
+        "description": "Serialized 1 Sales Description",
+        "item": {
+          "text": "ELE00002",
+          "value": "674"
+        },
+        "equipmentType": {
+          "text": "Hand Tools",
+          "value": "1"
+        },
+        "rentalUnit": {
+          "text": "",
+          "value": ""
+        },
+        "rentalDuration": 0,
+        "rentalRate": 0,
+        "rentalAmount": 0,
+        "purchaseOrder": {
+          "text": " ",
+          "value": " "
+        },
+        "vendor": {
+          "text": "Computer Depot Pacific",
+          "value": "965"
+        },
+        "owned": true,
+        "rentalMatrix": 0
+      }, {
+        "id": "124",
+        "name": "ELE00002",
+        "workorder": {
+          "text": "Test Work Order",
+          "value": "123"
+        },
+        "event": "101077",
+        "quantity": 5,
+        "description": "Serialized 1 Sales Description",
+        "item": {
+          "text": "ELE00002",
+          "value": "674"
+        },
+        "equipmentType": {
+          "text": "Hand Tools",
+          "value": "1"
+        },
+        "rentalUnit": {
+          "text": "",
+          "value": ""
+        },
+        "rentalDuration": 0,
+        "rentalRate": 0,
+        "rentalAmount": 0,
+        "purchaseOrder": {
+          "text": " ",
+          "value": " "
+        },
+        "vendor": {
+          "text": "Computer Depot Pacific",
+          "value": "965"
+        },
+        "owned": true,
+        "rentalMatrix": 0
+      }, {
+        "id": "125",
+        "name": "ELE00002",
+        "workorder": {
+          "text": "Test Work Order",
+          "value": "123"
+        },
+        "event": "101078",
+        "quantity": 4,
+        "description": "Serialized 1 Sales Description",
+        "item": {
+          "text": "ELE00002",
+          "value": "674"
+        },
+        "equipmentType": {
+          "text": "Hand Tools",
+          "value": "1"
+        },
+        "rentalUnit": {
+          "text": "",
+          "value": ""
+        },
+        "rentalDuration": 0,
+        "rentalRate": 0,
+        "rentalAmount": 0,
+        "purchaseOrder": {
+          "text": " ",
+          "value": " "
+        },
+        "vendor": {
+          "text": "Computer Depot Pacific",
+          "value": "965"
+        },
+        "owned": true,
+        "rentalMatrix": 0
+      }, {
+        "id": "126",
+        "name": "ELE00002",
+        "workorder": {
+          "text": "Test Work Order",
+          "value": "123"
+        },
+        "event": "101079",
+        "quantity": 5,
+        "description": "Serialized 1 Sales Description",
+        "item": {
+          "text": "ELE00002",
+          "value": "674"
+        },
+        "equipmentType": {
+          "text": "Hand Tools",
+          "value": "1"
+        },
+        "rentalUnit": {
+          "text": "",
+          "value": ""
+        },
+        "rentalDuration": 0,
+        "rentalRate": 0,
+        "rentalAmount": 0,
+        "purchaseOrder": {
+          "text": " ",
+          "value": " "
+        },
+        "vendor": {
+          "text": "Computer Depot Pacific",
+          "value": "965"
+        },
+        "owned": true,
+        "rentalMatrix": 0
+      }],
+      "items": [{
+        "id": "557",
+        "workorder": {
+          "text": "Test Work Order",
+          "value": "123"
+        },
+        "salesorder": {
+          "text": "Sales Order #SLS00000803",
+          "value": "22468"
+        },
+        "event": "101077",
+        "uuid": "22468_1",
+        "line": "1",
+        "item": {
+          "text": "BIC00008",
+          "value": "467"
+        },
+        "description": "Head Master Chair",
+        "quantity": 2,
+        "availableQty": 2,
+        "note": ""
+      }, {
+        "id": "558",
+        "workorder": {
+          "text": "Test Work Order",
+          "value": "123"
+        },
+        "salesorder": {
+          "text": "Sales Order #SLS00000803",
+          "value": "22468"
+        },
+        "event": "101078",
+        "uuid": "22468_1",
+        "line": "1",
+        "item": {
+          "text": "BIC00008",
+          "value": "467"
+        },
+        "description": "Head Master Chair",
+        "quantity": 2,
+        "availableQty": 2,
+        "note": ""
+      }, {
+        "id": "559",
+        "workorder": {
+          "text": "Test Work Order",
+          "value": "123"
+        },
+        "salesorder": {
+          "text": "Sales Order #SLS00000803",
+          "value": "22468"
+        },
+        "event": "101079",
+        "uuid": "22468_3",
+        "line": "3",
+        "item": {
+          "text": "BIC00008",
+          "value": "467"
+        },
+        "description": "Working Table",
+        "quantity": 5,
+        "availableQty": 5,
+        "note": ""
+      }, {
+        "id": "547",
+        "workorder": {
+          "text": "Test Work Order",
+          "value": "123"
+        },
+        "salesorder": {
+          "text": "Sales Order #SLS00000803",
+          "value": "22468"
+        },
+        "event": "101062",
+        "uuid": "22468_1",
+        "line": "1",
+        "item": {
+          "text": "BIC00008",
+          "value": "467"
+        },
+        "description": "Head Master Chair",
+        "quantity": 7,
+        "availableQty": 7,
+        "note": ""
+      }, {
+        "id": "555",
+        "workorder": {
+          "text": "Test Work Order",
+          "value": "123"
+        },
+        "salesorder": {
+          "text": "Sales Order #SLS00000803",
+          "value": "22468"
+        },
+        "event": "101075",
+        "uuid": "22468_2",
+        "line": "2",
+        "item": {
+          "text": "BIC00008",
+          "value": "467"
+        },
+        "description": "Diana Chair",
+        "quantity": 10,
+        "availableQty": 10,
+        "note": ""
+      }, {
+        "id": "556",
+        "workorder": {
+          "text": "Test Work Order",
+          "value": "123"
+        },
+        "salesorder": {
+          "text": "Sales Order #SLS00000803",
+          "value": "22468"
+        },
+        "event": "101075",
+        "uuid": "22468_3",
+        "line": "3",
+        "item": {
+          "text": "BIC00008",
+          "value": "467"
+        },
+        "description": "Working Table",
+        "quantity": 5,
+        "availableQty": 5,
+        "note": ""
+      }, {
+        "id": "548",
+        "workorder": {
+          "text": "Test Work Order",
+          "value": "123"
+        },
+        "salesorder": {
+          "text": "Sales Order #SLS00000803",
+          "value": "22468"
+        },
+        "event": "",
+        "uuid": "22468_2",
+        "line": "2",
+        "item": {
+          "text": "BIC00008",
+          "value": "467"
+        },
+        "description": "Diana Chair",
+        "quantity": 10,
+        "availableQty": 10,
+        "note": ""
+      }, {
+        "id": "549",
+        "workorder": {
+          "text": "Test Work Order",
+          "value": "123"
+        },
+        "salesorder": {
+          "text": "Sales Order #SLS00000803",
+          "value": "22468"
+        },
+        "event": "",
+        "uuid": "22468_3",
+        "line": "3",
+        "item": {
+          "text": "BIC00008",
+          "value": "467"
+        },
+        "description": "Working Table",
+        "quantity": 10,
+        "availableQty": 10,
+        "note": ""
+      }, {
+        "id": "550",
+        "workorder": {
+          "text": "Test Work Order",
+          "value": "123"
+        },
+        "salesorder": {
+          "text": "Sales Order #SLS00000803",
+          "value": "22468"
+        },
+        "event": "",
+        "uuid": "22468_4",
+        "line": "4",
+        "item": {
+          "text": "BIC00008",
+          "value": "467"
+        },
+        "description": "Technology Table",
+        "quantity": 10,
+        "availableQty": 10,
+        "note": ""
+      }, {
+        "id": "546",
+        "workorder": {
+          "text": "Test Work Order",
+          "value": "123"
+        },
+        "salesorder": {
+          "text": "Sales Order #SLS00000803",
+          "value": "22468"
+        },
+        "event": "",
+        "uuid": "22468_1",
+        "line": "1",
+        "item": {
+          "text": "BIC00008",
+          "value": "467"
+        },
+        "description": "Head Master Chair",
+        "quantity": 7,
+        "availableQty": 7,
+        "note": ""
+      }],
+      "addresses": [{
+        "id": "207",
+        "workorder": {
+          "text": "Test Work Order",
+          "value": "123"
+        },
+        "customer": {
+          "text": "World Bank",
+          "value": "1249"
+        },
+        "events": ["101062", "101076", "101077", "101078", "101079"],
+        "address": {
+          "text": "434 Carlaw",
+          "value": "244878"
+        },
+        "addressDetails": "434 Carlaw Road<br/>Los Angeles NY 12412<br/>United States",
+        "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+      }],
+      "contacts": [{
+        "id": "168",
+        "workorder": {
+          "text": "Test Work Order",
+          "value": "123"
+        },
+        "events": ["101062", "101077", "101078"],
+        "contact": {
+          "text": "World Bank : Chad Bass",
+          "value": "1382"
+        },
+        "name": "Chad Bass",
+        "email": "cbass@worldbank.com",
+        "jobTitle": "President",
+        "mobilePhone": "",
+        "phone": "",
+        "primary": false,
+        "url": "/app/common/entity/contact.nl?id=1382&compid=TSTDRV2617106"
+      }, {
+        "id": "169",
+        "workorder": {
+          "text": "Test Work Order",
+          "value": "123"
+        },
+        "events": ["101075", "101079"],
+        "contact": {
+          "text": "World Bank : Chad Bass",
+          "value": "1382"
+        },
+        "name": "Chad Bass",
+        "email": "cbass@worldbank.com",
+        "jobTitle": "President",
+        "mobilePhone": "",
+        "phone": "",
+        "primary": false,
+        "url": "/app/common/entity/contact.nl?id=1382&compid=TSTDRV2617106"
+      }],
+      "events": [{
+        "id": "101079",
+        "title": "AC Installation - 3",
+        "workorder": {
+          "text": "Test Work Order",
+          "value": "123"
+        },
+        "location": "",
+        "status": {
+          "text": "Tentative",
+          "value": "TENTATIVE",
+          "code": "bg-secondary"
+        },
+        "date": {
+          "recurrence": "one time event on 1/17/2025",
+          "dates": ["1/17/2025"],
+          "start": "2025-01-17",
+          "end": "2025-01-17"
+        },
+        "time": {
+          "start": "08:00",
+          "end": "18:00"
+        },
+        "priority": {
+          "text": "High",
+          "value": "3",
+          "code": "#ca6621"
+        },
+        "note": "AC Installation - 3",
+        "url": "/app/crm/calendar/event.nl?id=101079&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {},
+        "resources": [],
+        "vendors": [],
+        "assets": [],
+        "items": [],
+        "contacts": [],
+        "addresses": [],
+        "contact": {
+          "text": "",
+          "value": ""
+        },
+        "address": {
+          "text": "",
+          "value": ""
+        },
+        "organizer": {
+          "text": "Mei Matriano",
+          "value": "1647"
+        }
+      }, {
+        "id": "101078",
+        "title": "AC Installation 2",
+        "workorder": {
+          "text": "Test Work Order",
+          "value": "123"
+        },
+        "location": "",
+        "status": {
+          "text": "Tentative",
+          "value": "TENTATIVE",
+          "code": "bg-secondary"
+        },
+        "date": {
+          "recurrence": "one time event on 1/16/2025",
+          "dates": ["1/16/2025"],
+          "start": "2025-01-16",
+          "end": "2025-01-16"
+        },
+        "time": {
+          "start": "08:00",
+          "end": "18:00"
+        },
+        "priority": {
+          "text": "High",
+          "value": "3",
+          "code": "#ca6621"
+        },
+        "note": "AC Installation 2",
+        "url": "/app/crm/calendar/event.nl?id=101078&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {},
+        "resources": [],
+        "vendors": [],
+        "assets": [],
+        "items": [],
+        "contacts": [],
+        "addresses": [],
+        "contact": {
+          "text": "",
+          "value": ""
+        },
+        "address": {
+          "text": "",
+          "value": ""
+        },
+        "organizer": {
+          "text": "Mei Matriano",
+          "value": "1647"
+        }
+      }, {
+        "id": "101077",
+        "title": "AC Installation",
+        "workorder": {
+          "text": "Test Work Order",
+          "value": "123"
+        },
+        "location": "",
+        "status": {
+          "text": "Tentative",
+          "value": "TENTATIVE",
+          "code": "bg-secondary"
+        },
+        "date": {
+          "recurrence": "one time event on 1/16/2025",
+          "dates": ["1/16/2025"],
+          "start": "2025-01-16",
+          "end": "2025-01-16"
+        },
+        "time": {
+          "start": "08:00",
+          "end": "18:00"
+        },
+        "priority": {
+          "text": "Medium",
+          "value": "2",
+          "code": "#dfcf02"
+        },
+        "note": "AC Installation",
+        "url": "/app/crm/calendar/event.nl?id=101077&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {},
+        "resources": [],
+        "vendors": [],
+        "assets": [],
+        "items": [],
+        "contacts": [],
+        "addresses": [],
+        "contact": {
+          "text": "",
+          "value": ""
+        },
+        "address": {
+          "text": "",
+          "value": ""
+        },
+        "organizer": {
+          "text": "Mei Matriano",
+          "value": "1647"
+        }
+      }, {
+        "id": "101076",
+        "title": "Test Work Order",
+        "workorder": {
+          "text": "Test Work Order",
+          "value": "123"
+        },
+        "location": "",
+        "status": {
+          "text": "Tentative",
+          "value": "TENTATIVE",
+          "code": "bg-secondary"
+        },
+        "date": {
+          "recurrence": "one time event on 1/15/2025",
+          "dates": ["1/15/2025"],
+          "start": "2025-01-15",
+          "end": "2025-01-15"
+        },
+        "time": {
+          "start": "08:00",
+          "end": "18:00"
+        },
+        "priority": {
+          "text": "Low",
+          "value": "1",
+          "code": "#026adf"
+        },
+        "note": "",
+        "url": "/app/crm/calendar/event.nl?id=101076&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {},
+        "resources": [],
+        "vendors": [],
+        "assets": [],
+        "items": [],
+        "contacts": [],
+        "addresses": [],
+        "contact": {
+          "text": "",
+          "value": ""
+        },
+        "address": {
+          "text": "207",
+          "value": "207"
+        },
+        "organizer": {
+          "text": "Lean  cendana",
+          "value": "1765"
+        }
+      }, {
+        "id": "101075",
+        "title": "Test Work Order",
+        "workorder": {
+          "text": "Test Work Order",
+          "value": "123"
+        },
+        "location": "",
+        "status": {
+          "text": "Tentative",
+          "value": "TENTATIVE",
+          "code": "bg-secondary"
+        },
+        "date": {
+          "recurrence": "one time event on 1/12/2025",
+          "dates": ["1/12/2025"],
+          "start": "2025-01-12",
+          "end": "2025-01-12"
+        },
+        "time": {
+          "start": "08:00",
+          "end": "18:00"
+        },
+        "priority": {
+          "text": "Low",
+          "value": "1",
+          "code": "#026adf"
+        },
+        "note": "X\nY\nZ",
+        "url": "/app/crm/calendar/event.nl?id=101075&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {},
+        "resources": [],
+        "vendors": [],
+        "assets": [],
+        "items": [],
+        "contacts": [],
+        "addresses": [],
+        "contact": {
+          "text": "",
+          "value": ""
+        },
+        "address": {
+          "text": "207",
+          "value": "207"
+        },
+        "organizer": {
+          "text": "Lean  cendana",
+          "value": "1765"
+        }
+      }],
+      "projectUrl": "/app/accounting/project/project.nl?id=1515&compid=TSTDRV2617106",
+      "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=123&compid=TSTDRV2617106",
+      "soUrl": "/app/accounting/transactions/salesord.nl?id=22468&compid=TSTDRV2617106",
+      "esthours": "100"
+    },
+    "resources": [{
+      "id": "339",
+      "name": "Aiden Somerhalder",
+      "initials": "AS",
+      "email": "admin@ramsey.com",
+      "phone": "",
+      "location": {
+        "text": "01: San Francisco",
+        "value": "2"
+      },
+      "active": true,
+      "workorder": {
+        "text": "Test Work Order",
+        "value": "123"
+      },
+      "events": ["101079"],
+      "employee": {
+        "text": "Aiden Somerhalder",
+        "value": "1524"
+      },
+      "resourceGroups": [{
+        "text": "Installers",
+        "value": "1"
+      }],
+      "types": [{
+        "text": "Installer",
+        "value": "1"
+      }],
+      "subTypes": [],
+      "rate": 0,
+      "vendor": {
+        "text": "",
+        "value": ""
+      },
+      "purchaseOrder": {
+        "text": " ",
+        "value": ""
+      },
+      "affiliationType": {
+        "text": "In-House",
+        "value": "1"
+      },
+      "time": {
+        "start": "",
+        "end": ""
+      },
+      "resourceSkills": [],
+      "selected": true
+    }, {
+      "id": "340",
+      "name": "Brenda Jones",
+      "initials": "BJ",
+      "email": "bjones@ramsey.com",
+      "phone": "",
+      "location": {
+        "text": "01: San Francisco",
+        "value": "2"
+      },
+      "active": true,
+      "workorder": {
+        "text": "Test Work Order",
+        "value": "123"
+      },
+      "events": ["101079"],
+      "employee": {
+        "text": "Brenda Jones",
+        "value": "1516"
+      },
+      "resourceGroups": [{
+        "text": "Installers",
+        "value": "1"
+      }],
+      "types": [{
+        "text": "Installer",
+        "value": "1"
+      }],
+      "subTypes": [],
+      "rate": 0,
+      "vendor": {
+        "text": "",
+        "value": ""
+      },
+      "purchaseOrder": {
+        "text": " ",
+        "value": ""
+      },
+      "affiliationType": {
+        "text": "In-House",
+        "value": "1"
+      },
+      "time": {
+        "start": "",
+        "end": ""
+      },
+      "resourceSkills": [],
+      "selected": true
+    }, {
+      "id": "367",
+      "name": "Brenda Wilson",
+      "initials": "BW",
+      "email": "bwilson@ramsey.com",
+      "phone": "",
+      "location": {
+        "text": "01: San Francisco : QA Hold",
+        "value": "5"
+      },
+      "active": true,
+      "workorder": {
+        "text": "Test Work Order",
+        "value": "123"
+      },
+      "events": ["101079"],
+      "employee": {
+        "text": "Brenda Wilson",
+        "value": "1513"
+      },
+      "resourceGroups": [{
+        "text": "Installers",
+        "value": "1"
+      }],
+      "types": [{
+        "text": "Installer",
+        "value": "1"
+      }],
+      "subTypes": [],
+      "rate": 0,
+      "vendor": {
+        "text": "",
+        "value": ""
+      },
+      "purchaseOrder": {
+        "text": " ",
+        "value": ""
+      },
+      "affiliationType": {
+        "text": "In-House",
+        "value": "1"
+      },
+      "time": {
+        "start": "",
+        "end": ""
+      },
+      "resourceSkills": [],
+      "selected": true
+    }],
+    "vendors": [],
+    "assets": [{
+      "id": "126",
+      "name": "ELE00002",
+      "workorder": {
+        "text": "Test Work Order",
+        "value": "123"
+      },
+      "event": "101079",
+      "quantity": 5,
+      "description": "Serialized 1 Sales Description",
+      "item": {
+        "text": "ELE00002",
+        "value": "674"
+      },
+      "equipmentType": {
+        "text": "Hand Tools",
+        "value": "1"
+      },
+      "rentalUnit": {
+        "text": "",
+        "value": ""
+      },
+      "rentalDuration": 0,
+      "rentalRate": 0,
+      "rentalAmount": 0,
+      "purchaseOrder": {
+        "text": " ",
+        "value": " "
+      },
+      "vendor": {
+        "text": "Computer Depot Pacific",
+        "value": "965"
+      },
+      "owned": true,
+      "rentalMatrix": 0,
+      "selected": true
+    }],
+    "items": [{
+      "id": "559",
+      "workorder": {
+        "text": "Test Work Order",
+        "value": "123"
+      },
+      "salesorder": {
+        "text": "Sales Order #SLS00000803",
+        "value": "22468"
+      },
+      "event": "101079",
+      "uuid": "22468_3",
+      "line": "3",
+      "item": {
+        "text": "BIC00008",
+        "value": "467"
+      },
+      "description": "Working Table",
+      "quantity": 5,
+      "availableQty": 5,
+      "note": "",
+      "selected": true
+    }],
+    "contacts": [],
+    "addresses": [{
+      "id": "207",
+      "workorder": {
+        "text": "Test Work Order",
+        "value": "123"
+      },
+      "customer": {
+        "text": "World Bank",
+        "value": "1249"
+      },
+      "events": ["101062", "101076", "101077", "101078", "101079"],
+      "address": {
+        "text": "434 Carlaw",
+        "value": "244878"
+      },
+      "addressDetails": "434 Carlaw Road<br/>Los Angeles NY 12412<br/>United States",
+      "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106",
+      "selected": true
+    }],
+    "contact": {
+      "text": "",
+      "value": ""
+    },
+    "address": {
+      "text": "",
+      "value": ""
+    },
+    "organizer": {
+      "text": "Mei Matriano",
+      "value": "1647"
+    }
+  }, {
+    "id": "101078",
+    "title": "AC Installation 2",
+    "workorder": {
+      "text": "Test Work Order",
+      "value": "123"
+    },
+    "location": "",
+    "status": {
+      "text": "Tentative",
+      "value": "TENTATIVE",
+      "code": "bg-secondary"
+    },
+    "date": {
+      "recurrence": "one time event on 1/16/2025",
+      "dates": ["1/16/2025"],
+      "start": "2025-01-16",
+      "end": "2025-01-16"
+    },
+    "time": {
+      "start": "08:00",
+      "end": "18:00"
+    },
+    "priority": {
+      "text": "High",
+      "value": "3",
+      "code": "#ca6621"
+    },
+    "note": "AC Installation 2",
+    "url": "/app/crm/calendar/event.nl?id=101078&compid=TSTDRV2617106&selectedtab=custom337",
+    "color": "#1a6756",
+    "woRef": {
+      "id": "123",
+      "name": "Test Work Order",
+      "title": "Test Work Order",
+      "project": {
+        "text": "World Bank : World Bank Office Furniture Installation",
+        "value": "1515"
+      },
+      "date": "1/8/2025",
+      "status": {
+        "text": "Not Started",
+        "value": "4",
+        "code": "#026adf"
+      },
+      "type": {
+        "text": "Service",
+        "value": "2"
+      },
+      "memo": "",
+      "salesorder": {
+        "text": "Sales Order #SLS00000803",
+        "value": "22468"
+      },
+      "customer": {
+        "text": "World Bank",
+        "value": "1249"
+      },
+      "resourceGroup": {
+        "text": "",
+        "value": ""
+      },
+      "priority": "",
+      "resources": [],
+      "vendors": [{
+        "id": "189",
+        "name": "189",
+        "vendor": {
+          "text": "Best Fixture, Inc.",
+          "value": "12"
+        },
+        "url": "",
+        "email": "",
+        "initials": "BF",
+        "workorder": {
+          "text": "Test Work Order",
+          "value": "123"
+        },
+        "event": "101062",
+        "quantityRequired": 5,
+        "quantityAvailable": 0,
+        "purchaseOrder": {
+          "text": " ",
+          "value": ""
+        },
+        "amount": 0,
+        "active": false,
+        "woVendor": true,
+        "memo": ""
+      }, {
+        "id": "188",
+        "name": "Best Fixture, Inc.",
+        "vendor": {
+          "text": "Best Fixture, Inc.",
+          "value": "12"
+        },
+        "url": "",
+        "email": "",
+        "initials": "BF",
+        "workorder": {
+          "text": "Test Work Order",
+          "value": "123"
+        },
+        "event": "101075",
+        "quantityRequired": 0,
+        "quantityAvailable": 0,
+        "purchaseOrder": {
+          "text": " ",
+          "value": ""
+        },
+        "amount": 0,
+        "active": false,
+        "woVendor": true,
+        "memo": ""
+      }],
+      "assets": [{
+        "id": "123",
+        "name": "ELE00002",
+        "workorder": {
+          "text": "Test Work Order",
+          "value": "123"
+        },
+        "event": "101062",
+        "quantity": 4,
+        "description": "Serialized 1 Sales Description",
+        "item": {
+          "text": "ELE00002",
+          "value": "674"
+        },
+        "equipmentType": {
+          "text": "Hand Tools",
+          "value": "1"
+        },
+        "rentalUnit": {
+          "text": "",
+          "value": ""
+        },
+        "rentalDuration": 0,
+        "rentalRate": 0,
+        "rentalAmount": 0,
+        "purchaseOrder": {
+          "text": " ",
+          "value": " "
+        },
+        "vendor": {
+          "text": "Computer Depot Pacific",
+          "value": "965"
+        },
+        "owned": true,
+        "rentalMatrix": 0
+      }, {
+        "id": "124",
+        "name": "ELE00002",
+        "workorder": {
+          "text": "Test Work Order",
+          "value": "123"
+        },
+        "event": "101077",
+        "quantity": 5,
+        "description": "Serialized 1 Sales Description",
+        "item": {
+          "text": "ELE00002",
+          "value": "674"
+        },
+        "equipmentType": {
+          "text": "Hand Tools",
+          "value": "1"
+        },
+        "rentalUnit": {
+          "text": "",
+          "value": ""
+        },
+        "rentalDuration": 0,
+        "rentalRate": 0,
+        "rentalAmount": 0,
+        "purchaseOrder": {
+          "text": " ",
+          "value": " "
+        },
+        "vendor": {
+          "text": "Computer Depot Pacific",
+          "value": "965"
+        },
+        "owned": true,
+        "rentalMatrix": 0
+      }, {
+        "id": "125",
+        "name": "ELE00002",
+        "workorder": {
+          "text": "Test Work Order",
+          "value": "123"
+        },
+        "event": "101078",
+        "quantity": 4,
+        "description": "Serialized 1 Sales Description",
+        "item": {
+          "text": "ELE00002",
+          "value": "674"
+        },
+        "equipmentType": {
+          "text": "Hand Tools",
+          "value": "1"
+        },
+        "rentalUnit": {
+          "text": "",
+          "value": ""
+        },
+        "rentalDuration": 0,
+        "rentalRate": 0,
+        "rentalAmount": 0,
+        "purchaseOrder": {
+          "text": " ",
+          "value": " "
+        },
+        "vendor": {
+          "text": "Computer Depot Pacific",
+          "value": "965"
+        },
+        "owned": true,
+        "rentalMatrix": 0
+      }, {
+        "id": "126",
+        "name": "ELE00002",
+        "workorder": {
+          "text": "Test Work Order",
+          "value": "123"
+        },
+        "event": "101079",
+        "quantity": 5,
+        "description": "Serialized 1 Sales Description",
+        "item": {
+          "text": "ELE00002",
+          "value": "674"
+        },
+        "equipmentType": {
+          "text": "Hand Tools",
+          "value": "1"
+        },
+        "rentalUnit": {
+          "text": "",
+          "value": ""
+        },
+        "rentalDuration": 0,
+        "rentalRate": 0,
+        "rentalAmount": 0,
+        "purchaseOrder": {
+          "text": " ",
+          "value": " "
+        },
+        "vendor": {
+          "text": "Computer Depot Pacific",
+          "value": "965"
+        },
+        "owned": true,
+        "rentalMatrix": 0
+      }],
+      "items": [{
+        "id": "557",
+        "workorder": {
+          "text": "Test Work Order",
+          "value": "123"
+        },
+        "salesorder": {
+          "text": "Sales Order #SLS00000803",
+          "value": "22468"
+        },
+        "event": "101077",
+        "uuid": "22468_1",
+        "line": "1",
+        "item": {
+          "text": "BIC00008",
+          "value": "467"
+        },
+        "description": "Head Master Chair",
+        "quantity": 2,
+        "availableQty": 2,
+        "note": ""
+      }, {
+        "id": "558",
+        "workorder": {
+          "text": "Test Work Order",
+          "value": "123"
+        },
+        "salesorder": {
+          "text": "Sales Order #SLS00000803",
+          "value": "22468"
+        },
+        "event": "101078",
+        "uuid": "22468_1",
+        "line": "1",
+        "item": {
+          "text": "BIC00008",
+          "value": "467"
+        },
+        "description": "Head Master Chair",
+        "quantity": 2,
+        "availableQty": 2,
+        "note": ""
+      }, {
+        "id": "559",
+        "workorder": {
+          "text": "Test Work Order",
+          "value": "123"
+        },
+        "salesorder": {
+          "text": "Sales Order #SLS00000803",
+          "value": "22468"
+        },
+        "event": "101079",
+        "uuid": "22468_3",
+        "line": "3",
+        "item": {
+          "text": "BIC00008",
+          "value": "467"
+        },
+        "description": "Working Table",
+        "quantity": 5,
+        "availableQty": 5,
+        "note": ""
+      }, {
+        "id": "547",
+        "workorder": {
+          "text": "Test Work Order",
+          "value": "123"
+        },
+        "salesorder": {
+          "text": "Sales Order #SLS00000803",
+          "value": "22468"
+        },
+        "event": "101062",
+        "uuid": "22468_1",
+        "line": "1",
+        "item": {
+          "text": "BIC00008",
+          "value": "467"
+        },
+        "description": "Head Master Chair",
+        "quantity": 7,
+        "availableQty": 7,
+        "note": ""
+      }, {
+        "id": "555",
+        "workorder": {
+          "text": "Test Work Order",
+          "value": "123"
+        },
+        "salesorder": {
+          "text": "Sales Order #SLS00000803",
+          "value": "22468"
+        },
+        "event": "101075",
+        "uuid": "22468_2",
+        "line": "2",
+        "item": {
+          "text": "BIC00008",
+          "value": "467"
+        },
+        "description": "Diana Chair",
+        "quantity": 10,
+        "availableQty": 10,
+        "note": ""
+      }, {
+        "id": "556",
+        "workorder": {
+          "text": "Test Work Order",
+          "value": "123"
+        },
+        "salesorder": {
+          "text": "Sales Order #SLS00000803",
+          "value": "22468"
+        },
+        "event": "101075",
+        "uuid": "22468_3",
+        "line": "3",
+        "item": {
+          "text": "BIC00008",
+          "value": "467"
+        },
+        "description": "Working Table",
+        "quantity": 5,
+        "availableQty": 5,
+        "note": ""
+      }, {
+        "id": "548",
+        "workorder": {
+          "text": "Test Work Order",
+          "value": "123"
+        },
+        "salesorder": {
+          "text": "Sales Order #SLS00000803",
+          "value": "22468"
+        },
+        "event": "",
+        "uuid": "22468_2",
+        "line": "2",
+        "item": {
+          "text": "BIC00008",
+          "value": "467"
+        },
+        "description": "Diana Chair",
+        "quantity": 10,
+        "availableQty": 10,
+        "note": ""
+      }, {
+        "id": "549",
+        "workorder": {
+          "text": "Test Work Order",
+          "value": "123"
+        },
+        "salesorder": {
+          "text": "Sales Order #SLS00000803",
+          "value": "22468"
+        },
+        "event": "",
+        "uuid": "22468_3",
+        "line": "3",
+        "item": {
+          "text": "BIC00008",
+          "value": "467"
+        },
+        "description": "Working Table",
+        "quantity": 10,
+        "availableQty": 10,
+        "note": ""
+      }, {
+        "id": "550",
+        "workorder": {
+          "text": "Test Work Order",
+          "value": "123"
+        },
+        "salesorder": {
+          "text": "Sales Order #SLS00000803",
+          "value": "22468"
+        },
+        "event": "",
+        "uuid": "22468_4",
+        "line": "4",
+        "item": {
+          "text": "BIC00008",
+          "value": "467"
+        },
+        "description": "Technology Table",
+        "quantity": 10,
+        "availableQty": 10,
+        "note": ""
+      }, {
+        "id": "546",
+        "workorder": {
+          "text": "Test Work Order",
+          "value": "123"
+        },
+        "salesorder": {
+          "text": "Sales Order #SLS00000803",
+          "value": "22468"
+        },
+        "event": "",
+        "uuid": "22468_1",
+        "line": "1",
+        "item": {
+          "text": "BIC00008",
+          "value": "467"
+        },
+        "description": "Head Master Chair",
+        "quantity": 7,
+        "availableQty": 7,
+        "note": ""
+      }],
+      "addresses": [{
+        "id": "207",
+        "workorder": {
+          "text": "Test Work Order",
+          "value": "123"
+        },
+        "customer": {
+          "text": "World Bank",
+          "value": "1249"
+        },
+        "events": ["101062", "101076", "101077", "101078", "101079"],
+        "address": {
+          "text": "434 Carlaw",
+          "value": "244878"
+        },
+        "addressDetails": "434 Carlaw Road<br/>Los Angeles NY 12412<br/>United States",
+        "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+      }],
+      "contacts": [{
+        "id": "168",
+        "workorder": {
+          "text": "Test Work Order",
+          "value": "123"
+        },
+        "events": ["101062", "101077", "101078"],
+        "contact": {
+          "text": "World Bank : Chad Bass",
+          "value": "1382"
+        },
+        "name": "Chad Bass",
+        "email": "cbass@worldbank.com",
+        "jobTitle": "President",
+        "mobilePhone": "",
+        "phone": "",
+        "primary": false,
+        "url": "/app/common/entity/contact.nl?id=1382&compid=TSTDRV2617106"
+      }, {
+        "id": "169",
+        "workorder": {
+          "text": "Test Work Order",
+          "value": "123"
+        },
+        "events": ["101075", "101079"],
+        "contact": {
+          "text": "World Bank : Chad Bass",
+          "value": "1382"
+        },
+        "name": "Chad Bass",
+        "email": "cbass@worldbank.com",
+        "jobTitle": "President",
+        "mobilePhone": "",
+        "phone": "",
+        "primary": false,
+        "url": "/app/common/entity/contact.nl?id=1382&compid=TSTDRV2617106"
+      }],
+      "events": [{
+        "id": "101079",
+        "title": "AC Installation - 3",
+        "workorder": {
+          "text": "Test Work Order",
+          "value": "123"
+        },
+        "location": "",
+        "status": {
+          "text": "Tentative",
+          "value": "TENTATIVE",
+          "code": "bg-secondary"
+        },
+        "date": {
+          "recurrence": "one time event on 1/17/2025",
+          "dates": ["1/17/2025"],
+          "start": "2025-01-17",
+          "end": "2025-01-17"
+        },
+        "time": {
+          "start": "08:00",
+          "end": "18:00"
+        },
+        "priority": {
+          "text": "High",
+          "value": "3",
+          "code": "#ca6621"
+        },
+        "note": "AC Installation - 3",
+        "url": "/app/crm/calendar/event.nl?id=101079&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {},
+        "resources": [],
+        "vendors": [],
+        "assets": [],
+        "items": [],
+        "contacts": [],
+        "addresses": [],
+        "contact": {
+          "text": "",
+          "value": ""
+        },
+        "address": {
+          "text": "",
+          "value": ""
+        },
+        "organizer": {
+          "text": "Mei Matriano",
+          "value": "1647"
+        }
+      }, {
+        "id": "101078",
+        "title": "AC Installation 2",
+        "workorder": {
+          "text": "Test Work Order",
+          "value": "123"
+        },
+        "location": "",
+        "status": {
+          "text": "Tentative",
+          "value": "TENTATIVE",
+          "code": "bg-secondary"
+        },
+        "date": {
+          "recurrence": "one time event on 1/16/2025",
+          "dates": ["1/16/2025"],
+          "start": "2025-01-16",
+          "end": "2025-01-16"
+        },
+        "time": {
+          "start": "08:00",
+          "end": "18:00"
+        },
+        "priority": {
+          "text": "High",
+          "value": "3",
+          "code": "#ca6621"
+        },
+        "note": "AC Installation 2",
+        "url": "/app/crm/calendar/event.nl?id=101078&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {},
+        "resources": [],
+        "vendors": [],
+        "assets": [],
+        "items": [],
+        "contacts": [],
+        "addresses": [],
+        "contact": {
+          "text": "",
+          "value": ""
+        },
+        "address": {
+          "text": "",
+          "value": ""
+        },
+        "organizer": {
+          "text": "Mei Matriano",
+          "value": "1647"
+        }
+      }, {
+        "id": "101077",
+        "title": "AC Installation",
+        "workorder": {
+          "text": "Test Work Order",
+          "value": "123"
+        },
+        "location": "",
+        "status": {
+          "text": "Tentative",
+          "value": "TENTATIVE",
+          "code": "bg-secondary"
+        },
+        "date": {
+          "recurrence": "one time event on 1/16/2025",
+          "dates": ["1/16/2025"],
+          "start": "2025-01-16",
+          "end": "2025-01-16"
+        },
+        "time": {
+          "start": "08:00",
+          "end": "18:00"
+        },
+        "priority": {
+          "text": "Medium",
+          "value": "2",
+          "code": "#dfcf02"
+        },
+        "note": "AC Installation",
+        "url": "/app/crm/calendar/event.nl?id=101077&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {},
+        "resources": [],
+        "vendors": [],
+        "assets": [],
+        "items": [],
+        "contacts": [],
+        "addresses": [],
+        "contact": {
+          "text": "",
+          "value": ""
+        },
+        "address": {
+          "text": "",
+          "value": ""
+        },
+        "organizer": {
+          "text": "Mei Matriano",
+          "value": "1647"
+        }
+      }, {
+        "id": "101076",
+        "title": "Test Work Order",
+        "workorder": {
+          "text": "Test Work Order",
+          "value": "123"
+        },
+        "location": "",
+        "status": {
+          "text": "Tentative",
+          "value": "TENTATIVE",
+          "code": "bg-secondary"
+        },
+        "date": {
+          "recurrence": "one time event on 1/15/2025",
+          "dates": ["1/15/2025"],
+          "start": "2025-01-15",
+          "end": "2025-01-15"
+        },
+        "time": {
+          "start": "08:00",
+          "end": "18:00"
+        },
+        "priority": {
+          "text": "Low",
+          "value": "1",
+          "code": "#026adf"
+        },
+        "note": "",
+        "url": "/app/crm/calendar/event.nl?id=101076&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {},
+        "resources": [],
+        "vendors": [],
+        "assets": [],
+        "items": [],
+        "contacts": [],
+        "addresses": [],
+        "contact": {
+          "text": "",
+          "value": ""
+        },
+        "address": {
+          "text": "207",
+          "value": "207"
+        },
+        "organizer": {
+          "text": "Lean  cendana",
+          "value": "1765"
+        }
+      }, {
+        "id": "101075",
+        "title": "Test Work Order",
+        "workorder": {
+          "text": "Test Work Order",
+          "value": "123"
+        },
+        "location": "",
+        "status": {
+          "text": "Tentative",
+          "value": "TENTATIVE",
+          "code": "bg-secondary"
+        },
+        "date": {
+          "recurrence": "one time event on 1/12/2025",
+          "dates": ["1/12/2025"],
+          "start": "2025-01-12",
+          "end": "2025-01-12"
+        },
+        "time": {
+          "start": "08:00",
+          "end": "18:00"
+        },
+        "priority": {
+          "text": "Low",
+          "value": "1",
+          "code": "#026adf"
+        },
+        "note": "X\nY\nZ",
+        "url": "/app/crm/calendar/event.nl?id=101075&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {},
+        "resources": [],
+        "vendors": [],
+        "assets": [],
+        "items": [],
+        "contacts": [],
+        "addresses": [],
+        "contact": {
+          "text": "",
+          "value": ""
+        },
+        "address": {
+          "text": "207",
+          "value": "207"
+        },
+        "organizer": {
+          "text": "Lean  cendana",
+          "value": "1765"
+        }
+      }],
+      "projectUrl": "/app/accounting/project/project.nl?id=1515&compid=TSTDRV2617106",
+      "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=123&compid=TSTDRV2617106",
+      "soUrl": "/app/accounting/transactions/salesord.nl?id=22468&compid=TSTDRV2617106",
+      "esthours": "100"
+    },
+    "resources": [],
+    "vendors": [],
+    "assets": [{
+      "id": "125",
+      "name": "ELE00002",
+      "workorder": {
+        "text": "Test Work Order",
+        "value": "123"
+      },
+      "event": "101078",
+      "quantity": 4,
+      "description": "Serialized 1 Sales Description",
+      "item": {
+        "text": "ELE00002",
+        "value": "674"
+      },
+      "equipmentType": {
+        "text": "Hand Tools",
+        "value": "1"
+      },
+      "rentalUnit": {
+        "text": "",
+        "value": ""
+      },
+      "rentalDuration": 0,
+      "rentalRate": 0,
+      "rentalAmount": 0,
+      "purchaseOrder": {
+        "text": " ",
+        "value": " "
+      },
+      "vendor": {
+        "text": "Computer Depot Pacific",
+        "value": "965"
+      },
+      "owned": true,
+      "rentalMatrix": 0,
+      "selected": true
+    }],
+    "items": [{
+      "id": "558",
+      "workorder": {
+        "text": "Test Work Order",
+        "value": "123"
+      },
+      "salesorder": {
+        "text": "Sales Order #SLS00000803",
+        "value": "22468"
+      },
+      "event": "101078",
+      "uuid": "22468_1",
+      "line": "1",
+      "item": {
+        "text": "BIC00008",
+        "value": "467"
+      },
+      "description": "Head Master Chair",
+      "quantity": 2,
+      "availableQty": 2,
+      "note": "",
+      "selected": true
+    }],
+    "contacts": [],
+    "addresses": [{
+      "id": "207",
+      "workorder": {
+        "text": "Test Work Order",
+        "value": "123"
+      },
+      "customer": {
+        "text": "World Bank",
+        "value": "1249"
+      },
+      "events": ["101062", "101076", "101077", "101078", "101079"],
+      "address": {
+        "text": "434 Carlaw",
+        "value": "244878"
+      },
+      "addressDetails": "434 Carlaw Road<br/>Los Angeles NY 12412<br/>United States",
+      "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106",
+      "selected": true
+    }],
+    "contact": {
+      "text": "",
+      "value": ""
+    },
+    "address": {
+      "text": "",
+      "value": ""
+    },
+    "organizer": {
+      "text": "Mei Matriano",
+      "value": "1647"
+    }
+  }, {
+    "id": "101077",
+    "title": "AC Installation",
+    "workorder": {
+      "text": "Test Work Order",
+      "value": "123"
+    },
+    "location": "",
+    "status": {
+      "text": "Tentative",
+      "value": "TENTATIVE",
+      "code": "bg-secondary"
+    },
+    "date": {
+      "recurrence": "one time event on 1/16/2025",
+      "dates": ["1/16/2025"],
+      "start": "2025-01-16",
+      "end": "2025-01-16"
+    },
+    "time": {
+      "start": "08:00",
+      "end": "18:00"
+    },
+    "priority": {
+      "text": "Medium",
+      "value": "2",
+      "code": "#dfcf02"
+    },
+    "note": "AC Installation",
+    "url": "/app/crm/calendar/event.nl?id=101077&compid=TSTDRV2617106&selectedtab=custom337",
+    "color": "#1a6756",
+    "woRef": {
+      "id": "123",
+      "name": "Test Work Order",
+      "title": "Test Work Order",
+      "project": {
+        "text": "World Bank : World Bank Office Furniture Installation",
+        "value": "1515"
+      },
+      "date": "1/8/2025",
+      "status": {
+        "text": "Not Started",
+        "value": "4",
+        "code": "#026adf"
+      },
+      "type": {
+        "text": "Service",
+        "value": "2"
+      },
+      "memo": "",
+      "salesorder": {
+        "text": "Sales Order #SLS00000803",
+        "value": "22468"
+      },
+      "customer": {
+        "text": "World Bank",
+        "value": "1249"
+      },
+      "resourceGroup": {
+        "text": "",
+        "value": ""
+      },
+      "priority": "",
+      "resources": [],
+      "vendors": [{
+        "id": "189",
+        "name": "189",
+        "vendor": {
+          "text": "Best Fixture, Inc.",
+          "value": "12"
+        },
+        "url": "",
+        "email": "",
+        "initials": "BF",
+        "workorder": {
+          "text": "Test Work Order",
+          "value": "123"
+        },
+        "event": "101062",
+        "quantityRequired": 5,
+        "quantityAvailable": 0,
+        "purchaseOrder": {
+          "text": " ",
+          "value": ""
+        },
+        "amount": 0,
+        "active": false,
+        "woVendor": true,
+        "memo": ""
+      }, {
+        "id": "188",
+        "name": "Best Fixture, Inc.",
+        "vendor": {
+          "text": "Best Fixture, Inc.",
+          "value": "12"
+        },
+        "url": "",
+        "email": "",
+        "initials": "BF",
+        "workorder": {
+          "text": "Test Work Order",
+          "value": "123"
+        },
+        "event": "101075",
+        "quantityRequired": 0,
+        "quantityAvailable": 0,
+        "purchaseOrder": {
+          "text": " ",
+          "value": ""
+        },
+        "amount": 0,
+        "active": false,
+        "woVendor": true,
+        "memo": ""
+      }],
+      "assets": [{
+        "id": "123",
+        "name": "ELE00002",
+        "workorder": {
+          "text": "Test Work Order",
+          "value": "123"
+        },
+        "event": "101062",
+        "quantity": 4,
+        "description": "Serialized 1 Sales Description",
+        "item": {
+          "text": "ELE00002",
+          "value": "674"
+        },
+        "equipmentType": {
+          "text": "Hand Tools",
+          "value": "1"
+        },
+        "rentalUnit": {
+          "text": "",
+          "value": ""
+        },
+        "rentalDuration": 0,
+        "rentalRate": 0,
+        "rentalAmount": 0,
+        "purchaseOrder": {
+          "text": " ",
+          "value": " "
+        },
+        "vendor": {
+          "text": "Computer Depot Pacific",
+          "value": "965"
+        },
+        "owned": true,
+        "rentalMatrix": 0
+      }, {
+        "id": "124",
+        "name": "ELE00002",
+        "workorder": {
+          "text": "Test Work Order",
+          "value": "123"
+        },
+        "event": "101077",
+        "quantity": 5,
+        "description": "Serialized 1 Sales Description",
+        "item": {
+          "text": "ELE00002",
+          "value": "674"
+        },
+        "equipmentType": {
+          "text": "Hand Tools",
+          "value": "1"
+        },
+        "rentalUnit": {
+          "text": "",
+          "value": ""
+        },
+        "rentalDuration": 0,
+        "rentalRate": 0,
+        "rentalAmount": 0,
+        "purchaseOrder": {
+          "text": " ",
+          "value": " "
+        },
+        "vendor": {
+          "text": "Computer Depot Pacific",
+          "value": "965"
+        },
+        "owned": true,
+        "rentalMatrix": 0
+      }, {
+        "id": "125",
+        "name": "ELE00002",
+        "workorder": {
+          "text": "Test Work Order",
+          "value": "123"
+        },
+        "event": "101078",
+        "quantity": 4,
+        "description": "Serialized 1 Sales Description",
+        "item": {
+          "text": "ELE00002",
+          "value": "674"
+        },
+        "equipmentType": {
+          "text": "Hand Tools",
+          "value": "1"
+        },
+        "rentalUnit": {
+          "text": "",
+          "value": ""
+        },
+        "rentalDuration": 0,
+        "rentalRate": 0,
+        "rentalAmount": 0,
+        "purchaseOrder": {
+          "text": " ",
+          "value": " "
+        },
+        "vendor": {
+          "text": "Computer Depot Pacific",
+          "value": "965"
+        },
+        "owned": true,
+        "rentalMatrix": 0
+      }, {
+        "id": "126",
+        "name": "ELE00002",
+        "workorder": {
+          "text": "Test Work Order",
+          "value": "123"
+        },
+        "event": "101079",
+        "quantity": 5,
+        "description": "Serialized 1 Sales Description",
+        "item": {
+          "text": "ELE00002",
+          "value": "674"
+        },
+        "equipmentType": {
+          "text": "Hand Tools",
+          "value": "1"
+        },
+        "rentalUnit": {
+          "text": "",
+          "value": ""
+        },
+        "rentalDuration": 0,
+        "rentalRate": 0,
+        "rentalAmount": 0,
+        "purchaseOrder": {
+          "text": " ",
+          "value": " "
+        },
+        "vendor": {
+          "text": "Computer Depot Pacific",
+          "value": "965"
+        },
+        "owned": true,
+        "rentalMatrix": 0
+      }],
+      "items": [{
+        "id": "557",
+        "workorder": {
+          "text": "Test Work Order",
+          "value": "123"
+        },
+        "salesorder": {
+          "text": "Sales Order #SLS00000803",
+          "value": "22468"
+        },
+        "event": "101077",
+        "uuid": "22468_1",
+        "line": "1",
+        "item": {
+          "text": "BIC00008",
+          "value": "467"
+        },
+        "description": "Head Master Chair",
+        "quantity": 2,
+        "availableQty": 2,
+        "note": ""
+      }, {
+        "id": "558",
+        "workorder": {
+          "text": "Test Work Order",
+          "value": "123"
+        },
+        "salesorder": {
+          "text": "Sales Order #SLS00000803",
+          "value": "22468"
+        },
+        "event": "101078",
+        "uuid": "22468_1",
+        "line": "1",
+        "item": {
+          "text": "BIC00008",
+          "value": "467"
+        },
+        "description": "Head Master Chair",
+        "quantity": 2,
+        "availableQty": 2,
+        "note": ""
+      }, {
+        "id": "559",
+        "workorder": {
+          "text": "Test Work Order",
+          "value": "123"
+        },
+        "salesorder": {
+          "text": "Sales Order #SLS00000803",
+          "value": "22468"
+        },
+        "event": "101079",
+        "uuid": "22468_3",
+        "line": "3",
+        "item": {
+          "text": "BIC00008",
+          "value": "467"
+        },
+        "description": "Working Table",
+        "quantity": 5,
+        "availableQty": 5,
+        "note": ""
+      }, {
+        "id": "547",
+        "workorder": {
+          "text": "Test Work Order",
+          "value": "123"
+        },
+        "salesorder": {
+          "text": "Sales Order #SLS00000803",
+          "value": "22468"
+        },
+        "event": "101062",
+        "uuid": "22468_1",
+        "line": "1",
+        "item": {
+          "text": "BIC00008",
+          "value": "467"
+        },
+        "description": "Head Master Chair",
+        "quantity": 7,
+        "availableQty": 7,
+        "note": ""
+      }, {
+        "id": "555",
+        "workorder": {
+          "text": "Test Work Order",
+          "value": "123"
+        },
+        "salesorder": {
+          "text": "Sales Order #SLS00000803",
+          "value": "22468"
+        },
+        "event": "101075",
+        "uuid": "22468_2",
+        "line": "2",
+        "item": {
+          "text": "BIC00008",
+          "value": "467"
+        },
+        "description": "Diana Chair",
+        "quantity": 10,
+        "availableQty": 10,
+        "note": ""
+      }, {
+        "id": "556",
+        "workorder": {
+          "text": "Test Work Order",
+          "value": "123"
+        },
+        "salesorder": {
+          "text": "Sales Order #SLS00000803",
+          "value": "22468"
+        },
+        "event": "101075",
+        "uuid": "22468_3",
+        "line": "3",
+        "item": {
+          "text": "BIC00008",
+          "value": "467"
+        },
+        "description": "Working Table",
+        "quantity": 5,
+        "availableQty": 5,
+        "note": ""
+      }, {
+        "id": "548",
+        "workorder": {
+          "text": "Test Work Order",
+          "value": "123"
+        },
+        "salesorder": {
+          "text": "Sales Order #SLS00000803",
+          "value": "22468"
+        },
+        "event": "",
+        "uuid": "22468_2",
+        "line": "2",
+        "item": {
+          "text": "BIC00008",
+          "value": "467"
+        },
+        "description": "Diana Chair",
+        "quantity": 10,
+        "availableQty": 10,
+        "note": ""
+      }, {
+        "id": "549",
+        "workorder": {
+          "text": "Test Work Order",
+          "value": "123"
+        },
+        "salesorder": {
+          "text": "Sales Order #SLS00000803",
+          "value": "22468"
+        },
+        "event": "",
+        "uuid": "22468_3",
+        "line": "3",
+        "item": {
+          "text": "BIC00008",
+          "value": "467"
+        },
+        "description": "Working Table",
+        "quantity": 10,
+        "availableQty": 10,
+        "note": ""
+      }, {
+        "id": "550",
+        "workorder": {
+          "text": "Test Work Order",
+          "value": "123"
+        },
+        "salesorder": {
+          "text": "Sales Order #SLS00000803",
+          "value": "22468"
+        },
+        "event": "",
+        "uuid": "22468_4",
+        "line": "4",
+        "item": {
+          "text": "BIC00008",
+          "value": "467"
+        },
+        "description": "Technology Table",
+        "quantity": 10,
+        "availableQty": 10,
+        "note": ""
+      }, {
+        "id": "546",
+        "workorder": {
+          "text": "Test Work Order",
+          "value": "123"
+        },
+        "salesorder": {
+          "text": "Sales Order #SLS00000803",
+          "value": "22468"
+        },
+        "event": "",
+        "uuid": "22468_1",
+        "line": "1",
+        "item": {
+          "text": "BIC00008",
+          "value": "467"
+        },
+        "description": "Head Master Chair",
+        "quantity": 7,
+        "availableQty": 7,
+        "note": ""
+      }],
+      "addresses": [{
+        "id": "207",
+        "workorder": {
+          "text": "Test Work Order",
+          "value": "123"
+        },
+        "customer": {
+          "text": "World Bank",
+          "value": "1249"
+        },
+        "events": ["101062", "101076", "101077", "101078", "101079"],
+        "address": {
+          "text": "434 Carlaw",
+          "value": "244878"
+        },
+        "addressDetails": "434 Carlaw Road<br/>Los Angeles NY 12412<br/>United States",
+        "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+      }],
+      "contacts": [{
+        "id": "168",
+        "workorder": {
+          "text": "Test Work Order",
+          "value": "123"
+        },
+        "events": ["101062", "101077", "101078"],
+        "contact": {
+          "text": "World Bank : Chad Bass",
+          "value": "1382"
+        },
+        "name": "Chad Bass",
+        "email": "cbass@worldbank.com",
+        "jobTitle": "President",
+        "mobilePhone": "",
+        "phone": "",
+        "primary": false,
+        "url": "/app/common/entity/contact.nl?id=1382&compid=TSTDRV2617106"
+      }, {
+        "id": "169",
+        "workorder": {
+          "text": "Test Work Order",
+          "value": "123"
+        },
+        "events": ["101075", "101079"],
+        "contact": {
+          "text": "World Bank : Chad Bass",
+          "value": "1382"
+        },
+        "name": "Chad Bass",
+        "email": "cbass@worldbank.com",
+        "jobTitle": "President",
+        "mobilePhone": "",
+        "phone": "",
+        "primary": false,
+        "url": "/app/common/entity/contact.nl?id=1382&compid=TSTDRV2617106"
+      }],
+      "events": [{
+        "id": "101079",
+        "title": "AC Installation - 3",
+        "workorder": {
+          "text": "Test Work Order",
+          "value": "123"
+        },
+        "location": "",
+        "status": {
+          "text": "Tentative",
+          "value": "TENTATIVE",
+          "code": "bg-secondary"
+        },
+        "date": {
+          "recurrence": "one time event on 1/17/2025",
+          "dates": ["1/17/2025"],
+          "start": "2025-01-17",
+          "end": "2025-01-17"
+        },
+        "time": {
+          "start": "08:00",
+          "end": "18:00"
+        },
+        "priority": {
+          "text": "High",
+          "value": "3",
+          "code": "#ca6621"
+        },
+        "note": "AC Installation - 3",
+        "url": "/app/crm/calendar/event.nl?id=101079&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {},
+        "resources": [],
+        "vendors": [],
+        "assets": [],
+        "items": [],
+        "contacts": [],
+        "addresses": [],
+        "contact": {
+          "text": "",
+          "value": ""
+        },
+        "address": {
+          "text": "",
+          "value": ""
+        },
+        "organizer": {
+          "text": "Mei Matriano",
+          "value": "1647"
+        }
+      }, {
+        "id": "101078",
+        "title": "AC Installation 2",
+        "workorder": {
+          "text": "Test Work Order",
+          "value": "123"
+        },
+        "location": "",
+        "status": {
+          "text": "Tentative",
+          "value": "TENTATIVE",
+          "code": "bg-secondary"
+        },
+        "date": {
+          "recurrence": "one time event on 1/16/2025",
+          "dates": ["1/16/2025"],
+          "start": "2025-01-16",
+          "end": "2025-01-16"
+        },
+        "time": {
+          "start": "08:00",
+          "end": "18:00"
+        },
+        "priority": {
+          "text": "High",
+          "value": "3",
+          "code": "#ca6621"
+        },
+        "note": "AC Installation 2",
+        "url": "/app/crm/calendar/event.nl?id=101078&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {},
+        "resources": [],
+        "vendors": [],
+        "assets": [],
+        "items": [],
+        "contacts": [],
+        "addresses": [],
+        "contact": {
+          "text": "",
+          "value": ""
+        },
+        "address": {
+          "text": "",
+          "value": ""
+        },
+        "organizer": {
+          "text": "Mei Matriano",
+          "value": "1647"
+        }
+      }, {
+        "id": "101077",
+        "title": "AC Installation",
+        "workorder": {
+          "text": "Test Work Order",
+          "value": "123"
+        },
+        "location": "",
+        "status": {
+          "text": "Tentative",
+          "value": "TENTATIVE",
+          "code": "bg-secondary"
+        },
+        "date": {
+          "recurrence": "one time event on 1/16/2025",
+          "dates": ["1/16/2025"],
+          "start": "2025-01-16",
+          "end": "2025-01-16"
+        },
+        "time": {
+          "start": "08:00",
+          "end": "18:00"
+        },
+        "priority": {
+          "text": "Medium",
+          "value": "2",
+          "code": "#dfcf02"
+        },
+        "note": "AC Installation",
+        "url": "/app/crm/calendar/event.nl?id=101077&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {},
+        "resources": [],
+        "vendors": [],
+        "assets": [],
+        "items": [],
+        "contacts": [],
+        "addresses": [],
+        "contact": {
+          "text": "",
+          "value": ""
+        },
+        "address": {
+          "text": "",
+          "value": ""
+        },
+        "organizer": {
+          "text": "Mei Matriano",
+          "value": "1647"
+        }
+      }, {
+        "id": "101076",
+        "title": "Test Work Order",
+        "workorder": {
+          "text": "Test Work Order",
+          "value": "123"
+        },
+        "location": "",
+        "status": {
+          "text": "Tentative",
+          "value": "TENTATIVE",
+          "code": "bg-secondary"
+        },
+        "date": {
+          "recurrence": "one time event on 1/15/2025",
+          "dates": ["1/15/2025"],
+          "start": "2025-01-15",
+          "end": "2025-01-15"
+        },
+        "time": {
+          "start": "08:00",
+          "end": "18:00"
+        },
+        "priority": {
+          "text": "Low",
+          "value": "1",
+          "code": "#026adf"
+        },
+        "note": "",
+        "url": "/app/crm/calendar/event.nl?id=101076&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {},
+        "resources": [],
+        "vendors": [],
+        "assets": [],
+        "items": [],
+        "contacts": [],
+        "addresses": [],
+        "contact": {
+          "text": "",
+          "value": ""
+        },
+        "address": {
+          "text": "207",
+          "value": "207"
+        },
+        "organizer": {
+          "text": "Lean  cendana",
+          "value": "1765"
+        }
+      }, {
+        "id": "101075",
+        "title": "Test Work Order",
+        "workorder": {
+          "text": "Test Work Order",
+          "value": "123"
+        },
+        "location": "",
+        "status": {
+          "text": "Tentative",
+          "value": "TENTATIVE",
+          "code": "bg-secondary"
+        },
+        "date": {
+          "recurrence": "one time event on 1/12/2025",
+          "dates": ["1/12/2025"],
+          "start": "2025-01-12",
+          "end": "2025-01-12"
+        },
+        "time": {
+          "start": "08:00",
+          "end": "18:00"
+        },
+        "priority": {
+          "text": "Low",
+          "value": "1",
+          "code": "#026adf"
+        },
+        "note": "X\nY\nZ",
+        "url": "/app/crm/calendar/event.nl?id=101075&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {},
+        "resources": [],
+        "vendors": [],
+        "assets": [],
+        "items": [],
+        "contacts": [],
+        "addresses": [],
+        "contact": {
+          "text": "",
+          "value": ""
+        },
+        "address": {
+          "text": "207",
+          "value": "207"
+        },
+        "organizer": {
+          "text": "Lean  cendana",
+          "value": "1765"
+        }
+      }],
+      "projectUrl": "/app/accounting/project/project.nl?id=1515&compid=TSTDRV2617106",
+      "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=123&compid=TSTDRV2617106",
+      "soUrl": "/app/accounting/transactions/salesord.nl?id=22468&compid=TSTDRV2617106",
+      "esthours": "100"
+    },
+    "resources": [],
+    "vendors": [],
+    "assets": [{
+      "id": "124",
+      "name": "ELE00002",
+      "workorder": {
+        "text": "Test Work Order",
+        "value": "123"
+      },
+      "event": "101077",
+      "quantity": 5,
+      "description": "Serialized 1 Sales Description",
+      "item": {
+        "text": "ELE00002",
+        "value": "674"
+      },
+      "equipmentType": {
+        "text": "Hand Tools",
+        "value": "1"
+      },
+      "rentalUnit": {
+        "text": "",
+        "value": ""
+      },
+      "rentalDuration": 0,
+      "rentalRate": 0,
+      "rentalAmount": 0,
+      "purchaseOrder": {
+        "text": " ",
+        "value": " "
+      },
+      "vendor": {
+        "text": "Computer Depot Pacific",
+        "value": "965"
+      },
+      "owned": true,
+      "rentalMatrix": 0,
+      "selected": true
+    }],
+    "items": [{
+      "id": "557",
+      "workorder": {
+        "text": "Test Work Order",
+        "value": "123"
+      },
+      "salesorder": {
+        "text": "Sales Order #SLS00000803",
+        "value": "22468"
+      },
+      "event": "101077",
+      "uuid": "22468_1",
+      "line": "1",
+      "item": {
+        "text": "BIC00008",
+        "value": "467"
+      },
+      "description": "Head Master Chair",
+      "quantity": 2,
+      "availableQty": 2,
+      "note": "",
+      "selected": true
+    }],
+    "contacts": [],
+    "addresses": [{
+      "id": "207",
+      "workorder": {
+        "text": "Test Work Order",
+        "value": "123"
+      },
+      "customer": {
+        "text": "World Bank",
+        "value": "1249"
+      },
+      "events": ["101062", "101076", "101077", "101078", "101079"],
+      "address": {
+        "text": "434 Carlaw",
+        "value": "244878"
+      },
+      "addressDetails": "434 Carlaw Road<br/>Los Angeles NY 12412<br/>United States",
+      "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106",
+      "selected": true
+    }],
+    "contact": {
+      "text": "",
+      "value": ""
+    },
+    "address": {
+      "text": "",
+      "value": ""
+    },
+    "organizer": {
+      "text": "Mei Matriano",
+      "value": "1647"
+    }
+  }, {
+    "id": "101076",
+    "title": "Test Work Order",
+    "workorder": {
+      "text": "Test Work Order",
+      "value": "123"
+    },
+    "location": "",
+    "status": {
+      "text": "Tentative",
+      "value": "TENTATIVE",
+      "code": "bg-secondary"
+    },
+    "date": {
+      "recurrence": "one time event on 1/15/2025",
+      "dates": ["1/15/2025"],
+      "start": "2025-01-15",
+      "end": "2025-01-15"
+    },
+    "time": {
+      "start": "08:00",
+      "end": "18:00"
+    },
+    "priority": {
+      "text": "Low",
+      "value": "1",
+      "code": "#026adf"
+    },
+    "note": "",
+    "url": "/app/crm/calendar/event.nl?id=101076&compid=TSTDRV2617106&selectedtab=custom337",
+    "color": "#1a6756",
+    "woRef": {
+      "id": "123",
+      "name": "Test Work Order",
+      "title": "Test Work Order",
+      "project": {
+        "text": "World Bank : World Bank Office Furniture Installation",
+        "value": "1515"
+      },
+      "date": "1/8/2025",
+      "status": {
+        "text": "Not Started",
+        "value": "4",
+        "code": "#026adf"
+      },
+      "type": {
+        "text": "Service",
+        "value": "2"
+      },
+      "memo": "",
+      "salesorder": {
+        "text": "Sales Order #SLS00000803",
+        "value": "22468"
+      },
+      "customer": {
+        "text": "World Bank",
+        "value": "1249"
+      },
+      "resourceGroup": {
+        "text": "",
+        "value": ""
+      },
+      "priority": "",
+      "resources": [],
+      "vendors": [{
+        "id": "189",
+        "name": "189",
+        "vendor": {
+          "text": "Best Fixture, Inc.",
+          "value": "12"
+        },
+        "url": "",
+        "email": "",
+        "initials": "BF",
+        "workorder": {
+          "text": "Test Work Order",
+          "value": "123"
+        },
+        "event": "101062",
+        "quantityRequired": 5,
+        "quantityAvailable": 0,
+        "purchaseOrder": {
+          "text": " ",
+          "value": ""
+        },
+        "amount": 0,
+        "active": false,
+        "woVendor": true,
+        "memo": ""
+      }, {
+        "id": "188",
+        "name": "Best Fixture, Inc.",
+        "vendor": {
+          "text": "Best Fixture, Inc.",
+          "value": "12"
+        },
+        "url": "",
+        "email": "",
+        "initials": "BF",
+        "workorder": {
+          "text": "Test Work Order",
+          "value": "123"
+        },
+        "event": "101075",
+        "quantityRequired": 0,
+        "quantityAvailable": 0,
+        "purchaseOrder": {
+          "text": " ",
+          "value": ""
+        },
+        "amount": 0,
+        "active": false,
+        "woVendor": true,
+        "memo": ""
+      }],
+      "assets": [{
+        "id": "123",
+        "name": "ELE00002",
+        "workorder": {
+          "text": "Test Work Order",
+          "value": "123"
+        },
+        "event": "101062",
+        "quantity": 4,
+        "description": "Serialized 1 Sales Description",
+        "item": {
+          "text": "ELE00002",
+          "value": "674"
+        },
+        "equipmentType": {
+          "text": "Hand Tools",
+          "value": "1"
+        },
+        "rentalUnit": {
+          "text": "",
+          "value": ""
+        },
+        "rentalDuration": 0,
+        "rentalRate": 0,
+        "rentalAmount": 0,
+        "purchaseOrder": {
+          "text": " ",
+          "value": " "
+        },
+        "vendor": {
+          "text": "Computer Depot Pacific",
+          "value": "965"
+        },
+        "owned": true,
+        "rentalMatrix": 0
+      }, {
+        "id": "124",
+        "name": "ELE00002",
+        "workorder": {
+          "text": "Test Work Order",
+          "value": "123"
+        },
+        "event": "101077",
+        "quantity": 5,
+        "description": "Serialized 1 Sales Description",
+        "item": {
+          "text": "ELE00002",
+          "value": "674"
+        },
+        "equipmentType": {
+          "text": "Hand Tools",
+          "value": "1"
+        },
+        "rentalUnit": {
+          "text": "",
+          "value": ""
+        },
+        "rentalDuration": 0,
+        "rentalRate": 0,
+        "rentalAmount": 0,
+        "purchaseOrder": {
+          "text": " ",
+          "value": " "
+        },
+        "vendor": {
+          "text": "Computer Depot Pacific",
+          "value": "965"
+        },
+        "owned": true,
+        "rentalMatrix": 0
+      }, {
+        "id": "125",
+        "name": "ELE00002",
+        "workorder": {
+          "text": "Test Work Order",
+          "value": "123"
+        },
+        "event": "101078",
+        "quantity": 4,
+        "description": "Serialized 1 Sales Description",
+        "item": {
+          "text": "ELE00002",
+          "value": "674"
+        },
+        "equipmentType": {
+          "text": "Hand Tools",
+          "value": "1"
+        },
+        "rentalUnit": {
+          "text": "",
+          "value": ""
+        },
+        "rentalDuration": 0,
+        "rentalRate": 0,
+        "rentalAmount": 0,
+        "purchaseOrder": {
+          "text": " ",
+          "value": " "
+        },
+        "vendor": {
+          "text": "Computer Depot Pacific",
+          "value": "965"
+        },
+        "owned": true,
+        "rentalMatrix": 0
+      }, {
+        "id": "126",
+        "name": "ELE00002",
+        "workorder": {
+          "text": "Test Work Order",
+          "value": "123"
+        },
+        "event": "101079",
+        "quantity": 5,
+        "description": "Serialized 1 Sales Description",
+        "item": {
+          "text": "ELE00002",
+          "value": "674"
+        },
+        "equipmentType": {
+          "text": "Hand Tools",
+          "value": "1"
+        },
+        "rentalUnit": {
+          "text": "",
+          "value": ""
+        },
+        "rentalDuration": 0,
+        "rentalRate": 0,
+        "rentalAmount": 0,
+        "purchaseOrder": {
+          "text": " ",
+          "value": " "
+        },
+        "vendor": {
+          "text": "Computer Depot Pacific",
+          "value": "965"
+        },
+        "owned": true,
+        "rentalMatrix": 0
+      }],
+      "items": [{
+        "id": "557",
+        "workorder": {
+          "text": "Test Work Order",
+          "value": "123"
+        },
+        "salesorder": {
+          "text": "Sales Order #SLS00000803",
+          "value": "22468"
+        },
+        "event": "101077",
+        "uuid": "22468_1",
+        "line": "1",
+        "item": {
+          "text": "BIC00008",
+          "value": "467"
+        },
+        "description": "Head Master Chair",
+        "quantity": 2,
+        "availableQty": 2,
+        "note": ""
+      }, {
+        "id": "558",
+        "workorder": {
+          "text": "Test Work Order",
+          "value": "123"
+        },
+        "salesorder": {
+          "text": "Sales Order #SLS00000803",
+          "value": "22468"
+        },
+        "event": "101078",
+        "uuid": "22468_1",
+        "line": "1",
+        "item": {
+          "text": "BIC00008",
+          "value": "467"
+        },
+        "description": "Head Master Chair",
+        "quantity": 2,
+        "availableQty": 2,
+        "note": ""
+      }, {
+        "id": "559",
+        "workorder": {
+          "text": "Test Work Order",
+          "value": "123"
+        },
+        "salesorder": {
+          "text": "Sales Order #SLS00000803",
+          "value": "22468"
+        },
+        "event": "101079",
+        "uuid": "22468_3",
+        "line": "3",
+        "item": {
+          "text": "BIC00008",
+          "value": "467"
+        },
+        "description": "Working Table",
+        "quantity": 5,
+        "availableQty": 5,
+        "note": ""
+      }, {
+        "id": "547",
+        "workorder": {
+          "text": "Test Work Order",
+          "value": "123"
+        },
+        "salesorder": {
+          "text": "Sales Order #SLS00000803",
+          "value": "22468"
+        },
+        "event": "101062",
+        "uuid": "22468_1",
+        "line": "1",
+        "item": {
+          "text": "BIC00008",
+          "value": "467"
+        },
+        "description": "Head Master Chair",
+        "quantity": 7,
+        "availableQty": 7,
+        "note": ""
+      }, {
+        "id": "555",
+        "workorder": {
+          "text": "Test Work Order",
+          "value": "123"
+        },
+        "salesorder": {
+          "text": "Sales Order #SLS00000803",
+          "value": "22468"
+        },
+        "event": "101075",
+        "uuid": "22468_2",
+        "line": "2",
+        "item": {
+          "text": "BIC00008",
+          "value": "467"
+        },
+        "description": "Diana Chair",
+        "quantity": 10,
+        "availableQty": 10,
+        "note": ""
+      }, {
+        "id": "556",
+        "workorder": {
+          "text": "Test Work Order",
+          "value": "123"
+        },
+        "salesorder": {
+          "text": "Sales Order #SLS00000803",
+          "value": "22468"
+        },
+        "event": "101075",
+        "uuid": "22468_3",
+        "line": "3",
+        "item": {
+          "text": "BIC00008",
+          "value": "467"
+        },
+        "description": "Working Table",
+        "quantity": 5,
+        "availableQty": 5,
+        "note": ""
+      }, {
+        "id": "548",
+        "workorder": {
+          "text": "Test Work Order",
+          "value": "123"
+        },
+        "salesorder": {
+          "text": "Sales Order #SLS00000803",
+          "value": "22468"
+        },
+        "event": "",
+        "uuid": "22468_2",
+        "line": "2",
+        "item": {
+          "text": "BIC00008",
+          "value": "467"
+        },
+        "description": "Diana Chair",
+        "quantity": 10,
+        "availableQty": 10,
+        "note": ""
+      }, {
+        "id": "549",
+        "workorder": {
+          "text": "Test Work Order",
+          "value": "123"
+        },
+        "salesorder": {
+          "text": "Sales Order #SLS00000803",
+          "value": "22468"
+        },
+        "event": "",
+        "uuid": "22468_3",
+        "line": "3",
+        "item": {
+          "text": "BIC00008",
+          "value": "467"
+        },
+        "description": "Working Table",
+        "quantity": 10,
+        "availableQty": 10,
+        "note": ""
+      }, {
+        "id": "550",
+        "workorder": {
+          "text": "Test Work Order",
+          "value": "123"
+        },
+        "salesorder": {
+          "text": "Sales Order #SLS00000803",
+          "value": "22468"
+        },
+        "event": "",
+        "uuid": "22468_4",
+        "line": "4",
+        "item": {
+          "text": "BIC00008",
+          "value": "467"
+        },
+        "description": "Technology Table",
+        "quantity": 10,
+        "availableQty": 10,
+        "note": ""
+      }, {
+        "id": "546",
+        "workorder": {
+          "text": "Test Work Order",
+          "value": "123"
+        },
+        "salesorder": {
+          "text": "Sales Order #SLS00000803",
+          "value": "22468"
+        },
+        "event": "",
+        "uuid": "22468_1",
+        "line": "1",
+        "item": {
+          "text": "BIC00008",
+          "value": "467"
+        },
+        "description": "Head Master Chair",
+        "quantity": 7,
+        "availableQty": 7,
+        "note": ""
+      }],
+      "addresses": [{
+        "id": "207",
+        "workorder": {
+          "text": "Test Work Order",
+          "value": "123"
+        },
+        "customer": {
+          "text": "World Bank",
+          "value": "1249"
+        },
+        "events": ["101062", "101076", "101077", "101078", "101079"],
+        "address": {
+          "text": "434 Carlaw",
+          "value": "244878"
+        },
+        "addressDetails": "434 Carlaw Road<br/>Los Angeles NY 12412<br/>United States",
+        "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+      }],
+      "contacts": [{
+        "id": "168",
+        "workorder": {
+          "text": "Test Work Order",
+          "value": "123"
+        },
+        "events": ["101062", "101077", "101078"],
+        "contact": {
+          "text": "World Bank : Chad Bass",
+          "value": "1382"
+        },
+        "name": "Chad Bass",
+        "email": "cbass@worldbank.com",
+        "jobTitle": "President",
+        "mobilePhone": "",
+        "phone": "",
+        "primary": false,
+        "url": "/app/common/entity/contact.nl?id=1382&compid=TSTDRV2617106"
+      }, {
+        "id": "169",
+        "workorder": {
+          "text": "Test Work Order",
+          "value": "123"
+        },
+        "events": ["101075", "101079"],
+        "contact": {
+          "text": "World Bank : Chad Bass",
+          "value": "1382"
+        },
+        "name": "Chad Bass",
+        "email": "cbass@worldbank.com",
+        "jobTitle": "President",
+        "mobilePhone": "",
+        "phone": "",
+        "primary": false,
+        "url": "/app/common/entity/contact.nl?id=1382&compid=TSTDRV2617106"
+      }],
+      "events": [{
+        "id": "101079",
+        "title": "AC Installation - 3",
+        "workorder": {
+          "text": "Test Work Order",
+          "value": "123"
+        },
+        "location": "",
+        "status": {
+          "text": "Tentative",
+          "value": "TENTATIVE",
+          "code": "bg-secondary"
+        },
+        "date": {
+          "recurrence": "one time event on 1/17/2025",
+          "dates": ["1/17/2025"],
+          "start": "2025-01-17",
+          "end": "2025-01-17"
+        },
+        "time": {
+          "start": "08:00",
+          "end": "18:00"
+        },
+        "priority": {
+          "text": "High",
+          "value": "3",
+          "code": "#ca6621"
+        },
+        "note": "AC Installation - 3",
+        "url": "/app/crm/calendar/event.nl?id=101079&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {},
+        "resources": [],
+        "vendors": [],
+        "assets": [],
+        "items": [],
+        "contacts": [],
+        "addresses": [],
+        "contact": {
+          "text": "",
+          "value": ""
+        },
+        "address": {
+          "text": "",
+          "value": ""
+        },
+        "organizer": {
+          "text": "Mei Matriano",
+          "value": "1647"
+        }
+      }, {
+        "id": "101078",
+        "title": "AC Installation 2",
+        "workorder": {
+          "text": "Test Work Order",
+          "value": "123"
+        },
+        "location": "",
+        "status": {
+          "text": "Tentative",
+          "value": "TENTATIVE",
+          "code": "bg-secondary"
+        },
+        "date": {
+          "recurrence": "one time event on 1/16/2025",
+          "dates": ["1/16/2025"],
+          "start": "2025-01-16",
+          "end": "2025-01-16"
+        },
+        "time": {
+          "start": "08:00",
+          "end": "18:00"
+        },
+        "priority": {
+          "text": "High",
+          "value": "3",
+          "code": "#ca6621"
+        },
+        "note": "AC Installation 2",
+        "url": "/app/crm/calendar/event.nl?id=101078&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {},
+        "resources": [],
+        "vendors": [],
+        "assets": [],
+        "items": [],
+        "contacts": [],
+        "addresses": [],
+        "contact": {
+          "text": "",
+          "value": ""
+        },
+        "address": {
+          "text": "",
+          "value": ""
+        },
+        "organizer": {
+          "text": "Mei Matriano",
+          "value": "1647"
+        }
+      }, {
+        "id": "101077",
+        "title": "AC Installation",
+        "workorder": {
+          "text": "Test Work Order",
+          "value": "123"
+        },
+        "location": "",
+        "status": {
+          "text": "Tentative",
+          "value": "TENTATIVE",
+          "code": "bg-secondary"
+        },
+        "date": {
+          "recurrence": "one time event on 1/16/2025",
+          "dates": ["1/16/2025"],
+          "start": "2025-01-16",
+          "end": "2025-01-16"
+        },
+        "time": {
+          "start": "08:00",
+          "end": "18:00"
+        },
+        "priority": {
+          "text": "Medium",
+          "value": "2",
+          "code": "#dfcf02"
+        },
+        "note": "AC Installation",
+        "url": "/app/crm/calendar/event.nl?id=101077&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {},
+        "resources": [],
+        "vendors": [],
+        "assets": [],
+        "items": [],
+        "contacts": [],
+        "addresses": [],
+        "contact": {
+          "text": "",
+          "value": ""
+        },
+        "address": {
+          "text": "",
+          "value": ""
+        },
+        "organizer": {
+          "text": "Mei Matriano",
+          "value": "1647"
+        }
+      }, {
+        "id": "101076",
+        "title": "Test Work Order",
+        "workorder": {
+          "text": "Test Work Order",
+          "value": "123"
+        },
+        "location": "",
+        "status": {
+          "text": "Tentative",
+          "value": "TENTATIVE",
+          "code": "bg-secondary"
+        },
+        "date": {
+          "recurrence": "one time event on 1/15/2025",
+          "dates": ["1/15/2025"],
+          "start": "2025-01-15",
+          "end": "2025-01-15"
+        },
+        "time": {
+          "start": "08:00",
+          "end": "18:00"
+        },
+        "priority": {
+          "text": "Low",
+          "value": "1",
+          "code": "#026adf"
+        },
+        "note": "",
+        "url": "/app/crm/calendar/event.nl?id=101076&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {},
+        "resources": [],
+        "vendors": [],
+        "assets": [],
+        "items": [],
+        "contacts": [],
+        "addresses": [],
+        "contact": {
+          "text": "",
+          "value": ""
+        },
+        "address": {
+          "text": "207",
+          "value": "207"
+        },
+        "organizer": {
+          "text": "Lean  cendana",
+          "value": "1765"
+        }
+      }, {
+        "id": "101075",
+        "title": "Test Work Order",
+        "workorder": {
+          "text": "Test Work Order",
+          "value": "123"
+        },
+        "location": "",
+        "status": {
+          "text": "Tentative",
+          "value": "TENTATIVE",
+          "code": "bg-secondary"
+        },
+        "date": {
+          "recurrence": "one time event on 1/12/2025",
+          "dates": ["1/12/2025"],
+          "start": "2025-01-12",
+          "end": "2025-01-12"
+        },
+        "time": {
+          "start": "08:00",
+          "end": "18:00"
+        },
+        "priority": {
+          "text": "Low",
+          "value": "1",
+          "code": "#026adf"
+        },
+        "note": "X\nY\nZ",
+        "url": "/app/crm/calendar/event.nl?id=101075&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {},
+        "resources": [],
+        "vendors": [],
+        "assets": [],
+        "items": [],
+        "contacts": [],
+        "addresses": [],
+        "contact": {
+          "text": "",
+          "value": ""
+        },
+        "address": {
+          "text": "207",
+          "value": "207"
+        },
+        "organizer": {
+          "text": "Lean  cendana",
+          "value": "1765"
+        }
+      }],
+      "projectUrl": "/app/accounting/project/project.nl?id=1515&compid=TSTDRV2617106",
+      "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=123&compid=TSTDRV2617106",
+      "soUrl": "/app/accounting/transactions/salesord.nl?id=22468&compid=TSTDRV2617106",
+      "esthours": "100"
+    },
+    "resources": [{
+      "id": "360",
+      "name": "Arun Sharma",
+      "initials": "AS",
+      "email": "aruns.unlock2go@gmail.com",
+      "phone": "",
+      "location": {
+        "text": "",
+        "value": ""
+      },
+      "active": true,
+      "workorder": {
+        "text": "Test Work Order",
+        "value": "123"
+      },
+      "events": ["101076"],
+      "employee": {
+        "text": "Arun Sharma",
+        "value": "1770"
+      },
+      "resourceGroups": [{
+        "text": "Designers",
+        "value": "2"
+      }, {
+        "text": "Drivers",
+        "value": "3"
+      }, {
+        "text": "Installers",
+        "value": "1"
+      }],
+      "types": [{
+        "text": "Delivery Driver",
+        "value": "2"
+      }, {
+        "text": "Designer",
+        "value": "3"
+      }, {
+        "text": "Installer",
+        "value": "1"
+      }],
+      "subTypes": [],
+      "rate": 0,
+      "vendor": {
+        "text": "",
+        "value": ""
+      },
+      "purchaseOrder": {
+        "text": " ",
+        "value": ""
+      },
+      "affiliationType": {
+        "text": "In-House",
+        "value": "1"
+      },
+      "time": {
+        "start": "08:00",
+        "end": "17:00"
+      },
+      "resourceSkills": [],
+      "selected": true
+    }],
+    "vendors": [],
+    "assets": [],
+    "items": [],
+    "contacts": [],
+    "addresses": [{
+      "id": "207",
+      "workorder": {
+        "text": "Test Work Order",
+        "value": "123"
+      },
+      "customer": {
+        "text": "World Bank",
+        "value": "1249"
+      },
+      "events": ["101062", "101076", "101077", "101078", "101079"],
+      "address": {
+        "text": "434 Carlaw",
+        "value": "244878"
+      },
+      "addressDetails": "434 Carlaw Road<br/>Los Angeles NY 12412<br/>United States",
+      "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106",
+      "selected": true
+    }],
+    "contact": {
+      "text": "",
+      "value": ""
+    },
+    "address": {
+      "text": "207",
+      "value": "207"
+    },
+    "organizer": {
+      "text": "Lean  cendana",
+      "value": "1765"
+    }
+  }, {
+    "id": "101075",
+    "title": "Test Work Order",
+    "workorder": {
+      "text": "Test Work Order",
+      "value": "123"
+    },
+    "location": "",
+    "status": {
+      "text": "Tentative",
+      "value": "TENTATIVE",
+      "code": "bg-secondary"
+    },
+    "date": {
+      "recurrence": "one time event on 1/12/2025",
+      "dates": ["1/12/2025"],
+      "start": "2025-01-12",
+      "end": "2025-01-12"
+    },
+    "time": {
+      "start": "08:00",
+      "end": "18:00"
+    },
+    "priority": {
+      "text": "Low",
+      "value": "1",
+      "code": "#026adf"
+    },
+    "note": "X\nY\nZ",
+    "url": "/app/crm/calendar/event.nl?id=101075&compid=TSTDRV2617106&selectedtab=custom337",
+    "color": "#1a6756",
+    "woRef": {
+      "id": "123",
+      "name": "Test Work Order",
+      "title": "Test Work Order",
+      "project": {
+        "text": "World Bank : World Bank Office Furniture Installation",
+        "value": "1515"
+      },
+      "date": "1/8/2025",
+      "status": {
+        "text": "Not Started",
+        "value": "4",
+        "code": "#026adf"
+      },
+      "type": {
+        "text": "Service",
+        "value": "2"
+      },
+      "memo": "",
+      "salesorder": {
+        "text": "Sales Order #SLS00000803",
+        "value": "22468"
+      },
+      "customer": {
+        "text": "World Bank",
+        "value": "1249"
+      },
+      "resourceGroup": {
+        "text": "",
+        "value": ""
+      },
+      "priority": "",
+      "resources": [],
+      "vendors": [{
+        "id": "189",
+        "name": "189",
+        "vendor": {
+          "text": "Best Fixture, Inc.",
+          "value": "12"
+        },
+        "url": "",
+        "email": "",
+        "initials": "BF",
+        "workorder": {
+          "text": "Test Work Order",
+          "value": "123"
+        },
+        "event": "101062",
+        "quantityRequired": 5,
+        "quantityAvailable": 0,
+        "purchaseOrder": {
+          "text": " ",
+          "value": ""
+        },
+        "amount": 0,
+        "active": false,
+        "woVendor": true,
+        "memo": ""
+      }, {
+        "id": "188",
+        "name": "Best Fixture, Inc.",
+        "vendor": {
+          "text": "Best Fixture, Inc.",
+          "value": "12"
+        },
+        "url": "",
+        "email": "",
+        "initials": "BF",
+        "workorder": {
+          "text": "Test Work Order",
+          "value": "123"
+        },
+        "event": "101075",
+        "quantityRequired": 0,
+        "quantityAvailable": 0,
+        "purchaseOrder": {
+          "text": " ",
+          "value": ""
+        },
+        "amount": 0,
+        "active": false,
+        "woVendor": true,
+        "memo": ""
+      }],
+      "assets": [{
+        "id": "123",
+        "name": "ELE00002",
+        "workorder": {
+          "text": "Test Work Order",
+          "value": "123"
+        },
+        "event": "101062",
+        "quantity": 4,
+        "description": "Serialized 1 Sales Description",
+        "item": {
+          "text": "ELE00002",
+          "value": "674"
+        },
+        "equipmentType": {
+          "text": "Hand Tools",
+          "value": "1"
+        },
+        "rentalUnit": {
+          "text": "",
+          "value": ""
+        },
+        "rentalDuration": 0,
+        "rentalRate": 0,
+        "rentalAmount": 0,
+        "purchaseOrder": {
+          "text": " ",
+          "value": " "
+        },
+        "vendor": {
+          "text": "Computer Depot Pacific",
+          "value": "965"
+        },
+        "owned": true,
+        "rentalMatrix": 0
+      }, {
+        "id": "124",
+        "name": "ELE00002",
+        "workorder": {
+          "text": "Test Work Order",
+          "value": "123"
+        },
+        "event": "101077",
+        "quantity": 5,
+        "description": "Serialized 1 Sales Description",
+        "item": {
+          "text": "ELE00002",
+          "value": "674"
+        },
+        "equipmentType": {
+          "text": "Hand Tools",
+          "value": "1"
+        },
+        "rentalUnit": {
+          "text": "",
+          "value": ""
+        },
+        "rentalDuration": 0,
+        "rentalRate": 0,
+        "rentalAmount": 0,
+        "purchaseOrder": {
+          "text": " ",
+          "value": " "
+        },
+        "vendor": {
+          "text": "Computer Depot Pacific",
+          "value": "965"
+        },
+        "owned": true,
+        "rentalMatrix": 0
+      }, {
+        "id": "125",
+        "name": "ELE00002",
+        "workorder": {
+          "text": "Test Work Order",
+          "value": "123"
+        },
+        "event": "101078",
+        "quantity": 4,
+        "description": "Serialized 1 Sales Description",
+        "item": {
+          "text": "ELE00002",
+          "value": "674"
+        },
+        "equipmentType": {
+          "text": "Hand Tools",
+          "value": "1"
+        },
+        "rentalUnit": {
+          "text": "",
+          "value": ""
+        },
+        "rentalDuration": 0,
+        "rentalRate": 0,
+        "rentalAmount": 0,
+        "purchaseOrder": {
+          "text": " ",
+          "value": " "
+        },
+        "vendor": {
+          "text": "Computer Depot Pacific",
+          "value": "965"
+        },
+        "owned": true,
+        "rentalMatrix": 0
+      }, {
+        "id": "126",
+        "name": "ELE00002",
+        "workorder": {
+          "text": "Test Work Order",
+          "value": "123"
+        },
+        "event": "101079",
+        "quantity": 5,
+        "description": "Serialized 1 Sales Description",
+        "item": {
+          "text": "ELE00002",
+          "value": "674"
+        },
+        "equipmentType": {
+          "text": "Hand Tools",
+          "value": "1"
+        },
+        "rentalUnit": {
+          "text": "",
+          "value": ""
+        },
+        "rentalDuration": 0,
+        "rentalRate": 0,
+        "rentalAmount": 0,
+        "purchaseOrder": {
+          "text": " ",
+          "value": " "
+        },
+        "vendor": {
+          "text": "Computer Depot Pacific",
+          "value": "965"
+        },
+        "owned": true,
+        "rentalMatrix": 0
+      }],
+      "items": [{
+        "id": "557",
+        "workorder": {
+          "text": "Test Work Order",
+          "value": "123"
+        },
+        "salesorder": {
+          "text": "Sales Order #SLS00000803",
+          "value": "22468"
+        },
+        "event": "101077",
+        "uuid": "22468_1",
+        "line": "1",
+        "item": {
+          "text": "BIC00008",
+          "value": "467"
+        },
+        "description": "Head Master Chair",
+        "quantity": 2,
+        "availableQty": 2,
+        "note": ""
+      }, {
+        "id": "558",
+        "workorder": {
+          "text": "Test Work Order",
+          "value": "123"
+        },
+        "salesorder": {
+          "text": "Sales Order #SLS00000803",
+          "value": "22468"
+        },
+        "event": "101078",
+        "uuid": "22468_1",
+        "line": "1",
+        "item": {
+          "text": "BIC00008",
+          "value": "467"
+        },
+        "description": "Head Master Chair",
+        "quantity": 2,
+        "availableQty": 2,
+        "note": ""
+      }, {
+        "id": "559",
+        "workorder": {
+          "text": "Test Work Order",
+          "value": "123"
+        },
+        "salesorder": {
+          "text": "Sales Order #SLS00000803",
+          "value": "22468"
+        },
+        "event": "101079",
+        "uuid": "22468_3",
+        "line": "3",
+        "item": {
+          "text": "BIC00008",
+          "value": "467"
+        },
+        "description": "Working Table",
+        "quantity": 5,
+        "availableQty": 5,
+        "note": ""
+      }, {
+        "id": "547",
+        "workorder": {
+          "text": "Test Work Order",
+          "value": "123"
+        },
+        "salesorder": {
+          "text": "Sales Order #SLS00000803",
+          "value": "22468"
+        },
+        "event": "101062",
+        "uuid": "22468_1",
+        "line": "1",
+        "item": {
+          "text": "BIC00008",
+          "value": "467"
+        },
+        "description": "Head Master Chair",
+        "quantity": 7,
+        "availableQty": 7,
+        "note": ""
+      }, {
+        "id": "555",
+        "workorder": {
+          "text": "Test Work Order",
+          "value": "123"
+        },
+        "salesorder": {
+          "text": "Sales Order #SLS00000803",
+          "value": "22468"
+        },
+        "event": "101075",
+        "uuid": "22468_2",
+        "line": "2",
+        "item": {
+          "text": "BIC00008",
+          "value": "467"
+        },
+        "description": "Diana Chair",
+        "quantity": 10,
+        "availableQty": 10,
+        "note": ""
+      }, {
+        "id": "556",
+        "workorder": {
+          "text": "Test Work Order",
+          "value": "123"
+        },
+        "salesorder": {
+          "text": "Sales Order #SLS00000803",
+          "value": "22468"
+        },
+        "event": "101075",
+        "uuid": "22468_3",
+        "line": "3",
+        "item": {
+          "text": "BIC00008",
+          "value": "467"
+        },
+        "description": "Working Table",
+        "quantity": 5,
+        "availableQty": 5,
+        "note": ""
+      }, {
+        "id": "548",
+        "workorder": {
+          "text": "Test Work Order",
+          "value": "123"
+        },
+        "salesorder": {
+          "text": "Sales Order #SLS00000803",
+          "value": "22468"
+        },
+        "event": "",
+        "uuid": "22468_2",
+        "line": "2",
+        "item": {
+          "text": "BIC00008",
+          "value": "467"
+        },
+        "description": "Diana Chair",
+        "quantity": 10,
+        "availableQty": 10,
+        "note": ""
+      }, {
+        "id": "549",
+        "workorder": {
+          "text": "Test Work Order",
+          "value": "123"
+        },
+        "salesorder": {
+          "text": "Sales Order #SLS00000803",
+          "value": "22468"
+        },
+        "event": "",
+        "uuid": "22468_3",
+        "line": "3",
+        "item": {
+          "text": "BIC00008",
+          "value": "467"
+        },
+        "description": "Working Table",
+        "quantity": 10,
+        "availableQty": 10,
+        "note": ""
+      }, {
+        "id": "550",
+        "workorder": {
+          "text": "Test Work Order",
+          "value": "123"
+        },
+        "salesorder": {
+          "text": "Sales Order #SLS00000803",
+          "value": "22468"
+        },
+        "event": "",
+        "uuid": "22468_4",
+        "line": "4",
+        "item": {
+          "text": "BIC00008",
+          "value": "467"
+        },
+        "description": "Technology Table",
+        "quantity": 10,
+        "availableQty": 10,
+        "note": ""
+      }, {
+        "id": "546",
+        "workorder": {
+          "text": "Test Work Order",
+          "value": "123"
+        },
+        "salesorder": {
+          "text": "Sales Order #SLS00000803",
+          "value": "22468"
+        },
+        "event": "",
+        "uuid": "22468_1",
+        "line": "1",
+        "item": {
+          "text": "BIC00008",
+          "value": "467"
+        },
+        "description": "Head Master Chair",
+        "quantity": 7,
+        "availableQty": 7,
+        "note": ""
+      }],
+      "addresses": [{
+        "id": "207",
+        "workorder": {
+          "text": "Test Work Order",
+          "value": "123"
+        },
+        "customer": {
+          "text": "World Bank",
+          "value": "1249"
+        },
+        "events": ["101062", "101076", "101077", "101078", "101079"],
+        "address": {
+          "text": "434 Carlaw",
+          "value": "244878"
+        },
+        "addressDetails": "434 Carlaw Road<br/>Los Angeles NY 12412<br/>United States",
+        "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+      }],
+      "contacts": [{
+        "id": "168",
+        "workorder": {
+          "text": "Test Work Order",
+          "value": "123"
+        },
+        "events": ["101062", "101077", "101078"],
+        "contact": {
+          "text": "World Bank : Chad Bass",
+          "value": "1382"
+        },
+        "name": "Chad Bass",
+        "email": "cbass@worldbank.com",
+        "jobTitle": "President",
+        "mobilePhone": "",
+        "phone": "",
+        "primary": false,
+        "url": "/app/common/entity/contact.nl?id=1382&compid=TSTDRV2617106"
+      }, {
+        "id": "169",
+        "workorder": {
+          "text": "Test Work Order",
+          "value": "123"
+        },
+        "events": ["101075", "101079"],
+        "contact": {
+          "text": "World Bank : Chad Bass",
+          "value": "1382"
+        },
+        "name": "Chad Bass",
+        "email": "cbass@worldbank.com",
+        "jobTitle": "President",
+        "mobilePhone": "",
+        "phone": "",
+        "primary": false,
+        "url": "/app/common/entity/contact.nl?id=1382&compid=TSTDRV2617106"
+      }],
+      "events": [{
+        "id": "101079",
+        "title": "AC Installation - 3",
+        "workorder": {
+          "text": "Test Work Order",
+          "value": "123"
+        },
+        "location": "",
+        "status": {
+          "text": "Tentative",
+          "value": "TENTATIVE",
+          "code": "bg-secondary"
+        },
+        "date": {
+          "recurrence": "one time event on 1/17/2025",
+          "dates": ["1/17/2025"],
+          "start": "2025-01-17",
+          "end": "2025-01-17"
+        },
+        "time": {
+          "start": "08:00",
+          "end": "18:00"
+        },
+        "priority": {
+          "text": "High",
+          "value": "3",
+          "code": "#ca6621"
+        },
+        "note": "AC Installation - 3",
+        "url": "/app/crm/calendar/event.nl?id=101079&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {},
+        "resources": [],
+        "vendors": [],
+        "assets": [],
+        "items": [],
+        "contacts": [],
+        "addresses": [],
+        "contact": {
+          "text": "",
+          "value": ""
+        },
+        "address": {
+          "text": "",
+          "value": ""
+        },
+        "organizer": {
+          "text": "Mei Matriano",
+          "value": "1647"
+        }
+      }, {
+        "id": "101078",
+        "title": "AC Installation 2",
+        "workorder": {
+          "text": "Test Work Order",
+          "value": "123"
+        },
+        "location": "",
+        "status": {
+          "text": "Tentative",
+          "value": "TENTATIVE",
+          "code": "bg-secondary"
+        },
+        "date": {
+          "recurrence": "one time event on 1/16/2025",
+          "dates": ["1/16/2025"],
+          "start": "2025-01-16",
+          "end": "2025-01-16"
+        },
+        "time": {
+          "start": "08:00",
+          "end": "18:00"
+        },
+        "priority": {
+          "text": "High",
+          "value": "3",
+          "code": "#ca6621"
+        },
+        "note": "AC Installation 2",
+        "url": "/app/crm/calendar/event.nl?id=101078&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {},
+        "resources": [],
+        "vendors": [],
+        "assets": [],
+        "items": [],
+        "contacts": [],
+        "addresses": [],
+        "contact": {
+          "text": "",
+          "value": ""
+        },
+        "address": {
+          "text": "",
+          "value": ""
+        },
+        "organizer": {
+          "text": "Mei Matriano",
+          "value": "1647"
+        }
+      }, {
+        "id": "101077",
+        "title": "AC Installation",
+        "workorder": {
+          "text": "Test Work Order",
+          "value": "123"
+        },
+        "location": "",
+        "status": {
+          "text": "Tentative",
+          "value": "TENTATIVE",
+          "code": "bg-secondary"
+        },
+        "date": {
+          "recurrence": "one time event on 1/16/2025",
+          "dates": ["1/16/2025"],
+          "start": "2025-01-16",
+          "end": "2025-01-16"
+        },
+        "time": {
+          "start": "08:00",
+          "end": "18:00"
+        },
+        "priority": {
+          "text": "Medium",
+          "value": "2",
+          "code": "#dfcf02"
+        },
+        "note": "AC Installation",
+        "url": "/app/crm/calendar/event.nl?id=101077&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {},
+        "resources": [],
+        "vendors": [],
+        "assets": [],
+        "items": [],
+        "contacts": [],
+        "addresses": [],
+        "contact": {
+          "text": "",
+          "value": ""
+        },
+        "address": {
+          "text": "",
+          "value": ""
+        },
+        "organizer": {
+          "text": "Mei Matriano",
+          "value": "1647"
+        }
+      }, {
+        "id": "101076",
+        "title": "Test Work Order",
+        "workorder": {
+          "text": "Test Work Order",
+          "value": "123"
+        },
+        "location": "",
+        "status": {
+          "text": "Tentative",
+          "value": "TENTATIVE",
+          "code": "bg-secondary"
+        },
+        "date": {
+          "recurrence": "one time event on 1/15/2025",
+          "dates": ["1/15/2025"],
+          "start": "2025-01-15",
+          "end": "2025-01-15"
+        },
+        "time": {
+          "start": "08:00",
+          "end": "18:00"
+        },
+        "priority": {
+          "text": "Low",
+          "value": "1",
+          "code": "#026adf"
+        },
+        "note": "",
+        "url": "/app/crm/calendar/event.nl?id=101076&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {},
+        "resources": [],
+        "vendors": [],
+        "assets": [],
+        "items": [],
+        "contacts": [],
+        "addresses": [],
+        "contact": {
+          "text": "",
+          "value": ""
+        },
+        "address": {
+          "text": "207",
+          "value": "207"
+        },
+        "organizer": {
+          "text": "Lean  cendana",
+          "value": "1765"
+        }
+      }, {
+        "id": "101075",
+        "title": "Test Work Order",
+        "workorder": {
+          "text": "Test Work Order",
+          "value": "123"
+        },
+        "location": "",
+        "status": {
+          "text": "Tentative",
+          "value": "TENTATIVE",
+          "code": "bg-secondary"
+        },
+        "date": {
+          "recurrence": "one time event on 1/12/2025",
+          "dates": ["1/12/2025"],
+          "start": "2025-01-12",
+          "end": "2025-01-12"
+        },
+        "time": {
+          "start": "08:00",
+          "end": "18:00"
+        },
+        "priority": {
+          "text": "Low",
+          "value": "1",
+          "code": "#026adf"
+        },
+        "note": "X\nY\nZ",
+        "url": "/app/crm/calendar/event.nl?id=101075&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {},
+        "resources": [],
+        "vendors": [],
+        "assets": [],
+        "items": [],
+        "contacts": [],
+        "addresses": [],
+        "contact": {
+          "text": "",
+          "value": ""
+        },
+        "address": {
+          "text": "207",
+          "value": "207"
+        },
+        "organizer": {
+          "text": "Lean  cendana",
+          "value": "1765"
+        }
+      }],
+      "projectUrl": "/app/accounting/project/project.nl?id=1515&compid=TSTDRV2617106",
+      "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=123&compid=TSTDRV2617106",
+      "soUrl": "/app/accounting/transactions/salesord.nl?id=22468&compid=TSTDRV2617106",
+      "esthours": "100"
+    },
+    "resources": [{
+      "id": "358",
+      "name": "Aiden Somerhalder",
+      "initials": "AS",
+      "email": "admin@ramsey.com",
+      "phone": "",
+      "location": {
+        "text": "01: San Francisco",
+        "value": "2"
+      },
+      "active": true,
+      "workorder": {
+        "text": "Test Work Order",
+        "value": "123"
+      },
+      "events": ["101075"],
+      "employee": {
+        "text": "Aiden Somerhalder",
+        "value": "1524"
+      },
+      "resourceGroups": [{
+        "text": "Installers",
+        "value": "1"
+      }],
+      "types": [{
+        "text": "Installer",
+        "value": "1"
+      }],
+      "subTypes": [],
+      "rate": 0,
+      "vendor": {
+        "text": "",
+        "value": ""
+      },
+      "purchaseOrder": {
+        "text": " ",
+        "value": ""
+      },
+      "affiliationType": {
+        "text": "In-House",
+        "value": "1"
+      },
+      "time": {
+        "start": "09:00",
+        "end": "17:00"
+      },
+      "resourceSkills": [],
+      "selected": true
+    }, {
+      "id": "359",
+      "name": "Arun Sharma",
+      "initials": "AS",
+      "email": "aruns.unlock2go@gmail.com",
+      "phone": "",
+      "location": {
+        "text": "",
+        "value": ""
+      },
+      "active": true,
+      "workorder": {
+        "text": "Test Work Order",
+        "value": "123"
+      },
+      "events": ["101075"],
+      "employee": {
+        "text": "Arun Sharma",
+        "value": "1770"
+      },
+      "resourceGroups": [{
+        "text": "Designers",
+        "value": "2"
+      }, {
+        "text": "Drivers",
+        "value": "3"
+      }, {
+        "text": "Installers",
+        "value": "1"
+      }],
+      "types": [{
+        "text": "Delivery Driver",
+        "value": "2"
+      }, {
+        "text": "Designer",
+        "value": "3"
+      }, {
+        "text": "Installer",
+        "value": "1"
+      }],
+      "subTypes": [],
+      "rate": 0,
+      "vendor": {
+        "text": "",
+        "value": ""
+      },
+      "purchaseOrder": {
+        "text": " ",
+        "value": ""
+      },
+      "affiliationType": {
+        "text": "In-House",
+        "value": "1"
+      },
+      "time": {
+        "start": "10:00",
+        "end": "18:00"
+      },
+      "resourceSkills": [],
+      "selected": true
+    }],
+    "vendors": [{
+      "id": "188",
+      "name": "Best Fixture, Inc.",
+      "vendor": {
+        "text": "Best Fixture, Inc.",
+        "value": "12"
+      },
+      "url": "",
+      "email": "",
+      "initials": "BF",
+      "workorder": {
+        "text": "Test Work Order",
+        "value": "123"
+      },
+      "event": "101075",
+      "quantityRequired": 0,
+      "quantityAvailable": 0,
+      "purchaseOrder": {
+        "text": " ",
+        "value": ""
+      },
+      "amount": 0,
+      "active": false,
+      "woVendor": true,
+      "memo": "",
+      "selected": true
+    }],
+    "assets": [],
+    "items": [{
+      "id": "555",
+      "workorder": {
+        "text": "Test Work Order",
+        "value": "123"
+      },
+      "salesorder": {
+        "text": "Sales Order #SLS00000803",
+        "value": "22468"
+      },
+      "event": "101075",
+      "uuid": "22468_2",
+      "line": "2",
+      "item": {
+        "text": "BIC00008",
+        "value": "467"
+      },
+      "description": "Diana Chair",
+      "quantity": 10,
+      "availableQty": 10,
+      "note": "",
+      "selected": true
+    }, {
+      "id": "556",
+      "workorder": {
+        "text": "Test Work Order",
+        "value": "123"
+      },
+      "salesorder": {
+        "text": "Sales Order #SLS00000803",
+        "value": "22468"
+      },
+      "event": "101075",
+      "uuid": "22468_3",
+      "line": "3",
+      "item": {
+        "text": "BIC00008",
+        "value": "467"
+      },
+      "description": "Working Table",
+      "quantity": 5,
+      "availableQty": 5,
+      "note": "",
+      "selected": true
+    }],
+    "contacts": [],
+    "addresses": [],
+    "contact": {
+      "text": "",
+      "value": ""
+    },
+    "address": {
+      "text": "207",
+      "value": "207"
+    },
+    "organizer": {
+      "text": "Lean  cendana",
+      "value": "1765"
+    }
+  }, {
     "id": "101072",
     "title": "Furniture Installation",
     "workorder": {
@@ -40122,7 +46499,7 @@ const mockup = {
     },
     "time": {
       "start": "10:00",
-      "end": "14:00"
+      "end": "15:00"
     },
     "priority": {
       "text": "Low",
@@ -40371,7 +46748,7 @@ const mockup = {
         },
         "time": {
           "start": "10:00",
-          "end": "14:00"
+          "end": "15:00"
         },
         "priority": {
           "text": "Low",
@@ -40652,69 +47029,13 @@ const mockup = {
         "start": "07:00",
         "end": "15:00"
       },
+      "resourceSkills": [],
       "selected": true
     }],
     "vendors": [],
     "assets": [],
     "items": [],
-    "contacts": [{
-      "id": "162",
-      "workorder": {
-        "text": "Furniture Installation",
-        "value": "121"
-      },
-      "events": ["101055", "101072"],
-      "contact": {
-        "text": "World Bank : Chad Bass",
-        "value": "1382"
-      },
-      "name": "Chad Bass",
-      "email": "cbass@worldbank.com",
-      "jobTitle": "President",
-      "mobilePhone": "",
-      "phone": "",
-      "primary": false,
-      "url": "/app/common/entity/contact.nl?id=1382&compid=TSTDRV2617106",
-      "selected": true
-    }, {
-      "id": "163",
-      "workorder": {
-        "text": "Furniture Installation",
-        "value": "121"
-      },
-      "events": ["101055", "101072"],
-      "contact": {
-        "text": "World Bank : Jim Carrey",
-        "value": "2041"
-      },
-      "name": "Jim Carrey",
-      "email": "jcarrery@worldbank.com",
-      "jobTitle": "Administrative Manager",
-      "mobilePhone": "",
-      "phone": "",
-      "primary": false,
-      "url": "/app/common/entity/contact.nl?id=2041&compid=TSTDRV2617106",
-      "selected": true
-    }, {
-      "id": "164",
-      "workorder": {
-        "text": "Furniture Installation",
-        "value": "121"
-      },
-      "events": ["101055", "101072"],
-      "contact": {
-        "text": "World Bank : John Smith",
-        "value": "1892"
-      },
-      "name": "John Smith",
-      "email": "jc@erpsuccesspartners.com",
-      "jobTitle": "Logistics",
-      "mobilePhone": "",
-      "phone": "",
-      "primary": true,
-      "url": "/app/common/entity/contact.nl?id=1892&compid=TSTDRV2617106",
-      "selected": true
-    }],
+    "contacts": [],
     "addresses": [{
       "id": "201",
       "workorder": {
@@ -41016,7 +47337,7 @@ const mockup = {
         },
         "time": {
           "start": "10:00",
-          "end": "14:00"
+          "end": "15:00"
         },
         "priority": {
           "text": "Low",
@@ -41539,7 +47860,7 @@ const mockup = {
         },
         "time": {
           "start": "10:00",
-          "end": "14:00"
+          "end": "15:00"
         },
         "priority": {
           "text": "Low",
@@ -42249,7 +48570,7 @@ const mockup = {
         "status": {
           "text": "Completed",
           "value": "COMPLETED",
-          "code": "btn-info"
+          "code": "bg-info"
         },
         "date": {
           "recurrence": "one time event on 11/11/2024",
@@ -42346,64 +48667,7 @@ const mockup = {
       "note": "",
       "selected": true
     }],
-    "contacts": [{
-      "id": "141",
-      "workorder": {
-        "text": "AV Installation",
-        "value": "112"
-      },
-      "events": ["101043", "101061"],
-      "contact": {
-        "text": "World Bank : Chad Bass",
-        "value": "1382"
-      },
-      "name": "Chad Bass",
-      "email": "cbass@worldbank.com",
-      "jobTitle": "President",
-      "mobilePhone": "",
-      "phone": "",
-      "primary": false,
-      "url": "/app/common/entity/contact.nl?id=1382&compid=TSTDRV2617106",
-      "selected": true
-    }, {
-      "id": "142",
-      "workorder": {
-        "text": "AV Installation",
-        "value": "112"
-      },
-      "events": ["101043", "101061"],
-      "contact": {
-        "text": "World Bank : Jim Carrey",
-        "value": "2041"
-      },
-      "name": "Jim Carrey",
-      "email": "jcarrery@worldbank.com",
-      "jobTitle": "Administrative Manager",
-      "mobilePhone": "",
-      "phone": "",
-      "primary": false,
-      "url": "/app/common/entity/contact.nl?id=2041&compid=TSTDRV2617106",
-      "selected": true
-    }, {
-      "id": "143",
-      "workorder": {
-        "text": "AV Installation",
-        "value": "112"
-      },
-      "events": ["101043", "101061"],
-      "contact": {
-        "text": "World Bank : John Smith",
-        "value": "1892"
-      },
-      "name": "John Smith",
-      "email": "jc@erpsuccesspartners.com",
-      "jobTitle": "Logistics",
-      "mobilePhone": "",
-      "phone": "",
-      "primary": true,
-      "url": "/app/common/entity/contact.nl?id=1892&compid=TSTDRV2617106",
-      "selected": true
-    }],
+    "contacts": [],
     "addresses": [{
       "id": "175",
       "workorder": {
@@ -43135,64 +49399,7 @@ const mockup = {
       "note": "",
       "selected": true
     }],
-    "contacts": [{
-      "id": "158",
-      "workorder": {
-        "text": "Furniture Installation",
-        "value": "119"
-      },
-      "events": ["101052", "101060"],
-      "contact": {
-        "text": "World Bank : Chad Bass",
-        "value": "1382"
-      },
-      "name": "Chad Bass",
-      "email": "cbass@worldbank.com",
-      "jobTitle": "President",
-      "mobilePhone": "",
-      "phone": "",
-      "primary": false,
-      "url": "/app/common/entity/contact.nl?id=1382&compid=TSTDRV2617106",
-      "selected": true
-    }, {
-      "id": "159",
-      "workorder": {
-        "text": "Furniture Installation",
-        "value": "119"
-      },
-      "events": ["101052", "101060"],
-      "contact": {
-        "text": "World Bank : Jim Carrey",
-        "value": "2041"
-      },
-      "name": "Jim Carrey",
-      "email": "jcarrery@worldbank.com",
-      "jobTitle": "Administrative Manager",
-      "mobilePhone": "",
-      "phone": "",
-      "primary": false,
-      "url": "/app/common/entity/contact.nl?id=2041&compid=TSTDRV2617106",
-      "selected": true
-    }, {
-      "id": "160",
-      "workorder": {
-        "text": "Furniture Installation",
-        "value": "119"
-      },
-      "events": ["101052", "101060"],
-      "contact": {
-        "text": "World Bank : John Smith",
-        "value": "1892"
-      },
-      "name": "John Smith",
-      "email": "jc@erpsuccesspartners.com",
-      "jobTitle": "Logistics",
-      "mobilePhone": "",
-      "phone": "",
-      "primary": true,
-      "url": "/app/common/entity/contact.nl?id=1892&compid=TSTDRV2617106",
-      "selected": true
-    }],
+    "contacts": [],
     "addresses": [{
       "id": "197",
       "workorder": {
@@ -43530,7 +49737,7 @@ const mockup = {
         },
         "time": {
           "start": "10:00",
-          "end": "14:00"
+          "end": "15:00"
         },
         "priority": {
           "text": "Low",
@@ -43794,7 +50001,7 @@ const mockup = {
     "status": {
       "text": "Completed",
       "value": "COMPLETED",
-      "code": "btn-info"
+      "code": "bg-info"
     },
     "date": {
       "recurrence": "one time event on 12/2/2024",
@@ -44101,7 +50308,7 @@ const mockup = {
         "status": {
           "text": "Completed",
           "value": "COMPLETED",
-          "code": "btn-info"
+          "code": "bg-info"
         },
         "date": {
           "recurrence": "one time event on 12/2/2024",
@@ -44220,45 +50427,7 @@ const mockup = {
       "note": "",
       "selected": true
     }],
-    "contacts": [{
-      "id": "156",
-      "workorder": {
-        "text": "AV Installation",
-        "value": "118"
-      },
-      "events": ["101057"],
-      "contact": {
-        "text": "World Bank : Chad Bass",
-        "value": "1382"
-      },
-      "name": "Chad Bass",
-      "email": "cbass@worldbank.com",
-      "jobTitle": "President",
-      "mobilePhone": "",
-      "phone": "",
-      "primary": false,
-      "url": "/app/common/entity/contact.nl?id=1382&compid=TSTDRV2617106",
-      "selected": true
-    }, {
-      "id": "157",
-      "workorder": {
-        "text": "AV Installation",
-        "value": "118"
-      },
-      "events": ["101057"],
-      "contact": {
-        "text": "World Bank : Jim Carrey",
-        "value": "2041"
-      },
-      "name": "Jim Carrey",
-      "email": "jcarrery@worldbank.com",
-      "jobTitle": "Administrative Manager",
-      "mobilePhone": "",
-      "phone": "",
-      "primary": false,
-      "url": "/app/common/entity/contact.nl?id=2041&compid=TSTDRV2617106",
-      "selected": true
-    }],
+    "contacts": [],
     "addresses": [{
       "id": "194",
       "workorder": {
@@ -45266,7 +51435,7 @@ const mockup = {
         },
         "time": {
           "start": "10:00",
-          "end": "14:00"
+          "end": "15:00"
         },
         "priority": {
           "text": "Low",
@@ -45575,64 +51744,7 @@ const mockup = {
       "note": "",
       "selected": true
     }],
-    "contacts": [{
-      "id": "162",
-      "workorder": {
-        "text": "Furniture Installation",
-        "value": "121"
-      },
-      "events": ["101055", "101072"],
-      "contact": {
-        "text": "World Bank : Chad Bass",
-        "value": "1382"
-      },
-      "name": "Chad Bass",
-      "email": "cbass@worldbank.com",
-      "jobTitle": "President",
-      "mobilePhone": "",
-      "phone": "",
-      "primary": false,
-      "url": "/app/common/entity/contact.nl?id=1382&compid=TSTDRV2617106",
-      "selected": true
-    }, {
-      "id": "163",
-      "workorder": {
-        "text": "Furniture Installation",
-        "value": "121"
-      },
-      "events": ["101055", "101072"],
-      "contact": {
-        "text": "World Bank : Jim Carrey",
-        "value": "2041"
-      },
-      "name": "Jim Carrey",
-      "email": "jcarrery@worldbank.com",
-      "jobTitle": "Administrative Manager",
-      "mobilePhone": "",
-      "phone": "",
-      "primary": false,
-      "url": "/app/common/entity/contact.nl?id=2041&compid=TSTDRV2617106",
-      "selected": true
-    }, {
-      "id": "164",
-      "workorder": {
-        "text": "Furniture Installation",
-        "value": "121"
-      },
-      "events": ["101055", "101072"],
-      "contact": {
-        "text": "World Bank : John Smith",
-        "value": "1892"
-      },
-      "name": "John Smith",
-      "email": "jc@erpsuccesspartners.com",
-      "jobTitle": "Logistics",
-      "mobilePhone": "",
-      "phone": "",
-      "primary": true,
-      "url": "/app/common/entity/contact.nl?id=1892&compid=TSTDRV2617106",
-      "selected": true
-    }],
+    "contacts": [],
     "addresses": [{
       "id": "201",
       "workorder": {
@@ -45913,26 +52025,7 @@ const mockup = {
       "note": "",
       "selected": true
     }],
-    "contacts": [{
-      "id": "161",
-      "workorder": {
-        "text": "Installation of Furnitures",
-        "value": "120"
-      },
-      "events": ["101054"],
-      "contact": {
-        "text": "World Bank : John Smith",
-        "value": "1892"
-      },
-      "name": "John Smith",
-      "email": "jc@erpsuccesspartners.com",
-      "jobTitle": "Logistics",
-      "mobilePhone": "",
-      "phone": "",
-      "primary": true,
-      "url": "/app/common/entity/contact.nl?id=1892&compid=TSTDRV2617106",
-      "selected": true
-    }],
+    "contacts": [],
     "addresses": [{
       "id": "200",
       "workorder": {
@@ -46646,64 +52739,7 @@ const mockup = {
       "note": "",
       "selected": true
     }],
-    "contacts": [{
-      "id": "158",
-      "workorder": {
-        "text": "Furniture Installation",
-        "value": "119"
-      },
-      "events": ["101052", "101060"],
-      "contact": {
-        "text": "World Bank : Chad Bass",
-        "value": "1382"
-      },
-      "name": "Chad Bass",
-      "email": "cbass@worldbank.com",
-      "jobTitle": "President",
-      "mobilePhone": "",
-      "phone": "",
-      "primary": false,
-      "url": "/app/common/entity/contact.nl?id=1382&compid=TSTDRV2617106",
-      "selected": true
-    }, {
-      "id": "159",
-      "workorder": {
-        "text": "Furniture Installation",
-        "value": "119"
-      },
-      "events": ["101052", "101060"],
-      "contact": {
-        "text": "World Bank : Jim Carrey",
-        "value": "2041"
-      },
-      "name": "Jim Carrey",
-      "email": "jcarrery@worldbank.com",
-      "jobTitle": "Administrative Manager",
-      "mobilePhone": "",
-      "phone": "",
-      "primary": false,
-      "url": "/app/common/entity/contact.nl?id=2041&compid=TSTDRV2617106",
-      "selected": true
-    }, {
-      "id": "160",
-      "workorder": {
-        "text": "Furniture Installation",
-        "value": "119"
-      },
-      "events": ["101052", "101060"],
-      "contact": {
-        "text": "World Bank : John Smith",
-        "value": "1892"
-      },
-      "name": "John Smith",
-      "email": "jc@erpsuccesspartners.com",
-      "jobTitle": "Logistics",
-      "mobilePhone": "",
-      "phone": "",
-      "primary": true,
-      "url": "/app/common/entity/contact.nl?id=1892&compid=TSTDRV2617106",
-      "selected": true
-    }],
+    "contacts": [],
     "addresses": [{
       "id": "197",
       "workorder": {
@@ -46746,7 +52782,7 @@ const mockup = {
     "status": {
       "text": "Completed",
       "value": "COMPLETED",
-      "code": "btn-info"
+      "code": "bg-info"
     },
     "date": {
       "recurrence": "one time event on 11/13/2024",
@@ -47004,7 +53040,7 @@ const mockup = {
         "status": {
           "text": "Completed",
           "value": "COMPLETED",
-          "code": "btn-info"
+          "code": "bg-info"
         },
         "date": {
           "recurrence": "one time event on 11/13/2024",
@@ -47097,45 +53133,7 @@ const mockup = {
       "note": "",
       "selected": true
     }],
-    "contacts": [{
-      "id": "153",
-      "workorder": {
-        "text": "Furniture Installation",
-        "value": "117"
-      },
-      "events": ["101051"],
-      "contact": {
-        "text": "World Bank : Chad Bass",
-        "value": "1382"
-      },
-      "name": "Chad Bass",
-      "email": "cbass@worldbank.com",
-      "jobTitle": "President",
-      "mobilePhone": "",
-      "phone": "",
-      "primary": false,
-      "url": "/app/common/entity/contact.nl?id=1382&compid=TSTDRV2617106",
-      "selected": true
-    }, {
-      "id": "154",
-      "workorder": {
-        "text": "Furniture Installation",
-        "value": "117"
-      },
-      "events": ["101051"],
-      "contact": {
-        "text": "World Bank : Jim Carrey",
-        "value": "2041"
-      },
-      "name": "Jim Carrey",
-      "email": "jcarrery@worldbank.com",
-      "jobTitle": "Administrative Manager",
-      "mobilePhone": "",
-      "phone": "",
-      "primary": false,
-      "url": "/app/common/entity/contact.nl?id=2041&compid=TSTDRV2617106",
-      "selected": true
-    }],
+    "contacts": [],
     "addresses": [{
       "id": "191",
       "workorder": {
@@ -47748,64 +53746,7 @@ const mockup = {
       "note": "",
       "selected": true
     }],
-    "contacts": [{
-      "id": "147",
-      "workorder": {
-        "text": "Furniture Installation",
-        "value": "115"
-      },
-      "events": ["101049", "101050"],
-      "contact": {
-        "text": "World Bank : Chad Bass",
-        "value": "1382"
-      },
-      "name": "Chad Bass",
-      "email": "cbass@worldbank.com",
-      "jobTitle": "President",
-      "mobilePhone": "",
-      "phone": "",
-      "primary": false,
-      "url": "/app/common/entity/contact.nl?id=1382&compid=TSTDRV2617106",
-      "selected": true
-    }, {
-      "id": "148",
-      "workorder": {
-        "text": "Furniture Installation",
-        "value": "115"
-      },
-      "events": ["101049", "101050"],
-      "contact": {
-        "text": "World Bank : Jim Carrey",
-        "value": "2041"
-      },
-      "name": "Jim Carrey",
-      "email": "jcarrery@worldbank.com",
-      "jobTitle": "Administrative Manager",
-      "mobilePhone": "",
-      "phone": "",
-      "primary": false,
-      "url": "/app/common/entity/contact.nl?id=2041&compid=TSTDRV2617106",
-      "selected": true
-    }, {
-      "id": "149",
-      "workorder": {
-        "text": "Furniture Installation",
-        "value": "115"
-      },
-      "events": ["101049", "101050"],
-      "contact": {
-        "text": "World Bank : John Smith",
-        "value": "1892"
-      },
-      "name": "John Smith",
-      "email": "jc@erpsuccesspartners.com",
-      "jobTitle": "Logistics",
-      "mobilePhone": "",
-      "phone": "",
-      "primary": true,
-      "url": "/app/common/entity/contact.nl?id=1892&compid=TSTDRV2617106",
-      "selected": true
-    }],
+    "contacts": [],
     "addresses": [{
       "id": "180",
       "workorder": {
@@ -48476,64 +54417,7 @@ const mockup = {
       "note": "",
       "selected": true
     }],
-    "contacts": [{
-      "id": "147",
-      "workorder": {
-        "text": "Furniture Installation",
-        "value": "115"
-      },
-      "events": ["101049", "101050"],
-      "contact": {
-        "text": "World Bank : Chad Bass",
-        "value": "1382"
-      },
-      "name": "Chad Bass",
-      "email": "cbass@worldbank.com",
-      "jobTitle": "President",
-      "mobilePhone": "",
-      "phone": "",
-      "primary": false,
-      "url": "/app/common/entity/contact.nl?id=1382&compid=TSTDRV2617106",
-      "selected": true
-    }, {
-      "id": "148",
-      "workorder": {
-        "text": "Furniture Installation",
-        "value": "115"
-      },
-      "events": ["101049", "101050"],
-      "contact": {
-        "text": "World Bank : Jim Carrey",
-        "value": "2041"
-      },
-      "name": "Jim Carrey",
-      "email": "jcarrery@worldbank.com",
-      "jobTitle": "Administrative Manager",
-      "mobilePhone": "",
-      "phone": "",
-      "primary": false,
-      "url": "/app/common/entity/contact.nl?id=2041&compid=TSTDRV2617106",
-      "selected": true
-    }, {
-      "id": "149",
-      "workorder": {
-        "text": "Furniture Installation",
-        "value": "115"
-      },
-      "events": ["101049", "101050"],
-      "contact": {
-        "text": "World Bank : John Smith",
-        "value": "1892"
-      },
-      "name": "John Smith",
-      "email": "jc@erpsuccesspartners.com",
-      "jobTitle": "Logistics",
-      "mobilePhone": "",
-      "phone": "",
-      "primary": true,
-      "url": "/app/common/entity/contact.nl?id=1892&compid=TSTDRV2617106",
-      "selected": true
-    }],
+    "contacts": [],
     "addresses": [{
       "id": "180",
       "workorder": {
@@ -48942,26 +54826,7 @@ const mockup = {
       "note": "",
       "selected": true
     }],
-    "contacts": [{
-      "id": "146",
-      "workorder": {
-        "text": "Lobby Room",
-        "value": "114"
-      },
-      "events": ["101048"],
-      "contact": {
-        "text": "World Bank : John Smith",
-        "value": "1892"
-      },
-      "name": "John Smith",
-      "email": "jc@erpsuccesspartners.com",
-      "jobTitle": "Logistics",
-      "mobilePhone": "",
-      "phone": "",
-      "primary": true,
-      "url": "/app/common/entity/contact.nl?id=1892&compid=TSTDRV2617106",
-      "selected": true
-    }],
+    "contacts": [],
     "addresses": [{
       "id": "179",
       "workorder": {
@@ -49431,45 +55296,7 @@ const mockup = {
       "note": "",
       "selected": true
     }],
-    "contacts": [{
-      "id": "144",
-      "workorder": {
-        "text": "Furniture Delivery",
-        "value": "113"
-      },
-      "events": ["101045"],
-      "contact": {
-        "text": "World Bank : Jim Carrey",
-        "value": "2041"
-      },
-      "name": "Jim Carrey",
-      "email": "jcarrery@worldbank.com",
-      "jobTitle": "Administrative Manager",
-      "mobilePhone": "",
-      "phone": "",
-      "primary": false,
-      "url": "/app/common/entity/contact.nl?id=2041&compid=TSTDRV2617106",
-      "selected": true
-    }, {
-      "id": "145",
-      "workorder": {
-        "text": "Furniture Delivery",
-        "value": "113"
-      },
-      "events": ["101045"],
-      "contact": {
-        "text": "World Bank : John Smith",
-        "value": "1892"
-      },
-      "name": "John Smith",
-      "email": "jc@erpsuccesspartners.com",
-      "jobTitle": "Logistics",
-      "mobilePhone": "",
-      "phone": "",
-      "primary": true,
-      "url": "/app/common/entity/contact.nl?id=1892&compid=TSTDRV2617106",
-      "selected": true
-    }],
+    "contacts": [],
     "addresses": [{
       "id": "178",
       "workorder": {
@@ -49958,7 +55785,7 @@ const mockup = {
         "status": {
           "text": "Completed",
           "value": "COMPLETED",
-          "code": "btn-info"
+          "code": "bg-info"
         },
         "date": {
           "recurrence": "one time event on 11/11/2024",
@@ -50068,7 +55895,7 @@ const mockup = {
     "status": {
       "text": "Completed",
       "value": "COMPLETED",
-      "code": "btn-info"
+      "code": "bg-info"
     },
     "date": {
       "recurrence": "one time event on 11/11/2024",
@@ -50514,7 +56341,7 @@ const mockup = {
         "status": {
           "text": "Completed",
           "value": "COMPLETED",
-          "code": "btn-info"
+          "code": "bg-info"
         },
         "date": {
           "recurrence": "one time event on 11/11/2024",
@@ -50607,64 +56434,7 @@ const mockup = {
       "note": "",
       "selected": true
     }],
-    "contacts": [{
-      "id": "141",
-      "workorder": {
-        "text": "AV Installation",
-        "value": "112"
-      },
-      "events": ["101043", "101061"],
-      "contact": {
-        "text": "World Bank : Chad Bass",
-        "value": "1382"
-      },
-      "name": "Chad Bass",
-      "email": "cbass@worldbank.com",
-      "jobTitle": "President",
-      "mobilePhone": "",
-      "phone": "",
-      "primary": false,
-      "url": "/app/common/entity/contact.nl?id=1382&compid=TSTDRV2617106",
-      "selected": true
-    }, {
-      "id": "142",
-      "workorder": {
-        "text": "AV Installation",
-        "value": "112"
-      },
-      "events": ["101043", "101061"],
-      "contact": {
-        "text": "World Bank : Jim Carrey",
-        "value": "2041"
-      },
-      "name": "Jim Carrey",
-      "email": "jcarrery@worldbank.com",
-      "jobTitle": "Administrative Manager",
-      "mobilePhone": "",
-      "phone": "",
-      "primary": false,
-      "url": "/app/common/entity/contact.nl?id=2041&compid=TSTDRV2617106",
-      "selected": true
-    }, {
-      "id": "143",
-      "workorder": {
-        "text": "AV Installation",
-        "value": "112"
-      },
-      "events": ["101043", "101061"],
-      "contact": {
-        "text": "World Bank : John Smith",
-        "value": "1892"
-      },
-      "name": "John Smith",
-      "email": "jc@erpsuccesspartners.com",
-      "jobTitle": "Logistics",
-      "mobilePhone": "",
-      "phone": "",
-      "primary": true,
-      "url": "/app/common/entity/contact.nl?id=1892&compid=TSTDRV2617106",
-      "selected": true
-    }],
+    "contacts": [],
     "addresses": [{
       "id": "175",
       "workorder": {
@@ -51013,45 +56783,7 @@ const mockup = {
       "note": "",
       "selected": true
     }],
-    "contacts": [{
-      "id": "126",
-      "workorder": {
-        "text": "Furniture Installation",
-        "value": "105"
-      },
-      "events": ["101031", "101042"],
-      "contact": {
-        "text": "World Bank : Chad Bass",
-        "value": "1382"
-      },
-      "name": "Chad Bass",
-      "email": "cbass@worldbank.com",
-      "jobTitle": "President",
-      "mobilePhone": "",
-      "phone": "",
-      "primary": false,
-      "url": "/app/common/entity/contact.nl?id=1382&compid=TSTDRV2617106",
-      "selected": true
-    }, {
-      "id": "127",
-      "workorder": {
-        "text": "Furniture Installation",
-        "value": "105"
-      },
-      "events": ["101031", "101042"],
-      "contact": {
-        "text": "World Bank : Jim Carrey",
-        "value": "2041"
-      },
-      "name": "Jim Carrey",
-      "email": "jcarrery@worldbank.com",
-      "jobTitle": "Administrative Manager",
-      "mobilePhone": "",
-      "phone": "",
-      "primary": false,
-      "url": "/app/common/entity/contact.nl?id=2041&compid=TSTDRV2617106",
-      "selected": true
-    }],
+    "contacts": [],
     "addresses": [{
       "id": "144",
       "workorder": {
@@ -51541,64 +57273,7 @@ const mockup = {
       "note": "",
       "selected": true
     }],
-    "contacts": [{
-      "id": "138",
-      "workorder": {
-        "text": "Furniture Installation",
-        "value": "111"
-      },
-      "events": ["101041"],
-      "contact": {
-        "text": "World Bank : Chad Bass",
-        "value": "1382"
-      },
-      "name": "Chad Bass",
-      "email": "cbass@worldbank.com",
-      "jobTitle": "President",
-      "mobilePhone": "",
-      "phone": "",
-      "primary": false,
-      "url": "/app/common/entity/contact.nl?id=1382&compid=TSTDRV2617106",
-      "selected": true
-    }, {
-      "id": "139",
-      "workorder": {
-        "text": "Furniture Installation",
-        "value": "111"
-      },
-      "events": ["101041"],
-      "contact": {
-        "text": "World Bank : Jim Carrey",
-        "value": "2041"
-      },
-      "name": "Jim Carrey",
-      "email": "jcarrery@worldbank.com",
-      "jobTitle": "Administrative Manager",
-      "mobilePhone": "",
-      "phone": "",
-      "primary": false,
-      "url": "/app/common/entity/contact.nl?id=2041&compid=TSTDRV2617106",
-      "selected": true
-    }, {
-      "id": "140",
-      "workorder": {
-        "text": "Furniture Installation",
-        "value": "111"
-      },
-      "events": ["101041"],
-      "contact": {
-        "text": "World Bank : John Smith",
-        "value": "1892"
-      },
-      "name": "John Smith",
-      "email": "jsmith@worldbank.com",
-      "jobTitle": "Logistics",
-      "mobilePhone": "",
-      "phone": "",
-      "primary": true,
-      "url": "/app/common/entity/contact.nl?id=1892&compid=TSTDRV2617106",
-      "selected": true
-    }],
+    "contacts": [],
     "addresses": [{
       "id": "173",
       "workorder": {
@@ -52600,45 +58275,7 @@ const mockup = {
       "note": "",
       "selected": true
     }],
-    "contacts": [{
-      "id": "136",
-      "workorder": {
-        "text": "Install AC",
-        "value": "110"
-      },
-      "events": ["101039", "101040"],
-      "contact": {
-        "text": "World Bank : Jim Carrey",
-        "value": "2041"
-      },
-      "name": "Jim Carrey",
-      "email": "jcarrery@worldbank.com",
-      "jobTitle": "Administrative Manager",
-      "mobilePhone": "",
-      "phone": "",
-      "primary": false,
-      "url": "/app/common/entity/contact.nl?id=2041&compid=TSTDRV2617106",
-      "selected": true
-    }, {
-      "id": "137",
-      "workorder": {
-        "text": "Install AC",
-        "value": "110"
-      },
-      "events": ["101038", "101039", "101040"],
-      "contact": {
-        "text": "World Bank : John Smith",
-        "value": "1892"
-      },
-      "name": "John Smith",
-      "email": "jsmith@worldbank.com",
-      "jobTitle": "Logistics",
-      "mobilePhone": "",
-      "phone": "",
-      "primary": true,
-      "url": "/app/common/entity/contact.nl?id=1892&compid=TSTDRV2617106",
-      "selected": true
-    }],
+    "contacts": [],
     "addresses": [{
       "id": "172",
       "workorder": {
@@ -53614,45 +59251,7 @@ const mockup = {
       "note": "",
       "selected": true
     }],
-    "contacts": [{
-      "id": "136",
-      "workorder": {
-        "text": "Install AC",
-        "value": "110"
-      },
-      "events": ["101039", "101040"],
-      "contact": {
-        "text": "World Bank : Jim Carrey",
-        "value": "2041"
-      },
-      "name": "Jim Carrey",
-      "email": "jcarrery@worldbank.com",
-      "jobTitle": "Administrative Manager",
-      "mobilePhone": "",
-      "phone": "",
-      "primary": false,
-      "url": "/app/common/entity/contact.nl?id=2041&compid=TSTDRV2617106",
-      "selected": true
-    }, {
-      "id": "137",
-      "workorder": {
-        "text": "Install AC",
-        "value": "110"
-      },
-      "events": ["101038", "101039", "101040"],
-      "contact": {
-        "text": "World Bank : John Smith",
-        "value": "1892"
-      },
-      "name": "John Smith",
-      "email": "jsmith@worldbank.com",
-      "jobTitle": "Logistics",
-      "mobilePhone": "",
-      "phone": "",
-      "primary": true,
-      "url": "/app/common/entity/contact.nl?id=1892&compid=TSTDRV2617106",
-      "selected": true
-    }],
+    "contacts": [],
     "addresses": [{
       "id": "172",
       "workorder": {
@@ -54804,26 +60403,7 @@ const mockup = {
       "note": "",
       "selected": true
     }],
-    "contacts": [{
-      "id": "137",
-      "workorder": {
-        "text": "Install AC",
-        "value": "110"
-      },
-      "events": ["101038", "101039", "101040"],
-      "contact": {
-        "text": "World Bank : John Smith",
-        "value": "1892"
-      },
-      "name": "John Smith",
-      "email": "jsmith@worldbank.com",
-      "jobTitle": "Logistics",
-      "mobilePhone": "",
-      "phone": "",
-      "primary": true,
-      "url": "/app/common/entity/contact.nl?id=1892&compid=TSTDRV2617106",
-      "selected": true
-    }],
+    "contacts": [],
     "addresses": [{
       "id": "172",
       "workorder": {
@@ -55625,26 +61205,7 @@ const mockup = {
       "note": "",
       "selected": true
     }],
-    "contacts": [{
-      "id": "135",
-      "workorder": {
-        "text": "Install Office Furniture",
-        "value": "109"
-      },
-      "events": ["101035", "101036", "101037"],
-      "contact": {
-        "text": "World Bank : John Smith",
-        "value": "1892"
-      },
-      "name": "John Smith",
-      "email": "jc@erpsuccesspartners.com",
-      "jobTitle": "Logistics",
-      "mobilePhone": "",
-      "phone": "",
-      "primary": true,
-      "url": "/app/common/entity/contact.nl?id=1892&compid=TSTDRV2617106",
-      "selected": true
-    }],
+    "contacts": [],
     "addresses": [{
       "id": "152",
       "workorder": {
@@ -56384,26 +61945,7 @@ const mockup = {
       "note": "",
       "selected": true
     }],
-    "contacts": [{
-      "id": "135",
-      "workorder": {
-        "text": "Install Office Furniture",
-        "value": "109"
-      },
-      "events": ["101035", "101036", "101037"],
-      "contact": {
-        "text": "World Bank : John Smith",
-        "value": "1892"
-      },
-      "name": "John Smith",
-      "email": "jc@erpsuccesspartners.com",
-      "jobTitle": "Logistics",
-      "mobilePhone": "",
-      "phone": "",
-      "primary": true,
-      "url": "/app/common/entity/contact.nl?id=1892&compid=TSTDRV2617106",
-      "selected": true
-    }],
+    "contacts": [],
     "addresses": [{
       "id": "152",
       "workorder": {
@@ -57143,26 +62685,7 @@ const mockup = {
       "note": "",
       "selected": true
     }],
-    "contacts": [{
-      "id": "135",
-      "workorder": {
-        "text": "Install Office Furniture",
-        "value": "109"
-      },
-      "events": ["101035", "101036", "101037"],
-      "contact": {
-        "text": "World Bank : John Smith",
-        "value": "1892"
-      },
-      "name": "John Smith",
-      "email": "jc@erpsuccesspartners.com",
-      "jobTitle": "Logistics",
-      "mobilePhone": "",
-      "phone": "",
-      "primary": true,
-      "url": "/app/common/entity/contact.nl?id=1892&compid=TSTDRV2617106",
-      "selected": true
-    }],
+    "contacts": [],
     "addresses": [{
       "id": "152",
       "workorder": {
@@ -57922,45 +63445,7 @@ const mockup = {
       "note": "",
       "selected": true
     }],
-    "contacts": [{
-      "id": "128",
-      "workorder": {
-        "text": "Install Cove Lights",
-        "value": "106"
-      },
-      "events": ["101032", "101033", "101034"],
-      "contact": {
-        "text": "3M : Astra Gully",
-        "value": "2043"
-      },
-      "name": "Astra Gully",
-      "email": "3m@3m.com",
-      "jobTitle": "Senior Applications Director",
-      "mobilePhone": "",
-      "phone": "",
-      "primary": false,
-      "url": "/app/common/entity/contact.nl?id=2043&compid=TSTDRV2617106",
-      "selected": true
-    }, {
-      "id": "129",
-      "workorder": {
-        "text": "Install Cove Lights",
-        "value": "106"
-      },
-      "events": ["101032", "101033", "101034"],
-      "contact": {
-        "text": "3M : Kaelea Peel",
-        "value": "2044"
-      },
-      "name": "Kaelea Peel",
-      "email": "",
-      "jobTitle": "Dynamic Configuration Liason",
-      "mobilePhone": "",
-      "phone": "",
-      "primary": false,
-      "url": "/app/common/entity/contact.nl?id=2044&compid=TSTDRV2617106",
-      "selected": true
-    }],
+    "contacts": [],
     "addresses": [{
       "id": "150",
       "workorder": {
@@ -58654,45 +64139,7 @@ const mockup = {
       "note": "",
       "selected": true
     }],
-    "contacts": [{
-      "id": "128",
-      "workorder": {
-        "text": "Install Cove Lights",
-        "value": "106"
-      },
-      "events": ["101032", "101033", "101034"],
-      "contact": {
-        "text": "3M : Astra Gully",
-        "value": "2043"
-      },
-      "name": "Astra Gully",
-      "email": "3m@3m.com",
-      "jobTitle": "Senior Applications Director",
-      "mobilePhone": "",
-      "phone": "",
-      "primary": false,
-      "url": "/app/common/entity/contact.nl?id=2043&compid=TSTDRV2617106",
-      "selected": true
-    }, {
-      "id": "129",
-      "workorder": {
-        "text": "Install Cove Lights",
-        "value": "106"
-      },
-      "events": ["101032", "101033", "101034"],
-      "contact": {
-        "text": "3M : Kaelea Peel",
-        "value": "2044"
-      },
-      "name": "Kaelea Peel",
-      "email": "",
-      "jobTitle": "Dynamic Configuration Liason",
-      "mobilePhone": "",
-      "phone": "",
-      "primary": false,
-      "url": "/app/common/entity/contact.nl?id=2044&compid=TSTDRV2617106",
-      "selected": true
-    }],
+    "contacts": [],
     "addresses": [{
       "id": "150",
       "workorder": {
@@ -59386,45 +64833,7 @@ const mockup = {
       "note": "",
       "selected": true
     }],
-    "contacts": [{
-      "id": "128",
-      "workorder": {
-        "text": "Install Cove Lights",
-        "value": "106"
-      },
-      "events": ["101032", "101033", "101034"],
-      "contact": {
-        "text": "3M : Astra Gully",
-        "value": "2043"
-      },
-      "name": "Astra Gully",
-      "email": "3m@3m.com",
-      "jobTitle": "Senior Applications Director",
-      "mobilePhone": "",
-      "phone": "",
-      "primary": false,
-      "url": "/app/common/entity/contact.nl?id=2043&compid=TSTDRV2617106",
-      "selected": true
-    }, {
-      "id": "129",
-      "workorder": {
-        "text": "Install Cove Lights",
-        "value": "106"
-      },
-      "events": ["101032", "101033", "101034"],
-      "contact": {
-        "text": "3M : Kaelea Peel",
-        "value": "2044"
-      },
-      "name": "Kaelea Peel",
-      "email": "",
-      "jobTitle": "Dynamic Configuration Liason",
-      "mobilePhone": "",
-      "phone": "",
-      "primary": false,
-      "url": "/app/common/entity/contact.nl?id=2044&compid=TSTDRV2617106",
-      "selected": true
-    }],
+    "contacts": [],
     "addresses": [{
       "id": "150",
       "workorder": {
@@ -59773,45 +65182,7 @@ const mockup = {
       "note": "",
       "selected": true
     }],
-    "contacts": [{
-      "id": "126",
-      "workorder": {
-        "text": "Furniture Installation",
-        "value": "105"
-      },
-      "events": ["101031", "101042"],
-      "contact": {
-        "text": "World Bank : Chad Bass",
-        "value": "1382"
-      },
-      "name": "Chad Bass",
-      "email": "cbass@worldbank.com",
-      "jobTitle": "President",
-      "mobilePhone": "",
-      "phone": "",
-      "primary": false,
-      "url": "/app/common/entity/contact.nl?id=1382&compid=TSTDRV2617106",
-      "selected": true
-    }, {
-      "id": "127",
-      "workorder": {
-        "text": "Furniture Installation",
-        "value": "105"
-      },
-      "events": ["101031", "101042"],
-      "contact": {
-        "text": "World Bank : Jim Carrey",
-        "value": "2041"
-      },
-      "name": "Jim Carrey",
-      "email": "jcarrery@worldbank.com",
-      "jobTitle": "Administrative Manager",
-      "mobilePhone": "",
-      "phone": "",
-      "primary": false,
-      "url": "/app/common/entity/contact.nl?id=2041&compid=TSTDRV2617106",
-      "selected": true
-    }],
+    "contacts": [],
     "addresses": [{
       "id": "144",
       "workorder": {
@@ -60295,45 +65666,7 @@ const mockup = {
     "vendors": [],
     "assets": [],
     "items": [],
-    "contacts": [{
-      "id": "119",
-      "workorder": {
-        "text": "Furniture Installation",
-        "value": "103"
-      },
-      "events": ["101028", "101030"],
-      "contact": {
-        "text": "World Bank : Chad Bass",
-        "value": "1382"
-      },
-      "name": "Chad Bass",
-      "email": "cbass@worldbank.com",
-      "jobTitle": "President",
-      "mobilePhone": "",
-      "phone": "",
-      "primary": false,
-      "url": "/app/common/entity/contact.nl?id=1382&compid=TSTDRV2617106",
-      "selected": true
-    }, {
-      "id": "120",
-      "workorder": {
-        "text": "Furniture Installation",
-        "value": "103"
-      },
-      "events": ["101028", "101030"],
-      "contact": {
-        "text": "World Bank : John Smith",
-        "value": "1892"
-      },
-      "name": "John Smith",
-      "email": "jsmith@worldbank.com",
-      "jobTitle": "Logistics",
-      "mobilePhone": "",
-      "phone": "",
-      "primary": true,
-      "url": "/app/common/entity/contact.nl?id=1892&compid=TSTDRV2617106",
-      "selected": true
-    }],
+    "contacts": [],
     "addresses": [{
       "id": "140",
       "workorder": {
@@ -60707,64 +66040,7 @@ const mockup = {
       "note": "",
       "selected": true
     }],
-    "contacts": [{
-      "id": "123",
-      "workorder": {
-        "text": "AV Installation Only",
-        "value": "104"
-      },
-      "events": ["101029"],
-      "contact": {
-        "text": "World Bank : Chad Bass",
-        "value": "1382"
-      },
-      "name": "Chad Bass",
-      "email": "cbass@worldbank.com",
-      "jobTitle": "President",
-      "mobilePhone": "",
-      "phone": "",
-      "primary": false,
-      "url": "/app/common/entity/contact.nl?id=1382&compid=TSTDRV2617106",
-      "selected": true
-    }, {
-      "id": "124",
-      "workorder": {
-        "text": "AV Installation Only",
-        "value": "104"
-      },
-      "events": ["101029"],
-      "contact": {
-        "text": "World Bank : Jim Carrey",
-        "value": "2041"
-      },
-      "name": "Jim Carrey",
-      "email": "jcarrery@worldbank.com",
-      "jobTitle": "Administrative Manager",
-      "mobilePhone": "",
-      "phone": "",
-      "primary": false,
-      "url": "/app/common/entity/contact.nl?id=2041&compid=TSTDRV2617106",
-      "selected": true
-    }, {
-      "id": "125",
-      "workorder": {
-        "text": "AV Installation Only",
-        "value": "104"
-      },
-      "events": ["101029"],
-      "contact": {
-        "text": "World Bank : John Smith",
-        "value": "1892"
-      },
-      "name": "John Smith",
-      "email": "jsmith@worldbank.com",
-      "jobTitle": "Logistics",
-      "mobilePhone": "",
-      "phone": "",
-      "primary": true,
-      "url": "/app/common/entity/contact.nl?id=1892&compid=TSTDRV2617106",
-      "selected": true
-    }],
+    "contacts": [],
     "addresses": [{
       "id": "143",
       "workorder": {
@@ -61354,45 +66630,7 @@ const mockup = {
       "note": "",
       "selected": true
     }],
-    "contacts": [{
-      "id": "119",
-      "workorder": {
-        "text": "Furniture Installation",
-        "value": "103"
-      },
-      "events": ["101028", "101030"],
-      "contact": {
-        "text": "World Bank : Chad Bass",
-        "value": "1382"
-      },
-      "name": "Chad Bass",
-      "email": "cbass@worldbank.com",
-      "jobTitle": "President",
-      "mobilePhone": "",
-      "phone": "",
-      "primary": false,
-      "url": "/app/common/entity/contact.nl?id=1382&compid=TSTDRV2617106",
-      "selected": true
-    }, {
-      "id": "120",
-      "workorder": {
-        "text": "Furniture Installation",
-        "value": "103"
-      },
-      "events": ["101028", "101030"],
-      "contact": {
-        "text": "World Bank : John Smith",
-        "value": "1892"
-      },
-      "name": "John Smith",
-      "email": "jsmith@worldbank.com",
-      "jobTitle": "Logistics",
-      "mobilePhone": "",
-      "phone": "",
-      "primary": true,
-      "url": "/app/common/entity/contact.nl?id=1892&compid=TSTDRV2617106",
-      "selected": true
-    }],
+    "contacts": [],
     "addresses": [{
       "id": "140",
       "workorder": {
@@ -61674,7 +66912,7 @@ const mockup = {
         "status": {
           "text": "Completed",
           "value": "COMPLETED",
-          "code": "btn-info"
+          "code": "bg-info"
         },
         "date": {
           "recurrence": "occurs every day from 11/11/2024 until 11/12/2024",
@@ -61723,45 +66961,7 @@ const mockup = {
     "vendors": [],
     "assets": [],
     "items": [],
-    "contacts": [{
-      "id": "112",
-      "workorder": {
-        "text": "Furniture Installation and Pickup",
-        "value": "101"
-      },
-      "events": ["101017", "101018"],
-      "contact": {
-        "text": "World Bank : Chad Bass",
-        "value": "1382"
-      },
-      "name": "Chad Bass",
-      "email": "cbass@sbi.com",
-      "jobTitle": "President",
-      "mobilePhone": "",
-      "phone": "",
-      "primary": false,
-      "url": "/app/common/entity/contact.nl?id=1382&compid=TSTDRV2617106",
-      "selected": true
-    }, {
-      "id": "113",
-      "workorder": {
-        "text": "Furniture Installation and Pickup",
-        "value": "101"
-      },
-      "events": ["101017", "101018"],
-      "contact": {
-        "text": "World Bank : John Smith",
-        "value": "1892"
-      },
-      "name": "Test Prav",
-      "email": "pravallika@erpsuccesspartners.com",
-      "jobTitle": "QA",
-      "mobilePhone": "",
-      "phone": "",
-      "primary": true,
-      "url": "/app/common/entity/contact.nl?id=1892&compid=TSTDRV2617106",
-      "selected": true
-    }],
+    "contacts": [],
     "addresses": [{
       "id": "138",
       "workorder": {
@@ -61804,7 +67004,7 @@ const mockup = {
     "status": {
       "text": "Completed",
       "value": "COMPLETED",
-      "code": "btn-info"
+      "code": "bg-info"
     },
     "date": {
       "recurrence": "occurs every day from 11/11/2024 until 11/12/2024",
@@ -62043,7 +67243,7 @@ const mockup = {
         "status": {
           "text": "Completed",
           "value": "COMPLETED",
-          "code": "btn-info"
+          "code": "bg-info"
         },
         "date": {
           "recurrence": "occurs every day from 11/11/2024 until 11/12/2024",
@@ -62118,45 +67318,7 @@ const mockup = {
     }],
     "assets": [],
     "items": [],
-    "contacts": [{
-      "id": "112",
-      "workorder": {
-        "text": "Furniture Installation and Pickup",
-        "value": "101"
-      },
-      "events": ["101017", "101018"],
-      "contact": {
-        "text": "World Bank : Chad Bass",
-        "value": "1382"
-      },
-      "name": "Chad Bass",
-      "email": "cbass@sbi.com",
-      "jobTitle": "President",
-      "mobilePhone": "",
-      "phone": "",
-      "primary": false,
-      "url": "/app/common/entity/contact.nl?id=1382&compid=TSTDRV2617106",
-      "selected": true
-    }, {
-      "id": "113",
-      "workorder": {
-        "text": "Furniture Installation and Pickup",
-        "value": "101"
-      },
-      "events": ["101017", "101018"],
-      "contact": {
-        "text": "World Bank : John Smith",
-        "value": "1892"
-      },
-      "name": "Test Prav",
-      "email": "pravallika@erpsuccesspartners.com",
-      "jobTitle": "QA",
-      "mobilePhone": "",
-      "phone": "",
-      "primary": true,
-      "url": "/app/common/entity/contact.nl?id=1892&compid=TSTDRV2617106",
-      "selected": true
-    }],
+    "contacts": [],
     "addresses": [{
       "id": "138",
       "workorder": {
@@ -62678,45 +67840,7 @@ const mockup = {
     "vendors": [],
     "assets": [],
     "items": [],
-    "contacts": [{
-      "id": "110",
-      "workorder": {
-        "text": "Work Order Dry Run - Nov 8",
-        "value": "100"
-      },
-      "events": ["101015", "101016"],
-      "contact": {
-        "text": "World Bank : Chad Bass",
-        "value": "1382"
-      },
-      "name": "Chad Bass",
-      "email": "cbass@sbi.com",
-      "jobTitle": "President",
-      "mobilePhone": "",
-      "phone": "",
-      "primary": false,
-      "url": "/app/common/entity/contact.nl?id=1382&compid=TSTDRV2617106",
-      "selected": true
-    }, {
-      "id": "111",
-      "workorder": {
-        "text": "Work Order Dry Run - Nov 8",
-        "value": "100"
-      },
-      "events": ["101015", "101016"],
-      "contact": {
-        "text": "World Bank : John Smith",
-        "value": "1892"
-      },
-      "name": "Test Prav",
-      "email": "pravallika@erpsuccesspartners.com",
-      "jobTitle": "QA",
-      "mobilePhone": "",
-      "phone": "",
-      "primary": true,
-      "url": "/app/common/entity/contact.nl?id=1892&compid=TSTDRV2617106",
-      "selected": true
-    }],
+    "contacts": [],
     "addresses": [{
       "id": "134",
       "workorder": {
@@ -63398,45 +68522,7 @@ const mockup = {
       "note": "",
       "selected": true
     }],
-    "contacts": [{
-      "id": "110",
-      "workorder": {
-        "text": "Work Order Dry Run - Nov 8",
-        "value": "100"
-      },
-      "events": ["101015", "101016"],
-      "contact": {
-        "text": "World Bank : Chad Bass",
-        "value": "1382"
-      },
-      "name": "Chad Bass",
-      "email": "cbass@sbi.com",
-      "jobTitle": "President",
-      "mobilePhone": "",
-      "phone": "",
-      "primary": false,
-      "url": "/app/common/entity/contact.nl?id=1382&compid=TSTDRV2617106",
-      "selected": true
-    }, {
-      "id": "111",
-      "workorder": {
-        "text": "Work Order Dry Run - Nov 8",
-        "value": "100"
-      },
-      "events": ["101015", "101016"],
-      "contact": {
-        "text": "World Bank : John Smith",
-        "value": "1892"
-      },
-      "name": "Test Prav",
-      "email": "pravallika@erpsuccesspartners.com",
-      "jobTitle": "QA",
-      "mobilePhone": "",
-      "phone": "",
-      "primary": true,
-      "url": "/app/common/entity/contact.nl?id=1892&compid=TSTDRV2617106",
-      "selected": true
-    }],
+    "contacts": [],
     "addresses": [{
       "id": "134",
       "workorder": {
@@ -64019,45 +69105,7 @@ const mockup = {
       "note": "",
       "selected": true
     }],
-    "contacts": [{
-      "id": "102",
-      "workorder": {
-        "text": "Work Order for Testing Nov 5",
-        "value": "96"
-      },
-      "events": ["101012"],
-      "contact": {
-        "text": "World Bank : Chad Bass",
-        "value": "1382"
-      },
-      "name": "Chad Bass",
-      "email": "cbass@sbi.com",
-      "jobTitle": "President",
-      "mobilePhone": "",
-      "phone": "",
-      "primary": false,
-      "url": "/app/common/entity/contact.nl?id=1382&compid=TSTDRV2617106",
-      "selected": true
-    }, {
-      "id": "103",
-      "workorder": {
-        "text": "Work Order for Testing Nov 5",
-        "value": "96"
-      },
-      "events": ["101012"],
-      "contact": {
-        "text": "World Bank : John Smith",
-        "value": "1892"
-      },
-      "name": "Test Prav",
-      "email": "pravallika@erpsuccesspartners.com",
-      "jobTitle": "QA",
-      "mobilePhone": "",
-      "phone": "",
-      "primary": true,
-      "url": "/app/common/entity/contact.nl?id=1892&compid=TSTDRV2617106",
-      "selected": true
-    }],
+    "contacts": [],
     "addresses": [{
       "id": "124",
       "workorder": {
@@ -64623,45 +69671,7 @@ const mockup = {
       "note": "",
       "selected": true
     }],
-    "contacts": [{
-      "id": "98",
-      "workorder": {
-        "text": "Test Work Order - Nov 4",
-        "value": "94"
-      },
-      "events": ["101011"],
-      "contact": {
-        "text": "World Bank : Chad Bass",
-        "value": "1382"
-      },
-      "name": "Chad Bass",
-      "email": "cbass@sbi.com",
-      "jobTitle": "President",
-      "mobilePhone": "",
-      "phone": "",
-      "primary": false,
-      "url": "/app/common/entity/contact.nl?id=1382&compid=TSTDRV2617106",
-      "selected": true
-    }, {
-      "id": "99",
-      "workorder": {
-        "text": "Test Work Order - Nov 4",
-        "value": "94"
-      },
-      "events": ["101011"],
-      "contact": {
-        "text": "World Bank : John Smith",
-        "value": "1892"
-      },
-      "name": "Test Prav",
-      "email": "pravallika@erpsuccesspartners.com",
-      "jobTitle": "QA",
-      "mobilePhone": "",
-      "phone": "",
-      "primary": true,
-      "url": "/app/common/entity/contact.nl?id=1892&compid=TSTDRV2617106",
-      "selected": true
-    }],
+    "contacts": [],
     "addresses": [{
       "id": "116",
       "workorder": {
@@ -65227,26 +70237,7 @@ const mockup = {
       "note": "",
       "selected": true
     }],
-    "contacts": [{
-      "id": "101",
-      "workorder": {
-        "text": "Work Order - Nov 4 Dry run",
-        "value": "95"
-      },
-      "events": ["101010"],
-      "contact": {
-        "text": "World Bank : John Smith",
-        "value": "1892"
-      },
-      "name": "Test Prav",
-      "email": "pravallika@erpsuccesspartners.com",
-      "jobTitle": "QA",
-      "mobilePhone": "",
-      "phone": "",
-      "primary": true,
-      "url": "/app/common/entity/contact.nl?id=1892&compid=TSTDRV2617106",
-      "selected": true
-    }],
+    "contacts": [],
     "addresses": [{
       "id": "120",
       "workorder": {
@@ -66146,26 +71137,7 @@ const mockup = {
       "note": "",
       "selected": true
     }],
-    "contacts": [{
-      "id": "95",
-      "workorder": {
-        "text": "Work Order - Oct 31 - Test 1",
-        "value": "92"
-      },
-      "events": ["101008"],
-      "contact": {
-        "text": "World Bank : Chad Bass",
-        "value": "1382"
-      },
-      "name": "Chad Bass",
-      "email": "cbass@sbi.com",
-      "jobTitle": "President",
-      "mobilePhone": "",
-      "phone": "",
-      "primary": false,
-      "url": "/app/common/entity/contact.nl?id=1382&compid=TSTDRV2617106",
-      "selected": true
-    }],
+    "contacts": [],
     "addresses": [{
       "id": "110",
       "workorder": {
@@ -67039,26 +72011,7 @@ const mockup = {
       "note": "",
       "selected": true
     }],
-    "contacts": [{
-      "id": "94",
-      "workorder": {
-        "text": "Work Order - Oct 31 - Test 1",
-        "value": "92"
-      },
-      "events": ["101006", "101007"],
-      "contact": {
-        "text": "World Bank : John Smith",
-        "value": "1892"
-      },
-      "name": "Test Prav",
-      "email": "pravallika@erpsuccesspartners.com",
-      "jobTitle": "QA",
-      "mobilePhone": "",
-      "phone": "",
-      "primary": true,
-      "url": "/app/common/entity/contact.nl?id=1892&compid=TSTDRV2617106",
-      "selected": true
-    }],
+    "contacts": [],
     "addresses": [],
     "contact": {
       "text": "",
@@ -67914,26 +72867,7 @@ const mockup = {
       "note": "",
       "selected": true
     }],
-    "contacts": [{
-      "id": "94",
-      "workorder": {
-        "text": "Work Order - Oct 31 - Test 1",
-        "value": "92"
-      },
-      "events": ["101006", "101007"],
-      "contact": {
-        "text": "World Bank : John Smith",
-        "value": "1892"
-      },
-      "name": "Test Prav",
-      "email": "pravallika@erpsuccesspartners.com",
-      "jobTitle": "QA",
-      "mobilePhone": "",
-      "phone": "",
-      "primary": true,
-      "url": "/app/common/entity/contact.nl?id=1892&compid=TSTDRV2617106",
-      "selected": true
-    }],
+    "contacts": [],
     "addresses": [],
     "contact": {
       "text": "",
@@ -72319,7 +77253,25 @@ const mockup = {
       "text": "Test Work Order",
       "value": "123"
     },
-    "events": ["101062"],
+    "events": ["101062", "101077", "101078"],
+    "contact": {
+      "text": "World Bank : Chad Bass",
+      "value": "1382"
+    },
+    "name": "Chad Bass",
+    "email": "cbass@worldbank.com",
+    "jobTitle": "President",
+    "mobilePhone": "",
+    "phone": "",
+    "primary": false,
+    "url": "/app/common/entity/contact.nl?id=1382&compid=TSTDRV2617106"
+  }, {
+    "id": "169",
+    "workorder": {
+      "text": "Test Work Order",
+      "value": "123"
+    },
+    "events": ["101075", "101079"],
     "contact": {
       "text": "World Bank : Chad Bass",
       "value": "1382"
@@ -75062,7 +80014,7 @@ const mockup = {
       "text": "World Bank",
       "value": "1249"
     },
-    "events": ["101062"],
+    "events": ["101062", "101076", "101077", "101078", "101079"],
     "address": {
       "text": "434 Carlaw",
       "value": "244878"
@@ -75071,6 +80023,9 @@ const mockup = {
     "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
   }],
   "organizers": [{
+    "text": "Mei Matriano",
+    "value": "1647"
+  }, {
     "text": "Lean  cendana",
     "value": "1765"
   }, {
@@ -75079,9 +80034,6 @@ const mockup = {
   }, {
     "text": "Raymund Dejasco",
     "value": "1651"
-  }, {
-    "text": "Mei Matriano",
-    "value": "1647"
   }, {
     "text": "Arun Sharma",
     "value": "1770"
@@ -75139,6 +80091,52 @@ const mockup = {
   }, {
     "text": "Brad M Sparling",
     "value": "27"
+  }],
+  "resourceSkills": [{
+    "text": "Carpentry and Joinery",
+    "value": "10"
+  }, {
+    "text": "CNC Machining",
+    "value": "12"
+  }, {
+    "text": "Computer-Aided Design (CAD)",
+    "value": "8"
+  }, {
+    "text": "Driving",
+    "value": "3"
+  }, {
+    "text": "Furniture Assembly",
+    "value": "1"
+  }, {
+    "text": "Furniture Design",
+    "value": "7"
+  }, {
+    "text": "Interior Design",
+    "value": "14"
+  }, {
+    "text": "Material Knowledge",
+    "value": "9"
+  }, {
+    "text": "Metalworking",
+    "value": "5"
+  }, {
+    "text": "Painting and Finishing",
+    "value": "15"
+  }, {
+    "text": "Plumbing",
+    "value": "2"
+  }, {
+    "text": "Quality Control",
+    "value": "13"
+  }, {
+    "text": "Upholstery",
+    "value": "11"
+  }, {
+    "text": "Welding",
+    "value": "6"
+  }, {
+    "text": "Woodworking",
+    "value": "4"
   }]
 }
 

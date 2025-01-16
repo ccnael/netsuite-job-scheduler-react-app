@@ -70,4 +70,7 @@
 }
 #boardSection .cursor-x {
   cursor: not-allowed; /* 'x' cursor to show restricted drag area */
+}
+#boardSection .multiple-resource-field-hidden {
+  display: none;
 }/*# sourceMappingURL=board.css.map */

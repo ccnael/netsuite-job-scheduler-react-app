@@ -95,11 +95,12 @@ define([
       const resourceGroups = mod.Resource.getResourceGroups(resources);
       const vendors = mod.Resource.getVendors(events);
       const assets = mod.Resource.getAssetsAndEquipments(events);
+      const resourceSkills = mod.Resource.getResourceSkills(resources);
 
       const sampleWOs = workOrders.filter(wo => +wo.id > 65);
       const sampleEvents = events.filter(event => event.id.match(/1010/g));
 
-      mod.Utils.createLogFile('mockupDataSet', JSON.stringify({ userId: user.id, suiteletUrl, workOrders: sampleWOs, customers, resources, resourceGroups, woResources, vendors, assets, events: sampleEvents, woContacts, woAddresses, organizers }), 2199);
+      mod.Utils.createLogFile('mockupDataSet', JSON.stringify({ userId: user.id, suiteletUrl, workOrders: sampleWOs, customers, resources, resourceGroups, woResources, vendors, assets, events: sampleEvents, woContacts, woAddresses, organizers, resourceSkills }), 2199);
 
       const fileObj = {
         template: file.load('./vanilla-vite-app-bundle/index.html'),
@@ -124,7 +125,8 @@ define([
         .replace('{{assets}}', encodeURIComponent(JSON.stringify(assets)))
         .replace('{{vendors}}', encodeURIComponent(JSON.stringify(vendors)))
         .replace('{{events}}', encodeURIComponent(JSON.stringify(events)))
-        .replace('{{organizers}}', encodeURIComponent(JSON.stringify(organizers)));
+        .replace('{{organizers}}', encodeURIComponent(JSON.stringify(organizers)))
+        .replace('{{resourceSkills}}', encodeURIComponent(JSON.stringify(resourceSkills)));
 
       response.write(htmlStr);
     }

@@ -66,6 +66,7 @@ define([
             search.createColumn({ name: 'custentity_esp_fop_emp_rate_per_hr', label: 'Rate Per Hour' }),
             search.createColumn({ name: 'custentity_esp_fop_emp_fixed_bid_rate', label: 'Fixed Bid Rate' }),
             search.createColumn({ name: 'custentity_esp_fop_labour_rate_matrix', label: 'Labour Rates' }),
+            search.createColumn({ name: 'custentity_esp_fop_emp_resource_skill', label: 'Resource Skill' }),
             // search.createColumn({ name: 'custentity_esp_fop_events', label: 'Events' }),
           ]
         });
@@ -140,7 +141,17 @@ define([
             time: {
               start: '',
               end: ''
-            }
+            },
+            get resourceSkills() {
+              const obj = {
+                texts: Utils._stringToArray(result.getText('custentity_esp_fop_emp_resource_skill')),
+                values: Utils._stringToArray(result.getValue('custentity_esp_fop_emp_resource_skill')),
+              };
+              return obj.texts.map((text, index) => ({
+                text,
+                value: obj.values[index]
+              }));
+            },
           });
           return true;
         });
@@ -299,6 +310,37 @@ define([
         // log.audit('----- [Assets & Equipments] -----', assets);
 
         return assets;
+      }
+
+      static getResourceSkills(resources) {
+        let resourceSkillIds = [];
+        resources.map(resource => resourceSkillIds = [...resourceSkillIds, ...resource.resourceSkills.map(resourceSkill => resourceSkill.value)]);
+        resourceSkillIds = Array.from(new Set(resourceSkillIds)).filter(Boolean);
+        const filters = [
+          ['isinactive', 'is', 'F']
+        ];
+        if (resourceSkillIds.length) {
+          filters.push('AND');
+          filters.push(['internalid', 'anyof', resourceSkillIds]);
+        }
+        const searchObj = search.create({
+          type: env.RecordType.RESOURCE_SKILL,
+          filters,
+          columns:
+            [
+              search.createColumn({ name: 'name', label: 'Name' })
+            ]
+        });
+        const resourceSkills = [];
+        searchObj.run().each(result => {
+          resourceSkills.push({
+            text: result.getValue('name'),
+            value: result.id
+          });
+          return true;
+        });
+        log.audit('----- [Resource Skills] -----', resourceSkills);
+        return resourceSkills;
       }
     }
 
@@ -717,7 +759,17 @@ define([
                 start: startTime && moment(`1/1/1999 ${startTime}`).format(env.Format.EXPORT_TIME),
                 end: endTime && moment(`1/1/1999 ${endTime}`).format(env.Format.EXPORT_TIME)
               }
-            }
+            },
+            get resourceSkills() {
+              const obj = {
+                texts: Utils._stringToArray(result.getText({ name: 'custentity_esp_fop_emp_resource_skill', join: 'custrecord_esp_fop_res_employee' })),
+                values: Utils._stringToArray(result.getValue({ name: 'custentity_esp_fop_emp_resource_skill', join: 'custrecord_esp_fop_res_employee' })),
+              };
+              return obj.texts.map((text, index) => ({
+                text,
+                value: obj.values[index]
+              }));
+            },
           });
           return true;
         });

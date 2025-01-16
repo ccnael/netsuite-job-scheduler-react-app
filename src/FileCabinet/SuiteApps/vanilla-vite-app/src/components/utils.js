@@ -1,6 +1,6 @@
 import { userId, suiteletUrl, events } from './dataSet';
 
-export function initTabSwitch() {
+export function cacheTabSwitch() {
   const sessionKey = /netsuite\.com/.test(window.location.href) ? `${userId}:lastClickedTab` : 'lastClickedTab';
   const lastTab = localStorage.getItem(sessionKey);
   if (lastTab) {
@@ -180,7 +180,7 @@ export class Event {
     }
   }
 
-  static initAllDaySwitch(selector) {
+  static switchAllDay(selector) {
     $(`${selector} .alldayevent-switch`).on('change', ev => {
       if (ev.target.checked) {
         $(`${selector} .starttime`).val('08:00'); // NS default starttime

@@ -1,7 +1,7 @@
 import * as dataSet from './dataSet';
 import { resourcesDtColumns, vendorsDtColumns, assetsDtColumns } from './dataTable';
 import { Event } from './utils';
-import { initResourceDtCustomFilters } from './filters';
+import { clearFilters } from './filterFunctions';
 import './generalEventModal.css';
 
 let temp_resourcesDataTable, temp_vendorsDataTable, temp_assetsDataTable;
@@ -250,6 +250,7 @@ $(document).ready(() => {
         columns: resourcesDtColumns,
         initComplete: () => {
           eventFormHandlers();
+          addFilterIcon();
         }
       });
 
@@ -297,8 +298,7 @@ $(document).ready(() => {
         }
       });
 
-      Event.initAllDaySwitch('#generalEventModal'); // All day event switch function
-      initResourceDtCustomFilters(temp_resourcesDataTable, 'multiple-resource-field-ge', 'multiple-resource-group-field-ge');
+      Event.switchAllDay('#generalEventModal'); // All day event switch function
       Event.validateResourcesOnLoad('#wo-primaryinfo-ge', '#resources_ge', eventId);
       Event.validateOnHeaderFieldChange('#wo-primaryinfo-ge', '#resources_ge', eventId);
       Event.validateOnLineFieldChange('#wo-primaryinfo', '#resources', eventId);
@@ -446,13 +446,26 @@ $(document).ready(() => {
         }
       }
     }
-
     window.validateForm = () => true;
+  }
+
+  function addFilterIcon() {
+    const entriesLabel = $(`#resources_ge_wrapper div.dt-length`);
+    entriesLabel.addClass('d-flex align-items-center mb-2'); // Align entries label with search bar
+    const dtSearch = $(`#resources_ge_wrapper .dt-search`);
+    dtSearch.addClass('d-flex align-items-center mb-2'); // Align search bar as well
+    // Add filter icon beside the entries label
+    entriesLabel.append(`
+      <div class="d-flex align-items-center">
+      <i class="fa-solid fa-filter filter-icon" style="font-size: 20px; margin-left: 20px" title="Filter" data-bs-toggle="modal" data-bs-target="#filterFieldGeneralEventResource"></i>
+        <span class="badge badge-danger badge-pill counter" style="font-size: 8px" id="filter-generaleventresource-counter">0</span>
+      </div>
+    `);
   }
 
   function clearFieldValues() {
     console.log('----- Clearing Fields -----');
-
+    clearFilters('#filterFieldGeneralEventResource');
     showCustomLoader();
 
     $(`#generalEventModal`).attr('mode', '');
@@ -484,6 +497,8 @@ $(document).ready(() => {
       $('table#assets_ge tbody').children().remove();
       temp_assetsDataTable = temp_assetsDataTable.destroy();
     }
+
+    // 
   }
 
   function showCustomLoader() {

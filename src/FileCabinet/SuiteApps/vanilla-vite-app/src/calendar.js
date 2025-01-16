@@ -6,7 +6,7 @@ import listPlugin from '@fullcalendar/list';
 import timeGridPlugin from '@fullcalendar/timegrid';
 import resourceTimelinePlugin from '@fullcalendar/resource-timeline';
 import * as dataSet from './components/dataSet';
-import { initCalendarFilters, initAvailableJobsFilters, updateCurrentCalendarPageEventCount } from './components/filters';
+import { onFilterCalendarEvent, onFilterJob } from './components/filterFunctions';
 import { Event } from './components/utils';
 import './calendar.css';
 
@@ -27,48 +27,17 @@ export default class Calendar {
                 <div class="collapse-content collapseRight">
                     <!-- Available Jobs -->
                     <div style="padding: 10px;" class="card-header header">
-                      <i class="fa-solid fa-icon-size fa-users-gear" style="font-size: 14px; margin-right: 5px"></i>
-                      <span style="display: inline-block; text-align: center"><h5><strong>Available Jobs</strong></h5></span>
-                      <span class="badge badge-danger badge-pill counter">${dataSet.workOrders.length}</span>
-                    </div>
-                    <div id="col2_2-filter-tableWrapper" class="accordion accordion-flush">
-                      <div class="accordion-item">
-                        <h2 class="accordion-header" id="col2_2-filter-tableHeading">
-                          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#col2_2-filter-table" aria-expanded="false" aria-controls="col2_2-filter-table">
-                            <i class="fa fa-filter"></i>
-                            <strong class="grid-header">&nbsp;Filters</strong>
-                          </button>
-                        </h2>
-                        <div id="col2_2-filter-table" class="accordion-collapse collapse" aria-labelledby="col2_2-filter-tableHeading" data-bs-parent="#col2_2-filter-tableWrapper">
-                          <div class="container-fluid mt-3">
-                            <!-- Customer Filter (First Row) -->
-                            <div class="row g-3">
-                              <div class="col-6">
-                                <select class="selectpicker mx-auto multiple-customer-field" title="Filter by Customer" data-live-search="true" data-selected-text-format="count>2" data-style="" data-style-base="form-control" data-actions-box="true" multiple>
-                                  ${dataSet.customers.map(customer => `<option value="${customer.value}">${customer.text}</option>`)}
-                                </select>
-                              </div>
-                            </div>
-                            <!-- Work Order Title (Second Row) -->
-                            <div class="row g-3 mt-3">
-                              <div class="col-9">
-                                <input type="text" class="form-control" id="woTitle" placeholder="Enter Work Order Title">
-                              </div>
-                            </div>
-
-                            <!-- Date Filters (Third Row) -->
-                            <div class="row g-3 mt-3 align-items-center">
-                              <div class="col-md-6 d-flex align-items-center">
-                                <label for="calendar-job-datefrom" class="col-form-label me-2">From:</label>
-                                <input type="date" class="form-control" id="calendar-job-datefrom">
-                              </div>
-                              <div class="col-md-6 d-flex align-items-center">
-                                <label for="calendar-job-dateto" class="col-form-label me-2">To:</label>
-                                <input type="date" class="form-control" id="calendar-job-dateto">
-                              </div>
-                            </div>
-                          </div>
+                      <div style="display: flex; justify-content: space-between; align-items: center; text-align: center;">
+                        <div style="display: flex; align-items: center;">
+                          <i class="fa-solid fa-screwdriver-wrench" style="font-size: 16px;"></i>
+                          <span style="margin-left: 5px; display: flex; align-items: center;">
+                            <h5 style="margin: 0;"><strong>Available Jobs</strong></h5>
+                          </span>
+                          &nbsp;
+                          <span class="badge badge-danger badge-pill counter" id="header-calendarjob-counter">${dataSet.workOrders.length}</span>
                         </div>
+                        <i class="fa-solid fa-filter filter-icon" style="font-size: 14px;" title="Filter" data-bs-toggle="modal" data-bs-target="#filterFieldCalendarJob"></i>
+                        <span class="badge badge-danger badge-pill counter" id="filter-calendarjob-counter">0</span>
                       </div>
                     </div>
                     <div class="collapsible-list overflow-auto" style="height: 100%; overflow: scroll">
@@ -206,7 +175,7 @@ export default class Calendar {
         this._appendHeaderAndFilterFields();
         // $('button.bs-deselect-all').click(); // Deselect filter fields
         // this._setDefaultEvents();
-        updateCurrentCalendarPageEventCount(info);
+        // updateCurrentCalendarPageEventCount(info);
       },
       headerToolbar: {
         left: 'todayBtn prev,next',
@@ -321,7 +290,7 @@ export default class Calendar {
           </div>
             `;
             // console.log('eventContent', el.event)
-            updateCurrentCalendarPageEventCount(el.event);
+            // updateCurrentCalendarPageEventCount(el.event);
             return { html };
           } catch (e) {
             console.log('eventContent Unexpected Error', e.message);
@@ -368,8 +337,8 @@ export default class Calendar {
       datesSet: info => {
         console.log('Page changed', info);
         this._adjustZoomLevel(info);
-        initCalendarFilters(true, info);
-        updateCurrentCalendarPageEventCount(info);
+        onFilterCalendarEvent('#filterFieldCalendarEvent', true, info);
+        // updateCurrentCalendarPageEventCount(info);
       }
     });
 
@@ -408,10 +377,10 @@ export default class Calendar {
     };
     resizer.addEventListener('mousedown', mouseDownHandler);
 
-    initCalendarFilters(false);
-    initAvailableJobsFilters('#calendarSection .thirdColumn');
+    onFilterCalendarEvent('#filterFieldCalendarEvent', false);
+    onFilterJob('#calendarSection .thirdColumn');
 
-    // updateCurrentCalendarPageEventCount();
+    //// updateCurrentCalendarPageEventCount();
   }
 
   static _adjustZoomLevel(el) {
@@ -433,8 +402,13 @@ export default class Calendar {
         <span class="completed"></span> Completed
       </div>`;
       $(legendHTML).insertAfter('.fc-toolbar-title');
+      $('#fc-dom-1').append(`
+        <div class="d-flex align-items-center">
+          <i class="fa-solid fa-filter filter-icon" style="font-size: 20px; margin-left: 20px" title="Filter" data-bs-toggle="modal" data-bs-target="#filterFieldCalendarEvent"></i>
+          <span class="badge badge-danger badge-pill counter" style="font-size: 8px" id="filter-calendarevent-counter">0</span>
+        </div>`);
     }
-    if (!$('#calendar-filters').length) {
+    /* if (!$('#calendar-filters').length) {
       $(`<div id="calendar-filters">
         <div class="input-group inline-inputs" style="margin-top: 10px;">
           <div class="input-group mb-3" style="border-radius: 5px 5px 0 0;">
@@ -484,7 +458,7 @@ export default class Calendar {
       if (!$('#eventsViewCounter').length) {
         $('.fc-toolbar-title').append('<h6><span class="badge badge-danger badge-pill counter" style="display: inline-block" id="eventsViewCounter">TBD</span></h6>');
       }
-    }
+    } */
   }
 
   static _prefillAddEvent(info) {

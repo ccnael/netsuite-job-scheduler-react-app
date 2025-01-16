@@ -17,8 +17,13 @@ export const resourcesDtColumns = [
   },
   {
     className: 'dt-head-center',
-    render: (_data, _type, row, _meta) => `${row.resourceGroups.map(resourceGroup => resourceGroup.text).join(', ')}`,
+    render: (_data, _type, row, _meta) => `${row.resourceGroups.reduce((x, y) => x += `<span class="badge bg-info">${y.text}</span> `, '')}`,
     title: 'Group'
+  },
+  {
+    className: 'dt-head-center',
+    render: (_data, _type, row, _meta) => `${row.resourceSkills.reduce((x, y) => x += `<span class="badge bg-info">${y.text}</span> `, '')}`,
+    title: 'Skill'
   },
   {
     className: 'dt-head-center',

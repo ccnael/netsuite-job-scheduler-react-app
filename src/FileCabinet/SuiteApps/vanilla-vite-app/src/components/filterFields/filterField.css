@@ -1,0 +1,48 @@
+/* Background overlay */
+#filterFieldResources, #filterFieldBoardJob, #filterFieldBoardEvent, #filterFieldCalendarJob, #filterFieldCalendarEvent, #filterFieldEventResource, #openFilterGeneralEventResourceModal {
+  /* Background overlay */
+  /* .overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+  } */
+  /* .addFieldsForm {
+    display: none !important;
+  } */
+}
+#filterFieldResources .modal, #filterFieldBoardJob .modal, #filterFieldBoardEvent .modal, #filterFieldCalendarJob .modal, #filterFieldCalendarEvent .modal, #filterFieldEventResource .modal, #openFilterGeneralEventResourceModal .modal {
+  display: none; /* Hidden by default */
+  position: absolute; /* Position relative to the nearest positioned ancestor */
+  top: 100%; /* Place below the filter icon */
+  right: 0; /* Align to the right of the icon */
+  width: 300px;
+  background-color: white;
+  padding: 15px;
+  z-index: 10;
+}
+#filterFieldResources .modal-header, #filterFieldBoardJob .modal-header, #filterFieldBoardEvent .modal-header, #filterFieldCalendarJob .modal-header, #filterFieldCalendarEvent .modal-header, #filterFieldEventResource .modal-header, #openFilterGeneralEventResourceModal .modal-header {
+  font-weight: bold;
+  text-align: center;
+}
+#filterFieldResources .filter-group, #filterFieldBoardJob .filter-group, #filterFieldBoardEvent .filter-group, #filterFieldCalendarJob .filter-group, #filterFieldCalendarEvent .filter-group, #filterFieldEventResource .filter-group, #openFilterGeneralEventResourceModal .filter-group {
+  margin: 10px 0;
+}
+#filterFieldResources label, #filterFieldBoardJob label, #filterFieldBoardEvent label, #filterFieldCalendarJob label, #filterFieldCalendarEvent label, #filterFieldEventResource label, #openFilterGeneralEventResourceModal label {
+  display: block;
+  margin-bottom: 5px;
+}
+#filterFieldResources select, #filterFieldBoardJob select, #filterFieldBoardEvent select, #filterFieldCalendarJob select, #filterFieldCalendarEvent select, #filterFieldEventResource select, #openFilterGeneralEventResourceModal select {
+  width: 100%;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* #filterFieldEventResource {
+  z-index: 9999;
+} *//*# sourceMappingURL=filterField.css.map */

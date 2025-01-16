@@ -1,5 +1,6 @@
 import * as dataSet from './components/dataSet';
 import { Event } from './components/utils';
+import { onClickResource } from './components/filterFunctions';
 import './board.css';
 
 export default class Board {
@@ -14,8 +15,8 @@ export default class Board {
                   <div style="padding: 10px; margin-top: 20px; display: flex; align-items: center;" class="card-header header">
                     <i class="fa-solid fa-users-gear" style="font-size: 14px; margin-right: 5px;"></i>
                     <h5 style="margin: 0;"><strong>Resources</strong></h5>
-                    <i class="fa-solid fa-filter filter-icon" style="margin-left: auto; font-size: 14px;" title="Filter" onclick="openFilterModal('Filter Resources');"></i>
-                    <span class="badge badge-danger badge-pill counter">0</span>
+                    <i class="fa-solid fa-filter filter-icon" style="margin-left: auto; font-size: 14px;" title="Filter" data-bs-toggle="modal" data-bs-target="#filterFieldResource"></i>
+                    <span class="badge badge-danger badge-pill counter" id="filter-resource-counter">0</span>
                   </div>
                 </div>
                 <div class="collapsible-list overflow-auto" style="height: 100%; overflow: scroll">
@@ -36,8 +37,8 @@ export default class Board {
                                   data-bs-toggle="tooltip" 
                                   data-bs-placement="right" 
                                   title="<strong>${resource.name}</strong><br/>
-                                    Types: ${resource.types.map(type => type.text).join('/')}<br/>
-                                    Groups: ${resource.resourceGroups.map(_resourceGroup => _resourceGroup.text).join('/')}<br/>
+                                    Groups: ${resource.resourceGroups.map(_resourceGroup => _resourceGroup.text).join(' / ')}<br/>
+                                    Skills: ${resource.resourceSkills.map(resourceSkill => resourceSkill.text).join(' / ')}<br/>
                                     Email: ${resource.email}<br/>
                                     Phone: ${resource.phone}<br/>
                                     Location: ${resource.location.text}<br/>
@@ -52,8 +53,7 @@ export default class Board {
                           </div>`)}
                         </div>
                       </div>
-                    </div>`
-    )}
+                    </div>`)}
                   ${`<div id="resourceGroup-vendor-filter-tableWrapper" class="accordion accordion-flush">
                       <div class="accordion-item">
                         <h2 class="accordion-header" id="resourceGroup-vendor-filter-tableHeading">
@@ -96,50 +96,15 @@ export default class Board {
                     <div class="card-header header">
                       <div style="display: flex; justify-content: space-between; align-items: center; text-align: center;">
                         <div style="display: flex; align-items: center;">
-                          <i class="fa-solid fa-screwdriver-wrench" style="font-size: 16px"></i>
-                          <span style="display: inline-block; margin-left: 5px">
-                            <h5><strong>Available Jobs</strong></h5>
-                          </span>&nbsp;
-                          <span class="badge badge-danger badge-pill counter">${dataSet.workOrders.length}</span>
+                          <i class="fa-solid fa-screwdriver-wrench" style="font-size: 16px;"></i>
+                          <span style="margin-left: 5px; display: flex; align-items: center;">
+                            <h5 style="margin: 0;"><strong>Available Jobs</strong></h5>
+                          </span>
+                          &nbsp;
+                          <span class="badge badge-danger badge-pill counter" id="header-boardjob-counter">${dataSet.workOrders.length}</span>
                         </div>
-                        <i class="fa-solid fa-filter filter-icon" style="font-size: 14px;" title="Filter" onclick="alert('TBD')"></i>
-                        <span class="badge badge-danger badge-pill counter">0</span>
-                      </div>
-                    </div>
-                    <div id="col2-filter-tableWrapper" class="accordion accordion-flush">
-                      <div class="accordion-item">
-                        <h2 class="accordion-header" id="col2-filter-tableHeading">
-                          <button class="accordion-button collapsed" type="button" data-toggle="collapse" data-target="#col2-filter-table" aria-expanded="false" aria-controls="col2-filter-table">
-                            <i class="fa fa-filter"></i>
-                            <strong class="grid-header">&nbsp;Filters</strong>
-                          </button>
-                        </h2>
-                        <div id="col2-filter-table" class="accordion-collapse collapse" aria-labelledby="col2-filter-tableHeading" data-parent="#col2-filter-tableWrapper">
-                          <div class="input-group inline-inputs">
-                            <div class="input-group mb-3" style="border-radius: 5px 5px 0 0; margin-top: 15px; margin-left: 10px;">
-                              <select class="selectpicker mx-auto multiple-customer-field" title="Filter by Customer" data-live-search="true" data-selected-text-format="count>2" data-style="" data-style-base="form-control" data-actions-box="true" multiple>
-                                ${dataSet.customers.map(customer => `<option value="${customer.value}">${customer.text}</option>`)}
-                              </select>
-                            </div>
-                            <div class="mb-3" style="border-radius: 5px 5px 0 0; margin-top: 15px; margin-left: 10px;">
-                              <input type="text" class="form-control" id="woTitle" placeholder="Enter Work Order Title">
-                            </div>
-                          </div>
-                          <div class="input-group inline-inputs" style="margin-top: 10px; margin-left: 10px;">
-                            <div class="mb-3 row align-items-center">
-                              <label for="board-job-datefrom" class="col-form-label col-auto">From: </label>
-                              <div class="col-auto">
-                                  <input type="date" class="form-control" id="board-job-datefrom">
-                              </div>
-                            </div>
-                            <div class="mb-3 row align-items-center">
-                              <label for="board-job-dateto" class="col-form-label col-auto">To: </label>
-                              <div class="col-auto">
-                                  <input type="date" class="form-control" id="board-job-dateto">
-                              </div>
-                            </div>
-                          </div>
-                        </div>
+                        <i class="fa-solid fa-filter filter-icon" style="font-size: 14px;" title="Filter" data-bs-toggle="modal" data-bs-target="#filterFieldBoardJob"></i>
+                        <span class="badge badge-danger badge-pill counter" id="filter-boardjob-counter">0</span>
                       </div>
                     </div>
                     <div class="card-wrapper">
@@ -185,104 +150,34 @@ export default class Board {
                     <div class="card-header header">
                       <div style="display: flex; justify-content: space-between; align-items: center; text-align: center;">
                         <div style="display: flex; align-items: center;">
-                          <i class="fa-solid fa-calendar-check" style="font-size: 16px"></i>
-                          <span style="display: inline-block; margin-left: 5px">
-                            <h5><strong>Available Jobs</strong></h5>
-                          </span>&nbsp;
-                          <span class="badge badge-danger badge-pill counter">${dataSet.events/* .filter(event => event.status.value !== 'COMPLETED') */.length}</span>
+                          <i class="fa-solid fa-screwdriver-wrench" style="font-size: 16px;"></i>
+                          <span style="margin-left: 5px; display: flex; align-items: center;">
+                            <h5 style="margin: 0;"><strong>Events</strong></h5>
+                          </span>
+                          &nbsp;
+                          <span class="badge badge-danger badge-pill counter" id="header-boardevent-counter">${dataSet.events/* .filter(event => event.status.value !== 'COMPLETED') */.length}</span>
                         </div>
-                        <i class="fa-solid fa-filter filter-icon" style="font-size: 14px;" title="Filter" onclick="alert('TBD')"></i>
-                        <span class="badge badge-danger badge-pill counter">0</span>
-                      </div>
-                    </div>
-                    <div id="col3-filter-tableWrapper" class="accordion accordion-flush">
-                      <div class="accordion-item">
-                          <h2 class="accordion-header" id="col3-filter-tableHeading">
-                            <button class="accordion-button collapsed" type="button" data-toggle="collapse" data-target="#col3-filter-table" aria-expanded="false" aria-controls="col3-filter-table">
-                              <i class="fa fa-filter"></i>
-                              <strong class="grid-header">&nbsp;Filters</strong>
-                            </button>
-                          </h2>
-                          <div id="col3-filter-table" class="accordion-collapse collapse" aria-labelledby="col3-filter-tableHeading" data-parent="#col3-filter-tableWrapper">
-                            <div class="input-group inline-inputs" style="margin-top: 10px;">
-                              <div class="input-group mb-3" style="border-radius: 5px 5px 0 0;">
-                                <select class="selectpicker mx-auto multiple-resource-field" title="Filter by Resource Name" data-live-search="true" data-selected-text-format="count>2" data-style="" data-style-base="form-control" data-actions-box="true" multiple>
-                                  ${dataSet.resources.map(resource => `<option value="${resource.id}">${resource.name}</option>`)}
-                                  ${dataSet.vendors.map(vendor => `<option value="${vendor.id}">${vendor.name}</option>`)}
-                                </select>
-                              </div>
-                              <div class="input-group mb-3">
-                                <select class="selectpicker mx-auto multiple-resource-group-field" title="Filter by Resource Group" data-live-search="true" data-selected-text-format="count>2" data-style="" data-style-base="form-control" data-actions-box="true" multiple>
-                                ${dataSet.resourceGroups.map(resourceGroup => `<option value="${resourceGroup.value}">${resourceGroup.text}</option>`)}
-                                <option value="vendor">Vendor Subcons</option>
-                                <option value="unassigned">Unassigned</option>
-                                </select>
-                              </div>
-                            </div>
-                            <div class="input-group inline-inputs">
-                              <div class="mb-3">
-                                <select class="selectpicker mx-auto multiple-event-status-field" title="Filter by Status" data-live-search="true" data-selected-text-format="count>2" data-style="" data-style-base="form-control" multiple>
-                                  <option value="TENTATIVE">Tentative</option>
-                                  <option value="CONFIRMED">Confirmed</option>
-                                  <option value="COMPLETED">Completed</option>
-                                </select>
-                              </div>
-                              <div class="mb-3">
-                                <select class="selectpicker mx-auto multiple-event-priority-field" title="Filter by Priority" data-live-search="true" data-selected-text-format="count>2" data-style="" data-style-base="form-control" data-actions-box="true" multiple>
-                                  <option value="1">Low</option>
-                                  <option value="2">Mid</option>
-                                  <option value="3">High</option>
-                                  <option value="4">Urgent</option>
-                                </select>
-                              </div>
-                            </div>
-                            <div class="input-group inline-inputs">
-                              <div class="input-group mb-3">
-                                <select class="selectpicker mx-auto multiple-event-organizer-field" title="Filter by Organizer" data-live-search="true" data-selected-text-format="count>2" data-style="" data-style-base="form-control" data-actions-box="true" multiple>
-                                ${dataSet.organizers.map(organizer => `<option value="${organizer.value}">${organizer.text}</option>`)}
-                                </select>
-                              </div>
-                              <div class="mb-3">
-                                <select class="selectpicker mx-auto multiple-event-type-field" title="Filter by Event Type" data-live-search="true" data-selected-text-format="count>2" data-style="" data-style-base="form-control" data-actions-box="true" multiple>
-                                  <option value="1">General Event</option>
-                                  <option value="2">Non General Event</option>
-                                </select>
-                              </div>
-                            </div>
-                            <div class="input-group inline-inputs" style="margin-left: 10px; padding-bottom: 10px">
-                              <div class="row align-items-center">
-                                <label for="board-event-datefrom" class="col-form-label col-auto">From: </label>
-                                <div class="col-auto">
-                                    <input type="date" class="form-control" id="board-event-datefrom">
-                                </div>
-                              </div>
-                              <div class="row align-items-center">
-                                <label for="board-event-dateto" class="col-form-label col-auto">To: </label>
-                                <div class="col-auto">
-                                    <input type="date" class="form-control" id="board-event-dateto">
-                                </div>
-                              </div>
-                            </div>
-                          </div>
+                        <i class="fa-solid fa-filter filter-icon" style="font-size: 14px;" title="Filter" data-bs-toggle="modal" data-bs-target="#filterFieldBoardEvent"></i>
+                        <span class="badge badge-danger badge-pill counter" id="filter-boardevent-counter">0</span>
                       </div>
                     </div>
                     <div class="secondary-row">
                       <button class="btn btn-primary button-add" onclick="openGeneralEventModal(event)">
                         <i class="fa-regular fa-icon-size fa-plus-square"></i> New
                       </button>
-                      <!-- <button class="btn btn-primary button-submit" onclick="submitEvents(event)">
-                        <i class="fa-solid fa-file-export"></i> Submit -->
+                      <div class="col-md-6">
+                        <select class="selectpicker mx-auto multiple-resource-field multiple-resource-field-hidden" title="Filter by Resource Name" data-live-search="true" data-selected-text-format="count>2" data-style="" data-style-base="form-control" data-actions-box="true" multiple>
+                          ${dataSet.resources.map(resource => `<option value="${resource.id}">${resource.name}</option>`)}
+                          ${dataSet.vendors.map(vendor => `<option value="${vendor.id}">${vendor.name}</option>`)}
+                        </select>
+                      </div>
                       </button>
                     </div>
                     <div class="card-wrapper">
                       ${dataSet.events.map(event => `
                         <div type="event" class="card-item" id="${event.id}" data-bs-toggle="tooltip" data-bs-placement="left" 
-                        title="Resources:<br/>${(event.resources.length || event.vendors.length) ?
-        `
-                            ${event.resources.map((resource, counter) => `${+counter + 1}. ${resource.employee.text}`).join('<br/>')}<br/>
-                            ${event.vendors.map((vendor, counter) => `${event.resources.length + counter + 1}. ${vendor.vendor.text || vendor.name}`).join('<br/>')}
-                          `
-        : '- None -'}"
+                        title="Resources:<br/>${(event.resources.length || event.vendors.length) ? `${event.resources.map((resource, counter) => `${+counter + 1}. ${resource.employee.text}`).join('<br/>')}<br/>
+                            ${event.vendors.map((vendor, counter) => `${event.resources.length + counter + 1}. ${vendor.vendor.text || vendor.name}`).join('<br/>')}` : '- None -'}"
                         style="${''/* event.status.value === 'COMPLETED' ? 'display: none' : 'display: initial' */}">
                           <div class="card-head">
                             <div class="card-name"><a href="${event.url}" target="_blank"><strong>${event.title}</strong></a></div>
@@ -325,7 +220,7 @@ export default class Board {
 
     this._initLayoutHandlers();
     this._initToolTip();
-    this._initResourceDragFunctionsTempSwitch();
+    this._onDragResource();
     this._showBanners();
   }
 
@@ -512,6 +407,8 @@ export default class Board {
       ev.stopPropagation();
       ev.preventDefault();
     }
+
+    onClickResource();
   }
 
   static _showBanners() {
@@ -571,7 +468,7 @@ export default class Board {
   }
 
   // This prevents conflict dropping conflict with the job items drag and drop
-  static _initResourceDragFunctionsTempSwitch() {
+  static _onDragResource() {
     $('.person-circle').on('dragstart', function (event) {
       $('.thirdColumn').find('div[type*="event"]').on('dragenter dragover drop dragleave', dragResourceFunctions);
     });

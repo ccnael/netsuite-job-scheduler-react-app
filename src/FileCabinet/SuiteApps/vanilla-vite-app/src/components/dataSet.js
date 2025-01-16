@@ -16,9 +16,8 @@ export const assets = getValue('#assets', mockup.assets);
 export const vendors = getValue('#vendors', mockup.vendors);
 export const events = getValue('#events', mockup.events);
 export const organizers = getValue('#organizers', mockup.organizers);
-
+export const resourceSkills = getValue('#resourceSkills', mockup.resourceSkills);
 export const activeResources = resources.filter(resource => !!resource.active);
-
 export const combinedResourceGroups = (() => {
   const combinedGroup = JSON.parse(JSON.stringify(resourceGroups));
   const vendorObj = {

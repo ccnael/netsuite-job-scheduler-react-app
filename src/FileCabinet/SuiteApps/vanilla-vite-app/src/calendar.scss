@@ -182,6 +182,7 @@ $background-color_19: #f0f0f0;
 		transition: 0.5s ease;
 		height: 100%;
 		// width: 100%;
+		min-width: 335px;
 	}
 	.card-wrapper {
 		grid-column: 2 / 3;
