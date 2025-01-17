@@ -47,11 +47,12 @@ export function onFilterResource(fieldId) {
       const elementId = $(this)[0].id;
       const resourceId = elementId.split('-').pop();
       const containerId = $el.closest('div[id*="-filter-tableWrapper"]').attr('id');
-      const groupId = (containerId.match('vendor') || containerId.match(/\d+/))[0];
+      const groupId = (containerId.match('asset') || containerId.match('vendor') || containerId.match(/\d+/))[0];
       const _resource = dataSet.resources.find(resource => resource.employee.value == resourceId);
       const _vendor = dataSet.vendors.find(vendor => vendor.vendor.value == resourceId);
+      const _asset = dataSet.assets.find(asset => asset.item.value == resourceId);
 
-      if (_resource || _vendor) {
+      if (_resource || _vendor || _asset) {
         let _resourceGroup = [], _resourceSkill = [];
         if (_resource) {
           _resourceGroup = [..._resourceGroup, ..._resource.resourceGroups.map(resourceGroup => resourceGroup.value)];
@@ -59,9 +60,9 @@ export function onFilterResource(fieldId) {
           _resourceSkill = [..._resourceSkill, ..._resource.resourceSkills.map(resourceSkill => resourceSkill.value)];
           _resourceSkill = Array.from(new Set(_resourceSkill));
         } else {
-          _resourceGroup = ['vendor'];
+          _resourceGroup = ['vendor', 'asset'];
         }
-        const _resourceStatus = (_resource || _vendor).active ? '1' : '0';
+        const _resourceStatus = (_resource || _vendor || _asset).active ? '1' : '0';
         const shouldDisplay = !!(
           (!$selected.resource.length || $selected.resource.includes(resourceId)) &&
           (!$selected.resourceGroup.length || $selected.resourceGroup.includes(groupId)) &&
@@ -341,6 +342,7 @@ export function onClickResource() {
   const $selected = {
     resource: []
   };
+  // This hidden filter field is to trigger the boardevent filter resource field
   if ($resourceFilterHidden.length) {
     $resourceFilterHidden.on('change', function () {
       $selected.resource = $(this).val() || [];
@@ -394,7 +396,8 @@ export function onClickResource() {
       if (eventData) {
         const eventResources = eventData.resources.map(resource => resource.employee.value);
         const eventVendors = eventData.vendors.map(vendor => vendor.vendor.value);
-        const combinedResources = [...eventResources, ...eventVendors];
+        const eventAssets = eventData.assets.map(asset => asset.item.value);
+        const combinedResources = [...eventResources, ...eventVendors, ...eventAssets];
         const shouldDisplay = !!(
           (!$selected.resource.length || $selected.resource.some(value => new Set(combinedResources).has(value)))
         );

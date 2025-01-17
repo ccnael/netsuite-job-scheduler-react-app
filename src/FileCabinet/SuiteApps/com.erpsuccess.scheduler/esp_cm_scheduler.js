@@ -287,11 +287,18 @@ define([
             id: result.id,
             name: result.getValue('itemid'),
             displayname: result.getValue('displayname'),
+            quantity: 0,
             description: result.getValue('salesdescription'),
             /* equipmentType: {
               text: result.getText('custitem_esp_fop_equipment_type'),
               value: result.getValue('custitem_esp_fop_equipment_type')
             }, */
+            get item() {
+              return {
+                text: this.name,
+                value: this.id
+              }
+            },
             vendor: {
               text: result.getText('vendor'),
               value: result.getValue('vendor')
@@ -339,7 +346,7 @@ define([
           });
           return true;
         });
-        log.audit('----- [Resource Skills] -----', resourceSkills);
+        // log.audit('----- [Resource Skills] -----', resourceSkills);
         return resourceSkills;
       }
     }
@@ -778,7 +785,7 @@ define([
       }
 
       // Employee to Work Order Resource
-      static _createResources(event, woRef) {
+      static _createResources(event, woRef, copyEventTime) {
         const resources = event?.selectedResources || [];
         for (const resource of resources) {
           try {
@@ -803,8 +810,8 @@ define([
             rec.setValue({ fieldId: 'custrecord_esp_fop_res_vendor', value: resource.vendor.value });
             rec.setValue({ fieldId: 'custrecord_esp_fop_res_rel_po', value: resource.purchaseOrder.value });
             rec.setValue({ fieldId: 'custrecord_esp_fop_res_aff_type', value: resource.affiliationType.value });
-            rec.setValue({ fieldId: 'custrecord_esp_fop_res_start_time', value: Utils._toDateTimez(event.date.start, resource.time.start) });
-            rec.setValue({ fieldId: 'custrecord_esp_fop_res_end_time', value: Utils._toDateTimez(event.date.start, resource.time.end) });
+            rec.setValue({ fieldId: 'custrecord_esp_fop_res_start_time', value: Utils._toDateTimez(event.date.start, !copyEventTime ? resource.time.start : event.time.start) }); // If no resource start time, use event start time instead
+            rec.setValue({ fieldId: 'custrecord_esp_fop_res_end_time', value: Utils._toDateTimez(event.date.start, !copyEventTime ? resource.time.end : event.time.end) }); // If no resource end time, use event end time instead
             const newId = rec.save({ ignoreMandatoryFieds: true });
             log.audit('----- [Created WO Resource Record] -----', newId);
           } catch (e) {
@@ -1118,18 +1125,25 @@ define([
               isDynamic: true
             });
             rec.setValue({ fieldId: 'custrecord_esp_fop_ast_equipment', value: asset.id });
-            rec.setValue({ fieldId: 'custrecord_esp_fop_ast_rel_wo', value: woRef?.id || '' });
             rec.setValue({ fieldId: 'custrecord_esp_fop_ast_wo_event', value: event.id });
             rec.setValue({ fieldId: 'custrecord_esp_fop_ast_quantity', value: asset.quantity });
-            rec.setValue({ fieldId: 'custrecordesp_fop_ast_rental_unit', value: asset.rentalUnit.value });
             rec.setValue({ fieldId: 'custrecord_esp_fop_ast_rental_duration', value: asset.rentalDuration });
             rec.setValue({ fieldId: 'custrecord_esp_fop_ast_rental_rate', value: asset.rentalRate });
             // rec.setValue({ fieldId: 'custrecord_esp_fop_ast_rental_amount', value: asset. }); // TBD
-            rec.setValue({ fieldId: 'custrecord_esp_fop_ast_primary_vendor', value: asset.vendor.value });
-            rec.setValue({ fieldId: 'custrecord_esp_fop_ast_equip_type', value: asset.equipmentType.value });
             rec.setValue({ fieldId: 'custrecord_esp_fop_ast_is_owned', value: !!asset.owned });
             rec.setValue({ fieldId: 'custrecord_esp_fop_ast_rental_mtrx', value: asset.rentalMatrix });
-
+            if (woRef?.id) {
+              rec.setValue({ fieldId: 'custrecord_esp_fop_ast_rel_wo', value: woRef?.id });
+            }
+            if (asset?.rentalUnit?.value) {
+              rec.setValue({ fieldId: 'custrecordesp_fop_ast_rental_unit', value: asset?.rentalUnit?.value });
+            }
+            if (asset?.vendor?.value) {
+              rec.setValue({ fieldId: 'custrecord_esp_fop_ast_primary_vendor', value: asset?.vendor?.value });
+            }
+            if (asset?.equipmentType?.value) {
+              rec.setValue({ fieldId: 'custrecord_esp_fop_ast_equip_type', value: asset?.equipmentType?.value });
+            }
             const newId = rec.save({ ignoreMandatoryFieds: true });
             log.audit('----- [Created WO Asset Record] -----', newId);
           } catch (e) {
@@ -1820,7 +1834,7 @@ define([
         const user = runtime.getCurrentUser();
         let reqBody = request.body || '{}';
         const payload = JSON.parse(reqBody);
-        const { eventDataSrc, eventData, woRef, woResources } = payload;
+        const { eventDataSrc, eventData, woRef, woResources, draggedResource } = payload;
         const eventDataProps = Object.keys(eventData);
 
         log.audit('----- [Update Work Order Event] -----', { eventDataProps, payload });
@@ -1828,11 +1842,16 @@ define([
 
         try {
           // Drag single resource scenario
-          if (eventDataProps.length == 2 && eventDataProps[0] == 'id') {
-            if (eventDataProps[1] == 'selectedResources') {
-              WorkOrderResource._createRecords(eventData, woRef);
-            } else if (eventDataProps[1] == 'selectedVendors') {
-              WorkOrderVendor._createRecords(eventData, woRef);
+          if (!!draggedResource) {
+            switch (draggedResource) {
+              case 'employee':
+                WorkOrderResource._createResources(eventData, woRef, true);
+                break;
+              case 'vendor':
+                WorkOrderVendor._createVendors(eventData, woRef);
+              case 'asset':
+                WorkOrderAsset._createAssets(eventData, woRef);
+                break;
             }
           } else {
             eventData.date.start = moment(eventData.date.start).format(env.Format.IMPORT_DATE);

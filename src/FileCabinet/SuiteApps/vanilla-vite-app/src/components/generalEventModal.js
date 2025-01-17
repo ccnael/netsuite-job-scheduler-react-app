@@ -301,7 +301,7 @@ $(document).ready(() => {
       Event.switchAllDay('#generalEventModal'); // All day event switch function
       Event.validateResourcesOnLoad('#wo-primaryinfo-ge', '#resources_ge', eventId);
       Event.validateOnHeaderFieldChange('#wo-primaryinfo-ge', '#resources_ge', eventId);
-      Event.validateOnLineFieldChange('#wo-primaryinfo', '#resources', eventId);
+      Event.validateOnLineFieldChange('#wo-primaryinfo-ge', '#resources_ge', eventId);
     }, 250);
   });
 

@@ -72,8 +72,17 @@ export class Event {
 
   static validateOnLineFieldChange(tableId, resourceTblId, eventId) {
     const that = this;
+    // On resource check
+    $(`${resourceTblId} input.dt-line-select`).on('change', function () {
+      const time = {
+        start: $(`${tableId} input.starttime`).val(),
+        end: $(`${tableId} input.endtime`).val(),
+      }
+      // Copy header start/endto current line time fields
+      $(this).parent().parent().parent().find('input.starttime-resource').val(time.start);
+      $(this).parent().parent().parent().find('input.endtime-resource').val(time.end);
+    });
     $(`${resourceTblId} input.starttime-resource, ${resourceTblId} input.endtime-resource`).on('change', function () {
-      console.log('LINE FIELD CHANGED');
       if (!that.validateResourceTime(this, tableId, resourceTblId)) {
         return;
       }

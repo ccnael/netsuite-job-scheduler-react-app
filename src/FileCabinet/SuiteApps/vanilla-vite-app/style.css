@@ -15,7 +15,7 @@ html {
   padding: 0;
   font-size: 12px;
   box-sizing: border-box;
-  font-family: "Segoe UI", Arial, sans-serif;
+  font-family: "Poppins", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 body {
@@ -23,7 +23,7 @@ body {
   padding: 0;
   font-size: 12px;
   box-sizing: border-box;
-  font-family: "Segoe UI", Arial, sans-serif;
+  font-family: "Poppins", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 #app {
@@ -540,4 +540,12 @@ div.form-check {
 .floating-logo img {
   width: 100%;
   height: auto;
+}
+
+.counter {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 14px;
+  line-height: 1.2;
 }/*# sourceMappingURL=style.css.map */

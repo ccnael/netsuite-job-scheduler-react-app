@@ -4,7 +4,7 @@ import './filterField.css';
 
 $(document).ready(() => {
   $('#app').append(`
-    <div class="modal fade" id="filterFieldCalendarJob" mode="" title="" tabindex="-1">
+    <div class="modal fade" id="filterFieldCalendarJob" mode="" title="" tabindex="-1" style="z-index: -999">
     <div class="modal-dialog modal-md">
       <div class="modal-content">
         <div class="modal-header">
@@ -14,34 +14,7 @@ $(document).ready(() => {
         <div class="modal-body">
           <form class="filterForm">
             <div class="row" style=" margin-top: 10px;">
-              <div class="d-flex justify-content-center align-items-center">
-                <div class="container p-4 border rounded bg-light">
-                  <div class="row g-3">
-                    <!-- Row 1: Customer Filter and Work Order Title -->
-                    <div class="col-md-6">
-                      <select class="selectpicker w-100 multiple-customer-field" title="Filter by Customer" data-live-search="true" data-selected-text-format="count>2" data-style="" data-style-base="form-control" data-actions-box="true" multiple>
-                        ${dataSet.customers.map(customer => `<option value="${customer.value}">${customer.text}</option>`)}
-                      </select>
-                    </div>
-                    <div class="col-md-6">
-                      <input type="text" class="form-control" id="calendar-wo-title" placeholder="Enter Work Order Title">
-                    </div>
-                    <!-- Row 2: Date From and Date To -->
-                    <div class="col-md-6">
-                      <div class="d-flex align-items-center">
-                        <label for="calendar-job-datefrom" class="me-2 mb-0">From:</label>
-                        <input type="date" class="form-control" id="calendar-job-datefrom">
-                      </div>
-                    </div>
-                    <div class="col-md-6">
-                      <div class="d-flex align-items-center">
-                        <label for="calendar-job-dateto" class="me-2 mb-0">To:</label>
-                        <input type="date" class="form-control" id="calendar-job-dateto">
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+
             </div>
             <div class="modal-footer">
               <button type="submit" class="btn btn-success">Add Fields</button>
@@ -73,11 +46,50 @@ $(document).ready(() => {
   </div>`);
 
   const MODAL_ID = '#filterFieldCalendarJob';
+  let isInitialized = false;
 
   // Hide addFieldsForm on page load
   $(`${MODAL_ID} .addFieldsForm`).hide();
 
-  $(MODAL_ID).on('shown.bs.modal', () => onFilterJob('#calendarSection .thirdColumn', MODAL_ID));
+  $(MODAL_ID).on('shown.bs.modal', () => {
+    setTimeout(() => {
+      if (isInitialized) return;
+      $(`${MODAL_ID} .filterForm > .row`).html(`<div class="d-flex justify-content-center align-items-center">
+        <div class="container p-4 border rounded bg-light">
+          <div class="row g-3">
+            <!-- Row 1: Customer Filter and Work Order Title -->
+            <div class="col-md-6">
+              <select class="selectpicker w-100 multiple-customer-field" title="Filter by Customer" data-live-search="true" data-selected-text-format="count>2" data-style="" data-style-base="form-control" data-actions-box="true" multiple>
+                ${dataSet.customers.map(customer => `<option value="${customer.value}">${customer.text}</option>`)}
+              </select>
+            </div>
+            <div class="col-md-6">
+              <input type="text" class="form-control" id="calendar-wo-title" placeholder="Enter Work Order Title">
+            </div>
+            <!-- Row 2: Date From and Date To -->
+            <div class="col-md-6">
+              <div class="d-flex align-items-center">
+                <label for="calendar-job-datefrom" class="me-2 mb-0">From:</label>
+                <input type="date" class="form-control" id="calendar-job-datefrom">
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="d-flex align-items-center">
+                <label for="calendar-job-dateto" class="me-2 mb-0">To:</label>
+                <input type="date" class="form-control" id="calendar-job-dateto">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      `);
+
+      $(`${MODAL_ID} .selectpicker`).selectpicker();
+      onFilterJob('#calendarSection .thirdColumn', MODAL_ID);
+      $(MODAL_ID).css('z-index', '9999');
+      isInitialized = true;
+    }, 150);
+  });
   // On click add fields button
   $(MODAL_ID).on('click', '.btn-success', e => {
     e.preventDefault();

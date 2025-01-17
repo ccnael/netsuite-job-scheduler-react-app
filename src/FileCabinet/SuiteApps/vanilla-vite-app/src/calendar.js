@@ -128,6 +128,7 @@ export default class Calendar {
       }
       map.resourceIds = [];
       map.resourceIds = [...map.resourceIds, ...event.vendors.map(vendor => `vendor-${vendor.vendor.value}`)];
+      map.resourceIds = [...map.resourceIds, ...event.assets.map(asset => `asset-${asset.item.value}`)];
 
       event.resources.forEach(resource => {
         resource.resourceGroups.forEach(resourceGroup => {
@@ -185,7 +186,7 @@ export default class Calendar {
       // Resource etc settings
       // -----------------------------------------------------------------
       initialView: 'resourceTimelineDefault',
-      resourceAreaWidth: '15%',
+      resourceAreaWidth: '17%',
       views: {
         resourceTimelineDay: {
           buttonText: 'Day'
@@ -217,7 +218,7 @@ export default class Calendar {
           return {
             html: `<i class="fa-solid fa-icon-size fa-user-group"></i>
             ${resource.text}
-            <span class="badge badge-danger badge-pill counter">${resource.resourceCount}</span>
+            <span class="badge badge-danger badge-pill counter" style="font-size: 9px">${resource.resourceCount}</span>
             `
           };
         } else {

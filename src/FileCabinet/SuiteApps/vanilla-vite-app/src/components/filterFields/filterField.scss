@@ -1,15 +1,5 @@
 /* Background overlay */
 #filterFieldResources, #filterFieldBoardJob, #filterFieldBoardEvent, #filterFieldCalendarJob, #filterFieldCalendarEvent, #filterFieldEventResource, #openFilterGeneralEventResourceModal {
-  .modal {
-    display: none; /* Hidden by default */
-    position: absolute; /* Position relative to the nearest positioned ancestor */
-    top: 100%; /* Place below the filter icon */
-    right: 0; /* Align to the right of the icon */
-    width: 300px;
-    background-color: white;
-    padding: 15px;
-    z-index: 10;
-  }
 
   .modal-header {
     // font-size: 18px;

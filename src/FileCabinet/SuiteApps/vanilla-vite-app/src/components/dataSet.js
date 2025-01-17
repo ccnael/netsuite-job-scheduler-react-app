@@ -20,12 +20,17 @@ export const resourceSkills = getValue('#resourceSkills', mockup.resourceSkills)
 export const activeResources = resources.filter(resource => !!resource.active);
 export const combinedResourceGroups = (() => {
   const combinedGroup = JSON.parse(JSON.stringify(resourceGroups));
-  const vendorObj = {
+  combinedGroup.push({
     text: 'Vendor Subcons',
     value: 'vendor',
     resources: vendors,
     resourceCount: vendors.length
-  };
-  combinedGroup.push(vendorObj);
+  });
+  combinedGroup.push({
+    text: 'Asset & Equipments',
+    value: 'asset',
+    resources: assets,
+    resourceCount: assets.length
+  });
   return combinedGroup;
 })();

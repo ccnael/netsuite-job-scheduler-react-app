@@ -84,6 +84,35 @@ export default class Board {
                         </div>
                       </div>
                     </div>`}
+                    ${`<div id="resourceGroup-asset-filter-tableWrapper" class="accordion accordion-flush">
+                      <div class="accordion-item">
+                        <h2 class="accordion-header" id="resourceGroup-asset-filter-tableHeading">
+                          <button class="accordion-button" type="button" data-toggle="collapse" data-target="#resourceGroup-asset-filter-table" aria-expanded="true" aria-controls="resourceGroup-asset-filter-table">
+                            <i class="fa-solid fa-icon-size fa-user-group"></i>
+                            <strong class="grid-header">&nbsp;Asset & Equipment&nbsp;</strong>
+                            <span class="badge badge-danger badge-pill counter">${dataSet.assets.length}</span>
+                          </button>
+                        </h2>
+                        <div id="resourceGroup-asset-filter-table" class="accordion-collapse collapse show" aria-labelledby="resourceGroup-asset-filter-tableHeading" data-parent="#resourceGroup-asset-filter-tableWrapper">
+                          ${dataSet.assets.map(asset => `
+                          <div class="person-container" resourceType="asset" id="${asset.id}">
+                            <div draggable="true" ondragstart="dragResourceFunctions(event);" ondragend="dragResourceFunctions(event);" class="person-circle cursor-grab" 
+                                  data-bs-toggle="tooltip" 
+                                  data-bs-placement="right" 
+                                  title="<strong>${asset.name}</strong><br/>
+                                  Name: ${asset.name}<br/>
+                                  Description: ${asset.description}<br/>
+                                <span class="initials">${asset.name.substring(0, 2)}</span>
+                                <span class="status active"></span>
+                            </div>
+                            <div class="person-info">
+                                <span class="full-name">${asset.name}</span>
+                                <span class="status-text">Active</span>
+                            </div>
+                          </div>`)}
+                        </div>
+                      </div>
+                    </div>`}
                 </div>
               </aside>
               <div class="collapse-btn">
@@ -169,6 +198,7 @@ export default class Board {
                         <select class="selectpicker mx-auto multiple-resource-field multiple-resource-field-hidden" title="Filter by Resource Name" data-live-search="true" data-selected-text-format="count>2" data-style="" data-style-base="form-control" data-actions-box="true" multiple>
                           ${dataSet.resources.map(resource => `<option value="${resource.id}">${resource.name}</option>`)}
                           ${dataSet.vendors.map(vendor => `<option value="${vendor.id}">${vendor.name}</option>`)}
+                          ${dataSet.assets.map(asset => `<option value="${asset.id}">${asset.name}</option>`)}
                         </select>
                       </div>
                       </button>
@@ -341,8 +371,10 @@ export default class Board {
             } else if (resourceType == 'vendor') {
               foundObj = eventData.vendors.find(vendor => vendor.vendor.value == resourceId);
               allowEvent = !!!foundObj;
+            } else if (resourceType == 'asset') {
+              foundObj = eventData.assets.find(asset => asset.item.value == resourceId);
+              allowEvent = !!!foundObj;
             }
-
             if (allowEvent) {
               $(this).removeClass('event-unavailable').addClass('event-available');
             } else {
@@ -365,8 +397,10 @@ export default class Board {
           } else if (dataTransfer.type == 'vendor') {
             foundObj = eventData.vendors.find(vendor => vendor.vendor.value == dataTransfer.id);
             allowResource = !!!foundObj;
+          } else if (dataTransfer.type == 'asset') {
+            foundObj = eventData.assets.find(asset => asset.item.value == dataTransfer.id);
+            allowResource = !!!foundObj;
           }
-
           $draggedEl = $(`#${dataTransfer.elementId}`).find('.person-circle');
           if (allowResource) {
             $draggedEl.removeClass('cursor-x').addClass('cursor-plus');
@@ -381,7 +415,7 @@ export default class Board {
           dataTransfer = JSON.parse(localStorage.getItem('dragResourceFunctions'));
 
           if (!$el.hasClass('event-unavailable')) {
-            if (dataTransfer.type.match(/employee|vendor/g)) {
+            if (dataTransfer.type.match(/employee|vendor|asset/g)) {
               window.openDragResourceModal(eventId, dataTransfer);
             }
           }
@@ -395,7 +429,6 @@ export default class Board {
             $draggedEl.addClass('cursor-grab');
           }
           $draggedEl.removeClass('cursor-plus cursor-x');
-
           $('.thirdColumn').find('div[type*="event"]').each(function () {
             $(this).removeClass('event-available event-unavailable');
           });

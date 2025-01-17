@@ -4,7 +4,7 @@ import './filterField.css';
 
 $(document).ready(() => {
   $('#app').append(`
-    <div class="modal fade" id="filterFieldCalendarEvent" mode="" title="" tabindex="-1">
+    <div class="modal fade" id="filterFieldCalendarEvent" mode="" title="" tabindex="-1" style="z-index: -999">
     <div class="modal-dialog modal-md">
       <div class="modal-content">
         <div class="modal-header">
@@ -22,12 +22,14 @@ $(document).ready(() => {
                       <select class="selectpicker mx-auto multiple-resource-field" title="Filter by Resource Name" data-live-search="true" data-selected-text-format="count>2" data-style="" data-style-base="form-control" data-actions-box="true" multiple>
                         ${dataSet.resources.map(resource => `<option value="${resource.id}">${resource.name}</option>`)}
                         ${dataSet.vendors.map(vendor => `<option value="${vendor.id}">${vendor.name}</option>`)}
+                        ${dataSet.assets.map(asset => `<option value="${asset.id}">${asset.name}</option>`)}
                       </select>
                     </div>
                     <div class="col-md-6">
                       <select class="selectpicker mx-auto multiple-resource-group-field" title="Filter by Resource Group" data-live-search="true" data-selected-text-format="count>2" data-style="" data-style-base="form-control" data-actions-box="true" multiple>
                       ${dataSet.resourceGroups.map(resourceGroup => `<option value="${resourceGroup.value}">${resourceGroup.text}</option>`)}
                       <option value="vendor">Vendor Subcons</option>
+                      <option value="asset">Asset & Equipments</option>
                       <option value="z-unassigned">Unassigned</option>
                       </select>
                     </div>
@@ -93,11 +95,54 @@ $(document).ready(() => {
   </div>`);
 
   const MODAL_ID = '#filterFieldCalendarEvent';
+  let isInitialized = false;
 
   // Hide addFieldsForm on page load
   $(`${MODAL_ID} .addFieldsForm`).hide();
 
-  $(MODAL_ID).on('shown.bs.modal', () => onFilterCalendarEvent(MODAL_ID, false));
+  $(MODAL_ID).on('shown.bs.modal', () => {
+    setTimeout(() => {
+      if (isInitialized) return;
+      $(`${MODAL_ID} .filterForm > .row`).html(`<div class="d-flex justify-content-center align-items-center">
+        <div class="container p-4 border rounded bg-light">
+          <div class="row g-3">
+            <!-- Row 1 -->
+            <div class="col-md-6">
+              <select class="selectpicker mx-auto multiple-resource-field" title="Filter by Name" data-live-search="true" data-selected-text-format="count>2" data-style="" data-style-base="form-control" data-actions-box="true" multiple>
+              ${dataSet.resources.map(resource => `<option value="${resource.id}">${resource.name}</option>`)}
+              ${dataSet.vendors.map(vendor => `<option value="${vendor.id}">${vendor.name}</option>`)}
+              </select>
+            </div>
+            <div class="col-md-6">
+              <select class="selectpicker mx-auto multiple-resource-group-field" title="Filter by Group" data-live-search="true" data-selected-text-format="count>2" data-style="" data-style-base="form-control" data-actions-box="true" multiple>
+              ${dataSet.resourceGroups.map(resourceGroup => `<option value="${resourceGroup.value}">${resourceGroup.text}</option>`)}
+              <option value="vendor">Vendor Subcons</option>
+              <option value="asset">Asset & Equipments</option>
+              </select>
+            </div>
+            <!-- Row 2 -->
+            <div class="col-md-6">
+              <select class="selectpicker mx-auto multiple-resource-skill-field" title="Filter by Skill" data-live-search="true" data-selected-text-format="count>2" data-style="" data-style-base="form-control" data-actions-box="true" multiple>
+              ${dataSet.resourceSkills.map(resourceSkill => `<option value="${resourceSkill.value}">${resourceSkill.text}</option>`)}
+              </select>
+            </div>
+            <div class="col-md-6">
+              <select class="selectpicker mx-auto multiple-status-field" title="Filter by Status" data-live-search="true" data-selected-text-format="count>2" data-style="" data-style-base="form-control" data-actions-box="true" multiple>
+                <option value="1">Active</option>
+                <option value="0">Inactive</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+      `);
+
+      $(`${MODAL_ID} .selectpicker`).selectpicker();
+      onFilterCalendarEvent(MODAL_ID, false);
+      $(MODAL_ID).css('z-index', '9999');
+      isInitialized = true;
+    }, 150);
+  });
   // On click add fields button
   $(MODAL_ID).on('click', '.btn-success', e => {
     e.preventDefault();

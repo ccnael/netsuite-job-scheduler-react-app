@@ -2,9 +2,635 @@ const mockup = {
   "userId": 1765,
   "suiteletUrl": "/app/site/hosting/scriptlet.nl?script=877&deploy=1&compid=TSTDRV2617106",
   "workOrders": [{
+    "id": "127",
+    "name": "Office Room B",
+    "title": "Office Room B",
+    "project": {
+      "text": "World Bank : World Bank Office Furniture Installation",
+      "value": "1515"
+    },
+    "date": "1/20/2025",
+    "status": {
+      "text": "Not Started",
+      "value": "4",
+      "code": "#026adf"
+    },
+    "type": {
+      "text": "Service",
+      "value": "2"
+    },
+    "memo": "<p>Office Room B</p>",
+    "salesorder": {
+      "text": "Sales Order #SLS00000807",
+      "value": "22898"
+    },
+    "customer": {
+      "text": "World Bank",
+      "value": "1249"
+    },
+    "resourceGroup": {
+      "text": "",
+      "value": ""
+    },
+    "priority": "",
+    "resources": [],
+    "vendors": [],
+    "assets": [],
+    "items": [{
+      "id": "583",
+      "workorder": {
+        "text": "Office Room B",
+        "value": "127"
+      },
+      "salesorder": {
+        "text": "Sales Order #SLS00000807",
+        "value": "22898"
+      },
+      "event": "",
+      "uuid": "22898_3",
+      "line": "3",
+      "item": {
+        "text": "BIC00008",
+        "value": "467"
+      },
+      "description": "Working Table",
+      "quantity": 2,
+      "availableQty": 2,
+      "note": ""
+    }, {
+      "id": "584",
+      "workorder": {
+        "text": "Office Room B",
+        "value": "127"
+      },
+      "salesorder": {
+        "text": "Sales Order #SLS00000807",
+        "value": "22898"
+      },
+      "event": "",
+      "uuid": "22898_4",
+      "line": "4",
+      "item": {
+        "text": "BIC00008",
+        "value": "467"
+      },
+      "description": "Technology Table",
+      "quantity": 2,
+      "availableQty": 2,
+      "note": ""
+    }],
+    "addresses": [{
+      "id": "211",
+      "workorder": {
+        "text": "Office Room B",
+        "value": "127"
+      },
+      "customer": {
+        "text": "World Bank",
+        "value": "1249"
+      },
+      "events": [],
+      "address": {
+        "text": "434 Carlaw",
+        "value": "244878"
+      },
+      "addressDetails": "434 Carlaw Road<br/>Los Angeles NY 12412<br/>United States",
+      "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+    }],
+    "contacts": [{
+      "id": "175",
+      "workorder": {
+        "text": "Office Room B",
+        "value": "127"
+      },
+      "events": [],
+      "contact": {
+        "text": "World Bank : Jane Doe",
+        "value": "2054"
+      },
+      "name": "Jane Doe",
+      "email": "janedoe@email.com",
+      "jobTitle": "Purchasing Manager",
+      "mobilePhone": "",
+      "phone": "",
+      "primary": false,
+      "url": "/app/common/entity/contact.nl?id=2054&compid=TSTDRV2617106"
+    }, {
+      "id": "176",
+      "workorder": {
+        "text": "Office Room B",
+        "value": "127"
+      },
+      "events": [],
+      "contact": {
+        "text": "World Bank : Jim Carrey",
+        "value": "2041"
+      },
+      "name": "Jim Carrey",
+      "email": "jcarrery@worldbank.com",
+      "jobTitle": "Administrative Manager",
+      "mobilePhone": "",
+      "phone": "",
+      "primary": false,
+      "url": "/app/common/entity/contact.nl?id=2041&compid=TSTDRV2617106"
+    }],
+    "events": [],
+    "projectUrl": "/app/accounting/project/project.nl?id=1515&compid=TSTDRV2617106",
+    "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=127&compid=TSTDRV2617106",
+    "soUrl": "/app/accounting/transactions/salesord.nl?id=22898&compid=TSTDRV2617106",
+    "esthours": "500"
+  }, {
+    "id": "126",
+    "name": "Office Room A",
+    "title": "Office Room A",
+    "project": {
+      "text": "World Bank : World Bank Office Furniture Installation",
+      "value": "1515"
+    },
+    "date": "1/20/2025",
+    "status": {
+      "text": "Not Started",
+      "value": "4",
+      "code": "#026adf"
+    },
+    "type": {
+      "text": "Service",
+      "value": "2"
+    },
+    "memo": "<p><strong>Office Room A</strong></p>",
+    "salesorder": {
+      "text": "Sales Order #SLS00000807",
+      "value": "22898"
+    },
+    "customer": {
+      "text": "World Bank",
+      "value": "1249"
+    },
+    "resourceGroup": {
+      "text": "",
+      "value": ""
+    },
+    "priority": "",
+    "resources": [],
+    "vendors": [],
+    "assets": [],
+    "items": [{
+      "id": "581",
+      "workorder": {
+        "text": "Office Room A",
+        "value": "126"
+      },
+      "salesorder": {
+        "text": "Sales Order #SLS00000807",
+        "value": "22898"
+      },
+      "event": "",
+      "uuid": "22898_3",
+      "line": "3",
+      "item": {
+        "text": "BIC00008",
+        "value": "467"
+      },
+      "description": "Working Table",
+      "quantity": 3,
+      "availableQty": 3,
+      "note": ""
+    }, {
+      "id": "582",
+      "workorder": {
+        "text": "Office Room A",
+        "value": "126"
+      },
+      "salesorder": {
+        "text": "Sales Order #SLS00000807",
+        "value": "22898"
+      },
+      "event": "",
+      "uuid": "22898_4",
+      "line": "4",
+      "item": {
+        "text": "BIC00008",
+        "value": "467"
+      },
+      "description": "Technology Table",
+      "quantity": 2,
+      "availableQty": 2,
+      "note": ""
+    }],
+    "addresses": [{
+      "id": "210",
+      "workorder": {
+        "text": "Office Room A",
+        "value": "126"
+      },
+      "customer": {
+        "text": "World Bank",
+        "value": "1249"
+      },
+      "events": [],
+      "address": {
+        "text": "434 Carlaw",
+        "value": "244878"
+      },
+      "addressDetails": "434 Carlaw Road<br/>Los Angeles NY 12412<br/>United States",
+      "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+    }],
+    "contacts": [{
+      "id": "173",
+      "workorder": {
+        "text": "Office Room A",
+        "value": "126"
+      },
+      "events": [],
+      "contact": {
+        "text": "World Bank : Brad Pitt",
+        "value": "2060"
+      },
+      "name": "Brad Pitt",
+      "email": "bpitt@email.com",
+      "jobTitle": "Designer",
+      "mobilePhone": "",
+      "phone": "",
+      "primary": false,
+      "url": "/app/common/entity/contact.nl?id=2060&compid=TSTDRV2617106"
+    }, {
+      "id": "174",
+      "workorder": {
+        "text": "Office Room A",
+        "value": "126"
+      },
+      "events": [],
+      "contact": {
+        "text": "World Bank : Chad Bass",
+        "value": "1382"
+      },
+      "name": "Chad Bass",
+      "email": "cbass@worldbank.com",
+      "jobTitle": "President",
+      "mobilePhone": "",
+      "phone": "",
+      "primary": false,
+      "url": "/app/common/entity/contact.nl?id=1382&compid=TSTDRV2617106"
+    }],
+    "events": [],
+    "projectUrl": "/app/accounting/project/project.nl?id=1515&compid=TSTDRV2617106",
+    "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=126&compid=TSTDRV2617106",
+    "soUrl": "/app/accounting/transactions/salesord.nl?id=22898&compid=TSTDRV2617106",
+    "esthours": "200"
+  }, {
+    "id": "125",
+    "name": "Lobby Area",
+    "title": "Lobby Area",
+    "project": {
+      "text": "World Bank : World Bank Office Furniture Installation",
+      "value": "1515"
+    },
+    "date": "1/20/2025",
+    "status": {
+      "text": "Not Started",
+      "value": "4",
+      "code": "#026adf"
+    },
+    "type": {
+      "text": "Service",
+      "value": "2"
+    },
+    "memo": "<p><strong>Lobby Area</strong></p>",
+    "salesorder": {
+      "text": "Sales Order #SLS00000807",
+      "value": "22898"
+    },
+    "customer": {
+      "text": "World Bank",
+      "value": "1249"
+    },
+    "resourceGroup": {
+      "text": "",
+      "value": ""
+    },
+    "priority": "",
+    "resources": [],
+    "vendors": [],
+    "assets": [],
+    "items": [{
+      "id": "579",
+      "workorder": {
+        "text": "Lobby Area",
+        "value": "125"
+      },
+      "salesorder": {
+        "text": "Sales Order #SLS00000807",
+        "value": "22898"
+      },
+      "event": "101085",
+      "uuid": "22898_1",
+      "line": "1",
+      "item": {
+        "text": "BIC00008",
+        "value": "467"
+      },
+      "description": "Head Master Chair",
+      "quantity": 3,
+      "availableQty": 3,
+      "note": ""
+    }, {
+      "id": "580",
+      "workorder": {
+        "text": "Lobby Area",
+        "value": "125"
+      },
+      "salesorder": {
+        "text": "Sales Order #SLS00000807",
+        "value": "22898"
+      },
+      "event": "101085",
+      "uuid": "22898_2",
+      "line": "2",
+      "item": {
+        "text": "BIC00008",
+        "value": "467"
+      },
+      "description": "Diana Chair",
+      "quantity": 5,
+      "availableQty": 5,
+      "note": ""
+    }, {
+      "id": "577",
+      "workorder": {
+        "text": "Lobby Area",
+        "value": "125"
+      },
+      "salesorder": {
+        "text": "Sales Order #SLS00000807",
+        "value": "22898"
+      },
+      "event": "",
+      "uuid": "22898_1",
+      "line": "1",
+      "item": {
+        "text": "BIC00008",
+        "value": "467"
+      },
+      "description": "Head Master Chair",
+      "quantity": 7,
+      "availableQty": 7,
+      "note": ""
+    }, {
+      "id": "578",
+      "workorder": {
+        "text": "Lobby Area",
+        "value": "125"
+      },
+      "salesorder": {
+        "text": "Sales Order #SLS00000807",
+        "value": "22898"
+      },
+      "event": "",
+      "uuid": "22898_2",
+      "line": "2",
+      "item": {
+        "text": "BIC00008",
+        "value": "467"
+      },
+      "description": "Diana Chair",
+      "quantity": 10,
+      "availableQty": 10,
+      "note": ""
+    }],
+    "addresses": [{
+      "id": "209",
+      "workorder": {
+        "text": "Lobby Area",
+        "value": "125"
+      },
+      "customer": {
+        "text": "World Bank",
+        "value": "1249"
+      },
+      "events": ["101085"],
+      "address": {
+        "text": "434 Carlaw",
+        "value": "244878"
+      },
+      "addressDetails": "434 Carlaw Road<br/>Los Angeles NY 12412<br/>United States",
+      "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+    }],
+    "contacts": [{
+      "id": "171",
+      "workorder": {
+        "text": "Lobby Area",
+        "value": "125"
+      },
+      "events": ["101085"],
+      "contact": {
+        "text": "World Bank : John Smith",
+        "value": "1892"
+      },
+      "name": "John Smith",
+      "email": "jc@erpsuccesspartners.com",
+      "jobTitle": "Logistics",
+      "mobilePhone": "",
+      "phone": "",
+      "primary": false,
+      "url": "/app/common/entity/contact.nl?id=1892&compid=TSTDRV2617106"
+    }, {
+      "id": "172",
+      "workorder": {
+        "text": "Lobby Area",
+        "value": "125"
+      },
+      "events": [],
+      "contact": {
+        "text": "World Bank : Tom Holland",
+        "value": "2057"
+      },
+      "name": "Tom Holland",
+      "email": "tholland@email.com",
+      "jobTitle": "Purchasing Manager",
+      "mobilePhone": "",
+      "phone": "",
+      "primary": false,
+      "url": "/app/common/entity/contact.nl?id=2057&compid=TSTDRV2617106"
+    }],
+    "events": [{
+      "id": "101085",
+      "title": "Furniture Installation",
+      "workorder": {
+        "text": "Lobby Area",
+        "value": "125"
+      },
+      "location": "",
+      "status": {
+        "text": "Tentative",
+        "value": "TENTATIVE",
+        "code": "bg-secondary"
+      },
+      "date": {
+        "recurrence": "occurs every day from 1/20/2025 until 1/21/2025",
+        "dates": ["1/20/2025", "1/21/2025"],
+        "start": "2025-01-20",
+        "end": "2025-01-21"
+      },
+      "time": {
+        "start": "08:00",
+        "end": "18:00"
+      },
+      "priority": {
+        "text": "High",
+        "value": "3",
+        "code": "#ca6621"
+      },
+      "note": "Furniture Installation",
+      "url": "/app/crm/calendar/event.nl?id=101085&compid=TSTDRV2617106&selectedtab=custom337",
+      "color": "#1a6756",
+      "woRef": {},
+      "resources": [],
+      "vendors": [],
+      "assets": [],
+      "items": [],
+      "contacts": [],
+      "addresses": [],
+      "contact": {
+        "text": "",
+        "value": ""
+      },
+      "address": {
+        "text": "",
+        "value": ""
+      },
+      "organizer": {
+        "text": "Arun Sharma",
+        "value": "1770"
+      }
+    }],
+    "projectUrl": "/app/accounting/project/project.nl?id=1515&compid=TSTDRV2617106",
+    "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=125&compid=TSTDRV2617106",
+    "soUrl": "/app/accounting/transactions/salesord.nl?id=22898&compid=TSTDRV2617106",
+    "esthours": "200"
+  }, {
+    "id": "124",
+    "name": "Testing with Lean",
+    "title": "Testing with Lean",
+    "project": {
+      "text": "World Bank : World Bank Office Furniture Installation",
+      "value": "1515"
+    },
+    "date": "1/16/2025",
+    "status": {
+      "text": "Not Started",
+      "value": "4",
+      "code": "#026adf"
+    },
+    "type": {
+      "text": "Demo",
+      "value": "5"
+    },
+    "memo": "",
+    "salesorder": {
+      "text": "Sales Order #SLS00000803",
+      "value": "22468"
+    },
+    "customer": {
+      "text": "World Bank",
+      "value": "1249"
+    },
+    "resourceGroup": {
+      "text": "",
+      "value": ""
+    },
+    "priority": "",
+    "resources": [],
+    "vendors": [],
+    "assets": [],
+    "items": [{
+      "id": "575",
+      "workorder": {
+        "text": "Testing with Lean",
+        "value": "124"
+      },
+      "salesorder": {
+        "text": "Sales Order #SLS00000803",
+        "value": "22468"
+      },
+      "event": "",
+      "uuid": "22468_1",
+      "line": "1",
+      "item": {
+        "text": "BIC00008",
+        "value": "467"
+      },
+      "description": "Head Master Chair",
+      "quantity": -17,
+      "availableQty": -17,
+      "note": ""
+    }, {
+      "id": "576",
+      "workorder": {
+        "text": "Testing with Lean",
+        "value": "124"
+      },
+      "salesorder": {
+        "text": "Sales Order #SLS00000803",
+        "value": "22468"
+      },
+      "event": "",
+      "uuid": "22468_2",
+      "line": "2",
+      "item": {
+        "text": "BIC00008",
+        "value": "467"
+      },
+      "description": "Diana Chair",
+      "quantity": -10,
+      "availableQty": -10,
+      "note": ""
+    }],
+    "addresses": [{
+      "id": "208",
+      "workorder": {
+        "text": "Testing with Lean",
+        "value": "124"
+      },
+      "customer": {
+        "text": "World Bank",
+        "value": "1249"
+      },
+      "events": [],
+      "address": {
+        "text": "434 Carlaw",
+        "value": "244878"
+      },
+      "addressDetails": "434 Carlaw Road<br/>Los Angeles NY 12412<br/>United States",
+      "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+    }],
+    "contacts": [{
+      "id": "170",
+      "workorder": {
+        "text": "Testing with Lean",
+        "value": "124"
+      },
+      "events": [],
+      "contact": {
+        "text": "World Bank : Angelina Jolie",
+        "value": "2056"
+      },
+      "name": "Angelina Jolie",
+      "email": "ajolie@email.com",
+      "jobTitle": "Vice President",
+      "mobilePhone": "",
+      "phone": "",
+      "primary": false,
+      "url": "/app/common/entity/contact.nl?id=2056&compid=TSTDRV2617106"
+    }],
+    "events": [],
+    "projectUrl": "/app/accounting/project/project.nl?id=1515&compid=TSTDRV2617106",
+    "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=124&compid=TSTDRV2617106",
+    "soUrl": "/app/accounting/transactions/salesord.nl?id=22468&compid=TSTDRV2617106",
+    "esthours": "0"
+  }, {
     "id": "123",
-    "name": "Test Work Order",
-    "title": "Test Work Order",
+    "name": "Test Work Order - AC Installation",
+    "title": "Test Work Order - AC Installation",
     "project": {
       "text": "World Bank : World Bank Office Furniture Installation",
       "value": "1515"
@@ -45,7 +671,7 @@ const mockup = {
       "email": "",
       "initials": "BF",
       "workorder": {
-        "text": "Test Work Order",
+        "text": "Test Work Order - AC Installation",
         "value": "123"
       },
       "event": "101062",
@@ -60,6 +686,106 @@ const mockup = {
       "woVendor": true,
       "memo": ""
     }, {
+      "id": "190",
+      "name": "190",
+      "vendor": {
+        "text": "Best Fixture, Inc.",
+        "value": "12"
+      },
+      "url": "",
+      "email": "",
+      "initials": "BF",
+      "workorder": {
+        "text": "Test Work Order - AC Installation",
+        "value": "123"
+      },
+      "event": "101081",
+      "quantityRequired": 5,
+      "quantityAvailable": 0,
+      "purchaseOrder": {
+        "text": " ",
+        "value": ""
+      },
+      "amount": 0,
+      "active": false,
+      "woVendor": true,
+      "memo": ""
+    }, {
+      "id": "191",
+      "name": "191",
+      "vendor": {
+        "text": "CFI Furniture Inc.",
+        "value": "1661"
+      },
+      "url": "",
+      "email": "login+plural@erpsuccesspartners.com",
+      "initials": "CF",
+      "workorder": {
+        "text": "Test Work Order - AC Installation",
+        "value": "123"
+      },
+      "event": "101082",
+      "quantityRequired": 5,
+      "quantityAvailable": 0,
+      "purchaseOrder": {
+        "text": " ",
+        "value": ""
+      },
+      "amount": 0,
+      "active": false,
+      "woVendor": true,
+      "memo": ""
+    }, {
+      "id": "192",
+      "name": "192",
+      "vendor": {
+        "text": "CFI Furniture Inc.",
+        "value": "1661"
+      },
+      "url": "",
+      "email": "login+plural@erpsuccesspartners.com",
+      "initials": "CF",
+      "workorder": {
+        "text": "Test Work Order - AC Installation",
+        "value": "123"
+      },
+      "event": "101083",
+      "quantityRequired": 5,
+      "quantityAvailable": 0,
+      "purchaseOrder": {
+        "text": " ",
+        "value": ""
+      },
+      "amount": 0,
+      "active": false,
+      "woVendor": true,
+      "memo": ""
+    }, {
+      "id": "193",
+      "name": "193",
+      "vendor": {
+        "text": "Bridgepoint Industries",
+        "value": "1473"
+      },
+      "url": "http://www.bridgepointindustries.com.de",
+      "email": "support@bridgempointindustries.com.de",
+      "initials": "BI",
+      "workorder": {
+        "text": "Test Work Order - AC Installation",
+        "value": "123"
+      },
+      "event": "101084",
+      "quantityRequired": 5,
+      "quantityAvailable": 20,
+      "purchaseOrder": {
+        "text": " ",
+        "value": ""
+      },
+      "amount": 0,
+      "active": true,
+      "woVendor": true,
+      "memo": ""
+    }, {
       "id": "188",
       "name": "Best Fixture, Inc.",
       "vendor": {
@@ -70,7 +796,7 @@ const mockup = {
       "email": "",
       "initials": "BF",
       "workorder": {
-        "text": "Test Work Order",
+        "text": "Test Work Order - AC Installation",
         "value": "123"
       },
       "event": "101075",
@@ -89,7 +815,7 @@ const mockup = {
       "id": "123",
       "name": "ELE00002",
       "workorder": {
-        "text": "Test Work Order",
+        "text": "Test Work Order - AC Installation",
         "value": "123"
       },
       "event": "101062",
@@ -124,7 +850,7 @@ const mockup = {
       "id": "124",
       "name": "ELE00002",
       "workorder": {
-        "text": "Test Work Order",
+        "text": "Test Work Order - AC Installation",
         "value": "123"
       },
       "event": "101077",
@@ -159,7 +885,7 @@ const mockup = {
       "id": "125",
       "name": "ELE00002",
       "workorder": {
-        "text": "Test Work Order",
+        "text": "Test Work Order - AC Installation",
         "value": "123"
       },
       "event": "101078",
@@ -194,7 +920,7 @@ const mockup = {
       "id": "126",
       "name": "ELE00002",
       "workorder": {
-        "text": "Test Work Order",
+        "text": "Test Work Order - AC Installation",
         "value": "123"
       },
       "event": "101079",
@@ -225,32 +951,151 @@ const mockup = {
       },
       "owned": true,
       "rentalMatrix": 0
-    }],
-    "items": [{
-      "id": "557",
+    }, {
+      "id": "127",
+      "name": "ELE00002",
       "workorder": {
-        "text": "Test Work Order",
+        "text": "Test Work Order - AC Installation",
         "value": "123"
       },
-      "salesorder": {
-        "text": "Sales Order #SLS00000803",
-        "value": "22468"
-      },
-      "event": "101077",
-      "uuid": "22468_1",
-      "line": "1",
+      "event": "101081",
+      "quantity": 0,
+      "description": "Serialized 1 Sales Description",
       "item": {
-        "text": "BIC00008",
-        "value": "467"
+        "text": "ELE00002",
+        "value": "674"
       },
-      "description": "Head Master Chair",
-      "quantity": 2,
-      "availableQty": 2,
-      "note": ""
+      "equipmentType": {
+        "text": "Hand Tools",
+        "value": "1"
+      },
+      "rentalUnit": {
+        "text": "",
+        "value": ""
+      },
+      "rentalDuration": 0,
+      "rentalRate": 0,
+      "rentalAmount": 0,
+      "purchaseOrder": {
+        "text": " ",
+        "value": " "
+      },
+      "vendor": {
+        "text": "Computer Depot Pacific",
+        "value": "965"
+      },
+      "owned": true,
+      "rentalMatrix": 0
     }, {
+      "id": "128",
+      "name": "ELE00002",
+      "workorder": {
+        "text": "Test Work Order - AC Installation",
+        "value": "123"
+      },
+      "event": "101082",
+      "quantity": 100,
+      "description": "Serialized 1 Sales Description",
+      "item": {
+        "text": "ELE00002",
+        "value": "674"
+      },
+      "equipmentType": {
+        "text": "Hand Tools",
+        "value": "1"
+      },
+      "rentalUnit": {
+        "text": "",
+        "value": ""
+      },
+      "rentalDuration": 0,
+      "rentalRate": 0,
+      "rentalAmount": 0,
+      "purchaseOrder": {
+        "text": " ",
+        "value": " "
+      },
+      "vendor": {
+        "text": "Computer Depot Pacific",
+        "value": "965"
+      },
+      "owned": true,
+      "rentalMatrix": 0
+    }, {
+      "id": "129",
+      "name": "ELE00002",
+      "workorder": {
+        "text": "Test Work Order - AC Installation",
+        "value": "123"
+      },
+      "event": "101083",
+      "quantity": 20,
+      "description": "Serialized 1 Sales Description",
+      "item": {
+        "text": "ELE00002",
+        "value": "674"
+      },
+      "equipmentType": {
+        "text": "Hand Tools",
+        "value": "1"
+      },
+      "rentalUnit": {
+        "text": "",
+        "value": ""
+      },
+      "rentalDuration": 0,
+      "rentalRate": 0,
+      "rentalAmount": 0,
+      "purchaseOrder": {
+        "text": " ",
+        "value": " "
+      },
+      "vendor": {
+        "text": "Computer Depot Pacific",
+        "value": "965"
+      },
+      "owned": true,
+      "rentalMatrix": 0
+    }, {
+      "id": "130",
+      "name": "ELE00002",
+      "workorder": {
+        "text": "Test Work Order - AC Installation",
+        "value": "123"
+      },
+      "event": "101084",
+      "quantity": 0,
+      "description": "Serialized 1 Sales Description",
+      "item": {
+        "text": "ELE00002",
+        "value": "674"
+      },
+      "equipmentType": {
+        "text": "Hand Tools",
+        "value": "1"
+      },
+      "rentalUnit": {
+        "text": "",
+        "value": ""
+      },
+      "rentalDuration": 0,
+      "rentalRate": 0,
+      "rentalAmount": 0,
+      "purchaseOrder": {
+        "text": " ",
+        "value": " "
+      },
+      "vendor": {
+        "text": "Computer Depot Pacific",
+        "value": "965"
+      },
+      "owned": true,
+      "rentalMatrix": 0
+    }],
+    "items": [{
       "id": "558",
       "workorder": {
-        "text": "Test Work Order",
+        "text": "Test Work Order - AC Installation",
         "value": "123"
       },
       "salesorder": {
@@ -269,30 +1114,114 @@ const mockup = {
       "availableQty": 2,
       "note": ""
     }, {
-      "id": "559",
+      "id": "560",
       "workorder": {
-        "text": "Test Work Order",
+        "text": "Test Work Order - AC Installation",
         "value": "123"
       },
       "salesorder": {
         "text": "Sales Order #SLS00000803",
         "value": "22468"
       },
-      "event": "101079",
-      "uuid": "22468_3",
-      "line": "3",
+      "event": "101080",
+      "uuid": "22468_1",
+      "line": "1",
       "item": {
         "text": "BIC00008",
         "value": "467"
       },
-      "description": "Working Table",
+      "description": "Head Master Chair",
+      "quantity": 1,
+      "availableQty": 1,
+      "note": ""
+    }, {
+      "id": "561",
+      "workorder": {
+        "text": "Test Work Order - AC Installation",
+        "value": "123"
+      },
+      "salesorder": {
+        "text": "Sales Order #SLS00000803",
+        "value": "22468"
+      },
+      "event": "101081",
+      "uuid": "22468_1",
+      "line": "1",
+      "item": {
+        "text": "BIC00008",
+        "value": "467"
+      },
+      "description": "Head Master Chair",
       "quantity": 5,
       "availableQty": 5,
       "note": ""
     }, {
+      "id": "565",
+      "workorder": {
+        "text": "Test Work Order - AC Installation",
+        "value": "123"
+      },
+      "salesorder": {
+        "text": "Sales Order #SLS00000803",
+        "value": "22468"
+      },
+      "event": "101082",
+      "uuid": "22468_1",
+      "line": "1",
+      "item": {
+        "text": "BIC00008",
+        "value": "467"
+      },
+      "description": "Head Master Chair",
+      "quantity": 5,
+      "availableQty": 5,
+      "note": ""
+    }, {
+      "id": "567",
+      "workorder": {
+        "text": "Test Work Order - AC Installation",
+        "value": "123"
+      },
+      "salesorder": {
+        "text": "Sales Order #SLS00000803",
+        "value": "22468"
+      },
+      "event": "101083",
+      "uuid": "22468_1",
+      "line": "1",
+      "item": {
+        "text": "BIC00008",
+        "value": "467"
+      },
+      "description": "Head Master Chair",
+      "quantity": 2,
+      "availableQty": 2,
+      "note": ""
+    }, {
+      "id": "574",
+      "workorder": {
+        "text": "Test Work Order - AC Installation",
+        "value": "123"
+      },
+      "salesorder": {
+        "text": "Sales Order #SLS00000803",
+        "value": "22468"
+      },
+      "event": "101084",
+      "uuid": "22468_1",
+      "line": "1",
+      "item": {
+        "text": "BIC00008",
+        "value": "467"
+      },
+      "description": "Head Master Chair",
+      "quantity": 2,
+      "availableQty": 2,
+      "note": ""
+    }, {
       "id": "547",
       "workorder": {
-        "text": "Test Work Order",
+        "text": "Test Work Order - AC Installation",
         "value": "123"
       },
       "salesorder": {
@@ -313,7 +1242,7 @@ const mockup = {
     }, {
       "id": "555",
       "workorder": {
-        "text": "Test Work Order",
+        "text": "Test Work Order - AC Installation",
         "value": "123"
       },
       "salesorder": {
@@ -334,7 +1263,7 @@ const mockup = {
     }, {
       "id": "556",
       "workorder": {
-        "text": "Test Work Order",
+        "text": "Test Work Order - AC Installation",
         "value": "123"
       },
       "salesorder": {
@@ -355,7 +1284,7 @@ const mockup = {
     }, {
       "id": "548",
       "workorder": {
-        "text": "Test Work Order",
+        "text": "Test Work Order - AC Installation",
         "value": "123"
       },
       "salesorder": {
@@ -376,7 +1305,7 @@ const mockup = {
     }, {
       "id": "549",
       "workorder": {
-        "text": "Test Work Order",
+        "text": "Test Work Order - AC Installation",
         "value": "123"
       },
       "salesorder": {
@@ -397,7 +1326,7 @@ const mockup = {
     }, {
       "id": "550",
       "workorder": {
-        "text": "Test Work Order",
+        "text": "Test Work Order - AC Installation",
         "value": "123"
       },
       "salesorder": {
@@ -418,7 +1347,7 @@ const mockup = {
     }, {
       "id": "546",
       "workorder": {
-        "text": "Test Work Order",
+        "text": "Test Work Order - AC Installation",
         "value": "123"
       },
       "salesorder": {
@@ -436,18 +1365,60 @@ const mockup = {
       "quantity": 7,
       "availableQty": 7,
       "note": ""
+    }, {
+      "id": "557",
+      "workorder": {
+        "text": "Test Work Order - AC Installation",
+        "value": "123"
+      },
+      "salesorder": {
+        "text": "Sales Order #SLS00000803",
+        "value": "22468"
+      },
+      "event": "101077",
+      "uuid": "22468_1",
+      "line": "1",
+      "item": {
+        "text": "BIC00008",
+        "value": "467"
+      },
+      "description": "Head Master Chair",
+      "quantity": 7,
+      "availableQty": 7,
+      "note": ""
+    }, {
+      "id": "559",
+      "workorder": {
+        "text": "Test Work Order - AC Installation",
+        "value": "123"
+      },
+      "salesorder": {
+        "text": "Sales Order #SLS00000803",
+        "value": "22468"
+      },
+      "event": "101079",
+      "uuid": "22468_3",
+      "line": "3",
+      "item": {
+        "text": "BIC00008",
+        "value": "467"
+      },
+      "description": "Working Table",
+      "quantity": 10,
+      "availableQty": 10,
+      "note": ""
     }],
     "addresses": [{
       "id": "207",
       "workorder": {
-        "text": "Test Work Order",
+        "text": "Test Work Order - AC Installation",
         "value": "123"
       },
       "customer": {
         "text": "World Bank",
         "value": "1249"
       },
-      "events": ["101062", "101076", "101077", "101078", "101079"],
+      "events": ["101062", "101076", "101077", "101078", "101079", "101080", "101084"],
       "address": {
         "text": "434 Carlaw",
         "value": "244878"
@@ -458,10 +1429,10 @@ const mockup = {
     "contacts": [{
       "id": "168",
       "workorder": {
-        "text": "Test Work Order",
+        "text": "Test Work Order - AC Installation",
         "value": "123"
       },
-      "events": ["101062", "101077", "101078"],
+      "events": ["101062", "101077", "101078", "101080", "101084"],
       "contact": {
         "text": "World Bank : Chad Bass",
         "value": "1382"
@@ -476,7 +1447,7 @@ const mockup = {
     }, {
       "id": "169",
       "workorder": {
-        "text": "Test Work Order",
+        "text": "Test Work Order - AC Installation",
         "value": "123"
       },
       "events": ["101075", "101079"],
@@ -493,10 +1464,260 @@ const mockup = {
       "url": "/app/common/entity/contact.nl?id=1382&compid=TSTDRV2617106"
     }],
     "events": [{
+      "id": "101084",
+      "title": "AC Installation - 8",
+      "workorder": {
+        "text": "Test Work Order - AC Installation",
+        "value": "123"
+      },
+      "location": "",
+      "status": {
+        "text": "Tentative",
+        "value": "TENTATIVE",
+        "code": "bg-secondary"
+      },
+      "date": {
+        "recurrence": "one time event on 1/17/2025",
+        "dates": ["1/17/2025"],
+        "start": "2025-01-17",
+        "end": "2025-01-17"
+      },
+      "time": {
+        "start": "08:00",
+        "end": "18:00"
+      },
+      "priority": {
+        "text": "Medium",
+        "value": "2",
+        "code": "#dfcf02"
+      },
+      "note": "AC Installation - 8",
+      "url": "/app/crm/calendar/event.nl?id=101084&compid=TSTDRV2617106&selectedtab=custom337",
+      "color": "#1a6756",
+      "woRef": {},
+      "resources": [],
+      "vendors": [],
+      "assets": [],
+      "items": [],
+      "contacts": [],
+      "addresses": [],
+      "contact": {
+        "text": "",
+        "value": ""
+      },
+      "address": {
+        "text": "",
+        "value": ""
+      },
+      "organizer": {
+        "text": "Arun Sharma",
+        "value": "1770"
+      }
+    }, {
+      "id": "101083",
+      "title": "AC Installation - 7",
+      "workorder": {
+        "text": "Test Work Order - AC Installation",
+        "value": "123"
+      },
+      "location": "",
+      "status": {
+        "text": "Tentative",
+        "value": "TENTATIVE",
+        "code": "bg-secondary"
+      },
+      "date": {
+        "recurrence": "one time event on 1/17/2025",
+        "dates": ["1/17/2025"],
+        "start": "2025-01-17",
+        "end": "2025-01-17"
+      },
+      "time": {
+        "start": "08:00",
+        "end": "18:00"
+      },
+      "priority": {
+        "text": "Urgent",
+        "value": "4",
+        "code": "#9a2407"
+      },
+      "note": "AC Installation - 7",
+      "url": "/app/crm/calendar/event.nl?id=101083&compid=TSTDRV2617106&selectedtab=custom337",
+      "color": "#1a6756",
+      "woRef": {},
+      "resources": [],
+      "vendors": [],
+      "assets": [],
+      "items": [],
+      "contacts": [],
+      "addresses": [],
+      "contact": {
+        "text": "",
+        "value": ""
+      },
+      "address": {
+        "text": "",
+        "value": ""
+      },
+      "organizer": {
+        "text": "Mei Matriano",
+        "value": "1647"
+      }
+    }, {
+      "id": "101082",
+      "title": "AC Installation - 6",
+      "workorder": {
+        "text": "Test Work Order - AC Installation",
+        "value": "123"
+      },
+      "location": "",
+      "status": {
+        "text": "Tentative",
+        "value": "TENTATIVE",
+        "code": "bg-secondary"
+      },
+      "date": {
+        "recurrence": "one time event on 1/17/2025",
+        "dates": ["1/17/2025"],
+        "start": "2025-01-17",
+        "end": "2025-01-17"
+      },
+      "time": {
+        "start": "08:00",
+        "end": "18:00"
+      },
+      "priority": {
+        "text": "High",
+        "value": "3",
+        "code": "#ca6621"
+      },
+      "note": "AC Installation - 6",
+      "url": "/app/crm/calendar/event.nl?id=101082&compid=TSTDRV2617106&selectedtab=custom337",
+      "color": "#1a6756",
+      "woRef": {},
+      "resources": [],
+      "vendors": [],
+      "assets": [],
+      "items": [],
+      "contacts": [],
+      "addresses": [],
+      "contact": {
+        "text": "",
+        "value": ""
+      },
+      "address": {
+        "text": "",
+        "value": ""
+      },
+      "organizer": {
+        "text": "Mei Matriano",
+        "value": "1647"
+      }
+    }, {
+      "id": "101081",
+      "title": "AC Installation - 5",
+      "workorder": {
+        "text": "Test Work Order - AC Installation",
+        "value": "123"
+      },
+      "location": "",
+      "status": {
+        "text": "Tentative",
+        "value": "TENTATIVE",
+        "code": "bg-secondary"
+      },
+      "date": {
+        "recurrence": "one time event on 1/17/2025",
+        "dates": ["1/17/2025"],
+        "start": "2025-01-17",
+        "end": "2025-01-17"
+      },
+      "time": {
+        "start": "08:00",
+        "end": "18:00"
+      },
+      "priority": {
+        "text": "Urgent",
+        "value": "4",
+        "code": "#9a2407"
+      },
+      "note": "AC Installation - 5",
+      "url": "/app/crm/calendar/event.nl?id=101081&compid=TSTDRV2617106&selectedtab=custom337",
+      "color": "#1a6756",
+      "woRef": {},
+      "resources": [],
+      "vendors": [],
+      "assets": [],
+      "items": [],
+      "contacts": [],
+      "addresses": [],
+      "contact": {
+        "text": "",
+        "value": ""
+      },
+      "address": {
+        "text": "",
+        "value": ""
+      },
+      "organizer": {
+        "text": "Arun Sharma",
+        "value": "1770"
+      }
+    }, {
+      "id": "101080",
+      "title": "AC Installation - 4",
+      "workorder": {
+        "text": "Test Work Order - AC Installation",
+        "value": "123"
+      },
+      "location": "",
+      "status": {
+        "text": "Tentative",
+        "value": "TENTATIVE",
+        "code": "bg-secondary"
+      },
+      "date": {
+        "recurrence": "occurs every day from 1/16/2025 until 1/17/2025",
+        "dates": ["1/16/2025", "1/17/2025"],
+        "start": "2025-01-16",
+        "end": "2025-01-17"
+      },
+      "time": {
+        "start": "08:00",
+        "end": "18:00"
+      },
+      "priority": {
+        "text": "High",
+        "value": "3",
+        "code": "#ca6621"
+      },
+      "note": "AC Installation - 4",
+      "url": "/app/crm/calendar/event.nl?id=101080&compid=TSTDRV2617106&selectedtab=custom337",
+      "color": "#1a6756",
+      "woRef": {},
+      "resources": [],
+      "vendors": [],
+      "assets": [],
+      "items": [],
+      "contacts": [],
+      "addresses": [],
+      "contact": {
+        "text": "",
+        "value": ""
+      },
+      "address": {
+        "text": "",
+        "value": ""
+      },
+      "organizer": {
+        "text": "Mei Matriano",
+        "value": "1647"
+      }
+    }, {
       "id": "101079",
       "title": "AC Installation - 3",
       "workorder": {
-        "text": "Test Work Order",
+        "text": "Test Work Order - AC Installation",
         "value": "123"
       },
       "location": "",
@@ -546,7 +1767,7 @@ const mockup = {
       "id": "101078",
       "title": "AC Installation 2",
       "workorder": {
-        "text": "Test Work Order",
+        "text": "Test Work Order - AC Installation",
         "value": "123"
       },
       "location": "",
@@ -596,7 +1817,7 @@ const mockup = {
       "id": "101077",
       "title": "AC Installation",
       "workorder": {
-        "text": "Test Work Order",
+        "text": "Test Work Order - AC Installation",
         "value": "123"
       },
       "location": "",
@@ -646,7 +1867,7 @@ const mockup = {
       "id": "101076",
       "title": "Test Work Order",
       "workorder": {
-        "text": "Test Work Order",
+        "text": "Test Work Order - AC Installation",
         "value": "123"
       },
       "location": "",
@@ -696,7 +1917,7 @@ const mockup = {
       "id": "101075",
       "title": "Test Work Order",
       "workorder": {
-        "text": "Test Work Order",
+        "text": "Test Work Order - AC Installation",
         "value": "123"
       },
       "location": "",
@@ -20580,6 +21801,48 @@ const mockup = {
       "quantity": 25,
       "availableQty": 25,
       "note": ""
+    }, {
+      "id": "564",
+      "workorder": {
+        "text": "FOP User Guide TEST",
+        "value": "81"
+      },
+      "salesorder": {
+        "text": " ",
+        "value": ""
+      },
+      "event": "36",
+      "uuid": "",
+      "line": "",
+      "item": {
+        "text": "PRI00002",
+        "value": "38"
+      },
+      "description": "",
+      "quantity": 999,
+      "availableQty": 999,
+      "note": ""
+    }, {
+      "id": "562",
+      "workorder": {
+        "text": "FOP User Guide TEST",
+        "value": "81"
+      },
+      "salesorder": {
+        "text": " ",
+        "value": ""
+      },
+      "event": "36",
+      "uuid": "",
+      "line": "",
+      "item": {
+        "text": "PRI00002",
+        "value": "38"
+      },
+      "description": "",
+      "quantity": 999,
+      "availableQty": 999,
+      "note": ""
     }],
     "addresses": [{
       "id": "58",
@@ -26315,7 +27578,7 @@ const mockup = {
       "value": "1"
     },
     "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1524%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-    "events": ["101079", "101075", "101072"],
+    "events": ["101084", "101083", "101080", "101079", "101075", "101072"],
     "labRates": [],
     "time": {
       "start": "",
@@ -26873,7 +28136,7 @@ const mockup = {
       "value": "1"
     },
     "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D23%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-    "events": [],
+    "events": ["101085", "101082"],
     "labRates": [],
     "time": {
       "start": "",
@@ -26924,7 +28187,7 @@ const mockup = {
       "value": "3"
     },
     "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D224%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-    "events": [],
+    "events": ["101085"],
     "labRates": [],
     "time": {
       "start": "",
@@ -26978,7 +28241,7 @@ const mockup = {
       "value": "3"
     },
     "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1312%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-    "events": [],
+    "events": ["101083"],
     "labRates": [],
     "time": {
       "start": "",
@@ -27029,7 +28292,7 @@ const mockup = {
       "value": "3"
     },
     "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1292%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-    "events": [],
+    "events": ["101082"],
     "labRates": [],
     "time": {
       "start": "",
@@ -27188,7 +28451,7 @@ const mockup = {
       "value": "1"
     },
     "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1539%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-    "events": [],
+    "events": ["101085", "101084", "101083"],
     "labRates": [],
     "time": {
       "start": "",
@@ -27296,7 +28559,7 @@ const mockup = {
       "value": "3"
     },
     "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D918%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-    "events": [],
+    "events": ["101084"],
     "labRates": [],
     "time": {
       "start": "",
@@ -27350,7 +28613,7 @@ const mockup = {
       "value": "1"
     },
     "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1656%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-    "events": [],
+    "events": ["101082"],
     "labRates": [],
     "time": {
       "start": "",
@@ -27408,7 +28671,7 @@ const mockup = {
         "value": "1"
       },
       "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1524%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-      "events": ["101079", "101075", "101072"],
+      "events": ["101084", "101083", "101080", "101079", "101075", "101072"],
       "labRates": [],
       "time": {
         "start": "",
@@ -27912,7 +29175,7 @@ const mockup = {
         "value": "3"
       },
       "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D224%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-      "events": [],
+      "events": ["101085"],
       "labRates": [],
       "time": {
         "start": "",
@@ -27966,7 +29229,7 @@ const mockup = {
         "value": "3"
       },
       "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1312%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-      "events": [],
+      "events": ["101083"],
       "labRates": [],
       "time": {
         "start": "",
@@ -28017,7 +29280,7 @@ const mockup = {
         "value": "3"
       },
       "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1292%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-      "events": [],
+      "events": ["101082"],
       "labRates": [],
       "time": {
         "start": "",
@@ -28071,7 +29334,7 @@ const mockup = {
         "value": "1"
       },
       "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1539%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-      "events": [],
+      "events": ["101085", "101084", "101083"],
       "labRates": [],
       "time": {
         "start": "",
@@ -28179,7 +29442,7 @@ const mockup = {
         "value": "3"
       },
       "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D918%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-      "events": [],
+      "events": ["101084"],
       "labRates": [],
       "time": {
         "start": "",
@@ -28233,7 +29496,7 @@ const mockup = {
         "value": "1"
       },
       "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1656%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-      "events": [],
+      "events": ["101082"],
       "labRates": [],
       "time": {
         "start": "",
@@ -28732,7 +29995,7 @@ const mockup = {
         "value": "1"
       },
       "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D23%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-      "events": [],
+      "events": ["101085", "101082"],
       "labRates": [],
       "time": {
         "start": "",
@@ -40870,7 +42133,7 @@ const mockup = {
     },
     "active": true,
     "workorder": {
-      "text": "Test Work Order",
+      "text": "Test Work Order - AC Installation",
       "value": "123"
     },
     "events": ["101079"],
@@ -40917,7 +42180,7 @@ const mockup = {
     },
     "active": true,
     "workorder": {
-      "text": "Test Work Order",
+      "text": "Test Work Order - AC Installation",
       "value": "123"
     },
     "events": ["101079"],
@@ -40964,7 +42227,7 @@ const mockup = {
     },
     "active": true,
     "workorder": {
-      "text": "Test Work Order",
+      "text": "Test Work Order - AC Installation",
       "value": "123"
     },
     "events": [],
@@ -41011,7 +42274,7 @@ const mockup = {
     },
     "active": true,
     "workorder": {
-      "text": "Test Work Order",
+      "text": "Test Work Order - AC Installation",
       "value": "123"
     },
     "events": [],
@@ -41058,7 +42321,7 @@ const mockup = {
     },
     "active": true,
     "workorder": {
-      "text": "Test Work Order",
+      "text": "Test Work Order - AC Installation",
       "value": "123"
     },
     "events": [],
@@ -41099,7 +42362,7 @@ const mockup = {
     },
     "active": true,
     "workorder": {
-      "text": "Test Work Order",
+      "text": "Test Work Order - AC Installation",
       "value": "123"
     },
     "events": [],
@@ -41140,7 +42403,7 @@ const mockup = {
     },
     "active": true,
     "workorder": {
-      "text": "Test Work Order",
+      "text": "Test Work Order - AC Installation",
       "value": "123"
     },
     "events": [],
@@ -41187,7 +42450,7 @@ const mockup = {
     },
     "active": true,
     "workorder": {
-      "text": "Test Work Order",
+      "text": "Test Work Order - AC Installation",
       "value": "123"
     },
     "events": [],
@@ -41275,7 +42538,7 @@ const mockup = {
     },
     "active": true,
     "workorder": {
-      "text": "Test Work Order",
+      "text": "Test Work Order - AC Installation",
       "value": "123"
     },
     "events": [],
@@ -41363,7 +42626,7 @@ const mockup = {
     },
     "active": true,
     "workorder": {
-      "text": "Test Work Order",
+      "text": "Test Work Order - AC Installation",
       "value": "123"
     },
     "events": ["101075"],
@@ -41410,7 +42673,7 @@ const mockup = {
     },
     "active": true,
     "workorder": {
-      "text": "Test Work Order",
+      "text": "Test Work Order - AC Installation",
       "value": "123"
     },
     "events": ["101075"],
@@ -41469,7 +42732,7 @@ const mockup = {
     },
     "active": true,
     "workorder": {
-      "text": "Test Work Order",
+      "text": "Test Work Order - AC Installation",
       "value": "123"
     },
     "events": ["101076"],
@@ -41528,7 +42791,7 @@ const mockup = {
     },
     "active": true,
     "workorder": {
-      "text": "Test Work Order",
+      "text": "Test Work Order - AC Installation",
       "value": "123"
     },
     "events": ["101062"],
@@ -41575,7 +42838,7 @@ const mockup = {
     },
     "active": true,
     "workorder": {
-      "text": "Test Work Order",
+      "text": "Test Work Order - AC Installation",
       "value": "123"
     },
     "events": ["101062"],
@@ -41622,7 +42885,7 @@ const mockup = {
     },
     "active": true,
     "workorder": {
-      "text": "Test Work Order",
+      "text": "Test Work Order - AC Installation",
       "value": "123"
     },
     "events": ["101062"],
@@ -41669,7 +42932,7 @@ const mockup = {
     },
     "active": true,
     "workorder": {
-      "text": "Test Work Order",
+      "text": "Test Work Order - AC Installation",
       "value": "123"
     },
     "events": ["101062"],
@@ -41716,7 +42979,7 @@ const mockup = {
     },
     "active": true,
     "workorder": {
-      "text": "Test Work Order",
+      "text": "Test Work Order - AC Installation",
       "value": "123"
     },
     "events": ["101079"],
@@ -41751,6 +43014,581 @@ const mockup = {
       "end": ""
     },
     "resourceSkills": []
+  }, {
+    "id": "368",
+    "name": "Aiden Somerhalder",
+    "initials": "AS",
+    "email": "admin@ramsey.com",
+    "phone": "",
+    "location": {
+      "text": "01: San Francisco",
+      "value": "2"
+    },
+    "active": true,
+    "workorder": {
+      "text": "Test Work Order - AC Installation",
+      "value": "123"
+    },
+    "events": ["101080"],
+    "employee": {
+      "text": "Aiden Somerhalder",
+      "value": "1524"
+    },
+    "resourceGroups": [{
+      "text": "Installers",
+      "value": "1"
+    }],
+    "types": [{
+      "text": "Installer",
+      "value": "1"
+    }],
+    "subTypes": [],
+    "rate": 0,
+    "vendor": {
+      "text": "",
+      "value": ""
+    },
+    "purchaseOrder": {
+      "text": " ",
+      "value": ""
+    },
+    "affiliationType": {
+      "text": "In-House",
+      "value": "1"
+    },
+    "time": {
+      "start": "08:00",
+      "end": "18:00"
+    },
+    "resourceSkills": []
+  }, {
+    "id": "373",
+    "name": "Clark Koozer",
+    "initials": "CK",
+    "email": "jc@erpsuccesspartners.com",
+    "phone": "650-555-8300",
+    "location": {
+      "text": "01: San Francisco",
+      "value": "2"
+    },
+    "active": true,
+    "workorder": {
+      "text": "Test Work Order - AC Installation",
+      "value": "123"
+    },
+    "events": ["101082"],
+    "employee": {
+      "text": "Clark Koozer",
+      "value": "23"
+    },
+    "resourceGroups": [],
+    "types": [],
+    "subTypes": [],
+    "rate": 0,
+    "vendor": {
+      "text": "",
+      "value": ""
+    },
+    "purchaseOrder": {
+      "text": " ",
+      "value": ""
+    },
+    "affiliationType": {
+      "text": "In-House",
+      "value": "1"
+    },
+    "time": {
+      "start": "",
+      "end": ""
+    },
+    "resourceSkills": []
+  }, {
+    "id": "374",
+    "name": "Youssef Ezz",
+    "initials": "YE",
+    "email": "yk@erpsuccesspartners.com",
+    "phone": "",
+    "location": {
+      "text": "01: San Francisco",
+      "value": "2"
+    },
+    "active": true,
+    "workorder": {
+      "text": "Test Work Order - AC Installation",
+      "value": "123"
+    },
+    "events": ["101082"],
+    "employee": {
+      "text": "Youssef Ezz",
+      "value": "1656"
+    },
+    "resourceGroups": [],
+    "types": [],
+    "subTypes": [],
+    "rate": 0,
+    "vendor": {
+      "text": "",
+      "value": ""
+    },
+    "purchaseOrder": {
+      "text": " ",
+      "value": ""
+    },
+    "affiliationType": {
+      "text": "In-House",
+      "value": "1"
+    },
+    "time": {
+      "start": "",
+      "end": ""
+    },
+    "resourceSkills": []
+  }, {
+    "id": "375",
+    "name": "Matt Nolan",
+    "initials": "MN",
+    "email": "mnolan@ramsey.com",
+    "phone": "",
+    "location": {
+      "text": "01: San Francisco",
+      "value": "2"
+    },
+    "active": true,
+    "workorder": {
+      "text": "Test Work Order - AC Installation",
+      "value": "123"
+    },
+    "events": ["101082"],
+    "employee": {
+      "text": "Matt Nolan",
+      "value": "1292"
+    },
+    "resourceGroups": [],
+    "types": [],
+    "subTypes": [],
+    "rate": 0,
+    "vendor": {
+      "text": "",
+      "value": ""
+    },
+    "purchaseOrder": {
+      "text": " ",
+      "value": ""
+    },
+    "affiliationType": {
+      "text": "Crew Enhancement",
+      "value": "3"
+    },
+    "time": {
+      "start": "",
+      "end": ""
+    },
+    "resourceSkills": []
+  }, {
+    "id": "376",
+    "name": "Aiden Somerhalder",
+    "initials": "AS",
+    "email": "admin@ramsey.com",
+    "phone": "",
+    "location": {
+      "text": "01: San Francisco",
+      "value": "2"
+    },
+    "active": true,
+    "workorder": {
+      "text": "Test Work Order - AC Installation",
+      "value": "123"
+    },
+    "events": ["101083"],
+    "employee": {
+      "text": "Aiden Somerhalder",
+      "value": "1524"
+    },
+    "resourceGroups": [],
+    "types": [],
+    "subTypes": [],
+    "rate": 0,
+    "vendor": {
+      "text": "",
+      "value": ""
+    },
+    "purchaseOrder": {
+      "text": " ",
+      "value": ""
+    },
+    "affiliationType": {
+      "text": "In-House",
+      "value": "1"
+    },
+    "time": {
+      "start": "08:00",
+      "end": "18:00"
+    },
+    "resourceSkills": []
+  }, {
+    "id": "377",
+    "name": "Ruth Smith",
+    "initials": "RS",
+    "email": "jc@erpsuccesspartners.com",
+    "phone": "(713) 555-1212",
+    "location": {
+      "text": "01: San Francisco",
+      "value": "2"
+    },
+    "active": true,
+    "workorder": {
+      "text": "Test Work Order - AC Installation",
+      "value": "123"
+    },
+    "events": ["101083"],
+    "employee": {
+      "text": "Ruth Smith",
+      "value": "1539"
+    },
+    "resourceGroups": [],
+    "types": [],
+    "subTypes": [],
+    "rate": 0,
+    "vendor": {
+      "text": "",
+      "value": ""
+    },
+    "purchaseOrder": {
+      "text": " ",
+      "value": ""
+    },
+    "affiliationType": {
+      "text": "In-House",
+      "value": "1"
+    },
+    "time": {
+      "start": "08:00",
+      "end": "18:00"
+    },
+    "resourceSkills": []
+  }, {
+    "id": "378",
+    "name": "Gary Grant",
+    "initials": "GG",
+    "email": "garygrant@ramsey.com",
+    "phone": "(873) 775-6114",
+    "location": {
+      "text": "02: Boston",
+      "value": "1"
+    },
+    "active": true,
+    "workorder": {
+      "text": "Test Work Order - AC Installation",
+      "value": "123"
+    },
+    "events": ["101083"],
+    "employee": {
+      "text": "Gary Grant",
+      "value": "1312"
+    },
+    "resourceGroups": [],
+    "types": [],
+    "subTypes": [],
+    "rate": 0,
+    "vendor": {
+      "text": "",
+      "value": ""
+    },
+    "purchaseOrder": {
+      "text": " ",
+      "value": ""
+    },
+    "affiliationType": {
+      "text": "Crew Enhancement",
+      "value": "3"
+    },
+    "time": {
+      "start": "08:00",
+      "end": "18:00"
+    },
+    "resourceSkills": []
+  }, {
+    "id": "379",
+    "name": "Aiden Somerhalder",
+    "initials": "AS",
+    "email": "admin@ramsey.com",
+    "phone": "",
+    "location": {
+      "text": "01: San Francisco",
+      "value": "2"
+    },
+    "active": true,
+    "workorder": {
+      "text": "Test Work Order - AC Installation",
+      "value": "123"
+    },
+    "events": ["101084"],
+    "employee": {
+      "text": "Aiden Somerhalder",
+      "value": "1524"
+    },
+    "resourceGroups": [{
+      "text": "Installers",
+      "value": "1"
+    }],
+    "types": [{
+      "text": "Installer",
+      "value": "1"
+    }],
+    "subTypes": [],
+    "rate": 0,
+    "vendor": {
+      "text": "",
+      "value": ""
+    },
+    "purchaseOrder": {
+      "text": " ",
+      "value": ""
+    },
+    "affiliationType": {
+      "text": "In-House",
+      "value": "1"
+    },
+    "time": {
+      "start": "08:00",
+      "end": "18:00"
+    },
+    "resourceSkills": []
+  }, {
+    "id": "380",
+    "name": "Ruth Smith",
+    "initials": "RS",
+    "email": "jc@erpsuccesspartners.com",
+    "phone": "(713) 555-1212",
+    "location": {
+      "text": "01: San Francisco",
+      "value": "2"
+    },
+    "active": true,
+    "workorder": {
+      "text": "Test Work Order - AC Installation",
+      "value": "123"
+    },
+    "events": ["101084"],
+    "employee": {
+      "text": "Ruth Smith",
+      "value": "1539"
+    },
+    "resourceGroups": [{
+      "text": "Installers",
+      "value": "1"
+    }],
+    "types": [{
+      "text": "Installer",
+      "value": "1"
+    }],
+    "subTypes": [],
+    "rate": 0,
+    "vendor": {
+      "text": "",
+      "value": ""
+    },
+    "purchaseOrder": {
+      "text": " ",
+      "value": ""
+    },
+    "affiliationType": {
+      "text": "In-House",
+      "value": "1"
+    },
+    "time": {
+      "start": "08:00",
+      "end": "18:00"
+    },
+    "resourceSkills": []
+  }, {
+    "id": "381",
+    "name": "Walter Reagan",
+    "initials": "WR",
+    "email": "wreagan@ramsey.com",
+    "phone": "",
+    "location": {
+      "text": "02: Boston",
+      "value": "1"
+    },
+    "active": true,
+    "workorder": {
+      "text": "Test Work Order - AC Installation",
+      "value": "123"
+    },
+    "events": ["101084"],
+    "employee": {
+      "text": "Walter Reagan",
+      "value": "918"
+    },
+    "resourceGroups": [{
+      "text": "Installers",
+      "value": "1"
+    }],
+    "types": [{
+      "text": "Installer",
+      "value": "1"
+    }],
+    "subTypes": [],
+    "rate": 0,
+    "vendor": {
+      "text": "",
+      "value": ""
+    },
+    "purchaseOrder": {
+      "text": " ",
+      "value": ""
+    },
+    "affiliationType": {
+      "text": "Crew Enhancement",
+      "value": "3"
+    },
+    "time": {
+      "start": "08:00",
+      "end": "18:00"
+    },
+    "resourceSkills": []
+  }, {
+    "id": "382",
+    "name": "Clark Koozer",
+    "initials": "CK",
+    "email": "jc@erpsuccesspartners.com",
+    "phone": "650-555-8300",
+    "location": {
+      "text": "01: San Francisco",
+      "value": "2"
+    },
+    "active": true,
+    "workorder": {
+      "text": "Lobby Area",
+      "value": "125"
+    },
+    "events": ["101085"],
+    "employee": {
+      "text": "Clark Koozer",
+      "value": "23"
+    },
+    "resourceGroups": [{
+      "text": "Drivers",
+      "value": "3"
+    }],
+    "types": [{
+      "text": "Delivery Driver",
+      "value": "2"
+    }],
+    "subTypes": [],
+    "rate": 0,
+    "vendor": {
+      "text": "",
+      "value": ""
+    },
+    "purchaseOrder": {
+      "text": " ",
+      "value": ""
+    },
+    "affiliationType": {
+      "text": "In-House",
+      "value": "1"
+    },
+    "time": {
+      "start": "08:00",
+      "end": "18:00"
+    },
+    "resourceSkills": []
+  }, {
+    "id": "383",
+    "name": "Ruth Smith",
+    "initials": "RS",
+    "email": "jc@erpsuccesspartners.com",
+    "phone": "(713) 555-1212",
+    "location": {
+      "text": "01: San Francisco",
+      "value": "2"
+    },
+    "active": true,
+    "workorder": {
+      "text": "Lobby Area",
+      "value": "125"
+    },
+    "events": ["101085"],
+    "employee": {
+      "text": "Ruth Smith",
+      "value": "1539"
+    },
+    "resourceGroups": [{
+      "text": "Installers",
+      "value": "1"
+    }],
+    "types": [{
+      "text": "Installer",
+      "value": "1"
+    }],
+    "subTypes": [],
+    "rate": 0,
+    "vendor": {
+      "text": "",
+      "value": ""
+    },
+    "purchaseOrder": {
+      "text": " ",
+      "value": ""
+    },
+    "affiliationType": {
+      "text": "In-House",
+      "value": "1"
+    },
+    "time": {
+      "start": "08:00",
+      "end": "18:00"
+    },
+    "resourceSkills": []
+  }, {
+    "id": "384",
+    "name": "Dale Williams",
+    "initials": "DW",
+    "email": "jc@erpsuccesspartners.com",
+    "phone": "",
+    "location": {
+      "text": "01: San Francisco",
+      "value": "2"
+    },
+    "active": true,
+    "workorder": {
+      "text": "Lobby Area",
+      "value": "125"
+    },
+    "events": ["101085"],
+    "employee": {
+      "text": "Dale Williams",
+      "value": "224"
+    },
+    "resourceGroups": [{
+      "text": "Installers",
+      "value": "1"
+    }],
+    "types": [{
+      "text": "Installer",
+      "value": "1"
+    }],
+    "subTypes": [],
+    "rate": 0,
+    "vendor": {
+      "text": "",
+      "value": ""
+    },
+    "purchaseOrder": {
+      "text": " ",
+      "value": ""
+    },
+    "affiliationType": {
+      "text": "Crew Enhancement",
+      "value": "3"
+    },
+    "time": {
+      "start": "08:00",
+      "end": "18:00"
+    },
+    "resourceSkills": []
   }],
   "vendors": [{
     "id": "12",
@@ -41770,7 +43608,7 @@ const mockup = {
       "value": ""
     },
     "woVendor": false,
-    "events": ["101075", "101057", "101056", "101055", "101040", "101028", "101017", "101015", "101012", "101011", "101010", "101008", "101007", "101006", "101005", "101004", "101003", "100968", "100954", "100953", "100952", "100951", "100950", "100947", "100942", "100939", "100933", "100931", "100927", "100923", "100922", "100915", "100913", "100912", "100906", "100905", "100904", "100903", "100902", "100901", "100900", "100899", "100891", "100890", "100889", "100888", "100887", "100886", "100884", "100883", "100882", "100881", "100880", "100875", "100871", "100870", "100682", "39", "20"],
+    "events": ["101081", "101075", "101057", "101056", "101055", "101040", "101028", "101017", "101015", "101012", "101011", "101010", "101008", "101007", "101006", "101005", "101004", "101003", "100968", "100954", "100953", "100952", "100951", "100950", "100947", "100942", "100939", "100933", "100931", "100927", "100923", "100922", "100915", "100913", "100912", "100906", "100905", "100904", "100903", "100902", "100901", "100900", "100899", "100891", "100890", "100889", "100888", "100887", "100886", "100884", "100883", "100882", "100881", "100880", "100875", "100871", "100870", "100682", "39", "20"],
     "memo": ""
   }, {
     "id": "1473",
@@ -41790,7 +43628,7 @@ const mockup = {
       "value": ""
     },
     "woVendor": false,
-    "events": ["101010", "101008", "101005", "100970", "100969", "100968", "100960", "100956", "100955", "100951", "100947", "100946", "100945", "100942", "100939", "100938", "100933", "100932", "100931", "100924", "100916", "100887", "100885", "100879", "100878", "100877", "100876", "100875", "100874", "100682", "39", "6"],
+    "events": ["101084", "101010", "101008", "101005", "100970", "100969", "100968", "100960", "100956", "100955", "100951", "100947", "100946", "100945", "100942", "100939", "100938", "100933", "100932", "100931", "100924", "100916", "100887", "100885", "100879", "100878", "100877", "100876", "100875", "100874", "100682", "39", "6"],
     "memo": ""
   }, {
     "id": "1661",
@@ -41810,7 +43648,7 @@ const mockup = {
       "value": ""
     },
     "woVendor": false,
-    "events": ["101061", "101060", "101037", "101012", "100953", "100952", "100950", "100932", "100884", "100881", "100880", "100875", "39"],
+    "events": ["101083", "101082", "101061", "101060", "101037", "101012", "100953", "100952", "100950", "100932", "100884", "100881", "100880", "100875", "39"],
     "memo": ""
   }, {
     "id": "965",
@@ -41858,6 +43696,10 @@ const mockup = {
     "name": "ELE00002",
     "displayname": "Serialized 1 Sales Description",
     "description": "Serialized 1 Sales Description",
+    "item": {
+      "text": "ELE00002",
+      "value": "674"
+    },
     "vendor": {
       "text": "Computer Depot Pacific",
       "value": "965"
@@ -41868,13 +43710,499 @@ const mockup = {
       "text": "",
       "value": ""
     },
-    "events": ["101079", "101078", "101077", "101041", "101037", "101028", "101015", "101012", "101011", "101010", "101008", "101007", "101006", "101003", "100970", "100969", "100968", "100960", "100956", "100955", "100954", "100953", "100952", "100950", "100947", "100946", "100945", "100933", "100932", "100931", "100927", "100924", "100923", "100922", "100916", "100915", "100913", "100912", "100906", "100905", "100904", "100903", "100902", "100901", "100900", "100899", "100891", "100890", "100889", "100888", "100887", "100886", "100885", "100883", "100882", "100881", "100880", "100879", "100878", "100877", "100876", "100875", "100871", "100870", "100869", "100868", "100867", "100866", "100863", "100862", "100861", "100860", "100859", "100858", "100816", "100812", "100750", "39"]
+    "events": ["101084", "101083", "101082", "101081", "101079", "101078", "101077", "101041", "101037", "101028", "101015", "101012", "101011", "101010", "101008", "101007", "101006", "101003", "100970", "100969", "100968", "100960", "100956", "100955", "100954", "100953", "100952", "100950", "100947", "100946", "100945", "100933", "100932", "100931", "100927", "100924", "100923", "100922", "100916", "100915", "100913", "100912", "100906", "100905", "100904", "100903", "100902", "100901", "100900", "100899", "100891", "100890", "100889", "100888", "100887", "100886", "100885", "100883", "100882", "100881", "100880", "100879", "100878", "100877", "100876", "100875", "100871", "100870", "100869", "100868", "100867", "100866", "100863", "100862", "100861", "100860", "100859", "100858", "100816", "100812", "100750", "39"]
   }],
   "events": [{
-    "id": "101079",
-    "title": "AC Installation - 3",
+    "id": "101085",
+    "title": "Furniture Installation",
     "workorder": {
-      "text": "Test Work Order",
+      "text": "Lobby Area",
+      "value": "125"
+    },
+    "location": "",
+    "status": {
+      "text": "Tentative",
+      "value": "TENTATIVE",
+      "code": "bg-secondary"
+    },
+    "date": {
+      "recurrence": "occurs every day from 1/20/2025 until 1/21/2025",
+      "dates": ["1/20/2025", "1/21/2025"],
+      "start": "2025-01-20",
+      "end": "2025-01-21"
+    },
+    "time": {
+      "start": "08:00",
+      "end": "18:00"
+    },
+    "priority": {
+      "text": "High",
+      "value": "3",
+      "code": "#ca6621"
+    },
+    "note": "Furniture Installation",
+    "url": "/app/crm/calendar/event.nl?id=101085&compid=TSTDRV2617106&selectedtab=custom337",
+    "color": "#1a6756",
+    "woRef": {
+      "id": "125",
+      "name": "Lobby Area",
+      "title": "Lobby Area",
+      "project": {
+        "text": "World Bank : World Bank Office Furniture Installation",
+        "value": "1515"
+      },
+      "date": "1/20/2025",
+      "status": {
+        "text": "Not Started",
+        "value": "4",
+        "code": "#026adf"
+      },
+      "type": {
+        "text": "Service",
+        "value": "2"
+      },
+      "memo": "<p><strong>Lobby Area</strong></p>",
+      "salesorder": {
+        "text": "Sales Order #SLS00000807",
+        "value": "22898"
+      },
+      "customer": {
+        "text": "World Bank",
+        "value": "1249"
+      },
+      "resourceGroup": {
+        "text": "",
+        "value": ""
+      },
+      "priority": "",
+      "resources": [],
+      "vendors": [],
+      "assets": [],
+      "items": [{
+        "id": "579",
+        "workorder": {
+          "text": "Lobby Area",
+          "value": "125"
+        },
+        "salesorder": {
+          "text": "Sales Order #SLS00000807",
+          "value": "22898"
+        },
+        "event": "101085",
+        "uuid": "22898_1",
+        "line": "1",
+        "item": {
+          "text": "BIC00008",
+          "value": "467"
+        },
+        "description": "Head Master Chair",
+        "quantity": 3,
+        "availableQty": 3,
+        "note": ""
+      }, {
+        "id": "580",
+        "workorder": {
+          "text": "Lobby Area",
+          "value": "125"
+        },
+        "salesorder": {
+          "text": "Sales Order #SLS00000807",
+          "value": "22898"
+        },
+        "event": "101085",
+        "uuid": "22898_2",
+        "line": "2",
+        "item": {
+          "text": "BIC00008",
+          "value": "467"
+        },
+        "description": "Diana Chair",
+        "quantity": 5,
+        "availableQty": 5,
+        "note": ""
+      }, {
+        "id": "577",
+        "workorder": {
+          "text": "Lobby Area",
+          "value": "125"
+        },
+        "salesorder": {
+          "text": "Sales Order #SLS00000807",
+          "value": "22898"
+        },
+        "event": "",
+        "uuid": "22898_1",
+        "line": "1",
+        "item": {
+          "text": "BIC00008",
+          "value": "467"
+        },
+        "description": "Head Master Chair",
+        "quantity": 7,
+        "availableQty": 7,
+        "note": ""
+      }, {
+        "id": "578",
+        "workorder": {
+          "text": "Lobby Area",
+          "value": "125"
+        },
+        "salesorder": {
+          "text": "Sales Order #SLS00000807",
+          "value": "22898"
+        },
+        "event": "",
+        "uuid": "22898_2",
+        "line": "2",
+        "item": {
+          "text": "BIC00008",
+          "value": "467"
+        },
+        "description": "Diana Chair",
+        "quantity": 10,
+        "availableQty": 10,
+        "note": ""
+      }],
+      "addresses": [{
+        "id": "209",
+        "workorder": {
+          "text": "Lobby Area",
+          "value": "125"
+        },
+        "customer": {
+          "text": "World Bank",
+          "value": "1249"
+        },
+        "events": ["101085"],
+        "address": {
+          "text": "434 Carlaw",
+          "value": "244878"
+        },
+        "addressDetails": "434 Carlaw Road<br/>Los Angeles NY 12412<br/>United States",
+        "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+      }],
+      "contacts": [{
+        "id": "171",
+        "workorder": {
+          "text": "Lobby Area",
+          "value": "125"
+        },
+        "events": ["101085"],
+        "contact": {
+          "text": "World Bank : John Smith",
+          "value": "1892"
+        },
+        "name": "John Smith",
+        "email": "jc@erpsuccesspartners.com",
+        "jobTitle": "Logistics",
+        "mobilePhone": "",
+        "phone": "",
+        "primary": false,
+        "url": "/app/common/entity/contact.nl?id=1892&compid=TSTDRV2617106"
+      }, {
+        "id": "172",
+        "workorder": {
+          "text": "Lobby Area",
+          "value": "125"
+        },
+        "events": [],
+        "contact": {
+          "text": "World Bank : Tom Holland",
+          "value": "2057"
+        },
+        "name": "Tom Holland",
+        "email": "tholland@email.com",
+        "jobTitle": "Purchasing Manager",
+        "mobilePhone": "",
+        "phone": "",
+        "primary": false,
+        "url": "/app/common/entity/contact.nl?id=2057&compid=TSTDRV2617106"
+      }],
+      "events": [{
+        "id": "101085",
+        "title": "Furniture Installation",
+        "workorder": {
+          "text": "Lobby Area",
+          "value": "125"
+        },
+        "location": "",
+        "status": {
+          "text": "Tentative",
+          "value": "TENTATIVE",
+          "code": "bg-secondary"
+        },
+        "date": {
+          "recurrence": "occurs every day from 1/20/2025 until 1/21/2025",
+          "dates": ["1/20/2025", "1/21/2025"],
+          "start": "2025-01-20",
+          "end": "2025-01-21"
+        },
+        "time": {
+          "start": "08:00",
+          "end": "18:00"
+        },
+        "priority": {
+          "text": "High",
+          "value": "3",
+          "code": "#ca6621"
+        },
+        "note": "Furniture Installation",
+        "url": "/app/crm/calendar/event.nl?id=101085&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {},
+        "resources": [],
+        "vendors": [],
+        "assets": [],
+        "items": [],
+        "contacts": [],
+        "addresses": [],
+        "contact": {
+          "text": "",
+          "value": ""
+        },
+        "address": {
+          "text": "",
+          "value": ""
+        },
+        "organizer": {
+          "text": "Arun Sharma",
+          "value": "1770"
+        }
+      }],
+      "projectUrl": "/app/accounting/project/project.nl?id=1515&compid=TSTDRV2617106",
+      "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=125&compid=TSTDRV2617106",
+      "soUrl": "/app/accounting/transactions/salesord.nl?id=22898&compid=TSTDRV2617106",
+      "esthours": "200"
+    },
+    "resources": [{
+      "id": "382",
+      "name": "Clark Koozer",
+      "initials": "CK",
+      "email": "jc@erpsuccesspartners.com",
+      "phone": "650-555-8300",
+      "location": {
+        "text": "01: San Francisco",
+        "value": "2"
+      },
+      "active": true,
+      "workorder": {
+        "text": "Lobby Area",
+        "value": "125"
+      },
+      "events": ["101085"],
+      "employee": {
+        "text": "Clark Koozer",
+        "value": "23"
+      },
+      "resourceGroups": [{
+        "text": "Drivers",
+        "value": "3"
+      }],
+      "types": [{
+        "text": "Delivery Driver",
+        "value": "2"
+      }],
+      "subTypes": [],
+      "rate": 0,
+      "vendor": {
+        "text": "",
+        "value": ""
+      },
+      "purchaseOrder": {
+        "text": " ",
+        "value": ""
+      },
+      "affiliationType": {
+        "text": "In-House",
+        "value": "1"
+      },
+      "time": {
+        "start": "08:00",
+        "end": "18:00"
+      },
+      "resourceSkills": [],
+      "selected": true
+    }, {
+      "id": "383",
+      "name": "Ruth Smith",
+      "initials": "RS",
+      "email": "jc@erpsuccesspartners.com",
+      "phone": "(713) 555-1212",
+      "location": {
+        "text": "01: San Francisco",
+        "value": "2"
+      },
+      "active": true,
+      "workorder": {
+        "text": "Lobby Area",
+        "value": "125"
+      },
+      "events": ["101085"],
+      "employee": {
+        "text": "Ruth Smith",
+        "value": "1539"
+      },
+      "resourceGroups": [{
+        "text": "Installers",
+        "value": "1"
+      }],
+      "types": [{
+        "text": "Installer",
+        "value": "1"
+      }],
+      "subTypes": [],
+      "rate": 0,
+      "vendor": {
+        "text": "",
+        "value": ""
+      },
+      "purchaseOrder": {
+        "text": " ",
+        "value": ""
+      },
+      "affiliationType": {
+        "text": "In-House",
+        "value": "1"
+      },
+      "time": {
+        "start": "08:00",
+        "end": "18:00"
+      },
+      "resourceSkills": [],
+      "selected": true
+    }, {
+      "id": "384",
+      "name": "Dale Williams",
+      "initials": "DW",
+      "email": "jc@erpsuccesspartners.com",
+      "phone": "",
+      "location": {
+        "text": "01: San Francisco",
+        "value": "2"
+      },
+      "active": true,
+      "workorder": {
+        "text": "Lobby Area",
+        "value": "125"
+      },
+      "events": ["101085"],
+      "employee": {
+        "text": "Dale Williams",
+        "value": "224"
+      },
+      "resourceGroups": [{
+        "text": "Installers",
+        "value": "1"
+      }],
+      "types": [{
+        "text": "Installer",
+        "value": "1"
+      }],
+      "subTypes": [],
+      "rate": 0,
+      "vendor": {
+        "text": "",
+        "value": ""
+      },
+      "purchaseOrder": {
+        "text": " ",
+        "value": ""
+      },
+      "affiliationType": {
+        "text": "Crew Enhancement",
+        "value": "3"
+      },
+      "time": {
+        "start": "08:00",
+        "end": "18:00"
+      },
+      "resourceSkills": [],
+      "selected": true
+    }],
+    "vendors": [],
+    "assets": [],
+    "items": [{
+      "id": "579",
+      "workorder": {
+        "text": "Lobby Area",
+        "value": "125"
+      },
+      "salesorder": {
+        "text": "Sales Order #SLS00000807",
+        "value": "22898"
+      },
+      "event": "101085",
+      "uuid": "22898_1",
+      "line": "1",
+      "item": {
+        "text": "BIC00008",
+        "value": "467"
+      },
+      "description": "Head Master Chair",
+      "quantity": 3,
+      "availableQty": 3,
+      "note": "",
+      "selected": true
+    }, {
+      "id": "580",
+      "workorder": {
+        "text": "Lobby Area",
+        "value": "125"
+      },
+      "salesorder": {
+        "text": "Sales Order #SLS00000807",
+        "value": "22898"
+      },
+      "event": "101085",
+      "uuid": "22898_2",
+      "line": "2",
+      "item": {
+        "text": "BIC00008",
+        "value": "467"
+      },
+      "description": "Diana Chair",
+      "quantity": 5,
+      "availableQty": 5,
+      "note": "",
+      "selected": true
+    }],
+    "contacts": [],
+    "addresses": [{
+      "id": "209",
+      "workorder": {
+        "text": "Lobby Area",
+        "value": "125"
+      },
+      "customer": {
+        "text": "World Bank",
+        "value": "1249"
+      },
+      "events": ["101085"],
+      "address": {
+        "text": "434 Carlaw",
+        "value": "244878"
+      },
+      "addressDetails": "434 Carlaw Road<br/>Los Angeles NY 12412<br/>United States",
+      "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106",
+      "selected": true
+    }],
+    "contact": {
+      "text": "",
+      "value": ""
+    },
+    "address": {
+      "text": "",
+      "value": ""
+    },
+    "organizer": {
+      "text": "Arun Sharma",
+      "value": "1770"
+    }
+  }, {
+    "id": "101084",
+    "title": "AC Installation - 8",
+    "workorder": {
+      "text": "Test Work Order - AC Installation",
       "value": "123"
     },
     "location": "",
@@ -41894,17 +44222,17 @@ const mockup = {
       "end": "18:00"
     },
     "priority": {
-      "text": "High",
-      "value": "3",
-      "code": "#ca6621"
+      "text": "Medium",
+      "value": "2",
+      "code": "#dfcf02"
     },
-    "note": "AC Installation - 3",
-    "url": "/app/crm/calendar/event.nl?id=101079&compid=TSTDRV2617106&selectedtab=custom337",
+    "note": "AC Installation - 8",
+    "url": "/app/crm/calendar/event.nl?id=101084&compid=TSTDRV2617106&selectedtab=custom337",
     "color": "#1a6756",
     "woRef": {
       "id": "123",
-      "name": "Test Work Order",
-      "title": "Test Work Order",
+      "name": "Test Work Order - AC Installation",
+      "title": "Test Work Order - AC Installation",
       "project": {
         "text": "World Bank : World Bank Office Furniture Installation",
         "value": "1515"
@@ -41945,7 +44273,7 @@ const mockup = {
         "email": "",
         "initials": "BF",
         "workorder": {
-          "text": "Test Work Order",
+          "text": "Test Work Order - AC Installation",
           "value": "123"
         },
         "event": "101062",
@@ -41960,6 +44288,106 @@ const mockup = {
         "woVendor": true,
         "memo": ""
       }, {
+        "id": "190",
+        "name": "190",
+        "vendor": {
+          "text": "Best Fixture, Inc.",
+          "value": "12"
+        },
+        "url": "",
+        "email": "",
+        "initials": "BF",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "event": "101081",
+        "quantityRequired": 5,
+        "quantityAvailable": 0,
+        "purchaseOrder": {
+          "text": " ",
+          "value": ""
+        },
+        "amount": 0,
+        "active": false,
+        "woVendor": true,
+        "memo": ""
+      }, {
+        "id": "191",
+        "name": "191",
+        "vendor": {
+          "text": "CFI Furniture Inc.",
+          "value": "1661"
+        },
+        "url": "",
+        "email": "login+plural@erpsuccesspartners.com",
+        "initials": "CF",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "event": "101082",
+        "quantityRequired": 5,
+        "quantityAvailable": 0,
+        "purchaseOrder": {
+          "text": " ",
+          "value": ""
+        },
+        "amount": 0,
+        "active": false,
+        "woVendor": true,
+        "memo": ""
+      }, {
+        "id": "192",
+        "name": "192",
+        "vendor": {
+          "text": "CFI Furniture Inc.",
+          "value": "1661"
+        },
+        "url": "",
+        "email": "login+plural@erpsuccesspartners.com",
+        "initials": "CF",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "event": "101083",
+        "quantityRequired": 5,
+        "quantityAvailable": 0,
+        "purchaseOrder": {
+          "text": " ",
+          "value": ""
+        },
+        "amount": 0,
+        "active": false,
+        "woVendor": true,
+        "memo": ""
+      }, {
+        "id": "193",
+        "name": "193",
+        "vendor": {
+          "text": "Bridgepoint Industries",
+          "value": "1473"
+        },
+        "url": "http://www.bridgepointindustries.com.de",
+        "email": "support@bridgempointindustries.com.de",
+        "initials": "BI",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "event": "101084",
+        "quantityRequired": 5,
+        "quantityAvailable": 20,
+        "purchaseOrder": {
+          "text": " ",
+          "value": ""
+        },
+        "amount": 0,
+        "active": true,
+        "woVendor": true,
+        "memo": ""
+      }, {
         "id": "188",
         "name": "Best Fixture, Inc.",
         "vendor": {
@@ -41970,7 +44398,7 @@ const mockup = {
         "email": "",
         "initials": "BF",
         "workorder": {
-          "text": "Test Work Order",
+          "text": "Test Work Order - AC Installation",
           "value": "123"
         },
         "event": "101075",
@@ -41989,7 +44417,7 @@ const mockup = {
         "id": "123",
         "name": "ELE00002",
         "workorder": {
-          "text": "Test Work Order",
+          "text": "Test Work Order - AC Installation",
           "value": "123"
         },
         "event": "101062",
@@ -42024,7 +44452,7 @@ const mockup = {
         "id": "124",
         "name": "ELE00002",
         "workorder": {
-          "text": "Test Work Order",
+          "text": "Test Work Order - AC Installation",
           "value": "123"
         },
         "event": "101077",
@@ -42059,7 +44487,7 @@ const mockup = {
         "id": "125",
         "name": "ELE00002",
         "workorder": {
-          "text": "Test Work Order",
+          "text": "Test Work Order - AC Installation",
           "value": "123"
         },
         "event": "101078",
@@ -42094,7 +44522,7 @@ const mockup = {
         "id": "126",
         "name": "ELE00002",
         "workorder": {
-          "text": "Test Work Order",
+          "text": "Test Work Order - AC Installation",
           "value": "123"
         },
         "event": "101079",
@@ -42125,32 +44553,151 @@ const mockup = {
         },
         "owned": true,
         "rentalMatrix": 0
-      }],
-      "items": [{
-        "id": "557",
+      }, {
+        "id": "127",
+        "name": "ELE00002",
         "workorder": {
-          "text": "Test Work Order",
+          "text": "Test Work Order - AC Installation",
           "value": "123"
         },
-        "salesorder": {
-          "text": "Sales Order #SLS00000803",
-          "value": "22468"
-        },
-        "event": "101077",
-        "uuid": "22468_1",
-        "line": "1",
+        "event": "101081",
+        "quantity": 0,
+        "description": "Serialized 1 Sales Description",
         "item": {
-          "text": "BIC00008",
-          "value": "467"
+          "text": "ELE00002",
+          "value": "674"
         },
-        "description": "Head Master Chair",
-        "quantity": 2,
-        "availableQty": 2,
-        "note": ""
+        "equipmentType": {
+          "text": "Hand Tools",
+          "value": "1"
+        },
+        "rentalUnit": {
+          "text": "",
+          "value": ""
+        },
+        "rentalDuration": 0,
+        "rentalRate": 0,
+        "rentalAmount": 0,
+        "purchaseOrder": {
+          "text": " ",
+          "value": " "
+        },
+        "vendor": {
+          "text": "Computer Depot Pacific",
+          "value": "965"
+        },
+        "owned": true,
+        "rentalMatrix": 0
       }, {
+        "id": "128",
+        "name": "ELE00002",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "event": "101082",
+        "quantity": 100,
+        "description": "Serialized 1 Sales Description",
+        "item": {
+          "text": "ELE00002",
+          "value": "674"
+        },
+        "equipmentType": {
+          "text": "Hand Tools",
+          "value": "1"
+        },
+        "rentalUnit": {
+          "text": "",
+          "value": ""
+        },
+        "rentalDuration": 0,
+        "rentalRate": 0,
+        "rentalAmount": 0,
+        "purchaseOrder": {
+          "text": " ",
+          "value": " "
+        },
+        "vendor": {
+          "text": "Computer Depot Pacific",
+          "value": "965"
+        },
+        "owned": true,
+        "rentalMatrix": 0
+      }, {
+        "id": "129",
+        "name": "ELE00002",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "event": "101083",
+        "quantity": 20,
+        "description": "Serialized 1 Sales Description",
+        "item": {
+          "text": "ELE00002",
+          "value": "674"
+        },
+        "equipmentType": {
+          "text": "Hand Tools",
+          "value": "1"
+        },
+        "rentalUnit": {
+          "text": "",
+          "value": ""
+        },
+        "rentalDuration": 0,
+        "rentalRate": 0,
+        "rentalAmount": 0,
+        "purchaseOrder": {
+          "text": " ",
+          "value": " "
+        },
+        "vendor": {
+          "text": "Computer Depot Pacific",
+          "value": "965"
+        },
+        "owned": true,
+        "rentalMatrix": 0
+      }, {
+        "id": "130",
+        "name": "ELE00002",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "event": "101084",
+        "quantity": 0,
+        "description": "Serialized 1 Sales Description",
+        "item": {
+          "text": "ELE00002",
+          "value": "674"
+        },
+        "equipmentType": {
+          "text": "Hand Tools",
+          "value": "1"
+        },
+        "rentalUnit": {
+          "text": "",
+          "value": ""
+        },
+        "rentalDuration": 0,
+        "rentalRate": 0,
+        "rentalAmount": 0,
+        "purchaseOrder": {
+          "text": " ",
+          "value": " "
+        },
+        "vendor": {
+          "text": "Computer Depot Pacific",
+          "value": "965"
+        },
+        "owned": true,
+        "rentalMatrix": 0
+      }],
+      "items": [{
         "id": "558",
         "workorder": {
-          "text": "Test Work Order",
+          "text": "Test Work Order - AC Installation",
           "value": "123"
         },
         "salesorder": {
@@ -42169,30 +44716,114 @@ const mockup = {
         "availableQty": 2,
         "note": ""
       }, {
-        "id": "559",
+        "id": "560",
         "workorder": {
-          "text": "Test Work Order",
+          "text": "Test Work Order - AC Installation",
           "value": "123"
         },
         "salesorder": {
           "text": "Sales Order #SLS00000803",
           "value": "22468"
         },
-        "event": "101079",
-        "uuid": "22468_3",
-        "line": "3",
+        "event": "101080",
+        "uuid": "22468_1",
+        "line": "1",
         "item": {
           "text": "BIC00008",
           "value": "467"
         },
-        "description": "Working Table",
+        "description": "Head Master Chair",
+        "quantity": 1,
+        "availableQty": 1,
+        "note": ""
+      }, {
+        "id": "561",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "salesorder": {
+          "text": "Sales Order #SLS00000803",
+          "value": "22468"
+        },
+        "event": "101081",
+        "uuid": "22468_1",
+        "line": "1",
+        "item": {
+          "text": "BIC00008",
+          "value": "467"
+        },
+        "description": "Head Master Chair",
         "quantity": 5,
         "availableQty": 5,
         "note": ""
       }, {
+        "id": "565",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "salesorder": {
+          "text": "Sales Order #SLS00000803",
+          "value": "22468"
+        },
+        "event": "101082",
+        "uuid": "22468_1",
+        "line": "1",
+        "item": {
+          "text": "BIC00008",
+          "value": "467"
+        },
+        "description": "Head Master Chair",
+        "quantity": 5,
+        "availableQty": 5,
+        "note": ""
+      }, {
+        "id": "567",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "salesorder": {
+          "text": "Sales Order #SLS00000803",
+          "value": "22468"
+        },
+        "event": "101083",
+        "uuid": "22468_1",
+        "line": "1",
+        "item": {
+          "text": "BIC00008",
+          "value": "467"
+        },
+        "description": "Head Master Chair",
+        "quantity": 2,
+        "availableQty": 2,
+        "note": ""
+      }, {
+        "id": "574",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "salesorder": {
+          "text": "Sales Order #SLS00000803",
+          "value": "22468"
+        },
+        "event": "101084",
+        "uuid": "22468_1",
+        "line": "1",
+        "item": {
+          "text": "BIC00008",
+          "value": "467"
+        },
+        "description": "Head Master Chair",
+        "quantity": 2,
+        "availableQty": 2,
+        "note": ""
+      }, {
         "id": "547",
         "workorder": {
-          "text": "Test Work Order",
+          "text": "Test Work Order - AC Installation",
           "value": "123"
         },
         "salesorder": {
@@ -42213,7 +44844,7 @@ const mockup = {
       }, {
         "id": "555",
         "workorder": {
-          "text": "Test Work Order",
+          "text": "Test Work Order - AC Installation",
           "value": "123"
         },
         "salesorder": {
@@ -42234,7 +44865,7 @@ const mockup = {
       }, {
         "id": "556",
         "workorder": {
-          "text": "Test Work Order",
+          "text": "Test Work Order - AC Installation",
           "value": "123"
         },
         "salesorder": {
@@ -42255,7 +44886,7 @@ const mockup = {
       }, {
         "id": "548",
         "workorder": {
-          "text": "Test Work Order",
+          "text": "Test Work Order - AC Installation",
           "value": "123"
         },
         "salesorder": {
@@ -42276,7 +44907,7 @@ const mockup = {
       }, {
         "id": "549",
         "workorder": {
-          "text": "Test Work Order",
+          "text": "Test Work Order - AC Installation",
           "value": "123"
         },
         "salesorder": {
@@ -42297,7 +44928,7 @@ const mockup = {
       }, {
         "id": "550",
         "workorder": {
-          "text": "Test Work Order",
+          "text": "Test Work Order - AC Installation",
           "value": "123"
         },
         "salesorder": {
@@ -42318,7 +44949,7 @@ const mockup = {
       }, {
         "id": "546",
         "workorder": {
-          "text": "Test Work Order",
+          "text": "Test Work Order - AC Installation",
           "value": "123"
         },
         "salesorder": {
@@ -42336,18 +44967,60 @@ const mockup = {
         "quantity": 7,
         "availableQty": 7,
         "note": ""
+      }, {
+        "id": "557",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "salesorder": {
+          "text": "Sales Order #SLS00000803",
+          "value": "22468"
+        },
+        "event": "101077",
+        "uuid": "22468_1",
+        "line": "1",
+        "item": {
+          "text": "BIC00008",
+          "value": "467"
+        },
+        "description": "Head Master Chair",
+        "quantity": 7,
+        "availableQty": 7,
+        "note": ""
+      }, {
+        "id": "559",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "salesorder": {
+          "text": "Sales Order #SLS00000803",
+          "value": "22468"
+        },
+        "event": "101079",
+        "uuid": "22468_3",
+        "line": "3",
+        "item": {
+          "text": "BIC00008",
+          "value": "467"
+        },
+        "description": "Working Table",
+        "quantity": 10,
+        "availableQty": 10,
+        "note": ""
       }],
       "addresses": [{
         "id": "207",
         "workorder": {
-          "text": "Test Work Order",
+          "text": "Test Work Order - AC Installation",
           "value": "123"
         },
         "customer": {
           "text": "World Bank",
           "value": "1249"
         },
-        "events": ["101062", "101076", "101077", "101078", "101079"],
+        "events": ["101062", "101076", "101077", "101078", "101079", "101080", "101084"],
         "address": {
           "text": "434 Carlaw",
           "value": "244878"
@@ -42358,10 +45031,10 @@ const mockup = {
       "contacts": [{
         "id": "168",
         "workorder": {
-          "text": "Test Work Order",
+          "text": "Test Work Order - AC Installation",
           "value": "123"
         },
-        "events": ["101062", "101077", "101078"],
+        "events": ["101062", "101077", "101078", "101080", "101084"],
         "contact": {
           "text": "World Bank : Chad Bass",
           "value": "1382"
@@ -42376,7 +45049,7 @@ const mockup = {
       }, {
         "id": "169",
         "workorder": {
-          "text": "Test Work Order",
+          "text": "Test Work Order - AC Installation",
           "value": "123"
         },
         "events": ["101075", "101079"],
@@ -42393,10 +45066,260 @@ const mockup = {
         "url": "/app/common/entity/contact.nl?id=1382&compid=TSTDRV2617106"
       }],
       "events": [{
+        "id": "101084",
+        "title": "AC Installation - 8",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "location": "",
+        "status": {
+          "text": "Tentative",
+          "value": "TENTATIVE",
+          "code": "bg-secondary"
+        },
+        "date": {
+          "recurrence": "one time event on 1/17/2025",
+          "dates": ["1/17/2025"],
+          "start": "2025-01-17",
+          "end": "2025-01-17"
+        },
+        "time": {
+          "start": "08:00",
+          "end": "18:00"
+        },
+        "priority": {
+          "text": "Medium",
+          "value": "2",
+          "code": "#dfcf02"
+        },
+        "note": "AC Installation - 8",
+        "url": "/app/crm/calendar/event.nl?id=101084&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {},
+        "resources": [],
+        "vendors": [],
+        "assets": [],
+        "items": [],
+        "contacts": [],
+        "addresses": [],
+        "contact": {
+          "text": "",
+          "value": ""
+        },
+        "address": {
+          "text": "",
+          "value": ""
+        },
+        "organizer": {
+          "text": "Arun Sharma",
+          "value": "1770"
+        }
+      }, {
+        "id": "101083",
+        "title": "AC Installation - 7",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "location": "",
+        "status": {
+          "text": "Tentative",
+          "value": "TENTATIVE",
+          "code": "bg-secondary"
+        },
+        "date": {
+          "recurrence": "one time event on 1/17/2025",
+          "dates": ["1/17/2025"],
+          "start": "2025-01-17",
+          "end": "2025-01-17"
+        },
+        "time": {
+          "start": "08:00",
+          "end": "18:00"
+        },
+        "priority": {
+          "text": "Urgent",
+          "value": "4",
+          "code": "#9a2407"
+        },
+        "note": "AC Installation - 7",
+        "url": "/app/crm/calendar/event.nl?id=101083&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {},
+        "resources": [],
+        "vendors": [],
+        "assets": [],
+        "items": [],
+        "contacts": [],
+        "addresses": [],
+        "contact": {
+          "text": "",
+          "value": ""
+        },
+        "address": {
+          "text": "",
+          "value": ""
+        },
+        "organizer": {
+          "text": "Mei Matriano",
+          "value": "1647"
+        }
+      }, {
+        "id": "101082",
+        "title": "AC Installation - 6",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "location": "",
+        "status": {
+          "text": "Tentative",
+          "value": "TENTATIVE",
+          "code": "bg-secondary"
+        },
+        "date": {
+          "recurrence": "one time event on 1/17/2025",
+          "dates": ["1/17/2025"],
+          "start": "2025-01-17",
+          "end": "2025-01-17"
+        },
+        "time": {
+          "start": "08:00",
+          "end": "18:00"
+        },
+        "priority": {
+          "text": "High",
+          "value": "3",
+          "code": "#ca6621"
+        },
+        "note": "AC Installation - 6",
+        "url": "/app/crm/calendar/event.nl?id=101082&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {},
+        "resources": [],
+        "vendors": [],
+        "assets": [],
+        "items": [],
+        "contacts": [],
+        "addresses": [],
+        "contact": {
+          "text": "",
+          "value": ""
+        },
+        "address": {
+          "text": "",
+          "value": ""
+        },
+        "organizer": {
+          "text": "Mei Matriano",
+          "value": "1647"
+        }
+      }, {
+        "id": "101081",
+        "title": "AC Installation - 5",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "location": "",
+        "status": {
+          "text": "Tentative",
+          "value": "TENTATIVE",
+          "code": "bg-secondary"
+        },
+        "date": {
+          "recurrence": "one time event on 1/17/2025",
+          "dates": ["1/17/2025"],
+          "start": "2025-01-17",
+          "end": "2025-01-17"
+        },
+        "time": {
+          "start": "08:00",
+          "end": "18:00"
+        },
+        "priority": {
+          "text": "Urgent",
+          "value": "4",
+          "code": "#9a2407"
+        },
+        "note": "AC Installation - 5",
+        "url": "/app/crm/calendar/event.nl?id=101081&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {},
+        "resources": [],
+        "vendors": [],
+        "assets": [],
+        "items": [],
+        "contacts": [],
+        "addresses": [],
+        "contact": {
+          "text": "",
+          "value": ""
+        },
+        "address": {
+          "text": "",
+          "value": ""
+        },
+        "organizer": {
+          "text": "Arun Sharma",
+          "value": "1770"
+        }
+      }, {
+        "id": "101080",
+        "title": "AC Installation - 4",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "location": "",
+        "status": {
+          "text": "Tentative",
+          "value": "TENTATIVE",
+          "code": "bg-secondary"
+        },
+        "date": {
+          "recurrence": "occurs every day from 1/16/2025 until 1/17/2025",
+          "dates": ["1/16/2025", "1/17/2025"],
+          "start": "2025-01-16",
+          "end": "2025-01-17"
+        },
+        "time": {
+          "start": "08:00",
+          "end": "18:00"
+        },
+        "priority": {
+          "text": "High",
+          "value": "3",
+          "code": "#ca6621"
+        },
+        "note": "AC Installation - 4",
+        "url": "/app/crm/calendar/event.nl?id=101080&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {},
+        "resources": [],
+        "vendors": [],
+        "assets": [],
+        "items": [],
+        "contacts": [],
+        "addresses": [],
+        "contact": {
+          "text": "",
+          "value": ""
+        },
+        "address": {
+          "text": "",
+          "value": ""
+        },
+        "organizer": {
+          "text": "Mei Matriano",
+          "value": "1647"
+        }
+      }, {
         "id": "101079",
         "title": "AC Installation - 3",
         "workorder": {
-          "text": "Test Work Order",
+          "text": "Test Work Order - AC Installation",
           "value": "123"
         },
         "location": "",
@@ -42446,7 +45369,7 @@ const mockup = {
         "id": "101078",
         "title": "AC Installation 2",
         "workorder": {
-          "text": "Test Work Order",
+          "text": "Test Work Order - AC Installation",
           "value": "123"
         },
         "location": "",
@@ -42496,7 +45419,7 @@ const mockup = {
         "id": "101077",
         "title": "AC Installation",
         "workorder": {
-          "text": "Test Work Order",
+          "text": "Test Work Order - AC Installation",
           "value": "123"
         },
         "location": "",
@@ -42546,7 +45469,7 @@ const mockup = {
         "id": "101076",
         "title": "Test Work Order",
         "workorder": {
-          "text": "Test Work Order",
+          "text": "Test Work Order - AC Installation",
           "value": "123"
         },
         "location": "",
@@ -42596,7 +45519,7800 @@ const mockup = {
         "id": "101075",
         "title": "Test Work Order",
         "workorder": {
-          "text": "Test Work Order",
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "location": "",
+        "status": {
+          "text": "Tentative",
+          "value": "TENTATIVE",
+          "code": "bg-secondary"
+        },
+        "date": {
+          "recurrence": "one time event on 1/12/2025",
+          "dates": ["1/12/2025"],
+          "start": "2025-01-12",
+          "end": "2025-01-12"
+        },
+        "time": {
+          "start": "08:00",
+          "end": "18:00"
+        },
+        "priority": {
+          "text": "Low",
+          "value": "1",
+          "code": "#026adf"
+        },
+        "note": "X\nY\nZ",
+        "url": "/app/crm/calendar/event.nl?id=101075&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {},
+        "resources": [],
+        "vendors": [],
+        "assets": [],
+        "items": [],
+        "contacts": [],
+        "addresses": [],
+        "contact": {
+          "text": "",
+          "value": ""
+        },
+        "address": {
+          "text": "207",
+          "value": "207"
+        },
+        "organizer": {
+          "text": "Lean  cendana",
+          "value": "1765"
+        }
+      }],
+      "projectUrl": "/app/accounting/project/project.nl?id=1515&compid=TSTDRV2617106",
+      "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=123&compid=TSTDRV2617106",
+      "soUrl": "/app/accounting/transactions/salesord.nl?id=22468&compid=TSTDRV2617106",
+      "esthours": "100"
+    },
+    "resources": [{
+      "id": "379",
+      "name": "Aiden Somerhalder",
+      "initials": "AS",
+      "email": "admin@ramsey.com",
+      "phone": "",
+      "location": {
+        "text": "01: San Francisco",
+        "value": "2"
+      },
+      "active": true,
+      "workorder": {
+        "text": "Test Work Order - AC Installation",
+        "value": "123"
+      },
+      "events": ["101084"],
+      "employee": {
+        "text": "Aiden Somerhalder",
+        "value": "1524"
+      },
+      "resourceGroups": [{
+        "text": "Installers",
+        "value": "1"
+      }],
+      "types": [{
+        "text": "Installer",
+        "value": "1"
+      }],
+      "subTypes": [],
+      "rate": 0,
+      "vendor": {
+        "text": "",
+        "value": ""
+      },
+      "purchaseOrder": {
+        "text": " ",
+        "value": ""
+      },
+      "affiliationType": {
+        "text": "In-House",
+        "value": "1"
+      },
+      "time": {
+        "start": "08:00",
+        "end": "18:00"
+      },
+      "resourceSkills": [],
+      "selected": true
+    }, {
+      "id": "380",
+      "name": "Ruth Smith",
+      "initials": "RS",
+      "email": "jc@erpsuccesspartners.com",
+      "phone": "(713) 555-1212",
+      "location": {
+        "text": "01: San Francisco",
+        "value": "2"
+      },
+      "active": true,
+      "workorder": {
+        "text": "Test Work Order - AC Installation",
+        "value": "123"
+      },
+      "events": ["101084"],
+      "employee": {
+        "text": "Ruth Smith",
+        "value": "1539"
+      },
+      "resourceGroups": [{
+        "text": "Installers",
+        "value": "1"
+      }],
+      "types": [{
+        "text": "Installer",
+        "value": "1"
+      }],
+      "subTypes": [],
+      "rate": 0,
+      "vendor": {
+        "text": "",
+        "value": ""
+      },
+      "purchaseOrder": {
+        "text": " ",
+        "value": ""
+      },
+      "affiliationType": {
+        "text": "In-House",
+        "value": "1"
+      },
+      "time": {
+        "start": "08:00",
+        "end": "18:00"
+      },
+      "resourceSkills": [],
+      "selected": true
+    }, {
+      "id": "381",
+      "name": "Walter Reagan",
+      "initials": "WR",
+      "email": "wreagan@ramsey.com",
+      "phone": "",
+      "location": {
+        "text": "02: Boston",
+        "value": "1"
+      },
+      "active": true,
+      "workorder": {
+        "text": "Test Work Order - AC Installation",
+        "value": "123"
+      },
+      "events": ["101084"],
+      "employee": {
+        "text": "Walter Reagan",
+        "value": "918"
+      },
+      "resourceGroups": [{
+        "text": "Installers",
+        "value": "1"
+      }],
+      "types": [{
+        "text": "Installer",
+        "value": "1"
+      }],
+      "subTypes": [],
+      "rate": 0,
+      "vendor": {
+        "text": "",
+        "value": ""
+      },
+      "purchaseOrder": {
+        "text": " ",
+        "value": ""
+      },
+      "affiliationType": {
+        "text": "Crew Enhancement",
+        "value": "3"
+      },
+      "time": {
+        "start": "08:00",
+        "end": "18:00"
+      },
+      "resourceSkills": [],
+      "selected": true
+    }],
+    "vendors": [{
+      "id": "193",
+      "name": "193",
+      "vendor": {
+        "text": "Bridgepoint Industries",
+        "value": "1473"
+      },
+      "url": "http://www.bridgepointindustries.com.de",
+      "email": "support@bridgempointindustries.com.de",
+      "initials": "BI",
+      "workorder": {
+        "text": "Test Work Order - AC Installation",
+        "value": "123"
+      },
+      "event": "101084",
+      "quantityRequired": 5,
+      "quantityAvailable": 20,
+      "purchaseOrder": {
+        "text": " ",
+        "value": ""
+      },
+      "amount": 0,
+      "active": true,
+      "woVendor": true,
+      "memo": "",
+      "selected": true
+    }],
+    "assets": [{
+      "id": "130",
+      "name": "ELE00002",
+      "workorder": {
+        "text": "Test Work Order - AC Installation",
+        "value": "123"
+      },
+      "event": "101084",
+      "quantity": 0,
+      "description": "Serialized 1 Sales Description",
+      "item": {
+        "text": "ELE00002",
+        "value": "674"
+      },
+      "equipmentType": {
+        "text": "Hand Tools",
+        "value": "1"
+      },
+      "rentalUnit": {
+        "text": "",
+        "value": ""
+      },
+      "rentalDuration": 0,
+      "rentalRate": 0,
+      "rentalAmount": 0,
+      "purchaseOrder": {
+        "text": " ",
+        "value": " "
+      },
+      "vendor": {
+        "text": "Computer Depot Pacific",
+        "value": "965"
+      },
+      "owned": true,
+      "rentalMatrix": 0,
+      "selected": true
+    }],
+    "items": [{
+      "id": "574",
+      "workorder": {
+        "text": "Test Work Order - AC Installation",
+        "value": "123"
+      },
+      "salesorder": {
+        "text": "Sales Order #SLS00000803",
+        "value": "22468"
+      },
+      "event": "101084",
+      "uuid": "22468_1",
+      "line": "1",
+      "item": {
+        "text": "BIC00008",
+        "value": "467"
+      },
+      "description": "Head Master Chair",
+      "quantity": 2,
+      "availableQty": 2,
+      "note": "",
+      "selected": true
+    }],
+    "contacts": [],
+    "addresses": [{
+      "id": "207",
+      "workorder": {
+        "text": "Test Work Order - AC Installation",
+        "value": "123"
+      },
+      "customer": {
+        "text": "World Bank",
+        "value": "1249"
+      },
+      "events": ["101062", "101076", "101077", "101078", "101079", "101080", "101084"],
+      "address": {
+        "text": "434 Carlaw",
+        "value": "244878"
+      },
+      "addressDetails": "434 Carlaw Road<br/>Los Angeles NY 12412<br/>United States",
+      "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106",
+      "selected": true
+    }],
+    "contact": {
+      "text": "",
+      "value": ""
+    },
+    "address": {
+      "text": "",
+      "value": ""
+    },
+    "organizer": {
+      "text": "Arun Sharma",
+      "value": "1770"
+    }
+  }, {
+    "id": "101083",
+    "title": "AC Installation - 7",
+    "workorder": {
+      "text": "Test Work Order - AC Installation",
+      "value": "123"
+    },
+    "location": "",
+    "status": {
+      "text": "Tentative",
+      "value": "TENTATIVE",
+      "code": "bg-secondary"
+    },
+    "date": {
+      "recurrence": "one time event on 1/17/2025",
+      "dates": ["1/17/2025"],
+      "start": "2025-01-17",
+      "end": "2025-01-17"
+    },
+    "time": {
+      "start": "08:00",
+      "end": "18:00"
+    },
+    "priority": {
+      "text": "Urgent",
+      "value": "4",
+      "code": "#9a2407"
+    },
+    "note": "AC Installation - 7",
+    "url": "/app/crm/calendar/event.nl?id=101083&compid=TSTDRV2617106&selectedtab=custom337",
+    "color": "#1a6756",
+    "woRef": {
+      "id": "123",
+      "name": "Test Work Order - AC Installation",
+      "title": "Test Work Order - AC Installation",
+      "project": {
+        "text": "World Bank : World Bank Office Furniture Installation",
+        "value": "1515"
+      },
+      "date": "1/8/2025",
+      "status": {
+        "text": "Not Started",
+        "value": "4",
+        "code": "#026adf"
+      },
+      "type": {
+        "text": "Service",
+        "value": "2"
+      },
+      "memo": "",
+      "salesorder": {
+        "text": "Sales Order #SLS00000803",
+        "value": "22468"
+      },
+      "customer": {
+        "text": "World Bank",
+        "value": "1249"
+      },
+      "resourceGroup": {
+        "text": "",
+        "value": ""
+      },
+      "priority": "",
+      "resources": [],
+      "vendors": [{
+        "id": "189",
+        "name": "189",
+        "vendor": {
+          "text": "Best Fixture, Inc.",
+          "value": "12"
+        },
+        "url": "",
+        "email": "",
+        "initials": "BF",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "event": "101062",
+        "quantityRequired": 5,
+        "quantityAvailable": 0,
+        "purchaseOrder": {
+          "text": " ",
+          "value": ""
+        },
+        "amount": 0,
+        "active": false,
+        "woVendor": true,
+        "memo": ""
+      }, {
+        "id": "190",
+        "name": "190",
+        "vendor": {
+          "text": "Best Fixture, Inc.",
+          "value": "12"
+        },
+        "url": "",
+        "email": "",
+        "initials": "BF",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "event": "101081",
+        "quantityRequired": 5,
+        "quantityAvailable": 0,
+        "purchaseOrder": {
+          "text": " ",
+          "value": ""
+        },
+        "amount": 0,
+        "active": false,
+        "woVendor": true,
+        "memo": ""
+      }, {
+        "id": "191",
+        "name": "191",
+        "vendor": {
+          "text": "CFI Furniture Inc.",
+          "value": "1661"
+        },
+        "url": "",
+        "email": "login+plural@erpsuccesspartners.com",
+        "initials": "CF",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "event": "101082",
+        "quantityRequired": 5,
+        "quantityAvailable": 0,
+        "purchaseOrder": {
+          "text": " ",
+          "value": ""
+        },
+        "amount": 0,
+        "active": false,
+        "woVendor": true,
+        "memo": ""
+      }, {
+        "id": "192",
+        "name": "192",
+        "vendor": {
+          "text": "CFI Furniture Inc.",
+          "value": "1661"
+        },
+        "url": "",
+        "email": "login+plural@erpsuccesspartners.com",
+        "initials": "CF",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "event": "101083",
+        "quantityRequired": 5,
+        "quantityAvailable": 0,
+        "purchaseOrder": {
+          "text": " ",
+          "value": ""
+        },
+        "amount": 0,
+        "active": false,
+        "woVendor": true,
+        "memo": ""
+      }, {
+        "id": "193",
+        "name": "193",
+        "vendor": {
+          "text": "Bridgepoint Industries",
+          "value": "1473"
+        },
+        "url": "http://www.bridgepointindustries.com.de",
+        "email": "support@bridgempointindustries.com.de",
+        "initials": "BI",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "event": "101084",
+        "quantityRequired": 5,
+        "quantityAvailable": 20,
+        "purchaseOrder": {
+          "text": " ",
+          "value": ""
+        },
+        "amount": 0,
+        "active": true,
+        "woVendor": true,
+        "memo": ""
+      }, {
+        "id": "188",
+        "name": "Best Fixture, Inc.",
+        "vendor": {
+          "text": "Best Fixture, Inc.",
+          "value": "12"
+        },
+        "url": "",
+        "email": "",
+        "initials": "BF",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "event": "101075",
+        "quantityRequired": 0,
+        "quantityAvailable": 0,
+        "purchaseOrder": {
+          "text": " ",
+          "value": ""
+        },
+        "amount": 0,
+        "active": false,
+        "woVendor": true,
+        "memo": ""
+      }],
+      "assets": [{
+        "id": "123",
+        "name": "ELE00002",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "event": "101062",
+        "quantity": 4,
+        "description": "Serialized 1 Sales Description",
+        "item": {
+          "text": "ELE00002",
+          "value": "674"
+        },
+        "equipmentType": {
+          "text": "Hand Tools",
+          "value": "1"
+        },
+        "rentalUnit": {
+          "text": "",
+          "value": ""
+        },
+        "rentalDuration": 0,
+        "rentalRate": 0,
+        "rentalAmount": 0,
+        "purchaseOrder": {
+          "text": " ",
+          "value": " "
+        },
+        "vendor": {
+          "text": "Computer Depot Pacific",
+          "value": "965"
+        },
+        "owned": true,
+        "rentalMatrix": 0
+      }, {
+        "id": "124",
+        "name": "ELE00002",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "event": "101077",
+        "quantity": 5,
+        "description": "Serialized 1 Sales Description",
+        "item": {
+          "text": "ELE00002",
+          "value": "674"
+        },
+        "equipmentType": {
+          "text": "Hand Tools",
+          "value": "1"
+        },
+        "rentalUnit": {
+          "text": "",
+          "value": ""
+        },
+        "rentalDuration": 0,
+        "rentalRate": 0,
+        "rentalAmount": 0,
+        "purchaseOrder": {
+          "text": " ",
+          "value": " "
+        },
+        "vendor": {
+          "text": "Computer Depot Pacific",
+          "value": "965"
+        },
+        "owned": true,
+        "rentalMatrix": 0
+      }, {
+        "id": "125",
+        "name": "ELE00002",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "event": "101078",
+        "quantity": 4,
+        "description": "Serialized 1 Sales Description",
+        "item": {
+          "text": "ELE00002",
+          "value": "674"
+        },
+        "equipmentType": {
+          "text": "Hand Tools",
+          "value": "1"
+        },
+        "rentalUnit": {
+          "text": "",
+          "value": ""
+        },
+        "rentalDuration": 0,
+        "rentalRate": 0,
+        "rentalAmount": 0,
+        "purchaseOrder": {
+          "text": " ",
+          "value": " "
+        },
+        "vendor": {
+          "text": "Computer Depot Pacific",
+          "value": "965"
+        },
+        "owned": true,
+        "rentalMatrix": 0
+      }, {
+        "id": "126",
+        "name": "ELE00002",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "event": "101079",
+        "quantity": 5,
+        "description": "Serialized 1 Sales Description",
+        "item": {
+          "text": "ELE00002",
+          "value": "674"
+        },
+        "equipmentType": {
+          "text": "Hand Tools",
+          "value": "1"
+        },
+        "rentalUnit": {
+          "text": "",
+          "value": ""
+        },
+        "rentalDuration": 0,
+        "rentalRate": 0,
+        "rentalAmount": 0,
+        "purchaseOrder": {
+          "text": " ",
+          "value": " "
+        },
+        "vendor": {
+          "text": "Computer Depot Pacific",
+          "value": "965"
+        },
+        "owned": true,
+        "rentalMatrix": 0
+      }, {
+        "id": "127",
+        "name": "ELE00002",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "event": "101081",
+        "quantity": 0,
+        "description": "Serialized 1 Sales Description",
+        "item": {
+          "text": "ELE00002",
+          "value": "674"
+        },
+        "equipmentType": {
+          "text": "Hand Tools",
+          "value": "1"
+        },
+        "rentalUnit": {
+          "text": "",
+          "value": ""
+        },
+        "rentalDuration": 0,
+        "rentalRate": 0,
+        "rentalAmount": 0,
+        "purchaseOrder": {
+          "text": " ",
+          "value": " "
+        },
+        "vendor": {
+          "text": "Computer Depot Pacific",
+          "value": "965"
+        },
+        "owned": true,
+        "rentalMatrix": 0
+      }, {
+        "id": "128",
+        "name": "ELE00002",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "event": "101082",
+        "quantity": 100,
+        "description": "Serialized 1 Sales Description",
+        "item": {
+          "text": "ELE00002",
+          "value": "674"
+        },
+        "equipmentType": {
+          "text": "Hand Tools",
+          "value": "1"
+        },
+        "rentalUnit": {
+          "text": "",
+          "value": ""
+        },
+        "rentalDuration": 0,
+        "rentalRate": 0,
+        "rentalAmount": 0,
+        "purchaseOrder": {
+          "text": " ",
+          "value": " "
+        },
+        "vendor": {
+          "text": "Computer Depot Pacific",
+          "value": "965"
+        },
+        "owned": true,
+        "rentalMatrix": 0
+      }, {
+        "id": "129",
+        "name": "ELE00002",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "event": "101083",
+        "quantity": 20,
+        "description": "Serialized 1 Sales Description",
+        "item": {
+          "text": "ELE00002",
+          "value": "674"
+        },
+        "equipmentType": {
+          "text": "Hand Tools",
+          "value": "1"
+        },
+        "rentalUnit": {
+          "text": "",
+          "value": ""
+        },
+        "rentalDuration": 0,
+        "rentalRate": 0,
+        "rentalAmount": 0,
+        "purchaseOrder": {
+          "text": " ",
+          "value": " "
+        },
+        "vendor": {
+          "text": "Computer Depot Pacific",
+          "value": "965"
+        },
+        "owned": true,
+        "rentalMatrix": 0
+      }, {
+        "id": "130",
+        "name": "ELE00002",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "event": "101084",
+        "quantity": 0,
+        "description": "Serialized 1 Sales Description",
+        "item": {
+          "text": "ELE00002",
+          "value": "674"
+        },
+        "equipmentType": {
+          "text": "Hand Tools",
+          "value": "1"
+        },
+        "rentalUnit": {
+          "text": "",
+          "value": ""
+        },
+        "rentalDuration": 0,
+        "rentalRate": 0,
+        "rentalAmount": 0,
+        "purchaseOrder": {
+          "text": " ",
+          "value": " "
+        },
+        "vendor": {
+          "text": "Computer Depot Pacific",
+          "value": "965"
+        },
+        "owned": true,
+        "rentalMatrix": 0
+      }],
+      "items": [{
+        "id": "558",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "salesorder": {
+          "text": "Sales Order #SLS00000803",
+          "value": "22468"
+        },
+        "event": "101078",
+        "uuid": "22468_1",
+        "line": "1",
+        "item": {
+          "text": "BIC00008",
+          "value": "467"
+        },
+        "description": "Head Master Chair",
+        "quantity": 2,
+        "availableQty": 2,
+        "note": ""
+      }, {
+        "id": "560",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "salesorder": {
+          "text": "Sales Order #SLS00000803",
+          "value": "22468"
+        },
+        "event": "101080",
+        "uuid": "22468_1",
+        "line": "1",
+        "item": {
+          "text": "BIC00008",
+          "value": "467"
+        },
+        "description": "Head Master Chair",
+        "quantity": 1,
+        "availableQty": 1,
+        "note": ""
+      }, {
+        "id": "561",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "salesorder": {
+          "text": "Sales Order #SLS00000803",
+          "value": "22468"
+        },
+        "event": "101081",
+        "uuid": "22468_1",
+        "line": "1",
+        "item": {
+          "text": "BIC00008",
+          "value": "467"
+        },
+        "description": "Head Master Chair",
+        "quantity": 5,
+        "availableQty": 5,
+        "note": ""
+      }, {
+        "id": "565",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "salesorder": {
+          "text": "Sales Order #SLS00000803",
+          "value": "22468"
+        },
+        "event": "101082",
+        "uuid": "22468_1",
+        "line": "1",
+        "item": {
+          "text": "BIC00008",
+          "value": "467"
+        },
+        "description": "Head Master Chair",
+        "quantity": 5,
+        "availableQty": 5,
+        "note": ""
+      }, {
+        "id": "567",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "salesorder": {
+          "text": "Sales Order #SLS00000803",
+          "value": "22468"
+        },
+        "event": "101083",
+        "uuid": "22468_1",
+        "line": "1",
+        "item": {
+          "text": "BIC00008",
+          "value": "467"
+        },
+        "description": "Head Master Chair",
+        "quantity": 2,
+        "availableQty": 2,
+        "note": ""
+      }, {
+        "id": "574",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "salesorder": {
+          "text": "Sales Order #SLS00000803",
+          "value": "22468"
+        },
+        "event": "101084",
+        "uuid": "22468_1",
+        "line": "1",
+        "item": {
+          "text": "BIC00008",
+          "value": "467"
+        },
+        "description": "Head Master Chair",
+        "quantity": 2,
+        "availableQty": 2,
+        "note": ""
+      }, {
+        "id": "547",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "salesorder": {
+          "text": "Sales Order #SLS00000803",
+          "value": "22468"
+        },
+        "event": "101062",
+        "uuid": "22468_1",
+        "line": "1",
+        "item": {
+          "text": "BIC00008",
+          "value": "467"
+        },
+        "description": "Head Master Chair",
+        "quantity": 7,
+        "availableQty": 7,
+        "note": ""
+      }, {
+        "id": "555",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "salesorder": {
+          "text": "Sales Order #SLS00000803",
+          "value": "22468"
+        },
+        "event": "101075",
+        "uuid": "22468_2",
+        "line": "2",
+        "item": {
+          "text": "BIC00008",
+          "value": "467"
+        },
+        "description": "Diana Chair",
+        "quantity": 10,
+        "availableQty": 10,
+        "note": ""
+      }, {
+        "id": "556",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "salesorder": {
+          "text": "Sales Order #SLS00000803",
+          "value": "22468"
+        },
+        "event": "101075",
+        "uuid": "22468_3",
+        "line": "3",
+        "item": {
+          "text": "BIC00008",
+          "value": "467"
+        },
+        "description": "Working Table",
+        "quantity": 5,
+        "availableQty": 5,
+        "note": ""
+      }, {
+        "id": "548",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "salesorder": {
+          "text": "Sales Order #SLS00000803",
+          "value": "22468"
+        },
+        "event": "",
+        "uuid": "22468_2",
+        "line": "2",
+        "item": {
+          "text": "BIC00008",
+          "value": "467"
+        },
+        "description": "Diana Chair",
+        "quantity": 10,
+        "availableQty": 10,
+        "note": ""
+      }, {
+        "id": "549",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "salesorder": {
+          "text": "Sales Order #SLS00000803",
+          "value": "22468"
+        },
+        "event": "",
+        "uuid": "22468_3",
+        "line": "3",
+        "item": {
+          "text": "BIC00008",
+          "value": "467"
+        },
+        "description": "Working Table",
+        "quantity": 10,
+        "availableQty": 10,
+        "note": ""
+      }, {
+        "id": "550",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "salesorder": {
+          "text": "Sales Order #SLS00000803",
+          "value": "22468"
+        },
+        "event": "",
+        "uuid": "22468_4",
+        "line": "4",
+        "item": {
+          "text": "BIC00008",
+          "value": "467"
+        },
+        "description": "Technology Table",
+        "quantity": 10,
+        "availableQty": 10,
+        "note": ""
+      }, {
+        "id": "546",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "salesorder": {
+          "text": "Sales Order #SLS00000803",
+          "value": "22468"
+        },
+        "event": "",
+        "uuid": "22468_1",
+        "line": "1",
+        "item": {
+          "text": "BIC00008",
+          "value": "467"
+        },
+        "description": "Head Master Chair",
+        "quantity": 7,
+        "availableQty": 7,
+        "note": ""
+      }, {
+        "id": "557",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "salesorder": {
+          "text": "Sales Order #SLS00000803",
+          "value": "22468"
+        },
+        "event": "101077",
+        "uuid": "22468_1",
+        "line": "1",
+        "item": {
+          "text": "BIC00008",
+          "value": "467"
+        },
+        "description": "Head Master Chair",
+        "quantity": 7,
+        "availableQty": 7,
+        "note": ""
+      }, {
+        "id": "559",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "salesorder": {
+          "text": "Sales Order #SLS00000803",
+          "value": "22468"
+        },
+        "event": "101079",
+        "uuid": "22468_3",
+        "line": "3",
+        "item": {
+          "text": "BIC00008",
+          "value": "467"
+        },
+        "description": "Working Table",
+        "quantity": 10,
+        "availableQty": 10,
+        "note": ""
+      }],
+      "addresses": [{
+        "id": "207",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "customer": {
+          "text": "World Bank",
+          "value": "1249"
+        },
+        "events": ["101062", "101076", "101077", "101078", "101079", "101080", "101084"],
+        "address": {
+          "text": "434 Carlaw",
+          "value": "244878"
+        },
+        "addressDetails": "434 Carlaw Road<br/>Los Angeles NY 12412<br/>United States",
+        "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+      }],
+      "contacts": [{
+        "id": "168",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "events": ["101062", "101077", "101078", "101080", "101084"],
+        "contact": {
+          "text": "World Bank : Chad Bass",
+          "value": "1382"
+        },
+        "name": "Chad Bass",
+        "email": "cbass@worldbank.com",
+        "jobTitle": "President",
+        "mobilePhone": "",
+        "phone": "",
+        "primary": false,
+        "url": "/app/common/entity/contact.nl?id=1382&compid=TSTDRV2617106"
+      }, {
+        "id": "169",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "events": ["101075", "101079"],
+        "contact": {
+          "text": "World Bank : Chad Bass",
+          "value": "1382"
+        },
+        "name": "Chad Bass",
+        "email": "cbass@worldbank.com",
+        "jobTitle": "President",
+        "mobilePhone": "",
+        "phone": "",
+        "primary": false,
+        "url": "/app/common/entity/contact.nl?id=1382&compid=TSTDRV2617106"
+      }],
+      "events": [{
+        "id": "101084",
+        "title": "AC Installation - 8",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "location": "",
+        "status": {
+          "text": "Tentative",
+          "value": "TENTATIVE",
+          "code": "bg-secondary"
+        },
+        "date": {
+          "recurrence": "one time event on 1/17/2025",
+          "dates": ["1/17/2025"],
+          "start": "2025-01-17",
+          "end": "2025-01-17"
+        },
+        "time": {
+          "start": "08:00",
+          "end": "18:00"
+        },
+        "priority": {
+          "text": "Medium",
+          "value": "2",
+          "code": "#dfcf02"
+        },
+        "note": "AC Installation - 8",
+        "url": "/app/crm/calendar/event.nl?id=101084&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {},
+        "resources": [],
+        "vendors": [],
+        "assets": [],
+        "items": [],
+        "contacts": [],
+        "addresses": [],
+        "contact": {
+          "text": "",
+          "value": ""
+        },
+        "address": {
+          "text": "",
+          "value": ""
+        },
+        "organizer": {
+          "text": "Arun Sharma",
+          "value": "1770"
+        }
+      }, {
+        "id": "101083",
+        "title": "AC Installation - 7",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "location": "",
+        "status": {
+          "text": "Tentative",
+          "value": "TENTATIVE",
+          "code": "bg-secondary"
+        },
+        "date": {
+          "recurrence": "one time event on 1/17/2025",
+          "dates": ["1/17/2025"],
+          "start": "2025-01-17",
+          "end": "2025-01-17"
+        },
+        "time": {
+          "start": "08:00",
+          "end": "18:00"
+        },
+        "priority": {
+          "text": "Urgent",
+          "value": "4",
+          "code": "#9a2407"
+        },
+        "note": "AC Installation - 7",
+        "url": "/app/crm/calendar/event.nl?id=101083&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {},
+        "resources": [],
+        "vendors": [],
+        "assets": [],
+        "items": [],
+        "contacts": [],
+        "addresses": [],
+        "contact": {
+          "text": "",
+          "value": ""
+        },
+        "address": {
+          "text": "",
+          "value": ""
+        },
+        "organizer": {
+          "text": "Mei Matriano",
+          "value": "1647"
+        }
+      }, {
+        "id": "101082",
+        "title": "AC Installation - 6",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "location": "",
+        "status": {
+          "text": "Tentative",
+          "value": "TENTATIVE",
+          "code": "bg-secondary"
+        },
+        "date": {
+          "recurrence": "one time event on 1/17/2025",
+          "dates": ["1/17/2025"],
+          "start": "2025-01-17",
+          "end": "2025-01-17"
+        },
+        "time": {
+          "start": "08:00",
+          "end": "18:00"
+        },
+        "priority": {
+          "text": "High",
+          "value": "3",
+          "code": "#ca6621"
+        },
+        "note": "AC Installation - 6",
+        "url": "/app/crm/calendar/event.nl?id=101082&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {},
+        "resources": [],
+        "vendors": [],
+        "assets": [],
+        "items": [],
+        "contacts": [],
+        "addresses": [],
+        "contact": {
+          "text": "",
+          "value": ""
+        },
+        "address": {
+          "text": "",
+          "value": ""
+        },
+        "organizer": {
+          "text": "Mei Matriano",
+          "value": "1647"
+        }
+      }, {
+        "id": "101081",
+        "title": "AC Installation - 5",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "location": "",
+        "status": {
+          "text": "Tentative",
+          "value": "TENTATIVE",
+          "code": "bg-secondary"
+        },
+        "date": {
+          "recurrence": "one time event on 1/17/2025",
+          "dates": ["1/17/2025"],
+          "start": "2025-01-17",
+          "end": "2025-01-17"
+        },
+        "time": {
+          "start": "08:00",
+          "end": "18:00"
+        },
+        "priority": {
+          "text": "Urgent",
+          "value": "4",
+          "code": "#9a2407"
+        },
+        "note": "AC Installation - 5",
+        "url": "/app/crm/calendar/event.nl?id=101081&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {},
+        "resources": [],
+        "vendors": [],
+        "assets": [],
+        "items": [],
+        "contacts": [],
+        "addresses": [],
+        "contact": {
+          "text": "",
+          "value": ""
+        },
+        "address": {
+          "text": "",
+          "value": ""
+        },
+        "organizer": {
+          "text": "Arun Sharma",
+          "value": "1770"
+        }
+      }, {
+        "id": "101080",
+        "title": "AC Installation - 4",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "location": "",
+        "status": {
+          "text": "Tentative",
+          "value": "TENTATIVE",
+          "code": "bg-secondary"
+        },
+        "date": {
+          "recurrence": "occurs every day from 1/16/2025 until 1/17/2025",
+          "dates": ["1/16/2025", "1/17/2025"],
+          "start": "2025-01-16",
+          "end": "2025-01-17"
+        },
+        "time": {
+          "start": "08:00",
+          "end": "18:00"
+        },
+        "priority": {
+          "text": "High",
+          "value": "3",
+          "code": "#ca6621"
+        },
+        "note": "AC Installation - 4",
+        "url": "/app/crm/calendar/event.nl?id=101080&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {},
+        "resources": [],
+        "vendors": [],
+        "assets": [],
+        "items": [],
+        "contacts": [],
+        "addresses": [],
+        "contact": {
+          "text": "",
+          "value": ""
+        },
+        "address": {
+          "text": "",
+          "value": ""
+        },
+        "organizer": {
+          "text": "Mei Matriano",
+          "value": "1647"
+        }
+      }, {
+        "id": "101079",
+        "title": "AC Installation - 3",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "location": "",
+        "status": {
+          "text": "Tentative",
+          "value": "TENTATIVE",
+          "code": "bg-secondary"
+        },
+        "date": {
+          "recurrence": "one time event on 1/17/2025",
+          "dates": ["1/17/2025"],
+          "start": "2025-01-17",
+          "end": "2025-01-17"
+        },
+        "time": {
+          "start": "08:00",
+          "end": "18:00"
+        },
+        "priority": {
+          "text": "High",
+          "value": "3",
+          "code": "#ca6621"
+        },
+        "note": "AC Installation - 3",
+        "url": "/app/crm/calendar/event.nl?id=101079&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {},
+        "resources": [],
+        "vendors": [],
+        "assets": [],
+        "items": [],
+        "contacts": [],
+        "addresses": [],
+        "contact": {
+          "text": "",
+          "value": ""
+        },
+        "address": {
+          "text": "",
+          "value": ""
+        },
+        "organizer": {
+          "text": "Mei Matriano",
+          "value": "1647"
+        }
+      }, {
+        "id": "101078",
+        "title": "AC Installation 2",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "location": "",
+        "status": {
+          "text": "Tentative",
+          "value": "TENTATIVE",
+          "code": "bg-secondary"
+        },
+        "date": {
+          "recurrence": "one time event on 1/16/2025",
+          "dates": ["1/16/2025"],
+          "start": "2025-01-16",
+          "end": "2025-01-16"
+        },
+        "time": {
+          "start": "08:00",
+          "end": "18:00"
+        },
+        "priority": {
+          "text": "High",
+          "value": "3",
+          "code": "#ca6621"
+        },
+        "note": "AC Installation 2",
+        "url": "/app/crm/calendar/event.nl?id=101078&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {},
+        "resources": [],
+        "vendors": [],
+        "assets": [],
+        "items": [],
+        "contacts": [],
+        "addresses": [],
+        "contact": {
+          "text": "",
+          "value": ""
+        },
+        "address": {
+          "text": "",
+          "value": ""
+        },
+        "organizer": {
+          "text": "Mei Matriano",
+          "value": "1647"
+        }
+      }, {
+        "id": "101077",
+        "title": "AC Installation",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "location": "",
+        "status": {
+          "text": "Tentative",
+          "value": "TENTATIVE",
+          "code": "bg-secondary"
+        },
+        "date": {
+          "recurrence": "one time event on 1/16/2025",
+          "dates": ["1/16/2025"],
+          "start": "2025-01-16",
+          "end": "2025-01-16"
+        },
+        "time": {
+          "start": "08:00",
+          "end": "18:00"
+        },
+        "priority": {
+          "text": "Medium",
+          "value": "2",
+          "code": "#dfcf02"
+        },
+        "note": "AC Installation",
+        "url": "/app/crm/calendar/event.nl?id=101077&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {},
+        "resources": [],
+        "vendors": [],
+        "assets": [],
+        "items": [],
+        "contacts": [],
+        "addresses": [],
+        "contact": {
+          "text": "",
+          "value": ""
+        },
+        "address": {
+          "text": "",
+          "value": ""
+        },
+        "organizer": {
+          "text": "Mei Matriano",
+          "value": "1647"
+        }
+      }, {
+        "id": "101076",
+        "title": "Test Work Order",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "location": "",
+        "status": {
+          "text": "Tentative",
+          "value": "TENTATIVE",
+          "code": "bg-secondary"
+        },
+        "date": {
+          "recurrence": "one time event on 1/15/2025",
+          "dates": ["1/15/2025"],
+          "start": "2025-01-15",
+          "end": "2025-01-15"
+        },
+        "time": {
+          "start": "08:00",
+          "end": "18:00"
+        },
+        "priority": {
+          "text": "Low",
+          "value": "1",
+          "code": "#026adf"
+        },
+        "note": "",
+        "url": "/app/crm/calendar/event.nl?id=101076&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {},
+        "resources": [],
+        "vendors": [],
+        "assets": [],
+        "items": [],
+        "contacts": [],
+        "addresses": [],
+        "contact": {
+          "text": "",
+          "value": ""
+        },
+        "address": {
+          "text": "207",
+          "value": "207"
+        },
+        "organizer": {
+          "text": "Lean  cendana",
+          "value": "1765"
+        }
+      }, {
+        "id": "101075",
+        "title": "Test Work Order",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "location": "",
+        "status": {
+          "text": "Tentative",
+          "value": "TENTATIVE",
+          "code": "bg-secondary"
+        },
+        "date": {
+          "recurrence": "one time event on 1/12/2025",
+          "dates": ["1/12/2025"],
+          "start": "2025-01-12",
+          "end": "2025-01-12"
+        },
+        "time": {
+          "start": "08:00",
+          "end": "18:00"
+        },
+        "priority": {
+          "text": "Low",
+          "value": "1",
+          "code": "#026adf"
+        },
+        "note": "X\nY\nZ",
+        "url": "/app/crm/calendar/event.nl?id=101075&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {},
+        "resources": [],
+        "vendors": [],
+        "assets": [],
+        "items": [],
+        "contacts": [],
+        "addresses": [],
+        "contact": {
+          "text": "",
+          "value": ""
+        },
+        "address": {
+          "text": "207",
+          "value": "207"
+        },
+        "organizer": {
+          "text": "Lean  cendana",
+          "value": "1765"
+        }
+      }],
+      "projectUrl": "/app/accounting/project/project.nl?id=1515&compid=TSTDRV2617106",
+      "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=123&compid=TSTDRV2617106",
+      "soUrl": "/app/accounting/transactions/salesord.nl?id=22468&compid=TSTDRV2617106",
+      "esthours": "100"
+    },
+    "resources": [{
+      "id": "376",
+      "name": "Aiden Somerhalder",
+      "initials": "AS",
+      "email": "admin@ramsey.com",
+      "phone": "",
+      "location": {
+        "text": "01: San Francisco",
+        "value": "2"
+      },
+      "active": true,
+      "workorder": {
+        "text": "Test Work Order - AC Installation",
+        "value": "123"
+      },
+      "events": ["101083"],
+      "employee": {
+        "text": "Aiden Somerhalder",
+        "value": "1524"
+      },
+      "resourceGroups": [],
+      "types": [],
+      "subTypes": [],
+      "rate": 0,
+      "vendor": {
+        "text": "",
+        "value": ""
+      },
+      "purchaseOrder": {
+        "text": " ",
+        "value": ""
+      },
+      "affiliationType": {
+        "text": "In-House",
+        "value": "1"
+      },
+      "time": {
+        "start": "08:00",
+        "end": "18:00"
+      },
+      "resourceSkills": [],
+      "selected": true
+    }, {
+      "id": "377",
+      "name": "Ruth Smith",
+      "initials": "RS",
+      "email": "jc@erpsuccesspartners.com",
+      "phone": "(713) 555-1212",
+      "location": {
+        "text": "01: San Francisco",
+        "value": "2"
+      },
+      "active": true,
+      "workorder": {
+        "text": "Test Work Order - AC Installation",
+        "value": "123"
+      },
+      "events": ["101083"],
+      "employee": {
+        "text": "Ruth Smith",
+        "value": "1539"
+      },
+      "resourceGroups": [],
+      "types": [],
+      "subTypes": [],
+      "rate": 0,
+      "vendor": {
+        "text": "",
+        "value": ""
+      },
+      "purchaseOrder": {
+        "text": " ",
+        "value": ""
+      },
+      "affiliationType": {
+        "text": "In-House",
+        "value": "1"
+      },
+      "time": {
+        "start": "08:00",
+        "end": "18:00"
+      },
+      "resourceSkills": [],
+      "selected": true
+    }, {
+      "id": "378",
+      "name": "Gary Grant",
+      "initials": "GG",
+      "email": "garygrant@ramsey.com",
+      "phone": "(873) 775-6114",
+      "location": {
+        "text": "02: Boston",
+        "value": "1"
+      },
+      "active": true,
+      "workorder": {
+        "text": "Test Work Order - AC Installation",
+        "value": "123"
+      },
+      "events": ["101083"],
+      "employee": {
+        "text": "Gary Grant",
+        "value": "1312"
+      },
+      "resourceGroups": [],
+      "types": [],
+      "subTypes": [],
+      "rate": 0,
+      "vendor": {
+        "text": "",
+        "value": ""
+      },
+      "purchaseOrder": {
+        "text": " ",
+        "value": ""
+      },
+      "affiliationType": {
+        "text": "Crew Enhancement",
+        "value": "3"
+      },
+      "time": {
+        "start": "08:00",
+        "end": "18:00"
+      },
+      "resourceSkills": [],
+      "selected": true
+    }],
+    "vendors": [{
+      "id": "192",
+      "name": "192",
+      "vendor": {
+        "text": "CFI Furniture Inc.",
+        "value": "1661"
+      },
+      "url": "",
+      "email": "login+plural@erpsuccesspartners.com",
+      "initials": "CF",
+      "workorder": {
+        "text": "Test Work Order - AC Installation",
+        "value": "123"
+      },
+      "event": "101083",
+      "quantityRequired": 5,
+      "quantityAvailable": 0,
+      "purchaseOrder": {
+        "text": " ",
+        "value": ""
+      },
+      "amount": 0,
+      "active": false,
+      "woVendor": true,
+      "memo": "",
+      "selected": true
+    }],
+    "assets": [{
+      "id": "129",
+      "name": "ELE00002",
+      "workorder": {
+        "text": "Test Work Order - AC Installation",
+        "value": "123"
+      },
+      "event": "101083",
+      "quantity": 20,
+      "description": "Serialized 1 Sales Description",
+      "item": {
+        "text": "ELE00002",
+        "value": "674"
+      },
+      "equipmentType": {
+        "text": "Hand Tools",
+        "value": "1"
+      },
+      "rentalUnit": {
+        "text": "",
+        "value": ""
+      },
+      "rentalDuration": 0,
+      "rentalRate": 0,
+      "rentalAmount": 0,
+      "purchaseOrder": {
+        "text": " ",
+        "value": " "
+      },
+      "vendor": {
+        "text": "Computer Depot Pacific",
+        "value": "965"
+      },
+      "owned": true,
+      "rentalMatrix": 0,
+      "selected": true
+    }],
+    "items": [{
+      "id": "567",
+      "workorder": {
+        "text": "Test Work Order - AC Installation",
+        "value": "123"
+      },
+      "salesorder": {
+        "text": "Sales Order #SLS00000803",
+        "value": "22468"
+      },
+      "event": "101083",
+      "uuid": "22468_1",
+      "line": "1",
+      "item": {
+        "text": "BIC00008",
+        "value": "467"
+      },
+      "description": "Head Master Chair",
+      "quantity": 2,
+      "availableQty": 2,
+      "note": "",
+      "selected": true
+    }],
+    "contacts": [],
+    "addresses": [],
+    "contact": {
+      "text": "",
+      "value": ""
+    },
+    "address": {
+      "text": "",
+      "value": ""
+    },
+    "organizer": {
+      "text": "Mei Matriano",
+      "value": "1647"
+    }
+  }, {
+    "id": "101082",
+    "title": "AC Installation - 6",
+    "workorder": {
+      "text": "Test Work Order - AC Installation",
+      "value": "123"
+    },
+    "location": "",
+    "status": {
+      "text": "Tentative",
+      "value": "TENTATIVE",
+      "code": "bg-secondary"
+    },
+    "date": {
+      "recurrence": "one time event on 1/17/2025",
+      "dates": ["1/17/2025"],
+      "start": "2025-01-17",
+      "end": "2025-01-17"
+    },
+    "time": {
+      "start": "08:00",
+      "end": "18:00"
+    },
+    "priority": {
+      "text": "High",
+      "value": "3",
+      "code": "#ca6621"
+    },
+    "note": "AC Installation - 6",
+    "url": "/app/crm/calendar/event.nl?id=101082&compid=TSTDRV2617106&selectedtab=custom337",
+    "color": "#1a6756",
+    "woRef": {
+      "id": "123",
+      "name": "Test Work Order - AC Installation",
+      "title": "Test Work Order - AC Installation",
+      "project": {
+        "text": "World Bank : World Bank Office Furniture Installation",
+        "value": "1515"
+      },
+      "date": "1/8/2025",
+      "status": {
+        "text": "Not Started",
+        "value": "4",
+        "code": "#026adf"
+      },
+      "type": {
+        "text": "Service",
+        "value": "2"
+      },
+      "memo": "",
+      "salesorder": {
+        "text": "Sales Order #SLS00000803",
+        "value": "22468"
+      },
+      "customer": {
+        "text": "World Bank",
+        "value": "1249"
+      },
+      "resourceGroup": {
+        "text": "",
+        "value": ""
+      },
+      "priority": "",
+      "resources": [],
+      "vendors": [{
+        "id": "189",
+        "name": "189",
+        "vendor": {
+          "text": "Best Fixture, Inc.",
+          "value": "12"
+        },
+        "url": "",
+        "email": "",
+        "initials": "BF",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "event": "101062",
+        "quantityRequired": 5,
+        "quantityAvailable": 0,
+        "purchaseOrder": {
+          "text": " ",
+          "value": ""
+        },
+        "amount": 0,
+        "active": false,
+        "woVendor": true,
+        "memo": ""
+      }, {
+        "id": "190",
+        "name": "190",
+        "vendor": {
+          "text": "Best Fixture, Inc.",
+          "value": "12"
+        },
+        "url": "",
+        "email": "",
+        "initials": "BF",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "event": "101081",
+        "quantityRequired": 5,
+        "quantityAvailable": 0,
+        "purchaseOrder": {
+          "text": " ",
+          "value": ""
+        },
+        "amount": 0,
+        "active": false,
+        "woVendor": true,
+        "memo": ""
+      }, {
+        "id": "191",
+        "name": "191",
+        "vendor": {
+          "text": "CFI Furniture Inc.",
+          "value": "1661"
+        },
+        "url": "",
+        "email": "login+plural@erpsuccesspartners.com",
+        "initials": "CF",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "event": "101082",
+        "quantityRequired": 5,
+        "quantityAvailable": 0,
+        "purchaseOrder": {
+          "text": " ",
+          "value": ""
+        },
+        "amount": 0,
+        "active": false,
+        "woVendor": true,
+        "memo": ""
+      }, {
+        "id": "192",
+        "name": "192",
+        "vendor": {
+          "text": "CFI Furniture Inc.",
+          "value": "1661"
+        },
+        "url": "",
+        "email": "login+plural@erpsuccesspartners.com",
+        "initials": "CF",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "event": "101083",
+        "quantityRequired": 5,
+        "quantityAvailable": 0,
+        "purchaseOrder": {
+          "text": " ",
+          "value": ""
+        },
+        "amount": 0,
+        "active": false,
+        "woVendor": true,
+        "memo": ""
+      }, {
+        "id": "193",
+        "name": "193",
+        "vendor": {
+          "text": "Bridgepoint Industries",
+          "value": "1473"
+        },
+        "url": "http://www.bridgepointindustries.com.de",
+        "email": "support@bridgempointindustries.com.de",
+        "initials": "BI",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "event": "101084",
+        "quantityRequired": 5,
+        "quantityAvailable": 20,
+        "purchaseOrder": {
+          "text": " ",
+          "value": ""
+        },
+        "amount": 0,
+        "active": true,
+        "woVendor": true,
+        "memo": ""
+      }, {
+        "id": "188",
+        "name": "Best Fixture, Inc.",
+        "vendor": {
+          "text": "Best Fixture, Inc.",
+          "value": "12"
+        },
+        "url": "",
+        "email": "",
+        "initials": "BF",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "event": "101075",
+        "quantityRequired": 0,
+        "quantityAvailable": 0,
+        "purchaseOrder": {
+          "text": " ",
+          "value": ""
+        },
+        "amount": 0,
+        "active": false,
+        "woVendor": true,
+        "memo": ""
+      }],
+      "assets": [{
+        "id": "123",
+        "name": "ELE00002",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "event": "101062",
+        "quantity": 4,
+        "description": "Serialized 1 Sales Description",
+        "item": {
+          "text": "ELE00002",
+          "value": "674"
+        },
+        "equipmentType": {
+          "text": "Hand Tools",
+          "value": "1"
+        },
+        "rentalUnit": {
+          "text": "",
+          "value": ""
+        },
+        "rentalDuration": 0,
+        "rentalRate": 0,
+        "rentalAmount": 0,
+        "purchaseOrder": {
+          "text": " ",
+          "value": " "
+        },
+        "vendor": {
+          "text": "Computer Depot Pacific",
+          "value": "965"
+        },
+        "owned": true,
+        "rentalMatrix": 0
+      }, {
+        "id": "124",
+        "name": "ELE00002",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "event": "101077",
+        "quantity": 5,
+        "description": "Serialized 1 Sales Description",
+        "item": {
+          "text": "ELE00002",
+          "value": "674"
+        },
+        "equipmentType": {
+          "text": "Hand Tools",
+          "value": "1"
+        },
+        "rentalUnit": {
+          "text": "",
+          "value": ""
+        },
+        "rentalDuration": 0,
+        "rentalRate": 0,
+        "rentalAmount": 0,
+        "purchaseOrder": {
+          "text": " ",
+          "value": " "
+        },
+        "vendor": {
+          "text": "Computer Depot Pacific",
+          "value": "965"
+        },
+        "owned": true,
+        "rentalMatrix": 0
+      }, {
+        "id": "125",
+        "name": "ELE00002",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "event": "101078",
+        "quantity": 4,
+        "description": "Serialized 1 Sales Description",
+        "item": {
+          "text": "ELE00002",
+          "value": "674"
+        },
+        "equipmentType": {
+          "text": "Hand Tools",
+          "value": "1"
+        },
+        "rentalUnit": {
+          "text": "",
+          "value": ""
+        },
+        "rentalDuration": 0,
+        "rentalRate": 0,
+        "rentalAmount": 0,
+        "purchaseOrder": {
+          "text": " ",
+          "value": " "
+        },
+        "vendor": {
+          "text": "Computer Depot Pacific",
+          "value": "965"
+        },
+        "owned": true,
+        "rentalMatrix": 0
+      }, {
+        "id": "126",
+        "name": "ELE00002",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "event": "101079",
+        "quantity": 5,
+        "description": "Serialized 1 Sales Description",
+        "item": {
+          "text": "ELE00002",
+          "value": "674"
+        },
+        "equipmentType": {
+          "text": "Hand Tools",
+          "value": "1"
+        },
+        "rentalUnit": {
+          "text": "",
+          "value": ""
+        },
+        "rentalDuration": 0,
+        "rentalRate": 0,
+        "rentalAmount": 0,
+        "purchaseOrder": {
+          "text": " ",
+          "value": " "
+        },
+        "vendor": {
+          "text": "Computer Depot Pacific",
+          "value": "965"
+        },
+        "owned": true,
+        "rentalMatrix": 0
+      }, {
+        "id": "127",
+        "name": "ELE00002",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "event": "101081",
+        "quantity": 0,
+        "description": "Serialized 1 Sales Description",
+        "item": {
+          "text": "ELE00002",
+          "value": "674"
+        },
+        "equipmentType": {
+          "text": "Hand Tools",
+          "value": "1"
+        },
+        "rentalUnit": {
+          "text": "",
+          "value": ""
+        },
+        "rentalDuration": 0,
+        "rentalRate": 0,
+        "rentalAmount": 0,
+        "purchaseOrder": {
+          "text": " ",
+          "value": " "
+        },
+        "vendor": {
+          "text": "Computer Depot Pacific",
+          "value": "965"
+        },
+        "owned": true,
+        "rentalMatrix": 0
+      }, {
+        "id": "128",
+        "name": "ELE00002",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "event": "101082",
+        "quantity": 100,
+        "description": "Serialized 1 Sales Description",
+        "item": {
+          "text": "ELE00002",
+          "value": "674"
+        },
+        "equipmentType": {
+          "text": "Hand Tools",
+          "value": "1"
+        },
+        "rentalUnit": {
+          "text": "",
+          "value": ""
+        },
+        "rentalDuration": 0,
+        "rentalRate": 0,
+        "rentalAmount": 0,
+        "purchaseOrder": {
+          "text": " ",
+          "value": " "
+        },
+        "vendor": {
+          "text": "Computer Depot Pacific",
+          "value": "965"
+        },
+        "owned": true,
+        "rentalMatrix": 0
+      }, {
+        "id": "129",
+        "name": "ELE00002",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "event": "101083",
+        "quantity": 20,
+        "description": "Serialized 1 Sales Description",
+        "item": {
+          "text": "ELE00002",
+          "value": "674"
+        },
+        "equipmentType": {
+          "text": "Hand Tools",
+          "value": "1"
+        },
+        "rentalUnit": {
+          "text": "",
+          "value": ""
+        },
+        "rentalDuration": 0,
+        "rentalRate": 0,
+        "rentalAmount": 0,
+        "purchaseOrder": {
+          "text": " ",
+          "value": " "
+        },
+        "vendor": {
+          "text": "Computer Depot Pacific",
+          "value": "965"
+        },
+        "owned": true,
+        "rentalMatrix": 0
+      }, {
+        "id": "130",
+        "name": "ELE00002",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "event": "101084",
+        "quantity": 0,
+        "description": "Serialized 1 Sales Description",
+        "item": {
+          "text": "ELE00002",
+          "value": "674"
+        },
+        "equipmentType": {
+          "text": "Hand Tools",
+          "value": "1"
+        },
+        "rentalUnit": {
+          "text": "",
+          "value": ""
+        },
+        "rentalDuration": 0,
+        "rentalRate": 0,
+        "rentalAmount": 0,
+        "purchaseOrder": {
+          "text": " ",
+          "value": " "
+        },
+        "vendor": {
+          "text": "Computer Depot Pacific",
+          "value": "965"
+        },
+        "owned": true,
+        "rentalMatrix": 0
+      }],
+      "items": [{
+        "id": "558",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "salesorder": {
+          "text": "Sales Order #SLS00000803",
+          "value": "22468"
+        },
+        "event": "101078",
+        "uuid": "22468_1",
+        "line": "1",
+        "item": {
+          "text": "BIC00008",
+          "value": "467"
+        },
+        "description": "Head Master Chair",
+        "quantity": 2,
+        "availableQty": 2,
+        "note": ""
+      }, {
+        "id": "560",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "salesorder": {
+          "text": "Sales Order #SLS00000803",
+          "value": "22468"
+        },
+        "event": "101080",
+        "uuid": "22468_1",
+        "line": "1",
+        "item": {
+          "text": "BIC00008",
+          "value": "467"
+        },
+        "description": "Head Master Chair",
+        "quantity": 1,
+        "availableQty": 1,
+        "note": ""
+      }, {
+        "id": "561",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "salesorder": {
+          "text": "Sales Order #SLS00000803",
+          "value": "22468"
+        },
+        "event": "101081",
+        "uuid": "22468_1",
+        "line": "1",
+        "item": {
+          "text": "BIC00008",
+          "value": "467"
+        },
+        "description": "Head Master Chair",
+        "quantity": 5,
+        "availableQty": 5,
+        "note": ""
+      }, {
+        "id": "565",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "salesorder": {
+          "text": "Sales Order #SLS00000803",
+          "value": "22468"
+        },
+        "event": "101082",
+        "uuid": "22468_1",
+        "line": "1",
+        "item": {
+          "text": "BIC00008",
+          "value": "467"
+        },
+        "description": "Head Master Chair",
+        "quantity": 5,
+        "availableQty": 5,
+        "note": ""
+      }, {
+        "id": "567",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "salesorder": {
+          "text": "Sales Order #SLS00000803",
+          "value": "22468"
+        },
+        "event": "101083",
+        "uuid": "22468_1",
+        "line": "1",
+        "item": {
+          "text": "BIC00008",
+          "value": "467"
+        },
+        "description": "Head Master Chair",
+        "quantity": 2,
+        "availableQty": 2,
+        "note": ""
+      }, {
+        "id": "574",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "salesorder": {
+          "text": "Sales Order #SLS00000803",
+          "value": "22468"
+        },
+        "event": "101084",
+        "uuid": "22468_1",
+        "line": "1",
+        "item": {
+          "text": "BIC00008",
+          "value": "467"
+        },
+        "description": "Head Master Chair",
+        "quantity": 2,
+        "availableQty": 2,
+        "note": ""
+      }, {
+        "id": "547",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "salesorder": {
+          "text": "Sales Order #SLS00000803",
+          "value": "22468"
+        },
+        "event": "101062",
+        "uuid": "22468_1",
+        "line": "1",
+        "item": {
+          "text": "BIC00008",
+          "value": "467"
+        },
+        "description": "Head Master Chair",
+        "quantity": 7,
+        "availableQty": 7,
+        "note": ""
+      }, {
+        "id": "555",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "salesorder": {
+          "text": "Sales Order #SLS00000803",
+          "value": "22468"
+        },
+        "event": "101075",
+        "uuid": "22468_2",
+        "line": "2",
+        "item": {
+          "text": "BIC00008",
+          "value": "467"
+        },
+        "description": "Diana Chair",
+        "quantity": 10,
+        "availableQty": 10,
+        "note": ""
+      }, {
+        "id": "556",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "salesorder": {
+          "text": "Sales Order #SLS00000803",
+          "value": "22468"
+        },
+        "event": "101075",
+        "uuid": "22468_3",
+        "line": "3",
+        "item": {
+          "text": "BIC00008",
+          "value": "467"
+        },
+        "description": "Working Table",
+        "quantity": 5,
+        "availableQty": 5,
+        "note": ""
+      }, {
+        "id": "548",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "salesorder": {
+          "text": "Sales Order #SLS00000803",
+          "value": "22468"
+        },
+        "event": "",
+        "uuid": "22468_2",
+        "line": "2",
+        "item": {
+          "text": "BIC00008",
+          "value": "467"
+        },
+        "description": "Diana Chair",
+        "quantity": 10,
+        "availableQty": 10,
+        "note": ""
+      }, {
+        "id": "549",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "salesorder": {
+          "text": "Sales Order #SLS00000803",
+          "value": "22468"
+        },
+        "event": "",
+        "uuid": "22468_3",
+        "line": "3",
+        "item": {
+          "text": "BIC00008",
+          "value": "467"
+        },
+        "description": "Working Table",
+        "quantity": 10,
+        "availableQty": 10,
+        "note": ""
+      }, {
+        "id": "550",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "salesorder": {
+          "text": "Sales Order #SLS00000803",
+          "value": "22468"
+        },
+        "event": "",
+        "uuid": "22468_4",
+        "line": "4",
+        "item": {
+          "text": "BIC00008",
+          "value": "467"
+        },
+        "description": "Technology Table",
+        "quantity": 10,
+        "availableQty": 10,
+        "note": ""
+      }, {
+        "id": "546",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "salesorder": {
+          "text": "Sales Order #SLS00000803",
+          "value": "22468"
+        },
+        "event": "",
+        "uuid": "22468_1",
+        "line": "1",
+        "item": {
+          "text": "BIC00008",
+          "value": "467"
+        },
+        "description": "Head Master Chair",
+        "quantity": 7,
+        "availableQty": 7,
+        "note": ""
+      }, {
+        "id": "557",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "salesorder": {
+          "text": "Sales Order #SLS00000803",
+          "value": "22468"
+        },
+        "event": "101077",
+        "uuid": "22468_1",
+        "line": "1",
+        "item": {
+          "text": "BIC00008",
+          "value": "467"
+        },
+        "description": "Head Master Chair",
+        "quantity": 7,
+        "availableQty": 7,
+        "note": ""
+      }, {
+        "id": "559",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "salesorder": {
+          "text": "Sales Order #SLS00000803",
+          "value": "22468"
+        },
+        "event": "101079",
+        "uuid": "22468_3",
+        "line": "3",
+        "item": {
+          "text": "BIC00008",
+          "value": "467"
+        },
+        "description": "Working Table",
+        "quantity": 10,
+        "availableQty": 10,
+        "note": ""
+      }],
+      "addresses": [{
+        "id": "207",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "customer": {
+          "text": "World Bank",
+          "value": "1249"
+        },
+        "events": ["101062", "101076", "101077", "101078", "101079", "101080", "101084"],
+        "address": {
+          "text": "434 Carlaw",
+          "value": "244878"
+        },
+        "addressDetails": "434 Carlaw Road<br/>Los Angeles NY 12412<br/>United States",
+        "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+      }],
+      "contacts": [{
+        "id": "168",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "events": ["101062", "101077", "101078", "101080", "101084"],
+        "contact": {
+          "text": "World Bank : Chad Bass",
+          "value": "1382"
+        },
+        "name": "Chad Bass",
+        "email": "cbass@worldbank.com",
+        "jobTitle": "President",
+        "mobilePhone": "",
+        "phone": "",
+        "primary": false,
+        "url": "/app/common/entity/contact.nl?id=1382&compid=TSTDRV2617106"
+      }, {
+        "id": "169",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "events": ["101075", "101079"],
+        "contact": {
+          "text": "World Bank : Chad Bass",
+          "value": "1382"
+        },
+        "name": "Chad Bass",
+        "email": "cbass@worldbank.com",
+        "jobTitle": "President",
+        "mobilePhone": "",
+        "phone": "",
+        "primary": false,
+        "url": "/app/common/entity/contact.nl?id=1382&compid=TSTDRV2617106"
+      }],
+      "events": [{
+        "id": "101084",
+        "title": "AC Installation - 8",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "location": "",
+        "status": {
+          "text": "Tentative",
+          "value": "TENTATIVE",
+          "code": "bg-secondary"
+        },
+        "date": {
+          "recurrence": "one time event on 1/17/2025",
+          "dates": ["1/17/2025"],
+          "start": "2025-01-17",
+          "end": "2025-01-17"
+        },
+        "time": {
+          "start": "08:00",
+          "end": "18:00"
+        },
+        "priority": {
+          "text": "Medium",
+          "value": "2",
+          "code": "#dfcf02"
+        },
+        "note": "AC Installation - 8",
+        "url": "/app/crm/calendar/event.nl?id=101084&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {},
+        "resources": [],
+        "vendors": [],
+        "assets": [],
+        "items": [],
+        "contacts": [],
+        "addresses": [],
+        "contact": {
+          "text": "",
+          "value": ""
+        },
+        "address": {
+          "text": "",
+          "value": ""
+        },
+        "organizer": {
+          "text": "Arun Sharma",
+          "value": "1770"
+        }
+      }, {
+        "id": "101083",
+        "title": "AC Installation - 7",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "location": "",
+        "status": {
+          "text": "Tentative",
+          "value": "TENTATIVE",
+          "code": "bg-secondary"
+        },
+        "date": {
+          "recurrence": "one time event on 1/17/2025",
+          "dates": ["1/17/2025"],
+          "start": "2025-01-17",
+          "end": "2025-01-17"
+        },
+        "time": {
+          "start": "08:00",
+          "end": "18:00"
+        },
+        "priority": {
+          "text": "Urgent",
+          "value": "4",
+          "code": "#9a2407"
+        },
+        "note": "AC Installation - 7",
+        "url": "/app/crm/calendar/event.nl?id=101083&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {},
+        "resources": [],
+        "vendors": [],
+        "assets": [],
+        "items": [],
+        "contacts": [],
+        "addresses": [],
+        "contact": {
+          "text": "",
+          "value": ""
+        },
+        "address": {
+          "text": "",
+          "value": ""
+        },
+        "organizer": {
+          "text": "Mei Matriano",
+          "value": "1647"
+        }
+      }, {
+        "id": "101082",
+        "title": "AC Installation - 6",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "location": "",
+        "status": {
+          "text": "Tentative",
+          "value": "TENTATIVE",
+          "code": "bg-secondary"
+        },
+        "date": {
+          "recurrence": "one time event on 1/17/2025",
+          "dates": ["1/17/2025"],
+          "start": "2025-01-17",
+          "end": "2025-01-17"
+        },
+        "time": {
+          "start": "08:00",
+          "end": "18:00"
+        },
+        "priority": {
+          "text": "High",
+          "value": "3",
+          "code": "#ca6621"
+        },
+        "note": "AC Installation - 6",
+        "url": "/app/crm/calendar/event.nl?id=101082&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {},
+        "resources": [],
+        "vendors": [],
+        "assets": [],
+        "items": [],
+        "contacts": [],
+        "addresses": [],
+        "contact": {
+          "text": "",
+          "value": ""
+        },
+        "address": {
+          "text": "",
+          "value": ""
+        },
+        "organizer": {
+          "text": "Mei Matriano",
+          "value": "1647"
+        }
+      }, {
+        "id": "101081",
+        "title": "AC Installation - 5",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "location": "",
+        "status": {
+          "text": "Tentative",
+          "value": "TENTATIVE",
+          "code": "bg-secondary"
+        },
+        "date": {
+          "recurrence": "one time event on 1/17/2025",
+          "dates": ["1/17/2025"],
+          "start": "2025-01-17",
+          "end": "2025-01-17"
+        },
+        "time": {
+          "start": "08:00",
+          "end": "18:00"
+        },
+        "priority": {
+          "text": "Urgent",
+          "value": "4",
+          "code": "#9a2407"
+        },
+        "note": "AC Installation - 5",
+        "url": "/app/crm/calendar/event.nl?id=101081&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {},
+        "resources": [],
+        "vendors": [],
+        "assets": [],
+        "items": [],
+        "contacts": [],
+        "addresses": [],
+        "contact": {
+          "text": "",
+          "value": ""
+        },
+        "address": {
+          "text": "",
+          "value": ""
+        },
+        "organizer": {
+          "text": "Arun Sharma",
+          "value": "1770"
+        }
+      }, {
+        "id": "101080",
+        "title": "AC Installation - 4",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "location": "",
+        "status": {
+          "text": "Tentative",
+          "value": "TENTATIVE",
+          "code": "bg-secondary"
+        },
+        "date": {
+          "recurrence": "occurs every day from 1/16/2025 until 1/17/2025",
+          "dates": ["1/16/2025", "1/17/2025"],
+          "start": "2025-01-16",
+          "end": "2025-01-17"
+        },
+        "time": {
+          "start": "08:00",
+          "end": "18:00"
+        },
+        "priority": {
+          "text": "High",
+          "value": "3",
+          "code": "#ca6621"
+        },
+        "note": "AC Installation - 4",
+        "url": "/app/crm/calendar/event.nl?id=101080&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {},
+        "resources": [],
+        "vendors": [],
+        "assets": [],
+        "items": [],
+        "contacts": [],
+        "addresses": [],
+        "contact": {
+          "text": "",
+          "value": ""
+        },
+        "address": {
+          "text": "",
+          "value": ""
+        },
+        "organizer": {
+          "text": "Mei Matriano",
+          "value": "1647"
+        }
+      }, {
+        "id": "101079",
+        "title": "AC Installation - 3",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "location": "",
+        "status": {
+          "text": "Tentative",
+          "value": "TENTATIVE",
+          "code": "bg-secondary"
+        },
+        "date": {
+          "recurrence": "one time event on 1/17/2025",
+          "dates": ["1/17/2025"],
+          "start": "2025-01-17",
+          "end": "2025-01-17"
+        },
+        "time": {
+          "start": "08:00",
+          "end": "18:00"
+        },
+        "priority": {
+          "text": "High",
+          "value": "3",
+          "code": "#ca6621"
+        },
+        "note": "AC Installation - 3",
+        "url": "/app/crm/calendar/event.nl?id=101079&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {},
+        "resources": [],
+        "vendors": [],
+        "assets": [],
+        "items": [],
+        "contacts": [],
+        "addresses": [],
+        "contact": {
+          "text": "",
+          "value": ""
+        },
+        "address": {
+          "text": "",
+          "value": ""
+        },
+        "organizer": {
+          "text": "Mei Matriano",
+          "value": "1647"
+        }
+      }, {
+        "id": "101078",
+        "title": "AC Installation 2",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "location": "",
+        "status": {
+          "text": "Tentative",
+          "value": "TENTATIVE",
+          "code": "bg-secondary"
+        },
+        "date": {
+          "recurrence": "one time event on 1/16/2025",
+          "dates": ["1/16/2025"],
+          "start": "2025-01-16",
+          "end": "2025-01-16"
+        },
+        "time": {
+          "start": "08:00",
+          "end": "18:00"
+        },
+        "priority": {
+          "text": "High",
+          "value": "3",
+          "code": "#ca6621"
+        },
+        "note": "AC Installation 2",
+        "url": "/app/crm/calendar/event.nl?id=101078&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {},
+        "resources": [],
+        "vendors": [],
+        "assets": [],
+        "items": [],
+        "contacts": [],
+        "addresses": [],
+        "contact": {
+          "text": "",
+          "value": ""
+        },
+        "address": {
+          "text": "",
+          "value": ""
+        },
+        "organizer": {
+          "text": "Mei Matriano",
+          "value": "1647"
+        }
+      }, {
+        "id": "101077",
+        "title": "AC Installation",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "location": "",
+        "status": {
+          "text": "Tentative",
+          "value": "TENTATIVE",
+          "code": "bg-secondary"
+        },
+        "date": {
+          "recurrence": "one time event on 1/16/2025",
+          "dates": ["1/16/2025"],
+          "start": "2025-01-16",
+          "end": "2025-01-16"
+        },
+        "time": {
+          "start": "08:00",
+          "end": "18:00"
+        },
+        "priority": {
+          "text": "Medium",
+          "value": "2",
+          "code": "#dfcf02"
+        },
+        "note": "AC Installation",
+        "url": "/app/crm/calendar/event.nl?id=101077&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {},
+        "resources": [],
+        "vendors": [],
+        "assets": [],
+        "items": [],
+        "contacts": [],
+        "addresses": [],
+        "contact": {
+          "text": "",
+          "value": ""
+        },
+        "address": {
+          "text": "",
+          "value": ""
+        },
+        "organizer": {
+          "text": "Mei Matriano",
+          "value": "1647"
+        }
+      }, {
+        "id": "101076",
+        "title": "Test Work Order",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "location": "",
+        "status": {
+          "text": "Tentative",
+          "value": "TENTATIVE",
+          "code": "bg-secondary"
+        },
+        "date": {
+          "recurrence": "one time event on 1/15/2025",
+          "dates": ["1/15/2025"],
+          "start": "2025-01-15",
+          "end": "2025-01-15"
+        },
+        "time": {
+          "start": "08:00",
+          "end": "18:00"
+        },
+        "priority": {
+          "text": "Low",
+          "value": "1",
+          "code": "#026adf"
+        },
+        "note": "",
+        "url": "/app/crm/calendar/event.nl?id=101076&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {},
+        "resources": [],
+        "vendors": [],
+        "assets": [],
+        "items": [],
+        "contacts": [],
+        "addresses": [],
+        "contact": {
+          "text": "",
+          "value": ""
+        },
+        "address": {
+          "text": "207",
+          "value": "207"
+        },
+        "organizer": {
+          "text": "Lean  cendana",
+          "value": "1765"
+        }
+      }, {
+        "id": "101075",
+        "title": "Test Work Order",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "location": "",
+        "status": {
+          "text": "Tentative",
+          "value": "TENTATIVE",
+          "code": "bg-secondary"
+        },
+        "date": {
+          "recurrence": "one time event on 1/12/2025",
+          "dates": ["1/12/2025"],
+          "start": "2025-01-12",
+          "end": "2025-01-12"
+        },
+        "time": {
+          "start": "08:00",
+          "end": "18:00"
+        },
+        "priority": {
+          "text": "Low",
+          "value": "1",
+          "code": "#026adf"
+        },
+        "note": "X\nY\nZ",
+        "url": "/app/crm/calendar/event.nl?id=101075&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {},
+        "resources": [],
+        "vendors": [],
+        "assets": [],
+        "items": [],
+        "contacts": [],
+        "addresses": [],
+        "contact": {
+          "text": "",
+          "value": ""
+        },
+        "address": {
+          "text": "207",
+          "value": "207"
+        },
+        "organizer": {
+          "text": "Lean  cendana",
+          "value": "1765"
+        }
+      }],
+      "projectUrl": "/app/accounting/project/project.nl?id=1515&compid=TSTDRV2617106",
+      "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=123&compid=TSTDRV2617106",
+      "soUrl": "/app/accounting/transactions/salesord.nl?id=22468&compid=TSTDRV2617106",
+      "esthours": "100"
+    },
+    "resources": [{
+      "id": "373",
+      "name": "Clark Koozer",
+      "initials": "CK",
+      "email": "jc@erpsuccesspartners.com",
+      "phone": "650-555-8300",
+      "location": {
+        "text": "01: San Francisco",
+        "value": "2"
+      },
+      "active": true,
+      "workorder": {
+        "text": "Test Work Order - AC Installation",
+        "value": "123"
+      },
+      "events": ["101082"],
+      "employee": {
+        "text": "Clark Koozer",
+        "value": "23"
+      },
+      "resourceGroups": [],
+      "types": [],
+      "subTypes": [],
+      "rate": 0,
+      "vendor": {
+        "text": "",
+        "value": ""
+      },
+      "purchaseOrder": {
+        "text": " ",
+        "value": ""
+      },
+      "affiliationType": {
+        "text": "In-House",
+        "value": "1"
+      },
+      "time": {
+        "start": "",
+        "end": ""
+      },
+      "resourceSkills": [],
+      "selected": true
+    }, {
+      "id": "374",
+      "name": "Youssef Ezz",
+      "initials": "YE",
+      "email": "yk@erpsuccesspartners.com",
+      "phone": "",
+      "location": {
+        "text": "01: San Francisco",
+        "value": "2"
+      },
+      "active": true,
+      "workorder": {
+        "text": "Test Work Order - AC Installation",
+        "value": "123"
+      },
+      "events": ["101082"],
+      "employee": {
+        "text": "Youssef Ezz",
+        "value": "1656"
+      },
+      "resourceGroups": [],
+      "types": [],
+      "subTypes": [],
+      "rate": 0,
+      "vendor": {
+        "text": "",
+        "value": ""
+      },
+      "purchaseOrder": {
+        "text": " ",
+        "value": ""
+      },
+      "affiliationType": {
+        "text": "In-House",
+        "value": "1"
+      },
+      "time": {
+        "start": "",
+        "end": ""
+      },
+      "resourceSkills": [],
+      "selected": true
+    }, {
+      "id": "375",
+      "name": "Matt Nolan",
+      "initials": "MN",
+      "email": "mnolan@ramsey.com",
+      "phone": "",
+      "location": {
+        "text": "01: San Francisco",
+        "value": "2"
+      },
+      "active": true,
+      "workorder": {
+        "text": "Test Work Order - AC Installation",
+        "value": "123"
+      },
+      "events": ["101082"],
+      "employee": {
+        "text": "Matt Nolan",
+        "value": "1292"
+      },
+      "resourceGroups": [],
+      "types": [],
+      "subTypes": [],
+      "rate": 0,
+      "vendor": {
+        "text": "",
+        "value": ""
+      },
+      "purchaseOrder": {
+        "text": " ",
+        "value": ""
+      },
+      "affiliationType": {
+        "text": "Crew Enhancement",
+        "value": "3"
+      },
+      "time": {
+        "start": "",
+        "end": ""
+      },
+      "resourceSkills": [],
+      "selected": true
+    }],
+    "vendors": [{
+      "id": "191",
+      "name": "191",
+      "vendor": {
+        "text": "CFI Furniture Inc.",
+        "value": "1661"
+      },
+      "url": "",
+      "email": "login+plural@erpsuccesspartners.com",
+      "initials": "CF",
+      "workorder": {
+        "text": "Test Work Order - AC Installation",
+        "value": "123"
+      },
+      "event": "101082",
+      "quantityRequired": 5,
+      "quantityAvailable": 0,
+      "purchaseOrder": {
+        "text": " ",
+        "value": ""
+      },
+      "amount": 0,
+      "active": false,
+      "woVendor": true,
+      "memo": "",
+      "selected": true
+    }],
+    "assets": [{
+      "id": "128",
+      "name": "ELE00002",
+      "workorder": {
+        "text": "Test Work Order - AC Installation",
+        "value": "123"
+      },
+      "event": "101082",
+      "quantity": 100,
+      "description": "Serialized 1 Sales Description",
+      "item": {
+        "text": "ELE00002",
+        "value": "674"
+      },
+      "equipmentType": {
+        "text": "Hand Tools",
+        "value": "1"
+      },
+      "rentalUnit": {
+        "text": "",
+        "value": ""
+      },
+      "rentalDuration": 0,
+      "rentalRate": 0,
+      "rentalAmount": 0,
+      "purchaseOrder": {
+        "text": " ",
+        "value": " "
+      },
+      "vendor": {
+        "text": "Computer Depot Pacific",
+        "value": "965"
+      },
+      "owned": true,
+      "rentalMatrix": 0,
+      "selected": true
+    }],
+    "items": [{
+      "id": "565",
+      "workorder": {
+        "text": "Test Work Order - AC Installation",
+        "value": "123"
+      },
+      "salesorder": {
+        "text": "Sales Order #SLS00000803",
+        "value": "22468"
+      },
+      "event": "101082",
+      "uuid": "22468_1",
+      "line": "1",
+      "item": {
+        "text": "BIC00008",
+        "value": "467"
+      },
+      "description": "Head Master Chair",
+      "quantity": 5,
+      "availableQty": 5,
+      "note": "",
+      "selected": true
+    }],
+    "contacts": [],
+    "addresses": [],
+    "contact": {
+      "text": "",
+      "value": ""
+    },
+    "address": {
+      "text": "",
+      "value": ""
+    },
+    "organizer": {
+      "text": "Mei Matriano",
+      "value": "1647"
+    }
+  }, {
+    "id": "101081",
+    "title": "AC Installation - 5",
+    "workorder": {
+      "text": "Test Work Order - AC Installation",
+      "value": "123"
+    },
+    "location": "",
+    "status": {
+      "text": "Tentative",
+      "value": "TENTATIVE",
+      "code": "bg-secondary"
+    },
+    "date": {
+      "recurrence": "one time event on 1/17/2025",
+      "dates": ["1/17/2025"],
+      "start": "2025-01-17",
+      "end": "2025-01-17"
+    },
+    "time": {
+      "start": "08:00",
+      "end": "18:00"
+    },
+    "priority": {
+      "text": "Urgent",
+      "value": "4",
+      "code": "#9a2407"
+    },
+    "note": "AC Installation - 5",
+    "url": "/app/crm/calendar/event.nl?id=101081&compid=TSTDRV2617106&selectedtab=custom337",
+    "color": "#1a6756",
+    "woRef": {
+      "id": "123",
+      "name": "Test Work Order - AC Installation",
+      "title": "Test Work Order - AC Installation",
+      "project": {
+        "text": "World Bank : World Bank Office Furniture Installation",
+        "value": "1515"
+      },
+      "date": "1/8/2025",
+      "status": {
+        "text": "Not Started",
+        "value": "4",
+        "code": "#026adf"
+      },
+      "type": {
+        "text": "Service",
+        "value": "2"
+      },
+      "memo": "",
+      "salesorder": {
+        "text": "Sales Order #SLS00000803",
+        "value": "22468"
+      },
+      "customer": {
+        "text": "World Bank",
+        "value": "1249"
+      },
+      "resourceGroup": {
+        "text": "",
+        "value": ""
+      },
+      "priority": "",
+      "resources": [],
+      "vendors": [{
+        "id": "189",
+        "name": "189",
+        "vendor": {
+          "text": "Best Fixture, Inc.",
+          "value": "12"
+        },
+        "url": "",
+        "email": "",
+        "initials": "BF",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "event": "101062",
+        "quantityRequired": 5,
+        "quantityAvailable": 0,
+        "purchaseOrder": {
+          "text": " ",
+          "value": ""
+        },
+        "amount": 0,
+        "active": false,
+        "woVendor": true,
+        "memo": ""
+      }, {
+        "id": "190",
+        "name": "190",
+        "vendor": {
+          "text": "Best Fixture, Inc.",
+          "value": "12"
+        },
+        "url": "",
+        "email": "",
+        "initials": "BF",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "event": "101081",
+        "quantityRequired": 5,
+        "quantityAvailable": 0,
+        "purchaseOrder": {
+          "text": " ",
+          "value": ""
+        },
+        "amount": 0,
+        "active": false,
+        "woVendor": true,
+        "memo": ""
+      }, {
+        "id": "191",
+        "name": "191",
+        "vendor": {
+          "text": "CFI Furniture Inc.",
+          "value": "1661"
+        },
+        "url": "",
+        "email": "login+plural@erpsuccesspartners.com",
+        "initials": "CF",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "event": "101082",
+        "quantityRequired": 5,
+        "quantityAvailable": 0,
+        "purchaseOrder": {
+          "text": " ",
+          "value": ""
+        },
+        "amount": 0,
+        "active": false,
+        "woVendor": true,
+        "memo": ""
+      }, {
+        "id": "192",
+        "name": "192",
+        "vendor": {
+          "text": "CFI Furniture Inc.",
+          "value": "1661"
+        },
+        "url": "",
+        "email": "login+plural@erpsuccesspartners.com",
+        "initials": "CF",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "event": "101083",
+        "quantityRequired": 5,
+        "quantityAvailable": 0,
+        "purchaseOrder": {
+          "text": " ",
+          "value": ""
+        },
+        "amount": 0,
+        "active": false,
+        "woVendor": true,
+        "memo": ""
+      }, {
+        "id": "193",
+        "name": "193",
+        "vendor": {
+          "text": "Bridgepoint Industries",
+          "value": "1473"
+        },
+        "url": "http://www.bridgepointindustries.com.de",
+        "email": "support@bridgempointindustries.com.de",
+        "initials": "BI",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "event": "101084",
+        "quantityRequired": 5,
+        "quantityAvailable": 20,
+        "purchaseOrder": {
+          "text": " ",
+          "value": ""
+        },
+        "amount": 0,
+        "active": true,
+        "woVendor": true,
+        "memo": ""
+      }, {
+        "id": "188",
+        "name": "Best Fixture, Inc.",
+        "vendor": {
+          "text": "Best Fixture, Inc.",
+          "value": "12"
+        },
+        "url": "",
+        "email": "",
+        "initials": "BF",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "event": "101075",
+        "quantityRequired": 0,
+        "quantityAvailable": 0,
+        "purchaseOrder": {
+          "text": " ",
+          "value": ""
+        },
+        "amount": 0,
+        "active": false,
+        "woVendor": true,
+        "memo": ""
+      }],
+      "assets": [{
+        "id": "123",
+        "name": "ELE00002",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "event": "101062",
+        "quantity": 4,
+        "description": "Serialized 1 Sales Description",
+        "item": {
+          "text": "ELE00002",
+          "value": "674"
+        },
+        "equipmentType": {
+          "text": "Hand Tools",
+          "value": "1"
+        },
+        "rentalUnit": {
+          "text": "",
+          "value": ""
+        },
+        "rentalDuration": 0,
+        "rentalRate": 0,
+        "rentalAmount": 0,
+        "purchaseOrder": {
+          "text": " ",
+          "value": " "
+        },
+        "vendor": {
+          "text": "Computer Depot Pacific",
+          "value": "965"
+        },
+        "owned": true,
+        "rentalMatrix": 0
+      }, {
+        "id": "124",
+        "name": "ELE00002",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "event": "101077",
+        "quantity": 5,
+        "description": "Serialized 1 Sales Description",
+        "item": {
+          "text": "ELE00002",
+          "value": "674"
+        },
+        "equipmentType": {
+          "text": "Hand Tools",
+          "value": "1"
+        },
+        "rentalUnit": {
+          "text": "",
+          "value": ""
+        },
+        "rentalDuration": 0,
+        "rentalRate": 0,
+        "rentalAmount": 0,
+        "purchaseOrder": {
+          "text": " ",
+          "value": " "
+        },
+        "vendor": {
+          "text": "Computer Depot Pacific",
+          "value": "965"
+        },
+        "owned": true,
+        "rentalMatrix": 0
+      }, {
+        "id": "125",
+        "name": "ELE00002",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "event": "101078",
+        "quantity": 4,
+        "description": "Serialized 1 Sales Description",
+        "item": {
+          "text": "ELE00002",
+          "value": "674"
+        },
+        "equipmentType": {
+          "text": "Hand Tools",
+          "value": "1"
+        },
+        "rentalUnit": {
+          "text": "",
+          "value": ""
+        },
+        "rentalDuration": 0,
+        "rentalRate": 0,
+        "rentalAmount": 0,
+        "purchaseOrder": {
+          "text": " ",
+          "value": " "
+        },
+        "vendor": {
+          "text": "Computer Depot Pacific",
+          "value": "965"
+        },
+        "owned": true,
+        "rentalMatrix": 0
+      }, {
+        "id": "126",
+        "name": "ELE00002",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "event": "101079",
+        "quantity": 5,
+        "description": "Serialized 1 Sales Description",
+        "item": {
+          "text": "ELE00002",
+          "value": "674"
+        },
+        "equipmentType": {
+          "text": "Hand Tools",
+          "value": "1"
+        },
+        "rentalUnit": {
+          "text": "",
+          "value": ""
+        },
+        "rentalDuration": 0,
+        "rentalRate": 0,
+        "rentalAmount": 0,
+        "purchaseOrder": {
+          "text": " ",
+          "value": " "
+        },
+        "vendor": {
+          "text": "Computer Depot Pacific",
+          "value": "965"
+        },
+        "owned": true,
+        "rentalMatrix": 0
+      }, {
+        "id": "127",
+        "name": "ELE00002",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "event": "101081",
+        "quantity": 0,
+        "description": "Serialized 1 Sales Description",
+        "item": {
+          "text": "ELE00002",
+          "value": "674"
+        },
+        "equipmentType": {
+          "text": "Hand Tools",
+          "value": "1"
+        },
+        "rentalUnit": {
+          "text": "",
+          "value": ""
+        },
+        "rentalDuration": 0,
+        "rentalRate": 0,
+        "rentalAmount": 0,
+        "purchaseOrder": {
+          "text": " ",
+          "value": " "
+        },
+        "vendor": {
+          "text": "Computer Depot Pacific",
+          "value": "965"
+        },
+        "owned": true,
+        "rentalMatrix": 0
+      }, {
+        "id": "128",
+        "name": "ELE00002",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "event": "101082",
+        "quantity": 100,
+        "description": "Serialized 1 Sales Description",
+        "item": {
+          "text": "ELE00002",
+          "value": "674"
+        },
+        "equipmentType": {
+          "text": "Hand Tools",
+          "value": "1"
+        },
+        "rentalUnit": {
+          "text": "",
+          "value": ""
+        },
+        "rentalDuration": 0,
+        "rentalRate": 0,
+        "rentalAmount": 0,
+        "purchaseOrder": {
+          "text": " ",
+          "value": " "
+        },
+        "vendor": {
+          "text": "Computer Depot Pacific",
+          "value": "965"
+        },
+        "owned": true,
+        "rentalMatrix": 0
+      }, {
+        "id": "129",
+        "name": "ELE00002",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "event": "101083",
+        "quantity": 20,
+        "description": "Serialized 1 Sales Description",
+        "item": {
+          "text": "ELE00002",
+          "value": "674"
+        },
+        "equipmentType": {
+          "text": "Hand Tools",
+          "value": "1"
+        },
+        "rentalUnit": {
+          "text": "",
+          "value": ""
+        },
+        "rentalDuration": 0,
+        "rentalRate": 0,
+        "rentalAmount": 0,
+        "purchaseOrder": {
+          "text": " ",
+          "value": " "
+        },
+        "vendor": {
+          "text": "Computer Depot Pacific",
+          "value": "965"
+        },
+        "owned": true,
+        "rentalMatrix": 0
+      }, {
+        "id": "130",
+        "name": "ELE00002",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "event": "101084",
+        "quantity": 0,
+        "description": "Serialized 1 Sales Description",
+        "item": {
+          "text": "ELE00002",
+          "value": "674"
+        },
+        "equipmentType": {
+          "text": "Hand Tools",
+          "value": "1"
+        },
+        "rentalUnit": {
+          "text": "",
+          "value": ""
+        },
+        "rentalDuration": 0,
+        "rentalRate": 0,
+        "rentalAmount": 0,
+        "purchaseOrder": {
+          "text": " ",
+          "value": " "
+        },
+        "vendor": {
+          "text": "Computer Depot Pacific",
+          "value": "965"
+        },
+        "owned": true,
+        "rentalMatrix": 0
+      }],
+      "items": [{
+        "id": "558",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "salesorder": {
+          "text": "Sales Order #SLS00000803",
+          "value": "22468"
+        },
+        "event": "101078",
+        "uuid": "22468_1",
+        "line": "1",
+        "item": {
+          "text": "BIC00008",
+          "value": "467"
+        },
+        "description": "Head Master Chair",
+        "quantity": 2,
+        "availableQty": 2,
+        "note": ""
+      }, {
+        "id": "560",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "salesorder": {
+          "text": "Sales Order #SLS00000803",
+          "value": "22468"
+        },
+        "event": "101080",
+        "uuid": "22468_1",
+        "line": "1",
+        "item": {
+          "text": "BIC00008",
+          "value": "467"
+        },
+        "description": "Head Master Chair",
+        "quantity": 1,
+        "availableQty": 1,
+        "note": ""
+      }, {
+        "id": "561",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "salesorder": {
+          "text": "Sales Order #SLS00000803",
+          "value": "22468"
+        },
+        "event": "101081",
+        "uuid": "22468_1",
+        "line": "1",
+        "item": {
+          "text": "BIC00008",
+          "value": "467"
+        },
+        "description": "Head Master Chair",
+        "quantity": 5,
+        "availableQty": 5,
+        "note": ""
+      }, {
+        "id": "565",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "salesorder": {
+          "text": "Sales Order #SLS00000803",
+          "value": "22468"
+        },
+        "event": "101082",
+        "uuid": "22468_1",
+        "line": "1",
+        "item": {
+          "text": "BIC00008",
+          "value": "467"
+        },
+        "description": "Head Master Chair",
+        "quantity": 5,
+        "availableQty": 5,
+        "note": ""
+      }, {
+        "id": "567",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "salesorder": {
+          "text": "Sales Order #SLS00000803",
+          "value": "22468"
+        },
+        "event": "101083",
+        "uuid": "22468_1",
+        "line": "1",
+        "item": {
+          "text": "BIC00008",
+          "value": "467"
+        },
+        "description": "Head Master Chair",
+        "quantity": 2,
+        "availableQty": 2,
+        "note": ""
+      }, {
+        "id": "574",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "salesorder": {
+          "text": "Sales Order #SLS00000803",
+          "value": "22468"
+        },
+        "event": "101084",
+        "uuid": "22468_1",
+        "line": "1",
+        "item": {
+          "text": "BIC00008",
+          "value": "467"
+        },
+        "description": "Head Master Chair",
+        "quantity": 2,
+        "availableQty": 2,
+        "note": ""
+      }, {
+        "id": "547",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "salesorder": {
+          "text": "Sales Order #SLS00000803",
+          "value": "22468"
+        },
+        "event": "101062",
+        "uuid": "22468_1",
+        "line": "1",
+        "item": {
+          "text": "BIC00008",
+          "value": "467"
+        },
+        "description": "Head Master Chair",
+        "quantity": 7,
+        "availableQty": 7,
+        "note": ""
+      }, {
+        "id": "555",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "salesorder": {
+          "text": "Sales Order #SLS00000803",
+          "value": "22468"
+        },
+        "event": "101075",
+        "uuid": "22468_2",
+        "line": "2",
+        "item": {
+          "text": "BIC00008",
+          "value": "467"
+        },
+        "description": "Diana Chair",
+        "quantity": 10,
+        "availableQty": 10,
+        "note": ""
+      }, {
+        "id": "556",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "salesorder": {
+          "text": "Sales Order #SLS00000803",
+          "value": "22468"
+        },
+        "event": "101075",
+        "uuid": "22468_3",
+        "line": "3",
+        "item": {
+          "text": "BIC00008",
+          "value": "467"
+        },
+        "description": "Working Table",
+        "quantity": 5,
+        "availableQty": 5,
+        "note": ""
+      }, {
+        "id": "548",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "salesorder": {
+          "text": "Sales Order #SLS00000803",
+          "value": "22468"
+        },
+        "event": "",
+        "uuid": "22468_2",
+        "line": "2",
+        "item": {
+          "text": "BIC00008",
+          "value": "467"
+        },
+        "description": "Diana Chair",
+        "quantity": 10,
+        "availableQty": 10,
+        "note": ""
+      }, {
+        "id": "549",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "salesorder": {
+          "text": "Sales Order #SLS00000803",
+          "value": "22468"
+        },
+        "event": "",
+        "uuid": "22468_3",
+        "line": "3",
+        "item": {
+          "text": "BIC00008",
+          "value": "467"
+        },
+        "description": "Working Table",
+        "quantity": 10,
+        "availableQty": 10,
+        "note": ""
+      }, {
+        "id": "550",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "salesorder": {
+          "text": "Sales Order #SLS00000803",
+          "value": "22468"
+        },
+        "event": "",
+        "uuid": "22468_4",
+        "line": "4",
+        "item": {
+          "text": "BIC00008",
+          "value": "467"
+        },
+        "description": "Technology Table",
+        "quantity": 10,
+        "availableQty": 10,
+        "note": ""
+      }, {
+        "id": "546",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "salesorder": {
+          "text": "Sales Order #SLS00000803",
+          "value": "22468"
+        },
+        "event": "",
+        "uuid": "22468_1",
+        "line": "1",
+        "item": {
+          "text": "BIC00008",
+          "value": "467"
+        },
+        "description": "Head Master Chair",
+        "quantity": 7,
+        "availableQty": 7,
+        "note": ""
+      }, {
+        "id": "557",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "salesorder": {
+          "text": "Sales Order #SLS00000803",
+          "value": "22468"
+        },
+        "event": "101077",
+        "uuid": "22468_1",
+        "line": "1",
+        "item": {
+          "text": "BIC00008",
+          "value": "467"
+        },
+        "description": "Head Master Chair",
+        "quantity": 7,
+        "availableQty": 7,
+        "note": ""
+      }, {
+        "id": "559",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "salesorder": {
+          "text": "Sales Order #SLS00000803",
+          "value": "22468"
+        },
+        "event": "101079",
+        "uuid": "22468_3",
+        "line": "3",
+        "item": {
+          "text": "BIC00008",
+          "value": "467"
+        },
+        "description": "Working Table",
+        "quantity": 10,
+        "availableQty": 10,
+        "note": ""
+      }],
+      "addresses": [{
+        "id": "207",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "customer": {
+          "text": "World Bank",
+          "value": "1249"
+        },
+        "events": ["101062", "101076", "101077", "101078", "101079", "101080", "101084"],
+        "address": {
+          "text": "434 Carlaw",
+          "value": "244878"
+        },
+        "addressDetails": "434 Carlaw Road<br/>Los Angeles NY 12412<br/>United States",
+        "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+      }],
+      "contacts": [{
+        "id": "168",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "events": ["101062", "101077", "101078", "101080", "101084"],
+        "contact": {
+          "text": "World Bank : Chad Bass",
+          "value": "1382"
+        },
+        "name": "Chad Bass",
+        "email": "cbass@worldbank.com",
+        "jobTitle": "President",
+        "mobilePhone": "",
+        "phone": "",
+        "primary": false,
+        "url": "/app/common/entity/contact.nl?id=1382&compid=TSTDRV2617106"
+      }, {
+        "id": "169",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "events": ["101075", "101079"],
+        "contact": {
+          "text": "World Bank : Chad Bass",
+          "value": "1382"
+        },
+        "name": "Chad Bass",
+        "email": "cbass@worldbank.com",
+        "jobTitle": "President",
+        "mobilePhone": "",
+        "phone": "",
+        "primary": false,
+        "url": "/app/common/entity/contact.nl?id=1382&compid=TSTDRV2617106"
+      }],
+      "events": [{
+        "id": "101084",
+        "title": "AC Installation - 8",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "location": "",
+        "status": {
+          "text": "Tentative",
+          "value": "TENTATIVE",
+          "code": "bg-secondary"
+        },
+        "date": {
+          "recurrence": "one time event on 1/17/2025",
+          "dates": ["1/17/2025"],
+          "start": "2025-01-17",
+          "end": "2025-01-17"
+        },
+        "time": {
+          "start": "08:00",
+          "end": "18:00"
+        },
+        "priority": {
+          "text": "Medium",
+          "value": "2",
+          "code": "#dfcf02"
+        },
+        "note": "AC Installation - 8",
+        "url": "/app/crm/calendar/event.nl?id=101084&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {},
+        "resources": [],
+        "vendors": [],
+        "assets": [],
+        "items": [],
+        "contacts": [],
+        "addresses": [],
+        "contact": {
+          "text": "",
+          "value": ""
+        },
+        "address": {
+          "text": "",
+          "value": ""
+        },
+        "organizer": {
+          "text": "Arun Sharma",
+          "value": "1770"
+        }
+      }, {
+        "id": "101083",
+        "title": "AC Installation - 7",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "location": "",
+        "status": {
+          "text": "Tentative",
+          "value": "TENTATIVE",
+          "code": "bg-secondary"
+        },
+        "date": {
+          "recurrence": "one time event on 1/17/2025",
+          "dates": ["1/17/2025"],
+          "start": "2025-01-17",
+          "end": "2025-01-17"
+        },
+        "time": {
+          "start": "08:00",
+          "end": "18:00"
+        },
+        "priority": {
+          "text": "Urgent",
+          "value": "4",
+          "code": "#9a2407"
+        },
+        "note": "AC Installation - 7",
+        "url": "/app/crm/calendar/event.nl?id=101083&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {},
+        "resources": [],
+        "vendors": [],
+        "assets": [],
+        "items": [],
+        "contacts": [],
+        "addresses": [],
+        "contact": {
+          "text": "",
+          "value": ""
+        },
+        "address": {
+          "text": "",
+          "value": ""
+        },
+        "organizer": {
+          "text": "Mei Matriano",
+          "value": "1647"
+        }
+      }, {
+        "id": "101082",
+        "title": "AC Installation - 6",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "location": "",
+        "status": {
+          "text": "Tentative",
+          "value": "TENTATIVE",
+          "code": "bg-secondary"
+        },
+        "date": {
+          "recurrence": "one time event on 1/17/2025",
+          "dates": ["1/17/2025"],
+          "start": "2025-01-17",
+          "end": "2025-01-17"
+        },
+        "time": {
+          "start": "08:00",
+          "end": "18:00"
+        },
+        "priority": {
+          "text": "High",
+          "value": "3",
+          "code": "#ca6621"
+        },
+        "note": "AC Installation - 6",
+        "url": "/app/crm/calendar/event.nl?id=101082&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {},
+        "resources": [],
+        "vendors": [],
+        "assets": [],
+        "items": [],
+        "contacts": [],
+        "addresses": [],
+        "contact": {
+          "text": "",
+          "value": ""
+        },
+        "address": {
+          "text": "",
+          "value": ""
+        },
+        "organizer": {
+          "text": "Mei Matriano",
+          "value": "1647"
+        }
+      }, {
+        "id": "101081",
+        "title": "AC Installation - 5",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "location": "",
+        "status": {
+          "text": "Tentative",
+          "value": "TENTATIVE",
+          "code": "bg-secondary"
+        },
+        "date": {
+          "recurrence": "one time event on 1/17/2025",
+          "dates": ["1/17/2025"],
+          "start": "2025-01-17",
+          "end": "2025-01-17"
+        },
+        "time": {
+          "start": "08:00",
+          "end": "18:00"
+        },
+        "priority": {
+          "text": "Urgent",
+          "value": "4",
+          "code": "#9a2407"
+        },
+        "note": "AC Installation - 5",
+        "url": "/app/crm/calendar/event.nl?id=101081&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {},
+        "resources": [],
+        "vendors": [],
+        "assets": [],
+        "items": [],
+        "contacts": [],
+        "addresses": [],
+        "contact": {
+          "text": "",
+          "value": ""
+        },
+        "address": {
+          "text": "",
+          "value": ""
+        },
+        "organizer": {
+          "text": "Arun Sharma",
+          "value": "1770"
+        }
+      }, {
+        "id": "101080",
+        "title": "AC Installation - 4",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "location": "",
+        "status": {
+          "text": "Tentative",
+          "value": "TENTATIVE",
+          "code": "bg-secondary"
+        },
+        "date": {
+          "recurrence": "occurs every day from 1/16/2025 until 1/17/2025",
+          "dates": ["1/16/2025", "1/17/2025"],
+          "start": "2025-01-16",
+          "end": "2025-01-17"
+        },
+        "time": {
+          "start": "08:00",
+          "end": "18:00"
+        },
+        "priority": {
+          "text": "High",
+          "value": "3",
+          "code": "#ca6621"
+        },
+        "note": "AC Installation - 4",
+        "url": "/app/crm/calendar/event.nl?id=101080&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {},
+        "resources": [],
+        "vendors": [],
+        "assets": [],
+        "items": [],
+        "contacts": [],
+        "addresses": [],
+        "contact": {
+          "text": "",
+          "value": ""
+        },
+        "address": {
+          "text": "",
+          "value": ""
+        },
+        "organizer": {
+          "text": "Mei Matriano",
+          "value": "1647"
+        }
+      }, {
+        "id": "101079",
+        "title": "AC Installation - 3",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "location": "",
+        "status": {
+          "text": "Tentative",
+          "value": "TENTATIVE",
+          "code": "bg-secondary"
+        },
+        "date": {
+          "recurrence": "one time event on 1/17/2025",
+          "dates": ["1/17/2025"],
+          "start": "2025-01-17",
+          "end": "2025-01-17"
+        },
+        "time": {
+          "start": "08:00",
+          "end": "18:00"
+        },
+        "priority": {
+          "text": "High",
+          "value": "3",
+          "code": "#ca6621"
+        },
+        "note": "AC Installation - 3",
+        "url": "/app/crm/calendar/event.nl?id=101079&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {},
+        "resources": [],
+        "vendors": [],
+        "assets": [],
+        "items": [],
+        "contacts": [],
+        "addresses": [],
+        "contact": {
+          "text": "",
+          "value": ""
+        },
+        "address": {
+          "text": "",
+          "value": ""
+        },
+        "organizer": {
+          "text": "Mei Matriano",
+          "value": "1647"
+        }
+      }, {
+        "id": "101078",
+        "title": "AC Installation 2",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "location": "",
+        "status": {
+          "text": "Tentative",
+          "value": "TENTATIVE",
+          "code": "bg-secondary"
+        },
+        "date": {
+          "recurrence": "one time event on 1/16/2025",
+          "dates": ["1/16/2025"],
+          "start": "2025-01-16",
+          "end": "2025-01-16"
+        },
+        "time": {
+          "start": "08:00",
+          "end": "18:00"
+        },
+        "priority": {
+          "text": "High",
+          "value": "3",
+          "code": "#ca6621"
+        },
+        "note": "AC Installation 2",
+        "url": "/app/crm/calendar/event.nl?id=101078&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {},
+        "resources": [],
+        "vendors": [],
+        "assets": [],
+        "items": [],
+        "contacts": [],
+        "addresses": [],
+        "contact": {
+          "text": "",
+          "value": ""
+        },
+        "address": {
+          "text": "",
+          "value": ""
+        },
+        "organizer": {
+          "text": "Mei Matriano",
+          "value": "1647"
+        }
+      }, {
+        "id": "101077",
+        "title": "AC Installation",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "location": "",
+        "status": {
+          "text": "Tentative",
+          "value": "TENTATIVE",
+          "code": "bg-secondary"
+        },
+        "date": {
+          "recurrence": "one time event on 1/16/2025",
+          "dates": ["1/16/2025"],
+          "start": "2025-01-16",
+          "end": "2025-01-16"
+        },
+        "time": {
+          "start": "08:00",
+          "end": "18:00"
+        },
+        "priority": {
+          "text": "Medium",
+          "value": "2",
+          "code": "#dfcf02"
+        },
+        "note": "AC Installation",
+        "url": "/app/crm/calendar/event.nl?id=101077&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {},
+        "resources": [],
+        "vendors": [],
+        "assets": [],
+        "items": [],
+        "contacts": [],
+        "addresses": [],
+        "contact": {
+          "text": "",
+          "value": ""
+        },
+        "address": {
+          "text": "",
+          "value": ""
+        },
+        "organizer": {
+          "text": "Mei Matriano",
+          "value": "1647"
+        }
+      }, {
+        "id": "101076",
+        "title": "Test Work Order",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "location": "",
+        "status": {
+          "text": "Tentative",
+          "value": "TENTATIVE",
+          "code": "bg-secondary"
+        },
+        "date": {
+          "recurrence": "one time event on 1/15/2025",
+          "dates": ["1/15/2025"],
+          "start": "2025-01-15",
+          "end": "2025-01-15"
+        },
+        "time": {
+          "start": "08:00",
+          "end": "18:00"
+        },
+        "priority": {
+          "text": "Low",
+          "value": "1",
+          "code": "#026adf"
+        },
+        "note": "",
+        "url": "/app/crm/calendar/event.nl?id=101076&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {},
+        "resources": [],
+        "vendors": [],
+        "assets": [],
+        "items": [],
+        "contacts": [],
+        "addresses": [],
+        "contact": {
+          "text": "",
+          "value": ""
+        },
+        "address": {
+          "text": "207",
+          "value": "207"
+        },
+        "organizer": {
+          "text": "Lean  cendana",
+          "value": "1765"
+        }
+      }, {
+        "id": "101075",
+        "title": "Test Work Order",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "location": "",
+        "status": {
+          "text": "Tentative",
+          "value": "TENTATIVE",
+          "code": "bg-secondary"
+        },
+        "date": {
+          "recurrence": "one time event on 1/12/2025",
+          "dates": ["1/12/2025"],
+          "start": "2025-01-12",
+          "end": "2025-01-12"
+        },
+        "time": {
+          "start": "08:00",
+          "end": "18:00"
+        },
+        "priority": {
+          "text": "Low",
+          "value": "1",
+          "code": "#026adf"
+        },
+        "note": "X\nY\nZ",
+        "url": "/app/crm/calendar/event.nl?id=101075&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {},
+        "resources": [],
+        "vendors": [],
+        "assets": [],
+        "items": [],
+        "contacts": [],
+        "addresses": [],
+        "contact": {
+          "text": "",
+          "value": ""
+        },
+        "address": {
+          "text": "207",
+          "value": "207"
+        },
+        "organizer": {
+          "text": "Lean  cendana",
+          "value": "1765"
+        }
+      }],
+      "projectUrl": "/app/accounting/project/project.nl?id=1515&compid=TSTDRV2617106",
+      "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=123&compid=TSTDRV2617106",
+      "soUrl": "/app/accounting/transactions/salesord.nl?id=22468&compid=TSTDRV2617106",
+      "esthours": "100"
+    },
+    "resources": [],
+    "vendors": [{
+      "id": "190",
+      "name": "190",
+      "vendor": {
+        "text": "Best Fixture, Inc.",
+        "value": "12"
+      },
+      "url": "",
+      "email": "",
+      "initials": "BF",
+      "workorder": {
+        "text": "Test Work Order - AC Installation",
+        "value": "123"
+      },
+      "event": "101081",
+      "quantityRequired": 5,
+      "quantityAvailable": 0,
+      "purchaseOrder": {
+        "text": " ",
+        "value": ""
+      },
+      "amount": 0,
+      "active": false,
+      "woVendor": true,
+      "memo": "",
+      "selected": true
+    }],
+    "assets": [{
+      "id": "127",
+      "name": "ELE00002",
+      "workorder": {
+        "text": "Test Work Order - AC Installation",
+        "value": "123"
+      },
+      "event": "101081",
+      "quantity": 0,
+      "description": "Serialized 1 Sales Description",
+      "item": {
+        "text": "ELE00002",
+        "value": "674"
+      },
+      "equipmentType": {
+        "text": "Hand Tools",
+        "value": "1"
+      },
+      "rentalUnit": {
+        "text": "",
+        "value": ""
+      },
+      "rentalDuration": 0,
+      "rentalRate": 0,
+      "rentalAmount": 0,
+      "purchaseOrder": {
+        "text": " ",
+        "value": " "
+      },
+      "vendor": {
+        "text": "Computer Depot Pacific",
+        "value": "965"
+      },
+      "owned": true,
+      "rentalMatrix": 0,
+      "selected": true
+    }],
+    "items": [{
+      "id": "561",
+      "workorder": {
+        "text": "Test Work Order - AC Installation",
+        "value": "123"
+      },
+      "salesorder": {
+        "text": "Sales Order #SLS00000803",
+        "value": "22468"
+      },
+      "event": "101081",
+      "uuid": "22468_1",
+      "line": "1",
+      "item": {
+        "text": "BIC00008",
+        "value": "467"
+      },
+      "description": "Head Master Chair",
+      "quantity": 5,
+      "availableQty": 5,
+      "note": "",
+      "selected": true
+    }],
+    "contacts": [],
+    "addresses": [],
+    "contact": {
+      "text": "",
+      "value": ""
+    },
+    "address": {
+      "text": "",
+      "value": ""
+    },
+    "organizer": {
+      "text": "Arun Sharma",
+      "value": "1770"
+    }
+  }, {
+    "id": "101080",
+    "title": "AC Installation - 4",
+    "workorder": {
+      "text": "Test Work Order - AC Installation",
+      "value": "123"
+    },
+    "location": "",
+    "status": {
+      "text": "Tentative",
+      "value": "TENTATIVE",
+      "code": "bg-secondary"
+    },
+    "date": {
+      "recurrence": "occurs every day from 1/16/2025 until 1/17/2025",
+      "dates": ["1/16/2025", "1/17/2025"],
+      "start": "2025-01-16",
+      "end": "2025-01-17"
+    },
+    "time": {
+      "start": "08:00",
+      "end": "18:00"
+    },
+    "priority": {
+      "text": "High",
+      "value": "3",
+      "code": "#ca6621"
+    },
+    "note": "AC Installation - 4",
+    "url": "/app/crm/calendar/event.nl?id=101080&compid=TSTDRV2617106&selectedtab=custom337",
+    "color": "#1a6756",
+    "woRef": {
+      "id": "123",
+      "name": "Test Work Order - AC Installation",
+      "title": "Test Work Order - AC Installation",
+      "project": {
+        "text": "World Bank : World Bank Office Furniture Installation",
+        "value": "1515"
+      },
+      "date": "1/8/2025",
+      "status": {
+        "text": "Not Started",
+        "value": "4",
+        "code": "#026adf"
+      },
+      "type": {
+        "text": "Service",
+        "value": "2"
+      },
+      "memo": "",
+      "salesorder": {
+        "text": "Sales Order #SLS00000803",
+        "value": "22468"
+      },
+      "customer": {
+        "text": "World Bank",
+        "value": "1249"
+      },
+      "resourceGroup": {
+        "text": "",
+        "value": ""
+      },
+      "priority": "",
+      "resources": [],
+      "vendors": [{
+        "id": "189",
+        "name": "189",
+        "vendor": {
+          "text": "Best Fixture, Inc.",
+          "value": "12"
+        },
+        "url": "",
+        "email": "",
+        "initials": "BF",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "event": "101062",
+        "quantityRequired": 5,
+        "quantityAvailable": 0,
+        "purchaseOrder": {
+          "text": " ",
+          "value": ""
+        },
+        "amount": 0,
+        "active": false,
+        "woVendor": true,
+        "memo": ""
+      }, {
+        "id": "190",
+        "name": "190",
+        "vendor": {
+          "text": "Best Fixture, Inc.",
+          "value": "12"
+        },
+        "url": "",
+        "email": "",
+        "initials": "BF",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "event": "101081",
+        "quantityRequired": 5,
+        "quantityAvailable": 0,
+        "purchaseOrder": {
+          "text": " ",
+          "value": ""
+        },
+        "amount": 0,
+        "active": false,
+        "woVendor": true,
+        "memo": ""
+      }, {
+        "id": "191",
+        "name": "191",
+        "vendor": {
+          "text": "CFI Furniture Inc.",
+          "value": "1661"
+        },
+        "url": "",
+        "email": "login+plural@erpsuccesspartners.com",
+        "initials": "CF",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "event": "101082",
+        "quantityRequired": 5,
+        "quantityAvailable": 0,
+        "purchaseOrder": {
+          "text": " ",
+          "value": ""
+        },
+        "amount": 0,
+        "active": false,
+        "woVendor": true,
+        "memo": ""
+      }, {
+        "id": "192",
+        "name": "192",
+        "vendor": {
+          "text": "CFI Furniture Inc.",
+          "value": "1661"
+        },
+        "url": "",
+        "email": "login+plural@erpsuccesspartners.com",
+        "initials": "CF",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "event": "101083",
+        "quantityRequired": 5,
+        "quantityAvailable": 0,
+        "purchaseOrder": {
+          "text": " ",
+          "value": ""
+        },
+        "amount": 0,
+        "active": false,
+        "woVendor": true,
+        "memo": ""
+      }, {
+        "id": "193",
+        "name": "193",
+        "vendor": {
+          "text": "Bridgepoint Industries",
+          "value": "1473"
+        },
+        "url": "http://www.bridgepointindustries.com.de",
+        "email": "support@bridgempointindustries.com.de",
+        "initials": "BI",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "event": "101084",
+        "quantityRequired": 5,
+        "quantityAvailable": 20,
+        "purchaseOrder": {
+          "text": " ",
+          "value": ""
+        },
+        "amount": 0,
+        "active": true,
+        "woVendor": true,
+        "memo": ""
+      }, {
+        "id": "188",
+        "name": "Best Fixture, Inc.",
+        "vendor": {
+          "text": "Best Fixture, Inc.",
+          "value": "12"
+        },
+        "url": "",
+        "email": "",
+        "initials": "BF",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "event": "101075",
+        "quantityRequired": 0,
+        "quantityAvailable": 0,
+        "purchaseOrder": {
+          "text": " ",
+          "value": ""
+        },
+        "amount": 0,
+        "active": false,
+        "woVendor": true,
+        "memo": ""
+      }],
+      "assets": [{
+        "id": "123",
+        "name": "ELE00002",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "event": "101062",
+        "quantity": 4,
+        "description": "Serialized 1 Sales Description",
+        "item": {
+          "text": "ELE00002",
+          "value": "674"
+        },
+        "equipmentType": {
+          "text": "Hand Tools",
+          "value": "1"
+        },
+        "rentalUnit": {
+          "text": "",
+          "value": ""
+        },
+        "rentalDuration": 0,
+        "rentalRate": 0,
+        "rentalAmount": 0,
+        "purchaseOrder": {
+          "text": " ",
+          "value": " "
+        },
+        "vendor": {
+          "text": "Computer Depot Pacific",
+          "value": "965"
+        },
+        "owned": true,
+        "rentalMatrix": 0
+      }, {
+        "id": "124",
+        "name": "ELE00002",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "event": "101077",
+        "quantity": 5,
+        "description": "Serialized 1 Sales Description",
+        "item": {
+          "text": "ELE00002",
+          "value": "674"
+        },
+        "equipmentType": {
+          "text": "Hand Tools",
+          "value": "1"
+        },
+        "rentalUnit": {
+          "text": "",
+          "value": ""
+        },
+        "rentalDuration": 0,
+        "rentalRate": 0,
+        "rentalAmount": 0,
+        "purchaseOrder": {
+          "text": " ",
+          "value": " "
+        },
+        "vendor": {
+          "text": "Computer Depot Pacific",
+          "value": "965"
+        },
+        "owned": true,
+        "rentalMatrix": 0
+      }, {
+        "id": "125",
+        "name": "ELE00002",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "event": "101078",
+        "quantity": 4,
+        "description": "Serialized 1 Sales Description",
+        "item": {
+          "text": "ELE00002",
+          "value": "674"
+        },
+        "equipmentType": {
+          "text": "Hand Tools",
+          "value": "1"
+        },
+        "rentalUnit": {
+          "text": "",
+          "value": ""
+        },
+        "rentalDuration": 0,
+        "rentalRate": 0,
+        "rentalAmount": 0,
+        "purchaseOrder": {
+          "text": " ",
+          "value": " "
+        },
+        "vendor": {
+          "text": "Computer Depot Pacific",
+          "value": "965"
+        },
+        "owned": true,
+        "rentalMatrix": 0
+      }, {
+        "id": "126",
+        "name": "ELE00002",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "event": "101079",
+        "quantity": 5,
+        "description": "Serialized 1 Sales Description",
+        "item": {
+          "text": "ELE00002",
+          "value": "674"
+        },
+        "equipmentType": {
+          "text": "Hand Tools",
+          "value": "1"
+        },
+        "rentalUnit": {
+          "text": "",
+          "value": ""
+        },
+        "rentalDuration": 0,
+        "rentalRate": 0,
+        "rentalAmount": 0,
+        "purchaseOrder": {
+          "text": " ",
+          "value": " "
+        },
+        "vendor": {
+          "text": "Computer Depot Pacific",
+          "value": "965"
+        },
+        "owned": true,
+        "rentalMatrix": 0
+      }, {
+        "id": "127",
+        "name": "ELE00002",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "event": "101081",
+        "quantity": 0,
+        "description": "Serialized 1 Sales Description",
+        "item": {
+          "text": "ELE00002",
+          "value": "674"
+        },
+        "equipmentType": {
+          "text": "Hand Tools",
+          "value": "1"
+        },
+        "rentalUnit": {
+          "text": "",
+          "value": ""
+        },
+        "rentalDuration": 0,
+        "rentalRate": 0,
+        "rentalAmount": 0,
+        "purchaseOrder": {
+          "text": " ",
+          "value": " "
+        },
+        "vendor": {
+          "text": "Computer Depot Pacific",
+          "value": "965"
+        },
+        "owned": true,
+        "rentalMatrix": 0
+      }, {
+        "id": "128",
+        "name": "ELE00002",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "event": "101082",
+        "quantity": 100,
+        "description": "Serialized 1 Sales Description",
+        "item": {
+          "text": "ELE00002",
+          "value": "674"
+        },
+        "equipmentType": {
+          "text": "Hand Tools",
+          "value": "1"
+        },
+        "rentalUnit": {
+          "text": "",
+          "value": ""
+        },
+        "rentalDuration": 0,
+        "rentalRate": 0,
+        "rentalAmount": 0,
+        "purchaseOrder": {
+          "text": " ",
+          "value": " "
+        },
+        "vendor": {
+          "text": "Computer Depot Pacific",
+          "value": "965"
+        },
+        "owned": true,
+        "rentalMatrix": 0
+      }, {
+        "id": "129",
+        "name": "ELE00002",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "event": "101083",
+        "quantity": 20,
+        "description": "Serialized 1 Sales Description",
+        "item": {
+          "text": "ELE00002",
+          "value": "674"
+        },
+        "equipmentType": {
+          "text": "Hand Tools",
+          "value": "1"
+        },
+        "rentalUnit": {
+          "text": "",
+          "value": ""
+        },
+        "rentalDuration": 0,
+        "rentalRate": 0,
+        "rentalAmount": 0,
+        "purchaseOrder": {
+          "text": " ",
+          "value": " "
+        },
+        "vendor": {
+          "text": "Computer Depot Pacific",
+          "value": "965"
+        },
+        "owned": true,
+        "rentalMatrix": 0
+      }, {
+        "id": "130",
+        "name": "ELE00002",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "event": "101084",
+        "quantity": 0,
+        "description": "Serialized 1 Sales Description",
+        "item": {
+          "text": "ELE00002",
+          "value": "674"
+        },
+        "equipmentType": {
+          "text": "Hand Tools",
+          "value": "1"
+        },
+        "rentalUnit": {
+          "text": "",
+          "value": ""
+        },
+        "rentalDuration": 0,
+        "rentalRate": 0,
+        "rentalAmount": 0,
+        "purchaseOrder": {
+          "text": " ",
+          "value": " "
+        },
+        "vendor": {
+          "text": "Computer Depot Pacific",
+          "value": "965"
+        },
+        "owned": true,
+        "rentalMatrix": 0
+      }],
+      "items": [{
+        "id": "558",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "salesorder": {
+          "text": "Sales Order #SLS00000803",
+          "value": "22468"
+        },
+        "event": "101078",
+        "uuid": "22468_1",
+        "line": "1",
+        "item": {
+          "text": "BIC00008",
+          "value": "467"
+        },
+        "description": "Head Master Chair",
+        "quantity": 2,
+        "availableQty": 2,
+        "note": ""
+      }, {
+        "id": "560",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "salesorder": {
+          "text": "Sales Order #SLS00000803",
+          "value": "22468"
+        },
+        "event": "101080",
+        "uuid": "22468_1",
+        "line": "1",
+        "item": {
+          "text": "BIC00008",
+          "value": "467"
+        },
+        "description": "Head Master Chair",
+        "quantity": 1,
+        "availableQty": 1,
+        "note": ""
+      }, {
+        "id": "561",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "salesorder": {
+          "text": "Sales Order #SLS00000803",
+          "value": "22468"
+        },
+        "event": "101081",
+        "uuid": "22468_1",
+        "line": "1",
+        "item": {
+          "text": "BIC00008",
+          "value": "467"
+        },
+        "description": "Head Master Chair",
+        "quantity": 5,
+        "availableQty": 5,
+        "note": ""
+      }, {
+        "id": "565",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "salesorder": {
+          "text": "Sales Order #SLS00000803",
+          "value": "22468"
+        },
+        "event": "101082",
+        "uuid": "22468_1",
+        "line": "1",
+        "item": {
+          "text": "BIC00008",
+          "value": "467"
+        },
+        "description": "Head Master Chair",
+        "quantity": 5,
+        "availableQty": 5,
+        "note": ""
+      }, {
+        "id": "567",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "salesorder": {
+          "text": "Sales Order #SLS00000803",
+          "value": "22468"
+        },
+        "event": "101083",
+        "uuid": "22468_1",
+        "line": "1",
+        "item": {
+          "text": "BIC00008",
+          "value": "467"
+        },
+        "description": "Head Master Chair",
+        "quantity": 2,
+        "availableQty": 2,
+        "note": ""
+      }, {
+        "id": "574",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "salesorder": {
+          "text": "Sales Order #SLS00000803",
+          "value": "22468"
+        },
+        "event": "101084",
+        "uuid": "22468_1",
+        "line": "1",
+        "item": {
+          "text": "BIC00008",
+          "value": "467"
+        },
+        "description": "Head Master Chair",
+        "quantity": 2,
+        "availableQty": 2,
+        "note": ""
+      }, {
+        "id": "547",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "salesorder": {
+          "text": "Sales Order #SLS00000803",
+          "value": "22468"
+        },
+        "event": "101062",
+        "uuid": "22468_1",
+        "line": "1",
+        "item": {
+          "text": "BIC00008",
+          "value": "467"
+        },
+        "description": "Head Master Chair",
+        "quantity": 7,
+        "availableQty": 7,
+        "note": ""
+      }, {
+        "id": "555",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "salesorder": {
+          "text": "Sales Order #SLS00000803",
+          "value": "22468"
+        },
+        "event": "101075",
+        "uuid": "22468_2",
+        "line": "2",
+        "item": {
+          "text": "BIC00008",
+          "value": "467"
+        },
+        "description": "Diana Chair",
+        "quantity": 10,
+        "availableQty": 10,
+        "note": ""
+      }, {
+        "id": "556",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "salesorder": {
+          "text": "Sales Order #SLS00000803",
+          "value": "22468"
+        },
+        "event": "101075",
+        "uuid": "22468_3",
+        "line": "3",
+        "item": {
+          "text": "BIC00008",
+          "value": "467"
+        },
+        "description": "Working Table",
+        "quantity": 5,
+        "availableQty": 5,
+        "note": ""
+      }, {
+        "id": "548",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "salesorder": {
+          "text": "Sales Order #SLS00000803",
+          "value": "22468"
+        },
+        "event": "",
+        "uuid": "22468_2",
+        "line": "2",
+        "item": {
+          "text": "BIC00008",
+          "value": "467"
+        },
+        "description": "Diana Chair",
+        "quantity": 10,
+        "availableQty": 10,
+        "note": ""
+      }, {
+        "id": "549",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "salesorder": {
+          "text": "Sales Order #SLS00000803",
+          "value": "22468"
+        },
+        "event": "",
+        "uuid": "22468_3",
+        "line": "3",
+        "item": {
+          "text": "BIC00008",
+          "value": "467"
+        },
+        "description": "Working Table",
+        "quantity": 10,
+        "availableQty": 10,
+        "note": ""
+      }, {
+        "id": "550",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "salesorder": {
+          "text": "Sales Order #SLS00000803",
+          "value": "22468"
+        },
+        "event": "",
+        "uuid": "22468_4",
+        "line": "4",
+        "item": {
+          "text": "BIC00008",
+          "value": "467"
+        },
+        "description": "Technology Table",
+        "quantity": 10,
+        "availableQty": 10,
+        "note": ""
+      }, {
+        "id": "546",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "salesorder": {
+          "text": "Sales Order #SLS00000803",
+          "value": "22468"
+        },
+        "event": "",
+        "uuid": "22468_1",
+        "line": "1",
+        "item": {
+          "text": "BIC00008",
+          "value": "467"
+        },
+        "description": "Head Master Chair",
+        "quantity": 7,
+        "availableQty": 7,
+        "note": ""
+      }, {
+        "id": "557",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "salesorder": {
+          "text": "Sales Order #SLS00000803",
+          "value": "22468"
+        },
+        "event": "101077",
+        "uuid": "22468_1",
+        "line": "1",
+        "item": {
+          "text": "BIC00008",
+          "value": "467"
+        },
+        "description": "Head Master Chair",
+        "quantity": 7,
+        "availableQty": 7,
+        "note": ""
+      }, {
+        "id": "559",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "salesorder": {
+          "text": "Sales Order #SLS00000803",
+          "value": "22468"
+        },
+        "event": "101079",
+        "uuid": "22468_3",
+        "line": "3",
+        "item": {
+          "text": "BIC00008",
+          "value": "467"
+        },
+        "description": "Working Table",
+        "quantity": 10,
+        "availableQty": 10,
+        "note": ""
+      }],
+      "addresses": [{
+        "id": "207",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "customer": {
+          "text": "World Bank",
+          "value": "1249"
+        },
+        "events": ["101062", "101076", "101077", "101078", "101079", "101080", "101084"],
+        "address": {
+          "text": "434 Carlaw",
+          "value": "244878"
+        },
+        "addressDetails": "434 Carlaw Road<br/>Los Angeles NY 12412<br/>United States",
+        "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+      }],
+      "contacts": [{
+        "id": "168",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "events": ["101062", "101077", "101078", "101080", "101084"],
+        "contact": {
+          "text": "World Bank : Chad Bass",
+          "value": "1382"
+        },
+        "name": "Chad Bass",
+        "email": "cbass@worldbank.com",
+        "jobTitle": "President",
+        "mobilePhone": "",
+        "phone": "",
+        "primary": false,
+        "url": "/app/common/entity/contact.nl?id=1382&compid=TSTDRV2617106"
+      }, {
+        "id": "169",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "events": ["101075", "101079"],
+        "contact": {
+          "text": "World Bank : Chad Bass",
+          "value": "1382"
+        },
+        "name": "Chad Bass",
+        "email": "cbass@worldbank.com",
+        "jobTitle": "President",
+        "mobilePhone": "",
+        "phone": "",
+        "primary": false,
+        "url": "/app/common/entity/contact.nl?id=1382&compid=TSTDRV2617106"
+      }],
+      "events": [{
+        "id": "101084",
+        "title": "AC Installation - 8",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "location": "",
+        "status": {
+          "text": "Tentative",
+          "value": "TENTATIVE",
+          "code": "bg-secondary"
+        },
+        "date": {
+          "recurrence": "one time event on 1/17/2025",
+          "dates": ["1/17/2025"],
+          "start": "2025-01-17",
+          "end": "2025-01-17"
+        },
+        "time": {
+          "start": "08:00",
+          "end": "18:00"
+        },
+        "priority": {
+          "text": "Medium",
+          "value": "2",
+          "code": "#dfcf02"
+        },
+        "note": "AC Installation - 8",
+        "url": "/app/crm/calendar/event.nl?id=101084&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {},
+        "resources": [],
+        "vendors": [],
+        "assets": [],
+        "items": [],
+        "contacts": [],
+        "addresses": [],
+        "contact": {
+          "text": "",
+          "value": ""
+        },
+        "address": {
+          "text": "",
+          "value": ""
+        },
+        "organizer": {
+          "text": "Arun Sharma",
+          "value": "1770"
+        }
+      }, {
+        "id": "101083",
+        "title": "AC Installation - 7",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "location": "",
+        "status": {
+          "text": "Tentative",
+          "value": "TENTATIVE",
+          "code": "bg-secondary"
+        },
+        "date": {
+          "recurrence": "one time event on 1/17/2025",
+          "dates": ["1/17/2025"],
+          "start": "2025-01-17",
+          "end": "2025-01-17"
+        },
+        "time": {
+          "start": "08:00",
+          "end": "18:00"
+        },
+        "priority": {
+          "text": "Urgent",
+          "value": "4",
+          "code": "#9a2407"
+        },
+        "note": "AC Installation - 7",
+        "url": "/app/crm/calendar/event.nl?id=101083&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {},
+        "resources": [],
+        "vendors": [],
+        "assets": [],
+        "items": [],
+        "contacts": [],
+        "addresses": [],
+        "contact": {
+          "text": "",
+          "value": ""
+        },
+        "address": {
+          "text": "",
+          "value": ""
+        },
+        "organizer": {
+          "text": "Mei Matriano",
+          "value": "1647"
+        }
+      }, {
+        "id": "101082",
+        "title": "AC Installation - 6",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "location": "",
+        "status": {
+          "text": "Tentative",
+          "value": "TENTATIVE",
+          "code": "bg-secondary"
+        },
+        "date": {
+          "recurrence": "one time event on 1/17/2025",
+          "dates": ["1/17/2025"],
+          "start": "2025-01-17",
+          "end": "2025-01-17"
+        },
+        "time": {
+          "start": "08:00",
+          "end": "18:00"
+        },
+        "priority": {
+          "text": "High",
+          "value": "3",
+          "code": "#ca6621"
+        },
+        "note": "AC Installation - 6",
+        "url": "/app/crm/calendar/event.nl?id=101082&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {},
+        "resources": [],
+        "vendors": [],
+        "assets": [],
+        "items": [],
+        "contacts": [],
+        "addresses": [],
+        "contact": {
+          "text": "",
+          "value": ""
+        },
+        "address": {
+          "text": "",
+          "value": ""
+        },
+        "organizer": {
+          "text": "Mei Matriano",
+          "value": "1647"
+        }
+      }, {
+        "id": "101081",
+        "title": "AC Installation - 5",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "location": "",
+        "status": {
+          "text": "Tentative",
+          "value": "TENTATIVE",
+          "code": "bg-secondary"
+        },
+        "date": {
+          "recurrence": "one time event on 1/17/2025",
+          "dates": ["1/17/2025"],
+          "start": "2025-01-17",
+          "end": "2025-01-17"
+        },
+        "time": {
+          "start": "08:00",
+          "end": "18:00"
+        },
+        "priority": {
+          "text": "Urgent",
+          "value": "4",
+          "code": "#9a2407"
+        },
+        "note": "AC Installation - 5",
+        "url": "/app/crm/calendar/event.nl?id=101081&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {},
+        "resources": [],
+        "vendors": [],
+        "assets": [],
+        "items": [],
+        "contacts": [],
+        "addresses": [],
+        "contact": {
+          "text": "",
+          "value": ""
+        },
+        "address": {
+          "text": "",
+          "value": ""
+        },
+        "organizer": {
+          "text": "Arun Sharma",
+          "value": "1770"
+        }
+      }, {
+        "id": "101080",
+        "title": "AC Installation - 4",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "location": "",
+        "status": {
+          "text": "Tentative",
+          "value": "TENTATIVE",
+          "code": "bg-secondary"
+        },
+        "date": {
+          "recurrence": "occurs every day from 1/16/2025 until 1/17/2025",
+          "dates": ["1/16/2025", "1/17/2025"],
+          "start": "2025-01-16",
+          "end": "2025-01-17"
+        },
+        "time": {
+          "start": "08:00",
+          "end": "18:00"
+        },
+        "priority": {
+          "text": "High",
+          "value": "3",
+          "code": "#ca6621"
+        },
+        "note": "AC Installation - 4",
+        "url": "/app/crm/calendar/event.nl?id=101080&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {},
+        "resources": [],
+        "vendors": [],
+        "assets": [],
+        "items": [],
+        "contacts": [],
+        "addresses": [],
+        "contact": {
+          "text": "",
+          "value": ""
+        },
+        "address": {
+          "text": "",
+          "value": ""
+        },
+        "organizer": {
+          "text": "Mei Matriano",
+          "value": "1647"
+        }
+      }, {
+        "id": "101079",
+        "title": "AC Installation - 3",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "location": "",
+        "status": {
+          "text": "Tentative",
+          "value": "TENTATIVE",
+          "code": "bg-secondary"
+        },
+        "date": {
+          "recurrence": "one time event on 1/17/2025",
+          "dates": ["1/17/2025"],
+          "start": "2025-01-17",
+          "end": "2025-01-17"
+        },
+        "time": {
+          "start": "08:00",
+          "end": "18:00"
+        },
+        "priority": {
+          "text": "High",
+          "value": "3",
+          "code": "#ca6621"
+        },
+        "note": "AC Installation - 3",
+        "url": "/app/crm/calendar/event.nl?id=101079&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {},
+        "resources": [],
+        "vendors": [],
+        "assets": [],
+        "items": [],
+        "contacts": [],
+        "addresses": [],
+        "contact": {
+          "text": "",
+          "value": ""
+        },
+        "address": {
+          "text": "",
+          "value": ""
+        },
+        "organizer": {
+          "text": "Mei Matriano",
+          "value": "1647"
+        }
+      }, {
+        "id": "101078",
+        "title": "AC Installation 2",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "location": "",
+        "status": {
+          "text": "Tentative",
+          "value": "TENTATIVE",
+          "code": "bg-secondary"
+        },
+        "date": {
+          "recurrence": "one time event on 1/16/2025",
+          "dates": ["1/16/2025"],
+          "start": "2025-01-16",
+          "end": "2025-01-16"
+        },
+        "time": {
+          "start": "08:00",
+          "end": "18:00"
+        },
+        "priority": {
+          "text": "High",
+          "value": "3",
+          "code": "#ca6621"
+        },
+        "note": "AC Installation 2",
+        "url": "/app/crm/calendar/event.nl?id=101078&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {},
+        "resources": [],
+        "vendors": [],
+        "assets": [],
+        "items": [],
+        "contacts": [],
+        "addresses": [],
+        "contact": {
+          "text": "",
+          "value": ""
+        },
+        "address": {
+          "text": "",
+          "value": ""
+        },
+        "organizer": {
+          "text": "Mei Matriano",
+          "value": "1647"
+        }
+      }, {
+        "id": "101077",
+        "title": "AC Installation",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "location": "",
+        "status": {
+          "text": "Tentative",
+          "value": "TENTATIVE",
+          "code": "bg-secondary"
+        },
+        "date": {
+          "recurrence": "one time event on 1/16/2025",
+          "dates": ["1/16/2025"],
+          "start": "2025-01-16",
+          "end": "2025-01-16"
+        },
+        "time": {
+          "start": "08:00",
+          "end": "18:00"
+        },
+        "priority": {
+          "text": "Medium",
+          "value": "2",
+          "code": "#dfcf02"
+        },
+        "note": "AC Installation",
+        "url": "/app/crm/calendar/event.nl?id=101077&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {},
+        "resources": [],
+        "vendors": [],
+        "assets": [],
+        "items": [],
+        "contacts": [],
+        "addresses": [],
+        "contact": {
+          "text": "",
+          "value": ""
+        },
+        "address": {
+          "text": "",
+          "value": ""
+        },
+        "organizer": {
+          "text": "Mei Matriano",
+          "value": "1647"
+        }
+      }, {
+        "id": "101076",
+        "title": "Test Work Order",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "location": "",
+        "status": {
+          "text": "Tentative",
+          "value": "TENTATIVE",
+          "code": "bg-secondary"
+        },
+        "date": {
+          "recurrence": "one time event on 1/15/2025",
+          "dates": ["1/15/2025"],
+          "start": "2025-01-15",
+          "end": "2025-01-15"
+        },
+        "time": {
+          "start": "08:00",
+          "end": "18:00"
+        },
+        "priority": {
+          "text": "Low",
+          "value": "1",
+          "code": "#026adf"
+        },
+        "note": "",
+        "url": "/app/crm/calendar/event.nl?id=101076&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {},
+        "resources": [],
+        "vendors": [],
+        "assets": [],
+        "items": [],
+        "contacts": [],
+        "addresses": [],
+        "contact": {
+          "text": "",
+          "value": ""
+        },
+        "address": {
+          "text": "207",
+          "value": "207"
+        },
+        "organizer": {
+          "text": "Lean  cendana",
+          "value": "1765"
+        }
+      }, {
+        "id": "101075",
+        "title": "Test Work Order",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "location": "",
+        "status": {
+          "text": "Tentative",
+          "value": "TENTATIVE",
+          "code": "bg-secondary"
+        },
+        "date": {
+          "recurrence": "one time event on 1/12/2025",
+          "dates": ["1/12/2025"],
+          "start": "2025-01-12",
+          "end": "2025-01-12"
+        },
+        "time": {
+          "start": "08:00",
+          "end": "18:00"
+        },
+        "priority": {
+          "text": "Low",
+          "value": "1",
+          "code": "#026adf"
+        },
+        "note": "X\nY\nZ",
+        "url": "/app/crm/calendar/event.nl?id=101075&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {},
+        "resources": [],
+        "vendors": [],
+        "assets": [],
+        "items": [],
+        "contacts": [],
+        "addresses": [],
+        "contact": {
+          "text": "",
+          "value": ""
+        },
+        "address": {
+          "text": "207",
+          "value": "207"
+        },
+        "organizer": {
+          "text": "Lean  cendana",
+          "value": "1765"
+        }
+      }],
+      "projectUrl": "/app/accounting/project/project.nl?id=1515&compid=TSTDRV2617106",
+      "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=123&compid=TSTDRV2617106",
+      "soUrl": "/app/accounting/transactions/salesord.nl?id=22468&compid=TSTDRV2617106",
+      "esthours": "100"
+    },
+    "resources": [{
+      "id": "368",
+      "name": "Aiden Somerhalder",
+      "initials": "AS",
+      "email": "admin@ramsey.com",
+      "phone": "",
+      "location": {
+        "text": "01: San Francisco",
+        "value": "2"
+      },
+      "active": true,
+      "workorder": {
+        "text": "Test Work Order - AC Installation",
+        "value": "123"
+      },
+      "events": ["101080"],
+      "employee": {
+        "text": "Aiden Somerhalder",
+        "value": "1524"
+      },
+      "resourceGroups": [{
+        "text": "Installers",
+        "value": "1"
+      }],
+      "types": [{
+        "text": "Installer",
+        "value": "1"
+      }],
+      "subTypes": [],
+      "rate": 0,
+      "vendor": {
+        "text": "",
+        "value": ""
+      },
+      "purchaseOrder": {
+        "text": " ",
+        "value": ""
+      },
+      "affiliationType": {
+        "text": "In-House",
+        "value": "1"
+      },
+      "time": {
+        "start": "08:00",
+        "end": "18:00"
+      },
+      "resourceSkills": [],
+      "selected": true
+    }],
+    "vendors": [],
+    "assets": [],
+    "items": [{
+      "id": "560",
+      "workorder": {
+        "text": "Test Work Order - AC Installation",
+        "value": "123"
+      },
+      "salesorder": {
+        "text": "Sales Order #SLS00000803",
+        "value": "22468"
+      },
+      "event": "101080",
+      "uuid": "22468_1",
+      "line": "1",
+      "item": {
+        "text": "BIC00008",
+        "value": "467"
+      },
+      "description": "Head Master Chair",
+      "quantity": 1,
+      "availableQty": 1,
+      "note": "",
+      "selected": true
+    }],
+    "contacts": [],
+    "addresses": [{
+      "id": "207",
+      "workorder": {
+        "text": "Test Work Order - AC Installation",
+        "value": "123"
+      },
+      "customer": {
+        "text": "World Bank",
+        "value": "1249"
+      },
+      "events": ["101062", "101076", "101077", "101078", "101079", "101080", "101084"],
+      "address": {
+        "text": "434 Carlaw",
+        "value": "244878"
+      },
+      "addressDetails": "434 Carlaw Road<br/>Los Angeles NY 12412<br/>United States",
+      "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106",
+      "selected": true
+    }],
+    "contact": {
+      "text": "",
+      "value": ""
+    },
+    "address": {
+      "text": "",
+      "value": ""
+    },
+    "organizer": {
+      "text": "Mei Matriano",
+      "value": "1647"
+    }
+  }, {
+    "id": "101079",
+    "title": "AC Installation - 3",
+    "workorder": {
+      "text": "Test Work Order - AC Installation",
+      "value": "123"
+    },
+    "location": "",
+    "status": {
+      "text": "Tentative",
+      "value": "TENTATIVE",
+      "code": "bg-secondary"
+    },
+    "date": {
+      "recurrence": "one time event on 1/17/2025",
+      "dates": ["1/17/2025"],
+      "start": "2025-01-17",
+      "end": "2025-01-17"
+    },
+    "time": {
+      "start": "08:00",
+      "end": "18:00"
+    },
+    "priority": {
+      "text": "High",
+      "value": "3",
+      "code": "#ca6621"
+    },
+    "note": "AC Installation - 3",
+    "url": "/app/crm/calendar/event.nl?id=101079&compid=TSTDRV2617106&selectedtab=custom337",
+    "color": "#1a6756",
+    "woRef": {
+      "id": "123",
+      "name": "Test Work Order - AC Installation",
+      "title": "Test Work Order - AC Installation",
+      "project": {
+        "text": "World Bank : World Bank Office Furniture Installation",
+        "value": "1515"
+      },
+      "date": "1/8/2025",
+      "status": {
+        "text": "Not Started",
+        "value": "4",
+        "code": "#026adf"
+      },
+      "type": {
+        "text": "Service",
+        "value": "2"
+      },
+      "memo": "",
+      "salesorder": {
+        "text": "Sales Order #SLS00000803",
+        "value": "22468"
+      },
+      "customer": {
+        "text": "World Bank",
+        "value": "1249"
+      },
+      "resourceGroup": {
+        "text": "",
+        "value": ""
+      },
+      "priority": "",
+      "resources": [],
+      "vendors": [{
+        "id": "189",
+        "name": "189",
+        "vendor": {
+          "text": "Best Fixture, Inc.",
+          "value": "12"
+        },
+        "url": "",
+        "email": "",
+        "initials": "BF",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "event": "101062",
+        "quantityRequired": 5,
+        "quantityAvailable": 0,
+        "purchaseOrder": {
+          "text": " ",
+          "value": ""
+        },
+        "amount": 0,
+        "active": false,
+        "woVendor": true,
+        "memo": ""
+      }, {
+        "id": "190",
+        "name": "190",
+        "vendor": {
+          "text": "Best Fixture, Inc.",
+          "value": "12"
+        },
+        "url": "",
+        "email": "",
+        "initials": "BF",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "event": "101081",
+        "quantityRequired": 5,
+        "quantityAvailable": 0,
+        "purchaseOrder": {
+          "text": " ",
+          "value": ""
+        },
+        "amount": 0,
+        "active": false,
+        "woVendor": true,
+        "memo": ""
+      }, {
+        "id": "191",
+        "name": "191",
+        "vendor": {
+          "text": "CFI Furniture Inc.",
+          "value": "1661"
+        },
+        "url": "",
+        "email": "login+plural@erpsuccesspartners.com",
+        "initials": "CF",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "event": "101082",
+        "quantityRequired": 5,
+        "quantityAvailable": 0,
+        "purchaseOrder": {
+          "text": " ",
+          "value": ""
+        },
+        "amount": 0,
+        "active": false,
+        "woVendor": true,
+        "memo": ""
+      }, {
+        "id": "192",
+        "name": "192",
+        "vendor": {
+          "text": "CFI Furniture Inc.",
+          "value": "1661"
+        },
+        "url": "",
+        "email": "login+plural@erpsuccesspartners.com",
+        "initials": "CF",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "event": "101083",
+        "quantityRequired": 5,
+        "quantityAvailable": 0,
+        "purchaseOrder": {
+          "text": " ",
+          "value": ""
+        },
+        "amount": 0,
+        "active": false,
+        "woVendor": true,
+        "memo": ""
+      }, {
+        "id": "193",
+        "name": "193",
+        "vendor": {
+          "text": "Bridgepoint Industries",
+          "value": "1473"
+        },
+        "url": "http://www.bridgepointindustries.com.de",
+        "email": "support@bridgempointindustries.com.de",
+        "initials": "BI",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "event": "101084",
+        "quantityRequired": 5,
+        "quantityAvailable": 20,
+        "purchaseOrder": {
+          "text": " ",
+          "value": ""
+        },
+        "amount": 0,
+        "active": true,
+        "woVendor": true,
+        "memo": ""
+      }, {
+        "id": "188",
+        "name": "Best Fixture, Inc.",
+        "vendor": {
+          "text": "Best Fixture, Inc.",
+          "value": "12"
+        },
+        "url": "",
+        "email": "",
+        "initials": "BF",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "event": "101075",
+        "quantityRequired": 0,
+        "quantityAvailable": 0,
+        "purchaseOrder": {
+          "text": " ",
+          "value": ""
+        },
+        "amount": 0,
+        "active": false,
+        "woVendor": true,
+        "memo": ""
+      }],
+      "assets": [{
+        "id": "123",
+        "name": "ELE00002",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "event": "101062",
+        "quantity": 4,
+        "description": "Serialized 1 Sales Description",
+        "item": {
+          "text": "ELE00002",
+          "value": "674"
+        },
+        "equipmentType": {
+          "text": "Hand Tools",
+          "value": "1"
+        },
+        "rentalUnit": {
+          "text": "",
+          "value": ""
+        },
+        "rentalDuration": 0,
+        "rentalRate": 0,
+        "rentalAmount": 0,
+        "purchaseOrder": {
+          "text": " ",
+          "value": " "
+        },
+        "vendor": {
+          "text": "Computer Depot Pacific",
+          "value": "965"
+        },
+        "owned": true,
+        "rentalMatrix": 0
+      }, {
+        "id": "124",
+        "name": "ELE00002",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "event": "101077",
+        "quantity": 5,
+        "description": "Serialized 1 Sales Description",
+        "item": {
+          "text": "ELE00002",
+          "value": "674"
+        },
+        "equipmentType": {
+          "text": "Hand Tools",
+          "value": "1"
+        },
+        "rentalUnit": {
+          "text": "",
+          "value": ""
+        },
+        "rentalDuration": 0,
+        "rentalRate": 0,
+        "rentalAmount": 0,
+        "purchaseOrder": {
+          "text": " ",
+          "value": " "
+        },
+        "vendor": {
+          "text": "Computer Depot Pacific",
+          "value": "965"
+        },
+        "owned": true,
+        "rentalMatrix": 0
+      }, {
+        "id": "125",
+        "name": "ELE00002",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "event": "101078",
+        "quantity": 4,
+        "description": "Serialized 1 Sales Description",
+        "item": {
+          "text": "ELE00002",
+          "value": "674"
+        },
+        "equipmentType": {
+          "text": "Hand Tools",
+          "value": "1"
+        },
+        "rentalUnit": {
+          "text": "",
+          "value": ""
+        },
+        "rentalDuration": 0,
+        "rentalRate": 0,
+        "rentalAmount": 0,
+        "purchaseOrder": {
+          "text": " ",
+          "value": " "
+        },
+        "vendor": {
+          "text": "Computer Depot Pacific",
+          "value": "965"
+        },
+        "owned": true,
+        "rentalMatrix": 0
+      }, {
+        "id": "126",
+        "name": "ELE00002",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "event": "101079",
+        "quantity": 5,
+        "description": "Serialized 1 Sales Description",
+        "item": {
+          "text": "ELE00002",
+          "value": "674"
+        },
+        "equipmentType": {
+          "text": "Hand Tools",
+          "value": "1"
+        },
+        "rentalUnit": {
+          "text": "",
+          "value": ""
+        },
+        "rentalDuration": 0,
+        "rentalRate": 0,
+        "rentalAmount": 0,
+        "purchaseOrder": {
+          "text": " ",
+          "value": " "
+        },
+        "vendor": {
+          "text": "Computer Depot Pacific",
+          "value": "965"
+        },
+        "owned": true,
+        "rentalMatrix": 0
+      }, {
+        "id": "127",
+        "name": "ELE00002",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "event": "101081",
+        "quantity": 0,
+        "description": "Serialized 1 Sales Description",
+        "item": {
+          "text": "ELE00002",
+          "value": "674"
+        },
+        "equipmentType": {
+          "text": "Hand Tools",
+          "value": "1"
+        },
+        "rentalUnit": {
+          "text": "",
+          "value": ""
+        },
+        "rentalDuration": 0,
+        "rentalRate": 0,
+        "rentalAmount": 0,
+        "purchaseOrder": {
+          "text": " ",
+          "value": " "
+        },
+        "vendor": {
+          "text": "Computer Depot Pacific",
+          "value": "965"
+        },
+        "owned": true,
+        "rentalMatrix": 0
+      }, {
+        "id": "128",
+        "name": "ELE00002",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "event": "101082",
+        "quantity": 100,
+        "description": "Serialized 1 Sales Description",
+        "item": {
+          "text": "ELE00002",
+          "value": "674"
+        },
+        "equipmentType": {
+          "text": "Hand Tools",
+          "value": "1"
+        },
+        "rentalUnit": {
+          "text": "",
+          "value": ""
+        },
+        "rentalDuration": 0,
+        "rentalRate": 0,
+        "rentalAmount": 0,
+        "purchaseOrder": {
+          "text": " ",
+          "value": " "
+        },
+        "vendor": {
+          "text": "Computer Depot Pacific",
+          "value": "965"
+        },
+        "owned": true,
+        "rentalMatrix": 0
+      }, {
+        "id": "129",
+        "name": "ELE00002",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "event": "101083",
+        "quantity": 20,
+        "description": "Serialized 1 Sales Description",
+        "item": {
+          "text": "ELE00002",
+          "value": "674"
+        },
+        "equipmentType": {
+          "text": "Hand Tools",
+          "value": "1"
+        },
+        "rentalUnit": {
+          "text": "",
+          "value": ""
+        },
+        "rentalDuration": 0,
+        "rentalRate": 0,
+        "rentalAmount": 0,
+        "purchaseOrder": {
+          "text": " ",
+          "value": " "
+        },
+        "vendor": {
+          "text": "Computer Depot Pacific",
+          "value": "965"
+        },
+        "owned": true,
+        "rentalMatrix": 0
+      }, {
+        "id": "130",
+        "name": "ELE00002",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "event": "101084",
+        "quantity": 0,
+        "description": "Serialized 1 Sales Description",
+        "item": {
+          "text": "ELE00002",
+          "value": "674"
+        },
+        "equipmentType": {
+          "text": "Hand Tools",
+          "value": "1"
+        },
+        "rentalUnit": {
+          "text": "",
+          "value": ""
+        },
+        "rentalDuration": 0,
+        "rentalRate": 0,
+        "rentalAmount": 0,
+        "purchaseOrder": {
+          "text": " ",
+          "value": " "
+        },
+        "vendor": {
+          "text": "Computer Depot Pacific",
+          "value": "965"
+        },
+        "owned": true,
+        "rentalMatrix": 0
+      }],
+      "items": [{
+        "id": "558",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "salesorder": {
+          "text": "Sales Order #SLS00000803",
+          "value": "22468"
+        },
+        "event": "101078",
+        "uuid": "22468_1",
+        "line": "1",
+        "item": {
+          "text": "BIC00008",
+          "value": "467"
+        },
+        "description": "Head Master Chair",
+        "quantity": 2,
+        "availableQty": 2,
+        "note": ""
+      }, {
+        "id": "560",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "salesorder": {
+          "text": "Sales Order #SLS00000803",
+          "value": "22468"
+        },
+        "event": "101080",
+        "uuid": "22468_1",
+        "line": "1",
+        "item": {
+          "text": "BIC00008",
+          "value": "467"
+        },
+        "description": "Head Master Chair",
+        "quantity": 1,
+        "availableQty": 1,
+        "note": ""
+      }, {
+        "id": "561",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "salesorder": {
+          "text": "Sales Order #SLS00000803",
+          "value": "22468"
+        },
+        "event": "101081",
+        "uuid": "22468_1",
+        "line": "1",
+        "item": {
+          "text": "BIC00008",
+          "value": "467"
+        },
+        "description": "Head Master Chair",
+        "quantity": 5,
+        "availableQty": 5,
+        "note": ""
+      }, {
+        "id": "565",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "salesorder": {
+          "text": "Sales Order #SLS00000803",
+          "value": "22468"
+        },
+        "event": "101082",
+        "uuid": "22468_1",
+        "line": "1",
+        "item": {
+          "text": "BIC00008",
+          "value": "467"
+        },
+        "description": "Head Master Chair",
+        "quantity": 5,
+        "availableQty": 5,
+        "note": ""
+      }, {
+        "id": "567",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "salesorder": {
+          "text": "Sales Order #SLS00000803",
+          "value": "22468"
+        },
+        "event": "101083",
+        "uuid": "22468_1",
+        "line": "1",
+        "item": {
+          "text": "BIC00008",
+          "value": "467"
+        },
+        "description": "Head Master Chair",
+        "quantity": 2,
+        "availableQty": 2,
+        "note": ""
+      }, {
+        "id": "574",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "salesorder": {
+          "text": "Sales Order #SLS00000803",
+          "value": "22468"
+        },
+        "event": "101084",
+        "uuid": "22468_1",
+        "line": "1",
+        "item": {
+          "text": "BIC00008",
+          "value": "467"
+        },
+        "description": "Head Master Chair",
+        "quantity": 2,
+        "availableQty": 2,
+        "note": ""
+      }, {
+        "id": "547",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "salesorder": {
+          "text": "Sales Order #SLS00000803",
+          "value": "22468"
+        },
+        "event": "101062",
+        "uuid": "22468_1",
+        "line": "1",
+        "item": {
+          "text": "BIC00008",
+          "value": "467"
+        },
+        "description": "Head Master Chair",
+        "quantity": 7,
+        "availableQty": 7,
+        "note": ""
+      }, {
+        "id": "555",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "salesorder": {
+          "text": "Sales Order #SLS00000803",
+          "value": "22468"
+        },
+        "event": "101075",
+        "uuid": "22468_2",
+        "line": "2",
+        "item": {
+          "text": "BIC00008",
+          "value": "467"
+        },
+        "description": "Diana Chair",
+        "quantity": 10,
+        "availableQty": 10,
+        "note": ""
+      }, {
+        "id": "556",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "salesorder": {
+          "text": "Sales Order #SLS00000803",
+          "value": "22468"
+        },
+        "event": "101075",
+        "uuid": "22468_3",
+        "line": "3",
+        "item": {
+          "text": "BIC00008",
+          "value": "467"
+        },
+        "description": "Working Table",
+        "quantity": 5,
+        "availableQty": 5,
+        "note": ""
+      }, {
+        "id": "548",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "salesorder": {
+          "text": "Sales Order #SLS00000803",
+          "value": "22468"
+        },
+        "event": "",
+        "uuid": "22468_2",
+        "line": "2",
+        "item": {
+          "text": "BIC00008",
+          "value": "467"
+        },
+        "description": "Diana Chair",
+        "quantity": 10,
+        "availableQty": 10,
+        "note": ""
+      }, {
+        "id": "549",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "salesorder": {
+          "text": "Sales Order #SLS00000803",
+          "value": "22468"
+        },
+        "event": "",
+        "uuid": "22468_3",
+        "line": "3",
+        "item": {
+          "text": "BIC00008",
+          "value": "467"
+        },
+        "description": "Working Table",
+        "quantity": 10,
+        "availableQty": 10,
+        "note": ""
+      }, {
+        "id": "550",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "salesorder": {
+          "text": "Sales Order #SLS00000803",
+          "value": "22468"
+        },
+        "event": "",
+        "uuid": "22468_4",
+        "line": "4",
+        "item": {
+          "text": "BIC00008",
+          "value": "467"
+        },
+        "description": "Technology Table",
+        "quantity": 10,
+        "availableQty": 10,
+        "note": ""
+      }, {
+        "id": "546",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "salesorder": {
+          "text": "Sales Order #SLS00000803",
+          "value": "22468"
+        },
+        "event": "",
+        "uuid": "22468_1",
+        "line": "1",
+        "item": {
+          "text": "BIC00008",
+          "value": "467"
+        },
+        "description": "Head Master Chair",
+        "quantity": 7,
+        "availableQty": 7,
+        "note": ""
+      }, {
+        "id": "557",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "salesorder": {
+          "text": "Sales Order #SLS00000803",
+          "value": "22468"
+        },
+        "event": "101077",
+        "uuid": "22468_1",
+        "line": "1",
+        "item": {
+          "text": "BIC00008",
+          "value": "467"
+        },
+        "description": "Head Master Chair",
+        "quantity": 7,
+        "availableQty": 7,
+        "note": ""
+      }, {
+        "id": "559",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "salesorder": {
+          "text": "Sales Order #SLS00000803",
+          "value": "22468"
+        },
+        "event": "101079",
+        "uuid": "22468_3",
+        "line": "3",
+        "item": {
+          "text": "BIC00008",
+          "value": "467"
+        },
+        "description": "Working Table",
+        "quantity": 10,
+        "availableQty": 10,
+        "note": ""
+      }],
+      "addresses": [{
+        "id": "207",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "customer": {
+          "text": "World Bank",
+          "value": "1249"
+        },
+        "events": ["101062", "101076", "101077", "101078", "101079", "101080", "101084"],
+        "address": {
+          "text": "434 Carlaw",
+          "value": "244878"
+        },
+        "addressDetails": "434 Carlaw Road<br/>Los Angeles NY 12412<br/>United States",
+        "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+      }],
+      "contacts": [{
+        "id": "168",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "events": ["101062", "101077", "101078", "101080", "101084"],
+        "contact": {
+          "text": "World Bank : Chad Bass",
+          "value": "1382"
+        },
+        "name": "Chad Bass",
+        "email": "cbass@worldbank.com",
+        "jobTitle": "President",
+        "mobilePhone": "",
+        "phone": "",
+        "primary": false,
+        "url": "/app/common/entity/contact.nl?id=1382&compid=TSTDRV2617106"
+      }, {
+        "id": "169",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "events": ["101075", "101079"],
+        "contact": {
+          "text": "World Bank : Chad Bass",
+          "value": "1382"
+        },
+        "name": "Chad Bass",
+        "email": "cbass@worldbank.com",
+        "jobTitle": "President",
+        "mobilePhone": "",
+        "phone": "",
+        "primary": false,
+        "url": "/app/common/entity/contact.nl?id=1382&compid=TSTDRV2617106"
+      }],
+      "events": [{
+        "id": "101084",
+        "title": "AC Installation - 8",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "location": "",
+        "status": {
+          "text": "Tentative",
+          "value": "TENTATIVE",
+          "code": "bg-secondary"
+        },
+        "date": {
+          "recurrence": "one time event on 1/17/2025",
+          "dates": ["1/17/2025"],
+          "start": "2025-01-17",
+          "end": "2025-01-17"
+        },
+        "time": {
+          "start": "08:00",
+          "end": "18:00"
+        },
+        "priority": {
+          "text": "Medium",
+          "value": "2",
+          "code": "#dfcf02"
+        },
+        "note": "AC Installation - 8",
+        "url": "/app/crm/calendar/event.nl?id=101084&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {},
+        "resources": [],
+        "vendors": [],
+        "assets": [],
+        "items": [],
+        "contacts": [],
+        "addresses": [],
+        "contact": {
+          "text": "",
+          "value": ""
+        },
+        "address": {
+          "text": "",
+          "value": ""
+        },
+        "organizer": {
+          "text": "Arun Sharma",
+          "value": "1770"
+        }
+      }, {
+        "id": "101083",
+        "title": "AC Installation - 7",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "location": "",
+        "status": {
+          "text": "Tentative",
+          "value": "TENTATIVE",
+          "code": "bg-secondary"
+        },
+        "date": {
+          "recurrence": "one time event on 1/17/2025",
+          "dates": ["1/17/2025"],
+          "start": "2025-01-17",
+          "end": "2025-01-17"
+        },
+        "time": {
+          "start": "08:00",
+          "end": "18:00"
+        },
+        "priority": {
+          "text": "Urgent",
+          "value": "4",
+          "code": "#9a2407"
+        },
+        "note": "AC Installation - 7",
+        "url": "/app/crm/calendar/event.nl?id=101083&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {},
+        "resources": [],
+        "vendors": [],
+        "assets": [],
+        "items": [],
+        "contacts": [],
+        "addresses": [],
+        "contact": {
+          "text": "",
+          "value": ""
+        },
+        "address": {
+          "text": "",
+          "value": ""
+        },
+        "organizer": {
+          "text": "Mei Matriano",
+          "value": "1647"
+        }
+      }, {
+        "id": "101082",
+        "title": "AC Installation - 6",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "location": "",
+        "status": {
+          "text": "Tentative",
+          "value": "TENTATIVE",
+          "code": "bg-secondary"
+        },
+        "date": {
+          "recurrence": "one time event on 1/17/2025",
+          "dates": ["1/17/2025"],
+          "start": "2025-01-17",
+          "end": "2025-01-17"
+        },
+        "time": {
+          "start": "08:00",
+          "end": "18:00"
+        },
+        "priority": {
+          "text": "High",
+          "value": "3",
+          "code": "#ca6621"
+        },
+        "note": "AC Installation - 6",
+        "url": "/app/crm/calendar/event.nl?id=101082&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {},
+        "resources": [],
+        "vendors": [],
+        "assets": [],
+        "items": [],
+        "contacts": [],
+        "addresses": [],
+        "contact": {
+          "text": "",
+          "value": ""
+        },
+        "address": {
+          "text": "",
+          "value": ""
+        },
+        "organizer": {
+          "text": "Mei Matriano",
+          "value": "1647"
+        }
+      }, {
+        "id": "101081",
+        "title": "AC Installation - 5",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "location": "",
+        "status": {
+          "text": "Tentative",
+          "value": "TENTATIVE",
+          "code": "bg-secondary"
+        },
+        "date": {
+          "recurrence": "one time event on 1/17/2025",
+          "dates": ["1/17/2025"],
+          "start": "2025-01-17",
+          "end": "2025-01-17"
+        },
+        "time": {
+          "start": "08:00",
+          "end": "18:00"
+        },
+        "priority": {
+          "text": "Urgent",
+          "value": "4",
+          "code": "#9a2407"
+        },
+        "note": "AC Installation - 5",
+        "url": "/app/crm/calendar/event.nl?id=101081&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {},
+        "resources": [],
+        "vendors": [],
+        "assets": [],
+        "items": [],
+        "contacts": [],
+        "addresses": [],
+        "contact": {
+          "text": "",
+          "value": ""
+        },
+        "address": {
+          "text": "",
+          "value": ""
+        },
+        "organizer": {
+          "text": "Arun Sharma",
+          "value": "1770"
+        }
+      }, {
+        "id": "101080",
+        "title": "AC Installation - 4",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "location": "",
+        "status": {
+          "text": "Tentative",
+          "value": "TENTATIVE",
+          "code": "bg-secondary"
+        },
+        "date": {
+          "recurrence": "occurs every day from 1/16/2025 until 1/17/2025",
+          "dates": ["1/16/2025", "1/17/2025"],
+          "start": "2025-01-16",
+          "end": "2025-01-17"
+        },
+        "time": {
+          "start": "08:00",
+          "end": "18:00"
+        },
+        "priority": {
+          "text": "High",
+          "value": "3",
+          "code": "#ca6621"
+        },
+        "note": "AC Installation - 4",
+        "url": "/app/crm/calendar/event.nl?id=101080&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {},
+        "resources": [],
+        "vendors": [],
+        "assets": [],
+        "items": [],
+        "contacts": [],
+        "addresses": [],
+        "contact": {
+          "text": "",
+          "value": ""
+        },
+        "address": {
+          "text": "",
+          "value": ""
+        },
+        "organizer": {
+          "text": "Mei Matriano",
+          "value": "1647"
+        }
+      }, {
+        "id": "101079",
+        "title": "AC Installation - 3",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "location": "",
+        "status": {
+          "text": "Tentative",
+          "value": "TENTATIVE",
+          "code": "bg-secondary"
+        },
+        "date": {
+          "recurrence": "one time event on 1/17/2025",
+          "dates": ["1/17/2025"],
+          "start": "2025-01-17",
+          "end": "2025-01-17"
+        },
+        "time": {
+          "start": "08:00",
+          "end": "18:00"
+        },
+        "priority": {
+          "text": "High",
+          "value": "3",
+          "code": "#ca6621"
+        },
+        "note": "AC Installation - 3",
+        "url": "/app/crm/calendar/event.nl?id=101079&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {},
+        "resources": [],
+        "vendors": [],
+        "assets": [],
+        "items": [],
+        "contacts": [],
+        "addresses": [],
+        "contact": {
+          "text": "",
+          "value": ""
+        },
+        "address": {
+          "text": "",
+          "value": ""
+        },
+        "organizer": {
+          "text": "Mei Matriano",
+          "value": "1647"
+        }
+      }, {
+        "id": "101078",
+        "title": "AC Installation 2",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "location": "",
+        "status": {
+          "text": "Tentative",
+          "value": "TENTATIVE",
+          "code": "bg-secondary"
+        },
+        "date": {
+          "recurrence": "one time event on 1/16/2025",
+          "dates": ["1/16/2025"],
+          "start": "2025-01-16",
+          "end": "2025-01-16"
+        },
+        "time": {
+          "start": "08:00",
+          "end": "18:00"
+        },
+        "priority": {
+          "text": "High",
+          "value": "3",
+          "code": "#ca6621"
+        },
+        "note": "AC Installation 2",
+        "url": "/app/crm/calendar/event.nl?id=101078&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {},
+        "resources": [],
+        "vendors": [],
+        "assets": [],
+        "items": [],
+        "contacts": [],
+        "addresses": [],
+        "contact": {
+          "text": "",
+          "value": ""
+        },
+        "address": {
+          "text": "",
+          "value": ""
+        },
+        "organizer": {
+          "text": "Mei Matriano",
+          "value": "1647"
+        }
+      }, {
+        "id": "101077",
+        "title": "AC Installation",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "location": "",
+        "status": {
+          "text": "Tentative",
+          "value": "TENTATIVE",
+          "code": "bg-secondary"
+        },
+        "date": {
+          "recurrence": "one time event on 1/16/2025",
+          "dates": ["1/16/2025"],
+          "start": "2025-01-16",
+          "end": "2025-01-16"
+        },
+        "time": {
+          "start": "08:00",
+          "end": "18:00"
+        },
+        "priority": {
+          "text": "Medium",
+          "value": "2",
+          "code": "#dfcf02"
+        },
+        "note": "AC Installation",
+        "url": "/app/crm/calendar/event.nl?id=101077&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {},
+        "resources": [],
+        "vendors": [],
+        "assets": [],
+        "items": [],
+        "contacts": [],
+        "addresses": [],
+        "contact": {
+          "text": "",
+          "value": ""
+        },
+        "address": {
+          "text": "",
+          "value": ""
+        },
+        "organizer": {
+          "text": "Mei Matriano",
+          "value": "1647"
+        }
+      }, {
+        "id": "101076",
+        "title": "Test Work Order",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "location": "",
+        "status": {
+          "text": "Tentative",
+          "value": "TENTATIVE",
+          "code": "bg-secondary"
+        },
+        "date": {
+          "recurrence": "one time event on 1/15/2025",
+          "dates": ["1/15/2025"],
+          "start": "2025-01-15",
+          "end": "2025-01-15"
+        },
+        "time": {
+          "start": "08:00",
+          "end": "18:00"
+        },
+        "priority": {
+          "text": "Low",
+          "value": "1",
+          "code": "#026adf"
+        },
+        "note": "",
+        "url": "/app/crm/calendar/event.nl?id=101076&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {},
+        "resources": [],
+        "vendors": [],
+        "assets": [],
+        "items": [],
+        "contacts": [],
+        "addresses": [],
+        "contact": {
+          "text": "",
+          "value": ""
+        },
+        "address": {
+          "text": "207",
+          "value": "207"
+        },
+        "organizer": {
+          "text": "Lean  cendana",
+          "value": "1765"
+        }
+      }, {
+        "id": "101075",
+        "title": "Test Work Order",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
           "value": "123"
         },
         "location": "",
@@ -42660,7 +53376,7 @@ const mockup = {
       },
       "active": true,
       "workorder": {
-        "text": "Test Work Order",
+        "text": "Test Work Order - AC Installation",
         "value": "123"
       },
       "events": ["101079"],
@@ -42708,7 +53424,7 @@ const mockup = {
       },
       "active": true,
       "workorder": {
-        "text": "Test Work Order",
+        "text": "Test Work Order - AC Installation",
         "value": "123"
       },
       "events": ["101079"],
@@ -42756,7 +53472,7 @@ const mockup = {
       },
       "active": true,
       "workorder": {
-        "text": "Test Work Order",
+        "text": "Test Work Order - AC Installation",
         "value": "123"
       },
       "events": ["101079"],
@@ -42798,7 +53514,7 @@ const mockup = {
       "id": "126",
       "name": "ELE00002",
       "workorder": {
-        "text": "Test Work Order",
+        "text": "Test Work Order - AC Installation",
         "value": "123"
       },
       "event": "101079",
@@ -42834,7 +53550,7 @@ const mockup = {
     "items": [{
       "id": "559",
       "workorder": {
-        "text": "Test Work Order",
+        "text": "Test Work Order - AC Installation",
         "value": "123"
       },
       "salesorder": {
@@ -42849,8 +53565,8 @@ const mockup = {
         "value": "467"
       },
       "description": "Working Table",
-      "quantity": 5,
-      "availableQty": 5,
+      "quantity": 10,
+      "availableQty": 10,
       "note": "",
       "selected": true
     }],
@@ -42858,14 +53574,14 @@ const mockup = {
     "addresses": [{
       "id": "207",
       "workorder": {
-        "text": "Test Work Order",
+        "text": "Test Work Order - AC Installation",
         "value": "123"
       },
       "customer": {
         "text": "World Bank",
         "value": "1249"
       },
-      "events": ["101062", "101076", "101077", "101078", "101079"],
+      "events": ["101062", "101076", "101077", "101078", "101079", "101080", "101084"],
       "address": {
         "text": "434 Carlaw",
         "value": "244878"
@@ -42890,7 +53606,7 @@ const mockup = {
     "id": "101078",
     "title": "AC Installation 2",
     "workorder": {
-      "text": "Test Work Order",
+      "text": "Test Work Order - AC Installation",
       "value": "123"
     },
     "location": "",
@@ -42919,8 +53635,8 @@ const mockup = {
     "color": "#1a6756",
     "woRef": {
       "id": "123",
-      "name": "Test Work Order",
-      "title": "Test Work Order",
+      "name": "Test Work Order - AC Installation",
+      "title": "Test Work Order - AC Installation",
       "project": {
         "text": "World Bank : World Bank Office Furniture Installation",
         "value": "1515"
@@ -42961,7 +53677,7 @@ const mockup = {
         "email": "",
         "initials": "BF",
         "workorder": {
-          "text": "Test Work Order",
+          "text": "Test Work Order - AC Installation",
           "value": "123"
         },
         "event": "101062",
@@ -42976,6 +53692,106 @@ const mockup = {
         "woVendor": true,
         "memo": ""
       }, {
+        "id": "190",
+        "name": "190",
+        "vendor": {
+          "text": "Best Fixture, Inc.",
+          "value": "12"
+        },
+        "url": "",
+        "email": "",
+        "initials": "BF",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "event": "101081",
+        "quantityRequired": 5,
+        "quantityAvailable": 0,
+        "purchaseOrder": {
+          "text": " ",
+          "value": ""
+        },
+        "amount": 0,
+        "active": false,
+        "woVendor": true,
+        "memo": ""
+      }, {
+        "id": "191",
+        "name": "191",
+        "vendor": {
+          "text": "CFI Furniture Inc.",
+          "value": "1661"
+        },
+        "url": "",
+        "email": "login+plural@erpsuccesspartners.com",
+        "initials": "CF",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "event": "101082",
+        "quantityRequired": 5,
+        "quantityAvailable": 0,
+        "purchaseOrder": {
+          "text": " ",
+          "value": ""
+        },
+        "amount": 0,
+        "active": false,
+        "woVendor": true,
+        "memo": ""
+      }, {
+        "id": "192",
+        "name": "192",
+        "vendor": {
+          "text": "CFI Furniture Inc.",
+          "value": "1661"
+        },
+        "url": "",
+        "email": "login+plural@erpsuccesspartners.com",
+        "initials": "CF",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "event": "101083",
+        "quantityRequired": 5,
+        "quantityAvailable": 0,
+        "purchaseOrder": {
+          "text": " ",
+          "value": ""
+        },
+        "amount": 0,
+        "active": false,
+        "woVendor": true,
+        "memo": ""
+      }, {
+        "id": "193",
+        "name": "193",
+        "vendor": {
+          "text": "Bridgepoint Industries",
+          "value": "1473"
+        },
+        "url": "http://www.bridgepointindustries.com.de",
+        "email": "support@bridgempointindustries.com.de",
+        "initials": "BI",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "event": "101084",
+        "quantityRequired": 5,
+        "quantityAvailable": 20,
+        "purchaseOrder": {
+          "text": " ",
+          "value": ""
+        },
+        "amount": 0,
+        "active": true,
+        "woVendor": true,
+        "memo": ""
+      }, {
         "id": "188",
         "name": "Best Fixture, Inc.",
         "vendor": {
@@ -42986,7 +53802,7 @@ const mockup = {
         "email": "",
         "initials": "BF",
         "workorder": {
-          "text": "Test Work Order",
+          "text": "Test Work Order - AC Installation",
           "value": "123"
         },
         "event": "101075",
@@ -43005,7 +53821,7 @@ const mockup = {
         "id": "123",
         "name": "ELE00002",
         "workorder": {
-          "text": "Test Work Order",
+          "text": "Test Work Order - AC Installation",
           "value": "123"
         },
         "event": "101062",
@@ -43040,7 +53856,7 @@ const mockup = {
         "id": "124",
         "name": "ELE00002",
         "workorder": {
-          "text": "Test Work Order",
+          "text": "Test Work Order - AC Installation",
           "value": "123"
         },
         "event": "101077",
@@ -43075,7 +53891,7 @@ const mockup = {
         "id": "125",
         "name": "ELE00002",
         "workorder": {
-          "text": "Test Work Order",
+          "text": "Test Work Order - AC Installation",
           "value": "123"
         },
         "event": "101078",
@@ -43110,7 +53926,7 @@ const mockup = {
         "id": "126",
         "name": "ELE00002",
         "workorder": {
-          "text": "Test Work Order",
+          "text": "Test Work Order - AC Installation",
           "value": "123"
         },
         "event": "101079",
@@ -43141,32 +53957,151 @@ const mockup = {
         },
         "owned": true,
         "rentalMatrix": 0
-      }],
-      "items": [{
-        "id": "557",
+      }, {
+        "id": "127",
+        "name": "ELE00002",
         "workorder": {
-          "text": "Test Work Order",
+          "text": "Test Work Order - AC Installation",
           "value": "123"
         },
-        "salesorder": {
-          "text": "Sales Order #SLS00000803",
-          "value": "22468"
-        },
-        "event": "101077",
-        "uuid": "22468_1",
-        "line": "1",
+        "event": "101081",
+        "quantity": 0,
+        "description": "Serialized 1 Sales Description",
         "item": {
-          "text": "BIC00008",
-          "value": "467"
+          "text": "ELE00002",
+          "value": "674"
         },
-        "description": "Head Master Chair",
-        "quantity": 2,
-        "availableQty": 2,
-        "note": ""
+        "equipmentType": {
+          "text": "Hand Tools",
+          "value": "1"
+        },
+        "rentalUnit": {
+          "text": "",
+          "value": ""
+        },
+        "rentalDuration": 0,
+        "rentalRate": 0,
+        "rentalAmount": 0,
+        "purchaseOrder": {
+          "text": " ",
+          "value": " "
+        },
+        "vendor": {
+          "text": "Computer Depot Pacific",
+          "value": "965"
+        },
+        "owned": true,
+        "rentalMatrix": 0
       }, {
+        "id": "128",
+        "name": "ELE00002",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "event": "101082",
+        "quantity": 100,
+        "description": "Serialized 1 Sales Description",
+        "item": {
+          "text": "ELE00002",
+          "value": "674"
+        },
+        "equipmentType": {
+          "text": "Hand Tools",
+          "value": "1"
+        },
+        "rentalUnit": {
+          "text": "",
+          "value": ""
+        },
+        "rentalDuration": 0,
+        "rentalRate": 0,
+        "rentalAmount": 0,
+        "purchaseOrder": {
+          "text": " ",
+          "value": " "
+        },
+        "vendor": {
+          "text": "Computer Depot Pacific",
+          "value": "965"
+        },
+        "owned": true,
+        "rentalMatrix": 0
+      }, {
+        "id": "129",
+        "name": "ELE00002",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "event": "101083",
+        "quantity": 20,
+        "description": "Serialized 1 Sales Description",
+        "item": {
+          "text": "ELE00002",
+          "value": "674"
+        },
+        "equipmentType": {
+          "text": "Hand Tools",
+          "value": "1"
+        },
+        "rentalUnit": {
+          "text": "",
+          "value": ""
+        },
+        "rentalDuration": 0,
+        "rentalRate": 0,
+        "rentalAmount": 0,
+        "purchaseOrder": {
+          "text": " ",
+          "value": " "
+        },
+        "vendor": {
+          "text": "Computer Depot Pacific",
+          "value": "965"
+        },
+        "owned": true,
+        "rentalMatrix": 0
+      }, {
+        "id": "130",
+        "name": "ELE00002",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "event": "101084",
+        "quantity": 0,
+        "description": "Serialized 1 Sales Description",
+        "item": {
+          "text": "ELE00002",
+          "value": "674"
+        },
+        "equipmentType": {
+          "text": "Hand Tools",
+          "value": "1"
+        },
+        "rentalUnit": {
+          "text": "",
+          "value": ""
+        },
+        "rentalDuration": 0,
+        "rentalRate": 0,
+        "rentalAmount": 0,
+        "purchaseOrder": {
+          "text": " ",
+          "value": " "
+        },
+        "vendor": {
+          "text": "Computer Depot Pacific",
+          "value": "965"
+        },
+        "owned": true,
+        "rentalMatrix": 0
+      }],
+      "items": [{
         "id": "558",
         "workorder": {
-          "text": "Test Work Order",
+          "text": "Test Work Order - AC Installation",
           "value": "123"
         },
         "salesorder": {
@@ -43185,30 +54120,114 @@ const mockup = {
         "availableQty": 2,
         "note": ""
       }, {
-        "id": "559",
+        "id": "560",
         "workorder": {
-          "text": "Test Work Order",
+          "text": "Test Work Order - AC Installation",
           "value": "123"
         },
         "salesorder": {
           "text": "Sales Order #SLS00000803",
           "value": "22468"
         },
-        "event": "101079",
-        "uuid": "22468_3",
-        "line": "3",
+        "event": "101080",
+        "uuid": "22468_1",
+        "line": "1",
         "item": {
           "text": "BIC00008",
           "value": "467"
         },
-        "description": "Working Table",
+        "description": "Head Master Chair",
+        "quantity": 1,
+        "availableQty": 1,
+        "note": ""
+      }, {
+        "id": "561",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "salesorder": {
+          "text": "Sales Order #SLS00000803",
+          "value": "22468"
+        },
+        "event": "101081",
+        "uuid": "22468_1",
+        "line": "1",
+        "item": {
+          "text": "BIC00008",
+          "value": "467"
+        },
+        "description": "Head Master Chair",
         "quantity": 5,
         "availableQty": 5,
         "note": ""
       }, {
+        "id": "565",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "salesorder": {
+          "text": "Sales Order #SLS00000803",
+          "value": "22468"
+        },
+        "event": "101082",
+        "uuid": "22468_1",
+        "line": "1",
+        "item": {
+          "text": "BIC00008",
+          "value": "467"
+        },
+        "description": "Head Master Chair",
+        "quantity": 5,
+        "availableQty": 5,
+        "note": ""
+      }, {
+        "id": "567",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "salesorder": {
+          "text": "Sales Order #SLS00000803",
+          "value": "22468"
+        },
+        "event": "101083",
+        "uuid": "22468_1",
+        "line": "1",
+        "item": {
+          "text": "BIC00008",
+          "value": "467"
+        },
+        "description": "Head Master Chair",
+        "quantity": 2,
+        "availableQty": 2,
+        "note": ""
+      }, {
+        "id": "574",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "salesorder": {
+          "text": "Sales Order #SLS00000803",
+          "value": "22468"
+        },
+        "event": "101084",
+        "uuid": "22468_1",
+        "line": "1",
+        "item": {
+          "text": "BIC00008",
+          "value": "467"
+        },
+        "description": "Head Master Chair",
+        "quantity": 2,
+        "availableQty": 2,
+        "note": ""
+      }, {
         "id": "547",
         "workorder": {
-          "text": "Test Work Order",
+          "text": "Test Work Order - AC Installation",
           "value": "123"
         },
         "salesorder": {
@@ -43229,7 +54248,7 @@ const mockup = {
       }, {
         "id": "555",
         "workorder": {
-          "text": "Test Work Order",
+          "text": "Test Work Order - AC Installation",
           "value": "123"
         },
         "salesorder": {
@@ -43250,7 +54269,7 @@ const mockup = {
       }, {
         "id": "556",
         "workorder": {
-          "text": "Test Work Order",
+          "text": "Test Work Order - AC Installation",
           "value": "123"
         },
         "salesorder": {
@@ -43271,7 +54290,7 @@ const mockup = {
       }, {
         "id": "548",
         "workorder": {
-          "text": "Test Work Order",
+          "text": "Test Work Order - AC Installation",
           "value": "123"
         },
         "salesorder": {
@@ -43292,7 +54311,7 @@ const mockup = {
       }, {
         "id": "549",
         "workorder": {
-          "text": "Test Work Order",
+          "text": "Test Work Order - AC Installation",
           "value": "123"
         },
         "salesorder": {
@@ -43313,7 +54332,7 @@ const mockup = {
       }, {
         "id": "550",
         "workorder": {
-          "text": "Test Work Order",
+          "text": "Test Work Order - AC Installation",
           "value": "123"
         },
         "salesorder": {
@@ -43334,7 +54353,7 @@ const mockup = {
       }, {
         "id": "546",
         "workorder": {
-          "text": "Test Work Order",
+          "text": "Test Work Order - AC Installation",
           "value": "123"
         },
         "salesorder": {
@@ -43352,18 +54371,60 @@ const mockup = {
         "quantity": 7,
         "availableQty": 7,
         "note": ""
+      }, {
+        "id": "557",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "salesorder": {
+          "text": "Sales Order #SLS00000803",
+          "value": "22468"
+        },
+        "event": "101077",
+        "uuid": "22468_1",
+        "line": "1",
+        "item": {
+          "text": "BIC00008",
+          "value": "467"
+        },
+        "description": "Head Master Chair",
+        "quantity": 7,
+        "availableQty": 7,
+        "note": ""
+      }, {
+        "id": "559",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "salesorder": {
+          "text": "Sales Order #SLS00000803",
+          "value": "22468"
+        },
+        "event": "101079",
+        "uuid": "22468_3",
+        "line": "3",
+        "item": {
+          "text": "BIC00008",
+          "value": "467"
+        },
+        "description": "Working Table",
+        "quantity": 10,
+        "availableQty": 10,
+        "note": ""
       }],
       "addresses": [{
         "id": "207",
         "workorder": {
-          "text": "Test Work Order",
+          "text": "Test Work Order - AC Installation",
           "value": "123"
         },
         "customer": {
           "text": "World Bank",
           "value": "1249"
         },
-        "events": ["101062", "101076", "101077", "101078", "101079"],
+        "events": ["101062", "101076", "101077", "101078", "101079", "101080", "101084"],
         "address": {
           "text": "434 Carlaw",
           "value": "244878"
@@ -43374,10 +54435,10 @@ const mockup = {
       "contacts": [{
         "id": "168",
         "workorder": {
-          "text": "Test Work Order",
+          "text": "Test Work Order - AC Installation",
           "value": "123"
         },
-        "events": ["101062", "101077", "101078"],
+        "events": ["101062", "101077", "101078", "101080", "101084"],
         "contact": {
           "text": "World Bank : Chad Bass",
           "value": "1382"
@@ -43392,7 +54453,7 @@ const mockup = {
       }, {
         "id": "169",
         "workorder": {
-          "text": "Test Work Order",
+          "text": "Test Work Order - AC Installation",
           "value": "123"
         },
         "events": ["101075", "101079"],
@@ -43409,10 +54470,260 @@ const mockup = {
         "url": "/app/common/entity/contact.nl?id=1382&compid=TSTDRV2617106"
       }],
       "events": [{
+        "id": "101084",
+        "title": "AC Installation - 8",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "location": "",
+        "status": {
+          "text": "Tentative",
+          "value": "TENTATIVE",
+          "code": "bg-secondary"
+        },
+        "date": {
+          "recurrence": "one time event on 1/17/2025",
+          "dates": ["1/17/2025"],
+          "start": "2025-01-17",
+          "end": "2025-01-17"
+        },
+        "time": {
+          "start": "08:00",
+          "end": "18:00"
+        },
+        "priority": {
+          "text": "Medium",
+          "value": "2",
+          "code": "#dfcf02"
+        },
+        "note": "AC Installation - 8",
+        "url": "/app/crm/calendar/event.nl?id=101084&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {},
+        "resources": [],
+        "vendors": [],
+        "assets": [],
+        "items": [],
+        "contacts": [],
+        "addresses": [],
+        "contact": {
+          "text": "",
+          "value": ""
+        },
+        "address": {
+          "text": "",
+          "value": ""
+        },
+        "organizer": {
+          "text": "Arun Sharma",
+          "value": "1770"
+        }
+      }, {
+        "id": "101083",
+        "title": "AC Installation - 7",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "location": "",
+        "status": {
+          "text": "Tentative",
+          "value": "TENTATIVE",
+          "code": "bg-secondary"
+        },
+        "date": {
+          "recurrence": "one time event on 1/17/2025",
+          "dates": ["1/17/2025"],
+          "start": "2025-01-17",
+          "end": "2025-01-17"
+        },
+        "time": {
+          "start": "08:00",
+          "end": "18:00"
+        },
+        "priority": {
+          "text": "Urgent",
+          "value": "4",
+          "code": "#9a2407"
+        },
+        "note": "AC Installation - 7",
+        "url": "/app/crm/calendar/event.nl?id=101083&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {},
+        "resources": [],
+        "vendors": [],
+        "assets": [],
+        "items": [],
+        "contacts": [],
+        "addresses": [],
+        "contact": {
+          "text": "",
+          "value": ""
+        },
+        "address": {
+          "text": "",
+          "value": ""
+        },
+        "organizer": {
+          "text": "Mei Matriano",
+          "value": "1647"
+        }
+      }, {
+        "id": "101082",
+        "title": "AC Installation - 6",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "location": "",
+        "status": {
+          "text": "Tentative",
+          "value": "TENTATIVE",
+          "code": "bg-secondary"
+        },
+        "date": {
+          "recurrence": "one time event on 1/17/2025",
+          "dates": ["1/17/2025"],
+          "start": "2025-01-17",
+          "end": "2025-01-17"
+        },
+        "time": {
+          "start": "08:00",
+          "end": "18:00"
+        },
+        "priority": {
+          "text": "High",
+          "value": "3",
+          "code": "#ca6621"
+        },
+        "note": "AC Installation - 6",
+        "url": "/app/crm/calendar/event.nl?id=101082&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {},
+        "resources": [],
+        "vendors": [],
+        "assets": [],
+        "items": [],
+        "contacts": [],
+        "addresses": [],
+        "contact": {
+          "text": "",
+          "value": ""
+        },
+        "address": {
+          "text": "",
+          "value": ""
+        },
+        "organizer": {
+          "text": "Mei Matriano",
+          "value": "1647"
+        }
+      }, {
+        "id": "101081",
+        "title": "AC Installation - 5",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "location": "",
+        "status": {
+          "text": "Tentative",
+          "value": "TENTATIVE",
+          "code": "bg-secondary"
+        },
+        "date": {
+          "recurrence": "one time event on 1/17/2025",
+          "dates": ["1/17/2025"],
+          "start": "2025-01-17",
+          "end": "2025-01-17"
+        },
+        "time": {
+          "start": "08:00",
+          "end": "18:00"
+        },
+        "priority": {
+          "text": "Urgent",
+          "value": "4",
+          "code": "#9a2407"
+        },
+        "note": "AC Installation - 5",
+        "url": "/app/crm/calendar/event.nl?id=101081&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {},
+        "resources": [],
+        "vendors": [],
+        "assets": [],
+        "items": [],
+        "contacts": [],
+        "addresses": [],
+        "contact": {
+          "text": "",
+          "value": ""
+        },
+        "address": {
+          "text": "",
+          "value": ""
+        },
+        "organizer": {
+          "text": "Arun Sharma",
+          "value": "1770"
+        }
+      }, {
+        "id": "101080",
+        "title": "AC Installation - 4",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "location": "",
+        "status": {
+          "text": "Tentative",
+          "value": "TENTATIVE",
+          "code": "bg-secondary"
+        },
+        "date": {
+          "recurrence": "occurs every day from 1/16/2025 until 1/17/2025",
+          "dates": ["1/16/2025", "1/17/2025"],
+          "start": "2025-01-16",
+          "end": "2025-01-17"
+        },
+        "time": {
+          "start": "08:00",
+          "end": "18:00"
+        },
+        "priority": {
+          "text": "High",
+          "value": "3",
+          "code": "#ca6621"
+        },
+        "note": "AC Installation - 4",
+        "url": "/app/crm/calendar/event.nl?id=101080&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {},
+        "resources": [],
+        "vendors": [],
+        "assets": [],
+        "items": [],
+        "contacts": [],
+        "addresses": [],
+        "contact": {
+          "text": "",
+          "value": ""
+        },
+        "address": {
+          "text": "",
+          "value": ""
+        },
+        "organizer": {
+          "text": "Mei Matriano",
+          "value": "1647"
+        }
+      }, {
         "id": "101079",
         "title": "AC Installation - 3",
         "workorder": {
-          "text": "Test Work Order",
+          "text": "Test Work Order - AC Installation",
           "value": "123"
         },
         "location": "",
@@ -43462,7 +54773,7 @@ const mockup = {
         "id": "101078",
         "title": "AC Installation 2",
         "workorder": {
-          "text": "Test Work Order",
+          "text": "Test Work Order - AC Installation",
           "value": "123"
         },
         "location": "",
@@ -43512,7 +54823,7 @@ const mockup = {
         "id": "101077",
         "title": "AC Installation",
         "workorder": {
-          "text": "Test Work Order",
+          "text": "Test Work Order - AC Installation",
           "value": "123"
         },
         "location": "",
@@ -43562,7 +54873,7 @@ const mockup = {
         "id": "101076",
         "title": "Test Work Order",
         "workorder": {
-          "text": "Test Work Order",
+          "text": "Test Work Order - AC Installation",
           "value": "123"
         },
         "location": "",
@@ -43612,7 +54923,7 @@ const mockup = {
         "id": "101075",
         "title": "Test Work Order",
         "workorder": {
-          "text": "Test Work Order",
+          "text": "Test Work Order - AC Installation",
           "value": "123"
         },
         "location": "",
@@ -43670,7 +54981,7 @@ const mockup = {
       "id": "125",
       "name": "ELE00002",
       "workorder": {
-        "text": "Test Work Order",
+        "text": "Test Work Order - AC Installation",
         "value": "123"
       },
       "event": "101078",
@@ -43706,7 +55017,7 @@ const mockup = {
     "items": [{
       "id": "558",
       "workorder": {
-        "text": "Test Work Order",
+        "text": "Test Work Order - AC Installation",
         "value": "123"
       },
       "salesorder": {
@@ -43730,14 +55041,14 @@ const mockup = {
     "addresses": [{
       "id": "207",
       "workorder": {
-        "text": "Test Work Order",
+        "text": "Test Work Order - AC Installation",
         "value": "123"
       },
       "customer": {
         "text": "World Bank",
         "value": "1249"
       },
-      "events": ["101062", "101076", "101077", "101078", "101079"],
+      "events": ["101062", "101076", "101077", "101078", "101079", "101080", "101084"],
       "address": {
         "text": "434 Carlaw",
         "value": "244878"
@@ -43762,7 +55073,7 @@ const mockup = {
     "id": "101077",
     "title": "AC Installation",
     "workorder": {
-      "text": "Test Work Order",
+      "text": "Test Work Order - AC Installation",
       "value": "123"
     },
     "location": "",
@@ -43791,8 +55102,8 @@ const mockup = {
     "color": "#1a6756",
     "woRef": {
       "id": "123",
-      "name": "Test Work Order",
-      "title": "Test Work Order",
+      "name": "Test Work Order - AC Installation",
+      "title": "Test Work Order - AC Installation",
       "project": {
         "text": "World Bank : World Bank Office Furniture Installation",
         "value": "1515"
@@ -43833,7 +55144,7 @@ const mockup = {
         "email": "",
         "initials": "BF",
         "workorder": {
-          "text": "Test Work Order",
+          "text": "Test Work Order - AC Installation",
           "value": "123"
         },
         "event": "101062",
@@ -43848,6 +55159,106 @@ const mockup = {
         "woVendor": true,
         "memo": ""
       }, {
+        "id": "190",
+        "name": "190",
+        "vendor": {
+          "text": "Best Fixture, Inc.",
+          "value": "12"
+        },
+        "url": "",
+        "email": "",
+        "initials": "BF",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "event": "101081",
+        "quantityRequired": 5,
+        "quantityAvailable": 0,
+        "purchaseOrder": {
+          "text": " ",
+          "value": ""
+        },
+        "amount": 0,
+        "active": false,
+        "woVendor": true,
+        "memo": ""
+      }, {
+        "id": "191",
+        "name": "191",
+        "vendor": {
+          "text": "CFI Furniture Inc.",
+          "value": "1661"
+        },
+        "url": "",
+        "email": "login+plural@erpsuccesspartners.com",
+        "initials": "CF",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "event": "101082",
+        "quantityRequired": 5,
+        "quantityAvailable": 0,
+        "purchaseOrder": {
+          "text": " ",
+          "value": ""
+        },
+        "amount": 0,
+        "active": false,
+        "woVendor": true,
+        "memo": ""
+      }, {
+        "id": "192",
+        "name": "192",
+        "vendor": {
+          "text": "CFI Furniture Inc.",
+          "value": "1661"
+        },
+        "url": "",
+        "email": "login+plural@erpsuccesspartners.com",
+        "initials": "CF",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "event": "101083",
+        "quantityRequired": 5,
+        "quantityAvailable": 0,
+        "purchaseOrder": {
+          "text": " ",
+          "value": ""
+        },
+        "amount": 0,
+        "active": false,
+        "woVendor": true,
+        "memo": ""
+      }, {
+        "id": "193",
+        "name": "193",
+        "vendor": {
+          "text": "Bridgepoint Industries",
+          "value": "1473"
+        },
+        "url": "http://www.bridgepointindustries.com.de",
+        "email": "support@bridgempointindustries.com.de",
+        "initials": "BI",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "event": "101084",
+        "quantityRequired": 5,
+        "quantityAvailable": 20,
+        "purchaseOrder": {
+          "text": " ",
+          "value": ""
+        },
+        "amount": 0,
+        "active": true,
+        "woVendor": true,
+        "memo": ""
+      }, {
         "id": "188",
         "name": "Best Fixture, Inc.",
         "vendor": {
@@ -43858,7 +55269,7 @@ const mockup = {
         "email": "",
         "initials": "BF",
         "workorder": {
-          "text": "Test Work Order",
+          "text": "Test Work Order - AC Installation",
           "value": "123"
         },
         "event": "101075",
@@ -43877,7 +55288,7 @@ const mockup = {
         "id": "123",
         "name": "ELE00002",
         "workorder": {
-          "text": "Test Work Order",
+          "text": "Test Work Order - AC Installation",
           "value": "123"
         },
         "event": "101062",
@@ -43912,7 +55323,7 @@ const mockup = {
         "id": "124",
         "name": "ELE00002",
         "workorder": {
-          "text": "Test Work Order",
+          "text": "Test Work Order - AC Installation",
           "value": "123"
         },
         "event": "101077",
@@ -43947,7 +55358,7 @@ const mockup = {
         "id": "125",
         "name": "ELE00002",
         "workorder": {
-          "text": "Test Work Order",
+          "text": "Test Work Order - AC Installation",
           "value": "123"
         },
         "event": "101078",
@@ -43982,7 +55393,7 @@ const mockup = {
         "id": "126",
         "name": "ELE00002",
         "workorder": {
-          "text": "Test Work Order",
+          "text": "Test Work Order - AC Installation",
           "value": "123"
         },
         "event": "101079",
@@ -44013,32 +55424,151 @@ const mockup = {
         },
         "owned": true,
         "rentalMatrix": 0
-      }],
-      "items": [{
-        "id": "557",
+      }, {
+        "id": "127",
+        "name": "ELE00002",
         "workorder": {
-          "text": "Test Work Order",
+          "text": "Test Work Order - AC Installation",
           "value": "123"
         },
-        "salesorder": {
-          "text": "Sales Order #SLS00000803",
-          "value": "22468"
-        },
-        "event": "101077",
-        "uuid": "22468_1",
-        "line": "1",
+        "event": "101081",
+        "quantity": 0,
+        "description": "Serialized 1 Sales Description",
         "item": {
-          "text": "BIC00008",
-          "value": "467"
+          "text": "ELE00002",
+          "value": "674"
         },
-        "description": "Head Master Chair",
-        "quantity": 2,
-        "availableQty": 2,
-        "note": ""
+        "equipmentType": {
+          "text": "Hand Tools",
+          "value": "1"
+        },
+        "rentalUnit": {
+          "text": "",
+          "value": ""
+        },
+        "rentalDuration": 0,
+        "rentalRate": 0,
+        "rentalAmount": 0,
+        "purchaseOrder": {
+          "text": " ",
+          "value": " "
+        },
+        "vendor": {
+          "text": "Computer Depot Pacific",
+          "value": "965"
+        },
+        "owned": true,
+        "rentalMatrix": 0
       }, {
+        "id": "128",
+        "name": "ELE00002",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "event": "101082",
+        "quantity": 100,
+        "description": "Serialized 1 Sales Description",
+        "item": {
+          "text": "ELE00002",
+          "value": "674"
+        },
+        "equipmentType": {
+          "text": "Hand Tools",
+          "value": "1"
+        },
+        "rentalUnit": {
+          "text": "",
+          "value": ""
+        },
+        "rentalDuration": 0,
+        "rentalRate": 0,
+        "rentalAmount": 0,
+        "purchaseOrder": {
+          "text": " ",
+          "value": " "
+        },
+        "vendor": {
+          "text": "Computer Depot Pacific",
+          "value": "965"
+        },
+        "owned": true,
+        "rentalMatrix": 0
+      }, {
+        "id": "129",
+        "name": "ELE00002",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "event": "101083",
+        "quantity": 20,
+        "description": "Serialized 1 Sales Description",
+        "item": {
+          "text": "ELE00002",
+          "value": "674"
+        },
+        "equipmentType": {
+          "text": "Hand Tools",
+          "value": "1"
+        },
+        "rentalUnit": {
+          "text": "",
+          "value": ""
+        },
+        "rentalDuration": 0,
+        "rentalRate": 0,
+        "rentalAmount": 0,
+        "purchaseOrder": {
+          "text": " ",
+          "value": " "
+        },
+        "vendor": {
+          "text": "Computer Depot Pacific",
+          "value": "965"
+        },
+        "owned": true,
+        "rentalMatrix": 0
+      }, {
+        "id": "130",
+        "name": "ELE00002",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "event": "101084",
+        "quantity": 0,
+        "description": "Serialized 1 Sales Description",
+        "item": {
+          "text": "ELE00002",
+          "value": "674"
+        },
+        "equipmentType": {
+          "text": "Hand Tools",
+          "value": "1"
+        },
+        "rentalUnit": {
+          "text": "",
+          "value": ""
+        },
+        "rentalDuration": 0,
+        "rentalRate": 0,
+        "rentalAmount": 0,
+        "purchaseOrder": {
+          "text": " ",
+          "value": " "
+        },
+        "vendor": {
+          "text": "Computer Depot Pacific",
+          "value": "965"
+        },
+        "owned": true,
+        "rentalMatrix": 0
+      }],
+      "items": [{
         "id": "558",
         "workorder": {
-          "text": "Test Work Order",
+          "text": "Test Work Order - AC Installation",
           "value": "123"
         },
         "salesorder": {
@@ -44057,30 +55587,114 @@ const mockup = {
         "availableQty": 2,
         "note": ""
       }, {
-        "id": "559",
+        "id": "560",
         "workorder": {
-          "text": "Test Work Order",
+          "text": "Test Work Order - AC Installation",
           "value": "123"
         },
         "salesorder": {
           "text": "Sales Order #SLS00000803",
           "value": "22468"
         },
-        "event": "101079",
-        "uuid": "22468_3",
-        "line": "3",
+        "event": "101080",
+        "uuid": "22468_1",
+        "line": "1",
         "item": {
           "text": "BIC00008",
           "value": "467"
         },
-        "description": "Working Table",
+        "description": "Head Master Chair",
+        "quantity": 1,
+        "availableQty": 1,
+        "note": ""
+      }, {
+        "id": "561",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "salesorder": {
+          "text": "Sales Order #SLS00000803",
+          "value": "22468"
+        },
+        "event": "101081",
+        "uuid": "22468_1",
+        "line": "1",
+        "item": {
+          "text": "BIC00008",
+          "value": "467"
+        },
+        "description": "Head Master Chair",
         "quantity": 5,
         "availableQty": 5,
         "note": ""
       }, {
+        "id": "565",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "salesorder": {
+          "text": "Sales Order #SLS00000803",
+          "value": "22468"
+        },
+        "event": "101082",
+        "uuid": "22468_1",
+        "line": "1",
+        "item": {
+          "text": "BIC00008",
+          "value": "467"
+        },
+        "description": "Head Master Chair",
+        "quantity": 5,
+        "availableQty": 5,
+        "note": ""
+      }, {
+        "id": "567",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "salesorder": {
+          "text": "Sales Order #SLS00000803",
+          "value": "22468"
+        },
+        "event": "101083",
+        "uuid": "22468_1",
+        "line": "1",
+        "item": {
+          "text": "BIC00008",
+          "value": "467"
+        },
+        "description": "Head Master Chair",
+        "quantity": 2,
+        "availableQty": 2,
+        "note": ""
+      }, {
+        "id": "574",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "salesorder": {
+          "text": "Sales Order #SLS00000803",
+          "value": "22468"
+        },
+        "event": "101084",
+        "uuid": "22468_1",
+        "line": "1",
+        "item": {
+          "text": "BIC00008",
+          "value": "467"
+        },
+        "description": "Head Master Chair",
+        "quantity": 2,
+        "availableQty": 2,
+        "note": ""
+      }, {
         "id": "547",
         "workorder": {
-          "text": "Test Work Order",
+          "text": "Test Work Order - AC Installation",
           "value": "123"
         },
         "salesorder": {
@@ -44101,7 +55715,7 @@ const mockup = {
       }, {
         "id": "555",
         "workorder": {
-          "text": "Test Work Order",
+          "text": "Test Work Order - AC Installation",
           "value": "123"
         },
         "salesorder": {
@@ -44122,7 +55736,7 @@ const mockup = {
       }, {
         "id": "556",
         "workorder": {
-          "text": "Test Work Order",
+          "text": "Test Work Order - AC Installation",
           "value": "123"
         },
         "salesorder": {
@@ -44143,7 +55757,7 @@ const mockup = {
       }, {
         "id": "548",
         "workorder": {
-          "text": "Test Work Order",
+          "text": "Test Work Order - AC Installation",
           "value": "123"
         },
         "salesorder": {
@@ -44164,7 +55778,7 @@ const mockup = {
       }, {
         "id": "549",
         "workorder": {
-          "text": "Test Work Order",
+          "text": "Test Work Order - AC Installation",
           "value": "123"
         },
         "salesorder": {
@@ -44185,7 +55799,7 @@ const mockup = {
       }, {
         "id": "550",
         "workorder": {
-          "text": "Test Work Order",
+          "text": "Test Work Order - AC Installation",
           "value": "123"
         },
         "salesorder": {
@@ -44206,7 +55820,7 @@ const mockup = {
       }, {
         "id": "546",
         "workorder": {
-          "text": "Test Work Order",
+          "text": "Test Work Order - AC Installation",
           "value": "123"
         },
         "salesorder": {
@@ -44224,18 +55838,60 @@ const mockup = {
         "quantity": 7,
         "availableQty": 7,
         "note": ""
+      }, {
+        "id": "557",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "salesorder": {
+          "text": "Sales Order #SLS00000803",
+          "value": "22468"
+        },
+        "event": "101077",
+        "uuid": "22468_1",
+        "line": "1",
+        "item": {
+          "text": "BIC00008",
+          "value": "467"
+        },
+        "description": "Head Master Chair",
+        "quantity": 7,
+        "availableQty": 7,
+        "note": ""
+      }, {
+        "id": "559",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "salesorder": {
+          "text": "Sales Order #SLS00000803",
+          "value": "22468"
+        },
+        "event": "101079",
+        "uuid": "22468_3",
+        "line": "3",
+        "item": {
+          "text": "BIC00008",
+          "value": "467"
+        },
+        "description": "Working Table",
+        "quantity": 10,
+        "availableQty": 10,
+        "note": ""
       }],
       "addresses": [{
         "id": "207",
         "workorder": {
-          "text": "Test Work Order",
+          "text": "Test Work Order - AC Installation",
           "value": "123"
         },
         "customer": {
           "text": "World Bank",
           "value": "1249"
         },
-        "events": ["101062", "101076", "101077", "101078", "101079"],
+        "events": ["101062", "101076", "101077", "101078", "101079", "101080", "101084"],
         "address": {
           "text": "434 Carlaw",
           "value": "244878"
@@ -44246,10 +55902,10 @@ const mockup = {
       "contacts": [{
         "id": "168",
         "workorder": {
-          "text": "Test Work Order",
+          "text": "Test Work Order - AC Installation",
           "value": "123"
         },
-        "events": ["101062", "101077", "101078"],
+        "events": ["101062", "101077", "101078", "101080", "101084"],
         "contact": {
           "text": "World Bank : Chad Bass",
           "value": "1382"
@@ -44264,7 +55920,7 @@ const mockup = {
       }, {
         "id": "169",
         "workorder": {
-          "text": "Test Work Order",
+          "text": "Test Work Order - AC Installation",
           "value": "123"
         },
         "events": ["101075", "101079"],
@@ -44281,10 +55937,260 @@ const mockup = {
         "url": "/app/common/entity/contact.nl?id=1382&compid=TSTDRV2617106"
       }],
       "events": [{
+        "id": "101084",
+        "title": "AC Installation - 8",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "location": "",
+        "status": {
+          "text": "Tentative",
+          "value": "TENTATIVE",
+          "code": "bg-secondary"
+        },
+        "date": {
+          "recurrence": "one time event on 1/17/2025",
+          "dates": ["1/17/2025"],
+          "start": "2025-01-17",
+          "end": "2025-01-17"
+        },
+        "time": {
+          "start": "08:00",
+          "end": "18:00"
+        },
+        "priority": {
+          "text": "Medium",
+          "value": "2",
+          "code": "#dfcf02"
+        },
+        "note": "AC Installation - 8",
+        "url": "/app/crm/calendar/event.nl?id=101084&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {},
+        "resources": [],
+        "vendors": [],
+        "assets": [],
+        "items": [],
+        "contacts": [],
+        "addresses": [],
+        "contact": {
+          "text": "",
+          "value": ""
+        },
+        "address": {
+          "text": "",
+          "value": ""
+        },
+        "organizer": {
+          "text": "Arun Sharma",
+          "value": "1770"
+        }
+      }, {
+        "id": "101083",
+        "title": "AC Installation - 7",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "location": "",
+        "status": {
+          "text": "Tentative",
+          "value": "TENTATIVE",
+          "code": "bg-secondary"
+        },
+        "date": {
+          "recurrence": "one time event on 1/17/2025",
+          "dates": ["1/17/2025"],
+          "start": "2025-01-17",
+          "end": "2025-01-17"
+        },
+        "time": {
+          "start": "08:00",
+          "end": "18:00"
+        },
+        "priority": {
+          "text": "Urgent",
+          "value": "4",
+          "code": "#9a2407"
+        },
+        "note": "AC Installation - 7",
+        "url": "/app/crm/calendar/event.nl?id=101083&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {},
+        "resources": [],
+        "vendors": [],
+        "assets": [],
+        "items": [],
+        "contacts": [],
+        "addresses": [],
+        "contact": {
+          "text": "",
+          "value": ""
+        },
+        "address": {
+          "text": "",
+          "value": ""
+        },
+        "organizer": {
+          "text": "Mei Matriano",
+          "value": "1647"
+        }
+      }, {
+        "id": "101082",
+        "title": "AC Installation - 6",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "location": "",
+        "status": {
+          "text": "Tentative",
+          "value": "TENTATIVE",
+          "code": "bg-secondary"
+        },
+        "date": {
+          "recurrence": "one time event on 1/17/2025",
+          "dates": ["1/17/2025"],
+          "start": "2025-01-17",
+          "end": "2025-01-17"
+        },
+        "time": {
+          "start": "08:00",
+          "end": "18:00"
+        },
+        "priority": {
+          "text": "High",
+          "value": "3",
+          "code": "#ca6621"
+        },
+        "note": "AC Installation - 6",
+        "url": "/app/crm/calendar/event.nl?id=101082&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {},
+        "resources": [],
+        "vendors": [],
+        "assets": [],
+        "items": [],
+        "contacts": [],
+        "addresses": [],
+        "contact": {
+          "text": "",
+          "value": ""
+        },
+        "address": {
+          "text": "",
+          "value": ""
+        },
+        "organizer": {
+          "text": "Mei Matriano",
+          "value": "1647"
+        }
+      }, {
+        "id": "101081",
+        "title": "AC Installation - 5",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "location": "",
+        "status": {
+          "text": "Tentative",
+          "value": "TENTATIVE",
+          "code": "bg-secondary"
+        },
+        "date": {
+          "recurrence": "one time event on 1/17/2025",
+          "dates": ["1/17/2025"],
+          "start": "2025-01-17",
+          "end": "2025-01-17"
+        },
+        "time": {
+          "start": "08:00",
+          "end": "18:00"
+        },
+        "priority": {
+          "text": "Urgent",
+          "value": "4",
+          "code": "#9a2407"
+        },
+        "note": "AC Installation - 5",
+        "url": "/app/crm/calendar/event.nl?id=101081&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {},
+        "resources": [],
+        "vendors": [],
+        "assets": [],
+        "items": [],
+        "contacts": [],
+        "addresses": [],
+        "contact": {
+          "text": "",
+          "value": ""
+        },
+        "address": {
+          "text": "",
+          "value": ""
+        },
+        "organizer": {
+          "text": "Arun Sharma",
+          "value": "1770"
+        }
+      }, {
+        "id": "101080",
+        "title": "AC Installation - 4",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "location": "",
+        "status": {
+          "text": "Tentative",
+          "value": "TENTATIVE",
+          "code": "bg-secondary"
+        },
+        "date": {
+          "recurrence": "occurs every day from 1/16/2025 until 1/17/2025",
+          "dates": ["1/16/2025", "1/17/2025"],
+          "start": "2025-01-16",
+          "end": "2025-01-17"
+        },
+        "time": {
+          "start": "08:00",
+          "end": "18:00"
+        },
+        "priority": {
+          "text": "High",
+          "value": "3",
+          "code": "#ca6621"
+        },
+        "note": "AC Installation - 4",
+        "url": "/app/crm/calendar/event.nl?id=101080&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {},
+        "resources": [],
+        "vendors": [],
+        "assets": [],
+        "items": [],
+        "contacts": [],
+        "addresses": [],
+        "contact": {
+          "text": "",
+          "value": ""
+        },
+        "address": {
+          "text": "",
+          "value": ""
+        },
+        "organizer": {
+          "text": "Mei Matriano",
+          "value": "1647"
+        }
+      }, {
         "id": "101079",
         "title": "AC Installation - 3",
         "workorder": {
-          "text": "Test Work Order",
+          "text": "Test Work Order - AC Installation",
           "value": "123"
         },
         "location": "",
@@ -44334,7 +56240,7 @@ const mockup = {
         "id": "101078",
         "title": "AC Installation 2",
         "workorder": {
-          "text": "Test Work Order",
+          "text": "Test Work Order - AC Installation",
           "value": "123"
         },
         "location": "",
@@ -44384,7 +56290,7 @@ const mockup = {
         "id": "101077",
         "title": "AC Installation",
         "workorder": {
-          "text": "Test Work Order",
+          "text": "Test Work Order - AC Installation",
           "value": "123"
         },
         "location": "",
@@ -44434,7 +56340,7 @@ const mockup = {
         "id": "101076",
         "title": "Test Work Order",
         "workorder": {
-          "text": "Test Work Order",
+          "text": "Test Work Order - AC Installation",
           "value": "123"
         },
         "location": "",
@@ -44484,7 +56390,7 @@ const mockup = {
         "id": "101075",
         "title": "Test Work Order",
         "workorder": {
-          "text": "Test Work Order",
+          "text": "Test Work Order - AC Installation",
           "value": "123"
         },
         "location": "",
@@ -44542,7 +56448,7 @@ const mockup = {
       "id": "124",
       "name": "ELE00002",
       "workorder": {
-        "text": "Test Work Order",
+        "text": "Test Work Order - AC Installation",
         "value": "123"
       },
       "event": "101077",
@@ -44578,7 +56484,7 @@ const mockup = {
     "items": [{
       "id": "557",
       "workorder": {
-        "text": "Test Work Order",
+        "text": "Test Work Order - AC Installation",
         "value": "123"
       },
       "salesorder": {
@@ -44593,8 +56499,8 @@ const mockup = {
         "value": "467"
       },
       "description": "Head Master Chair",
-      "quantity": 2,
-      "availableQty": 2,
+      "quantity": 7,
+      "availableQty": 7,
       "note": "",
       "selected": true
     }],
@@ -44602,14 +56508,14 @@ const mockup = {
     "addresses": [{
       "id": "207",
       "workorder": {
-        "text": "Test Work Order",
+        "text": "Test Work Order - AC Installation",
         "value": "123"
       },
       "customer": {
         "text": "World Bank",
         "value": "1249"
       },
-      "events": ["101062", "101076", "101077", "101078", "101079"],
+      "events": ["101062", "101076", "101077", "101078", "101079", "101080", "101084"],
       "address": {
         "text": "434 Carlaw",
         "value": "244878"
@@ -44634,7 +56540,7 @@ const mockup = {
     "id": "101076",
     "title": "Test Work Order",
     "workorder": {
-      "text": "Test Work Order",
+      "text": "Test Work Order - AC Installation",
       "value": "123"
     },
     "location": "",
@@ -44663,8 +56569,8 @@ const mockup = {
     "color": "#1a6756",
     "woRef": {
       "id": "123",
-      "name": "Test Work Order",
-      "title": "Test Work Order",
+      "name": "Test Work Order - AC Installation",
+      "title": "Test Work Order - AC Installation",
       "project": {
         "text": "World Bank : World Bank Office Furniture Installation",
         "value": "1515"
@@ -44705,7 +56611,7 @@ const mockup = {
         "email": "",
         "initials": "BF",
         "workorder": {
-          "text": "Test Work Order",
+          "text": "Test Work Order - AC Installation",
           "value": "123"
         },
         "event": "101062",
@@ -44720,6 +56626,106 @@ const mockup = {
         "woVendor": true,
         "memo": ""
       }, {
+        "id": "190",
+        "name": "190",
+        "vendor": {
+          "text": "Best Fixture, Inc.",
+          "value": "12"
+        },
+        "url": "",
+        "email": "",
+        "initials": "BF",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "event": "101081",
+        "quantityRequired": 5,
+        "quantityAvailable": 0,
+        "purchaseOrder": {
+          "text": " ",
+          "value": ""
+        },
+        "amount": 0,
+        "active": false,
+        "woVendor": true,
+        "memo": ""
+      }, {
+        "id": "191",
+        "name": "191",
+        "vendor": {
+          "text": "CFI Furniture Inc.",
+          "value": "1661"
+        },
+        "url": "",
+        "email": "login+plural@erpsuccesspartners.com",
+        "initials": "CF",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "event": "101082",
+        "quantityRequired": 5,
+        "quantityAvailable": 0,
+        "purchaseOrder": {
+          "text": " ",
+          "value": ""
+        },
+        "amount": 0,
+        "active": false,
+        "woVendor": true,
+        "memo": ""
+      }, {
+        "id": "192",
+        "name": "192",
+        "vendor": {
+          "text": "CFI Furniture Inc.",
+          "value": "1661"
+        },
+        "url": "",
+        "email": "login+plural@erpsuccesspartners.com",
+        "initials": "CF",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "event": "101083",
+        "quantityRequired": 5,
+        "quantityAvailable": 0,
+        "purchaseOrder": {
+          "text": " ",
+          "value": ""
+        },
+        "amount": 0,
+        "active": false,
+        "woVendor": true,
+        "memo": ""
+      }, {
+        "id": "193",
+        "name": "193",
+        "vendor": {
+          "text": "Bridgepoint Industries",
+          "value": "1473"
+        },
+        "url": "http://www.bridgepointindustries.com.de",
+        "email": "support@bridgempointindustries.com.de",
+        "initials": "BI",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "event": "101084",
+        "quantityRequired": 5,
+        "quantityAvailable": 20,
+        "purchaseOrder": {
+          "text": " ",
+          "value": ""
+        },
+        "amount": 0,
+        "active": true,
+        "woVendor": true,
+        "memo": ""
+      }, {
         "id": "188",
         "name": "Best Fixture, Inc.",
         "vendor": {
@@ -44730,7 +56736,7 @@ const mockup = {
         "email": "",
         "initials": "BF",
         "workorder": {
-          "text": "Test Work Order",
+          "text": "Test Work Order - AC Installation",
           "value": "123"
         },
         "event": "101075",
@@ -44749,7 +56755,7 @@ const mockup = {
         "id": "123",
         "name": "ELE00002",
         "workorder": {
-          "text": "Test Work Order",
+          "text": "Test Work Order - AC Installation",
           "value": "123"
         },
         "event": "101062",
@@ -44784,7 +56790,7 @@ const mockup = {
         "id": "124",
         "name": "ELE00002",
         "workorder": {
-          "text": "Test Work Order",
+          "text": "Test Work Order - AC Installation",
           "value": "123"
         },
         "event": "101077",
@@ -44819,7 +56825,7 @@ const mockup = {
         "id": "125",
         "name": "ELE00002",
         "workorder": {
-          "text": "Test Work Order",
+          "text": "Test Work Order - AC Installation",
           "value": "123"
         },
         "event": "101078",
@@ -44854,7 +56860,7 @@ const mockup = {
         "id": "126",
         "name": "ELE00002",
         "workorder": {
-          "text": "Test Work Order",
+          "text": "Test Work Order - AC Installation",
           "value": "123"
         },
         "event": "101079",
@@ -44885,32 +56891,151 @@ const mockup = {
         },
         "owned": true,
         "rentalMatrix": 0
-      }],
-      "items": [{
-        "id": "557",
+      }, {
+        "id": "127",
+        "name": "ELE00002",
         "workorder": {
-          "text": "Test Work Order",
+          "text": "Test Work Order - AC Installation",
           "value": "123"
         },
-        "salesorder": {
-          "text": "Sales Order #SLS00000803",
-          "value": "22468"
-        },
-        "event": "101077",
-        "uuid": "22468_1",
-        "line": "1",
+        "event": "101081",
+        "quantity": 0,
+        "description": "Serialized 1 Sales Description",
         "item": {
-          "text": "BIC00008",
-          "value": "467"
+          "text": "ELE00002",
+          "value": "674"
         },
-        "description": "Head Master Chair",
-        "quantity": 2,
-        "availableQty": 2,
-        "note": ""
+        "equipmentType": {
+          "text": "Hand Tools",
+          "value": "1"
+        },
+        "rentalUnit": {
+          "text": "",
+          "value": ""
+        },
+        "rentalDuration": 0,
+        "rentalRate": 0,
+        "rentalAmount": 0,
+        "purchaseOrder": {
+          "text": " ",
+          "value": " "
+        },
+        "vendor": {
+          "text": "Computer Depot Pacific",
+          "value": "965"
+        },
+        "owned": true,
+        "rentalMatrix": 0
       }, {
+        "id": "128",
+        "name": "ELE00002",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "event": "101082",
+        "quantity": 100,
+        "description": "Serialized 1 Sales Description",
+        "item": {
+          "text": "ELE00002",
+          "value": "674"
+        },
+        "equipmentType": {
+          "text": "Hand Tools",
+          "value": "1"
+        },
+        "rentalUnit": {
+          "text": "",
+          "value": ""
+        },
+        "rentalDuration": 0,
+        "rentalRate": 0,
+        "rentalAmount": 0,
+        "purchaseOrder": {
+          "text": " ",
+          "value": " "
+        },
+        "vendor": {
+          "text": "Computer Depot Pacific",
+          "value": "965"
+        },
+        "owned": true,
+        "rentalMatrix": 0
+      }, {
+        "id": "129",
+        "name": "ELE00002",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "event": "101083",
+        "quantity": 20,
+        "description": "Serialized 1 Sales Description",
+        "item": {
+          "text": "ELE00002",
+          "value": "674"
+        },
+        "equipmentType": {
+          "text": "Hand Tools",
+          "value": "1"
+        },
+        "rentalUnit": {
+          "text": "",
+          "value": ""
+        },
+        "rentalDuration": 0,
+        "rentalRate": 0,
+        "rentalAmount": 0,
+        "purchaseOrder": {
+          "text": " ",
+          "value": " "
+        },
+        "vendor": {
+          "text": "Computer Depot Pacific",
+          "value": "965"
+        },
+        "owned": true,
+        "rentalMatrix": 0
+      }, {
+        "id": "130",
+        "name": "ELE00002",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "event": "101084",
+        "quantity": 0,
+        "description": "Serialized 1 Sales Description",
+        "item": {
+          "text": "ELE00002",
+          "value": "674"
+        },
+        "equipmentType": {
+          "text": "Hand Tools",
+          "value": "1"
+        },
+        "rentalUnit": {
+          "text": "",
+          "value": ""
+        },
+        "rentalDuration": 0,
+        "rentalRate": 0,
+        "rentalAmount": 0,
+        "purchaseOrder": {
+          "text": " ",
+          "value": " "
+        },
+        "vendor": {
+          "text": "Computer Depot Pacific",
+          "value": "965"
+        },
+        "owned": true,
+        "rentalMatrix": 0
+      }],
+      "items": [{
         "id": "558",
         "workorder": {
-          "text": "Test Work Order",
+          "text": "Test Work Order - AC Installation",
           "value": "123"
         },
         "salesorder": {
@@ -44929,30 +57054,114 @@ const mockup = {
         "availableQty": 2,
         "note": ""
       }, {
-        "id": "559",
+        "id": "560",
         "workorder": {
-          "text": "Test Work Order",
+          "text": "Test Work Order - AC Installation",
           "value": "123"
         },
         "salesorder": {
           "text": "Sales Order #SLS00000803",
           "value": "22468"
         },
-        "event": "101079",
-        "uuid": "22468_3",
-        "line": "3",
+        "event": "101080",
+        "uuid": "22468_1",
+        "line": "1",
         "item": {
           "text": "BIC00008",
           "value": "467"
         },
-        "description": "Working Table",
+        "description": "Head Master Chair",
+        "quantity": 1,
+        "availableQty": 1,
+        "note": ""
+      }, {
+        "id": "561",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "salesorder": {
+          "text": "Sales Order #SLS00000803",
+          "value": "22468"
+        },
+        "event": "101081",
+        "uuid": "22468_1",
+        "line": "1",
+        "item": {
+          "text": "BIC00008",
+          "value": "467"
+        },
+        "description": "Head Master Chair",
         "quantity": 5,
         "availableQty": 5,
         "note": ""
       }, {
+        "id": "565",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "salesorder": {
+          "text": "Sales Order #SLS00000803",
+          "value": "22468"
+        },
+        "event": "101082",
+        "uuid": "22468_1",
+        "line": "1",
+        "item": {
+          "text": "BIC00008",
+          "value": "467"
+        },
+        "description": "Head Master Chair",
+        "quantity": 5,
+        "availableQty": 5,
+        "note": ""
+      }, {
+        "id": "567",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "salesorder": {
+          "text": "Sales Order #SLS00000803",
+          "value": "22468"
+        },
+        "event": "101083",
+        "uuid": "22468_1",
+        "line": "1",
+        "item": {
+          "text": "BIC00008",
+          "value": "467"
+        },
+        "description": "Head Master Chair",
+        "quantity": 2,
+        "availableQty": 2,
+        "note": ""
+      }, {
+        "id": "574",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "salesorder": {
+          "text": "Sales Order #SLS00000803",
+          "value": "22468"
+        },
+        "event": "101084",
+        "uuid": "22468_1",
+        "line": "1",
+        "item": {
+          "text": "BIC00008",
+          "value": "467"
+        },
+        "description": "Head Master Chair",
+        "quantity": 2,
+        "availableQty": 2,
+        "note": ""
+      }, {
         "id": "547",
         "workorder": {
-          "text": "Test Work Order",
+          "text": "Test Work Order - AC Installation",
           "value": "123"
         },
         "salesorder": {
@@ -44973,7 +57182,7 @@ const mockup = {
       }, {
         "id": "555",
         "workorder": {
-          "text": "Test Work Order",
+          "text": "Test Work Order - AC Installation",
           "value": "123"
         },
         "salesorder": {
@@ -44994,7 +57203,7 @@ const mockup = {
       }, {
         "id": "556",
         "workorder": {
-          "text": "Test Work Order",
+          "text": "Test Work Order - AC Installation",
           "value": "123"
         },
         "salesorder": {
@@ -45015,7 +57224,7 @@ const mockup = {
       }, {
         "id": "548",
         "workorder": {
-          "text": "Test Work Order",
+          "text": "Test Work Order - AC Installation",
           "value": "123"
         },
         "salesorder": {
@@ -45036,7 +57245,7 @@ const mockup = {
       }, {
         "id": "549",
         "workorder": {
-          "text": "Test Work Order",
+          "text": "Test Work Order - AC Installation",
           "value": "123"
         },
         "salesorder": {
@@ -45057,7 +57266,7 @@ const mockup = {
       }, {
         "id": "550",
         "workorder": {
-          "text": "Test Work Order",
+          "text": "Test Work Order - AC Installation",
           "value": "123"
         },
         "salesorder": {
@@ -45078,7 +57287,7 @@ const mockup = {
       }, {
         "id": "546",
         "workorder": {
-          "text": "Test Work Order",
+          "text": "Test Work Order - AC Installation",
           "value": "123"
         },
         "salesorder": {
@@ -45096,18 +57305,60 @@ const mockup = {
         "quantity": 7,
         "availableQty": 7,
         "note": ""
+      }, {
+        "id": "557",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "salesorder": {
+          "text": "Sales Order #SLS00000803",
+          "value": "22468"
+        },
+        "event": "101077",
+        "uuid": "22468_1",
+        "line": "1",
+        "item": {
+          "text": "BIC00008",
+          "value": "467"
+        },
+        "description": "Head Master Chair",
+        "quantity": 7,
+        "availableQty": 7,
+        "note": ""
+      }, {
+        "id": "559",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "salesorder": {
+          "text": "Sales Order #SLS00000803",
+          "value": "22468"
+        },
+        "event": "101079",
+        "uuid": "22468_3",
+        "line": "3",
+        "item": {
+          "text": "BIC00008",
+          "value": "467"
+        },
+        "description": "Working Table",
+        "quantity": 10,
+        "availableQty": 10,
+        "note": ""
       }],
       "addresses": [{
         "id": "207",
         "workorder": {
-          "text": "Test Work Order",
+          "text": "Test Work Order - AC Installation",
           "value": "123"
         },
         "customer": {
           "text": "World Bank",
           "value": "1249"
         },
-        "events": ["101062", "101076", "101077", "101078", "101079"],
+        "events": ["101062", "101076", "101077", "101078", "101079", "101080", "101084"],
         "address": {
           "text": "434 Carlaw",
           "value": "244878"
@@ -45118,10 +57369,10 @@ const mockup = {
       "contacts": [{
         "id": "168",
         "workorder": {
-          "text": "Test Work Order",
+          "text": "Test Work Order - AC Installation",
           "value": "123"
         },
-        "events": ["101062", "101077", "101078"],
+        "events": ["101062", "101077", "101078", "101080", "101084"],
         "contact": {
           "text": "World Bank : Chad Bass",
           "value": "1382"
@@ -45136,7 +57387,7 @@ const mockup = {
       }, {
         "id": "169",
         "workorder": {
-          "text": "Test Work Order",
+          "text": "Test Work Order - AC Installation",
           "value": "123"
         },
         "events": ["101075", "101079"],
@@ -45153,10 +57404,260 @@ const mockup = {
         "url": "/app/common/entity/contact.nl?id=1382&compid=TSTDRV2617106"
       }],
       "events": [{
+        "id": "101084",
+        "title": "AC Installation - 8",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "location": "",
+        "status": {
+          "text": "Tentative",
+          "value": "TENTATIVE",
+          "code": "bg-secondary"
+        },
+        "date": {
+          "recurrence": "one time event on 1/17/2025",
+          "dates": ["1/17/2025"],
+          "start": "2025-01-17",
+          "end": "2025-01-17"
+        },
+        "time": {
+          "start": "08:00",
+          "end": "18:00"
+        },
+        "priority": {
+          "text": "Medium",
+          "value": "2",
+          "code": "#dfcf02"
+        },
+        "note": "AC Installation - 8",
+        "url": "/app/crm/calendar/event.nl?id=101084&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {},
+        "resources": [],
+        "vendors": [],
+        "assets": [],
+        "items": [],
+        "contacts": [],
+        "addresses": [],
+        "contact": {
+          "text": "",
+          "value": ""
+        },
+        "address": {
+          "text": "",
+          "value": ""
+        },
+        "organizer": {
+          "text": "Arun Sharma",
+          "value": "1770"
+        }
+      }, {
+        "id": "101083",
+        "title": "AC Installation - 7",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "location": "",
+        "status": {
+          "text": "Tentative",
+          "value": "TENTATIVE",
+          "code": "bg-secondary"
+        },
+        "date": {
+          "recurrence": "one time event on 1/17/2025",
+          "dates": ["1/17/2025"],
+          "start": "2025-01-17",
+          "end": "2025-01-17"
+        },
+        "time": {
+          "start": "08:00",
+          "end": "18:00"
+        },
+        "priority": {
+          "text": "Urgent",
+          "value": "4",
+          "code": "#9a2407"
+        },
+        "note": "AC Installation - 7",
+        "url": "/app/crm/calendar/event.nl?id=101083&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {},
+        "resources": [],
+        "vendors": [],
+        "assets": [],
+        "items": [],
+        "contacts": [],
+        "addresses": [],
+        "contact": {
+          "text": "",
+          "value": ""
+        },
+        "address": {
+          "text": "",
+          "value": ""
+        },
+        "organizer": {
+          "text": "Mei Matriano",
+          "value": "1647"
+        }
+      }, {
+        "id": "101082",
+        "title": "AC Installation - 6",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "location": "",
+        "status": {
+          "text": "Tentative",
+          "value": "TENTATIVE",
+          "code": "bg-secondary"
+        },
+        "date": {
+          "recurrence": "one time event on 1/17/2025",
+          "dates": ["1/17/2025"],
+          "start": "2025-01-17",
+          "end": "2025-01-17"
+        },
+        "time": {
+          "start": "08:00",
+          "end": "18:00"
+        },
+        "priority": {
+          "text": "High",
+          "value": "3",
+          "code": "#ca6621"
+        },
+        "note": "AC Installation - 6",
+        "url": "/app/crm/calendar/event.nl?id=101082&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {},
+        "resources": [],
+        "vendors": [],
+        "assets": [],
+        "items": [],
+        "contacts": [],
+        "addresses": [],
+        "contact": {
+          "text": "",
+          "value": ""
+        },
+        "address": {
+          "text": "",
+          "value": ""
+        },
+        "organizer": {
+          "text": "Mei Matriano",
+          "value": "1647"
+        }
+      }, {
+        "id": "101081",
+        "title": "AC Installation - 5",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "location": "",
+        "status": {
+          "text": "Tentative",
+          "value": "TENTATIVE",
+          "code": "bg-secondary"
+        },
+        "date": {
+          "recurrence": "one time event on 1/17/2025",
+          "dates": ["1/17/2025"],
+          "start": "2025-01-17",
+          "end": "2025-01-17"
+        },
+        "time": {
+          "start": "08:00",
+          "end": "18:00"
+        },
+        "priority": {
+          "text": "Urgent",
+          "value": "4",
+          "code": "#9a2407"
+        },
+        "note": "AC Installation - 5",
+        "url": "/app/crm/calendar/event.nl?id=101081&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {},
+        "resources": [],
+        "vendors": [],
+        "assets": [],
+        "items": [],
+        "contacts": [],
+        "addresses": [],
+        "contact": {
+          "text": "",
+          "value": ""
+        },
+        "address": {
+          "text": "",
+          "value": ""
+        },
+        "organizer": {
+          "text": "Arun Sharma",
+          "value": "1770"
+        }
+      }, {
+        "id": "101080",
+        "title": "AC Installation - 4",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "location": "",
+        "status": {
+          "text": "Tentative",
+          "value": "TENTATIVE",
+          "code": "bg-secondary"
+        },
+        "date": {
+          "recurrence": "occurs every day from 1/16/2025 until 1/17/2025",
+          "dates": ["1/16/2025", "1/17/2025"],
+          "start": "2025-01-16",
+          "end": "2025-01-17"
+        },
+        "time": {
+          "start": "08:00",
+          "end": "18:00"
+        },
+        "priority": {
+          "text": "High",
+          "value": "3",
+          "code": "#ca6621"
+        },
+        "note": "AC Installation - 4",
+        "url": "/app/crm/calendar/event.nl?id=101080&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {},
+        "resources": [],
+        "vendors": [],
+        "assets": [],
+        "items": [],
+        "contacts": [],
+        "addresses": [],
+        "contact": {
+          "text": "",
+          "value": ""
+        },
+        "address": {
+          "text": "",
+          "value": ""
+        },
+        "organizer": {
+          "text": "Mei Matriano",
+          "value": "1647"
+        }
+      }, {
         "id": "101079",
         "title": "AC Installation - 3",
         "workorder": {
-          "text": "Test Work Order",
+          "text": "Test Work Order - AC Installation",
           "value": "123"
         },
         "location": "",
@@ -45206,7 +57707,7 @@ const mockup = {
         "id": "101078",
         "title": "AC Installation 2",
         "workorder": {
-          "text": "Test Work Order",
+          "text": "Test Work Order - AC Installation",
           "value": "123"
         },
         "location": "",
@@ -45256,7 +57757,7 @@ const mockup = {
         "id": "101077",
         "title": "AC Installation",
         "workorder": {
-          "text": "Test Work Order",
+          "text": "Test Work Order - AC Installation",
           "value": "123"
         },
         "location": "",
@@ -45306,7 +57807,7 @@ const mockup = {
         "id": "101076",
         "title": "Test Work Order",
         "workorder": {
-          "text": "Test Work Order",
+          "text": "Test Work Order - AC Installation",
           "value": "123"
         },
         "location": "",
@@ -45356,7 +57857,7 @@ const mockup = {
         "id": "101075",
         "title": "Test Work Order",
         "workorder": {
-          "text": "Test Work Order",
+          "text": "Test Work Order - AC Installation",
           "value": "123"
         },
         "location": "",
@@ -45420,7 +57921,7 @@ const mockup = {
       },
       "active": true,
       "workorder": {
-        "text": "Test Work Order",
+        "text": "Test Work Order - AC Installation",
         "value": "123"
       },
       "events": ["101076"],
@@ -45476,14 +57977,14 @@ const mockup = {
     "addresses": [{
       "id": "207",
       "workorder": {
-        "text": "Test Work Order",
+        "text": "Test Work Order - AC Installation",
         "value": "123"
       },
       "customer": {
         "text": "World Bank",
         "value": "1249"
       },
-      "events": ["101062", "101076", "101077", "101078", "101079"],
+      "events": ["101062", "101076", "101077", "101078", "101079", "101080", "101084"],
       "address": {
         "text": "434 Carlaw",
         "value": "244878"
@@ -45508,7 +58009,7 @@ const mockup = {
     "id": "101075",
     "title": "Test Work Order",
     "workorder": {
-      "text": "Test Work Order",
+      "text": "Test Work Order - AC Installation",
       "value": "123"
     },
     "location": "",
@@ -45537,8 +58038,8 @@ const mockup = {
     "color": "#1a6756",
     "woRef": {
       "id": "123",
-      "name": "Test Work Order",
-      "title": "Test Work Order",
+      "name": "Test Work Order - AC Installation",
+      "title": "Test Work Order - AC Installation",
       "project": {
         "text": "World Bank : World Bank Office Furniture Installation",
         "value": "1515"
@@ -45579,7 +58080,7 @@ const mockup = {
         "email": "",
         "initials": "BF",
         "workorder": {
-          "text": "Test Work Order",
+          "text": "Test Work Order - AC Installation",
           "value": "123"
         },
         "event": "101062",
@@ -45594,6 +58095,106 @@ const mockup = {
         "woVendor": true,
         "memo": ""
       }, {
+        "id": "190",
+        "name": "190",
+        "vendor": {
+          "text": "Best Fixture, Inc.",
+          "value": "12"
+        },
+        "url": "",
+        "email": "",
+        "initials": "BF",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "event": "101081",
+        "quantityRequired": 5,
+        "quantityAvailable": 0,
+        "purchaseOrder": {
+          "text": " ",
+          "value": ""
+        },
+        "amount": 0,
+        "active": false,
+        "woVendor": true,
+        "memo": ""
+      }, {
+        "id": "191",
+        "name": "191",
+        "vendor": {
+          "text": "CFI Furniture Inc.",
+          "value": "1661"
+        },
+        "url": "",
+        "email": "login+plural@erpsuccesspartners.com",
+        "initials": "CF",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "event": "101082",
+        "quantityRequired": 5,
+        "quantityAvailable": 0,
+        "purchaseOrder": {
+          "text": " ",
+          "value": ""
+        },
+        "amount": 0,
+        "active": false,
+        "woVendor": true,
+        "memo": ""
+      }, {
+        "id": "192",
+        "name": "192",
+        "vendor": {
+          "text": "CFI Furniture Inc.",
+          "value": "1661"
+        },
+        "url": "",
+        "email": "login+plural@erpsuccesspartners.com",
+        "initials": "CF",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "event": "101083",
+        "quantityRequired": 5,
+        "quantityAvailable": 0,
+        "purchaseOrder": {
+          "text": " ",
+          "value": ""
+        },
+        "amount": 0,
+        "active": false,
+        "woVendor": true,
+        "memo": ""
+      }, {
+        "id": "193",
+        "name": "193",
+        "vendor": {
+          "text": "Bridgepoint Industries",
+          "value": "1473"
+        },
+        "url": "http://www.bridgepointindustries.com.de",
+        "email": "support@bridgempointindustries.com.de",
+        "initials": "BI",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "event": "101084",
+        "quantityRequired": 5,
+        "quantityAvailable": 20,
+        "purchaseOrder": {
+          "text": " ",
+          "value": ""
+        },
+        "amount": 0,
+        "active": true,
+        "woVendor": true,
+        "memo": ""
+      }, {
         "id": "188",
         "name": "Best Fixture, Inc.",
         "vendor": {
@@ -45604,7 +58205,7 @@ const mockup = {
         "email": "",
         "initials": "BF",
         "workorder": {
-          "text": "Test Work Order",
+          "text": "Test Work Order - AC Installation",
           "value": "123"
         },
         "event": "101075",
@@ -45623,7 +58224,7 @@ const mockup = {
         "id": "123",
         "name": "ELE00002",
         "workorder": {
-          "text": "Test Work Order",
+          "text": "Test Work Order - AC Installation",
           "value": "123"
         },
         "event": "101062",
@@ -45658,7 +58259,7 @@ const mockup = {
         "id": "124",
         "name": "ELE00002",
         "workorder": {
-          "text": "Test Work Order",
+          "text": "Test Work Order - AC Installation",
           "value": "123"
         },
         "event": "101077",
@@ -45693,7 +58294,7 @@ const mockup = {
         "id": "125",
         "name": "ELE00002",
         "workorder": {
-          "text": "Test Work Order",
+          "text": "Test Work Order - AC Installation",
           "value": "123"
         },
         "event": "101078",
@@ -45728,7 +58329,7 @@ const mockup = {
         "id": "126",
         "name": "ELE00002",
         "workorder": {
-          "text": "Test Work Order",
+          "text": "Test Work Order - AC Installation",
           "value": "123"
         },
         "event": "101079",
@@ -45759,32 +58360,151 @@ const mockup = {
         },
         "owned": true,
         "rentalMatrix": 0
-      }],
-      "items": [{
-        "id": "557",
+      }, {
+        "id": "127",
+        "name": "ELE00002",
         "workorder": {
-          "text": "Test Work Order",
+          "text": "Test Work Order - AC Installation",
           "value": "123"
         },
-        "salesorder": {
-          "text": "Sales Order #SLS00000803",
-          "value": "22468"
-        },
-        "event": "101077",
-        "uuid": "22468_1",
-        "line": "1",
+        "event": "101081",
+        "quantity": 0,
+        "description": "Serialized 1 Sales Description",
         "item": {
-          "text": "BIC00008",
-          "value": "467"
+          "text": "ELE00002",
+          "value": "674"
         },
-        "description": "Head Master Chair",
-        "quantity": 2,
-        "availableQty": 2,
-        "note": ""
+        "equipmentType": {
+          "text": "Hand Tools",
+          "value": "1"
+        },
+        "rentalUnit": {
+          "text": "",
+          "value": ""
+        },
+        "rentalDuration": 0,
+        "rentalRate": 0,
+        "rentalAmount": 0,
+        "purchaseOrder": {
+          "text": " ",
+          "value": " "
+        },
+        "vendor": {
+          "text": "Computer Depot Pacific",
+          "value": "965"
+        },
+        "owned": true,
+        "rentalMatrix": 0
       }, {
+        "id": "128",
+        "name": "ELE00002",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "event": "101082",
+        "quantity": 100,
+        "description": "Serialized 1 Sales Description",
+        "item": {
+          "text": "ELE00002",
+          "value": "674"
+        },
+        "equipmentType": {
+          "text": "Hand Tools",
+          "value": "1"
+        },
+        "rentalUnit": {
+          "text": "",
+          "value": ""
+        },
+        "rentalDuration": 0,
+        "rentalRate": 0,
+        "rentalAmount": 0,
+        "purchaseOrder": {
+          "text": " ",
+          "value": " "
+        },
+        "vendor": {
+          "text": "Computer Depot Pacific",
+          "value": "965"
+        },
+        "owned": true,
+        "rentalMatrix": 0
+      }, {
+        "id": "129",
+        "name": "ELE00002",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "event": "101083",
+        "quantity": 20,
+        "description": "Serialized 1 Sales Description",
+        "item": {
+          "text": "ELE00002",
+          "value": "674"
+        },
+        "equipmentType": {
+          "text": "Hand Tools",
+          "value": "1"
+        },
+        "rentalUnit": {
+          "text": "",
+          "value": ""
+        },
+        "rentalDuration": 0,
+        "rentalRate": 0,
+        "rentalAmount": 0,
+        "purchaseOrder": {
+          "text": " ",
+          "value": " "
+        },
+        "vendor": {
+          "text": "Computer Depot Pacific",
+          "value": "965"
+        },
+        "owned": true,
+        "rentalMatrix": 0
+      }, {
+        "id": "130",
+        "name": "ELE00002",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "event": "101084",
+        "quantity": 0,
+        "description": "Serialized 1 Sales Description",
+        "item": {
+          "text": "ELE00002",
+          "value": "674"
+        },
+        "equipmentType": {
+          "text": "Hand Tools",
+          "value": "1"
+        },
+        "rentalUnit": {
+          "text": "",
+          "value": ""
+        },
+        "rentalDuration": 0,
+        "rentalRate": 0,
+        "rentalAmount": 0,
+        "purchaseOrder": {
+          "text": " ",
+          "value": " "
+        },
+        "vendor": {
+          "text": "Computer Depot Pacific",
+          "value": "965"
+        },
+        "owned": true,
+        "rentalMatrix": 0
+      }],
+      "items": [{
         "id": "558",
         "workorder": {
-          "text": "Test Work Order",
+          "text": "Test Work Order - AC Installation",
           "value": "123"
         },
         "salesorder": {
@@ -45803,30 +58523,114 @@ const mockup = {
         "availableQty": 2,
         "note": ""
       }, {
-        "id": "559",
+        "id": "560",
         "workorder": {
-          "text": "Test Work Order",
+          "text": "Test Work Order - AC Installation",
           "value": "123"
         },
         "salesorder": {
           "text": "Sales Order #SLS00000803",
           "value": "22468"
         },
-        "event": "101079",
-        "uuid": "22468_3",
-        "line": "3",
+        "event": "101080",
+        "uuid": "22468_1",
+        "line": "1",
         "item": {
           "text": "BIC00008",
           "value": "467"
         },
-        "description": "Working Table",
+        "description": "Head Master Chair",
+        "quantity": 1,
+        "availableQty": 1,
+        "note": ""
+      }, {
+        "id": "561",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "salesorder": {
+          "text": "Sales Order #SLS00000803",
+          "value": "22468"
+        },
+        "event": "101081",
+        "uuid": "22468_1",
+        "line": "1",
+        "item": {
+          "text": "BIC00008",
+          "value": "467"
+        },
+        "description": "Head Master Chair",
         "quantity": 5,
         "availableQty": 5,
         "note": ""
       }, {
+        "id": "565",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "salesorder": {
+          "text": "Sales Order #SLS00000803",
+          "value": "22468"
+        },
+        "event": "101082",
+        "uuid": "22468_1",
+        "line": "1",
+        "item": {
+          "text": "BIC00008",
+          "value": "467"
+        },
+        "description": "Head Master Chair",
+        "quantity": 5,
+        "availableQty": 5,
+        "note": ""
+      }, {
+        "id": "567",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "salesorder": {
+          "text": "Sales Order #SLS00000803",
+          "value": "22468"
+        },
+        "event": "101083",
+        "uuid": "22468_1",
+        "line": "1",
+        "item": {
+          "text": "BIC00008",
+          "value": "467"
+        },
+        "description": "Head Master Chair",
+        "quantity": 2,
+        "availableQty": 2,
+        "note": ""
+      }, {
+        "id": "574",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "salesorder": {
+          "text": "Sales Order #SLS00000803",
+          "value": "22468"
+        },
+        "event": "101084",
+        "uuid": "22468_1",
+        "line": "1",
+        "item": {
+          "text": "BIC00008",
+          "value": "467"
+        },
+        "description": "Head Master Chair",
+        "quantity": 2,
+        "availableQty": 2,
+        "note": ""
+      }, {
         "id": "547",
         "workorder": {
-          "text": "Test Work Order",
+          "text": "Test Work Order - AC Installation",
           "value": "123"
         },
         "salesorder": {
@@ -45847,7 +58651,7 @@ const mockup = {
       }, {
         "id": "555",
         "workorder": {
-          "text": "Test Work Order",
+          "text": "Test Work Order - AC Installation",
           "value": "123"
         },
         "salesorder": {
@@ -45868,7 +58672,7 @@ const mockup = {
       }, {
         "id": "556",
         "workorder": {
-          "text": "Test Work Order",
+          "text": "Test Work Order - AC Installation",
           "value": "123"
         },
         "salesorder": {
@@ -45889,7 +58693,7 @@ const mockup = {
       }, {
         "id": "548",
         "workorder": {
-          "text": "Test Work Order",
+          "text": "Test Work Order - AC Installation",
           "value": "123"
         },
         "salesorder": {
@@ -45910,7 +58714,7 @@ const mockup = {
       }, {
         "id": "549",
         "workorder": {
-          "text": "Test Work Order",
+          "text": "Test Work Order - AC Installation",
           "value": "123"
         },
         "salesorder": {
@@ -45931,7 +58735,7 @@ const mockup = {
       }, {
         "id": "550",
         "workorder": {
-          "text": "Test Work Order",
+          "text": "Test Work Order - AC Installation",
           "value": "123"
         },
         "salesorder": {
@@ -45952,7 +58756,7 @@ const mockup = {
       }, {
         "id": "546",
         "workorder": {
-          "text": "Test Work Order",
+          "text": "Test Work Order - AC Installation",
           "value": "123"
         },
         "salesorder": {
@@ -45970,18 +58774,60 @@ const mockup = {
         "quantity": 7,
         "availableQty": 7,
         "note": ""
+      }, {
+        "id": "557",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "salesorder": {
+          "text": "Sales Order #SLS00000803",
+          "value": "22468"
+        },
+        "event": "101077",
+        "uuid": "22468_1",
+        "line": "1",
+        "item": {
+          "text": "BIC00008",
+          "value": "467"
+        },
+        "description": "Head Master Chair",
+        "quantity": 7,
+        "availableQty": 7,
+        "note": ""
+      }, {
+        "id": "559",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "salesorder": {
+          "text": "Sales Order #SLS00000803",
+          "value": "22468"
+        },
+        "event": "101079",
+        "uuid": "22468_3",
+        "line": "3",
+        "item": {
+          "text": "BIC00008",
+          "value": "467"
+        },
+        "description": "Working Table",
+        "quantity": 10,
+        "availableQty": 10,
+        "note": ""
       }],
       "addresses": [{
         "id": "207",
         "workorder": {
-          "text": "Test Work Order",
+          "text": "Test Work Order - AC Installation",
           "value": "123"
         },
         "customer": {
           "text": "World Bank",
           "value": "1249"
         },
-        "events": ["101062", "101076", "101077", "101078", "101079"],
+        "events": ["101062", "101076", "101077", "101078", "101079", "101080", "101084"],
         "address": {
           "text": "434 Carlaw",
           "value": "244878"
@@ -45992,10 +58838,10 @@ const mockup = {
       "contacts": [{
         "id": "168",
         "workorder": {
-          "text": "Test Work Order",
+          "text": "Test Work Order - AC Installation",
           "value": "123"
         },
-        "events": ["101062", "101077", "101078"],
+        "events": ["101062", "101077", "101078", "101080", "101084"],
         "contact": {
           "text": "World Bank : Chad Bass",
           "value": "1382"
@@ -46010,7 +58856,7 @@ const mockup = {
       }, {
         "id": "169",
         "workorder": {
-          "text": "Test Work Order",
+          "text": "Test Work Order - AC Installation",
           "value": "123"
         },
         "events": ["101075", "101079"],
@@ -46027,10 +58873,260 @@ const mockup = {
         "url": "/app/common/entity/contact.nl?id=1382&compid=TSTDRV2617106"
       }],
       "events": [{
+        "id": "101084",
+        "title": "AC Installation - 8",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "location": "",
+        "status": {
+          "text": "Tentative",
+          "value": "TENTATIVE",
+          "code": "bg-secondary"
+        },
+        "date": {
+          "recurrence": "one time event on 1/17/2025",
+          "dates": ["1/17/2025"],
+          "start": "2025-01-17",
+          "end": "2025-01-17"
+        },
+        "time": {
+          "start": "08:00",
+          "end": "18:00"
+        },
+        "priority": {
+          "text": "Medium",
+          "value": "2",
+          "code": "#dfcf02"
+        },
+        "note": "AC Installation - 8",
+        "url": "/app/crm/calendar/event.nl?id=101084&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {},
+        "resources": [],
+        "vendors": [],
+        "assets": [],
+        "items": [],
+        "contacts": [],
+        "addresses": [],
+        "contact": {
+          "text": "",
+          "value": ""
+        },
+        "address": {
+          "text": "",
+          "value": ""
+        },
+        "organizer": {
+          "text": "Arun Sharma",
+          "value": "1770"
+        }
+      }, {
+        "id": "101083",
+        "title": "AC Installation - 7",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "location": "",
+        "status": {
+          "text": "Tentative",
+          "value": "TENTATIVE",
+          "code": "bg-secondary"
+        },
+        "date": {
+          "recurrence": "one time event on 1/17/2025",
+          "dates": ["1/17/2025"],
+          "start": "2025-01-17",
+          "end": "2025-01-17"
+        },
+        "time": {
+          "start": "08:00",
+          "end": "18:00"
+        },
+        "priority": {
+          "text": "Urgent",
+          "value": "4",
+          "code": "#9a2407"
+        },
+        "note": "AC Installation - 7",
+        "url": "/app/crm/calendar/event.nl?id=101083&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {},
+        "resources": [],
+        "vendors": [],
+        "assets": [],
+        "items": [],
+        "contacts": [],
+        "addresses": [],
+        "contact": {
+          "text": "",
+          "value": ""
+        },
+        "address": {
+          "text": "",
+          "value": ""
+        },
+        "organizer": {
+          "text": "Mei Matriano",
+          "value": "1647"
+        }
+      }, {
+        "id": "101082",
+        "title": "AC Installation - 6",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "location": "",
+        "status": {
+          "text": "Tentative",
+          "value": "TENTATIVE",
+          "code": "bg-secondary"
+        },
+        "date": {
+          "recurrence": "one time event on 1/17/2025",
+          "dates": ["1/17/2025"],
+          "start": "2025-01-17",
+          "end": "2025-01-17"
+        },
+        "time": {
+          "start": "08:00",
+          "end": "18:00"
+        },
+        "priority": {
+          "text": "High",
+          "value": "3",
+          "code": "#ca6621"
+        },
+        "note": "AC Installation - 6",
+        "url": "/app/crm/calendar/event.nl?id=101082&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {},
+        "resources": [],
+        "vendors": [],
+        "assets": [],
+        "items": [],
+        "contacts": [],
+        "addresses": [],
+        "contact": {
+          "text": "",
+          "value": ""
+        },
+        "address": {
+          "text": "",
+          "value": ""
+        },
+        "organizer": {
+          "text": "Mei Matriano",
+          "value": "1647"
+        }
+      }, {
+        "id": "101081",
+        "title": "AC Installation - 5",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "location": "",
+        "status": {
+          "text": "Tentative",
+          "value": "TENTATIVE",
+          "code": "bg-secondary"
+        },
+        "date": {
+          "recurrence": "one time event on 1/17/2025",
+          "dates": ["1/17/2025"],
+          "start": "2025-01-17",
+          "end": "2025-01-17"
+        },
+        "time": {
+          "start": "08:00",
+          "end": "18:00"
+        },
+        "priority": {
+          "text": "Urgent",
+          "value": "4",
+          "code": "#9a2407"
+        },
+        "note": "AC Installation - 5",
+        "url": "/app/crm/calendar/event.nl?id=101081&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {},
+        "resources": [],
+        "vendors": [],
+        "assets": [],
+        "items": [],
+        "contacts": [],
+        "addresses": [],
+        "contact": {
+          "text": "",
+          "value": ""
+        },
+        "address": {
+          "text": "",
+          "value": ""
+        },
+        "organizer": {
+          "text": "Arun Sharma",
+          "value": "1770"
+        }
+      }, {
+        "id": "101080",
+        "title": "AC Installation - 4",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "location": "",
+        "status": {
+          "text": "Tentative",
+          "value": "TENTATIVE",
+          "code": "bg-secondary"
+        },
+        "date": {
+          "recurrence": "occurs every day from 1/16/2025 until 1/17/2025",
+          "dates": ["1/16/2025", "1/17/2025"],
+          "start": "2025-01-16",
+          "end": "2025-01-17"
+        },
+        "time": {
+          "start": "08:00",
+          "end": "18:00"
+        },
+        "priority": {
+          "text": "High",
+          "value": "3",
+          "code": "#ca6621"
+        },
+        "note": "AC Installation - 4",
+        "url": "/app/crm/calendar/event.nl?id=101080&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {},
+        "resources": [],
+        "vendors": [],
+        "assets": [],
+        "items": [],
+        "contacts": [],
+        "addresses": [],
+        "contact": {
+          "text": "",
+          "value": ""
+        },
+        "address": {
+          "text": "",
+          "value": ""
+        },
+        "organizer": {
+          "text": "Mei Matriano",
+          "value": "1647"
+        }
+      }, {
         "id": "101079",
         "title": "AC Installation - 3",
         "workorder": {
-          "text": "Test Work Order",
+          "text": "Test Work Order - AC Installation",
           "value": "123"
         },
         "location": "",
@@ -46080,7 +59176,7 @@ const mockup = {
         "id": "101078",
         "title": "AC Installation 2",
         "workorder": {
-          "text": "Test Work Order",
+          "text": "Test Work Order - AC Installation",
           "value": "123"
         },
         "location": "",
@@ -46130,7 +59226,7 @@ const mockup = {
         "id": "101077",
         "title": "AC Installation",
         "workorder": {
-          "text": "Test Work Order",
+          "text": "Test Work Order - AC Installation",
           "value": "123"
         },
         "location": "",
@@ -46180,7 +59276,7 @@ const mockup = {
         "id": "101076",
         "title": "Test Work Order",
         "workorder": {
-          "text": "Test Work Order",
+          "text": "Test Work Order - AC Installation",
           "value": "123"
         },
         "location": "",
@@ -46230,7 +59326,7 @@ const mockup = {
         "id": "101075",
         "title": "Test Work Order",
         "workorder": {
-          "text": "Test Work Order",
+          "text": "Test Work Order - AC Installation",
           "value": "123"
         },
         "location": "",
@@ -46294,7 +59390,7 @@ const mockup = {
       },
       "active": true,
       "workorder": {
-        "text": "Test Work Order",
+        "text": "Test Work Order - AC Installation",
         "value": "123"
       },
       "events": ["101075"],
@@ -46342,7 +59438,7 @@ const mockup = {
       },
       "active": true,
       "workorder": {
-        "text": "Test Work Order",
+        "text": "Test Work Order - AC Installation",
         "value": "123"
       },
       "events": ["101075"],
@@ -46402,7 +59498,7 @@ const mockup = {
       "email": "",
       "initials": "BF",
       "workorder": {
-        "text": "Test Work Order",
+        "text": "Test Work Order - AC Installation",
         "value": "123"
       },
       "event": "101075",
@@ -46422,7 +59518,7 @@ const mockup = {
     "items": [{
       "id": "555",
       "workorder": {
-        "text": "Test Work Order",
+        "text": "Test Work Order - AC Installation",
         "value": "123"
       },
       "salesorder": {
@@ -46444,7 +59540,7 @@ const mockup = {
     }, {
       "id": "556",
       "workorder": {
-        "text": "Test Work Order",
+        "text": "Test Work Order - AC Installation",
         "value": "123"
       },
       "salesorder": {
@@ -77250,10 +90346,10 @@ const mockup = {
   }, {
     "id": "168",
     "workorder": {
-      "text": "Test Work Order",
+      "text": "Test Work Order - AC Installation",
       "value": "123"
     },
-    "events": ["101062", "101077", "101078"],
+    "events": ["101062", "101077", "101078", "101080", "101084"],
     "contact": {
       "text": "World Bank : Chad Bass",
       "value": "1382"
@@ -77268,7 +90364,7 @@ const mockup = {
   }, {
     "id": "169",
     "workorder": {
-      "text": "Test Work Order",
+      "text": "Test Work Order - AC Installation",
       "value": "123"
     },
     "events": ["101075", "101079"],
@@ -77283,6 +90379,132 @@ const mockup = {
     "phone": "",
     "primary": false,
     "url": "/app/common/entity/contact.nl?id=1382&compid=TSTDRV2617106"
+  }, {
+    "id": "170",
+    "workorder": {
+      "text": "Testing with Lean",
+      "value": "124"
+    },
+    "events": [],
+    "contact": {
+      "text": "World Bank : Angelina Jolie",
+      "value": "2056"
+    },
+    "name": "Angelina Jolie",
+    "email": "ajolie@email.com",
+    "jobTitle": "Vice President",
+    "mobilePhone": "",
+    "phone": "",
+    "primary": false,
+    "url": "/app/common/entity/contact.nl?id=2056&compid=TSTDRV2617106"
+  }, {
+    "id": "171",
+    "workorder": {
+      "text": "Lobby Area",
+      "value": "125"
+    },
+    "events": ["101085"],
+    "contact": {
+      "text": "World Bank : John Smith",
+      "value": "1892"
+    },
+    "name": "John Smith",
+    "email": "jc@erpsuccesspartners.com",
+    "jobTitle": "Logistics",
+    "mobilePhone": "",
+    "phone": "",
+    "primary": false,
+    "url": "/app/common/entity/contact.nl?id=1892&compid=TSTDRV2617106"
+  }, {
+    "id": "172",
+    "workorder": {
+      "text": "Lobby Area",
+      "value": "125"
+    },
+    "events": [],
+    "contact": {
+      "text": "World Bank : Tom Holland",
+      "value": "2057"
+    },
+    "name": "Tom Holland",
+    "email": "tholland@email.com",
+    "jobTitle": "Purchasing Manager",
+    "mobilePhone": "",
+    "phone": "",
+    "primary": false,
+    "url": "/app/common/entity/contact.nl?id=2057&compid=TSTDRV2617106"
+  }, {
+    "id": "173",
+    "workorder": {
+      "text": "Office Room A",
+      "value": "126"
+    },
+    "events": [],
+    "contact": {
+      "text": "World Bank : Brad Pitt",
+      "value": "2060"
+    },
+    "name": "Brad Pitt",
+    "email": "bpitt@email.com",
+    "jobTitle": "Designer",
+    "mobilePhone": "",
+    "phone": "",
+    "primary": false,
+    "url": "/app/common/entity/contact.nl?id=2060&compid=TSTDRV2617106"
+  }, {
+    "id": "174",
+    "workorder": {
+      "text": "Office Room A",
+      "value": "126"
+    },
+    "events": [],
+    "contact": {
+      "text": "World Bank : Chad Bass",
+      "value": "1382"
+    },
+    "name": "Chad Bass",
+    "email": "cbass@worldbank.com",
+    "jobTitle": "President",
+    "mobilePhone": "",
+    "phone": "",
+    "primary": false,
+    "url": "/app/common/entity/contact.nl?id=1382&compid=TSTDRV2617106"
+  }, {
+    "id": "175",
+    "workorder": {
+      "text": "Office Room B",
+      "value": "127"
+    },
+    "events": [],
+    "contact": {
+      "text": "World Bank : Jane Doe",
+      "value": "2054"
+    },
+    "name": "Jane Doe",
+    "email": "janedoe@email.com",
+    "jobTitle": "Purchasing Manager",
+    "mobilePhone": "",
+    "phone": "",
+    "primary": false,
+    "url": "/app/common/entity/contact.nl?id=2054&compid=TSTDRV2617106"
+  }, {
+    "id": "176",
+    "workorder": {
+      "text": "Office Room B",
+      "value": "127"
+    },
+    "events": [],
+    "contact": {
+      "text": "World Bank : Jim Carrey",
+      "value": "2041"
+    },
+    "name": "Jim Carrey",
+    "email": "jcarrery@worldbank.com",
+    "jobTitle": "Administrative Manager",
+    "mobilePhone": "",
+    "phone": "",
+    "primary": false,
+    "url": "/app/common/entity/contact.nl?id=2041&compid=TSTDRV2617106"
   }],
   "woAddresses": [{
     "id": "1",
@@ -80007,14 +93229,82 @@ const mockup = {
   }, {
     "id": "207",
     "workorder": {
-      "text": "Test Work Order",
+      "text": "Test Work Order - AC Installation",
       "value": "123"
     },
     "customer": {
       "text": "World Bank",
       "value": "1249"
     },
-    "events": ["101062", "101076", "101077", "101078", "101079"],
+    "events": ["101062", "101076", "101077", "101078", "101079", "101080", "101084"],
+    "address": {
+      "text": "434 Carlaw",
+      "value": "244878"
+    },
+    "addressDetails": "434 Carlaw Road<br/>Los Angeles NY 12412<br/>United States",
+    "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+  }, {
+    "id": "208",
+    "workorder": {
+      "text": "Testing with Lean",
+      "value": "124"
+    },
+    "customer": {
+      "text": "World Bank",
+      "value": "1249"
+    },
+    "events": [],
+    "address": {
+      "text": "434 Carlaw",
+      "value": "244878"
+    },
+    "addressDetails": "434 Carlaw Road<br/>Los Angeles NY 12412<br/>United States",
+    "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+  }, {
+    "id": "209",
+    "workorder": {
+      "text": "Lobby Area",
+      "value": "125"
+    },
+    "customer": {
+      "text": "World Bank",
+      "value": "1249"
+    },
+    "events": ["101085"],
+    "address": {
+      "text": "434 Carlaw",
+      "value": "244878"
+    },
+    "addressDetails": "434 Carlaw Road<br/>Los Angeles NY 12412<br/>United States",
+    "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+  }, {
+    "id": "210",
+    "workorder": {
+      "text": "Office Room A",
+      "value": "126"
+    },
+    "customer": {
+      "text": "World Bank",
+      "value": "1249"
+    },
+    "events": [],
+    "address": {
+      "text": "434 Carlaw",
+      "value": "244878"
+    },
+    "addressDetails": "434 Carlaw Road<br/>Los Angeles NY 12412<br/>United States",
+    "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+  }, {
+    "id": "211",
+    "workorder": {
+      "text": "Office Room B",
+      "value": "127"
+    },
+    "customer": {
+      "text": "World Bank",
+      "value": "1249"
+    },
+    "events": [],
     "address": {
       "text": "434 Carlaw",
       "value": "244878"
@@ -80023,6 +93313,9 @@ const mockup = {
     "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
   }],
   "organizers": [{
+    "text": "Arun Sharma",
+    "value": "1770"
+  }, {
     "text": "Mei Matriano",
     "value": "1647"
   }, {
@@ -80034,9 +93327,6 @@ const mockup = {
   }, {
     "text": "Raymund Dejasco",
     "value": "1651"
-  }, {
-    "text": "Arun Sharma",
-    "value": "1770"
   }, {
     "text": "Alex Wolfe",
     "value": "-5"
