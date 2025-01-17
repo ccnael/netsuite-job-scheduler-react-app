@@ -648,7 +648,8 @@ export default class Calendar {
         <br/>
         Resources:<br/>
         ${event.resources.map((resource, counter) => `${+counter + 1}. ${resource.employee.text}`).join('<br/>')}<br/>
-        ${event.vendors.map((vendor, counter) => `${event.resources.length + counter + 1}. ${vendor.vendor.text || vendor.name}`).join('<br/>')}
+        ${event.vendors.map((vendor, counter) => `${event.resources.length + counter + 1}. ${vendor.vendor.text || vendor.name}`).join('<br/>')}<br/>
+        ${event.assets.map((asset, counter) => `${event.resources.length + event.vendors.length + counter + 1}. ${asset.item.text || asset.name}`).join('<br/>')}
         `,
       placement: 'left'
     });

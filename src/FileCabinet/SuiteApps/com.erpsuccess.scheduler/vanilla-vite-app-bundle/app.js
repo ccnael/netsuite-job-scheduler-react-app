@@ -199,8 +199,10 @@
                     <div class="card-wrapper">
                       ${z.map(e=>`
                         <div type="event" class="card-item" id="${e.id}" data-bs-toggle="tooltip" data-bs-placement="left" 
-                        title="Resources:<br/>${e.resources.length||e.vendors.length?`${e.resources.map((t,r)=>`${+r+1}. ${t.employee.text}`).join("<br/>")}<br/>
-                            ${e.vendors.map((t,r)=>`${e.resources.length+r+1}. ${t.vendor.text||t.name}`).join("<br/>")}`:"- None -"}"
+                        title="Resources:<br/>${e.resources.length||e.vendors.length||e.assets.length?`${e.resources.map((t,r)=>`${+r+1}. ${t.employee.text}`).join("<br/>")}<br/>
+                            ${e.vendors.map((t,r)=>`${e.resources.length+r+1}. ${t.vendor.text||t.name}`).join("<br/>")}<br/>
+                            ${e.assets.map((t,r)=>`${e.resources.length+e.vendors.length+r+1}. ${t.item.text||t.name}`).join("<br/>")}`:"- None -"}"
+                            
                         style="">
                           <div class="card-head">
                             <div class="card-name"><a href="${e.url}" target="_blank"><strong>${e.title}</strong></a></div>
@@ -345,7 +347,8 @@
         <br/>
         Resources:<br/>
         ${t.resources.map((r,i)=>`${+i+1}. ${r.employee.text}`).join("<br/>")}<br/>
-        ${t.vendors.map((r,i)=>`${t.resources.length+i+1}. ${r.vendor.text||r.name}`).join("<br/>")}
+        ${t.vendors.map((r,i)=>`${t.resources.length+i+1}. ${r.vendor.text||r.name}`).join("<br/>")}<br/>
+        ${t.assets.map((r,i)=>`${t.resources.length+t.vendors.length+i+1}. ${r.item.text||r.name}`).join("<br/>")}
         `,placement:"left"})}static _removeToolTip(){$(".tooltip").remove()}}function yt(n){return JSON.parse(JSON.stringify(n))}$(document).ready(()=>{ca.setup(),hv.setup(),ia(),window.holdWorkOrder=Ht.holdWorkOrder,window.printWorkOrder=Ht.printWorkOrder,window.cancelWorkOrder=Ht.cancelWorkOrder,window.printPickList=Ht.printPickList,window.deleteEventRecord=V.deleteEventRecord});const Ko=[{className:"dt-head-center dr-body-center",title:`<div class="form-group form-check container d-flex justify-content-center">
         <input type="checkbox" class="form-check-input" style="left: 30px" onclick="markAll(event);">
       </div>`,render:(n,e,t,r)=>`<div class="form-group form-check container d-flex justify-content-center">
