@@ -285,6 +285,7 @@ export default class Calendar {
                 <div class="col-2 fc-event-status">
                   <div class="card-content-eventId" eventId="${event.id}">ID ${event.id}</div>
                   <span class="badge py-1 px-2 rounded-pill text-uppercase" style="background-color: ${event.priority.code};">${event.priority.text}</span>
+                  ${event.hasQuantityReceived ? '<span class="badge py-1 px-2 rounded-pill text-uppercase" style="background-color: #FF5733">Received</span>' : ''}
                 </div>
               </div>
             </div>

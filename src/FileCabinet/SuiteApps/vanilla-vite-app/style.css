@@ -243,6 +243,7 @@ body {
   z-index: 1;
   line-height: 0.5;
   border-radius: 5px;
+  right: 0;
 }
 .dropdown-content a {
   color: #333;
@@ -548,4 +549,8 @@ div.form-check {
   justify-content: center;
   height: 14px;
   line-height: 1.2;
+}
+
+.swal2-container {
+  z-index: 9999 !important;
 }/*# sourceMappingURL=style.css.map */

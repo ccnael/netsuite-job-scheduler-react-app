@@ -1,5 +1,5 @@
 import { suiteletUrl, resources, events } from './dataSet';
-import {  ceTimeSheetsDtColumns, ceItemsDtColumns, cePunchItemsDtColumns } from './dataTable';
+import { ceTimeSheetsDtColumns, ceItemsDtColumns, cePunchItemsDtColumns } from './dataTable';
 import './completeEventModal.css';
 
 let temp_ceTimeSheetDataTable, temp_ceItemsDataTable, temp_cePunchItemsDataTable;
@@ -138,7 +138,7 @@ $(document).ready(() => {
     }
     $('#completeEventModal').attr('eventDataSrc', encodeURIComponent(JSON.stringify(eventData))); // Data from NS
     $('#completeEventModalLabel').text(`Complete Event [ID ${eventData.id}]`);
-    $('#completeEventModal .eventTitle p').html(`<a href="${eventData.url}" target="_blank">${eventData.title}</a>`); 
+    $('#completeEventModal .eventTitle p').html(`<a href="${eventData.url}" target="_blank">${eventData.title}</a>`);
     $('#completeEventModal .status p').text(eventData.status.text);
 
     temp_ceTimeSheetDataTable = $('#timesheets').DataTable({
@@ -163,7 +163,7 @@ $(document).ready(() => {
         })
       },
       columns: ceItemsDtColumns,
-      initComplete: () => {  
+      initComplete: () => {
         eventFormHandlers();
       }
     });
@@ -189,47 +189,47 @@ $(document).ready(() => {
     }); */
     fetch(
       `${suiteletUrl}&mode=getOrderPunchList&woId=${woId}`, {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json',
-        }
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      }
     })
-    .then(response => response.json())
-    .then(result => {
-      $('#completeEventModal').attr('punchLines', encodeURIComponent(JSON.stringify(result)));
+      .then(response => response.json())
+      .then(result => {
+        $('#completeEventModal').attr('punchLines', encodeURIComponent(JSON.stringify(result)));
 
-      temp_cePunchItemsDataTable = $('#punchItems').DataTable({
-        processing: true,
-        retrieve: true,
-        searching: false,
-        paging: false, 
-        info: false,
-        ajax(_data, callback, _settings) {
-          callback({
-            data: result
-          })
-        },
-        columns: cePunchItemsDtColumns,
-        initComplete: () => {  
-          completeEventModalHandlers();
-          hideCustomLoader('completeEventModal');
-        }
+        temp_cePunchItemsDataTable = $('#punchItems').DataTable({
+          processing: true,
+          retrieve: true,
+          searching: false,
+          paging: false,
+          info: false,
+          ajax(_data, callback, _settings) {
+            callback({
+              data: result
+            })
+          },
+          columns: cePunchItemsDtColumns,
+          initComplete: () => {
+            completeEventModalHandlers();
+            hideCustomLoader('completeEventModal');
+          }
+        });
+      })
+      .catch(error => {
+        Swal.fire(
+          'Unexpected Error',
+          error.message,
+          'error'
+        );
+        hideCustomLoader('completeEventModal');
       });
-    })
-    .catch(error => {
-      Swal.fire(
-        'Unexpected Error',
-        error.message,
-        'error'
-      );
-      hideCustomLoader('completeEventModal');
-    });
   });
 
   // General Event Form -> On Submit
   $('#completeEventSubmitForm').on('submit', ev => {
     ev.preventDefault();
-    
+
     const payload = {
       eventDataSrc: {},
       timeSheets: [],
@@ -246,7 +246,7 @@ $(document).ready(() => {
 
     console.log('----- Punch Items -----');
     console.log(punchLines);
-    
+
     if (unresolvedPunchCount) {
       Swal.fire(
         'Unable to Proceed',
@@ -256,7 +256,7 @@ $(document).ready(() => {
       return;
     }
 
-    $('#timesheets tbody > tr').each(function() {
+    $('#timesheets tbody > tr').each(function () {
       const that = $(this);
       payload.timeSheets.push({
         id: that.find('.resourceName p').attr('recordId'),
@@ -313,7 +313,7 @@ $(document).ready(() => {
       });
     });
 
-    $('#items_ce tbody > tr').each(function() {
+    $('#items_ce tbody > tr').each(function () {
       const customRecordId = $(this).find('.dt-line-select').attr('recordId');
       const checked = ($(this).find('.dt-line-select') || [])[0]?.checked || false;
       const lineId = $(this).find('.lineId').text();
@@ -328,11 +328,11 @@ $(document).ready(() => {
     payload.timeSheets = payload.timeSheets.filter(timeSheet => {
       Object.keys(timeSheet).forEach(key => {
         if (!!!timeSheet[key])
-          delete timeSheet[key];     
+          delete timeSheet[key];
       })
       return timeSheet;
     })
-    
+
     const allowedProperties = ['id', 'location', 'startTime', 'endTime', 'awayHrs', 'awayMins', 'stHrs', 'stMins', 'otHrs', 'otMins', 'dtHrs', 'dtMins', 'notes'];
 
     // Check if any object property is in the allowedProperties array
@@ -340,7 +340,7 @@ $(document).ready(() => {
       Object.keys(obj).some(key => allowedProperties.includes(key))
     );
 
-    payload.fulfillItems= payload.fulfillItems.filter(fulfillItem => {
+    payload.fulfillItems = payload.fulfillItems.filter(fulfillItem => {
       Object.keys(fulfillItem).forEach(key => {
         if (!!!fulfillItem[key])
           delete fulfillItem[key];
@@ -362,61 +362,61 @@ $(document).ready(() => {
 
     Swal.fire({
       title: 'Complete Event?',
-      text: woId ? `This will fulfill order items for Event ID ${eventId}` : `Complete Event ID ${eventId}`,
+      text: woId ? `This will fulfill order items for Event [ID ${eventId}]` : `Complete Event [ID ${eventId}]`,
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#817c7c',
       confirmButtonText: 'Yes'
     })
-    .then(result => {
-      if (result.isConfirmed) {
-        Swal.fire({
-          didOpen: () => {
-            Swal.showLoading();
-            fetch(
-              `${suiteletUrl}&mode=completeEvent`, {
+      .then(result => {
+        if (result.isConfirmed) {
+          Swal.fire({
+            didOpen: () => {
+              Swal.showLoading();
+              fetch(
+                `${suiteletUrl}&mode=completeEvent`, {
                 method: 'POST',
                 body: JSON.stringify(payload),
                 headers: {
                   'Content-Type': 'application/json',
                 }
-            })
-            .then(response => response.json())
-            .then(result => {
-              if (result.code == 200) {
-                Swal.fire({
-                  title: 'Success!',
-                  text: `Event ID ${eventId} Completed`,
-                  icon: 'success'
+              })
+                .then(response => response.json())
+                .then(result => {
+                  if (result.code == 200) {
+                    Swal.fire({
+                      title: 'Success!',
+                      text: `Event [ID ${eventId}] Completed`,
+                      icon: 'success'
+                    })
+                      .then(() => {
+                        window.location.reload();
+                      });
+                  } else {
+                    Swal.fire({
+                      title: 'Unexpected Error',
+                      text: `Error: ${result.errorMsg}`,
+                      icon: 'error'
+                    });
+                  }
+                  Swal.hideLoading();
                 })
-                .then(() => {
-                  window.location.reload();
+                .catch(error => {
+                  Swal.fire(
+                    'Unexpected Error',
+                    error.message,
+                    'error'
+                  );
+                  Swal.hideLoading();
                 });
-              } else {
-                Swal.fire({
-                  title: 'Unexpected Error',
-                  text: `Error: ${result.errorMsg}`,
-                  icon: 'error'
-                });
-              }
-              Swal.hideLoading();
-            })
-            .catch(error => {
-              Swal.fire(
-                'Unexpected Error',
-                error.message,
-                'error'
-              );
-              Swal.hideLoading();
-            });
-          },
-          allowOutsideClick: false,
-          allowEscapeKey: false,
-          text: `Completing Event ID ${eventId}...`
-        });
-      }
-    });
+            },
+            allowOutsideClick: false,
+            allowEscapeKey: false,
+            text: `Completing Event [ID ${eventId}]...`
+          });
+        }
+      });
   });
 
   // General Event Form -> On Close
@@ -426,26 +426,26 @@ $(document).ready(() => {
     window.markAll = ev => {
       const value = ev.target.checked;
       const el = ev.target.closest('.dataTable').querySelectorAll('.dt-line-select');
-      for(let i = 0; i < el.length; i++) {  
-        if(el[i].type === 'checkbox') {
+      for (let i = 0; i < el.length; i++) {
+        if (el[i].type === 'checkbox') {
           el[i].checked = value;//!el[i].checked;
         }
       }
     }
-  
+
     window.validateForm = () => true;
   }
 
   function completeEventModalHandlers() {
     window.completeAll = () => {
-      $('#items_ce tbody > tr').each(function() {
+      $('#items_ce tbody > tr').each(function () {
         const quantity = +$(this).find('.itemQty').text();
         +$(this).find('.completeQty').val(quantity);
       });
     }
 
     window.clearAll = () => {
-      $('#items_ce tbody > tr').each(function() {
+      $('#items_ce tbody > tr').each(function () {
         +$(this).find('.completeQty').val(0);
       });
     }
@@ -453,7 +453,7 @@ $(document).ready(() => {
 
   function clearFieldValues() {
     console.log('----- Clearing Fields -----');
-    
+
     showCustomLoader();
 
     $(`#completeEventModal`).attr('eventId', '');
@@ -467,17 +467,17 @@ $(document).ready(() => {
 
     if (temp_ceTimeSheetDataTable) {
       $('table#timesheets tbody').children().remove();
-      temp_ceTimeSheetDataTable = temp_ceTimeSheetDataTable.destroy(); 
+      temp_ceTimeSheetDataTable = temp_ceTimeSheetDataTable.destroy();
     }
 
     if (temp_ceItemsDataTable) {
       $('table#items_ce tbody').children().remove();
-      temp_ceItemsDataTable = temp_ceItemsDataTable.destroy(); 
+      temp_ceItemsDataTable = temp_ceItemsDataTable.destroy();
     }
 
     if (temp_cePunchItemsDataTable) {
       $('table#punchItems tbody').children().remove();
-      temp_cePunchItemsDataTable = temp_cePunchItemsDataTable.destroy(); 
+      temp_cePunchItemsDataTable = temp_cePunchItemsDataTable.destroy();
     }
   }
 

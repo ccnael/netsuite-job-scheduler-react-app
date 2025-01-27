@@ -26,11 +26,14 @@ $(document).ready(() => {
             <div class="row mb-3 justify-content-start align-items-center">
               <div class="col mb-3">
                 <select class="selectpicker mx-auto multiple-field-1" title="Select Fields" data-live-search="true" data-selected-text-format="count>2" data-style="" data-style-base="form-control" data-actions-box="true" multiple>
-                  <option value="field1">Location</option>
-                  <option value="field2">Department</option>
-                  <option value="field3">Class</option>
-                  <option value="field3">Email</option>
-                  <option value="field3">Mobile Phone</option>
+                  <option value="field1">Sales Order #</option>
+                  <option value="field2">Project</option>
+                  <option value="field3">Location</option>
+                  <option value="field4">Lead Installer</option>
+                  <option value="field5">Work Order</option>
+                  <option value="field6">Event Type</option>
+                  <option value="field7">Event SubType</option>
+                  <option value="field8">Schedule Type</option>
                 </select>
               </div>
               <!-- Buttons placed beside the select field -->
@@ -112,6 +115,15 @@ $(document).ready(() => {
               <div class="d-flex align-items-center">
                 <label for="board-event-dateto" class="me-2 mb-0">To:</label>
                 <input type="date" class="form-control" id="board-job-dateto">
+              </div>
+            </div>
+            <!-- Row 5 -->
+            <div class="col-md-9">
+              <div class="d-flex align-items-center ms-3">
+                <div class="form-check form-switch w-100" style="margin-top: 10px; margin-left: 20px; display: flex; align-items: center;">
+                  <input class="form-check-input me-2" type="checkbox">
+                  <label class="form-check-label" style="font-size: 11px; margin: 0;">Show Events with Received Items Only</label>
+                </div>
               </div>
             </div>
           </div>

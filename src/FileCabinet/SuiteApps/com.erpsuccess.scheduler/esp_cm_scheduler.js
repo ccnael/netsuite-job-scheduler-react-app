@@ -488,6 +488,9 @@ define([
             if (woRef) {
               const _item = deepCopy(item);
               woRef.items.push(_item);
+              if (!woRef.hasQuantityReceived) {
+                woRef.hasQuantityReceived = !!_item.quantityReceived;
+              }
             }
           }
           // Push Contacts to related WO
@@ -555,7 +558,7 @@ define([
             type: env.RecordType.WORK_ORDER,
             id: woId,
             values: {
-              custrecord_esp_fop_wo_status: env.status.CLOSED
+              custrecord_esp_fop_wo_status: env.Status.CLOSED
             }
           });
           responseJson.status = 'success';
@@ -1223,6 +1226,7 @@ define([
               search.createColumn({ name: 'custrecord_esp_fop_wo_item_memo', label: 'Memo' }),
               search.createColumn({ name: 'custrecord_esp_fop_wo_item_line_id', label: 'Line ID' }),
               search.createColumn({ name: 'custrecord_esp_fop_wo_item_uuid', label: 'UUID' }),
+              search.createColumn({ name: 'custrecord_esp_fop_total_ir', label: 'Received Quantity' }),
             ]
         });
 
@@ -1248,7 +1252,8 @@ define([
             description: result.getValue('custrecord_esp_fop_wo_item_description'),
             quantity: +result.getValue('custrecord_esp_fop_wo_item_quantity'),
             availableQty: +result.getValue('custrecord_esp_fop_wo_item_quantity'),
-            note: result.getValue('custrecord_esp_fop_wo_item_memo')
+            note: result.getValue('custrecord_esp_fop_wo_item_memo'),
+            quantityReceived: +result.getValue('custrecord_esp_fop_total_ir')
           });
           return true;
         });
@@ -1359,7 +1364,10 @@ define([
               text: result.getText('custrecord_esp_fop_rel_wo'),
               value: result.getValue('custrecord_esp_fop_rel_wo')
             },
-            events: Utils._stringToArray(result.getValue('custrecord_esp_fop_wo_rel_event')),
+            events: Utils._stringToArray(result.getValue('custrecord_esp_fop_wo_rel_event')), // TBD change to just list field
+            get event() {
+              return this.events[0] || '';
+            },
             contact: {
               text: result.getText('custrecord_esp_fop_wo_contact_rec'),
               value: result.getValue('custrecord_esp_fop_wo_contact_rec')
@@ -1723,6 +1731,9 @@ define([
               const _item = deepCopy(item);
               _item.selected = true;
               event.items.push(_item);
+              if (!event.hasQuantityReceived) {
+                event.hasQuantityReceived = !!_item.quantityReceived;
+              }
             }
           }
         }
@@ -1964,7 +1975,7 @@ define([
               WorkOrderItem._updateItems(eventData, eventDataSrc);
             }
             if (eventData.selectedContacts) {
-              WorkOrderItem._updateContacts(eventData, eventDataSrc);
+              WorkOrderContact._updateContacts(eventData, eventDataSrc);
             }
           }
 

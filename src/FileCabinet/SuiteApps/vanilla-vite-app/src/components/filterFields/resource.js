@@ -29,8 +29,8 @@ $(document).ready(() => {
                   <option value="field1">Location</option>
                   <option value="field2">Department</option>
                   <option value="field3">Class</option>
-                  <option value="field3">Email</option>
-                  <option value="field3">Mobile Phone</option>
+                  <option value="field4">Email</option>
+                  <option value="field5">Mobile Phone</option>
                 </select>
               </div>
               <!-- Buttons placed beside the select field -->
@@ -62,6 +62,7 @@ $(document).ready(() => {
               <select class="selectpicker mx-auto multiple-resource-field" title="Filter by Name" data-live-search="true" data-selected-text-format="count>2" data-style="" data-style-base="form-control" data-actions-box="true" multiple>
               ${dataSet.resources.map(resource => `<option value="${resource.id}">${resource.name}</option>`)}
               ${dataSet.vendors.map(vendor => `<option value="${vendor.id}">${vendor.name}</option>`)}
+              ${dataSet.assets.map(asset => `<option value="${asset.id}">${asset.name}</option>`)}
               </select>
             </div>
             <div class="col-md-6">

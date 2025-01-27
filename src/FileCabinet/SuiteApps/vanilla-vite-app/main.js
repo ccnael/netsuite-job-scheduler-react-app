@@ -11,6 +11,7 @@ $(document).ready(() => {
 
   // Set below actions globally
   // -----------------------------------------------------------------
+  window.toggleDropdown = WorkOrderAction.toggleDropdown;
   window.holdWorkOrder = WorkOrderAction.holdWorkOrder;
   window.printWorkOrder = WorkOrderAction.printWorkOrder;
   window.cancelWorkOrder = WorkOrderAction.cancelWorkOrder;

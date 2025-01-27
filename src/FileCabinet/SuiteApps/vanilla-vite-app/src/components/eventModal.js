@@ -484,7 +484,20 @@ $(document).ready(() => {
           callback({
             data: (() => {
               if (mode === 'create') {
-                return woRef.contacts.filter(contact => !!!contact.event);
+                // return woRef.contacts.filter(contact => !!!contact.event);
+                let contacts = woRef.contacts.filter(contact => !!!contact.event);
+                // TBR
+                if (!contacts.length) {
+                  let contactsWithEvents = woRef.contacts.filter(contact => !!contact.event);
+                  const merged = Object.values(
+                    contactsWithEvents.reduce((acc, contact) => {
+                      acc[contact.name] = { ...contact };
+                      return acc;
+                    }, {})
+                  );
+                  contacts = merged;
+                }
+                return contacts;
               } else {
                 let unassignedContacts = deepCopy(woRef.contacts.filter(contact => !!!contact.event));
                 unassignedContacts = unassignedContacts.filter(contact => !!!eventData.contacts.map(contact => contact.contact.value).includes(contact.contact.value));

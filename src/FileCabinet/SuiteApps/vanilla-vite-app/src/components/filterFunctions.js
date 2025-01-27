@@ -223,6 +223,7 @@ export function onFilterBoardEvent(fieldId) {
     priority: $(`${fieldId} select.multiple-event-priority-field`),
     organizer: $(`${fieldId} select.multiple-event-organizer-field`),
     eventType: $(`${fieldId} select.multiple-event-type-field`),
+    showReceivedItems: $(`${fieldId} input.form-check-input`)
   };
   // Set default resource filter value (TBD move to on hide/close modal instead?)
   const $resourceIds_temp = $(`#boardSection select.multiple-resource-field-hidden`).val();
@@ -235,12 +236,17 @@ export function onFilterBoardEvent(fieldId) {
     status: [],
     priority: [],
     organizer: [],
-    eventType: []
+    eventType: [],
+    showReceivedItems: false
   };
   for (const id in $field) {
     if ($field[id].length) {
       $field[id].on('change', function () {
-        $selected[id] = $(this).val() || (!id.match(/date/gi) ? [] : '');
+        if (id != 'showReceivedItems') {
+          $selected[id] = $(this).val() || (!id.match(/date/gi) ? [] : '');
+        } else {
+          $selected[id] = $(this).prop('checked');
+        }
         filterItems();
         // Highlight resource rows
         if (id == 'resource') {
@@ -307,7 +313,8 @@ export function onFilterBoardEvent(fieldId) {
           (!$selected.status.length || $selected.status.includes(eventStatus)) &&
           (!$selected.priority.length || $selected.priority.includes(eventPriority)) &&
           (!$selected.organizer.length || $selected.organizer.includes(eventOrganizer)) &&
-          (!$selected.eventType.length || $selected.eventType.includes(eventType))
+          (!$selected.eventType.length || $selected.eventType.includes(eventType)) &&
+          (!$selected.showReceivedItems || eventData.hasQuantityReceived === $selected.showReceivedItems)
         );
         $el.toggle(shouldDisplay);
       }
@@ -327,7 +334,7 @@ export function onFilterBoardEvent(fieldId) {
   function updateFilterCounter() {
     let counter = 0;
     for (const key in $selected) {
-      if (!key.match(/date/g))
+      if (!key.match(/date|showReceivedItems/g))
         counter += $selected[key].length;
       else if (!!$selected[key])
         counter++;
@@ -458,6 +465,7 @@ export function onFilterEventResource(fieldId) {
     } else {
       dataTable.ajax.reload();
     }
+    updateFilterCounter();
   });
 
   function filterItems() {
@@ -514,6 +522,9 @@ export function onFilterEventResource(fieldId) {
         counter += $selected[key].length;
       else if (!!$selected[key])
         counter++;
+    }
+    if ($showAvailableResourceFilter.prop('checked')) {
+      counter++;
     }
     $('#filter-eventresource-counter').html(counter);
   }
@@ -549,6 +560,7 @@ export function onFilterGeneralEventResource(fieldId) {
     } else {
       dataTable.ajax.reload();
     }
+    updateFilterCounter();
   });
 
   function filterItems() {
@@ -606,6 +618,9 @@ export function onFilterGeneralEventResource(fieldId) {
       else if (!!$selected[key])
         counter++;
     }
+    if ($showAvailableResourceFilter.prop('checked')) {
+      counter++;
+    }
     $('#filter-generaleventresource-counter').html(counter);
   }
 }
@@ -620,6 +635,7 @@ export function onFilterCalendarEvent(fieldId, pageSwitched, info) {
     priority: $(`${fieldId} select.multiple-event-priority-field`),
     organizer: $(`${fieldId} select.multiple-event-organizer-field`),
     eventType: $(`${fieldId} select.multiple-event-type-field`),
+    showReceivedItems: $(`${fieldId} input.form-check-input`)
   };
   const $selected = {
     resource: [],
@@ -627,15 +643,19 @@ export function onFilterCalendarEvent(fieldId, pageSwitched, info) {
     status: [],
     priority: [],
     organizer: [],
-    eventType: []
+    eventType: [],
+    showReceivedItems: false
   };
   if (pageSwitched) {
     let hasDefaultFilter = false;
     for (const id in $field) {
       if ($field[id].length) {
-        $selected[id] = $field[id].val() || [];
-        if ($selected[id].length) {
-          hasDefaultFilter = true;
+        if (id != 'showReceivedItems') {
+          $selected[id] = $field[id].val() || [];
+          hasDefaultFilter = !!$selected[id].length;
+        } else {
+          $selected[id] = $field[id].prop('checked');
+          hasDefaultFilter = !!$selected[id];
         }
       }
     }
@@ -646,7 +666,11 @@ export function onFilterCalendarEvent(fieldId, pageSwitched, info) {
     for (const id in $field) {
       if ($field[id].length) {
         $field[id].on('change', function () {
-          $selected[id] = $(this).val() || [];
+          if (id != 'showReceivedItems') {
+            $selected[id] = $(this).val() || [];
+          } else {
+            $selected[id] = $(this).prop('checked');
+          }
           filterItems();
         });
       }
@@ -694,6 +718,9 @@ export function onFilterCalendarEvent(fieldId, pageSwitched, info) {
     if ($selected.eventType.length) {
       calendarEvents = calendarEvents.filter(event => !!($selected.eventType.includes(!!event.extendedProps.workorder.text ? '2' : '1')));
     }
+    if ($selected.showReceivedItems) {
+      calendarEvents = calendarEvents.filter(event => $selected.showReceivedItems == event.extendedProps.hasQuantityReceived);
+    }
     // Events with no resource gets assigned here
     if (!$selected.resource.length && !$selected.resourceGroup.length || $selected.resourceGroup.includes('z-unassigned')) {
       calendarResources.push({ id: 'z-unassigned', title: 'Unassigned', children: [] });
@@ -724,7 +751,7 @@ export function onFilterCalendarEvent(fieldId, pageSwitched, info) {
   function updateFilterCounter() {
     let counter = 0;
     for (const key in $selected) {
-      if (!key.match(/date/g))
+      if (!key.match(/date|showReceivedItems/g))
         counter += $selected[key].length;
       else if (!!$selected[key])
         counter++;

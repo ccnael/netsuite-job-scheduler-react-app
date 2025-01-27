@@ -162,6 +162,7 @@ export default class Board {
                             <div class="card-content-project"><strong>EST Hours: </strong>${wo.esthours}</div>
                             <div>
                               <span class="badge py-1 px-2 rounded-pill text-uppercase" style="background-color: ${wo.status.code};">${wo.status.text}</span>
+                              <!-- ${wo.hasQuantityReceived ? '<span class="badge py-1 px-2 rounded-pill text-uppercase" style="background-color: #FF5733">Received</span>' : ''} -->
                             </div>
                           </div>
                         </div>  
@@ -231,9 +232,10 @@ export default class Board {
                             <div class="card-content-time">${moment(`1/1/1999 ${event.time.start}`).format('h:mm a')} - ${moment(`1/1/1999 ${event.time.end}`).format('h:mm a')}</div>
                             <div>Organizer: ${event.organizer.text}</div>
                             <div class="row">
-                              <div class="col-2 fc-event-status">
+                              <div class="col-2 fc-event-status" style="font-size: ${event.hasQuantityReceived ? '11px' : '12px'}">
                                 <span class="badge py-1 px-2 ${event.status.code} rounded-pill text-uppercase">${event.status.text}</span>
                                 <span class="badge py-1 px-2 rounded-pill text-uppercase" style="background-color: ${event.priority.code};">${event.priority.text}</span>
+                                ${event.hasQuantityReceived ? '<span class="badge py-1 px-2 rounded-pill text-uppercase" style="background-color: #FF5733">Received</span>' : ''}
                               </div>
                             </div>
                           </div>

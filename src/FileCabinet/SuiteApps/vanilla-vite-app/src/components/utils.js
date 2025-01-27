@@ -299,7 +299,7 @@ export class Event {
     console.log('----- [updateEventRecord() -> PAYLOAD] -----', { payload, eventInfo: eventInfo || '' });
     Swal.fire({
       title: `Update Event Record?`,
-      text: `Event Record ID ${payload.eventData.id}`,
+      text: `Event Record [ID ${payload.eventData.id}]`,
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
@@ -374,7 +374,7 @@ export class Event {
     console.log('PAYLOAD', payload);
 
     Swal.fire({
-      title: `Delete Event Record ID ${eventId}?`,
+      title: `Delete Event Record [ID ${eventId}]?`,
       text: "You won't be able to revert this!",
       icon: 'warning',
       showCancelButton: true,
