@@ -123,6 +123,35 @@ $background-color_19: #f0f0f0;
 		.fc-datagrid-cell-frame {
 			height: 20;
 		}
+		.dropdown-content {
+			display: none;
+			position: absolute;
+			background-color: $background-color_17;
+			min-width: 120px;
+			overflow: auto;
+			box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+			z-index: 9999;
+			line-height: .5;
+			border-radius: 5px;
+			right: -50px;
+			top: -20px;
+			a {
+				color: $color_7;
+				padding: 12px 16px;
+				text-decoration: none;
+				display: block;
+				&:hover {
+					background-color: $background-color_18;
+				}
+			}
+		}
+		.dropdown {
+			&:hover {
+				.dropdown-content {
+					display: block;
+				}
+			}
+		}
 	}
   
 	.secondColumn {
@@ -272,5 +301,4 @@ $background-color_19: #f0f0f0;
 		margin-top: -10px;
 		margin-bottom: 15px;
 	}
-
 }
