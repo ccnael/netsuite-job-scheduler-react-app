@@ -107,7 +107,7 @@
   z-index: 9999;
   line-height: 0.5;
   border-radius: 5px;
-  right: -50px;
+  right: 10px;
   top: -20px;
 }
 #calendarSection #calendar .dropdown-content a {
