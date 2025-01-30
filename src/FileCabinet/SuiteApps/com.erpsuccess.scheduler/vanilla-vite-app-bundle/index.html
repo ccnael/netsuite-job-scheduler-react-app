@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="h-full bg-white">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/public/vite.svg" />
@@ -30,8 +30,8 @@
     <script type="module" crossorigin src="/app.js"></script>
     <link rel="stylesheet" crossorigin href="/index.css">
   </head>
-  <body>
-    <div id="app">
+  <body class="h-full">
+    <div id="app" class="min-h-screen">
       <header class="header tab-container">
         <div class="tab active board" data-target="boardSection">Board</div>
         <div class="tab calendar" data-target="calendarSection">Calendar</div>
@@ -45,16 +45,18 @@
 
     <input type="hidden" id="userId" value="{{userId}}" />
     <input type="hidden" id="suiteletUrl" value="{{suiteletUrl}}" />
-    <input type="hidden" id="workOrders" value="{{workOrders}}" />
-    <input type="hidden" id="customers" value="{{customers}}" />
     <input type="hidden" id="resources" value="{{resources}}" />
     <input type="hidden" id="resourceGroups" value="{{resourceGroups}}" />
-    <input type="hidden" id="woResources" value="{{woResources}}" />
+    <input type="hidden" id="resourceSkills" value="{{resourceSkills}}" />
+    <input type="hidden" id="resourceLocations" value="{{resourceLocations}}" />
+    <input type="hidden" id="resourceDepartments" value="{{resourceDepartments}}" />
     <input type="hidden" id="vendors" value="{{vendors}}" />
     <input type="hidden" id="assets" value="{{assets}}" />
+    <input type="hidden" id="workOrders" value="{{workOrders}}" />
+    <input type="hidden" id="woResources" value="{{woResources}}" />
+    <input type="hidden" id="customers" value="{{customers}}" />
+    <input type="hidden" id="woLocations" value="{{woLocations}}" />
     <input type="hidden" id="events" value="{{events}}" />
-    <input type="hidden" id="organizers" value="{{organizers}}" />
-    <input type="hidden" id="resourceSkills" value="{{resourceSkills}}" />
-    
+    <input type="hidden" id="organizers" value="{{organizers}}" />    
   </body>
 </html>

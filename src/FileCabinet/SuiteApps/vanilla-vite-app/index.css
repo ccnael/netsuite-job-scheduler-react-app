@@ -1,3 +1,6 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -10,15 +13,7 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-html {
-  margin: 0;
-  padding: 0;
-  font-size: 12px;
-  box-sizing: border-box;
-  font-family: "Poppins", "Helvetica Neue", Helvetica, Arial, sans-serif;
-}
-
-body {
+html, body {
   margin: 0;
   padding: 0;
   font-size: 12px;
@@ -553,4 +548,4 @@ div.form-check {
 
 .swal2-container {
   z-index: 9999 !important;
-}/*# sourceMappingURL=style.css.map */
+}/*# sourceMappingURL=index.css.map */

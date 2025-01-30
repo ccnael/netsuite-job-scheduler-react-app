@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 $color_1: rgba(255, 255, 255, 0.87);
 $color_2: #213547;
 $color_3: #747bff;
@@ -49,14 +53,7 @@ $border-left-color_2: transparent;
 	-moz-osx-font-smoothing: grayscale;
 }
 
-html {
-	margin: 0;
-	padding: 0;
-	font-size: 12px;
-	box-sizing: border-box;
-	font-family: $font-family_2;
-}
-body {
+html, body {
 	margin: 0;
 	padding: 0;
 	font-size: 12px;

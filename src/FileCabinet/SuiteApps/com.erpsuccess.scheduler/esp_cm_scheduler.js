@@ -68,6 +68,8 @@ define([
             search.createColumn({ name: 'custentity_esp_fop_labour_rate_matrix', label: 'Labour Rates' }),
             search.createColumn({ name: 'custentity_esp_fop_emp_resource_skill', label: 'Resource Skill' }),
             // search.createColumn({ name: 'custentity_esp_fop_events', label: 'Events' }),
+            search.createColumn({ name: 'location', label: 'Location' }),
+            search.createColumn({ name: 'department', label: 'Department' }),
           ]
         });
 
@@ -152,11 +154,18 @@ define([
                 value: obj.values[index]
               }));
             },
+            location: {
+              text: result.getText('location'),
+              value: result.getValue('location')
+            },
+            department: {
+              text: result.getText('department'),
+              value: result.getValue('department')
+            }
           });
           return true;
         });
         // log.audit('----- [Resources] -----', all);
-
         return resources;
       }
 
@@ -277,7 +286,9 @@ define([
               search.createColumn({ name: 'vendor', label: 'Preferred Vendor' }),
               search.createColumn({ name: 'custitem_esp_fop_rental_duration', label: 'Rental Duration' }),
               search.createColumn({ name: 'custitem_esp_fop_rental_matrix', label: 'Rental Matrix' }),
-              search.createColumn({ name: 'custitem_esp_fop_rental_unit', label: 'Rental Unit' })
+              search.createColumn({ name: 'custitem_esp_fop_rental_unit', label: 'Rental Unit' }),
+              search.createColumn({ name: 'location', label: 'Location' }),
+              search.createColumn({ name: 'department', label: 'Department' })
             ]
         });
 
@@ -309,13 +320,19 @@ define([
               text: result.getText('custitem_esp_fop_rental_unit'),
               value: result.getValue('custitem_esp_fop_rental_unit')
             },
-            events: events.filter(event => event.assets.map(asset => asset.item.value).includes(result.id)).map(event => event.id)
+            events: events.filter(event => event.assets.map(asset => asset.item.value).includes(result.id)).map(event => event.id),
+            location: {
+              text: result.getText('location'),
+              value: result.getValue('location')
+            },
+            department: {
+              text: result.getText('department'),
+              value: result.getValue('department')
+            }
           });
           return true;
         });
-
         // log.audit('----- [Assets & Equipments] -----', assets);
-
         return assets;
       }
 
@@ -349,6 +366,36 @@ define([
         // log.audit('----- [Resource Skills] -----', resourceSkills);
         return resourceSkills;
       }
+
+      static getResourceLocations(resources, vendors, assets) {
+        const locations = [
+          ...resources.map(resource => resource.location),
+          ...vendors.map(vendor => vendor.location),
+          ...assets.map(asset => asset.location)
+        ]
+          .filter(Boolean)
+          .filter(location => !!(location.value))
+          .filter((x, i, arr) =>
+            arr.findIndex(y => (y.value === x.value)) === i // Merge duplicates
+          );
+        // log.audit('RESOURCE LOCATIONS', locations);
+        return locations;
+      }
+
+      static getResourceDepartments(resources, vendors, assets) {
+        const departments = [
+          ...resources.map(resource => resource.department),
+          ...vendors.map(vendor => vendor.department),
+          ...assets.map(asset => asset.department)
+        ]
+          .filter(Boolean)
+          .filter(department => !!(department.value))
+          .filter((x, i, arr) =>
+            arr.findIndex(y => (y.value === x.value)) === i // Merge duplicates
+          );
+        // log.audit('RESOURCE DEPARTMENTS', departments);
+        return departments;
+      }
     }
 
     class WorkOrder {
@@ -379,7 +426,8 @@ define([
               search.createColumn({ name: 'custrecord_esp_fop_wo_resource_group', label: 'Resource Group' }),
               search.createColumn({ name: 'custrecord_esp_cfi_wo_memo', label: 'Work Order Memo' }),
               search.createColumn({ name: 'created', label: 'Date Created' }),
-              search.createColumn({ name: 'custrecord_esp_cfi_wo_est_hours', label: 'Estimated Hours' })
+              search.createColumn({ name: 'custrecord_esp_cfi_wo_est_hours', label: 'Estimated Hours' }),
+              search.createColumn({ name: 'custrecord_esp_fop_wo_location', label: 'Location' }),
             ]
         });
 
@@ -446,7 +494,11 @@ define([
             get soUrl() {
               return Url.salesOrder(this.salesorder.value)
             },
-            esthours: result.getValue('custrecord_esp_cfi_wo_est_hours')
+            esthours: result.getValue('custrecord_esp_cfi_wo_est_hours'),
+            location: {
+              text: result.getText('custrecord_esp_fop_wo_location'),
+              value: result.getValue('custrecord_esp_fop_wo_location'),
+            }
           });
           return true;
         });
@@ -512,10 +564,19 @@ define([
         }
       }
 
-      static getCustomers(wokrOrders) {
-        return wokrOrders
+      static getCustomers(workOrders) {
+        return workOrders
           .map(wo => wo.customer)
           .filter(customer => !!(customer.value))
+          .filter((x, i, arr) =>
+            arr.findIndex(y => (y.value === x.value)) === i // Merge duplicates
+          );
+      }
+
+      static getWorkOrderLocations(workOrders) {
+        return workOrders
+          .map(wo => wo.location)
+          .filter(location => !!(location.value))
           .filter((x, i, arr) =>
             arr.findIndex(y => (y.value === x.value)) === i // Merge duplicates
           );
@@ -694,7 +755,9 @@ define([
               search.createColumn({ name: 'custrecord_esp_fop_res_aff_type', label: 'Affiliation Type' }),
               search.createColumn({ name: 'custentity_esp_fop_is_employee_active', join: 'custrecord_esp_fop_res_employee', label: 'Active' }),
               search.createColumn({ name: 'custrecord_esp_fop_res_start_time', label: 'Start Time' }),
-              search.createColumn({ name: 'custrecord_esp_fop_res_end_time', label: 'End Time' })
+              search.createColumn({ name: 'custrecord_esp_fop_res_end_time', label: 'End Time' }),
+              search.createColumn({ name: 'location', join: 'custrecord_esp_fop_res_employee', label: 'Location' }),
+              search.createColumn({ name: 'department', join: 'custrecord_esp_fop_res_employee', label: 'Department' }),
             ]
         });
         const resources = [];
@@ -780,6 +843,14 @@ define([
                 value: obj.values[index]
               }));
             },
+            location: {
+              text: result.getText({ name: 'location', join: 'custrecord_esp_fop_res_employee' }),
+              value: result.getValue({ name: 'location', join: 'custrecord_esp_fop_res_employee' }),
+            },
+            department: {
+              text: result.getText({ name: 'department', join: 'custrecord_esp_fop_res_employee' }),
+              value: result.getValue({ name: 'department', join: 'custrecord_esp_fop_res_employee' }),
+            }
           });
           return true;
         });
@@ -1683,6 +1754,12 @@ define([
         });
         //  log.audit('----- [Work Order Events] -----', events);
         return events;
+      }
+
+      static getOrganizers(events) {
+        let organizers = events.map(event => event.organizer);
+        organizers = organizers.filter((item, index, self) => index === self.findIndex(t => t.text === item.text && t.value === item.value));
+        return organizers;
       }
 
       static fullMap(workOrders, events, resources, vendors, assets, items, contacts, addresses) {

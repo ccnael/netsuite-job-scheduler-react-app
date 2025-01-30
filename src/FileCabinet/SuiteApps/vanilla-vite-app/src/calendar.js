@@ -277,13 +277,12 @@ export default class Calendar {
             const html = `
             <div style="margin-left: 5px; height: 60px;" id="${event.id}">
             <div class="card-head">
-              <div class="card-name"><a href="${event.url}" target="_blank" onclick="window.open('/app/crm/calendar/event.nl?id=${event.id}', '_blank')"><strong>${event.title}</strong></a>
+              <div class="card-name"><a href="${event.url}" target="_blank" onclick="window.open('/app/crm/calendar/event.nl?id=${event.id}', '_blank')"><strong>${event.title}</strong> [ID ${event.id}]</a>
               </div>
             </div>
             <div class="card-content" style="position: relative">
               <div class="row">
                 <div class="col-2 fc-event-status">
-                  <div class="card-content-eventId" eventId="${event.id}">ID ${event.id}</div>
                   <span class="badge py-1 px-2 rounded-pill text-uppercase" style="background-color: ${event.priority.code};">${event.priority.text}</span>
                   ${event.hasQuantityReceived ? '<span class="badge py-1 px-2 rounded-pill text-uppercase" style="background-color: #FF5733">Received</span>' : ''}
                 </div>
@@ -381,7 +380,6 @@ export default class Calendar {
 
     onFilterCalendarEvent('#filterFieldCalendarEvent', false);
     onFilterJob('#calendarSection .thirdColumn');
-
     //// updateCurrentCalendarPageEventCount();
   }
 
@@ -410,57 +408,6 @@ export default class Calendar {
           <span class="badge badge-danger badge-pill counter" style="font-size: 8px" id="filter-calendarevent-counter">0</span>
         </div>`);
     }
-    /* if (!$('#calendar-filters').length) {
-      $(`<div id="calendar-filters">
-        <div class="input-group inline-inputs" style="margin-top: 10px;">
-          <div class="input-group mb-3" style="border-radius: 5px 5px 0 0;">
-            <select class="selectpicker mx-auto multiple-resource-field" title="Filter by Resource Name" data-live-search="true" data-selected-text-format="count>2" data-style="" data-style-base="form-control" data-actions-box="true" multiple>
-              ${dataSet.resources.map(resource => `<option value="${resource.id}">${resource.name}</option>`)}
-              ${dataSet.vendors.map(vendor => `<option value="${vendor.id}">${vendor.name}</option>`)}
-            </select>
-          </div>
-          <div class="input-group mb-3">
-            <select class="selectpicker mx-auto multiple-resource-group-field" title="Filter by Resource Group" data-live-search="true" data-selected-text-format="count>2" data-style="" data-style-base="form-control" data-actions-box="true" multiple>
-            ${dataSet.resourceGroups.map(resourceGroup => `<option value="${resourceGroup.value}">${resourceGroup.text}</option>`)}
-            <option value="vendor">Vendor Subcons</option>
-            <option value="z-unassigned">Unassigned</option>
-            </select>
-          </div>
-          <div class="input-group mb-3">
-            <select class="selectpicker mx-auto multiple-event-organizer-field" title="Filter by Organizer" data-live-search="true" data-selected-text-format="count>2" data-style="" data-style-base="form-control" data-actions-box="true" multiple>
-            ${dataSet.organizers.map(organizer => `<option value="${organizer.value}">${organizer.text}</option>`)}
-            </select>
-          </div>
-        </div>
-        <div class="input-group inline-inputs">
-          <div class="mb-3">
-            <select class="selectpicker mx-auto multiple-event-status-field" title="Filter by Status" data-live-search="true" data-selected-text-format="count>2" data-style="" data-style-base="form-control" data-actions-box="true" multiple>
-              <option value="TENTATIVE">Tentative</option>
-              <option value="CONFIRMED">Confirmed</option>
-              <option value="COMPLETED">Completed</option>
-            </select>
-          </div>
-          <div class="mb-3">
-            <select class="selectpicker mx-auto multiple-event-priority-field" title="Filter by Priority" data-live-search="true" data-selected-text-format="count>2" data-style="" data-style-base="form-control" data-actions-box="true" multiple>
-              <option value="1">Low</option>
-              <option value="2">Mid</option>
-              <option value="3">High</option>
-              <option value="4">Urgent</option>
-            </select>
-          </div>
-          <div class="mb-3">
-            <select class="selectpicker mx-auto multiple-event-type-field" title="Filter by Event Type" data-live-search="true" data-selected-text-format="count>2" data-style="" data-style-base="form-control" data-actions-box="true" multiple>
-              <option value="1">General Event</option>
-              <option value="2">Non General Event</option>
-            </select>
-          </div>
-        </div>
-      </div>`).insertAfter('.fc-header-toolbar');
-
-      if (!$('#eventsViewCounter').length) {
-        $('.fc-toolbar-title').append('<h6><span class="badge badge-danger badge-pill counter" style="display: inline-block" id="eventsViewCounter">TBD</span></h6>');
-      }
-    } */
   }
 
   static _prefillAddEvent(info) {
@@ -506,7 +453,7 @@ export default class Calendar {
 
     const payload = {};
     payload.eventData = deepCopy(info.event.extendedProps);
-    console.log('payload.eventData', payload.eventData)
+    // console.log('payload.eventData', payload.eventData)
     payload.eventDataSrc = dataSet.events.find(event => event.id == payload.eventData.id) || {};
     const startSplit = moment(info.event.startStr).format('YYYY-MM-DDTHH:mm').split('T');
     payload.eventData.date.start = startSplit[0];
@@ -575,12 +522,10 @@ export default class Calendar {
                     payload.eventData.selectedResources.splice(index, 1); // Removed resource
                   }
                 }
-
               } else if (resourceKey === 'vendors') {
                 let unassignedVendors = deepCopy(dataSet.vendors).filter(vendor => !!!payload.eventData.vendors.map(vendor => vendor.vendor.value).includes(vendor.id));
                 unassignedVendors = [...payload.eventData.vendors, ...unassignedVendors];
                 const vendorsToUse = unassignedVendors;
-
                 payload.eventData.selectedVendors = vendorsToUse.filter(vendor => resourceId == vendor.id);
                 payload.eventData.selectedVendors = [...payload.eventData.vendors, ...payload.eventData.selectedVendors];
                 if (info.oldResource) {
@@ -622,7 +567,6 @@ export default class Calendar {
   static _initDropDown(info) {
     const eventId = info.event.id;
     const event = dataSet.events.find(event => event.id == eventId);
-
     const html = `<div class="card-header-options"><div class="dropdown" style="display:inline-block">
       <i class="fa-solid fa-angles-down" style="cursor: pointer"></i>
       <div class="dropdown-content">
@@ -631,7 +575,6 @@ export default class Calendar {
         <a href="#" onclick="deleteEventRecord('', ${eventId})">Remove Event</a>
       </div>
     </div></div>`;
-
     const el = info.el.querySelector('div.card-name');
     el.insertAdjacentHTML('afterend', html);
   }
