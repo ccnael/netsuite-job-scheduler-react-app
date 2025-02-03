@@ -1,10 +1,11 @@
 import mockup from './mockup.json';
 
-const DEV_MODE = true;
-// const DEV_MODE = false;
+// const DEV_MODE = true;
+const DEV_MODE = false;
 
 const getValue = (selector, mockValue) => !DEV_MODE ? JSON.parse(decodeURIComponent($(selector).val())) : mockValue;
 
+export const devMode = DEV_MODE;
 export const userId = !DEV_MODE ? $('#userId').val() : mockup.userId;
 export const suiteletUrl = !DEV_MODE ? decodeURIComponent($('#suiteletUrl').val()) : mockup.suiteletUrl;
 export const resources = getValue('#resources', mockup.resources);
@@ -20,6 +21,7 @@ export const customers = getValue('#customers', mockup.customers);
 export const woLocations = getValue('#woLocations', mockup.woLocations);
 export const events = getValue('#events', mockup.events);
 export const organizers = getValue('#organizers', mockup.organizers);
+export const filterFields = getValue('#filterFields', mockup.filterFields);
 export const activeResources = resources.filter(resource => !!resource.active);
 export const combinedResourceGroups = [
   ...resourceGroups,

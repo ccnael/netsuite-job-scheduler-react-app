@@ -47547,7 +47547,15 @@
     },
     "woVendor": false,
     "events": ["101087", "101084", "101081", "101075", "101057", "101056", "101055", "101040", "101028", "101017", "101015", "101012", "101011", "101010", "101008", "101007", "101006", "101005", "101004", "101003", "100968", "100954", "100953", "100952", "100951", "100950", "100947", "100942", "100939", "100933", "100931", "100927", "100923", "100922", "100915", "100913", "100912", "100906", "100905", "100904", "100903", "100902", "100901", "100900", "100899", "100891", "100890", "100889", "100888", "100887", "100886", "100884", "100883", "100882", "100881", "100880", "100875", "100871", "100870", "100682", "39", "20"],
-    "memo": ""
+    "memo": "",
+    "location": {
+      "text": "",
+      "value": ""
+    },
+    "department": {
+      "text": "",
+      "value": ""
+    }
   }, {
     "id": "1473",
     "name": "Bridgepoint Industries",
@@ -47567,7 +47575,15 @@
     },
     "woVendor": false,
     "events": ["101084", "101010", "101008", "101005", "100970", "100969", "100968", "100960", "100956", "100955", "100951", "100947", "100946", "100945", "100942", "100939", "100938", "100933", "100932", "100931", "100924", "100916", "100887", "100885", "100879", "100878", "100877", "100876", "100875", "100874", "100682", "39", "6"],
-    "memo": ""
+    "memo": "",
+    "location": {
+      "text": "",
+      "value": ""
+    },
+    "department": {
+      "text": "",
+      "value": ""
+    }
   }, {
     "id": "1661",
     "name": "CFI Furniture Inc.",
@@ -47587,7 +47603,15 @@
     },
     "woVendor": false,
     "events": ["101083", "101082", "101061", "101060", "101037", "101012", "100953", "100952", "100950", "100932", "100884", "100881", "100880", "100875", "39"],
-    "memo": ""
+    "memo": "",
+    "location": {
+      "text": "",
+      "value": ""
+    },
+    "department": {
+      "text": "",
+      "value": ""
+    }
   }, {
     "id": "965",
     "name": "Computer Depot Pacific",
@@ -47607,7 +47631,15 @@
     },
     "woVendor": false,
     "events": ["101011", "100940", "100885", "100875", "100739", "39"],
-    "memo": ""
+    "memo": "",
+    "location": {
+      "text": "",
+      "value": ""
+    },
+    "department": {
+      "text": "",
+      "value": ""
+    }
   }, {
     "id": "1664",
     "name": "Haworth, Inc.",
@@ -47627,7 +47659,15 @@
     },
     "woVendor": false,
     "events": ["100940", "100939", "100875", "39"],
-    "memo": ""
+    "memo": "",
+    "location": {
+      "text": "",
+      "value": ""
+    },
+    "department": {
+      "text": "",
+      "value": ""
+    }
   }],
   "assets": [{
     "id": "674",
@@ -102446,5 +102486,1724 @@
   }, {
     "text": "Marketing",
     "value": "4"
-  }]
+  }],
+  "filterFields": {
+    "resource": {
+      "modalId": "#filterFieldResource",
+      "fields": [{
+        "label": "Resource Name",
+        "className": "multiple-resource-field",
+        "type": "multiselect",
+        "display": true,
+        "options": [{
+          "value": "1524",
+          "text": "Aiden Somerhalder"
+        }, {
+          "value": "1770",
+          "text": "Arun Sharma"
+        }, {
+          "value": "1767",
+          "text": "Bea Quilinguin"
+        }, {
+          "value": "912",
+          "text": "Bonita Kane"
+        }, {
+          "value": "27",
+          "text": "Brad Sparling"
+        }, {
+          "value": "1545",
+          "text": "Brandy Samms"
+        }, {
+          "value": "1516",
+          "text": "Brenda Jones"
+        }, {
+          "value": "1513",
+          "text": "Brenda Wilson"
+        }, {
+          "value": "31",
+          "text": "Brian Harris"
+        }, {
+          "value": "24",
+          "text": "Carmen Matthews"
+        }, {
+          "value": "23",
+          "text": "Clark Koozer"
+        }, {
+          "value": "224",
+          "text": "Dale Williams"
+        }, {
+          "value": "1312",
+          "text": "Gary Grant"
+        }, {
+          "value": "1292",
+          "text": "Matt Nolan"
+        }, {
+          "value": "1647",
+          "text": "Mei Matriano"
+        }, {
+          "value": "1766",
+          "text": "Rowe Riomalos"
+        }, {
+          "value": "1539",
+          "text": "Ruth Smith"
+        }, {
+          "value": "18",
+          "text": "Sam Cruz"
+        }, {
+          "value": "918",
+          "text": "Walter Reagan"
+        }, {
+          "value": "1656",
+          "text": "Youssef Ezz"
+        }, {
+          "value": "12",
+          "text": "Best Fixture, Inc."
+        }, {
+          "value": "1473",
+          "text": "Bridgepoint Industries"
+        }, {
+          "value": "1661",
+          "text": "CFI Furniture Inc."
+        }, {
+          "value": "965",
+          "text": "Computer Depot Pacific"
+        }, {
+          "value": "1664",
+          "text": "Haworth, Inc."
+        }, {
+          "value": "674",
+          "text": "ELE00002"
+        }],
+        "data-icon": "bi bi-person"
+      }, {
+        "label": "Resource Group",
+        "className": "multiple-resource-group-field",
+        "type": "multiselect",
+        "display": true,
+        "options": [{
+          "text": "Installers",
+          "value": "1",
+          "resources": [{
+            "id": "1524",
+            "name": "Aiden Somerhalder",
+            "initials": "AS",
+            "email": "admin@ramsey.com",
+            "phone": "",
+            "location": {
+              "text": "01: San Francisco",
+              "value": "2"
+            },
+            "active": true,
+            "employee": {
+              "text": "Aiden Somerhalder",
+              "value": "1524"
+            },
+            "resourceGroups": [{
+              "text": "Installers",
+              "value": "1"
+            }],
+            "types": [{
+              "text": "Installer",
+              "value": "1"
+            }],
+            "subTypes": [],
+            "rate": 0,
+            "vendor": {
+              "text": "",
+              "value": ""
+            },
+            "purchaseOrder": {
+              "text": "",
+              "value": ""
+            },
+            "affiliationType": {
+              "text": "In-House",
+              "value": "1"
+            },
+            "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1524%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
+            "events": ["101085", "101084", "101083", "101080", "101079", "101075", "101072"],
+            "labRates": [],
+            "time": {
+              "start": "",
+              "end": ""
+            },
+            "resourceSkills": [{
+              "text": "Welding",
+              "value": "6"
+            }, {
+              "text": "Woodworking",
+              "value": "4"
+            }],
+            "department": {
+              "text": "",
+              "value": ""
+            }
+          }, {
+            "id": "1770",
+            "name": "Arun Sharma",
+            "initials": "AS",
+            "email": "aruns.unlock2go@gmail.com",
+            "phone": "",
+            "location": {
+              "text": "",
+              "value": ""
+            },
+            "active": true,
+            "employee": {
+              "text": "Arun Sharma",
+              "value": "1770"
+            },
+            "resourceGroups": [{
+              "text": "Designers",
+              "value": "2"
+            }, {
+              "text": "Drivers",
+              "value": "3"
+            }, {
+              "text": "Installers",
+              "value": "1"
+            }],
+            "types": [{
+              "text": "Delivery Driver",
+              "value": "2"
+            }, {
+              "text": "Designer",
+              "value": "3"
+            }, {
+              "text": "Installer",
+              "value": "1"
+            }],
+            "subTypes": [],
+            "rate": 0,
+            "vendor": {
+              "text": "",
+              "value": ""
+            },
+            "purchaseOrder": {
+              "text": "",
+              "value": ""
+            },
+            "affiliationType": {
+              "text": "In-House",
+              "value": "1"
+            },
+            "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1770%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
+            "events": ["101087", "101084", "101076", "101075"],
+            "labRates": [],
+            "time": {
+              "start": "",
+              "end": ""
+            },
+            "resourceSkills": [{
+              "text": "Driving",
+              "value": "3"
+            }, {
+              "text": "Plumbing",
+              "value": "2"
+            }],
+            "department": {
+              "text": "",
+              "value": ""
+            }
+          }, {
+            "id": "1767",
+            "name": "Bea Quilinguin",
+            "initials": "BQ",
+            "email": "beatrice.q@erpsuccesspartners.com",
+            "phone": "",
+            "location": {
+              "text": "01: San Francisco",
+              "value": "2"
+            },
+            "active": true,
+            "employee": {
+              "text": "Bea Quilinguin",
+              "value": "1767"
+            },
+            "resourceGroups": [{
+              "text": "Designers",
+              "value": "2"
+            }, {
+              "text": "Drivers",
+              "value": "3"
+            }, {
+              "text": "Installers",
+              "value": "1"
+            }],
+            "types": [{
+              "text": "Delivery Driver",
+              "value": "2"
+            }, {
+              "text": "Designer",
+              "value": "3"
+            }, {
+              "text": "Installer",
+              "value": "1"
+            }],
+            "subTypes": [],
+            "rate": 0,
+            "vendor": {
+              "text": "",
+              "value": ""
+            },
+            "purchaseOrder": {
+              "text": "",
+              "value": ""
+            },
+            "affiliationType": {
+              "text": "In-House",
+              "value": "1"
+            },
+            "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1767%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
+            "events": ["101088", "101084"],
+            "labRates": [{
+              "labRateCatId": "1",
+              "labRate": 10
+            }, {
+              "labRateCatId": "2",
+              "labRate": 20
+            }, {
+              "labRateCatId": "3",
+              "labRate": 30
+            }],
+            "time": {
+              "start": "",
+              "end": ""
+            },
+            "resourceSkills": [{
+              "text": "CNC Machining",
+              "value": "12"
+            }, {
+              "text": "Furniture Design",
+              "value": "7"
+            }, {
+              "text": "Interior Design",
+              "value": "14"
+            }],
+            "department": {
+              "text": "",
+              "value": ""
+            }
+          }, {
+            "id": "912",
+            "name": "Bonita Kane",
+            "initials": "BK",
+            "email": "bdickens@ramsey.com",
+            "phone": "(123) 456-7890",
+            "location": {
+              "text": "02: Boston",
+              "value": "1"
+            },
+            "active": false,
+            "employee": {
+              "text": "Bonita Kane",
+              "value": "912"
+            },
+            "resourceGroups": [{
+              "text": "Installers",
+              "value": "1"
+            }],
+            "types": [{
+              "text": "Installer",
+              "value": "1"
+            }],
+            "subTypes": [],
+            "rate": 20,
+            "vendor": {
+              "text": "Haworth, Inc.",
+              "value": "1664"
+            },
+            "purchaseOrder": {
+              "text": "",
+              "value": ""
+            },
+            "affiliationType": {
+              "text": "Vendor",
+              "value": "2"
+            },
+            "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D912%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
+            "events": [],
+            "labRates": [],
+            "time": {
+              "start": "",
+              "end": ""
+            },
+            "resourceSkills": [{
+              "text": "Computer-Aided Design (CAD)",
+              "value": "8"
+            }, {
+              "text": "Furniture Assembly",
+              "value": "1"
+            }, {
+              "text": "Quality Control",
+              "value": "13"
+            }],
+            "department": {
+              "text": "Sales",
+              "value": "2"
+            }
+          }, {
+            "id": "1545",
+            "name": "Brandy Samms",
+            "initials": "BS",
+            "email": "adminaccess2@ramsey.com",
+            "phone": "(713) 456-7878",
+            "location": {
+              "text": "",
+              "value": ""
+            },
+            "active": false,
+            "employee": {
+              "text": "Brandy Samms",
+              "value": "1545"
+            },
+            "resourceGroups": [{
+              "text": "Installers",
+              "value": "1"
+            }],
+            "types": [{
+              "text": "Installer",
+              "value": "1"
+            }],
+            "subTypes": [],
+            "rate": 0,
+            "vendor": {
+              "text": "",
+              "value": ""
+            },
+            "purchaseOrder": {
+              "text": "",
+              "value": ""
+            },
+            "affiliationType": {
+              "text": "In-House",
+              "value": "1"
+            },
+            "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1545%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
+            "events": [],
+            "labRates": [],
+            "time": {
+              "start": "",
+              "end": ""
+            },
+            "resourceSkills": [{
+              "text": "Painting and Finishing",
+              "value": "15"
+            }, {
+              "text": "Woodworking",
+              "value": "4"
+            }],
+            "department": {
+              "text": "",
+              "value": ""
+            }
+          }, {
+            "id": "1516",
+            "name": "Brenda Jones",
+            "initials": "BJ",
+            "email": "bjones@ramsey.com",
+            "phone": "",
+            "location": {
+              "text": "01: San Francisco",
+              "value": "2"
+            },
+            "active": true,
+            "employee": {
+              "text": "Brenda Jones",
+              "value": "1516"
+            },
+            "resourceGroups": [{
+              "text": "Installers",
+              "value": "1"
+            }],
+            "types": [{
+              "text": "Installer",
+              "value": "1"
+            }],
+            "subTypes": [],
+            "rate": 0,
+            "vendor": {
+              "text": "",
+              "value": ""
+            },
+            "purchaseOrder": {
+              "text": "",
+              "value": ""
+            },
+            "affiliationType": {
+              "text": "In-House",
+              "value": "1"
+            },
+            "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1516%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
+            "events": ["101088", "101079"],
+            "labRates": [],
+            "time": {
+              "start": "",
+              "end": ""
+            },
+            "resourceSkills": [{
+              "text": "Furniture Assembly",
+              "value": "1"
+            }, {
+              "text": "Metalworking",
+              "value": "5"
+            }, {
+              "text": "Painting and Finishing",
+              "value": "15"
+            }],
+            "department": {
+              "text": "",
+              "value": ""
+            }
+          }, {
+            "id": "1513",
+            "name": "Brenda Wilson",
+            "initials": "BW",
+            "email": "bwilson@ramsey.com",
+            "phone": "",
+            "location": {
+              "text": "01: San Francisco : QA Hold",
+              "value": "5"
+            },
+            "active": true,
+            "employee": {
+              "text": "Brenda Wilson",
+              "value": "1513"
+            },
+            "resourceGroups": [{
+              "text": "Installers",
+              "value": "1"
+            }],
+            "types": [{
+              "text": "Installer",
+              "value": "1"
+            }],
+            "subTypes": [],
+            "rate": 0,
+            "vendor": {
+              "text": "",
+              "value": ""
+            },
+            "purchaseOrder": {
+              "text": "",
+              "value": ""
+            },
+            "affiliationType": {
+              "text": "In-House",
+              "value": "1"
+            },
+            "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1513%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
+            "events": ["101079"],
+            "labRates": [],
+            "time": {
+              "start": "",
+              "end": ""
+            },
+            "resourceSkills": [{
+              "text": "Furniture Assembly",
+              "value": "1"
+            }, {
+              "text": "Painting and Finishing",
+              "value": "15"
+            }],
+            "department": {
+              "text": "",
+              "value": ""
+            }
+          }, {
+            "id": "31",
+            "name": "Brian Harris",
+            "initials": "BH",
+            "email": "myohai@avectra.com",
+            "phone": "510-555-5290",
+            "location": {
+              "text": "01: San Francisco : QA Hold",
+              "value": "5"
+            },
+            "active": false,
+            "employee": {
+              "text": "Brian Harris",
+              "value": "31"
+            },
+            "resourceGroups": [{
+              "text": "Installers",
+              "value": "1"
+            }],
+            "types": [{
+              "text": "Installer",
+              "value": "1"
+            }],
+            "subTypes": [],
+            "rate": 0,
+            "vendor": {
+              "text": "",
+              "value": ""
+            },
+            "purchaseOrder": {
+              "text": "",
+              "value": ""
+            },
+            "affiliationType": {
+              "text": "In-House",
+              "value": "1"
+            },
+            "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D31%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
+            "events": [],
+            "labRates": [],
+            "time": {
+              "start": "",
+              "end": ""
+            },
+            "resourceSkills": [{
+              "text": "Furniture Assembly",
+              "value": "1"
+            }, {
+              "text": "Furniture Design",
+              "value": "7"
+            }, {
+              "text": "Interior Design",
+              "value": "14"
+            }],
+            "department": {
+              "text": "Admin",
+              "value": "1"
+            }
+          }, {
+            "id": "24",
+            "name": "Carmen Matthews",
+            "initials": "CM",
+            "email": "cmatthews@ramsey.com",
+            "phone": "415-555-3696",
+            "location": {
+              "text": "01: San Francisco",
+              "value": "2"
+            },
+            "active": true,
+            "employee": {
+              "text": "Carmen Matthews",
+              "value": "24"
+            },
+            "resourceGroups": [{
+              "text": "Installers",
+              "value": "1"
+            }],
+            "types": [{
+              "text": "Installer",
+              "value": "1"
+            }],
+            "subTypes": [],
+            "rate": 40,
+            "vendor": {
+              "text": "",
+              "value": ""
+            },
+            "purchaseOrder": {
+              "text": "",
+              "value": ""
+            },
+            "affiliationType": {
+              "text": "Crew Enhancement",
+              "value": "3"
+            },
+            "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D24%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
+            "events": [],
+            "labRates": [],
+            "time": {
+              "start": "",
+              "end": ""
+            },
+            "resourceSkills": [{
+              "text": "Computer-Aided Design (CAD)",
+              "value": "8"
+            }, {
+              "text": "Interior Design",
+              "value": "14"
+            }],
+            "department": {
+              "text": "Marketing",
+              "value": "4"
+            }
+          }, {
+            "id": "224",
+            "name": "Dale Williams",
+            "initials": "DW",
+            "email": "jc@erpsuccesspartners.com",
+            "phone": "",
+            "location": {
+              "text": "01: San Francisco",
+              "value": "2"
+            },
+            "active": true,
+            "employee": {
+              "text": "Dale Williams",
+              "value": "224"
+            },
+            "resourceGroups": [{
+              "text": "Installers",
+              "value": "1"
+            }],
+            "types": [{
+              "text": "Installer",
+              "value": "1"
+            }],
+            "subTypes": [],
+            "rate": 0,
+            "vendor": {
+              "text": "",
+              "value": ""
+            },
+            "purchaseOrder": {
+              "text": "",
+              "value": ""
+            },
+            "affiliationType": {
+              "text": "Crew Enhancement",
+              "value": "3"
+            },
+            "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D224%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
+            "events": ["101085"],
+            "labRates": [],
+            "time": {
+              "start": "",
+              "end": ""
+            },
+            "resourceSkills": [{
+              "text": "Material Knowledge",
+              "value": "9"
+            }, {
+              "text": "Plumbing",
+              "value": "2"
+            }, {
+              "text": "Quality Control",
+              "value": "13"
+            }],
+            "department": {
+              "text": "",
+              "value": ""
+            }
+          }, {
+            "id": "1312",
+            "name": "Gary Grant",
+            "initials": "GG",
+            "email": "garygrant@ramsey.com",
+            "phone": "(873) 775-6114",
+            "location": {
+              "text": "02: Boston",
+              "value": "1"
+            },
+            "active": true,
+            "employee": {
+              "text": "Gary Grant",
+              "value": "1312"
+            },
+            "resourceGroups": [{
+              "text": "Installers",
+              "value": "1"
+            }],
+            "types": [{
+              "text": "Installer",
+              "value": "1"
+            }],
+            "subTypes": [],
+            "rate": 30,
+            "vendor": {
+              "text": "",
+              "value": ""
+            },
+            "purchaseOrder": {
+              "text": "",
+              "value": ""
+            },
+            "affiliationType": {
+              "text": "Crew Enhancement",
+              "value": "3"
+            },
+            "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1312%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
+            "events": ["101083"],
+            "labRates": [],
+            "time": {
+              "start": "",
+              "end": ""
+            },
+            "resourceSkills": [{
+              "text": "CNC Machining",
+              "value": "12"
+            }, {
+              "text": "Driving",
+              "value": "3"
+            }],
+            "department": {
+              "text": "",
+              "value": ""
+            }
+          }, {
+            "id": "1292",
+            "name": "Matt Nolan",
+            "initials": "MN",
+            "email": "mnolan@ramsey.com",
+            "phone": "",
+            "location": {
+              "text": "01: San Francisco",
+              "value": "2"
+            },
+            "active": true,
+            "employee": {
+              "text": "Matt Nolan",
+              "value": "1292"
+            },
+            "resourceGroups": [{
+              "text": "Installers",
+              "value": "1"
+            }],
+            "types": [{
+              "text": "Installer",
+              "value": "1"
+            }],
+            "subTypes": [],
+            "rate": 0,
+            "vendor": {
+              "text": "",
+              "value": ""
+            },
+            "purchaseOrder": {
+              "text": "",
+              "value": ""
+            },
+            "affiliationType": {
+              "text": "Crew Enhancement",
+              "value": "3"
+            },
+            "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1292%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
+            "events": ["101082"],
+            "labRates": [],
+            "time": {
+              "start": "",
+              "end": ""
+            },
+            "resourceSkills": [{
+              "text": "Interior Design",
+              "value": "14"
+            }, {
+              "text": "Material Knowledge",
+              "value": "9"
+            }, {
+              "text": "Quality Control",
+              "value": "13"
+            }],
+            "department": {
+              "text": "",
+              "value": ""
+            }
+          }, {
+            "id": "1539",
+            "name": "Ruth Smith",
+            "initials": "RS",
+            "email": "jc@erpsuccesspartners.com",
+            "phone": "(713) 555-1212",
+            "location": {
+              "text": "01: San Francisco",
+              "value": "2"
+            },
+            "active": true,
+            "employee": {
+              "text": "Ruth Smith",
+              "value": "1539"
+            },
+            "resourceGroups": [{
+              "text": "Installers",
+              "value": "1"
+            }],
+            "types": [{
+              "text": "Installer",
+              "value": "1"
+            }],
+            "subTypes": [],
+            "rate": 50,
+            "vendor": {
+              "text": "",
+              "value": ""
+            },
+            "purchaseOrder": {
+              "text": "",
+              "value": ""
+            },
+            "affiliationType": {
+              "text": "In-House",
+              "value": "1"
+            },
+            "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1539%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
+            "events": ["101084", "101083"],
+            "labRates": [],
+            "time": {
+              "start": "",
+              "end": ""
+            },
+            "resourceSkills": [{
+              "text": "CNC Machining",
+              "value": "12"
+            }, {
+              "text": "Carpentry and Joinery",
+              "value": "10"
+            }, {
+              "text": "Computer-Aided Design (CAD)",
+              "value": "8"
+            }],
+            "department": {
+              "text": "",
+              "value": ""
+            }
+          }, {
+            "id": "18",
+            "name": "Sam Cruz",
+            "initials": "SC",
+            "email": "scruz@ramsey.com",
+            "phone": "408-555-4344",
+            "location": {
+              "text": "01: San Francisco",
+              "value": "2"
+            },
+            "active": true,
+            "employee": {
+              "text": "Sam Cruz",
+              "value": "18"
+            },
+            "resourceGroups": [{
+              "text": "Installers",
+              "value": "1"
+            }],
+            "types": [{
+              "text": "Installer",
+              "value": "1"
+            }],
+            "subTypes": [],
+            "rate": 60,
+            "vendor": {
+              "text": "",
+              "value": ""
+            },
+            "purchaseOrder": {
+              "text": "",
+              "value": ""
+            },
+            "affiliationType": {
+              "text": "In-House",
+              "value": "1"
+            },
+            "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D18%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
+            "events": [],
+            "labRates": [],
+            "time": {
+              "start": "",
+              "end": ""
+            },
+            "resourceSkills": [{
+              "text": "Driving",
+              "value": "3"
+            }, {
+              "text": "Furniture Assembly",
+              "value": "1"
+            }, {
+              "text": "Furniture Design",
+              "value": "7"
+            }],
+            "department": {
+              "text": "Sales",
+              "value": "2"
+            }
+          }, {
+            "id": "918",
+            "name": "Walter Reagan",
+            "initials": "WR",
+            "email": "wreagan@ramsey.com",
+            "phone": "",
+            "location": {
+              "text": "02: Boston",
+              "value": "1"
+            },
+            "active": true,
+            "employee": {
+              "text": "Walter Reagan",
+              "value": "918"
+            },
+            "resourceGroups": [{
+              "text": "Installers",
+              "value": "1"
+            }],
+            "types": [{
+              "text": "Installer",
+              "value": "1"
+            }],
+            "subTypes": [],
+            "rate": 50,
+            "vendor": {
+              "text": "",
+              "value": ""
+            },
+            "purchaseOrder": {
+              "text": "",
+              "value": ""
+            },
+            "affiliationType": {
+              "text": "Crew Enhancement",
+              "value": "3"
+            },
+            "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D918%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
+            "events": ["101084"],
+            "labRates": [],
+            "time": {
+              "start": "",
+              "end": ""
+            },
+            "resourceSkills": [{
+              "text": "Interior Design",
+              "value": "14"
+            }, {
+              "text": "Material Knowledge",
+              "value": "9"
+            }, {
+              "text": "Painting and Finishing",
+              "value": "15"
+            }],
+            "department": {
+              "text": "",
+              "value": ""
+            }
+          }, {
+            "id": "1656",
+            "name": "Youssef Ezz",
+            "initials": "YE",
+            "email": "yk@erpsuccesspartners.com",
+            "phone": "",
+            "location": {
+              "text": "01: San Francisco",
+              "value": "2"
+            },
+            "active": true,
+            "employee": {
+              "text": "Youssef Ezz",
+              "value": "1656"
+            },
+            "resourceGroups": [{
+              "text": "Installers",
+              "value": "1"
+            }],
+            "types": [{
+              "text": "Installer",
+              "value": "1"
+            }],
+            "subTypes": [],
+            "rate": 60,
+            "vendor": {
+              "text": "",
+              "value": ""
+            },
+            "purchaseOrder": {
+              "text": "",
+              "value": ""
+            },
+            "affiliationType": {
+              "text": "In-House",
+              "value": "1"
+            },
+            "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1656%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
+            "events": ["101082"],
+            "labRates": [],
+            "time": {
+              "start": "",
+              "end": ""
+            },
+            "resourceSkills": [{
+              "text": "Carpentry and Joinery",
+              "value": "10"
+            }, {
+              "text": "Quality Control",
+              "value": "13"
+            }, {
+              "text": "Upholstery",
+              "value": "11"
+            }],
+            "department": {
+              "text": "",
+              "value": ""
+            }
+          }],
+          "resourceCount": 16
+        }, {
+          "text": "Designers",
+          "value": "2",
+          "resources": [{
+            "id": "1770",
+            "name": "Arun Sharma",
+            "initials": "AS",
+            "email": "aruns.unlock2go@gmail.com",
+            "phone": "",
+            "location": {
+              "text": "",
+              "value": ""
+            },
+            "active": true,
+            "employee": {
+              "text": "Arun Sharma",
+              "value": "1770"
+            },
+            "resourceGroups": [{
+              "text": "Designers",
+              "value": "2"
+            }, {
+              "text": "Drivers",
+              "value": "3"
+            }, {
+              "text": "Installers",
+              "value": "1"
+            }],
+            "types": [{
+              "text": "Delivery Driver",
+              "value": "2"
+            }, {
+              "text": "Designer",
+              "value": "3"
+            }, {
+              "text": "Installer",
+              "value": "1"
+            }],
+            "subTypes": [],
+            "rate": 0,
+            "vendor": {
+              "text": "",
+              "value": ""
+            },
+            "purchaseOrder": {
+              "text": "",
+              "value": ""
+            },
+            "affiliationType": {
+              "text": "In-House",
+              "value": "1"
+            },
+            "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1770%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
+            "events": ["101087", "101084", "101076", "101075"],
+            "labRates": [],
+            "time": {
+              "start": "",
+              "end": ""
+            },
+            "resourceSkills": [{
+              "text": "Driving",
+              "value": "3"
+            }, {
+              "text": "Plumbing",
+              "value": "2"
+            }],
+            "department": {
+              "text": "",
+              "value": ""
+            }
+          }, {
+            "id": "1767",
+            "name": "Bea Quilinguin",
+            "initials": "BQ",
+            "email": "beatrice.q@erpsuccesspartners.com",
+            "phone": "",
+            "location": {
+              "text": "01: San Francisco",
+              "value": "2"
+            },
+            "active": true,
+            "employee": {
+              "text": "Bea Quilinguin",
+              "value": "1767"
+            },
+            "resourceGroups": [{
+              "text": "Designers",
+              "value": "2"
+            }, {
+              "text": "Drivers",
+              "value": "3"
+            }, {
+              "text": "Installers",
+              "value": "1"
+            }],
+            "types": [{
+              "text": "Delivery Driver",
+              "value": "2"
+            }, {
+              "text": "Designer",
+              "value": "3"
+            }, {
+              "text": "Installer",
+              "value": "1"
+            }],
+            "subTypes": [],
+            "rate": 0,
+            "vendor": {
+              "text": "",
+              "value": ""
+            },
+            "purchaseOrder": {
+              "text": "",
+              "value": ""
+            },
+            "affiliationType": {
+              "text": "In-House",
+              "value": "1"
+            },
+            "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1767%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
+            "events": ["101088", "101084"],
+            "labRates": [{
+              "labRateCatId": "1",
+              "labRate": 10
+            }, {
+              "labRateCatId": "2",
+              "labRate": 20
+            }, {
+              "labRateCatId": "3",
+              "labRate": 30
+            }],
+            "time": {
+              "start": "",
+              "end": ""
+            },
+            "resourceSkills": [{
+              "text": "CNC Machining",
+              "value": "12"
+            }, {
+              "text": "Furniture Design",
+              "value": "7"
+            }, {
+              "text": "Interior Design",
+              "value": "14"
+            }],
+            "department": {
+              "text": "",
+              "value": ""
+            }
+          }, {
+            "id": "1647",
+            "name": "Mei Matriano",
+            "initials": "MM",
+            "email": "mei@erpsuccesspartners.com",
+            "phone": "",
+            "location": {
+              "text": "New York",
+              "value": "15"
+            },
+            "active": true,
+            "employee": {
+              "text": "Mei Matriano",
+              "value": "1647"
+            },
+            "resourceGroups": [{
+              "text": "Designers",
+              "value": "2"
+            }],
+            "types": [{
+              "text": "Installer",
+              "value": "1"
+            }],
+            "subTypes": [],
+            "rate": 20,
+            "vendor": {
+              "text": "",
+              "value": ""
+            },
+            "purchaseOrder": {
+              "text": "",
+              "value": ""
+            },
+            "affiliationType": {
+              "text": "In-House",
+              "value": "1"
+            },
+            "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1647%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
+            "events": [],
+            "labRates": [],
+            "time": {
+              "start": "",
+              "end": ""
+            },
+            "resourceSkills": [{
+              "text": "Material Knowledge",
+              "value": "9"
+            }, {
+              "text": "Metalworking",
+              "value": "5"
+            }, {
+              "text": "Welding",
+              "value": "6"
+            }],
+            "department": {
+              "text": "",
+              "value": ""
+            }
+          }, {
+            "id": "1766",
+            "name": "Rowe Riomalos",
+            "initials": "RR",
+            "email": "rowe@erpsuccesspartners.com",
+            "phone": "",
+            "location": {
+              "text": "",
+              "value": ""
+            },
+            "active": false,
+            "employee": {
+              "text": "Rowe Riomalos",
+              "value": "1766"
+            },
+            "resourceGroups": [{
+              "text": "Designers",
+              "value": "2"
+            }],
+            "types": [],
+            "subTypes": [],
+            "rate": 0,
+            "vendor": {
+              "text": "",
+              "value": ""
+            },
+            "purchaseOrder": {
+              "text": "",
+              "value": ""
+            },
+            "affiliationType": {
+              "text": "In-House",
+              "value": "1"
+            },
+            "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1766%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
+            "events": [],
+            "labRates": [],
+            "time": {
+              "start": "",
+              "end": ""
+            },
+            "resourceSkills": [{
+              "text": "Plumbing",
+              "value": "2"
+            }, {
+              "text": "Upholstery",
+              "value": "11"
+            }, {
+              "text": "Woodworking",
+              "value": "4"
+            }],
+            "department": {
+              "text": "",
+              "value": ""
+            }
+          }],
+          "resourceCount": 4
+        }, {
+          "text": "Drivers",
+          "value": "3",
+          "resources": [{
+            "id": "1770",
+            "name": "Arun Sharma",
+            "initials": "AS",
+            "email": "aruns.unlock2go@gmail.com",
+            "phone": "",
+            "location": {
+              "text": "",
+              "value": ""
+            },
+            "active": true,
+            "employee": {
+              "text": "Arun Sharma",
+              "value": "1770"
+            },
+            "resourceGroups": [{
+              "text": "Designers",
+              "value": "2"
+            }, {
+              "text": "Drivers",
+              "value": "3"
+            }, {
+              "text": "Installers",
+              "value": "1"
+            }],
+            "types": [{
+              "text": "Delivery Driver",
+              "value": "2"
+            }, {
+              "text": "Designer",
+              "value": "3"
+            }, {
+              "text": "Installer",
+              "value": "1"
+            }],
+            "subTypes": [],
+            "rate": 0,
+            "vendor": {
+              "text": "",
+              "value": ""
+            },
+            "purchaseOrder": {
+              "text": "",
+              "value": ""
+            },
+            "affiliationType": {
+              "text": "In-House",
+              "value": "1"
+            },
+            "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1770%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
+            "events": ["101087", "101084", "101076", "101075"],
+            "labRates": [],
+            "time": {
+              "start": "",
+              "end": ""
+            },
+            "resourceSkills": [{
+              "text": "Driving",
+              "value": "3"
+            }, {
+              "text": "Plumbing",
+              "value": "2"
+            }],
+            "department": {
+              "text": "",
+              "value": ""
+            }
+          }, {
+            "id": "1767",
+            "name": "Bea Quilinguin",
+            "initials": "BQ",
+            "email": "beatrice.q@erpsuccesspartners.com",
+            "phone": "",
+            "location": {
+              "text": "01: San Francisco",
+              "value": "2"
+            },
+            "active": true,
+            "employee": {
+              "text": "Bea Quilinguin",
+              "value": "1767"
+            },
+            "resourceGroups": [{
+              "text": "Designers",
+              "value": "2"
+            }, {
+              "text": "Drivers",
+              "value": "3"
+            }, {
+              "text": "Installers",
+              "value": "1"
+            }],
+            "types": [{
+              "text": "Delivery Driver",
+              "value": "2"
+            }, {
+              "text": "Designer",
+              "value": "3"
+            }, {
+              "text": "Installer",
+              "value": "1"
+            }],
+            "subTypes": [],
+            "rate": 0,
+            "vendor": {
+              "text": "",
+              "value": ""
+            },
+            "purchaseOrder": {
+              "text": "",
+              "value": ""
+            },
+            "affiliationType": {
+              "text": "In-House",
+              "value": "1"
+            },
+            "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1767%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
+            "events": ["101088", "101084"],
+            "labRates": [{
+              "labRateCatId": "1",
+              "labRate": 10
+            }, {
+              "labRateCatId": "2",
+              "labRate": 20
+            }, {
+              "labRateCatId": "3",
+              "labRate": 30
+            }],
+            "time": {
+              "start": "",
+              "end": ""
+            },
+            "resourceSkills": [{
+              "text": "CNC Machining",
+              "value": "12"
+            }, {
+              "text": "Furniture Design",
+              "value": "7"
+            }, {
+              "text": "Interior Design",
+              "value": "14"
+            }],
+            "department": {
+              "text": "",
+              "value": ""
+            }
+          }, {
+            "id": "27",
+            "name": "Brad Sparling",
+            "initials": "BS",
+            "email": "jc@erpsuccesspartners.com",
+            "phone": "650-555-3226",
+            "location": {
+              "text": "01: San Francisco",
+              "value": "2"
+            },
+            "active": false,
+            "employee": {
+              "text": "Brad Sparling",
+              "value": "27"
+            },
+            "resourceGroups": [{
+              "text": "Drivers",
+              "value": "3"
+            }],
+            "types": [{
+              "text": "Delivery Driver",
+              "value": "2"
+            }],
+            "subTypes": [],
+            "rate": 0,
+            "vendor": {
+              "text": "",
+              "value": ""
+            },
+            "purchaseOrder": {
+              "text": "",
+              "value": ""
+            },
+            "affiliationType": {
+              "text": "In-House",
+              "value": "1"
+            },
+            "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D27%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
+            "events": [],
+            "labRates": [],
+            "time": {
+              "start": "",
+              "end": ""
+            },
+            "resourceSkills": [{
+              "text": "CNC Machining",
+              "value": "12"
+            }, {
+              "text": "Carpentry and Joinery",
+              "value": "10"
+            }, {
+              "text": "Material Knowledge",
+              "value": "9"
+            }],
+            "department": {
+              "text": "Engineering",
+              "value": "11"
+            }
+          }, {
+            "id": "23",
+            "name": "Clark Koozer",
+            "initials": "CK",
+            "email": "jc@erpsuccesspartners.com",
+            "phone": "650-555-8300",
+            "location": {
+              "text": "01: San Francisco",
+              "value": "2"
+            },
+            "active": true,
+            "employee": {
+              "text": "Clark Koozer",
+              "value": "23"
+            },
+            "resourceGroups": [{
+              "text": "Drivers",
+              "value": "3"
+            }],
+            "types": [{
+              "text": "Delivery Driver",
+              "value": "2"
+            }],
+            "subTypes": [],
+            "rate": 40,
+            "vendor": {
+              "text": "",
+              "value": ""
+            },
+            "purchaseOrder": {
+              "text": "",
+              "value": ""
+            },
+            "affiliationType": {
+              "text": "In-House",
+              "value": "1"
+            },
+            "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D23%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
+            "events": ["101085", "101082"],
+            "labRates": [],
+            "time": {
+              "start": "",
+              "end": ""
+            },
+            "resourceSkills": [{
+              "text": "Carpentry and Joinery",
+              "value": "10"
+            }, {
+              "text": "Furniture Assembly",
+              "value": "1"
+            }],
+            "department": {
+              "text": "Sales",
+              "value": "2"
+            }
+          }],
+          "resourceCount": 4
+        }]
+      }, {
+        "label": "Resource Skill",
+        "className": "multiple-resource-skill-field",
+        "type": "multiselect",
+        "display": true,
+        "options": [{
+          "text": "Carpentry and Joinery",
+          "value": "10"
+        }, {
+          "text": "CNC Machining",
+          "value": "12"
+        }, {
+          "text": "Computer-Aided Design (CAD)",
+          "value": "8"
+        }, {
+          "text": "Driving",
+          "value": "3"
+        }, {
+          "text": "Furniture Assembly",
+          "value": "1"
+        }, {
+          "text": "Furniture Design",
+          "value": "7"
+        }, {
+          "text": "Interior Design",
+          "value": "14"
+        }, {
+          "text": "Material Knowledge",
+          "value": "9"
+        }, {
+          "text": "Metalworking",
+          "value": "5"
+        }, {
+          "text": "Painting and Finishing",
+          "value": "15"
+        }, {
+          "text": "Plumbing",
+          "value": "2"
+        }, {
+          "text": "Quality Control",
+          "value": "13"
+        }, {
+          "text": "Upholstery",
+          "value": "11"
+        }, {
+          "text": "Welding",
+          "value": "6"
+        }, {
+          "text": "Woodworking",
+          "value": "4"
+        }]
+      }, {
+        "label": "Status",
+        "className": "multiple-status-field",
+        "type": "multiselect",
+        "display": true,
+        "options": [{
+          "value": "1",
+          "text": "Active"
+        }, {
+          "value": "0",
+          "text": "Inactive"
+        }]
+      }, {
+        "label": "Location",
+        "className": "multiple-location-field",
+        "type": "multiselect",
+        "display": false,
+        "options": [{
+          "text": "01: San Francisco",
+          "value": "2"
+        }, {
+          "text": "02: Boston",
+          "value": "1"
+        }, {
+          "text": "01: San Francisco : QA Hold",
+          "value": "5"
+        }, {
+          "text": "New York",
+          "value": "15"
+        }],
+        "data-icon": "bi bi-geo-alt"
+      }, {
+        "label": "Department",
+        "className": "multiple-department-field",
+        "type": "multiselect",
+        "display": false,
+        "options": [{
+          "text": "Sales",
+          "value": "2"
+        }, {
+          "text": "Engineering",
+          "value": "11"
+        }, {
+          "text": "Admin",
+          "value": "1"
+        }, {
+          "text": "Marketing",
+          "value": "4"
+        }]
+      }, {
+        "label": "Email",
+        "className": "email-field",
+        "type": "text",
+        "display": false
+      }, {
+        "label": "Phone",
+        "className": "phone-field",
+        "type": "text",
+        "display": false
+      }]
+    },
+    "boardJob": {
+      "modalId": "#filterFieldBoardJob",
+      "fields": [{
+        "label": "Customer",
+        "className": "multiple-customer-field",
+        "type": "multiselect",
+        "display": true,
+        "data-icon": "bi bi-person"
+      }, {
+        "label": "Work Order Title",
+        "className": "board-wo-title",
+        "type": "text",
+        "display": true
+      }, {
+        "label": "From",
+        "className": "board-job-datefrom",
+        "type": "date",
+        "display": true
+      }, {
+        "label": "To",
+        "className": "board-job-dateto",
+        "type": "date",
+        "display": true
+      }, {
+        "label": "ID",
+        "className": "job-id",
+        "type": "text",
+        "display": false
+      }, {
+        "label": "Status",
+        "className": "multiple-status-field",
+        "type": "multiselect",
+        "display": false,
+        "options": []
+      }]
+    }
+  }
 }

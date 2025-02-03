@@ -1,8 +1,10 @@
-import { onFilterResource, clearFilters } from '../filterFunctions';
+import { onFilterResource } from './filterUtils';
 import './filterField.css';
-import fieldsData from './fieldsData';
+import * as dataSet from '../dataSet';
 
 $(document).ready(() => {
+  const { modalId, fields } = dataSet.filterFields.resource;
+
   $('#app').append(`
     <div class="modal fade" id="filterFieldResource" mode="" title="" tabindex="-1" style="z-index: -999">
     <div class="modal-dialog modal-md">
@@ -11,6 +13,7 @@ $(document).ready(() => {
           <h5 class="modal-title" id="filterFieldResourceLabel"><strong class="table-header">Filter Resources</strong></h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
+        <div class="spinner"></div>
         <div class="modal-body">
           <form class="filterForm">
             <div class="row" style=" margin-top: 10px;">
@@ -22,22 +25,29 @@ $(document).ready(() => {
               </div>
             </div>
             <div class="modal-footer">
-              <button type="submit" class="btn btn-success">Update Fields</button>
-              <button type="button" class="btn btn-secondary btn-clear">Clear Filters</button>
+              <button type="submit" class="btn btn-success" onclick="showSecondForm(event, '${modalId}')">Update Fields</button>
+              <button type="button" class="btn btn-secondary btn-clear" onclick="clearFilters('${modalId}')">Clear Filters</button>
             </div>
           </form>
           <form class="updateFieldsForm">
             <!-- Row containing select field and buttons -->
             <div class="row mb-3 justify-content-start align-items-center">
-              <div class="col mb-3">
-                <select class="selectpicker mx-auto multiple-filter-fields" title="Select Fields" data-live-search="true" data-selected-text-format="count>2" data-style="" data-style-base="form-control" data-actions-box="true" multiple>
-                  ${fieldsData.resource.fields.map(field => `<option value="${field.className}" ${field.display && 'selected'}>${field.label}</option>`)}
+              <div class="col mb-6">
+                <select class="selectpicker mx-auto multiple-filter-fields" 
+                  title="Select Fields" 
+                  data-live-search="true" 
+                  data-selected-text-format="count>4" 
+                  data-style="custom-select-style" 
+                  data-style-base="form-control" 
+                  data-actions-box="true" 
+                  multiple>
+                  ${fields.map(field => `<option value="${field.className}" ${field.display && 'selected'}>${field.label}</option>`)}
                 </select>
               </div>
               <!-- Buttons placed beside the select field -->
               <div class="col-md-5 d-flex justify-content-end">
-                <button type="submit" class="btn btn-primary me-2">Submit</button>
-                <button type="button" class="btn btn-secondary btn-back">Back</button>
+                <button type="submit" class="btn btn-primary me-2" onclick="updateFilters(event, 'resource', '${modalId}')">Submit</button>
+                <button type="button" class="btn btn-secondary btn-back" onclick="backToFirstForm(event, '${modalId}')">Back</button>
               </div>
             </div>
           </form>
@@ -46,73 +56,65 @@ $(document).ready(() => {
     </div>
   </div>`);
 
-  const modalId = fieldsData.resource.modalId;
-  let isInitialized = false;
-
-  // Hide updateFieldsForm on page load
-  $(`${modalId} .updateFieldsForm`).hide();
-
   $(modalId).on('shown.bs.modal', () => {
-    console.log('fieldsData', fieldsData);
-    setTimeout(() => {
-      if (isInitialized) return;
-      const fieldsStr = fieldsData.resource.fields.reduce((holder, field) =>
-        holder += `<div class="col-md-6" style="display: ${field.display ? 'block' : 'none'}">
-          ${(field.type === 'multiselect') ?
-          `<select class="selectpicker mx-auto ${field.className}" title="Filter by ${field.label}" data-live-search="true" data-selected-text-format="count>2" data-style="" data-style-base="form-control" data-actions-box="true" multiple>
-            ${field.options.map(option => `<option value="${option.value}">${option.text}</option>`)}
-          </select>` :
-          `<input type="text" class="form-control" id="${field.className}" placeholder="Enter ${field.label}">`
+    showCustomLoader();
+    $(this).removeAttr('aria-hidden'); // Ensure it's not hidden when shown
+    $(this).focus(); // Set focus to a valid element
+    // Append/not append fields
+    const fieldsStr = fields.reduce((holder, field) => {
+      // Do not append fields that already exist
+      const el = field.type === 'multiselect' ? $(`${modalId} .filter-fields select.${field.className}`) : $(`${modalId} .filter-fields input.${field.className}`);
+      holder += !el.length
+        ?
+        `<div class="col-md-6" style="display: ${field.display ? 'block' : 'none'}">
+        ${(field.type === 'multiselect')
+          ?
+          `<select class="selectpicker mx-auto ${field.className}" 
+            title="Filter by ${field.label}" 
+            data-live-search="true" 
+            data-selected-text-format="count>2" 
+            data-style="custom-select-style" 
+            data-style-base="form-control" 
+            data-actions-box="true" 
+            multiple>
+            ${field.options.map(option => `<option value="${option.value}" data-icon="${field['data-icon'] || ''}">${option.text}</option>`)}
+          </select>`
+          :
+          `<input type="text" class="form-control ${field.className} custom-select-style" placeholder="Enter ${field.label}">`
         }
-        </div>
-        `, '');
-      $(`${modalId} .filter-fields`).append(fieldsStr);
-      $(`${modalId} .selectpicker`).selectpicker();
-      onFilterResource(modalId);
-      $(modalId).css('z-index', '9999');
-      isInitialized = true;
-    }, 150);
-  });
-  // On click add fields button
-  $(modalId).on('click', '.btn-success', e => {
-    e.preventDefault();
-    $(`${modalId} .filterForm`).hide();
-    $(`${modalId} .updateFieldsForm`).show();
-  });
-  // On click clear button
-  $(modalId).on('click', '.btn-clear', e => {
-    e.preventDefault();
-    clearFilters(modalId);
-  });
-  // On click submit button
-  $(modalId).on('click', '.btn-primary', e => {
-    e.preventDefault();
-    $(`${modalId} .updateFieldsForm`).hide();
-    $(`${modalId} .filterForm`).show();
-    /* console.log(JSON.stringify(fieldsData));
+        </div>`
+        :
+        '';
+      return holder;
+    }, '');
+    // Display/not display fields
+    fields.map(field => {
+      const el = field.type === 'multiselect' ? $(`${modalId} .filter-fields select.${field.className}`) : $(`${modalId} .filter-fields input.${field.className}`);
+      !!el.length && el.closest('div.col-md-6').css('display', ` ${field.display ? 'block' : 'none'}`);
+    });
 
-    const selectedValues = $(`${modalId} .updateFieldsForm select.multiple-filter-fields`).val();
-
-    $(`${modalId} div.filter-fields`).append(`
-      <div class="col-md-6">
-        <select class="selectpicker mx-auto multiple-resource-group-field2" title="Filter by Group" data-live-search="true" data-selected-text-format="count>2" data-style="" data-style-base="form-control" data-actions-box="true" multiple>
-        <option value="vendor">XXX</option>
-        <option value="asset">YYY</option>
-        </select>
-      </div>
-    `); */
+    $(`${modalId} .filter-fields`).append(fieldsStr);
     $(`${modalId} .selectpicker`).selectpicker();
-    alert('Still In Progress...');
+    onFilterResource(modalId);
+
+    $(modalId).modal('show');
+    $(modalId).css('z-index', '9999');
+    setTimeout(() => hideCustomLoader(), 150);
   });
-  // On click back button
-  $(modalId).on('click', '.btn-back', e => {
-    e.preventDefault();
-    $(`${modalId} .updateFieldsForm`).hide();
-    $(`${modalId} .filterForm`).show();
-  });
-  // Main Event Form -> On Close
+
   $(modalId).on('hidden.bs.modal', e => {
     $(`${modalId} .updateFieldsForm`).hide();
     $(`${modalId} .filterForm`).show();
+    $(modalId).css('z-index', '-999');
   });
+
+  function showCustomLoader() {
+    $(`${modalId} .spinner`).show();
+    $(`${modalId} .modal-body`).css('z-index', '-1');
+  }
+
+  function hideCustomLoader() {
+    $(`${modalId} .spinner`).hide();
+    $(`${modalId} .modal-body`).css('z-index', '1');
+  }
 })

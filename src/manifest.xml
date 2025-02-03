@@ -11,4 +11,7 @@
       <feature required="true">CUSTOMRECORDS</feature>
     </features>
   </dependencies>
+  <!-- <files>
+    <file path="/FileCabinet/SuiteApps/com.erpsuccess.scheduler/lib/filterMap.json.json" update-preference="PRESERVE_EXISTING"/>
+  </files> -->
 </manifest>

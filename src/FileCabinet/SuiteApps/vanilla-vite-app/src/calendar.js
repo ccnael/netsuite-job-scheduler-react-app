@@ -6,7 +6,7 @@ import listPlugin from '@fullcalendar/list';
 import timeGridPlugin from '@fullcalendar/timegrid';
 import resourceTimelinePlugin from '@fullcalendar/resource-timeline';
 import * as dataSet from './components/dataSet';
-import { onFilterCalendarEvent, onFilterJob } from './components/filterFunctions';
+import { onFilterCalendarEvent, onFilterJob } from './components/filterFields/filterUtils';
 import { Event } from './components/utils';
 import './calendar.css';
 
@@ -22,7 +22,6 @@ export default class Calendar {
               </div>
               <!-- Resizer Between Second and Third Columns -->
               <div class="resizer" id="calendarColumnResizer"></div>
-    
               <aside class="sidebar resizable thirdColumn">
                 <div class="collapse-content collapseRight">
                     <!-- Available Jobs -->
@@ -135,7 +134,6 @@ export default class Calendar {
           map.resourceIds.push(`${resourceGroup.value}-${resource.employee.value}`);
         });
       });
-
       if (!map.resourceIds.length) {
         map.resourceIds = ['z-unassigned'];
       }
@@ -144,11 +142,9 @@ export default class Calendar {
     });
 
     calendarEvents = calendarEvents.filter(event => !!(event.resourceIds.length));
-
     // Instantiate draggable external events
     // -----------------------------------------------------------------
     this._initDraggableEvents(containerEl);
-
     // Instantiate calendar
     // -----------------------------------------------------------------
     window.FullCalendar = new FullCalendar(calendarEl, {
@@ -161,8 +157,6 @@ export default class Calendar {
       eventDurationEditable: true,
       eventResizableFromStart: true,
       eventOverlap: true,
-      // eventColor: '#02ac5a', // Default color class -> .confirmed
-      // scrollTime: '00:00', // Undo default 6am scrollTime
       // Add legend and filter fields
       contentHeight: 'auto', // or a specific value like 600
       scrollTime: '08:00:00', // Set default scroll start time
@@ -174,9 +168,6 @@ export default class Calendar {
       // -----------------------------------------------------------------
       viewDidMount: info => {
         this._appendHeaderAndFilterFields();
-        // $('button.bs-deselect-all').click(); // Deselect filter fields
-        // this._setDefaultEvents();
-        // updateCurrentCalendarPageEventCount(info);
       },
       headerToolbar: {
         left: 'todayBtn prev,next',
@@ -290,8 +281,6 @@ export default class Calendar {
             </div>
           </div>
             `;
-            // console.log('eventContent', el.event)
-            // updateCurrentCalendarPageEventCount(el.event);
             return { html };
           } catch (e) {
             console.log('eventContent Unexpected Error', e.message);
@@ -339,17 +328,11 @@ export default class Calendar {
         console.log('Page changed', info);
         this._adjustZoomLevel(info);
         onFilterCalendarEvent('#filterFieldCalendarEvent', true, info);
-        // updateCurrentCalendarPageEventCount(info);
       }
     });
 
     window.FullCalendar.render();
   }
-
-  /* static _setDefaultEvents() {
-    $('#calendar-filters select.multiple-event-status-field').val(['TENTATIVE', 'CONFIRMED']);
-    $('#calendar-filters select.multiple-event-status-field').change();
-  } */
 
   // Instantiate tab header switch, column resizer etc.
   // -----------------------------------------------------------------
@@ -380,7 +363,6 @@ export default class Calendar {
 
     onFilterCalendarEvent('#filterFieldCalendarEvent', false);
     onFilterJob('#calendarSection .thirdColumn');
-    //// updateCurrentCalendarPageEventCount();
   }
 
   static _adjustZoomLevel(el) {
@@ -425,7 +407,6 @@ export default class Calendar {
     const endSplit = moment(info.event.endStr).format('YYYY-MM-DDTHH:mm').split('T');
     data.date.end = endSplit[0];
     data.time.end = endSplit[1];
-
     const start = moment(`${data.date.start} ${data.time.start}`);
     const selectedResourceIds = info.event._def.resourceIds;
 
@@ -482,9 +463,12 @@ export default class Calendar {
             if (info.newResource.extendedProps.employee) {
               resourceType = 'employee';
               resourceKey = 'resources';
-            } else {
+            } else if (info.newResource.extendedProps.vendor) {
               resourceType = 'vendor';
               resourceKey = 'vendors';
+            } else /* if (info.newResource.extendedProps.item) */ {
+              resourceType = 'asset';
+              resourceKey = 'assets';
             }
 
             const elementId = info.newResource._resource.id;
@@ -497,6 +481,9 @@ export default class Calendar {
               allowEvent = !!!foundObj && !hasConflict;
             } else if (resourceType === 'vendor') {
               foundObj = payload.eventData.vendors.find(vendor => vendor.vendor.value == resourceId);
+              allowEvent = !!!foundObj;
+            } else if (resourceType === 'asset') {
+              foundObj = payload.eventData.assets.find(asset => asset.item.value == resourceId);
               allowEvent = !!!foundObj;
             }
 
@@ -532,6 +519,18 @@ export default class Calendar {
                   const index = payload.eventData.selectedVendors.map(vendor => vendor.vendor.value).indexOf(info.oldResource.extendedProps.vendor.value);
                   if (index > -1) {
                     payload.eventData.selectedVendors.splice(index, 1); // Removed vendor
+                  }
+                }
+              } else if (resourceKey === 'assets') {
+                let unassignedAssets = deepCopy(dataSet.assets).filter(asset => !!!payload.eventData.assets.map(asset => asset.item.value).includes(asset.id));
+                unassignedAssets = [...payload.eventData.assets, ...unassignedAssets];
+                const assetsToUse = unassignedAssets;
+                payload.eventData.selectedAssets = assetsToUse.filter(asset => resourceId == asset.id);
+                payload.eventData.selectedAssets = [...payload.eventData.assets, ...payload.eventData.selectedAssets];
+                if (info.oldResource) {
+                  const index = payload.eventData.selectedAssets.map(asset => asset.item.value).indexOf(info.oldResource.extendedProps.asset.value);
+                  if (index > -1) {
+                    payload.eventData.selectedAssets.splice(index, 1); // Removed asset
                   }
                 }
               }

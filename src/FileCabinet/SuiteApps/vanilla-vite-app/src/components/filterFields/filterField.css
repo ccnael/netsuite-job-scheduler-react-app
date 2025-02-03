@@ -8,20 +8,6 @@
   height: 100%;
   background: rgba(0, 0, 0, 0.5);
   z-index: 999;
-  /* Background overlay */
-  /* .overlay {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    z-index: 999;
-  } */
-  /* .addFieldsForm {
-    display: none !important;
-  } */
 }
 #filterFieldResources .modal-header, #filterFieldBoardJob .modal-header, #filterFieldBoardEvent .modal-header, #filterFieldCalendarJob .modal-header, #filterFieldCalendarEvent .modal-header, #filterFieldEventResource .modal-header, #openFilterGeneralEventResourceModal .modal-header {
   font-weight: bold;
@@ -30,15 +16,14 @@
 #filterFieldResources .filter-group, #filterFieldBoardJob .filter-group, #filterFieldBoardEvent .filter-group, #filterFieldCalendarJob .filter-group, #filterFieldCalendarEvent .filter-group, #filterFieldEventResource .filter-group, #openFilterGeneralEventResourceModal .filter-group {
   margin: 10px 0;
 }
-#filterFieldResources label, #filterFieldBoardJob label, #filterFieldBoardEvent label, #filterFieldCalendarJob label, #filterFieldCalendarEvent label, #filterFieldEventResource label, #openFilterGeneralEventResourceModal label {
-  display: block;
-  margin-bottom: 5px;
+
+.multiple-filter-fields {
+  width: 120% !important;
+  max-width: 500px !important;
 }
-#filterFieldResources select, #filterFieldBoardJob select, #filterFieldBoardEvent select, #filterFieldCalendarJob select, #filterFieldCalendarEvent select, #filterFieldEventResource select, #openFilterGeneralEventResourceModal select {
-  width: 100%;
-  padding: 5px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+
+.updateFieldsForm {
+  display: none;
 }
 
 /* #filterFieldEventResource {

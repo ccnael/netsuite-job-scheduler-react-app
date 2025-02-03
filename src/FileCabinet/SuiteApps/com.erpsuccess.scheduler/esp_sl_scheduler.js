@@ -45,7 +45,6 @@ define([
           case 'getOrderPunchList':
             mod.Event.getOrderPunchList(scriptContext);
             break;
-
           default:
             runApp(scriptContext);
             break;
@@ -63,6 +62,9 @@ define([
             break;
           case 'deleteEventRecord':
             mod.Event.deleteEventRecord(scriptContext);
+            break;
+          case 'updateFilters':
+            mod.Utils.updateFilters(scriptContext);
             break;
         }
       }
@@ -97,11 +99,31 @@ define([
       const resourceSkills = mod.Resource.getResourceSkills(resources);
       const resourceLocations = mod.Resource.getResourceLocations(resources, vendors, assets);
       const resourceDepartments = mod.Resource.getResourceDepartments(resources, vendors, assets);
+      const filterFields = mod.Utils.getFilters(resources, resourceGroups, vendors, assets, resourceSkills, resourceLocations, resourceDepartments, customers);
 
       const sampleWOs = workOrders.filter(wo => +wo.id > 65); // TBR
       const sampleEvents = events.filter(event => event.id.match(/1010/g)); // TBR
 
-      mod.Utils.createLogFile('mockupDataSet', JSON.stringify({ userId: user.id, suiteletUrl, workOrders: sampleWOs, customers, woLocations, resources, resourceGroups, woResources, vendors, assets, events: sampleEvents, woContacts, woAddresses, organizers, resourceSkills, resourceLocations, resourceDepartments }), 2199);
+      mod.Utils.createLogFile('mockupDataSet', JSON.stringify({
+        userId: user.id,
+        suiteletUrl,
+        workOrders: sampleWOs,
+        customers,
+        woLocations,
+        resources,
+        resourceGroups,
+        woResources,
+        vendors,
+        assets,
+        events: sampleEvents,
+        woContacts,
+        woAddresses,
+        organizers,
+        resourceSkills,
+        resourceLocations,
+        resourceDepartments,
+        filterFields
+      }), 2199);
 
       const fileObj = {
         template: file.load('./vanilla-vite-app-bundle/index.html'),
@@ -132,6 +154,7 @@ define([
         .replace('{{woLocations}}', encodeURIComponent(JSON.stringify(woLocations)))
         .replace('{{events}}', encodeURIComponent(JSON.stringify(events)))
         .replace('{{organizers}}', encodeURIComponent(JSON.stringify(organizers)))
+        .replace('{{filterFields}}', encodeURIComponent(JSON.stringify(filterFields)))
         ;
 
       response.write(htmlStr);

@@ -1,4 +1,108 @@
-import * as dataSet from './dataSet';
+import * as dataSet from '../dataSet';
+
+export function setupDynamicFilters() {
+  // 2nd Form
+  // ----------------------------
+  window.showSecondForm = (ev, modalId) => {
+    ev.preventDefault();
+    $(`${modalId} .filterForm`).hide();
+    $(`${modalId} .updateFieldsForm`).show();
+  }
+  // 2nd Form Submit
+  // ----------------------------
+  window.updateFilters = (ev, section, modalId) => {
+    ev.preventDefault();
+    const selectedFields = $(`${modalId} .updateFieldsForm select.multiple-filter-fields`).val();
+    // Update shared filter fields data
+    dataSet.filterFields[section].fields.map(field => {
+      field.display = !!selectedFields.includes(field.className);
+      if (!field.display) {
+        const el = $(`${modalId} .filter-fields select.${field.className}`);
+        clearFieldValue(el, field.type);
+      }
+    });
+    writeFilterFields(selectedFields)
+      .then(result => {
+        // console.log('RESULT', result);
+        // Properly reset & reinitialize modal
+        $(modalId).modal('hide').on('hidden.bs.modal', function () {
+          $(this).off('hidden.bs.modal'); // Unbind to prevent stacking
+          $(`${modalId} .updateFieldsForm`).hide();
+          $(`${modalId} .filterForm`).show();
+          setTimeout(() => $(modalId).modal('show'), 150);
+        });
+      });
+  }
+
+  // Update the filterMap.json.json in NS
+  async function writeFilterFields(selectedFields) {
+    const swalLoading = Swal.fire({
+      title: 'Updating Fields...',
+      allowOutsideClick: false,
+      didOpen: () => Swal.showLoading(),
+      customClass: {
+        title: 'swal-custom-title'
+      }
+    });
+    try {
+      const response = await fetch(`${dataSet.suiteletUrl}&mode=updateFilters`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(selectedFields),
+      });
+      const data = await response.json();
+      await swalLoading.close();
+      // Swal.fire('Success!', 'Request completed successfully.', 'success');
+      console.log('Response:', data);
+      return data;
+    } catch (error) {
+      await swalLoading.close();
+      Swal.fire('Error!', 'Something went wrong.', 'error');
+      return error;
+    }
+  }
+
+  window.backToFirstForm = (ev, modalId) => {
+    ev.preventDefault();
+    $(`${modalId} .updateFieldsForm`).hide();
+    $(`${modalId} .filterForm`).show();
+  }
+
+  window.clearFilters = modalId => {
+    // Clear multiselect fields
+    $(`${modalId} select`).each(function () {
+      $(this).val([]).change();
+      clearFieldValue($(this), 'multiselect');
+    });
+    // Unmark checkboxes
+    $(`${modalId} input.form-check-input`).each(function () {
+      clearFieldValue($(this), 'checkbox');
+    });
+    // Clear freeform/date fields
+    $(`${modalId} input.form-control`).each(function () {
+      const elementId = $(this)[0].id;
+      if (elementId.match(/wo-title/g)) {
+        clearFieldValue($(this), 'text');
+      } else {
+        $(this).val('').change();
+      }
+    });
+  }
+
+  function clearFieldValue(el, type) {
+    switch (type) {
+      case 'multiselect':
+        el.val([]).change();
+        break;
+      case 'checkbox':
+        el.prop('checked', false).change();
+        break;
+      default: // text
+        $(this).val('').trigger('keyup');
+        break;
+    }
+  }
+}
 
 // Board Filters
 // -----------------------------------------------------------------
@@ -6,13 +110,21 @@ export function onFilterResource(fieldId) {
   const $items = $(`#boardSection .leftSidebar .collapsible-list .person-container`);
   const $resourceFilter = $(`${fieldId} select.multiple-resource-field`);
   const $resourceGroupFilter = $(`${fieldId} select.multiple-resource-group-field`);
-  const $statusFilter = $(`${fieldId} select.multiple-status-field`);
   const $resourceSkillFilter = $(`${fieldId} select.multiple-resource-skill-field`);
+  const $statusFilter = $(`${fieldId} select.multiple-status-field`);
+  const $locationFilter = $(`${fieldId} select.multiple-location-field`);
+  const $departmentFilter = $(`${fieldId} select.multiple-department-field`);
+  const $emailFilter = $(`${fieldId} input.email-field`);
+  const $phoneFilter = $(`${fieldId} input.phone-field`);
   const $selected = {
     resource: [],
     resourceGroup: [],
     resourceSkill: [],
-    status: []
+    status: [],
+    location: [],
+    department: [],
+    email: '',
+    phone: ''
   };
   let $groupCounterMap = {};
   if ($resourceFilter.length) {
@@ -36,6 +148,30 @@ export function onFilterResource(fieldId) {
   if ($statusFilter.length) {
     $statusFilter.on('change', function () {
       $selected.status = $(this).val() || [];
+      filterItems();
+    });
+  }
+  if ($locationFilter.length) {
+    $locationFilter.on('change', function () {
+      $selected.location = $(this).val() || [];
+      filterItems();
+    });
+  }
+  if ($departmentFilter.length) {
+    $departmentFilter.on('change', function () {
+      $selected.department = $(this).val() || [];
+      filterItems();
+    });
+  }
+  if ($emailFilter.length) {
+    $emailFilter.on('keyup', function () {
+      $selected.email = $(this).val() || '';
+      filterItems();
+    });
+  }
+  if ($phoneFilter.length) {
+    $phoneFilter.on('keyup', function () {
+      $selected.phone = $(this).val() || '';
       filterItems();
     });
   }
@@ -63,11 +199,21 @@ export function onFilterResource(fieldId) {
           _resourceGroup = ['vendor', 'asset'];
         }
         const _resourceStatus = (_resource || _vendor || _asset).active ? '1' : '0';
+        const _resourceLocation = (_resource || _vendor || _asset).location.value;
+        const _resourceDepartment = (_resource || _vendor || _asset).department.value;
+        const email = (_resource || _vendor || _asset).email;
+        const email_regExp = new RegExp($selected.email, 'gi');
+        const phone = (_resource || _vendor || _asset).phone;
+        const phone_regExp = new RegExp($selected.phone, 'gi');
         const shouldDisplay = !!(
           (!$selected.resource.length || $selected.resource.includes(resourceId)) &&
           (!$selected.resourceGroup.length || $selected.resourceGroup.includes(groupId)) &&
           (!$selected.resourceSkill.length || $selected.resourceSkill.some(value => new Set(_resourceSkill).has(value))) &&
-          (!$selected.status.length || $selected.status.includes(_resourceStatus))
+          (!$selected.status.length || $selected.status.includes(_resourceStatus)) &&
+          (!$selected.location.length || $selected.location.includes(_resourceLocation)) &&
+          (!$selected.department.length || $selected.department.includes(_resourceDepartment)) &&
+          ($selected.email ? (email && email.match(email_regExp)) : true) &&
+          ($selected.phone ? (phone && phone.match(phone_regExp)) : true)
         );
         $el.toggle(shouldDisplay);
         // Group counter map
@@ -741,7 +887,6 @@ export function onFilterCalendarEvent(fieldId, pageSwitched, info) {
             $field[id].change();
           }
         }
-        // updateCurrentCalendarPageEventCount(info);
       })
     }
     // setTimeout(() => window.FullCalendar.updateSize(), 250);
@@ -760,36 +905,7 @@ export function onFilterCalendarEvent(fieldId, pageSwitched, info) {
   }
 }
 
-/* export function updateCurrentCalendarPageEventCount(info) {
-  const currentView = window.FullCalendar.view;
-  const start = moment(currentView.currentStart);
-  const end = moment(currentView.currentEnd);
-
-  // Check if the event is in the current view's date range
-  const currentEvents = window.FullCalendar.getEvents().filter(event => {
-    return moment(event.end).isBetween(start, end, null, '[]') || moment(event.start).isSameOrBefore(start) && moment(event.end).isSameOrAfter(end);
-  });
-  $('#eventsViewCounter').text(currentEvents.length);
-
-  // 2nd approach (catch)
-  if (!currentEvents.length) {
-    const allEvents = window.FullCalendar.getEvents(); // Get all loaded events
-    const currentPageEvents = [];
-
-    // Filter events that fall within the current view date range
-    allEvents.forEach(event => {
-      const eventStart = event.start;
-      const eventEnd = event.end || event.start; // Use start if end is not defined
-
-      // Check if the event falls within the current view's date range
-      if (eventStart < info.end && eventEnd >= info.start) {
-        currentPageEvents.push(event);
-      }
-    });
-    $('#eventsViewCounter').text(currentPageEvents.length);
-  }
-} */
-
+// TBD
 export function clearFilters(fieldId) {
   // Clear multiselect fields
   $(`${fieldId} select`).each(function () {

@@ -94,8 +94,8 @@ define([
             },
             get resourceGroups() {
               const obj = {
-                texts: Utils._stringToArray(result.getText('custentity_esp_fop_resource_group')),
-                values: Utils._stringToArray(result.getValue('custentity_esp_fop_resource_group')),
+                texts: _stringToArray(result.getText('custentity_esp_fop_resource_group')),
+                values: _stringToArray(result.getValue('custentity_esp_fop_resource_group')),
               };
               return obj.texts.map((text, index) => ({
                 text,
@@ -104,8 +104,8 @@ define([
             },
             get types() {
               const obj = {
-                texts: Utils._stringToArray(result.getText('custentity_esp_fop_emp_resource_type')),
-                values: Utils._stringToArray(result.getValue('custentity_esp_fop_emp_resource_type')),
+                texts: _stringToArray(result.getText('custentity_esp_fop_emp_resource_type')),
+                values: _stringToArray(result.getValue('custentity_esp_fop_emp_resource_type')),
               };
               return obj.texts.map((text, index) => ({
                 text,
@@ -114,8 +114,8 @@ define([
             },
             get subTypes() {
               const obj = {
-                texts: Utils._stringToArray(result.getText('custentity_esp_fop_emp_resource_subtype')),
-                values: Utils._stringToArray(result.getValue('custentity_esp_fop_emp_resource_subtype')),
+                texts: _stringToArray(result.getText('custentity_esp_fop_emp_resource_subtype')),
+                values: _stringToArray(result.getValue('custentity_esp_fop_emp_resource_subtype')),
               };
               return obj.texts.map((text, index) => ({
                 text,
@@ -146,17 +146,13 @@ define([
             },
             get resourceSkills() {
               const obj = {
-                texts: Utils._stringToArray(result.getText('custentity_esp_fop_emp_resource_skill')),
-                values: Utils._stringToArray(result.getValue('custentity_esp_fop_emp_resource_skill')),
+                texts: _stringToArray(result.getText('custentity_esp_fop_emp_resource_skill')),
+                values: _stringToArray(result.getValue('custentity_esp_fop_emp_resource_skill')),
               };
               return obj.texts.map((text, index) => ({
                 text,
                 value: obj.values[index]
               }));
-            },
-            location: {
-              text: result.getText('location'),
-              value: result.getValue('location')
             },
             department: {
               text: result.getText('department'),
@@ -259,7 +255,15 @@ define([
             },
             woVendor: false,
             events: events.filter(event => event.vendors.map(vendor => vendor.vendor.value).includes(result.id)).map(event => event.id),
-            memo: ''
+            memo: '',
+            location: {
+              text: '',
+              value: ''
+            },
+            department: {
+              text: '',
+              value: ''
+            }
           });
           return true;
         })
@@ -777,15 +781,15 @@ define([
               text: result.getText('custrecord_esp_fop_res_rel_wo'),
               value: result.getValue('custrecord_esp_fop_res_rel_wo')
             },
-            events: Utils._stringToArray(result.getValue('custrecord_esp_fop_res_rel_wo_event')),
+            events: _stringToArray(result.getValue('custrecord_esp_fop_res_rel_wo_event')),
             employee: {
               text: result.getText('custrecord_esp_fop_res_employee'),
               value: result.getValue('custrecord_esp_fop_res_employee')
             },
             get resourceGroups() {
               const obj = {
-                texts: Utils._stringToArray(result.getText('custrecord_esp_fop_res_rel_resource_grp')),
-                values: Utils._stringToArray(result.getValue('custrecord_esp_fop_res_rel_resource_grp')),
+                texts: _stringToArray(result.getText('custrecord_esp_fop_res_rel_resource_grp')),
+                values: _stringToArray(result.getValue('custrecord_esp_fop_res_rel_resource_grp')),
               };
               return obj.texts.map((text, index) => ({
                 text,
@@ -794,8 +798,8 @@ define([
             },
             get types() {
               const obj = {
-                texts: Utils._stringToArray(result.getText('custrecord_esp_fop_res_resource_type')),
-                values: Utils._stringToArray(result.getValue('custrecord_esp_fop_res_resource_type')),
+                texts: _stringToArray(result.getText('custrecord_esp_fop_res_resource_type')),
+                values: _stringToArray(result.getValue('custrecord_esp_fop_res_resource_type')),
               };
               return obj.texts.map((text, index) => ({
                 text,
@@ -804,8 +808,8 @@ define([
             },
             get subTypes() {
               const obj = {
-                texts: Utils._stringToArray(result.getText('custrecord_esp_fop_res_resource_subtype')),
-                values: Utils._stringToArray(result.getValue('custrecord_esp_fop_res_resource_subtype')),
+                texts: _stringToArray(result.getText('custrecord_esp_fop_res_resource_subtype')),
+                values: _stringToArray(result.getValue('custrecord_esp_fop_res_resource_subtype')),
               };
               return obj.texts.map((text, index) => ({
                 text,
@@ -835,8 +839,8 @@ define([
             },
             get resourceSkills() {
               const obj = {
-                texts: Utils._stringToArray(result.getText({ name: 'custentity_esp_fop_emp_resource_skill', join: 'custrecord_esp_fop_res_employee' })),
-                values: Utils._stringToArray(result.getValue({ name: 'custentity_esp_fop_emp_resource_skill', join: 'custrecord_esp_fop_res_employee' })),
+                texts: _stringToArray(result.getText({ name: 'custentity_esp_fop_emp_resource_skill', join: 'custrecord_esp_fop_res_employee' })),
+                values: _stringToArray(result.getValue({ name: 'custentity_esp_fop_emp_resource_skill', join: 'custrecord_esp_fop_res_employee' })),
               };
               return obj.texts.map((text, index) => ({
                 text,
@@ -884,8 +888,8 @@ define([
             rec.setValue({ fieldId: 'custrecord_esp_fop_res_vendor', value: resource.vendor.value });
             rec.setValue({ fieldId: 'custrecord_esp_fop_res_rel_po', value: resource.purchaseOrder.value });
             rec.setValue({ fieldId: 'custrecord_esp_fop_res_aff_type', value: resource.affiliationType.value });
-            rec.setValue({ fieldId: 'custrecord_esp_fop_res_start_time', value: Utils._toDateTimez(event.date.start, !copyEventTime ? resource.time.start : event.time.start) }); // If no resource start time, use event start time instead
-            rec.setValue({ fieldId: 'custrecord_esp_fop_res_end_time', value: Utils._toDateTimez(event.date.start, !copyEventTime ? resource.time.end : event.time.end) }); // If no resource end time, use event end time instead
+            rec.setValue({ fieldId: 'custrecord_esp_fop_res_start_time', value: _toDateTimez(event.date.start, !copyEventTime ? resource.time.start : event.time.start) }); // If no resource start time, use event start time instead
+            rec.setValue({ fieldId: 'custrecord_esp_fop_res_end_time', value: _toDateTimez(event.date.start, !copyEventTime ? resource.time.end : event.time.end) }); // If no resource end time, use event end time instead
             const newId = rec.save({ ignoreMandatoryFieds: true });
             log.audit('----- [Created WO Resource Record] -----', newId);
           } catch (e) {
@@ -1435,7 +1439,7 @@ define([
               text: result.getText('custrecord_esp_fop_rel_wo'),
               value: result.getValue('custrecord_esp_fop_rel_wo')
             },
-            events: Utils._stringToArray(result.getValue('custrecord_esp_fop_wo_rel_event')), // TBD change to just list field
+            events: _stringToArray(result.getValue('custrecord_esp_fop_wo_rel_event')), // TBD change to just list field
             get event() {
               return this.events[0] || '';
             },
@@ -1533,7 +1537,7 @@ define([
               text: result.getText('custrecord_esp_fop_wo_add_customer'),
               value: result.getValue('custrecord_esp_fop_wo_add_customer')
             },
-            events: Utils._stringToArray(result.getValue('custrecord_esp_fop_wo_add_event')),
+            events: _stringToArray(result.getValue('custrecord_esp_fop_wo_add_event')),
             address: {
               text: result.getText('custrecord_esp_fop_wo_address'),
               value: result.getValue('custrecord_esp_fop_wo_address')
@@ -1862,8 +1866,8 @@ define([
           fieldToSet.status = eventData.status;
           fieldToSet.accesslevel = 'PUBLIC';
           fieldToSet.startdate = new Date(eventData.date.start);
-          fieldToSet.starttime = Utils._toDateTimez(eventData.date.start, eventData.time.start);
-          fieldToSet.endtime = Utils._toDateTimez(eventData.date.start, eventData.time.end);
+          fieldToSet.starttime = _toDateTimez(eventData.date.start, eventData.time.start);
+          fieldToSet.endtime = _toDateTimez(eventData.date.start, eventData.time.end);
           fieldToSet.custevent_esp_fop_event_priority = eventData.priority;
           fieldToSet.custevent_esp_fop_memo = eventData.note;
           fieldToSet.custevent_esp_fop_event_address = eventData.selectedAddress.id;
@@ -1911,7 +1915,7 @@ define([
 
           response.write(JSON.stringify({
             code: 401,
-            status: 'fail',
+            status: 'failed',
             errorMsg: e.message
           }));
         }
@@ -1995,11 +1999,11 @@ define([
             }
             // log.audit('Field To Set > starttime field', { current: _rec.time.start, new : eventData.time.start, toSet: (_rec.time.start != eventData.time.start) });
             if (_rec.time.start != eventData.time.start) {
-              fieldToSet.starttime = Utils._toDateTimez(eventData.date.start, eventData.time.start);
+              fieldToSet.starttime = _toDateTimez(eventData.date.start, eventData.time.start);
             }
             // log.audit('Field To Set > endtime field', { current: _rec.time.end, new : eventData.time.end, toSet: (_rec.time.end != eventData.time.end) });
             if (_rec.time.end != eventData.time.end) {
-              fieldToSet.endtime = Utils._toDateTimez(eventData.date.end, eventData.time.end);
+              fieldToSet.endtime = _toDateTimez(eventData.date.end, eventData.time.end);
             }
             // log.audit('Field To Set > note field', { current: _rec.note, new : eventData.note, toSet: (_rec.note != eventData.note) });
             if (_rec.note != eventData.note) {
@@ -2065,7 +2069,7 @@ define([
 
           response.write(JSON.stringify({
             code: 401,
-            status: 'fail',
+            status: 'failed',
             errorMsg: e.message
           }));
         }
@@ -2142,12 +2146,10 @@ define([
         let { eventDataSrc, timeSheets, fulfillItems } = payload;
         const eventId = eventDataSrc.id;
         const soId = eventDataSrc.woRef?.salesorder?.value;
-
         log.audit('----- [Complete Event] -----', { timeSheets, fulfillItems });
 
         try {
           Event._createTimeTracking(eventDataSrc, timeSheets);
-
           // Prevent blocker if something happens
           try {
             Event._fulfillOrderItems(soId, fulfillItems);
@@ -2176,7 +2178,7 @@ define([
 
           response.write(JSON.stringify({
             code: 401,
-            status: 'fail',
+            status: 'failed',
             errorMsg: e.message
           }));
         }
@@ -2190,9 +2192,9 @@ define([
           timeSheet.startTime = moment(`1/1/1999 ${timeSheet.startTime}`).format(env.Format.IMPORT_TIME);
           timeSheet.endTime = moment(`1/1/1999 ${timeSheet.endTime}`).format(env.Format.IMPORT_TIME);
 
-          const diffDate = Utils._diffDates(`1/1/1999 ${timeSheet.startTime}`, `1/1/1999 ${timeSheet.endTime}`);
+          const diffDate = _diffDates(`1/1/1999 ${timeSheet.startTime}`, `1/1/1999 ${timeSheet.endTime}`);
           // timeSheet.hours = `${diffDate.hour}:${String(diffDate.minute).length == 1 ? `0${diffDate.minute}` : diffDate.minute}`;
-          timeSheet.hours = Utils._convertTimeToDecimal(diffDate.hour, diffDate.minute);
+          timeSheet.hours = _convertTimeToDecimal(diffDate.hour, diffDate.minute);
           const _resource = eventDataSrc.resources.find(resource => resource.id == timeSheet.id);
           if (_resource) {
             timeSheet.location = _resource.location.value;
@@ -2354,7 +2356,7 @@ define([
           log.audit('deleteRecord() Unexpected Error', e.message);
           response.write(JSON.stringify({
             code: 401,
-            status: 'fail',
+            status: 'failed',
             errorMsg: e.message
           }));
         }
@@ -2443,49 +2445,60 @@ define([
 
     class Utils {
 
-      static _stringToArray = str => (str || '').split(',').filter(Boolean);
-      static _toDate = dateStr => dateStr ? moment(dateStr).format(this._dateFormat) : '';
-      static _toDateTimez = (dateStr, timeStr) => moment(`${dateStr} ${timeStr}`)._d;
-
-      static _dateFormat() {
-        const user = runtime.getCurrentUser();
-        return user.getPreference({ name: 'DATEFORMAT' });
-      }
-
-      static _diffDates(start, end) {
-        start = new Date(start).getTime()
-        end = new Date(end).getTime()
-        var d = Math.abs(end - start) / 1000 // delta
-        var r = {} // result
-        var s = { // structure
-          year: 31536000,
-          month: 2592000,
-          week: 604800, // uncomment row to ignore
-          day: 86400, // feel free to add your own row
-          hour: 3600,
-          minute: 60,
-          second: 1
+      static getFilters(resources, resourceGroups, vendors, assets, resourceSkills, resourceLocations, resourceDepartments, customers) {
+        const filterMap = file.load(env.FilterPath);
+        let filterFields = filterMap.getContents();
+        if (!!filterFields) {
+          filterFields = JSON.parse(filterFields);
+          Object.keys(filterFields).forEach(section => {
+            filterFields[section].fields.map(field => {
+              field.options = eval(field.options);
+              return field;
+            });
+          });
+        } else {
+          filterFields = {};
         }
-        Object.keys(s).forEach(function (key) {
-          r[key] = Math.floor(d / s[key])
-          d -= r[key] * s[key]
-        });
-        // Sample return
-        /* {
-          "year": 0,
-          "month": 0,
-          "week": 0,
-          "day": 0,
-          "hour": 0,
-          "minute": 30,
-          "second": 0
-        } */
-        return r;
+        // log.audit('MAPPED_FILTER_FIELDS', filterFields);
+        return filterFields;
       }
 
-      static _convertTimeToDecimal(hours, minutes) {
-        const totalMinutes = (hours * 60) + minutes;
-        return totalMinutes / 60;
+      static updateFilters(context) {
+        const { request, response } = context;
+        let reqBody = request.body || '{}';
+
+        try {
+          const selectedFields = JSON.parse(reqBody);
+          const filterMap = file.load(env.FilterPath);
+          let filterFields = filterMap.getContents();
+          filterFields = filterFields && JSON.parse(filterFields);
+          Object.keys(filterFields).forEach(section => {
+            filterFields[section].fields.map(field => {
+              field.display = !!selectedFields.includes(field.className);
+              return field;
+            });
+          });
+          const updatedFile = file.create({
+            name: filterMap.name,
+            fileType: file.Type.JSON,
+            contents: JSON.stringify(filterFields),
+            folder: filterMap.folder,
+            isOnline: true
+          });
+          const fileId = updatedFile.save();
+          response.write(JSON.stringify({
+            code: 200,
+            status: 'success',
+            fileId
+          }));
+        } catch (e) {
+          log.error('UPDATE_FILTERS_ERROR', e.message);
+          response.write(JSON.stringify({
+            code: 401,
+            status: 'failed',
+            errorMsg: e.message
+          }));
+        }
       }
 
       static createLogFile(name, contents, folderId) {
@@ -2514,6 +2527,51 @@ define([
           }
         }
       }
+    }
+
+    const _stringToArray = str => (str || '').split(',').filter(Boolean);
+    const _toDate = dateStr => dateStr ? moment(dateStr).format(_dateFormat) : '';
+    const _toDateTimez = (dateStr, timeStr) => moment(`${dateStr} ${timeStr}`)._d;
+
+    function _dateFormat() {
+      const user = runtime.getCurrentUser();
+      return user.getPreference({ name: 'DATEFORMAT' });
+    }
+
+    function _diffDates(start, end) {
+      start = new Date(start).getTime()
+      end = new Date(end).getTime()
+      var d = Math.abs(end - start) / 1000 // delta
+      var r = {} // result
+      var s = { // structure
+        year: 31536000,
+        month: 2592000,
+        week: 604800, // uncomment row to ignore
+        day: 86400, // feel free to add your own row
+        hour: 3600,
+        minute: 60,
+        second: 1
+      }
+      Object.keys(s).forEach(function (key) {
+        r[key] = Math.floor(d / s[key])
+        d -= r[key] * s[key]
+      });
+      // Sample return
+      /* {
+        "year": 0,
+        "month": 0,
+        "week": 0,
+        "day": 0,
+        "hour": 0,
+        "minute": 30,
+        "second": 0
+      } */
+      return r;
+    }
+
+    function _convertTimeToDecimal(hours, minutes) {
+      const totalMinutes = (hours * 60) + minutes;
+      return totalMinutes / 60;
     }
 
     function deepCopy(obj) {

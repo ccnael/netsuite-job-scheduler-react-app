@@ -10,18 +10,12 @@ export function cacheTabSwitch() {
     $(`#${lastTab}`).show();
 
     if (lastTab === 'calendarSection') {
-      setTimeout(() => {
-        window.FullCalendar.render();
-      })
+      setTimeout(() => window.FullCalendar.render());
     } else {
-      setTimeout(() => {
-        $('#calendarSection').hide();
-      })
+      setTimeout(() => $('#calendarSection').hide());
     }
   } else {
-    setTimeout(() => {
-      $('#calendarSection').hide();
-    })
+    setTimeout(() => $('#calendarSection').hide());
   }
 
   $('header div.tab').on('click', function () {
@@ -367,65 +361,67 @@ export class Event {
       });
   }
 
-  static deleteEventRecord(ev, eventId) {
-    eventId = eventId || ev.target.closest('.card-item').getAttribute('id');
-    console.log('deleteEventRecord() > Event ID', eventId);
-    const payload = events.find(event => event.id == eventId) || {};
-    console.log('PAYLOAD', payload);
+  static setupDeleteEventRecord() {
+    window.deleteEventRecord = (ev, eventId) => {
+      eventId = eventId || ev.target.closest('.card-item').getAttribute('id');
+      console.log('deleteEventRecord() > Event ID', eventId);
+      const payload = events.find(event => event.id == eventId) || {};
+      console.log('PAYLOAD', payload);
 
-    Swal.fire({
-      title: `Delete Event Record [ID ${eventId}]?`,
-      text: "You won't be able to revert this!",
-      icon: 'warning',
-      showCancelButton: true,
-      confirmButtonColor: '#3085d6',
-      cancelButtonColor: '#817c7c',
-      confirmButtonText: 'Yes'
-    })
-      .then(result => {
-        if (result.isConfirmed) {
-          Swal.fire({
-            didOpen: () => {
-              Swal.showLoading();
-              fetch(`${suiteletUrl}&mode=deleteEventRecord&id=${eventId}`, {
-                body: JSON.stringify(payload),
-                method: 'POST',
-                headers: {
-                  'Content-Type': 'application/json',
-                }
-              })
-                .then(response => response.json())
-                .then(result => {
-                  Swal.fire({
-                    title: 'Deleted!',
-                    text: `Event ${payload.eventData?.title || ''} [ID ${eventId}] has been deleted`,
-                    icon: 'success'
-                  })
-                    .then(() => {
-                      window.location.reload();
-                    });
-                  Swal.hideLoading();
+      Swal.fire({
+        title: `Delete Event Record [ID ${eventId}]?`,
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#817c7c',
+        confirmButtonText: 'Yes'
+      })
+        .then(result => {
+          if (result.isConfirmed) {
+            Swal.fire({
+              didOpen: () => {
+                Swal.showLoading();
+                fetch(`${suiteletUrl}&mode=deleteEventRecord&id=${eventId}`, {
+                  body: JSON.stringify(payload),
+                  method: 'POST',
+                  headers: {
+                    'Content-Type': 'application/json',
+                  }
                 })
-                .catch(error => {
-                  Swal.fire(
-                    'Unexpected Error',
-                    error.message,
-                    'error'
-                  );
-                  Swal.hideLoading();
-                });
-            },
-            allowOutsideClick: false,
-            allowEscapeKey: true,
-            text: `Deleting Event Record [ID ${eventId}]...`
-          });
-        }
-      });
+                  .then(response => response.json())
+                  .then(result => {
+                    Swal.fire({
+                      title: 'Deleted!',
+                      text: `Event ${payload.eventData?.title || ''} [ID ${eventId}] has been deleted`,
+                      icon: 'success'
+                    })
+                      .then(() => {
+                        window.location.reload();
+                      });
+                    Swal.hideLoading();
+                  })
+                  .catch(error => {
+                    Swal.fire(
+                      'Unexpected Error',
+                      error.message,
+                      'error'
+                    );
+                    Swal.hideLoading();
+                  });
+              },
+              allowOutsideClick: false,
+              allowEscapeKey: true,
+              text: `Deleting Event Record [ID ${eventId}]...`
+            });
+          }
+        });
+    }
   }
 }
 
-export class WorkOrderAction {
-  static holdWorkOrder(ev) {
+export function setupWorkOrderAction() {
+  window.holdWorkOrder = ev => {
     ev.preventDefault();
     const woId = ev.target.closest('.card-item').id;
     Swal.fire({
@@ -462,7 +458,7 @@ export class WorkOrderAction {
     });
   }
 
-  static cancelWorkOrder(ev) {
+  window.cancelWorkOrder = ev => {
     ev.preventDefault();
     const woId = ev.target.closest('.card-item').id;
     Swal.fire({
@@ -499,13 +495,13 @@ export class WorkOrderAction {
     });
   }
 
-  static printWorkOrder(ev) {
+  window.printWorkOrder = ev => {
     ev.preventDefault();
     const woId = ev.target.closest('.card-item').id;
     window.open(`${suiteletUrl}&mode=printWorkOrder&woId=${woId}`);
   }
 
-  static printPickList(ev) {
+  window.printPickList = ev => {
     ev.preventDefault();
     const woId = ev.target.closest('.card-item').id;
     window.open(`${suiteletUrl}&mode=printPickList&woId=${woId}`);

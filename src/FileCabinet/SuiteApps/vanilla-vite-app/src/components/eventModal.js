@@ -1,7 +1,7 @@
 import * as dataSet from './dataSet';
 import { resourcesDtColumns, vendorsDtColumns, assetsDtColumns, itemsDtColumns, contactsDtColumns, addressesDtColumns } from './dataTable';
 import { Event } from './utils';
-import { clearFilters } from './filterFunctions';
+// import { clearFilters } from './filterUtils';
 import './eventModal.css';
 
 let temp_resourcesDataTable, temp_vendorsDataTable, temp_assetsDataTable, temp_itemsDataTable, temp_contactsDataTable, temp_addressesDataTable;
@@ -764,7 +764,7 @@ $(document).ready(() => {
 
   function clearFieldValues() {
     console.log('----- [Clearing Fields] -----');
-    clearFilters('#filterFieldEventResource');
+    // clearFilters('#filterFieldEventResource');
     showCustomLoader();
 
     $(`#eventModal`).attr('mode', '');

@@ -1,8 +1,10 @@
-import * as dataSet from '../dataSet';
-import { onFilterJob, clearFilters } from '../filterFunctions';
+import { onFilterJob } from './filterUtils';
 import './filterField.css';
+import * as dataSet from '../dataSet';
 
 $(document).ready(() => {
+  const { modalId, fields } = dataSet.filterFields.boardJob;
+
   $('#app').append(`
     <div class="modal fade" id="filterFieldBoardJob" mode="" title="" tabindex="-1" style="z-index: -999">
     <div class="modal-dialog modal-md">
@@ -11,35 +13,41 @@ $(document).ready(() => {
           <h5 class="modal-title" id="filterFieldBoardJobLabel"><strong class="table-header">Filter Jobs</strong></h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
+        <div class="spinner"></div>
         <div class="modal-body">
           <form class="filterForm">
             <div class="row" style=" margin-top: 10px;">
-              
+              <div class="d-flex justify-content-center align-items-center">
+                <div class="container p-4 border rounded bg-light">
+                  <div class="row g-3 filter-fields">
+                  </div>
+                </div>
+              </div>
             </div>
             <div class="modal-footer">
-              <button type="submit" class="btn btn-success">Add Fields</button>
-              <button type="button" class="btn btn-secondary btn-clear">Clear Filters</button>
+              <button type="submit" class="btn btn-success" onclick="showSecondForm(event, '${modalId}')">Update Fields</button>
+              <button type="button" class="btn btn-secondary btn-clear" onclick="clearFilters('${modalId}')">Clear Filters</button>
             </div>
           </form>
-          <form class="addFieldsForm">
+          <form class="updateFieldsForm">
             <!-- Row containing select field and buttons -->
             <div class="row mb-3 justify-content-start align-items-center">
-              <div class="col mb-3">
-                <select class="selectpicker mx-auto multiple-field-1" title="Select Fields" data-live-search="true" data-selected-text-format="count>2" data-style="" data-style-base="form-control" data-actions-box="true" multiple>
-                  <option value="field1">ID</option>
-                  <option value="field2">Status</option>
-                  <option value="field3">Sales Order #</option>
-                  <option value="field4">Project</option>
-                  <option value="field5">Subsidiary</option>
-                  <option value="field6">Location</option>
-                  <option value="field7">Work Order Type</option>
-                  <option value="field8">Job Site Analysis</option>
+              <div class="col mb-6">
+                <select class="selectpicker mx-auto multiple-filter-fields" 
+                  title="Select Fields" 
+                  data-live-search="true" 
+                  data-selected-text-format="count>4" 
+                  data-style="custom-select-style" 
+                  data-style-base="form-control" 
+                  data-actions-box="true" 
+                  multiple>
+                  ${fields.map(field => `<option value="${field.className}" ${field.display && 'selected'}>${field.label}</option>`)}
                 </select>
               </div>
               <!-- Buttons placed beside the select field -->
               <div class="col-md-5 d-flex justify-content-end">
-                <button type="submit" class="btn btn-primary me-2">Submit</button>
-                <button type="button" class="btn btn-secondary">Back</button>
+                <button type="submit" class="btn btn-primary me-2" onclick="updateFilters(event, 'boardJob', '${modalId}')">Submit</button>
+                <button type="button" class="btn btn-secondary btn-back" onclick="backToFirstForm(event, '${modalId}')">Back</button>
               </div>
             </div>
           </form>
@@ -48,78 +56,73 @@ $(document).ready(() => {
     </div>
   </div>`);
 
-  const MODAL_ID = '#filterFieldBoardJob';
-  let isInitialized = false;
+  $(modalId).on('shown.bs.modal', () => {
+    showCustomLoader();
+    $(this).removeAttr('aria-hidden'); // Ensure it's not hidden when shown
+    $(this).focus(); // Set focus to a valid element
+    // Append/not append fields
+    const fieldsStr = fields.reduce((holder, field) => {
+      // Do not append fields that already exist
+      let el, fieldStr = '';
+      if (field.type === 'multiselect') {
+        el = $(`${modalId} .filter-fields select.${field.className}`);
+        fieldStr = `<select class="selectpicker mx-auto ${field.className}" 
+            title="Filter by ${field.label}" 
+            data-live-search="true" 
+            data-selected-text-format="count>2" 
+            data-style="custom-select-style" 
+            data-style-base="form-control" 
+            data-actions-box="true" 
+            multiple>
+            ${field.options.map(option => `<option value="${option.value}" data-icon="${field['data-icon'] || ''}">${option.text}</option>`)}
+          </select>`;
+      } else if (field.type === 'date') {
+        el = $(`${modalId} .filter-fields input.${field.className}`);
+        fieldStr = `<div class="d-flex align-items-center">
+          <label for="${field.className}" class="me-2 mb-0">${field.label}:</label>
+          <input type="date" class="form-control ${field.className}" id="${field.className}">
+        </div>`;
+      } else {
+        el = $(`${modalId} .filter-fields input.${field.className}`);
+        fieldStr = `<input type="text" class="form-control ${field.className} custom-select-style" placeholder="Enter ${field.label}">`;
+      }
+      holder += !el.length
+        ?
+        `<div class="col-md-6" style="display: ${field.display ? 'block' : 'none'}">
+        ${fieldStr}
+        </div>`
+        :
+        '';
+      return holder;
+    }, '');
+    // Display/not display fields
+    fields.map(field => {
+      const el = field.type === 'multiselect' ? $(`${modalId} .filter-fields select.${field.className}`) : $(`${modalId} .filter-fields input.${field.className}`);
+      !!el.length && el.closest('div.col-md-6').css('display', ` ${field.display ? 'block' : 'none'}`);
+    });
 
-  // Hide addFieldsForm on page load
-  $(`${MODAL_ID} .addFieldsForm`).hide();
+    $(`${modalId} .filter-fields`).append(fieldsStr);
+    $(`${modalId} .selectpicker`).selectpicker();
+    onFilterJob('#boardSection .secondColumn', modalId);
 
-  $(MODAL_ID).on('shown.bs.modal', () => {
-    setTimeout(() => {
-      if (isInitialized) return;
-      $(`${MODAL_ID} .filterForm > .row`).html(`<div class="d-flex justify-content-center align-items-center">
-        <div class="container p-4 border rounded bg-light">
-          <div class="row g-3">
-            <!-- Row 1: Customer Filter and Work Order Title -->
-            <div class="col-md-6">
-              <select class="selectpicker w-100 multiple-customer-field" title="Filter by Customer" data-live-search="true" data-selected-text-format="count>2" data-style="" data-style-base="form-control" data-actions-box="true" multiple>
-                ${dataSet.customers.map(customer => `<option value="${customer.value}">${customer.text}</option>`)}
-              </select>
-            </div>
-            <div class="col-md-6">
-              <input type="text" class="form-control" id="board-wo-title" placeholder="Enter Work Order Title">
-            </div>
-            <!-- Row 2: Date From and Date To -->
-            <div class="col-md-6">
-              <div class="d-flex align-items-center">
-                <label for="board-job-datefrom" class="me-2 mb-0">From:</label>
-                <input type="date" class="form-control" id="board-job-datefrom">
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="d-flex align-items-center">
-                <label for="board-job-dateto" class="me-2 mb-0">To:</label>
-                <input type="date" class="form-control" id="board-job-dateto">
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      `);
+    $(modalId).modal('show');
+    $(modalId).css('z-index', '9999');
+    setTimeout(() => hideCustomLoader(), 150);
+  });
 
-      $(`${MODAL_ID} .selectpicker`).selectpicker();
-      onFilterJob('#boardSection .secondColumn', MODAL_ID);
-      $(MODAL_ID).css('z-index', '9999');
-      isInitialized = true;
-    }, 150);
+  $(modalId).on('hidden.bs.modal', e => {
+    $(`${modalId} .updateFieldsForm`).hide();
+    $(`${modalId} .filterForm`).show();
+    $(modalId).css('z-index', '-999');
   });
-  // On click add fields button
-  $(MODAL_ID).on('click', '.btn-success', e => {
-    e.preventDefault();
-    $(`${MODAL_ID} .filterForm`).hide();
-    $(`${MODAL_ID} .addFieldsForm`).show();
-  });
-  // On click clear button
-  $(MODAL_ID).on('click', '.btn-clear', e => {
-    e.preventDefault();
-    clearFilters(MODAL_ID);
-  });
-  // On click submit button
-  $(MODAL_ID).on('click', '.btn-primary', e => {
-    e.preventDefault();
-    $(`${MODAL_ID} .addFieldsForm`).hide();
-    $(`${MODAL_ID} .filterForm`).show();
-    alert('Still In Progress...');
-  });
-  // On click back button
-  $(MODAL_ID).on('click', '.btn-secondary', e => {
-    e.preventDefault();
-    $(`${MODAL_ID} .addFieldsForm`).hide();
-    $(`${MODAL_ID} .filterForm`).show();
-  });
-  // Main Event Form -> On Close
-  $(MODAL_ID).on('hidden.bs.modal', e => {
-    $(`${MODAL_ID} .addFieldsForm`).hide();
-    $(`${MODAL_ID} .filterForm`).show();
-  });
+
+  function showCustomLoader() {
+    $(`${modalId} .spinner`).show();
+    $(`${modalId} .modal-body`).css('z-index', '-1');
+  }
+
+  function hideCustomLoader() {
+    $(`${modalId} .spinner`).hide();
+    $(`${modalId} .modal-body`).css('z-index', '1');
+  }
 })

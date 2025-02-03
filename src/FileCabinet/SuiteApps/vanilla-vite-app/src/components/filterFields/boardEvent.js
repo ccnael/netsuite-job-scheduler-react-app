@@ -1,5 +1,5 @@
 import * as dataSet from '../dataSet';
-import { onFilterBoardEvent, clearFilters } from '../filterFunctions';
+import { onFilterBoardEvent, clearFilters } from './filterUtils';
 import './filterField.css';
 
 $(document).ready(() => {

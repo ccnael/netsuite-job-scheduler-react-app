@@ -1,6 +1,6 @@
 import * as dataSet from './components/dataSet';
 import { Event } from './components/utils';
-import { onClickResource } from './components/filterFunctions';
+import { onClickResource } from './components/filterFields/filterUtils';
 import './board.css';
 
 export default class Board {

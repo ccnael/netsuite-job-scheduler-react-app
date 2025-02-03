@@ -564,12 +564,29 @@ div.form-check {
 	height: auto;
 }
 .counter {
-	display: inline-flex; 
-	align-items: center; 
-	justify-content: center; 
-	height: 14px; 
-	line-height: 1.2;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 6px;
+    min-height: 6px;
+    padding: 2.5px 5px;
+    font-size: 10px;
+    text-align: center;
+}
+.swal-custom-title {
+    font-weight: normal !important;
 }
 .swal2-container {
 	z-index: 9999 !important;
+}
+.selectpicker {
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    background-color: white !important;
+}
+.custom-select-style {
+    background-color: #f8f9fa !important; /* Light Gray */
+    // color: #007bff !important; /* Bootstrap Blue */
+    // border: 2px solid #007bff !important;
+    border-radius: 6px !important;
 }
