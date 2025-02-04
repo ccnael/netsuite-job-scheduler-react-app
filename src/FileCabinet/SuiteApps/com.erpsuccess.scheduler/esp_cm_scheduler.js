@@ -2540,7 +2540,7 @@ define([
             // name: `${name}_${moment().format('MMDDYYYY_hhmmss')}.json`,
             name: `${env.LogFileName}.json`,
             fileType: file.Type.PLAINTEXT,
-            contents,
+            contents: JSON.stringify(contents),
             folder: -15,
           }).save();
           log.audit('Log File ID', fileId);

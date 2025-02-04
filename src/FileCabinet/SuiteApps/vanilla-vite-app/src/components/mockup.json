@@ -777,7 +777,7 @@
         "value": "1",
         "code": "#026adf"
       },
-      "note": "aaa",
+      "note": "aaab",
       "url": "/app/crm/calendar/event.nl?id=101088&compid=TSTDRV2617106&selectedtab=custom337",
       "color": "#1a6756",
       "woRef": {},
@@ -47758,7 +47758,7 @@
       "value": "1",
       "code": "#026adf"
     },
-    "note": "aaa",
+    "note": "aaab",
     "url": "/app/crm/calendar/event.nl?id=101088&compid=TSTDRV2617106&selectedtab=custom337",
     "color": "#1a6756",
     "woRef": {
@@ -48027,7 +48027,7 @@
           "value": "1",
           "code": "#026adf"
         },
-        "note": "aaa",
+        "note": "aaab",
         "url": "/app/crm/calendar/event.nl?id=101088&compid=TSTDRV2617106&selectedtab=custom337",
         "color": "#1a6756",
         "woRef": {},
@@ -48603,7 +48603,7 @@
           "value": "1",
           "code": "#026adf"
         },
-        "note": "aaa",
+        "note": "aaab",
         "url": "/app/crm/calendar/event.nl?id=101088&compid=TSTDRV2617106&selectedtab=custom337",
         "color": "#1a6756",
         "woRef": {},
@@ -105932,11 +105932,6 @@
           "value": "4"
         }]
       }, {
-        "label": "Organizer",
-        "className": "multiple-event-organizer-field",
-        "type": "multiselect",
-        "display": true
-      }, {
         "label": "Event Type",
         "className": "multiple-event-type-field",
         "type": "multiselect",
@@ -106034,15 +106029,15 @@
         "type": "date",
         "display": true
       }, {
-        "label": "Received Status",
-        "className": "multiple-event-received-field",
+        "label": "Receipt Status",
+        "className": "multiple-event-receipt-field",
         "type": "multiselect",
         "display": true,
         "options": [{
-          "text": "Partial",
+          "text": "Partially Received",
           "value": "1"
         }, {
-          "text": "Full",
+          "text": "Fully Received",
           "value": "2"
         }]
       }]

@@ -13,6 +13,14 @@ export function setupFilters() {
   window.updateFilters = (ev, section, modalId) => {
     ev.preventDefault();
     const selectedFields = $(`${modalId} .updateFieldsForm select.multiple-filter-fields`).val();
+    if (!selectedFields.length) {
+      Swal.fire({
+        icon: 'warning',
+        title: 'Validation Error',
+        text: 'Please select at least one field before submitting.'
+      });
+      return;
+    }
     // Update shared filter fields data
     dataSet.filterFields[section].fields.map(field => {
       field.display = !!selectedFields.includes(field.className);
