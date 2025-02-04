@@ -65,7 +65,6 @@ $(document).ready(() => {
       // Do not append fields that already exist
       let el, fieldStr = '';
       if (field.type === 'multiselect') {
-        console.log('>>>', field)
         el = $(`${modalId} .filter-fields select.${field.className}`);
         fieldStr = `<select class="selectpicker mx-auto ${field.className}" 
             title="Filter by ${field.label}" 
