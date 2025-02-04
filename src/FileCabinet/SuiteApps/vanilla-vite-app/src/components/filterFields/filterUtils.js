@@ -1,6 +1,6 @@
 import * as dataSet from '../dataSet';
 
-export function setupDynamicFilters() {
+export function setupFilters() {
   // 2nd Form
   // ----------------------------
   window.showSecondForm = (ev, modalId) => {
@@ -34,7 +34,7 @@ export function setupDynamicFilters() {
       });
   }
 
-  // Update the filterMap.json.json in NS
+  // Update the filterMap.json in NS
   async function writeFilterFields(selectedFields) {
     const swalLoading = Swal.fire({
       title: 'Updating Fields...',
@@ -251,15 +251,23 @@ export function onFilterResource(fieldId) {
 // Shared
 export function onFilterJob(selectorId, fieldId) {
   const $items = $(`${selectorId} .card-wrapper .card-item`);
-  const $dateFromFilter = $(`${fieldId} input[id*="datefrom"]`);
-  const $dateToFilter = $(`${fieldId} input[id*="dateto"]`);
   const $customerFilter = $(`${fieldId} select.multiple-customer-field`);
-  const $woTitleFilter = $(`${fieldId} input[id*="wo-title"]`);
+  const $locationFilter = $(`${fieldId} select.multiple-location-field`);
+  const $woIdFilter = $(`${fieldId} input[class*="wo-id"]`);
+  const $woTitleFilter = $(`${fieldId} input[class*="wo-title"]`);
+  const $statusFilter = $(`${fieldId} select.multiple-status-field`);
+  const $projectFilter = $(`${fieldId} select.multiple-project-field`);
+  const $dateFromFilter = $(`${fieldId} input[class*="datefrom"]`);
+  const $dateToFilter = $(`${fieldId} input[class*="dateto"]`);
   const $selected = {
     dateFrom: '',
     dateTo: '',
-    customers: [],
-    woTitle: ''
+    customer: [],
+    location: [],
+    status: [],
+    project: [],
+    woId: '',
+    woTitle: '',
   };
   if ($dateFromFilter.length) {
     $dateFromFilter.on('change', function () {
@@ -275,7 +283,31 @@ export function onFilterJob(selectorId, fieldId) {
   }
   if ($customerFilter.length) {
     $customerFilter.on('change', function () {
-      $selected.customers = $(this).val() || [];
+      $selected.customer = $(this).val() || [];
+      filterItems();
+    });
+  }
+  if ($locationFilter.length) {
+    $locationFilter.on('change', function () {
+      $selected.location = $(this).val() || [];
+      filterItems();
+    });
+  }
+  if ($statusFilter.length) {
+    $statusFilter.on('change', function () {
+      $selected.status = $(this).val() || [];
+      filterItems();
+    });
+  }
+  if ($projectFilter.length) {
+    $projectFilter.on('change', function () {
+      $selected.project = $(this).val() || [];
+      filterItems();
+    });
+  }
+  if ($woIdFilter.length) {
+    $woIdFilter.on('keyup', function () {
+      $selected.woId = $(this).val() || '';
       filterItems();
     });
   }
@@ -295,8 +327,13 @@ export function onFilterJob(selectorId, fieldId) {
       if (woRef) {
         let date = woRef.date;
         const customerId = woRef.customer.value;
+        const locationId = woRef.location.value;
+        const statusId = woRef.status.value;
+        const projectId = woRef.project.value;
+        const woId = woRef.id;
+        const id_regExp = new RegExp($selected.woId, 'gi');
         const woTitle = woRef.title;
-        const regExp = new RegExp($selected.woTitle, 'gi');
+        const title_regExp = new RegExp($selected.woTitle, 'gi');
         let withinRange = false;
 
         if (date) {
@@ -316,8 +353,12 @@ export function onFilterJob(selectorId, fieldId) {
         }
         const shouldDisplay = !!(
           withinRange &&
-          (!$selected.customers.length || $selected.customers.includes(customerId)) &&
-          ($selected.woTitle ? woTitle.match(regExp) : true)
+          (!$selected.customer.length || $selected.customer.includes(customerId)) &&
+          (!$selected.location.length || $selected.location.includes(locationId)) &&
+          (!$selected.status.length || $selected.status.includes(statusId)) &&
+          (!$selected.project.length || $selected.project.includes(projectId)) &&
+          ($selected.woId ? woId.match(id_regExp) : true) &&
+          ($selected.woTitle ? woTitle.match(title_regExp) : true)
         );
         $el.toggle(shouldDisplay);
       }

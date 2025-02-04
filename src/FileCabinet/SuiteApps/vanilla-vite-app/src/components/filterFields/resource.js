@@ -6,11 +6,11 @@ $(document).ready(() => {
   const { modalId, fields } = dataSet.filterFields.resource;
 
   $('#app').append(`
-    <div class="modal fade" id="filterFieldResource" mode="" title="" tabindex="-1" style="z-index: -999">
+    <div class="modal fade" id="${modalId.replace('#', '')}" mode="" title="" tabindex="-1" style="z-index: -999">
     <div class="modal-dialog modal-md">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="filterFieldResourceLabel"><strong class="table-header">Filter Resources</strong></h5>
+          <h5 class="modal-title" id="${modalId.replace('#', '')}Label"><strong class="table-header">Filter Resources</strong></h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="spinner"></div>

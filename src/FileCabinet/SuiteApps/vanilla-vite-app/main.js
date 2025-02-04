@@ -1,7 +1,7 @@
 import Board from './src/board';
 import Calendar from './src/calendar';
 import { cacheTabSwitch, Event, setupWorkOrderAction } from './src/components/utils';
-import { setupDynamicFilters } from './src/components/filterFields/filterUtils';
+import { setupFilters } from './src/components/filterFields/filterUtils';
 
 $(document).ready(() => {
   Board.setup();
@@ -10,5 +10,5 @@ $(document).ready(() => {
   Event.setupDeleteEventRecord();
   cacheTabSwitch();
   setupWorkOrderAction();
-  setupDynamicFilters();
+  setupFilters();
 });

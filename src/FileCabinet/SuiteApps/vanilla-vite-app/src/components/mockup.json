@@ -11,9 +11,9 @@
     },
     "date": "1/21/2025",
     "status": {
-      "text": "Not Started",
+      "text": "Completed",
       "value": "4",
-      "code": "#026adf"
+      "code": "#28a745"
     },
     "type": {
       "text": "Maintenance",
@@ -117,9 +117,9 @@
     },
     "date": "1/20/2025",
     "status": {
-      "text": "Not Started",
+      "text": "Completed",
       "value": "4",
-      "code": "#026adf"
+      "code": "#28a745"
     },
     "type": {
       "text": "Service",
@@ -521,9 +521,9 @@
     },
     "date": "1/20/2025",
     "status": {
-      "text": "Not Started",
+      "text": "Completed",
       "value": "4",
-      "code": "#026adf"
+      "code": "#28a745"
     },
     "type": {
       "text": "Service",
@@ -869,9 +869,9 @@
     },
     "date": "1/20/2025",
     "status": {
-      "text": "Not Started",
+      "text": "Completed",
       "value": "4",
-      "code": "#026adf"
+      "code": "#28a745"
     },
     "type": {
       "text": "Service",
@@ -994,9 +994,9 @@
     },
     "date": "1/20/2025",
     "status": {
-      "text": "Not Started",
+      "text": "Completed",
       "value": "4",
-      "code": "#026adf"
+      "code": "#28a745"
     },
     "type": {
       "text": "Service",
@@ -1163,9 +1163,9 @@
     },
     "date": "1/17/2025",
     "status": {
-      "text": "Not Started",
+      "text": "Completed",
       "value": "4",
-      "code": "#026adf"
+      "code": "#28a745"
     },
     "type": {
       "text": "Service",
@@ -1310,9 +1310,9 @@
     },
     "date": "1/20/2025",
     "status": {
-      "text": "Not Started",
+      "text": "Completed",
       "value": "4",
-      "code": "#026adf"
+      "code": "#28a745"
     },
     "type": {
       "text": "Service",
@@ -1457,9 +1457,9 @@
     },
     "date": "1/20/2025",
     "status": {
-      "text": "Not Started",
+      "text": "Completed",
       "value": "4",
-      "code": "#026adf"
+      "code": "#28a745"
     },
     "type": {
       "text": "Service",
@@ -1604,9 +1604,9 @@
     },
     "date": "1/20/2025",
     "status": {
-      "text": "Not Started",
+      "text": "Completed",
       "value": "4",
-      "code": "#026adf"
+      "code": "#28a745"
     },
     "type": {
       "text": "Service",
@@ -1751,9 +1751,9 @@
     },
     "date": "1/20/2025",
     "status": {
-      "text": "Not Started",
+      "text": "Completed",
       "value": "4",
-      "code": "#026adf"
+      "code": "#28a745"
     },
     "type": {
       "text": "Service",
@@ -1992,9 +1992,9 @@
     },
     "date": "1/16/2025",
     "status": {
-      "text": "Not Started",
+      "text": "Completed",
       "value": "4",
-      "code": "#026adf"
+      "code": "#28a745"
     },
     "type": {
       "text": "Demo",
@@ -2120,9 +2120,9 @@
     },
     "date": "1/8/2025",
     "status": {
-      "text": "Not Started",
+      "text": "Completed",
       "value": "4",
-      "code": "#026adf"
+      "code": "#28a745"
     },
     "type": {
       "text": "Service",
@@ -3543,9 +3543,9 @@
     },
     "date": "12/18/2024",
     "status": {
-      "text": "Not Started",
+      "text": "Completed",
       "value": "4",
-      "code": "#026adf"
+      "code": "#28a745"
     },
     "type": {
       "text": "Demo",
@@ -3909,9 +3909,9 @@
     },
     "date": "11/26/2024",
     "status": {
-      "text": "Not Started",
+      "text": "Completed",
       "value": "4",
-      "code": "#026adf"
+      "code": "#28a745"
     },
     "type": {
       "text": "Service",
@@ -4394,9 +4394,9 @@
     },
     "date": "11/26/2024",
     "status": {
-      "text": "Not Started",
+      "text": "Completed",
       "value": "4",
-      "code": "#026adf"
+      "code": "#28a745"
     },
     "type": {
       "text": "Service",
@@ -4594,9 +4594,9 @@
     },
     "date": "11/12/2024",
     "status": {
-      "text": "Not Started",
+      "text": "Completed",
       "value": "4",
-      "code": "#026adf"
+      "code": "#28a745"
     },
     "type": {
       "text": "Service",
@@ -5514,9 +5514,8 @@
     },
     "date": "11/12/2024",
     "status": {
-      "text": "In Progress",
-      "value": "1",
-      "code": "#026adf"
+      "text": "Pending",
+      "value": "1"
     },
     "type": {
       "text": "Service",
@@ -5808,9 +5807,9 @@
     },
     "date": "11/13/2024",
     "status": {
-      "text": "Not Started",
+      "text": "Completed",
       "value": "4",
-      "code": "#026adf"
+      "code": "#28a745"
     },
     "type": {
       "text": "Service",
@@ -6291,9 +6290,8 @@
     },
     "date": "11/12/2024",
     "status": {
-      "text": "In Progress",
-      "value": "1",
-      "code": "#026adf"
+      "text": "Pending",
+      "value": "1"
     },
     "type": {
       "text": "Service",
@@ -6789,9 +6787,9 @@
     },
     "date": "11/12/2024",
     "status": {
-      "text": "Not Started",
+      "text": "Completed",
       "value": "4",
-      "code": "#026adf"
+      "code": "#28a745"
     },
     "type": {
       "text": "Service",
@@ -7077,9 +7075,9 @@
     },
     "date": "11/12/2024",
     "status": {
-      "text": "Not Started",
+      "text": "Completed",
       "value": "4",
-      "code": "#026adf"
+      "code": "#28a745"
     },
     "type": {
       "text": "Service",
@@ -7406,9 +7404,9 @@
     },
     "date": "11/11/2024",
     "status": {
-      "text": "Not Started",
+      "text": "Completed",
       "value": "4",
-      "code": "#026adf"
+      "code": "#28a745"
     },
     "type": {
       "text": "Service",
@@ -7891,9 +7889,9 @@
     },
     "date": "11/11/2024",
     "status": {
-      "text": "Not Started",
+      "text": "Completed",
       "value": "4",
-      "code": "#026adf"
+      "code": "#28a745"
     },
     "type": {
       "text": "Service",
@@ -8247,9 +8245,9 @@
     },
     "date": "11/12/2024",
     "status": {
-      "text": "Not Started",
+      "text": "Completed",
       "value": "4",
-      "code": "#026adf"
+      "code": "#28a745"
     },
     "type": {
       "text": "Service",
@@ -9162,9 +9160,9 @@
     },
     "date": "11/12/2024",
     "status": {
-      "text": "Not Started",
+      "text": "Completed",
       "value": "4",
-      "code": "#026adf"
+      "code": "#28a745"
     },
     "type": {
       "text": "Service",
@@ -9832,9 +9830,8 @@
     },
     "date": "11/11/2024",
     "status": {
-      "text": "In Progress",
-      "value": "1",
-      "code": "#026adf"
+      "text": "Pending",
+      "value": "1"
     },
     "type": {
       "text": "Service",
@@ -10076,9 +10073,9 @@
     },
     "date": "11/11/2024",
     "status": {
-      "text": "Not Started",
+      "text": "Completed",
       "value": "4",
-      "code": "#026adf"
+      "code": "#28a745"
     },
     "type": {
       "text": "Service",
@@ -10333,9 +10330,9 @@
     },
     "date": "11/11/2024",
     "status": {
-      "text": "Not Started",
+      "text": "Completed",
       "value": "4",
-      "code": "#026adf"
+      "code": "#28a745"
     },
     "type": {
       "text": "Service",
@@ -10938,9 +10935,9 @@
     },
     "date": "11/10/2024",
     "status": {
-      "text": "Not Started",
+      "text": "Completed",
       "value": "4",
-      "code": "#026adf"
+      "code": "#28a745"
     },
     "type": {
       "text": "Service",
@@ -11207,9 +11204,9 @@
     },
     "date": "11/10/2024",
     "status": {
-      "text": "Not Started",
+      "text": "Completed",
       "value": "4",
-      "code": "#026adf"
+      "code": "#28a745"
     },
     "type": {
       "text": "Service",
@@ -11467,9 +11464,9 @@
     },
     "date": "11/10/2024",
     "status": {
-      "text": "Not Started",
+      "text": "Completed",
       "value": "4",
-      "code": "#026adf"
+      "code": "#28a745"
     },
     "type": {
       "text": "Service",
@@ -11896,9 +11893,9 @@
     },
     "date": "11/11/2024",
     "status": {
-      "text": "Not Started",
+      "text": "Completed",
       "value": "4",
-      "code": "#026adf"
+      "code": "#28a745"
     },
     "type": {
       "text": "Demo",
@@ -12043,9 +12040,8 @@
     },
     "date": "11/10/2024",
     "status": {
-      "text": "In Progress",
-      "value": "1",
-      "code": "#026adf"
+      "text": "Pending",
+      "value": "1"
     },
     "type": {
       "text": "Demo",
@@ -12315,9 +12311,9 @@
     },
     "date": "11/8/2024",
     "status": {
-      "text": "Not Started",
+      "text": "Completed",
       "value": "4",
-      "code": "#026adf"
+      "code": "#28a745"
     },
     "type": {
       "text": "Service",
@@ -12783,9 +12779,8 @@
     },
     "date": "11/7/2024",
     "status": {
-      "text": "In Progress",
-      "value": "1",
-      "code": "#026adf"
+      "text": "Pending",
+      "value": "1"
     },
     "type": {
       "text": "Demo",
@@ -12974,9 +12969,9 @@
     },
     "date": "11/6/2024",
     "status": {
-      "text": "Not Started",
+      "text": "Completed",
       "value": "4",
-      "code": "#026adf"
+      "code": "#28a745"
     },
     "type": {
       "text": "Mockup",
@@ -13121,9 +13116,9 @@
     },
     "date": "12/1/2024",
     "status": {
-      "text": "Not Started",
+      "text": "Completed",
       "value": "4",
-      "code": "#026adf"
+      "code": "#28a745"
     },
     "type": {
       "text": "Service",
@@ -13302,9 +13297,9 @@
     },
     "date": "11/5/2024",
     "status": {
-      "text": "Not Started",
+      "text": "Completed",
       "value": "4",
-      "code": "#026adf"
+      "code": "#28a745"
     },
     "type": {
       "text": "Service",
@@ -13696,9 +13691,9 @@
     },
     "date": "11/11/2024",
     "status": {
-      "text": "Not Started",
+      "text": "Completed",
       "value": "4",
-      "code": "#026adf"
+      "code": "#28a745"
     },
     "type": {
       "text": "Walls",
@@ -14073,9 +14068,9 @@
     },
     "date": "11/18/2024",
     "status": {
-      "text": "Not Started",
+      "text": "Completed",
       "value": "4",
-      "code": "#026adf"
+      "code": "#28a745"
     },
     "type": {
       "text": "Walls",
@@ -14450,9 +14445,9 @@
     },
     "date": "11/18/2024",
     "status": {
-      "text": "Not Started",
+      "text": "Completed",
       "value": "4",
-      "code": "#026adf"
+      "code": "#28a745"
     },
     "type": {
       "text": "Moves",
@@ -14648,9 +14643,9 @@
     },
     "date": "11/1/2024",
     "status": {
-      "text": "Not Started",
+      "text": "Completed",
       "value": "4",
-      "code": "#026adf"
+      "code": "#28a745"
     },
     "type": {
       "text": "Service",
@@ -15381,9 +15376,9 @@
     },
     "date": "11/1/2024",
     "status": {
-      "text": "Not Started",
+      "text": "Completed",
       "value": "4",
-      "code": "#026adf"
+      "code": "#28a745"
     },
     "type": {
       "text": "Walls",
@@ -15590,9 +15585,9 @@
     },
     "date": "11/1/2024",
     "status": {
-      "text": "Not Started",
+      "text": "Completed",
       "value": "4",
-      "code": "#026adf"
+      "code": "#28a745"
     },
     "type": {
       "text": "Service",
@@ -15713,9 +15708,9 @@
     },
     "date": "11/1/2024",
     "status": {
-      "text": "Not Started",
+      "text": "Completed",
       "value": "4",
-      "code": "#026adf"
+      "code": "#28a745"
     },
     "type": {
       "text": "Service",
@@ -15937,9 +15932,9 @@
     },
     "date": "11/1/2024",
     "status": {
-      "text": "Not Started",
+      "text": "Completed",
       "value": "4",
-      "code": "#026adf"
+      "code": "#28a745"
     },
     "type": {
       "text": "Service",
@@ -17604,9 +17599,9 @@
     },
     "date": "10/21/2024",
     "status": {
-      "text": "Not Started",
+      "text": "Completed",
       "value": "4",
-      "code": "#026adf"
+      "code": "#28a745"
     },
     "type": {
       "text": "",
@@ -19134,9 +19129,9 @@
     },
     "date": "10/21/2024",
     "status": {
-      "text": "Not Started",
+      "text": "Completed",
       "value": "4",
-      "code": "#026adf"
+      "code": "#28a745"
     },
     "type": {
       "text": "Service",
@@ -19658,9 +19653,9 @@
     },
     "date": "10/18/2024",
     "status": {
-      "text": "Not Started",
+      "text": "Completed",
       "value": "4",
-      "code": "#026adf"
+      "code": "#28a745"
     },
     "type": {
       "text": "",
@@ -19871,9 +19866,9 @@
     },
     "date": "10/21/2024",
     "status": {
-      "text": "Not Started",
+      "text": "Completed",
       "value": "4",
-      "code": "#026adf"
+      "code": "#28a745"
     },
     "type": {
       "text": "",
@@ -20655,9 +20650,9 @@
     },
     "date": "10/21/2024",
     "status": {
-      "text": "Not Started",
+      "text": "Completed",
       "value": "4",
-      "code": "#026adf"
+      "code": "#28a745"
     },
     "type": {
       "text": "",
@@ -23537,9 +23532,8 @@
     },
     "date": "10/14/2024",
     "status": {
-      "text": "In Progress",
-      "value": "1",
-      "code": "#026adf"
+      "text": "Pending",
+      "value": "1"
     },
     "type": {
       "text": "",
@@ -24095,9 +24089,8 @@
     },
     "date": "10/14/2024",
     "status": {
-      "text": "In Progress",
-      "value": "1",
-      "code": "#026adf"
+      "text": "Pending",
+      "value": "1"
     },
     "type": {
       "text": "",
@@ -24512,9 +24505,9 @@
     },
     "date": "10/14/2024",
     "status": {
-      "text": "Not Started",
+      "text": "Completed",
       "value": "4",
-      "code": "#026adf"
+      "code": "#28a745"
     },
     "type": {
       "text": "",
@@ -24980,9 +24973,9 @@
     },
     "date": "10/7/2024",
     "status": {
-      "text": "Not Started",
+      "text": "Completed",
       "value": "4",
-      "code": "#026adf"
+      "code": "#28a745"
     },
     "type": {
       "text": "",
@@ -25108,9 +25101,9 @@
     },
     "date": "10/7/2024",
     "status": {
-      "text": "Not Started",
+      "text": "Completed",
       "value": "4",
-      "code": "#026adf"
+      "code": "#28a745"
     },
     "type": {
       "text": "",
@@ -25155,9 +25148,8 @@
     },
     "date": "10/7/2024",
     "status": {
-      "text": "In Progress",
-      "value": "1",
-      "code": "#026adf"
+      "text": "Pending",
+      "value": "1"
     },
     "type": {
       "text": "Repair",
@@ -25202,9 +25194,8 @@
     },
     "date": "10/7/2024",
     "status": {
-      "text": "In Progress",
-      "value": "1",
-      "code": "#026adf"
+      "text": "Pending",
+      "value": "1"
     },
     "type": {
       "text": "",
@@ -25318,9 +25309,9 @@
     },
     "date": "10/8/2024",
     "status": {
-      "text": "Not Started",
+      "text": "Completed",
       "value": "4",
-      "code": "#026adf"
+      "code": "#28a745"
     },
     "type": {
       "text": "Service",
@@ -25365,9 +25356,9 @@
     },
     "date": "9/26/2024",
     "status": {
-      "text": "Not Started",
+      "text": "Completed",
       "value": "4",
-      "code": "#026adf"
+      "code": "#28a745"
     },
     "type": {
       "text": "",
@@ -25771,9 +25762,8 @@
     },
     "date": "9/30/2024",
     "status": {
-      "text": "In Progress",
-      "value": "1",
-      "code": "#026adf"
+      "text": "Pending",
+      "value": "1"
     },
     "type": {
       "text": "",
@@ -25973,9 +25963,8 @@
     },
     "date": "9/30/2024",
     "status": {
-      "text": "In Progress",
-      "value": "1",
-      "code": "#026adf"
+      "text": "Pending",
+      "value": "1"
     },
     "type": {
       "text": "",
@@ -26020,9 +26009,8 @@
     },
     "date": "9/30/2024",
     "status": {
-      "text": "In Progress",
-      "value": "1",
-      "code": "#026adf"
+      "text": "Pending",
+      "value": "1"
     },
     "type": {
       "text": "",
@@ -26086,9 +26074,9 @@
     },
     "date": "9/26/2024",
     "status": {
-      "text": "Not Started",
+      "text": "Completed",
       "value": "4",
-      "code": "#026adf"
+      "code": "#28a745"
     },
     "type": {
       "text": "Repair",
@@ -29291,9 +29279,9 @@
     },
     "date": "9/26/2024",
     "status": {
-      "text": "Not Started",
+      "text": "Completed",
       "value": "4",
-      "code": "#026adf"
+      "code": "#28a745"
     },
     "type": {
       "text": "Service",
@@ -29841,6 +29829,49 @@
     "value": "1599"
   }],
   "woLocations": [],
+  "woProjects": [{
+    "text": "World Bank : World Bank Office Furniture Installation",
+    "value": "1515"
+  }, {
+    "text": "World Bank : Window Installation",
+    "value": "2049"
+  }, {
+    "text": "World Bank : World Bank AC Installation",
+    "value": "2045"
+  }, {
+    "text": "3M : Light Fixtures Installation",
+    "value": "2042"
+  }, {
+    "text": "World Bank : Furniture and AV Installation",
+    "value": "1883"
+  }, {
+    "text": "World Bank : Design, Furniture and Flooring Project",
+    "value": "1612"
+  }, {
+    "text": "Deloitte New York : Design, Furniture and Flooring Installation",
+    "value": "2026"
+  }, {
+    "text": "White House Administration : Furniture Installation",
+    "value": "1903"
+  }, {
+    "text": "Pravallika : Furniture and Walls Installation",
+    "value": "2010"
+  }, {
+    "text": "Test site test : AV and Security Camera Installation",
+    "value": "1900"
+  }, {
+    "text": "3M : Security Camera Installation",
+    "value": "1893"
+  }, {
+    "text": "Test For site checklist : AV Replacement",
+    "value": "1890"
+  }, {
+    "text": "California Airport : Furniture Installation",
+    "value": "1774"
+  }, {
+    "text": "Rogers Communication : Office Remodel",
+    "value": "1509"
+  }],
   "resources": [{
     "id": "1524",
     "name": "Aiden Somerhalder",
@@ -47740,9 +47771,9 @@
       },
       "date": "1/20/2025",
       "status": {
-        "text": "Not Started",
+        "text": "Completed",
         "value": "4",
-        "code": "#026adf"
+        "code": "#28a745"
       },
       "type": {
         "text": "Service",
@@ -48316,9 +48347,9 @@
       },
       "date": "1/20/2025",
       "status": {
-        "text": "Not Started",
+        "text": "Completed",
         "value": "4",
-        "code": "#026adf"
+        "code": "#28a745"
       },
       "type": {
         "text": "Service",
@@ -49309,9 +49340,9 @@
       },
       "date": "1/20/2025",
       "status": {
-        "text": "Not Started",
+        "text": "Completed",
         "value": "4",
-        "code": "#026adf"
+        "code": "#28a745"
       },
       "type": {
         "text": "Service",
@@ -49841,9 +49872,9 @@
       },
       "date": "1/8/2025",
       "status": {
-        "text": "Not Started",
+        "text": "Completed",
         "value": "4",
-        "code": "#026adf"
+        "code": "#28a745"
       },
       "type": {
         "text": "Service",
@@ -51710,9 +51741,9 @@
       },
       "date": "1/8/2025",
       "status": {
-        "text": "Not Started",
+        "text": "Completed",
         "value": "4",
-        "code": "#026adf"
+        "code": "#28a745"
       },
       "type": {
         "text": "Service",
@@ -53407,9 +53438,9 @@
       },
       "date": "1/8/2025",
       "status": {
-        "text": "Not Started",
+        "text": "Completed",
         "value": "4",
-        "code": "#026adf"
+        "code": "#28a745"
       },
       "type": {
         "text": "Service",
@@ -55104,9 +55135,9 @@
       },
       "date": "1/8/2025",
       "status": {
-        "text": "Not Started",
+        "text": "Completed",
         "value": "4",
-        "code": "#026adf"
+        "code": "#28a745"
       },
       "type": {
         "text": "Service",
@@ -56663,9 +56694,9 @@
       },
       "date": "1/8/2025",
       "status": {
-        "text": "Not Started",
+        "text": "Completed",
         "value": "4",
-        "code": "#026adf"
+        "code": "#28a745"
       },
       "type": {
         "text": "Service",
@@ -58266,9 +58297,9 @@
       },
       "date": "1/8/2025",
       "status": {
-        "text": "Not Started",
+        "text": "Completed",
         "value": "4",
-        "code": "#026adf"
+        "code": "#28a745"
       },
       "type": {
         "text": "Service",
@@ -59973,9 +60004,9 @@
       },
       "date": "1/8/2025",
       "status": {
-        "text": "Not Started",
+        "text": "Completed",
         "value": "4",
-        "code": "#026adf"
+        "code": "#28a745"
       },
       "type": {
         "text": "Service",
@@ -61524,9 +61555,9 @@
       },
       "date": "1/8/2025",
       "status": {
-        "text": "Not Started",
+        "text": "Completed",
         "value": "4",
-        "code": "#026adf"
+        "code": "#28a745"
       },
       "type": {
         "text": "Service",
@@ -63075,9 +63106,9 @@
       },
       "date": "1/8/2025",
       "status": {
-        "text": "Not Started",
+        "text": "Completed",
         "value": "4",
-        "code": "#026adf"
+        "code": "#28a745"
       },
       "type": {
         "text": "Service",
@@ -64630,9 +64661,9 @@
       },
       "date": "1/8/2025",
       "status": {
-        "text": "Not Started",
+        "text": "Completed",
         "value": "4",
-        "code": "#026adf"
+        "code": "#28a745"
       },
       "type": {
         "text": "Service",
@@ -66312,9 +66343,9 @@
       },
       "date": "11/26/2024",
       "status": {
-        "text": "Not Started",
+        "text": "Completed",
         "value": "4",
-        "code": "#026adf"
+        "code": "#28a745"
       },
       "type": {
         "text": "Service",
@@ -66917,9 +66948,9 @@
       },
       "date": "11/26/2024",
       "status": {
-        "text": "Not Started",
+        "text": "Completed",
         "value": "4",
-        "code": "#026adf"
+        "code": "#28a745"
       },
       "type": {
         "text": "Service",
@@ -67452,9 +67483,9 @@
       },
       "date": "11/26/2024",
       "status": {
-        "text": "Not Started",
+        "text": "Completed",
         "value": "4",
-        "code": "#026adf"
+        "code": "#28a745"
       },
       "type": {
         "text": "Service",
@@ -67987,9 +68018,9 @@
       },
       "date": "11/11/2024",
       "status": {
-        "text": "Not Started",
+        "text": "Completed",
         "value": "4",
-        "code": "#026adf"
+        "code": "#28a745"
       },
       "type": {
         "text": "Service",
@@ -68626,9 +68657,9 @@
       },
       "date": "11/12/2024",
       "status": {
-        "text": "Not Started",
+        "text": "Completed",
         "value": "4",
-        "code": "#026adf"
+        "code": "#28a745"
       },
       "type": {
         "text": "Service",
@@ -69379,9 +69410,9 @@
       },
       "date": "11/26/2024",
       "status": {
-        "text": "Not Started",
+        "text": "Completed",
         "value": "4",
-        "code": "#026adf"
+        "code": "#28a745"
       },
       "type": {
         "text": "Service",
@@ -70475,9 +70506,9 @@
       },
       "date": "11/12/2024",
       "status": {
-        "text": "Not Started",
+        "text": "Completed",
         "value": "4",
-        "code": "#026adf"
+        "code": "#28a745"
       },
       "type": {
         "text": "Service",
@@ -71163,9 +71194,9 @@
       },
       "date": "11/26/2024",
       "status": {
-        "text": "Not Started",
+        "text": "Completed",
         "value": "4",
-        "code": "#026adf"
+        "code": "#28a745"
       },
       "type": {
         "text": "Service",
@@ -71849,9 +71880,9 @@
       },
       "date": "11/26/2024",
       "status": {
-        "text": "Not Started",
+        "text": "Completed",
         "value": "4",
-        "code": "#026adf"
+        "code": "#28a745"
       },
       "type": {
         "text": "Service",
@@ -72161,9 +72192,9 @@
       },
       "date": "11/12/2024",
       "status": {
-        "text": "Not Started",
+        "text": "Completed",
         "value": "4",
-        "code": "#026adf"
+        "code": "#28a745"
       },
       "type": {
         "text": "Service",
@@ -72958,9 +72989,8 @@
       },
       "date": "11/12/2024",
       "status": {
-        "text": "In Progress",
-        "value": "1",
-        "code": "#026adf"
+        "text": "Pending",
+        "value": "1"
       },
       "type": {
         "text": "Service",
@@ -73407,9 +73437,8 @@
       },
       "date": "11/12/2024",
       "status": {
-        "text": "In Progress",
-        "value": "1",
-        "code": "#026adf"
+        "text": "Pending",
+        "value": "1"
       },
       "type": {
         "text": "Service",
@@ -74079,9 +74108,8 @@
       },
       "date": "11/12/2024",
       "status": {
-        "text": "In Progress",
-        "value": "1",
-        "code": "#026adf"
+        "text": "Pending",
+        "value": "1"
       },
       "type": {
         "text": "Service",
@@ -74798,9 +74826,9 @@
       },
       "date": "11/12/2024",
       "status": {
-        "text": "Not Started",
+        "text": "Completed",
         "value": "4",
-        "code": "#026adf"
+        "code": "#28a745"
       },
       "type": {
         "text": "Service",
@@ -75244,9 +75272,9 @@
       },
       "date": "11/12/2024",
       "status": {
-        "text": "Not Started",
+        "text": "Completed",
         "value": "4",
-        "code": "#026adf"
+        "code": "#28a745"
       },
       "type": {
         "text": "Service",
@@ -75774,9 +75802,9 @@
       },
       "date": "11/11/2024",
       "status": {
-        "text": "Not Started",
+        "text": "Completed",
         "value": "4",
-        "code": "#026adf"
+        "code": "#28a745"
       },
       "type": {
         "text": "Service",
@@ -76345,9 +76373,9 @@
       },
       "date": "11/11/2024",
       "status": {
-        "text": "Not Started",
+        "text": "Completed",
         "value": "4",
-        "code": "#026adf"
+        "code": "#28a745"
       },
       "type": {
         "text": "Service",
@@ -77005,9 +77033,9 @@
       },
       "date": "11/10/2024",
       "status": {
-        "text": "Not Started",
+        "text": "Completed",
         "value": "4",
-        "code": "#026adf"
+        "code": "#28a745"
       },
       "type": {
         "text": "Service",
@@ -77366,9 +77394,9 @@
       },
       "date": "11/11/2024",
       "status": {
-        "text": "Not Started",
+        "text": "Completed",
         "value": "4",
-        "code": "#026adf"
+        "code": "#28a745"
       },
       "type": {
         "text": "Service",
@@ -77933,9 +77961,9 @@
       },
       "date": "11/12/2024",
       "status": {
-        "text": "Not Started",
+        "text": "Completed",
         "value": "4",
-        "code": "#026adf"
+        "code": "#28a745"
       },
       "type": {
         "text": "Service",
@@ -78966,9 +78994,9 @@
       },
       "date": "11/12/2024",
       "status": {
-        "text": "Not Started",
+        "text": "Completed",
         "value": "4",
-        "code": "#026adf"
+        "code": "#28a745"
       },
       "type": {
         "text": "Service",
@@ -79993,9 +80021,9 @@
       },
       "date": "11/12/2024",
       "status": {
-        "text": "Not Started",
+        "text": "Completed",
         "value": "4",
-        "code": "#026adf"
+        "code": "#28a745"
       },
       "type": {
         "text": "Service",
@@ -81204,9 +81232,9 @@
       },
       "date": "11/12/2024",
       "status": {
-        "text": "Not Started",
+        "text": "Completed",
         "value": "4",
-        "code": "#026adf"
+        "code": "#28a745"
       },
       "type": {
         "text": "Service",
@@ -82028,9 +82056,9 @@
       },
       "date": "11/12/2024",
       "status": {
-        "text": "Not Started",
+        "text": "Completed",
         "value": "4",
-        "code": "#026adf"
+        "code": "#28a745"
       },
       "type": {
         "text": "Service",
@@ -82790,9 +82818,9 @@
       },
       "date": "11/12/2024",
       "status": {
-        "text": "Not Started",
+        "text": "Completed",
         "value": "4",
-        "code": "#026adf"
+        "code": "#28a745"
       },
       "type": {
         "text": "Service",
@@ -83572,9 +83600,9 @@
       },
       "date": "11/11/2024",
       "status": {
-        "text": "Not Started",
+        "text": "Completed",
         "value": "4",
-        "code": "#026adf"
+        "code": "#28a745"
       },
       "type": {
         "text": "Service",
@@ -84361,9 +84389,9 @@
       },
       "date": "11/11/2024",
       "status": {
-        "text": "Not Started",
+        "text": "Completed",
         "value": "4",
-        "code": "#026adf"
+        "code": "#28a745"
       },
       "type": {
         "text": "Service",
@@ -85081,9 +85109,9 @@
       },
       "date": "11/11/2024",
       "status": {
-        "text": "Not Started",
+        "text": "Completed",
         "value": "4",
-        "code": "#026adf"
+        "code": "#28a745"
       },
       "type": {
         "text": "Service",
@@ -85841,9 +85869,9 @@
       },
       "date": "11/10/2024",
       "status": {
-        "text": "Not Started",
+        "text": "Completed",
         "value": "4",
-        "code": "#026adf"
+        "code": "#28a745"
       },
       "type": {
         "text": "Service",
@@ -86242,9 +86270,9 @@
       },
       "date": "11/10/2024",
       "status": {
-        "text": "Not Started",
+        "text": "Completed",
         "value": "4",
-        "code": "#026adf"
+        "code": "#28a745"
       },
       "type": {
         "text": "Service",
@@ -86775,9 +86803,9 @@
       },
       "date": "11/10/2024",
       "status": {
-        "text": "Not Started",
+        "text": "Completed",
         "value": "4",
-        "code": "#026adf"
+        "code": "#28a745"
       },
       "type": {
         "text": "Service",
@@ -87187,9 +87215,9 @@
       },
       "date": "11/10/2024",
       "status": {
-        "text": "Not Started",
+        "text": "Completed",
         "value": "4",
-        "code": "#026adf"
+        "code": "#28a745"
       },
       "type": {
         "text": "Service",
@@ -87833,9 +87861,8 @@
       },
       "date": "11/10/2024",
       "status": {
-        "text": "In Progress",
-        "value": "1",
-        "code": "#026adf"
+        "text": "Pending",
+        "value": "1"
       },
       "type": {
         "text": "Demo",
@@ -88173,9 +88200,8 @@
       },
       "date": "11/10/2024",
       "status": {
-        "text": "In Progress",
-        "value": "1",
-        "code": "#026adf"
+        "text": "Pending",
+        "value": "1"
       },
       "type": {
         "text": "Demo",
@@ -88579,9 +88605,9 @@
       },
       "date": "11/8/2024",
       "status": {
-        "text": "Not Started",
+        "text": "Completed",
         "value": "4",
-        "code": "#026adf"
+        "code": "#28a745"
       },
       "type": {
         "text": "Service",
@@ -89169,9 +89195,9 @@
       },
       "date": "11/8/2024",
       "status": {
-        "text": "Not Started",
+        "text": "Completed",
         "value": "4",
-        "code": "#026adf"
+        "code": "#28a745"
       },
       "type": {
         "text": "Service",
@@ -89854,9 +89880,9 @@
       },
       "date": "11/5/2024",
       "status": {
-        "text": "Not Started",
+        "text": "Completed",
         "value": "4",
-        "code": "#026adf"
+        "code": "#28a745"
       },
       "type": {
         "text": "Service",
@@ -90491,9 +90517,9 @@
       },
       "date": "11/18/2024",
       "status": {
-        "text": "Not Started",
+        "text": "Completed",
         "value": "4",
-        "code": "#026adf"
+        "code": "#28a745"
       },
       "type": {
         "text": "Walls",
@@ -91111,9 +91137,9 @@
       },
       "date": "11/11/2024",
       "status": {
-        "text": "Not Started",
+        "text": "Completed",
         "value": "4",
-        "code": "#026adf"
+        "code": "#28a745"
       },
       "type": {
         "text": "Walls",
@@ -91711,9 +91737,9 @@
       },
       "date": "11/1/2024",
       "status": {
-        "text": "Not Started",
+        "text": "Completed",
         "value": "4",
-        "code": "#026adf"
+        "code": "#28a745"
       },
       "type": {
         "text": "Service",
@@ -92644,9 +92670,9 @@
       },
       "date": "11/1/2024",
       "status": {
-        "text": "Not Started",
+        "text": "Completed",
         "value": "4",
-        "code": "#026adf"
+        "code": "#28a745"
       },
       "type": {
         "text": "Service",
@@ -93513,9 +93539,9 @@
       },
       "date": "11/1/2024",
       "status": {
-        "text": "Not Started",
+        "text": "Completed",
         "value": "4",
-        "code": "#026adf"
+        "code": "#28a745"
       },
       "type": {
         "text": "Service",
@@ -94580,9 +94606,9 @@
       },
       "date": "10/21/2024",
       "status": {
-        "text": "Not Started",
+        "text": "Completed",
         "value": "4",
-        "code": "#026adf"
+        "code": "#28a745"
       },
       "type": {
         "text": "",
@@ -104176,34 +104202,1866 @@
         "className": "multiple-customer-field",
         "type": "multiselect",
         "display": true,
+        "options": [{
+          "text": "World Bank",
+          "value": "1249"
+        }, {
+          "text": "3M",
+          "value": "1397"
+        }, {
+          "text": "Deloitte New York",
+          "value": "2024"
+        }, {
+          "text": "White House Administration",
+          "value": "1387"
+        }, {
+          "text": "Pravallika",
+          "value": "2008"
+        }, {
+          "text": "Test site test",
+          "value": "1898"
+        }, {
+          "text": "Test For site checklist",
+          "value": "1888"
+        }, {
+          "text": "California Airport",
+          "value": "1493"
+        }, {
+          "text": "Anonymous Customer HQ",
+          "value": "1599"
+        }],
         "data-icon": "bi bi-person"
+      }, {
+        "label": "Work Order Location",
+        "className": "multiple-location-field",
+        "type": "multiselect",
+        "display": true,
+        "options": [],
+        "data-icon": "bi bi-geo-alt"
+      }, {
+        "label": "Work Order ID",
+        "className": "board-wo-id",
+        "type": "text",
+        "display": true
       }, {
         "label": "Work Order Title",
         "className": "board-wo-title",
         "type": "text",
         "display": true
       }, {
-        "label": "From",
-        "className": "board-job-datefrom",
+        "label": "Date From",
+        "className": "board-wo-datefrom",
         "type": "date",
         "display": true
       }, {
-        "label": "To",
-        "className": "board-job-dateto",
+        "label": "Date To",
+        "className": "board-wo-dateto",
         "type": "date",
         "display": true
       }, {
-        "label": "ID",
-        "className": "job-id",
-        "type": "text",
-        "display": false
-      }, {
-        "label": "Status",
+        "label": "Work Order Status",
         "className": "multiple-status-field",
         "type": "multiselect",
         "display": false,
-        "options": []
+        "options": [{
+          "text": "Pending",
+          "value": "1"
+        }, {
+          "text": "In Progress",
+          "value": "2"
+        }, {
+          "text": "Closed",
+          "value": "3"
+        }, {
+          "text": "Completed",
+          "value": "4"
+        }, {
+          "text": "On Hold",
+          "value": "5"
+        }]
+      }, {
+        "label": "Project",
+        "className": "multiple-project-field",
+        "type": "multiselect",
+        "display": false,
+        "options": [{
+          "text": "World Bank : World Bank Office Furniture Installation",
+          "value": "1515"
+        }, {
+          "text": "World Bank : Window Installation",
+          "value": "2049"
+        }, {
+          "text": "World Bank : World Bank AC Installation",
+          "value": "2045"
+        }, {
+          "text": "3M : Light Fixtures Installation",
+          "value": "2042"
+        }, {
+          "text": "World Bank : Furniture and AV Installation",
+          "value": "1883"
+        }, {
+          "text": "World Bank : Design, Furniture and Flooring Project",
+          "value": "1612"
+        }, {
+          "text": "Deloitte New York : Design, Furniture and Flooring Installation",
+          "value": "2026"
+        }, {
+          "text": "White House Administration : Furniture Installation",
+          "value": "1903"
+        }, {
+          "text": "Pravallika : Furniture and Walls Installation",
+          "value": "2010"
+        }, {
+          "text": "Test site test : AV and Security Camera Installation",
+          "value": "1900"
+        }, {
+          "text": "3M : Security Camera Installation",
+          "value": "1893"
+        }, {
+          "text": "Test For site checklist : AV Replacement",
+          "value": "1890"
+        }, {
+          "text": "California Airport : Furniture Installation",
+          "value": "1774"
+        }, {
+          "text": "Rogers Communication : Office Remodel",
+          "value": "1509"
+        }]
+      }]
+    },
+    "boardEvent": {
+      "modalId": "#filterFieldBoardEvent",
+      "fields": [{
+        "label": "Resource Name",
+        "className": "multiple-resource-field",
+        "type": "multiselect",
+        "display": true,
+        "options": [{
+          "value": "1524",
+          "text": "Aiden Somerhalder"
+        }, {
+          "value": "1770",
+          "text": "Arun Sharma"
+        }, {
+          "value": "1767",
+          "text": "Bea Quilinguin"
+        }, {
+          "value": "912",
+          "text": "Bonita Kane"
+        }, {
+          "value": "27",
+          "text": "Brad Sparling"
+        }, {
+          "value": "1545",
+          "text": "Brandy Samms"
+        }, {
+          "value": "1516",
+          "text": "Brenda Jones"
+        }, {
+          "value": "1513",
+          "text": "Brenda Wilson"
+        }, {
+          "value": "31",
+          "text": "Brian Harris"
+        }, {
+          "value": "24",
+          "text": "Carmen Matthews"
+        }, {
+          "value": "23",
+          "text": "Clark Koozer"
+        }, {
+          "value": "224",
+          "text": "Dale Williams"
+        }, {
+          "value": "1312",
+          "text": "Gary Grant"
+        }, {
+          "value": "1292",
+          "text": "Matt Nolan"
+        }, {
+          "value": "1647",
+          "text": "Mei Matriano"
+        }, {
+          "value": "1766",
+          "text": "Rowe Riomalos"
+        }, {
+          "value": "1539",
+          "text": "Ruth Smith"
+        }, {
+          "value": "18",
+          "text": "Sam Cruz"
+        }, {
+          "value": "918",
+          "text": "Walter Reagan"
+        }, {
+          "value": "1656",
+          "text": "Youssef Ezz"
+        }, {
+          "value": "12",
+          "text": "Best Fixture, Inc."
+        }, {
+          "value": "1473",
+          "text": "Bridgepoint Industries"
+        }, {
+          "value": "1661",
+          "text": "CFI Furniture Inc."
+        }, {
+          "value": "965",
+          "text": "Computer Depot Pacific"
+        }, {
+          "value": "1664",
+          "text": "Haworth, Inc."
+        }, {
+          "value": "674",
+          "text": "ELE00002"
+        }],
+        "data-icon": "bi bi-person"
+      }, {
+        "label": "Resource Group",
+        "className": "multiple-resource-group-field",
+        "type": "multiselect",
+        "display": true,
+        "options": [{
+          "text": "Installers",
+          "value": "1",
+          "resources": [{
+            "id": "1524",
+            "name": "Aiden Somerhalder",
+            "initials": "AS",
+            "email": "admin@ramsey.com",
+            "phone": "",
+            "location": {
+              "text": "01: San Francisco",
+              "value": "2"
+            },
+            "active": true,
+            "employee": {
+              "text": "Aiden Somerhalder",
+              "value": "1524"
+            },
+            "resourceGroups": [{
+              "text": "Installers",
+              "value": "1"
+            }],
+            "types": [{
+              "text": "Installer",
+              "value": "1"
+            }],
+            "subTypes": [],
+            "rate": 0,
+            "vendor": {
+              "text": "",
+              "value": ""
+            },
+            "purchaseOrder": {
+              "text": "",
+              "value": ""
+            },
+            "affiliationType": {
+              "text": "In-House",
+              "value": "1"
+            },
+            "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1524%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
+            "events": ["101085", "101084", "101083", "101080", "101079", "101075", "101072"],
+            "labRates": [],
+            "time": {
+              "start": "",
+              "end": ""
+            },
+            "resourceSkills": [{
+              "text": "Welding",
+              "value": "6"
+            }, {
+              "text": "Woodworking",
+              "value": "4"
+            }],
+            "department": {
+              "text": "",
+              "value": ""
+            }
+          }, {
+            "id": "1770",
+            "name": "Arun Sharma",
+            "initials": "AS",
+            "email": "aruns.unlock2go@gmail.com",
+            "phone": "",
+            "location": {
+              "text": "",
+              "value": ""
+            },
+            "active": true,
+            "employee": {
+              "text": "Arun Sharma",
+              "value": "1770"
+            },
+            "resourceGroups": [{
+              "text": "Designers",
+              "value": "2"
+            }, {
+              "text": "Drivers",
+              "value": "3"
+            }, {
+              "text": "Installers",
+              "value": "1"
+            }],
+            "types": [{
+              "text": "Delivery Driver",
+              "value": "2"
+            }, {
+              "text": "Designer",
+              "value": "3"
+            }, {
+              "text": "Installer",
+              "value": "1"
+            }],
+            "subTypes": [],
+            "rate": 0,
+            "vendor": {
+              "text": "",
+              "value": ""
+            },
+            "purchaseOrder": {
+              "text": "",
+              "value": ""
+            },
+            "affiliationType": {
+              "text": "In-House",
+              "value": "1"
+            },
+            "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1770%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
+            "events": ["101087", "101084", "101076", "101075"],
+            "labRates": [],
+            "time": {
+              "start": "",
+              "end": ""
+            },
+            "resourceSkills": [{
+              "text": "Driving",
+              "value": "3"
+            }, {
+              "text": "Plumbing",
+              "value": "2"
+            }],
+            "department": {
+              "text": "",
+              "value": ""
+            }
+          }, {
+            "id": "1767",
+            "name": "Bea Quilinguin",
+            "initials": "BQ",
+            "email": "beatrice.q@erpsuccesspartners.com",
+            "phone": "",
+            "location": {
+              "text": "01: San Francisco",
+              "value": "2"
+            },
+            "active": true,
+            "employee": {
+              "text": "Bea Quilinguin",
+              "value": "1767"
+            },
+            "resourceGroups": [{
+              "text": "Designers",
+              "value": "2"
+            }, {
+              "text": "Drivers",
+              "value": "3"
+            }, {
+              "text": "Installers",
+              "value": "1"
+            }],
+            "types": [{
+              "text": "Delivery Driver",
+              "value": "2"
+            }, {
+              "text": "Designer",
+              "value": "3"
+            }, {
+              "text": "Installer",
+              "value": "1"
+            }],
+            "subTypes": [],
+            "rate": 0,
+            "vendor": {
+              "text": "",
+              "value": ""
+            },
+            "purchaseOrder": {
+              "text": "",
+              "value": ""
+            },
+            "affiliationType": {
+              "text": "In-House",
+              "value": "1"
+            },
+            "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1767%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
+            "events": ["101088", "101084"],
+            "labRates": [{
+              "labRateCatId": "1",
+              "labRate": 10
+            }, {
+              "labRateCatId": "2",
+              "labRate": 20
+            }, {
+              "labRateCatId": "3",
+              "labRate": 30
+            }],
+            "time": {
+              "start": "",
+              "end": ""
+            },
+            "resourceSkills": [{
+              "text": "CNC Machining",
+              "value": "12"
+            }, {
+              "text": "Furniture Design",
+              "value": "7"
+            }, {
+              "text": "Interior Design",
+              "value": "14"
+            }],
+            "department": {
+              "text": "",
+              "value": ""
+            }
+          }, {
+            "id": "912",
+            "name": "Bonita Kane",
+            "initials": "BK",
+            "email": "bdickens@ramsey.com",
+            "phone": "(123) 456-7890",
+            "location": {
+              "text": "02: Boston",
+              "value": "1"
+            },
+            "active": false,
+            "employee": {
+              "text": "Bonita Kane",
+              "value": "912"
+            },
+            "resourceGroups": [{
+              "text": "Installers",
+              "value": "1"
+            }],
+            "types": [{
+              "text": "Installer",
+              "value": "1"
+            }],
+            "subTypes": [],
+            "rate": 20,
+            "vendor": {
+              "text": "Haworth, Inc.",
+              "value": "1664"
+            },
+            "purchaseOrder": {
+              "text": "",
+              "value": ""
+            },
+            "affiliationType": {
+              "text": "Vendor",
+              "value": "2"
+            },
+            "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D912%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
+            "events": [],
+            "labRates": [],
+            "time": {
+              "start": "",
+              "end": ""
+            },
+            "resourceSkills": [{
+              "text": "Computer-Aided Design (CAD)",
+              "value": "8"
+            }, {
+              "text": "Furniture Assembly",
+              "value": "1"
+            }, {
+              "text": "Quality Control",
+              "value": "13"
+            }],
+            "department": {
+              "text": "Sales",
+              "value": "2"
+            }
+          }, {
+            "id": "1545",
+            "name": "Brandy Samms",
+            "initials": "BS",
+            "email": "adminaccess2@ramsey.com",
+            "phone": "(713) 456-7878",
+            "location": {
+              "text": "",
+              "value": ""
+            },
+            "active": false,
+            "employee": {
+              "text": "Brandy Samms",
+              "value": "1545"
+            },
+            "resourceGroups": [{
+              "text": "Installers",
+              "value": "1"
+            }],
+            "types": [{
+              "text": "Installer",
+              "value": "1"
+            }],
+            "subTypes": [],
+            "rate": 0,
+            "vendor": {
+              "text": "",
+              "value": ""
+            },
+            "purchaseOrder": {
+              "text": "",
+              "value": ""
+            },
+            "affiliationType": {
+              "text": "In-House",
+              "value": "1"
+            },
+            "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1545%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
+            "events": [],
+            "labRates": [],
+            "time": {
+              "start": "",
+              "end": ""
+            },
+            "resourceSkills": [{
+              "text": "Painting and Finishing",
+              "value": "15"
+            }, {
+              "text": "Woodworking",
+              "value": "4"
+            }],
+            "department": {
+              "text": "",
+              "value": ""
+            }
+          }, {
+            "id": "1516",
+            "name": "Brenda Jones",
+            "initials": "BJ",
+            "email": "bjones@ramsey.com",
+            "phone": "",
+            "location": {
+              "text": "01: San Francisco",
+              "value": "2"
+            },
+            "active": true,
+            "employee": {
+              "text": "Brenda Jones",
+              "value": "1516"
+            },
+            "resourceGroups": [{
+              "text": "Installers",
+              "value": "1"
+            }],
+            "types": [{
+              "text": "Installer",
+              "value": "1"
+            }],
+            "subTypes": [],
+            "rate": 0,
+            "vendor": {
+              "text": "",
+              "value": ""
+            },
+            "purchaseOrder": {
+              "text": "",
+              "value": ""
+            },
+            "affiliationType": {
+              "text": "In-House",
+              "value": "1"
+            },
+            "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1516%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
+            "events": ["101088", "101079"],
+            "labRates": [],
+            "time": {
+              "start": "",
+              "end": ""
+            },
+            "resourceSkills": [{
+              "text": "Furniture Assembly",
+              "value": "1"
+            }, {
+              "text": "Metalworking",
+              "value": "5"
+            }, {
+              "text": "Painting and Finishing",
+              "value": "15"
+            }],
+            "department": {
+              "text": "",
+              "value": ""
+            }
+          }, {
+            "id": "1513",
+            "name": "Brenda Wilson",
+            "initials": "BW",
+            "email": "bwilson@ramsey.com",
+            "phone": "",
+            "location": {
+              "text": "01: San Francisco : QA Hold",
+              "value": "5"
+            },
+            "active": true,
+            "employee": {
+              "text": "Brenda Wilson",
+              "value": "1513"
+            },
+            "resourceGroups": [{
+              "text": "Installers",
+              "value": "1"
+            }],
+            "types": [{
+              "text": "Installer",
+              "value": "1"
+            }],
+            "subTypes": [],
+            "rate": 0,
+            "vendor": {
+              "text": "",
+              "value": ""
+            },
+            "purchaseOrder": {
+              "text": "",
+              "value": ""
+            },
+            "affiliationType": {
+              "text": "In-House",
+              "value": "1"
+            },
+            "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1513%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
+            "events": ["101079"],
+            "labRates": [],
+            "time": {
+              "start": "",
+              "end": ""
+            },
+            "resourceSkills": [{
+              "text": "Furniture Assembly",
+              "value": "1"
+            }, {
+              "text": "Painting and Finishing",
+              "value": "15"
+            }],
+            "department": {
+              "text": "",
+              "value": ""
+            }
+          }, {
+            "id": "31",
+            "name": "Brian Harris",
+            "initials": "BH",
+            "email": "myohai@avectra.com",
+            "phone": "510-555-5290",
+            "location": {
+              "text": "01: San Francisco : QA Hold",
+              "value": "5"
+            },
+            "active": false,
+            "employee": {
+              "text": "Brian Harris",
+              "value": "31"
+            },
+            "resourceGroups": [{
+              "text": "Installers",
+              "value": "1"
+            }],
+            "types": [{
+              "text": "Installer",
+              "value": "1"
+            }],
+            "subTypes": [],
+            "rate": 0,
+            "vendor": {
+              "text": "",
+              "value": ""
+            },
+            "purchaseOrder": {
+              "text": "",
+              "value": ""
+            },
+            "affiliationType": {
+              "text": "In-House",
+              "value": "1"
+            },
+            "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D31%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
+            "events": [],
+            "labRates": [],
+            "time": {
+              "start": "",
+              "end": ""
+            },
+            "resourceSkills": [{
+              "text": "Furniture Assembly",
+              "value": "1"
+            }, {
+              "text": "Furniture Design",
+              "value": "7"
+            }, {
+              "text": "Interior Design",
+              "value": "14"
+            }],
+            "department": {
+              "text": "Admin",
+              "value": "1"
+            }
+          }, {
+            "id": "24",
+            "name": "Carmen Matthews",
+            "initials": "CM",
+            "email": "cmatthews@ramsey.com",
+            "phone": "415-555-3696",
+            "location": {
+              "text": "01: San Francisco",
+              "value": "2"
+            },
+            "active": true,
+            "employee": {
+              "text": "Carmen Matthews",
+              "value": "24"
+            },
+            "resourceGroups": [{
+              "text": "Installers",
+              "value": "1"
+            }],
+            "types": [{
+              "text": "Installer",
+              "value": "1"
+            }],
+            "subTypes": [],
+            "rate": 40,
+            "vendor": {
+              "text": "",
+              "value": ""
+            },
+            "purchaseOrder": {
+              "text": "",
+              "value": ""
+            },
+            "affiliationType": {
+              "text": "Crew Enhancement",
+              "value": "3"
+            },
+            "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D24%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
+            "events": [],
+            "labRates": [],
+            "time": {
+              "start": "",
+              "end": ""
+            },
+            "resourceSkills": [{
+              "text": "Computer-Aided Design (CAD)",
+              "value": "8"
+            }, {
+              "text": "Interior Design",
+              "value": "14"
+            }],
+            "department": {
+              "text": "Marketing",
+              "value": "4"
+            }
+          }, {
+            "id": "224",
+            "name": "Dale Williams",
+            "initials": "DW",
+            "email": "jc@erpsuccesspartners.com",
+            "phone": "",
+            "location": {
+              "text": "01: San Francisco",
+              "value": "2"
+            },
+            "active": true,
+            "employee": {
+              "text": "Dale Williams",
+              "value": "224"
+            },
+            "resourceGroups": [{
+              "text": "Installers",
+              "value": "1"
+            }],
+            "types": [{
+              "text": "Installer",
+              "value": "1"
+            }],
+            "subTypes": [],
+            "rate": 0,
+            "vendor": {
+              "text": "",
+              "value": ""
+            },
+            "purchaseOrder": {
+              "text": "",
+              "value": ""
+            },
+            "affiliationType": {
+              "text": "Crew Enhancement",
+              "value": "3"
+            },
+            "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D224%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
+            "events": ["101085"],
+            "labRates": [],
+            "time": {
+              "start": "",
+              "end": ""
+            },
+            "resourceSkills": [{
+              "text": "Material Knowledge",
+              "value": "9"
+            }, {
+              "text": "Plumbing",
+              "value": "2"
+            }, {
+              "text": "Quality Control",
+              "value": "13"
+            }],
+            "department": {
+              "text": "",
+              "value": ""
+            }
+          }, {
+            "id": "1312",
+            "name": "Gary Grant",
+            "initials": "GG",
+            "email": "garygrant@ramsey.com",
+            "phone": "(873) 775-6114",
+            "location": {
+              "text": "02: Boston",
+              "value": "1"
+            },
+            "active": true,
+            "employee": {
+              "text": "Gary Grant",
+              "value": "1312"
+            },
+            "resourceGroups": [{
+              "text": "Installers",
+              "value": "1"
+            }],
+            "types": [{
+              "text": "Installer",
+              "value": "1"
+            }],
+            "subTypes": [],
+            "rate": 30,
+            "vendor": {
+              "text": "",
+              "value": ""
+            },
+            "purchaseOrder": {
+              "text": "",
+              "value": ""
+            },
+            "affiliationType": {
+              "text": "Crew Enhancement",
+              "value": "3"
+            },
+            "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1312%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
+            "events": ["101083"],
+            "labRates": [],
+            "time": {
+              "start": "",
+              "end": ""
+            },
+            "resourceSkills": [{
+              "text": "CNC Machining",
+              "value": "12"
+            }, {
+              "text": "Driving",
+              "value": "3"
+            }],
+            "department": {
+              "text": "",
+              "value": ""
+            }
+          }, {
+            "id": "1292",
+            "name": "Matt Nolan",
+            "initials": "MN",
+            "email": "mnolan@ramsey.com",
+            "phone": "",
+            "location": {
+              "text": "01: San Francisco",
+              "value": "2"
+            },
+            "active": true,
+            "employee": {
+              "text": "Matt Nolan",
+              "value": "1292"
+            },
+            "resourceGroups": [{
+              "text": "Installers",
+              "value": "1"
+            }],
+            "types": [{
+              "text": "Installer",
+              "value": "1"
+            }],
+            "subTypes": [],
+            "rate": 0,
+            "vendor": {
+              "text": "",
+              "value": ""
+            },
+            "purchaseOrder": {
+              "text": "",
+              "value": ""
+            },
+            "affiliationType": {
+              "text": "Crew Enhancement",
+              "value": "3"
+            },
+            "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1292%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
+            "events": ["101082"],
+            "labRates": [],
+            "time": {
+              "start": "",
+              "end": ""
+            },
+            "resourceSkills": [{
+              "text": "Interior Design",
+              "value": "14"
+            }, {
+              "text": "Material Knowledge",
+              "value": "9"
+            }, {
+              "text": "Quality Control",
+              "value": "13"
+            }],
+            "department": {
+              "text": "",
+              "value": ""
+            }
+          }, {
+            "id": "1539",
+            "name": "Ruth Smith",
+            "initials": "RS",
+            "email": "jc@erpsuccesspartners.com",
+            "phone": "(713) 555-1212",
+            "location": {
+              "text": "01: San Francisco",
+              "value": "2"
+            },
+            "active": true,
+            "employee": {
+              "text": "Ruth Smith",
+              "value": "1539"
+            },
+            "resourceGroups": [{
+              "text": "Installers",
+              "value": "1"
+            }],
+            "types": [{
+              "text": "Installer",
+              "value": "1"
+            }],
+            "subTypes": [],
+            "rate": 50,
+            "vendor": {
+              "text": "",
+              "value": ""
+            },
+            "purchaseOrder": {
+              "text": "",
+              "value": ""
+            },
+            "affiliationType": {
+              "text": "In-House",
+              "value": "1"
+            },
+            "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1539%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
+            "events": ["101084", "101083"],
+            "labRates": [],
+            "time": {
+              "start": "",
+              "end": ""
+            },
+            "resourceSkills": [{
+              "text": "CNC Machining",
+              "value": "12"
+            }, {
+              "text": "Carpentry and Joinery",
+              "value": "10"
+            }, {
+              "text": "Computer-Aided Design (CAD)",
+              "value": "8"
+            }],
+            "department": {
+              "text": "",
+              "value": ""
+            }
+          }, {
+            "id": "18",
+            "name": "Sam Cruz",
+            "initials": "SC",
+            "email": "scruz@ramsey.com",
+            "phone": "408-555-4344",
+            "location": {
+              "text": "01: San Francisco",
+              "value": "2"
+            },
+            "active": true,
+            "employee": {
+              "text": "Sam Cruz",
+              "value": "18"
+            },
+            "resourceGroups": [{
+              "text": "Installers",
+              "value": "1"
+            }],
+            "types": [{
+              "text": "Installer",
+              "value": "1"
+            }],
+            "subTypes": [],
+            "rate": 60,
+            "vendor": {
+              "text": "",
+              "value": ""
+            },
+            "purchaseOrder": {
+              "text": "",
+              "value": ""
+            },
+            "affiliationType": {
+              "text": "In-House",
+              "value": "1"
+            },
+            "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D18%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
+            "events": [],
+            "labRates": [],
+            "time": {
+              "start": "",
+              "end": ""
+            },
+            "resourceSkills": [{
+              "text": "Driving",
+              "value": "3"
+            }, {
+              "text": "Furniture Assembly",
+              "value": "1"
+            }, {
+              "text": "Furniture Design",
+              "value": "7"
+            }],
+            "department": {
+              "text": "Sales",
+              "value": "2"
+            }
+          }, {
+            "id": "918",
+            "name": "Walter Reagan",
+            "initials": "WR",
+            "email": "wreagan@ramsey.com",
+            "phone": "",
+            "location": {
+              "text": "02: Boston",
+              "value": "1"
+            },
+            "active": true,
+            "employee": {
+              "text": "Walter Reagan",
+              "value": "918"
+            },
+            "resourceGroups": [{
+              "text": "Installers",
+              "value": "1"
+            }],
+            "types": [{
+              "text": "Installer",
+              "value": "1"
+            }],
+            "subTypes": [],
+            "rate": 50,
+            "vendor": {
+              "text": "",
+              "value": ""
+            },
+            "purchaseOrder": {
+              "text": "",
+              "value": ""
+            },
+            "affiliationType": {
+              "text": "Crew Enhancement",
+              "value": "3"
+            },
+            "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D918%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
+            "events": ["101084"],
+            "labRates": [],
+            "time": {
+              "start": "",
+              "end": ""
+            },
+            "resourceSkills": [{
+              "text": "Interior Design",
+              "value": "14"
+            }, {
+              "text": "Material Knowledge",
+              "value": "9"
+            }, {
+              "text": "Painting and Finishing",
+              "value": "15"
+            }],
+            "department": {
+              "text": "",
+              "value": ""
+            }
+          }, {
+            "id": "1656",
+            "name": "Youssef Ezz",
+            "initials": "YE",
+            "email": "yk@erpsuccesspartners.com",
+            "phone": "",
+            "location": {
+              "text": "01: San Francisco",
+              "value": "2"
+            },
+            "active": true,
+            "employee": {
+              "text": "Youssef Ezz",
+              "value": "1656"
+            },
+            "resourceGroups": [{
+              "text": "Installers",
+              "value": "1"
+            }],
+            "types": [{
+              "text": "Installer",
+              "value": "1"
+            }],
+            "subTypes": [],
+            "rate": 60,
+            "vendor": {
+              "text": "",
+              "value": ""
+            },
+            "purchaseOrder": {
+              "text": "",
+              "value": ""
+            },
+            "affiliationType": {
+              "text": "In-House",
+              "value": "1"
+            },
+            "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1656%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
+            "events": ["101082"],
+            "labRates": [],
+            "time": {
+              "start": "",
+              "end": ""
+            },
+            "resourceSkills": [{
+              "text": "Carpentry and Joinery",
+              "value": "10"
+            }, {
+              "text": "Quality Control",
+              "value": "13"
+            }, {
+              "text": "Upholstery",
+              "value": "11"
+            }],
+            "department": {
+              "text": "",
+              "value": ""
+            }
+          }],
+          "resourceCount": 16
+        }, {
+          "text": "Designers",
+          "value": "2",
+          "resources": [{
+            "id": "1770",
+            "name": "Arun Sharma",
+            "initials": "AS",
+            "email": "aruns.unlock2go@gmail.com",
+            "phone": "",
+            "location": {
+              "text": "",
+              "value": ""
+            },
+            "active": true,
+            "employee": {
+              "text": "Arun Sharma",
+              "value": "1770"
+            },
+            "resourceGroups": [{
+              "text": "Designers",
+              "value": "2"
+            }, {
+              "text": "Drivers",
+              "value": "3"
+            }, {
+              "text": "Installers",
+              "value": "1"
+            }],
+            "types": [{
+              "text": "Delivery Driver",
+              "value": "2"
+            }, {
+              "text": "Designer",
+              "value": "3"
+            }, {
+              "text": "Installer",
+              "value": "1"
+            }],
+            "subTypes": [],
+            "rate": 0,
+            "vendor": {
+              "text": "",
+              "value": ""
+            },
+            "purchaseOrder": {
+              "text": "",
+              "value": ""
+            },
+            "affiliationType": {
+              "text": "In-House",
+              "value": "1"
+            },
+            "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1770%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
+            "events": ["101087", "101084", "101076", "101075"],
+            "labRates": [],
+            "time": {
+              "start": "",
+              "end": ""
+            },
+            "resourceSkills": [{
+              "text": "Driving",
+              "value": "3"
+            }, {
+              "text": "Plumbing",
+              "value": "2"
+            }],
+            "department": {
+              "text": "",
+              "value": ""
+            }
+          }, {
+            "id": "1767",
+            "name": "Bea Quilinguin",
+            "initials": "BQ",
+            "email": "beatrice.q@erpsuccesspartners.com",
+            "phone": "",
+            "location": {
+              "text": "01: San Francisco",
+              "value": "2"
+            },
+            "active": true,
+            "employee": {
+              "text": "Bea Quilinguin",
+              "value": "1767"
+            },
+            "resourceGroups": [{
+              "text": "Designers",
+              "value": "2"
+            }, {
+              "text": "Drivers",
+              "value": "3"
+            }, {
+              "text": "Installers",
+              "value": "1"
+            }],
+            "types": [{
+              "text": "Delivery Driver",
+              "value": "2"
+            }, {
+              "text": "Designer",
+              "value": "3"
+            }, {
+              "text": "Installer",
+              "value": "1"
+            }],
+            "subTypes": [],
+            "rate": 0,
+            "vendor": {
+              "text": "",
+              "value": ""
+            },
+            "purchaseOrder": {
+              "text": "",
+              "value": ""
+            },
+            "affiliationType": {
+              "text": "In-House",
+              "value": "1"
+            },
+            "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1767%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
+            "events": ["101088", "101084"],
+            "labRates": [{
+              "labRateCatId": "1",
+              "labRate": 10
+            }, {
+              "labRateCatId": "2",
+              "labRate": 20
+            }, {
+              "labRateCatId": "3",
+              "labRate": 30
+            }],
+            "time": {
+              "start": "",
+              "end": ""
+            },
+            "resourceSkills": [{
+              "text": "CNC Machining",
+              "value": "12"
+            }, {
+              "text": "Furniture Design",
+              "value": "7"
+            }, {
+              "text": "Interior Design",
+              "value": "14"
+            }],
+            "department": {
+              "text": "",
+              "value": ""
+            }
+          }, {
+            "id": "1647",
+            "name": "Mei Matriano",
+            "initials": "MM",
+            "email": "mei@erpsuccesspartners.com",
+            "phone": "",
+            "location": {
+              "text": "New York",
+              "value": "15"
+            },
+            "active": true,
+            "employee": {
+              "text": "Mei Matriano",
+              "value": "1647"
+            },
+            "resourceGroups": [{
+              "text": "Designers",
+              "value": "2"
+            }],
+            "types": [{
+              "text": "Installer",
+              "value": "1"
+            }],
+            "subTypes": [],
+            "rate": 20,
+            "vendor": {
+              "text": "",
+              "value": ""
+            },
+            "purchaseOrder": {
+              "text": "",
+              "value": ""
+            },
+            "affiliationType": {
+              "text": "In-House",
+              "value": "1"
+            },
+            "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1647%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
+            "events": [],
+            "labRates": [],
+            "time": {
+              "start": "",
+              "end": ""
+            },
+            "resourceSkills": [{
+              "text": "Material Knowledge",
+              "value": "9"
+            }, {
+              "text": "Metalworking",
+              "value": "5"
+            }, {
+              "text": "Welding",
+              "value": "6"
+            }],
+            "department": {
+              "text": "",
+              "value": ""
+            }
+          }, {
+            "id": "1766",
+            "name": "Rowe Riomalos",
+            "initials": "RR",
+            "email": "rowe@erpsuccesspartners.com",
+            "phone": "",
+            "location": {
+              "text": "",
+              "value": ""
+            },
+            "active": false,
+            "employee": {
+              "text": "Rowe Riomalos",
+              "value": "1766"
+            },
+            "resourceGroups": [{
+              "text": "Designers",
+              "value": "2"
+            }],
+            "types": [],
+            "subTypes": [],
+            "rate": 0,
+            "vendor": {
+              "text": "",
+              "value": ""
+            },
+            "purchaseOrder": {
+              "text": "",
+              "value": ""
+            },
+            "affiliationType": {
+              "text": "In-House",
+              "value": "1"
+            },
+            "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1766%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
+            "events": [],
+            "labRates": [],
+            "time": {
+              "start": "",
+              "end": ""
+            },
+            "resourceSkills": [{
+              "text": "Plumbing",
+              "value": "2"
+            }, {
+              "text": "Upholstery",
+              "value": "11"
+            }, {
+              "text": "Woodworking",
+              "value": "4"
+            }],
+            "department": {
+              "text": "",
+              "value": ""
+            }
+          }],
+          "resourceCount": 4
+        }, {
+          "text": "Drivers",
+          "value": "3",
+          "resources": [{
+            "id": "1770",
+            "name": "Arun Sharma",
+            "initials": "AS",
+            "email": "aruns.unlock2go@gmail.com",
+            "phone": "",
+            "location": {
+              "text": "",
+              "value": ""
+            },
+            "active": true,
+            "employee": {
+              "text": "Arun Sharma",
+              "value": "1770"
+            },
+            "resourceGroups": [{
+              "text": "Designers",
+              "value": "2"
+            }, {
+              "text": "Drivers",
+              "value": "3"
+            }, {
+              "text": "Installers",
+              "value": "1"
+            }],
+            "types": [{
+              "text": "Delivery Driver",
+              "value": "2"
+            }, {
+              "text": "Designer",
+              "value": "3"
+            }, {
+              "text": "Installer",
+              "value": "1"
+            }],
+            "subTypes": [],
+            "rate": 0,
+            "vendor": {
+              "text": "",
+              "value": ""
+            },
+            "purchaseOrder": {
+              "text": "",
+              "value": ""
+            },
+            "affiliationType": {
+              "text": "In-House",
+              "value": "1"
+            },
+            "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1770%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
+            "events": ["101087", "101084", "101076", "101075"],
+            "labRates": [],
+            "time": {
+              "start": "",
+              "end": ""
+            },
+            "resourceSkills": [{
+              "text": "Driving",
+              "value": "3"
+            }, {
+              "text": "Plumbing",
+              "value": "2"
+            }],
+            "department": {
+              "text": "",
+              "value": ""
+            }
+          }, {
+            "id": "1767",
+            "name": "Bea Quilinguin",
+            "initials": "BQ",
+            "email": "beatrice.q@erpsuccesspartners.com",
+            "phone": "",
+            "location": {
+              "text": "01: San Francisco",
+              "value": "2"
+            },
+            "active": true,
+            "employee": {
+              "text": "Bea Quilinguin",
+              "value": "1767"
+            },
+            "resourceGroups": [{
+              "text": "Designers",
+              "value": "2"
+            }, {
+              "text": "Drivers",
+              "value": "3"
+            }, {
+              "text": "Installers",
+              "value": "1"
+            }],
+            "types": [{
+              "text": "Delivery Driver",
+              "value": "2"
+            }, {
+              "text": "Designer",
+              "value": "3"
+            }, {
+              "text": "Installer",
+              "value": "1"
+            }],
+            "subTypes": [],
+            "rate": 0,
+            "vendor": {
+              "text": "",
+              "value": ""
+            },
+            "purchaseOrder": {
+              "text": "",
+              "value": ""
+            },
+            "affiliationType": {
+              "text": "In-House",
+              "value": "1"
+            },
+            "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1767%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
+            "events": ["101088", "101084"],
+            "labRates": [{
+              "labRateCatId": "1",
+              "labRate": 10
+            }, {
+              "labRateCatId": "2",
+              "labRate": 20
+            }, {
+              "labRateCatId": "3",
+              "labRate": 30
+            }],
+            "time": {
+              "start": "",
+              "end": ""
+            },
+            "resourceSkills": [{
+              "text": "CNC Machining",
+              "value": "12"
+            }, {
+              "text": "Furniture Design",
+              "value": "7"
+            }, {
+              "text": "Interior Design",
+              "value": "14"
+            }],
+            "department": {
+              "text": "",
+              "value": ""
+            }
+          }, {
+            "id": "27",
+            "name": "Brad Sparling",
+            "initials": "BS",
+            "email": "jc@erpsuccesspartners.com",
+            "phone": "650-555-3226",
+            "location": {
+              "text": "01: San Francisco",
+              "value": "2"
+            },
+            "active": false,
+            "employee": {
+              "text": "Brad Sparling",
+              "value": "27"
+            },
+            "resourceGroups": [{
+              "text": "Drivers",
+              "value": "3"
+            }],
+            "types": [{
+              "text": "Delivery Driver",
+              "value": "2"
+            }],
+            "subTypes": [],
+            "rate": 0,
+            "vendor": {
+              "text": "",
+              "value": ""
+            },
+            "purchaseOrder": {
+              "text": "",
+              "value": ""
+            },
+            "affiliationType": {
+              "text": "In-House",
+              "value": "1"
+            },
+            "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D27%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
+            "events": [],
+            "labRates": [],
+            "time": {
+              "start": "",
+              "end": ""
+            },
+            "resourceSkills": [{
+              "text": "CNC Machining",
+              "value": "12"
+            }, {
+              "text": "Carpentry and Joinery",
+              "value": "10"
+            }, {
+              "text": "Material Knowledge",
+              "value": "9"
+            }],
+            "department": {
+              "text": "Engineering",
+              "value": "11"
+            }
+          }, {
+            "id": "23",
+            "name": "Clark Koozer",
+            "initials": "CK",
+            "email": "jc@erpsuccesspartners.com",
+            "phone": "650-555-8300",
+            "location": {
+              "text": "01: San Francisco",
+              "value": "2"
+            },
+            "active": true,
+            "employee": {
+              "text": "Clark Koozer",
+              "value": "23"
+            },
+            "resourceGroups": [{
+              "text": "Drivers",
+              "value": "3"
+            }],
+            "types": [{
+              "text": "Delivery Driver",
+              "value": "2"
+            }],
+            "subTypes": [],
+            "rate": 40,
+            "vendor": {
+              "text": "",
+              "value": ""
+            },
+            "purchaseOrder": {
+              "text": "",
+              "value": ""
+            },
+            "affiliationType": {
+              "text": "In-House",
+              "value": "1"
+            },
+            "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D23%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
+            "events": ["101085", "101082"],
+            "labRates": [],
+            "time": {
+              "start": "",
+              "end": ""
+            },
+            "resourceSkills": [{
+              "text": "Carpentry and Joinery",
+              "value": "10"
+            }, {
+              "text": "Furniture Assembly",
+              "value": "1"
+            }],
+            "department": {
+              "text": "Sales",
+              "value": "2"
+            }
+          }],
+          "resourceCount": 4
+        }]
+      }, {
+        "label": "Status",
+        "className": "multiple-event-status-field",
+        "type": "multiselect",
+        "display": true,
+        "options": [{
+          "text": "Tentative",
+          "value": "TENTATIVE"
+        }, {
+          "text": "Confirmed",
+          "value": "CONFIRMED"
+        }, {
+          "text": "Completed",
+          "value": "COMPLETED"
+        }]
+      }, {
+        "label": "Priority",
+        "className": "multiple-event-priority-field",
+        "type": "multiselect",
+        "display": true,
+        "options": [{
+          "text": "Low",
+          "value": "1"
+        }, {
+          "text": "Mid",
+          "value": "2"
+        }, {
+          "text": "High",
+          "value": "3"
+        }, {
+          "text": "Urgent",
+          "value": "4"
+        }]
+      }, {
+        "label": "Organizer",
+        "className": "multiple-event-organizer-field",
+        "type": "multiselect",
+        "display": true
+      }, {
+        "label": "Event Type",
+        "className": "multiple-event-type-field",
+        "type": "multiselect",
+        "display": true,
+        "options": [{
+          "text": "General Event",
+          "value": "1"
+        }, {
+          "text": "Non General Event",
+          "value": "2"
+        }]
+      }, {
+        "label": "Organizer",
+        "className": "multiple-event-organizer-field",
+        "type": "multiselect",
+        "display": true,
+        "options": [{
+          "text": "Lean  cendana",
+          "value": "1765"
+        }, {
+          "text": "Arun Sharma",
+          "value": "1770"
+        }, {
+          "text": "Mei Matriano",
+          "value": "1647"
+        }, {
+          "text": "Youssef Ezz",
+          "value": "1656"
+        }, {
+          "text": "Raymund Dejasco",
+          "value": "1651"
+        }, {
+          "text": "Alex Wolfe",
+          "value": "-5"
+        }, {
+          "text": "Bea Quilinguin",
+          "value": "1767"
+        }, {
+          "text": "Rowe Riomalos",
+          "value": "1766"
+        }, {
+          "text": "Miles Grey",
+          "value": "911"
+        }, {
+          "text": "Amy Nguyen",
+          "value": "25"
+        }, {
+          "text": "AL Systems Ltd",
+          "value": "1305"
+        }, {
+          "text": "Mary Redding",
+          "value": "1008"
+        }, {
+          "text": "Jill Muscat",
+          "value": "1032"
+        }, {
+          "text": "Joanne Miller",
+          "value": "1022"
+        }, {
+          "text": "Phil Kneafsey",
+          "value": "1031"
+        }, {
+          "text": "Walter Reagan",
+          "value": "918"
+        }, {
+          "text": "Tim Wong",
+          "value": "915"
+        }, {
+          "text": "Evan Ziccarelli",
+          "value": "217"
+        }, {
+          "text": "Jennifer Beattie",
+          "value": "216"
+        }, {
+          "text": "Andy Andrews",
+          "value": "21"
+        }, {
+          "text": "Brian K Harris",
+          "value": "31"
+        }, {
+          "text": "Mark Grogans",
+          "value": "19"
+        }, {
+          "text": "Brad M Sparling",
+          "value": "27"
+        }]
+      }, {
+        "label": "Date From",
+        "className": "board-event-datefrom",
+        "type": "date",
+        "display": true
+      }, {
+        "label": "Date To",
+        "className": "board-event-dateto",
+        "type": "date",
+        "display": true
+      }, {
+        "label": "Received Status",
+        "className": "multiple-event-received-field",
+        "type": "multiselect",
+        "display": true,
+        "options": [{
+          "text": "Partial",
+          "value": "1"
+        }, {
+          "text": "Full",
+          "value": "2"
+        }]
       }]
     }
-  }
+  },
+  "woStatuses": [{
+    "text": "Pending",
+    "value": "1"
+  }, {
+    "text": "In Progress",
+    "value": "2"
+  }, {
+    "text": "Closed",
+    "value": "3"
+  }, {
+    "text": "Completed",
+    "value": "4"
+  }, {
+    "text": "On Hold",
+    "value": "5"
+  }]
 }

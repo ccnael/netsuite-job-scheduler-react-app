@@ -577,10 +577,19 @@ define([
           );
       }
 
-      static getWorkOrderLocations(workOrders) {
+      static getLocations(workOrders) {
         return workOrders
           .map(wo => wo.location)
           .filter(location => !!(location.value))
+          .filter((x, i, arr) =>
+            arr.findIndex(y => (y.value === x.value)) === i // Merge duplicates
+          );
+      }
+
+      static getProjects(workOrders) {
+        return workOrders
+          .map(wo => wo.project)
+          .filter(project => !!(project.value))
           .filter((x, i, arr) =>
             arr.findIndex(y => (y.value === x.value)) === i // Merge duplicates
           );
@@ -709,6 +718,19 @@ define([
         } else {
           response.write('<h1>Missing Sales Order</h1>');
         }
+      }
+
+      static getStatuses() {
+        const formatText = txt => {
+          return txt
+            .toLowerCase()            // Convert to lowercase
+            .replace(/_/g, ' ')       // Replace underscores with spaces
+            .replace(/\b\w/g, (char) => char.toUpperCase()); // Capitalize first letter of each word
+        };
+        return Object.entries(env.Status).map(([key, value]) => ({
+          text: formatText(key),
+          value: value
+        }))
       }
     }
 
@@ -2445,11 +2467,13 @@ define([
 
     class Utils {
 
-      static getFilters(resources, resourceGroups, vendors, assets, resourceSkills, resourceLocations, resourceDepartments, customers) {
+      static getFilters(params) {
+        const userId = params.user.id;
         const filterMap = file.load(env.FilterPath);
         let filterFields = filterMap.getContents();
         if (!!filterFields) {
           filterFields = JSON.parse(filterFields);
+          filterFields = filterFields[userId] || filterFields.defaultMap;
           Object.keys(filterFields).forEach(section => {
             filterFields[section].fields.map(field => {
               field.options = eval(field.options);
@@ -2466,18 +2490,26 @@ define([
       static updateFilters(context) {
         const { request, response } = context;
         let reqBody = request.body || '{}';
+        const user = runtime.getCurrentUser();
+        const userId = user.id;
 
         try {
           const selectedFields = JSON.parse(reqBody);
           const filterMap = file.load(env.FilterPath);
           let filterFields = filterMap.getContents();
           filterFields = filterFields && JSON.parse(filterFields);
-          Object.keys(filterFields).forEach(section => {
-            filterFields[section].fields.map(field => {
+
+          if (!filterFields[userId]) {
+            filterFields[userId] = deepCopy(filterFields.defaultMap);
+          }
+
+          Object.keys(filterFields[userId]).forEach(section => {
+            filterFields[userId][section].fields.map(field => {
               field.display = !!selectedFields.includes(field.className);
               return field;
             });
           });
+
           const updatedFile = file.create({
             name: filterMap.name,
             fileType: file.Type.JSON,
@@ -2501,17 +2533,17 @@ define([
         }
       }
 
-      static createLogFile(name, contents, folderId) {
+      static createLogFile(contents) {
         try {
           // Already throwing error "This record already exists" ????
           const fileId = file.create({
             // name: `${name}_${moment().format('MMDDYYYY_hhmmss')}.json`,
-            name: `${name}.json`,
+            name: `${env.LogFileName}.json`,
             fileType: file.Type.PLAINTEXT,
             contents,
-            folder: -15,//folderId
+            folder: -15,
           }).save();
-          log.audit('Log File ID', { name, fileId });
+          log.audit('Log File ID', fileId);
         } catch (e) {
           log.error('Log File Unexpected Error', e.message);
         }

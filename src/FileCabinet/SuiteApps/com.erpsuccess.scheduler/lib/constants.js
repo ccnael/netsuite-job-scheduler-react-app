@@ -45,5 +45,6 @@ define(() => ({
     EXPORT_TIME: 'HH:mm',
     IMPORT_TIME: 'h:mm a'
   },
-  FilterPath: './lib/filterMap.json'
+  FilterPath: './lib/filterMap.json',
+  LogFileName: 'mockupDataSet'
 }))

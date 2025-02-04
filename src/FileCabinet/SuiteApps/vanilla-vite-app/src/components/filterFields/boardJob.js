@@ -6,11 +6,11 @@ $(document).ready(() => {
   const { modalId, fields } = dataSet.filterFields.boardJob;
 
   $('#app').append(`
-    <div class="modal fade" id="filterFieldBoardJob" mode="" title="" tabindex="-1" style="z-index: -999">
+    <div class="modal fade" id="${modalId.replace('#', '')}" mode="" title="" tabindex="-1" style="z-index: -999">
     <div class="modal-dialog modal-md">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="filterFieldBoardJobLabel"><strong class="table-header">Filter Jobs</strong></h5>
+          <h5 class="modal-title" id="${modalId.replace('#', '')}Label"><strong class="table-header">Filter Jobs</strong></h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="spinner"></div>
@@ -79,7 +79,7 @@ $(document).ready(() => {
       } else if (field.type === 'date') {
         el = $(`${modalId} .filter-fields input.${field.className}`);
         fieldStr = `<div class="d-flex align-items-center">
-          <label for="${field.className}" class="me-2 mb-0">${field.label}:</label>
+          <label for="${field.className}" class="me-2 mb-0">${field.label.replace('Date ', '')}:</label>
           <input type="date" class="form-control ${field.className}" id="${field.className}">
         </div>`;
       } else {
