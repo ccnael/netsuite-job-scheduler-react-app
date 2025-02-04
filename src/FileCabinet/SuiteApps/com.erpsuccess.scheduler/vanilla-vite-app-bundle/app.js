@@ -1106,7 +1106,7 @@
         </div>
       </div>
     </div>
-  </div>`),$(n).on("shown.bs.modal",()=>{t(),$(void 0).removeAttr("aria-hidden"),$(void 0).focus();const i=e.reduce((s,l)=>{let o,a="";return l.type==="multiselect"?(console.log(">>>",l),o=$(`${n} .filter-fields select.${l.className}`),a=`<select class="selectpicker mx-auto ${l.className}" 
+  </div>`),$(n).on("shown.bs.modal",()=>{t(),$(void 0).removeAttr("aria-hidden"),$(void 0).focus();const i=e.reduce((s,l)=>{let o,a="";return l.type==="multiselect"?(o=$(`${n} .filter-fields select.${l.className}`),a=`<select class="selectpicker mx-auto ${l.className}" 
             title="Filter by ${l.label}" 
             data-live-search="true" 
             data-selected-text-format="count>2" 
