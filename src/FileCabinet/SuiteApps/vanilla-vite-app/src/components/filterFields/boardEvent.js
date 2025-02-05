@@ -46,7 +46,7 @@ $(document).ready(() => {
               </div>
               <!-- Buttons placed beside the select field -->
               <div class="col-md-5 d-flex justify-content-end">
-                <button type="submit" class="btn btn-primary me-2" onclick="updateFilters(event, 'boardJob', '${modalId}')">Submit</button>
+                <button type="submit" class="btn btn-primary me-2" onclick="updateFilters(event, 'boardEvent', '${modalId}')">Submit</button>
                 <button type="button" class="btn btn-secondary btn-back" onclick="backToFirstForm(event, '${modalId}')">Back</button>
               </div>
             </div>

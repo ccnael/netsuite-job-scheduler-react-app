@@ -106041,6 +106041,140 @@
           "value": "2"
         }]
       }]
+    },
+    "calendarJob": {
+      "modalId": "#filterFieldCalendarJob",
+      "fields": [{
+        "label": "Customer",
+        "className": "multiple-customer-field",
+        "type": "multiselect",
+        "display": true,
+        "options": [{
+          "text": "World Bank",
+          "value": "1249"
+        }, {
+          "text": "3M",
+          "value": "1397"
+        }, {
+          "text": "Deloitte New York",
+          "value": "2024"
+        }, {
+          "text": "White House Administration",
+          "value": "1387"
+        }, {
+          "text": "Pravallika",
+          "value": "2008"
+        }, {
+          "text": "Test site test",
+          "value": "1898"
+        }, {
+          "text": "Test For site checklist",
+          "value": "1888"
+        }, {
+          "text": "California Airport",
+          "value": "1493"
+        }, {
+          "text": "Anonymous Customer HQ",
+          "value": "1599"
+        }],
+        "data-icon": "bi bi-person"
+      }, {
+        "label": "Work Order Location",
+        "className": "multiple-location-field",
+        "type": "multiselect",
+        "display": true,
+        "options": [],
+        "data-icon": "bi bi-geo-alt"
+      }, {
+        "label": "Work Order ID",
+        "className": "calendar-wo-id",
+        "type": "text",
+        "display": true
+      }, {
+        "label": "Work Order Title",
+        "className": "calendar-wo-title",
+        "type": "text",
+        "display": true
+      }, {
+        "label": "Date From",
+        "className": "calendar-wo-datefrom",
+        "type": "date",
+        "display": true
+      }, {
+        "label": "Date To",
+        "className": "calendar-wo-dateto",
+        "type": "date",
+        "display": true
+      }, {
+        "label": "Work Order Status",
+        "className": "multiple-status-field",
+        "type": "multiselect",
+        "display": false,
+        "options": [{
+          "text": "Pending",
+          "value": "1"
+        }, {
+          "text": "In Progress",
+          "value": "2"
+        }, {
+          "text": "Closed",
+          "value": "3"
+        }, {
+          "text": "Completed",
+          "value": "4"
+        }, {
+          "text": "On Hold",
+          "value": "5"
+        }]
+      }, {
+        "label": "Project",
+        "className": "multiple-project-field",
+        "type": "multiselect",
+        "display": false,
+        "options": [{
+          "text": "World Bank : World Bank Office Furniture Installation",
+          "value": "1515"
+        }, {
+          "text": "World Bank : Window Installation",
+          "value": "2049"
+        }, {
+          "text": "World Bank : World Bank AC Installation",
+          "value": "2045"
+        }, {
+          "text": "3M : Light Fixtures Installation",
+          "value": "2042"
+        }, {
+          "text": "World Bank : Furniture and AV Installation",
+          "value": "1883"
+        }, {
+          "text": "World Bank : Design, Furniture and Flooring Project",
+          "value": "1612"
+        }, {
+          "text": "Deloitte New York : Design, Furniture and Flooring Installation",
+          "value": "2026"
+        }, {
+          "text": "White House Administration : Furniture Installation",
+          "value": "1903"
+        }, {
+          "text": "Pravallika : Furniture and Walls Installation",
+          "value": "2010"
+        }, {
+          "text": "Test site test : AV and Security Camera Installation",
+          "value": "1900"
+        }, {
+          "text": "3M : Security Camera Installation",
+          "value": "1893"
+        }, {
+          "text": "Test For site checklist : AV Replacement",
+          "value": "1890"
+        }, {
+          "text": "California Airport : Furniture Installation",
+          "value": "1774"
+        }, {
+          "text": "Rogers Communication : Office Remodel",
+          "value": "1509"
+        }]
+      }]
     }
   },
   "woStatuses": [{
