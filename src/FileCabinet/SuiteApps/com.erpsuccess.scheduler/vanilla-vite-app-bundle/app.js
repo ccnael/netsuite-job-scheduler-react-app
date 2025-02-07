@@ -956,7 +956,7 @@
               </div>
             </div>
             <div class="modal-footer">
-              <button type="submit" class="btn btn-success" onclick="showSecondForm(event, '${n}')">Select Filters</button>
+              <button type="submit" class="btn btn-primary" onclick="showSecondForm(event, '${n}')">Select Filters</button>
               <button type="button" class="btn btn-secondary btn-clear" onclick="clearFilters('${n}')">Clear Filters</button>
             </div>
           </form>
@@ -973,7 +973,7 @@
                   multiple>
                   ${e.map(s=>`<option value="${s.className}" ${s.display&&"selected"}>${s.label}</option>`)}
                 </select>
-                <i class="fa-solid fa-circle-plus ms-2 d-flex align-items-center justify-content-center" style="cursor: pointer; font-size: 2rem;" onclick="alert('Not yet available.')">
+                <i class="fa-solid fa-circle-plus ms-2 d-flex align-items-center justify-content-center" style="cursor: pointer; font-size: 2rem; color: #218938" onclick="alert('Not yet available.')">
                 </i>
               </div>
               <div class="col-md-5 d-flex justify-content-end">
@@ -1024,7 +1024,7 @@
               </div>
             </div>
             <div class="modal-footer">
-              <button type="submit" class="btn btn-success" onclick="showSecondForm(event, '${n}')">Select Filters</button>
+              <button type="submit" class="btn btn-primary" onclick="showSecondForm(event, '${n}')">Select Filters</button>
               <button type="button" class="btn btn-secondary btn-clear" onclick="clearFilters('${n}')">Clear Filters</button>
             </div>
           </form>
@@ -1041,7 +1041,7 @@
                   multiple>
                   ${e.map(s=>`<option value="${s.className}" ${s.display&&"selected"}>${s.label}</option>`)}
                 </select>
-                <i class="fa-solid fa-circle-plus ms-2 d-flex align-items-center justify-content-center" style="cursor: pointer; font-size: 2rem;" onclick="alert('Not yet available.')">
+                <i class="fa-solid fa-circle-plus ms-2 d-flex align-items-center justify-content-center" style="cursor: pointer; font-size: 2rem; color: #218938" onclick="alert('Not yet available.')">
                 </i>
               </div>
               <div class="col-md-5 d-flex justify-content-end">
@@ -1092,7 +1092,7 @@
               </div>
             </div>
             <div class="modal-footer">
-              <button type="submit" class="btn btn-success" onclick="showSecondForm(event, '${n}')">Select Filters</button>
+              <button type="submit" class="btn btn-primary" onclick="showSecondForm(event, '${n}')">Select Filters</button>
               <button type="button" class="btn btn-secondary btn-clear" onclick="clearFilters('${n}')">Clear Filters</button>
             </div>
           </form>
@@ -1109,7 +1109,7 @@
                   multiple>
                   ${e.map(s=>`<option value="${s.className}" ${s.display&&"selected"}>${s.label}</option>`)}
                 </select>
-                <i class="fa-solid fa-circle-plus ms-2 d-flex align-items-center justify-content-center" style="cursor: pointer; font-size: 2rem;" onclick="alert('Not yet available.')">
+                <i class="fa-solid fa-circle-plus ms-2 d-flex align-items-center justify-content-center" style="cursor: pointer; font-size: 2rem; color: #218938" onclick="alert('Not yet available.')">
                 </i>
               </div>
               <div class="col-md-5 d-flex justify-content-end">
@@ -1160,7 +1160,7 @@
               </div>
             </div>
             <div class="modal-footer">
-              <button type="submit" class="btn btn-success" onclick="showSecondForm(event, '${n}')">Select Filters</button>
+              <button type="submit" class="btn btn-primary" onclick="showSecondForm(event, '${n}')">Select Filters</button>
               <button type="button" class="btn btn-secondary btn-clear" onclick="clearFilters('${n}')">Clear Filters</button>
             </div>
           </form>
@@ -1177,7 +1177,7 @@
                   multiple>
                   ${e.map(s=>`<option value="${s.className}" ${s.display&&"selected"}>${s.label}</option>`)}
                 </select>
-                <i class="fa-solid fa-circle-plus ms-2 d-flex align-items-center justify-content-center" style="cursor: pointer; font-size: 2rem;" onclick="alert('Not yet available.')">
+                <i class="fa-solid fa-circle-plus ms-2 d-flex align-items-center justify-content-center" style="cursor: pointer; font-size: 2rem; color: #218938" onclick="alert('Not yet available.')">
                 </i>
               </div>
               <div class="col-md-5 d-flex justify-content-end">
@@ -1228,7 +1228,7 @@
               </div>
             </div>
             <div class="modal-footer">
-              <button type="submit" class="btn btn-success" onclick="showSecondForm(event, '${n}')">Select Filters</button>
+              <button type="submit" class="btn btn-primary" onclick="showSecondForm(event, '${n}')">Select Filters</button>
               <button type="button" class="btn btn-secondary btn-clear" onclick="clearFilters('${n}')">Clear Filters</button>
             </div>
           </form>
@@ -1245,7 +1245,7 @@
                   multiple>
                   ${e.map(s=>`<option value="${s.className}" ${s.display&&"selected"}>${s.label}</option>`)}
                 </select>
-                <i class="fa-solid fa-circle-plus ms-2 d-flex align-items-center justify-content-center" style="cursor: pointer; font-size: 2rem;" onclick="alert('Not yet available.')">
+                <i class="fa-solid fa-circle-plus ms-2 d-flex align-items-center justify-content-center" style="cursor: pointer; font-size: 2rem; color: #218938" onclick="alert('Not yet available.')">
                 </i>
               </div>
               <div class="col-md-5 d-flex justify-content-end">
@@ -1296,7 +1296,7 @@
               </div>
             </div>
             <div class="modal-footer">
-              <button type="submit" class="btn btn-success" onclick="showSecondForm(event, '${n}')">Select Filters</button>
+              <button type="submit" class="btn btn-primary" onclick="showSecondForm(event, '${n}')">Select Filters</button>
               <button type="button" class="btn btn-secondary btn-clear" onclick="clearFilters('${n}')">Clear Filters</button>
             </div>
           </form>
@@ -1313,7 +1313,7 @@
                   multiple>
                   ${e.map(s=>`<option value="${s.className}" ${s.display&&"selected"}>${s.label}</option>`)}
                 </select>
-                <i class="fa-solid fa-circle-plus ms-2 d-flex align-items-center justify-content-center" style="cursor: pointer; font-size: 2rem;" onclick="alert('Not yet available.')">
+                <i class="fa-solid fa-circle-plus ms-2 d-flex align-items-center justify-content-center" style="cursor: pointer; font-size: 2rem; color: #218938" onclick="alert('Not yet available.')">
                 </i>
               </div>
               <div class="col-md-5 d-flex justify-content-end">
@@ -1344,7 +1344,7 @@
             </div>
           </div>`;break;case"text":a=`<input type="text" class="form-control ${l.className} custom-select-style" placeholder="Enter ${l.label}">`;break}return i+=o.length?"":`<div class="col-md-6" style="display: ${l.display?"block":"none"}">
         ${a}
-        </div>`,i},"");e.map(i=>{const l=$(`${n} .filter-fields .${i.className}`);l.length&&l.closest("div.col-md-6").css("display",` ${i.display?"block":"none"}`)}),$(`${n} .filter-fields`).append(s),$(`${n} .selectpicker`).selectpicker(),oa(n),$(n).modal("show"),$(n).css("z-index","9999"),setTimeout(()=>r(),150)}),$(n).on("hidden.bs.modal",s=>{$(`${n} .selectFiltersForm`).hide(),$(`${n} .filterForm`).show(),$(n).css("z-index","-999")});function t(){$(`${n} .spinner`).show(),$(`${n} .modal-body`).css("z-index","-1")}function r(){$(`${n} .spinner`).hide(),$(`${n} .modal-body`).css("z-index","1")}});$(document).ready(()=>{const{modalId:n,fields:e}=Me.generalEventResource;$("#app").append(`
+        </div>`,i},"");e.map(i=>{const l=$(`${n} .filter-fields .${i.className}`);l.length&&l.closest("div.col-md-6").css("display",` ${i.display?"block":"none"}`)}),$(`${n} .filter-fields`).append(s),$(`${n} .selectpicker`).selectpicker(),oa(n),$(n).modal("show"),$(n).css("z-index","9999"),setTimeout(()=>r(),150)}),$(n).on("hidden.bs.modal",s=>{$(`${n} .selectFiltersForm`).hide(),$(`${n} .filterForm`).show(),$(n).css("z-index","-999"),$("#eventModal").css("z-index","9999")});function t(){$("#eventModal").css("z-index","1"),$(`${n} .spinner`).show(),$(`${n} .modal-body`).css("z-index","-1")}function r(){$(`${n} .spinner`).hide(),$(`${n} .modal-body`).css("z-index","1")}});$(document).ready(()=>{const{modalId:n,fields:e}=Me.generalEventResource;$("#app").append(`
     <div class="modal fade" id="${n.replace("#","")}" mode="" title="" tabindex="-1" style="z-index: -999">
     <div class="modal-dialog modal-md">
       <div class="modal-content">
@@ -1364,7 +1364,7 @@
               </div>
             </div>
             <div class="modal-footer">
-              <button type="submit" class="btn btn-success" onclick="showSecondForm(event, '${n}')">Select Filters</button>
+              <button type="submit" class="btn btn-primary" onclick="showSecondForm(event, '${n}')">Select Filters</button>
               <button type="button" class="btn btn-secondary btn-clear" onclick="clearFilters('${n}')">Clear Filters</button>
             </div>
           </form>
@@ -1381,7 +1381,7 @@
                   multiple>
                   ${e.map(s=>`<option value="${s.className}" ${s.display&&"selected"}>${s.label}</option>`)}
                 </select>
-                <i class="fa-solid fa-circle-plus ms-2 d-flex align-items-center justify-content-center" style="cursor: pointer; font-size: 2rem;" onclick="alert('Not yet available.')">
+                <i class="fa-solid fa-circle-plus ms-2 d-flex align-items-center justify-content-center" style="cursor: pointer; font-size: 2rem; color: #218938" onclick="alert('Not yet available.')">
                 </i>
               </div>
               <div class="col-md-5 d-flex justify-content-end">
@@ -1412,4 +1412,4 @@
             </div>
           </div>`;break;case"text":a=`<input type="text" class="form-control ${l.className} custom-select-style" placeholder="Enter ${l.label}">`;break}return i+=o.length?"":`<div class="col-md-6" style="display: ${l.display?"block":"none"}">
         ${a}
-        </div>`,i},"");e.map(i=>{const l=$(`${n} .filter-fields .${i.className}`);l.length&&l.closest("div.col-md-6").css("display",` ${i.display?"block":"none"}`)}),$(`${n} .filter-fields`).append(s),$(`${n} .selectpicker`).selectpicker(),aa(n),$(n).modal("show"),$(n).css("z-index","9999"),setTimeout(()=>r(),150)}),$(n).on("hidden.bs.modal",s=>{$(`${n} .selectFiltersForm`).hide(),$(`${n} .filterForm`).show(),$(n).css("z-index","-999"),$("#generalEventModal").css("overflow","auto"),$("#generalEventModal").css("z-index","9999")});function t(){$(`${n} .spinner`).show(),$(`${n} .modal-body`).css("z-index","-1")}function r(){$(`${n} .spinner`).hide(),$(`${n} .modal-body`).css("z-index","1")}});$(document).ready(()=>{window.openDragResourceModal=(e,t)=>{const{type:r,id:s}=t,i=U.find(d=>d.id==e),l=i.workorder.value,o=l?_e.find(d=>d.id==l):{};let a,c;switch(r){case"employee":c=lt.find(b=>b.id==s).name;const d=l?ln.filter(b=>b.workorder.value==l):[];let u,f;d.length&&(u=d.find(b=>b.employee.value==s),u&&(f=n(u))),u=i.resources.find(b=>b.employee.value==s),u&&(f=n(u)),f||(f=lt.find(b=>b.id==s)),a={draggedResource:r,woRef:o,eventData:{id:e,selectedResources:[f],date:i.date,time:i.time},woResources:d},Swal.fire({title:"Confirm Add",text:`Add ${c} to Event [ID ${e}]?`,icon:"warning",showCancelButton:!0,confirmButtonColor:"#3085d6",cancelButtonColor:"#817c7c",confirmButtonText:"Yes"}).then(b=>{b.isConfirmed&&Swal.fire({didOpen:()=>{Swal.showLoading(),fetch(`${ae}&mode=updateEventRecord`,{method:"POST",body:JSON.stringify(a),headers:{"Content-Type":"application/json"}}).then(y=>y.json()).then(y=>{y.code==200?Swal.fire({title:"Success!",text:`Resource ${c} has been added to Event [ID ${e}]`,icon:"success"}).then(()=>{window.location.reload()}):Swal.fire({title:"Unexpected Error",text:`Error: ${y.errorMsg}`,icon:"error"}),Swal.hideLoading()}).catch(y=>{Swal.fire("Unexpected Error",y.message,"error"),Swal.hideLoading()})},allowOutsideClick:!1,allowEscapeKey:!1,text:`Adding Resource to Event Record [ID ${e}]...`})});break;case"vendor":c=Y.find(b=>b.id==s).name;let h=n(Y).filter(b=>!i.vendors.map(y=>y.vendor.value).includes(b.id));h=[...i.vendors,...h];const g=h.find(b=>b.id==s);a={draggedResource:r,woRef:o,eventData:{id:e,selectedVendors:[g]},woResources:[]},Swal.fire({title:"Confirm Add",text:`Enter Quantity for vendor ${c}`,icon:"warning",showCancelButton:!0,confirmButtonColor:"#3085d6",cancelButtonColor:"#817c7c",confirmButtonText:"Yes",input:"number",inputValue:1,inputAttributes:{min:1,max:100,step:1},preConfirm:b=>b<1?(Swal.showValidationMessage("Please enter a valid quantity"),!1):b}).then(b=>{if(b.isConfirmed){const y=b.value;a.eventData.selectedVendors[0].quantityRequired=y,Swal.fire({didOpen:()=>{Swal.showLoading(),fetch(`${ae}&mode=updateEventRecord`,{method:"POST",body:JSON.stringify(a),headers:{"Content-Type":"application/json"}}).then(E=>E.json()).then(E=>{E.code==200?Swal.fire({title:"Success!",text:`Vendor ${c} has been added to Event [ID ${e}]`,icon:"success"}).then(()=>{window.location.reload()}):Swal.fire({title:"Unexpected Error",text:`Error: ${E.errorMsg}`,icon:"error"}),Swal.hideLoading()}).catch(E=>{Swal.fire("Unexpected Error",E.message,"error"),Swal.hideLoading()})},allowOutsideClick:!1,allowEscapeKey:!1,text:`Adding Vendor to Event Record [ID ${e}]...`})}});break;case"asset":c=Z.find(b=>b.id==s).name;let m=n(Z).filter(b=>!i.assets.map(y=>y.item.value).includes(b.id));m=[...i.assets,...m];const v=m.find(b=>b.id==s);a={draggedResource:r,woRef:o,eventData:{id:e,selectedAssets:[v]},woResources:[]},Swal.fire({title:"Confirm Add",text:`Enter Quantity for Asset ${c}`,icon:"warning",showCancelButton:!0,confirmButtonColor:"#3085d6",cancelButtonColor:"#817c7c",confirmButtonText:"Yes",input:"number",inputValue:1,inputAttributes:{min:1,max:100,step:1},preConfirm:b=>b<1?(Swal.showValidationMessage("Please enter a valid quantity"),!1):b}).then(b=>{if(b.isConfirmed){const y=b.value;a.eventData.selectedAssets[0].quantity=y,Swal.fire({didOpen:()=>{Swal.showLoading(),fetch(`${ae}&mode=updateEventRecord`,{method:"POST",body:JSON.stringify(a),headers:{"Content-Type":"application/json"}}).then(E=>E.json()).then(E=>{E.code==200?Swal.fire({title:"Success!",text:`Asset ${c} has been added to Event [ID ${e}]`,icon:"success"}).then(()=>{window.location.reload()}):Swal.fire({title:"Unexpected Error",text:`Error: ${E.errorMsg}`,icon:"error"}),Swal.hideLoading()}).catch(E=>{Swal.fire("Unexpected Error",E.message,"error"),Swal.hideLoading()})},allowOutsideClick:!1,allowEscapeKey:!1,text:`Adding Asset to Event Record [ID ${e}]...`})}});break}};function n(e){return JSON.parse(JSON.stringify(e))}});
+        </div>`,i},"");e.map(i=>{const l=$(`${n} .filter-fields .${i.className}`);l.length&&l.closest("div.col-md-6").css("display",` ${i.display?"block":"none"}`)}),$(`${n} .filter-fields`).append(s),$(`${n} .selectpicker`).selectpicker(),aa(n),$(n).modal("show"),$(n).css("z-index","9999"),setTimeout(()=>r(),150)}),$(n).on("hidden.bs.modal",s=>{$(`${n} .selectFiltersForm`).hide(),$(`${n} .filterForm`).show(),$(n).css("z-index","-999"),$("#generalEventModal").css("overflow","auto"),$("#generalEventModal").css("z-index","9999")});function t(){$("#generalEventModal").css("z-index","1"),$(`${n} .spinner`).show(),$(`${n} .modal-body`).css("z-index","-1")}function r(){$(`${n} .spinner`).hide(),$(`${n} .modal-body`).css("z-index","1")}});$(document).ready(()=>{window.openDragResourceModal=(e,t)=>{const{type:r,id:s}=t,i=U.find(d=>d.id==e),l=i.workorder.value,o=l?_e.find(d=>d.id==l):{};let a,c;switch(r){case"employee":c=lt.find(b=>b.id==s).name;const d=l?ln.filter(b=>b.workorder.value==l):[];let u,f;d.length&&(u=d.find(b=>b.employee.value==s),u&&(f=n(u))),u=i.resources.find(b=>b.employee.value==s),u&&(f=n(u)),f||(f=lt.find(b=>b.id==s)),a={draggedResource:r,woRef:o,eventData:{id:e,selectedResources:[f],date:i.date,time:i.time},woResources:d},Swal.fire({title:"Confirm Add",text:`Add ${c} to Event [ID ${e}]?`,icon:"warning",showCancelButton:!0,confirmButtonColor:"#3085d6",cancelButtonColor:"#817c7c",confirmButtonText:"Yes"}).then(b=>{b.isConfirmed&&Swal.fire({didOpen:()=>{Swal.showLoading(),fetch(`${ae}&mode=updateEventRecord`,{method:"POST",body:JSON.stringify(a),headers:{"Content-Type":"application/json"}}).then(y=>y.json()).then(y=>{y.code==200?Swal.fire({title:"Success!",text:`Resource ${c} has been added to Event [ID ${e}]`,icon:"success"}).then(()=>{window.location.reload()}):Swal.fire({title:"Unexpected Error",text:`Error: ${y.errorMsg}`,icon:"error"}),Swal.hideLoading()}).catch(y=>{Swal.fire("Unexpected Error",y.message,"error"),Swal.hideLoading()})},allowOutsideClick:!1,allowEscapeKey:!1,text:`Adding Resource to Event Record [ID ${e}]...`})});break;case"vendor":c=Y.find(b=>b.id==s).name;let h=n(Y).filter(b=>!i.vendors.map(y=>y.vendor.value).includes(b.id));h=[...i.vendors,...h];const g=h.find(b=>b.id==s);a={draggedResource:r,woRef:o,eventData:{id:e,selectedVendors:[g]},woResources:[]},Swal.fire({title:"Confirm Add",text:`Enter Quantity for vendor ${c}`,icon:"warning",showCancelButton:!0,confirmButtonColor:"#3085d6",cancelButtonColor:"#817c7c",confirmButtonText:"Yes",input:"number",inputValue:1,inputAttributes:{min:1,max:100,step:1},preConfirm:b=>b<1?(Swal.showValidationMessage("Please enter a valid quantity"),!1):b}).then(b=>{if(b.isConfirmed){const y=b.value;a.eventData.selectedVendors[0].quantityRequired=y,Swal.fire({didOpen:()=>{Swal.showLoading(),fetch(`${ae}&mode=updateEventRecord`,{method:"POST",body:JSON.stringify(a),headers:{"Content-Type":"application/json"}}).then(E=>E.json()).then(E=>{E.code==200?Swal.fire({title:"Success!",text:`Vendor ${c} has been added to Event [ID ${e}]`,icon:"success"}).then(()=>{window.location.reload()}):Swal.fire({title:"Unexpected Error",text:`Error: ${E.errorMsg}`,icon:"error"}),Swal.hideLoading()}).catch(E=>{Swal.fire("Unexpected Error",E.message,"error"),Swal.hideLoading()})},allowOutsideClick:!1,allowEscapeKey:!1,text:`Adding Vendor to Event Record [ID ${e}]...`})}});break;case"asset":c=Z.find(b=>b.id==s).name;let m=n(Z).filter(b=>!i.assets.map(y=>y.item.value).includes(b.id));m=[...i.assets,...m];const v=m.find(b=>b.id==s);a={draggedResource:r,woRef:o,eventData:{id:e,selectedAssets:[v]},woResources:[]},Swal.fire({title:"Confirm Add",text:`Enter Quantity for Asset ${c}`,icon:"warning",showCancelButton:!0,confirmButtonColor:"#3085d6",cancelButtonColor:"#817c7c",confirmButtonText:"Yes",input:"number",inputValue:1,inputAttributes:{min:1,max:100,step:1},preConfirm:b=>b<1?(Swal.showValidationMessage("Please enter a valid quantity"),!1):b}).then(b=>{if(b.isConfirmed){const y=b.value;a.eventData.selectedAssets[0].quantity=y,Swal.fire({didOpen:()=>{Swal.showLoading(),fetch(`${ae}&mode=updateEventRecord`,{method:"POST",body:JSON.stringify(a),headers:{"Content-Type":"application/json"}}).then(E=>E.json()).then(E=>{E.code==200?Swal.fire({title:"Success!",text:`Asset ${c} has been added to Event [ID ${e}]`,icon:"success"}).then(()=>{window.location.reload()}):Swal.fire({title:"Unexpected Error",text:`Error: ${E.errorMsg}`,icon:"error"}),Swal.hideLoading()}).catch(E=>{Swal.fire("Unexpected Error",E.message,"error"),Swal.hideLoading()})},allowOutsideClick:!1,allowEscapeKey:!1,text:`Adding Asset to Event Record [ID ${e}]...`})}});break}};function n(e){return JSON.parse(JSON.stringify(e))}});

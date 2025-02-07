@@ -148,7 +148,7 @@ define([
         style: file.load('./vanilla-vite-app-bundle/index.css'),
         js: file.load('./vanilla-vite-app-bundle/app.js'),
         svg: file.load('./vanilla-vite-app-bundle/assets/images/vite.svg'),
-        magicWand: file.load('./vanilla-vite-app-bundle/assets/images/magic-wand-sample-3.png'),
+        magicWand: file.load('./vanilla-vite-app-bundle/assets/images/sparkle.png'),
       }
 
       // UI DATA SET
@@ -156,7 +156,7 @@ define([
         .replace('<script type="module" crossorigin src="/app.js"></script>', `<script type="module" crossorigin src="${fileObj.js.url}"></script>`)
         .replace('<link rel="stylesheet" crossorigin href="/index.css">', `<link rel="stylesheet" crossorigin href="${fileObj.style.url}">`)
         .replace('<link rel="icon" type="image/svg+xml" href="/public/vite.svg" />', `<link rel="icon" type="image/svg+xml" href="${fileObj.svg.url}" />`)
-        .replace('<img src="/assets/images/magic-wand-sample-3.png" alt="Logo" />', `<img src="${fileObj.magicWand.url}" alt="Logo" />`)
+        .replace('<img src="/assets/images/sparkle.png" alt="Logo" />', `<img src="${fileObj.magicWand.url}" alt="Logo" />`)
         .replace('{{userId}}', user.id)
         .replace('{{suiteletUrl}}', encodeURIComponent(suiteletUrl))
         .replace('{{resources}}', encodeURIComponent(JSON.stringify(resources)))
