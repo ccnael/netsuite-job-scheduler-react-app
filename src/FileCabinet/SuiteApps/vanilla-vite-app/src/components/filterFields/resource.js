@@ -25,28 +25,28 @@ $(document).ready(() => {
               </div>
             </div>
             <div class="modal-footer">
-              <button type="submit" class="btn btn-success" onclick="showSecondForm(event, '${modalId}')">Update Fields</button>
+              <button type="submit" class="btn btn-success" onclick="showSecondForm(event, '${modalId}')">Select Filters</button>
               <button type="button" class="btn btn-secondary btn-clear" onclick="clearFilters('${modalId}')">Clear Filters</button>
             </div>
           </form>
-          <form class="updateFieldsForm">
-            <!-- Row containing select field and buttons -->
+          <form class="selectFiltersForm">
             <div class="row mb-3 justify-content-start align-items-center">
-              <div class="col mb-6">
+              <div class="col mb-6 d-flex align-items-center">
                 <select class="selectpicker mx-auto multiple-filter-fields" 
                   title="Select Fields" 
                   data-live-search="true" 
-                  data-selected-text-format="count>4" 
+                  data-selected-text-format="count>3" 
                   data-style="custom-select-style" 
                   data-style-base="form-control" 
                   data-actions-box="true" 
                   multiple>
                   ${fields.map(field => `<option value="${field.className}" ${field.display && 'selected'}>${field.label}</option>`)}
                 </select>
+                <i class="fa-solid fa-circle-plus ms-2 d-flex align-items-center justify-content-center" style="cursor: pointer; font-size: 2rem;" onclick="alert('Not yet available.')">
+                </i>
               </div>
-              <!-- Buttons placed beside the select field -->
               <div class="col-md-5 d-flex justify-content-end">
-                <button type="submit" class="btn btn-primary me-2" onclick="updateFilters(event, 'resource', '${modalId}')">Submit</button>
+                <button type="submit" class="btn btn-primary me-2" onclick="selectFilters(event, 'resource', '${modalId}')">Save</button>
                 <button type="button" class="btn btn-secondary btn-back" onclick="backToFirstForm(event, '${modalId}')">Back</button>
               </div>
             </div>
@@ -63,33 +63,53 @@ $(document).ready(() => {
     // Append/not append fields
     const fieldsStr = fields.reduce((holder, field) => {
       // Do not append fields that already exist
-      const el = field.type === 'multiselect' ? $(`${modalId} .filter-fields select.${field.className}`) : $(`${modalId} .filter-fields input.${field.className}`);
+      const el = $(`${modalId} .filter-fields .${field.className}`);
+      let fieldStr = '';
+      switch (field.type) {
+        case 'multiselect':
+          fieldStr = `<select class="selectpicker mx-auto ${field.className}" 
+              title="Filter by ${field.label}" 
+              data-live-search="true" 
+              data-selected-text-format="count>2" 
+              data-style="custom-select-style" 
+              data-style-base="form-control" 
+              data-actions-box="true" 
+              multiple>
+              ${field.options.map(option => `<option value="${option.value}" data-icon="${field['data-icon'] || ''}">${option.text}</option>`)}
+            </select>`;
+          break;
+        case 'date':
+          fieldStr = `<div class="d-flex align-items-center">
+            <label for="${field.className}" class="me-2 mb-0">${field.label.replace('Date ', '')}:</label>
+            <input type="date" class="form-control ${field.className}" id="${field.className}">
+          </div>`;
+          break;
+        case 'checkbox':
+          fieldStr = `<div class="d-flex align-items-center ms-3">
+            <div class="form-check form-switch w-100" style="margin-top: 10px; margin-left: 20px; display: flex; align-items: center;">
+              <input class="form-check-input me-2 ${field.className}" type="checkbox">
+              <label class="form-check-label" style="font-size: 11px; margin: 0;">Show Available Resource Only</label>
+            </div>
+          </div>`;
+          break;
+        case 'text':
+          fieldStr = `<input type="text" class="form-control ${field.className} custom-select-style" placeholder="Enter ${field.label}">`;
+          break;
+      }
       holder += !el.length
         ?
         `<div class="col-md-6" style="display: ${field.display ? 'block' : 'none'}">
-        ${(field.type === 'multiselect')
-          ?
-          `<select class="selectpicker mx-auto ${field.className}" 
-            title="Filter by ${field.label}" 
-            data-live-search="true" 
-            data-selected-text-format="count>2" 
-            data-style="custom-select-style" 
-            data-style-base="form-control" 
-            data-actions-box="true" 
-            multiple>
-            ${field.options.map(option => `<option value="${option.value}" data-icon="${field['data-icon'] || ''}">${option.text}</option>`)}
-          </select>`
-          :
-          `<input type="text" class="form-control ${field.className} custom-select-style" placeholder="Enter ${field.label}">`
-        }
+        ${fieldStr}
         </div>`
         :
         '';
       return holder;
     }, '');
     // Display/not display fields
+    console.log('fields', fields)
     fields.map(field => {
-      const el = field.type === 'multiselect' ? $(`${modalId} .filter-fields select.${field.className}`) : $(`${modalId} .filter-fields input.${field.className}`);
+      const el = $(`${modalId} .filter-fields .${field.className}`);
+      console.log(el, field);
       !!el.length && el.closest('div.col-md-6').css('display', ` ${field.display ? 'block' : 'none'}`);
     });
 
@@ -103,7 +123,7 @@ $(document).ready(() => {
   });
 
   $(modalId).on('hidden.bs.modal', e => {
-    $(`${modalId} .updateFieldsForm`).hide();
+    $(`${modalId} .selectFiltersForm`).hide();
     $(`${modalId} .filterForm`).show();
     $(modalId).css('z-index', '-999');
   });

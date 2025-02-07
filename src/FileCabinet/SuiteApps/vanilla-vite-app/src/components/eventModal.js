@@ -1,5 +1,5 @@
 import * as dataSet from './dataSet';
-import { resourcesDtColumns, vendorsDtColumns, assetsDtColumns, itemsDtColumns, contactsDtColumns, addressesDtColumns } from './dataTable';
+import { resourcesDtColumns, vendorsDtColumns, assetsDtColumns, itemsDtColumns, contactsDtColumns, addressesDtColumns } from './dataTableColumns';
 import { Event } from './utils';
 // import { clearFilters } from './filterUtils';
 import './eventModal.css';
@@ -418,7 +418,7 @@ $(document).ready(() => {
                 }
               } else if (mode === 'edit') {
                 // Combine vendors and WO vendors
-                const unassignedVendors = deepCopy(dataSet.vendors).filter(vendor => !!!eventData.vendors.map(vendor => vendor.vendor.value).includes(vendor.id));
+                const unassignedVendors = deepCopy(dataSet.vendors).filter(vendor => !eventData.vendors.map(vendor => vendor.vendor.value).includes(vendor.id));
                 return [...eventData.vendors, ...unassignedVendors];
               }
             })()
@@ -440,7 +440,7 @@ $(document).ready(() => {
                 return dataSet.assets;
               } else {
                 // Combine assets and WO assets
-                const unassignedAssets = deepCopy(dataSet.assets).filter(asset => !!!eventData.assets.map(asset => asset.item.value).includes(asset.id));
+                const unassignedAssets = deepCopy(dataSet.assets).filter(asset => !eventData.assets.map(asset => asset.item.value).includes(asset.id));
                 return [...eventData.assets, ...unassignedAssets];
               }
             })()
@@ -459,10 +459,10 @@ $(document).ready(() => {
           callback({
             data: (() => {
               if (mode === 'create') {
-                return woRef.items.filter(item => !!!item.event);
+                return woRef.items.filter(item => !item.event);
               } else {
-                let unassignedItems = deepCopy(woRef.items.filter(item => !!!item.event));
-                unassignedItems = unassignedItems.filter(item => !!!eventData.items.map(item => item.item.value).includes(item.item.value));
+                let unassignedItems = deepCopy(woRef.items.filter(item => !item.event));
+                unassignedItems = unassignedItems.filter(item => !eventData.items.map(item => item.item.value).includes(item.item.value));
                 return [...eventData.items, ...unassignedItems];
               }
             })()
@@ -484,8 +484,8 @@ $(document).ready(() => {
           callback({
             data: (() => {
               if (mode === 'create') {
-                // return woRef.contacts.filter(contact => !!!contact.event);
-                let contacts = woRef.contacts.filter(contact => !!!contact.event);
+                // return woRef.contacts.filter(contact => !contact.event);
+                let contacts = woRef.contacts.filter(contact => !contact.event);
                 // TBR
                 if (!contacts.length) {
                   let contactsWithEvents = woRef.contacts.filter(contact => !!contact.event);
@@ -499,8 +499,8 @@ $(document).ready(() => {
                 }
                 return contacts;
               } else {
-                let unassignedContacts = deepCopy(woRef.contacts.filter(contact => !!!contact.event));
-                unassignedContacts = unassignedContacts.filter(contact => !!!eventData.contacts.map(contact => contact.contact.value).includes(contact.contact.value));
+                let unassignedContacts = deepCopy(woRef.contacts.filter(contact => !contact.event));
+                unassignedContacts = unassignedContacts.filter(contact => !eventData.contacts.map(contact => contact.contact.value).includes(contact.contact.value));
                 return [...eventData.contacts, ...unassignedContacts];
               }
             })()
@@ -580,11 +580,11 @@ $(document).ready(() => {
         return resource;
       });
 
-      let unassignedVendors = deepCopy(dataSet.vendors).filter(vendor => !!!eventData.vendors.map(vendor => vendor.vendor.value).includes(vendor.id));
+      let unassignedVendors = deepCopy(dataSet.vendors).filter(vendor => !eventData.vendors.map(vendor => vendor.vendor.value).includes(vendor.id));
       unassignedVendors = [...eventData.vendors, ...unassignedVendors];
       vendorsToUse = unassignedVendors;
 
-      let unassignedAssets = deepCopy(dataSet.assets).filter(asset => !!!eventData.assets.map(asset => asset.item.value).includes(asset.id));
+      let unassignedAssets = deepCopy(dataSet.assets).filter(asset => !eventData.assets.map(asset => asset.item.value).includes(asset.id));
       unassignedAssets = [...eventData.assets, ...unassignedAssets];
       assetsToUse = unassignedAssets;
     }

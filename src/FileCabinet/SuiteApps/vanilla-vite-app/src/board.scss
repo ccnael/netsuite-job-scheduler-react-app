@@ -8,6 +8,9 @@ $background-color_19: #f0f0f0;
 
 #boardSection {
 	display: block;
+	.main-container {
+		// display: none;
+	}
 	.secondColumn {
 		.card-header {
 			background-color: $background-color_5;

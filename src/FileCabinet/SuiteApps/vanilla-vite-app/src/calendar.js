@@ -14,6 +14,7 @@ export default class Calendar {
   static setup() {
     setTimeout(() => {
       $(`<div class="tab-content" id="calendarSection">
+          <div class="spinner"></div>
           <div class="main-container">
             <!-- Collapsible First Column -->
             <div class="grid-container">
@@ -152,7 +153,7 @@ export default class Calendar {
       schedulerLicenseKey: 'XXX',
       nowIndicator: true,
       editable: true,
-      droppable: true, // Allow external events to be dropped
+      // droppable: true, // Allow external events to be dropped
       aspectRatio: 1,
       eventDurationEditable: true,
       eventResizableFromStart: true,
@@ -167,6 +168,7 @@ export default class Calendar {
       snapDuration: '01:00:00', // Snap to 15 minutes
       // -----------------------------------------------------------------
       viewDidMount: info => {
+        console.log('viewDidMount triggered.');
         this._appendHeaderAndFilterFields();
       },
       headerToolbar: {
@@ -239,8 +241,8 @@ export default class Calendar {
       // Event actions etc settings
       // -----------------------------------------------------------------
       eventDidMount: info => {
+        console.log('eventDidMount triggered.');
         const event = info.event.extendedProps;
-        // console.log('eventDidMount', event);
         if (event.id) {
           try {
             switch (event.status.value) {
@@ -256,6 +258,7 @@ export default class Calendar {
             }
             this._initDropDown(info);
             this._initToolTip(info);
+            this._adjustZoomLevel(info);
           } catch (e) {
             console.log('eventDidMount Unexpected Error', e.message);
           }
@@ -266,7 +269,7 @@ export default class Calendar {
         if (event.id) {
           try {
             const html = `
-            <div style="margin-left: 5px; height: 60px;" id="${event.id}">
+            <div style="margin-left: 5px; height: 60px;" id="${event.id}" draggable=true>
             <div class="card-head">
               <div class="card-name"><a href="${event.url}" target="_blank" onclick="window.open('/app/crm/calendar/event.nl?id=${event.id}', '_blank')"><strong>${event.title}</strong> [ID ${event.id}]</a>
               </div>
@@ -296,28 +299,33 @@ export default class Calendar {
       // Moving events to change dates (Updates start and end date)
       // -----------------------------------------------------------------
       eventDrop: info => {
+        console.log('eventDrop triggered.');
         info.action = 'eventDrop';
         this._confirmUpdateEvent(info);
       },
+      // Doesnt even work
       eventDragStop: info => {
+        console.log('eventDragStop triggered.');
         this._removeToolTip();
       },
       // Updates start and end time and day
       // -----------------------------------------------------------------
       eventResize: info => {
+        console.log('eventResize triggered.');
         info.action = 'eventResize';
         this._confirmUpdateEvent(info);
       },
       // Ex. Dropping external events/jobs
       // -----------------------------------------------------------------
       eventReceive: info => {
-        // console.log('Job dropped');
+        console.log('eventReceive triggered.');
         info.action = 'eventReceive';
         this._prefillAddEvent(info);
       },
       // Disable event drop on Groups
       eventAllow: (dropInfo, draggedEvent) => {
-        return !!!((dropInfo.resource.extendedProps.resourceCount));
+        console.log('eventAllow triggered.');
+        return !((dropInfo.resource.extendedProps.resourceCount));
       },
       windowResize: arg => {
         console.log('The calendar has adjusted to a window resize. Current view: ' + arg.view.type);
@@ -478,13 +486,13 @@ export default class Calendar {
             if (resourceType === 'employee') {
               foundObj = payload.eventData.resources.find(resource => resource.employee.value == resourceId);
               const hasConflict = Event.draggedResourceHasConflictEvent(payload.eventData, resourceId);
-              allowEvent = !!!foundObj && !hasConflict;
+              allowEvent = !foundObj && !hasConflict;
             } else if (resourceType === 'vendor') {
               foundObj = payload.eventData.vendors.find(vendor => vendor.vendor.value == resourceId);
-              allowEvent = !!!foundObj;
+              allowEvent = !foundObj;
             } else if (resourceType === 'asset') {
               foundObj = payload.eventData.assets.find(asset => asset.item.value == resourceId);
-              allowEvent = !!!foundObj;
+              allowEvent = !foundObj;
             }
 
             if (allowEvent) {
@@ -510,7 +518,7 @@ export default class Calendar {
                   }
                 }
               } else if (resourceKey === 'vendors') {
-                let unassignedVendors = deepCopy(dataSet.vendors).filter(vendor => !!!payload.eventData.vendors.map(vendor => vendor.vendor.value).includes(vendor.id));
+                let unassignedVendors = deepCopy(dataSet.vendors).filter(vendor => !payload.eventData.vendors.map(vendor => vendor.vendor.value).includes(vendor.id));
                 unassignedVendors = [...payload.eventData.vendors, ...unassignedVendors];
                 const vendorsToUse = unassignedVendors;
                 payload.eventData.selectedVendors = vendorsToUse.filter(vendor => resourceId == vendor.id);
@@ -522,7 +530,7 @@ export default class Calendar {
                   }
                 }
               } else if (resourceKey === 'assets') {
-                let unassignedAssets = deepCopy(dataSet.assets).filter(asset => !!!payload.eventData.assets.map(asset => asset.item.value).includes(asset.id));
+                let unassignedAssets = deepCopy(dataSet.assets).filter(asset => !payload.eventData.assets.map(asset => asset.item.value).includes(asset.id));
                 unassignedAssets = [...payload.eventData.assets, ...unassignedAssets];
                 const assetsToUse = unassignedAssets;
                 payload.eventData.selectedAssets = assetsToUse.filter(asset => resourceId == asset.id);
@@ -557,7 +565,8 @@ export default class Calendar {
       eventData: el => {
         return {
           title: el.innerText,
-          woId: el.getAttribute('id')
+          woId: el.getAttribute('id'),
+          duration: '04:00'
         };
       }
     });

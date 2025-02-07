@@ -103,7 +103,7 @@ $(document).ready(() => {
 
       case 'vendor':
         resourceName = dataSet.vendors.find(vendor => vendor.id == id).name;
-        let unassignedVendors = deepCopy(dataSet.vendors).filter(vendor => !!!eventData.vendors.map(vendor => vendor.vendor.value).includes(vendor.id));
+        let unassignedVendors = deepCopy(dataSet.vendors).filter(vendor => !eventData.vendors.map(vendor => vendor.vendor.value).includes(vendor.id));
         unassignedVendors = [...eventData.vendors, ...unassignedVendors];
         const vendorToUse = unassignedVendors.find(vendor => vendor.id == id);
 
@@ -199,7 +199,7 @@ $(document).ready(() => {
 
       case 'asset':
         resourceName = dataSet.assets.find(asset => asset.id == id).name;
-        let unassignedAssets = deepCopy(dataSet.assets).filter(asset => !!!eventData.assets.map(asset => asset.item.value).includes(asset.id));
+        let unassignedAssets = deepCopy(dataSet.assets).filter(asset => !eventData.assets.map(asset => asset.item.value).includes(asset.id));
         unassignedAssets = [...eventData.assets, ...unassignedAssets];
         const assetToUse = unassignedAssets.find(asset => asset.id == id);
 

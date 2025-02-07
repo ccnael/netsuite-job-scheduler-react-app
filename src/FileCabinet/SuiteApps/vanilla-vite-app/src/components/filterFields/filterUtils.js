@@ -6,13 +6,13 @@ export function setupFilters() {
   window.showSecondForm = (ev, modalId) => {
     ev.preventDefault();
     $(`${modalId} .filterForm`).hide();
-    $(`${modalId} .updateFieldsForm`).show();
+    $(`${modalId} .selectFiltersForm`).show();
   }
   // 2nd Form Submit
   // ----------------------------
-  window.updateFilters = (ev, section, modalId) => {
+  window.selectFilters = (ev, section, modalId) => {
     ev.preventDefault();
-    const selectedFields = $(`${modalId} .updateFieldsForm select.multiple-filter-fields`).val();
+    const selectedFields = $(`${modalId} .selectFiltersForm select.multiple-filter-fields`).val();
     if (!selectedFields.length) {
       Swal.fire({
         icon: 'warning',
@@ -25,7 +25,7 @@ export function setupFilters() {
     dataSet.filterFields[section].fields.map(field => {
       field.display = !!selectedFields.includes(field.className);
       if (!field.display) {
-        const el = $(`${modalId} .filter-fields select.${field.className}`);
+        const el = $(`${modalId} .filter-fields .${field.className}`);
         clearFieldValue(el, field.type);
       }
     });
@@ -35,7 +35,7 @@ export function setupFilters() {
         // Properly reset & reinitialize modal
         $(modalId).modal('hide').on('hidden.bs.modal', function () {
           $(this).off('hidden.bs.modal'); // Unbind to prevent stacking
-          $(`${modalId} .updateFieldsForm`).hide();
+          $(`${modalId} .selectFiltersForm`).hide();
           $(`${modalId} .filterForm`).show();
           setTimeout(() => $(modalId).modal('show'), 150);
         });
@@ -72,28 +72,26 @@ export function setupFilters() {
 
   window.backToFirstForm = (ev, modalId) => {
     ev.preventDefault();
-    $(`${modalId} .updateFieldsForm`).hide();
+    $(`${modalId} .selectFiltersForm`).hide();
     $(`${modalId} .filterForm`).show();
   }
 
   window.clearFilters = modalId => {
     // Clear multiselect fields
-    $(`${modalId} select`).each(function () {
-      $(this).val([]).change();
+    $(`${modalId} .filter-fields select[class*="multiple"]`).each(function () {
       clearFieldValue($(this), 'multiselect');
     });
     // Unmark checkboxes
-    $(`${modalId} input.form-check-input`).each(function () {
+    $(`${modalId} .filter-fields .form-check-input`).each(function () {
       clearFieldValue($(this), 'checkbox');
     });
-    // Clear freeform/date fields
-    $(`${modalId} input.form-control`).each(function () {
-      const elementId = $(this)[0].id;
-      if (elementId.match(/wo-title/g)) {
-        clearFieldValue($(this), 'text');
-      } else {
-        $(this).val('').change();
-      }
+    // Date fields
+    $(`${modalId} .filter-fields input[type="date"]`).each(function () {
+      clearFieldValue($(this), 'date');
+    });
+    // Clear freeform
+    $(`${modalId} .filter-fields input[type="text"]`).each(function () {
+      clearFieldValue($(this), 'text');
     });
   }
 
@@ -105,8 +103,13 @@ export function setupFilters() {
       case 'checkbox':
         el.prop('checked', false).change();
         break;
-      default: // text
-        $(this).val('').trigger('keyup');
+      case 'date':
+        el.val('').change();
+        break;
+      case 'text':
+        el.val('').trigger('keyup');
+        break;
+      default:
         break;
     }
   }
@@ -418,7 +421,7 @@ export function onFilterBoardEvent(fieldId) {
     priority: $(`${fieldId} select.multiple-event-priority-field`),
     organizer: $(`${fieldId} select.multiple-event-organizer-field`),
     eventType: $(`${fieldId} select.multiple-event-type-field`),
-    showReceivedItems: $(`${fieldId} input.form-check-input`)
+    receiptStatus: $(`${fieldId} select.multiple-event-receipt-field`)
   };
   // Set default resource filter value (TBD move to on hide/close modal instead?)
   const $resourceIds_temp = $(`#boardSection select.multiple-resource-field-hidden`).val();
@@ -432,16 +435,12 @@ export function onFilterBoardEvent(fieldId) {
     priority: [],
     organizer: [],
     eventType: [],
-    showReceivedItems: false
+    receiptStatus: []
   };
   for (const id in $field) {
     if ($field[id].length) {
       $field[id].on('change', function () {
-        if (id != 'showReceivedItems') {
-          $selected[id] = $(this).val() || (!id.match(/date/gi) ? [] : '');
-        } else {
-          $selected[id] = $(this).prop('checked');
-        }
+        $selected[id] = $(this).val() || (!id.match(/date/gi) ? [] : '');
         filterItems();
         // Highlight resource rows
         if (id == 'resource') {
@@ -483,6 +482,7 @@ export function onFilterBoardEvent(fieldId) {
         const eventPriority = eventData.priority.value;
         const eventOrganizer = eventData.organizer.value;
         const eventType = !!eventData.workorder.text ? '2' : '1';
+        const receiptStatus = eventData.woRef.receiptStatus.value;
         let withinRange = false;
 
         if (date) {
@@ -509,7 +509,7 @@ export function onFilterBoardEvent(fieldId) {
           (!$selected.priority.length || $selected.priority.includes(eventPriority)) &&
           (!$selected.organizer.length || $selected.organizer.includes(eventOrganizer)) &&
           (!$selected.eventType.length || $selected.eventType.includes(eventType)) &&
-          (!$selected.showReceivedItems || eventData.hasQuantityReceived === $selected.showReceivedItems)
+          (!$selected.receiptStatus.length || $selected.receiptStatus.includes(receiptStatus))
         );
         $el.toggle(shouldDisplay);
       }
@@ -630,196 +630,6 @@ export function onClickResource() {
   }
 }
 
-export function onFilterEventResource(fieldId) {
-  const dataTable = $('#resources').DataTable();
-  const $resourceFilter = $(`${fieldId} select.multiple-resource-field`);
-  const $resourceGroupFilter = $(`${fieldId} select.multiple-resource-group-field`);
-  const $resourceSkillFilter = $(`${fieldId} select.multiple-resource-skill-field`);
-  const $showAvailableResourceFilter = $(`${fieldId} input.form-check-input`);
-
-  $resourceFilter.on('change', () => {
-    filterItems();
-    dataTable.draw();
-    updateFilterCounter();
-  });
-  $resourceGroupFilter.on('change', () => {
-    filterItems();
-    dataTable.draw();
-    updateFilterCounter();
-  });
-  $resourceSkillFilter.on('change', () => {
-    filterItems();
-    dataTable.draw();
-    updateFilterCounter();
-  });
-  $showAvailableResourceFilter.on('change', function () {
-    const show = $(this).prop('checked');
-    if (show) {
-      dataTable.ajax.reload();
-      dataTable.rows('.row-unavailable').nodes().to$().remove();
-    } else {
-      dataTable.ajax.reload();
-    }
-    updateFilterCounter();
-  });
-
-  function filterItems() {
-    // Resource custom filtering
-    $.fn.dataTable.ext.search.push(function (settings, data, dataIndex) {
-      const resourceTexts = $resourceFilter.find('option:selected').map(function () {
-        return $(this).text();
-      }).get();
-      if (!resourceTexts.length) {
-        return true; // No filter applied, show all rows
-      }
-      const cellContent = $(dataTable.cell(dataIndex, 1).node()).text(); // Change index to target your rendered column
-      return resourceTexts.includes(cellContent);
-    });
-    // Resource Group custom filtering
-    $.fn.dataTable.ext.search.push(function (settings, data, dataIndex) {
-      const resourceGroupValues = $resourceGroupFilter.find('option:selected').map(function () {
-        return $(this).text();
-      }).get();
-      if (!resourceGroupValues.length) {
-        return true; // No filter applied, show all rows
-      }
-      let cellContent = $(dataTable.cell(dataIndex, 2).node());
-      cellContent = Array.from($(cellContent).find('span')).map(span => span.textContent).filter(Boolean);
-      return resourceGroupValues.some(value => cellContent.includes(value));
-    });
-    // Resource Skill custom filtering
-    $.fn.dataTable.ext.search.push(function (settings, data, dataIndex) {
-      const resourceSkillTexts = $resourceSkillFilter.find('option:selected').map(function () {
-        return $(this).text();
-      }).get();
-      if (!resourceSkillTexts.length) {
-        return true;
-      }
-      let cellContent = $(dataTable.cell(dataIndex, 3).node());
-      cellContent = Array.from($(cellContent).find('span')).map(span => span.textContent).filter(Boolean);
-      return resourceSkillTexts.some(value => cellContent.includes(value));
-    });
-
-    $resourceFilter.selectpicker();
-    $resourceGroupFilter.selectpicker();
-    $resourceSkillFilter.selectpicker();
-  }
-
-  function updateFilterCounter() {
-    const $selected = {
-      resource: $resourceFilter.val() || [],
-      resourceGroup: $resourceGroupFilter.val() || [],
-      resourceSkill: $resourceSkillFilter.val() || [],
-    };
-    let counter = 0;
-    for (const key in $selected) {
-      if (!key.match(/date/g))
-        counter += $selected[key].length;
-      else if (!!$selected[key])
-        counter++;
-    }
-    if ($showAvailableResourceFilter.prop('checked')) {
-      counter++;
-    }
-    $('#filter-eventresource-counter').html(counter);
-  }
-}
-
-export function onFilterGeneralEventResource(fieldId) {
-  const dataTable = $('#resources_ge').DataTable();
-  const $resourceFilter = $(`${fieldId} select.multiple-resource-field`);
-  const $resourceGroupFilter = $(`${fieldId} select.multiple-resource-group-field`);
-  const $resourceSkillFilter = $(`${fieldId} select.multiple-resource-skill-field`);
-  const $showAvailableResourceFilter = $(`${fieldId} input.form-check-input`);
-
-  $resourceFilter.on('change', () => {
-    filterItems();
-    dataTable.draw();
-    updateFilterCounter();
-  });
-  $resourceGroupFilter.on('change', () => {
-    filterItems();
-    dataTable.draw();
-    updateFilterCounter();
-  });
-  $resourceSkillFilter.on('change', () => {
-    filterItems();
-    dataTable.draw();
-    updateFilterCounter();
-  });
-  $showAvailableResourceFilter.on('change', function () {
-    const show = $(this).prop('checked');
-    if (show) {
-      dataTable.ajax.reload();
-      dataTable.rows('.row-unavailable').nodes().to$().remove();
-    } else {
-      dataTable.ajax.reload();
-    }
-    updateFilterCounter();
-  });
-
-  function filterItems() {
-    // Resource custom filtering
-    $.fn.dataTable.ext.search.push(function (settings, data, dataIndex) {
-      const resourceTexts = $resourceFilter.find('option:selected').map(function () {
-        return $(this).text();
-      }).get();
-      if (!resourceTexts.length) {
-        return true; // No filter applied, show all rows
-      }
-      const cellContent = $(dataTable.cell(dataIndex, 1).node()).text(); // Change index to target your rendered column
-      return resourceTexts.includes(cellContent);
-    });
-    // Resource Group custom filtering
-    $.fn.dataTable.ext.search.push(function (settings, data, dataIndex) {
-      const resourceGroupValues = $resourceGroupFilter.find('option:selected').map(function () {
-        return $(this).text();
-      }).get();
-      if (!resourceGroupValues.length) {
-        return true; // No filter applied, show all rows
-      }
-      let cellContent = $(dataTable.cell(dataIndex, 2).node());
-      cellContent = Array.from($(cellContent).find('span')).map(span => span.textContent).filter(Boolean);
-      return resourceGroupValues.some(value => cellContent.includes(value));
-    });
-    // Resource Skill custom filtering
-    $.fn.dataTable.ext.search.push(function (settings, data, dataIndex) {
-      const resourceSkillTexts = $resourceSkillFilter.find('option:selected').map(function () {
-        return $(this).text();
-      }).get();
-      if (!resourceSkillTexts.length) {
-        return true;
-      }
-      let cellContent = $(dataTable.cell(dataIndex, 3).node());
-      cellContent = Array.from($(cellContent).find('span')).map(span => span.textContent).filter(Boolean);
-      return resourceSkillTexts.some(value => cellContent.includes(value));
-    });
-
-    $resourceFilter.selectpicker();
-    $resourceGroupFilter.selectpicker();
-    $resourceSkillFilter.selectpicker();
-  }
-
-  function updateFilterCounter() {
-    const $selected = {
-      resource: $resourceFilter.val() || [],
-      resourceGroup: $resourceGroupFilter.val() || [],
-      resourceSkill: $resourceSkillFilter.val() || [],
-    };
-    let counter = 0;
-    for (const key in $selected) {
-      if (!key.match(/date/g))
-        counter += $selected[key].length;
-      else if (!!$selected[key])
-        counter++;
-    }
-    if ($showAvailableResourceFilter.prop('checked')) {
-      counter++;
-    }
-    $('#filter-generaleventresource-counter').html(counter);
-  }
-}
-
 // Calendar Filters
 // -----------------------------------------------------------------
 export function onFilterCalendarEvent(fieldId, pageSwitched, info) {
@@ -830,7 +640,7 @@ export function onFilterCalendarEvent(fieldId, pageSwitched, info) {
     priority: $(`${fieldId} select.multiple-event-priority-field`),
     organizer: $(`${fieldId} select.multiple-event-organizer-field`),
     eventType: $(`${fieldId} select.multiple-event-type-field`),
-    showReceivedItems: $(`${fieldId} input.form-check-input`)
+    receiptStatus: $(`${fieldId} select.multiple-event-receipt-field`)
   };
   const $selected = {
     resource: [],
@@ -839,19 +649,14 @@ export function onFilterCalendarEvent(fieldId, pageSwitched, info) {
     priority: [],
     organizer: [],
     eventType: [],
-    showReceivedItems: false
+    receiptStatus: []
   };
   if (pageSwitched) {
     let hasDefaultFilter = false;
     for (const id in $field) {
       if ($field[id].length) {
-        if (id != 'showReceivedItems') {
-          $selected[id] = $field[id].val() || [];
-          hasDefaultFilter = !!$selected[id].length;
-        } else {
-          $selected[id] = $field[id].prop('checked');
-          hasDefaultFilter = !!$selected[id];
-        }
+        $selected[id] = $field[id].val() || [];
+        hasDefaultFilter = !!$selected[id].length;
       }
     }
     if (hasDefaultFilter) {
@@ -861,11 +666,7 @@ export function onFilterCalendarEvent(fieldId, pageSwitched, info) {
     for (const id in $field) {
       if ($field[id].length) {
         $field[id].on('change', function () {
-          if (id != 'showReceivedItems') {
-            $selected[id] = $(this).val() || [];
-          } else {
-            $selected[id] = $(this).prop('checked');
-          }
+          $selected[id] = $(this).val() || [];
           filterItems();
         });
       }
@@ -913,8 +714,8 @@ export function onFilterCalendarEvent(fieldId, pageSwitched, info) {
     if ($selected.eventType.length) {
       calendarEvents = calendarEvents.filter(event => !!($selected.eventType.includes(!!event.extendedProps.workorder.text ? '2' : '1')));
     }
-    if ($selected.showReceivedItems) {
-      calendarEvents = calendarEvents.filter(event => $selected.showReceivedItems == event.extendedProps.hasQuantityReceived);
+    if ($selected.receiptStatus.length) {
+      calendarEvents = calendarEvents.filter(event => !!($selected.receiptStatus.includes(event.extendedProps.woRef.receiptStatus)));
     }
     // Events with no resource gets assigned here
     if (!$selected.resource.length && !$selected.resourceGroup.length || $selected.resourceGroup.includes('z-unassigned')) {
@@ -954,23 +755,198 @@ export function onFilterCalendarEvent(fieldId, pageSwitched, info) {
   }
 }
 
-// TBD
-export function clearFilters(fieldId) {
-  // Clear multiselect fields
-  $(`${fieldId} select`).each(function () {
-    $(this).val([]).change();
+// Event Modal Filters
+// -----------------------------------------------------------------
+export function onFilterEventResource(fieldId) {
+  const dataTable = $('#resources').DataTable();
+  const $resourceFilter = $(`${fieldId} select.multiple-resource-field`);
+  const $resourceGroupFilter = $(`${fieldId} select.multiple-resource-group-field`);
+  const $resourceSkillFilter = $(`${fieldId} select.multiple-resource-skill-field`);
+  const $showAvailableResourceFilter = $(`${fieldId} input.show-available-resource-field`);
+
+  $resourceFilter.on('change', () => {
+    filterItems();
+    dataTable.draw();
+    updateFilterCounter();
   });
-  // Unmark checkboxes
-  $(`${fieldId} input.form-check-input`).each(function () {
-    $(this).prop('checked', false).change();
+  $resourceGroupFilter.on('change', () => {
+    filterItems();
+    dataTable.draw();
+    updateFilterCounter();
   });
-  // Clear freeform/date fields
-  $(`${fieldId} input.form-control`).each(function () {
-    const elementId = $(this)[0].id;
-    if (elementId.match(/wo-title/g)) {
-      $(this).val('').trigger('keyup');
-    } else {
-      $(this).val('').change();
+  $resourceSkillFilter.on('change', () => {
+    filterItems();
+    dataTable.draw();
+    updateFilterCounter();
+  });
+  $showAvailableResourceFilter.on('change', () => {
+    filterItems();
+    dataTable.draw();
+    updateFilterCounter();
+  });
+
+  function filterItems() {
+    // Resource custom filtering
+    $.fn.dataTable.ext.search.push(function (settings, data, dataIndex) {
+      const resourceTexts = $resourceFilter.find('option:selected').map(function () {
+        return $(this).text();
+      }).get();
+      if (!resourceTexts.length) {
+        return true; // No filter applied, show all rows
+      }
+      const cellContent = $(dataTable.cell(dataIndex, 1).node()).text(); // Change index to target your rendered column
+      return resourceTexts.includes(cellContent);
+    });
+    // Resource Group custom filtering
+    $.fn.dataTable.ext.search.push(function (settings, data, dataIndex) {
+      const resourceGroupValues = $resourceGroupFilter.find('option:selected').map(function () {
+        return $(this).text();
+      }).get();
+      if (!resourceGroupValues.length) {
+        return true; // No filter applied, show all rows
+      }
+      let cellContent = $(dataTable.cell(dataIndex, 2).node());
+      cellContent = Array.from($(cellContent).find('span')).map(span => span.textContent).filter(Boolean);
+      return resourceGroupValues.some(value => cellContent.includes(value));
+    });
+    // Resource Skill custom filtering
+    $.fn.dataTable.ext.search.push(function (settings, data, dataIndex) {
+      const resourceSkillTexts = $resourceSkillFilter.find('option:selected').map(function () {
+        return $(this).text();
+      }).get();
+      if (!resourceSkillTexts.length) {
+        return true;
+      }
+      let cellContent = $(dataTable.cell(dataIndex, 3).node());
+      cellContent = Array.from($(cellContent).find('span')).map(span => span.textContent).filter(Boolean);
+      return resourceSkillTexts.some(value => cellContent.includes(value));
+    });
+    // Show Only Available Resources custom filtering
+    $.fn.dataTable.ext.search.push(function (settings, data, dataIndex) {
+      const row = dataTable.row(dataIndex).node();
+      const isRowUnavailable = $(row).hasClass('row-unavailable');
+      const filterChecked = $showAvailableResourceFilter.prop('checked');
+      return filterChecked ? !isRowUnavailable : true;
+    });
+
+    $resourceFilter.selectpicker();
+    $resourceGroupFilter.selectpicker();
+    $resourceSkillFilter.selectpicker();
+  }
+
+  function updateFilterCounter() {
+    const $selected = {
+      resource: $resourceFilter.val() || [],
+      resourceGroup: $resourceGroupFilter.val() || [],
+      resourceSkill: $resourceSkillFilter.val() || [],
+    };
+    let counter = 0;
+    for (const key in $selected) {
+      if (!key.match(/date/g))
+        counter += $selected[key].length;
+      else if (!!$selected[key])
+        counter++;
     }
+    if ($showAvailableResourceFilter.prop('checked')) {
+      counter++;
+    }
+    $('#filter-eventresource-counter').html(counter);
+  }
+}
+
+export function onFilterGeneralEventResource(fieldId) {
+  const dataTable = $('#resources_ge').DataTable();
+  const $resourceFilter = $(`${fieldId} select.multiple-resource-field`);
+  const $resourceGroupFilter = $(`${fieldId} select.multiple-resource-group-field`);
+  const $resourceSkillFilter = $(`${fieldId} select.multiple-resource-skill-field`);
+  const $showAvailableResourceFilter = $(`${fieldId} input.show-available-resource-field`);
+
+  $resourceFilter.on('change', () => {
+    filterItems();
+    dataTable.draw();
+    updateFilterCounter();
   });
+  $resourceGroupFilter.on('change', () => {
+    filterItems();
+    dataTable.draw();
+    updateFilterCounter();
+  });
+  $resourceSkillFilter.on('change', () => {
+    filterItems();
+    dataTable.draw();
+    updateFilterCounter();
+  });
+  $showAvailableResourceFilter.on('change', () => {
+    filterItems();
+    dataTable.draw();
+    updateFilterCounter();
+  });
+
+  function filterItems() {
+    // Resource custom filtering
+    $.fn.dataTable.ext.search.push(function (settings, data, dataIndex) {
+      const resourceTexts = $resourceFilter.find('option:selected').map(function () {
+        return $(this).text();
+      }).get();
+      if (!resourceTexts.length) {
+        return true; // No filter applied, show all rows
+      }
+      const cellContent = $(dataTable.cell(dataIndex, 1).node()).text(); // Change index to target your rendered column
+      return resourceTexts.includes(cellContent);
+    });
+    // Resource Group custom filtering
+    $.fn.dataTable.ext.search.push(function (settings, data, dataIndex) {
+      const resourceGroupValues = $resourceGroupFilter.find('option:selected').map(function () {
+        return $(this).text();
+      }).get();
+      if (!resourceGroupValues.length) {
+        return true; // No filter applied, show all rows
+      }
+      let cellContent = $(dataTable.cell(dataIndex, 2).node());
+      cellContent = Array.from($(cellContent).find('span')).map(span => span.textContent).filter(Boolean);
+      return resourceGroupValues.some(value => cellContent.includes(value));
+    });
+    // Resource Skill custom filtering
+    $.fn.dataTable.ext.search.push(function (settings, data, dataIndex) {
+      const resourceSkillTexts = $resourceSkillFilter.find('option:selected').map(function () {
+        return $(this).text();
+      }).get();
+      if (!resourceSkillTexts.length) {
+        return true;
+      }
+      let cellContent = $(dataTable.cell(dataIndex, 3).node());
+      cellContent = Array.from($(cellContent).find('span')).map(span => span.textContent).filter(Boolean);
+      return resourceSkillTexts.some(value => cellContent.includes(value));
+    });
+    // Show Only Available Resources custom filtering
+    $.fn.dataTable.ext.search.push(function (settings, data, dataIndex) {
+      const row = dataTable.row(dataIndex).node();
+      const isRowUnavailable = $(row).hasClass('row-unavailable');
+      const filterChecked = $showAvailableResourceFilter.prop('checked');
+      return filterChecked ? !isRowUnavailable : true;
+    });
+
+    $resourceFilter.selectpicker();
+    $resourceGroupFilter.selectpicker();
+    $resourceSkillFilter.selectpicker();
+  }
+
+  function updateFilterCounter() {
+    const $selected = {
+      resource: $resourceFilter.val() || [],
+      resourceGroup: $resourceGroupFilter.val() || [],
+      resourceSkill: $resourceSkillFilter.val() || [],
+    };
+    let counter = 0;
+    for (const key in $selected) {
+      if (!key.match(/date/g))
+        counter += $selected[key].length;
+      else if (!!$selected[key])
+        counter++;
+    }
+    if ($showAvailableResourceFilter.prop('checked')) {
+      counter++;
+    }
+    $('#filter-eventresource-counter').html(counter);
+  }
 }

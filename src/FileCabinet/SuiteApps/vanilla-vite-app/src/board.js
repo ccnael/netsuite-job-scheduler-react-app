@@ -8,6 +8,7 @@ export default class Board {
     $(`<div id="container">
         <div id="tabSections">
           <div class="tab-content active" id="boardSection">
+
             <div class="main-container">
               <!-- Collapsible First Column -->
               <aside class="sidebar leftSidebar">
@@ -371,13 +372,13 @@ export default class Board {
             if (resourceType == 'employee') {
               foundObj = eventData.resources.find(resource => resource.employee.value == resourceId);
               const hasConflict = Event.draggedResourceHasConflictEvent(eventData, resourceId);
-              allowEvent = !!!foundObj && !hasConflict;
+              allowEvent = !foundObj && !hasConflict;
             } else if (resourceType == 'vendor') {
               foundObj = eventData.vendors.find(vendor => vendor.vendor.value == resourceId);
-              allowEvent = !!!foundObj;
+              allowEvent = !foundObj;
             } else if (resourceType == 'asset') {
               foundObj = eventData.assets.find(asset => asset.item.value == resourceId);
-              allowEvent = !!!foundObj;
+              allowEvent = !foundObj;
             }
             if (allowEvent) {
               $(this).removeClass('event-unavailable').addClass('event-available');
@@ -397,13 +398,13 @@ export default class Board {
           if (dataTransfer.type == 'employee') {
             foundObj = eventData.resources.find(resource => resource.employee.value == dataTransfer.id);
             const hasConflict = Event.draggedResourceHasConflictEvent(eventData, dataTransfer.id);
-            allowResource = !!!foundObj && !hasConflict;
+            allowResource = !foundObj && !hasConflict;
           } else if (dataTransfer.type == 'vendor') {
             foundObj = eventData.vendors.find(vendor => vendor.vendor.value == dataTransfer.id);
-            allowResource = !!!foundObj;
+            allowResource = !foundObj;
           } else if (dataTransfer.type == 'asset') {
             foundObj = eventData.assets.find(asset => asset.item.value == dataTransfer.id);
-            allowResource = !!!foundObj;
+            allowResource = !foundObj;
           }
           $draggedEl = $(`#${dataTransfer.elementId}`).find('.person-circle');
           if (allowResource) {

@@ -502,7 +502,8 @@ define([
             location: {
               text: result.getText('custrecord_esp_fop_wo_location'),
               value: result.getValue('custrecord_esp_fop_wo_location'),
-            }
+            },
+            receiptStatus: '' // TBD
           });
           return true;
         });
@@ -927,8 +928,8 @@ define([
         const selectedResourceIds = selectedResources.map(resource => resource.id);
         const srcResources = dataSrc.resources.filter(resource => !!(resource.selected));
         const srcResourcesIds = srcResources.map(resource => resource.id);
-        const removedResources = srcResources.filter(resource => !!!(selectedResourceIds.includes(resource.id)));
-        const newResources = selectedResources.filter(resource => !!!(srcResourcesIds.includes(resource.id)));
+        const removedResources = srcResources.filter(resource => !(selectedResourceIds.includes(resource.id)));
+        const newResources = selectedResources.filter(resource => !(srcResourcesIds.includes(resource.id)));
 
         log.audit('Updating WO Resource Event List', { selectedResources, removedResources, newResources });
 
@@ -1087,8 +1088,8 @@ define([
         const selectedVendorIds = selectedVendors.map(vendor => vendor.id);
         const srcVendors = dataSrc.vendors.filter(vendor => !!(vendor.selected));
         const srcVendorIds = srcVendors.map(vendor => vendor.id);
-        const removedVendors = srcVendors.filter(vendor => !!!(selectedVendorIds.includes(vendor.id)));
-        const newVendors = selectedVendors.filter(vendor => !!!(srcVendorIds.includes(vendor.id)));
+        const removedVendors = srcVendors.filter(vendor => !(selectedVendorIds.includes(vendor.id)));
+        const newVendors = selectedVendors.filter(vendor => !(srcVendorIds.includes(vendor.id)));
 
         log.audit('Updating WO Vendor Event List', { selectedVendors, removedVendors, newVendors });
 
@@ -1258,8 +1259,8 @@ define([
         const selectedassetIds = selectedAssets.map(asset => asset.id);
         const srcassets = dataSrc.assets.filter(asset => !!(asset.selected));
         const srcassetIds = srcassets.map(asset => asset.id);
-        const removedAssets = srcassets.filter(asset => !!!(selectedassetIds.includes(asset.id)));
-        const newAssets = selectedAssets.filter(asset => !!!(srcassetIds.includes(asset.id)));
+        const removedAssets = srcassets.filter(asset => !(selectedassetIds.includes(asset.id)));
+        const newAssets = selectedAssets.filter(asset => !(srcassetIds.includes(asset.id)));
 
         log.audit('Updating WO asset Event List', { selectedAssets, removedAssets, newAssets });
 
@@ -1385,8 +1386,8 @@ define([
         const selectedItemIds = selectedItems.map(item => item.id);
         const srcItems = dataSrc.items.filter(item => !!(item.selected));
         const srcItemIds = srcItems.map(item => item.id);
-        const removedItems = srcItems.filter(item => !!!(selectedItemIds.includes(item.id)));
-        const newItems = selectedItems.filter(item => !!!(srcItemIds.includes(item.id)));
+        const removedItems = srcItems.filter(item => !(selectedItemIds.includes(item.id)));
+        const newItems = selectedItems.filter(item => !(srcItemIds.includes(item.id)));
 
         log.audit('Updating WO Item Event List', { selectedItems, removedItems, newItems });
 
@@ -1509,8 +1510,8 @@ define([
         const selectedContactIds = selectedContacts.map(contact => contact.id);
         const srcContacts = dataSrc.contacts.filter(contact => !!(contact.selected));
         const srcContactIds = srcContacts.map(contact => contact.id);
-        const removedContacts = srcContacts.filter(contact => !!!(selectedContactIds.includes(contact.id)));
-        const newContacts = selectedContacts.filter(contact => !!!(srcContactIds.includes(contact.id)));
+        const removedContacts = srcContacts.filter(contact => !(selectedContactIds.includes(contact.id)));
+        const newContacts = selectedContacts.filter(contact => !(srcContactIds.includes(contact.id)));
 
         log.audit('Updating WO Contact Event List', { selectedContacts, removedContacts, newContacts });
 

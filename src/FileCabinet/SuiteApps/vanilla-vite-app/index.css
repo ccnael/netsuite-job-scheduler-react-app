@@ -565,6 +565,13 @@ div.form-check {
 }
 
 .custom-select-style {
-  background-color: #f8f9fa !important; /* Light Gray */
-  border-radius: 6px !important;
-}/*# sourceMappingURL=index.css.map */
+  background-color: #f8f9fa !important;
+}
+
+.form-control, .form-select, .custom-select-style {
+  border-radius: 10px !important;
+}
+
+/* button.btn {
+	border-radius: 15px !important;
+} *//*# sourceMappingURL=index.css.map */

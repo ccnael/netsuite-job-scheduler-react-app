@@ -10,32 +10,34 @@ export function cacheTabSwitch() {
     $(`#${lastTab}`).show();
 
     if (lastTab === 'calendarSection') {
-      setTimeout(() => window.FullCalendar.render());
+      setTimeout(() => {
+        hideCustomLoader();
+        window.FullCalendar.render();
+      }, 500);
     } else {
-      setTimeout(() => $('#calendarSection').hide());
+      setTimeout(() => {
+        hideCustomLoader();
+        $('#calendarSection').hide();
+      }, 500);
     }
   } else {
-    setTimeout(() => $('#calendarSection').hide());
+    setTimeout(() => {
+      hideCustomLoader();
+      $('#calendarSection').hide();
+    }, 500);
   }
 
+  // Onchange tab
   $('header div.tab').on('click', function () {
     $('.tab').removeClass('active');
     $(this).addClass('active');
 
     const targetSectionId = $(this).data('target');
     localStorage.setItem(sessionKey, targetSectionId);
-
     $('.tab-content').hide();
     $(`#${targetSectionId}`).show();
 
-    if (targetSectionId === 'boardSection') {
-      // Custom code for Board tab
-    }
-    if (targetSectionId === 'calendarSection') {
-      setTimeout(() => {
-        window.FullCalendar.render();
-      })
-    }
+    targetSectionId === 'calendarSection' && setTimeout(() => window.FullCalendar.render());
   });
 }
 
@@ -48,9 +50,7 @@ export class Event {
     table.on('draw', function () {
       that.validateResourcesAvailability(tableId, resourceTblId, eventId);
       const allDaySwitched = $('.alldayevent-switch').prop('checked');
-      if (allDaySwitched) {
-        that.setAllDayResourceTime(resourceTblId);
-      }
+      allDaySwitched && that.setAllDayResourceTime(resourceTblId);
     });
   }
 
@@ -506,4 +506,9 @@ export function setupWorkOrderAction() {
     const woId = ev.target.closest('.card-item').id;
     window.open(`${suiteletUrl}&mode=printPickList&woId=${woId}`);
   }
+}
+
+function hideCustomLoader() {
+  $(`#calendarSection .spinner`).hide();
+  $(`#calendarSection .main-container`).css('display', 'block');
 }

@@ -117,8 +117,8 @@ define([
         organizers
       });
 
-      const sampleWOs = workOrders.filter(wo => +wo.id > 65); // TBR
-      const sampleEvents = events.filter(event => event.id.match(/1010/g)); // TBR
+      const sampleWOs = workOrders.filter((_, index) => index < 30); // TBR
+      const sampleEvents = events.filter((_, index) => index < 30); // TBR
 
       mod.Utils.createLogFile({
         userId: user.id,

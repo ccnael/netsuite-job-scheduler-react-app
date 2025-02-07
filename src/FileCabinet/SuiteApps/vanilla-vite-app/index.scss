@@ -586,8 +586,12 @@ div.form-check {
     background-color: white !important;
 }
 .custom-select-style {
-    background-color: #f8f9fa !important; /* Light Gray */
-    // color: #007bff !important; /* Bootstrap Blue */
-    // border: 2px solid #007bff !important;
-    border-radius: 6px !important;
+    background-color: #f8f9fa !important;
 }
+.form-control, .form-select, .custom-select-style {
+	border-radius: 10px !important;
+}
+/* button.btn {
+	border-radius: 15px !important;
+} */
+

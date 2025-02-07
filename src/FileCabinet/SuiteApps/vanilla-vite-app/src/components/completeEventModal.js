@@ -1,5 +1,5 @@
 import { suiteletUrl, resources, events } from './dataSet';
-import { ceTimeSheetsDtColumns, ceItemsDtColumns, cePunchItemsDtColumns } from './dataTable';
+import { ceTimeSheetsDtColumns, ceItemsDtColumns, cePunchItemsDtColumns } from './dataTableColumns';
 import './completeEventModal.css';
 
 let temp_ceTimeSheetDataTable, temp_ceItemsDataTable, temp_cePunchItemsDataTable;
@@ -327,7 +327,7 @@ $(document).ready(() => {
     // Sanitize: Filter out undefined, null etc values
     payload.timeSheets = payload.timeSheets.filter(timeSheet => {
       Object.keys(timeSheet).forEach(key => {
-        if (!!!timeSheet[key])
+        if (!timeSheet[key])
           delete timeSheet[key];
       })
       return timeSheet;
@@ -342,7 +342,7 @@ $(document).ready(() => {
 
     payload.fulfillItems = payload.fulfillItems.filter(fulfillItem => {
       Object.keys(fulfillItem).forEach(key => {
-        if (!!!fulfillItem[key])
+        if (!fulfillItem[key])
           delete fulfillItem[key];
       })
       return fulfillItem;

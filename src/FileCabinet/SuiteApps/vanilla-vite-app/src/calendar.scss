@@ -9,7 +9,9 @@ $background-color_19: #f0f0f0;
 
 #calendarSection {
 	display: block;
-	
+	.main-container {
+		display: none;
+	}
 	#calendar {
 		height: 90%;
 		width: 100%;
@@ -301,4 +303,28 @@ $background-color_19: #f0f0f0;
 		margin-top: -10px;
 		margin-bottom: 15px;
 	}
+	.fc-event-dragging {
+		// opacity: 0;
+	}
+	/* Hover effect on time grid slots */
+	td.fc-timeline-slot {
+		position: relative;
+		transition: background-color 0.2s ease-in-out;
+	}
+
+	/* Hover effect applied to time grid slots */
+	td.fc-timeline-slot:hover {
+		background-color: rgba(0, 123, 255, 0.3); /* Light blue background */
+		cursor: pointer;
+	}
+
+	/* Optional: Adding a border to highlight the hovered time slot */
+	td.fc-timeline-slot.fc-hovered {
+		border: 2px solid #007bff;
+	}
+	/* button.fc-button {
+		border-radius: 15px !important;
+		margin-left: 1px;
+		margin-right: 1px;
+	} */
 }

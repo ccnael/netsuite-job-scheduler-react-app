@@ -1,5 +1,16 @@
 #calendarSection {
   display: block;
+  /* Hover effect on time grid slots */
+  /* Hover effect applied to time grid slots */
+  /* Optional: Adding a border to highlight the hovered time slot */
+  /* button.fc-button {
+  	border-radius: 15px !important;
+  	margin-left: 1px;
+  	margin-right: 1px;
+  } */
+}
+#calendarSection .main-container {
+  display: none;
 }
 #calendarSection #calendar {
   height: 90%;
@@ -258,4 +269,15 @@
 #calendarSection #calendar-event-datefrom, #calendarSection #calendar-event-dateto {
   margin-top: -10px;
   margin-bottom: 15px;
+}
+#calendarSection td.fc-timeline-slot {
+  position: relative;
+  transition: background-color 0.2s ease-in-out;
+}
+#calendarSection td.fc-timeline-slot:hover {
+  background-color: rgba(0, 123, 255, 0.3); /* Light blue background */
+  cursor: pointer;
+}
+#calendarSection td.fc-timeline-slot.fc-hovered {
+  border: 2px solid #007bff;
 }/*# sourceMappingURL=calendar.css.map */

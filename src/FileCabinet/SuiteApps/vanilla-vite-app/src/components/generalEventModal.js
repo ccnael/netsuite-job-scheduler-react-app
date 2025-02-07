@@ -1,5 +1,5 @@
 import * as dataSet from './dataSet';
-import { resourcesDtColumns, vendorsDtColumns, assetsDtColumns } from './dataTable';
+import { resourcesDtColumns, vendorsDtColumns, assetsDtColumns } from './dataTableColumns';
 import { Event } from './utils';
 // import { clearFilters } from './filterUtils';
 import './generalEventModal.css';
@@ -264,7 +264,7 @@ $(document).ready(() => {
                 return dataSet.vendors;
               } else {
                 // Combine vendors and WO vendors
-                const unassignedVendors = deepCopy(dataSet.vendors).filter(vendor => !!!eventData.vendors.map(vendor => vendor.vendor.value).includes(vendor.id));
+                const unassignedVendors = deepCopy(dataSet.vendors).filter(vendor => !eventData.vendors.map(vendor => vendor.vendor.value).includes(vendor.id));
                 return [...eventData.vendors, ...unassignedVendors];
               }
             })()
@@ -286,7 +286,7 @@ $(document).ready(() => {
                 return dataSet.assets;
               } else {
                 // Combine assets and WO assets
-                const unassignedAssets = deepCopy(dataSet.assets).filter(asset => !!!eventData.assets.map(asset => asset.item.value).includes(asset.id));
+                const unassignedAssets = deepCopy(dataSet.assets).filter(asset => !eventData.assets.map(asset => asset.item.value).includes(asset.id));
                 return [...eventData.assets, ...unassignedAssets];
               }
             })()
@@ -328,11 +328,11 @@ $(document).ready(() => {
         return resource;
       });
 
-      let unassignedVendors = deepCopy(dataSet.vendors).filter(vendor => !!!eventData.vendors.map(vendor => vendor.vendor.value).includes(vendor.id));
+      let unassignedVendors = deepCopy(dataSet.vendors).filter(vendor => !eventData.vendors.map(vendor => vendor.vendor.value).includes(vendor.id));
       unassignedVendors = [...eventData.vendors, ...unassignedVendors];
       vendorsToUse = unassignedVendors;
 
-      let unassignedAssets = deepCopy(dataSet.assets).filter(asset => !!!eventData.assets.map(asset => asset.item.value).includes(asset.id));
+      let unassignedAssets = deepCopy(dataSet.assets).filter(asset => !eventData.assets.map(asset => asset.item.value).includes(asset.id));
       unassignedAssets = [...eventData.assets, ...unassignedAssets];
       assetsToUse = unassignedAssets;
     }
