@@ -4,6 +4,7 @@ import * as dataSet from '../dataSet';
 
 $(document).ready(() => {
   const { modalId, fields } = dataSet.filterFields.eventResource;
+  const parentModalId = '#eventModal';
 
   $('#app').append(`
     <div class="modal fade" id="${modalId.replace('#', '')}" mode="" title="" tabindex="-1" style="z-index: -999">
@@ -124,11 +125,11 @@ $(document).ready(() => {
     $(`${modalId} .selectFiltersForm`).hide();
     $(`${modalId} .filterForm`).show();
     $(modalId).css('z-index', '-999');
-    $('#eventModal').css('z-index', '9999');
+    $(parentModalId).css('z-index', '9999');
   });
 
   function showCustomLoader() {
-    $('#eventModal').css('z-index', '1');
+    $(parentModalId).css('z-index') != '1' && $(parentModalId).css('z-index', '1');
     $(`${modalId} .spinner`).show();
     $(`${modalId} .modal-body`).css('z-index', '-1');
   }
@@ -136,5 +137,6 @@ $(document).ready(() => {
   function hideCustomLoader() {
     $(`${modalId} .spinner`).hide();
     $(`${modalId} .modal-body`).css('z-index', '1');
+    $(parentModalId).css('z-index') != '9999' && $(parentModalId).css('z-index', '9999');
   }
 })

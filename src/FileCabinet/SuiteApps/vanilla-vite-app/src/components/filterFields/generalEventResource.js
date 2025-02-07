@@ -4,6 +4,7 @@ import * as dataSet from '../dataSet';
 
 $(document).ready(() => {
   const { modalId, fields } = dataSet.filterFields.generalEventResource;
+  const parentModalId = '#generalEventModal';
 
   $('#app').append(`
     <div class="modal fade" id="${modalId.replace('#', '')}" mode="" title="" tabindex="-1" style="z-index: -999">
@@ -130,7 +131,7 @@ $(document).ready(() => {
   });
 
   function showCustomLoader() {
-    $('#generalEventModal').css('z-index', '1');
+    $(parentModalId).css('z-index') != '1' && $(parentModalId).css('z-index', '1');
     $(`${modalId} .spinner`).show();
     $(`${modalId} .modal-body`).css('z-index', '-1');
   }
@@ -138,5 +139,6 @@ $(document).ready(() => {
   function hideCustomLoader() {
     $(`${modalId} .spinner`).hide();
     $(`${modalId} .modal-body`).css('z-index', '1');
+    $(parentModalId).css('z-index') != '9999' && $(parentModalId).css('z-index', '9999');
   }
 })
