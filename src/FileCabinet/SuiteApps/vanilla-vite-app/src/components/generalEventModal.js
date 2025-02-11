@@ -1,7 +1,6 @@
 import * as dataSet from './dataSet';
 import { resourcesDtColumns, vendorsDtColumns, assetsDtColumns } from './dataTableColumns';
 import { Event } from './utils';
-// import { clearFilters } from './filterUtils';
 import './generalEventModal.css';
 
 let temp_resourcesDataTable, temp_vendorsDataTable, temp_assetsDataTable;
@@ -300,7 +299,7 @@ $(document).ready(() => {
 
       Event.switchAllDay('#generalEventModal'); // All day event switch function
       Event.validateResourcesOnLoad('#wo-primaryinfo-ge', '#resources_ge', eventId);
-      Event.validateOnHeaderFieldChange('#wo-primaryinfo-ge', '#resources_ge', eventId);
+      Event.validateOnHeaderFieldChange('#wo-primaryinfo-ge', '#resources_ge', eventId, 'generalEventResource');
       Event.validateOnLineFieldChange('#wo-primaryinfo-ge', '#resources_ge', eventId);
     }, 250);
   });
@@ -465,7 +464,7 @@ $(document).ready(() => {
 
   function clearFieldValues() {
     console.log('----- Clearing Fields -----');
-    // clearFilters('#filterFieldGeneralEventResource');
+    window.clearFilters('#filterFieldGeneralEventResource');
     showCustomLoader();
 
     $(`#generalEventModal`).attr('mode', '');

@@ -1,4 +1,4 @@
-import { userId, suiteletUrl, events } from './dataSet';
+import { userId, suiteletUrl, events, filterFields } from './dataSet';
 
 export function cacheTabSwitch() {
   const sessionKey = /netsuite\.com/.test(window.location.href) ? `${userId}:lastClickedTab` : 'lastClickedTab';
@@ -54,14 +54,22 @@ export class Event {
     });
   }
 
-  static validateOnHeaderFieldChange(tableId, resourceTblId, eventId) {
+  static validateOnHeaderFieldChange(tableId, resourceTblId, eventId, section) {
     const that = this;
     $(`${tableId} input.datefrom, ${tableId} input.dateto, ${tableId} input.starttime, ${tableId} input.endtime`).on('change', function () {
+      that.unMarkAvailableResource(section);
+
       if (!that.validateEventDateTime(this, tableId)) {
         return;
       }
       that.validateResourcesAvailability(tableId, resourceTblId, eventId, true);
     });
+  }
+
+  static unMarkAvailableResource(section) {
+    const modalId = filterFields[section].modalId;
+    const el = $(`${modalId} .filter-fields .show-available-resource-field`);
+    el.prop('checked', false).change();
   }
 
   static validateOnLineFieldChange(tableId, resourceTblId, eventId) {

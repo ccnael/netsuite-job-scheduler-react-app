@@ -482,7 +482,7 @@ export function onFilterBoardEvent(fieldId) {
         const eventPriority = eventData.priority.value;
         const eventOrganizer = eventData.organizer.value;
         const eventType = !!eventData.workorder.text ? '2' : '1';
-        const receiptStatus = eventData.woRef.receiptStatus.value;
+        const receiptStatus = eventData.woRef.receiptStatus?.value || '';
         let withinRange = false;
 
         if (date) {
@@ -762,28 +762,55 @@ export function onFilterEventResource(fieldId) {
   const $resourceFilter = $(`${fieldId} select.multiple-resource-field`);
   const $resourceGroupFilter = $(`${fieldId} select.multiple-resource-group-field`);
   const $resourceSkillFilter = $(`${fieldId} select.multiple-resource-skill-field`);
+  /* const $statusFilter = $(`${fieldId} select.multiple-status-field`);
+  const $locationFilter = $(`${fieldId} select.multiple-location-field`);
+  const $departmentFilter = $(`${fieldId} select.multiple-department-field`); */
+  const $emailFilter = $(`${fieldId} input.email-field`);
+  const $phoneFilter = $(`${fieldId} input.phone-field`);
   const $showAvailableResourceFilter = $(`${fieldId} input.show-available-resource-field`);
 
-  $resourceFilter.on('change', () => {
-    filterItems();
-    dataTable.draw();
-    updateFilterCounter();
-  });
-  $resourceGroupFilter.on('change', () => {
-    filterItems();
-    dataTable.draw();
-    updateFilterCounter();
-  });
-  $resourceSkillFilter.on('change', () => {
-    filterItems();
-    dataTable.draw();
-    updateFilterCounter();
-  });
-  $showAvailableResourceFilter.on('change', () => {
-    filterItems();
-    dataTable.draw();
-    updateFilterCounter();
-  });
+  if ($resourceFilter.length) {
+    $resourceFilter.on('change', () => {
+      filterItems();
+      dataTable.draw();
+      updateFilterCounter();
+    });
+  }
+  if ($resourceGroupFilter.length) {
+    $resourceGroupFilter.on('change', () => {
+      filterItems();
+      dataTable.draw();
+      updateFilterCounter();
+    });
+  }
+  if ($resourceSkillFilter.length) {
+    $resourceSkillFilter.on('change', () => {
+      filterItems();
+      dataTable.draw();
+      updateFilterCounter();
+    });
+  }
+  if ($emailFilter.length) {
+    $emailFilter.on('keyup', () => {
+      filterItems();
+      dataTable.draw();
+      updateFilterCounter();
+    });
+  }
+  if ($phoneFilter.length) {
+    $phoneFilter.on('keyup', () => {
+      filterItems();
+      dataTable.draw();
+      updateFilterCounter();
+    });
+  }
+  if ($showAvailableResourceFilter.length) {
+    $showAvailableResourceFilter.on('change', () => {
+      filterItems();
+      dataTable.draw();
+      updateFilterCounter();
+    });
+  }
 
   function filterItems() {
     // Resource custom filtering
@@ -820,6 +847,26 @@ export function onFilterEventResource(fieldId) {
       let cellContent = $(dataTable.cell(dataIndex, 3).node());
       cellContent = Array.from($(cellContent).find('span')).map(span => span.textContent).filter(Boolean);
       return resourceSkillTexts.some(value => cellContent.includes(value));
+    });
+    // Email custom filtering
+    $.fn.dataTable.ext.search.push(function (settings, data, dataIndex) {
+      const emailInput = $emailFilter.val();
+      if (!emailInput.length) {
+        return true;
+      }
+      let cellContent = $(dataTable.cell(dataIndex, 4).node());
+      cellContent = (cellContent && cellContent[0]) ? Array.from(cellContent)[0].textContent : '';
+      return cellContent.includes(emailInput);
+    });
+    // Phone custom filtering
+    $.fn.dataTable.ext.search.push(function (settings, data, dataIndex) {
+      const phoneInput = $phoneFilter.val();
+      if (!phoneInput.length) {
+        return true;
+      }
+      let cellContent = $(dataTable.cell(dataIndex, 5).node());
+      cellContent = (cellContent && cellContent[0]) ? Array.from(cellContent)[0].textContent : '';
+      return cellContent.includes(phoneInput);
     });
     // Show Only Available Resources custom filtering
     $.fn.dataTable.ext.search.push(function (settings, data, dataIndex) {
@@ -859,28 +906,55 @@ export function onFilterGeneralEventResource(fieldId) {
   const $resourceFilter = $(`${fieldId} select.multiple-resource-field`);
   const $resourceGroupFilter = $(`${fieldId} select.multiple-resource-group-field`);
   const $resourceSkillFilter = $(`${fieldId} select.multiple-resource-skill-field`);
+  /* const $statusFilter = $(`${fieldId} select.multiple-status-field`);
+  const $locationFilter = $(`${fieldId} select.multiple-location-field`);
+  const $departmentFilter = $(`${fieldId} select.multiple-department-field`); */
+  const $emailFilter = $(`${fieldId} input.email-field`);
+  const $phoneFilter = $(`${fieldId} input.phone-field`);
   const $showAvailableResourceFilter = $(`${fieldId} input.show-available-resource-field`);
 
-  $resourceFilter.on('change', () => {
-    filterItems();
-    dataTable.draw();
-    updateFilterCounter();
-  });
-  $resourceGroupFilter.on('change', () => {
-    filterItems();
-    dataTable.draw();
-    updateFilterCounter();
-  });
-  $resourceSkillFilter.on('change', () => {
-    filterItems();
-    dataTable.draw();
-    updateFilterCounter();
-  });
-  $showAvailableResourceFilter.on('change', () => {
-    filterItems();
-    dataTable.draw();
-    updateFilterCounter();
-  });
+  if ($resourceFilter.length) {
+    $resourceFilter.on('change', () => {
+      filterItems();
+      dataTable.draw();
+      updateFilterCounter();
+    });
+  }
+  if ($resourceGroupFilter.length) {
+    $resourceGroupFilter.on('change', () => {
+      filterItems();
+      dataTable.draw();
+      updateFilterCounter();
+    });
+  }
+  if ($resourceSkillFilter.length) {
+    $resourceSkillFilter.on('change', () => {
+      filterItems();
+      dataTable.draw();
+      updateFilterCounter();
+    });
+  }
+  if ($emailFilter.length) {
+    $emailFilter.on('keyup', () => {
+      filterItems();
+      dataTable.draw();
+      updateFilterCounter();
+    });
+  }
+  if ($phoneFilter.length) {
+    $phoneFilter.on('keyup', () => {
+      filterItems();
+      dataTable.draw();
+      updateFilterCounter();
+    });
+  }
+  if ($showAvailableResourceFilter.length) {
+    $showAvailableResourceFilter.on('change', () => {
+      filterItems();
+      dataTable.draw();
+      updateFilterCounter();
+    });
+  }
 
   function filterItems() {
     // Resource custom filtering
@@ -918,6 +992,26 @@ export function onFilterGeneralEventResource(fieldId) {
       cellContent = Array.from($(cellContent).find('span')).map(span => span.textContent).filter(Boolean);
       return resourceSkillTexts.some(value => cellContent.includes(value));
     });
+    // Email custom filtering
+    $.fn.dataTable.ext.search.push(function (settings, data, dataIndex) {
+      const emailInput = $emailFilter.val();
+      if (!emailInput.length) {
+        return true;
+      }
+      let cellContent = $(dataTable.cell(dataIndex, 4).node());
+      cellContent = (cellContent && cellContent[0]) ? Array.from(cellContent)[0].textContent : '';
+      return cellContent.includes(emailInput);
+    });
+    // Phone custom filtering
+    $.fn.dataTable.ext.search.push(function (settings, data, dataIndex) {
+      const phoneInput = $phoneFilter.val();
+      if (!phoneInput.length) {
+        return true;
+      }
+      let cellContent = $(dataTable.cell(dataIndex, 5).node());
+      cellContent = (cellContent && cellContent[0]) ? Array.from(cellContent)[0].textContent : '';
+      return cellContent.includes(phoneInput);
+    });
     // Show Only Available Resources custom filtering
     $.fn.dataTable.ext.search.push(function (settings, data, dataIndex) {
       const row = dataTable.row(dataIndex).node();
@@ -947,6 +1041,6 @@ export function onFilterGeneralEventResource(fieldId) {
     if ($showAvailableResourceFilter.prop('checked')) {
       counter++;
     }
-    $('#filter-eventresource-counter').html(counter);
+    $('#filter-generaleventresource-counter').html(counter);
   }
 }

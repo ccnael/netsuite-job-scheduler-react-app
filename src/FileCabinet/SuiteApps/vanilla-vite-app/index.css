@@ -536,12 +536,14 @@ div.form-check {
 .floating-logo img {
   width: 100%;
   height: auto;
+  transition: transform 0.4s cubic-bezier(0.25, 0.45, 0.45, 1); /* Smooth zoom */
+  cursor: pointer;
 }
 
-/* .floating-logo img:hover {
+.floating-logo img:hover {
   transform: scale(1.2);
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-} */
+}
+
 .counter {
   display: inline-flex;
   align-items: center;

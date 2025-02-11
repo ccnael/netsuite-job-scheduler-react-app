@@ -25,11 +25,11 @@ export const resourcesDtColumns = [
     render: (_data, _type, row, _meta) => `${row.resourceSkills.reduce((x, y) => x += `<span class="badge bg-info">${y.text}</span> `, '')}`,
     title: 'Skill'
   },
-  {
+  /* {
     className: 'dt-head-center',
     render: (_data, _type, row, _meta) => `${row.types.map(type => type.text).join(', ')}`,
     title: 'Type'
-  },
+  }, */
   {
     className: 'dt-head-center',
     data: 'email',

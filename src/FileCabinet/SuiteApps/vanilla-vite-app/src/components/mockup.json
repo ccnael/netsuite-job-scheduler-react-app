@@ -106,7 +106,10 @@
       "text": "",
       "value": ""
     },
-    "receiptStatus": "",
+    "receiptStatus": {
+      "text": "",
+      "value": ""
+    },
     "hasQuantityReceived": true
   }, {
     "id": "134",
@@ -232,7 +235,10 @@
       "text": "",
       "value": ""
     },
-    "receiptStatus": "",
+    "receiptStatus": {
+      "text": "",
+      "value": ""
+    },
     "hasQuantityReceived": true
   }, {
     "id": "133",
@@ -512,7 +518,10 @@
       "text": "",
       "value": ""
     },
-    "receiptStatus": "",
+    "receiptStatus": {
+      "text": "",
+      "value": ""
+    },
     "hasQuantityReceived": true
   }, {
     "id": "132",
@@ -861,7 +870,10 @@
       "text": "",
       "value": ""
     },
-    "receiptStatus": "",
+    "receiptStatus": {
+      "text": "",
+      "value": ""
+    },
     "hasQuantityReceived": true
   }, {
     "id": "131",
@@ -987,7 +999,10 @@
       "text": "",
       "value": ""
     },
-    "receiptStatus": "",
+    "receiptStatus": {
+      "text": "",
+      "value": ""
+    },
     "hasQuantityReceived": true
   }, {
     "id": "130",
@@ -1157,7 +1172,10 @@
       "text": "",
       "value": ""
     },
-    "receiptStatus": "",
+    "receiptStatus": {
+      "text": "",
+      "value": ""
+    },
     "hasQuantityReceived": true
   }, {
     "id": "129",
@@ -1305,7 +1323,10 @@
       "text": "",
       "value": ""
     },
-    "receiptStatus": "",
+    "receiptStatus": {
+      "text": "",
+      "value": ""
+    },
     "hasQuantityReceived": true
   }, {
     "id": "128",
@@ -1453,7 +1474,10 @@
       "text": "",
       "value": ""
     },
-    "receiptStatus": "",
+    "receiptStatus": {
+      "text": "",
+      "value": ""
+    },
     "hasQuantityReceived": true
   }, {
     "id": "127",
@@ -1601,7 +1625,10 @@
       "text": "",
       "value": ""
     },
-    "receiptStatus": "",
+    "receiptStatus": {
+      "text": "",
+      "value": ""
+    },
     "hasQuantityReceived": true
   }, {
     "id": "126",
@@ -1749,7 +1776,10 @@
       "text": "",
       "value": ""
     },
-    "receiptStatus": "",
+    "receiptStatus": {
+      "text": "",
+      "value": ""
+    },
     "hasQuantityReceived": true
   }, {
     "id": "125",
@@ -1991,7 +2021,10 @@
       "text": "",
       "value": ""
     },
-    "receiptStatus": "",
+    "receiptStatus": {
+      "text": "",
+      "value": ""
+    },
     "hasQuantityReceived": true
   }, {
     "id": "124",
@@ -2120,7 +2153,10 @@
       "text": "",
       "value": ""
     },
-    "receiptStatus": "",
+    "receiptStatus": {
+      "text": "",
+      "value": ""
+    },
     "hasQuantityReceived": true
   }, {
     "id": "123",
@@ -3544,7 +3580,10 @@
       "text": "",
       "value": ""
     },
-    "receiptStatus": "",
+    "receiptStatus": {
+      "text": "",
+      "value": ""
+    },
     "hasQuantityReceived": true
   }, {
     "id": "122",
@@ -3911,7 +3950,10 @@
       "text": "",
       "value": ""
     },
-    "receiptStatus": "",
+    "receiptStatus": {
+      "text": "",
+      "value": ""
+    },
     "hasQuantityReceived": true
   }, {
     "id": "121",
@@ -4397,7 +4439,10 @@
       "text": "",
       "value": ""
     },
-    "receiptStatus": "",
+    "receiptStatus": {
+      "text": "",
+      "value": ""
+    },
     "hasQuantityReceived": true
   }, {
     "id": "120",
@@ -4598,7 +4643,10 @@
       "text": "",
       "value": ""
     },
-    "receiptStatus": "",
+    "receiptStatus": {
+      "text": "",
+      "value": ""
+    },
     "hasQuantityReceived": true
   }, {
     "id": "119",
@@ -5175,7 +5223,10 @@
       "text": "",
       "value": ""
     },
-    "receiptStatus": "",
+    "receiptStatus": {
+      "text": "",
+      "value": ""
+    },
     "hasQuantityReceived": true
   }, {
     "id": "118",
@@ -5520,7 +5571,10 @@
       "text": "",
       "value": ""
     },
-    "receiptStatus": "",
+    "receiptStatus": {
+      "text": "",
+      "value": ""
+    },
     "hasQuantityReceived": true
   }, {
     "id": "117",
@@ -5814,7 +5868,10 @@
       "text": "",
       "value": ""
     },
-    "receiptStatus": "",
+    "receiptStatus": {
+      "text": "",
+      "value": ""
+    },
     "hasQuantityReceived": true
   }, {
     "id": "116",
@@ -6298,7 +6355,10 @@
       "text": "",
       "value": ""
     },
-    "receiptStatus": "",
+    "receiptStatus": {
+      "text": "",
+      "value": ""
+    },
     "hasQuantityReceived": true
   }, {
     "id": "115",
@@ -6796,7 +6856,10 @@
       "text": "",
       "value": ""
     },
-    "receiptStatus": "",
+    "receiptStatus": {
+      "text": "",
+      "value": ""
+    },
     "hasQuantityReceived": true
   }, {
     "id": "114",
@@ -7085,7 +7148,10 @@
       "text": "",
       "value": ""
     },
-    "receiptStatus": "",
+    "receiptStatus": {
+      "text": "",
+      "value": ""
+    },
     "hasQuantityReceived": true
   }, {
     "id": "113",
@@ -7415,7 +7481,10 @@
       "text": "",
       "value": ""
     },
-    "receiptStatus": "",
+    "receiptStatus": {
+      "text": "",
+      "value": ""
+    },
     "hasQuantityReceived": true
   }, {
     "id": "112",
@@ -7901,7 +7970,10 @@
       "text": "",
       "value": ""
     },
-    "receiptStatus": "",
+    "receiptStatus": {
+      "text": "",
+      "value": ""
+    },
     "hasQuantityReceived": true
   }, {
     "id": "111",
@@ -8258,7 +8330,10 @@
       "text": "",
       "value": ""
     },
-    "receiptStatus": "",
+    "receiptStatus": {
+      "text": "",
+      "value": ""
+    },
     "hasQuantityReceived": true
   }, {
     "id": "110",
@@ -9174,7 +9249,10 @@
       "text": "",
       "value": ""
     },
-    "receiptStatus": "",
+    "receiptStatus": {
+      "text": "",
+      "value": ""
+    },
     "hasQuantityReceived": true
   }, {
     "id": "109",
@@ -9845,7 +9923,10 @@
       "text": "",
       "value": ""
     },
-    "receiptStatus": "",
+    "receiptStatus": {
+      "text": "",
+      "value": ""
+    },
     "hasQuantityReceived": true
   }, {
     "id": "108",
@@ -10089,7 +10170,10 @@
       "text": "",
       "value": ""
     },
-    "receiptStatus": "",
+    "receiptStatus": {
+      "text": "",
+      "value": ""
+    },
     "hasQuantityReceived": true
   }, {
     "id": "107",
@@ -10347,7 +10431,10 @@
       "text": "",
       "value": ""
     },
-    "receiptStatus": "",
+    "receiptStatus": {
+      "text": "",
+      "value": ""
+    },
     "hasQuantityReceived": true
   }, {
     "id": "106",
@@ -10953,7 +11040,10 @@
       "text": "",
       "value": ""
     },
-    "receiptStatus": "",
+    "receiptStatus": {
+      "text": "",
+      "value": ""
+    },
     "hasQuantityReceived": true
   }],
   "customers": [{
@@ -29264,7 +29354,10 @@
         "text": "",
         "value": ""
       },
-      "receiptStatus": "",
+      "receiptStatus": {
+        "text": "",
+        "value": ""
+      },
       "hasQuantityReceived": true
     },
     "resources": [{
@@ -29841,7 +29934,10 @@
         "text": "",
         "value": ""
       },
-      "receiptStatus": "",
+      "receiptStatus": {
+        "text": "",
+        "value": ""
+      },
       "hasQuantityReceived": true
     },
     "resources": [{
@@ -30379,7 +30475,10 @@
         "text": "",
         "value": ""
       },
-      "receiptStatus": "",
+      "receiptStatus": {
+        "text": "",
+        "value": ""
+      },
       "hasQuantityReceived": true
     },
     "resources": [],
@@ -30729,7 +30828,10 @@
         "text": "",
         "value": ""
       },
-      "receiptStatus": "",
+      "receiptStatus": {
+        "text": "",
+        "value": ""
+      },
       "hasQuantityReceived": true
     },
     "resources": [{
@@ -32444,7 +32546,10 @@
         "text": "",
         "value": ""
       },
-      "receiptStatus": "",
+      "receiptStatus": {
+        "text": "",
+        "value": ""
+      },
       "hasQuantityReceived": true
     },
     "resources": [{
@@ -34314,7 +34419,10 @@
         "text": "",
         "value": ""
       },
-      "receiptStatus": "",
+      "receiptStatus": {
+        "text": "",
+        "value": ""
+      },
       "hasQuantityReceived": true
     },
     "resources": [{
@@ -36012,7 +36120,10 @@
         "text": "",
         "value": ""
       },
-      "receiptStatus": "",
+      "receiptStatus": {
+        "text": "",
+        "value": ""
+      },
       "hasQuantityReceived": true
     },
     "resources": [{
@@ -37710,7 +37821,10 @@
         "text": "",
         "value": ""
       },
-      "receiptStatus": "",
+      "receiptStatus": {
+        "text": "",
+        "value": ""
+      },
       "hasQuantityReceived": true
     },
     "resources": [],
@@ -39270,7 +39384,10 @@
         "text": "",
         "value": ""
       },
-      "receiptStatus": "",
+      "receiptStatus": {
+        "text": "",
+        "value": ""
+      },
       "hasQuantityReceived": true
     },
     "resources": [{
@@ -40874,7 +40991,10 @@
         "text": "",
         "value": ""
       },
-      "receiptStatus": "",
+      "receiptStatus": {
+        "text": "",
+        "value": ""
+      },
       "hasQuantityReceived": true
     },
     "resources": [{
@@ -42582,7 +42702,10 @@
         "text": "",
         "value": ""
       },
-      "receiptStatus": "",
+      "receiptStatus": {
+        "text": "",
+        "value": ""
+      },
       "hasQuantityReceived": true
     },
     "resources": [],
@@ -44134,7 +44257,10 @@
         "text": "",
         "value": ""
       },
-      "receiptStatus": "",
+      "receiptStatus": {
+        "text": "",
+        "value": ""
+      },
       "hasQuantityReceived": true
     },
     "resources": [],
@@ -45686,7 +45812,10 @@
         "text": "",
         "value": ""
       },
-      "receiptStatus": "",
+      "receiptStatus": {
+        "text": "",
+        "value": ""
+      },
       "hasQuantityReceived": true
     },
     "resources": [{
@@ -47242,7 +47371,10 @@
         "text": "",
         "value": ""
       },
-      "receiptStatus": "",
+      "receiptStatus": {
+        "text": "",
+        "value": ""
+      },
       "hasQuantityReceived": true
     },
     "resources": [{
@@ -47987,7 +48119,10 @@
         "text": "",
         "value": ""
       },
-      "receiptStatus": "",
+      "receiptStatus": {
+        "text": "",
+        "value": ""
+      },
       "hasQuantityReceived": true
     },
     "resources": [{
@@ -48593,7 +48728,10 @@
         "text": "",
         "value": ""
       },
-      "receiptStatus": "",
+      "receiptStatus": {
+        "text": "",
+        "value": ""
+      },
       "hasQuantityReceived": true
     },
     "resources": [],
@@ -49129,7 +49267,10 @@
         "text": "",
         "value": ""
       },
-      "receiptStatus": "",
+      "receiptStatus": {
+        "text": "",
+        "value": ""
+      },
       "hasQuantityReceived": true
     },
     "resources": [],
@@ -49665,7 +49806,10 @@
         "text": "",
         "value": ""
       },
-      "receiptStatus": "",
+      "receiptStatus": {
+        "text": "",
+        "value": ""
+      },
       "hasQuantityReceived": true
     },
     "resources": [],
@@ -50396,7 +50540,10 @@
         "text": "",
         "value": ""
       },
-      "receiptStatus": "",
+      "receiptStatus": {
+        "text": "",
+        "value": ""
+      },
       "hasQuantityReceived": true
     },
     "resources": [],
@@ -51059,7 +51206,10 @@
         "text": "",
         "value": ""
       },
-      "receiptStatus": "",
+      "receiptStatus": {
+        "text": "",
+        "value": ""
+      },
       "hasQuantityReceived": true
     },
     "resources": [],
@@ -51454,7 +51604,10 @@
         "text": "",
         "value": ""
       },
-      "receiptStatus": "",
+      "receiptStatus": {
+        "text": "",
+        "value": ""
+      },
       "hasQuantityReceived": true
     },
     "resources": [],
@@ -52248,7 +52401,10 @@
         "text": "",
         "value": ""
       },
-      "receiptStatus": "",
+      "receiptStatus": {
+        "text": "",
+        "value": ""
+      },
       "hasQuantityReceived": true
     },
     "resources": [],
@@ -52846,7 +53002,10 @@
         "text": "",
         "value": ""
       },
-      "receiptStatus": "",
+      "receiptStatus": {
+        "text": "",
+        "value": ""
+      },
       "hasQuantityReceived": true
     },
     "resources": [],
@@ -53248,7 +53407,10 @@
         "text": "",
         "value": ""
       },
-      "receiptStatus": "",
+      "receiptStatus": {
+        "text": "",
+        "value": ""
+      },
       "hasQuantityReceived": true
     },
     "resources": [],
@@ -53937,7 +54099,10 @@
         "text": "",
         "value": ""
       },
-      "receiptStatus": "",
+      "receiptStatus": {
+        "text": "",
+        "value": ""
+      },
       "hasQuantityReceived": true
     },
     "resources": [],
@@ -54452,7 +54617,10 @@
         "text": "",
         "value": ""
       },
-      "receiptStatus": "",
+      "receiptStatus": {
+        "text": "",
+        "value": ""
+      },
       "hasQuantityReceived": true
     },
     "resources": [],
@@ -55105,7 +55273,10 @@
         "text": "",
         "value": ""
       },
-      "receiptStatus": "",
+      "receiptStatus": {
+        "text": "",
+        "value": ""
+      },
       "hasQuantityReceived": true
     },
     "resources": [],
@@ -55777,7 +55948,10 @@
         "text": "",
         "value": ""
       },
-      "receiptStatus": "",
+      "receiptStatus": {
+        "text": "",
+        "value": ""
+      },
       "hasQuantityReceived": true
     },
     "resources": [],
@@ -56287,7 +56461,10 @@
         "text": "",
         "value": ""
       },
-      "receiptStatus": "",
+      "receiptStatus": {
+        "text": "",
+        "value": ""
+      },
       "hasQuantityReceived": true
     },
     "resources": [],
@@ -56775,7 +56952,10 @@
         "text": "",
         "value": ""
       },
-      "receiptStatus": "",
+      "receiptStatus": {
+        "text": "",
+        "value": ""
+      },
       "hasQuantityReceived": true
     },
     "resources": [],
@@ -64942,16 +65122,6 @@
         "type": "text",
         "display": true
       }, {
-        "label": "Date From",
-        "className": "board-wo-datefrom",
-        "type": "date",
-        "display": true
-      }, {
-        "label": "Date To",
-        "className": "board-wo-dateto",
-        "type": "date",
-        "display": true
-      }, {
         "label": "Work Order Status",
         "className": "multiple-status-field",
         "type": "multiselect",
@@ -65020,6 +65190,16 @@
           "text": "Rogers Communication : Office Remodel",
           "value": "1509"
         }]
+      }, {
+        "label": "Date From",
+        "className": "board-wo-datefrom",
+        "type": "date",
+        "display": true
+      }, {
+        "label": "Date To",
+        "className": "board-wo-dateto",
+        "type": "date",
+        "display": true
       }]
     },
     "boardEvent": {
@@ -66789,16 +66969,6 @@
         "type": "text",
         "display": true
       }, {
-        "label": "Date From",
-        "className": "calendar-wo-datefrom",
-        "type": "date",
-        "display": true
-      }, {
-        "label": "Date To",
-        "className": "calendar-wo-dateto",
-        "type": "date",
-        "display": true
-      }, {
         "label": "Work Order Status",
         "className": "multiple-status-field",
         "type": "multiselect",
@@ -66867,6 +67037,16 @@
           "text": "Rogers Communication : Office Remodel",
           "value": "1509"
         }]
+      }, {
+        "label": "Date From",
+        "className": "calendar-wo-datefrom",
+        "type": "date",
+        "display": true
+      }, {
+        "label": "Date To",
+        "className": "calendar-wo-dateto",
+        "type": "date",
+        "display": true
       }]
     },
     "calendarEvent": {
@@ -70193,55 +70373,6 @@
           "value": "4"
         }]
       }, {
-        "label": "Status",
-        "className": "multiple-status-field",
-        "type": "multiselect",
-        "display": true,
-        "options": [{
-          "value": "1",
-          "text": "Active"
-        }, {
-          "value": "0",
-          "text": "Inactive"
-        }]
-      }, {
-        "label": "Location",
-        "className": "multiple-location-field",
-        "type": "multiselect",
-        "display": false,
-        "options": [{
-          "text": "01: San Francisco",
-          "value": "2"
-        }, {
-          "text": "02: Boston",
-          "value": "1"
-        }, {
-          "text": "01: San Francisco : QA Hold",
-          "value": "5"
-        }, {
-          "text": "New York",
-          "value": "15"
-        }],
-        "data-icon": "bi bi-geo-alt"
-      }, {
-        "label": "Department",
-        "className": "multiple-department-field",
-        "type": "multiselect",
-        "display": false,
-        "options": [{
-          "text": "Sales",
-          "value": "2"
-        }, {
-          "text": "Engineering",
-          "value": "11"
-        }, {
-          "text": "Admin",
-          "value": "1"
-        }, {
-          "text": "Marketing",
-          "value": "4"
-        }]
-      }, {
         "label": "Email",
         "className": "email-field",
         "type": "text",
@@ -71876,55 +72007,6 @@
           "value": "6"
         }, {
           "text": "Woodworking",
-          "value": "4"
-        }]
-      }, {
-        "label": "Status",
-        "className": "multiple-status-field",
-        "type": "multiselect",
-        "display": true,
-        "options": [{
-          "value": "1",
-          "text": "Active"
-        }, {
-          "value": "0",
-          "text": "Inactive"
-        }]
-      }, {
-        "label": "Location",
-        "className": "multiple-location-field",
-        "type": "multiselect",
-        "display": false,
-        "options": [{
-          "text": "01: San Francisco",
-          "value": "2"
-        }, {
-          "text": "02: Boston",
-          "value": "1"
-        }, {
-          "text": "01: San Francisco : QA Hold",
-          "value": "5"
-        }, {
-          "text": "New York",
-          "value": "15"
-        }],
-        "data-icon": "bi bi-geo-alt"
-      }, {
-        "label": "Department",
-        "className": "multiple-department-field",
-        "type": "multiselect",
-        "display": false,
-        "options": [{
-          "text": "Sales",
-          "value": "2"
-        }, {
-          "text": "Engineering",
-          "value": "11"
-        }, {
-          "text": "Admin",
-          "value": "1"
-        }, {
-          "text": "Marketing",
           "value": "4"
         }]
       }, {

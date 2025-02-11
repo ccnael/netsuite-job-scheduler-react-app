@@ -42,7 +42,7 @@ $(document).ready(() => {
                   multiple>
                   ${fields.map(field => `<option value="${field.className}" ${field.display && 'selected'}>${field.label}</option>`)}
                 </select>
-                <i class="fa-solid fa-circle-plus ms-2 d-flex align-items-center justify-content-center" style="cursor: pointer; font-size: 2rem; color: #218938" onclick="alert('Not yet available.')">
+                <i class="fa-solid fa-square-plus ms-2 d-flex align-items-center justify-content-center" style="cursor: pointer; font-size: 2rem; color: #218938" onclick="alert('Not yet available.')">
                 </i>
               </div>
               <div class="col-md-5 d-flex justify-content-end">

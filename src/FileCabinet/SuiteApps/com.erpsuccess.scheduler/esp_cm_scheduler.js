@@ -503,7 +503,10 @@ define([
               text: result.getText('custrecord_esp_fop_wo_location'),
               value: result.getValue('custrecord_esp_fop_wo_location'),
             },
-            receiptStatus: '' // TBD
+            receiptStatus: {
+              text: '',
+              value: ''
+            } // TBD
           });
           return true;
         });
