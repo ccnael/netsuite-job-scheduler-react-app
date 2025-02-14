@@ -9,14 +9,15 @@
           "type": "multiselect",
           "display": true,
           "options": "[...params.resources.map(resource => ({ value: resource.id, text: resource.name })),...params.vendors.map(vendor => ({ value: vendor.id, text: vendor.name })),...params.assets.map(asset => ({ value: asset.id, text: asset.name }))]",
-          "data-icon": "bi bi-person"
+          "data-icon": "bi bi-person-fill"
         },
         {
           "label": "Resource Group",
           "className": "multiple-resource-group-field",
           "type": "multiselect",
           "display": true,
-          "options": "params.resourceGroups"
+          "options": "params.resourceGroups",
+          "data-icon": "bi bi-people-fill"
         },
         {
           "label": "Resource Skill",
@@ -38,7 +39,7 @@
           "type": "multiselect",
           "display": false,
           "options": "params.resourceLocations",
-          "data-icon": "bi bi-geo-alt"
+          "data-icon": "bi bi-geo-alt-fill"
         },
         {
           "label": "Department",
@@ -70,7 +71,7 @@
           "type": "multiselect",
           "display": true,
           "options": "params.customers",
-          "data-icon": "bi bi-person"
+          "data-icon": "bi bi-person-fill"
         },
         {
           "label": "Work Order Location",
@@ -78,7 +79,7 @@
           "type": "multiselect",
           "display": true,
           "options": "params.woLocations",
-          "data-icon": "bi bi-geo-alt"
+          "data-icon": "bi bi-geo-alt-fill"
         },
         {
           "label": "Work Order ID",
@@ -129,14 +130,15 @@
           "type": "multiselect",
           "display": true,
           "options": "[...params.resources.map(resource => ({ value: resource.id, text: resource.name })),...params.vendors.map(vendor => ({ value: vendor.id, text: vendor.name })),...params.assets.map(asset => ({ value: asset.id, text: asset.name }))]",
-          "data-icon": "bi bi-person"
+          "data-icon": "bi bi-person-fill"
         },
         {
           "label": "Resource Group",
           "className": "multiple-resource-group-field",
           "type": "multiselect",
           "display": true,
-          "options": "params.resourceGroups"
+          "options": "params.resourceGroups",
+          "data-icon": "bi bi-people-fill"
         },
         {
           "label": "Status",
@@ -196,7 +198,7 @@
           "type": "multiselect",
           "display": true,
           "options": "params.customers",
-          "data-icon": "bi bi-person"
+          "data-icon": "bi bi-person-fill"
         },
         {
           "label": "Work Order Location",
@@ -204,7 +206,7 @@
           "type": "multiselect",
           "display": true,
           "options": "params.woLocations",
-          "data-icon": "bi bi-geo-alt"
+          "data-icon": "bi bi-geo-alt-fill"
         },
         {
           "label": "Work Order ID",
@@ -255,14 +257,15 @@
           "type": "multiselect",
           "display": true,
           "options": "[...params.resources.map(resource => ({ value: resource.id, text: resource.name })),...params.vendors.map(vendor => ({ value: vendor.id, text: vendor.name })),...params.assets.map(asset => ({ value: asset.id, text: asset.name }))]",
-          "data-icon": "bi bi-person"
+          "data-icon": "bi bi-person-fill"
         },
         {
           "label": "Resource Group",
           "className": "multiple-resource-group-field",
           "type": "multiselect",
           "display": true,
-          "options": "params.resourceGroups"
+          "options": "params.resourceGroups",
+          "data-icon": "bi bi-people-fill"
         },
         {
           "label": "Status",
@@ -310,14 +313,15 @@
           "type": "multiselect",
           "display": true,
           "options": "[...params.resources.map(resource => ({ value: resource.id, text: resource.name })),...params.vendors.map(vendor => ({ value: vendor.id, text: vendor.name })),...params.assets.map(asset => ({ value: asset.id, text: asset.name }))]",
-          "data-icon": "bi bi-person"
+          "data-icon": "bi bi-person-fill"
         },
         {
           "label": "Resource Group",
           "className": "multiple-resource-group-field",
           "type": "multiselect",
           "display": true,
-          "options": "params.resourceGroups"
+          "options": "params.resourceGroups",
+          "data-icon": "bi bi-people-fill"
         },
         {
           "label": "Resource Skill",
@@ -355,14 +359,15 @@
           "type": "multiselect",
           "display": true,
           "options": "[...params.resources.map(resource => ({ value: resource.id, text: resource.name })),...params.vendors.map(vendor => ({ value: vendor.id, text: vendor.name })),...params.assets.map(asset => ({ value: asset.id, text: asset.name }))]",
-          "data-icon": "bi bi-person"
+          "data-icon": "bi bi-person-fill"
         },
         {
           "label": "Resource Group",
           "className": "multiple-resource-group-field",
           "type": "multiselect",
           "display": true,
-          "options": "params.resourceGroups"
+          "options": "params.resourceGroups",
+          "data-icon": "bi bi-people-fill"
         },
         {
           "label": "Resource Skill",

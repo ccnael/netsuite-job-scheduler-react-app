@@ -538,6 +538,14 @@ $(document).ready(() => {
       Event.validateResourcesOnLoad('#wo-primaryinfo', '#resources', eventId);
       Event.validateOnHeaderFieldChange('#wo-primaryinfo', '#resources', eventId, 'eventResource');
       Event.validateOnLineFieldChange('#wo-primaryinfo', '#resources', eventId);
+
+      /* Event.validateResourcesOnLoad('#wo-primaryinfo', '#vendors', eventId);
+      Event.validateOnHeaderFieldChange('#wo-primaryinfo', '#vendors', eventId, '');
+      Event.validateOnLineFieldChange('#wo-primaryinfo', '#vendors', eventId);
+
+      Event.validateResourcesOnLoad('#wo-primaryinfo', '#assets', eventId);
+      Event.validateOnHeaderFieldChange('#wo-primaryinfo', '#assets', eventId, '');
+      Event.validateOnLineFieldChange('#wo-primaryinfo', '#assets', eventId); */
     }, 250);
   });
 
@@ -625,8 +633,8 @@ $(document).ready(() => {
           if (id) {
             const foundObj = resourcesToUse.find(resource => resource.id == id);
             if (foundObj) {
-              const startTime = $(node).find('input.starttime-resource').val();
-              const endTime = $(node).find('input.endtime-resource').val();
+              const startTime = $(node).find('input.starttime-row').val();
+              const endTime = $(node).find('input.endtime-row').val();
               foundObj.time.start = startTime;
               foundObj.time.end = endTime;
             }

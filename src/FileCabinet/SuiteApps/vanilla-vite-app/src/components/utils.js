@@ -43,10 +43,11 @@ export function cacheTabSwitch() {
 
 export class Event {
   static validateResourcesOnLoad(tableId, resourceTblId, eventId) {
-    this.validateResourcesAvailability(tableId, resourceTblId, eventId);
+    resourceTblId.match(/resource/g) && this.validateResourcesAvailability(tableId, resourceTblId, eventId);
     // Initialize on page change
     const that = this;
     const table = $(resourceTblId).DataTable();
+
     table.on('draw', function () {
       that.validateResourcesAvailability(tableId, resourceTblId, eventId);
       const allDaySwitched = $('.alldayevent-switch').prop('checked');
@@ -57,7 +58,7 @@ export class Event {
   static validateOnHeaderFieldChange(tableId, resourceTblId, eventId, section) {
     const that = this;
     $(`${tableId} input.datefrom, ${tableId} input.dateto, ${tableId} input.starttime, ${tableId} input.endtime`).on('change', function () {
-      that.unMarkAvailableResource(section);
+      section && that.unMarkAvailableResource(section);
 
       if (!that.validateEventDateTime(this, tableId)) {
         return;
@@ -69,7 +70,7 @@ export class Event {
   static unMarkAvailableResource(section) {
     const modalId = filterFields[section].modalId;
     const el = $(`${modalId} .filter-fields .show-available-resource-field`);
-    el.prop('checked', false).change();
+    el && el.prop('checked', false).change();
   }
 
   static validateOnLineFieldChange(tableId, resourceTblId, eventId) {
@@ -81,10 +82,10 @@ export class Event {
         end: $(`${tableId} input.endtime`).val(),
       }
       // Copy header start/endto current line time fields
-      $(this).parent().parent().parent().find('input.starttime-resource').val(time.start);
-      $(this).parent().parent().parent().find('input.endtime-resource').val(time.end);
+      $(this).parent().parent().parent().find('input.starttime-row').val(time.start);
+      $(this).parent().parent().parent().find('input.endtime-row').val(time.end);
     });
-    $(`${resourceTblId} input.starttime-resource, ${resourceTblId} input.endtime-resource`).on('change', function () {
+    $(`${resourceTblId} input.starttime-row, ${resourceTblId} input.endtime-row`).on('change', function () {
       if (!that.validateResourceTime(this, tableId, resourceTblId)) {
         return;
       }
@@ -161,8 +162,8 @@ export class Event {
       end: $(`${tableId} input.endtime`).val(),
     }
     const resourceTime = {
-      start: $(`${resourceTblId} input.starttime-resource`).val(),
-      end: $(`${resourceTblId} input.endtime-resource`).val(),
+      start: $(`${resourceTblId} input.starttime-row`).val(),
+      end: $(`${resourceTblId} input.endtime-row`).val(),
     }
     if (!!resourceTime.start && moment(`1/1/1999 ${resourceTime.start}`).isBefore(moment(`1/1/1999 ${eventTime.start}`))) {
       Swal.fire(
@@ -207,14 +208,13 @@ export class Event {
   }
 
   static setAllDayResourceTime(selector) {
-    $(`${selector} .starttime-resource`).val('08:00');
-    $(`${selector} .endtime-resource`).val('18:00');
+    $(`${selector} .starttime-row`).val('08:00');
+    $(`${selector} .endtime-row`).val('18:00');
   }
 
-  static draggedResourceHasConflictEvent(eventData, resourceId) {
-    const eventId = eventData.id;
-    const start = moment(`${eventData.date.start} ${eventData.time.start}`);
-    const end = moment(`${eventData.date.end} ${eventData.time.end}`);
+  static draggedResourceHasConflictEvent(eventId, date, time, resourceId) {
+    const start = moment(`${date.start} ${time.start}`);
+    const end = moment(`${date.end} ${time.end}`);
     const resourceEvents = events.filter(event => event.resources.map(resource => resource.employee.value).includes(resourceId));
     const conflictEvents = resourceEvents.filter(event => {
       const eventStart = `${event.date.start} ${event.time.start}`;
@@ -295,6 +295,12 @@ export class Event {
           });
         }
       });
+  }
+
+  static updateResourceTime(payload, modalId, eventInfo) {
+    console.log('----- [updateEventRecord() -> PAYLOAD] -----', { payload, eventInfo: eventInfo || '' });
+    alert('Update In Progress...');
+    eventInfo.revert();
   }
 
   static updateEventRecord(payload, modalId, eventInfo) {

@@ -371,7 +371,7 @@ export default class Board {
             let foundObj, allowEvent = false;
             if (resourceType == 'employee') {
               foundObj = eventData.resources.find(resource => resource.employee.value == resourceId);
-              const hasConflict = Event.draggedResourceHasConflictEvent(eventData, resourceId);
+              const hasConflict = Event.draggedResourceHasConflictEvent(eventData.id, eventData.date, eventData.time, resourceId);
               allowEvent = !foundObj && !hasConflict;
             } else if (resourceType == 'vendor') {
               foundObj = eventData.vendors.find(vendor => vendor.vendor.value == resourceId);
@@ -397,7 +397,7 @@ export default class Board {
           let foundObj, allowResource = false;
           if (dataTransfer.type == 'employee') {
             foundObj = eventData.resources.find(resource => resource.employee.value == dataTransfer.id);
-            const hasConflict = Event.draggedResourceHasConflictEvent(eventData, dataTransfer.id);
+            const hasConflict = Event.draggedResourceHasConflictEvent(eventData.id, eventData.date, eventData.time, dataTransfer.id);
             allowResource = !foundObj && !hasConflict;
           } else if (dataTransfer.type == 'vendor') {
             foundObj = eventData.vendors.find(vendor => vendor.vendor.value == dataTransfer.id);

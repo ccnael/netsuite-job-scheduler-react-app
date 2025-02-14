@@ -42,13 +42,13 @@ export const resourcesDtColumns = [
   },
   {
     className: 'dt-head-center',
-    render: (_data, _type, row, _meta) => `<input type="time" class="form-control starttime-resource" value="${row?.time?.start}" required>`,
+    render: (_data, _type, row, _meta) => `<input type="time" class="form-control starttime-row" value="${row?.time?.start}" required>`,
     title: 'Start Time <span class="required"></span>',
     orderable: false
   },
   {
     className: 'dt-head-center',
-    render: (_data, _type, row, _meta) => `<input type="time" class="form-control endtime-resource" value="${row?.time?.end}" required>`,
+    render: (_data, _type, row, _meta) => `<input type="time" class="form-control endtime-row" value="${row?.time?.end}" required>`,
     title: 'End Time <span class="required"></span>',
     orderable: false
   }
@@ -80,7 +80,19 @@ export const vendorsDtColumns = [
     className: 'dt-head-center dt-body-center',
     render: (_data, _type, row, _meta) => `<textarea class="form-control note" rows="3">${row.memo}</textarea>`,
     title: 'Comments'
-  }
+  },
+  /* {
+    className: 'dt-head-center',
+    render: (_data, _type, row, _meta) => `<input type="time" class="form-control starttime-row" value="${row?.time?.start}" required>`,
+    title: 'Start Time <span class="required"></span>',
+    orderable: false
+  },
+  {
+    className: 'dt-head-center',
+    render: (_data, _type, row, _meta) => `<input type="time" class="form-control endtime-row" value="${row?.time?.end}" required>`,
+    title: 'End Time <span class="required"></span>',
+    orderable: false
+  } */
 ];
 
 export const assetsDtColumns = [
@@ -114,7 +126,19 @@ export const assetsDtColumns = [
     className: 'dt-head-center dt-body-center',
     render: (_data, _type, row, _meta) => `<input type="number" class="quantity" value="${row?.quantity || 0}" min="0" required />`,
     title: 'Quantity'
-  }
+  },
+  /* {
+    className: 'dt-head-center',
+    render: (_data, _type, row, _meta) => `<input type="time" class="form-control starttime-row" value="${row?.time?.start}" required>`,
+    title: 'Start Time <span class="required"></span>',
+    orderable: false
+  },
+  {
+    className: 'dt-head-center',
+    render: (_data, _type, row, _meta) => `<input type="time" class="form-control endtime-row" value="${row?.time?.end}" required>`,
+    title: 'End Time <span class="required"></span>',
+    orderable: false
+  } */
 ];
 
 export const itemsDtColumns = [

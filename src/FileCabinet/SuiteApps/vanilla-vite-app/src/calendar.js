@@ -106,7 +106,41 @@ export default class Calendar {
     });
     // Remap calendar events data
     // -----------------------------------------------------------------
-    let calendarEvents = dataSet.events.map(event => {
+    let calendarEvents = [];
+    dataSet.events.map(event => {
+      event.resources.forEach(resource => {
+        resource.resourceGroups.forEach(resourceGroup => {
+          const map = {};
+          map.id = event.id;
+          map.title = event.title;
+          map.start = `${event.date.start}T${resource.time.start}`;
+          map.end = `${event.date.end}T${resource.time.end}`;
+          map.url = event.url;
+          map.className = 'event-class-style-name';
+
+          switch (event.status.value) {
+            case 'TENTATIVE':
+              map.className += ' tentative';
+              break;
+            case 'CONFIRMED':
+              map.className += ' confirmed';
+              break;
+            case 'COMPLETED':
+              map.className += ' confirmed';
+              break;
+          }
+          map.resourceIds = [`${resourceGroup.value}-${resource.employee.value}`];
+          map.extendedProps = deepCopy(event);
+          map.extendedProps.hasOwnTime = true;
+          map.extendedProps.elementId = `${resourceGroup.value}-${resource.employee.value}`;
+          map.extendedProps.woResourceId = resource.id;
+          calendarEvents.push(map);
+        });
+      });
+    });
+
+    // Vendor, Assets etc events
+    const otherResourceEvents = dataSet.events.map(event => {
       const map = {};
       map.id = event.id;
       map.title = event.title;
@@ -130,18 +164,13 @@ export default class Calendar {
       map.resourceIds = [...map.resourceIds, ...event.vendors.map(vendor => `vendor-${vendor.vendor.value}`)];
       map.resourceIds = [...map.resourceIds, ...event.assets.map(asset => `asset-${asset.item.value}`)];
 
-      event.resources.forEach(resource => {
-        resource.resourceGroups.forEach(resourceGroup => {
-          map.resourceIds.push(`${resourceGroup.value}-${resource.employee.value}`);
-        });
-      });
       if (!map.resourceIds.length) {
         map.resourceIds = ['z-unassigned'];
       }
       map.extendedProps = deepCopy(event);
       return map;
     });
-
+    calendarEvents = [...calendarEvents, ...otherResourceEvents];
     calendarEvents = calendarEvents.filter(event => !!(event.resourceIds.length));
     // Instantiate draggable external events
     // -----------------------------------------------------------------
@@ -299,21 +328,24 @@ export default class Calendar {
       // Moving events to change dates (Updates start and end date)
       // -----------------------------------------------------------------
       eventDrop: info => {
-        console.log('eventDrop triggered.');
+        console.log('eventDrop triggered.', info);
         info.action = 'eventDrop';
-        this._confirmUpdateEvent(info);
-      },
-      // Doesnt even work
-      eventDragStop: info => {
-        console.log('eventDragStop triggered.');
-        this._removeToolTip();
+        if (info.event.extendedProps?.hasOwnTime) {
+          this._confirmUpdateResourceTime(info);
+        } else {
+          this._confirmUpdateEvent(info);
+        }
       },
       // Updates start and end time and day
       // -----------------------------------------------------------------
       eventResize: info => {
-        console.log('eventResize triggered.');
+        console.log('eventResize triggered.', info);
         info.action = 'eventResize';
-        this._confirmUpdateEvent(info);
+        if (info.event.extendedProps?.hasOwnTime) {
+          this._confirmUpdateResourceTime(info);
+        } else {
+          this._confirmUpdateEvent(info);
+        }
       },
       // Ex. Dropping external events/jobs
       // -----------------------------------------------------------------
@@ -325,7 +357,7 @@ export default class Calendar {
       // Disable event drop on Groups
       eventAllow: (dropInfo, draggedEvent) => {
         console.log('eventAllow triggered.');
-        return !((dropInfo.resource.extendedProps.resourceCount));
+        return !dropInfo.resource.extendedProps.resourceCount;
       },
       windowResize: arg => {
         console.log('The calendar has adjusted to a window resize. Current view: ' + arg.view.type);
@@ -437,6 +469,47 @@ export default class Calendar {
     info.revert();
   }
 
+  static _confirmUpdateResourceTime(info) {
+    this._removeToolTip();
+
+    const payload = {};
+    const eventData = deepCopy(info.event.extendedProps);
+    // console.log('TEST', info);
+    payload.id = eventData.woResourceId;
+    const startSplit = moment(info.event.startStr).format('YYYY-MM-DDTHH:mm').split('T');
+    const endSplit = moment(info.event.endStr).format('YYYY-MM-DDTHH:mm').split('T');
+    payload.date = {
+      start: startSplit[0],
+      end: endSplit[0]
+    }
+    payload.time = {
+      start: startSplit[1],
+      end: endSplit[1]
+    }
+    const calEvents = window.FullCalendar.getEvents();
+    if (calEvents.length) {
+      const calEvent = calEvents.find(event => event.id == info.event.id);
+      if (calEvent) {
+        const elementId = eventData.elementId;
+        const resourceId = elementId.split('-').pop();
+        const hasConflict = Event.draggedResourceHasConflictEvent(eventData.id, payload.date, payload.time, resourceId);
+        const allowEvent = !hasConflict;
+
+        if (allowEvent) {
+          // console.log('----- [Updated Event Details] -----', payload, info);
+          Event.updateResourceTime(payload, 'eventModal', info);
+        } else {
+          Swal.fire(
+            'Notice',
+            `Unable to proceed due to conflict event`,
+            'error'
+          );
+          info.revert();
+        }
+      }
+    }
+  }
+
   static _confirmUpdateEvent(info) {
     this._removeToolTip();
 
@@ -445,17 +518,24 @@ export default class Calendar {
     // console.log('payload.eventData', payload.eventData)
     payload.eventDataSrc = dataSet.events.find(event => event.id == payload.eventData.id) || {};
     const startSplit = moment(info.event.startStr).format('YYYY-MM-DDTHH:mm').split('T');
-    payload.eventData.date.start = startSplit[0];
-    payload.eventData.time.start = startSplit[1];
     const endSplit = moment(info.event.endStr).format('YYYY-MM-DDTHH:mm').split('T');
-    payload.eventData.date.end = endSplit[0];
-    payload.eventData.time.end = endSplit[1];
+    const date = {
+      start: startSplit[0],
+      end: endSplit[0]
+    }
+    const time = {
+      start: startSplit[1],
+      end: endSplit[1]
+    }
+    payload.eventData.date.start = date.start;
+    payload.eventData.date.end = date.end;
+    payload.eventData.time.start = time.start;
+    payload.eventData.time.end = time.end;
+
     payload.eventData.priority = payload.eventData.priority.value;
     payload.eventData.status = payload.eventData.status.value;
 
-    if (info.action == 'eventDrop') {
-      console.log('Event Drop info', info);
-
+    if (info.action === 'eventDrop') {
       const calEvents = window.FullCalendar.getEvents();
       if (calEvents.length) {
         const calEvent = calEvents.find(event => event.id == info.event.id);
@@ -485,14 +565,21 @@ export default class Calendar {
 
             if (resourceType === 'employee') {
               foundObj = payload.eventData.resources.find(resource => resource.employee.value == resourceId);
-              const hasConflict = Event.draggedResourceHasConflictEvent(payload.eventData, resourceId);
+              const hasConflict = Event.draggedResourceHasConflictEvent(payload.eventData.id, date, time, resourceId);
               allowEvent = !foundObj && !hasConflict;
-            } else if (resourceType === 'vendor') {
-              foundObj = payload.eventData.vendors.find(vendor => vendor.vendor.value == resourceId);
-              allowEvent = !foundObj;
-            } else if (resourceType === 'asset') {
-              foundObj = payload.eventData.assets.find(asset => asset.item.value == resourceId);
-              allowEvent = !foundObj;
+            } else {
+              payload.eventData.date.start = date.start;
+              payload.eventData.date.end = date.end;
+              payload.eventData.time.start = time.start;
+              payload.eventData.time.end = time.end;
+
+              if (resourceType === 'vendor') {
+                foundObj = payload.eventData.vendors.find(vendor => vendor.vendor.value == resourceId);
+                allowEvent = !foundObj;
+              } else if (resourceType === 'asset') {
+                foundObj = payload.eventData.assets.find(asset => asset.item.value == resourceId);
+                allowEvent = !foundObj;
+              }
             }
 
             if (allowEvent) {
@@ -506,6 +593,7 @@ export default class Calendar {
                   foundObj = payload.eventData.resources.find(eventResource => eventResource.employee.value == id);
                   if (foundObj) {
                     resource = deepCopy(foundObj);
+                    // resource.time = time;
                   }
                   return resource;
                 });
@@ -588,10 +676,8 @@ export default class Calendar {
   }
 
   static _initToolTip(info) {
-    const event = info.event.extendedProps;
-    new bootstrap.Tooltip(info.el, {
-      html: true,
-      title: `
+    const eventData = info.event.extendedProps;
+    /* title: `
         <strong>${event.title}</strong><br>
         ID ${event.id}<br/>
         ${event.workorder.text}<br/>
@@ -602,6 +688,15 @@ export default class Calendar {
         ${event.resources.map((resource, counter) => `${+counter + 1}. ${resource.employee.text}`).join('<br/>')}<br/>
         ${event.vendors.map((vendor, counter) => `${event.resources.length + counter + 1}. ${vendor.vendor.text || vendor.name}`).join('<br/>')}<br/>
         ${event.assets.map((asset, counter) => `${event.resources.length + event.vendors.length + counter + 1}. ${asset.item.text || asset.name}`).join('<br/>')}
+        `, */
+    new bootstrap.Tooltip(info.el, {
+      html: true,
+      title: `
+        <strong>${eventData.title}</strong><br>
+        ID ${eventData.id}<br/>
+        ${eventData.workorder.text}<br/>
+        ${eventData.date.start == eventData.date.end ? moment(eventData.date.start).format('M/D/YYYY') : `${moment(eventData.date.start).format('M/D/YYYY')} - ${moment(eventData.date.end).format('M/D/YYYY')}`}<br/>
+        ${moment(info.event.start).format('h:mm a')} - ${moment(info.event.end).format('h:mm a')}
         `,
       placement: 'left'
     });

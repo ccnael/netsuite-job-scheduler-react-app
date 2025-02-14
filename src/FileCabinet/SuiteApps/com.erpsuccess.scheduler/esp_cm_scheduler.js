@@ -263,6 +263,10 @@ define([
             department: {
               text: '',
               value: ''
+            },
+            time: {
+              start: '',
+              end: ''
             }
           });
           return true;
@@ -332,6 +336,10 @@ define([
             department: {
               text: result.getText('department'),
               value: result.getValue('department')
+            },
+            time: {
+              start: '',
+              end: ''
             }
           });
           return true;
@@ -976,6 +984,15 @@ define([
         clonedEventObj.selectedResources = newResources;
         this._createResources(clonedEventObj, woRef);
       }
+
+      // TBD
+      static _updateResourceTime(resource, event) {
+        try {
+
+        } catch (e) {
+          log.error('Error on WO Resource > Update', { resource, errorMsg: e.message });
+        }
+      }
     }
 
     class WorkOrderVendor {
@@ -1055,7 +1072,11 @@ define([
             amount: +result.getValue('custrecord_esp_fop_wo_sub_amount'),
             active: !!result.getValue(result.columns[6]),
             woVendor: true,
-            memo: result.getValue('custrecord_esp_fop_wo_sub_comment') || ''
+            memo: result.getValue('custrecord_esp_fop_wo_sub_comment') || '',
+            time: {
+              start: '',
+              end: ''
+            }
           });
           return true;
         });
@@ -1211,7 +1232,11 @@ define([
               value: result.getValue('custrecord_esp_fop_ast_primary_vendor'),
             },
             owned: result.getValue('custrecord_esp_fop_ast_is_owned'),
-            rentalMatrix: +result.getValue('custrecord_esp_fop_ast_rental_mtrx')
+            rentalMatrix: +result.getValue('custrecord_esp_fop_ast_rental_mtrx'),
+            time: {
+              start: '',
+              end: ''
+            }
           });
           return true;
         });

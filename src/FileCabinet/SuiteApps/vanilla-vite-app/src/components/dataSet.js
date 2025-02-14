@@ -38,5 +38,5 @@ export const combinedResourceGroups = [
     value: 'asset',
     resources: assets,
     resourceCount: assets.length,
-  },
+  }
 ];

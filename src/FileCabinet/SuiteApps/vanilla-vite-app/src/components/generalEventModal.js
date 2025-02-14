@@ -301,6 +301,14 @@ $(document).ready(() => {
       Event.validateResourcesOnLoad('#wo-primaryinfo-ge', '#resources_ge', eventId);
       Event.validateOnHeaderFieldChange('#wo-primaryinfo-ge', '#resources_ge', eventId, 'generalEventResource');
       Event.validateOnLineFieldChange('#wo-primaryinfo-ge', '#resources_ge', eventId);
+
+      /* Event.validateResourcesOnLoad('#wo-primaryinfo-ge', '#vendors_ge', eventId);
+      Event.validateOnHeaderFieldChange('#wo-primaryinfo-ge', '#vendors_ge', eventId, '');
+      Event.validateOnLineFieldChange('#wo-primaryinfo-ge', '#vendors_ge', eventId);
+
+      Event.validateResourcesOnLoad('#wo-primaryinfo-ge', '#assets_ge', eventId);
+      Event.validateOnHeaderFieldChange('#wo-primaryinfo-ge', '#assets_ge', eventId, '');
+      Event.validateOnLineFieldChange('#wo-primaryinfo-ge', '#assets_ge', eventId); */
     }, 250);
   });
 
@@ -370,8 +378,8 @@ $(document).ready(() => {
           if (id) {
             const foundObj = resourcesToUse.find(resource => resource.id == id);
             if (foundObj) {
-              const startTime = $(node).find('input.starttime-resource').val();
-              const endTime = $(node).find('input.endtime-resource').val();
+              const startTime = $(node).find('input.starttime-row').val();
+              const endTime = $(node).find('input.endtime-row').val();
               foundObj.time.start = startTime;
               foundObj.time.end = endTime;
             }

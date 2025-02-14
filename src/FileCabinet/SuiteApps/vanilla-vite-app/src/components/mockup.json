@@ -34,9 +34,128 @@
     },
     "priority": "",
     "resources": [],
-    "vendors": [],
-    "assets": [],
+    "vendors": [{
+      "id": "198",
+      "name": "Best Fixture, Inc.",
+      "vendor": {
+        "text": "Best Fixture, Inc.",
+        "value": "12"
+      },
+      "url": "",
+      "email": "",
+      "initials": "BF",
+      "workorder": {
+        "text": "Creation of New Work Order",
+        "value": "135"
+      },
+      "event": "101095",
+      "quantityRequired": 3,
+      "quantityAvailable": 0,
+      "purchaseOrder": {
+        "text": " ",
+        "value": ""
+      },
+      "amount": 0,
+      "active": false,
+      "woVendor": true,
+      "memo": "AAA\nBBB",
+      "time": {
+        "start": "",
+        "end": ""
+      }
+    }, {
+      "id": "199",
+      "name": "Bridgepoint Industries",
+      "vendor": {
+        "text": "Bridgepoint Industries",
+        "value": "1473"
+      },
+      "url": "http://www.bridgepointindustries.com.de",
+      "email": "support@bridgempointindustries.com.de",
+      "initials": "BI",
+      "workorder": {
+        "text": "Creation of New Work Order",
+        "value": "135"
+      },
+      "event": "101095",
+      "quantityRequired": 5,
+      "quantityAvailable": 20,
+      "purchaseOrder": {
+        "text": " ",
+        "value": ""
+      },
+      "amount": 0,
+      "active": true,
+      "woVendor": true,
+      "memo": "CCC\nDDD",
+      "time": {
+        "start": "",
+        "end": ""
+      }
+    }],
+    "assets": [{
+      "id": "135",
+      "name": "ELE00002",
+      "workorder": {
+        "text": "Creation of New Work Order",
+        "value": "135"
+      },
+      "event": "101095",
+      "quantity": 5,
+      "description": "",
+      "item": {
+        "text": "ELE00002",
+        "value": "674"
+      },
+      "equipmentType": {
+        "text": "Hand Tools",
+        "value": "1"
+      },
+      "rentalUnit": {
+        "text": "",
+        "value": ""
+      },
+      "rentalDuration": 0,
+      "rentalRate": 0,
+      "rentalAmount": 0,
+      "purchaseOrder": {
+        "text": " ",
+        "value": " "
+      },
+      "vendor": {
+        "text": "Computer Depot Pacific",
+        "value": "965"
+      },
+      "owned": false,
+      "rentalMatrix": 0,
+      "time": {
+        "start": "",
+        "end": ""
+      }
+    }],
     "items": [{
+      "id": "604",
+      "workorder": {
+        "text": "Creation of New Work Order",
+        "value": "135"
+      },
+      "salesorder": {
+        "text": "Sales Order #SLS00000811",
+        "value": "22902"
+      },
+      "event": "101095",
+      "uuid": "22902_4",
+      "line": "4",
+      "item": {
+        "text": "BIC00008",
+        "value": "467"
+      },
+      "description": "Technology Table",
+      "quantity": 10,
+      "availableQty": 10,
+      "note": "",
+      "quantityReceived": 19
+    }, {
       "id": "601",
       "workorder": {
         "text": "Creation of New Work Order",
@@ -69,7 +188,7 @@
         "text": "World Bank",
         "value": "1249"
       },
-      "events": [],
+      "events": ["101095"],
       "address": {
         "text": "434 Carlaw",
         "value": "244878"
@@ -96,8 +215,77 @@
       "phone": "",
       "primary": false,
       "url": "/app/common/entity/contact.nl?id=2060&compid=TSTDRV2617106"
+    }, {
+      "id": "197",
+      "workorder": {
+        "text": "Creation of New Work Order",
+        "value": "135"
+      },
+      "events": ["101095"],
+      "event": "101095",
+      "contact": {
+        "text": "World Bank : Brad Pitt",
+        "value": "2060"
+      },
+      "name": "Brad Pitt",
+      "email": "bpitt@email.com",
+      "jobTitle": "Designer",
+      "mobilePhone": "",
+      "phone": "",
+      "primary": false,
+      "url": "/app/common/entity/contact.nl?id=2060&compid=TSTDRV2617106"
     }],
-    "events": [],
+    "events": [{
+      "id": "101095",
+      "title": "Creation of New Work Order",
+      "workorder": {
+        "text": "Creation of New Work Order",
+        "value": "135"
+      },
+      "location": "",
+      "status": {
+        "text": "Tentative",
+        "value": "TENTATIVE",
+        "code": "bg-secondary"
+      },
+      "date": {
+        "recurrence": "one time event on 2/16/2025",
+        "dates": ["2/16/2025"],
+        "start": "2025-02-16",
+        "end": "2025-02-16"
+      },
+      "time": {
+        "start": "04:00",
+        "end": "08:00"
+      },
+      "priority": {
+        "text": "Low",
+        "value": "1",
+        "code": "#026adf"
+      },
+      "note": "123\n456",
+      "url": "/app/crm/calendar/event.nl?id=101095&compid=TSTDRV2617106&selectedtab=custom337",
+      "color": "#1a6756",
+      "woRef": {},
+      "resources": [],
+      "vendors": [],
+      "assets": [],
+      "items": [],
+      "contacts": [],
+      "addresses": [],
+      "contact": {
+        "text": "",
+        "value": ""
+      },
+      "address": {
+        "text": "219",
+        "value": "219"
+      },
+      "organizer": {
+        "text": "Lean  cendana",
+        "value": "1765"
+      }
+    }],
     "projectUrl": "/app/accounting/project/project.nl?id=1515&compid=TSTDRV2617106",
     "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=135&compid=TSTDRV2617106",
     "soUrl": "/app/accounting/transactions/salesord.nl?id=22902&compid=TSTDRV2617106",
@@ -580,7 +768,11 @@
       "amount": 0,
       "active": false,
       "woVendor": true,
-      "memo": "test"
+      "memo": "test",
+      "time": {
+        "start": "",
+        "end": ""
+      }
     }],
     "assets": [{
       "id": "132",
@@ -591,7 +783,7 @@
       },
       "event": "101087",
       "quantity": 1,
-      "description": "Serialized 1 Sales Description",
+      "description": "",
       "item": {
         "text": "ELE00002",
         "value": "674"
@@ -615,8 +807,12 @@
         "text": "Computer Depot Pacific",
         "value": "965"
       },
-      "owned": true,
-      "rentalMatrix": 0
+      "owned": false,
+      "rentalMatrix": 0,
+      "time": {
+        "start": "",
+        "end": ""
+      }
     }],
     "items": [{
       "id": "599",
@@ -1836,7 +2032,7 @@
       "description": "Head Master Chair",
       "quantity": 3,
       "availableQty": 3,
-      "note": "",
+      "note": "Test",
       "quantityReceived": 19
     }, {
       "id": "580",
@@ -1858,7 +2054,7 @@
       "description": "Diana Chair",
       "quantity": 5,
       "availableQty": 5,
-      "note": "",
+      "note": "Test",
       "quantityReceived": 19
     }, {
       "id": "577",
@@ -2215,7 +2411,11 @@
       "amount": 0,
       "active": false,
       "woVendor": true,
-      "memo": ""
+      "memo": "",
+      "time": {
+        "start": "",
+        "end": ""
+      }
     }, {
       "id": "190",
       "name": "190",
@@ -2240,7 +2440,11 @@
       "amount": 0,
       "active": false,
       "woVendor": true,
-      "memo": ""
+      "memo": "",
+      "time": {
+        "start": "",
+        "end": ""
+      }
     }, {
       "id": "191",
       "name": "191",
@@ -2265,7 +2469,11 @@
       "amount": 0,
       "active": false,
       "woVendor": true,
-      "memo": ""
+      "memo": "",
+      "time": {
+        "start": "",
+        "end": ""
+      }
     }, {
       "id": "192",
       "name": "192",
@@ -2290,7 +2498,11 @@
       "amount": 0,
       "active": false,
       "woVendor": true,
-      "memo": ""
+      "memo": "",
+      "time": {
+        "start": "",
+        "end": ""
+      }
     }, {
       "id": "193",
       "name": "193",
@@ -2315,7 +2527,11 @@
       "amount": 0,
       "active": true,
       "woVendor": true,
-      "memo": ""
+      "memo": "",
+      "time": {
+        "start": "",
+        "end": ""
+      }
     }, {
       "id": "194",
       "name": "Best Fixture, Inc.",
@@ -2340,7 +2556,11 @@
       "amount": 0,
       "active": false,
       "woVendor": true,
-      "memo": ""
+      "memo": "",
+      "time": {
+        "start": "",
+        "end": ""
+      }
     }, {
       "id": "188",
       "name": "Best Fixture, Inc.",
@@ -2365,7 +2585,11 @@
       "amount": 0,
       "active": false,
       "woVendor": true,
-      "memo": ""
+      "memo": "",
+      "time": {
+        "start": "",
+        "end": ""
+      }
     }],
     "assets": [{
       "id": "123",
@@ -2376,7 +2600,7 @@
       },
       "event": "101062",
       "quantity": 4,
-      "description": "Serialized 1 Sales Description",
+      "description": "",
       "item": {
         "text": "ELE00002",
         "value": "674"
@@ -2400,8 +2624,12 @@
         "text": "Computer Depot Pacific",
         "value": "965"
       },
-      "owned": true,
-      "rentalMatrix": 0
+      "owned": false,
+      "rentalMatrix": 0,
+      "time": {
+        "start": "",
+        "end": ""
+      }
     }, {
       "id": "124",
       "name": "ELE00002",
@@ -2411,7 +2639,7 @@
       },
       "event": "101077",
       "quantity": 5,
-      "description": "Serialized 1 Sales Description",
+      "description": "",
       "item": {
         "text": "ELE00002",
         "value": "674"
@@ -2435,8 +2663,12 @@
         "text": "Computer Depot Pacific",
         "value": "965"
       },
-      "owned": true,
-      "rentalMatrix": 0
+      "owned": false,
+      "rentalMatrix": 0,
+      "time": {
+        "start": "",
+        "end": ""
+      }
     }, {
       "id": "125",
       "name": "ELE00002",
@@ -2446,7 +2678,7 @@
       },
       "event": "101078",
       "quantity": 4,
-      "description": "Serialized 1 Sales Description",
+      "description": "",
       "item": {
         "text": "ELE00002",
         "value": "674"
@@ -2470,8 +2702,12 @@
         "text": "Computer Depot Pacific",
         "value": "965"
       },
-      "owned": true,
-      "rentalMatrix": 0
+      "owned": false,
+      "rentalMatrix": 0,
+      "time": {
+        "start": "",
+        "end": ""
+      }
     }, {
       "id": "126",
       "name": "ELE00002",
@@ -2481,7 +2717,7 @@
       },
       "event": "101079",
       "quantity": 5,
-      "description": "Serialized 1 Sales Description",
+      "description": "",
       "item": {
         "text": "ELE00002",
         "value": "674"
@@ -2505,8 +2741,12 @@
         "text": "Computer Depot Pacific",
         "value": "965"
       },
-      "owned": true,
-      "rentalMatrix": 0
+      "owned": false,
+      "rentalMatrix": 0,
+      "time": {
+        "start": "",
+        "end": ""
+      }
     }, {
       "id": "127",
       "name": "ELE00002",
@@ -2516,7 +2756,7 @@
       },
       "event": "101081",
       "quantity": 0,
-      "description": "Serialized 1 Sales Description",
+      "description": "",
       "item": {
         "text": "ELE00002",
         "value": "674"
@@ -2540,8 +2780,12 @@
         "text": "Computer Depot Pacific",
         "value": "965"
       },
-      "owned": true,
-      "rentalMatrix": 0
+      "owned": false,
+      "rentalMatrix": 0,
+      "time": {
+        "start": "",
+        "end": ""
+      }
     }, {
       "id": "128",
       "name": "ELE00002",
@@ -2551,7 +2795,7 @@
       },
       "event": "101082",
       "quantity": 100,
-      "description": "Serialized 1 Sales Description",
+      "description": "",
       "item": {
         "text": "ELE00002",
         "value": "674"
@@ -2575,8 +2819,12 @@
         "text": "Computer Depot Pacific",
         "value": "965"
       },
-      "owned": true,
-      "rentalMatrix": 0
+      "owned": false,
+      "rentalMatrix": 0,
+      "time": {
+        "start": "",
+        "end": ""
+      }
     }, {
       "id": "129",
       "name": "ELE00002",
@@ -2586,7 +2834,7 @@
       },
       "event": "101083",
       "quantity": 20,
-      "description": "Serialized 1 Sales Description",
+      "description": "",
       "item": {
         "text": "ELE00002",
         "value": "674"
@@ -2610,8 +2858,12 @@
         "text": "Computer Depot Pacific",
         "value": "965"
       },
-      "owned": true,
-      "rentalMatrix": 0
+      "owned": false,
+      "rentalMatrix": 0,
+      "time": {
+        "start": "",
+        "end": ""
+      }
     }, {
       "id": "130",
       "name": "ELE00002",
@@ -2621,7 +2873,7 @@
       },
       "event": "101084",
       "quantity": 0,
-      "description": "Serialized 1 Sales Description",
+      "description": "",
       "item": {
         "text": "ELE00002",
         "value": "674"
@@ -2645,8 +2897,12 @@
         "text": "Computer Depot Pacific",
         "value": "965"
       },
-      "owned": true,
-      "rentalMatrix": 0
+      "owned": false,
+      "rentalMatrix": 0,
+      "time": {
+        "start": "",
+        "end": ""
+      }
     }, {
       "id": "131",
       "name": "ELE00002",
@@ -2656,7 +2912,7 @@
       },
       "event": "101080",
       "quantity": 5,
-      "description": "Serialized 1 Sales Description",
+      "description": "",
       "item": {
         "text": "ELE00002",
         "value": "674"
@@ -2680,8 +2936,12 @@
         "text": "Computer Depot Pacific",
         "value": "965"
       },
-      "owned": true,
-      "rentalMatrix": 0
+      "owned": false,
+      "rentalMatrix": 0,
+      "time": {
+        "start": "",
+        "end": ""
+      }
     }],
     "items": [{
       "id": "558",
@@ -4012,7 +4272,11 @@
       "amount": 0,
       "active": false,
       "woVendor": true,
-      "memo": ""
+      "memo": "",
+      "time": {
+        "start": "",
+        "end": ""
+      }
     }],
     "assets": [],
     "items": [{
@@ -4705,7 +4969,11 @@
       "amount": 0,
       "active": false,
       "woVendor": true,
-      "memo": ""
+      "memo": "",
+      "time": {
+        "start": "",
+        "end": ""
+      }
     }, {
       "id": "183",
       "name": "CFI Furniture Inc.",
@@ -4730,7 +4998,11 @@
       "amount": 0,
       "active": false,
       "woVendor": true,
-      "memo": ""
+      "memo": "",
+      "time": {
+        "start": "",
+        "end": ""
+      }
     }],
     "assets": [],
     "items": [{
@@ -5285,7 +5557,11 @@
       "amount": 0,
       "active": false,
       "woVendor": true,
-      "memo": "TEST\n111"
+      "memo": "TEST\n111",
+      "time": {
+        "start": "",
+        "end": ""
+      }
     }],
     "assets": [],
     "items": [{
@@ -7543,7 +7819,11 @@
       "amount": 0,
       "active": false,
       "woVendor": true,
-      "memo": ""
+      "memo": "",
+      "time": {
+        "start": "",
+        "end": ""
+      }
     }],
     "assets": [],
     "items": [{
@@ -8018,7 +8298,7 @@
       },
       "event": "101041",
       "quantity": 1,
-      "description": "Serialized 1 Sales Description",
+      "description": "",
       "item": {
         "text": "ELE00002",
         "value": "674"
@@ -8042,8 +8322,12 @@
         "text": "Computer Depot Pacific",
         "value": "965"
       },
-      "owned": true,
-      "rentalMatrix": 0
+      "owned": false,
+      "rentalMatrix": 0,
+      "time": {
+        "start": "",
+        "end": ""
+      }
     }],
     "items": [{
       "id": "462",
@@ -8392,7 +8676,11 @@
       "amount": 0,
       "active": false,
       "woVendor": true,
-      "memo": ""
+      "memo": "",
+      "time": {
+        "start": "",
+        "end": ""
+      }
     }],
     "assets": [],
     "items": [{
@@ -9311,7 +9599,11 @@
       "amount": 0,
       "active": false,
       "woVendor": true,
-      "memo": ""
+      "memo": "",
+      "time": {
+        "start": "",
+        "end": ""
+      }
     }],
     "assets": [{
       "id": "122",
@@ -9322,7 +9614,7 @@
       },
       "event": "101037",
       "quantity": 8,
-      "description": "Serialized 1 Sales Description",
+      "description": "",
       "item": {
         "text": "ELE00002",
         "value": "674"
@@ -9346,8 +9638,12 @@
         "text": "Computer Depot Pacific",
         "value": "965"
       },
-      "owned": true,
-      "rentalMatrix": 0
+      "owned": false,
+      "rentalMatrix": 0,
+      "time": {
+        "start": "",
+        "end": ""
+      }
     }],
     "items": [{
       "id": "432",
@@ -11867,7 +12163,7 @@
       "value": "3"
     },
     "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1312%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-    "events": ["101083"],
+    "events": ["101095", "101083"],
     "labRates": [],
     "time": {
       "start": "",
@@ -11922,7 +12218,7 @@
       "value": "3"
     },
     "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1292%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-    "events": ["101082"],
+    "events": ["101095", "101082"],
     "labRates": [],
     "time": {
       "start": "",
@@ -12927,7 +13223,7 @@
         "value": "3"
       },
       "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1312%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-      "events": ["101083"],
+      "events": ["101095", "101083"],
       "labRates": [],
       "time": {
         "start": "",
@@ -12982,7 +13278,7 @@
         "value": "3"
       },
       "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1292%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-      "events": ["101082"],
+      "events": ["101095", "101082"],
       "labRates": [],
       "time": {
         "start": "",
@@ -28804,6 +29100,108 @@
       "text": "",
       "value": ""
     }
+  }, {
+    "id": "397",
+    "name": "Gary Grant",
+    "initials": "GG",
+    "email": "garygrant@ramsey.com",
+    "phone": "(873) 775-6114",
+    "location": {
+      "text": "02: Boston",
+      "value": "1"
+    },
+    "active": true,
+    "workorder": {
+      "text": "Creation of New Work Order",
+      "value": "135"
+    },
+    "events": ["101095"],
+    "employee": {
+      "text": "Gary Grant",
+      "value": "1312"
+    },
+    "resourceGroups": [{
+      "text": "Installers",
+      "value": "1"
+    }],
+    "types": [{
+      "text": "Installer",
+      "value": "1"
+    }],
+    "subTypes": [],
+    "rate": 30,
+    "vendor": {
+      "text": "",
+      "value": ""
+    },
+    "purchaseOrder": {
+      "text": " ",
+      "value": ""
+    },
+    "affiliationType": {
+      "text": "Crew Enhancement",
+      "value": "3"
+    },
+    "time": {
+      "start": "04:00",
+      "end": "08:00"
+    },
+    "resourceSkills": [],
+    "department": {
+      "text": "",
+      "value": ""
+    }
+  }, {
+    "id": "398",
+    "name": "Matt Nolan",
+    "initials": "MN",
+    "email": "mnolan@ramsey.com",
+    "phone": "",
+    "location": {
+      "text": "01: San Francisco",
+      "value": "2"
+    },
+    "active": true,
+    "workorder": {
+      "text": "Creation of New Work Order",
+      "value": "135"
+    },
+    "events": ["101095"],
+    "employee": {
+      "text": "Matt Nolan",
+      "value": "1292"
+    },
+    "resourceGroups": [{
+      "text": "Installers",
+      "value": "1"
+    }],
+    "types": [{
+      "text": "Installer",
+      "value": "1"
+    }],
+    "subTypes": [],
+    "rate": 0,
+    "vendor": {
+      "text": "",
+      "value": ""
+    },
+    "purchaseOrder": {
+      "text": " ",
+      "value": ""
+    },
+    "affiliationType": {
+      "text": "Crew Enhancement",
+      "value": "3"
+    },
+    "time": {
+      "start": "04:00",
+      "end": "10:00"
+    },
+    "resourceSkills": [],
+    "department": {
+      "text": "",
+      "value": ""
+    }
   }],
   "vendors": [{
     "id": "12",
@@ -28823,7 +29221,7 @@
       "value": ""
     },
     "woVendor": false,
-    "events": ["101087", "101084", "101081", "101075", "101057", "101056", "101055", "101040", "101028", "101017", "101015", "101012", "101011", "101010", "101008", "101007", "101006", "101005", "101004", "101003", "100968", "100954", "100953", "100952", "100951", "100950", "100947", "100942", "100939", "100933", "100931", "100927", "100923", "100922", "100915", "100913", "100912", "100906", "100905", "100904", "100903", "100902", "100901", "100900", "100899", "100891", "100890", "100889", "100888", "100887", "100886", "100884", "100883", "100882", "100881", "100880", "100875", "100871", "100870", "100682", "39", "20"],
+    "events": ["101095", "101087", "101084", "101081", "101075", "101057", "101056", "101055", "101040", "101028", "101017", "101015", "101012", "101011", "101010", "101008", "101007", "101006", "101005", "101004", "101003", "100968", "100954", "100953", "100952", "100951", "100950", "100947", "100942", "100939", "100933", "100931", "100927", "100923", "100922", "100915", "100913", "100912", "100906", "100905", "100904", "100903", "100902", "100901", "100900", "100899", "100891", "100890", "100889", "100888", "100887", "100886", "100884", "100883", "100882", "100881", "100880", "100875", "100871", "100870", "100682", "39", "20"],
     "memo": "",
     "location": {
       "text": "",
@@ -28832,6 +29230,10 @@
     "department": {
       "text": "",
       "value": ""
+    },
+    "time": {
+      "start": "",
+      "end": ""
     }
   }, {
     "id": "1473",
@@ -28851,7 +29253,7 @@
       "value": ""
     },
     "woVendor": false,
-    "events": ["101084", "101010", "101008", "101005", "100970", "100969", "100968", "100960", "100956", "100955", "100951", "100947", "100946", "100945", "100942", "100939", "100938", "100933", "100932", "100931", "100924", "100916", "100887", "100885", "100879", "100878", "100877", "100876", "100875", "100874", "100682", "39", "6"],
+    "events": ["101095", "101084", "101010", "101008", "101005", "100970", "100969", "100968", "100960", "100956", "100955", "100951", "100947", "100946", "100945", "100942", "100939", "100938", "100933", "100932", "100931", "100924", "100916", "100887", "100885", "100879", "100878", "100877", "100876", "100875", "100874", "100682", "39", "6"],
     "memo": "",
     "location": {
       "text": "",
@@ -28860,6 +29262,10 @@
     "department": {
       "text": "",
       "value": ""
+    },
+    "time": {
+      "start": "",
+      "end": ""
     }
   }, {
     "id": "1661",
@@ -28888,6 +29294,10 @@
     "department": {
       "text": "",
       "value": ""
+    },
+    "time": {
+      "start": "",
+      "end": ""
     }
   }, {
     "id": "965",
@@ -28916,6 +29326,10 @@
     "department": {
       "text": "",
       "value": ""
+    },
+    "time": {
+      "start": "",
+      "end": ""
     }
   }, {
     "id": "1664",
@@ -28944,6 +29358,10 @@
     "department": {
       "text": "",
       "value": ""
+    },
+    "time": {
+      "start": "",
+      "end": ""
     }
   }],
   "assets": [{
@@ -28966,7 +29384,7 @@
       "text": "",
       "value": ""
     },
-    "events": ["101087", "101084", "101083", "101082", "101081", "101080", "101079", "101078", "101077", "101041", "101037", "101028", "101015", "101012", "101011", "101010", "101008", "101007", "101006", "101003", "100970", "100969", "100968", "100960", "100956", "100955", "100954", "100953", "100952", "100950", "100947", "100946", "100945", "100933", "100932", "100931", "100927", "100924", "100923", "100922", "100916", "100915", "100913", "100912", "100906", "100905", "100904", "100903", "100902", "100901", "100900", "100899", "100891", "100890", "100889", "100888", "100887", "100886", "100885", "100883", "100882", "100881", "100880", "100879", "100878", "100877", "100876", "100875", "100871", "100870", "100869", "100868", "100867", "100866", "100863", "100862", "100861", "100860", "100859", "100858", "100816", "100812", "100750", "39"],
+    "events": ["101095", "101087", "101084", "101083", "101082", "101081", "101080", "101079", "101078", "101077", "101041", "101037", "101028", "101015", "101012", "101011", "101010", "101008", "101007", "101006", "101003", "100970", "100969", "100968", "100960", "100956", "100955", "100954", "100953", "100952", "100950", "100947", "100946", "100945", "100933", "100932", "100931", "100927", "100924", "100923", "100922", "100916", "100915", "100913", "100912", "100906", "100905", "100904", "100903", "100902", "100901", "100900", "100899", "100891", "100890", "100889", "100888", "100887", "100886", "100885", "100883", "100882", "100881", "100880", "100879", "100878", "100877", "100876", "100875", "100871", "100870", "100869", "100868", "100867", "100866", "100863", "100862", "100861", "100860", "100859", "100858", "100816", "100812", "100750", "39"],
     "location": {
       "text": "",
       "value": ""
@@ -28974,9 +29392,627 @@
     "department": {
       "text": "",
       "value": ""
+    },
+    "time": {
+      "start": "",
+      "end": ""
     }
   }],
   "events": [{
+    "id": "101095",
+    "title": "Creation of New Work Order",
+    "workorder": {
+      "text": "Creation of New Work Order",
+      "value": "135"
+    },
+    "location": "",
+    "status": {
+      "text": "Tentative",
+      "value": "TENTATIVE",
+      "code": "bg-secondary"
+    },
+    "date": {
+      "recurrence": "one time event on 2/16/2025",
+      "dates": ["2/16/2025"],
+      "start": "2025-02-16",
+      "end": "2025-02-16"
+    },
+    "time": {
+      "start": "04:00",
+      "end": "08:00"
+    },
+    "priority": {
+      "text": "Low",
+      "value": "1",
+      "code": "#026adf"
+    },
+    "note": "123\n456",
+    "url": "/app/crm/calendar/event.nl?id=101095&compid=TSTDRV2617106&selectedtab=custom337",
+    "color": "#1a6756",
+    "woRef": {
+      "id": "135",
+      "name": "Creation of New Work Order",
+      "title": "Creation of New Work Order",
+      "project": {
+        "text": "World Bank : World Bank Office Furniture Installation",
+        "value": "1515"
+      },
+      "date": "1/21/2025",
+      "status": {
+        "text": "Completed",
+        "value": "4",
+        "code": "#28a745"
+      },
+      "type": {
+        "text": "Maintenance",
+        "value": "25"
+      },
+      "memo": "",
+      "salesorder": {
+        "text": "Sales Order #SLS00000811",
+        "value": "22902"
+      },
+      "customer": {
+        "text": "World Bank",
+        "value": "1249"
+      },
+      "resourceGroup": {
+        "text": "",
+        "value": ""
+      },
+      "priority": "",
+      "resources": [],
+      "vendors": [{
+        "id": "198",
+        "name": "Best Fixture, Inc.",
+        "vendor": {
+          "text": "Best Fixture, Inc.",
+          "value": "12"
+        },
+        "url": "",
+        "email": "",
+        "initials": "BF",
+        "workorder": {
+          "text": "Creation of New Work Order",
+          "value": "135"
+        },
+        "event": "101095",
+        "quantityRequired": 3,
+        "quantityAvailable": 0,
+        "purchaseOrder": {
+          "text": " ",
+          "value": ""
+        },
+        "amount": 0,
+        "active": false,
+        "woVendor": true,
+        "memo": "AAA\nBBB",
+        "time": {
+          "start": "",
+          "end": ""
+        }
+      }, {
+        "id": "199",
+        "name": "Bridgepoint Industries",
+        "vendor": {
+          "text": "Bridgepoint Industries",
+          "value": "1473"
+        },
+        "url": "http://www.bridgepointindustries.com.de",
+        "email": "support@bridgempointindustries.com.de",
+        "initials": "BI",
+        "workorder": {
+          "text": "Creation of New Work Order",
+          "value": "135"
+        },
+        "event": "101095",
+        "quantityRequired": 5,
+        "quantityAvailable": 20,
+        "purchaseOrder": {
+          "text": " ",
+          "value": ""
+        },
+        "amount": 0,
+        "active": true,
+        "woVendor": true,
+        "memo": "CCC\nDDD",
+        "time": {
+          "start": "",
+          "end": ""
+        }
+      }],
+      "assets": [{
+        "id": "135",
+        "name": "ELE00002",
+        "workorder": {
+          "text": "Creation of New Work Order",
+          "value": "135"
+        },
+        "event": "101095",
+        "quantity": 5,
+        "description": "",
+        "item": {
+          "text": "ELE00002",
+          "value": "674"
+        },
+        "equipmentType": {
+          "text": "Hand Tools",
+          "value": "1"
+        },
+        "rentalUnit": {
+          "text": "",
+          "value": ""
+        },
+        "rentalDuration": 0,
+        "rentalRate": 0,
+        "rentalAmount": 0,
+        "purchaseOrder": {
+          "text": " ",
+          "value": " "
+        },
+        "vendor": {
+          "text": "Computer Depot Pacific",
+          "value": "965"
+        },
+        "owned": false,
+        "rentalMatrix": 0,
+        "time": {
+          "start": "",
+          "end": ""
+        }
+      }],
+      "items": [{
+        "id": "604",
+        "workorder": {
+          "text": "Creation of New Work Order",
+          "value": "135"
+        },
+        "salesorder": {
+          "text": "Sales Order #SLS00000811",
+          "value": "22902"
+        },
+        "event": "101095",
+        "uuid": "22902_4",
+        "line": "4",
+        "item": {
+          "text": "BIC00008",
+          "value": "467"
+        },
+        "description": "Technology Table",
+        "quantity": 10,
+        "availableQty": 10,
+        "note": "",
+        "quantityReceived": 19
+      }, {
+        "id": "601",
+        "workorder": {
+          "text": "Creation of New Work Order",
+          "value": "135"
+        },
+        "salesorder": {
+          "text": "Sales Order #SLS00000811",
+          "value": "22902"
+        },
+        "event": "",
+        "uuid": "22902_4",
+        "line": "4",
+        "item": {
+          "text": "BIC00008",
+          "value": "467"
+        },
+        "description": "Technology Table",
+        "quantity": 10,
+        "availableQty": 10,
+        "note": "",
+        "quantityReceived": 19
+      }],
+      "addresses": [{
+        "id": "219",
+        "workorder": {
+          "text": "Creation of New Work Order",
+          "value": "135"
+        },
+        "customer": {
+          "text": "World Bank",
+          "value": "1249"
+        },
+        "events": ["101095"],
+        "address": {
+          "text": "434 Carlaw",
+          "value": "244878"
+        },
+        "addressDetails": "434 Carlaw Road<br/>Los Angeles NY 12412<br/>United States",
+        "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+      }],
+      "contacts": [{
+        "id": "194",
+        "workorder": {
+          "text": "Creation of New Work Order",
+          "value": "135"
+        },
+        "events": [],
+        "event": "",
+        "contact": {
+          "text": "World Bank : Brad Pitt",
+          "value": "2060"
+        },
+        "name": "Brad Pitt",
+        "email": "bpitt@email.com",
+        "jobTitle": "Designer",
+        "mobilePhone": "",
+        "phone": "",
+        "primary": false,
+        "url": "/app/common/entity/contact.nl?id=2060&compid=TSTDRV2617106"
+      }, {
+        "id": "197",
+        "workorder": {
+          "text": "Creation of New Work Order",
+          "value": "135"
+        },
+        "events": ["101095"],
+        "event": "101095",
+        "contact": {
+          "text": "World Bank : Brad Pitt",
+          "value": "2060"
+        },
+        "name": "Brad Pitt",
+        "email": "bpitt@email.com",
+        "jobTitle": "Designer",
+        "mobilePhone": "",
+        "phone": "",
+        "primary": false,
+        "url": "/app/common/entity/contact.nl?id=2060&compid=TSTDRV2617106"
+      }],
+      "events": [{
+        "id": "101095",
+        "title": "Creation of New Work Order",
+        "workorder": {
+          "text": "Creation of New Work Order",
+          "value": "135"
+        },
+        "location": "",
+        "status": {
+          "text": "Tentative",
+          "value": "TENTATIVE",
+          "code": "bg-secondary"
+        },
+        "date": {
+          "recurrence": "one time event on 2/16/2025",
+          "dates": ["2/16/2025"],
+          "start": "2025-02-16",
+          "end": "2025-02-16"
+        },
+        "time": {
+          "start": "04:00",
+          "end": "08:00"
+        },
+        "priority": {
+          "text": "Low",
+          "value": "1",
+          "code": "#026adf"
+        },
+        "note": "123\n456",
+        "url": "/app/crm/calendar/event.nl?id=101095&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {},
+        "resources": [],
+        "vendors": [],
+        "assets": [],
+        "items": [],
+        "contacts": [],
+        "addresses": [],
+        "contact": {
+          "text": "",
+          "value": ""
+        },
+        "address": {
+          "text": "219",
+          "value": "219"
+        },
+        "organizer": {
+          "text": "Lean  cendana",
+          "value": "1765"
+        }
+      }],
+      "projectUrl": "/app/accounting/project/project.nl?id=1515&compid=TSTDRV2617106",
+      "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=135&compid=TSTDRV2617106",
+      "soUrl": "/app/accounting/transactions/salesord.nl?id=22902&compid=TSTDRV2617106",
+      "esthours": "0",
+      "location": {
+        "text": "",
+        "value": ""
+      },
+      "receiptStatus": {
+        "text": "",
+        "value": ""
+      },
+      "hasQuantityReceived": true
+    },
+    "resources": [{
+      "id": "397",
+      "name": "Gary Grant",
+      "initials": "GG",
+      "email": "garygrant@ramsey.com",
+      "phone": "(873) 775-6114",
+      "location": {
+        "text": "02: Boston",
+        "value": "1"
+      },
+      "active": true,
+      "workorder": {
+        "text": "Creation of New Work Order",
+        "value": "135"
+      },
+      "events": ["101095"],
+      "employee": {
+        "text": "Gary Grant",
+        "value": "1312"
+      },
+      "resourceGroups": [{
+        "text": "Installers",
+        "value": "1"
+      }],
+      "types": [{
+        "text": "Installer",
+        "value": "1"
+      }],
+      "subTypes": [],
+      "rate": 30,
+      "vendor": {
+        "text": "",
+        "value": ""
+      },
+      "purchaseOrder": {
+        "text": " ",
+        "value": ""
+      },
+      "affiliationType": {
+        "text": "Crew Enhancement",
+        "value": "3"
+      },
+      "time": {
+        "start": "04:00",
+        "end": "08:00"
+      },
+      "resourceSkills": [],
+      "department": {
+        "text": "",
+        "value": ""
+      },
+      "selected": true
+    }, {
+      "id": "398",
+      "name": "Matt Nolan",
+      "initials": "MN",
+      "email": "mnolan@ramsey.com",
+      "phone": "",
+      "location": {
+        "text": "01: San Francisco",
+        "value": "2"
+      },
+      "active": true,
+      "workorder": {
+        "text": "Creation of New Work Order",
+        "value": "135"
+      },
+      "events": ["101095"],
+      "employee": {
+        "text": "Matt Nolan",
+        "value": "1292"
+      },
+      "resourceGroups": [{
+        "text": "Installers",
+        "value": "1"
+      }],
+      "types": [{
+        "text": "Installer",
+        "value": "1"
+      }],
+      "subTypes": [],
+      "rate": 0,
+      "vendor": {
+        "text": "",
+        "value": ""
+      },
+      "purchaseOrder": {
+        "text": " ",
+        "value": ""
+      },
+      "affiliationType": {
+        "text": "Crew Enhancement",
+        "value": "3"
+      },
+      "time": {
+        "start": "04:00",
+        "end": "10:00"
+      },
+      "resourceSkills": [],
+      "department": {
+        "text": "",
+        "value": ""
+      },
+      "selected": true
+    }],
+    "vendors": [{
+      "id": "198",
+      "name": "Best Fixture, Inc.",
+      "vendor": {
+        "text": "Best Fixture, Inc.",
+        "value": "12"
+      },
+      "url": "",
+      "email": "",
+      "initials": "BF",
+      "workorder": {
+        "text": "Creation of New Work Order",
+        "value": "135"
+      },
+      "event": "101095",
+      "quantityRequired": 3,
+      "quantityAvailable": 0,
+      "purchaseOrder": {
+        "text": " ",
+        "value": ""
+      },
+      "amount": 0,
+      "active": false,
+      "woVendor": true,
+      "memo": "AAA\nBBB",
+      "time": {
+        "start": "",
+        "end": ""
+      },
+      "selected": true
+    }, {
+      "id": "199",
+      "name": "Bridgepoint Industries",
+      "vendor": {
+        "text": "Bridgepoint Industries",
+        "value": "1473"
+      },
+      "url": "http://www.bridgepointindustries.com.de",
+      "email": "support@bridgempointindustries.com.de",
+      "initials": "BI",
+      "workorder": {
+        "text": "Creation of New Work Order",
+        "value": "135"
+      },
+      "event": "101095",
+      "quantityRequired": 5,
+      "quantityAvailable": 20,
+      "purchaseOrder": {
+        "text": " ",
+        "value": ""
+      },
+      "amount": 0,
+      "active": true,
+      "woVendor": true,
+      "memo": "CCC\nDDD",
+      "time": {
+        "start": "",
+        "end": ""
+      },
+      "selected": true
+    }],
+    "assets": [{
+      "id": "135",
+      "name": "ELE00002",
+      "workorder": {
+        "text": "Creation of New Work Order",
+        "value": "135"
+      },
+      "event": "101095",
+      "quantity": 5,
+      "description": "",
+      "item": {
+        "text": "ELE00002",
+        "value": "674"
+      },
+      "equipmentType": {
+        "text": "Hand Tools",
+        "value": "1"
+      },
+      "rentalUnit": {
+        "text": "",
+        "value": ""
+      },
+      "rentalDuration": 0,
+      "rentalRate": 0,
+      "rentalAmount": 0,
+      "purchaseOrder": {
+        "text": " ",
+        "value": " "
+      },
+      "vendor": {
+        "text": "Computer Depot Pacific",
+        "value": "965"
+      },
+      "owned": false,
+      "rentalMatrix": 0,
+      "time": {
+        "start": "",
+        "end": ""
+      },
+      "selected": true
+    }],
+    "items": [{
+      "id": "604",
+      "workorder": {
+        "text": "Creation of New Work Order",
+        "value": "135"
+      },
+      "salesorder": {
+        "text": "Sales Order #SLS00000811",
+        "value": "22902"
+      },
+      "event": "101095",
+      "uuid": "22902_4",
+      "line": "4",
+      "item": {
+        "text": "BIC00008",
+        "value": "467"
+      },
+      "description": "Technology Table",
+      "quantity": 10,
+      "availableQty": 10,
+      "note": "",
+      "quantityReceived": 19,
+      "selected": true
+    }],
+    "contacts": [{
+      "id": "197",
+      "workorder": {
+        "text": "Creation of New Work Order",
+        "value": "135"
+      },
+      "events": ["101095"],
+      "event": "101095",
+      "contact": {
+        "text": "World Bank : Brad Pitt",
+        "value": "2060"
+      },
+      "name": "Brad Pitt",
+      "email": "bpitt@email.com",
+      "jobTitle": "Designer",
+      "mobilePhone": "",
+      "phone": "",
+      "primary": false,
+      "url": "/app/common/entity/contact.nl?id=2060&compid=TSTDRV2617106",
+      "selected": true
+    }],
+    "addresses": [{
+      "id": "219",
+      "workorder": {
+        "text": "Creation of New Work Order",
+        "value": "135"
+      },
+      "customer": {
+        "text": "World Bank",
+        "value": "1249"
+      },
+      "events": ["101095"],
+      "address": {
+        "text": "434 Carlaw",
+        "value": "244878"
+      },
+      "addressDetails": "434 Carlaw Road<br/>Los Angeles NY 12412<br/>United States",
+      "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106",
+      "selected": true
+    }],
+    "contact": {
+      "text": "",
+      "value": ""
+    },
+    "address": {
+      "text": "219",
+      "value": "219"
+    },
+    "organizer": {
+      "text": "Lean  cendana",
+      "value": "1765"
+    },
+    "hasQuantityReceived": true
+  }, {
     "id": "101088",
     "title": "Office Area 1",
     "workorder": {
@@ -29064,7 +30100,11 @@
         "amount": 0,
         "active": false,
         "woVendor": true,
-        "memo": "test"
+        "memo": "test",
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }],
       "assets": [{
         "id": "132",
@@ -29075,7 +30115,7 @@
         },
         "event": "101087",
         "quantity": 1,
-        "description": "Serialized 1 Sales Description",
+        "description": "",
         "item": {
           "text": "ELE00002",
           "value": "674"
@@ -29099,8 +30139,12 @@
           "text": "Computer Depot Pacific",
           "value": "965"
         },
-        "owned": true,
-        "rentalMatrix": 0
+        "owned": false,
+        "rentalMatrix": 0,
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }],
       "items": [{
         "id": "599",
@@ -29644,7 +30688,11 @@
         "amount": 0,
         "active": false,
         "woVendor": true,
-        "memo": "test"
+        "memo": "test",
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }],
       "assets": [{
         "id": "132",
@@ -29655,7 +30703,7 @@
         },
         "event": "101087",
         "quantity": 1,
-        "description": "Serialized 1 Sales Description",
+        "description": "",
         "item": {
           "text": "ELE00002",
           "value": "674"
@@ -29679,8 +30727,12 @@
           "text": "Computer Depot Pacific",
           "value": "965"
         },
-        "owned": true,
-        "rentalMatrix": 0
+        "owned": false,
+        "rentalMatrix": 0,
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }],
       "items": [{
         "id": "599",
@@ -30030,6 +31082,10 @@
       "active": false,
       "woVendor": true,
       "memo": "test",
+      "time": {
+        "start": "",
+        "end": ""
+      },
       "selected": true
     }],
     "assets": [{
@@ -30041,7 +31097,7 @@
       },
       "event": "101087",
       "quantity": 1,
-      "description": "Serialized 1 Sales Description",
+      "description": "",
       "item": {
         "text": "ELE00002",
         "value": "674"
@@ -30065,8 +31121,12 @@
         "text": "Computer Depot Pacific",
         "value": "965"
       },
-      "owned": true,
+      "owned": false,
       "rentalMatrix": 0,
+      "time": {
+        "start": "",
+        "end": ""
+      },
       "selected": true
     }],
     "items": [{
@@ -30643,7 +31703,7 @@
         "description": "Head Master Chair",
         "quantity": 3,
         "availableQty": 3,
-        "note": "",
+        "note": "Test",
         "quantityReceived": 19
       }, {
         "id": "580",
@@ -30665,7 +31725,7 @@
         "description": "Diana Chair",
         "quantity": 5,
         "availableQty": 5,
-        "note": "",
+        "note": "Test",
         "quantityReceived": 19
       }, {
         "id": "577",
@@ -31013,7 +32073,7 @@
       "description": "Head Master Chair",
       "quantity": 3,
       "availableQty": 3,
-      "note": "",
+      "note": "Test",
       "quantityReceived": 19,
       "selected": true
     }, {
@@ -31036,7 +32096,7 @@
       "description": "Diana Chair",
       "quantity": 5,
       "availableQty": 5,
-      "note": "",
+      "note": "Test",
       "quantityReceived": 19,
       "selected": true
     }],
@@ -31181,7 +32241,11 @@
         "amount": 0,
         "active": false,
         "woVendor": true,
-        "memo": ""
+        "memo": "",
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }, {
         "id": "190",
         "name": "190",
@@ -31206,7 +32270,11 @@
         "amount": 0,
         "active": false,
         "woVendor": true,
-        "memo": ""
+        "memo": "",
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }, {
         "id": "191",
         "name": "191",
@@ -31231,7 +32299,11 @@
         "amount": 0,
         "active": false,
         "woVendor": true,
-        "memo": ""
+        "memo": "",
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }, {
         "id": "192",
         "name": "192",
@@ -31256,7 +32328,11 @@
         "amount": 0,
         "active": false,
         "woVendor": true,
-        "memo": ""
+        "memo": "",
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }, {
         "id": "193",
         "name": "193",
@@ -31281,7 +32357,11 @@
         "amount": 0,
         "active": true,
         "woVendor": true,
-        "memo": ""
+        "memo": "",
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }, {
         "id": "194",
         "name": "Best Fixture, Inc.",
@@ -31306,7 +32386,11 @@
         "amount": 0,
         "active": false,
         "woVendor": true,
-        "memo": ""
+        "memo": "",
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }, {
         "id": "188",
         "name": "Best Fixture, Inc.",
@@ -31331,7 +32415,11 @@
         "amount": 0,
         "active": false,
         "woVendor": true,
-        "memo": ""
+        "memo": "",
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }],
       "assets": [{
         "id": "123",
@@ -31342,7 +32430,7 @@
         },
         "event": "101062",
         "quantity": 4,
-        "description": "Serialized 1 Sales Description",
+        "description": "",
         "item": {
           "text": "ELE00002",
           "value": "674"
@@ -31366,8 +32454,12 @@
           "text": "Computer Depot Pacific",
           "value": "965"
         },
-        "owned": true,
-        "rentalMatrix": 0
+        "owned": false,
+        "rentalMatrix": 0,
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }, {
         "id": "124",
         "name": "ELE00002",
@@ -31377,7 +32469,7 @@
         },
         "event": "101077",
         "quantity": 5,
-        "description": "Serialized 1 Sales Description",
+        "description": "",
         "item": {
           "text": "ELE00002",
           "value": "674"
@@ -31401,8 +32493,12 @@
           "text": "Computer Depot Pacific",
           "value": "965"
         },
-        "owned": true,
-        "rentalMatrix": 0
+        "owned": false,
+        "rentalMatrix": 0,
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }, {
         "id": "125",
         "name": "ELE00002",
@@ -31412,7 +32508,7 @@
         },
         "event": "101078",
         "quantity": 4,
-        "description": "Serialized 1 Sales Description",
+        "description": "",
         "item": {
           "text": "ELE00002",
           "value": "674"
@@ -31436,8 +32532,12 @@
           "text": "Computer Depot Pacific",
           "value": "965"
         },
-        "owned": true,
-        "rentalMatrix": 0
+        "owned": false,
+        "rentalMatrix": 0,
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }, {
         "id": "126",
         "name": "ELE00002",
@@ -31447,7 +32547,7 @@
         },
         "event": "101079",
         "quantity": 5,
-        "description": "Serialized 1 Sales Description",
+        "description": "",
         "item": {
           "text": "ELE00002",
           "value": "674"
@@ -31471,8 +32571,12 @@
           "text": "Computer Depot Pacific",
           "value": "965"
         },
-        "owned": true,
-        "rentalMatrix": 0
+        "owned": false,
+        "rentalMatrix": 0,
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }, {
         "id": "127",
         "name": "ELE00002",
@@ -31482,7 +32586,7 @@
         },
         "event": "101081",
         "quantity": 0,
-        "description": "Serialized 1 Sales Description",
+        "description": "",
         "item": {
           "text": "ELE00002",
           "value": "674"
@@ -31506,8 +32610,12 @@
           "text": "Computer Depot Pacific",
           "value": "965"
         },
-        "owned": true,
-        "rentalMatrix": 0
+        "owned": false,
+        "rentalMatrix": 0,
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }, {
         "id": "128",
         "name": "ELE00002",
@@ -31517,7 +32625,7 @@
         },
         "event": "101082",
         "quantity": 100,
-        "description": "Serialized 1 Sales Description",
+        "description": "",
         "item": {
           "text": "ELE00002",
           "value": "674"
@@ -31541,8 +32649,12 @@
           "text": "Computer Depot Pacific",
           "value": "965"
         },
-        "owned": true,
-        "rentalMatrix": 0
+        "owned": false,
+        "rentalMatrix": 0,
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }, {
         "id": "129",
         "name": "ELE00002",
@@ -31552,7 +32664,7 @@
         },
         "event": "101083",
         "quantity": 20,
-        "description": "Serialized 1 Sales Description",
+        "description": "",
         "item": {
           "text": "ELE00002",
           "value": "674"
@@ -31576,8 +32688,12 @@
           "text": "Computer Depot Pacific",
           "value": "965"
         },
-        "owned": true,
-        "rentalMatrix": 0
+        "owned": false,
+        "rentalMatrix": 0,
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }, {
         "id": "130",
         "name": "ELE00002",
@@ -31587,7 +32703,7 @@
         },
         "event": "101084",
         "quantity": 0,
-        "description": "Serialized 1 Sales Description",
+        "description": "",
         "item": {
           "text": "ELE00002",
           "value": "674"
@@ -31611,8 +32727,12 @@
           "text": "Computer Depot Pacific",
           "value": "965"
         },
-        "owned": true,
-        "rentalMatrix": 0
+        "owned": false,
+        "rentalMatrix": 0,
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }, {
         "id": "131",
         "name": "ELE00002",
@@ -31622,7 +32742,7 @@
         },
         "event": "101080",
         "quantity": 5,
-        "description": "Serialized 1 Sales Description",
+        "description": "",
         "item": {
           "text": "ELE00002",
           "value": "674"
@@ -31646,8 +32766,12 @@
           "text": "Computer Depot Pacific",
           "value": "965"
         },
-        "owned": true,
-        "rentalMatrix": 0
+        "owned": false,
+        "rentalMatrix": 0,
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }],
       "items": [{
         "id": "558",
@@ -32844,6 +33968,10 @@
       "active": true,
       "woVendor": true,
       "memo": "",
+      "time": {
+        "start": "",
+        "end": ""
+      },
       "selected": true
     }, {
       "id": "194",
@@ -32870,6 +33998,10 @@
       "active": false,
       "woVendor": true,
       "memo": "",
+      "time": {
+        "start": "",
+        "end": ""
+      },
       "selected": true
     }],
     "assets": [{
@@ -32881,7 +34013,7 @@
       },
       "event": "101084",
       "quantity": 0,
-      "description": "Serialized 1 Sales Description",
+      "description": "",
       "item": {
         "text": "ELE00002",
         "value": "674"
@@ -32905,8 +34037,12 @@
         "text": "Computer Depot Pacific",
         "value": "965"
       },
-      "owned": true,
+      "owned": false,
       "rentalMatrix": 0,
+      "time": {
+        "start": "",
+        "end": ""
+      },
       "selected": true
     }],
     "items": [{
@@ -33054,7 +34190,11 @@
         "amount": 0,
         "active": false,
         "woVendor": true,
-        "memo": ""
+        "memo": "",
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }, {
         "id": "190",
         "name": "190",
@@ -33079,7 +34219,11 @@
         "amount": 0,
         "active": false,
         "woVendor": true,
-        "memo": ""
+        "memo": "",
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }, {
         "id": "191",
         "name": "191",
@@ -33104,7 +34248,11 @@
         "amount": 0,
         "active": false,
         "woVendor": true,
-        "memo": ""
+        "memo": "",
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }, {
         "id": "192",
         "name": "192",
@@ -33129,7 +34277,11 @@
         "amount": 0,
         "active": false,
         "woVendor": true,
-        "memo": ""
+        "memo": "",
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }, {
         "id": "193",
         "name": "193",
@@ -33154,7 +34306,11 @@
         "amount": 0,
         "active": true,
         "woVendor": true,
-        "memo": ""
+        "memo": "",
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }, {
         "id": "194",
         "name": "Best Fixture, Inc.",
@@ -33179,7 +34335,11 @@
         "amount": 0,
         "active": false,
         "woVendor": true,
-        "memo": ""
+        "memo": "",
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }, {
         "id": "188",
         "name": "Best Fixture, Inc.",
@@ -33204,7 +34364,11 @@
         "amount": 0,
         "active": false,
         "woVendor": true,
-        "memo": ""
+        "memo": "",
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }],
       "assets": [{
         "id": "123",
@@ -33215,7 +34379,7 @@
         },
         "event": "101062",
         "quantity": 4,
-        "description": "Serialized 1 Sales Description",
+        "description": "",
         "item": {
           "text": "ELE00002",
           "value": "674"
@@ -33239,8 +34403,12 @@
           "text": "Computer Depot Pacific",
           "value": "965"
         },
-        "owned": true,
-        "rentalMatrix": 0
+        "owned": false,
+        "rentalMatrix": 0,
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }, {
         "id": "124",
         "name": "ELE00002",
@@ -33250,7 +34418,7 @@
         },
         "event": "101077",
         "quantity": 5,
-        "description": "Serialized 1 Sales Description",
+        "description": "",
         "item": {
           "text": "ELE00002",
           "value": "674"
@@ -33274,8 +34442,12 @@
           "text": "Computer Depot Pacific",
           "value": "965"
         },
-        "owned": true,
-        "rentalMatrix": 0
+        "owned": false,
+        "rentalMatrix": 0,
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }, {
         "id": "125",
         "name": "ELE00002",
@@ -33285,7 +34457,7 @@
         },
         "event": "101078",
         "quantity": 4,
-        "description": "Serialized 1 Sales Description",
+        "description": "",
         "item": {
           "text": "ELE00002",
           "value": "674"
@@ -33309,8 +34481,12 @@
           "text": "Computer Depot Pacific",
           "value": "965"
         },
-        "owned": true,
-        "rentalMatrix": 0
+        "owned": false,
+        "rentalMatrix": 0,
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }, {
         "id": "126",
         "name": "ELE00002",
@@ -33320,7 +34496,7 @@
         },
         "event": "101079",
         "quantity": 5,
-        "description": "Serialized 1 Sales Description",
+        "description": "",
         "item": {
           "text": "ELE00002",
           "value": "674"
@@ -33344,8 +34520,12 @@
           "text": "Computer Depot Pacific",
           "value": "965"
         },
-        "owned": true,
-        "rentalMatrix": 0
+        "owned": false,
+        "rentalMatrix": 0,
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }, {
         "id": "127",
         "name": "ELE00002",
@@ -33355,7 +34535,7 @@
         },
         "event": "101081",
         "quantity": 0,
-        "description": "Serialized 1 Sales Description",
+        "description": "",
         "item": {
           "text": "ELE00002",
           "value": "674"
@@ -33379,8 +34559,12 @@
           "text": "Computer Depot Pacific",
           "value": "965"
         },
-        "owned": true,
-        "rentalMatrix": 0
+        "owned": false,
+        "rentalMatrix": 0,
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }, {
         "id": "128",
         "name": "ELE00002",
@@ -33390,7 +34574,7 @@
         },
         "event": "101082",
         "quantity": 100,
-        "description": "Serialized 1 Sales Description",
+        "description": "",
         "item": {
           "text": "ELE00002",
           "value": "674"
@@ -33414,8 +34598,12 @@
           "text": "Computer Depot Pacific",
           "value": "965"
         },
-        "owned": true,
-        "rentalMatrix": 0
+        "owned": false,
+        "rentalMatrix": 0,
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }, {
         "id": "129",
         "name": "ELE00002",
@@ -33425,7 +34613,7 @@
         },
         "event": "101083",
         "quantity": 20,
-        "description": "Serialized 1 Sales Description",
+        "description": "",
         "item": {
           "text": "ELE00002",
           "value": "674"
@@ -33449,8 +34637,12 @@
           "text": "Computer Depot Pacific",
           "value": "965"
         },
-        "owned": true,
-        "rentalMatrix": 0
+        "owned": false,
+        "rentalMatrix": 0,
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }, {
         "id": "130",
         "name": "ELE00002",
@@ -33460,7 +34652,7 @@
         },
         "event": "101084",
         "quantity": 0,
-        "description": "Serialized 1 Sales Description",
+        "description": "",
         "item": {
           "text": "ELE00002",
           "value": "674"
@@ -33484,8 +34676,12 @@
           "text": "Computer Depot Pacific",
           "value": "965"
         },
-        "owned": true,
-        "rentalMatrix": 0
+        "owned": false,
+        "rentalMatrix": 0,
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }, {
         "id": "131",
         "name": "ELE00002",
@@ -33495,7 +34691,7 @@
         },
         "event": "101080",
         "quantity": 5,
-        "description": "Serialized 1 Sales Description",
+        "description": "",
         "item": {
           "text": "ELE00002",
           "value": "674"
@@ -33519,8 +34715,12 @@
           "text": "Computer Depot Pacific",
           "value": "965"
         },
-        "owned": true,
-        "rentalMatrix": 0
+        "owned": false,
+        "rentalMatrix": 0,
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }],
       "items": [{
         "id": "558",
@@ -34589,6 +35789,10 @@
       "active": false,
       "woVendor": true,
       "memo": "",
+      "time": {
+        "start": "",
+        "end": ""
+      },
       "selected": true
     }],
     "assets": [{
@@ -34600,7 +35804,7 @@
       },
       "event": "101083",
       "quantity": 20,
-      "description": "Serialized 1 Sales Description",
+      "description": "",
       "item": {
         "text": "ELE00002",
         "value": "674"
@@ -34624,8 +35828,12 @@
         "text": "Computer Depot Pacific",
         "value": "965"
       },
-      "owned": true,
+      "owned": false,
       "rentalMatrix": 0,
+      "time": {
+        "start": "",
+        "end": ""
+      },
       "selected": true
     }],
     "items": [{
@@ -34755,7 +35963,11 @@
         "amount": 0,
         "active": false,
         "woVendor": true,
-        "memo": ""
+        "memo": "",
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }, {
         "id": "190",
         "name": "190",
@@ -34780,7 +35992,11 @@
         "amount": 0,
         "active": false,
         "woVendor": true,
-        "memo": ""
+        "memo": "",
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }, {
         "id": "191",
         "name": "191",
@@ -34805,7 +36021,11 @@
         "amount": 0,
         "active": false,
         "woVendor": true,
-        "memo": ""
+        "memo": "",
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }, {
         "id": "192",
         "name": "192",
@@ -34830,7 +36050,11 @@
         "amount": 0,
         "active": false,
         "woVendor": true,
-        "memo": ""
+        "memo": "",
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }, {
         "id": "193",
         "name": "193",
@@ -34855,7 +36079,11 @@
         "amount": 0,
         "active": true,
         "woVendor": true,
-        "memo": ""
+        "memo": "",
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }, {
         "id": "194",
         "name": "Best Fixture, Inc.",
@@ -34880,7 +36108,11 @@
         "amount": 0,
         "active": false,
         "woVendor": true,
-        "memo": ""
+        "memo": "",
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }, {
         "id": "188",
         "name": "Best Fixture, Inc.",
@@ -34905,7 +36137,11 @@
         "amount": 0,
         "active": false,
         "woVendor": true,
-        "memo": ""
+        "memo": "",
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }],
       "assets": [{
         "id": "123",
@@ -34916,7 +36152,7 @@
         },
         "event": "101062",
         "quantity": 4,
-        "description": "Serialized 1 Sales Description",
+        "description": "",
         "item": {
           "text": "ELE00002",
           "value": "674"
@@ -34940,8 +36176,12 @@
           "text": "Computer Depot Pacific",
           "value": "965"
         },
-        "owned": true,
-        "rentalMatrix": 0
+        "owned": false,
+        "rentalMatrix": 0,
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }, {
         "id": "124",
         "name": "ELE00002",
@@ -34951,7 +36191,7 @@
         },
         "event": "101077",
         "quantity": 5,
-        "description": "Serialized 1 Sales Description",
+        "description": "",
         "item": {
           "text": "ELE00002",
           "value": "674"
@@ -34975,8 +36215,12 @@
           "text": "Computer Depot Pacific",
           "value": "965"
         },
-        "owned": true,
-        "rentalMatrix": 0
+        "owned": false,
+        "rentalMatrix": 0,
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }, {
         "id": "125",
         "name": "ELE00002",
@@ -34986,7 +36230,7 @@
         },
         "event": "101078",
         "quantity": 4,
-        "description": "Serialized 1 Sales Description",
+        "description": "",
         "item": {
           "text": "ELE00002",
           "value": "674"
@@ -35010,8 +36254,12 @@
           "text": "Computer Depot Pacific",
           "value": "965"
         },
-        "owned": true,
-        "rentalMatrix": 0
+        "owned": false,
+        "rentalMatrix": 0,
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }, {
         "id": "126",
         "name": "ELE00002",
@@ -35021,7 +36269,7 @@
         },
         "event": "101079",
         "quantity": 5,
-        "description": "Serialized 1 Sales Description",
+        "description": "",
         "item": {
           "text": "ELE00002",
           "value": "674"
@@ -35045,8 +36293,12 @@
           "text": "Computer Depot Pacific",
           "value": "965"
         },
-        "owned": true,
-        "rentalMatrix": 0
+        "owned": false,
+        "rentalMatrix": 0,
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }, {
         "id": "127",
         "name": "ELE00002",
@@ -35056,7 +36308,7 @@
         },
         "event": "101081",
         "quantity": 0,
-        "description": "Serialized 1 Sales Description",
+        "description": "",
         "item": {
           "text": "ELE00002",
           "value": "674"
@@ -35080,8 +36332,12 @@
           "text": "Computer Depot Pacific",
           "value": "965"
         },
-        "owned": true,
-        "rentalMatrix": 0
+        "owned": false,
+        "rentalMatrix": 0,
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }, {
         "id": "128",
         "name": "ELE00002",
@@ -35091,7 +36347,7 @@
         },
         "event": "101082",
         "quantity": 100,
-        "description": "Serialized 1 Sales Description",
+        "description": "",
         "item": {
           "text": "ELE00002",
           "value": "674"
@@ -35115,8 +36371,12 @@
           "text": "Computer Depot Pacific",
           "value": "965"
         },
-        "owned": true,
-        "rentalMatrix": 0
+        "owned": false,
+        "rentalMatrix": 0,
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }, {
         "id": "129",
         "name": "ELE00002",
@@ -35126,7 +36386,7 @@
         },
         "event": "101083",
         "quantity": 20,
-        "description": "Serialized 1 Sales Description",
+        "description": "",
         "item": {
           "text": "ELE00002",
           "value": "674"
@@ -35150,8 +36410,12 @@
           "text": "Computer Depot Pacific",
           "value": "965"
         },
-        "owned": true,
-        "rentalMatrix": 0
+        "owned": false,
+        "rentalMatrix": 0,
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }, {
         "id": "130",
         "name": "ELE00002",
@@ -35161,7 +36425,7 @@
         },
         "event": "101084",
         "quantity": 0,
-        "description": "Serialized 1 Sales Description",
+        "description": "",
         "item": {
           "text": "ELE00002",
           "value": "674"
@@ -35185,8 +36449,12 @@
           "text": "Computer Depot Pacific",
           "value": "965"
         },
-        "owned": true,
-        "rentalMatrix": 0
+        "owned": false,
+        "rentalMatrix": 0,
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }, {
         "id": "131",
         "name": "ELE00002",
@@ -35196,7 +36464,7 @@
         },
         "event": "101080",
         "quantity": 5,
-        "description": "Serialized 1 Sales Description",
+        "description": "",
         "item": {
           "text": "ELE00002",
           "value": "674"
@@ -35220,8 +36488,12 @@
           "text": "Computer Depot Pacific",
           "value": "965"
         },
-        "owned": true,
-        "rentalMatrix": 0
+        "owned": false,
+        "rentalMatrix": 0,
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }],
       "items": [{
         "id": "558",
@@ -36290,6 +37562,10 @@
       "active": false,
       "woVendor": true,
       "memo": "",
+      "time": {
+        "start": "",
+        "end": ""
+      },
       "selected": true
     }],
     "assets": [{
@@ -36301,7 +37577,7 @@
       },
       "event": "101082",
       "quantity": 100,
-      "description": "Serialized 1 Sales Description",
+      "description": "",
       "item": {
         "text": "ELE00002",
         "value": "674"
@@ -36325,8 +37601,12 @@
         "text": "Computer Depot Pacific",
         "value": "965"
       },
-      "owned": true,
+      "owned": false,
       "rentalMatrix": 0,
+      "time": {
+        "start": "",
+        "end": ""
+      },
       "selected": true
     }],
     "items": [{
@@ -36456,7 +37736,11 @@
         "amount": 0,
         "active": false,
         "woVendor": true,
-        "memo": ""
+        "memo": "",
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }, {
         "id": "190",
         "name": "190",
@@ -36481,7 +37765,11 @@
         "amount": 0,
         "active": false,
         "woVendor": true,
-        "memo": ""
+        "memo": "",
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }, {
         "id": "191",
         "name": "191",
@@ -36506,7 +37794,11 @@
         "amount": 0,
         "active": false,
         "woVendor": true,
-        "memo": ""
+        "memo": "",
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }, {
         "id": "192",
         "name": "192",
@@ -36531,7 +37823,11 @@
         "amount": 0,
         "active": false,
         "woVendor": true,
-        "memo": ""
+        "memo": "",
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }, {
         "id": "193",
         "name": "193",
@@ -36556,7 +37852,11 @@
         "amount": 0,
         "active": true,
         "woVendor": true,
-        "memo": ""
+        "memo": "",
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }, {
         "id": "194",
         "name": "Best Fixture, Inc.",
@@ -36581,7 +37881,11 @@
         "amount": 0,
         "active": false,
         "woVendor": true,
-        "memo": ""
+        "memo": "",
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }, {
         "id": "188",
         "name": "Best Fixture, Inc.",
@@ -36606,7 +37910,11 @@
         "amount": 0,
         "active": false,
         "woVendor": true,
-        "memo": ""
+        "memo": "",
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }],
       "assets": [{
         "id": "123",
@@ -36617,7 +37925,7 @@
         },
         "event": "101062",
         "quantity": 4,
-        "description": "Serialized 1 Sales Description",
+        "description": "",
         "item": {
           "text": "ELE00002",
           "value": "674"
@@ -36641,8 +37949,12 @@
           "text": "Computer Depot Pacific",
           "value": "965"
         },
-        "owned": true,
-        "rentalMatrix": 0
+        "owned": false,
+        "rentalMatrix": 0,
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }, {
         "id": "124",
         "name": "ELE00002",
@@ -36652,7 +37964,7 @@
         },
         "event": "101077",
         "quantity": 5,
-        "description": "Serialized 1 Sales Description",
+        "description": "",
         "item": {
           "text": "ELE00002",
           "value": "674"
@@ -36676,8 +37988,12 @@
           "text": "Computer Depot Pacific",
           "value": "965"
         },
-        "owned": true,
-        "rentalMatrix": 0
+        "owned": false,
+        "rentalMatrix": 0,
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }, {
         "id": "125",
         "name": "ELE00002",
@@ -36687,7 +38003,7 @@
         },
         "event": "101078",
         "quantity": 4,
-        "description": "Serialized 1 Sales Description",
+        "description": "",
         "item": {
           "text": "ELE00002",
           "value": "674"
@@ -36711,8 +38027,12 @@
           "text": "Computer Depot Pacific",
           "value": "965"
         },
-        "owned": true,
-        "rentalMatrix": 0
+        "owned": false,
+        "rentalMatrix": 0,
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }, {
         "id": "126",
         "name": "ELE00002",
@@ -36722,7 +38042,7 @@
         },
         "event": "101079",
         "quantity": 5,
-        "description": "Serialized 1 Sales Description",
+        "description": "",
         "item": {
           "text": "ELE00002",
           "value": "674"
@@ -36746,8 +38066,12 @@
           "text": "Computer Depot Pacific",
           "value": "965"
         },
-        "owned": true,
-        "rentalMatrix": 0
+        "owned": false,
+        "rentalMatrix": 0,
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }, {
         "id": "127",
         "name": "ELE00002",
@@ -36757,7 +38081,7 @@
         },
         "event": "101081",
         "quantity": 0,
-        "description": "Serialized 1 Sales Description",
+        "description": "",
         "item": {
           "text": "ELE00002",
           "value": "674"
@@ -36781,8 +38105,12 @@
           "text": "Computer Depot Pacific",
           "value": "965"
         },
-        "owned": true,
-        "rentalMatrix": 0
+        "owned": false,
+        "rentalMatrix": 0,
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }, {
         "id": "128",
         "name": "ELE00002",
@@ -36792,7 +38120,7 @@
         },
         "event": "101082",
         "quantity": 100,
-        "description": "Serialized 1 Sales Description",
+        "description": "",
         "item": {
           "text": "ELE00002",
           "value": "674"
@@ -36816,8 +38144,12 @@
           "text": "Computer Depot Pacific",
           "value": "965"
         },
-        "owned": true,
-        "rentalMatrix": 0
+        "owned": false,
+        "rentalMatrix": 0,
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }, {
         "id": "129",
         "name": "ELE00002",
@@ -36827,7 +38159,7 @@
         },
         "event": "101083",
         "quantity": 20,
-        "description": "Serialized 1 Sales Description",
+        "description": "",
         "item": {
           "text": "ELE00002",
           "value": "674"
@@ -36851,8 +38183,12 @@
           "text": "Computer Depot Pacific",
           "value": "965"
         },
-        "owned": true,
-        "rentalMatrix": 0
+        "owned": false,
+        "rentalMatrix": 0,
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }, {
         "id": "130",
         "name": "ELE00002",
@@ -36862,7 +38198,7 @@
         },
         "event": "101084",
         "quantity": 0,
-        "description": "Serialized 1 Sales Description",
+        "description": "",
         "item": {
           "text": "ELE00002",
           "value": "674"
@@ -36886,8 +38222,12 @@
           "text": "Computer Depot Pacific",
           "value": "965"
         },
-        "owned": true,
-        "rentalMatrix": 0
+        "owned": false,
+        "rentalMatrix": 0,
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }, {
         "id": "131",
         "name": "ELE00002",
@@ -36897,7 +38237,7 @@
         },
         "event": "101080",
         "quantity": 5,
-        "description": "Serialized 1 Sales Description",
+        "description": "",
         "item": {
           "text": "ELE00002",
           "value": "674"
@@ -36921,8 +38261,12 @@
           "text": "Computer Depot Pacific",
           "value": "965"
         },
-        "owned": true,
-        "rentalMatrix": 0
+        "owned": false,
+        "rentalMatrix": 0,
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }],
       "items": [{
         "id": "558",
@@ -37853,6 +39197,10 @@
       "active": false,
       "woVendor": true,
       "memo": "",
+      "time": {
+        "start": "",
+        "end": ""
+      },
       "selected": true
     }],
     "assets": [{
@@ -37864,7 +39212,7 @@
       },
       "event": "101081",
       "quantity": 0,
-      "description": "Serialized 1 Sales Description",
+      "description": "",
       "item": {
         "text": "ELE00002",
         "value": "674"
@@ -37888,8 +39236,12 @@
         "text": "Computer Depot Pacific",
         "value": "965"
       },
-      "owned": true,
+      "owned": false,
       "rentalMatrix": 0,
+      "time": {
+        "start": "",
+        "end": ""
+      },
       "selected": true
     }],
     "items": [{
@@ -38019,7 +39371,11 @@
         "amount": 0,
         "active": false,
         "woVendor": true,
-        "memo": ""
+        "memo": "",
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }, {
         "id": "190",
         "name": "190",
@@ -38044,7 +39400,11 @@
         "amount": 0,
         "active": false,
         "woVendor": true,
-        "memo": ""
+        "memo": "",
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }, {
         "id": "191",
         "name": "191",
@@ -38069,7 +39429,11 @@
         "amount": 0,
         "active": false,
         "woVendor": true,
-        "memo": ""
+        "memo": "",
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }, {
         "id": "192",
         "name": "192",
@@ -38094,7 +39458,11 @@
         "amount": 0,
         "active": false,
         "woVendor": true,
-        "memo": ""
+        "memo": "",
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }, {
         "id": "193",
         "name": "193",
@@ -38119,7 +39487,11 @@
         "amount": 0,
         "active": true,
         "woVendor": true,
-        "memo": ""
+        "memo": "",
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }, {
         "id": "194",
         "name": "Best Fixture, Inc.",
@@ -38144,7 +39516,11 @@
         "amount": 0,
         "active": false,
         "woVendor": true,
-        "memo": ""
+        "memo": "",
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }, {
         "id": "188",
         "name": "Best Fixture, Inc.",
@@ -38169,7 +39545,11 @@
         "amount": 0,
         "active": false,
         "woVendor": true,
-        "memo": ""
+        "memo": "",
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }],
       "assets": [{
         "id": "123",
@@ -38180,7 +39560,7 @@
         },
         "event": "101062",
         "quantity": 4,
-        "description": "Serialized 1 Sales Description",
+        "description": "",
         "item": {
           "text": "ELE00002",
           "value": "674"
@@ -38204,8 +39584,12 @@
           "text": "Computer Depot Pacific",
           "value": "965"
         },
-        "owned": true,
-        "rentalMatrix": 0
+        "owned": false,
+        "rentalMatrix": 0,
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }, {
         "id": "124",
         "name": "ELE00002",
@@ -38215,7 +39599,7 @@
         },
         "event": "101077",
         "quantity": 5,
-        "description": "Serialized 1 Sales Description",
+        "description": "",
         "item": {
           "text": "ELE00002",
           "value": "674"
@@ -38239,8 +39623,12 @@
           "text": "Computer Depot Pacific",
           "value": "965"
         },
-        "owned": true,
-        "rentalMatrix": 0
+        "owned": false,
+        "rentalMatrix": 0,
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }, {
         "id": "125",
         "name": "ELE00002",
@@ -38250,7 +39638,7 @@
         },
         "event": "101078",
         "quantity": 4,
-        "description": "Serialized 1 Sales Description",
+        "description": "",
         "item": {
           "text": "ELE00002",
           "value": "674"
@@ -38274,8 +39662,12 @@
           "text": "Computer Depot Pacific",
           "value": "965"
         },
-        "owned": true,
-        "rentalMatrix": 0
+        "owned": false,
+        "rentalMatrix": 0,
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }, {
         "id": "126",
         "name": "ELE00002",
@@ -38285,7 +39677,7 @@
         },
         "event": "101079",
         "quantity": 5,
-        "description": "Serialized 1 Sales Description",
+        "description": "",
         "item": {
           "text": "ELE00002",
           "value": "674"
@@ -38309,8 +39701,12 @@
           "text": "Computer Depot Pacific",
           "value": "965"
         },
-        "owned": true,
-        "rentalMatrix": 0
+        "owned": false,
+        "rentalMatrix": 0,
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }, {
         "id": "127",
         "name": "ELE00002",
@@ -38320,7 +39716,7 @@
         },
         "event": "101081",
         "quantity": 0,
-        "description": "Serialized 1 Sales Description",
+        "description": "",
         "item": {
           "text": "ELE00002",
           "value": "674"
@@ -38344,8 +39740,12 @@
           "text": "Computer Depot Pacific",
           "value": "965"
         },
-        "owned": true,
-        "rentalMatrix": 0
+        "owned": false,
+        "rentalMatrix": 0,
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }, {
         "id": "128",
         "name": "ELE00002",
@@ -38355,7 +39755,7 @@
         },
         "event": "101082",
         "quantity": 100,
-        "description": "Serialized 1 Sales Description",
+        "description": "",
         "item": {
           "text": "ELE00002",
           "value": "674"
@@ -38379,8 +39779,12 @@
           "text": "Computer Depot Pacific",
           "value": "965"
         },
-        "owned": true,
-        "rentalMatrix": 0
+        "owned": false,
+        "rentalMatrix": 0,
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }, {
         "id": "129",
         "name": "ELE00002",
@@ -38390,7 +39794,7 @@
         },
         "event": "101083",
         "quantity": 20,
-        "description": "Serialized 1 Sales Description",
+        "description": "",
         "item": {
           "text": "ELE00002",
           "value": "674"
@@ -38414,8 +39818,12 @@
           "text": "Computer Depot Pacific",
           "value": "965"
         },
-        "owned": true,
-        "rentalMatrix": 0
+        "owned": false,
+        "rentalMatrix": 0,
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }, {
         "id": "130",
         "name": "ELE00002",
@@ -38425,7 +39833,7 @@
         },
         "event": "101084",
         "quantity": 0,
-        "description": "Serialized 1 Sales Description",
+        "description": "",
         "item": {
           "text": "ELE00002",
           "value": "674"
@@ -38449,8 +39857,12 @@
           "text": "Computer Depot Pacific",
           "value": "965"
         },
-        "owned": true,
-        "rentalMatrix": 0
+        "owned": false,
+        "rentalMatrix": 0,
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }, {
         "id": "131",
         "name": "ELE00002",
@@ -38460,7 +39872,7 @@
         },
         "event": "101080",
         "quantity": 5,
-        "description": "Serialized 1 Sales Description",
+        "description": "",
         "item": {
           "text": "ELE00002",
           "value": "674"
@@ -38484,8 +39896,12 @@
           "text": "Computer Depot Pacific",
           "value": "965"
         },
-        "owned": true,
-        "rentalMatrix": 0
+        "owned": false,
+        "rentalMatrix": 0,
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }],
       "items": [{
         "id": "558",
@@ -39453,7 +40869,7 @@
       },
       "event": "101080",
       "quantity": 5,
-      "description": "Serialized 1 Sales Description",
+      "description": "",
       "item": {
         "text": "ELE00002",
         "value": "674"
@@ -39477,8 +40893,12 @@
         "text": "Computer Depot Pacific",
         "value": "965"
       },
-      "owned": true,
+      "owned": false,
       "rentalMatrix": 0,
+      "time": {
+        "start": "",
+        "end": ""
+      },
       "selected": true
     }],
     "items": [{
@@ -39626,7 +41046,11 @@
         "amount": 0,
         "active": false,
         "woVendor": true,
-        "memo": ""
+        "memo": "",
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }, {
         "id": "190",
         "name": "190",
@@ -39651,7 +41075,11 @@
         "amount": 0,
         "active": false,
         "woVendor": true,
-        "memo": ""
+        "memo": "",
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }, {
         "id": "191",
         "name": "191",
@@ -39676,7 +41104,11 @@
         "amount": 0,
         "active": false,
         "woVendor": true,
-        "memo": ""
+        "memo": "",
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }, {
         "id": "192",
         "name": "192",
@@ -39701,7 +41133,11 @@
         "amount": 0,
         "active": false,
         "woVendor": true,
-        "memo": ""
+        "memo": "",
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }, {
         "id": "193",
         "name": "193",
@@ -39726,7 +41162,11 @@
         "amount": 0,
         "active": true,
         "woVendor": true,
-        "memo": ""
+        "memo": "",
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }, {
         "id": "194",
         "name": "Best Fixture, Inc.",
@@ -39751,7 +41191,11 @@
         "amount": 0,
         "active": false,
         "woVendor": true,
-        "memo": ""
+        "memo": "",
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }, {
         "id": "188",
         "name": "Best Fixture, Inc.",
@@ -39776,7 +41220,11 @@
         "amount": 0,
         "active": false,
         "woVendor": true,
-        "memo": ""
+        "memo": "",
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }],
       "assets": [{
         "id": "123",
@@ -39787,7 +41235,7 @@
         },
         "event": "101062",
         "quantity": 4,
-        "description": "Serialized 1 Sales Description",
+        "description": "",
         "item": {
           "text": "ELE00002",
           "value": "674"
@@ -39811,8 +41259,12 @@
           "text": "Computer Depot Pacific",
           "value": "965"
         },
-        "owned": true,
-        "rentalMatrix": 0
+        "owned": false,
+        "rentalMatrix": 0,
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }, {
         "id": "124",
         "name": "ELE00002",
@@ -39822,7 +41274,7 @@
         },
         "event": "101077",
         "quantity": 5,
-        "description": "Serialized 1 Sales Description",
+        "description": "",
         "item": {
           "text": "ELE00002",
           "value": "674"
@@ -39846,8 +41298,12 @@
           "text": "Computer Depot Pacific",
           "value": "965"
         },
-        "owned": true,
-        "rentalMatrix": 0
+        "owned": false,
+        "rentalMatrix": 0,
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }, {
         "id": "125",
         "name": "ELE00002",
@@ -39857,7 +41313,7 @@
         },
         "event": "101078",
         "quantity": 4,
-        "description": "Serialized 1 Sales Description",
+        "description": "",
         "item": {
           "text": "ELE00002",
           "value": "674"
@@ -39881,8 +41337,12 @@
           "text": "Computer Depot Pacific",
           "value": "965"
         },
-        "owned": true,
-        "rentalMatrix": 0
+        "owned": false,
+        "rentalMatrix": 0,
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }, {
         "id": "126",
         "name": "ELE00002",
@@ -39892,7 +41352,7 @@
         },
         "event": "101079",
         "quantity": 5,
-        "description": "Serialized 1 Sales Description",
+        "description": "",
         "item": {
           "text": "ELE00002",
           "value": "674"
@@ -39916,8 +41376,12 @@
           "text": "Computer Depot Pacific",
           "value": "965"
         },
-        "owned": true,
-        "rentalMatrix": 0
+        "owned": false,
+        "rentalMatrix": 0,
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }, {
         "id": "127",
         "name": "ELE00002",
@@ -39927,7 +41391,7 @@
         },
         "event": "101081",
         "quantity": 0,
-        "description": "Serialized 1 Sales Description",
+        "description": "",
         "item": {
           "text": "ELE00002",
           "value": "674"
@@ -39951,8 +41415,12 @@
           "text": "Computer Depot Pacific",
           "value": "965"
         },
-        "owned": true,
-        "rentalMatrix": 0
+        "owned": false,
+        "rentalMatrix": 0,
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }, {
         "id": "128",
         "name": "ELE00002",
@@ -39962,7 +41430,7 @@
         },
         "event": "101082",
         "quantity": 100,
-        "description": "Serialized 1 Sales Description",
+        "description": "",
         "item": {
           "text": "ELE00002",
           "value": "674"
@@ -39986,8 +41454,12 @@
           "text": "Computer Depot Pacific",
           "value": "965"
         },
-        "owned": true,
-        "rentalMatrix": 0
+        "owned": false,
+        "rentalMatrix": 0,
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }, {
         "id": "129",
         "name": "ELE00002",
@@ -39997,7 +41469,7 @@
         },
         "event": "101083",
         "quantity": 20,
-        "description": "Serialized 1 Sales Description",
+        "description": "",
         "item": {
           "text": "ELE00002",
           "value": "674"
@@ -40021,8 +41493,12 @@
           "text": "Computer Depot Pacific",
           "value": "965"
         },
-        "owned": true,
-        "rentalMatrix": 0
+        "owned": false,
+        "rentalMatrix": 0,
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }, {
         "id": "130",
         "name": "ELE00002",
@@ -40032,7 +41508,7 @@
         },
         "event": "101084",
         "quantity": 0,
-        "description": "Serialized 1 Sales Description",
+        "description": "",
         "item": {
           "text": "ELE00002",
           "value": "674"
@@ -40056,8 +41532,12 @@
           "text": "Computer Depot Pacific",
           "value": "965"
         },
-        "owned": true,
-        "rentalMatrix": 0
+        "owned": false,
+        "rentalMatrix": 0,
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }, {
         "id": "131",
         "name": "ELE00002",
@@ -40067,7 +41547,7 @@
         },
         "event": "101080",
         "quantity": 5,
-        "description": "Serialized 1 Sales Description",
+        "description": "",
         "item": {
           "text": "ELE00002",
           "value": "674"
@@ -40091,8 +41571,12 @@
           "text": "Computer Depot Pacific",
           "value": "965"
         },
-        "owned": true,
-        "rentalMatrix": 0
+        "owned": false,
+        "rentalMatrix": 0,
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }],
       "items": [{
         "id": "558",
@@ -41164,7 +42648,7 @@
       },
       "event": "101079",
       "quantity": 5,
-      "description": "Serialized 1 Sales Description",
+      "description": "",
       "item": {
         "text": "ELE00002",
         "value": "674"
@@ -41188,8 +42672,12 @@
         "text": "Computer Depot Pacific",
         "value": "965"
       },
-      "owned": true,
+      "owned": false,
       "rentalMatrix": 0,
+      "time": {
+        "start": "",
+        "end": ""
+      },
       "selected": true
     }],
     "items": [{
@@ -41337,7 +42825,11 @@
         "amount": 0,
         "active": false,
         "woVendor": true,
-        "memo": ""
+        "memo": "",
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }, {
         "id": "190",
         "name": "190",
@@ -41362,7 +42854,11 @@
         "amount": 0,
         "active": false,
         "woVendor": true,
-        "memo": ""
+        "memo": "",
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }, {
         "id": "191",
         "name": "191",
@@ -41387,7 +42883,11 @@
         "amount": 0,
         "active": false,
         "woVendor": true,
-        "memo": ""
+        "memo": "",
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }, {
         "id": "192",
         "name": "192",
@@ -41412,7 +42912,11 @@
         "amount": 0,
         "active": false,
         "woVendor": true,
-        "memo": ""
+        "memo": "",
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }, {
         "id": "193",
         "name": "193",
@@ -41437,7 +42941,11 @@
         "amount": 0,
         "active": true,
         "woVendor": true,
-        "memo": ""
+        "memo": "",
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }, {
         "id": "194",
         "name": "Best Fixture, Inc.",
@@ -41462,7 +42970,11 @@
         "amount": 0,
         "active": false,
         "woVendor": true,
-        "memo": ""
+        "memo": "",
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }, {
         "id": "188",
         "name": "Best Fixture, Inc.",
@@ -41487,7 +42999,11 @@
         "amount": 0,
         "active": false,
         "woVendor": true,
-        "memo": ""
+        "memo": "",
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }],
       "assets": [{
         "id": "123",
@@ -41498,7 +43014,7 @@
         },
         "event": "101062",
         "quantity": 4,
-        "description": "Serialized 1 Sales Description",
+        "description": "",
         "item": {
           "text": "ELE00002",
           "value": "674"
@@ -41522,8 +43038,12 @@
           "text": "Computer Depot Pacific",
           "value": "965"
         },
-        "owned": true,
-        "rentalMatrix": 0
+        "owned": false,
+        "rentalMatrix": 0,
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }, {
         "id": "124",
         "name": "ELE00002",
@@ -41533,7 +43053,7 @@
         },
         "event": "101077",
         "quantity": 5,
-        "description": "Serialized 1 Sales Description",
+        "description": "",
         "item": {
           "text": "ELE00002",
           "value": "674"
@@ -41557,8 +43077,12 @@
           "text": "Computer Depot Pacific",
           "value": "965"
         },
-        "owned": true,
-        "rentalMatrix": 0
+        "owned": false,
+        "rentalMatrix": 0,
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }, {
         "id": "125",
         "name": "ELE00002",
@@ -41568,7 +43092,7 @@
         },
         "event": "101078",
         "quantity": 4,
-        "description": "Serialized 1 Sales Description",
+        "description": "",
         "item": {
           "text": "ELE00002",
           "value": "674"
@@ -41592,8 +43116,12 @@
           "text": "Computer Depot Pacific",
           "value": "965"
         },
-        "owned": true,
-        "rentalMatrix": 0
+        "owned": false,
+        "rentalMatrix": 0,
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }, {
         "id": "126",
         "name": "ELE00002",
@@ -41603,7 +43131,7 @@
         },
         "event": "101079",
         "quantity": 5,
-        "description": "Serialized 1 Sales Description",
+        "description": "",
         "item": {
           "text": "ELE00002",
           "value": "674"
@@ -41627,8 +43155,12 @@
           "text": "Computer Depot Pacific",
           "value": "965"
         },
-        "owned": true,
-        "rentalMatrix": 0
+        "owned": false,
+        "rentalMatrix": 0,
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }, {
         "id": "127",
         "name": "ELE00002",
@@ -41638,7 +43170,7 @@
         },
         "event": "101081",
         "quantity": 0,
-        "description": "Serialized 1 Sales Description",
+        "description": "",
         "item": {
           "text": "ELE00002",
           "value": "674"
@@ -41662,8 +43194,12 @@
           "text": "Computer Depot Pacific",
           "value": "965"
         },
-        "owned": true,
-        "rentalMatrix": 0
+        "owned": false,
+        "rentalMatrix": 0,
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }, {
         "id": "128",
         "name": "ELE00002",
@@ -41673,7 +43209,7 @@
         },
         "event": "101082",
         "quantity": 100,
-        "description": "Serialized 1 Sales Description",
+        "description": "",
         "item": {
           "text": "ELE00002",
           "value": "674"
@@ -41697,8 +43233,12 @@
           "text": "Computer Depot Pacific",
           "value": "965"
         },
-        "owned": true,
-        "rentalMatrix": 0
+        "owned": false,
+        "rentalMatrix": 0,
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }, {
         "id": "129",
         "name": "ELE00002",
@@ -41708,7 +43248,7 @@
         },
         "event": "101083",
         "quantity": 20,
-        "description": "Serialized 1 Sales Description",
+        "description": "",
         "item": {
           "text": "ELE00002",
           "value": "674"
@@ -41732,8 +43272,12 @@
           "text": "Computer Depot Pacific",
           "value": "965"
         },
-        "owned": true,
-        "rentalMatrix": 0
+        "owned": false,
+        "rentalMatrix": 0,
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }, {
         "id": "130",
         "name": "ELE00002",
@@ -41743,7 +43287,7 @@
         },
         "event": "101084",
         "quantity": 0,
-        "description": "Serialized 1 Sales Description",
+        "description": "",
         "item": {
           "text": "ELE00002",
           "value": "674"
@@ -41767,8 +43311,12 @@
           "text": "Computer Depot Pacific",
           "value": "965"
         },
-        "owned": true,
-        "rentalMatrix": 0
+        "owned": false,
+        "rentalMatrix": 0,
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }, {
         "id": "131",
         "name": "ELE00002",
@@ -41778,7 +43326,7 @@
         },
         "event": "101080",
         "quantity": 5,
-        "description": "Serialized 1 Sales Description",
+        "description": "",
         "item": {
           "text": "ELE00002",
           "value": "674"
@@ -41802,8 +43350,12 @@
           "text": "Computer Depot Pacific",
           "value": "965"
         },
-        "owned": true,
-        "rentalMatrix": 0
+        "owned": false,
+        "rentalMatrix": 0,
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }],
       "items": [{
         "id": "558",
@@ -42719,7 +44271,7 @@
       },
       "event": "101078",
       "quantity": 4,
-      "description": "Serialized 1 Sales Description",
+      "description": "",
       "item": {
         "text": "ELE00002",
         "value": "674"
@@ -42743,8 +44295,12 @@
         "text": "Computer Depot Pacific",
         "value": "965"
       },
-      "owned": true,
+      "owned": false,
       "rentalMatrix": 0,
+      "time": {
+        "start": "",
+        "end": ""
+      },
       "selected": true
     }],
     "items": [{
@@ -42892,7 +44448,11 @@
         "amount": 0,
         "active": false,
         "woVendor": true,
-        "memo": ""
+        "memo": "",
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }, {
         "id": "190",
         "name": "190",
@@ -42917,7 +44477,11 @@
         "amount": 0,
         "active": false,
         "woVendor": true,
-        "memo": ""
+        "memo": "",
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }, {
         "id": "191",
         "name": "191",
@@ -42942,7 +44506,11 @@
         "amount": 0,
         "active": false,
         "woVendor": true,
-        "memo": ""
+        "memo": "",
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }, {
         "id": "192",
         "name": "192",
@@ -42967,7 +44535,11 @@
         "amount": 0,
         "active": false,
         "woVendor": true,
-        "memo": ""
+        "memo": "",
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }, {
         "id": "193",
         "name": "193",
@@ -42992,7 +44564,11 @@
         "amount": 0,
         "active": true,
         "woVendor": true,
-        "memo": ""
+        "memo": "",
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }, {
         "id": "194",
         "name": "Best Fixture, Inc.",
@@ -43017,7 +44593,11 @@
         "amount": 0,
         "active": false,
         "woVendor": true,
-        "memo": ""
+        "memo": "",
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }, {
         "id": "188",
         "name": "Best Fixture, Inc.",
@@ -43042,7 +44622,11 @@
         "amount": 0,
         "active": false,
         "woVendor": true,
-        "memo": ""
+        "memo": "",
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }],
       "assets": [{
         "id": "123",
@@ -43053,7 +44637,7 @@
         },
         "event": "101062",
         "quantity": 4,
-        "description": "Serialized 1 Sales Description",
+        "description": "",
         "item": {
           "text": "ELE00002",
           "value": "674"
@@ -43077,8 +44661,12 @@
           "text": "Computer Depot Pacific",
           "value": "965"
         },
-        "owned": true,
-        "rentalMatrix": 0
+        "owned": false,
+        "rentalMatrix": 0,
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }, {
         "id": "124",
         "name": "ELE00002",
@@ -43088,7 +44676,7 @@
         },
         "event": "101077",
         "quantity": 5,
-        "description": "Serialized 1 Sales Description",
+        "description": "",
         "item": {
           "text": "ELE00002",
           "value": "674"
@@ -43112,8 +44700,12 @@
           "text": "Computer Depot Pacific",
           "value": "965"
         },
-        "owned": true,
-        "rentalMatrix": 0
+        "owned": false,
+        "rentalMatrix": 0,
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }, {
         "id": "125",
         "name": "ELE00002",
@@ -43123,7 +44715,7 @@
         },
         "event": "101078",
         "quantity": 4,
-        "description": "Serialized 1 Sales Description",
+        "description": "",
         "item": {
           "text": "ELE00002",
           "value": "674"
@@ -43147,8 +44739,12 @@
           "text": "Computer Depot Pacific",
           "value": "965"
         },
-        "owned": true,
-        "rentalMatrix": 0
+        "owned": false,
+        "rentalMatrix": 0,
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }, {
         "id": "126",
         "name": "ELE00002",
@@ -43158,7 +44754,7 @@
         },
         "event": "101079",
         "quantity": 5,
-        "description": "Serialized 1 Sales Description",
+        "description": "",
         "item": {
           "text": "ELE00002",
           "value": "674"
@@ -43182,8 +44778,12 @@
           "text": "Computer Depot Pacific",
           "value": "965"
         },
-        "owned": true,
-        "rentalMatrix": 0
+        "owned": false,
+        "rentalMatrix": 0,
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }, {
         "id": "127",
         "name": "ELE00002",
@@ -43193,7 +44793,7 @@
         },
         "event": "101081",
         "quantity": 0,
-        "description": "Serialized 1 Sales Description",
+        "description": "",
         "item": {
           "text": "ELE00002",
           "value": "674"
@@ -43217,8 +44817,12 @@
           "text": "Computer Depot Pacific",
           "value": "965"
         },
-        "owned": true,
-        "rentalMatrix": 0
+        "owned": false,
+        "rentalMatrix": 0,
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }, {
         "id": "128",
         "name": "ELE00002",
@@ -43228,7 +44832,7 @@
         },
         "event": "101082",
         "quantity": 100,
-        "description": "Serialized 1 Sales Description",
+        "description": "",
         "item": {
           "text": "ELE00002",
           "value": "674"
@@ -43252,8 +44856,12 @@
           "text": "Computer Depot Pacific",
           "value": "965"
         },
-        "owned": true,
-        "rentalMatrix": 0
+        "owned": false,
+        "rentalMatrix": 0,
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }, {
         "id": "129",
         "name": "ELE00002",
@@ -43263,7 +44871,7 @@
         },
         "event": "101083",
         "quantity": 20,
-        "description": "Serialized 1 Sales Description",
+        "description": "",
         "item": {
           "text": "ELE00002",
           "value": "674"
@@ -43287,8 +44895,12 @@
           "text": "Computer Depot Pacific",
           "value": "965"
         },
-        "owned": true,
-        "rentalMatrix": 0
+        "owned": false,
+        "rentalMatrix": 0,
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }, {
         "id": "130",
         "name": "ELE00002",
@@ -43298,7 +44910,7 @@
         },
         "event": "101084",
         "quantity": 0,
-        "description": "Serialized 1 Sales Description",
+        "description": "",
         "item": {
           "text": "ELE00002",
           "value": "674"
@@ -43322,8 +44934,12 @@
           "text": "Computer Depot Pacific",
           "value": "965"
         },
-        "owned": true,
-        "rentalMatrix": 0
+        "owned": false,
+        "rentalMatrix": 0,
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }, {
         "id": "131",
         "name": "ELE00002",
@@ -43333,7 +44949,7 @@
         },
         "event": "101080",
         "quantity": 5,
-        "description": "Serialized 1 Sales Description",
+        "description": "",
         "item": {
           "text": "ELE00002",
           "value": "674"
@@ -43357,8 +44973,12 @@
           "text": "Computer Depot Pacific",
           "value": "965"
         },
-        "owned": true,
-        "rentalMatrix": 0
+        "owned": false,
+        "rentalMatrix": 0,
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }],
       "items": [{
         "id": "558",
@@ -44274,7 +45894,7 @@
       },
       "event": "101077",
       "quantity": 5,
-      "description": "Serialized 1 Sales Description",
+      "description": "",
       "item": {
         "text": "ELE00002",
         "value": "674"
@@ -44298,8 +45918,12 @@
         "text": "Computer Depot Pacific",
         "value": "965"
       },
-      "owned": true,
+      "owned": false,
       "rentalMatrix": 0,
+      "time": {
+        "start": "",
+        "end": ""
+      },
       "selected": true
     }],
     "items": [{
@@ -44447,7 +46071,11 @@
         "amount": 0,
         "active": false,
         "woVendor": true,
-        "memo": ""
+        "memo": "",
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }, {
         "id": "190",
         "name": "190",
@@ -44472,7 +46100,11 @@
         "amount": 0,
         "active": false,
         "woVendor": true,
-        "memo": ""
+        "memo": "",
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }, {
         "id": "191",
         "name": "191",
@@ -44497,7 +46129,11 @@
         "amount": 0,
         "active": false,
         "woVendor": true,
-        "memo": ""
+        "memo": "",
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }, {
         "id": "192",
         "name": "192",
@@ -44522,7 +46158,11 @@
         "amount": 0,
         "active": false,
         "woVendor": true,
-        "memo": ""
+        "memo": "",
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }, {
         "id": "193",
         "name": "193",
@@ -44547,7 +46187,11 @@
         "amount": 0,
         "active": true,
         "woVendor": true,
-        "memo": ""
+        "memo": "",
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }, {
         "id": "194",
         "name": "Best Fixture, Inc.",
@@ -44572,7 +46216,11 @@
         "amount": 0,
         "active": false,
         "woVendor": true,
-        "memo": ""
+        "memo": "",
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }, {
         "id": "188",
         "name": "Best Fixture, Inc.",
@@ -44597,7 +46245,11 @@
         "amount": 0,
         "active": false,
         "woVendor": true,
-        "memo": ""
+        "memo": "",
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }],
       "assets": [{
         "id": "123",
@@ -44608,7 +46260,7 @@
         },
         "event": "101062",
         "quantity": 4,
-        "description": "Serialized 1 Sales Description",
+        "description": "",
         "item": {
           "text": "ELE00002",
           "value": "674"
@@ -44632,8 +46284,12 @@
           "text": "Computer Depot Pacific",
           "value": "965"
         },
-        "owned": true,
-        "rentalMatrix": 0
+        "owned": false,
+        "rentalMatrix": 0,
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }, {
         "id": "124",
         "name": "ELE00002",
@@ -44643,7 +46299,7 @@
         },
         "event": "101077",
         "quantity": 5,
-        "description": "Serialized 1 Sales Description",
+        "description": "",
         "item": {
           "text": "ELE00002",
           "value": "674"
@@ -44667,8 +46323,12 @@
           "text": "Computer Depot Pacific",
           "value": "965"
         },
-        "owned": true,
-        "rentalMatrix": 0
+        "owned": false,
+        "rentalMatrix": 0,
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }, {
         "id": "125",
         "name": "ELE00002",
@@ -44678,7 +46338,7 @@
         },
         "event": "101078",
         "quantity": 4,
-        "description": "Serialized 1 Sales Description",
+        "description": "",
         "item": {
           "text": "ELE00002",
           "value": "674"
@@ -44702,8 +46362,12 @@
           "text": "Computer Depot Pacific",
           "value": "965"
         },
-        "owned": true,
-        "rentalMatrix": 0
+        "owned": false,
+        "rentalMatrix": 0,
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }, {
         "id": "126",
         "name": "ELE00002",
@@ -44713,7 +46377,7 @@
         },
         "event": "101079",
         "quantity": 5,
-        "description": "Serialized 1 Sales Description",
+        "description": "",
         "item": {
           "text": "ELE00002",
           "value": "674"
@@ -44737,8 +46401,12 @@
           "text": "Computer Depot Pacific",
           "value": "965"
         },
-        "owned": true,
-        "rentalMatrix": 0
+        "owned": false,
+        "rentalMatrix": 0,
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }, {
         "id": "127",
         "name": "ELE00002",
@@ -44748,7 +46416,7 @@
         },
         "event": "101081",
         "quantity": 0,
-        "description": "Serialized 1 Sales Description",
+        "description": "",
         "item": {
           "text": "ELE00002",
           "value": "674"
@@ -44772,8 +46440,12 @@
           "text": "Computer Depot Pacific",
           "value": "965"
         },
-        "owned": true,
-        "rentalMatrix": 0
+        "owned": false,
+        "rentalMatrix": 0,
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }, {
         "id": "128",
         "name": "ELE00002",
@@ -44783,7 +46455,7 @@
         },
         "event": "101082",
         "quantity": 100,
-        "description": "Serialized 1 Sales Description",
+        "description": "",
         "item": {
           "text": "ELE00002",
           "value": "674"
@@ -44807,8 +46479,12 @@
           "text": "Computer Depot Pacific",
           "value": "965"
         },
-        "owned": true,
-        "rentalMatrix": 0
+        "owned": false,
+        "rentalMatrix": 0,
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }, {
         "id": "129",
         "name": "ELE00002",
@@ -44818,7 +46494,7 @@
         },
         "event": "101083",
         "quantity": 20,
-        "description": "Serialized 1 Sales Description",
+        "description": "",
         "item": {
           "text": "ELE00002",
           "value": "674"
@@ -44842,8 +46518,12 @@
           "text": "Computer Depot Pacific",
           "value": "965"
         },
-        "owned": true,
-        "rentalMatrix": 0
+        "owned": false,
+        "rentalMatrix": 0,
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }, {
         "id": "130",
         "name": "ELE00002",
@@ -44853,7 +46533,7 @@
         },
         "event": "101084",
         "quantity": 0,
-        "description": "Serialized 1 Sales Description",
+        "description": "",
         "item": {
           "text": "ELE00002",
           "value": "674"
@@ -44877,8 +46557,12 @@
           "text": "Computer Depot Pacific",
           "value": "965"
         },
-        "owned": true,
-        "rentalMatrix": 0
+        "owned": false,
+        "rentalMatrix": 0,
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }, {
         "id": "131",
         "name": "ELE00002",
@@ -44888,7 +46572,7 @@
         },
         "event": "101080",
         "quantity": 5,
-        "description": "Serialized 1 Sales Description",
+        "description": "",
         "item": {
           "text": "ELE00002",
           "value": "674"
@@ -44912,8 +46596,12 @@
           "text": "Computer Depot Pacific",
           "value": "965"
         },
-        "owned": true,
-        "rentalMatrix": 0
+        "owned": false,
+        "rentalMatrix": 0,
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }],
       "items": [{
         "id": "558",
@@ -46006,7 +47694,11 @@
         "amount": 0,
         "active": false,
         "woVendor": true,
-        "memo": ""
+        "memo": "",
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }, {
         "id": "190",
         "name": "190",
@@ -46031,7 +47723,11 @@
         "amount": 0,
         "active": false,
         "woVendor": true,
-        "memo": ""
+        "memo": "",
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }, {
         "id": "191",
         "name": "191",
@@ -46056,7 +47752,11 @@
         "amount": 0,
         "active": false,
         "woVendor": true,
-        "memo": ""
+        "memo": "",
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }, {
         "id": "192",
         "name": "192",
@@ -46081,7 +47781,11 @@
         "amount": 0,
         "active": false,
         "woVendor": true,
-        "memo": ""
+        "memo": "",
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }, {
         "id": "193",
         "name": "193",
@@ -46106,7 +47810,11 @@
         "amount": 0,
         "active": true,
         "woVendor": true,
-        "memo": ""
+        "memo": "",
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }, {
         "id": "194",
         "name": "Best Fixture, Inc.",
@@ -46131,7 +47839,11 @@
         "amount": 0,
         "active": false,
         "woVendor": true,
-        "memo": ""
+        "memo": "",
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }, {
         "id": "188",
         "name": "Best Fixture, Inc.",
@@ -46156,7 +47868,11 @@
         "amount": 0,
         "active": false,
         "woVendor": true,
-        "memo": ""
+        "memo": "",
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }],
       "assets": [{
         "id": "123",
@@ -46167,7 +47883,7 @@
         },
         "event": "101062",
         "quantity": 4,
-        "description": "Serialized 1 Sales Description",
+        "description": "",
         "item": {
           "text": "ELE00002",
           "value": "674"
@@ -46191,8 +47907,12 @@
           "text": "Computer Depot Pacific",
           "value": "965"
         },
-        "owned": true,
-        "rentalMatrix": 0
+        "owned": false,
+        "rentalMatrix": 0,
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }, {
         "id": "124",
         "name": "ELE00002",
@@ -46202,7 +47922,7 @@
         },
         "event": "101077",
         "quantity": 5,
-        "description": "Serialized 1 Sales Description",
+        "description": "",
         "item": {
           "text": "ELE00002",
           "value": "674"
@@ -46226,8 +47946,12 @@
           "text": "Computer Depot Pacific",
           "value": "965"
         },
-        "owned": true,
-        "rentalMatrix": 0
+        "owned": false,
+        "rentalMatrix": 0,
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }, {
         "id": "125",
         "name": "ELE00002",
@@ -46237,7 +47961,7 @@
         },
         "event": "101078",
         "quantity": 4,
-        "description": "Serialized 1 Sales Description",
+        "description": "",
         "item": {
           "text": "ELE00002",
           "value": "674"
@@ -46261,8 +47985,12 @@
           "text": "Computer Depot Pacific",
           "value": "965"
         },
-        "owned": true,
-        "rentalMatrix": 0
+        "owned": false,
+        "rentalMatrix": 0,
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }, {
         "id": "126",
         "name": "ELE00002",
@@ -46272,7 +48000,7 @@
         },
         "event": "101079",
         "quantity": 5,
-        "description": "Serialized 1 Sales Description",
+        "description": "",
         "item": {
           "text": "ELE00002",
           "value": "674"
@@ -46296,8 +48024,12 @@
           "text": "Computer Depot Pacific",
           "value": "965"
         },
-        "owned": true,
-        "rentalMatrix": 0
+        "owned": false,
+        "rentalMatrix": 0,
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }, {
         "id": "127",
         "name": "ELE00002",
@@ -46307,7 +48039,7 @@
         },
         "event": "101081",
         "quantity": 0,
-        "description": "Serialized 1 Sales Description",
+        "description": "",
         "item": {
           "text": "ELE00002",
           "value": "674"
@@ -46331,8 +48063,12 @@
           "text": "Computer Depot Pacific",
           "value": "965"
         },
-        "owned": true,
-        "rentalMatrix": 0
+        "owned": false,
+        "rentalMatrix": 0,
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }, {
         "id": "128",
         "name": "ELE00002",
@@ -46342,7 +48078,7 @@
         },
         "event": "101082",
         "quantity": 100,
-        "description": "Serialized 1 Sales Description",
+        "description": "",
         "item": {
           "text": "ELE00002",
           "value": "674"
@@ -46366,8 +48102,12 @@
           "text": "Computer Depot Pacific",
           "value": "965"
         },
-        "owned": true,
-        "rentalMatrix": 0
+        "owned": false,
+        "rentalMatrix": 0,
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }, {
         "id": "129",
         "name": "ELE00002",
@@ -46377,7 +48117,7 @@
         },
         "event": "101083",
         "quantity": 20,
-        "description": "Serialized 1 Sales Description",
+        "description": "",
         "item": {
           "text": "ELE00002",
           "value": "674"
@@ -46401,8 +48141,12 @@
           "text": "Computer Depot Pacific",
           "value": "965"
         },
-        "owned": true,
-        "rentalMatrix": 0
+        "owned": false,
+        "rentalMatrix": 0,
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }, {
         "id": "130",
         "name": "ELE00002",
@@ -46412,7 +48156,7 @@
         },
         "event": "101084",
         "quantity": 0,
-        "description": "Serialized 1 Sales Description",
+        "description": "",
         "item": {
           "text": "ELE00002",
           "value": "674"
@@ -46436,8 +48180,12 @@
           "text": "Computer Depot Pacific",
           "value": "965"
         },
-        "owned": true,
-        "rentalMatrix": 0
+        "owned": false,
+        "rentalMatrix": 0,
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }, {
         "id": "131",
         "name": "ELE00002",
@@ -46447,7 +48195,7 @@
         },
         "event": "101080",
         "quantity": 5,
-        "description": "Serialized 1 Sales Description",
+        "description": "",
         "item": {
           "text": "ELE00002",
           "value": "674"
@@ -46471,8 +48219,12 @@
           "text": "Computer Depot Pacific",
           "value": "965"
         },
-        "owned": true,
-        "rentalMatrix": 0
+        "owned": false,
+        "rentalMatrix": 0,
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }],
       "items": [{
         "id": "558",
@@ -47519,6 +49271,10 @@
       "active": false,
       "woVendor": true,
       "memo": "",
+      "time": {
+        "start": "",
+        "end": ""
+      },
       "selected": true
     }],
     "assets": [],
@@ -47692,7 +49448,11 @@
         "amount": 0,
         "active": false,
         "woVendor": true,
-        "memo": ""
+        "memo": "",
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }],
       "assets": [],
       "items": [{
@@ -48301,7 +50061,11 @@
         "amount": 0,
         "active": false,
         "woVendor": true,
-        "memo": ""
+        "memo": "",
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }],
       "assets": [],
       "items": [{
@@ -48840,7 +50604,11 @@
         "amount": 0,
         "active": false,
         "woVendor": true,
-        "memo": ""
+        "memo": "",
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }],
       "assets": [],
       "items": [{
@@ -49379,7 +51147,11 @@
         "amount": 0,
         "active": false,
         "woVendor": true,
-        "memo": ""
+        "memo": "",
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }],
       "assets": [],
       "items": [{
@@ -49838,6 +51610,10 @@
       "active": false,
       "woVendor": true,
       "memo": "",
+      "time": {
+        "start": "",
+        "end": ""
+      },
       "selected": true
     }],
     "assets": [],
@@ -50022,7 +51798,11 @@
         "amount": 0,
         "active": false,
         "woVendor": true,
-        "memo": ""
+        "memo": "",
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }, {
         "id": "183",
         "name": "CFI Furniture Inc.",
@@ -50047,7 +51827,11 @@
         "amount": 0,
         "active": false,
         "woVendor": true,
-        "memo": ""
+        "memo": "",
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }],
       "assets": [],
       "items": [{
@@ -50572,6 +52356,10 @@
       "active": false,
       "woVendor": true,
       "memo": "",
+      "time": {
+        "start": "",
+        "end": ""
+      },
       "selected": true
     }],
     "assets": [],
@@ -50779,7 +52567,11 @@
         "amount": 0,
         "active": false,
         "woVendor": true,
-        "memo": ""
+        "memo": "",
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }],
       "assets": [],
       "items": [{
@@ -51318,7 +53110,11 @@
         "amount": 0,
         "active": false,
         "woVendor": true,
-        "memo": "TEST\n111"
+        "memo": "TEST\n111",
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }],
       "assets": [],
       "items": [{
@@ -51636,6 +53432,10 @@
       "active": false,
       "woVendor": true,
       "memo": "TEST\n111",
+      "time": {
+        "start": "",
+        "end": ""
+      },
       "selected": true
     }],
     "assets": [],
@@ -51883,7 +53683,11 @@
         "amount": 0,
         "active": false,
         "woVendor": true,
-        "memo": ""
+        "memo": "",
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }, {
         "id": "183",
         "name": "CFI Furniture Inc.",
@@ -51908,7 +53712,11 @@
         "amount": 0,
         "active": false,
         "woVendor": true,
-        "memo": ""
+        "memo": "",
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }],
       "assets": [],
       "items": [{
@@ -52433,6 +54241,10 @@
       "active": false,
       "woVendor": true,
       "memo": "",
+      "time": {
+        "start": "",
+        "end": ""
+      },
       "selected": true
     }],
     "assets": [],
@@ -52575,7 +54387,11 @@
         "amount": 0,
         "active": false,
         "woVendor": true,
-        "memo": ""
+        "memo": "",
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }],
       "assets": [],
       "items": [{
@@ -53034,6 +54850,10 @@
       "active": false,
       "woVendor": true,
       "memo": "",
+      "time": {
+        "start": "",
+        "end": ""
+      },
       "selected": true
     }],
     "assets": [],
@@ -53581,7 +55401,11 @@
         "amount": 0,
         "active": false,
         "woVendor": true,
-        "memo": ""
+        "memo": "",
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }, {
         "id": "183",
         "name": "CFI Furniture Inc.",
@@ -53606,7 +55430,11 @@
         "amount": 0,
         "active": false,
         "woVendor": true,
-        "memo": ""
+        "memo": "",
+        "time": {
+          "start": "",
+          "end": ""
+        }
       }],
       "assets": [],
       "items": [{
@@ -56593,540 +58421,6 @@
       "value": "1770"
     },
     "hasQuantityReceived": true
-  }, {
-    "id": "101045",
-    "title": "Delivery Event",
-    "workorder": {
-      "text": "Furniture Delivery",
-      "value": "113"
-    },
-    "location": "",
-    "status": {
-      "text": "Tentative",
-      "value": "TENTATIVE",
-      "code": "bg-secondary"
-    },
-    "date": {
-      "recurrence": "occurs every day from 11/14/2024 until 11/15/2024",
-      "dates": ["11/14/2024", "11/15/2024"],
-      "start": "2024-11-14",
-      "end": "2024-11-15"
-    },
-    "time": {
-      "start": "08:00",
-      "end": "18:00"
-    },
-    "priority": {
-      "text": "Low",
-      "value": "1",
-      "code": "#026adf"
-    },
-    "note": "Delivery Event",
-    "url": "/app/crm/calendar/event.nl?id=101045&compid=TSTDRV2617106&selectedtab=custom337",
-    "color": "#1a6756",
-    "woRef": {
-      "id": "113",
-      "name": "Furniture Delivery",
-      "title": "Furniture Delivery",
-      "project": {
-        "text": "World Bank : World Bank Office Furniture Installation",
-        "value": "1515"
-      },
-      "date": "11/12/2024",
-      "status": {
-        "text": "Completed",
-        "value": "4",
-        "code": "#28a745"
-      },
-      "type": {
-        "text": "Service",
-        "value": "2"
-      },
-      "memo": "<p><strong>Furniture Delivery</strong></p>",
-      "salesorder": {
-        "text": "Sales Order #SLS00000779",
-        "value": "20908"
-      },
-      "customer": {
-        "text": "World Bank",
-        "value": "1249"
-      },
-      "resourceGroup": {
-        "text": "",
-        "value": ""
-      },
-      "priority": "",
-      "resources": [],
-      "vendors": [],
-      "assets": [],
-      "items": [{
-        "id": "475",
-        "workorder": {
-          "text": "Furniture Delivery",
-          "value": "113"
-        },
-        "salesorder": {
-          "text": "Sales Order #SLS00000779",
-          "value": "20908"
-        },
-        "event": "101045",
-        "uuid": "20908_1",
-        "line": "1",
-        "item": {
-          "text": "BIC00008",
-          "value": "467"
-        },
-        "description": "",
-        "quantity": 1,
-        "availableQty": 1,
-        "note": "",
-        "quantityReceived": 19
-      }, {
-        "id": "476",
-        "workorder": {
-          "text": "Furniture Delivery",
-          "value": "113"
-        },
-        "salesorder": {
-          "text": "Sales Order #SLS00000779",
-          "value": "20908"
-        },
-        "event": "101045",
-        "uuid": "20908_2",
-        "line": "2",
-        "item": {
-          "text": "BIC00008",
-          "value": "467"
-        },
-        "description": "",
-        "quantity": 2,
-        "availableQty": 2,
-        "note": "",
-        "quantityReceived": 19
-      }, {
-        "id": "477",
-        "workorder": {
-          "text": "Furniture Delivery",
-          "value": "113"
-        },
-        "salesorder": {
-          "text": "Sales Order #SLS00000779",
-          "value": "20908"
-        },
-        "event": "101045",
-        "uuid": "20908_3",
-        "line": "3",
-        "item": {
-          "text": "BIC00008",
-          "value": "467"
-        },
-        "description": "",
-        "quantity": 3,
-        "availableQty": 3,
-        "note": "",
-        "quantityReceived": 19
-      }, {
-        "id": "478",
-        "workorder": {
-          "text": "Furniture Delivery",
-          "value": "113"
-        },
-        "salesorder": {
-          "text": "Sales Order #SLS00000779",
-          "value": "20908"
-        },
-        "event": "101045",
-        "uuid": "20908_4",
-        "line": "4",
-        "item": {
-          "text": "BIC00008",
-          "value": "467"
-        },
-        "description": "",
-        "quantity": 4,
-        "availableQty": 4,
-        "note": "",
-        "quantityReceived": 19
-      }, {
-        "id": "471",
-        "workorder": {
-          "text": "Furniture Delivery",
-          "value": "113"
-        },
-        "salesorder": {
-          "text": "Sales Order #SLS00000779",
-          "value": "20908"
-        },
-        "event": "",
-        "uuid": "20908_1",
-        "line": "1",
-        "item": {
-          "text": "BIC00008",
-          "value": "467"
-        },
-        "description": "",
-        "quantity": 1,
-        "availableQty": 1,
-        "note": "",
-        "quantityReceived": 19
-      }, {
-        "id": "472",
-        "workorder": {
-          "text": "Furniture Delivery",
-          "value": "113"
-        },
-        "salesorder": {
-          "text": "Sales Order #SLS00000779",
-          "value": "20908"
-        },
-        "event": "",
-        "uuid": "20908_2",
-        "line": "2",
-        "item": {
-          "text": "BIC00008",
-          "value": "467"
-        },
-        "description": "",
-        "quantity": 2,
-        "availableQty": 2,
-        "note": "",
-        "quantityReceived": 19
-      }, {
-        "id": "473",
-        "workorder": {
-          "text": "Furniture Delivery",
-          "value": "113"
-        },
-        "salesorder": {
-          "text": "Sales Order #SLS00000779",
-          "value": "20908"
-        },
-        "event": "",
-        "uuid": "20908_3",
-        "line": "3",
-        "item": {
-          "text": "BIC00008",
-          "value": "467"
-        },
-        "description": "",
-        "quantity": 3,
-        "availableQty": 3,
-        "note": "",
-        "quantityReceived": 19
-      }, {
-        "id": "474",
-        "workorder": {
-          "text": "Furniture Delivery",
-          "value": "113"
-        },
-        "salesorder": {
-          "text": "Sales Order #SLS00000779",
-          "value": "20908"
-        },
-        "event": "",
-        "uuid": "20908_4",
-        "line": "4",
-        "item": {
-          "text": "BIC00008",
-          "value": "467"
-        },
-        "description": "",
-        "quantity": 4,
-        "availableQty": 4,
-        "note": "",
-        "quantityReceived": 19
-      }],
-      "addresses": [{
-        "id": "178",
-        "workorder": {
-          "text": "Furniture Delivery",
-          "value": "113"
-        },
-        "customer": {
-          "text": "World Bank",
-          "value": "1249"
-        },
-        "events": ["101045"],
-        "address": {
-          "text": "434 Carlaw",
-          "value": "244878"
-        },
-        "addressDetails": "434 Carlaw Road<br/>Los Angeles NY 12412<br/>United States",
-        "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
-      }],
-      "contacts": [{
-        "id": "144",
-        "workorder": {
-          "text": "Furniture Delivery",
-          "value": "113"
-        },
-        "events": ["101045"],
-        "event": "101045",
-        "contact": {
-          "text": "World Bank : Jim Carrey",
-          "value": "2041"
-        },
-        "name": "Jim Carrey",
-        "email": "jcarrery@worldbank.com",
-        "jobTitle": "Administrative Manager",
-        "mobilePhone": "",
-        "phone": "",
-        "primary": false,
-        "url": "/app/common/entity/contact.nl?id=2041&compid=TSTDRV2617106"
-      }, {
-        "id": "145",
-        "workorder": {
-          "text": "Furniture Delivery",
-          "value": "113"
-        },
-        "events": ["101045"],
-        "event": "101045",
-        "contact": {
-          "text": "World Bank : John Smith",
-          "value": "1892"
-        },
-        "name": "John Smith",
-        "email": "jc@erpsuccesspartners.com",
-        "jobTitle": "Logistics",
-        "mobilePhone": "",
-        "phone": "",
-        "primary": true,
-        "url": "/app/common/entity/contact.nl?id=1892&compid=TSTDRV2617106"
-      }],
-      "events": [{
-        "id": "101045",
-        "title": "Delivery Event",
-        "workorder": {
-          "text": "Furniture Delivery",
-          "value": "113"
-        },
-        "location": "",
-        "status": {
-          "text": "Tentative",
-          "value": "TENTATIVE",
-          "code": "bg-secondary"
-        },
-        "date": {
-          "recurrence": "occurs every day from 11/14/2024 until 11/15/2024",
-          "dates": ["11/14/2024", "11/15/2024"],
-          "start": "2024-11-14",
-          "end": "2024-11-15"
-        },
-        "time": {
-          "start": "08:00",
-          "end": "18:00"
-        },
-        "priority": {
-          "text": "Low",
-          "value": "1",
-          "code": "#026adf"
-        },
-        "note": "Delivery Event",
-        "url": "/app/crm/calendar/event.nl?id=101045&compid=TSTDRV2617106&selectedtab=custom337",
-        "color": "#1a6756",
-        "woRef": {},
-        "resources": [],
-        "vendors": [],
-        "assets": [],
-        "items": [],
-        "contacts": [],
-        "addresses": [],
-        "contact": {
-          "text": "",
-          "value": ""
-        },
-        "address": {
-          "text": "",
-          "value": ""
-        },
-        "organizer": {
-          "text": "Arun Sharma",
-          "value": "1770"
-        }
-      }],
-      "projectUrl": "/app/accounting/project/project.nl?id=1515&compid=TSTDRV2617106",
-      "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=113&compid=TSTDRV2617106",
-      "soUrl": "/app/accounting/transactions/salesord.nl?id=20908&compid=TSTDRV2617106",
-      "esthours": "20",
-      "location": {
-        "text": "",
-        "value": ""
-      },
-      "receiptStatus": {
-        "text": "",
-        "value": ""
-      },
-      "hasQuantityReceived": true
-    },
-    "resources": [],
-    "vendors": [],
-    "assets": [],
-    "items": [{
-      "id": "475",
-      "workorder": {
-        "text": "Furniture Delivery",
-        "value": "113"
-      },
-      "salesorder": {
-        "text": "Sales Order #SLS00000779",
-        "value": "20908"
-      },
-      "event": "101045",
-      "uuid": "20908_1",
-      "line": "1",
-      "item": {
-        "text": "BIC00008",
-        "value": "467"
-      },
-      "description": "",
-      "quantity": 1,
-      "availableQty": 1,
-      "note": "",
-      "quantityReceived": 19,
-      "selected": true
-    }, {
-      "id": "476",
-      "workorder": {
-        "text": "Furniture Delivery",
-        "value": "113"
-      },
-      "salesorder": {
-        "text": "Sales Order #SLS00000779",
-        "value": "20908"
-      },
-      "event": "101045",
-      "uuid": "20908_2",
-      "line": "2",
-      "item": {
-        "text": "BIC00008",
-        "value": "467"
-      },
-      "description": "",
-      "quantity": 2,
-      "availableQty": 2,
-      "note": "",
-      "quantityReceived": 19,
-      "selected": true
-    }, {
-      "id": "477",
-      "workorder": {
-        "text": "Furniture Delivery",
-        "value": "113"
-      },
-      "salesorder": {
-        "text": "Sales Order #SLS00000779",
-        "value": "20908"
-      },
-      "event": "101045",
-      "uuid": "20908_3",
-      "line": "3",
-      "item": {
-        "text": "BIC00008",
-        "value": "467"
-      },
-      "description": "",
-      "quantity": 3,
-      "availableQty": 3,
-      "note": "",
-      "quantityReceived": 19,
-      "selected": true
-    }, {
-      "id": "478",
-      "workorder": {
-        "text": "Furniture Delivery",
-        "value": "113"
-      },
-      "salesorder": {
-        "text": "Sales Order #SLS00000779",
-        "value": "20908"
-      },
-      "event": "101045",
-      "uuid": "20908_4",
-      "line": "4",
-      "item": {
-        "text": "BIC00008",
-        "value": "467"
-      },
-      "description": "",
-      "quantity": 4,
-      "availableQty": 4,
-      "note": "",
-      "quantityReceived": 19,
-      "selected": true
-    }],
-    "contacts": [{
-      "id": "144",
-      "workorder": {
-        "text": "Furniture Delivery",
-        "value": "113"
-      },
-      "events": ["101045"],
-      "event": "101045",
-      "contact": {
-        "text": "World Bank : Jim Carrey",
-        "value": "2041"
-      },
-      "name": "Jim Carrey",
-      "email": "jcarrery@worldbank.com",
-      "jobTitle": "Administrative Manager",
-      "mobilePhone": "",
-      "phone": "",
-      "primary": false,
-      "url": "/app/common/entity/contact.nl?id=2041&compid=TSTDRV2617106",
-      "selected": true
-    }, {
-      "id": "145",
-      "workorder": {
-        "text": "Furniture Delivery",
-        "value": "113"
-      },
-      "events": ["101045"],
-      "event": "101045",
-      "contact": {
-        "text": "World Bank : John Smith",
-        "value": "1892"
-      },
-      "name": "John Smith",
-      "email": "jc@erpsuccesspartners.com",
-      "jobTitle": "Logistics",
-      "mobilePhone": "",
-      "phone": "",
-      "primary": true,
-      "url": "/app/common/entity/contact.nl?id=1892&compid=TSTDRV2617106",
-      "selected": true
-    }],
-    "addresses": [{
-      "id": "178",
-      "workorder": {
-        "text": "Furniture Delivery",
-        "value": "113"
-      },
-      "customer": {
-        "text": "World Bank",
-        "value": "1249"
-      },
-      "events": ["101045"],
-      "address": {
-        "text": "434 Carlaw",
-        "value": "244878"
-      },
-      "addressDetails": "434 Carlaw Road<br/>Los Angeles NY 12412<br/>United States",
-      "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106",
-      "selected": true
-    }],
-    "contact": {
-      "text": "",
-      "value": ""
-    },
-    "address": {
-      "text": "",
-      "value": ""
-    },
-    "organizer": {
-      "text": "Arun Sharma",
-      "value": "1770"
-    },
-    "hasQuantityReceived": true
   }],
   "woContacts": [{
     "id": "1",
@@ -58502,8 +59796,8 @@
       "text": "Work Order - Nov 4 Dry run",
       "value": "95"
     },
-    "events": [],
-    "event": "",
+    "events": ["100682"],
+    "event": "100682",
     "contact": {
       "text": "World Bank : Chad Bass",
       "value": "1382"
@@ -60290,6 +61584,25 @@
     },
     "events": [],
     "event": "",
+    "contact": {
+      "text": "World Bank : Brad Pitt",
+      "value": "2060"
+    },
+    "name": "Brad Pitt",
+    "email": "bpitt@email.com",
+    "jobTitle": "Designer",
+    "mobilePhone": "",
+    "phone": "",
+    "primary": false,
+    "url": "/app/common/entity/contact.nl?id=2060&compid=TSTDRV2617106"
+  }, {
+    "id": "197",
+    "workorder": {
+      "text": "Creation of New Work Order",
+      "value": "135"
+    },
+    "events": ["101095"],
+    "event": "101095",
     "contact": {
       "text": "World Bank : Brad Pitt",
       "value": "2060"
@@ -63236,7 +64549,7 @@
       "text": "World Bank",
       "value": "1249"
     },
-    "events": [],
+    "events": ["101095"],
     "address": {
       "text": "434 Carlaw",
       "value": "244878"
@@ -63473,7 +64786,7 @@
           "value": "674",
           "text": "ELE00002"
         }],
-        "data-icon": "bi bi-person"
+        "data-icon": "bi bi-person-fill"
       }, {
         "label": "Resource Group",
         "className": "multiple-resource-group-field",
@@ -64118,7 +65431,7 @@
               "value": "3"
             },
             "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1312%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-            "events": ["101083"],
+            "events": ["101095", "101083"],
             "labRates": [],
             "time": {
               "start": "",
@@ -64173,7 +65486,7 @@
               "value": "3"
             },
             "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1292%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-            "events": ["101082"],
+            "events": ["101095", "101082"],
             "labRates": [],
             "time": {
               "start": "",
@@ -64955,7 +66268,8 @@
             }
           }],
           "resourceCount": 4
-        }]
+        }],
+        "data-icon": "bi bi-people-fill"
       }, {
         "label": "Resource Skill",
         "className": "multiple-resource-skill-field",
@@ -65037,7 +66351,7 @@
           "text": "New York",
           "value": "15"
         }],
-        "data-icon": "bi bi-geo-alt"
+        "data-icon": "bi bi-geo-alt-fill"
       }, {
         "label": "Department",
         "className": "multiple-department-field",
@@ -65103,14 +66417,14 @@
           "text": "Anonymous Customer HQ",
           "value": "1599"
         }],
-        "data-icon": "bi bi-person"
+        "data-icon": "bi bi-person-fill"
       }, {
         "label": "Work Order Location",
         "className": "multiple-location-field",
         "type": "multiselect",
         "display": true,
         "options": [],
-        "data-icon": "bi bi-geo-alt"
+        "data-icon": "bi bi-geo-alt-fill"
       }, {
         "label": "Work Order ID",
         "className": "board-wo-id",
@@ -65288,7 +66602,7 @@
           "value": "674",
           "text": "ELE00002"
         }],
-        "data-icon": "bi bi-person"
+        "data-icon": "bi bi-person-fill"
       }, {
         "label": "Resource Group",
         "className": "multiple-resource-group-field",
@@ -65933,7 +67247,7 @@
               "value": "3"
             },
             "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1312%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-            "events": ["101083"],
+            "events": ["101095", "101083"],
             "labRates": [],
             "time": {
               "start": "",
@@ -65988,7 +67302,7 @@
               "value": "3"
             },
             "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1292%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-            "events": ["101082"],
+            "events": ["101095", "101082"],
             "labRates": [],
             "time": {
               "start": "",
@@ -66770,7 +68084,8 @@
             }
           }],
           "resourceCount": 4
-        }]
+        }],
+        "data-icon": "bi bi-people-fill"
       }, {
         "label": "Status",
         "className": "multiple-event-status-field",
@@ -66950,14 +68265,14 @@
           "text": "Anonymous Customer HQ",
           "value": "1599"
         }],
-        "data-icon": "bi bi-person"
+        "data-icon": "bi bi-person-fill"
       }, {
         "label": "Work Order Location",
         "className": "multiple-location-field",
         "type": "multiselect",
         "display": true,
         "options": [],
-        "data-icon": "bi bi-geo-alt"
+        "data-icon": "bi bi-geo-alt-fill"
       }, {
         "label": "Work Order ID",
         "className": "calendar-wo-id",
@@ -67135,7 +68450,7 @@
           "value": "674",
           "text": "ELE00002"
         }],
-        "data-icon": "bi bi-person"
+        "data-icon": "bi bi-person-fill"
       }, {
         "label": "Resource Group",
         "className": "multiple-resource-group-field",
@@ -67780,7 +69095,7 @@
               "value": "3"
             },
             "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1312%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-            "events": ["101083"],
+            "events": ["101095", "101083"],
             "labRates": [],
             "time": {
               "start": "",
@@ -67835,7 +69150,7 @@
               "value": "3"
             },
             "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1292%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-            "events": ["101082"],
+            "events": ["101095", "101082"],
             "labRates": [],
             "time": {
               "start": "",
@@ -68617,7 +69932,8 @@
             }
           }],
           "resourceCount": 4
-        }]
+        }],
+        "data-icon": "bi bi-people-fill"
       }, {
         "label": "Status",
         "className": "multiple-event-status-field",
@@ -68838,7 +70154,7 @@
           "value": "674",
           "text": "ELE00002"
         }],
-        "data-icon": "bi bi-person"
+        "data-icon": "bi bi-person-fill"
       }, {
         "label": "Resource Group",
         "className": "multiple-resource-group-field",
@@ -69483,7 +70799,7 @@
               "value": "3"
             },
             "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1312%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-            "events": ["101083"],
+            "events": ["101095", "101083"],
             "labRates": [],
             "time": {
               "start": "",
@@ -69538,7 +70854,7 @@
               "value": "3"
             },
             "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1292%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-            "events": ["101082"],
+            "events": ["101095", "101082"],
             "labRates": [],
             "time": {
               "start": "",
@@ -70320,7 +71636,8 @@
             }
           }],
           "resourceCount": 4
-        }]
+        }],
+        "data-icon": "bi bi-people-fill"
       }, {
         "label": "Resource Skill",
         "className": "multiple-resource-skill-field",
@@ -70475,7 +71792,7 @@
           "value": "674",
           "text": "ELE00002"
         }],
-        "data-icon": "bi bi-person"
+        "data-icon": "bi bi-person-fill"
       }, {
         "label": "Resource Group",
         "className": "multiple-resource-group-field",
@@ -71120,7 +72437,7 @@
               "value": "3"
             },
             "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1312%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-            "events": ["101083"],
+            "events": ["101095", "101083"],
             "labRates": [],
             "time": {
               "start": "",
@@ -71175,7 +72492,7 @@
               "value": "3"
             },
             "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1292%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-            "events": ["101082"],
+            "events": ["101095", "101082"],
             "labRates": [],
             "time": {
               "start": "",
@@ -71957,7 +73274,8 @@
             }
           }],
           "resourceCount": 4
-        }]
+        }],
+        "data-icon": "bi bi-people-fill"
       }, {
         "label": "Resource Skill",
         "className": "multiple-resource-skill-field",
