@@ -39,6 +39,10 @@ define(() => ({
     COMPLETED: '4',
     ON_HOLD: '5'
   },
+  ReceiptStatusCode: {
+    PARTIAL: '#FF5733',
+    FULL: '#C70039'
+  },
   Format: {
     EXPORT_DATE: 'YYYY-MM-DD',
     IMPORT_DATE: 'M/D/YYYY',

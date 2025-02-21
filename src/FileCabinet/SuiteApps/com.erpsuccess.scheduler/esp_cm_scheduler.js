@@ -440,6 +440,7 @@ define([
               search.createColumn({ name: 'created', label: 'Date Created' }),
               search.createColumn({ name: 'custrecord_esp_cfi_wo_est_hours', label: 'Estimated Hours' }),
               search.createColumn({ name: 'custrecord_esp_fop_wo_location', label: 'Location' }),
+              search.createColumn({ name: 'custrecord_esp_fop_wo_ir_status', label: 'Item Receipt Status' })
             ]
         });
 
@@ -512,9 +513,17 @@ define([
               value: result.getValue('custrecord_esp_fop_wo_location'),
             },
             receiptStatus: {
-              text: '',
-              value: ''
-            } // TBD
+              text: result.getText('custrecord_esp_fop_wo_ir_status'),
+              value: result.getValue('custrecord_esp_fop_wo_ir_status'),
+              get code() {
+                switch (this.value) {
+                  case '1':
+                    return env.ItemReceiptStatus.PARTIAL;
+                  case '2':
+                    return env.ItemReceiptStatus.FULL;
+                }
+              }
+            }
           });
           return true;
         });
@@ -556,9 +565,6 @@ define([
             if (woRef) {
               const _item = deepCopy(item);
               woRef.items.push(_item);
-              if (!woRef.hasQuantityReceived) {
-                woRef.hasQuantityReceived = !!_item.quantityReceived;
-              }
             }
           }
           // Push Contacts to related WO
@@ -1863,9 +1869,6 @@ define([
               const _item = deepCopy(item);
               _item.selected = true;
               event.items.push(_item);
-              if (!event.hasQuantityReceived) {
-                event.hasQuantityReceived = !!_item.quantityReceived;
-              }
             }
           }
         }

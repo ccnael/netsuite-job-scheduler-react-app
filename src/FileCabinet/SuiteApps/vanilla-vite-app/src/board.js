@@ -163,7 +163,7 @@ export default class Board {
                             <div class="card-content-project"><strong>EST Hours: </strong>${wo.esthours}</div>
                             <div>
                               <span class="badge py-1 px-2 rounded-pill text-uppercase" style="background-color: ${wo.status.code};">${wo.status.text}</span>
-                              <!-- ${wo.hasQuantityReceived ? '<span class="badge py-1 px-2 rounded-pill text-uppercase" style="background-color: #FF5733">Received</span>' : ''} -->
+                              <!-- ${wo.receiptStatus.value ? `<span class="badge py-1 px-2 rounded-pill text-uppercase" style="background-color: ${wo.receiptStatus.code}">Received</span>` : ''} -->
                             </div>
                           </div>
                         </div>  
@@ -207,8 +207,11 @@ export default class Board {
                     </div>
                     <div class="card-wrapper">
                       ${dataSet.events.map(event => `
-                        <div type="event" class="card-item" id="${event.id}" data-bs-toggle="tooltip" data-bs-placement="left" 
-                        title="Resources:<br/>${(event.resources.length || event.vendors.length || event.assets.length) ? `${event.resources.map((resource, counter) => `${+counter + 1}. ${resource.employee.text}`).join('<br/>')}<br/>
+                        <div type="event" class="card-item" id="${event.id}" data-bs-toggle="tooltip" data-bs-placement="right" 
+                        title="
+                          <strong>${event.title}</strong><br/><br/>
+                          Resources:<br/>
+                            ${(event.resources.length || event.vendors.length || event.assets.length) ? `${event.resources.map((resource, counter) => `${+counter + 1}. ${resource.employee.text}`).join('<br/>')}<br/>
                             ${event.vendors.map((vendor, counter) => `${event.resources.length + counter + 1}. ${vendor.vendor.text || vendor.name}`).join('<br/>')}<br/>
                             ${event.assets.map((asset, counter) => `${event.resources.length + event.vendors.length + counter + 1}. ${asset.item.text || asset.name}`).join('<br/>')}` : '- None -'}"
                             
@@ -232,11 +235,11 @@ export default class Board {
                             <div class="card-content-date">${event.date.start == event.date.end ? moment(event.date.start).format('M/D/YYYY') : `${moment(event.date.start).format('M/D/YYYY')} - ${moment(event.date.end).format('M/D/YYYY')}`}</div>
                             <div class="card-content-time">${moment(`1/1/1999 ${event.time.start}`).format('h:mm a')} - ${moment(`1/1/1999 ${event.time.end}`).format('h:mm a')}</div>
                             <div>Organizer: ${event.organizer.text}</div>
-                            <div class="row">
-                              <div class="col-2 fc-event-status" style="font-size: ${event.hasQuantityReceived ? '11px' : '12px'}">
+                            <div class="">
+                              <div class=row"col-2 fc-event-status" style="font-size: ${event.woRef?.receiptStatus?.value ? '10px' : '12px'}">
                                 <span class="badge py-1 px-2 ${event.status.code} rounded-pill text-uppercase">${event.status.text}</span>
                                 <span class="badge py-1 px-2 rounded-pill text-uppercase" style="background-color: ${event.priority.code};">${event.priority.text}</span>
-                                ${event.hasQuantityReceived ? '<span class="badge py-1 px-2 rounded-pill text-uppercase" style="background-color: #FF5733">Received</span>' : ''}
+                                ${event.woRef?.receiptStatus?.value ? `<span class="badge py-1 px-2 rounded-pill text-uppercase" style="background-color: ${event.woRef.receiptStatus.code}">Received</span>` : ''}
                               </div>
                             </div>
                           </div>
@@ -500,7 +503,8 @@ export default class Board {
   static _initToolTip() {
     $('[data-bs-toggle="tooltip"]').each(function () {
       new bootstrap.Tooltip(this, {
-        html: true
+        html: true,
+        placement: 'right'
       });
     });
   }

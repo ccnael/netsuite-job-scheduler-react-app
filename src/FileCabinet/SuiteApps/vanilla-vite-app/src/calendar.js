@@ -307,7 +307,7 @@ export default class Calendar {
               <div class="row">
                 <div class="col-2 fc-event-status">
                   <span class="badge py-1 px-2 rounded-pill text-uppercase" style="background-color: ${event.priority.code};">${event.priority.text}</span>
-                  ${event.hasQuantityReceived ? '<span class="badge py-1 px-2 rounded-pill text-uppercase" style="background-color: #FF5733">Received</span>' : ''}
+                  ${event.woRef?.receiptStatus?.value ? `<span class="badge py-1 px-2 rounded-pill text-uppercase" style="background-color: ${event.woRef.receiptStatus.code}">Received</span>` : ''}
                 </div>
               </div>
             </div>
@@ -698,7 +698,7 @@ export default class Calendar {
         ${eventData.date.start == eventData.date.end ? moment(eventData.date.start).format('M/D/YYYY') : `${moment(eventData.date.start).format('M/D/YYYY')} - ${moment(eventData.date.end).format('M/D/YYYY')}`}<br/>
         ${moment(info.event.start).format('h:mm a')} - ${moment(info.event.end).format('h:mm a')}
         `,
-      placement: 'left'
+      placement: 'right'
     });
   }
 

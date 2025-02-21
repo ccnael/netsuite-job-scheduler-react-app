@@ -13,10 +13,11 @@ $color_8: gray;
 $color_9: black;
 $color_10: #FFF;
 $color_11: #234678;
-$font-family_1: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+// $font-family_1: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
 // $font-family_2: "Segoe UI", Arial, sans-serif; // x
 // $font-family_2: 'Futura', 'Gill Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; // !
-$font-family_2: 'Poppins', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$font-family_2: 'Poppins', 'Helvetica Neue', Helvetica, Arial;
+// $font-family_2: 'Quicksand', sans-serif;
 $background-color_1: #242424;
 $background-color_2: #ffffff;
 $background-color_3: #f9f9f9;
@@ -59,6 +60,7 @@ html, body {
 	font-size: 12px;
 	box-sizing: border-box;
 	font-family: $font-family_2;
+	// font-weight: 800;
 }
 #app {
 	margin: 0 auto;
@@ -596,7 +598,7 @@ div.form-check {
 .form-control, .form-select, .custom-select-style {
 	border-radius: 10px !important;
 }
-/* button.btn {
+button.btn {
 	border-radius: 15px !important;
-} */
+}
 
