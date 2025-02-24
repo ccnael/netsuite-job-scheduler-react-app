@@ -42,6 +42,7 @@ export function cacheTabSwitch() {
 }
 
 export class Event {
+
   static validateResourcesOnLoad(tableId, resourceTblId, eventId) {
     resourceTblId.match(/resource/g) && this.validateResourcesAvailability(tableId, resourceTblId, eventId);
     // Initialize on page change
@@ -297,12 +298,6 @@ export class Event {
       });
   }
 
-  static updateResourceTime(payload, modalId, eventInfo) {
-    console.log('----- [updateEventRecord() -> PAYLOAD] -----', { payload, eventInfo: eventInfo || '' });
-    alert('Update In Progress...');
-    eventInfo.revert();
-  }
-
   static updateEventRecord(payload, modalId, eventInfo) {
     console.log('----- [updateEventRecord() -> PAYLOAD] -----', { payload, eventInfo: eventInfo || '' });
     Swal.fire({
@@ -431,6 +426,164 @@ export class Event {
           }
         });
     }
+  }
+}
+
+export class Resource {
+
+  static updateResourceAssignment(payload, eventInfo) {
+    payload.newResource = eventInfo.newResource.extendedProps;
+    console.log('----- [updateResourceAssignment() -> PAYLOAD] -----', { payload, eventInfo: eventInfo || '' });
+
+    const eventId = eventInfo.event._def.publicId;
+    const oldResourceName = eventInfo.oldResource.extendedProps.name;
+    const newResourceName = payload.newResource.name;
+
+    Swal.fire({
+      title: `Event [ID ${eventId}] Resource Reassignment`,
+      text: `Reassign ${oldResourceName} to ${newResourceName}?`,
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#817c7c',
+      confirmButtonText: 'Yes'
+    })
+      .then(result => {
+        if (result.isConfirmed) {
+          Swal.fire({
+            didOpen: () => {
+              Swal.showLoading();
+              fetch(
+                `${suiteletUrl}&mode=updateResourceAssignment`, {
+                method: 'POST',
+                body: JSON.stringify(payload),
+                headers: {
+                  'Content-Type': 'application/json',
+                }
+              })
+                .then(response => response.json())
+                .then(result => {
+                  if (result.code == 200) {
+                    Swal.fire({
+                      title: 'Success!',
+                      text: `Reassigned to ${newResourceName}`,
+                      icon: 'success'
+                    })
+                      .then(() => {
+                        window.location.reload();
+                      });
+                  } else {
+                    Swal.fire({
+                      title: 'Unexpected Error',
+                      text: `Error: ${result.errorMsg}`,
+                      icon: 'error'
+                    });
+                    if (eventInfo) {
+                      eventInfo.revert();
+                    }
+                  }
+                  Swal.hideLoading();
+                })
+                .catch(error => {
+                  Swal.fire(
+                    'Unexpected Error',
+                    error.message,
+                    'error'
+                  );
+                  Swal.hideLoading();
+                  if (eventInfo) {
+                    eventInfo.revert();
+                  }
+                });
+            },
+            allowOutsideClick: false,
+            allowEscapeKey: false,
+            text: `Updating Work Order Resource [ID ${payload.id}]...`
+          });
+        } else {
+          if (eventInfo) {
+            eventInfo.revert();
+          }
+        }
+      });
+
+    // alert('Update In Progress...');
+    // eventInfo.revert();
+  }
+
+  static updateResourceDateTime(payload, eventInfo) {
+    console.log('----- [updateResourceDateTime() -> PAYLOAD] -----', { payload, eventInfo: eventInfo || '' });
+
+    Swal.fire({
+      title: `Update Date/Time`,
+      text: `Update to ${payload.date.start} ${payload.time.start} - ${payload.date.end} ${payload.time.end}?`,
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#817c7c',
+      confirmButtonText: 'Yes'
+    })
+      .then(result => {
+        if (result.isConfirmed) {
+          Swal.fire({
+            didOpen: () => {
+              Swal.showLoading();
+              fetch(
+                `${suiteletUrl}&mode=updateResourceDateTime`, {
+                method: 'POST',
+                body: JSON.stringify(payload),
+                headers: {
+                  'Content-Type': 'application/json',
+                }
+              })
+                .then(response => response.json())
+                .then(result => {
+                  if (result.code == 200) {
+                    Swal.fire({
+                      title: 'Success!',
+                      text: `Date/Time has been updated to ${payload.date.start} ${payload.time.start} - ${payload.date.end} ${payload.time.end}`,
+                      icon: 'success'
+                    })
+                      .then(() => {
+                        window.location.reload();
+                      });
+                  } else {
+                    Swal.fire({
+                      title: 'Unexpected Error',
+                      text: `Error: ${result.errorMsg}`,
+                      icon: 'error'
+                    });
+                    if (eventInfo) {
+                      eventInfo.revert();
+                    }
+                  }
+                  Swal.hideLoading();
+                })
+                .catch(error => {
+                  Swal.fire(
+                    'Unexpected Error',
+                    error.message,
+                    'error'
+                  );
+                  Swal.hideLoading();
+                  if (eventInfo) {
+                    eventInfo.revert();
+                  }
+                });
+            },
+            allowOutsideClick: false,
+            allowEscapeKey: false,
+            text: `Updating Work Order Resource [ID ${payload.id}] Date/Time...`
+          });
+        } else {
+          if (eventInfo) {
+            eventInfo.revert();
+          }
+        }
+      });
+
+    // alert('Update In Progress...');
+    // eventInfo.revert();
   }
 }
 

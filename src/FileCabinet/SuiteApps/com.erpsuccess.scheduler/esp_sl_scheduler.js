@@ -57,6 +57,12 @@ define([
           case 'updateEventRecord':
             mod.Event.updateEventRecord(scriptContext);
             break;
+          case 'updateResourceAssignment':
+            mod.WorkOrderResource.updateResourceAssignment(scriptContext);
+            break;
+          case 'updateResourceDateTime':
+            mod.WorkOrderResource.updateResourceDateTime(scriptContext);
+            break;
           case 'completeEvent':
             mod.Event.completeEvent(scriptContext);
             break;

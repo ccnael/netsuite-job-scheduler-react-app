@@ -518,9 +518,17 @@ define([
               get code() {
                 switch (this.value) {
                   case '1':
-                    return env.ItemReceiptStatus.PARTIAL;
+                    return env.ReceiptStatusCode.PARTIAL;
                   case '2':
-                    return env.ItemReceiptStatus.FULL;
+                    return env.ReceiptStatusCode.FULL;
+                }
+              },
+              get display() {
+                switch (this.value) {
+                  case '1':
+                    return env.ReceiptStatusDisplay.PARTIAL;
+                  case '2':
+                    return env.ReceiptStatusDisplay.FULL;
                 }
               }
             }
@@ -991,12 +999,121 @@ define([
         this._createResources(clonedEventObj, woRef);
       }
 
-      // TBD
-      static _updateResourceTime(resource, event) {
-        try {
+      // Applies when dragging and assigning new resource events in the calendar view
+      static updateResourceAssignment(context) {
+        const { request, response } = context;
+        let reqBody = request.body || '{}';
+        const payload = JSON.parse(reqBody);
 
+        try {
+          const lookUp = search.lookupFields({
+            type: env.RecordType.WORK_ORDER_RESOURCE,
+            id: payload.id,
+            columns: ['custrecord_esp_fop_res_employee']
+          });
+          const oldResourceId = lookUp.custrecord_esp_fop_res_employee[0]?.value;
+          const newResourceId = payload.newResource.id;
+          const values = {};
+          values.custrecord_esp_fop_res_start_time = moment(`1/1/1999 ${payload.time.start}`).format(env.Format.IMPORT_TIME);
+          values.custrecord_esp_fop_res_end_time = moment(`1/1/1999 ${payload.time.end}`).format(env.Format.IMPORT_TIME);
+
+          if (oldResourceId != newResourceId) {
+            values.custrecord_esp_fop_res_employee = newResourceId;
+            values.custrecord_esp_fop_res_rel_resource_grp = payload.newResource.resourceGroups.map(resourceGroup => resourceGroup.value);
+            values.custrecord_esp_fop_res_resource_type = payload.newResource.types.map(type => type.value);
+            values.custrecord_esp_fop_res_resource_subtype = payload.newResource.subTypes.map(subType => subType.value);
+            values.custrecord_esp_fop_res_aff_type = payload.newResource.affiliationType.value;
+          }
+          if (Object.keys(values).length) {
+            record.submitFields({
+              type: env.RecordType.WORK_ORDER_RESOURCE,
+              id: payload.id,
+              values,
+              options: {
+                ignoreMandatoryFieds: true
+              }
+            });
+            log.audit('----- [Updated WO Resource Record] -----', { payload });
+
+            response.write(JSON.stringify({
+              code: 200,
+              recordId: payload.id,
+              status: 'success'
+            }));
+          }
         } catch (e) {
-          log.error('Error on WO Resource > Update', { resource, errorMsg: e.message });
+          log.error('Error on WO Resource > Update', { payload, errorMsg: e.message });
+
+          response.write(JSON.stringify({
+            code: 401,
+            status: 'failed',
+            errorMsg: e.message
+          }));
+        }
+      }
+
+      // Applies when resizing resource events in the calendar view
+      static updateResourceDateTime(context) {
+        const { request, response } = context;
+        let reqBody = request.body || '{}';
+        const payload = JSON.parse(reqBody);
+
+        try {
+          const lookUp = search.lookupFields({
+            type: env.RecordType.WORK_ORDER_RESOURCE,
+            id: payload.id,
+            columns: [
+              'custrecord_esp_fop_res_event_start_date',
+              'custrecord_esp_fop_res_event_end_date',
+              'custrecord_esp_fop_res_start_time',
+              'custrecord_esp_fop_res_end_time'
+            ]
+          });
+          const values = {};
+          // Check if dates changed
+          const startDate = moment(payload.date.start).format(env.Format.IMPORT_DATE);
+          const endDate = moment(payload.date.end).format(env.Format.IMPORT_DATE);
+          if (lookUp.custrecord_esp_fop_res_event_start_date != startDate) {
+            values.custrecord_esp_fop_res_event_start_date = startDate;
+          }
+          if (lookUp.custrecord_esp_fop_res_event_end_date != endDate) {
+            values.custrecord_esp_fop_res_event_end_date = endDate;
+          }
+          // Check if times changed
+          const startTime = moment(`1/1/1999 ${payload.time.start}`).format(env.Format.IMPORT_TIME);
+          const endTime = moment(`1/1/1999 ${payload.time.end}`).format(env.Format.IMPORT_TIME);
+          if (lookUp.custrecord_esp_fop_res_start_time != startTime) {
+            values.custrecord_esp_fop_res_start_time = startTime;
+          }
+          if (lookUp.custrecord_esp_fop_res_end_time != endTime) {
+            values.custrecord_esp_fop_res_end_time = endTime;
+          }
+
+          if (Object.keys(values).length) {
+            record.submitFields({
+              type: env.RecordType.WORK_ORDER_RESOURCE,
+              id: payload.id,
+              values,
+              options: {
+                ignoreMandatoryFieds: true
+              }
+            });
+            log.audit('----- [Updated WO Resource Record] -----', { payload });
+
+            response.write(JSON.stringify({
+              code: 200,
+              recordId: payload.id,
+              status: 'success'
+            }));
+          }
+        } catch (e) {
+          log.error('Error on WO Resource > Update', { payload, errorMsg: e.message });
+
+          response.write(JSON.stringify({
+            code: 401,
+            status: 'failed',
+            errorMsg: e.message
+          }));
         }
       }
     }
@@ -1905,7 +2022,7 @@ define([
 
         log.audit('----- [Create Work Order Event] -----', { payload });
 
-        const { eventData, woRef, woResources } = payload;
+        const { eventData, woRef } = payload;
 
         try {
           eventData.date.start = moment(eventData.date.start).format(env.Format.IMPORT_DATE);
@@ -1980,7 +2097,7 @@ define([
         const user = runtime.getCurrentUser();
         let reqBody = request.body || '{}';
         const payload = JSON.parse(reqBody);
-        const { eventDataSrc, eventData, woRef, woResources, draggedResource } = payload;
+        const { eventDataSrc, eventData, woRef, draggedResource } = payload;
         const eventDataProps = Object.keys(eventData);
 
         log.audit('----- [Update Work Order Event] -----', { eventDataProps, payload });

@@ -7,7 +7,7 @@ import timeGridPlugin from '@fullcalendar/timegrid';
 import resourceTimelinePlugin from '@fullcalendar/resource-timeline';
 import * as dataSet from './components/dataSet';
 import { onFilterCalendarEvent, onFilterJob } from './components/filterFields/filterUtils';
-import { Event } from './components/utils';
+import { Event, Resource } from './components/utils';
 import './calendar.css';
 
 export default class Calendar {
@@ -307,7 +307,7 @@ export default class Calendar {
               <div class="row">
                 <div class="col-2 fc-event-status">
                   <span class="badge py-1 px-2 rounded-pill text-uppercase" style="background-color: ${event.priority.code};">${event.priority.text}</span>
-                  ${event.woRef?.receiptStatus?.value ? `<span class="badge py-1 px-2 rounded-pill text-uppercase" style="background-color: ${event.woRef.receiptStatus.code}">Received</span>` : ''}
+                  ${event.woRef?.receiptStatus?.value ? `<span class="badge py-1 px-2 rounded-pill text-uppercase" style="background-color: ${event.woRef.receiptStatus.code}">${event.woRef.receiptStatus.display}</span>` : ''}
                 </div>
               </div>
             </div>
@@ -331,9 +331,9 @@ export default class Calendar {
         console.log('eventDrop triggered.', info);
         info.action = 'eventDrop';
         if (info.event.extendedProps?.hasOwnTime) {
-          this._confirmUpdateResourceTime(info);
+          this._confirmResourceAssignment(info);
         } else {
-          this._confirmUpdateEvent(info);
+          this._confirmEventUpdate(info);
         }
       },
       // Updates start and end time and day
@@ -342,9 +342,9 @@ export default class Calendar {
         console.log('eventResize triggered.', info);
         info.action = 'eventResize';
         if (info.event.extendedProps?.hasOwnTime) {
-          this._confirmUpdateResourceTime(info);
+          this._confirmResourceTimeUpdate(info);
         } else {
-          this._confirmUpdateEvent(info);
+          this._confirmEventUpdate(info);
         }
       },
       // Ex. Dropping external events/jobs
@@ -469,12 +469,11 @@ export default class Calendar {
     info.revert();
   }
 
-  static _confirmUpdateResourceTime(info) {
+  static _confirmResourceAssignment(info) {
     this._removeToolTip();
 
     const payload = {};
     const eventData = deepCopy(info.event.extendedProps);
-    // console.log('TEST', info);
     payload.id = eventData.woResourceId;
     const startSplit = moment(info.event.startStr).format('YYYY-MM-DDTHH:mm').split('T');
     const endSplit = moment(info.event.endStr).format('YYYY-MM-DDTHH:mm').split('T');
@@ -497,7 +496,7 @@ export default class Calendar {
 
         if (allowEvent) {
           // console.log('----- [Updated Event Details] -----', payload, info);
-          Event.updateResourceTime(payload, 'eventModal', info);
+          Resource.updateResourceAssignment(payload, info);
         } else {
           Swal.fire(
             'Notice',
@@ -510,7 +509,47 @@ export default class Calendar {
     }
   }
 
-  static _confirmUpdateEvent(info) {
+  static _confirmResourceTimeUpdate(info) {
+    this._removeToolTip();
+
+    const payload = {};
+    const eventData = deepCopy(info.event.extendedProps);
+    payload.id = eventData.woResourceId;
+    const startSplit = moment(info.event.startStr).format('YYYY-MM-DDTHH:mm').split('T');
+    const endSplit = moment(info.event.endStr).format('YYYY-MM-DDTHH:mm').split('T');
+    payload.date = {
+      start: startSplit[0],
+      end: endSplit[0]
+    }
+    payload.time = {
+      start: startSplit[1],
+      end: endSplit[1]
+    }
+    const calEvents = window.FullCalendar.getEvents();
+    if (calEvents.length) {
+      const calEvent = calEvents.find(event => event.id == info.event.id);
+      if (calEvent) {
+        const elementId = eventData.elementId;
+        const resourceId = elementId.split('-').pop();
+        const hasConflict = Event.draggedResourceHasConflictEvent(eventData.id, payload.date, payload.time, resourceId);
+        const allowEvent = !hasConflict;
+
+        if (allowEvent) {
+          // console.log('----- [Updated Event Details] -----', payload, info);
+          Resource.updateResourceDateTime(payload, info);
+        } else {
+          Swal.fire(
+            'Notice',
+            `Unable to proceed due to conflict event`,
+            'error'
+          );
+          info.revert();
+        }
+      }
+    }
+  }
+
+  static _confirmEventUpdate(info) {
     this._removeToolTip();
 
     const payload = {};

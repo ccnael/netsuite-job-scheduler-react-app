@@ -163,7 +163,7 @@ export default class Board {
                             <div class="card-content-project"><strong>EST Hours: </strong>${wo.esthours}</div>
                             <div>
                               <span class="badge py-1 px-2 rounded-pill text-uppercase" style="background-color: ${wo.status.code};">${wo.status.text}</span>
-                              <!-- ${wo.receiptStatus.value ? `<span class="badge py-1 px-2 rounded-pill text-uppercase" style="background-color: ${wo.receiptStatus.code}">Received</span>` : ''} -->
+                              <!-- ${wo.receiptStatus.value ? `<span class="badge py-1 px-2 rounded-pill text-uppercase" style="background-color: ${wo.receiptStatus.code}">${wo.receiptStatus.display}</span>` : ''} -->
                             </div>
                           </div>
                         </div>  
@@ -239,7 +239,7 @@ export default class Board {
                               <div class=row"col-2 fc-event-status" style="font-size: ${event.woRef?.receiptStatus?.value ? '10px' : '12px'}">
                                 <span class="badge py-1 px-2 ${event.status.code} rounded-pill text-uppercase">${event.status.text}</span>
                                 <span class="badge py-1 px-2 rounded-pill text-uppercase" style="background-color: ${event.priority.code};">${event.priority.text}</span>
-                                ${event.woRef?.receiptStatus?.value ? `<span class="badge py-1 px-2 rounded-pill text-uppercase" style="background-color: ${event.woRef.receiptStatus.code}">Received</span>` : ''}
+                                ${event.woRef?.receiptStatus?.value ? `<span class="badge py-1 px-2 rounded-pill text-uppercase" style="background-color: ${event.woRef.receiptStatus.code}">${event.woRef.receiptStatus.display}</span>` : ''}
                               </div>
                             </div>
                           </div>

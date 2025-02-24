@@ -43,6 +43,10 @@ define(() => ({
     PARTIAL: '#FF5733',
     FULL: '#C70039'
   },
+  ReceiptStatusDisplay: {
+    PARTIAL: 'Received-P',
+    FULL: 'Received-F'
+  },
   Format: {
     EXPORT_DATE: 'YYYY-MM-DD',
     IMPORT_DATE: 'M/D/YYYY',
