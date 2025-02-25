@@ -440,7 +440,7 @@ export class Resource {
     const newResourceName = payload.newResource.name;
 
     Swal.fire({
-      title: `Event [ID ${eventId}] Resource Reassignment`,
+      title: `Event [ID ${eventId}] Reassign Resource?`,
       text: `Reassign ${oldResourceName} to ${newResourceName}?`,
       icon: 'warning',
       showCancelButton: true,
@@ -515,7 +515,7 @@ export class Resource {
     console.log('----- [updateResourceDateTime() -> PAYLOAD] -----', { payload, eventInfo: eventInfo || '' });
 
     Swal.fire({
-      title: `Update Date/Time`,
+      title: `Update Date/Time?`,
       text: `Update to ${payload.date.start} ${payload.time.start} - ${payload.date.end} ${payload.time.end}?`,
       icon: 'warning',
       showCancelButton: true,
