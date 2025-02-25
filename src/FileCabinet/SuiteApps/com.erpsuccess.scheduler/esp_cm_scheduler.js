@@ -2054,21 +2054,18 @@ define([
           } else {
             // Default > Single Day Event (value->NONE)
           }
-          log.debug('TEST A')
           fieldToSet.endbydate = new Date(eventData.date.end);
 
           const rec = record.create({
             type: record.Type.CALENDAR_EVENT,
             isDynamic: true
           });
-          log.debug('TEST B')
           for (const key in fieldToSet) {
             rec.setValue({
               fieldId: key,
               value: fieldToSet[key]
             });
           }
-          log.debug('TEST C')
 
           eventData.id = rec.save({ ignoreMandatoryFieds: true });
           log.audit('----- [Created Event Record] -----', { recordId: eventData.id });
