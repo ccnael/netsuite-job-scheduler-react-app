@@ -2032,16 +2032,23 @@ define([
 
           const fieldToSet = {};
           fieldToSet.title = eventData.title;
+          log.debug('woRef', woRef || '');
           fieldToSet.custevent_esp_fop_work_order = woRef?.id || '';
+          log.debug('fieldToSet.custevent_esp_fop_work_order', fieldToSet.custevent_esp_fop_work_order);
           fieldToSet.organizer = user.id;
+          log.debug('user', user);
           fieldToSet.status = eventData.status;
+          log.debug('haha', user);
           fieldToSet.accesslevel = 'PUBLIC';
           fieldToSet.startdate = new Date(eventData.date.start);
           fieldToSet.starttime = _toDateTimez(eventData.date.start, eventData.time.start);
           fieldToSet.endtime = _toDateTimez(eventData.date.start, eventData.time.end);
           fieldToSet.custevent_esp_fop_event_priority = eventData.priority;
           fieldToSet.custevent_esp_fop_memo = eventData.note;
-          fieldToSet.custevent_esp_fop_event_address = eventData.selectedAddress.id;
+
+          if (!!eventData.selectedAddress) {
+            fieldToSet.custevent_esp_fop_event_address = eventData.selectedAddress.id;
+          }
 
           const numberOfDays = moment(eventData.date.end).diff(moment(eventData.date.start), 'days') + 1;
 
@@ -2051,20 +2058,21 @@ define([
           } else {
             // Default > Single Day Event (value->NONE)
           }
-
+          log.debug('TEST A')
           fieldToSet.endbydate = new Date(eventData.date.end);
 
           const rec = record.create({
             type: record.Type.CALENDAR_EVENT,
             isDynamic: true
           });
-
+          log.debug('TEST B')
           for (const key in fieldToSet) {
             rec.setValue({
               fieldId: key,
               value: fieldToSet[key]
             });
           }
+          log.debug('TEST C')
 
           eventData.id = rec.save({ ignoreMandatoryFieds: true });
           log.audit('----- [Created Event Record] -----', { recordId: eventData.id });
