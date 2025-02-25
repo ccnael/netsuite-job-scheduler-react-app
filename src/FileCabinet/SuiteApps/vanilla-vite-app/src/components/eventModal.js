@@ -436,10 +436,19 @@ $(document).ready(() => {
           callback({
             data: (() => {
               if (mode === 'create') {
-                return dataSet.assets;
-              } else {
+                if (!!prefillData) {
+                  return dataSet.assets.map(asset => {
+                    if (prefillData.selectedAssetIds.includes(asset.asset.value)) {
+                      asset.selected = true;
+                    }
+                    return asset;
+                  })
+                } else {
+                  return dataSet.assets;
+                }
+              } else if (mode === 'edit') {
                 // Combine assets and WO assets
-                const unassignedAssets = deepCopy(dataSet.assets).filter(asset => !eventData.assets.map(asset => asset.item.value).includes(asset.id));
+                const unassignedAssets = deepCopy(dataSet.assets).filter(asset => !eventData.assets.map(asset => asset.asset.value).includes(asset.id));
                 return [...eventData.assets, ...unassignedAssets];
               }
             })()
@@ -538,14 +547,6 @@ $(document).ready(() => {
       Event.validateResourcesOnLoad('#wo-primaryinfo', '#resources', eventId);
       Event.validateOnHeaderFieldChange('#wo-primaryinfo', '#resources', eventId, 'eventResource');
       Event.validateOnLineFieldChange('#wo-primaryinfo', '#resources', eventId);
-
-      /* Event.validateResourcesOnLoad('#wo-primaryinfo', '#vendors', eventId);
-      Event.validateOnHeaderFieldChange('#wo-primaryinfo', '#vendors', eventId, '');
-      Event.validateOnLineFieldChange('#wo-primaryinfo', '#vendors', eventId);
-
-      Event.validateResourcesOnLoad('#wo-primaryinfo', '#assets', eventId);
-      Event.validateOnHeaderFieldChange('#wo-primaryinfo', '#assets', eventId, '');
-      Event.validateOnLineFieldChange('#wo-primaryinfo', '#assets', eventId); */
     }, 250);
   });
 

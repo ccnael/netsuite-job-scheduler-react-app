@@ -277,79 +277,6 @@ define([
         return vendors;
       }
 
-      // static getAssets(events) {
-      //   const searchObj = search.create({
-      //     type: 'item',
-      //     filters:
-      //       [
-      //         ['custitem_esp_fop_asset_owned', 'is', 'T'],
-      //         'AND',
-      //         ['custitem_esp_fop_resource_item_asset', 'is', 'T']
-      //       ],
-      //     columns:
-      //       [
-      //         search.createColumn({ name: 'itemid', label: 'Name' }),
-      //         search.createColumn({ name: 'displayname', label: 'Display Name' }),
-      //         search.createColumn({ name: 'salesdescription', label: 'Description' }),
-      //         search.createColumn({ name: 'type', label: 'Type' }),
-      //         // search.createColumn({ name: 'custitem_esp_fop_equipment_type', label: 'Equipment Type' }),
-      //         search.createColumn({ name: 'vendor', label: 'Preferred Vendor' }),
-      //         search.createColumn({ name: 'custitem_esp_fop_rental_duration', label: 'Rental Duration' }),
-      //         search.createColumn({ name: 'custitem_esp_fop_rental_matrix', label: 'Rental Matrix' }),
-      //         search.createColumn({ name: 'custitem_esp_fop_rental_unit', label: 'Rental Unit' }),
-      //         search.createColumn({ name: 'location', label: 'Location' }),
-      //         search.createColumn({ name: 'department', label: 'Department' })
-      //       ]
-      //   });
-
-      //   const assets = [];
-      //   searchObj.run().each(result => {
-      //     assets.push({
-      //       id: result.id,
-      //       name: result.getValue('itemid'),
-      //       displayname: result.getValue('displayname'),
-      //       quantity: 0,
-      //       description: result.getValue('salesdescription'),
-      //       /* equipmentType: {
-      //         text: result.getText('custitem_esp_fop_equipment_type'),
-      //         value: result.getValue('custitem_esp_fop_equipment_type')
-      //       }, */
-      //       get item() {
-      //         return {
-      //           text: this.name,
-      //           value: this.id
-      //         }
-      //       },
-      //       vendor: {
-      //         text: result.getText('vendor'),
-      //         value: result.getValue('vendor')
-      //       },
-      //       rentalDuration: +result.getValue('custitem_esp_fop_rental_duration'),
-      //       rentalMatrix: +result.getValue('custitem_esp_fop_rental_matrix'),
-      //       rentalUnit: {
-      //         text: result.getText('custitem_esp_fop_rental_unit'),
-      //         value: result.getValue('custitem_esp_fop_rental_unit')
-      //       },
-      //       events: events.filter(event => event.assets.map(asset => asset.item.value).includes(result.id)).map(event => event.id),
-      //       location: {
-      //         text: result.getText('location'),
-      //         value: result.getValue('location')
-      //       },
-      //       department: {
-      //         text: result.getText('department'),
-      //         value: result.getValue('department')
-      //       },
-      //       time: {
-      //         start: '',
-      //         end: ''
-      //       }
-      //     });
-      //     return true;
-      //   });
-      //   log.audit('----- [Assets & Equipments] -----', assets);
-      //   return assets;
-      // }
-
       static getAssets(woAssets) {
         // const queryStr = `
         //   SELECT 
@@ -1428,7 +1355,7 @@ define([
               type: env.RecordType.WORK_ORDER_ASSET,
               isDynamic: true
             });
-            rec.setValue({ fieldId: 'custrecord_esp_fop_ast_equipment', value: asset.id });
+            rec.setValue({ fieldId: 'custrecord_esp_fop_ast_asset_rec', value: asset.asset.value });
             rec.setValue({ fieldId: 'custrecord_esp_fop_ast_wo_event', value: event.id });
             rec.setValue({ fieldId: 'custrecord_esp_fop_ast_quantity', value: asset.quantity });
             rec.setValue({ fieldId: 'custrecord_esp_fop_ast_rental_duration', value: asset.rentalDuration });
@@ -1436,18 +1363,9 @@ define([
             // rec.setValue({ fieldId: 'custrecord_esp_fop_ast_rental_amount', value: asset. }); // TBD
             rec.setValue({ fieldId: 'custrecord_esp_fop_ast_is_owned', value: !!asset.owned });
             rec.setValue({ fieldId: 'custrecord_esp_fop_ast_rental_mtrx', value: asset.rentalMatrix });
-            if (woRef?.id) {
-              rec.setValue({ fieldId: 'custrecord_esp_fop_ast_rel_wo', value: woRef?.id });
-            }
-            if (asset?.rentalUnit?.value) {
-              rec.setValue({ fieldId: 'custrecordesp_fop_ast_rental_unit', value: asset?.rentalUnit?.value });
-            }
-            if (asset?.vendor?.value) {
-              rec.setValue({ fieldId: 'custrecord_esp_fop_ast_primary_vendor', value: asset?.vendor?.value });
-            }
-            /* if (asset?.equipmentType?.value) {
-              rec.setValue({ fieldId: 'custrecord_esp_fop_ast_equip_type', value: asset?.equipmentType?.value });
-            } */
+            rec.setValue({ fieldId: 'custrecord_esp_fop_ast_rel_wo', value: woRef?.id || '' });
+            rec.setValue({ fieldId: 'custrecordesp_fop_ast_rental_unit', value: asset?.rentalUnit?.value || '' });
+            rec.setValue({ fieldId: 'custrecord_esp_fop_ast_primary_vendor', value: asset?.vendor?.value || '' });
             const newId = rec.save({ ignoreMandatoryFieds: true });
             log.audit('----- [Created WO Asset Record] -----', newId);
           } catch (e) {
@@ -2093,7 +2011,10 @@ define([
           fieldToSet.endtime = _toDateTimez(eventData.date.start, eventData.time.end);
           fieldToSet.custevent_esp_fop_event_priority = eventData.priority;
           fieldToSet.custevent_esp_fop_memo = eventData.note;
-          fieldToSet.custevent_esp_fop_event_address = eventData.selectedAddress.id;
+
+          if (!!eventData.selectedAddress) {
+            fieldToSet.custevent_esp_fop_event_address = eventData.selectedAddress.id;
+          }
 
           const numberOfDays = moment(eventData.date.end).diff(moment(eventData.date.start), 'days') + 1;
 

@@ -285,7 +285,7 @@ $(document).ready(() => {
                 return dataSet.assets;
               } else {
                 // Combine assets and WO assets
-                const unassignedAssets = deepCopy(dataSet.assets).filter(asset => !eventData.assets.map(asset => asset.item.value).includes(asset.id));
+                const unassignedAssets = deepCopy(dataSet.assets).filter(asset => !eventData.assets.map(asset => asset.asset.value).includes(asset.id));
                 return [...eventData.assets, ...unassignedAssets];
               }
             })()
@@ -301,14 +301,6 @@ $(document).ready(() => {
       Event.validateResourcesOnLoad('#wo-primaryinfo-ge', '#resources_ge', eventId);
       Event.validateOnHeaderFieldChange('#wo-primaryinfo-ge', '#resources_ge', eventId, 'generalEventResource');
       Event.validateOnLineFieldChange('#wo-primaryinfo-ge', '#resources_ge', eventId);
-
-      /* Event.validateResourcesOnLoad('#wo-primaryinfo-ge', '#vendors_ge', eventId);
-      Event.validateOnHeaderFieldChange('#wo-primaryinfo-ge', '#vendors_ge', eventId, '');
-      Event.validateOnLineFieldChange('#wo-primaryinfo-ge', '#vendors_ge', eventId);
-
-      Event.validateResourcesOnLoad('#wo-primaryinfo-ge', '#assets_ge', eventId);
-      Event.validateOnHeaderFieldChange('#wo-primaryinfo-ge', '#assets_ge', eventId, '');
-      Event.validateOnLineFieldChange('#wo-primaryinfo-ge', '#assets_ge', eventId); */
     }, 250);
   });
 
@@ -339,7 +331,7 @@ $(document).ready(() => {
       unassignedVendors = [...eventData.vendors, ...unassignedVendors];
       vendorsToUse = unassignedVendors;
 
-      let unassignedAssets = deepCopy(dataSet.assets).filter(asset => !eventData.assets.map(asset => asset.item.value).includes(asset.id));
+      let unassignedAssets = deepCopy(dataSet.assets).filter(asset => !eventData.assets.map(asset => asset.asset.value).includes(asset.id));
       unassignedAssets = [...eventData.assets, ...unassignedAssets];
       assetsToUse = unassignedAssets;
     }

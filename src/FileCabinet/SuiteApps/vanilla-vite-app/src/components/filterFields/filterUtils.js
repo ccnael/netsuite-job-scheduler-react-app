@@ -197,7 +197,7 @@ export function onFilterResource(fieldId) {
       const groupId = (containerId.match('asset') || containerId.match('vendor') || containerId.match(/\d+/))[0];
       const _resource = dataSet.resources.find(resource => resource.employee.value == resourceId);
       const _vendor = dataSet.vendors.find(vendor => vendor.vendor.value == resourceId);
-      const _asset = dataSet.assets.find(asset => asset.item.value == resourceId);
+      const _asset = dataSet.assets.find(asset => asset.asset.value == resourceId);
 
       if (_resource || _vendor || _asset) {
         let _resourceGroup = [], _resourceSkill = [];
@@ -598,7 +598,7 @@ export function onClickResource() {
       if (eventData) {
         const eventResources = eventData.resources.map(resource => resource.employee.value);
         const eventVendors = eventData.vendors.map(vendor => vendor.vendor.value);
-        const eventAssets = eventData.assets.map(asset => asset.item.value);
+        const eventAssets = eventData.assets.map(asset => asset.asset.value);
         const combinedResources = [...eventResources, ...eventVendors, ...eventAssets];
         const shouldDisplay = !!(
           (!$selected.resource.length || $selected.resource.some(value => new Set(combinedResources).has(value)))

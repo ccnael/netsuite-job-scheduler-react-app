@@ -162,7 +162,7 @@ export default class Calendar {
       }
       map.resourceIds = [];
       map.resourceIds = [...map.resourceIds, ...event.vendors.map(vendor => `vendor-${vendor.vendor.value}`)];
-      map.resourceIds = [...map.resourceIds, ...event.assets.map(asset => `asset-${asset.item.value}`)];
+      map.resourceIds = [...map.resourceIds, ...event.assets.map(asset => `asset-${asset.asset.value}`)];
 
       if (!map.resourceIds.length) {
         map.resourceIds = ['z-unassigned'];
@@ -593,7 +593,7 @@ export default class Calendar {
             } else if (info.newResource.extendedProps.vendor) {
               resourceType = 'vendor';
               resourceKey = 'vendors';
-            } else /* if (info.newResource.extendedProps.item) */ {
+            } else /* if (info.newResource.extendedProps.asset) */ {
               resourceType = 'asset';
               resourceKey = 'assets';
             }
@@ -616,7 +616,7 @@ export default class Calendar {
                 foundObj = payload.eventData.vendors.find(vendor => vendor.vendor.value == resourceId);
                 allowEvent = !foundObj;
               } else if (resourceType === 'asset') {
-                foundObj = payload.eventData.assets.find(asset => asset.item.value == resourceId);
+                foundObj = payload.eventData.assets.find(asset => asset.asset.value == resourceId);
                 allowEvent = !foundObj;
               }
             }
@@ -657,13 +657,13 @@ export default class Calendar {
                   }
                 }
               } else if (resourceKey === 'assets') {
-                let unassignedAssets = deepCopy(dataSet.assets).filter(asset => !payload.eventData.assets.map(asset => asset.item.value).includes(asset.id));
+                let unassignedAssets = deepCopy(dataSet.assets).filter(asset => !payload.eventData.assets.map(asset => asset.asset.value).includes(asset.id));
                 unassignedAssets = [...payload.eventData.assets, ...unassignedAssets];
                 const assetsToUse = unassignedAssets;
                 payload.eventData.selectedAssets = assetsToUse.filter(asset => resourceId == asset.id);
                 payload.eventData.selectedAssets = [...payload.eventData.assets, ...payload.eventData.selectedAssets];
                 if (info.oldResource) {
-                  const index = payload.eventData.selectedAssets.map(asset => asset.item.value).indexOf(info.oldResource.extendedProps.asset.value);
+                  const index = payload.eventData.selectedAssets.map(asset => asset.asset.value).indexOf(info.oldResource.extendedProps.asset.value);
                   if (index > -1) {
                     payload.eventData.selectedAssets.splice(index, 1); // Removed asset
                   }
@@ -726,7 +726,7 @@ export default class Calendar {
         Resources:<br/>
         ${event.resources.map((resource, counter) => `${+counter + 1}. ${resource.employee.text}`).join('<br/>')}<br/>
         ${event.vendors.map((vendor, counter) => `${event.resources.length + counter + 1}. ${vendor.vendor.text || vendor.name}`).join('<br/>')}<br/>
-        ${event.assets.map((asset, counter) => `${event.resources.length + event.vendors.length + counter + 1}. ${asset.item.text || asset.name}`).join('<br/>')}
+        ${event.assets.map((asset, counter) => `${event.resources.length + event.vendors.length + counter + 1}. ${asset.asset.text || asset.name}`).join('<br/>')}
         `, */
     new bootstrap.Tooltip(info.el, {
       html: true,

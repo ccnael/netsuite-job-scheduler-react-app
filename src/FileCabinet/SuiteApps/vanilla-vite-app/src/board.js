@@ -213,7 +213,7 @@ export default class Board {
                           Resources:<br/>
                             ${(event.resources.length || event.vendors.length || event.assets.length) ? `${event.resources.map((resource, counter) => `${+counter + 1}. ${resource.employee.text}`).join('<br/>')}<br/>
                             ${event.vendors.map((vendor, counter) => `${event.resources.length + counter + 1}. ${vendor.vendor.text || vendor.name}`).join('<br/>')}<br/>
-                            ${event.assets.map((asset, counter) => `${event.resources.length + event.vendors.length + counter + 1}. ${asset.item.text || asset.name}`).join('<br/>')}` : '- None -'}"
+                            ${event.assets.map((asset, counter) => `${event.resources.length + event.vendors.length + counter + 1}. ${asset.asset.text || asset.name}`).join('<br/>')}` : '- None -'}"
                             
                         style="${''/* event.status.value === 'COMPLETED' ? 'display: none' : 'display: initial' */}">
                           <div class="card-head">
@@ -380,7 +380,7 @@ export default class Board {
               foundObj = eventData.vendors.find(vendor => vendor.vendor.value == resourceId);
               allowEvent = !foundObj;
             } else if (resourceType == 'asset') {
-              foundObj = eventData.assets.find(asset => asset.item.value == resourceId);
+              foundObj = eventData.assets.find(asset => asset.asset.value == resourceId);
               allowEvent = !foundObj;
             }
             if (allowEvent) {
