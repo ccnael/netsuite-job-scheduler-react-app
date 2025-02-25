@@ -108,7 +108,7 @@ export default class Board {
                             </div>
                             <div class="person-info">
                                 <span class="full-name">${asset.name}</span>
-                                <span class="status-text">Active</span>
+                                ${!!asset.active && !asset.onMaintenance ? '<span class="status-text">Active</span>' : '<span class="status-text">Inactive</span>'}
                             </div>
                           </div>`)}
                         </div>
@@ -406,7 +406,7 @@ export default class Board {
             foundObj = eventData.vendors.find(vendor => vendor.vendor.value == dataTransfer.id);
             allowResource = !foundObj;
           } else if (dataTransfer.type == 'asset') {
-            foundObj = eventData.assets.find(asset => asset.item.value == dataTransfer.id);
+            foundObj = eventData.assets.find(asset => asset.asset.value == dataTransfer.id);
             allowResource = !foundObj;
           }
           $draggedEl = $(`#${dataTransfer.elementId}`).find('.person-circle');

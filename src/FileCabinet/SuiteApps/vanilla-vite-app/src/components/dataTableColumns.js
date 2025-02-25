@@ -119,7 +119,7 @@ export const assetsDtColumns = [
   },
   {
     className: 'dt-head-center dt-body-center',
-    data: 'equipmentType.text',
+    data: 'type.text',
     title: 'Type'
   },
   {

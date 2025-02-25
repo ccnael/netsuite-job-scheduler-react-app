@@ -88,21 +88,21 @@ define([
       const customers = mod.WorkOrder.getCustomers(workOrders);
       const woLocations = mod.WorkOrder.getLocations(workOrders);
       const woProjects = mod.WorkOrder.getProjects(workOrders);
-      const woResources = mod.WorkOrderResource.getList(workOrders, events);
-      const woVendors = mod.WorkOrderVendor.getList(workOrders, events);
-      const woAsset = mod.WorkOrderAsset.getList(workOrders, events);
+      const woResources = mod.WorkOrderResource.getList();
+      const woVendors = mod.WorkOrderVendor.getList();
+      const woAssets = mod.WorkOrderAsset.getList();
       const woItems = mod.WorkOrderItem.getList(workOrders);
       const woContacts = mod.WorkOrderContact.getList(workOrders);
       const woAddresses = mod.WorkOrderAddress.getList(workOrders);
       const organizers = mod.Event.getOrganizers(events);
 
-      mod.WorkOrder.fullMap(workOrders, events, woVendors, woAsset, woItems, woContacts, woAddresses);
-      mod.Event.fullMap(workOrders, events, woResources, woVendors, woAsset, woItems, woContacts, woAddresses);
+      mod.WorkOrder.fullMap(workOrders, events, woVendors, woAssets, woItems, woContacts, woAddresses);
+      mod.Event.fullMap(workOrders, events, woResources, woVendors, woAssets, woItems, woContacts, woAddresses);
 
       const resources = mod.Resource.getEmployees(events);
       const resourceGroups = mod.Resource.getResourceGroups(resources);
       const vendors = mod.Resource.getVendors(events);
-      const assets = mod.Resource.getAssetsAndEquipments(events);
+      const assets = mod.Resource.getAssets(woAssets);
       const resourceSkills = mod.Resource.getResourceSkills(resources);
       const resourceLocations = mod.Resource.getResourceLocations(resources, vendors, assets);
       const resourceDepartments = mod.Resource.getResourceDepartments(resources, vendors, assets);

@@ -25,6 +25,7 @@ export const events = getValue('#events', mockup.events);
 export const organizers = getValue('#organizers', mockup.organizers);
 export const filterFields = getValue('#filterFields', mockup.filterFields);
 export const activeResources = resources.filter(resource => !!resource.active);
+export const activeAssets = assets.filter(asset => !!asset.active && !asset.onMaintenance);
 export const combinedResourceGroups = [
   ...resourceGroups,
   {
