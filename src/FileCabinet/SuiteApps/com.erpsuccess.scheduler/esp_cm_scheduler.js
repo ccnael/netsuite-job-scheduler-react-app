@@ -2032,13 +2032,9 @@ define([
 
           const fieldToSet = {};
           fieldToSet.title = eventData.title;
-          log.debug('woRef', woRef || '');
           fieldToSet.custevent_esp_fop_work_order = woRef?.id || '';
-          log.debug('fieldToSet.custevent_esp_fop_work_order', fieldToSet.custevent_esp_fop_work_order);
           fieldToSet.organizer = user.id;
-          log.debug('user', user);
           fieldToSet.status = eventData.status;
-          log.debug('haha', user);
           fieldToSet.accesslevel = 'PUBLIC';
           fieldToSet.startdate = new Date(eventData.date.start);
           fieldToSet.starttime = _toDateTimez(eventData.date.start, eventData.time.start);
