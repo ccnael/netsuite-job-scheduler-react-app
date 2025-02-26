@@ -90,11 +90,12 @@ export default class Calendar {
     const calendarResources = dataSet.combinedResourceGroups.map(resourceGroup => ({
       id: resourceGroup.value,
       title: resourceGroup.text,
-      children: resourceGroup.resources.map(resource => ({
-        id: `${resourceGroup.value}-${resource.id}`,
-        title: resource.name,
-        extendedProps: resource
-      })),
+      children: resourceGroup.resources
+        .map(resource => ({
+          id: `${resourceGroup.value}-${resource.id}`,
+          title: resource.name,
+          extendedProps: resource
+        })),
       extendedProps: resourceGroup
     }));
     // console.log('calendarResources', calendarResources);
@@ -197,7 +198,7 @@ export default class Calendar {
       snapDuration: '01:00:00', // Snap to 15 minutes
       // -----------------------------------------------------------------
       viewDidMount: info => {
-        console.log('viewDidMount triggered.');
+        // console.log('viewDidMount triggered.');
         this._appendHeaderAndFilterFields();
       },
       headerToolbar: {
@@ -234,6 +235,7 @@ export default class Calendar {
       resources: (fetchInfo, successCallback, failureCallback) => {
         successCallback(calendarResources);
       },
+      resourceOrder: 'group', // Asset placed at the bottom
       resourceLabelContent: arg => {
         const resource = arg.resource.extendedProps;
         if (resource.resourceCount) {
@@ -270,7 +272,7 @@ export default class Calendar {
       // Event actions etc settings
       // -----------------------------------------------------------------
       eventDidMount: info => {
-        console.log('eventDidMount triggered.');
+        // console.log('eventDidMount triggered.');
         const event = info.event.extendedProps;
         if (event.id) {
           try {
@@ -328,7 +330,7 @@ export default class Calendar {
       // Moving events to change dates (Updates start and end date)
       // -----------------------------------------------------------------
       eventDrop: info => {
-        console.log('eventDrop triggered.', info);
+        // console.log('eventDrop triggered.', info);
         info.action = 'eventDrop';
         if (info.event.extendedProps?.hasOwnTime) {
           this._confirmResourceAssignment(info);
@@ -339,7 +341,7 @@ export default class Calendar {
       // Updates start and end time and day
       // -----------------------------------------------------------------
       eventResize: info => {
-        console.log('eventResize triggered.', info);
+        // console.log('eventResize triggered.', info);
         info.action = 'eventResize';
         if (info.event.extendedProps?.hasOwnTime) {
           this._confirmResourceTimeUpdate(info);
@@ -350,13 +352,13 @@ export default class Calendar {
       // Ex. Dropping external events/jobs
       // -----------------------------------------------------------------
       eventReceive: info => {
-        console.log('eventReceive triggered.');
+        // console.log('eventReceive triggered.');
         info.action = 'eventReceive';
         this._prefillAddEvent(info);
       },
       // Disable event drop on Groups
       eventAllow: (dropInfo, draggedEvent) => {
-        console.log('eventAllow triggered.');
+        // console.log('eventAllow triggered.');
         return !dropInfo.resource.extendedProps.resourceCount;
       },
       windowResize: arg => {
@@ -448,9 +450,9 @@ export default class Calendar {
     data.date.end = endSplit[0];
     data.time.end = endSplit[1];
     const start = moment(`${data.date.start} ${data.time.start}`);
-    const selectedResourceIds = info.event._def.resourceIds;
+    const selectedResourceId = info.event._def.resourceIds[0].split('-').pop();
 
-    const hasConflict = Event.draggedJobHasConflictEvent(start, selectedResourceIds[0]);
+    const hasConflict = Event.draggedJobHasConflictEvent(start, selectedResourceId);
     if (hasConflict) {
       Swal.fire(
         'Notice',
@@ -460,9 +462,9 @@ export default class Calendar {
       info.revert();
       return;
     }
-
-    data.selectedResourceIds = selectedResourceIds.filter(id => id.split('-').shift() !== 'vendor').map(id => id.split('-').pop());
-    data.selectedVendorIds = selectedResourceIds.filter(id => id.split('-').shift() === 'vendor').map(id => id.split('-').pop());
+    data.selectedResourceId = dataSet.resources.map(resource => resource.id).includes(selectedResourceId) ? selectedResourceId : '';
+    data.selectedVendorId = dataSet.vendors.map(vendor => vendor.id).includes(selectedResourceId) ? selectedResourceId : '';
+    data.selectedAssetId = dataSet.assets.map(asset => asset.id).includes(selectedResourceId) ? selectedResourceId : '';
 
     console.log('Prefill Data', data);
     openEventModal(null, woId, '', data);
@@ -716,18 +718,6 @@ export default class Calendar {
 
   static _initToolTip(info) {
     const eventData = info.event.extendedProps;
-    /* title: `
-        <strong>${event.title}</strong><br>
-        ID ${event.id}<br/>
-        ${event.workorder.text}<br/>
-        ${event.date.start == event.date.end ? moment(event.date.start).format('M/D/YYYY') : `${moment(event.date.start).format('M/D/YYYY')} - ${moment(event.date.end).format('M/D/YYYY')}`}<br/>
-        ${moment(`1/1/1999 ${event.time.start}`).format('h:mm a')} - ${moment(`1/1/1999 ${event.time.end}`).format('h:mm a')}<br/>
-        <br/>
-        Resources:<br/>
-        ${event.resources.map((resource, counter) => `${+counter + 1}. ${resource.employee.text}`).join('<br/>')}<br/>
-        ${event.vendors.map((vendor, counter) => `${event.resources.length + counter + 1}. ${vendor.vendor.text || vendor.name}`).join('<br/>')}<br/>
-        ${event.assets.map((asset, counter) => `${event.resources.length + event.vendors.length + counter + 1}. ${asset.asset.text || asset.name}`).join('<br/>')}
-        `, */
     new bootstrap.Tooltip(info.el, {
       html: true,
       title: `

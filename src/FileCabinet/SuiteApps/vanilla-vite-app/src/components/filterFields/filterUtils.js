@@ -682,11 +682,12 @@ export function onFilterCalendarEvent(fieldId, pageSwitched, info) {
     let calendarResources = dataSet.combinedResourceGroups.map(resourceGroup => ({
       id: resourceGroup.value,
       title: resourceGroup.text,
-      children: resourceGroup.resources.map(resource => ({
-        id: `${resourceGroup.value}-${resource.id}`,
-        title: resource.name,
-        extendedProps: resource
-      })),
+      children: resourceGroup.resources
+        .map(resource => ({
+          id: `${resourceGroup.value}-${resource.id}`,
+          title: resource.name,
+          extendedProps: resource
+        })),
       get resourceCount() {
         return this.children.length;
       },
@@ -901,6 +902,8 @@ export function onFilterEventResource(fieldId) {
   }
 }
 
+// General Event Modal Filters
+// -----------------------------------------------------------------
 export function onFilterGeneralEventResource(fieldId) {
   const dataTable = $('#resources_ge').DataTable();
   const $resourceFilter = $(`${fieldId} select.multiple-resource-field`);

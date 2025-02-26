@@ -90,7 +90,7 @@ export default class Board {
                         <h2 class="accordion-header" id="resourceGroup-asset-filter-tableHeading">
                           <button class="accordion-button" type="button" data-toggle="collapse" data-target="#resourceGroup-asset-filter-table" aria-expanded="true" aria-controls="resourceGroup-asset-filter-table">
                             <i class="fa-solid fa-icon-size fa-user-group"></i>
-                            <strong class="grid-header">&nbsp;Asset & Equipment&nbsp;</strong>
+                            <strong class="grid-header">&nbsp;Assets&nbsp;</strong>
                             <span class="badge badge-danger badge-pill counter">${dataSet.assets.length}</span>
                           </button>
                         </h2>
@@ -103,12 +103,12 @@ export default class Board {
                                   title="<strong>${asset.name}</strong><br/>
                                   Name: ${asset.name}<br/>
                                   Description: ${asset.description}<br/>
-                                <span class="initials">${asset.name.substring(0, 2)}</span>
-                                <span class="status active"></span>
+                                <span class="initials">${asset.name.substring(0, 1)}</span>
+                                ${!asset.onMaintenance ? '<span class="status active"></span>' : '<span class="status busy"></span>'}
                             </div>
                             <div class="person-info">
                                 <span class="full-name">${asset.name}</span>
-                                ${!!asset.active && !asset.onMaintenance ? '<span class="status-text">Active</span>' : '<span class="status-text">Inactive</span>'}
+                                ${!asset.onMaintenance ? '<span class="status-text">Available</span>' : '<span class="status-text">Not Available</span>'}
                             </div>
                           </div>`)}
                         </div>
@@ -259,7 +259,7 @@ export default class Board {
     this._initLayoutHandlers();
     this._initToolTip();
     this._onDragResource();
-    this._showBanners();
+    // this._showBanners();
   }
 
   // Instantiate column resizer etc.

@@ -44,31 +44,31 @@ export function cacheTabSwitch() {
 export class Event {
 
   static validateResourcesOnLoad(tableId, resourceTblId, eventId) {
-    resourceTblId.match(/resource/g) && this.validateResourcesAvailability(tableId, resourceTblId, eventId);
+    resourceTblId.match(/resource/g) && this._validateResourcesAvailability(tableId, resourceTblId, eventId);
     // Initialize on page change
     const that = this;
     const table = $(resourceTblId).DataTable();
 
     table.on('draw', function () {
-      that.validateResourcesAvailability(tableId, resourceTblId, eventId);
+      that._validateResourcesAvailability(tableId, resourceTblId, eventId);
       const allDaySwitched = $('.alldayevent-switch').prop('checked');
-      allDaySwitched && that.setAllDayResourceTime(resourceTblId);
+      allDaySwitched && that._setAllDayResourceTime(resourceTblId);
     });
   }
 
   static validateOnHeaderFieldChange(tableId, resourceTblId, eventId, section) {
     const that = this;
     $(`${tableId} input.datefrom, ${tableId} input.dateto, ${tableId} input.starttime, ${tableId} input.endtime`).on('change', function () {
-      section && that.unMarkAvailableResource(section);
+      section && that._unMarkAvailableResource(section);
 
-      if (!that.validateEventDateTime(this, tableId)) {
+      if (!that._validateEventDateTime(this, tableId)) {
         return;
       }
-      that.validateResourcesAvailability(tableId, resourceTblId, eventId, true);
+      that._validateResourcesAvailability(tableId, resourceTblId, eventId, true);
     });
   }
 
-  static unMarkAvailableResource(section) {
+  static _unMarkAvailableResource(section) {
     const modalId = filterFields[section].modalId;
     const el = $(`${modalId} .filter-fields .show-available-resource-field`);
     el && el.prop('checked', false).change();
@@ -83,17 +83,17 @@ export class Event {
         end: $(`${tableId} input.endtime`).val(),
       }
       // Copy header start/endto current line time fields
-      $(this).parent().parent().parent().find('input.starttime-row').val(time.start);
-      $(this).parent().parent().parent().find('input.endtime-row').val(time.end);
+      $(this).closest('input.starttime-row').val(time.start);
+      $(this).closest('input.endtime-row').val(time.end);
     });
     $(`${resourceTblId} input.starttime-row, ${resourceTblId} input.endtime-row`).on('change', function () {
-      if (!that.validateResourceTime(this, tableId, resourceTblId)) {
+      if (!that._validateResourceTime(this, tableId)) {
         return;
       }
     });
   }
 
-  static validateResourcesAvailability(tableId, resourceTblId, eventId, onFieldChanged = false) {
+  static _validateResourcesAvailability(tableId, resourceTblId, eventId, onFieldChanged = false) {
     const start = moment(`${$(`${tableId} input.datefrom`).val()} ${$(`${tableId} input.starttime`).val()}`);
     const end = moment(`${$(`${tableId} input.dateto`).val()} ${$(`${tableId} input.endtime`).val()}`);
 
@@ -126,7 +126,7 @@ export class Event {
     });
   }
 
-  static validateEventDateTime(that, tableId) {
+  static _validateEventDateTime(that, tableId) {
     const date = {
       start: $(`${tableId} input.datefrom`).val(),
       end: $(`${tableId} input.dateto`).val(),
@@ -157,14 +157,14 @@ export class Event {
     return true;
   }
 
-  static validateResourceTime(that, tableId, resourceTblId) {
+  static _validateResourceTime(that, tableId) {
     const eventTime = {
       start: $(`${tableId} input.starttime`).val(),
       end: $(`${tableId} input.endtime`).val(),
     }
     const resourceTime = {
-      start: $(`${resourceTblId} input.starttime-row`).val(),
-      end: $(`${resourceTblId} input.endtime-row`).val(),
+      start: $(that).closest('input.starttime-row').val(),
+      end: $(that).closest('input.endtime-row').val(),
     }
     if (!!resourceTime.start && moment(`1/1/1999 ${resourceTime.start}`).isBefore(moment(`1/1/1999 ${eventTime.start}`))) {
       Swal.fire(
@@ -200,7 +200,7 @@ export class Event {
         $(`${selector} .endtime`).val('18:00'); // NS default endtime
         $(`${selector} .starttime`).prop('disabled', true);
         $(`${selector} .endtime`).prop('disabled', true);
-        this.setAllDayResourceTime(selector);
+        this._setAllDayResourceTime(selector);
       } else {
         $(`${selector} .starttime`).prop('disabled', false);
         $(`${selector} .endtime`).prop('disabled', false);
@@ -208,7 +208,7 @@ export class Event {
     });
   }
 
-  static setAllDayResourceTime(selector) {
+  static _setAllDayResourceTime(selector) {
     $(`${selector} .starttime-row`).val('08:00');
     $(`${selector} .endtime-row`).val('18:00');
   }
@@ -225,8 +225,7 @@ export class Event {
     return !!conflictEvents.length;
   }
 
-  static draggedJobHasConflictEvent(startDateTime, elementId = '') {
-    const resourceId = elementId.split('-').pop();
+  static draggedJobHasConflictEvent(startDateTime, resourceId = '') {
     const resourceEvents = events.filter(event => event.resources.map(resource => resource.employee.value).includes(resourceId));
     const conflictEvents = resourceEvents.filter(event => {
       const eventStart = moment(`${event.date.start} ${event.time.start}`);
@@ -267,11 +266,9 @@ export class Event {
                       title: 'Success!',
                       text: `Event ${payload.eventData.title} [ID ${result.recordId}] has been created`,
                       icon: 'success'
-                    })
-                      .then(() => {
-                        $(`#${modalId}`).modal('hide');
-                        window.location.reload();
-                      });
+                    });
+                    $(`#${modalId}`).modal('hide');
+                    window.location.reload();
                   } else {
                     Swal.fire({
                       title: 'Unexpected Error',
@@ -329,11 +326,9 @@ export class Event {
                       title: 'Success!',
                       text: `Event ${payload.eventData.title} [ID ${payload.eventData.id}] has been updated`,
                       icon: 'success'
-                    })
-                      .then(() => {
-                        $(`#${modalId}`).modal('hide');
-                        window.location.reload();
-                      });
+                    });
+                    $(`#${modalId}`).modal('hide');
+                    window.location.reload();
                   } else {
                     Swal.fire({
                       title: 'Unexpected Error',
@@ -404,10 +399,8 @@ export class Event {
                       title: 'Deleted!',
                       text: `Event ${payload.eventData?.title || ''} [ID ${eventId}] has been deleted`,
                       icon: 'success'
-                    })
-                      .then(() => {
-                        window.location.reload();
-                      });
+                    });
+                    window.location.reload();
                     Swal.hideLoading();
                   })
                   .catch(error => {
@@ -468,10 +461,8 @@ export class Resource {
                       title: 'Success!',
                       text: `Reassigned to ${newResourceName}`,
                       icon: 'success'
-                    })
-                      .then(() => {
-                        window.location.reload();
-                      });
+                    });
+                    window.location.reload();
                   } else {
                     Swal.fire({
                       title: 'Unexpected Error',
@@ -543,10 +534,8 @@ export class Resource {
                       title: 'Success!',
                       text: `Date/Time has been updated to ${payload.date.start} ${payload.time.start} - ${payload.date.end} ${payload.time.end}`,
                       icon: 'success'
-                    })
-                      .then(() => {
-                        window.location.reload();
-                      });
+                    });
+                    window.location.reload();
                   } else {
                     Swal.fire({
                       title: 'Unexpected Error',

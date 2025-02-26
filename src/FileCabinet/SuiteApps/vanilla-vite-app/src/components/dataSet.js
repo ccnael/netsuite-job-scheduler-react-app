@@ -1,7 +1,7 @@
 import mockup from './mockup.json';
 
-const DEV_MODE = true;
-// const DEV_MODE = false;
+// const DEV_MODE = true;
+const DEV_MODE = false;
 
 const getValue = (selector, mockValue) => !DEV_MODE ? JSON.parse(decodeURIComponent($(selector).val())) : mockValue;
 
@@ -34,7 +34,7 @@ export const combinedResourceGroups = [
     resourceCount: vendors.length,
   },
   {
-    text: 'Asset & Equipments',
+    text: 'Assets',
     value: 'asset',
     resources: assets,
     resourceCount: assets.length,

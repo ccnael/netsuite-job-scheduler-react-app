@@ -92,10 +92,22 @@ $(document).ready(() => {
                             </select>
                           </td>
                           <td>
-                            <label class="form-check-label">All Day</label>
-                            <div class="form-check form-switch w-100" style="margin-left: 30px">
-                              <input class="form-check-input text-right alldayevent-switch" type="checkbox">
-                            </div>
+                            <table width="100%">
+                              <tr>
+                                <td width="25%">
+                                  <label class="form-check-label">All Day</label>
+                                  <div class="form-check form-switch w-100" style="margin-left: 30px">
+                                    <input class="form-check-input text-right alldayevent-switch" type="checkbox">
+                                  </div>
+                                </td>
+                                <td width="75%">
+                                  <label class="form-check-label">Asset Only</label>
+                                  <div class="form-check form-switch w-100" style="margin-left: 30px">
+                                    <input class="form-check-input text-right assetonly-switch" type="checkbox">
+                                  </div>
+                                </td>
+                              </tr>
+                            </table>
                           </td>
                         </tr>
                       </table>
@@ -153,7 +165,7 @@ $(document).ready(() => {
               <div class="accordion-item">
                 <h2 class="accordion-header" id="generalEventHeading4th">
                   <button class="accordion-button" type="button" data-toggle="collapse" data-target="#generalEventCollapse4th" aria-expanded="true" aria-controls="generalEventCollapse4th">
-                    <strong class="table-header">Assets & Equipments</strong>
+                    <strong class="table-header">Assets</strong>
                   </button>
                 </h2>
                 <div id="generalEventCollapse4th" class="accordion-collapse collapse show" aria-labelledby="generalEventHeading4th" data-parent="#generalEvent4thAccordion">
@@ -282,7 +294,7 @@ $(document).ready(() => {
           callback({
             data: (() => {
               if (mode === 'create') {
-                return dataSet.assets;
+                return dataSet.assets.filter(asset => !asset.onMaintenance);
               } else {
                 // Combine assets and WO assets
                 const unassignedAssets = deepCopy(dataSet.assets).filter(asset => !eventData.assets.map(asset => asset.asset.value).includes(asset.id));
@@ -476,10 +488,9 @@ $(document).ready(() => {
     $(`#generalEventModal .starttime`).val('');
     $(`#generalEventModal .endtime`).val('');
     $(`#generalEventModal .note`).val('');
-
-    document.querySelector(`#generalEventModal .priority`).value = '1'; // Default Low
-    document.querySelector(`#generalEventModal .status`).value = 'TENTATIVE'; // Default Tentative
-    $(`#generalEventModal .alldayevent-switch`)[0].checked = false;
+    $('#generalEventModal .priority').val('1').change(); // Default Low
+    $('#generalEventModal .status').val('TENTATIVE').change(); // Default Tentative
+    $('#generalEventSubmitForm input[type="checkbox"]').prop('checked', false).change();
 
     // Clear DataTable rows
     if (temp_resourcesDataTable) {
@@ -496,8 +507,6 @@ $(document).ready(() => {
       $('table#assets_ge tbody').children().remove();
       temp_assetsDataTable = temp_assetsDataTable.destroy();
     }
-
-    // 
   }
 
   function showCustomLoader() {

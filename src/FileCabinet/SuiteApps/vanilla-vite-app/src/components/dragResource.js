@@ -199,7 +199,7 @@ $(document).ready(() => {
 
       case 'asset':
         resourceName = dataSet.assets.find(asset => asset.id == id).name;
-        let unassignedAssets = deepCopy(dataSet.assets).filter(asset => !eventData.assets.map(asset => asset.item.value).includes(asset.id));
+        let unassignedAssets = deepCopy(dataSet.assets).filter(asset => !eventData.assets.map(asset => asset.asset.value).includes(asset.id));
         unassignedAssets = [...eventData.assets, ...unassignedAssets];
         const assetToUse = unassignedAssets.find(asset => asset.id == id);
 

@@ -208,7 +208,9 @@ define([
           type: 'vendor',
           filters:
             [
-              ['custentity_esp_fop_is_wo_vendor', 'is', 'T']
+              ['custentity_esp_fop_is_wo_vendor', 'is', 'T'],
+              'AND',
+              ['isinactive', 'is', 'F']
             ],
           columns:
             [
@@ -250,7 +252,6 @@ define([
             },
             quantityRequired: 0,
             quantityAvailable: +result.getValue('custentity_esp_fop_ven_avail_resources'),
-            active: !result.getValue('isinactive'),
             purchaseOrder: {
               text: '',
               value: ''
@@ -303,12 +304,11 @@ define([
           type: 'customrecord_esp_fop_asset',
           filters:
             [
-              // ['custrecord_esp_fop_is_maintenance', 'is', 'F']
+              ['isinactive', 'is', 'F']
             ],
           columns:
             [
               search.createColumn({ name: 'name', label: 'Name' }),
-              search.createColumn({ name: 'isinactive', label: 'Inactive' }),
               search.createColumn({ name: 'custrecord_esp_fop_asset_site', label: 'Asset Site' }),
               search.createColumn({ name: 'custrecord_esp_fop_asset_type', label: 'Asset Type' }),
               search.createColumn({ name: 'custrecord_esp_fop_asset_description', label: 'Description' }),
@@ -328,7 +328,12 @@ define([
           const assetObj = {
             id: result.id,
             name: result.getValue('name'),
-            active: !result.getValue('isinactive'),
+            get asset() {
+              return {
+                text: this.name,
+                value: this.id
+              }
+            },
             onMaintenance: result.getValue('custrecord_esp_fop_is_maintenance'),
             description: result.getValue('custrecord_esp_fop_asset_description'),
             type: {
@@ -1350,6 +1355,19 @@ define([
         return assets;
       }
 
+      static _markAssetOccupied(id) {
+        record.submitFields({
+          type: env.RecordType.ASSET,
+          id,
+          values: {
+            custrecord_esp_fop_is_maintenance: true
+          },
+          options: {
+            ignoreMandatoryFieds: true
+          }
+        })
+      }
+
       static _createAssets(event, woRef) {
         const assets = event?.selectedAssets || [];
         for (const asset of assets) {
@@ -1370,6 +1388,7 @@ define([
             rec.setValue({ fieldId: 'custrecord_esp_fop_ast_primary_vendor', value: asset?.vendor?.value || '' });
             const newId = rec.save({ ignoreMandatoryFieds: true });
             log.audit('----- [Created WO Asset Record] -----', newId);
+            this._markAssetOccupied(asset.id);
           } catch (e) {
             log.error('Error on WO asset > Create', { asset, errorMsg: e.message });
             asset.errorMsg = e.message;

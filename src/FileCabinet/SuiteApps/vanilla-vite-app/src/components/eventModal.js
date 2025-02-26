@@ -98,10 +98,22 @@ $(document).ready(() => {
                             </select>
                           </td>
                           <td>
-                            <label class="form-check-label">All Day</label>
-                            <div class="form-check form-switch w-100" style="margin-left: 30px">
-                              <input class="form-check-input text-right alldayevent-switch" type="checkbox">
-                            </div>
+                            <table width="100%">
+                              <tr>
+                                <td width="25%">
+                                  <label class="form-check-label">All Day</label>
+                                  <div class="form-check form-switch w-100" style="margin-left: 30px">
+                                    <input class="form-check-input text-right alldayevent-switch" type="checkbox">
+                                  </div>
+                                </td>
+                                <td width="75%">
+                                  <label class="form-check-label">Asset Only</label>
+                                  <div class="form-check form-switch w-100" style="margin-left: 30px">
+                                    <input class="form-check-input text-right assetonly-switch" type="checkbox">
+                                  </div>
+                                </td>
+                              </tr>
+                            </table>
                           </td>
                         </tr>
                       </table>
@@ -159,7 +171,7 @@ $(document).ready(() => {
               <div class="accordion-item">
                 <h2 class="accordion-header" id="eventHeading4th">
                   <button class="accordion-button" type="button" data-toggle="collapse" data-target="#collapse4th" aria-expanded="true" aria-controls="collapse4th">
-                    <strong class="table-header">Assets & Equipments</strong>
+                    <strong class="table-header">Assets</strong>
                   </button>
                 </h2>
                 <div id="collapse4th" class="accordion-collapse collapse show" aria-labelledby="eventHeading4th" data-parent="#event4thAccordion">
@@ -357,7 +369,7 @@ $(document).ready(() => {
                 if (!!prefillData) {
                   return dataSet.activeResources.map(resource => {
                     const _resource = deepCopy(resource);
-                    if (prefillData.selectedResourceIds.includes(resource.id)) {
+                    if (prefillData.selectedResourceId == resource.id) {
                       _resource.selected = true;
                     }
                     return _resource;
@@ -407,10 +419,11 @@ $(document).ready(() => {
               if (mode === 'create') {
                 if (!!prefillData) {
                   return dataSet.vendors.map(vendor => {
-                    if (prefillData.selectedVendorIds.includes(vendor.vendor.value)) {
-                      vendor.selected = true;
+                    const _vendor = deepCopy(vendor);
+                    if (prefillData.selectedVendorId == _vendor.id) {
+                      _vendor.selected = true;
                     }
-                    return vendor;
+                    return _vendor;
                   })
                 } else {
                   return dataSet.vendors;
@@ -438,13 +451,14 @@ $(document).ready(() => {
               if (mode === 'create') {
                 if (!!prefillData) {
                   return dataSet.assets.map(asset => {
-                    if (prefillData.selectedAssetIds.includes(asset.asset.value)) {
-                      asset.selected = true;
+                    const _asset = deepCopy(asset);
+                    if (prefillData.selectedAssetId == _asset.id) {
+                      _asset.selected = true;
                     }
-                    return asset;
+                    return _asset;
                   })
                 } else {
-                  return dataSet.assets;
+                  return dataSet.assets.filter(asset => !asset.onMaintenance);
                 }
               } else if (mode === 'edit') {
                 // Combine assets and WO assets
@@ -785,10 +799,9 @@ $(document).ready(() => {
     $(`#eventModal .starttime`).val('');
     $(`#eventModal .endtime`).val('');
     $(`#eventModal .note`).val('');
-
-    document.querySelector(`#eventModal .priority`).value = '1'; // Default Low
-    document.querySelector(`#eventModal .status`).value = 'TENTATIVE'; // Default Tentative
-    $(`#eventModal .alldayevent-switch`)[0].checked = false;
+    $('#eventModal .priority').val('1').change(); // Default Low
+    $('#eventModal .status').val('TENTATIVE').change(); // Default Tentative
+    $('#eventSubmitForm input[type="checkbox"]').prop('checked', false).change();
 
     // Clear DataTable rows
     if (temp_resourcesDataTable) {

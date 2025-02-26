@@ -34,7 +34,65 @@
     },
     "priority": "",
     "resources": [],
-    "vendors": [],
+    "vendors": [{
+      "id": "207",
+      "name": "Best Fixture, Inc.",
+      "vendor": {
+        "text": "Best Fixture, Inc.",
+        "value": "12"
+      },
+      "url": "",
+      "email": "",
+      "initials": "BF",
+      "workorder": {
+        "text": "Lobby Area 1",
+        "value": "136"
+      },
+      "event": "101109",
+      "quantityRequired": 3,
+      "quantityAvailable": 0,
+      "purchaseOrder": {
+        "text": " ",
+        "value": ""
+      },
+      "amount": 0,
+      "active": false,
+      "woVendor": true,
+      "memo": "AA\nBB",
+      "time": {
+        "start": "",
+        "end": ""
+      }
+    }, {
+      "id": "208",
+      "name": "Bridgepoint Industries",
+      "vendor": {
+        "text": "Bridgepoint Industries",
+        "value": "1473"
+      },
+      "url": "http://www.bridgepointindustries.com.de",
+      "email": "support@bridgempointindustries.com.de",
+      "initials": "BI",
+      "workorder": {
+        "text": "Lobby Area 1",
+        "value": "136"
+      },
+      "event": "101109",
+      "quantityRequired": 5,
+      "quantityAvailable": 20,
+      "purchaseOrder": {
+        "text": " ",
+        "value": ""
+      },
+      "amount": 0,
+      "active": true,
+      "woVendor": true,
+      "memo": "CC\nDDD",
+      "time": {
+        "start": "",
+        "end": ""
+      }
+    }],
     "assets": [{
       "id": "5",
       "name": "Bolts",
@@ -67,6 +125,78 @@
       },
       "owned": true,
       "rentalMatrix": null,
+      "time": {
+        "start": "",
+        "end": ""
+      }
+    }, {
+      "id": "146",
+      "name": "Bolts",
+      "workorder": {
+        "text": "Lobby Area 1",
+        "value": "136"
+      },
+      "event": "101109",
+      "quantity": 5,
+      "description": "",
+      "asset": {
+        "text": "Bolts",
+        "value": "5"
+      },
+      "assetRef": {},
+      "rentalUnit": {
+        "text": "",
+        "value": ""
+      },
+      "rentalDuration": 0,
+      "rentalRate": 0,
+      "rentalAmount": 0,
+      "purchaseOrder": {
+        "text": " ",
+        "value": " "
+      },
+      "vendor": {
+        "text": "",
+        "value": ""
+      },
+      "owned": true,
+      "rentalMatrix": 0,
+      "time": {
+        "start": "",
+        "end": ""
+      }
+    }, {
+      "id": "147",
+      "name": "Hammer",
+      "workorder": {
+        "text": "Lobby Area 1",
+        "value": "136"
+      },
+      "event": "101109",
+      "quantity": 2,
+      "description": "",
+      "asset": {
+        "text": "Hammer",
+        "value": "3"
+      },
+      "assetRef": {},
+      "rentalUnit": {
+        "text": "",
+        "value": ""
+      },
+      "rentalDuration": 0,
+      "rentalRate": 0,
+      "rentalAmount": 0,
+      "purchaseOrder": {
+        "text": " ",
+        "value": " "
+      },
+      "vendor": {
+        "text": "",
+        "value": ""
+      },
+      "owned": true,
+      "rentalMatrix": 0,
       "time": {
         "start": "",
         "end": ""
@@ -160,6 +290,28 @@
       "availableQty": 10,
       "note": "",
       "quantityReceived": 56
+    }, {
+      "id": "617",
+      "workorder": {
+        "text": "Lobby Area 1",
+        "value": "136"
+      },
+      "salesorder": {
+        "text": "Sales Order #SLS00000818",
+        "value": "22934"
+      },
+      "event": "101109",
+      "uuid": "22934_1",
+      "line": "1",
+      "item": {
+        "text": "BIC00008",
+        "value": "467"
+      },
+      "description": "Head Master Chair",
+      "quantity": 5,
+      "availableQty": 5,
+      "note": "",
+      "quantityReceived": 56
     }],
     "addresses": [{
       "id": "221",
@@ -171,7 +323,7 @@
         "text": "World Bank",
         "value": "1249"
       },
-      "events": ["101101"],
+      "events": ["101101", "101109"],
       "address": {
         "text": "434 Carlaw",
         "value": "244878"
@@ -198,8 +350,77 @@
       "phone": "",
       "primary": false,
       "url": "/app/common/entity/contact.nl?id=2056&compid=TSTDRV2617106"
+    }, {
+      "id": "203",
+      "workorder": {
+        "text": "Lobby Area 1",
+        "value": "136"
+      },
+      "events": ["101109"],
+      "event": "101109",
+      "contact": {
+        "text": "World Bank : Angelina Jolie",
+        "value": "2056"
+      },
+      "name": "Angelina Jolie",
+      "email": "ajolie@email.com",
+      "jobTitle": "Vice President",
+      "mobilePhone": "",
+      "phone": "",
+      "primary": false,
+      "url": "/app/common/entity/contact.nl?id=2056&compid=TSTDRV2617106"
     }],
     "events": [{
+      "id": "101109",
+      "title": "Lobby Area 123",
+      "workorder": {
+        "text": "Lobby Area 1",
+        "value": "136"
+      },
+      "location": "",
+      "status": {
+        "text": "Completed",
+        "value": "COMPLETED",
+        "code": "bg-info"
+      },
+      "date": {
+        "recurrence": "one time event on 2/27/2025",
+        "dates": ["2/27/2025"],
+        "start": "2025-02-27",
+        "end": "2025-02-27"
+      },
+      "time": {
+        "start": "08:00",
+        "end": "18:00"
+      },
+      "priority": {
+        "text": "High",
+        "value": "3",
+        "code": "#ca6621"
+      },
+      "note": "",
+      "url": "/app/crm/calendar/event.nl?id=101109&compid=TSTDRV2617106&selectedtab=custom337",
+      "color": "#1a6756",
+      "woRef": {},
+      "resources": [],
+      "vendors": [],
+      "assets": [],
+      "items": [],
+      "contacts": [],
+      "addresses": [],
+      "contact": {
+        "text": "",
+        "value": ""
+      },
+      "address": {
+        "text": "221",
+        "value": "221"
+      },
+      "organizer": {
+        "text": "Lean  cendana",
+        "value": "1765"
+      }
+    }, {
       "id": "101101",
       "title": "Lobby Area Walls Installation",
       "workorder": {
@@ -259,10 +480,10 @@
       "value": ""
     },
     "receiptStatus": {
-      "text": "Fully Received",
-      "value": "3",
-      "code": "#C70039",
-      "display": "Fully Received"
+      "text": "Partially Received",
+      "value": "2",
+      "code": "#FF5733",
+      "display": "Partial Received"
     }
   }, {
     "id": "135",
@@ -593,109 +814,8 @@
     },
     "priority": "",
     "resources": [],
-    "vendors": [{
-      "id": "203",
-      "name": "Best Fixture, Inc.",
-      "vendor": {
-        "text": "Best Fixture, Inc.",
-        "value": "12"
-      },
-      "url": "",
-      "email": "",
-      "initials": "BF",
-      "workorder": {
-        "text": "Lobby Area",
-        "value": "134"
-      },
-      "event": "101105",
-      "quantityRequired": 3,
-      "quantityAvailable": 0,
-      "purchaseOrder": {
-        "text": " ",
-        "value": ""
-      },
-      "amount": 0,
-      "active": false,
-      "woVendor": true,
-      "memo": "A\nB",
-      "time": {
-        "start": "",
-        "end": ""
-      }
-    }],
-    "assets": [{
-      "id": "139",
-      "name": "Bolts",
-      "workorder": {
-        "text": "Lobby Area",
-        "value": "134"
-      },
-      "event": "101105",
-      "quantity": 3,
-      "description": "",
-      "asset": {
-        "text": "Bolts",
-        "value": "5"
-      },
-      "assetRef": {},
-      "rentalUnit": {
-        "text": "",
-        "value": ""
-      },
-      "rentalDuration": 0,
-      "rentalRate": 0,
-      "rentalAmount": 0,
-      "purchaseOrder": {
-        "text": " ",
-        "value": " "
-      },
-      "vendor": {
-        "text": "",
-        "value": ""
-      },
-      "owned": true,
-      "rentalMatrix": 0,
-      "time": {
-        "start": "",
-        "end": ""
-      }
-    }, {
-      "id": "140",
-      "name": "Forklift",
-      "workorder": {
-        "text": "Lobby Area",
-        "value": "134"
-      },
-      "event": "101105",
-      "quantity": 5,
-      "description": "",
-      "asset": {
-        "text": "Forklift",
-        "value": "4"
-      },
-      "assetRef": {},
-      "rentalUnit": {
-        "text": "",
-        "value": ""
-      },
-      "rentalDuration": 0,
-      "rentalRate": 0,
-      "rentalAmount": 0,
-      "purchaseOrder": {
-        "text": " ",
-        "value": " "
-      },
-      "vendor": {
-        "text": "",
-        "value": ""
-      },
-      "owned": true,
-      "rentalMatrix": 0,
-      "time": {
-        "start": "",
-        "end": ""
-      }
-    }],
+    "vendors": [],
+    "assets": [],
     "items": [{
       "id": "605",
       "workorder": {
@@ -716,28 +836,6 @@
       "description": "Head Master Chair",
       "quantity": 1,
       "availableQty": 1,
-      "note": "",
-      "quantityReceived": 56
-    }, {
-      "id": "615",
-      "workorder": {
-        "text": "Lobby Area",
-        "value": "134"
-      },
-      "salesorder": {
-        "text": "Sales Order #SLS00000811",
-        "value": "22902"
-      },
-      "event": "101105",
-      "uuid": "22902_1",
-      "line": "1",
-      "item": {
-        "text": "BIC00008",
-        "value": "467"
-      },
-      "description": "Head Master Chair",
-      "quantity": 2,
-      "availableQty": 2,
       "note": "",
       "quantityReceived": 56
     }, {
@@ -773,7 +871,7 @@
         "text": "World Bank",
         "value": "1249"
       },
-      "events": ["101105"],
+      "events": [],
       "address": {
         "text": "343 York",
         "value": "245154"
@@ -790,7 +888,7 @@
         "text": "World Bank",
         "value": "1249"
       },
-      "events": ["101096", "101105"],
+      "events": ["101096"],
       "address": {
         "text": "343 York",
         "value": "245154"
@@ -836,77 +934,8 @@
       "phone": "",
       "primary": false,
       "url": "/app/common/entity/contact.nl?id=2060&compid=TSTDRV2617106"
-    }, {
-      "id": "201",
-      "workorder": {
-        "text": "Lobby Area",
-        "value": "134"
-      },
-      "events": ["101105"],
-      "event": "101105",
-      "contact": {
-        "text": "World Bank : Brad Pitt",
-        "value": "2060"
-      },
-      "name": "Brad Pitt",
-      "email": "bpitt@email.com",
-      "jobTitle": "Designer",
-      "mobilePhone": "",
-      "phone": "",
-      "primary": false,
-      "url": "/app/common/entity/contact.nl?id=2060&compid=TSTDRV2617106"
     }],
     "events": [{
-      "id": "101105",
-      "title": "Lobby Area",
-      "workorder": {
-        "text": "Lobby Area",
-        "value": "134"
-      },
-      "location": "",
-      "status": {
-        "text": "Tentative",
-        "value": "TENTATIVE",
-        "code": "bg-secondary"
-      },
-      "date": {
-        "recurrence": "one time event on 2/26/2025",
-        "dates": ["2/26/2025"],
-        "start": "2025-02-26",
-        "end": "2025-02-26"
-      },
-      "time": {
-        "start": "08:00",
-        "end": "18:00"
-      },
-      "priority": {
-        "text": "Low",
-        "value": "1",
-        "code": "#026adf"
-      },
-      "note": "A\nB\nC",
-      "url": "/app/crm/calendar/event.nl?id=101105&compid=TSTDRV2617106&selectedtab=custom337",
-      "color": "#1a6756",
-      "woRef": {},
-      "resources": [],
-      "vendors": [],
-      "assets": [],
-      "items": [],
-      "contacts": [],
-      "addresses": [],
-      "contact": {
-        "text": "",
-        "value": ""
-      },
-      "address": {
-        "text": "218",
-        "value": "218"
-      },
-      "organizer": {
-        "text": "Lean  cendana",
-        "value": "1765"
-      }
-    }, {
       "id": "101096",
       "title": "Office Area 2",
       "workorder": {
@@ -3363,35 +3392,6 @@
         "end": ""
       }
     }, {
-      "id": "194",
-      "name": "Best Fixture, Inc.",
-      "vendor": {
-        "text": "Best Fixture, Inc.",
-        "value": "12"
-      },
-      "url": "",
-      "email": "",
-      "initials": "BF",
-      "workorder": {
-        "text": "Test Work Order - AC Installation",
-        "value": "123"
-      },
-      "event": "101084",
-      "quantityRequired": 1,
-      "quantityAvailable": 0,
-      "purchaseOrder": {
-        "text": " ",
-        "value": ""
-      },
-      "amount": 0,
-      "active": false,
-      "woVendor": true,
-      "memo": "",
-      "time": {
-        "start": "",
-        "end": ""
-      }
-    }, {
       "id": "188",
       "name": "Best Fixture, Inc.",
       "vendor": {
@@ -3407,6 +3407,35 @@
       },
       "event": "101075",
       "quantityRequired": 0,
+      "quantityAvailable": 0,
+      "purchaseOrder": {
+        "text": " ",
+        "value": ""
+      },
+      "amount": 0,
+      "active": false,
+      "woVendor": true,
+      "memo": "",
+      "time": {
+        "start": "",
+        "end": ""
+      }
+    }, {
+      "id": "194",
+      "name": "Best Fixture, Inc.",
+      "vendor": {
+        "text": "Best Fixture, Inc.",
+        "value": "12"
+      },
+      "url": "",
+      "email": "",
+      "initials": "BF",
+      "workorder": {
+        "text": "Test Work Order - AC Installation",
+        "value": "123"
+      },
+      "event": "101084",
+      "quantityRequired": 1,
       "quantityAvailable": 0,
       "purchaseOrder": {
         "text": " ",
@@ -11623,8 +11652,17 @@
       "value": "1"
     },
     "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1524%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-    "events": ["101102", "101101", "101100", "101099", "101098", "101097", "101096", "101085", "101084", "101083", "101080", "101079", "101075", "101072"],
-    "labRates": [],
+    "events": ["101109", "101102", "101101", "101100", "101099", "101098", "101097", "101096", "101085", "101084", "101083", "101080", "101079", "101075", "101072"],
+    "labRates": [{
+      "labRateCatId": "2",
+      "labRate": 5
+    }, {
+      "labRateCatId": "1",
+      "labRate": 5
+    }, {
+      "labRateCatId": "3",
+      "labRate": 5
+    }],
     "time": {
       "start": "",
       "end": ""
@@ -11690,7 +11728,7 @@
       "value": "1"
     },
     "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1770%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-    "events": ["101105", "101087", "101084", "101076", "101075"],
+    "events": ["101107", "101087", "101084", "101076", "101075"],
     "labRates": [],
     "time": {
       "start": "",
@@ -12796,8 +12834,17 @@
         "value": "1"
       },
       "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1524%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-      "events": ["101102", "101101", "101100", "101099", "101098", "101097", "101096", "101085", "101084", "101083", "101080", "101079", "101075", "101072"],
-      "labRates": [],
+      "events": ["101109", "101102", "101101", "101100", "101099", "101098", "101097", "101096", "101085", "101084", "101083", "101080", "101079", "101075", "101072"],
+      "labRates": [{
+        "labRateCatId": "2",
+        "labRate": 5
+      }, {
+        "labRateCatId": "1",
+        "labRate": 5
+      }, {
+        "labRateCatId": "3",
+        "labRate": 5
+      }],
       "time": {
         "start": "",
         "end": ""
@@ -12863,7 +12910,7 @@
         "value": "1"
       },
       "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1770%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-      "events": ["101105", "101087", "101084", "101076", "101075"],
+      "events": ["101107", "101087", "101084", "101076", "101075"],
       "labRates": [],
       "time": {
         "start": "",
@@ -13756,7 +13803,7 @@
         "value": "1"
       },
       "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1770%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-      "events": ["101105", "101087", "101084", "101076", "101075"],
+      "events": ["101107", "101087", "101084", "101076", "101075"],
       "labRates": [],
       "time": {
         "start": "",
@@ -14020,7 +14067,7 @@
         "value": "1"
       },
       "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1770%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-      "events": ["101105", "101087", "101084", "101076", "101075"],
+      "events": ["101107", "101087", "101084", "101076", "101075"],
       "labRates": [],
       "time": {
         "start": "",
@@ -30163,7 +30210,7 @@
       "value": ""
     }
   }, {
-    "id": "417",
+    "id": "420",
     "name": "Arun Sharma",
     "initials": "AS",
     "email": "aruns.unlock2go@gmail.com",
@@ -30174,10 +30221,10 @@
     },
     "active": true,
     "workorder": {
-      "text": "Lobby Area",
-      "value": "134"
+      "text": "",
+      "value": ""
     },
-    "events": ["101105"],
+    "events": ["101107"],
     "employee": {
       "text": "Arun Sharma",
       "value": "1770"
@@ -30225,6 +30272,54 @@
       "text": "",
       "value": ""
     }
+  }, {
+    "id": "423",
+    "name": "Aiden Somerhalder",
+    "initials": "AS",
+    "email": "admin@ramsey.com",
+    "phone": "",
+    "location": {
+      "text": "01: San Francisco",
+      "value": "2"
+    },
+    "active": true,
+    "workorder": {
+      "text": "Lobby Area 1",
+      "value": "136"
+    },
+    "events": ["101109"],
+    "employee": {
+      "text": "Aiden Somerhalder",
+      "value": "1524"
+    },
+    "resourceGroups": [{
+      "text": "Installers",
+      "value": "1"
+    }],
+    "types": [],
+    "subTypes": [],
+    "rate": 0,
+    "vendor": {
+      "text": "",
+      "value": ""
+    },
+    "purchaseOrder": {
+      "text": " ",
+      "value": ""
+    },
+    "affiliationType": {
+      "text": "In-House",
+      "value": "1"
+    },
+    "time": {
+      "start": "09:00",
+      "end": "18:00"
+    },
+    "resourceSkills": [],
+    "department": {
+      "text": "",
+      "value": ""
+    }
   }],
   "vendors": [{
     "id": "12",
@@ -30238,13 +30333,12 @@
     "initials": "BF",
     "quantityRequired": 0,
     "quantityAvailable": 0,
-    "active": true,
     "purchaseOrder": {
       "text": "",
       "value": ""
     },
     "woVendor": false,
-    "events": ["101105", "101102", "101095", "101087", "101084", "101081", "101075", "101057", "101056", "101055", "101040", "101028", "101017", "101015", "101012", "101011", "101010", "101008", "101007", "101006", "101005", "101004", "101003", "100968", "100954", "100953", "100952", "100951", "100950", "100947", "100942", "100939", "100933", "100931", "100927", "100923", "100922", "100915", "100913", "100912", "100906", "100905", "100904", "100903", "100902", "100901", "100900", "100899", "100891", "100890", "100889", "100888", "100887", "100886", "100884", "100883", "100882", "100881", "100880", "100875", "100871", "100870", "100682", "39", "20"],
+    "events": ["101109", "101102", "101095", "101087", "101084", "101081", "101075", "101057", "101056", "101055", "101040", "101028", "101017", "101015", "101012", "101011", "101010", "101008", "101007", "101006", "101005", "101004", "101003", "100968", "100954", "100953", "100952", "100951", "100950", "100947", "100942", "100939", "100933", "100931", "100927", "100923", "100922", "100915", "100913", "100912", "100906", "100905", "100904", "100903", "100902", "100901", "100900", "100899", "100891", "100890", "100889", "100888", "100887", "100886", "100884", "100883", "100882", "100881", "100880", "100875", "100871", "100870", "100682", "39", "20"],
     "memo": "",
     "location": {
       "text": "",
@@ -30270,13 +30364,12 @@
     "initials": "BI",
     "quantityRequired": 0,
     "quantityAvailable": 20,
-    "active": true,
     "purchaseOrder": {
       "text": "",
       "value": ""
     },
     "woVendor": false,
-    "events": ["101095", "101084", "101010", "101008", "101005", "100970", "100969", "100968", "100960", "100956", "100955", "100951", "100947", "100946", "100945", "100942", "100939", "100938", "100933", "100932", "100931", "100924", "100916", "100887", "100885", "100879", "100878", "100877", "100876", "100875", "100874", "100682", "39", "6"],
+    "events": ["101109", "101095", "101084", "101010", "101008", "101005", "100970", "100969", "100968", "100960", "100956", "100955", "100951", "100947", "100946", "100945", "100942", "100939", "100938", "100933", "100932", "100931", "100924", "100916", "100887", "100885", "100879", "100878", "100877", "100876", "100875", "100874", "100682", "39", "6"],
     "memo": "",
     "location": {
       "text": "",
@@ -30302,7 +30395,6 @@
     "initials": "CF",
     "quantityRequired": 0,
     "quantityAvailable": 0,
-    "active": true,
     "purchaseOrder": {
       "text": "",
       "value": ""
@@ -30334,7 +30426,6 @@
     "initials": "CD",
     "quantityRequired": 0,
     "quantityAvailable": 0,
-    "active": true,
     "purchaseOrder": {
       "text": "",
       "value": ""
@@ -30366,7 +30457,6 @@
     "initials": "HI",
     "quantityRequired": 0,
     "quantityAvailable": 0,
-    "active": true,
     "purchaseOrder": {
       "text": "",
       "value": ""
@@ -30390,8 +30480,11 @@
   "assets": [{
     "id": "5",
     "name": "Bolts",
-    "active": true,
-    "onMaintenance": false,
+    "asset": {
+      "text": "Bolts",
+      "value": "5"
+    },
+    "onMaintenance": true,
     "description": "",
     "type": {
       "text": "Hand Tools",
@@ -30412,7 +30505,10 @@
   }, {
     "id": "4",
     "name": "Forklift",
-    "active": true,
+    "asset": {
+      "text": "Forklift",
+      "value": "4"
+    },
     "onMaintenance": false,
     "description": "",
     "type": {
@@ -30434,8 +30530,11 @@
   }, {
     "id": "3",
     "name": "Hammer",
-    "active": true,
-    "onMaintenance": false,
+    "asset": {
+      "text": "Hammer",
+      "value": "3"
+    },
+    "onMaintenance": true,
     "description": "",
     "type": {
       "text": "Hand Tools",
@@ -30456,7 +30555,10 @@
   }, {
     "id": "6",
     "name": "Hammer",
-    "active": true,
+    "asset": {
+      "text": "Hammer",
+      "value": "6"
+    },
     "onMaintenance": false,
     "description": "",
     "type": {
@@ -30478,7 +30580,10 @@
   }, {
     "id": "1",
     "name": "Truck 1",
-    "active": true,
+    "asset": {
+      "text": "Truck 1",
+      "value": "1"
+    },
     "onMaintenance": false,
     "description": "",
     "type": {
@@ -30500,7 +30605,10 @@
   }, {
     "id": "2",
     "name": "Truck 2",
-    "active": true,
+    "asset": {
+      "text": "Truck 2",
+      "value": "2"
+    },
     "onMaintenance": false,
     "description": "",
     "type": {
@@ -30521,58 +30629,58 @@
     "owned": true
   }],
   "events": [{
-    "id": "101105",
-    "title": "Lobby Area",
+    "id": "101109",
+    "title": "Lobby Area 123",
     "workorder": {
-      "text": "Lobby Area",
-      "value": "134"
+      "text": "Lobby Area 1",
+      "value": "136"
     },
     "location": "",
     "status": {
-      "text": "Tentative",
-      "value": "TENTATIVE",
-      "code": "bg-secondary"
+      "text": "Completed",
+      "value": "COMPLETED",
+      "code": "bg-info"
     },
     "date": {
-      "recurrence": "one time event on 2/26/2025",
-      "dates": ["2/26/2025"],
-      "start": "2025-02-26",
-      "end": "2025-02-26"
+      "recurrence": "one time event on 2/27/2025",
+      "dates": ["2/27/2025"],
+      "start": "2025-02-27",
+      "end": "2025-02-27"
     },
     "time": {
       "start": "08:00",
       "end": "18:00"
     },
     "priority": {
-      "text": "Low",
-      "value": "1",
-      "code": "#026adf"
+      "text": "High",
+      "value": "3",
+      "code": "#ca6621"
     },
-    "note": "A\nB\nC",
-    "url": "/app/crm/calendar/event.nl?id=101105&compid=TSTDRV2617106&selectedtab=custom337",
+    "note": "",
+    "url": "/app/crm/calendar/event.nl?id=101109&compid=TSTDRV2617106&selectedtab=custom337",
     "color": "#1a6756",
     "woRef": {
-      "id": "134",
-      "name": "Lobby Area",
-      "title": "Lobby Area",
+      "id": "136",
+      "name": "Lobby Area 1",
+      "title": "Lobby Area 1",
       "project": {
         "text": "World Bank : World Bank Office Furniture Installation",
         "value": "1515"
       },
-      "date": "1/20/2025",
+      "date": "2/19/2025",
       "status": {
-        "text": "Completed",
-        "value": "4",
-        "code": "#28a745"
+        "text": "Not Started",
+        "value": "8",
+        "code": "#026adf"
       },
       "type": {
         "text": "Service",
         "value": "2"
       },
-      "memo": "<h4><strong>1. Pre-Installation Preparation</strong></h4><ul><li>Review work order details, verify furniture type and quantities.</li><li>Gather necessary tools (screwdrivers, drills, level, etc.) and protective gear.</li><li>Inspect furniture for damages and ensure all hardware is included.</li><li>Confirm access to the installation site (keys, security clearance, etc.).</li></ul><h4><strong>2. On-Site Installation</strong></h4><ul><li>Confirm furniture placement with the client, referencing layout plans.</li><li>Unpack items carefully and organize packaging to maintain a clean area.</li><li>Assemble furniture according to manufacturer’s instructions.</li><li>Ensure proper leveling and alignment using a level.</li><li>Begin with larger furniture pieces, then move to smaller items.</li><li>For wall-mounted items, locate studs and use proper anchors.</li></ul><h4><strong>3. Post-Installation Checklist</strong></h4><ul><li>Inspect all furniture for stability, alignment, and quality.</li><li>Verify furniture is placed according to client’s specifications.</li><li>Remove all packaging, debris, and clean furniture surfaces.</li><li>Walk the client through the installation and address any concerns.</li><li>Obtain client’s sign-off on completed work.</li></ul><h4><strong>4. Additional Notes</strong></h4><ul><li>Report damaged or missing items to the project manager immediately.</li><li>Log start/end times and report any delays or issues.</li><li>Follow special project instructions as necessary.</li></ul><p></p>",
+      "memo": "<h4><strong style=\"background-color: rgb(255, 255, 255); color: rgb(38, 38, 38);\">1. Pre-Installation Preparation</strong></h4><ul><li><span style=\"background-color: rgb(255, 255, 255); color: rgb(38, 38, 38);\">Review work order details, verify furniture type and quantities.</span></li><li><span style=\"background-color: rgb(255, 255, 255); color: rgb(38, 38, 38);\">Gather necessary tools (screwdrivers, drills, level, etc.) and protective gear.</span></li><li><span style=\"background-color: rgb(255, 255, 255); color: rgb(38, 38, 38);\">Inspect furniture for damages and ensure all hardware is included.</span></li><li><span style=\"background-color: rgb(255, 255, 255); color: rgb(38, 38, 38);\">Confirm access to the installation site (keys, security clearance, etc.).</span></li></ul><h4><strong style=\"background-color: rgb(255, 255, 255); color: rgb(38, 38, 38);\">2. On-Site Installation</strong></h4><ul><li><span style=\"background-color: rgb(255, 255, 255); color: rgb(38, 38, 38);\">Confirm furniture placement with the client, referencing layout plans.</span></li><li><span style=\"background-color: rgb(255, 255, 255); color: rgb(38, 38, 38);\">Unpack items carefully and organize packaging to maintain a clean area.</span></li><li><span style=\"background-color: rgb(255, 255, 255); color: rgb(38, 38, 38);\">Assemble furniture according to manufacturer’s instructions.</span></li><li><span style=\"background-color: rgb(255, 255, 255); color: rgb(38, 38, 38);\">Ensure proper leveling and alignment using a level.</span></li><li><span style=\"background-color: rgb(255, 255, 255); color: rgb(38, 38, 38);\">Begin with larger furniture pieces, then move to smaller items.</span></li><li><span style=\"background-color: rgb(255, 255, 255); color: rgb(38, 38, 38);\">For wall-mounted items, locate studs and use proper anchors.</span></li></ul><h4><strong style=\"background-color: rgb(255, 255, 255); color: rgb(38, 38, 38);\">3. Post-Installation Checklist</strong></h4><ul><li><span style=\"background-color: rgb(255, 255, 255); color: rgb(38, 38, 38);\">Inspect all furniture for stability, alignment, and quality.</span></li><li><span style=\"background-color: rgb(255, 255, 255); color: rgb(38, 38, 38);\">Verify furniture is placed according to client’s specifications.</span></li><li><span style=\"background-color: rgb(255, 255, 255); color: rgb(38, 38, 38);\">Remove all packaging, debris, and clean furniture surfaces.</span></li><li><span style=\"background-color: rgb(255, 255, 255); color: rgb(38, 38, 38);\">Walk the client through the installation and address any concerns.</span></li><li><span style=\"background-color: rgb(255, 255, 255); color: rgb(38, 38, 38);\">Obtain client’s sign-off on completed work.</span></li></ul><h4><strong style=\"background-color: rgb(255, 255, 255); color: rgb(38, 38, 38);\">4. Additional Notes</strong></h4><ul><li><span style=\"background-color: rgb(255, 255, 255); color: rgb(38, 38, 38);\">Report damaged or missing items to the project manager immediately.</span></li><li><span style=\"background-color: rgb(255, 255, 255); color: rgb(38, 38, 38);\">Log start/end times and report any delays or issues.</span></li><li><span style=\"background-color: rgb(255, 255, 255); color: rgb(38, 38, 38);\">Follow special project instructions as necessary.</span></li></ul><p></p>",
       "salesorder": {
-        "text": "Sales Order #SLS00000811",
-        "value": "22902"
+        "text": "Sales Order #SLS00000818",
+        "value": "22934"
       },
       "customer": {
         "text": "World Bank",
@@ -30585,7 +30693,7 @@
       "priority": "",
       "resources": [],
       "vendors": [{
-        "id": "203",
+        "id": "207",
         "name": "Best Fixture, Inc.",
         "vendor": {
           "text": "Best Fixture, Inc.",
@@ -30595,10 +30703,10 @@
         "email": "",
         "initials": "BF",
         "workorder": {
-          "text": "Lobby Area",
-          "value": "134"
+          "text": "Lobby Area 1",
+          "value": "136"
         },
-        "event": "101105",
+        "event": "101109",
         "quantityRequired": 3,
         "quantityAvailable": 0,
         "purchaseOrder": {
@@ -30608,21 +30716,86 @@
         "amount": 0,
         "active": false,
         "woVendor": true,
-        "memo": "A\nB",
+        "memo": "AA\nBB",
+        "time": {
+          "start": "",
+          "end": ""
+        }
+      }, {
+        "id": "208",
+        "name": "Bridgepoint Industries",
+        "vendor": {
+          "text": "Bridgepoint Industries",
+          "value": "1473"
+        },
+        "url": "http://www.bridgepointindustries.com.de",
+        "email": "support@bridgempointindustries.com.de",
+        "initials": "BI",
+        "workorder": {
+          "text": "Lobby Area 1",
+          "value": "136"
+        },
+        "event": "101109",
+        "quantityRequired": 5,
+        "quantityAvailable": 20,
+        "purchaseOrder": {
+          "text": " ",
+          "value": ""
+        },
+        "amount": 0,
+        "active": true,
+        "woVendor": true,
+        "memo": "CC\nDDD",
         "time": {
           "start": "",
           "end": ""
         }
       }],
       "assets": [{
-        "id": "139",
+        "id": "5",
         "name": "Bolts",
         "workorder": {
-          "text": "Lobby Area",
-          "value": "134"
+          "text": "Lobby Area 1",
+          "value": "136"
         },
-        "event": "101105",
-        "quantity": 3,
+        "event": "101101",
+        "quantity": 5,
+        "description": "",
+        "asset": {
+          "text": "Bolts",
+          "value": "5"
+        },
+        "assetRef": {},
+        "rentalUnit": {
+          "text": "Daily",
+          "value": "2"
+        },
+        "rentalDuration": 5,
+        "rentalRate": 20,
+        "rentalAmount": 100,
+        "purchaseOrder": {
+          "text": " ",
+          "value": " "
+        },
+        "vendor": {
+          "text": "Computer Depot Pacific",
+          "value": "965"
+        },
+        "owned": true,
+        "rentalMatrix": null,
+        "time": {
+          "start": "",
+          "end": ""
+        }
+      }, {
+        "id": "146",
+        "name": "Bolts",
+        "workorder": {
+          "text": "Lobby Area 1",
+          "value": "136"
+        },
+        "event": "101109",
+        "quantity": 5,
         "description": "",
         "asset": {
           "text": "Bolts",
@@ -30651,18 +30824,18 @@
           "end": ""
         }
       }, {
-        "id": "140",
-        "name": "Forklift",
+        "id": "147",
+        "name": "Hammer",
         "workorder": {
-          "text": "Lobby Area",
-          "value": "134"
+          "text": "Lobby Area 1",
+          "value": "136"
         },
-        "event": "101105",
-        "quantity": 5,
+        "event": "101109",
+        "quantity": 2,
         "description": "",
         "asset": {
-          "text": "Forklift",
-          "value": "4"
+          "text": "Hammer",
+          "value": "3"
         },
         "assetRef": {},
         "rentalUnit": {
@@ -30688,115 +30861,142 @@
         }
       }],
       "items": [{
-        "id": "605",
+        "id": "612",
         "workorder": {
-          "text": "Lobby Area",
-          "value": "134"
+          "text": "Lobby Area 1",
+          "value": "136"
         },
         "salesorder": {
-          "text": "Sales Order #SLS00000811",
-          "value": "22902"
+          "text": "Sales Order #SLS00000818",
+          "value": "22934"
         },
-        "event": "101096",
-        "uuid": "22902_1",
-        "line": "1",
+        "event": "101101",
+        "uuid": "22934_4",
+        "line": "4",
         "item": {
           "text": "BIC00008",
           "value": "467"
         },
         "description": "Head Master Chair",
-        "quantity": 1,
-        "availableQty": 1,
+        "quantity": 10,
+        "availableQty": 10,
         "note": "",
         "quantityReceived": 56
       }, {
-        "id": "615",
+        "id": "609",
         "workorder": {
-          "text": "Lobby Area",
-          "value": "134"
+          "text": "Lobby Area 1",
+          "value": "136"
         },
         "salesorder": {
-          "text": "Sales Order #SLS00000811",
-          "value": "22902"
-        },
-        "event": "101105",
-        "uuid": "22902_1",
-        "line": "1",
-        "item": {
-          "text": "BIC00008",
-          "value": "467"
-        },
-        "description": "Head Master Chair",
-        "quantity": 2,
-        "availableQty": 2,
-        "note": "",
-        "quantityReceived": 56
-      }, {
-        "id": "598",
-        "workorder": {
-          "text": "Lobby Area",
-          "value": "134"
-        },
-        "salesorder": {
-          "text": "Sales Order #SLS00000811",
-          "value": "22902"
+          "text": "Sales Order #SLS00000818",
+          "value": "22934"
         },
         "event": "",
-        "uuid": "22902_1",
+        "uuid": "22934_1",
         "line": "1",
         "item": {
           "text": "BIC00008",
           "value": "467"
         },
         "description": "Head Master Chair",
-        "quantity": 2,
-        "availableQty": 2,
+        "quantity": 7,
+        "availableQty": 7,
+        "note": "",
+        "quantityReceived": 56
+      }, {
+        "id": "610",
+        "workorder": {
+          "text": "Lobby Area 1",
+          "value": "136"
+        },
+        "salesorder": {
+          "text": "Sales Order #SLS00000818",
+          "value": "22934"
+        },
+        "event": "",
+        "uuid": "22934_2",
+        "line": "2",
+        "item": {
+          "text": "BIC00008",
+          "value": "467"
+        },
+        "description": "Diana Chair",
+        "quantity": 10,
+        "availableQty": 10,
+        "note": "",
+        "quantityReceived": 56
+      }, {
+        "id": "611",
+        "workorder": {
+          "text": "Lobby Area 1",
+          "value": "136"
+        },
+        "salesorder": {
+          "text": "Sales Order #SLS00000818",
+          "value": "22934"
+        },
+        "event": "",
+        "uuid": "22934_3",
+        "line": "3",
+        "item": {
+          "text": "BIC00008",
+          "value": "467"
+        },
+        "description": "Working Table",
+        "quantity": 10,
+        "availableQty": 10,
+        "note": "",
+        "quantityReceived": 56
+      }, {
+        "id": "617",
+        "workorder": {
+          "text": "Lobby Area 1",
+          "value": "136"
+        },
+        "salesorder": {
+          "text": "Sales Order #SLS00000818",
+          "value": "22934"
+        },
+        "event": "101109",
+        "uuid": "22934_1",
+        "line": "1",
+        "item": {
+          "text": "BIC00008",
+          "value": "467"
+        },
+        "description": "Head Master Chair",
+        "quantity": 5,
+        "availableQty": 5,
         "note": "",
         "quantityReceived": 56
       }],
       "addresses": [{
-        "id": "218",
+        "id": "221",
         "workorder": {
-          "text": "Lobby Area",
-          "value": "134"
+          "text": "Lobby Area 1",
+          "value": "136"
         },
         "customer": {
           "text": "World Bank",
           "value": "1249"
         },
-        "events": ["101105"],
+        "events": ["101101", "101109"],
         "address": {
-          "text": "343 York",
-          "value": "245154"
+          "text": "434 Carlaw",
+          "value": "244878"
         },
-        "addressDetails": "343 York AV<br/>NY 121312<br/>United States",
-        "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
-      }, {
-        "id": "220",
-        "workorder": {
-          "text": "Lobby Area",
-          "value": "134"
-        },
-        "customer": {
-          "text": "World Bank",
-          "value": "1249"
-        },
-        "events": ["101096", "101105"],
-        "address": {
-          "text": "343 York",
-          "value": "245154"
-        },
-        "addressDetails": "",
+        "addressDetails": "434 Carlaw Road<br/>Los Angeles NY 12412<br/>United States",
         "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
       }],
       "contacts": [{
-        "id": "188",
+        "id": "198",
         "workorder": {
-          "text": "Lobby Area",
-          "value": "134"
+          "text": "Lobby Area 1",
+          "value": "136"
         },
-        "events": ["101096"],
-        "event": "101096",
+        "events": ["101101"],
+        "event": "101101",
         "contact": {
           "text": "World Bank : Angelina Jolie",
           "value": "2056"
@@ -30809,74 +31009,55 @@
         "primary": false,
         "url": "/app/common/entity/contact.nl?id=2056&compid=TSTDRV2617106"
       }, {
-        "id": "189",
+        "id": "203",
         "workorder": {
-          "text": "Lobby Area",
-          "value": "134"
+          "text": "Lobby Area 1",
+          "value": "136"
         },
-        "events": [],
-        "event": "",
+        "events": ["101109"],
+        "event": "101109",
         "contact": {
-          "text": "World Bank : Brad Pitt",
-          "value": "2060"
+          "text": "World Bank : Angelina Jolie",
+          "value": "2056"
         },
-        "name": "Brad Pitt",
-        "email": "bpitt@email.com",
-        "jobTitle": "Designer",
+        "name": "Angelina Jolie",
+        "email": "ajolie@email.com",
+        "jobTitle": "Vice President",
         "mobilePhone": "",
         "phone": "",
         "primary": false,
-        "url": "/app/common/entity/contact.nl?id=2060&compid=TSTDRV2617106"
-      }, {
-        "id": "201",
-        "workorder": {
-          "text": "Lobby Area",
-          "value": "134"
-        },
-        "events": ["101105"],
-        "event": "101105",
-        "contact": {
-          "text": "World Bank : Brad Pitt",
-          "value": "2060"
-        },
-        "name": "Brad Pitt",
-        "email": "bpitt@email.com",
-        "jobTitle": "Designer",
-        "mobilePhone": "",
-        "phone": "",
-        "primary": false,
-        "url": "/app/common/entity/contact.nl?id=2060&compid=TSTDRV2617106"
+        "url": "/app/common/entity/contact.nl?id=2056&compid=TSTDRV2617106"
       }],
       "events": [{
-        "id": "101105",
-        "title": "Lobby Area",
+        "id": "101109",
+        "title": "Lobby Area 123",
         "workorder": {
-          "text": "Lobby Area",
-          "value": "134"
+          "text": "Lobby Area 1",
+          "value": "136"
         },
         "location": "",
         "status": {
-          "text": "Tentative",
-          "value": "TENTATIVE",
-          "code": "bg-secondary"
+          "text": "Completed",
+          "value": "COMPLETED",
+          "code": "bg-info"
         },
         "date": {
-          "recurrence": "one time event on 2/26/2025",
-          "dates": ["2/26/2025"],
-          "start": "2025-02-26",
-          "end": "2025-02-26"
+          "recurrence": "one time event on 2/27/2025",
+          "dates": ["2/27/2025"],
+          "start": "2025-02-27",
+          "end": "2025-02-27"
         },
         "time": {
           "start": "08:00",
           "end": "18:00"
         },
         "priority": {
-          "text": "Low",
-          "value": "1",
-          "code": "#026adf"
+          "text": "High",
+          "value": "3",
+          "code": "#ca6621"
         },
-        "note": "A\nB\nC",
-        "url": "/app/crm/calendar/event.nl?id=101105&compid=TSTDRV2617106&selectedtab=custom337",
+        "note": "",
+        "url": "/app/crm/calendar/event.nl?id=101109&compid=TSTDRV2617106&selectedtab=custom337",
         "color": "#1a6756",
         "woRef": {},
         "resources": [],
@@ -30890,19 +31071,19 @@
           "value": ""
         },
         "address": {
-          "text": "218",
-          "value": "218"
+          "text": "221",
+          "value": "221"
         },
         "organizer": {
           "text": "Lean  cendana",
           "value": "1765"
         }
       }, {
-        "id": "101096",
-        "title": "Office Area 2",
+        "id": "101101",
+        "title": "Lobby Area Walls Installation",
         "workorder": {
-          "text": "Lobby Area",
-          "value": "134"
+          "text": "Lobby Area 1",
+          "value": "136"
         },
         "location": "",
         "status": {
@@ -30911,22 +31092,22 @@
           "code": "bg-secondary"
         },
         "date": {
-          "recurrence": "occurs every day from 1/20/2025 until 1/24/2025",
-          "dates": ["1/20/2025", "1/24/2025"],
-          "start": "2025-01-20",
-          "end": "2025-01-24"
+          "recurrence": "occurs every day from 2/19/2025 until 2/21/2025",
+          "dates": ["2/19/2025", "2/21/2025"],
+          "start": "2025-02-19",
+          "end": "2025-02-21"
         },
         "time": {
           "start": "08:00",
           "end": "18:00"
         },
         "priority": {
-          "text": "Urgent",
-          "value": "4",
-          "code": "#9a2407"
+          "text": "High",
+          "value": "3",
+          "code": "#ca6621"
         },
-        "note": "Office Area 2",
-        "url": "/app/crm/calendar/event.nl?id=101096&compid=TSTDRV2617106&selectedtab=custom337",
+        "note": "Lobby Area Walls Installation",
+        "url": "/app/crm/calendar/event.nl?id=101101&compid=TSTDRV2617106&selectedtab=custom337",
         "color": "#1a6756",
         "woRef": {},
         "resources": [],
@@ -30949,20 +31130,316 @@
         }
       }],
       "projectUrl": "/app/accounting/project/project.nl?id=1515&compid=TSTDRV2617106",
-      "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=134&compid=TSTDRV2617106",
-      "soUrl": "/app/accounting/transactions/salesord.nl?id=22902&compid=TSTDRV2617106",
-      "esthours": "100",
+      "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=136&compid=TSTDRV2617106",
+      "soUrl": "/app/accounting/transactions/salesord.nl?id=22934&compid=TSTDRV2617106",
+      "esthours": "200",
       "location": {
         "text": "",
         "value": ""
       },
       "receiptStatus": {
-        "text": "Not Received",
-        "value": "1"
+        "text": "Partially Received",
+        "value": "2",
+        "code": "#FF5733",
+        "display": "Partial Received"
       }
     },
     "resources": [{
-      "id": "417",
+      "id": "423",
+      "name": "Aiden Somerhalder",
+      "initials": "AS",
+      "email": "admin@ramsey.com",
+      "phone": "",
+      "location": {
+        "text": "01: San Francisco",
+        "value": "2"
+      },
+      "active": true,
+      "workorder": {
+        "text": "Lobby Area 1",
+        "value": "136"
+      },
+      "events": ["101109"],
+      "employee": {
+        "text": "Aiden Somerhalder",
+        "value": "1524"
+      },
+      "resourceGroups": [{
+        "text": "Installers",
+        "value": "1"
+      }],
+      "types": [],
+      "subTypes": [],
+      "rate": 0,
+      "vendor": {
+        "text": "",
+        "value": ""
+      },
+      "purchaseOrder": {
+        "text": " ",
+        "value": ""
+      },
+      "affiliationType": {
+        "text": "In-House",
+        "value": "1"
+      },
+      "time": {
+        "start": "09:00",
+        "end": "18:00"
+      },
+      "resourceSkills": [],
+      "department": {
+        "text": "",
+        "value": ""
+      },
+      "selected": true
+    }],
+    "vendors": [{
+      "id": "207",
+      "name": "Best Fixture, Inc.",
+      "vendor": {
+        "text": "Best Fixture, Inc.",
+        "value": "12"
+      },
+      "url": "",
+      "email": "",
+      "initials": "BF",
+      "workorder": {
+        "text": "Lobby Area 1",
+        "value": "136"
+      },
+      "event": "101109",
+      "quantityRequired": 3,
+      "quantityAvailable": 0,
+      "purchaseOrder": {
+        "text": " ",
+        "value": ""
+      },
+      "amount": 0,
+      "active": false,
+      "woVendor": true,
+      "memo": "AA\nBB",
+      "time": {
+        "start": "",
+        "end": ""
+      },
+      "selected": true
+    }, {
+      "id": "208",
+      "name": "Bridgepoint Industries",
+      "vendor": {
+        "text": "Bridgepoint Industries",
+        "value": "1473"
+      },
+      "url": "http://www.bridgepointindustries.com.de",
+      "email": "support@bridgempointindustries.com.de",
+      "initials": "BI",
+      "workorder": {
+        "text": "Lobby Area 1",
+        "value": "136"
+      },
+      "event": "101109",
+      "quantityRequired": 5,
+      "quantityAvailable": 20,
+      "purchaseOrder": {
+        "text": " ",
+        "value": ""
+      },
+      "amount": 0,
+      "active": true,
+      "woVendor": true,
+      "memo": "CC\nDDD",
+      "time": {
+        "start": "",
+        "end": ""
+      },
+      "selected": true
+    }],
+    "assets": [{
+      "id": "146",
+      "name": "Bolts",
+      "workorder": {
+        "text": "Lobby Area 1",
+        "value": "136"
+      },
+      "event": "101109",
+      "quantity": 5,
+      "description": "",
+      "asset": {
+        "text": "Bolts",
+        "value": "5"
+      },
+      "assetRef": {},
+      "rentalUnit": {
+        "text": "",
+        "value": ""
+      },
+      "rentalDuration": 0,
+      "rentalRate": 0,
+      "rentalAmount": 0,
+      "purchaseOrder": {
+        "text": " ",
+        "value": " "
+      },
+      "vendor": {
+        "text": "",
+        "value": ""
+      },
+      "owned": true,
+      "rentalMatrix": 0,
+      "time": {
+        "start": "",
+        "end": ""
+      },
+      "selected": true
+    }, {
+      "id": "147",
+      "name": "Hammer",
+      "workorder": {
+        "text": "Lobby Area 1",
+        "value": "136"
+      },
+      "event": "101109",
+      "quantity": 2,
+      "description": "",
+      "asset": {
+        "text": "Hammer",
+        "value": "3"
+      },
+      "assetRef": {},
+      "rentalUnit": {
+        "text": "",
+        "value": ""
+      },
+      "rentalDuration": 0,
+      "rentalRate": 0,
+      "rentalAmount": 0,
+      "purchaseOrder": {
+        "text": " ",
+        "value": " "
+      },
+      "vendor": {
+        "text": "",
+        "value": ""
+      },
+      "owned": true,
+      "rentalMatrix": 0,
+      "time": {
+        "start": "",
+        "end": ""
+      },
+      "selected": true
+    }],
+    "items": [{
+      "id": "617",
+      "workorder": {
+        "text": "Lobby Area 1",
+        "value": "136"
+      },
+      "salesorder": {
+        "text": "Sales Order #SLS00000818",
+        "value": "22934"
+      },
+      "event": "101109",
+      "uuid": "22934_1",
+      "line": "1",
+      "item": {
+        "text": "BIC00008",
+        "value": "467"
+      },
+      "description": "Head Master Chair",
+      "quantity": 5,
+      "availableQty": 5,
+      "note": "",
+      "quantityReceived": 56,
+      "selected": true
+    }],
+    "contacts": [{
+      "id": "203",
+      "workorder": {
+        "text": "Lobby Area 1",
+        "value": "136"
+      },
+      "events": ["101109"],
+      "event": "101109",
+      "contact": {
+        "text": "World Bank : Angelina Jolie",
+        "value": "2056"
+      },
+      "name": "Angelina Jolie",
+      "email": "ajolie@email.com",
+      "jobTitle": "Vice President",
+      "mobilePhone": "",
+      "phone": "",
+      "primary": false,
+      "url": "/app/common/entity/contact.nl?id=2056&compid=TSTDRV2617106",
+      "selected": true
+    }],
+    "addresses": [{
+      "id": "221",
+      "workorder": {
+        "text": "Lobby Area 1",
+        "value": "136"
+      },
+      "customer": {
+        "text": "World Bank",
+        "value": "1249"
+      },
+      "events": ["101101", "101109"],
+      "address": {
+        "text": "434 Carlaw",
+        "value": "244878"
+      },
+      "addressDetails": "434 Carlaw Road<br/>Los Angeles NY 12412<br/>United States",
+      "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106",
+      "selected": true
+    }],
+    "contact": {
+      "text": "",
+      "value": ""
+    },
+    "address": {
+      "text": "221",
+      "value": "221"
+    },
+    "organizer": {
+      "text": "Lean  cendana",
+      "value": "1765"
+    }
+  }, {
+    "id": "101107",
+    "title": "TEST 123",
+    "workorder": {
+      "text": "",
+      "value": ""
+    },
+    "location": "",
+    "status": {
+      "text": "Tentative",
+      "value": "TENTATIVE",
+      "code": "bg-secondary"
+    },
+    "date": {
+      "recurrence": "one time event on 2/27/2025",
+      "dates": ["2/27/2025"],
+      "start": "2025-02-27",
+      "end": "2025-02-27"
+    },
+    "time": {
+      "start": "08:00",
+      "end": "18:00"
+    },
+    "priority": {
+      "text": "Low",
+      "value": "1",
+      "code": "#026adf"
+    },
+    "note": "",
+    "url": "/app/crm/calendar/event.nl?id=101107&compid=TSTDRV2617106&selectedtab=custom337",
+    "color": "#1a6756",
+    "woRef": {},
+    "resources": [{
+      "id": "420",
       "name": "Arun Sharma",
       "initials": "AS",
       "email": "aruns.unlock2go@gmail.com",
@@ -30973,10 +31450,10 @@
       },
       "active": true,
       "workorder": {
-        "text": "Lobby Area",
-        "value": "134"
+        "text": "",
+        "value": ""
       },
-      "events": ["101105"],
+      "events": ["101107"],
       "employee": {
         "text": "Arun Sharma",
         "value": "1770"
@@ -31026,87 +31503,20 @@
       },
       "selected": true
     }],
-    "vendors": [{
-      "id": "203",
-      "name": "Best Fixture, Inc.",
-      "vendor": {
-        "text": "Best Fixture, Inc.",
-        "value": "12"
-      },
-      "url": "",
-      "email": "",
-      "initials": "BF",
-      "workorder": {
-        "text": "Lobby Area",
-        "value": "134"
-      },
-      "event": "101105",
-      "quantityRequired": 3,
-      "quantityAvailable": 0,
-      "purchaseOrder": {
-        "text": " ",
-        "value": ""
-      },
-      "amount": 0,
-      "active": false,
-      "woVendor": true,
-      "memo": "A\nB",
-      "time": {
-        "start": "",
-        "end": ""
-      },
-      "selected": true
-    }],
+    "vendors": [],
     "assets": [{
-      "id": "139",
-      "name": "Bolts",
+      "id": "143",
+      "name": "Hammer",
       "workorder": {
-        "text": "Lobby Area",
-        "value": "134"
-      },
-      "event": "101105",
-      "quantity": 3,
-      "description": "",
-      "asset": {
-        "text": "Bolts",
-        "value": "5"
-      },
-      "assetRef": {},
-      "rentalUnit": {
         "text": "",
         "value": ""
       },
-      "rentalDuration": 0,
-      "rentalRate": 0,
-      "rentalAmount": 0,
-      "purchaseOrder": {
-        "text": " ",
-        "value": " "
-      },
-      "vendor": {
-        "text": "",
-        "value": ""
-      },
-      "owned": true,
-      "rentalMatrix": 0,
-      "time": {
-        "start": "",
-        "end": ""
-      },
-      "selected": true
-    }, {
-      "id": "140",
-      "name": "Forklift",
-      "workorder": {
-        "text": "Lobby Area",
-        "value": "134"
-      },
-      "event": "101105",
+      "event": "101107",
       "quantity": 5,
       "description": "",
       "asset": {
-        "text": "Forklift",
-        "value": "4"
+        "text": "Hammer",
+        "value": "6"
       },
       "assetRef": {},
       "rentalUnit": {
@@ -31132,95 +31542,16 @@
       },
       "selected": true
     }],
-    "items": [{
-      "id": "615",
-      "workorder": {
-        "text": "Lobby Area",
-        "value": "134"
-      },
-      "salesorder": {
-        "text": "Sales Order #SLS00000811",
-        "value": "22902"
-      },
-      "event": "101105",
-      "uuid": "22902_1",
-      "line": "1",
-      "item": {
-        "text": "BIC00008",
-        "value": "467"
-      },
-      "description": "Head Master Chair",
-      "quantity": 2,
-      "availableQty": 2,
-      "note": "",
-      "quantityReceived": 56,
-      "selected": true
-    }],
-    "contacts": [{
-      "id": "201",
-      "workorder": {
-        "text": "Lobby Area",
-        "value": "134"
-      },
-      "events": ["101105"],
-      "event": "101105",
-      "contact": {
-        "text": "World Bank : Brad Pitt",
-        "value": "2060"
-      },
-      "name": "Brad Pitt",
-      "email": "bpitt@email.com",
-      "jobTitle": "Designer",
-      "mobilePhone": "",
-      "phone": "",
-      "primary": false,
-      "url": "/app/common/entity/contact.nl?id=2060&compid=TSTDRV2617106",
-      "selected": true
-    }],
-    "addresses": [{
-      "id": "218",
-      "workorder": {
-        "text": "Lobby Area",
-        "value": "134"
-      },
-      "customer": {
-        "text": "World Bank",
-        "value": "1249"
-      },
-      "events": ["101105"],
-      "address": {
-        "text": "343 York",
-        "value": "245154"
-      },
-      "addressDetails": "343 York AV<br/>NY 121312<br/>United States",
-      "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106",
-      "selected": true
-    }, {
-      "id": "220",
-      "workorder": {
-        "text": "Lobby Area",
-        "value": "134"
-      },
-      "customer": {
-        "text": "World Bank",
-        "value": "1249"
-      },
-      "events": ["101096", "101105"],
-      "address": {
-        "text": "343 York",
-        "value": "245154"
-      },
-      "addressDetails": "",
-      "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106",
-      "selected": true
-    }],
+    "items": [],
+    "contacts": [],
+    "addresses": [],
     "contact": {
       "text": "",
       "value": ""
     },
     "address": {
-      "text": "218",
-      "value": "218"
+      "text": "",
+      "value": ""
     },
     "organizer": {
       "text": "Lean  cendana",
@@ -31459,7 +31790,65 @@
       },
       "priority": "",
       "resources": [],
-      "vendors": [],
+      "vendors": [{
+        "id": "207",
+        "name": "Best Fixture, Inc.",
+        "vendor": {
+          "text": "Best Fixture, Inc.",
+          "value": "12"
+        },
+        "url": "",
+        "email": "",
+        "initials": "BF",
+        "workorder": {
+          "text": "Lobby Area 1",
+          "value": "136"
+        },
+        "event": "101109",
+        "quantityRequired": 3,
+        "quantityAvailable": 0,
+        "purchaseOrder": {
+          "text": " ",
+          "value": ""
+        },
+        "amount": 0,
+        "active": false,
+        "woVendor": true,
+        "memo": "AA\nBB",
+        "time": {
+          "start": "",
+          "end": ""
+        }
+      }, {
+        "id": "208",
+        "name": "Bridgepoint Industries",
+        "vendor": {
+          "text": "Bridgepoint Industries",
+          "value": "1473"
+        },
+        "url": "http://www.bridgepointindustries.com.de",
+        "email": "support@bridgempointindustries.com.de",
+        "initials": "BI",
+        "workorder": {
+          "text": "Lobby Area 1",
+          "value": "136"
+        },
+        "event": "101109",
+        "quantityRequired": 5,
+        "quantityAvailable": 20,
+        "purchaseOrder": {
+          "text": " ",
+          "value": ""
+        },
+        "amount": 0,
+        "active": true,
+        "woVendor": true,
+        "memo": "CC\nDDD",
+        "time": {
+          "start": "",
+          "end": ""
+        }
+      }],
       "assets": [{
         "id": "5",
         "name": "Bolts",
@@ -31492,6 +31881,78 @@
         },
         "owned": true,
         "rentalMatrix": null,
+        "time": {
+          "start": "",
+          "end": ""
+        }
+      }, {
+        "id": "146",
+        "name": "Bolts",
+        "workorder": {
+          "text": "Lobby Area 1",
+          "value": "136"
+        },
+        "event": "101109",
+        "quantity": 5,
+        "description": "",
+        "asset": {
+          "text": "Bolts",
+          "value": "5"
+        },
+        "assetRef": {},
+        "rentalUnit": {
+          "text": "",
+          "value": ""
+        },
+        "rentalDuration": 0,
+        "rentalRate": 0,
+        "rentalAmount": 0,
+        "purchaseOrder": {
+          "text": " ",
+          "value": " "
+        },
+        "vendor": {
+          "text": "",
+          "value": ""
+        },
+        "owned": true,
+        "rentalMatrix": 0,
+        "time": {
+          "start": "",
+          "end": ""
+        }
+      }, {
+        "id": "147",
+        "name": "Hammer",
+        "workorder": {
+          "text": "Lobby Area 1",
+          "value": "136"
+        },
+        "event": "101109",
+        "quantity": 2,
+        "description": "",
+        "asset": {
+          "text": "Hammer",
+          "value": "3"
+        },
+        "assetRef": {},
+        "rentalUnit": {
+          "text": "",
+          "value": ""
+        },
+        "rentalDuration": 0,
+        "rentalRate": 0,
+        "rentalAmount": 0,
+        "purchaseOrder": {
+          "text": " ",
+          "value": " "
+        },
+        "vendor": {
+          "text": "",
+          "value": ""
+        },
+        "owned": true,
+        "rentalMatrix": 0,
         "time": {
           "start": "",
           "end": ""
@@ -31585,6 +32046,28 @@
         "availableQty": 10,
         "note": "",
         "quantityReceived": 56
+      }, {
+        "id": "617",
+        "workorder": {
+          "text": "Lobby Area 1",
+          "value": "136"
+        },
+        "salesorder": {
+          "text": "Sales Order #SLS00000818",
+          "value": "22934"
+        },
+        "event": "101109",
+        "uuid": "22934_1",
+        "line": "1",
+        "item": {
+          "text": "BIC00008",
+          "value": "467"
+        },
+        "description": "Head Master Chair",
+        "quantity": 5,
+        "availableQty": 5,
+        "note": "",
+        "quantityReceived": 56
       }],
       "addresses": [{
         "id": "221",
@@ -31596,7 +32079,7 @@
           "text": "World Bank",
           "value": "1249"
         },
-        "events": ["101101"],
+        "events": ["101101", "101109"],
         "address": {
           "text": "434 Carlaw",
           "value": "244878"
@@ -31623,8 +32106,77 @@
         "phone": "",
         "primary": false,
         "url": "/app/common/entity/contact.nl?id=2056&compid=TSTDRV2617106"
+      }, {
+        "id": "203",
+        "workorder": {
+          "text": "Lobby Area 1",
+          "value": "136"
+        },
+        "events": ["101109"],
+        "event": "101109",
+        "contact": {
+          "text": "World Bank : Angelina Jolie",
+          "value": "2056"
+        },
+        "name": "Angelina Jolie",
+        "email": "ajolie@email.com",
+        "jobTitle": "Vice President",
+        "mobilePhone": "",
+        "phone": "",
+        "primary": false,
+        "url": "/app/common/entity/contact.nl?id=2056&compid=TSTDRV2617106"
       }],
       "events": [{
+        "id": "101109",
+        "title": "Lobby Area 123",
+        "workorder": {
+          "text": "Lobby Area 1",
+          "value": "136"
+        },
+        "location": "",
+        "status": {
+          "text": "Completed",
+          "value": "COMPLETED",
+          "code": "bg-info"
+        },
+        "date": {
+          "recurrence": "one time event on 2/27/2025",
+          "dates": ["2/27/2025"],
+          "start": "2025-02-27",
+          "end": "2025-02-27"
+        },
+        "time": {
+          "start": "08:00",
+          "end": "18:00"
+        },
+        "priority": {
+          "text": "High",
+          "value": "3",
+          "code": "#ca6621"
+        },
+        "note": "",
+        "url": "/app/crm/calendar/event.nl?id=101109&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {},
+        "resources": [],
+        "vendors": [],
+        "assets": [],
+        "items": [],
+        "contacts": [],
+        "addresses": [],
+        "contact": {
+          "text": "",
+          "value": ""
+        },
+        "address": {
+          "text": "221",
+          "value": "221"
+        },
+        "organizer": {
+          "text": "Lean  cendana",
+          "value": "1765"
+        }
+      }, {
         "id": "101101",
         "title": "Lobby Area Walls Installation",
         "workorder": {
@@ -31684,10 +32236,10 @@
         "value": ""
       },
       "receiptStatus": {
-        "text": "Fully Received",
-        "value": "3",
-        "code": "#C70039",
-        "display": "Fully Received"
+        "text": "Partially Received",
+        "value": "2",
+        "code": "#FF5733",
+        "display": "Partial Received"
       }
     },
     "resources": [{
@@ -31987,7 +32539,7 @@
         "text": "World Bank",
         "value": "1249"
       },
-      "events": ["101101"],
+      "events": ["101101", "101109"],
       "address": {
         "text": "434 Carlaw",
         "value": "244878"
@@ -35535,109 +36087,8 @@
       },
       "priority": "",
       "resources": [],
-      "vendors": [{
-        "id": "203",
-        "name": "Best Fixture, Inc.",
-        "vendor": {
-          "text": "Best Fixture, Inc.",
-          "value": "12"
-        },
-        "url": "",
-        "email": "",
-        "initials": "BF",
-        "workorder": {
-          "text": "Lobby Area",
-          "value": "134"
-        },
-        "event": "101105",
-        "quantityRequired": 3,
-        "quantityAvailable": 0,
-        "purchaseOrder": {
-          "text": " ",
-          "value": ""
-        },
-        "amount": 0,
-        "active": false,
-        "woVendor": true,
-        "memo": "A\nB",
-        "time": {
-          "start": "",
-          "end": ""
-        }
-      }],
-      "assets": [{
-        "id": "139",
-        "name": "Bolts",
-        "workorder": {
-          "text": "Lobby Area",
-          "value": "134"
-        },
-        "event": "101105",
-        "quantity": 3,
-        "description": "",
-        "asset": {
-          "text": "Bolts",
-          "value": "5"
-        },
-        "assetRef": {},
-        "rentalUnit": {
-          "text": "",
-          "value": ""
-        },
-        "rentalDuration": 0,
-        "rentalRate": 0,
-        "rentalAmount": 0,
-        "purchaseOrder": {
-          "text": " ",
-          "value": " "
-        },
-        "vendor": {
-          "text": "",
-          "value": ""
-        },
-        "owned": true,
-        "rentalMatrix": 0,
-        "time": {
-          "start": "",
-          "end": ""
-        }
-      }, {
-        "id": "140",
-        "name": "Forklift",
-        "workorder": {
-          "text": "Lobby Area",
-          "value": "134"
-        },
-        "event": "101105",
-        "quantity": 5,
-        "description": "",
-        "asset": {
-          "text": "Forklift",
-          "value": "4"
-        },
-        "assetRef": {},
-        "rentalUnit": {
-          "text": "",
-          "value": ""
-        },
-        "rentalDuration": 0,
-        "rentalRate": 0,
-        "rentalAmount": 0,
-        "purchaseOrder": {
-          "text": " ",
-          "value": " "
-        },
-        "vendor": {
-          "text": "",
-          "value": ""
-        },
-        "owned": true,
-        "rentalMatrix": 0,
-        "time": {
-          "start": "",
-          "end": ""
-        }
-      }],
+      "vendors": [],
+      "assets": [],
       "items": [{
         "id": "605",
         "workorder": {
@@ -35658,28 +36109,6 @@
         "description": "Head Master Chair",
         "quantity": 1,
         "availableQty": 1,
-        "note": "",
-        "quantityReceived": 56
-      }, {
-        "id": "615",
-        "workorder": {
-          "text": "Lobby Area",
-          "value": "134"
-        },
-        "salesorder": {
-          "text": "Sales Order #SLS00000811",
-          "value": "22902"
-        },
-        "event": "101105",
-        "uuid": "22902_1",
-        "line": "1",
-        "item": {
-          "text": "BIC00008",
-          "value": "467"
-        },
-        "description": "Head Master Chair",
-        "quantity": 2,
-        "availableQty": 2,
         "note": "",
         "quantityReceived": 56
       }, {
@@ -35715,7 +36144,7 @@
           "text": "World Bank",
           "value": "1249"
         },
-        "events": ["101105"],
+        "events": [],
         "address": {
           "text": "343 York",
           "value": "245154"
@@ -35732,7 +36161,7 @@
           "text": "World Bank",
           "value": "1249"
         },
-        "events": ["101096", "101105"],
+        "events": ["101096"],
         "address": {
           "text": "343 York",
           "value": "245154"
@@ -35778,77 +36207,8 @@
         "phone": "",
         "primary": false,
         "url": "/app/common/entity/contact.nl?id=2060&compid=TSTDRV2617106"
-      }, {
-        "id": "201",
-        "workorder": {
-          "text": "Lobby Area",
-          "value": "134"
-        },
-        "events": ["101105"],
-        "event": "101105",
-        "contact": {
-          "text": "World Bank : Brad Pitt",
-          "value": "2060"
-        },
-        "name": "Brad Pitt",
-        "email": "bpitt@email.com",
-        "jobTitle": "Designer",
-        "mobilePhone": "",
-        "phone": "",
-        "primary": false,
-        "url": "/app/common/entity/contact.nl?id=2060&compid=TSTDRV2617106"
       }],
       "events": [{
-        "id": "101105",
-        "title": "Lobby Area",
-        "workorder": {
-          "text": "Lobby Area",
-          "value": "134"
-        },
-        "location": "",
-        "status": {
-          "text": "Tentative",
-          "value": "TENTATIVE",
-          "code": "bg-secondary"
-        },
-        "date": {
-          "recurrence": "one time event on 2/26/2025",
-          "dates": ["2/26/2025"],
-          "start": "2025-02-26",
-          "end": "2025-02-26"
-        },
-        "time": {
-          "start": "08:00",
-          "end": "18:00"
-        },
-        "priority": {
-          "text": "Low",
-          "value": "1",
-          "code": "#026adf"
-        },
-        "note": "A\nB\nC",
-        "url": "/app/crm/calendar/event.nl?id=101105&compid=TSTDRV2617106&selectedtab=custom337",
-        "color": "#1a6756",
-        "woRef": {},
-        "resources": [],
-        "vendors": [],
-        "assets": [],
-        "items": [],
-        "contacts": [],
-        "addresses": [],
-        "contact": {
-          "text": "",
-          "value": ""
-        },
-        "address": {
-          "text": "218",
-          "value": "218"
-        },
-        "organizer": {
-          "text": "Lean  cendana",
-          "value": "1765"
-        }
-      }, {
         "id": "101096",
         "title": "Office Area 2",
         "workorder": {
@@ -36068,7 +36428,7 @@
         "text": "World Bank",
         "value": "1249"
       },
-      "events": ["101096", "101105"],
+      "events": ["101096"],
       "address": {
         "text": "343 York",
         "value": "245154"
@@ -39659,35 +40019,6 @@
           "end": ""
         }
       }, {
-        "id": "194",
-        "name": "Best Fixture, Inc.",
-        "vendor": {
-          "text": "Best Fixture, Inc.",
-          "value": "12"
-        },
-        "url": "",
-        "email": "",
-        "initials": "BF",
-        "workorder": {
-          "text": "Test Work Order - AC Installation",
-          "value": "123"
-        },
-        "event": "101084",
-        "quantityRequired": 1,
-        "quantityAvailable": 0,
-        "purchaseOrder": {
-          "text": " ",
-          "value": ""
-        },
-        "amount": 0,
-        "active": false,
-        "woVendor": true,
-        "memo": "",
-        "time": {
-          "start": "",
-          "end": ""
-        }
-      }, {
         "id": "188",
         "name": "Best Fixture, Inc.",
         "vendor": {
@@ -39703,6 +40034,35 @@
         },
         "event": "101075",
         "quantityRequired": 0,
+        "quantityAvailable": 0,
+        "purchaseOrder": {
+          "text": " ",
+          "value": ""
+        },
+        "amount": 0,
+        "active": false,
+        "woVendor": true,
+        "memo": "",
+        "time": {
+          "start": "",
+          "end": ""
+        }
+      }, {
+        "id": "194",
+        "name": "Best Fixture, Inc.",
+        "vendor": {
+          "text": "Best Fixture, Inc.",
+          "value": "12"
+        },
+        "url": "",
+        "email": "",
+        "initials": "BF",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "event": "101084",
+        "quantityRequired": 1,
         "quantityAvailable": 0,
         "purchaseOrder": {
           "text": " ",
@@ -41576,35 +41936,6 @@
           "end": ""
         }
       }, {
-        "id": "194",
-        "name": "Best Fixture, Inc.",
-        "vendor": {
-          "text": "Best Fixture, Inc.",
-          "value": "12"
-        },
-        "url": "",
-        "email": "",
-        "initials": "BF",
-        "workorder": {
-          "text": "Test Work Order - AC Installation",
-          "value": "123"
-        },
-        "event": "101084",
-        "quantityRequired": 1,
-        "quantityAvailable": 0,
-        "purchaseOrder": {
-          "text": " ",
-          "value": ""
-        },
-        "amount": 0,
-        "active": false,
-        "woVendor": true,
-        "memo": "",
-        "time": {
-          "start": "",
-          "end": ""
-        }
-      }, {
         "id": "188",
         "name": "Best Fixture, Inc.",
         "vendor": {
@@ -41620,6 +41951,35 @@
         },
         "event": "101075",
         "quantityRequired": 0,
+        "quantityAvailable": 0,
+        "purchaseOrder": {
+          "text": " ",
+          "value": ""
+        },
+        "amount": 0,
+        "active": false,
+        "woVendor": true,
+        "memo": "",
+        "time": {
+          "start": "",
+          "end": ""
+        }
+      }, {
+        "id": "194",
+        "name": "Best Fixture, Inc.",
+        "vendor": {
+          "text": "Best Fixture, Inc.",
+          "value": "12"
+        },
+        "url": "",
+        "email": "",
+        "initials": "BF",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "event": "101084",
+        "quantityRequired": 1,
         "quantityAvailable": 0,
         "purchaseOrder": {
           "text": " ",
@@ -43317,35 +43677,6 @@
           "end": ""
         }
       }, {
-        "id": "194",
-        "name": "Best Fixture, Inc.",
-        "vendor": {
-          "text": "Best Fixture, Inc.",
-          "value": "12"
-        },
-        "url": "",
-        "email": "",
-        "initials": "BF",
-        "workorder": {
-          "text": "Test Work Order - AC Installation",
-          "value": "123"
-        },
-        "event": "101084",
-        "quantityRequired": 1,
-        "quantityAvailable": 0,
-        "purchaseOrder": {
-          "text": " ",
-          "value": ""
-        },
-        "amount": 0,
-        "active": false,
-        "woVendor": true,
-        "memo": "",
-        "time": {
-          "start": "",
-          "end": ""
-        }
-      }, {
         "id": "188",
         "name": "Best Fixture, Inc.",
         "vendor": {
@@ -43361,6 +43692,35 @@
         },
         "event": "101075",
         "quantityRequired": 0,
+        "quantityAvailable": 0,
+        "purchaseOrder": {
+          "text": " ",
+          "value": ""
+        },
+        "amount": 0,
+        "active": false,
+        "woVendor": true,
+        "memo": "",
+        "time": {
+          "start": "",
+          "end": ""
+        }
+      }, {
+        "id": "194",
+        "name": "Best Fixture, Inc.",
+        "vendor": {
+          "text": "Best Fixture, Inc.",
+          "value": "12"
+        },
+        "url": "",
+        "email": "",
+        "initials": "BF",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "event": "101084",
+        "quantityRequired": 1,
         "quantityAvailable": 0,
         "purchaseOrder": {
           "text": " ",
@@ -45058,35 +45418,6 @@
           "end": ""
         }
       }, {
-        "id": "194",
-        "name": "Best Fixture, Inc.",
-        "vendor": {
-          "text": "Best Fixture, Inc.",
-          "value": "12"
-        },
-        "url": "",
-        "email": "",
-        "initials": "BF",
-        "workorder": {
-          "text": "Test Work Order - AC Installation",
-          "value": "123"
-        },
-        "event": "101084",
-        "quantityRequired": 1,
-        "quantityAvailable": 0,
-        "purchaseOrder": {
-          "text": " ",
-          "value": ""
-        },
-        "amount": 0,
-        "active": false,
-        "woVendor": true,
-        "memo": "",
-        "time": {
-          "start": "",
-          "end": ""
-        }
-      }, {
         "id": "188",
         "name": "Best Fixture, Inc.",
         "vendor": {
@@ -45102,6 +45433,35 @@
         },
         "event": "101075",
         "quantityRequired": 0,
+        "quantityAvailable": 0,
+        "purchaseOrder": {
+          "text": " ",
+          "value": ""
+        },
+        "amount": 0,
+        "active": false,
+        "woVendor": true,
+        "memo": "",
+        "time": {
+          "start": "",
+          "end": ""
+        }
+      }, {
+        "id": "194",
+        "name": "Best Fixture, Inc.",
+        "vendor": {
+          "text": "Best Fixture, Inc.",
+          "value": "12"
+        },
+        "url": "",
+        "email": "",
+        "initials": "BF",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "event": "101084",
+        "quantityRequired": 1,
         "quantityAvailable": 0,
         "purchaseOrder": {
           "text": " ",
@@ -46698,35 +47058,6 @@
           "end": ""
         }
       }, {
-        "id": "194",
-        "name": "Best Fixture, Inc.",
-        "vendor": {
-          "text": "Best Fixture, Inc.",
-          "value": "12"
-        },
-        "url": "",
-        "email": "",
-        "initials": "BF",
-        "workorder": {
-          "text": "Test Work Order - AC Installation",
-          "value": "123"
-        },
-        "event": "101084",
-        "quantityRequired": 1,
-        "quantityAvailable": 0,
-        "purchaseOrder": {
-          "text": " ",
-          "value": ""
-        },
-        "amount": 0,
-        "active": false,
-        "woVendor": true,
-        "memo": "",
-        "time": {
-          "start": "",
-          "end": ""
-        }
-      }, {
         "id": "188",
         "name": "Best Fixture, Inc.",
         "vendor": {
@@ -46742,6 +47073,35 @@
         },
         "event": "101075",
         "quantityRequired": 0,
+        "quantityAvailable": 0,
+        "purchaseOrder": {
+          "text": " ",
+          "value": ""
+        },
+        "amount": 0,
+        "active": false,
+        "woVendor": true,
+        "memo": "",
+        "time": {
+          "start": "",
+          "end": ""
+        }
+      }, {
+        "id": "194",
+        "name": "Best Fixture, Inc.",
+        "vendor": {
+          "text": "Best Fixture, Inc.",
+          "value": "12"
+        },
+        "url": "",
+        "email": "",
+        "initials": "BF",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "event": "101084",
+        "quantityRequired": 1,
         "quantityAvailable": 0,
         "purchaseOrder": {
           "text": " ",
@@ -48341,35 +48701,6 @@
           "end": ""
         }
       }, {
-        "id": "194",
-        "name": "Best Fixture, Inc.",
-        "vendor": {
-          "text": "Best Fixture, Inc.",
-          "value": "12"
-        },
-        "url": "",
-        "email": "",
-        "initials": "BF",
-        "workorder": {
-          "text": "Test Work Order - AC Installation",
-          "value": "123"
-        },
-        "event": "101084",
-        "quantityRequired": 1,
-        "quantityAvailable": 0,
-        "purchaseOrder": {
-          "text": " ",
-          "value": ""
-        },
-        "amount": 0,
-        "active": false,
-        "woVendor": true,
-        "memo": "",
-        "time": {
-          "start": "",
-          "end": ""
-        }
-      }, {
         "id": "188",
         "name": "Best Fixture, Inc.",
         "vendor": {
@@ -48385,6 +48716,35 @@
         },
         "event": "101075",
         "quantityRequired": 0,
+        "quantityAvailable": 0,
+        "purchaseOrder": {
+          "text": " ",
+          "value": ""
+        },
+        "amount": 0,
+        "active": false,
+        "woVendor": true,
+        "memo": "",
+        "time": {
+          "start": "",
+          "end": ""
+        }
+      }, {
+        "id": "194",
+        "name": "Best Fixture, Inc.",
+        "vendor": {
+          "text": "Best Fixture, Inc.",
+          "value": "12"
+        },
+        "url": "",
+        "email": "",
+        "initials": "BF",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "event": "101084",
+        "quantityRequired": 1,
         "quantityAvailable": 0,
         "purchaseOrder": {
           "text": " ",
@@ -50088,35 +50448,6 @@
           "end": ""
         }
       }, {
-        "id": "194",
-        "name": "Best Fixture, Inc.",
-        "vendor": {
-          "text": "Best Fixture, Inc.",
-          "value": "12"
-        },
-        "url": "",
-        "email": "",
-        "initials": "BF",
-        "workorder": {
-          "text": "Test Work Order - AC Installation",
-          "value": "123"
-        },
-        "event": "101084",
-        "quantityRequired": 1,
-        "quantityAvailable": 0,
-        "purchaseOrder": {
-          "text": " ",
-          "value": ""
-        },
-        "amount": 0,
-        "active": false,
-        "woVendor": true,
-        "memo": "",
-        "time": {
-          "start": "",
-          "end": ""
-        }
-      }, {
         "id": "188",
         "name": "Best Fixture, Inc.",
         "vendor": {
@@ -50132,6 +50463,35 @@
         },
         "event": "101075",
         "quantityRequired": 0,
+        "quantityAvailable": 0,
+        "purchaseOrder": {
+          "text": " ",
+          "value": ""
+        },
+        "amount": 0,
+        "active": false,
+        "woVendor": true,
+        "memo": "",
+        "time": {
+          "start": "",
+          "end": ""
+        }
+      }, {
+        "id": "194",
+        "name": "Best Fixture, Inc.",
+        "vendor": {
+          "text": "Best Fixture, Inc.",
+          "value": "12"
+        },
+        "url": "",
+        "email": "",
+        "initials": "BF",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "event": "101084",
+        "quantityRequired": 1,
         "quantityAvailable": 0,
         "purchaseOrder": {
           "text": " ",
@@ -51679,35 +52039,6 @@
           "end": ""
         }
       }, {
-        "id": "194",
-        "name": "Best Fixture, Inc.",
-        "vendor": {
-          "text": "Best Fixture, Inc.",
-          "value": "12"
-        },
-        "url": "",
-        "email": "",
-        "initials": "BF",
-        "workorder": {
-          "text": "Test Work Order - AC Installation",
-          "value": "123"
-        },
-        "event": "101084",
-        "quantityRequired": 1,
-        "quantityAvailable": 0,
-        "purchaseOrder": {
-          "text": " ",
-          "value": ""
-        },
-        "amount": 0,
-        "active": false,
-        "woVendor": true,
-        "memo": "",
-        "time": {
-          "start": "",
-          "end": ""
-        }
-      }, {
         "id": "188",
         "name": "Best Fixture, Inc.",
         "vendor": {
@@ -51723,6 +52054,35 @@
         },
         "event": "101075",
         "quantityRequired": 0,
+        "quantityAvailable": 0,
+        "purchaseOrder": {
+          "text": " ",
+          "value": ""
+        },
+        "amount": 0,
+        "active": false,
+        "woVendor": true,
+        "memo": "",
+        "time": {
+          "start": "",
+          "end": ""
+        }
+      }, {
+        "id": "194",
+        "name": "Best Fixture, Inc.",
+        "vendor": {
+          "text": "Best Fixture, Inc.",
+          "value": "12"
+        },
+        "url": "",
+        "email": "",
+        "initials": "BF",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "event": "101084",
+        "quantityRequired": 1,
         "quantityAvailable": 0,
         "purchaseOrder": {
           "text": " ",
@@ -53270,35 +53630,6 @@
           "end": ""
         }
       }, {
-        "id": "194",
-        "name": "Best Fixture, Inc.",
-        "vendor": {
-          "text": "Best Fixture, Inc.",
-          "value": "12"
-        },
-        "url": "",
-        "email": "",
-        "initials": "BF",
-        "workorder": {
-          "text": "Test Work Order - AC Installation",
-          "value": "123"
-        },
-        "event": "101084",
-        "quantityRequired": 1,
-        "quantityAvailable": 0,
-        "purchaseOrder": {
-          "text": " ",
-          "value": ""
-        },
-        "amount": 0,
-        "active": false,
-        "woVendor": true,
-        "memo": "",
-        "time": {
-          "start": "",
-          "end": ""
-        }
-      }, {
         "id": "188",
         "name": "Best Fixture, Inc.",
         "vendor": {
@@ -53314,6 +53645,35 @@
         },
         "event": "101075",
         "quantityRequired": 0,
+        "quantityAvailable": 0,
+        "purchaseOrder": {
+          "text": " ",
+          "value": ""
+        },
+        "amount": 0,
+        "active": false,
+        "woVendor": true,
+        "memo": "",
+        "time": {
+          "start": "",
+          "end": ""
+        }
+      }, {
+        "id": "194",
+        "name": "Best Fixture, Inc.",
+        "vendor": {
+          "text": "Best Fixture, Inc.",
+          "value": "12"
+        },
+        "url": "",
+        "email": "",
+        "initials": "BF",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "event": "101084",
+        "quantityRequired": 1,
         "quantityAvailable": 0,
         "purchaseOrder": {
           "text": " ",
@@ -54865,35 +55225,6 @@
           "end": ""
         }
       }, {
-        "id": "194",
-        "name": "Best Fixture, Inc.",
-        "vendor": {
-          "text": "Best Fixture, Inc.",
-          "value": "12"
-        },
-        "url": "",
-        "email": "",
-        "initials": "BF",
-        "workorder": {
-          "text": "Test Work Order - AC Installation",
-          "value": "123"
-        },
-        "event": "101084",
-        "quantityRequired": 1,
-        "quantityAvailable": 0,
-        "purchaseOrder": {
-          "text": " ",
-          "value": ""
-        },
-        "amount": 0,
-        "active": false,
-        "woVendor": true,
-        "memo": "",
-        "time": {
-          "start": "",
-          "end": ""
-        }
-      }, {
         "id": "188",
         "name": "Best Fixture, Inc.",
         "vendor": {
@@ -54909,6 +55240,35 @@
         },
         "event": "101075",
         "quantityRequired": 0,
+        "quantityAvailable": 0,
+        "purchaseOrder": {
+          "text": " ",
+          "value": ""
+        },
+        "amount": 0,
+        "active": false,
+        "woVendor": true,
+        "memo": "",
+        "time": {
+          "start": "",
+          "end": ""
+        }
+      }, {
+        "id": "194",
+        "name": "Best Fixture, Inc.",
+        "vendor": {
+          "text": "Best Fixture, Inc.",
+          "value": "12"
+        },
+        "url": "",
+        "email": "",
+        "initials": "BF",
+        "workorder": {
+          "text": "Test Work Order - AC Installation",
+          "value": "123"
+        },
+        "event": "101084",
+        "quantityRequired": 1,
         "quantityAvailable": 0,
         "purchaseOrder": {
           "text": " ",
@@ -60034,577 +60394,6 @@
       "text": "Mei Matriano",
       "value": "1647"
     }
-  }, {
-    "id": "101057",
-    "title": "AV Installation",
-    "workorder": {
-      "text": "AV Installation",
-      "value": "118"
-    },
-    "location": "",
-    "status": {
-      "text": "Completed",
-      "value": "COMPLETED",
-      "code": "bg-info"
-    },
-    "date": {
-      "recurrence": "one time event on 12/2/2024",
-      "dates": ["12/2/2024"],
-      "start": "2024-12-02",
-      "end": "2024-12-02"
-    },
-    "time": {
-      "start": "08:00",
-      "end": "18:00"
-    },
-    "priority": {
-      "text": "Low",
-      "value": "1",
-      "code": "#026adf"
-    },
-    "note": "test\n123",
-    "url": "/app/crm/calendar/event.nl?id=101057&compid=TSTDRV2617106&selectedtab=custom337",
-    "color": "#1a6756",
-    "woRef": {
-      "id": "118",
-      "name": "AV Installation",
-      "title": "AV Installation",
-      "project": {
-        "text": "World Bank : World Bank Office Furniture Installation",
-        "value": "1515"
-      },
-      "date": "11/12/2024",
-      "status": {
-        "text": "Hold",
-        "value": "7",
-        "code": "#6c757d"
-      },
-      "type": {
-        "text": "Demo",
-        "value": "5"
-      },
-      "memo": "<p>-AV Install</p>",
-      "salesorder": {
-        "text": "Sales Order #SLS00000786",
-        "value": "20919"
-      },
-      "customer": {
-        "text": "World Bank",
-        "value": "1249"
-      },
-      "resourceGroup": {
-        "text": "",
-        "value": ""
-      },
-      "priority": "",
-      "resources": [],
-      "vendors": [{
-        "id": "182",
-        "name": "Best Fixture, Inc.",
-        "vendor": {
-          "text": "Best Fixture, Inc.",
-          "value": "12"
-        },
-        "url": "",
-        "email": "",
-        "initials": "BF",
-        "workorder": {
-          "text": "AV Installation",
-          "value": "118"
-        },
-        "event": "101057",
-        "quantityRequired": 5,
-        "quantityAvailable": 0,
-        "purchaseOrder": {
-          "text": " ",
-          "value": ""
-        },
-        "amount": 0,
-        "active": false,
-        "woVendor": true,
-        "memo": "TEST\n111",
-        "time": {
-          "start": "",
-          "end": ""
-        }
-      }],
-      "assets": [],
-      "items": [{
-        "id": "533",
-        "workorder": {
-          "text": "AV Installation",
-          "value": "118"
-        },
-        "salesorder": {
-          "text": "Sales Order #SLS00000786",
-          "value": "20919"
-        },
-        "event": "101057",
-        "uuid": "20919_1",
-        "line": "1",
-        "item": {
-          "text": "BIC00008",
-          "value": "467"
-        },
-        "description": "Head Master Chair",
-        "quantity": 5,
-        "availableQty": 5,
-        "note": "",
-        "quantityReceived": 56
-      }, {
-        "id": "534",
-        "workorder": {
-          "text": "AV Installation",
-          "value": "118"
-        },
-        "salesorder": {
-          "text": "Sales Order #SLS00000786",
-          "value": "20919"
-        },
-        "event": "101057",
-        "uuid": "20919_2",
-        "line": "2",
-        "item": {
-          "text": "BIC00008",
-          "value": "467"
-        },
-        "description": "Diana Chair",
-        "quantity": 5,
-        "availableQty": 5,
-        "note": "",
-        "quantityReceived": 56
-      }, {
-        "id": "514",
-        "workorder": {
-          "text": "AV Installation",
-          "value": "118"
-        },
-        "salesorder": {
-          "text": "Sales Order #SLS00000786",
-          "value": "20919"
-        },
-        "event": "",
-        "uuid": "20919_1",
-        "line": "1",
-        "item": {
-          "text": "BIC00008",
-          "value": "467"
-        },
-        "description": "Head Master Chair",
-        "quantity": 5,
-        "availableQty": 5,
-        "note": "",
-        "quantityReceived": 56
-      }, {
-        "id": "515",
-        "workorder": {
-          "text": "AV Installation",
-          "value": "118"
-        },
-        "salesorder": {
-          "text": "Sales Order #SLS00000786",
-          "value": "20919"
-        },
-        "event": "",
-        "uuid": "20919_2",
-        "line": "2",
-        "item": {
-          "text": "BIC00008",
-          "value": "467"
-        },
-        "description": "Diana Chair",
-        "quantity": 5,
-        "availableQty": 5,
-        "note": "",
-        "quantityReceived": 56
-      }, {
-        "id": "516",
-        "workorder": {
-          "text": "AV Installation",
-          "value": "118"
-        },
-        "salesorder": {
-          "text": "Sales Order #SLS00000786",
-          "value": "20919"
-        },
-        "event": "",
-        "uuid": "20919_3",
-        "line": "3",
-        "item": {
-          "text": "BIC00008",
-          "value": "467"
-        },
-        "description": "Working Table",
-        "quantity": 5,
-        "availableQty": 5,
-        "note": "",
-        "quantityReceived": 56
-      }, {
-        "id": "517",
-        "workorder": {
-          "text": "AV Installation",
-          "value": "118"
-        },
-        "salesorder": {
-          "text": "Sales Order #SLS00000786",
-          "value": "20919"
-        },
-        "event": "",
-        "uuid": "20919_4",
-        "line": "4",
-        "item": {
-          "text": "BIC00008",
-          "value": "467"
-        },
-        "description": "Technology Table",
-        "quantity": 5,
-        "availableQty": 5,
-        "note": "",
-        "quantityReceived": 56
-      }],
-      "addresses": [{
-        "id": "194",
-        "workorder": {
-          "text": "AV Installation",
-          "value": "118"
-        },
-        "customer": {
-          "text": "World Bank",
-          "value": "1249"
-        },
-        "events": ["101057"],
-        "address": {
-          "text": "434 Carlaw",
-          "value": "244878"
-        },
-        "addressDetails": "434 Carlaw Road<br/>Los Angeles NY 12412<br/>United States",
-        "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
-      }, {
-        "id": "195",
-        "workorder": {
-          "text": "AV Installation",
-          "value": "118"
-        },
-        "customer": {
-          "text": "World Bank",
-          "value": "1249"
-        },
-        "events": ["101057"],
-        "address": {
-          "text": "12 Carlton Av",
-          "value": "245148"
-        },
-        "addressDetails": "12 Carlton Ave<br/>San Francisco CA 1241<br/>United States",
-        "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
-      }, {
-        "id": "196",
-        "workorder": {
-          "text": "AV Installation",
-          "value": "118"
-        },
-        "customer": {
-          "text": "World Bank",
-          "value": "1249"
-        },
-        "events": ["101057"],
-        "address": {
-          "text": "54 Tale",
-          "value": "245152"
-        },
-        "addressDetails": "54 Tale AV<br/>Akron OH 123123<br/>United States",
-        "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
-      }],
-      "contacts": [{
-        "id": "156",
-        "workorder": {
-          "text": "AV Installation",
-          "value": "118"
-        },
-        "events": ["101057"],
-        "event": "101057",
-        "contact": {
-          "text": "World Bank : Chad Bass",
-          "value": "1382"
-        },
-        "name": "Chad Bass",
-        "email": "cbass@worldbank.com",
-        "jobTitle": "President",
-        "mobilePhone": "",
-        "phone": "",
-        "primary": false,
-        "url": "/app/common/entity/contact.nl?id=1382&compid=TSTDRV2617106"
-      }, {
-        "id": "157",
-        "workorder": {
-          "text": "AV Installation",
-          "value": "118"
-        },
-        "events": ["101057"],
-        "event": "101057",
-        "contact": {
-          "text": "World Bank : Jim Carrey",
-          "value": "2041"
-        },
-        "name": "Jim Carrey",
-        "email": "jcarrery@worldbank.com",
-        "jobTitle": "Administrative Manager",
-        "mobilePhone": "",
-        "phone": "",
-        "primary": false,
-        "url": "/app/common/entity/contact.nl?id=2041&compid=TSTDRV2617106"
-      }],
-      "events": [{
-        "id": "101057",
-        "title": "AV Installation",
-        "workorder": {
-          "text": "AV Installation",
-          "value": "118"
-        },
-        "location": "",
-        "status": {
-          "text": "Completed",
-          "value": "COMPLETED",
-          "code": "bg-info"
-        },
-        "date": {
-          "recurrence": "one time event on 12/2/2024",
-          "dates": ["12/2/2024"],
-          "start": "2024-12-02",
-          "end": "2024-12-02"
-        },
-        "time": {
-          "start": "08:00",
-          "end": "18:00"
-        },
-        "priority": {
-          "text": "Low",
-          "value": "1",
-          "code": "#026adf"
-        },
-        "note": "test\n123",
-        "url": "/app/crm/calendar/event.nl?id=101057&compid=TSTDRV2617106&selectedtab=custom337",
-        "color": "#1a6756",
-        "woRef": {},
-        "resources": [],
-        "vendors": [],
-        "assets": [],
-        "items": [],
-        "contacts": [],
-        "addresses": [],
-        "contact": {
-          "text": "",
-          "value": ""
-        },
-        "address": {
-          "text": "",
-          "value": ""
-        },
-        "organizer": {
-          "text": "Lean  cendana",
-          "value": "1765"
-        }
-      }],
-      "projectUrl": "/app/accounting/project/project.nl?id=1515&compid=TSTDRV2617106",
-      "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=118&compid=TSTDRV2617106",
-      "soUrl": "/app/accounting/transactions/salesord.nl?id=20919&compid=TSTDRV2617106",
-      "esthours": "10",
-      "location": {
-        "text": "",
-        "value": ""
-      },
-      "receiptStatus": {
-        "text": "",
-        "value": ""
-      }
-    },
-    "resources": [],
-    "vendors": [{
-      "id": "182",
-      "name": "Best Fixture, Inc.",
-      "vendor": {
-        "text": "Best Fixture, Inc.",
-        "value": "12"
-      },
-      "url": "",
-      "email": "",
-      "initials": "BF",
-      "workorder": {
-        "text": "AV Installation",
-        "value": "118"
-      },
-      "event": "101057",
-      "quantityRequired": 5,
-      "quantityAvailable": 0,
-      "purchaseOrder": {
-        "text": " ",
-        "value": ""
-      },
-      "amount": 0,
-      "active": false,
-      "woVendor": true,
-      "memo": "TEST\n111",
-      "time": {
-        "start": "",
-        "end": ""
-      },
-      "selected": true
-    }],
-    "assets": [],
-    "items": [{
-      "id": "533",
-      "workorder": {
-        "text": "AV Installation",
-        "value": "118"
-      },
-      "salesorder": {
-        "text": "Sales Order #SLS00000786",
-        "value": "20919"
-      },
-      "event": "101057",
-      "uuid": "20919_1",
-      "line": "1",
-      "item": {
-        "text": "BIC00008",
-        "value": "467"
-      },
-      "description": "Head Master Chair",
-      "quantity": 5,
-      "availableQty": 5,
-      "note": "",
-      "quantityReceived": 56,
-      "selected": true
-    }, {
-      "id": "534",
-      "workorder": {
-        "text": "AV Installation",
-        "value": "118"
-      },
-      "salesorder": {
-        "text": "Sales Order #SLS00000786",
-        "value": "20919"
-      },
-      "event": "101057",
-      "uuid": "20919_2",
-      "line": "2",
-      "item": {
-        "text": "BIC00008",
-        "value": "467"
-      },
-      "description": "Diana Chair",
-      "quantity": 5,
-      "availableQty": 5,
-      "note": "",
-      "quantityReceived": 56,
-      "selected": true
-    }],
-    "contacts": [{
-      "id": "156",
-      "workorder": {
-        "text": "AV Installation",
-        "value": "118"
-      },
-      "events": ["101057"],
-      "event": "101057",
-      "contact": {
-        "text": "World Bank : Chad Bass",
-        "value": "1382"
-      },
-      "name": "Chad Bass",
-      "email": "cbass@worldbank.com",
-      "jobTitle": "President",
-      "mobilePhone": "",
-      "phone": "",
-      "primary": false,
-      "url": "/app/common/entity/contact.nl?id=1382&compid=TSTDRV2617106",
-      "selected": true
-    }, {
-      "id": "157",
-      "workorder": {
-        "text": "AV Installation",
-        "value": "118"
-      },
-      "events": ["101057"],
-      "event": "101057",
-      "contact": {
-        "text": "World Bank : Jim Carrey",
-        "value": "2041"
-      },
-      "name": "Jim Carrey",
-      "email": "jcarrery@worldbank.com",
-      "jobTitle": "Administrative Manager",
-      "mobilePhone": "",
-      "phone": "",
-      "primary": false,
-      "url": "/app/common/entity/contact.nl?id=2041&compid=TSTDRV2617106",
-      "selected": true
-    }],
-    "addresses": [{
-      "id": "194",
-      "workorder": {
-        "text": "AV Installation",
-        "value": "118"
-      },
-      "customer": {
-        "text": "World Bank",
-        "value": "1249"
-      },
-      "events": ["101057"],
-      "address": {
-        "text": "434 Carlaw",
-        "value": "244878"
-      },
-      "addressDetails": "434 Carlaw Road<br/>Los Angeles NY 12412<br/>United States",
-      "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106",
-      "selected": true
-    }, {
-      "id": "195",
-      "workorder": {
-        "text": "AV Installation",
-        "value": "118"
-      },
-      "customer": {
-        "text": "World Bank",
-        "value": "1249"
-      },
-      "events": ["101057"],
-      "address": {
-        "text": "12 Carlton Av",
-        "value": "245148"
-      },
-      "addressDetails": "12 Carlton Ave<br/>San Francisco CA 1241<br/>United States",
-      "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106",
-      "selected": true
-    }, {
-      "id": "196",
-      "workorder": {
-        "text": "AV Installation",
-        "value": "118"
-      },
-      "customer": {
-        "text": "World Bank",
-        "value": "1249"
-      },
-      "events": ["101057"],
-      "address": {
-        "text": "54 Tale",
-        "value": "245152"
-      },
-      "addressDetails": "54 Tale AV<br/>Akron OH 123123<br/>United States",
-      "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106",
-      "selected": true
-    }],
-    "contact": {
-      "text": "",
-      "value": ""
-    },
-    "address": {
-      "text": "",
-      "value": ""
-    },
-    "organizer": {
-      "text": "Lean  cendana",
-      "value": "1765"
-    }
   }],
   "woContacts": [{
     "id": "1",
@@ -63818,24 +63607,24 @@
     "primary": false,
     "url": "/app/common/entity/contact.nl?id=2056&compid=TSTDRV2617106"
   }, {
-    "id": "201",
+    "id": "203",
     "workorder": {
-      "text": "Lobby Area",
-      "value": "134"
+      "text": "Lobby Area 1",
+      "value": "136"
     },
-    "events": ["101105"],
-    "event": "101105",
+    "events": ["101109"],
+    "event": "101109",
     "contact": {
-      "text": "World Bank : Brad Pitt",
-      "value": "2060"
+      "text": "World Bank : Angelina Jolie",
+      "value": "2056"
     },
-    "name": "Brad Pitt",
-    "email": "bpitt@email.com",
-    "jobTitle": "Designer",
+    "name": "Angelina Jolie",
+    "email": "ajolie@email.com",
+    "jobTitle": "Vice President",
     "mobilePhone": "",
     "phone": "",
     "primary": false,
-    "url": "/app/common/entity/contact.nl?id=2060&compid=TSTDRV2617106"
+    "url": "/app/common/entity/contact.nl?id=2056&compid=TSTDRV2617106"
   }],
   "woAddresses": [{
     "id": "1",
@@ -66754,7 +66543,7 @@
       "text": "World Bank",
       "value": "1249"
     },
-    "events": ["101105"],
+    "events": [],
     "address": {
       "text": "343 York",
       "value": "245154"
@@ -66788,7 +66577,7 @@
       "text": "World Bank",
       "value": "1249"
     },
-    "events": ["101096", "101105"],
+    "events": ["101096"],
     "address": {
       "text": "343 York",
       "value": "245154"
@@ -66805,7 +66594,7 @@
       "text": "World Bank",
       "value": "1249"
     },
-    "events": ["101101"],
+    "events": ["101101", "101109"],
     "address": {
       "text": "434 Carlaw",
       "value": "244878"
@@ -67104,8 +66893,17 @@
               "value": "1"
             },
             "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1524%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-            "events": ["101102", "101101", "101100", "101099", "101098", "101097", "101096", "101085", "101084", "101083", "101080", "101079", "101075", "101072"],
-            "labRates": [],
+            "events": ["101109", "101102", "101101", "101100", "101099", "101098", "101097", "101096", "101085", "101084", "101083", "101080", "101079", "101075", "101072"],
+            "labRates": [{
+              "labRateCatId": "2",
+              "labRate": 5
+            }, {
+              "labRateCatId": "1",
+              "labRate": 5
+            }, {
+              "labRateCatId": "3",
+              "labRate": 5
+            }],
             "time": {
               "start": "",
               "end": ""
@@ -67171,7 +66969,7 @@
               "value": "1"
             },
             "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1770%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-            "events": ["101105", "101087", "101084", "101076", "101075"],
+            "events": ["101107", "101087", "101084", "101076", "101075"],
             "labRates": [],
             "time": {
               "start": "",
@@ -68064,7 +67862,7 @@
               "value": "1"
             },
             "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1770%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-            "events": ["101105", "101087", "101084", "101076", "101075"],
+            "events": ["101107", "101087", "101084", "101076", "101075"],
             "labRates": [],
             "time": {
               "start": "",
@@ -68328,7 +68126,7 @@
               "value": "1"
             },
             "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1770%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-            "events": ["101105", "101087", "101084", "101076", "101075"],
+            "events": ["101107", "101087", "101084", "101076", "101075"],
             "labRates": [],
             "time": {
               "start": "",
@@ -68935,8 +68733,17 @@
               "value": "1"
             },
             "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1524%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-            "events": ["101102", "101101", "101100", "101099", "101098", "101097", "101096", "101085", "101084", "101083", "101080", "101079", "101075", "101072"],
-            "labRates": [],
+            "events": ["101109", "101102", "101101", "101100", "101099", "101098", "101097", "101096", "101085", "101084", "101083", "101080", "101079", "101075", "101072"],
+            "labRates": [{
+              "labRateCatId": "2",
+              "labRate": 5
+            }, {
+              "labRateCatId": "1",
+              "labRate": 5
+            }, {
+              "labRateCatId": "3",
+              "labRate": 5
+            }],
             "time": {
               "start": "",
               "end": ""
@@ -69002,7 +68809,7 @@
               "value": "1"
             },
             "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1770%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-            "events": ["101105", "101087", "101084", "101076", "101075"],
+            "events": ["101107", "101087", "101084", "101076", "101075"],
             "labRates": [],
             "time": {
               "start": "",
@@ -69895,7 +69702,7 @@
               "value": "1"
             },
             "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1770%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-            "events": ["101105", "101087", "101084", "101076", "101075"],
+            "events": ["101107", "101087", "101084", "101076", "101075"],
             "labRates": [],
             "time": {
               "start": "",
@@ -70159,7 +69966,7 @@
               "value": "1"
             },
             "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1770%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-            "events": ["101105", "101087", "101084", "101076", "101075"],
+            "events": ["101107", "101087", "101084", "101076", "101075"],
             "labRates": [],
             "time": {
               "start": "",
@@ -70798,8 +70605,17 @@
               "value": "1"
             },
             "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1524%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-            "events": ["101102", "101101", "101100", "101099", "101098", "101097", "101096", "101085", "101084", "101083", "101080", "101079", "101075", "101072"],
-            "labRates": [],
+            "events": ["101109", "101102", "101101", "101100", "101099", "101098", "101097", "101096", "101085", "101084", "101083", "101080", "101079", "101075", "101072"],
+            "labRates": [{
+              "labRateCatId": "2",
+              "labRate": 5
+            }, {
+              "labRateCatId": "1",
+              "labRate": 5
+            }, {
+              "labRateCatId": "3",
+              "labRate": 5
+            }],
             "time": {
               "start": "",
               "end": ""
@@ -70865,7 +70681,7 @@
               "value": "1"
             },
             "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1770%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-            "events": ["101105", "101087", "101084", "101076", "101075"],
+            "events": ["101107", "101087", "101084", "101076", "101075"],
             "labRates": [],
             "time": {
               "start": "",
@@ -71758,7 +71574,7 @@
               "value": "1"
             },
             "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1770%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-            "events": ["101105", "101087", "101084", "101076", "101075"],
+            "events": ["101107", "101087", "101084", "101076", "101075"],
             "labRates": [],
             "time": {
               "start": "",
@@ -72022,7 +71838,7 @@
               "value": "1"
             },
             "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1770%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-            "events": ["101105", "101087", "101084", "101076", "101075"],
+            "events": ["101107", "101087", "101084", "101076", "101075"],
             "labRates": [],
             "time": {
               "start": "",
@@ -72517,8 +72333,17 @@
               "value": "1"
             },
             "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1524%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-            "events": ["101102", "101101", "101100", "101099", "101098", "101097", "101096", "101085", "101084", "101083", "101080", "101079", "101075", "101072"],
-            "labRates": [],
+            "events": ["101109", "101102", "101101", "101100", "101099", "101098", "101097", "101096", "101085", "101084", "101083", "101080", "101079", "101075", "101072"],
+            "labRates": [{
+              "labRateCatId": "2",
+              "labRate": 5
+            }, {
+              "labRateCatId": "1",
+              "labRate": 5
+            }, {
+              "labRateCatId": "3",
+              "labRate": 5
+            }],
             "time": {
               "start": "",
               "end": ""
@@ -72584,7 +72409,7 @@
               "value": "1"
             },
             "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1770%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-            "events": ["101105", "101087", "101084", "101076", "101075"],
+            "events": ["101107", "101087", "101084", "101076", "101075"],
             "labRates": [],
             "time": {
               "start": "",
@@ -73477,7 +73302,7 @@
               "value": "1"
             },
             "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1770%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-            "events": ["101105", "101087", "101084", "101076", "101075"],
+            "events": ["101107", "101087", "101084", "101076", "101075"],
             "labRates": [],
             "time": {
               "start": "",
@@ -73741,7 +73566,7 @@
               "value": "1"
             },
             "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1770%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-            "events": ["101105", "101087", "101084", "101076", "101075"],
+            "events": ["101107", "101087", "101084", "101076", "101075"],
             "labRates": [],
             "time": {
               "start": "",
@@ -74170,8 +73995,17 @@
               "value": "1"
             },
             "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1524%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-            "events": ["101102", "101101", "101100", "101099", "101098", "101097", "101096", "101085", "101084", "101083", "101080", "101079", "101075", "101072"],
-            "labRates": [],
+            "events": ["101109", "101102", "101101", "101100", "101099", "101098", "101097", "101096", "101085", "101084", "101083", "101080", "101079", "101075", "101072"],
+            "labRates": [{
+              "labRateCatId": "2",
+              "labRate": 5
+            }, {
+              "labRateCatId": "1",
+              "labRate": 5
+            }, {
+              "labRateCatId": "3",
+              "labRate": 5
+            }],
             "time": {
               "start": "",
               "end": ""
@@ -74237,7 +74071,7 @@
               "value": "1"
             },
             "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1770%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-            "events": ["101105", "101087", "101084", "101076", "101075"],
+            "events": ["101107", "101087", "101084", "101076", "101075"],
             "labRates": [],
             "time": {
               "start": "",
@@ -75130,7 +74964,7 @@
               "value": "1"
             },
             "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1770%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-            "events": ["101105", "101087", "101084", "101076", "101075"],
+            "events": ["101107", "101087", "101084", "101076", "101075"],
             "labRates": [],
             "time": {
               "start": "",
@@ -75394,7 +75228,7 @@
               "value": "1"
             },
             "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1770%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-            "events": ["101105", "101087", "101084", "101076", "101075"],
+            "events": ["101107", "101087", "101084", "101076", "101075"],
             "labRates": [],
             "time": {
               "start": "",

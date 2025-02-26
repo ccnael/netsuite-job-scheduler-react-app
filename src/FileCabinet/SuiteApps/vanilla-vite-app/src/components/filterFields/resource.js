@@ -106,10 +106,8 @@ $(document).ready(() => {
       return holder;
     }, '');
     // Display/not display fields
-    console.log('fields', fields)
     fields.map(field => {
       const el = $(`${modalId} .filter-fields .${field.className}`);
-      console.log(el, field);
       !!el.length && el.closest('div.col-md-6').css('display', ` ${field.display ? 'block' : 'none'}`);
     });
 
