@@ -312,6 +312,7 @@ define([
               search.createColumn({ name: 'custrecord_esp_fop_asset_site', label: 'Asset Site' }),
               search.createColumn({ name: 'custrecord_esp_fop_asset_type', label: 'Asset Type' }),
               search.createColumn({ name: 'custrecord_esp_fop_asset_description', label: 'Description' }),
+              search.createColumn({ name: 'custrecord_esp_fop_asset_customer', label: 'Customer' }),
               search.createColumn({ name: 'custrecord_esp_fop_asset_quantity', label: 'Quantity' }),
               search.createColumn({ name: 'custrecord_esp_fop_asset_quantity_remain', label: 'Quantity Remaining' }),
               search.createColumn({ name: 'custrecord_esp_fop_asset_owned', label: 'Asset Owned' }),
@@ -1280,6 +1281,7 @@ define([
             [
               search.createColumn({ name: 'custrecord_esp_fop_ast_rel_wo', label: 'Work Order' }),
               search.createColumn({ name: 'custrecord_esp_fop_ast_wo_event', label: 'Work Order Event' }),
+              search.createColumn({ name: 'custrecord_esp_fop_ast_asset_rec', label: 'Asset' }),
               search.createColumn({ name: 'custrecord_esp_fop_ast_quantity', label: 'Quantity' }),
               search.createColumn({ name: 'custrecord_esp_fop_ast_item_desc', label: 'Item Description' }),
               // search.createColumn({ name: 'custrecord_esp_fop_ast_equipment', label: 'Equipment' }),
@@ -1291,6 +1293,7 @@ define([
               search.createColumn({ name: 'custrecord_esp_fop_ast_primary_vendor', label: 'Vendor' }),
               search.createColumn({ name: 'custrecord_esp_fop_ast_equip_type', label: 'Equipment Type' }),
               search.createColumn({ name: 'custrecord_esp_fop_ast_is_owned', label: 'Is Owned' }),
+              search.createColumn({ name: 'custrecord_esp_fop_ast_rental_mtrx', label: 'Rental Matrix' }),
             ]
         });
         const assets = [];
@@ -1355,12 +1358,11 @@ define([
               type: env.RecordType.WORK_ORDER_ASSET,
               isDynamic: true
             });
-            rec.setValue({ fieldId: 'custrecord_esp_fop_ast_asset_rec', value: asset.asset.value });
+            rec.setValue({ fieldId: 'custrecord_esp_fop_ast_asset_rec', value: asset.id });
             rec.setValue({ fieldId: 'custrecord_esp_fop_ast_wo_event', value: event.id });
             rec.setValue({ fieldId: 'custrecord_esp_fop_ast_quantity', value: asset.quantity });
             rec.setValue({ fieldId: 'custrecord_esp_fop_ast_rental_duration', value: asset.rentalDuration });
             rec.setValue({ fieldId: 'custrecord_esp_fop_ast_rental_rate', value: asset.rentalRate });
-            // rec.setValue({ fieldId: 'custrecord_esp_fop_ast_rental_amount', value: asset. }); // TBD
             rec.setValue({ fieldId: 'custrecord_esp_fop_ast_is_owned', value: !!asset.owned });
             rec.setValue({ fieldId: 'custrecord_esp_fop_ast_rental_mtrx', value: asset.rentalMatrix });
             rec.setValue({ fieldId: 'custrecord_esp_fop_ast_rel_wo', value: woRef?.id || '' });
@@ -2085,6 +2087,7 @@ define([
                 break;
               case 'vendor':
                 WorkOrderVendor._createVendors(eventData, woRef);
+                break;
               case 'asset':
                 WorkOrderAsset._createAssets(eventData, woRef);
                 break;

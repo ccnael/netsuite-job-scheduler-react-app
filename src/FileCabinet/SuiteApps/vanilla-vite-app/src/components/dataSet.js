@@ -1,7 +1,7 @@
 import mockup from './mockup.json';
 
-// const DEV_MODE = true;
-const DEV_MODE = false;
+const DEV_MODE = true;
+// const DEV_MODE = false;
 
 const getValue = (selector, mockValue) => !DEV_MODE ? JSON.parse(decodeURIComponent($(selector).val())) : mockValue;
 

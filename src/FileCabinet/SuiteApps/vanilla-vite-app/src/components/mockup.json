@@ -37,7 +37,7 @@
     "vendors": [],
     "assets": [{
       "id": "5",
-      "name": null,
+      "name": "Bolts",
       "workorder": {
         "text": "Lobby Area 1",
         "value": "136"
@@ -46,8 +46,8 @@
       "quantity": 5,
       "description": "",
       "asset": {
-        "text": null,
-        "value": null
+        "text": "Bolts",
+        "value": "5"
       },
       "assetRef": {},
       "rentalUnit": {
@@ -66,7 +66,7 @@
         "value": "965"
       },
       "owned": true,
-      "rentalMatrix": 0,
+      "rentalMatrix": null,
       "time": {
         "start": "",
         "end": ""
@@ -260,7 +260,9 @@
     },
     "receiptStatus": {
       "text": "Fully Received",
-      "value": "3"
+      "value": "3",
+      "code": "#C70039",
+      "display": "Fully Received"
     }
   }, {
     "id": "135",
@@ -356,7 +358,7 @@
     }],
     "assets": [{
       "id": "135",
-      "name": null,
+      "name": "",
       "workorder": {
         "text": "Creation of New Work Order",
         "value": "135"
@@ -365,8 +367,8 @@
       "quantity": 5,
       "description": "",
       "asset": {
-        "text": null,
-        "value": null
+        "text": "",
+        "value": ""
       },
       "assetRef": {},
       "rentalUnit": {
@@ -555,8 +557,8 @@
     "receiptStatus": {
       "text": "Partially Received",
       "value": "2",
-      "code": "#C70039",
-      "display": "Fully Received"
+      "code": "#FF5733",
+      "display": "Partial Received"
     }
   }, {
     "id": "134",
@@ -591,8 +593,109 @@
     },
     "priority": "",
     "resources": [],
-    "vendors": [],
-    "assets": [],
+    "vendors": [{
+      "id": "203",
+      "name": "Best Fixture, Inc.",
+      "vendor": {
+        "text": "Best Fixture, Inc.",
+        "value": "12"
+      },
+      "url": "",
+      "email": "",
+      "initials": "BF",
+      "workorder": {
+        "text": "Lobby Area",
+        "value": "134"
+      },
+      "event": "101105",
+      "quantityRequired": 3,
+      "quantityAvailable": 0,
+      "purchaseOrder": {
+        "text": " ",
+        "value": ""
+      },
+      "amount": 0,
+      "active": false,
+      "woVendor": true,
+      "memo": "A\nB",
+      "time": {
+        "start": "",
+        "end": ""
+      }
+    }],
+    "assets": [{
+      "id": "139",
+      "name": "Bolts",
+      "workorder": {
+        "text": "Lobby Area",
+        "value": "134"
+      },
+      "event": "101105",
+      "quantity": 3,
+      "description": "",
+      "asset": {
+        "text": "Bolts",
+        "value": "5"
+      },
+      "assetRef": {},
+      "rentalUnit": {
+        "text": "",
+        "value": ""
+      },
+      "rentalDuration": 0,
+      "rentalRate": 0,
+      "rentalAmount": 0,
+      "purchaseOrder": {
+        "text": " ",
+        "value": " "
+      },
+      "vendor": {
+        "text": "",
+        "value": ""
+      },
+      "owned": true,
+      "rentalMatrix": 0,
+      "time": {
+        "start": "",
+        "end": ""
+      }
+    }, {
+      "id": "140",
+      "name": "Forklift",
+      "workorder": {
+        "text": "Lobby Area",
+        "value": "134"
+      },
+      "event": "101105",
+      "quantity": 5,
+      "description": "",
+      "asset": {
+        "text": "Forklift",
+        "value": "4"
+      },
+      "assetRef": {},
+      "rentalUnit": {
+        "text": "",
+        "value": ""
+      },
+      "rentalDuration": 0,
+      "rentalRate": 0,
+      "rentalAmount": 0,
+      "purchaseOrder": {
+        "text": " ",
+        "value": " "
+      },
+      "vendor": {
+        "text": "",
+        "value": ""
+      },
+      "owned": true,
+      "rentalMatrix": 0,
+      "time": {
+        "start": "",
+        "end": ""
+      }
+    }],
     "items": [{
       "id": "605",
       "workorder": {
@@ -613,6 +716,28 @@
       "description": "Head Master Chair",
       "quantity": 1,
       "availableQty": 1,
+      "note": "",
+      "quantityReceived": 56
+    }, {
+      "id": "615",
+      "workorder": {
+        "text": "Lobby Area",
+        "value": "134"
+      },
+      "salesorder": {
+        "text": "Sales Order #SLS00000811",
+        "value": "22902"
+      },
+      "event": "101105",
+      "uuid": "22902_1",
+      "line": "1",
+      "item": {
+        "text": "BIC00008",
+        "value": "467"
+      },
+      "description": "Head Master Chair",
+      "quantity": 2,
+      "availableQty": 2,
       "note": "",
       "quantityReceived": 56
     }, {
@@ -648,7 +773,7 @@
         "text": "World Bank",
         "value": "1249"
       },
-      "events": [],
+      "events": ["101105"],
       "address": {
         "text": "343 York",
         "value": "245154"
@@ -665,7 +790,7 @@
         "text": "World Bank",
         "value": "1249"
       },
-      "events": ["101096"],
+      "events": ["101096", "101105"],
       "address": {
         "text": "343 York",
         "value": "245154"
@@ -711,8 +836,77 @@
       "phone": "",
       "primary": false,
       "url": "/app/common/entity/contact.nl?id=2060&compid=TSTDRV2617106"
+    }, {
+      "id": "201",
+      "workorder": {
+        "text": "Lobby Area",
+        "value": "134"
+      },
+      "events": ["101105"],
+      "event": "101105",
+      "contact": {
+        "text": "World Bank : Brad Pitt",
+        "value": "2060"
+      },
+      "name": "Brad Pitt",
+      "email": "bpitt@email.com",
+      "jobTitle": "Designer",
+      "mobilePhone": "",
+      "phone": "",
+      "primary": false,
+      "url": "/app/common/entity/contact.nl?id=2060&compid=TSTDRV2617106"
     }],
     "events": [{
+      "id": "101105",
+      "title": "Lobby Area",
+      "workorder": {
+        "text": "Lobby Area",
+        "value": "134"
+      },
+      "location": "",
+      "status": {
+        "text": "Tentative",
+        "value": "TENTATIVE",
+        "code": "bg-secondary"
+      },
+      "date": {
+        "recurrence": "one time event on 2/26/2025",
+        "dates": ["2/26/2025"],
+        "start": "2025-02-26",
+        "end": "2025-02-26"
+      },
+      "time": {
+        "start": "08:00",
+        "end": "18:00"
+      },
+      "priority": {
+        "text": "Low",
+        "value": "1",
+        "code": "#026adf"
+      },
+      "note": "A\nB\nC",
+      "url": "/app/crm/calendar/event.nl?id=101105&compid=TSTDRV2617106&selectedtab=custom337",
+      "color": "#1a6756",
+      "woRef": {},
+      "resources": [],
+      "vendors": [],
+      "assets": [],
+      "items": [],
+      "contacts": [],
+      "addresses": [],
+      "contact": {
+        "text": "",
+        "value": ""
+      },
+      "address": {
+        "text": "218",
+        "value": "218"
+      },
+      "organizer": {
+        "text": "Lean  cendana",
+        "value": "1765"
+      }
+    }, {
       "id": "101096",
       "title": "Office Area 2",
       "workorder": {
@@ -772,8 +966,8 @@
       "value": ""
     },
     "receiptStatus": {
-      "text": "",
-      "value": ""
+      "text": "Not Received",
+      "value": "1"
     }
   }, {
     "id": "133",
@@ -1122,7 +1316,7 @@
     }],
     "assets": [{
       "id": "2",
-      "name": null,
+      "name": "Truck 2",
       "workorder": {
         "text": "Office Area 1",
         "value": "132"
@@ -1131,8 +1325,8 @@
       "quantity": 1,
       "description": "",
       "asset": {
-        "text": null,
-        "value": null
+        "text": "Truck 2",
+        "value": "2"
       },
       "assetRef": {},
       "rentalUnit": {
@@ -1158,7 +1352,7 @@
       }
     }, {
       "id": "132",
-      "name": null,
+      "name": "",
       "workorder": {
         "text": "Office Area 1",
         "value": "132"
@@ -1167,8 +1361,8 @@
       "quantity": 1,
       "description": "",
       "asset": {
-        "text": null,
-        "value": null
+        "text": "",
+        "value": ""
       },
       "assetRef": {},
       "rentalUnit": {
@@ -3229,7 +3423,7 @@
     }],
     "assets": [{
       "id": "123",
-      "name": null,
+      "name": "",
       "workorder": {
         "text": "Test Work Order - AC Installation",
         "value": "123"
@@ -3238,8 +3432,8 @@
       "quantity": 4,
       "description": "",
       "asset": {
-        "text": null,
-        "value": null
+        "text": "",
+        "value": ""
       },
       "assetRef": {},
       "rentalUnit": {
@@ -3265,7 +3459,7 @@
       }
     }, {
       "id": "124",
-      "name": null,
+      "name": "",
       "workorder": {
         "text": "Test Work Order - AC Installation",
         "value": "123"
@@ -3274,8 +3468,8 @@
       "quantity": 5,
       "description": "",
       "asset": {
-        "text": null,
-        "value": null
+        "text": "",
+        "value": ""
       },
       "assetRef": {},
       "rentalUnit": {
@@ -3301,7 +3495,7 @@
       }
     }, {
       "id": "125",
-      "name": null,
+      "name": "",
       "workorder": {
         "text": "Test Work Order - AC Installation",
         "value": "123"
@@ -3310,8 +3504,8 @@
       "quantity": 4,
       "description": "",
       "asset": {
-        "text": null,
-        "value": null
+        "text": "",
+        "value": ""
       },
       "assetRef": {},
       "rentalUnit": {
@@ -3337,7 +3531,7 @@
       }
     }, {
       "id": "126",
-      "name": null,
+      "name": "",
       "workorder": {
         "text": "Test Work Order - AC Installation",
         "value": "123"
@@ -3346,8 +3540,8 @@
       "quantity": 5,
       "description": "",
       "asset": {
-        "text": null,
-        "value": null
+        "text": "",
+        "value": ""
       },
       "assetRef": {},
       "rentalUnit": {
@@ -3373,7 +3567,7 @@
       }
     }, {
       "id": "127",
-      "name": null,
+      "name": "",
       "workorder": {
         "text": "Test Work Order - AC Installation",
         "value": "123"
@@ -3382,8 +3576,8 @@
       "quantity": 0,
       "description": "",
       "asset": {
-        "text": null,
-        "value": null
+        "text": "",
+        "value": ""
       },
       "assetRef": {},
       "rentalUnit": {
@@ -3409,7 +3603,7 @@
       }
     }, {
       "id": "128",
-      "name": null,
+      "name": "",
       "workorder": {
         "text": "Test Work Order - AC Installation",
         "value": "123"
@@ -3418,8 +3612,8 @@
       "quantity": 100,
       "description": "",
       "asset": {
-        "text": null,
-        "value": null
+        "text": "",
+        "value": ""
       },
       "assetRef": {},
       "rentalUnit": {
@@ -3445,7 +3639,7 @@
       }
     }, {
       "id": "129",
-      "name": null,
+      "name": "",
       "workorder": {
         "text": "Test Work Order - AC Installation",
         "value": "123"
@@ -3454,8 +3648,8 @@
       "quantity": 20,
       "description": "",
       "asset": {
-        "text": null,
-        "value": null
+        "text": "",
+        "value": ""
       },
       "assetRef": {},
       "rentalUnit": {
@@ -3481,7 +3675,7 @@
       }
     }, {
       "id": "130",
-      "name": null,
+      "name": "",
       "workorder": {
         "text": "Test Work Order - AC Installation",
         "value": "123"
@@ -3490,8 +3684,8 @@
       "quantity": 0,
       "description": "",
       "asset": {
-        "text": null,
-        "value": null
+        "text": "",
+        "value": ""
       },
       "assetRef": {},
       "rentalUnit": {
@@ -3517,7 +3711,7 @@
       }
     }, {
       "id": "131",
-      "name": null,
+      "name": "",
       "workorder": {
         "text": "Test Work Order - AC Installation",
         "value": "123"
@@ -3526,8 +3720,8 @@
       "quantity": 5,
       "description": "",
       "asset": {
-        "text": null,
-        "value": null
+        "text": "",
+        "value": ""
       },
       "assetRef": {},
       "rentalUnit": {
@@ -8888,7 +9082,7 @@
     "vendors": [],
     "assets": [{
       "id": "118",
-      "name": null,
+      "name": "",
       "workorder": {
         "text": "Furniture Installation",
         "value": "111"
@@ -8897,8 +9091,8 @@
       "quantity": 1,
       "description": "",
       "asset": {
-        "text": null,
-        "value": null
+        "text": "",
+        "value": ""
       },
       "assetRef": {},
       "rentalUnit": {
@@ -10199,7 +10393,7 @@
     }],
     "assets": [{
       "id": "122",
-      "name": null,
+      "name": "",
       "workorder": {
         "text": "Install Office Furniture",
         "value": "109"
@@ -10208,8 +10402,8 @@
       "quantity": 8,
       "description": "",
       "asset": {
-        "text": null,
-        "value": null
+        "text": "",
+        "value": ""
       },
       "assetRef": {},
       "rentalUnit": {
@@ -11496,7 +11690,7 @@
       "value": "1"
     },
     "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1770%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-    "events": ["101087", "101084", "101076", "101075"],
+    "events": ["101105", "101087", "101084", "101076", "101075"],
     "labRates": [],
     "time": {
       "start": "",
@@ -12669,7 +12863,7 @@
         "value": "1"
       },
       "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1770%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-      "events": ["101087", "101084", "101076", "101075"],
+      "events": ["101105", "101087", "101084", "101076", "101075"],
       "labRates": [],
       "time": {
         "start": "",
@@ -13562,7 +13756,7 @@
         "value": "1"
       },
       "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1770%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-      "events": ["101087", "101084", "101076", "101075"],
+      "events": ["101105", "101087", "101084", "101076", "101075"],
       "labRates": [],
       "time": {
         "start": "",
@@ -13826,7 +14020,7 @@
         "value": "1"
       },
       "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1770%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-      "events": ["101087", "101084", "101076", "101075"],
+      "events": ["101105", "101087", "101084", "101076", "101075"],
       "labRates": [],
       "time": {
         "start": "",
@@ -29968,6 +30162,69 @@
       "text": "",
       "value": ""
     }
+  }, {
+    "id": "417",
+    "name": "Arun Sharma",
+    "initials": "AS",
+    "email": "aruns.unlock2go@gmail.com",
+    "phone": "",
+    "location": {
+      "text": "",
+      "value": ""
+    },
+    "active": true,
+    "workorder": {
+      "text": "Lobby Area",
+      "value": "134"
+    },
+    "events": ["101105"],
+    "employee": {
+      "text": "Arun Sharma",
+      "value": "1770"
+    },
+    "resourceGroups": [{
+      "text": "Designers",
+      "value": "2"
+    }, {
+      "text": "Drivers",
+      "value": "3"
+    }, {
+      "text": "Installers",
+      "value": "1"
+    }],
+    "types": [{
+      "text": "Delivery Driver",
+      "value": "2"
+    }, {
+      "text": "Designer",
+      "value": "3"
+    }, {
+      "text": "Installer",
+      "value": "1"
+    }],
+    "subTypes": [],
+    "rate": 0,
+    "vendor": {
+      "text": "",
+      "value": ""
+    },
+    "purchaseOrder": {
+      "text": " ",
+      "value": ""
+    },
+    "affiliationType": {
+      "text": "In-House",
+      "value": "1"
+    },
+    "time": {
+      "start": "08:00",
+      "end": "18:00"
+    },
+    "resourceSkills": [],
+    "department": {
+      "text": "",
+      "value": ""
+    }
   }],
   "vendors": [{
     "id": "12",
@@ -29987,7 +30244,7 @@
       "value": ""
     },
     "woVendor": false,
-    "events": ["101102", "101095", "101087", "101084", "101081", "101075", "101057", "101056", "101055", "101040", "101028", "101017", "101015", "101012", "101011", "101010", "101008", "101007", "101006", "101005", "101004", "101003", "100968", "100954", "100953", "100952", "100951", "100950", "100947", "100942", "100939", "100933", "100931", "100927", "100923", "100922", "100915", "100913", "100912", "100906", "100905", "100904", "100903", "100902", "100901", "100900", "100899", "100891", "100890", "100889", "100888", "100887", "100886", "100884", "100883", "100882", "100881", "100880", "100875", "100871", "100870", "100682", "39", "20"],
+    "events": ["101105", "101102", "101095", "101087", "101084", "101081", "101075", "101057", "101056", "101055", "101040", "101028", "101017", "101015", "101012", "101011", "101010", "101008", "101007", "101006", "101005", "101004", "101003", "100968", "100954", "100953", "100952", "100951", "100950", "100947", "100942", "100939", "100933", "100931", "100927", "100923", "100922", "100915", "100913", "100912", "100906", "100905", "100904", "100903", "100902", "100901", "100900", "100899", "100891", "100890", "100889", "100888", "100887", "100886", "100884", "100883", "100882", "100881", "100880", "100875", "100871", "100870", "100682", "39", "20"],
     "memo": "",
     "location": {
       "text": "",
@@ -30133,7 +30390,7 @@
   "assets": [{
     "id": "5",
     "name": "Bolts",
-    "active": false,
+    "active": true,
     "onMaintenance": false,
     "description": "",
     "type": {
@@ -30145,8 +30402,8 @@
       "value": "1"
     },
     "customer": {
-      "text": null,
-      "value": null
+      "text": "",
+      "value": ""
     },
     "quantity": 10000,
     "quantityRemaining": 10000,
@@ -30155,7 +30412,7 @@
   }, {
     "id": "4",
     "name": "Forklift",
-    "active": false,
+    "active": true,
     "onMaintenance": false,
     "description": "",
     "type": {
@@ -30167,8 +30424,8 @@
       "value": "1"
     },
     "customer": {
-      "text": null,
-      "value": null
+      "text": "",
+      "value": ""
     },
     "quantity": 5,
     "quantityRemaining": 0,
@@ -30177,7 +30434,7 @@
   }, {
     "id": "3",
     "name": "Hammer",
-    "active": false,
+    "active": true,
     "onMaintenance": false,
     "description": "",
     "type": {
@@ -30189,8 +30446,8 @@
       "value": "1"
     },
     "customer": {
-      "text": null,
-      "value": null
+      "text": "Canadian Customer",
+      "value": "1437"
     },
     "quantity": 2,
     "quantityRemaining": 0,
@@ -30199,7 +30456,7 @@
   }, {
     "id": "6",
     "name": "Hammer",
-    "active": false,
+    "active": true,
     "onMaintenance": false,
     "description": "",
     "type": {
@@ -30211,8 +30468,8 @@
       "value": "2"
     },
     "customer": {
-      "text": null,
-      "value": null
+      "text": "Canadian Customer",
+      "value": "1437"
     },
     "quantity": 20,
     "quantityRemaining": 0,
@@ -30221,7 +30478,7 @@
   }, {
     "id": "1",
     "name": "Truck 1",
-    "active": false,
+    "active": true,
     "onMaintenance": false,
     "description": "",
     "type": {
@@ -30233,8 +30490,8 @@
       "value": "1"
     },
     "customer": {
-      "text": null,
-      "value": null
+      "text": "3M",
+      "value": "1397"
     },
     "quantity": 1,
     "quantityRemaining": 111,
@@ -30243,7 +30500,7 @@
   }, {
     "id": "2",
     "name": "Truck 2",
-    "active": false,
+    "active": true,
     "onMaintenance": false,
     "description": "",
     "type": {
@@ -30255,8 +30512,8 @@
       "value": "2"
     },
     "customer": {
-      "text": null,
-      "value": null
+      "text": "Tanya W De Benedetti",
+      "value": "1018"
     },
     "quantity": 2,
     "quantityRemaining": 0,
@@ -30264,6 +30521,712 @@
     "owned": true
   }],
   "events": [{
+    "id": "101105",
+    "title": "Lobby Area",
+    "workorder": {
+      "text": "Lobby Area",
+      "value": "134"
+    },
+    "location": "",
+    "status": {
+      "text": "Tentative",
+      "value": "TENTATIVE",
+      "code": "bg-secondary"
+    },
+    "date": {
+      "recurrence": "one time event on 2/26/2025",
+      "dates": ["2/26/2025"],
+      "start": "2025-02-26",
+      "end": "2025-02-26"
+    },
+    "time": {
+      "start": "08:00",
+      "end": "18:00"
+    },
+    "priority": {
+      "text": "Low",
+      "value": "1",
+      "code": "#026adf"
+    },
+    "note": "A\nB\nC",
+    "url": "/app/crm/calendar/event.nl?id=101105&compid=TSTDRV2617106&selectedtab=custom337",
+    "color": "#1a6756",
+    "woRef": {
+      "id": "134",
+      "name": "Lobby Area",
+      "title": "Lobby Area",
+      "project": {
+        "text": "World Bank : World Bank Office Furniture Installation",
+        "value": "1515"
+      },
+      "date": "1/20/2025",
+      "status": {
+        "text": "Completed",
+        "value": "4",
+        "code": "#28a745"
+      },
+      "type": {
+        "text": "Service",
+        "value": "2"
+      },
+      "memo": "<h4><strong>1. Pre-Installation Preparation</strong></h4><ul><li>Review work order details, verify furniture type and quantities.</li><li>Gather necessary tools (screwdrivers, drills, level, etc.) and protective gear.</li><li>Inspect furniture for damages and ensure all hardware is included.</li><li>Confirm access to the installation site (keys, security clearance, etc.).</li></ul><h4><strong>2. On-Site Installation</strong></h4><ul><li>Confirm furniture placement with the client, referencing layout plans.</li><li>Unpack items carefully and organize packaging to maintain a clean area.</li><li>Assemble furniture according to manufacturer’s instructions.</li><li>Ensure proper leveling and alignment using a level.</li><li>Begin with larger furniture pieces, then move to smaller items.</li><li>For wall-mounted items, locate studs and use proper anchors.</li></ul><h4><strong>3. Post-Installation Checklist</strong></h4><ul><li>Inspect all furniture for stability, alignment, and quality.</li><li>Verify furniture is placed according to client’s specifications.</li><li>Remove all packaging, debris, and clean furniture surfaces.</li><li>Walk the client through the installation and address any concerns.</li><li>Obtain client’s sign-off on completed work.</li></ul><h4><strong>4. Additional Notes</strong></h4><ul><li>Report damaged or missing items to the project manager immediately.</li><li>Log start/end times and report any delays or issues.</li><li>Follow special project instructions as necessary.</li></ul><p></p>",
+      "salesorder": {
+        "text": "Sales Order #SLS00000811",
+        "value": "22902"
+      },
+      "customer": {
+        "text": "World Bank",
+        "value": "1249"
+      },
+      "resourceGroup": {
+        "text": "",
+        "value": ""
+      },
+      "priority": "",
+      "resources": [],
+      "vendors": [{
+        "id": "203",
+        "name": "Best Fixture, Inc.",
+        "vendor": {
+          "text": "Best Fixture, Inc.",
+          "value": "12"
+        },
+        "url": "",
+        "email": "",
+        "initials": "BF",
+        "workorder": {
+          "text": "Lobby Area",
+          "value": "134"
+        },
+        "event": "101105",
+        "quantityRequired": 3,
+        "quantityAvailable": 0,
+        "purchaseOrder": {
+          "text": " ",
+          "value": ""
+        },
+        "amount": 0,
+        "active": false,
+        "woVendor": true,
+        "memo": "A\nB",
+        "time": {
+          "start": "",
+          "end": ""
+        }
+      }],
+      "assets": [{
+        "id": "139",
+        "name": "Bolts",
+        "workorder": {
+          "text": "Lobby Area",
+          "value": "134"
+        },
+        "event": "101105",
+        "quantity": 3,
+        "description": "",
+        "asset": {
+          "text": "Bolts",
+          "value": "5"
+        },
+        "assetRef": {},
+        "rentalUnit": {
+          "text": "",
+          "value": ""
+        },
+        "rentalDuration": 0,
+        "rentalRate": 0,
+        "rentalAmount": 0,
+        "purchaseOrder": {
+          "text": " ",
+          "value": " "
+        },
+        "vendor": {
+          "text": "",
+          "value": ""
+        },
+        "owned": true,
+        "rentalMatrix": 0,
+        "time": {
+          "start": "",
+          "end": ""
+        }
+      }, {
+        "id": "140",
+        "name": "Forklift",
+        "workorder": {
+          "text": "Lobby Area",
+          "value": "134"
+        },
+        "event": "101105",
+        "quantity": 5,
+        "description": "",
+        "asset": {
+          "text": "Forklift",
+          "value": "4"
+        },
+        "assetRef": {},
+        "rentalUnit": {
+          "text": "",
+          "value": ""
+        },
+        "rentalDuration": 0,
+        "rentalRate": 0,
+        "rentalAmount": 0,
+        "purchaseOrder": {
+          "text": " ",
+          "value": " "
+        },
+        "vendor": {
+          "text": "",
+          "value": ""
+        },
+        "owned": true,
+        "rentalMatrix": 0,
+        "time": {
+          "start": "",
+          "end": ""
+        }
+      }],
+      "items": [{
+        "id": "605",
+        "workorder": {
+          "text": "Lobby Area",
+          "value": "134"
+        },
+        "salesorder": {
+          "text": "Sales Order #SLS00000811",
+          "value": "22902"
+        },
+        "event": "101096",
+        "uuid": "22902_1",
+        "line": "1",
+        "item": {
+          "text": "BIC00008",
+          "value": "467"
+        },
+        "description": "Head Master Chair",
+        "quantity": 1,
+        "availableQty": 1,
+        "note": "",
+        "quantityReceived": 56
+      }, {
+        "id": "615",
+        "workorder": {
+          "text": "Lobby Area",
+          "value": "134"
+        },
+        "salesorder": {
+          "text": "Sales Order #SLS00000811",
+          "value": "22902"
+        },
+        "event": "101105",
+        "uuid": "22902_1",
+        "line": "1",
+        "item": {
+          "text": "BIC00008",
+          "value": "467"
+        },
+        "description": "Head Master Chair",
+        "quantity": 2,
+        "availableQty": 2,
+        "note": "",
+        "quantityReceived": 56
+      }, {
+        "id": "598",
+        "workorder": {
+          "text": "Lobby Area",
+          "value": "134"
+        },
+        "salesorder": {
+          "text": "Sales Order #SLS00000811",
+          "value": "22902"
+        },
+        "event": "",
+        "uuid": "22902_1",
+        "line": "1",
+        "item": {
+          "text": "BIC00008",
+          "value": "467"
+        },
+        "description": "Head Master Chair",
+        "quantity": 2,
+        "availableQty": 2,
+        "note": "",
+        "quantityReceived": 56
+      }],
+      "addresses": [{
+        "id": "218",
+        "workorder": {
+          "text": "Lobby Area",
+          "value": "134"
+        },
+        "customer": {
+          "text": "World Bank",
+          "value": "1249"
+        },
+        "events": ["101105"],
+        "address": {
+          "text": "343 York",
+          "value": "245154"
+        },
+        "addressDetails": "343 York AV<br/>NY 121312<br/>United States",
+        "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+      }, {
+        "id": "220",
+        "workorder": {
+          "text": "Lobby Area",
+          "value": "134"
+        },
+        "customer": {
+          "text": "World Bank",
+          "value": "1249"
+        },
+        "events": ["101096", "101105"],
+        "address": {
+          "text": "343 York",
+          "value": "245154"
+        },
+        "addressDetails": "",
+        "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+      }],
+      "contacts": [{
+        "id": "188",
+        "workorder": {
+          "text": "Lobby Area",
+          "value": "134"
+        },
+        "events": ["101096"],
+        "event": "101096",
+        "contact": {
+          "text": "World Bank : Angelina Jolie",
+          "value": "2056"
+        },
+        "name": "Angelina Jolie",
+        "email": "ajolie@email.com",
+        "jobTitle": "Vice President",
+        "mobilePhone": "",
+        "phone": "",
+        "primary": false,
+        "url": "/app/common/entity/contact.nl?id=2056&compid=TSTDRV2617106"
+      }, {
+        "id": "189",
+        "workorder": {
+          "text": "Lobby Area",
+          "value": "134"
+        },
+        "events": [],
+        "event": "",
+        "contact": {
+          "text": "World Bank : Brad Pitt",
+          "value": "2060"
+        },
+        "name": "Brad Pitt",
+        "email": "bpitt@email.com",
+        "jobTitle": "Designer",
+        "mobilePhone": "",
+        "phone": "",
+        "primary": false,
+        "url": "/app/common/entity/contact.nl?id=2060&compid=TSTDRV2617106"
+      }, {
+        "id": "201",
+        "workorder": {
+          "text": "Lobby Area",
+          "value": "134"
+        },
+        "events": ["101105"],
+        "event": "101105",
+        "contact": {
+          "text": "World Bank : Brad Pitt",
+          "value": "2060"
+        },
+        "name": "Brad Pitt",
+        "email": "bpitt@email.com",
+        "jobTitle": "Designer",
+        "mobilePhone": "",
+        "phone": "",
+        "primary": false,
+        "url": "/app/common/entity/contact.nl?id=2060&compid=TSTDRV2617106"
+      }],
+      "events": [{
+        "id": "101105",
+        "title": "Lobby Area",
+        "workorder": {
+          "text": "Lobby Area",
+          "value": "134"
+        },
+        "location": "",
+        "status": {
+          "text": "Tentative",
+          "value": "TENTATIVE",
+          "code": "bg-secondary"
+        },
+        "date": {
+          "recurrence": "one time event on 2/26/2025",
+          "dates": ["2/26/2025"],
+          "start": "2025-02-26",
+          "end": "2025-02-26"
+        },
+        "time": {
+          "start": "08:00",
+          "end": "18:00"
+        },
+        "priority": {
+          "text": "Low",
+          "value": "1",
+          "code": "#026adf"
+        },
+        "note": "A\nB\nC",
+        "url": "/app/crm/calendar/event.nl?id=101105&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {},
+        "resources": [],
+        "vendors": [],
+        "assets": [],
+        "items": [],
+        "contacts": [],
+        "addresses": [],
+        "contact": {
+          "text": "",
+          "value": ""
+        },
+        "address": {
+          "text": "218",
+          "value": "218"
+        },
+        "organizer": {
+          "text": "Lean  cendana",
+          "value": "1765"
+        }
+      }, {
+        "id": "101096",
+        "title": "Office Area 2",
+        "workorder": {
+          "text": "Lobby Area",
+          "value": "134"
+        },
+        "location": "",
+        "status": {
+          "text": "Tentative",
+          "value": "TENTATIVE",
+          "code": "bg-secondary"
+        },
+        "date": {
+          "recurrence": "occurs every day from 1/20/2025 until 1/24/2025",
+          "dates": ["1/20/2025", "1/24/2025"],
+          "start": "2025-01-20",
+          "end": "2025-01-24"
+        },
+        "time": {
+          "start": "08:00",
+          "end": "18:00"
+        },
+        "priority": {
+          "text": "Urgent",
+          "value": "4",
+          "code": "#9a2407"
+        },
+        "note": "Office Area 2",
+        "url": "/app/crm/calendar/event.nl?id=101096&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {},
+        "resources": [],
+        "vendors": [],
+        "assets": [],
+        "items": [],
+        "contacts": [],
+        "addresses": [],
+        "contact": {
+          "text": "",
+          "value": ""
+        },
+        "address": {
+          "text": "",
+          "value": ""
+        },
+        "organizer": {
+          "text": "Arun Sharma",
+          "value": "1770"
+        }
+      }],
+      "projectUrl": "/app/accounting/project/project.nl?id=1515&compid=TSTDRV2617106",
+      "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=134&compid=TSTDRV2617106",
+      "soUrl": "/app/accounting/transactions/salesord.nl?id=22902&compid=TSTDRV2617106",
+      "esthours": "100",
+      "location": {
+        "text": "",
+        "value": ""
+      },
+      "receiptStatus": {
+        "text": "Not Received",
+        "value": "1"
+      }
+    },
+    "resources": [{
+      "id": "417",
+      "name": "Arun Sharma",
+      "initials": "AS",
+      "email": "aruns.unlock2go@gmail.com",
+      "phone": "",
+      "location": {
+        "text": "",
+        "value": ""
+      },
+      "active": true,
+      "workorder": {
+        "text": "Lobby Area",
+        "value": "134"
+      },
+      "events": ["101105"],
+      "employee": {
+        "text": "Arun Sharma",
+        "value": "1770"
+      },
+      "resourceGroups": [{
+        "text": "Designers",
+        "value": "2"
+      }, {
+        "text": "Drivers",
+        "value": "3"
+      }, {
+        "text": "Installers",
+        "value": "1"
+      }],
+      "types": [{
+        "text": "Delivery Driver",
+        "value": "2"
+      }, {
+        "text": "Designer",
+        "value": "3"
+      }, {
+        "text": "Installer",
+        "value": "1"
+      }],
+      "subTypes": [],
+      "rate": 0,
+      "vendor": {
+        "text": "",
+        "value": ""
+      },
+      "purchaseOrder": {
+        "text": " ",
+        "value": ""
+      },
+      "affiliationType": {
+        "text": "In-House",
+        "value": "1"
+      },
+      "time": {
+        "start": "08:00",
+        "end": "18:00"
+      },
+      "resourceSkills": [],
+      "department": {
+        "text": "",
+        "value": ""
+      },
+      "selected": true
+    }],
+    "vendors": [{
+      "id": "203",
+      "name": "Best Fixture, Inc.",
+      "vendor": {
+        "text": "Best Fixture, Inc.",
+        "value": "12"
+      },
+      "url": "",
+      "email": "",
+      "initials": "BF",
+      "workorder": {
+        "text": "Lobby Area",
+        "value": "134"
+      },
+      "event": "101105",
+      "quantityRequired": 3,
+      "quantityAvailable": 0,
+      "purchaseOrder": {
+        "text": " ",
+        "value": ""
+      },
+      "amount": 0,
+      "active": false,
+      "woVendor": true,
+      "memo": "A\nB",
+      "time": {
+        "start": "",
+        "end": ""
+      },
+      "selected": true
+    }],
+    "assets": [{
+      "id": "139",
+      "name": "Bolts",
+      "workorder": {
+        "text": "Lobby Area",
+        "value": "134"
+      },
+      "event": "101105",
+      "quantity": 3,
+      "description": "",
+      "asset": {
+        "text": "Bolts",
+        "value": "5"
+      },
+      "assetRef": {},
+      "rentalUnit": {
+        "text": "",
+        "value": ""
+      },
+      "rentalDuration": 0,
+      "rentalRate": 0,
+      "rentalAmount": 0,
+      "purchaseOrder": {
+        "text": " ",
+        "value": " "
+      },
+      "vendor": {
+        "text": "",
+        "value": ""
+      },
+      "owned": true,
+      "rentalMatrix": 0,
+      "time": {
+        "start": "",
+        "end": ""
+      },
+      "selected": true
+    }, {
+      "id": "140",
+      "name": "Forklift",
+      "workorder": {
+        "text": "Lobby Area",
+        "value": "134"
+      },
+      "event": "101105",
+      "quantity": 5,
+      "description": "",
+      "asset": {
+        "text": "Forklift",
+        "value": "4"
+      },
+      "assetRef": {},
+      "rentalUnit": {
+        "text": "",
+        "value": ""
+      },
+      "rentalDuration": 0,
+      "rentalRate": 0,
+      "rentalAmount": 0,
+      "purchaseOrder": {
+        "text": " ",
+        "value": " "
+      },
+      "vendor": {
+        "text": "",
+        "value": ""
+      },
+      "owned": true,
+      "rentalMatrix": 0,
+      "time": {
+        "start": "",
+        "end": ""
+      },
+      "selected": true
+    }],
+    "items": [{
+      "id": "615",
+      "workorder": {
+        "text": "Lobby Area",
+        "value": "134"
+      },
+      "salesorder": {
+        "text": "Sales Order #SLS00000811",
+        "value": "22902"
+      },
+      "event": "101105",
+      "uuid": "22902_1",
+      "line": "1",
+      "item": {
+        "text": "BIC00008",
+        "value": "467"
+      },
+      "description": "Head Master Chair",
+      "quantity": 2,
+      "availableQty": 2,
+      "note": "",
+      "quantityReceived": 56,
+      "selected": true
+    }],
+    "contacts": [{
+      "id": "201",
+      "workorder": {
+        "text": "Lobby Area",
+        "value": "134"
+      },
+      "events": ["101105"],
+      "event": "101105",
+      "contact": {
+        "text": "World Bank : Brad Pitt",
+        "value": "2060"
+      },
+      "name": "Brad Pitt",
+      "email": "bpitt@email.com",
+      "jobTitle": "Designer",
+      "mobilePhone": "",
+      "phone": "",
+      "primary": false,
+      "url": "/app/common/entity/contact.nl?id=2060&compid=TSTDRV2617106",
+      "selected": true
+    }],
+    "addresses": [{
+      "id": "218",
+      "workorder": {
+        "text": "Lobby Area",
+        "value": "134"
+      },
+      "customer": {
+        "text": "World Bank",
+        "value": "1249"
+      },
+      "events": ["101105"],
+      "address": {
+        "text": "343 York",
+        "value": "245154"
+      },
+      "addressDetails": "343 York AV<br/>NY 121312<br/>United States",
+      "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106",
+      "selected": true
+    }, {
+      "id": "220",
+      "workorder": {
+        "text": "Lobby Area",
+        "value": "134"
+      },
+      "customer": {
+        "text": "World Bank",
+        "value": "1249"
+      },
+      "events": ["101096", "101105"],
+      "address": {
+        "text": "343 York",
+        "value": "245154"
+      },
+      "addressDetails": "",
+      "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106",
+      "selected": true
+    }],
+    "contact": {
+      "text": "",
+      "value": ""
+    },
+    "address": {
+      "text": "218",
+      "value": "218"
+    },
+    "organizer": {
+      "text": "Lean  cendana",
+      "value": "1765"
+    }
+  }, {
     "id": "101102",
     "title": "TEST ABC",
     "workorder": {
@@ -30381,7 +31344,7 @@
     }],
     "assets": [{
       "id": "138",
-      "name": null,
+      "name": "",
       "workorder": {
         "text": "",
         "value": ""
@@ -30390,8 +31353,8 @@
       "quantity": 5,
       "description": "",
       "asset": {
-        "text": null,
-        "value": null
+        "text": "",
+        "value": ""
       },
       "assetRef": {},
       "rentalUnit": {
@@ -30499,7 +31462,7 @@
       "vendors": [],
       "assets": [{
         "id": "5",
-        "name": null,
+        "name": "Bolts",
         "workorder": {
           "text": "Lobby Area 1",
           "value": "136"
@@ -30508,8 +31471,8 @@
         "quantity": 5,
         "description": "",
         "asset": {
-          "text": null,
-          "value": null
+          "text": "Bolts",
+          "value": "5"
         },
         "assetRef": {},
         "rentalUnit": {
@@ -30528,7 +31491,7 @@
           "value": "965"
         },
         "owned": true,
-        "rentalMatrix": 0,
+        "rentalMatrix": null,
         "time": {
           "start": "",
           "end": ""
@@ -30722,7 +31685,9 @@
       },
       "receiptStatus": {
         "text": "Fully Received",
-        "value": "3"
+        "value": "3",
+        "code": "#C70039",
+        "display": "Fully Received"
       }
     },
     "resources": [{
@@ -30931,7 +31896,7 @@
     "vendors": [],
     "assets": [{
       "id": "5",
-      "name": null,
+      "name": "Bolts",
       "workorder": {
         "text": "Lobby Area 1",
         "value": "136"
@@ -30940,8 +31905,8 @@
       "quantity": 5,
       "description": "",
       "asset": {
-        "text": null,
-        "value": null
+        "text": "Bolts",
+        "value": "5"
       },
       "assetRef": {},
       "rentalUnit": {
@@ -30960,7 +31925,7 @@
         "value": "965"
       },
       "owned": true,
-      "rentalMatrix": 0,
+      "rentalMatrix": null,
       "time": {
         "start": "",
         "end": ""
@@ -31139,7 +32104,7 @@
       }],
       "assets": [{
         "id": "2",
-        "name": null,
+        "name": "Truck 2",
         "workorder": {
           "text": "Office Area 1",
           "value": "132"
@@ -31148,8 +32113,8 @@
         "quantity": 1,
         "description": "",
         "asset": {
-          "text": null,
-          "value": null
+          "text": "Truck 2",
+          "value": "2"
         },
         "assetRef": {},
         "rentalUnit": {
@@ -31175,7 +32140,7 @@
         }
       }, {
         "id": "132",
-        "name": null,
+        "name": "",
         "workorder": {
           "text": "Office Area 1",
           "value": "132"
@@ -31184,8 +32149,8 @@
         "quantity": 1,
         "description": "",
         "asset": {
-          "text": null,
-          "value": null
+          "text": "",
+          "value": ""
         },
         "assetRef": {},
         "rentalUnit": {
@@ -31884,7 +32849,7 @@
     "vendors": [],
     "assets": [{
       "id": "2",
-      "name": null,
+      "name": "Truck 2",
       "workorder": {
         "text": "Office Area 1",
         "value": "132"
@@ -31893,8 +32858,8 @@
       "quantity": 1,
       "description": "",
       "asset": {
-        "text": null,
-        "value": null
+        "text": "Truck 2",
+        "value": "2"
       },
       "assetRef": {},
       "rentalUnit": {
@@ -32072,7 +33037,7 @@
       }],
       "assets": [{
         "id": "2",
-        "name": null,
+        "name": "Truck 2",
         "workorder": {
           "text": "Office Area 1",
           "value": "132"
@@ -32081,8 +33046,8 @@
         "quantity": 1,
         "description": "",
         "asset": {
-          "text": null,
-          "value": null
+          "text": "Truck 2",
+          "value": "2"
         },
         "assetRef": {},
         "rentalUnit": {
@@ -32108,7 +33073,7 @@
         }
       }, {
         "id": "132",
-        "name": null,
+        "name": "",
         "workorder": {
           "text": "Office Area 1",
           "value": "132"
@@ -32117,8 +33082,8 @@
         "quantity": 1,
         "description": "",
         "asset": {
-          "text": null,
-          "value": null
+          "text": "",
+          "value": ""
         },
         "assetRef": {},
         "rentalUnit": {
@@ -32925,7 +33890,7 @@
       }],
       "assets": [{
         "id": "2",
-        "name": null,
+        "name": "Truck 2",
         "workorder": {
           "text": "Office Area 1",
           "value": "132"
@@ -32934,8 +33899,8 @@
         "quantity": 1,
         "description": "",
         "asset": {
-          "text": null,
-          "value": null
+          "text": "Truck 2",
+          "value": "2"
         },
         "assetRef": {},
         "rentalUnit": {
@@ -32961,7 +33926,7 @@
         }
       }, {
         "id": "132",
-        "name": null,
+        "name": "",
         "workorder": {
           "text": "Office Area 1",
           "value": "132"
@@ -32970,8 +33935,8 @@
         "quantity": 1,
         "description": "",
         "asset": {
-          "text": null,
-          "value": null
+          "text": "",
+          "value": ""
         },
         "assetRef": {},
         "rentalUnit": {
@@ -33755,7 +34720,7 @@
       }],
       "assets": [{
         "id": "2",
-        "name": null,
+        "name": "Truck 2",
         "workorder": {
           "text": "Office Area 1",
           "value": "132"
@@ -33764,8 +34729,8 @@
         "quantity": 1,
         "description": "",
         "asset": {
-          "text": null,
-          "value": null
+          "text": "Truck 2",
+          "value": "2"
         },
         "assetRef": {},
         "rentalUnit": {
@@ -33791,7 +34756,7 @@
         }
       }, {
         "id": "132",
-        "name": null,
+        "name": "",
         "workorder": {
           "text": "Office Area 1",
           "value": "132"
@@ -33800,8 +34765,8 @@
         "quantity": 1,
         "description": "",
         "asset": {
-          "text": null,
-          "value": null
+          "text": "",
+          "value": ""
         },
         "assetRef": {},
         "rentalUnit": {
@@ -34570,8 +35535,109 @@
       },
       "priority": "",
       "resources": [],
-      "vendors": [],
-      "assets": [],
+      "vendors": [{
+        "id": "203",
+        "name": "Best Fixture, Inc.",
+        "vendor": {
+          "text": "Best Fixture, Inc.",
+          "value": "12"
+        },
+        "url": "",
+        "email": "",
+        "initials": "BF",
+        "workorder": {
+          "text": "Lobby Area",
+          "value": "134"
+        },
+        "event": "101105",
+        "quantityRequired": 3,
+        "quantityAvailable": 0,
+        "purchaseOrder": {
+          "text": " ",
+          "value": ""
+        },
+        "amount": 0,
+        "active": false,
+        "woVendor": true,
+        "memo": "A\nB",
+        "time": {
+          "start": "",
+          "end": ""
+        }
+      }],
+      "assets": [{
+        "id": "139",
+        "name": "Bolts",
+        "workorder": {
+          "text": "Lobby Area",
+          "value": "134"
+        },
+        "event": "101105",
+        "quantity": 3,
+        "description": "",
+        "asset": {
+          "text": "Bolts",
+          "value": "5"
+        },
+        "assetRef": {},
+        "rentalUnit": {
+          "text": "",
+          "value": ""
+        },
+        "rentalDuration": 0,
+        "rentalRate": 0,
+        "rentalAmount": 0,
+        "purchaseOrder": {
+          "text": " ",
+          "value": " "
+        },
+        "vendor": {
+          "text": "",
+          "value": ""
+        },
+        "owned": true,
+        "rentalMatrix": 0,
+        "time": {
+          "start": "",
+          "end": ""
+        }
+      }, {
+        "id": "140",
+        "name": "Forklift",
+        "workorder": {
+          "text": "Lobby Area",
+          "value": "134"
+        },
+        "event": "101105",
+        "quantity": 5,
+        "description": "",
+        "asset": {
+          "text": "Forklift",
+          "value": "4"
+        },
+        "assetRef": {},
+        "rentalUnit": {
+          "text": "",
+          "value": ""
+        },
+        "rentalDuration": 0,
+        "rentalRate": 0,
+        "rentalAmount": 0,
+        "purchaseOrder": {
+          "text": " ",
+          "value": " "
+        },
+        "vendor": {
+          "text": "",
+          "value": ""
+        },
+        "owned": true,
+        "rentalMatrix": 0,
+        "time": {
+          "start": "",
+          "end": ""
+        }
+      }],
       "items": [{
         "id": "605",
         "workorder": {
@@ -34592,6 +35658,28 @@
         "description": "Head Master Chair",
         "quantity": 1,
         "availableQty": 1,
+        "note": "",
+        "quantityReceived": 56
+      }, {
+        "id": "615",
+        "workorder": {
+          "text": "Lobby Area",
+          "value": "134"
+        },
+        "salesorder": {
+          "text": "Sales Order #SLS00000811",
+          "value": "22902"
+        },
+        "event": "101105",
+        "uuid": "22902_1",
+        "line": "1",
+        "item": {
+          "text": "BIC00008",
+          "value": "467"
+        },
+        "description": "Head Master Chair",
+        "quantity": 2,
+        "availableQty": 2,
         "note": "",
         "quantityReceived": 56
       }, {
@@ -34627,7 +35715,7 @@
           "text": "World Bank",
           "value": "1249"
         },
-        "events": [],
+        "events": ["101105"],
         "address": {
           "text": "343 York",
           "value": "245154"
@@ -34644,7 +35732,7 @@
           "text": "World Bank",
           "value": "1249"
         },
-        "events": ["101096"],
+        "events": ["101096", "101105"],
         "address": {
           "text": "343 York",
           "value": "245154"
@@ -34690,8 +35778,77 @@
         "phone": "",
         "primary": false,
         "url": "/app/common/entity/contact.nl?id=2060&compid=TSTDRV2617106"
+      }, {
+        "id": "201",
+        "workorder": {
+          "text": "Lobby Area",
+          "value": "134"
+        },
+        "events": ["101105"],
+        "event": "101105",
+        "contact": {
+          "text": "World Bank : Brad Pitt",
+          "value": "2060"
+        },
+        "name": "Brad Pitt",
+        "email": "bpitt@email.com",
+        "jobTitle": "Designer",
+        "mobilePhone": "",
+        "phone": "",
+        "primary": false,
+        "url": "/app/common/entity/contact.nl?id=2060&compid=TSTDRV2617106"
       }],
       "events": [{
+        "id": "101105",
+        "title": "Lobby Area",
+        "workorder": {
+          "text": "Lobby Area",
+          "value": "134"
+        },
+        "location": "",
+        "status": {
+          "text": "Tentative",
+          "value": "TENTATIVE",
+          "code": "bg-secondary"
+        },
+        "date": {
+          "recurrence": "one time event on 2/26/2025",
+          "dates": ["2/26/2025"],
+          "start": "2025-02-26",
+          "end": "2025-02-26"
+        },
+        "time": {
+          "start": "08:00",
+          "end": "18:00"
+        },
+        "priority": {
+          "text": "Low",
+          "value": "1",
+          "code": "#026adf"
+        },
+        "note": "A\nB\nC",
+        "url": "/app/crm/calendar/event.nl?id=101105&compid=TSTDRV2617106&selectedtab=custom337",
+        "color": "#1a6756",
+        "woRef": {},
+        "resources": [],
+        "vendors": [],
+        "assets": [],
+        "items": [],
+        "contacts": [],
+        "addresses": [],
+        "contact": {
+          "text": "",
+          "value": ""
+        },
+        "address": {
+          "text": "218",
+          "value": "218"
+        },
+        "organizer": {
+          "text": "Lean  cendana",
+          "value": "1765"
+        }
+      }, {
         "id": "101096",
         "title": "Office Area 2",
         "workorder": {
@@ -34751,8 +35908,8 @@
         "value": ""
       },
       "receiptStatus": {
-        "text": "",
-        "value": ""
+        "text": "Not Received",
+        "value": "1"
       }
     },
     "resources": [{
@@ -34911,7 +36068,7 @@
         "text": "World Bank",
         "value": "1249"
       },
-      "events": ["101096"],
+      "events": ["101096", "101105"],
       "address": {
         "text": "343 York",
         "value": "245154"
@@ -35057,7 +36214,7 @@
       }],
       "assets": [{
         "id": "135",
-        "name": null,
+        "name": "",
         "workorder": {
           "text": "Creation of New Work Order",
           "value": "135"
@@ -35066,8 +36223,8 @@
         "quantity": 5,
         "description": "",
         "asset": {
-          "text": null,
-          "value": null
+          "text": "",
+          "value": ""
         },
         "assetRef": {},
         "rentalUnit": {
@@ -35256,8 +36413,8 @@
       "receiptStatus": {
         "text": "Partially Received",
         "value": "2",
-        "code": "#C70039",
-        "display": "Fully Received"
+        "code": "#FF5733",
+        "display": "Partial Received"
       }
     },
     "resources": [{
@@ -35428,7 +36585,7 @@
     }],
     "assets": [{
       "id": "135",
-      "name": null,
+      "name": "",
       "workorder": {
         "text": "Creation of New Work Order",
         "value": "135"
@@ -35437,8 +36594,8 @@
       "quantity": 5,
       "description": "",
       "asset": {
-        "text": null,
-        "value": null
+        "text": "",
+        "value": ""
       },
       "assetRef": {},
       "rentalUnit": {
@@ -35659,7 +36816,7 @@
       }],
       "assets": [{
         "id": "2",
-        "name": null,
+        "name": "Truck 2",
         "workorder": {
           "text": "Office Area 1",
           "value": "132"
@@ -35668,8 +36825,8 @@
         "quantity": 1,
         "description": "",
         "asset": {
-          "text": null,
-          "value": null
+          "text": "Truck 2",
+          "value": "2"
         },
         "assetRef": {},
         "rentalUnit": {
@@ -35695,7 +36852,7 @@
         }
       }, {
         "id": "132",
-        "name": null,
+        "name": "",
         "workorder": {
           "text": "Office Area 1",
           "value": "132"
@@ -35704,8 +36861,8 @@
         "quantity": 1,
         "description": "",
         "asset": {
-          "text": null,
-          "value": null
+          "text": "",
+          "value": ""
         },
         "assetRef": {},
         "rentalUnit": {
@@ -36544,7 +37701,7 @@
       }],
       "assets": [{
         "id": "2",
-        "name": null,
+        "name": "Truck 2",
         "workorder": {
           "text": "Office Area 1",
           "value": "132"
@@ -36553,8 +37710,8 @@
         "quantity": 1,
         "description": "",
         "asset": {
-          "text": null,
-          "value": null
+          "text": "Truck 2",
+          "value": "2"
         },
         "assetRef": {},
         "rentalUnit": {
@@ -36580,7 +37737,7 @@
         }
       }, {
         "id": "132",
-        "name": null,
+        "name": "",
         "workorder": {
           "text": "Office Area 1",
           "value": "132"
@@ -36589,8 +37746,8 @@
         "quantity": 1,
         "description": "",
         "asset": {
-          "text": null,
-          "value": null
+          "text": "",
+          "value": ""
         },
         "assetRef": {},
         "rentalUnit": {
@@ -37236,7 +38393,7 @@
     }],
     "assets": [{
       "id": "132",
-      "name": null,
+      "name": "",
       "workorder": {
         "text": "Office Area 1",
         "value": "132"
@@ -37245,8 +38402,8 @@
       "quantity": 1,
       "description": "",
       "asset": {
-        "text": null,
-        "value": null
+        "text": "",
+        "value": ""
       },
       "assetRef": {},
       "rentalUnit": {
@@ -38562,7 +39719,7 @@
       }],
       "assets": [{
         "id": "123",
-        "name": null,
+        "name": "",
         "workorder": {
           "text": "Test Work Order - AC Installation",
           "value": "123"
@@ -38571,8 +39728,8 @@
         "quantity": 4,
         "description": "",
         "asset": {
-          "text": null,
-          "value": null
+          "text": "",
+          "value": ""
         },
         "assetRef": {},
         "rentalUnit": {
@@ -38598,7 +39755,7 @@
         }
       }, {
         "id": "124",
-        "name": null,
+        "name": "",
         "workorder": {
           "text": "Test Work Order - AC Installation",
           "value": "123"
@@ -38607,8 +39764,8 @@
         "quantity": 5,
         "description": "",
         "asset": {
-          "text": null,
-          "value": null
+          "text": "",
+          "value": ""
         },
         "assetRef": {},
         "rentalUnit": {
@@ -38634,7 +39791,7 @@
         }
       }, {
         "id": "125",
-        "name": null,
+        "name": "",
         "workorder": {
           "text": "Test Work Order - AC Installation",
           "value": "123"
@@ -38643,8 +39800,8 @@
         "quantity": 4,
         "description": "",
         "asset": {
-          "text": null,
-          "value": null
+          "text": "",
+          "value": ""
         },
         "assetRef": {},
         "rentalUnit": {
@@ -38670,7 +39827,7 @@
         }
       }, {
         "id": "126",
-        "name": null,
+        "name": "",
         "workorder": {
           "text": "Test Work Order - AC Installation",
           "value": "123"
@@ -38679,8 +39836,8 @@
         "quantity": 5,
         "description": "",
         "asset": {
-          "text": null,
-          "value": null
+          "text": "",
+          "value": ""
         },
         "assetRef": {},
         "rentalUnit": {
@@ -38706,7 +39863,7 @@
         }
       }, {
         "id": "127",
-        "name": null,
+        "name": "",
         "workorder": {
           "text": "Test Work Order - AC Installation",
           "value": "123"
@@ -38715,8 +39872,8 @@
         "quantity": 0,
         "description": "",
         "asset": {
-          "text": null,
-          "value": null
+          "text": "",
+          "value": ""
         },
         "assetRef": {},
         "rentalUnit": {
@@ -38742,7 +39899,7 @@
         }
       }, {
         "id": "128",
-        "name": null,
+        "name": "",
         "workorder": {
           "text": "Test Work Order - AC Installation",
           "value": "123"
@@ -38751,8 +39908,8 @@
         "quantity": 100,
         "description": "",
         "asset": {
-          "text": null,
-          "value": null
+          "text": "",
+          "value": ""
         },
         "assetRef": {},
         "rentalUnit": {
@@ -38778,7 +39935,7 @@
         }
       }, {
         "id": "129",
-        "name": null,
+        "name": "",
         "workorder": {
           "text": "Test Work Order - AC Installation",
           "value": "123"
@@ -38787,8 +39944,8 @@
         "quantity": 20,
         "description": "",
         "asset": {
-          "text": null,
-          "value": null
+          "text": "",
+          "value": ""
         },
         "assetRef": {},
         "rentalUnit": {
@@ -38814,7 +39971,7 @@
         }
       }, {
         "id": "130",
-        "name": null,
+        "name": "",
         "workorder": {
           "text": "Test Work Order - AC Installation",
           "value": "123"
@@ -38823,8 +39980,8 @@
         "quantity": 0,
         "description": "",
         "asset": {
-          "text": null,
-          "value": null
+          "text": "",
+          "value": ""
         },
         "assetRef": {},
         "rentalUnit": {
@@ -38850,7 +40007,7 @@
         }
       }, {
         "id": "131",
-        "name": null,
+        "name": "",
         "workorder": {
           "text": "Test Work Order - AC Installation",
           "value": "123"
@@ -38859,8 +40016,8 @@
         "quantity": 5,
         "description": "",
         "asset": {
-          "text": null,
-          "value": null
+          "text": "",
+          "value": ""
         },
         "assetRef": {},
         "rentalUnit": {
@@ -40117,7 +41274,7 @@
     }],
     "assets": [{
       "id": "130",
-      "name": null,
+      "name": "",
       "workorder": {
         "text": "Test Work Order - AC Installation",
         "value": "123"
@@ -40126,8 +41283,8 @@
       "quantity": 0,
       "description": "",
       "asset": {
-        "text": null,
-        "value": null
+        "text": "",
+        "value": ""
       },
       "assetRef": {},
       "rentalUnit": {
@@ -40479,7 +41636,7 @@
       }],
       "assets": [{
         "id": "123",
-        "name": null,
+        "name": "",
         "workorder": {
           "text": "Test Work Order - AC Installation",
           "value": "123"
@@ -40488,8 +41645,8 @@
         "quantity": 4,
         "description": "",
         "asset": {
-          "text": null,
-          "value": null
+          "text": "",
+          "value": ""
         },
         "assetRef": {},
         "rentalUnit": {
@@ -40515,7 +41672,7 @@
         }
       }, {
         "id": "124",
-        "name": null,
+        "name": "",
         "workorder": {
           "text": "Test Work Order - AC Installation",
           "value": "123"
@@ -40524,8 +41681,8 @@
         "quantity": 5,
         "description": "",
         "asset": {
-          "text": null,
-          "value": null
+          "text": "",
+          "value": ""
         },
         "assetRef": {},
         "rentalUnit": {
@@ -40551,7 +41708,7 @@
         }
       }, {
         "id": "125",
-        "name": null,
+        "name": "",
         "workorder": {
           "text": "Test Work Order - AC Installation",
           "value": "123"
@@ -40560,8 +41717,8 @@
         "quantity": 4,
         "description": "",
         "asset": {
-          "text": null,
-          "value": null
+          "text": "",
+          "value": ""
         },
         "assetRef": {},
         "rentalUnit": {
@@ -40587,7 +41744,7 @@
         }
       }, {
         "id": "126",
-        "name": null,
+        "name": "",
         "workorder": {
           "text": "Test Work Order - AC Installation",
           "value": "123"
@@ -40596,8 +41753,8 @@
         "quantity": 5,
         "description": "",
         "asset": {
-          "text": null,
-          "value": null
+          "text": "",
+          "value": ""
         },
         "assetRef": {},
         "rentalUnit": {
@@ -40623,7 +41780,7 @@
         }
       }, {
         "id": "127",
-        "name": null,
+        "name": "",
         "workorder": {
           "text": "Test Work Order - AC Installation",
           "value": "123"
@@ -40632,8 +41789,8 @@
         "quantity": 0,
         "description": "",
         "asset": {
-          "text": null,
-          "value": null
+          "text": "",
+          "value": ""
         },
         "assetRef": {},
         "rentalUnit": {
@@ -40659,7 +41816,7 @@
         }
       }, {
         "id": "128",
-        "name": null,
+        "name": "",
         "workorder": {
           "text": "Test Work Order - AC Installation",
           "value": "123"
@@ -40668,8 +41825,8 @@
         "quantity": 100,
         "description": "",
         "asset": {
-          "text": null,
-          "value": null
+          "text": "",
+          "value": ""
         },
         "assetRef": {},
         "rentalUnit": {
@@ -40695,7 +41852,7 @@
         }
       }, {
         "id": "129",
-        "name": null,
+        "name": "",
         "workorder": {
           "text": "Test Work Order - AC Installation",
           "value": "123"
@@ -40704,8 +41861,8 @@
         "quantity": 20,
         "description": "",
         "asset": {
-          "text": null,
-          "value": null
+          "text": "",
+          "value": ""
         },
         "assetRef": {},
         "rentalUnit": {
@@ -40731,7 +41888,7 @@
         }
       }, {
         "id": "130",
-        "name": null,
+        "name": "",
         "workorder": {
           "text": "Test Work Order - AC Installation",
           "value": "123"
@@ -40740,8 +41897,8 @@
         "quantity": 0,
         "description": "",
         "asset": {
-          "text": null,
-          "value": null
+          "text": "",
+          "value": ""
         },
         "assetRef": {},
         "rentalUnit": {
@@ -40767,7 +41924,7 @@
         }
       }, {
         "id": "131",
-        "name": null,
+        "name": "",
         "workorder": {
           "text": "Test Work Order - AC Installation",
           "value": "123"
@@ -40776,8 +41933,8 @@
         "quantity": 5,
         "description": "",
         "asset": {
-          "text": null,
-          "value": null
+          "text": "",
+          "value": ""
         },
         "assetRef": {},
         "rentalUnit": {
@@ -41876,7 +43033,7 @@
     }],
     "assets": [{
       "id": "129",
-      "name": null,
+      "name": "",
       "workorder": {
         "text": "Test Work Order - AC Installation",
         "value": "123"
@@ -41885,8 +43042,8 @@
       "quantity": 20,
       "description": "",
       "asset": {
-        "text": null,
-        "value": null
+        "text": "",
+        "value": ""
       },
       "assetRef": {},
       "rentalUnit": {
@@ -42220,7 +43377,7 @@
       }],
       "assets": [{
         "id": "123",
-        "name": null,
+        "name": "",
         "workorder": {
           "text": "Test Work Order - AC Installation",
           "value": "123"
@@ -42229,8 +43386,8 @@
         "quantity": 4,
         "description": "",
         "asset": {
-          "text": null,
-          "value": null
+          "text": "",
+          "value": ""
         },
         "assetRef": {},
         "rentalUnit": {
@@ -42256,7 +43413,7 @@
         }
       }, {
         "id": "124",
-        "name": null,
+        "name": "",
         "workorder": {
           "text": "Test Work Order - AC Installation",
           "value": "123"
@@ -42265,8 +43422,8 @@
         "quantity": 5,
         "description": "",
         "asset": {
-          "text": null,
-          "value": null
+          "text": "",
+          "value": ""
         },
         "assetRef": {},
         "rentalUnit": {
@@ -42292,7 +43449,7 @@
         }
       }, {
         "id": "125",
-        "name": null,
+        "name": "",
         "workorder": {
           "text": "Test Work Order - AC Installation",
           "value": "123"
@@ -42301,8 +43458,8 @@
         "quantity": 4,
         "description": "",
         "asset": {
-          "text": null,
-          "value": null
+          "text": "",
+          "value": ""
         },
         "assetRef": {},
         "rentalUnit": {
@@ -42328,7 +43485,7 @@
         }
       }, {
         "id": "126",
-        "name": null,
+        "name": "",
         "workorder": {
           "text": "Test Work Order - AC Installation",
           "value": "123"
@@ -42337,8 +43494,8 @@
         "quantity": 5,
         "description": "",
         "asset": {
-          "text": null,
-          "value": null
+          "text": "",
+          "value": ""
         },
         "assetRef": {},
         "rentalUnit": {
@@ -42364,7 +43521,7 @@
         }
       }, {
         "id": "127",
-        "name": null,
+        "name": "",
         "workorder": {
           "text": "Test Work Order - AC Installation",
           "value": "123"
@@ -42373,8 +43530,8 @@
         "quantity": 0,
         "description": "",
         "asset": {
-          "text": null,
-          "value": null
+          "text": "",
+          "value": ""
         },
         "assetRef": {},
         "rentalUnit": {
@@ -42400,7 +43557,7 @@
         }
       }, {
         "id": "128",
-        "name": null,
+        "name": "",
         "workorder": {
           "text": "Test Work Order - AC Installation",
           "value": "123"
@@ -42409,8 +43566,8 @@
         "quantity": 100,
         "description": "",
         "asset": {
-          "text": null,
-          "value": null
+          "text": "",
+          "value": ""
         },
         "assetRef": {},
         "rentalUnit": {
@@ -42436,7 +43593,7 @@
         }
       }, {
         "id": "129",
-        "name": null,
+        "name": "",
         "workorder": {
           "text": "Test Work Order - AC Installation",
           "value": "123"
@@ -42445,8 +43602,8 @@
         "quantity": 20,
         "description": "",
         "asset": {
-          "text": null,
-          "value": null
+          "text": "",
+          "value": ""
         },
         "assetRef": {},
         "rentalUnit": {
@@ -42472,7 +43629,7 @@
         }
       }, {
         "id": "130",
-        "name": null,
+        "name": "",
         "workorder": {
           "text": "Test Work Order - AC Installation",
           "value": "123"
@@ -42481,8 +43638,8 @@
         "quantity": 0,
         "description": "",
         "asset": {
-          "text": null,
-          "value": null
+          "text": "",
+          "value": ""
         },
         "assetRef": {},
         "rentalUnit": {
@@ -42508,7 +43665,7 @@
         }
       }, {
         "id": "131",
-        "name": null,
+        "name": "",
         "workorder": {
           "text": "Test Work Order - AC Installation",
           "value": "123"
@@ -42517,8 +43674,8 @@
         "quantity": 5,
         "description": "",
         "asset": {
-          "text": null,
-          "value": null
+          "text": "",
+          "value": ""
         },
         "assetRef": {},
         "rentalUnit": {
@@ -43617,7 +44774,7 @@
     }],
     "assets": [{
       "id": "128",
-      "name": null,
+      "name": "",
       "workorder": {
         "text": "Test Work Order - AC Installation",
         "value": "123"
@@ -43626,8 +44783,8 @@
       "quantity": 100,
       "description": "",
       "asset": {
-        "text": null,
-        "value": null
+        "text": "",
+        "value": ""
       },
       "assetRef": {},
       "rentalUnit": {
@@ -43961,7 +45118,7 @@
       }],
       "assets": [{
         "id": "123",
-        "name": null,
+        "name": "",
         "workorder": {
           "text": "Test Work Order - AC Installation",
           "value": "123"
@@ -43970,8 +45127,8 @@
         "quantity": 4,
         "description": "",
         "asset": {
-          "text": null,
-          "value": null
+          "text": "",
+          "value": ""
         },
         "assetRef": {},
         "rentalUnit": {
@@ -43997,7 +45154,7 @@
         }
       }, {
         "id": "124",
-        "name": null,
+        "name": "",
         "workorder": {
           "text": "Test Work Order - AC Installation",
           "value": "123"
@@ -44006,8 +45163,8 @@
         "quantity": 5,
         "description": "",
         "asset": {
-          "text": null,
-          "value": null
+          "text": "",
+          "value": ""
         },
         "assetRef": {},
         "rentalUnit": {
@@ -44033,7 +45190,7 @@
         }
       }, {
         "id": "125",
-        "name": null,
+        "name": "",
         "workorder": {
           "text": "Test Work Order - AC Installation",
           "value": "123"
@@ -44042,8 +45199,8 @@
         "quantity": 4,
         "description": "",
         "asset": {
-          "text": null,
-          "value": null
+          "text": "",
+          "value": ""
         },
         "assetRef": {},
         "rentalUnit": {
@@ -44069,7 +45226,7 @@
         }
       }, {
         "id": "126",
-        "name": null,
+        "name": "",
         "workorder": {
           "text": "Test Work Order - AC Installation",
           "value": "123"
@@ -44078,8 +45235,8 @@
         "quantity": 5,
         "description": "",
         "asset": {
-          "text": null,
-          "value": null
+          "text": "",
+          "value": ""
         },
         "assetRef": {},
         "rentalUnit": {
@@ -44105,7 +45262,7 @@
         }
       }, {
         "id": "127",
-        "name": null,
+        "name": "",
         "workorder": {
           "text": "Test Work Order - AC Installation",
           "value": "123"
@@ -44114,8 +45271,8 @@
         "quantity": 0,
         "description": "",
         "asset": {
-          "text": null,
-          "value": null
+          "text": "",
+          "value": ""
         },
         "assetRef": {},
         "rentalUnit": {
@@ -44141,7 +45298,7 @@
         }
       }, {
         "id": "128",
-        "name": null,
+        "name": "",
         "workorder": {
           "text": "Test Work Order - AC Installation",
           "value": "123"
@@ -44150,8 +45307,8 @@
         "quantity": 100,
         "description": "",
         "asset": {
-          "text": null,
-          "value": null
+          "text": "",
+          "value": ""
         },
         "assetRef": {},
         "rentalUnit": {
@@ -44177,7 +45334,7 @@
         }
       }, {
         "id": "129",
-        "name": null,
+        "name": "",
         "workorder": {
           "text": "Test Work Order - AC Installation",
           "value": "123"
@@ -44186,8 +45343,8 @@
         "quantity": 20,
         "description": "",
         "asset": {
-          "text": null,
-          "value": null
+          "text": "",
+          "value": ""
         },
         "assetRef": {},
         "rentalUnit": {
@@ -44213,7 +45370,7 @@
         }
       }, {
         "id": "130",
-        "name": null,
+        "name": "",
         "workorder": {
           "text": "Test Work Order - AC Installation",
           "value": "123"
@@ -44222,8 +45379,8 @@
         "quantity": 0,
         "description": "",
         "asset": {
-          "text": null,
-          "value": null
+          "text": "",
+          "value": ""
         },
         "assetRef": {},
         "rentalUnit": {
@@ -44249,7 +45406,7 @@
         }
       }, {
         "id": "131",
-        "name": null,
+        "name": "",
         "workorder": {
           "text": "Test Work Order - AC Installation",
           "value": "123"
@@ -44258,8 +45415,8 @@
         "quantity": 5,
         "description": "",
         "asset": {
-          "text": null,
-          "value": null
+          "text": "",
+          "value": ""
         },
         "assetRef": {},
         "rentalUnit": {
@@ -45220,7 +46377,7 @@
     }],
     "assets": [{
       "id": "136",
-      "name": null,
+      "name": "Truck 1",
       "workorder": {
         "text": "",
         "value": ""
@@ -45229,8 +46386,8 @@
       "quantity": 1,
       "description": "",
       "asset": {
-        "text": null,
-        "value": null
+        "text": "Truck 1",
+        "value": "1"
       },
       "assetRef": {},
       "rentalUnit": {
@@ -45257,7 +46414,7 @@
       "selected": true
     }, {
       "id": "137",
-      "name": null,
+      "name": "Bolts",
       "workorder": {
         "text": "",
         "value": ""
@@ -45266,8 +46423,8 @@
       "quantity": 1,
       "description": "",
       "asset": {
-        "text": null,
-        "value": null
+        "text": "Bolts",
+        "value": "5"
       },
       "assetRef": {},
       "rentalUnit": {
@@ -45601,7 +46758,7 @@
       }],
       "assets": [{
         "id": "123",
-        "name": null,
+        "name": "",
         "workorder": {
           "text": "Test Work Order - AC Installation",
           "value": "123"
@@ -45610,8 +46767,8 @@
         "quantity": 4,
         "description": "",
         "asset": {
-          "text": null,
-          "value": null
+          "text": "",
+          "value": ""
         },
         "assetRef": {},
         "rentalUnit": {
@@ -45637,7 +46794,7 @@
         }
       }, {
         "id": "124",
-        "name": null,
+        "name": "",
         "workorder": {
           "text": "Test Work Order - AC Installation",
           "value": "123"
@@ -45646,8 +46803,8 @@
         "quantity": 5,
         "description": "",
         "asset": {
-          "text": null,
-          "value": null
+          "text": "",
+          "value": ""
         },
         "assetRef": {},
         "rentalUnit": {
@@ -45673,7 +46830,7 @@
         }
       }, {
         "id": "125",
-        "name": null,
+        "name": "",
         "workorder": {
           "text": "Test Work Order - AC Installation",
           "value": "123"
@@ -45682,8 +46839,8 @@
         "quantity": 4,
         "description": "",
         "asset": {
-          "text": null,
-          "value": null
+          "text": "",
+          "value": ""
         },
         "assetRef": {},
         "rentalUnit": {
@@ -45709,7 +46866,7 @@
         }
       }, {
         "id": "126",
-        "name": null,
+        "name": "",
         "workorder": {
           "text": "Test Work Order - AC Installation",
           "value": "123"
@@ -45718,8 +46875,8 @@
         "quantity": 5,
         "description": "",
         "asset": {
-          "text": null,
-          "value": null
+          "text": "",
+          "value": ""
         },
         "assetRef": {},
         "rentalUnit": {
@@ -45745,7 +46902,7 @@
         }
       }, {
         "id": "127",
-        "name": null,
+        "name": "",
         "workorder": {
           "text": "Test Work Order - AC Installation",
           "value": "123"
@@ -45754,8 +46911,8 @@
         "quantity": 0,
         "description": "",
         "asset": {
-          "text": null,
-          "value": null
+          "text": "",
+          "value": ""
         },
         "assetRef": {},
         "rentalUnit": {
@@ -45781,7 +46938,7 @@
         }
       }, {
         "id": "128",
-        "name": null,
+        "name": "",
         "workorder": {
           "text": "Test Work Order - AC Installation",
           "value": "123"
@@ -45790,8 +46947,8 @@
         "quantity": 100,
         "description": "",
         "asset": {
-          "text": null,
-          "value": null
+          "text": "",
+          "value": ""
         },
         "assetRef": {},
         "rentalUnit": {
@@ -45817,7 +46974,7 @@
         }
       }, {
         "id": "129",
-        "name": null,
+        "name": "",
         "workorder": {
           "text": "Test Work Order - AC Installation",
           "value": "123"
@@ -45826,8 +46983,8 @@
         "quantity": 20,
         "description": "",
         "asset": {
-          "text": null,
-          "value": null
+          "text": "",
+          "value": ""
         },
         "assetRef": {},
         "rentalUnit": {
@@ -45853,7 +47010,7 @@
         }
       }, {
         "id": "130",
-        "name": null,
+        "name": "",
         "workorder": {
           "text": "Test Work Order - AC Installation",
           "value": "123"
@@ -45862,8 +47019,8 @@
         "quantity": 0,
         "description": "",
         "asset": {
-          "text": null,
-          "value": null
+          "text": "",
+          "value": ""
         },
         "assetRef": {},
         "rentalUnit": {
@@ -45889,7 +47046,7 @@
         }
       }, {
         "id": "131",
-        "name": null,
+        "name": "",
         "workorder": {
           "text": "Test Work Order - AC Installation",
           "value": "123"
@@ -45898,8 +47055,8 @@
         "quantity": 5,
         "description": "",
         "asset": {
-          "text": null,
-          "value": null
+          "text": "",
+          "value": ""
         },
         "assetRef": {},
         "rentalUnit": {
@@ -46882,7 +48039,7 @@
     "vendors": [],
     "assets": [{
       "id": "131",
-      "name": null,
+      "name": "",
       "workorder": {
         "text": "Test Work Order - AC Installation",
         "value": "123"
@@ -46891,8 +48048,8 @@
       "quantity": 5,
       "description": "",
       "asset": {
-        "text": null,
-        "value": null
+        "text": "",
+        "value": ""
       },
       "assetRef": {},
       "rentalUnit": {
@@ -47244,7 +48401,7 @@
       }],
       "assets": [{
         "id": "123",
-        "name": null,
+        "name": "",
         "workorder": {
           "text": "Test Work Order - AC Installation",
           "value": "123"
@@ -47253,8 +48410,8 @@
         "quantity": 4,
         "description": "",
         "asset": {
-          "text": null,
-          "value": null
+          "text": "",
+          "value": ""
         },
         "assetRef": {},
         "rentalUnit": {
@@ -47280,7 +48437,7 @@
         }
       }, {
         "id": "124",
-        "name": null,
+        "name": "",
         "workorder": {
           "text": "Test Work Order - AC Installation",
           "value": "123"
@@ -47289,8 +48446,8 @@
         "quantity": 5,
         "description": "",
         "asset": {
-          "text": null,
-          "value": null
+          "text": "",
+          "value": ""
         },
         "assetRef": {},
         "rentalUnit": {
@@ -47316,7 +48473,7 @@
         }
       }, {
         "id": "125",
-        "name": null,
+        "name": "",
         "workorder": {
           "text": "Test Work Order - AC Installation",
           "value": "123"
@@ -47325,8 +48482,8 @@
         "quantity": 4,
         "description": "",
         "asset": {
-          "text": null,
-          "value": null
+          "text": "",
+          "value": ""
         },
         "assetRef": {},
         "rentalUnit": {
@@ -47352,7 +48509,7 @@
         }
       }, {
         "id": "126",
-        "name": null,
+        "name": "",
         "workorder": {
           "text": "Test Work Order - AC Installation",
           "value": "123"
@@ -47361,8 +48518,8 @@
         "quantity": 5,
         "description": "",
         "asset": {
-          "text": null,
-          "value": null
+          "text": "",
+          "value": ""
         },
         "assetRef": {},
         "rentalUnit": {
@@ -47388,7 +48545,7 @@
         }
       }, {
         "id": "127",
-        "name": null,
+        "name": "",
         "workorder": {
           "text": "Test Work Order - AC Installation",
           "value": "123"
@@ -47397,8 +48554,8 @@
         "quantity": 0,
         "description": "",
         "asset": {
-          "text": null,
-          "value": null
+          "text": "",
+          "value": ""
         },
         "assetRef": {},
         "rentalUnit": {
@@ -47424,7 +48581,7 @@
         }
       }, {
         "id": "128",
-        "name": null,
+        "name": "",
         "workorder": {
           "text": "Test Work Order - AC Installation",
           "value": "123"
@@ -47433,8 +48590,8 @@
         "quantity": 100,
         "description": "",
         "asset": {
-          "text": null,
-          "value": null
+          "text": "",
+          "value": ""
         },
         "assetRef": {},
         "rentalUnit": {
@@ -47460,7 +48617,7 @@
         }
       }, {
         "id": "129",
-        "name": null,
+        "name": "",
         "workorder": {
           "text": "Test Work Order - AC Installation",
           "value": "123"
@@ -47469,8 +48626,8 @@
         "quantity": 20,
         "description": "",
         "asset": {
-          "text": null,
-          "value": null
+          "text": "",
+          "value": ""
         },
         "assetRef": {},
         "rentalUnit": {
@@ -47496,7 +48653,7 @@
         }
       }, {
         "id": "130",
-        "name": null,
+        "name": "",
         "workorder": {
           "text": "Test Work Order - AC Installation",
           "value": "123"
@@ -47505,8 +48662,8 @@
         "quantity": 0,
         "description": "",
         "asset": {
-          "text": null,
-          "value": null
+          "text": "",
+          "value": ""
         },
         "assetRef": {},
         "rentalUnit": {
@@ -47532,7 +48689,7 @@
         }
       }, {
         "id": "131",
-        "name": null,
+        "name": "",
         "workorder": {
           "text": "Test Work Order - AC Installation",
           "value": "123"
@@ -47541,8 +48698,8 @@
         "quantity": 5,
         "description": "",
         "asset": {
-          "text": null,
-          "value": null
+          "text": "",
+          "value": ""
         },
         "assetRef": {},
         "rentalUnit": {
@@ -48629,7 +49786,7 @@
     "vendors": [],
     "assets": [{
       "id": "126",
-      "name": null,
+      "name": "",
       "workorder": {
         "text": "Test Work Order - AC Installation",
         "value": "123"
@@ -48638,8 +49795,8 @@
       "quantity": 5,
       "description": "",
       "asset": {
-        "text": null,
-        "value": null
+        "text": "",
+        "value": ""
       },
       "assetRef": {},
       "rentalUnit": {
@@ -48991,7 +50148,7 @@
       }],
       "assets": [{
         "id": "123",
-        "name": null,
+        "name": "",
         "workorder": {
           "text": "Test Work Order - AC Installation",
           "value": "123"
@@ -49000,8 +50157,8 @@
         "quantity": 4,
         "description": "",
         "asset": {
-          "text": null,
-          "value": null
+          "text": "",
+          "value": ""
         },
         "assetRef": {},
         "rentalUnit": {
@@ -49027,7 +50184,7 @@
         }
       }, {
         "id": "124",
-        "name": null,
+        "name": "",
         "workorder": {
           "text": "Test Work Order - AC Installation",
           "value": "123"
@@ -49036,8 +50193,8 @@
         "quantity": 5,
         "description": "",
         "asset": {
-          "text": null,
-          "value": null
+          "text": "",
+          "value": ""
         },
         "assetRef": {},
         "rentalUnit": {
@@ -49063,7 +50220,7 @@
         }
       }, {
         "id": "125",
-        "name": null,
+        "name": "",
         "workorder": {
           "text": "Test Work Order - AC Installation",
           "value": "123"
@@ -49072,8 +50229,8 @@
         "quantity": 4,
         "description": "",
         "asset": {
-          "text": null,
-          "value": null
+          "text": "",
+          "value": ""
         },
         "assetRef": {},
         "rentalUnit": {
@@ -49099,7 +50256,7 @@
         }
       }, {
         "id": "126",
-        "name": null,
+        "name": "",
         "workorder": {
           "text": "Test Work Order - AC Installation",
           "value": "123"
@@ -49108,8 +50265,8 @@
         "quantity": 5,
         "description": "",
         "asset": {
-          "text": null,
-          "value": null
+          "text": "",
+          "value": ""
         },
         "assetRef": {},
         "rentalUnit": {
@@ -49135,7 +50292,7 @@
         }
       }, {
         "id": "127",
-        "name": null,
+        "name": "",
         "workorder": {
           "text": "Test Work Order - AC Installation",
           "value": "123"
@@ -49144,8 +50301,8 @@
         "quantity": 0,
         "description": "",
         "asset": {
-          "text": null,
-          "value": null
+          "text": "",
+          "value": ""
         },
         "assetRef": {},
         "rentalUnit": {
@@ -49171,7 +50328,7 @@
         }
       }, {
         "id": "128",
-        "name": null,
+        "name": "",
         "workorder": {
           "text": "Test Work Order - AC Installation",
           "value": "123"
@@ -49180,8 +50337,8 @@
         "quantity": 100,
         "description": "",
         "asset": {
-          "text": null,
-          "value": null
+          "text": "",
+          "value": ""
         },
         "assetRef": {},
         "rentalUnit": {
@@ -49207,7 +50364,7 @@
         }
       }, {
         "id": "129",
-        "name": null,
+        "name": "",
         "workorder": {
           "text": "Test Work Order - AC Installation",
           "value": "123"
@@ -49216,8 +50373,8 @@
         "quantity": 20,
         "description": "",
         "asset": {
-          "text": null,
-          "value": null
+          "text": "",
+          "value": ""
         },
         "assetRef": {},
         "rentalUnit": {
@@ -49243,7 +50400,7 @@
         }
       }, {
         "id": "130",
-        "name": null,
+        "name": "",
         "workorder": {
           "text": "Test Work Order - AC Installation",
           "value": "123"
@@ -49252,8 +50409,8 @@
         "quantity": 0,
         "description": "",
         "asset": {
-          "text": null,
-          "value": null
+          "text": "",
+          "value": ""
         },
         "assetRef": {},
         "rentalUnit": {
@@ -49279,7 +50436,7 @@
         }
       }, {
         "id": "131",
-        "name": null,
+        "name": "",
         "workorder": {
           "text": "Test Work Order - AC Installation",
           "value": "123"
@@ -49288,8 +50445,8 @@
         "quantity": 5,
         "description": "",
         "asset": {
-          "text": null,
-          "value": null
+          "text": "",
+          "value": ""
         },
         "assetRef": {},
         "rentalUnit": {
@@ -50220,7 +51377,7 @@
     "vendors": [],
     "assets": [{
       "id": "125",
-      "name": null,
+      "name": "",
       "workorder": {
         "text": "Test Work Order - AC Installation",
         "value": "123"
@@ -50229,8 +51386,8 @@
       "quantity": 4,
       "description": "",
       "asset": {
-        "text": null,
-        "value": null
+        "text": "",
+        "value": ""
       },
       "assetRef": {},
       "rentalUnit": {
@@ -50582,7 +51739,7 @@
       }],
       "assets": [{
         "id": "123",
-        "name": null,
+        "name": "",
         "workorder": {
           "text": "Test Work Order - AC Installation",
           "value": "123"
@@ -50591,8 +51748,8 @@
         "quantity": 4,
         "description": "",
         "asset": {
-          "text": null,
-          "value": null
+          "text": "",
+          "value": ""
         },
         "assetRef": {},
         "rentalUnit": {
@@ -50618,7 +51775,7 @@
         }
       }, {
         "id": "124",
-        "name": null,
+        "name": "",
         "workorder": {
           "text": "Test Work Order - AC Installation",
           "value": "123"
@@ -50627,8 +51784,8 @@
         "quantity": 5,
         "description": "",
         "asset": {
-          "text": null,
-          "value": null
+          "text": "",
+          "value": ""
         },
         "assetRef": {},
         "rentalUnit": {
@@ -50654,7 +51811,7 @@
         }
       }, {
         "id": "125",
-        "name": null,
+        "name": "",
         "workorder": {
           "text": "Test Work Order - AC Installation",
           "value": "123"
@@ -50663,8 +51820,8 @@
         "quantity": 4,
         "description": "",
         "asset": {
-          "text": null,
-          "value": null
+          "text": "",
+          "value": ""
         },
         "assetRef": {},
         "rentalUnit": {
@@ -50690,7 +51847,7 @@
         }
       }, {
         "id": "126",
-        "name": null,
+        "name": "",
         "workorder": {
           "text": "Test Work Order - AC Installation",
           "value": "123"
@@ -50699,8 +51856,8 @@
         "quantity": 5,
         "description": "",
         "asset": {
-          "text": null,
-          "value": null
+          "text": "",
+          "value": ""
         },
         "assetRef": {},
         "rentalUnit": {
@@ -50726,7 +51883,7 @@
         }
       }, {
         "id": "127",
-        "name": null,
+        "name": "",
         "workorder": {
           "text": "Test Work Order - AC Installation",
           "value": "123"
@@ -50735,8 +51892,8 @@
         "quantity": 0,
         "description": "",
         "asset": {
-          "text": null,
-          "value": null
+          "text": "",
+          "value": ""
         },
         "assetRef": {},
         "rentalUnit": {
@@ -50762,7 +51919,7 @@
         }
       }, {
         "id": "128",
-        "name": null,
+        "name": "",
         "workorder": {
           "text": "Test Work Order - AC Installation",
           "value": "123"
@@ -50771,8 +51928,8 @@
         "quantity": 100,
         "description": "",
         "asset": {
-          "text": null,
-          "value": null
+          "text": "",
+          "value": ""
         },
         "assetRef": {},
         "rentalUnit": {
@@ -50798,7 +51955,7 @@
         }
       }, {
         "id": "129",
-        "name": null,
+        "name": "",
         "workorder": {
           "text": "Test Work Order - AC Installation",
           "value": "123"
@@ -50807,8 +51964,8 @@
         "quantity": 20,
         "description": "",
         "asset": {
-          "text": null,
-          "value": null
+          "text": "",
+          "value": ""
         },
         "assetRef": {},
         "rentalUnit": {
@@ -50834,7 +51991,7 @@
         }
       }, {
         "id": "130",
-        "name": null,
+        "name": "",
         "workorder": {
           "text": "Test Work Order - AC Installation",
           "value": "123"
@@ -50843,8 +52000,8 @@
         "quantity": 0,
         "description": "",
         "asset": {
-          "text": null,
-          "value": null
+          "text": "",
+          "value": ""
         },
         "assetRef": {},
         "rentalUnit": {
@@ -50870,7 +52027,7 @@
         }
       }, {
         "id": "131",
-        "name": null,
+        "name": "",
         "workorder": {
           "text": "Test Work Order - AC Installation",
           "value": "123"
@@ -50879,8 +52036,8 @@
         "quantity": 5,
         "description": "",
         "asset": {
-          "text": null,
-          "value": null
+          "text": "",
+          "value": ""
         },
         "assetRef": {},
         "rentalUnit": {
@@ -51811,7 +52968,7 @@
     "vendors": [],
     "assets": [{
       "id": "124",
-      "name": null,
+      "name": "",
       "workorder": {
         "text": "Test Work Order - AC Installation",
         "value": "123"
@@ -51820,8 +52977,8 @@
       "quantity": 5,
       "description": "",
       "asset": {
-        "text": null,
-        "value": null
+        "text": "",
+        "value": ""
       },
       "assetRef": {},
       "rentalUnit": {
@@ -52173,7 +53330,7 @@
       }],
       "assets": [{
         "id": "123",
-        "name": null,
+        "name": "",
         "workorder": {
           "text": "Test Work Order - AC Installation",
           "value": "123"
@@ -52182,8 +53339,8 @@
         "quantity": 4,
         "description": "",
         "asset": {
-          "text": null,
-          "value": null
+          "text": "",
+          "value": ""
         },
         "assetRef": {},
         "rentalUnit": {
@@ -52209,7 +53366,7 @@
         }
       }, {
         "id": "124",
-        "name": null,
+        "name": "",
         "workorder": {
           "text": "Test Work Order - AC Installation",
           "value": "123"
@@ -52218,8 +53375,8 @@
         "quantity": 5,
         "description": "",
         "asset": {
-          "text": null,
-          "value": null
+          "text": "",
+          "value": ""
         },
         "assetRef": {},
         "rentalUnit": {
@@ -52245,7 +53402,7 @@
         }
       }, {
         "id": "125",
-        "name": null,
+        "name": "",
         "workorder": {
           "text": "Test Work Order - AC Installation",
           "value": "123"
@@ -52254,8 +53411,8 @@
         "quantity": 4,
         "description": "",
         "asset": {
-          "text": null,
-          "value": null
+          "text": "",
+          "value": ""
         },
         "assetRef": {},
         "rentalUnit": {
@@ -52281,7 +53438,7 @@
         }
       }, {
         "id": "126",
-        "name": null,
+        "name": "",
         "workorder": {
           "text": "Test Work Order - AC Installation",
           "value": "123"
@@ -52290,8 +53447,8 @@
         "quantity": 5,
         "description": "",
         "asset": {
-          "text": null,
-          "value": null
+          "text": "",
+          "value": ""
         },
         "assetRef": {},
         "rentalUnit": {
@@ -52317,7 +53474,7 @@
         }
       }, {
         "id": "127",
-        "name": null,
+        "name": "",
         "workorder": {
           "text": "Test Work Order - AC Installation",
           "value": "123"
@@ -52326,8 +53483,8 @@
         "quantity": 0,
         "description": "",
         "asset": {
-          "text": null,
-          "value": null
+          "text": "",
+          "value": ""
         },
         "assetRef": {},
         "rentalUnit": {
@@ -52353,7 +53510,7 @@
         }
       }, {
         "id": "128",
-        "name": null,
+        "name": "",
         "workorder": {
           "text": "Test Work Order - AC Installation",
           "value": "123"
@@ -52362,8 +53519,8 @@
         "quantity": 100,
         "description": "",
         "asset": {
-          "text": null,
-          "value": null
+          "text": "",
+          "value": ""
         },
         "assetRef": {},
         "rentalUnit": {
@@ -52389,7 +53546,7 @@
         }
       }, {
         "id": "129",
-        "name": null,
+        "name": "",
         "workorder": {
           "text": "Test Work Order - AC Installation",
           "value": "123"
@@ -52398,8 +53555,8 @@
         "quantity": 20,
         "description": "",
         "asset": {
-          "text": null,
-          "value": null
+          "text": "",
+          "value": ""
         },
         "assetRef": {},
         "rentalUnit": {
@@ -52425,7 +53582,7 @@
         }
       }, {
         "id": "130",
-        "name": null,
+        "name": "",
         "workorder": {
           "text": "Test Work Order - AC Installation",
           "value": "123"
@@ -52434,8 +53591,8 @@
         "quantity": 0,
         "description": "",
         "asset": {
-          "text": null,
-          "value": null
+          "text": "",
+          "value": ""
         },
         "assetRef": {},
         "rentalUnit": {
@@ -52461,7 +53618,7 @@
         }
       }, {
         "id": "131",
-        "name": null,
+        "name": "",
         "workorder": {
           "text": "Test Work Order - AC Installation",
           "value": "123"
@@ -52470,8 +53627,8 @@
         "quantity": 5,
         "description": "",
         "asset": {
-          "text": null,
-          "value": null
+          "text": "",
+          "value": ""
         },
         "assetRef": {},
         "rentalUnit": {
@@ -53768,7 +54925,7 @@
       }],
       "assets": [{
         "id": "123",
-        "name": null,
+        "name": "",
         "workorder": {
           "text": "Test Work Order - AC Installation",
           "value": "123"
@@ -53777,8 +54934,8 @@
         "quantity": 4,
         "description": "",
         "asset": {
-          "text": null,
-          "value": null
+          "text": "",
+          "value": ""
         },
         "assetRef": {},
         "rentalUnit": {
@@ -53804,7 +54961,7 @@
         }
       }, {
         "id": "124",
-        "name": null,
+        "name": "",
         "workorder": {
           "text": "Test Work Order - AC Installation",
           "value": "123"
@@ -53813,8 +54970,8 @@
         "quantity": 5,
         "description": "",
         "asset": {
-          "text": null,
-          "value": null
+          "text": "",
+          "value": ""
         },
         "assetRef": {},
         "rentalUnit": {
@@ -53840,7 +54997,7 @@
         }
       }, {
         "id": "125",
-        "name": null,
+        "name": "",
         "workorder": {
           "text": "Test Work Order - AC Installation",
           "value": "123"
@@ -53849,8 +55006,8 @@
         "quantity": 4,
         "description": "",
         "asset": {
-          "text": null,
-          "value": null
+          "text": "",
+          "value": ""
         },
         "assetRef": {},
         "rentalUnit": {
@@ -53876,7 +55033,7 @@
         }
       }, {
         "id": "126",
-        "name": null,
+        "name": "",
         "workorder": {
           "text": "Test Work Order - AC Installation",
           "value": "123"
@@ -53885,8 +55042,8 @@
         "quantity": 5,
         "description": "",
         "asset": {
-          "text": null,
-          "value": null
+          "text": "",
+          "value": ""
         },
         "assetRef": {},
         "rentalUnit": {
@@ -53912,7 +55069,7 @@
         }
       }, {
         "id": "127",
-        "name": null,
+        "name": "",
         "workorder": {
           "text": "Test Work Order - AC Installation",
           "value": "123"
@@ -53921,8 +55078,8 @@
         "quantity": 0,
         "description": "",
         "asset": {
-          "text": null,
-          "value": null
+          "text": "",
+          "value": ""
         },
         "assetRef": {},
         "rentalUnit": {
@@ -53948,7 +55105,7 @@
         }
       }, {
         "id": "128",
-        "name": null,
+        "name": "",
         "workorder": {
           "text": "Test Work Order - AC Installation",
           "value": "123"
@@ -53957,8 +55114,8 @@
         "quantity": 100,
         "description": "",
         "asset": {
-          "text": null,
-          "value": null
+          "text": "",
+          "value": ""
         },
         "assetRef": {},
         "rentalUnit": {
@@ -53984,7 +55141,7 @@
         }
       }, {
         "id": "129",
-        "name": null,
+        "name": "",
         "workorder": {
           "text": "Test Work Order - AC Installation",
           "value": "123"
@@ -53993,8 +55150,8 @@
         "quantity": 20,
         "description": "",
         "asset": {
-          "text": null,
-          "value": null
+          "text": "",
+          "value": ""
         },
         "assetRef": {},
         "rentalUnit": {
@@ -54020,7 +55177,7 @@
         }
       }, {
         "id": "130",
-        "name": null,
+        "name": "",
         "workorder": {
           "text": "Test Work Order - AC Installation",
           "value": "123"
@@ -54029,8 +55186,8 @@
         "quantity": 0,
         "description": "",
         "asset": {
-          "text": null,
-          "value": null
+          "text": "",
+          "value": ""
         },
         "assetRef": {},
         "rentalUnit": {
@@ -54056,7 +55213,7 @@
         }
       }, {
         "id": "131",
-        "name": null,
+        "name": "",
         "workorder": {
           "text": "Test Work Order - AC Installation",
           "value": "123"
@@ -54065,8 +55222,8 @@
         "quantity": 5,
         "description": "",
         "asset": {
-          "text": null,
-          "value": null
+          "text": "",
+          "value": ""
         },
         "assetRef": {},
         "rentalUnit": {
@@ -59448,709 +60605,6 @@
       "text": "Lean  cendana",
       "value": "1765"
     }
-  }, {
-    "id": "101056",
-    "title": "Furniture Installation",
-    "workorder": {
-      "text": "Furniture Installation",
-      "value": "119"
-    },
-    "location": "",
-    "status": {
-      "text": "Tentative",
-      "value": "TENTATIVE",
-      "code": "bg-secondary"
-    },
-    "date": {
-      "recurrence": "occurs every day from 11/27/2024 until 11/28/2024",
-      "dates": ["11/27/2024", "11/28/2024"],
-      "start": "2024-11-27",
-      "end": "2024-11-28"
-    },
-    "time": {
-      "start": "08:00",
-      "end": "18:00"
-    },
-    "priority": {
-      "text": "Low",
-      "value": "1",
-      "code": "#026adf"
-    },
-    "note": "",
-    "url": "/app/crm/calendar/event.nl?id=101056&compid=TSTDRV2617106&selectedtab=custom337",
-    "color": "#1a6756",
-    "woRef": {
-      "id": "119",
-      "name": "Furniture Installation",
-      "title": "Furniture Installation",
-      "project": {
-        "text": "World Bank : World Bank Office Furniture Installation",
-        "value": "1515"
-      },
-      "date": "11/12/2024",
-      "status": {
-        "text": "Completed",
-        "value": "4",
-        "code": "#28a745"
-      },
-      "type": {
-        "text": "Service",
-        "value": "2"
-      },
-      "memo": "<ol><li>- **Review Furniture Layout Plans**: Confirm placement and orientation according to layout plans before beginning installation.</li><li>- **Unpack and Inventory Parts**: Carefully unpack each item and inventory all parts and hardware to ensure nothing is missing.</li><li>- **Organize Tools and Hardware**: Set up necessary tools (e.g., screwdriver, drill, wrench) and organize hardware for easy access during installation.</li><li>- **Assemble Base Components First**: Start by assembling the base or foundational components, such as legs or frames, ensuring they are stable and level.</li><li>- **Secure Structural Pieces**: Attach any primary structural pieces (e.g., tabletops, seat bases) to the base, following manufacturer instructions closely.</li><li>- **Install Secondary Components**: Add any secondary components, such as drawers, shelves, or panels, making sure they are properly aligned and secure.</li><li>- **Tighten All Screws and Bolts**: Go over all screws, bolts, and connectors to ensure everything is tightly secured and stable.</li><li>- **Check for Stability and Leveling**: Test the furniture for stability and make any necessary adjustments to ensure it is level.</li><li>- **Attach Accessories or Finishing Pieces**: Add finishing touches like knobs, covers, or cushions according to specifications.</li><li>- **Final Inspection**: Conduct a final inspection to ensure that all parts are securely assembled, aligned, and free of damage. Clean the area and remove any debris or packaging.</li></ol>",
-      "salesorder": {
-        "text": "Sales Order #SLS00000785",
-        "value": "20917"
-      },
-      "customer": {
-        "text": "World Bank",
-        "value": "1249"
-      },
-      "resourceGroup": {
-        "text": "",
-        "value": ""
-      },
-      "priority": "",
-      "resources": [],
-      "vendors": [{
-        "id": "181",
-        "name": "Best Fixture, Inc.",
-        "vendor": {
-          "text": "Best Fixture, Inc.",
-          "value": "12"
-        },
-        "url": "",
-        "email": "",
-        "initials": "BF",
-        "workorder": {
-          "text": "Furniture Installation",
-          "value": "119"
-        },
-        "event": "101056",
-        "quantityRequired": 5,
-        "quantityAvailable": 0,
-        "purchaseOrder": {
-          "text": " ",
-          "value": ""
-        },
-        "amount": 0,
-        "active": false,
-        "woVendor": true,
-        "memo": "",
-        "time": {
-          "start": "",
-          "end": ""
-        }
-      }, {
-        "id": "183",
-        "name": "CFI Furniture Inc.",
-        "vendor": {
-          "text": "CFI Furniture Inc.",
-          "value": "1661"
-        },
-        "url": "",
-        "email": "login+plural@erpsuccesspartners.com",
-        "initials": "CF",
-        "workorder": {
-          "text": "Furniture Installation",
-          "value": "119"
-        },
-        "event": "101060",
-        "quantityRequired": 2,
-        "quantityAvailable": 0,
-        "purchaseOrder": {
-          "text": " ",
-          "value": ""
-        },
-        "amount": 0,
-        "active": false,
-        "woVendor": true,
-        "memo": "",
-        "time": {
-          "start": "",
-          "end": ""
-        }
-      }],
-      "assets": [],
-      "items": [{
-        "id": "522",
-        "workorder": {
-          "text": "Furniture Installation",
-          "value": "119"
-        },
-        "salesorder": {
-          "text": "Sales Order #SLS00000785",
-          "value": "20917"
-        },
-        "event": "101052",
-        "uuid": "20917_1",
-        "line": "1",
-        "item": {
-          "text": "BIC00008",
-          "value": "467"
-        },
-        "description": "Head Master Chair",
-        "quantity": 5,
-        "availableQty": 5,
-        "note": "",
-        "quantityReceived": 56
-      }, {
-        "id": "523",
-        "workorder": {
-          "text": "Furniture Installation",
-          "value": "119"
-        },
-        "salesorder": {
-          "text": "Sales Order #SLS00000785",
-          "value": "20917"
-        },
-        "event": "101052",
-        "uuid": "20917_2",
-        "line": "2",
-        "item": {
-          "text": "BIC00008",
-          "value": "467"
-        },
-        "description": "Diana Chair",
-        "quantity": 5,
-        "availableQty": 5,
-        "note": "",
-        "quantityReceived": 56
-      }, {
-        "id": "524",
-        "workorder": {
-          "text": "Furniture Installation",
-          "value": "119"
-        },
-        "salesorder": {
-          "text": "Sales Order #SLS00000785",
-          "value": "20917"
-        },
-        "event": "101052",
-        "uuid": "20917_3",
-        "line": "3",
-        "item": {
-          "text": "BIC00008",
-          "value": "467"
-        },
-        "description": "Working Table",
-        "quantity": 5,
-        "availableQty": 5,
-        "note": "",
-        "quantityReceived": 56
-      }, {
-        "id": "525",
-        "workorder": {
-          "text": "Furniture Installation",
-          "value": "119"
-        },
-        "salesorder": {
-          "text": "Sales Order #SLS00000785",
-          "value": "20917"
-        },
-        "event": "101052",
-        "uuid": "20917_4",
-        "line": "4",
-        "item": {
-          "text": "BIC00008",
-          "value": "467"
-        },
-        "description": "Technology Table",
-        "quantity": 5,
-        "availableQty": 5,
-        "note": "",
-        "quantityReceived": 56
-      }, {
-        "id": "535",
-        "workorder": {
-          "text": "Furniture Installation",
-          "value": "119"
-        },
-        "salesorder": {
-          "text": "Sales Order #SLS00000785",
-          "value": "20917"
-        },
-        "event": "101060",
-        "uuid": "20917_2",
-        "line": "2",
-        "item": {
-          "text": "BIC00008",
-          "value": "467"
-        },
-        "description": "Diana Chair",
-        "quantity": 5,
-        "availableQty": 5,
-        "note": "",
-        "quantityReceived": 56
-      }, {
-        "id": "536",
-        "workorder": {
-          "text": "Furniture Installation",
-          "value": "119"
-        },
-        "salesorder": {
-          "text": "Sales Order #SLS00000785",
-          "value": "20917"
-        },
-        "event": "101060",
-        "uuid": "20917_3",
-        "line": "3",
-        "item": {
-          "text": "BIC00008",
-          "value": "467"
-        },
-        "description": "Working Table",
-        "quantity": 5,
-        "availableQty": 5,
-        "note": "",
-        "quantityReceived": 56
-      }, {
-        "id": "518",
-        "workorder": {
-          "text": "Furniture Installation",
-          "value": "119"
-        },
-        "salesorder": {
-          "text": "Sales Order #SLS00000785",
-          "value": "20917"
-        },
-        "event": "",
-        "uuid": "20917_1",
-        "line": "1",
-        "item": {
-          "text": "BIC00008",
-          "value": "467"
-        },
-        "description": "Head Master Chair",
-        "quantity": 5,
-        "availableQty": 5,
-        "note": "",
-        "quantityReceived": 56
-      }, {
-        "id": "519",
-        "workorder": {
-          "text": "Furniture Installation",
-          "value": "119"
-        },
-        "salesorder": {
-          "text": "Sales Order #SLS00000785",
-          "value": "20917"
-        },
-        "event": "",
-        "uuid": "20917_2",
-        "line": "2",
-        "item": {
-          "text": "BIC00008",
-          "value": "467"
-        },
-        "description": "Diana Chair",
-        "quantity": 5,
-        "availableQty": 5,
-        "note": "",
-        "quantityReceived": 56
-      }, {
-        "id": "520",
-        "workorder": {
-          "text": "Furniture Installation",
-          "value": "119"
-        },
-        "salesorder": {
-          "text": "Sales Order #SLS00000785",
-          "value": "20917"
-        },
-        "event": "",
-        "uuid": "20917_3",
-        "line": "3",
-        "item": {
-          "text": "BIC00008",
-          "value": "467"
-        },
-        "description": "Working Table",
-        "quantity": 5,
-        "availableQty": 5,
-        "note": "",
-        "quantityReceived": 56
-      }, {
-        "id": "521",
-        "workorder": {
-          "text": "Furniture Installation",
-          "value": "119"
-        },
-        "salesorder": {
-          "text": "Sales Order #SLS00000785",
-          "value": "20917"
-        },
-        "event": "",
-        "uuid": "20917_4",
-        "line": "4",
-        "item": {
-          "text": "BIC00008",
-          "value": "467"
-        },
-        "description": "Technology Table",
-        "quantity": 5,
-        "availableQty": 5,
-        "note": "",
-        "quantityReceived": 56
-      }],
-      "addresses": [{
-        "id": "197",
-        "workorder": {
-          "text": "Furniture Installation",
-          "value": "119"
-        },
-        "customer": {
-          "text": "World Bank",
-          "value": "1249"
-        },
-        "events": ["101052", "101060"],
-        "address": {
-          "text": "434 Carlaw",
-          "value": "244878"
-        },
-        "addressDetails": "434 Carlaw Road<br/>Los Angeles NY 12412<br/>United States",
-        "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
-      }, {
-        "id": "198",
-        "workorder": {
-          "text": "Furniture Installation",
-          "value": "119"
-        },
-        "customer": {
-          "text": "World Bank",
-          "value": "1249"
-        },
-        "events": ["101056", "101060"],
-        "address": {
-          "text": "12 Carlton Av",
-          "value": "245148"
-        },
-        "addressDetails": "12 Carlton Ave<br/>San Francisco CA 1241<br/>United States",
-        "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
-      }, {
-        "id": "199",
-        "workorder": {
-          "text": "Furniture Installation",
-          "value": "119"
-        },
-        "customer": {
-          "text": "World Bank",
-          "value": "1249"
-        },
-        "events": ["101056", "101060"],
-        "address": {
-          "text": "54 Tale",
-          "value": "245152"
-        },
-        "addressDetails": "54 Tale AV<br/>Akron OH 123123<br/>United States",
-        "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
-      }],
-      "contacts": [{
-        "id": "158",
-        "workorder": {
-          "text": "Furniture Installation",
-          "value": "119"
-        },
-        "events": ["101052", "101060"],
-        "event": "101052",
-        "contact": {
-          "text": "World Bank : Chad Bass",
-          "value": "1382"
-        },
-        "name": "Chad Bass",
-        "email": "cbass@worldbank.com",
-        "jobTitle": "President",
-        "mobilePhone": "",
-        "phone": "",
-        "primary": false,
-        "url": "/app/common/entity/contact.nl?id=1382&compid=TSTDRV2617106"
-      }, {
-        "id": "159",
-        "workorder": {
-          "text": "Furniture Installation",
-          "value": "119"
-        },
-        "events": ["101052", "101060"],
-        "event": "101052",
-        "contact": {
-          "text": "World Bank : Jim Carrey",
-          "value": "2041"
-        },
-        "name": "Jim Carrey",
-        "email": "jcarrery@worldbank.com",
-        "jobTitle": "Administrative Manager",
-        "mobilePhone": "",
-        "phone": "",
-        "primary": false,
-        "url": "/app/common/entity/contact.nl?id=2041&compid=TSTDRV2617106"
-      }, {
-        "id": "160",
-        "workorder": {
-          "text": "Furniture Installation",
-          "value": "119"
-        },
-        "events": ["101052", "101060"],
-        "event": "101052",
-        "contact": {
-          "text": "World Bank : John Smith",
-          "value": "1892"
-        },
-        "name": "John Smith",
-        "email": "jc@erpsuccesspartners.com",
-        "jobTitle": "Logistics",
-        "mobilePhone": "",
-        "phone": "",
-        "primary": true,
-        "url": "/app/common/entity/contact.nl?id=1892&compid=TSTDRV2617106"
-      }],
-      "events": [{
-        "id": "101060",
-        "title": "Furniture Installation",
-        "workorder": {
-          "text": "Furniture Installation",
-          "value": "119"
-        },
-        "location": "",
-        "status": {
-          "text": "Tentative",
-          "value": "TENTATIVE",
-          "code": "bg-secondary"
-        },
-        "date": {
-          "recurrence": "occurs every day from 12/10/2024 until 12/13/2024",
-          "dates": ["12/10/2024", "12/13/2024"],
-          "start": "2024-12-10",
-          "end": "2024-12-13"
-        },
-        "time": {
-          "start": "08:00",
-          "end": "21:00"
-        },
-        "priority": {
-          "text": "Low",
-          "value": "1",
-          "code": "#026adf"
-        },
-        "note": "",
-        "url": "/app/crm/calendar/event.nl?id=101060&compid=TSTDRV2617106&selectedtab=custom337",
-        "color": "#1a6756",
-        "woRef": {},
-        "resources": [],
-        "vendors": [],
-        "assets": [],
-        "items": [],
-        "contacts": [],
-        "addresses": [],
-        "contact": {
-          "text": "159",
-          "value": "159"
-        },
-        "address": {
-          "text": "198",
-          "value": "198"
-        },
-        "organizer": {
-          "text": "Raymund Dejasco",
-          "value": "1651"
-        }
-      }, {
-        "id": "101056",
-        "title": "Furniture Installation",
-        "workorder": {
-          "text": "Furniture Installation",
-          "value": "119"
-        },
-        "location": "",
-        "status": {
-          "text": "Tentative",
-          "value": "TENTATIVE",
-          "code": "bg-secondary"
-        },
-        "date": {
-          "recurrence": "occurs every day from 11/27/2024 until 11/28/2024",
-          "dates": ["11/27/2024", "11/28/2024"],
-          "start": "2024-11-27",
-          "end": "2024-11-28"
-        },
-        "time": {
-          "start": "08:00",
-          "end": "18:00"
-        },
-        "priority": {
-          "text": "Low",
-          "value": "1",
-          "code": "#026adf"
-        },
-        "note": "",
-        "url": "/app/crm/calendar/event.nl?id=101056&compid=TSTDRV2617106&selectedtab=custom337",
-        "color": "#1a6756",
-        "woRef": {},
-        "resources": [],
-        "vendors": [],
-        "assets": [],
-        "items": [],
-        "contacts": [],
-        "addresses": [],
-        "contact": {
-          "text": "",
-          "value": ""
-        },
-        "address": {
-          "text": "",
-          "value": ""
-        },
-        "organizer": {
-          "text": "Lean  cendana",
-          "value": "1765"
-        }
-      }, {
-        "id": "101052",
-        "title": "Furniture Installation - Punch",
-        "workorder": {
-          "text": "Furniture Installation",
-          "value": "119"
-        },
-        "location": "",
-        "status": {
-          "text": "Tentative",
-          "value": "TENTATIVE",
-          "code": "bg-secondary"
-        },
-        "date": {
-          "recurrence": "one time event on 11/13/2024",
-          "dates": ["11/13/2024"],
-          "start": "2024-11-13",
-          "end": "2024-11-13"
-        },
-        "time": {
-          "start": "08:00",
-          "end": "18:00"
-        },
-        "priority": {
-          "text": "High",
-          "value": "3",
-          "code": "#ca6621"
-        },
-        "note": "Furniture Installation",
-        "url": "/app/crm/calendar/event.nl?id=101052&compid=TSTDRV2617106&selectedtab=custom337",
-        "color": "#1a6756",
-        "woRef": {},
-        "resources": [],
-        "vendors": [],
-        "assets": [],
-        "items": [],
-        "contacts": [],
-        "addresses": [],
-        "contact": {
-          "text": "",
-          "value": ""
-        },
-        "address": {
-          "text": "",
-          "value": ""
-        },
-        "organizer": {
-          "text": "Arun Sharma",
-          "value": "1770"
-        }
-      }],
-      "projectUrl": "/app/accounting/project/project.nl?id=1515&compid=TSTDRV2617106",
-      "woUrl": "/app/common/custom/custrecordentry.nl?rectype=838&id=119&compid=TSTDRV2617106",
-      "soUrl": "/app/accounting/transactions/salesord.nl?id=20917&compid=TSTDRV2617106",
-      "esthours": "10",
-      "location": {
-        "text": "",
-        "value": ""
-      },
-      "receiptStatus": {
-        "text": "",
-        "value": ""
-      }
-    },
-    "resources": [],
-    "vendors": [{
-      "id": "181",
-      "name": "Best Fixture, Inc.",
-      "vendor": {
-        "text": "Best Fixture, Inc.",
-        "value": "12"
-      },
-      "url": "",
-      "email": "",
-      "initials": "BF",
-      "workorder": {
-        "text": "Furniture Installation",
-        "value": "119"
-      },
-      "event": "101056",
-      "quantityRequired": 5,
-      "quantityAvailable": 0,
-      "purchaseOrder": {
-        "text": " ",
-        "value": ""
-      },
-      "amount": 0,
-      "active": false,
-      "woVendor": true,
-      "memo": "",
-      "time": {
-        "start": "",
-        "end": ""
-      },
-      "selected": true
-    }],
-    "assets": [],
-    "items": [],
-    "contacts": [],
-    "addresses": [{
-      "id": "198",
-      "workorder": {
-        "text": "Furniture Installation",
-        "value": "119"
-      },
-      "customer": {
-        "text": "World Bank",
-        "value": "1249"
-      },
-      "events": ["101056", "101060"],
-      "address": {
-        "text": "12 Carlton Av",
-        "value": "245148"
-      },
-      "addressDetails": "12 Carlton Ave<br/>San Francisco CA 1241<br/>United States",
-      "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106",
-      "selected": true
-    }, {
-      "id": "199",
-      "workorder": {
-        "text": "Furniture Installation",
-        "value": "119"
-      },
-      "customer": {
-        "text": "World Bank",
-        "value": "1249"
-      },
-      "events": ["101056", "101060"],
-      "address": {
-        "text": "54 Tale",
-        "value": "245152"
-      },
-      "addressDetails": "54 Tale AV<br/>Akron OH 123123<br/>United States",
-      "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106",
-      "selected": true
-    }],
-    "contact": {
-      "text": "",
-      "value": ""
-    },
-    "address": {
-      "text": "",
-      "value": ""
-    },
-    "organizer": {
-      "text": "Lean  cendana",
-      "value": "1765"
-    }
   }],
   "woContacts": [{
     "id": "1",
@@ -63363,6 +63817,25 @@
     "phone": "",
     "primary": false,
     "url": "/app/common/entity/contact.nl?id=2056&compid=TSTDRV2617106"
+  }, {
+    "id": "201",
+    "workorder": {
+      "text": "Lobby Area",
+      "value": "134"
+    },
+    "events": ["101105"],
+    "event": "101105",
+    "contact": {
+      "text": "World Bank : Brad Pitt",
+      "value": "2060"
+    },
+    "name": "Brad Pitt",
+    "email": "bpitt@email.com",
+    "jobTitle": "Designer",
+    "mobilePhone": "",
+    "phone": "",
+    "primary": false,
+    "url": "/app/common/entity/contact.nl?id=2060&compid=TSTDRV2617106"
   }],
   "woAddresses": [{
     "id": "1",
@@ -66281,7 +66754,7 @@
       "text": "World Bank",
       "value": "1249"
     },
-    "events": [],
+    "events": ["101105"],
     "address": {
       "text": "343 York",
       "value": "245154"
@@ -66315,7 +66788,7 @@
       "text": "World Bank",
       "value": "1249"
     },
-    "events": ["101096"],
+    "events": ["101096", "101105"],
     "address": {
       "text": "343 York",
       "value": "245154"
@@ -66698,7 +67171,7 @@
               "value": "1"
             },
             "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1770%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-            "events": ["101087", "101084", "101076", "101075"],
+            "events": ["101105", "101087", "101084", "101076", "101075"],
             "labRates": [],
             "time": {
               "start": "",
@@ -67591,7 +68064,7 @@
               "value": "1"
             },
             "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1770%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-            "events": ["101087", "101084", "101076", "101075"],
+            "events": ["101105", "101087", "101084", "101076", "101075"],
             "labRates": [],
             "time": {
               "start": "",
@@ -67855,7 +68328,7 @@
               "value": "1"
             },
             "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1770%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-            "events": ["101087", "101084", "101076", "101075"],
+            "events": ["101105", "101087", "101084", "101076", "101075"],
             "labRates": [],
             "time": {
               "start": "",
@@ -68529,7 +69002,7 @@
               "value": "1"
             },
             "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1770%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-            "events": ["101087", "101084", "101076", "101075"],
+            "events": ["101105", "101087", "101084", "101076", "101075"],
             "labRates": [],
             "time": {
               "start": "",
@@ -69422,7 +69895,7 @@
               "value": "1"
             },
             "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1770%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-            "events": ["101087", "101084", "101076", "101075"],
+            "events": ["101105", "101087", "101084", "101076", "101075"],
             "labRates": [],
             "time": {
               "start": "",
@@ -69686,7 +70159,7 @@
               "value": "1"
             },
             "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1770%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-            "events": ["101087", "101084", "101076", "101075"],
+            "events": ["101105", "101087", "101084", "101076", "101075"],
             "labRates": [],
             "time": {
               "start": "",
@@ -70392,7 +70865,7 @@
               "value": "1"
             },
             "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1770%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-            "events": ["101087", "101084", "101076", "101075"],
+            "events": ["101105", "101087", "101084", "101076", "101075"],
             "labRates": [],
             "time": {
               "start": "",
@@ -71285,7 +71758,7 @@
               "value": "1"
             },
             "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1770%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-            "events": ["101087", "101084", "101076", "101075"],
+            "events": ["101105", "101087", "101084", "101076", "101075"],
             "labRates": [],
             "time": {
               "start": "",
@@ -71549,7 +72022,7 @@
               "value": "1"
             },
             "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1770%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-            "events": ["101087", "101084", "101076", "101075"],
+            "events": ["101105", "101087", "101084", "101076", "101075"],
             "labRates": [],
             "time": {
               "start": "",
@@ -72111,7 +72584,7 @@
               "value": "1"
             },
             "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1770%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-            "events": ["101087", "101084", "101076", "101075"],
+            "events": ["101105", "101087", "101084", "101076", "101075"],
             "labRates": [],
             "time": {
               "start": "",
@@ -73004,7 +73477,7 @@
               "value": "1"
             },
             "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1770%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-            "events": ["101087", "101084", "101076", "101075"],
+            "events": ["101105", "101087", "101084", "101076", "101075"],
             "labRates": [],
             "time": {
               "start": "",
@@ -73268,7 +73741,7 @@
               "value": "1"
             },
             "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1770%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-            "events": ["101087", "101084", "101076", "101075"],
+            "events": ["101105", "101087", "101084", "101076", "101075"],
             "labRates": [],
             "time": {
               "start": "",
@@ -73764,7 +74237,7 @@
               "value": "1"
             },
             "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1770%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-            "events": ["101087", "101084", "101076", "101075"],
+            "events": ["101105", "101087", "101084", "101076", "101075"],
             "labRates": [],
             "time": {
               "start": "",
@@ -74657,7 +75130,7 @@
               "value": "1"
             },
             "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1770%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-            "events": ["101087", "101084", "101076", "101075"],
+            "events": ["101105", "101087", "101084", "101076", "101075"],
             "labRates": [],
             "time": {
               "start": "",
@@ -74921,7 +75394,7 @@
               "value": "1"
             },
             "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1770%26compid%3DTSTDRV2617106%26selectedtab%3Dcustom336",
-            "events": ["101087", "101084", "101076", "101075"],
+            "events": ["101105", "101087", "101084", "101076", "101075"],
             "labRates": [],
             "time": {
               "start": "",

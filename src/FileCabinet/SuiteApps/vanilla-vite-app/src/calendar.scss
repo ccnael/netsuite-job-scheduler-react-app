@@ -38,6 +38,9 @@ $background-color_19: #f0f0f0;
 			padding: 10px;
 			border-bottom: 2px solid #34495e;
 		}
+		.fc-toolbar button {
+			font-weight: bold !important;
+		}
 		
 		.fc-resource-cell {
 			border: 1px solid #bdc3c7;
