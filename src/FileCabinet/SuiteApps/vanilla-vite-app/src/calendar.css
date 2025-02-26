@@ -36,6 +36,9 @@
   padding: 10px;
   border-bottom: 2px solid #34495e;
 }
+#calendarSection #calendar .fc-toolbar button {
+  font-weight: bold !important;
+}
 #calendarSection #calendar .fc-resource-cell {
   border: 1px solid #bdc3c7;
   background-color: #ecf0f1;

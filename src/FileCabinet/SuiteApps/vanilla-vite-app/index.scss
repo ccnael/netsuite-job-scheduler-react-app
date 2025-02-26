@@ -70,6 +70,9 @@ html, body {
 	color: $color_4;
 	padding: 10px;
 }
+header > div.tab {
+	font-weight: bold;
+}
 .main-container {
 	display: flex;
 	grid-template-rows: auto 1fr;
@@ -602,4 +605,3 @@ button.btn {
 	// border-radius: 15px !important;
 	font-weight: bold;
 }
-
