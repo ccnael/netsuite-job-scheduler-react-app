@@ -25,11 +25,6 @@ export const resourcesDtColumns = [
     render: (_data, _type, row, _meta) => `${row.resourceSkills.reduce((x, y) => x += `<span class="badge bg-info">${y.text}</span> `, '')}`,
     title: 'Skill'
   },
-  /* {
-    className: 'dt-head-center',
-    render: (_data, _type, row, _meta) => `${row.types.map(type => type.text).join(', ')}`,
-    title: 'Type'
-  }, */
   {
     className: 'dt-head-center',
     data: 'email',
@@ -81,18 +76,6 @@ export const vendorsDtColumns = [
     render: (_data, _type, row, _meta) => `<textarea class="form-control note" rows="3">${row.memo}</textarea>`,
     title: 'Comments'
   },
-  /* {
-    className: 'dt-head-center',
-    render: (_data, _type, row, _meta) => `<input type="time" class="form-control starttime-row" value="${row?.time?.start}" required>`,
-    title: 'Start Time <span class="required"></span>',
-    orderable: false
-  },
-  {
-    className: 'dt-head-center',
-    render: (_data, _type, row, _meta) => `<input type="time" class="form-control endtime-row" value="${row?.time?.end}" required>`,
-    title: 'End Time <span class="required"></span>',
-    orderable: false
-  } */
 ];
 
 export const assetsDtColumns = [
@@ -124,21 +107,9 @@ export const assetsDtColumns = [
   },
   {
     className: 'dt-head-center dt-body-center',
-    render: (_data, _type, row, _meta) => `<input type="number" class="quantity" value="${row?.quantity || 0}" min="0" required />`,
+    render: (_data, _type, row, _meta) => `<input type="number" class="quantity" value="0" max="${row?.quantity || 0}" min="0" required />`,
     title: 'Quantity'
   },
-  /* {
-    className: 'dt-head-center',
-    render: (_data, _type, row, _meta) => `<input type="time" class="form-control starttime-row" value="${row?.time?.start}" required>`,
-    title: 'Start Time <span class="required"></span>',
-    orderable: false
-  },
-  {
-    className: 'dt-head-center',
-    render: (_data, _type, row, _meta) => `<input type="time" class="form-control endtime-row" value="${row?.time?.end}" required>`,
-    title: 'End Time <span class="required"></span>',
-    orderable: false
-  } */
 ];
 
 export const itemsDtColumns = [
@@ -314,11 +285,6 @@ export const ceItemsDtColumns = [
     width: "5%",
     orderable: false
   },
-  /* {
-    className: 'dt-head-center dt-body-center',
-    data: 'id',
-    title: 'ID'
-  }, */
   {
     className: 'dt-head-center dt-body-center lineId',
     data: 'line',

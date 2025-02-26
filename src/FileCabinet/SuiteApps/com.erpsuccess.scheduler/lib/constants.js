@@ -13,6 +13,7 @@ define(() => ({
     WORK_ORDER_ADDRESS: 'customrecord_esp_fop_wo_address',
     PUNCH: 'customrecord_esp_pp_punch',
     RESOURCE_SKILL: 'customrecord_esp_fop_resource_skill',
+    ASSET: 'customrecord_esp_fop_asset'
   },
   WorkOrderCode: {
     NOT_STARTED: '#026adf',

@@ -327,7 +327,7 @@ define([
           const assetObj = {
             id: result.id,
             name: result.getValue('name'),
-            active: result.getValue('isinactive'),
+            active: !result.getValue('isinactive'),
             onMaintenance: result.getValue('custrecord_esp_fop_is_maintenance'),
             description: result.getValue('custrecord_esp_fop_asset_description'),
             type: {
@@ -349,7 +349,7 @@ define([
           };
           assets.push(assetObj);
           // Map asset obj to WO asset
-          const foundObj = woAssets.find(woAsset => woAsset.asset.value == id);
+          const foundObj = woAssets.find(woAsset => woAsset.asset.value == assetObj.id);
           if (foundObj) {
             foundObj.assetRef = deepCopy(assetObj);
           }
@@ -528,17 +528,17 @@ define([
               value: result.getValue('custrecord_esp_fop_wo_ir_status'),
               get code() {
                 switch (this.value) {
-                  case '1':
-                    return env.ReceiptStatusCode.PARTIAL;
                   case '2':
+                    return env.ReceiptStatusCode.PARTIAL;
+                  case '3':
                     return env.ReceiptStatusCode.FULL;
                 }
               },
               get display() {
                 switch (this.value) {
-                  case '1':
-                    return env.ReceiptStatusDisplay.PARTIAL;
                   case '2':
+                    return env.ReceiptStatusDisplay.PARTIAL;
+                  case '3':
                     return env.ReceiptStatusDisplay.FULL;
                 }
               }
