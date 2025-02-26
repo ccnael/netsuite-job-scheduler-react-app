@@ -2113,6 +2113,7 @@ define([
                 break;
               case 'vendor':
                 WorkOrderVendor._createVendors(eventData, woRef);
+                break;
               case 'asset':
                 WorkOrderAsset._createAssets(eventData, woRef);
                 break;
