@@ -517,17 +517,17 @@ define([
               value: result.getValue('custrecord_esp_fop_wo_ir_status'),
               get code() {
                 switch (this.value) {
-                  case '1':
-                    return env.ReceiptStatusCode.PARTIAL;
                   case '2':
+                    return env.ReceiptStatusCode.PARTIAL;
+                  case '3':
                     return env.ReceiptStatusCode.FULL;
                 }
               },
               get display() {
                 switch (this.value) {
-                  case '1':
-                    return env.ReceiptStatusDisplay.PARTIAL;
                   case '2':
+                    return env.ReceiptStatusDisplay.PARTIAL;
+                  case '3':
                     return env.ReceiptStatusDisplay.FULL;
                 }
               }
