@@ -1378,10 +1378,10 @@ define([
       static _updateAssets(event, dataSrc, woRef) {
         const selectedAssets = event.selectedAssets;
         const selectedassetIds = selectedAssets.map(asset => asset.id);
-        const srcassets = dataSrc.assets.filter(asset => !!(asset.selected));
-        const srcassetIds = srcassets.map(asset => asset.id);
-        const removedAssets = srcassets.filter(asset => !(selectedassetIds.includes(asset.id)));
-        const newAssets = selectedAssets.filter(asset => !(srcassetIds.includes(asset.id)));
+        const srcAssets = dataSrc.assets.filter(asset => !!asset.selected);
+        const srcAssetIds = srcAssets.map(asset => asset.id);
+        const removedAssets = srcAssets.filter(asset => !(selectedassetIds.includes(asset.id)));
+        const newAssets = selectedAssets.filter(asset => !(srcAssetIds.includes(asset.id)));
 
         log.audit('Updating WO asset Event List', { selectedAssets, removedAssets, newAssets });
 
