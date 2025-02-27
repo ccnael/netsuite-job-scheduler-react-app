@@ -714,14 +714,21 @@ export default class Calendar {
   static _initDropDown(info) {
     const eventId = info.event.id;
     const event = dataSet.events.find(event => event.id == eventId);
-    const html = `<div class="card-header-options"><div class="dropdown" style="display:inline-block">
-      <i class="fa-solid fa-angles-down" style="cursor: pointer"></i>
-      <div class="dropdown-content">
-        ${(!event.workorder.value) ? `<a href="#" onclick="openGeneralEventModal(${eventId})">Update Event</a>` : `<a href="#" onclick="openEventModal('', '', ${eventId})">Update Event</a>`}
-        <a href="#" onclick="openCompleteEventModal('', ${eventId})">Complete Event</a>
-        <a href="#" onclick="deleteEventRecord('', ${eventId})">Remove Event</a>
+    const html = `<div class="card-header-options">
+      <div class="dropdown" style="display:inline-block">
+        <i class="fa-solid fa-angles-down" style="cursor: pointer"></i>
+        ${event.status.value !== 'COMPLETED' ?
+        `<div class="dropdown-content" style="top: -30px">
+            ${(!event.workorder.value) ? `<a href="#" onclick="openGeneralEventModal(${eventId})">Update Event</a>` : `<a href="#" onclick="openEventModal('', '', ${eventId})">Update Event</a>`}
+            <a href="#" onclick="openCompleteEventModal('', ${eventId})">Complete Event</a>
+            <a href="#" onclick="deleteEventRecord('', ${eventId})">Remove Event</a>
+          </div>` :
+        `<div class="dropdown-content">
+            ${(!event.workorder.value) ? `<a href="#" onclick="openGeneralEventModal(${eventId})">Update Event</a>` : `<a href="#" onclick="openEventModal('', '', ${eventId})">Update Event</a>`}
+            <a href="#" onclick="deleteEventRecord('', ${eventId})">Remove Event</a>
+          </div>`}
       </div>
-    </div></div>`;
+    </div>`;
     const el = info.el.querySelector('div.card-name');
     el.insertAdjacentHTML('afterend', html);
   }

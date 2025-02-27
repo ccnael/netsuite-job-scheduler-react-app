@@ -223,11 +223,16 @@ export default class Board {
                             <div class="card-header-options">
                               <div class="dropdown">
                                 <i class="fa-solid fa-angles-down" style="cursor: pointer"></i>
-                                <div class="dropdown-content">
+                                ${event.status.value !== 'COMPLETED' ?
+        `<div class="dropdown-content">
                                   ${(!event.workorder.value) ? `<a href="#" onclick="openGeneralEventModal(${event.id})">Update Event</a>` : '<a href="#" onclick="openEventModal(event)">Update Event</a>'}
                                   <a href="#" onclick="openCompleteEventModal(event)">Complete Event</a>
                                   <a href="#" onclick="deleteEventRecord(event)">Remove Event</a>
-                                </div>
+                                </div>` :
+        `<div class="dropdown-content">
+                                  ${(!event.workorder.value) ? `<a href="#" onclick="openGeneralEventModal(${event.id})">Update Event</a>` : '<a href="#" onclick="openEventModal(event)">Update Event</a>'}
+                                  <a href="#" onclick="deleteEventRecord(event)">Remove Event</a>
+                                </div>`}
                               </div>
                             </div>
                           </div>
