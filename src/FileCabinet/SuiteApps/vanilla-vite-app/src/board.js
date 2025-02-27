@@ -1,5 +1,5 @@
 import * as dataSet from './components/dataSet';
-import { Event } from './components/utils';
+import { Event, ToolTip } from './components/utils';
 import { onClickResource } from './components/filterFields/filterUtils';
 import './board.css';
 
@@ -43,13 +43,13 @@ export default class Board {
                                     Email: ${resource.email}<br/>
                                     Phone: ${resource.phone}<br/>
                                     Location: ${resource.location.text}<br/>
-                                    Events: ${resource.events.length}<br/>
+                                    Events: ${resource.events.length}<br/>"
                                 <span class="initials">${resource.initials}</span>
                                 ${!!(resource.active) ? '<span class="status active"></span>' : '<span class="status busy"></span>'}
                             </div>
                             <div class="person-info">
-                                <span class="full-name">${resource.name}</span>
-                                ${!!(resource.active) ? '<span class="status-text">Active</span>' : '<span class="status-text">Inactive</span>'}
+                              <span class="full-name">${resource.name}</span>
+                              ${!!(resource.active) ? '<span class="status-text">Active</span>' : '<span class="status-text">Inactive</span>'}
                             </div>
                           </div>`)}
                         </div>
@@ -89,7 +89,7 @@ export default class Board {
                       <div class="accordion-item">
                         <h2 class="accordion-header" id="resourceGroup-asset-filter-tableHeading">
                           <button class="accordion-button" type="button" data-toggle="collapse" data-target="#resourceGroup-asset-filter-table" aria-expanded="true" aria-controls="resourceGroup-asset-filter-table">
-                            <i class="fa-solid fa-icon-size fa-user-group"></i>
+                            <i class="fa-solid fa-screwdriver-wrench"></i>
                             <strong class="grid-header">&nbsp;Assets&nbsp;</strong>
                             <span class="badge badge-danger badge-pill counter">${dataSet.assets.length}</span>
                           </button>
@@ -126,7 +126,7 @@ export default class Board {
                     <div class="card-header header">
                       <div style="display: flex; justify-content: space-between; align-items: center; text-align: center;">
                         <div style="display: flex; align-items: center;">
-                          <i class="fa-solid fa-screwdriver-wrench" style="font-size: 16px;"></i>
+                          <i class="fa-solid fa-pen-to-square" style="font-size: 16px;"></i>
                           <span style="margin-left: 5px; display: flex; align-items: center;">
                             <h5 style="margin: 0;"><strong>Available Jobs</strong></h5>
                           </span>
@@ -181,7 +181,7 @@ export default class Board {
                     <div class="card-header header">
                       <div style="display: flex; justify-content: space-between; align-items: center; text-align: center;">
                         <div style="display: flex; align-items: center;">
-                          <i class="fa-solid fa-screwdriver-wrench" style="font-size: 16px;"></i>
+                          <i class="fa-solid fa-calendar-check" style="font-size: 16px;"></i>
                           <span style="margin-left: 5px; display: flex; align-items: center;">
                             <h5 style="margin: 0;"><strong>Events</strong></h5>
                           </span>
@@ -193,7 +193,7 @@ export default class Board {
                       </div>
                     </div>
                     <div class="secondary-row">
-                      <button class="btn btn-primary button-add" onclick="openGeneralEventModal(event)">
+                      <button class="btn btn-primary button-new-event" onclick="openGeneralEventModal(event)">
                         <i class="fa-regular fa-icon-size fa-plus-square"></i> New
                       </button>
                       <div class="col-md-6">
@@ -207,7 +207,9 @@ export default class Board {
                     </div>
                     <div class="card-wrapper">
                       ${dataSet.events.map(event => `
-                        <div type="event" class="card-item" id="${event.id}" data-bs-toggle="tooltip" data-bs-placement="right" 
+                        <div type="event" class="card-item" id="${event.id}" 
+                        data-bs-toggle="tooltip" 
+                        data-bs-placement="right" 
                         title="
                           <strong>${event.title}</strong><br/><br/>
                           Resources:<br/>
@@ -256,8 +258,8 @@ export default class Board {
       .replace(/,/g, ''))
       .insertAfter('header');
 
+    ToolTip.setup();
     this._initLayoutHandlers();
-    this._initToolTip();
     this._onDragResource();
     // this._showBanners();
   }
@@ -498,15 +500,6 @@ export default class Board {
       ];
       toasties.map(toast => Toastify(toast).showToast());
     }, 250);
-  }
-
-  static _initToolTip() {
-    $('[data-bs-toggle="tooltip"]').each(function () {
-      new bootstrap.Tooltip(this, {
-        html: true,
-        placement: 'right'
-      });
-    });
   }
 
   // This prevents conflict dropping conflict with the job items drag and drop

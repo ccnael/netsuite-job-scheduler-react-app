@@ -1,17 +1,22 @@
 #completeEventModal {
   width: 100%;
 }
+#completeEventModal button.accordion-button {
+  background-color: #dfe4eb;
+  color: #234678;
+}
 #completeEventModal .ts-input-container {
   display: flex;
   gap: 5px;
 }
 #completeEventModal .ts-input-container input {
   width: 40px;
-  background-color: white;
   border: none;
   text-align: center;
 }
-
-#timeSheets_dt {
+#completeEventModal #timeSheets_dt {
   width: 100%;
+}
+#completeEventModal .modal-body {
+  z-index: -1;
 }/*# sourceMappingURL=completeEventModal.css.map */

@@ -101,15 +101,19 @@ $(document).ready(() => {
                             <table width="100%">
                               <tr>
                                 <td width="25%">
-                                  <label class="form-check-label">All Day</label>
-                                  <div class="form-check form-switch w-100" style="margin-left: 30px">
-                                    <input class="form-check-input text-right alldayevent-switch" type="checkbox">
+                                  <div class="d-flex align-items-center ms-3">
+                                    <div class="form-check form-switch w-100" style="margin-top: 10px; margin-left: 20px; display: flex; align-items: center;">
+                                      <input class="form-check-input me-2 allday-toggle" type="checkbox">
+                                      <label class="form-check-label" style="font-size: 11px; margin: 0; align-self: flex-end;">All Day</label>
+                                    </div>
                                   </div>
                                 </td>
                                 <td width="75%">
-                                  <label class="form-check-label">Asset Only</label>
-                                  <div class="form-check form-switch w-100" style="margin-left: 30px">
-                                    <input class="form-check-input text-right assetonly-switch" type="checkbox">
+                                  <div class="d-flex align-items-right ms-3">
+                                    <div class="form-check form-switch w-100" style="margin-top: 10px; margin-left: 20px; display: flex; align-items: center;">
+                                      <input class="form-check-input me-2 assetonly-toggle" type="checkbox">
+                                      <label class="form-check-label" style="font-size: 11px; margin: 0; align-self: flex-end;">Asset Only</label>
+                                    </div>
                                   </div>
                                 </td>
                               </tr>
@@ -347,7 +351,7 @@ $(document).ready(() => {
           $('#eventModal .starttime').val(eventData.time.start);
           $('#eventModal .endtime').val(eventData.time.end);
           $('#eventModal .note').val(eventData.note);
-          // $('#eventModal .alldayevent-switch').prop('checked', eventData.allDay ? 'checked' : '');
+          // $('#eventModal .allday-toggle').prop('checked', eventData.allDay ? 'checked' : '');
           $('#eventModal .status').val(eventData.status.value);
           $('#eventModal .priority').val(eventData.priority.value);
         }
@@ -557,10 +561,18 @@ $(document).ready(() => {
         columns: addressesDtColumns
       });
 
-      Event.switchAllDay('#eventModal'); // All day event switch function
+      Event.handleAllDayToggle('#eventModal');
+      Event.handleAssetOnlyToggle('#eventModal', mode, [
+        temp_resourcesDataTable,
+        temp_vendorsDataTable
+      ]);
       Event.validateResourcesOnLoad('#wo-primaryinfo', '#resources', eventId);
       Event.validateOnHeaderFieldChange('#wo-primaryinfo', '#resources', eventId, 'eventResource');
       Event.validateOnLineFieldChange('#wo-primaryinfo', '#resources', eventId);
+
+      Event.validateResourcesOnLoad('#wo-primaryinfo', '#assets', eventId);
+      Event.validateOnHeaderFieldChange('#wo-primaryinfo', '#assets', eventId, 'eventResource');
+      Event.validateOnLineFieldChange('#wo-primaryinfo', '#assets', eventId);
     }, 250);
   });
 
@@ -627,7 +639,8 @@ $(document).ready(() => {
       end: $('#eventModal .endtime').val()
     };
     payload.eventData.note = $('#eventModal .note').val();
-    // payload.eventData.allDay = $('#eventModal .alldayevent-switch')[0].checked;
+    payload.eventData.allDay = $('#eventModal .allday-toggle').prop('checked');
+    payload.eventData.assetOnly = $('#eventModal .assetonly-toggle').prop('checked');
     payload.eventData.status = $('#eventModal .status').val();
     payload.eventData.priority = $('#eventModal .priority').val();
     payload.eventData.selectedResources = [];
@@ -678,58 +691,69 @@ $(document).ready(() => {
     }
 
     const assetIds = [];
-    const assets_dt_tr = document.querySelectorAll('#assets tbody .dt-line-select');
-    for (const line of assets_dt_tr) {
-      if (line.checked) {
-        const id = line.getAttribute('recordid');
-        if (id) {
-          const foundObj = assetsToUse.find(asset => asset.id == id);
-          if (foundObj) {
-            const newQty = +line.parentNode.parentNode.parentNode.querySelector('.quantity').value;
-            foundObj.quantity = newQty;
+    if (temp_assetsDataTable) {
+      const assets_dt_tr = temp_assetsDataTable.rows({ search: 'applied' }).nodes();
+      assets_dt_tr.each(function (node) {
+        const line = $(node).find('input.dt-line-select');
+        if (line.is(':checked')) {
+          const id = line.attr('recordId');
+          if (id) {
+            const foundObj = assetsToUse.find(resource => resource.id == id);
+            if (foundObj) {
+              const newQty = +$(node).find('.quantity').val();
+              foundObj.quantity = newQty;
+              const startTime = $(node).find('input.starttime-row').val();
+              const endTime = $(node).find('input.endtime-row').val();
+              foundObj.time.start = startTime;
+              foundObj.time.end = endTime;
+            }
+            assetIds.push(id);
           }
-          assetIds.push(id);
         }
-      }
+      });
     }
 
     const itemIds = [];
-    const items_dt_tr = document.querySelectorAll('#items tbody .dt-line-select');
-    for (const line of items_dt_tr) {
-      if (line.checked) {
-        const id = line.getAttribute('recordid');
-        if (id) {
-          const foundObj = woRef.items.find(item => item.id == id);
-          if (foundObj) {
-            const newQty = +line.parentNode.parentNode.parentNode.querySelector('.quantity').value;
-            foundObj.quantity = newQty;
+    if (temp_itemsDataTable) {
+      const items_dt_tr = temp_itemsDataTable.rows({ search: 'applied' }).nodes();
+      items_dt_tr.each(function (node) {
+        const line = $(node).find('input.dt-line-select');
+        if (line.is(':checked')) {
+          const id = line.attr('recordId');
+          if (id) {
+            itemIds.push(id);
           }
-          itemIds.push(id);
         }
-      }
+      });
     }
 
     const contactIds = [];
-    const contacts_dt_tr = document.querySelectorAll('#contacts tbody .dt-line-select');
-    for (const line of contacts_dt_tr) {
-      if (line.checked) {
-        const id = line.getAttribute('recordid');
-        if (id) {
-          contactIds.push(id);
+    if (temp_contactsDataTable) {
+      const contacts_dt_tr = temp_contactsDataTable.rows({ search: 'applied' }).nodes();
+      contacts_dt_tr.each(function (node) {
+        const line = $(node).find('input.dt-line-select');
+        if (line.is(':checked')) {
+          const id = line.attr('recordId');
+          if (id) {
+            contactIds.push(id);
+          }
         }
-      }
+      });
     }
 
     let addressId = '';
-    const addresses_dt_tr = document.querySelectorAll('#addresses tbody input[name="woAddress"]');
-    for (const line of addresses_dt_tr) {
-      if (line.checked) {
-        const id = line.getAttribute('recordid');
-        if (id) {
-          addressId = id;
-          break;
+    if (temp_addressesDataTable) {
+      const addresses_dt_tr = temp_addressesDataTable.rows({ search: 'applied' }).nodes();
+      addresses_dt_tr.each(function (node) {
+        const line = $(node).find('input.dt-line-select');
+        if (line.is(':checked')) {
+          const id = line.attr('recordId');
+          if (id) {
+            addressId = id;
+            return;
+          }
         }
-      }
+      });
     }
 
     // Filter objects by id

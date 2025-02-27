@@ -95,15 +95,19 @@ $(document).ready(() => {
                             <table width="100%">
                               <tr>
                                 <td width="25%">
-                                  <label class="form-check-label">All Day</label>
-                                  <div class="form-check form-switch w-100" style="margin-left: 30px">
-                                    <input class="form-check-input text-right alldayevent-switch" type="checkbox">
+                                  <div class="d-flex align-items-center ms-3">
+                                    <div class="form-check form-switch w-100" style="margin-top: 10px; margin-left: 20px; display: flex; align-items: center;">
+                                      <input class="form-check-input me-2 allday-toggle" type="checkbox">
+                                      <label class="form-check-label" style="font-size: 11px; margin: 0; align-self: flex-end;">All Day</label>
+                                    </div>
                                   </div>
                                 </td>
                                 <td width="75%">
-                                  <label class="form-check-label">Asset Only</label>
-                                  <div class="form-check form-switch w-100" style="margin-left: 30px">
-                                    <input class="form-check-input text-right assetonly-switch" type="checkbox">
+                                  <div class="d-flex align-items-right ms-3">
+                                    <div class="form-check form-switch w-100" style="margin-top: 10px; margin-left: 20px; display: flex; align-items: center;">
+                                      <input class="form-check-input me-2 assetonly-toggle" type="checkbox">
+                                      <label class="form-check-label" style="font-size: 11px; margin: 0; align-self: flex-end;">Asset Only</label>
+                                    </div>
                                   </div>
                                 </td>
                               </tr>
@@ -226,7 +230,7 @@ $(document).ready(() => {
           $('#generalEventModal .starttime').val(eventData.time.start);
           $('#generalEventModal .endtime').val(eventData.time.end);
           $('#generalEventModal .note').val(eventData.note);
-          // $('#generalEventModal .alldayevent-switch').prop('checked', eventData.allDay ? 'checked' : '');
+          // $('#generalEventModal .allday-toggle').prop('checked', eventData.allDay ? 'checked' : '');
           $('#generalEventModal .status').val(eventData.status.value);
           $('#generalEventModal .priority').val(eventData.priority.value);
         }
@@ -309,10 +313,18 @@ $(document).ready(() => {
         }
       });
 
-      Event.switchAllDay('#generalEventModal'); // All day event switch function
+      Event.handleAllDayToggle('#generalEventModal');
+      Event.handleAssetOnlyToggle('#generalEventModal', mode, [
+        temp_resourcesDataTable,
+        temp_vendorsDataTable
+      ]);
       Event.validateResourcesOnLoad('#wo-primaryinfo-ge', '#resources_ge', eventId);
       Event.validateOnHeaderFieldChange('#wo-primaryinfo-ge', '#resources_ge', eventId, 'generalEventResource');
       Event.validateOnLineFieldChange('#wo-primaryinfo-ge', '#resources_ge', eventId);
+
+      Event.validateResourcesOnLoad('#wo-primaryinfo-ge', '#assets_ge', eventId);
+      Event.validateOnHeaderFieldChange('#wo-primaryinfo-ge', '#assets_ge', eventId, 'generalEventResource');
+      Event.validateOnLineFieldChange('#wo-primaryinfo-ge', '#assets_ge', eventId);
     }, 250);
   });
 
@@ -364,7 +376,8 @@ $(document).ready(() => {
       end: $('#generalEventModal .endtime').val()
     };
     payload.eventData.note = $('#generalEventModal .note').val();
-    payload.eventData.allDay = $('#generalEventModal .alldayevent-switch')[0].checked;
+    payload.eventData.allDay = $('#generalEventModal .allday-toggle').prop('checked');
+    payload.eventData.assetOnly = $('#generalEventModal .assetonly-toggle').prop('checked');
     payload.eventData.status = $('#generalEventModal .status').val();
     payload.eventData.priority = $('#generalEventModal .priority').val();
     payload.eventData.selectedResources = [];
@@ -412,19 +425,26 @@ $(document).ready(() => {
     }
 
     const assetIds = [];
-    const assets_dt_tr = document.querySelectorAll('#assets_ge tbody .dt-line-select');
-    for (const line of assets_dt_tr) {
-      if (line.checked) {
-        const id = line.getAttribute('recordid');
-        if (id) {
-          const foundObj = assetsToUse.find(asset => asset.id == id);
-          if (foundObj) {
-            const newQty = +line.parentNode.parentNode.parentNode.querySelector('.quantity').value;
-            foundObj.quantity = newQty;
+    if (temp_assetsDataTable) {
+      const assets_dt_tr = temp_assetsDataTable.rows({ search: 'applied' }).nodes();
+      assets_dt_tr.each(function (node) {
+        const line = $(node).find('input.dt-line-select');
+        if (line.is(':checked')) {
+          const id = line.attr('recordId');
+          if (id) {
+            const foundObj = assetsToUse.find(resource => resource.id == id);
+            if (foundObj) {
+              const newQty = +$(node).find('.quantity').val();
+              foundObj.quantity = newQty;
+              const startTime = $(node).find('input.starttime-row').val();
+              const endTime = $(node).find('input.endtime-row').val();
+              foundObj.time.start = startTime;
+              foundObj.time.end = endTime;
+            }
+            assetIds.push(id);
           }
-          assetIds.push(id);
         }
-      }
+      });
     }
 
     payload.eventData.selectedResources = resourcesToUse.filter(resource => !!resourceIds.includes(resource.id));

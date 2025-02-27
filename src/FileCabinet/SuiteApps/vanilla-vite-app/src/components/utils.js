@@ -1,6 +1,6 @@
 import { userId, suiteletUrl, events, filterFields } from './dataSet';
 
-export function cacheTabSwitch() {
+export function selectDefaultTab() {
   const sessionKey = /netsuite\.com/.test(window.location.href) ? `${userId}:lastClickedTab` : 'lastClickedTab';
   const lastTab = localStorage.getItem(sessionKey);
   if (lastTab) {
@@ -51,7 +51,7 @@ export class Event {
 
     table.on('draw', function () {
       that._validateResourcesAvailability(tableId, resourceTblId, eventId);
-      const allDaySwitched = $('.alldayevent-switch').prop('checked');
+      const allDaySwitched = $('.allday-switch').prop('checked');
       allDaySwitched && that._setAllDayResourceTime(resourceTblId);
     });
   }
@@ -193,8 +193,8 @@ export class Event {
     }
   }
 
-  static switchAllDay(selector) {
-    $(`${selector} .alldayevent-switch`).on('change', ev => {
+  static handleAllDayToggle(selector) {
+    $(`${selector} .allday-toggle`).on('change', ev => {
       if (ev.target.checked) {
         $(`${selector} .starttime`).val('08:00'); // NS default starttime
         $(`${selector} .endtime`).val('18:00'); // NS default endtime
@@ -206,6 +206,68 @@ export class Event {
         $(`${selector} .endtime`).prop('disabled', false);
       }
     });
+  }
+
+  static handleAssetOnlyToggle(selector, mode, dataTables) {
+    const toggleEl = $(`${selector} .assetonly-toggle`);
+    if (mode === 'edit') {
+      const isChecked = toggleEl.prop('checked');
+      if (isChecked) {
+        this.setAssetOnly(selector, true, dataTables);
+        toggleEl.prop('disabled', true); // Do not allow toggle on edit if already checked
+      } else {
+        toggleEl.parent().css('display', 'none'); // Hide toggle on edit if unchecked
+      }
+    }
+    toggleEl.on('change', ev => {
+      const isChecked = ev.target.checked;
+      this.setAssetOnly(selector, isChecked, dataTables);
+    });
+  }
+
+  static setAssetOnly(selector, isChecked, dataTables) {
+    const resourceAccordionCollapsed = $(`${selector} div[id*="2ndAccordion"] .accordion-button`).hasClass('collapsed');
+    const vendorAccordionCollapsed = $(`${selector} div[id*="3rdAccordion"] .accordion-button`).hasClass('collapsed');
+    let cssObj;
+
+    if (isChecked) {
+      !resourceAccordionCollapsed &&
+        $(`${selector} div[id*="2ndAccordion"] button.accordion-button`).click();
+      !vendorAccordionCollapsed &&
+        $(`${selector} div[id*="3rdAccordion"] button.accordion-button`).click();
+      cssObj = {
+        'pointer-events': 'none',
+        'cursor': 'not-allowed',
+        'opacity': '0.6'
+      };
+      $(`${selector} div[id*="2ndAccordion"]`).css(cssObj); // Resources table
+      $(`${selector} div[id*="3rdAccordion"]`).css(cssObj); // Vendors table
+      // Deselect rows
+      dataTables.map(dt => {
+        if (dt) {
+          const dt_tr = dt.rows({ search: 'applied' }).nodes();
+          dt_tr.each(function (node) {
+            const line = $(node).find('input.dt-line-select');
+            line.prop('checked', false).change();
+          });
+        }
+      });
+      // Deselect header row 1st column checkbox
+      $(`${selector} div[id*="2ndAccordion"] .dt-head-center input.form-check-input`).prop('checked', false);
+      $(`${selector} div[id*="3rdAccordion"] .dt-head-center input.form-check-input`).prop('checked', false);
+    } else {
+      !!resourceAccordionCollapsed &&
+        $(`${selector} div[id*="2ndAccordion"] button.accordion-button`).click();
+      !!vendorAccordionCollapsed &&
+        $(`${selector} div[id*="3rdAccordion"] button.accordion-button`).click();
+      cssObj = {
+        'pointer-events': 'auto',
+        'cursor': 'auto',
+        'opacity': ''
+      };
+      $(`${selector} div[id*="2ndAccordion"]`).css(cssObj);
+      $(`${selector} div[id*="3rdAccordion"]`).css(cssObj);
+    }
   }
 
   static _setAllDayResourceTime(selector) {
@@ -365,7 +427,7 @@ export class Event {
       });
   }
 
-  static setupDeleteEventRecord() {
+  static handleDeleteEventRecord() {
     window.deleteEventRecord = (ev, eventId) => {
       eventId = eventId || ev.target.closest('.card-item').getAttribute('id');
       console.log('deleteEventRecord() > Event ID', eventId);
@@ -576,7 +638,7 @@ export class Resource {
   }
 }
 
-export function setupWorkOrderAction() {
+export function handleWorkOrderAction() {
   window.holdWorkOrder = ev => {
     ev.preventDefault();
     const woId = ev.target.closest('.card-item').id;
@@ -661,6 +723,21 @@ export function setupWorkOrderAction() {
     ev.preventDefault();
     const woId = ev.target.closest('.card-item').id;
     window.open(`${suiteletUrl}&mode=printPickList&woId=${woId}`);
+  }
+}
+
+export class ToolTip {
+  static setup() {
+    this.remove();
+    $('[data-bs-toggle="tooltip"]').each(function () {
+      new bootstrap.Tooltip(this, {
+        html: true,
+        placement: 'right'
+      });
+    });
+  }
+  static remove() {
+    $('.tooltip').remove();
   }
 }
 

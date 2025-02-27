@@ -1,13 +1,10 @@
 import mockup from './mockup.json';
 
-// const DEV_MODE = true;
-const DEV_MODE = false;
+const devMode = window.location.hostname === 'localhost';
+const getValue = (selector, mockValue) => devMode ? mockValue : JSON.parse(decodeURIComponent($(selector).val()));
 
-const getValue = (selector, mockValue) => !DEV_MODE ? JSON.parse(decodeURIComponent($(selector).val())) : mockValue;
-
-export const devMode = DEV_MODE;
-export const userId = !DEV_MODE ? $('#userId').val() : mockup.userId;
-export const suiteletUrl = !DEV_MODE ? decodeURIComponent($('#suiteletUrl').val()) : mockup.suiteletUrl;
+export const userId = !devMode ? $('#userId').val() : mockup.userId;
+export const suiteletUrl = !devMode ? decodeURIComponent($('#suiteletUrl').val()) : mockup.suiteletUrl;
 export const resources = getValue('#resources', mockup.resources);
 export const resourceGroups = getValue('#resourceGroups', mockup.resourceGroups);
 export const resourceSkills = getValue('#resourceSkills', mockup.resourceSkills);

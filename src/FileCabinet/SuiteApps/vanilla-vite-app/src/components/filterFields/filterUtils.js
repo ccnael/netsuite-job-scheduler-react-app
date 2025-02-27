@@ -1,6 +1,6 @@
 import * as dataSet from '../dataSet';
 
-export function setupFilters() {
+export function handleFilters() {
   // 2nd Form
   // ----------------------------
   window.showSecondForm = (ev, modalId) => {
@@ -198,8 +198,9 @@ export function onFilterResource(fieldId) {
       const _resource = dataSet.resources.find(resource => resource.employee.value == resourceId);
       const _vendor = dataSet.vendors.find(vendor => vendor.vendor.value == resourceId);
       const _asset = dataSet.assets.find(asset => asset.asset.value == resourceId);
+      const resourceObj = _resource || _vendor || _asset;
 
-      if (_resource || _vendor || _asset) {
+      if (resourceObj) {
         let _resourceGroup = [], _resourceSkill = [];
         if (_resource) {
           _resourceGroup = [..._resourceGroup, ..._resource.resourceGroups.map(resourceGroup => resourceGroup.value)];
@@ -209,12 +210,12 @@ export function onFilterResource(fieldId) {
         } else {
           _resourceGroup = ['vendor', 'asset'];
         }
-        const _resourceStatus = (_resource || _vendor || _asset).active ? '1' : '0';
-        const _resourceLocation = (_resource || _vendor || _asset).location.value;
-        const _resourceDepartment = (_resource || _vendor || _asset).department.value;
-        const email = (_resource || _vendor || _asset).email;
+        const _resourceStatus = resourceObj.active ? '1' : '0';
+        const _resourceLocation = resourceObj.location?.value || '';
+        const _resourceDepartment = resourceObj.department?.value || '';
+        const email = resourceObj.email;
         const email_regExp = new RegExp($selected.email, 'gi');
-        const phone = (_resource || _vendor || _asset).phone;
+        const phone = resourceObj.phone;
         const phone_regExp = new RegExp($selected.phone, 'gi');
         const shouldDisplay = !!(
           (!$selected.resource.length || $selected.resource.includes(resourceId)) &&

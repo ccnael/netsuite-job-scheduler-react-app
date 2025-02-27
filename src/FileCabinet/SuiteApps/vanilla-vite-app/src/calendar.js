@@ -7,7 +7,7 @@ import timeGridPlugin from '@fullcalendar/timegrid';
 import resourceTimelinePlugin from '@fullcalendar/resource-timeline';
 import * as dataSet from './components/dataSet';
 import { onFilterCalendarEvent, onFilterJob } from './components/filterFields/filterUtils';
-import { Event, Resource } from './components/utils';
+import { Event, Resource, ToolTip } from './components/utils';
 import './calendar.css';
 
 export default class Calendar {
@@ -287,8 +287,8 @@ export default class Calendar {
                 info.el.classList.add('completed');
                 break;
             }
+            ToolTip.setup();
             this._initDropDown(info);
-            this._initToolTip(info);
             this._adjustZoomLevel(info);
           } catch (e) {
             console.log('eventDidMount Unexpected Error', e.message);
@@ -300,7 +300,17 @@ export default class Calendar {
         if (event.id) {
           try {
             const html = `
-            <div style="margin-left: 5px; height: 60px;" id="${event.id}" draggable=true>
+            <div 
+              style="margin-left: 5px; height: 60px;" id="${event.id}" 
+              draggable=true
+              data-bs-toggle="tooltip" 
+              data-bs-placement="right" 
+              title="<strong>${event.title}</strong><br>
+                ID ${event.id}<br/>
+                ${event.workorder.text}<br/>
+                ${event.date.start == event.date.end ? moment(event.date.start).format('M/D/YYYY') : `${moment(event.date.start).format('M/D/YYYY')} - ${moment(event.date.end).format('M/D/YYYY')}`}<br/>
+                ${moment(el.event.start).format('h:mm a')} - ${moment(el.event.end).format('h:mm a')}"
+            >
             <div class="card-head">
               <div class="card-name"><a href="${event.url}" target="_blank" onclick="window.open('/app/crm/calendar/event.nl?id=${event.id}', '_blank')"><strong>${event.title}</strong> [ID ${event.id}]</a>
               </div>
@@ -436,7 +446,7 @@ export default class Calendar {
 
   static _prefillAddEvent(info) {
     console.log('Event Received', info);
-    this._removeToolTip();
+    ToolTip.remove();
 
     const data = {};
     data.date = {};
@@ -472,7 +482,7 @@ export default class Calendar {
   }
 
   static _confirmResourceAssignment(info) {
-    this._removeToolTip();
+    ToolTip.remove();
 
     const payload = {};
     const eventData = deepCopy(info.event.extendedProps);
@@ -512,7 +522,7 @@ export default class Calendar {
   }
 
   static _confirmResourceTimeUpdate(info) {
-    this._removeToolTip();
+    ToolTip.remove();
 
     const payload = {};
     const eventData = deepCopy(info.event.extendedProps);
@@ -552,7 +562,7 @@ export default class Calendar {
   }
 
   static _confirmEventUpdate(info) {
-    this._removeToolTip();
+    ToolTip.remove();
 
     const payload = {};
     payload.eventData = deepCopy(info.event.extendedProps);
@@ -714,25 +724,6 @@ export default class Calendar {
     </div></div>`;
     const el = info.el.querySelector('div.card-name');
     el.insertAdjacentHTML('afterend', html);
-  }
-
-  static _initToolTip(info) {
-    const eventData = info.event.extendedProps;
-    new bootstrap.Tooltip(info.el, {
-      html: true,
-      title: `
-        <strong>${eventData.title}</strong><br>
-        ID ${eventData.id}<br/>
-        ${eventData.workorder.text}<br/>
-        ${eventData.date.start == eventData.date.end ? moment(eventData.date.start).format('M/D/YYYY') : `${moment(eventData.date.start).format('M/D/YYYY')} - ${moment(eventData.date.end).format('M/D/YYYY')}`}<br/>
-        ${moment(info.event.start).format('h:mm a')} - ${moment(info.event.end).format('h:mm a')}
-        `,
-      placement: 'right'
-    });
-  }
-
-  static _removeToolTip() {
-    $('.tooltip').remove();
   }
 }
 
