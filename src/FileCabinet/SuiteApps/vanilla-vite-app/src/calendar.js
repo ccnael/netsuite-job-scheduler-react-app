@@ -760,14 +760,11 @@ export default class Calendar {
     const html = `<div class="card-header-options">
       <div class="dropdown" style="display:inline-block">
         <i class="fa-solid fa-angles-down" style="cursor: pointer"></i>
-        ${event.status.value !== 'COMPLETED' ?
-        `<div class="dropdown-content" style="top: -30px">
+        ${event.status.value !== 'COMPLETED' ? `<div class="dropdown-content" style="top: -30px">
             ${(!event.workorder.value) ? `<a href="#" onclick="openGeneralEventModal(${eventId})">Update Event</a>` : `<a href="#" onclick="openEventModal('', '', ${eventId})">Update Event</a>`}
             <a href="#" onclick="openCompleteEventModal('', ${eventId})">Complete Event</a>
             <a href="#" onclick="deleteEventRecord('', ${eventId})">Remove Event</a>
-          </div>` :
-        `<div class="dropdown-content">
-            ${(!event.workorder.value) ? `<a href="#" onclick="openGeneralEventModal(${eventId})">Update Event</a>` : `<a href="#" onclick="openEventModal('', '', ${eventId})">Update Event</a>`}
+          </div>` : `<div class="dropdown-content">
             <a href="#" onclick="deleteEventRecord('', ${eventId})">Remove Event</a>
           </div>`}
       </div>

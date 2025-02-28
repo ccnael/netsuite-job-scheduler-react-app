@@ -2320,7 +2320,7 @@ define([
         log.audit('----- [Complete Event] -----', { timeSheets });
 
         try {
-          Event._createTimeTracking(eventDataSrc, timeSheets);
+          timeSheets.length && Event._createTimeTracking(eventDataSrc, timeSheets);
 
           record.submitFields({
             type: record.Type.CALENDAR_EVENT,
@@ -2438,7 +2438,7 @@ define([
           }
           rec.save({ ignoreMandatoryFields: true });
         } else {
-          throw new Error('Time tracking location is required.');
+          // throw new Error('Time tracking location is required.');
         }
       }
 

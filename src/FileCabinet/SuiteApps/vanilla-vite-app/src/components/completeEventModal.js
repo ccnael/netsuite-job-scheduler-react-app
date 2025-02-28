@@ -110,7 +110,7 @@ $(document).ready(() => {
           </form>
         </div>
         <div class="modal-footer">
-          <button type="submit" form="completeEventSubmitForm" class="btn btn-primary">Save</button>
+          <button type="submit" form="completeEventSubmitForm" class="btn btn-primary">Complete</button>
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
         </div>
       </div>

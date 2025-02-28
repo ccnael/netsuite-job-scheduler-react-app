@@ -260,7 +260,6 @@ Z`,url:"/app/crm/calendar/event.nl?id=101075&compid=TSTDRV2617106&selectedtab=cu
                                   <a href="#" onclick="openCompleteEventModal(event)">Complete Event</a>
                                   <a href="#" onclick="deleteEventRecord(event)">Remove Event</a>
                                 </div>`:`<div class="dropdown-content">
-                                  ${e.workorder.value?'<a href="#" onclick="openEventModal(event)">Update Event</a>':`<a href="#" onclick="openGeneralEventModal(${e.id})">Update Event</a>`}
                                   <a href="#" onclick="deleteEventRecord(event)">Remove Event</a>
                                 </div>`}
                               </div>
@@ -399,7 +398,6 @@ Z`,url:"/app/crm/calendar/event.nl?id=101075&compid=TSTDRV2617106&selectedtab=cu
             <a href="#" onclick="openCompleteEventModal('', ${t})">Complete Event</a>
             <a href="#" onclick="deleteEventRecord('', ${t})">Remove Event</a>
           </div>`:`<div class="dropdown-content">
-            ${r.workorder.value?`<a href="#" onclick="openEventModal('', '', ${t})">Update Event</a>`:`<a href="#" onclick="openGeneralEventModal(${t})">Update Event</a>`}
             <a href="#" onclick="deleteEventRecord('', ${t})">Remove Event</a>
           </div>`}
       </div>
@@ -1013,7 +1011,7 @@ Z`,url:"/app/crm/calendar/event.nl?id=101075&compid=TSTDRV2617106&selectedtab=cu
           </form>
         </div>
         <div class="modal-footer">
-          <button type="submit" form="completeEventSubmitForm" class="btn btn-primary">Save</button>
+          <button type="submit" form="completeEventSubmitForm" class="btn btn-primary">Complete</button>
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
         </div>
       </div>

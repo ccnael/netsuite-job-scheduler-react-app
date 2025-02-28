@@ -213,8 +213,7 @@ export default class Board {
                         title="
                           <strong>${event.title}</strong><br/><br/>
                           Resources:<br/>
-                            ${(event.resources.length || event.vendors.length || event.assets.length) ?
-        `${event.resources.map((resource, counter) => `${+counter + 1}. ${resource.employee.text}`).join('<br/>')}${event.resources.length ? '<br/>' : ''}
+                            ${(event.resources.length || event.vendors.length || event.assets.length) ? `${event.resources.map((resource, counter) => `${+counter + 1}. ${resource.employee.text}`).join('<br/>')}${event.resources.length ? '<br/>' : ''}
                               ${event.vendors.map((vendor, counter) => `${event.resources.length + counter + 1}. ${vendor.vendor.text || vendor.name}`).join('<br/>')}${event.vendors.length ? '<br/>' : ''}
                               ${event.assets.map((asset, counter) => `${event.resources.length + event.vendors.length + counter + 1}. ${asset.asset.text || asset.name}`).join('<br/>')}` : '- None -'}"
                         style="${''/* event.status.value === 'COMPLETED' ? 'display: none' : 'display: initial' */}">
@@ -223,14 +222,11 @@ export default class Board {
                             <div class="card-header-options">
                               <div class="dropdown">
                                 <i class="fa-solid fa-angles-down" style="cursor: pointer"></i>
-                                ${event.status.value !== 'COMPLETED' ?
-        `<div class="dropdown-content">
+                                ${event.status.value !== 'COMPLETED' ? `<div class="dropdown-content">
                                   ${(!event.workorder.value) ? `<a href="#" onclick="openGeneralEventModal(${event.id})">Update Event</a>` : '<a href="#" onclick="openEventModal(event)">Update Event</a>'}
                                   <a href="#" onclick="openCompleteEventModal(event)">Complete Event</a>
                                   <a href="#" onclick="deleteEventRecord(event)">Remove Event</a>
-                                </div>` :
-        `<div class="dropdown-content">
-                                  ${(!event.workorder.value) ? `<a href="#" onclick="openGeneralEventModal(${event.id})">Update Event</a>` : '<a href="#" onclick="openEventModal(event)">Update Event</a>'}
+                                </div>` : `<div class="dropdown-content">
                                   <a href="#" onclick="deleteEventRecord(event)">Remove Event</a>
                                 </div>`}
                               </div>
