@@ -6,7 +6,7 @@ import './eventModal.css';
 let temp_resourcesDataTable, temp_vendorsDataTable, temp_assetsDataTable, temp_itemsDataTable, temp_contactsDataTable, temp_addressesDataTable;
 
 $(document).ready(() => {
-  $('#app').append(`<div class="modal fade" id="eventModal" mode="" woId="" eventId="" eventDataSrc="" prefillData="" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false">
+  $('#app').append(`<div class="modal fade" id="eventModal" mode="" woId="" eventId="" eventDataSrc="" calendarEventDrop="" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false">
     <div class="modal-dialog modal-xl">
       <div class="modal-content">
         <div class="modal-header">
@@ -111,8 +111,8 @@ $(document).ready(() => {
                                 <td width="75%">
                                   <div class="d-flex align-items-right ms-3">
                                     <div class="form-check form-switch w-100" style="margin-top: 10px; margin-left: 20px; display: flex; align-items: center;">
-                                      <input class="form-check-input me-2 assetonly-toggle" type="checkbox">
-                                      <label class="form-check-label" style="font-size: 11px; margin: 0; align-self: flex-end;">Asset Only</label>
+                                      <input class="form-check-input me-2 asset-maintenance-toggle" type="checkbox">
+                                      <label class="form-check-label" style="font-size: 11px; margin: 0; align-self: flex-end;">Asset Maintenance</label>
                                     </div>
                                   </div>
                                 </td>
@@ -268,7 +268,7 @@ $(document).ready(() => {
     </div>
   </div>`);
 
-  window.openEventModal = (ev, woId, eventId, prefillData) => {
+  window.openEventModal = (ev, woId, eventId, calendarEventDrop) => {
     if (ev) {
       const dataTransfer = ev?.dataTransfer;
       if (dataTransfer) {
@@ -285,12 +285,10 @@ $(document).ready(() => {
       if (woId) {
         $('#eventModal').attr('mode', 'create');
         $('#eventModal').attr('woId', woId);
-
         // Calendar event > drag jobs create event scenario
-        if (!!prefillData) {
-          $('#eventModal').attr('prefillData', encodeURIComponent(JSON.stringify(prefillData)));
+        if (!!calendarEventDrop) {
+          $('#eventModal').attr('calendarEventDrop', encodeURIComponent(JSON.stringify(calendarEventDrop)));
         }
-
       } else if (eventId) {
         $('#eventModal').attr('mode', 'edit');
         $('#eventModal').attr('eventId', eventId);
@@ -310,7 +308,7 @@ $(document).ready(() => {
       const mode = $('#eventModal').attr('mode');
       let woId = $('#eventModal').attr('woId');
       const eventId = $('#eventModal').attr('eventId');
-      let prefillData = $('#eventModal').attr('prefillData');
+      let calendarEventDrop = $('#eventModal').attr('calendarEventDrop');
       let woRef, eventData, modalTitle, eventTitle;
 
       if (mode === 'create') {
@@ -318,12 +316,12 @@ $(document).ready(() => {
         woRef = dataSet.workOrders.find(wo => wo.id == woId);
         eventTitle = woRef?.title;
 
-        if (!!prefillData) {
-          prefillData = JSON.parse(decodeURIComponent(prefillData));
-          $('#eventModal .datefrom').val(prefillData.date.start);
-          $('#eventModal .dateto').val(prefillData.date.end);
-          $('#eventModal .starttime').val(prefillData.time.start);
-          $('#eventModal .endtime').val(prefillData.time.end);
+        if (!!calendarEventDrop) {
+          calendarEventDrop = JSON.parse(decodeURIComponent(calendarEventDrop));
+          $('#eventModal .datefrom').val(calendarEventDrop.date.start);
+          $('#eventModal .dateto').val(calendarEventDrop.date.end);
+          $('#eventModal .starttime').val(calendarEventDrop.time.start);
+          $('#eventModal .endtime').val(calendarEventDrop.time.end);
         }
       } else if (mode === 'edit') { // Find Event Data to update from Work Orders
         modalTitle = `Update Event Details [ID ${eventId}]`;
@@ -354,6 +352,7 @@ $(document).ready(() => {
           // $('#eventModal .allday-toggle').prop('checked', eventData.allDay ? 'checked' : '');
           $('#eventModal .status').val(eventData.status.value);
           $('#eventModal .priority').val(eventData.priority.value);
+          $('#eventModal .asset-maintenance-toggle').prop('checked', eventData.assetMaintenance).change();
         }
       }
 
@@ -370,11 +369,12 @@ $(document).ready(() => {
               const woResourcesFiltered = dataSet.woResources.filter(resource => resource.workorder.value == woId);
 
               if (mode === 'create') {
-                if (!!prefillData) {
+                if (!!calendarEventDrop) {
                   return dataSet.activeResources.map(resource => {
                     const _resource = deepCopy(resource);
-                    if (prefillData.selectedResourceId == resource.id) {
+                    if (calendarEventDrop.selectedResourceId == resource.id) {
                       _resource.selected = true;
+                      _resource.time = calendarEventDrop.time;
                     }
                     return _resource;
                   });
@@ -421,10 +421,10 @@ $(document).ready(() => {
           callback({
             data: (() => {
               if (mode === 'create') {
-                if (!!prefillData) {
+                if (!!calendarEventDrop) {
                   return dataSet.vendors.map(vendor => {
                     const _vendor = deepCopy(vendor);
-                    if (prefillData.selectedVendorId == _vendor.id) {
+                    if (calendarEventDrop.selectedVendorId == _vendor.id) {
                       _vendor.selected = true;
                     }
                     return _vendor;
@@ -434,7 +434,9 @@ $(document).ready(() => {
                 }
               } else if (mode === 'edit') {
                 // Combine vendors and WO vendors
-                const unassignedVendors = deepCopy(dataSet.vendors).filter(vendor => !eventData.vendors.map(vendor => vendor.vendor.value).includes(vendor.id));
+                const unassignedVendors = deepCopy(dataSet.vendors)
+                  .filter(vendor => !eventData.vendors.map(vendor => vendor.vendor.value)
+                    .includes(vendor.id));
                 return [...eventData.vendors, ...unassignedVendors];
               }
             })()
@@ -453,20 +455,25 @@ $(document).ready(() => {
           callback({
             data: (() => {
               if (mode === 'create') {
-                if (!!prefillData) {
-                  return dataSet.assets.map(asset => {
-                    const _asset = deepCopy(asset);
-                    if (prefillData.selectedAssetId == _asset.id) {
-                      _asset.selected = true;
-                    }
-                    return _asset;
-                  })
+                if (!!calendarEventDrop) {
+                  return dataSet.assets
+                    .filter(asset => !asset.onMaintenance)
+                    .map(asset => {
+                      const _asset = deepCopy(asset);
+                      if (calendarEventDrop.selectedAssetId == _asset.id) {
+                        _asset.selected = true;
+                        _asset.time = calendarEventDrop.time;
+                      }
+                      return _asset;
+                    })
                 } else {
                   return dataSet.assets.filter(asset => !asset.onMaintenance);
                 }
               } else if (mode === 'edit') {
                 // Combine assets and WO assets
-                const unassignedAssets = deepCopy(dataSet.assets).filter(asset => !eventData.assets.map(asset => asset.asset.value).includes(asset.id));
+                const unassignedAssets = deepCopy(dataSet.assets)
+                  .filter(asset => !asset.onMaintenance && !eventData.assets.map(asset => asset.asset.value)
+                    .includes(asset.id));
                 return [...eventData.assets, ...unassignedAssets];
               }
             })()
@@ -512,7 +519,6 @@ $(document).ready(() => {
               if (mode === 'create') {
                 // return woRef.contacts.filter(contact => !contact.event);
                 let contacts = woRef.contacts.filter(contact => !contact.event);
-                // TBR
                 if (!contacts.length) {
                   let contactsWithEvents = woRef.contacts.filter(contact => !!contact.event);
                   const merged = Object.values(
@@ -562,17 +568,17 @@ $(document).ready(() => {
       });
 
       Event.handleAllDayToggle('#eventModal');
-      Event.handleAssetOnlyToggle('#eventModal', mode, [
+      Event.handleAssetMaintenanceToggle('#eventModal', mode, [
         temp_resourcesDataTable,
         temp_vendorsDataTable
       ]);
       Event.validateResourcesOnLoad('#wo-primaryinfo', '#resources', eventId);
       Event.validateOnHeaderFieldChange('#wo-primaryinfo', '#resources', eventId, 'eventResource');
-      Event.validateOnLineFieldChange('#wo-primaryinfo', '#resources', eventId);
+      Event.validateOnLineFieldChange('#wo-primaryinfo', '#resources');
 
       Event.validateResourcesOnLoad('#wo-primaryinfo', '#assets', eventId);
       Event.validateOnHeaderFieldChange('#wo-primaryinfo', '#assets', eventId, 'eventResource');
-      Event.validateOnLineFieldChange('#wo-primaryinfo', '#assets', eventId);
+      Event.validateOnLineFieldChange('#wo-primaryinfo', '#assets');
     }, 250);
   });
 
@@ -640,7 +646,7 @@ $(document).ready(() => {
     };
     payload.eventData.note = $('#eventModal .note').val();
     payload.eventData.allDay = $('#eventModal .allday-toggle').prop('checked');
-    payload.eventData.assetOnly = $('#eventModal .assetonly-toggle').prop('checked');
+    payload.eventData.assetMaintenance = $('#eventModal .asset-maintenance-toggle').prop('checked');
     payload.eventData.status = $('#eventModal .status').val();
     payload.eventData.priority = $('#eventModal .priority').val();
     payload.eventData.selectedResources = [];
@@ -673,21 +679,24 @@ $(document).ready(() => {
     }
 
     const vendorIds = [];
-    const vendors_dt_tr = document.querySelectorAll('#vendors tbody .dt-line-select');
-    for (const line of vendors_dt_tr) {
-      if (line.checked) {
-        const id = line.getAttribute('recordid');
-        if (id) {
-          const foundObj = vendorsToUse.find(vendor => vendor.id == id);
-          if (foundObj) {
-            const newQty = +line.parentNode.parentNode.parentNode.querySelector('.quantity').value;
-            const memo = line.parentNode.parentNode.parentNode.querySelector('.note').value;
-            foundObj.quantityRequired = newQty;
-            foundObj.memo = memo;
+    if (temp_vendorsDataTable) {
+      const vendors_dt_tr = temp_vendorsDataTable.rows({ search: 'applied' }).nodes();
+      vendors_dt_tr.each(function (node) {
+        const line = $(node).find('input.dt-line-select');
+        if (line.is(':checked')) {
+          const id = line.attr('recordId');
+          if (id) {
+            const foundObj = vendorsToUse.find(vendor => vendor.id == id);
+            if (foundObj) {
+              const newQty = +$(node).find('.quantity').val();
+              const memo = $(node).find('.note').val();
+              foundObj.quantity = newQty;
+              foundObj.memo = memo;
+            }
+            vendorIds.push(id);
           }
-          vendorIds.push(id);
         }
-      }
+      });
     }
 
     const assetIds = [];
@@ -817,7 +826,7 @@ $(document).ready(() => {
     $(`#eventModal`).attr('woId', '');
     $(`#eventModal`).attr('eventId', '');
     $(`#eventModal`).attr('eventDataSrc', '');
-    $(`#eventModal`).attr('prefillData', '');
+    $(`#eventModal`).attr('calendarEventDrop', '');
     $(`#eventModal .datefrom`).val('');
     $(`#eventModal .dateto`).val('');
     $(`#eventModal .starttime`).val('');

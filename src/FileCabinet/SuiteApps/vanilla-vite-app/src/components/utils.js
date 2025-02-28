@@ -1,4 +1,4 @@
-import { userId, suiteletUrl, events, filterFields } from './dataSet';
+import { userId, suiteletUrl, assets, events, filterFields } from './dataSet';
 
 export function selectDefaultTab() {
   const sessionKey = /netsuite\.com/.test(window.location.href) ? `${userId}:lastClickedTab` : 'lastClickedTab';
@@ -74,7 +74,7 @@ export class Event {
     el && el.prop('checked', false).change();
   }
 
-  static validateOnLineFieldChange(tableId, resourceTblId, eventId) {
+  static validateOnLineFieldChange(tableId, resourceTblId) {
     const that = this;
     // On resource check
     $(`${resourceTblId} input.dt-line-select`).on('change', function () {
@@ -99,8 +99,19 @@ export class Event {
 
     $(`${resourceTblId} tbody tr`).each(function () {
       const checkbox = $(this).find('input.dt-line-select');
-      const resourceId = checkbox.attr('employeeId');
-      const resourceEvents = events.filter(event => event.resources.map(resource => resource.employee.value).includes(resourceId));
+      const resourceType = checkbox.attr('validate-datetime-resource-type');
+      const resourceId = checkbox.attr('validate-datetime-resource-id');
+      let resourceEvents = [];
+      if (resourceType === 'employee') {
+        resourceEvents = events
+          .filter(event => event.resources.map(resource => resource.employee.value)
+            .includes(resourceId));
+      } else {
+        resourceEvents = events
+          .filter(event => event.assets.map(asset => asset.asset.value)
+            .includes(resourceId));
+      }
+
       const conflictEvents = resourceEvents.filter(event => {
         const eventStart = `${event.date.start} ${event.time.start}`;
         const eventEnd = `${event.date.end} ${event.time.end}`;
@@ -208,12 +219,12 @@ export class Event {
     });
   }
 
-  static handleAssetOnlyToggle(selector, mode, dataTables) {
-    const toggleEl = $(`${selector} .assetonly-toggle`);
+  static handleAssetMaintenanceToggle(selector, mode, dataTables) {
+    const toggleEl = $(`${selector} .asset-maintenance-toggle`);
     if (mode === 'edit') {
       const isChecked = toggleEl.prop('checked');
       if (isChecked) {
-        this.setAssetOnly(selector, true, dataTables);
+        this.setAssetMaintenance(selector, true, dataTables);
         toggleEl.prop('disabled', true); // Do not allow toggle on edit if already checked
       } else {
         toggleEl.parent().css('display', 'none'); // Hide toggle on edit if unchecked
@@ -221,11 +232,11 @@ export class Event {
     }
     toggleEl.on('change', ev => {
       const isChecked = ev.target.checked;
-      this.setAssetOnly(selector, isChecked, dataTables);
+      this.setAssetMaintenance(selector, isChecked, dataTables);
     });
   }
 
-  static setAssetOnly(selector, isChecked, dataTables) {
+  static setAssetMaintenance(selector, isChecked, dataTables) {
     const resourceAccordionCollapsed = $(`${selector} div[id*="2ndAccordion"] .accordion-button`).hasClass('collapsed');
     const vendorAccordionCollapsed = $(`${selector} div[id*="3rdAccordion"] .accordion-button`).hasClass('collapsed');
     let cssObj;
@@ -287,21 +298,40 @@ export class Event {
     return !!conflictEvents.length;
   }
 
-  static draggedJobHasConflictEvent(startDateTime, resourceId = '') {
-    const resourceEvents = events.filter(event => event.resources.map(resource => resource.employee.value).includes(resourceId));
-    const conflictEvents = resourceEvents.filter(event => {
-      const eventStart = moment(`${event.date.start} ${event.time.start}`);
-      const eventEnd = moment(`${event.date.end} ${event.time.end}`);
-      return startDateTime.isSameOrAfter(eventStart) && startDateTime.isSameOrBefore(eventEnd);
-    });
-    return !!conflictEvents.length;
+  static draggedJobHasConflictEventToResource(startDateTime, resourceId = '') {
+    let resourceEvents = events
+      .filter(event => event.resources.map(resource => resource.employee.value)
+        .includes(resourceId));
+    // Validate resource
+    if (resourceEvents.length) {
+      const conflictEvents = resourceEvents.filter(event => {
+        const eventStart = moment(`${event.date.start} ${event.time.start}`);
+        const eventEnd = moment(`${event.date.end} ${event.time.end}`);
+        return startDateTime.isSameOrAfter(eventStart) && startDateTime.isSameOrBefore(eventEnd);
+      });
+      return !!conflictEvents.length;
+    } else {
+      // Validate asset
+      resourceEvents = events
+        .filter(event => event.assets.map(asset => asset.asset.value)
+          .includes(resourceId));
+      const conflictEvents = resourceEvents.filter(event => {
+        const eventStart = moment(`${event.date.start} ${event.time.start}`);
+        const eventEnd = moment(`${event.date.end} ${event.time.end}`);
+        return startDateTime.isSameOrAfter(eventStart) && startDateTime.isSameOrBefore(eventEnd);
+      });
+      const assetObj = assets.find(asset => asset.asset.value == resourceId);
+      // console.log('assetObj', assetObj);
+      return !!conflictEvents.length || assetObj.onMaintenance;
+    }
+    return false;
   }
 
   static createEventRecord(payload, modalId) {
     console.log('----- [createEventRecord() -> PAYLOAD] -----', payload);
     Swal.fire({
       title: 'Create Event Record?',
-      text: payload.woRef?.name ? `Create Event for Work Order : ${payload.woRef.name}` : 'Create Event',
+      text: payload.woRef?.name ? `Create Event for Work Order : ${payload.woRef.name}` : '',
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
@@ -487,6 +517,7 @@ export class Event {
 export class Resource {
 
   static updateResourceAssignment(payload, eventInfo) {
+    console.log('updateResourceAssignment eventInfo', eventInfo);
     payload.newResource = eventInfo.newResource.extendedProps;
     console.log('----- [updateResourceAssignment() -> PAYLOAD] -----', { payload, eventInfo: eventInfo || '' });
 
@@ -564,8 +595,8 @@ export class Resource {
     // eventInfo.revert();
   }
 
-  static updateResourceDateTime(payload, eventInfo) {
-    console.log('----- [updateResourceDateTime() -> PAYLOAD] -----', { payload, eventInfo: eventInfo || '' });
+  static updateResourceTime(payload, eventInfo) {
+    console.log('----- [updateResourceTime() -> PAYLOAD] -----', { payload, eventInfo: eventInfo || '' });
 
     Swal.fire({
       title: `Update Date/Time`,
@@ -582,7 +613,7 @@ export class Resource {
             didOpen: () => {
               Swal.showLoading();
               fetch(
-                `${suiteletUrl}&mode=updateResourceDateTime`, {
+                `${suiteletUrl}&mode=updateResourceTime`, {
                 method: 'POST',
                 body: JSON.stringify(payload),
                 headers: {

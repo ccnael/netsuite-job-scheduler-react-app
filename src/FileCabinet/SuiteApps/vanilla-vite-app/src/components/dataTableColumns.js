@@ -5,7 +5,7 @@ export const resourcesDtColumns = [
         <input type="checkbox" class="form-check-input" style="left: 30px" onclick="markAll(event);">
       </div>`,
     render: (_data, _type, row, _meta) => `<div class="form-group form-check container d-flex justify-content-center">
-        <input recordId="${row.id}" employeeId="${row.employee.value}" type="checkbox" class="form-check-input dt-line-select" ${row.selected ? 'checked' : ''}>
+        <input recordId="${row.id}" validate-datetime-resource-type="employee" validate-datetime-resource-id="${row.employee.value}" type="checkbox" class="form-check-input dt-line-select" ${row.selected ? 'checked' : ''}>
       </div>`,
     width: "5%",
     orderable: false
@@ -85,7 +85,7 @@ export const assetsDtColumns = [
         <input type="checkbox" class="form-check-input" style="left: 30px" onclick="markAll(event);">
       </div>`,
     render: (_data, _type, row, _meta) => `<div class="form-group form-check container d-flex justify-content-center">
-        <input recordId="${row.id}" type="checkbox" class="form-check-input dt-line-select" ${row.selected ? 'checked' : ''}>
+        <input recordId="${row.id}" validate-datetime-resource-type="asset" validate-datetime-resource-id="${row.asset.value}" type="checkbox" class="form-check-input dt-line-select" ${row.selected ? 'checked' : ''}>
       </div>`,
     width: "5%",
     orderable: false
@@ -107,7 +107,7 @@ export const assetsDtColumns = [
   },
   {
     className: 'dt-head-center dt-body-center',
-    render: (_data, _type, row, _meta) => `<input type="number" class="quantity" value="${row?.quantity || 0}" max="${row?.quantity || 0}" min="0" required />`,
+    render: (_data, _type, row, _meta) => `<input type="number" class="quantity" value="${row?.quantity || 0}" max="${row?.maxQuantity || 0}" min="0" required />`,
     title: 'Quantity'
   },
   {

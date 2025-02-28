@@ -185,7 +185,7 @@
           "className": "multiple-event-receipt-field",
           "type": "multiselect",
           "display": true,
-          "options": "[{ text: 'Partially Received', value: '1' }, { text: 'Fully Received', value: '2' }]"
+          "options": "[{ text: 'Not Received', value: '1' }, { text: 'Partially Received', value: '2' }, { text: 'Fully Received', value: '3' }]"
         }
       ]
     },
@@ -300,7 +300,7 @@
           "className": "multiple-event-receipt-field",
           "type": "multiselect",
           "display": true,
-          "options": "[{ text: 'Partially Received', value: '1' }, { text: 'Fully Received', value: '2' }]"
+          "options": "[{ text: 'Not Received', value: '1' }, { text: 'Partially Received', value: '2' }, { text: 'Fully Received', value: '3' }]"
         }
       ]
     },

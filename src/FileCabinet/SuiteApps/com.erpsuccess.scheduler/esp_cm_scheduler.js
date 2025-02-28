@@ -278,7 +278,7 @@ define([
         return vendors;
       }
 
-      static getAssets(woAssets) {
+      static getAssets() {
         // const queryStr = `
         //   SELECT 
         //       x.name, 
@@ -343,7 +343,8 @@ define([
               text: result.getText('custrecord_esp_fop_asset_site'),
               value: result.getValue('custrecord_esp_fop_asset_site')
             },
-            quantity: 0,//+result.getValue('custrecord_esp_fop_asset_quantity'),
+            quantity: 0,
+            maxQuantity: +result.getValue('custrecord_esp_fop_asset_quantity'),
             quantityRemaining: +result.getValue('custrecord_esp_fop_asset_quantity_remain'),
             quantityUsed: +result.getValue('custrecord_esp_fop_asset_qty_used'),
             owned: result.getValue('custrecord_esp_fop_asset_owned'),
@@ -353,14 +354,9 @@ define([
             }
           };
           assets.push(assetObj);
-          // Map asset obj to WO asset
-          const foundObj = woAssets.find(woAsset => woAsset.asset.value == assetObj.id);
-          if (foundObj) {
-            foundObj.assetRef = deepCopy(assetObj);
-          }
           return true;
         });
-        log.audit('----- [Assets & Equipments] -----', assets);
+        // log.audit('----- [Assets & Equipments] -----', assets);
         return assets;
       }
 
@@ -530,8 +526,8 @@ define([
               value: result.getValue('custrecord_esp_fop_wo_location'),
             },
             receiptStatus: {
-              text: result.getText('custrecord_esp_fop_wo_ir_status'),
-              value: result.getValue('custrecord_esp_fop_wo_ir_status'),
+              text: result.getText('custrecord_esp_fop_wo_ir_status') || 'Not Received',
+              value: result.getValue('custrecord_esp_fop_wo_ir_status') || '1',
               get code() {
                 switch (this.value) {
                   case '2':
@@ -1061,7 +1057,7 @@ define([
       }
 
       // Applies when resizing resource events in the calendar view
-      static updateResourceDateTime(context) {
+      static updateResourceTime(context) {
         const { request, response } = context;
         let reqBody = request.body || '{}';
         const payload = JSON.parse(reqBody);
@@ -1306,7 +1302,8 @@ define([
               search.createColumn({ name: 'custrecord_esp_fop_ast_start_date', label: 'Start Date' }),
               search.createColumn({ name: 'custrecord_esp_fop_ast_end_date', label: 'End Date' }),
               search.createColumn({ name: 'custrecord_esp_fop_ast_start_time', label: 'Start Time' }),
-              search.createColumn({ name: 'custrecord_esp_fop_ast_end_time', label: 'End Time' })
+              search.createColumn({ name: 'custrecord_esp_fop_ast_end_time', label: 'End Time' }),
+              search.createColumn({ name: 'custrecord_esp_fop_is_maintenance', join: 'custrecord_esp_fop_ast_asset_rec', label: 'Asset on Maintenance' }),
             ]
         });
         const assets = [];
@@ -1320,12 +1317,13 @@ define([
             },
             event: result.getValue('custrecord_esp_fop_ast_wo_event'),
             quantity: +result.getValue('custrecord_esp_fop_ast_quantity'),
+            maxQuantity: +result.getValue('custrecord_esp_fop_ast_quantity'),
             description: result.getValue('custrecord_esp_fop_ast_item_desc'),
             asset: {
               text: result.getText('custrecord_esp_fop_ast_asset_rec'),
               value: result.getValue('custrecord_esp_fop_ast_asset_rec')
             },
-            assetRef: {},
+            onMaintenance: result.getValue({ name: 'custrecord_esp_fop_is_maintenance', join: 'custrecord_esp_fop_ast_asset_rec' }),
             /* item: {
               text: result.getText('custrecord_esp_fop_ast_equipment'),
               value: result.getValue('custrecord_esp_fop_ast_equipment'),
@@ -1367,20 +1365,7 @@ define([
         return assets;
       }
 
-      static _markAssetOccupied(id) {
-        record.submitFields({
-          type: env.RecordType.ASSET,
-          id,
-          values: {
-            custrecord_esp_fop_is_maintenance: true
-          },
-          options: {
-            ignoreMandatoryFieds: true
-          }
-        })
-      }
-
-      static _createAssets(event, woRef) {
+      static _createAssets(event, woRef, copyEventTime) {
         const assets = event?.selectedAssets || [];
         for (const asset of assets) {
           try {
@@ -1398,11 +1383,10 @@ define([
             rec.setValue({ fieldId: 'custrecord_esp_fop_ast_rel_wo', value: woRef?.id || '' });
             rec.setValue({ fieldId: 'custrecordesp_fop_ast_rental_unit', value: asset?.rentalUnit?.value || '' });
             rec.setValue({ fieldId: 'custrecord_esp_fop_ast_primary_vendor', value: asset?.vendor?.value || '' });
-            rec.setValue({ fieldId: 'custrecord_esp_fop_ast_start_time', value: _toDateTimez(event.date.start, asset.time.start) });
-            rec.setValue({ fieldId: 'custrecord_esp_fop_ast_end_time', value: _toDateTimez(event.date.end, asset.time.end) });
+            rec.setValue({ fieldId: 'custrecord_esp_fop_ast_start_time', value: _toDateTimez(event.date.start, !copyEventTime ? asset.time.start : event.time.start) }); // If no asset start time, use event start time instead
+            rec.setValue({ fieldId: 'custrecord_esp_fop_ast_end_time', value: _toDateTimez(event.date.start, !copyEventTime ? asset.time.end : event.time.end) }); // If no asset end time, use event end time instead
             const newId = rec.save({ ignoreMandatoryFieds: true });
             log.audit('----- [Created WO Asset Record] -----', newId);
-            this._markAssetOccupied(asset.id);
           } catch (e) {
             log.error('Error on WO asset > Create', { asset, errorMsg: e.message });
             asset.errorMsg = e.message;
@@ -1447,7 +1431,6 @@ define([
         }
         // If theres to remove
         Utils._deleteRecords(env.RecordType.WORK_ORDER_ASSET, removedAssets.map(asset => asset.id));
-
         // If theres to create
         const clonedEventObj = deepCopy(event);
         clonedEventObj.selectedAssets = newAssets;
@@ -1833,6 +1816,7 @@ define([
               // search.createColumn({ name: 'custevent_esp_fop_event_contact', label: 'Selected Contact' }),
               search.createColumn({ name: 'custevent_esp_fop_event_address', label: 'Selected Address' }),
               search.createColumn({ name: 'custevent_task_pi', label: 'Project Insight' }),
+              search.createColumn({ name: 'custevent_esp_fop_asset_maintenance', label: 'Asset Maintenance' }),
             ]
         });
         searchObj.run().each(result => {
@@ -1936,7 +1920,8 @@ define([
             projectInsight: {
               text: result.getText('custevent_task_pi'),
               values: result.getValue('custevent_task_pi')
-            }
+            },
+            assetMaintenance: result.getValue('custevent_esp_fop_asset_maintenance')
           });
           return true;
         });
@@ -2052,7 +2037,7 @@ define([
           fieldToSet.custevent_esp_fop_event_priority = eventData.priority;
           fieldToSet.custevent_esp_fop_memo = eventData.note;
           fieldToSet.custevent_task_pi = woRef?.projectInsight?.value;
-          fieldToSet.custevent_esp_fop_asset_only = eventData.assetOnly;
+          fieldToSet.custevent_esp_fop_asset_maintenance = eventData.assetMaintenance;
 
           if (!!eventData.selectedAddress) {
             fieldToSet.custevent_esp_fop_event_address = eventData.selectedAddress.id;
@@ -2129,7 +2114,7 @@ define([
                 WorkOrderVendor._createVendors(eventData, woRef);
                 break;
               case 'asset':
-                WorkOrderAsset._createAssets(eventData, woRef);
+                WorkOrderAsset._createAssets(eventData, woRef, true);
                 break;
             }
           } else {
@@ -2330,19 +2315,12 @@ define([
         const { request, response } = context;
         let reqBody = request.body || '{}';
         const payload = JSON.parse(reqBody);
-        let { eventDataSrc, timeSheets, fulfillItems } = payload;
+        let { eventDataSrc, timeSheets } = payload;
         const eventId = eventDataSrc.id;
-        const soId = eventDataSrc.woRef?.salesorder?.value;
-        log.audit('----- [Complete Event] -----', { timeSheets, fulfillItems });
+        log.audit('----- [Complete Event] -----', { timeSheets });
 
         try {
           Event._createTimeTracking(eventDataSrc, timeSheets);
-          // Prevent blocker if something happens
-          try {
-            Event._fulfillOrderItems(soId, fulfillItems);
-          } catch (e) {
-            log.audit('Complete Event Fulfillment Unexpected Error', e.message);
-          }
 
           record.submitFields({
             type: record.Type.CALENDAR_EVENT,
@@ -2461,43 +2439,6 @@ define([
           rec.save({ ignoreMandatoryFields: true });
         } else {
           throw new Error('Time tracking location is required.');
-        }
-      }
-
-      static _fulfillOrderItems(soId, items) {
-        log.audit('----- [Fulfill Order Items] -----', { soId, items });
-
-        if (soId) {
-          const rec = record.transform({
-            fromType: record.Type.SALES_ORDER,
-            fromId: soId,
-            toType: record.Type.ITEM_FULFILLMENT,
-            isDynamic: true
-          });
-          for (const item of items) {
-            const idx = rec.findSublistLineWithValue({
-              sublistId: 'item',
-              fieldId: 'orderline',
-              value: item.lineId
-            });
-            log.audit('Fulfilling item', { idx, item })
-            if (idx > -1) {
-              rec.selectLine({ sublistId: 'item', line: idx });
-              rec.setCurrentSublistValue({
-                sublistId: 'item',
-                fieldId: 'itemreceive',
-                value: true
-              });
-              rec.setCurrentSublistValue({
-                sublistId: 'item',
-                fieldId: 'quantity',
-                value: item.completeQty
-              });
-              rec.commitLine({ sublistId: 'item' });
-            }
-          }
-          rec.save({ ignoreMandatoryFieds: true });
-          log.audit('Fulfilled Items!', items);
         }
       }
 

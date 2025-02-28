@@ -717,7 +717,7 @@ export function onFilterCalendarEvent(fieldId, pageSwitched, info) {
       calendarEvents = calendarEvents.filter(event => !!($selected.eventType.includes(!!event.extendedProps.workorder.text ? '2' : '1')));
     }
     if ($selected.receiptStatus.length) {
-      calendarEvents = calendarEvents.filter(event => !!($selected.receiptStatus.includes(event.extendedProps.woRef.receiptStatus)));
+      calendarEvents = calendarEvents.filter(event => !!($selected.receiptStatus.includes(event.extendedProps.woRef?.receiptStatus?.value)));
     }
     // Events with no resource gets assigned here
     if (!$selected.resource.length && !$selected.resourceGroup.length || $selected.resourceGroup.includes('z-unassigned')) {

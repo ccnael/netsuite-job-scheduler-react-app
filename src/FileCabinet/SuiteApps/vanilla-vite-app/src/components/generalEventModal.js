@@ -105,8 +105,8 @@ $(document).ready(() => {
                                 <td width="75%">
                                   <div class="d-flex align-items-right ms-3">
                                     <div class="form-check form-switch w-100" style="margin-top: 10px; margin-left: 20px; display: flex; align-items: center;">
-                                      <input class="form-check-input me-2 assetonly-toggle" type="checkbox">
-                                      <label class="form-check-label" style="font-size: 11px; margin: 0; align-self: flex-end;">Asset Only</label>
+                                      <input class="form-check-input me-2 asset-maintenance-toggle" type="checkbox">
+                                      <label class="form-check-label" style="font-size: 11px; margin: 0; align-self: flex-end;">Asset Maintenance</label>
                                     </div>
                                   </div>
                                 </td>
@@ -233,6 +233,7 @@ $(document).ready(() => {
           // $('#generalEventModal .allday-toggle').prop('checked', eventData.allDay ? 'checked' : '');
           $('#generalEventModal .status').val(eventData.status.value);
           $('#generalEventModal .priority').val(eventData.priority.value);
+          $('#generalEventModal .asset-maintenance-toggle').prop('checked', eventData.assetMaintenance).change();
         }
       }
 
@@ -314,17 +315,17 @@ $(document).ready(() => {
       });
 
       Event.handleAllDayToggle('#generalEventModal');
-      Event.handleAssetOnlyToggle('#generalEventModal', mode, [
+      Event.handleAssetMaintenanceToggle('#generalEventModal', mode, [
         temp_resourcesDataTable,
         temp_vendorsDataTable
       ]);
       Event.validateResourcesOnLoad('#wo-primaryinfo-ge', '#resources_ge', eventId);
       Event.validateOnHeaderFieldChange('#wo-primaryinfo-ge', '#resources_ge', eventId, 'generalEventResource');
-      Event.validateOnLineFieldChange('#wo-primaryinfo-ge', '#resources_ge', eventId);
+      Event.validateOnLineFieldChange('#wo-primaryinfo-ge', '#resources_ge');
 
       Event.validateResourcesOnLoad('#wo-primaryinfo-ge', '#assets_ge', eventId);
       Event.validateOnHeaderFieldChange('#wo-primaryinfo-ge', '#assets_ge', eventId, 'generalEventResource');
-      Event.validateOnLineFieldChange('#wo-primaryinfo-ge', '#assets_ge', eventId);
+      Event.validateOnLineFieldChange('#wo-primaryinfo-ge', '#assets_ge');
     }, 250);
   });
 
@@ -351,11 +352,15 @@ $(document).ready(() => {
         return resource;
       });
 
-      let unassignedVendors = deepCopy(dataSet.vendors).filter(vendor => !eventData.vendors.map(vendor => vendor.vendor.value).includes(vendor.id));
+      let unassignedVendors = deepCopy(dataSet.vendors)
+        .filter(vendor => !eventData.vendors.map(vendor => vendor.vendor.value)
+          .includes(vendor.id));
       unassignedVendors = [...eventData.vendors, ...unassignedVendors];
       vendorsToUse = unassignedVendors;
 
-      let unassignedAssets = deepCopy(dataSet.assets).filter(asset => !eventData.assets.map(asset => asset.asset.value).includes(asset.id));
+      let unassignedAssets = deepCopy(dataSet.assets)
+        .filter(asset => !asset.onMaintenance && !eventData.assets.map(asset => asset.asset.value)
+          .includes(asset.id));
       unassignedAssets = [...eventData.assets, ...unassignedAssets];
       assetsToUse = unassignedAssets;
     }
@@ -377,7 +382,7 @@ $(document).ready(() => {
     };
     payload.eventData.note = $('#generalEventModal .note').val();
     payload.eventData.allDay = $('#generalEventModal .allday-toggle').prop('checked');
-    payload.eventData.assetOnly = $('#generalEventModal .assetonly-toggle').prop('checked');
+    payload.eventData.assetMaintenance = $('#generalEventModal .asset-maintenance-toggle').prop('checked');
     payload.eventData.status = $('#generalEventModal .status').val();
     payload.eventData.priority = $('#generalEventModal .priority').val();
     payload.eventData.selectedResources = [];
@@ -407,21 +412,24 @@ $(document).ready(() => {
     }
 
     const vendorIds = [];
-    const vendors_dt_tr = document.querySelectorAll('#vendors_ge tbody .dt-line-select');
-    for (const line of vendors_dt_tr) {
-      if (line.checked) {
-        const id = line.getAttribute('recordid');
-        if (id) {
-          const foundObj = vendorsToUse.find(vendor => vendor.id == id);
-          if (foundObj) {
-            const newQty = +line.parentNode.parentNode.parentNode.querySelector('.quantity').value;
-            const comment = line.parentNode.parentNode.parentNode.querySelector('.note').value;
-            foundObj.quantityRequired = newQty;
-            foundObj.memo = comment;
+    if (temp_vendorsDataTable) {
+      const vendors_dt_tr = temp_vendorsDataTable.rows({ search: 'applied' }).nodes();
+      vendors_dt_tr.each(function (node) {
+        const line = $(node).find('input.dt-line-select');
+        if (line.is(':checked')) {
+          const id = line.attr('recordId');
+          if (id) {
+            const foundObj = vendorsToUse.find(vendor => vendor.id == id);
+            if (foundObj) {
+              const newQty = +$(node).find('.quantity').val();
+              const memo = $(node).find('.note').val();
+              foundObj.quantity = newQty;
+              foundObj.memo = memo;
+            }
+            vendorIds.push(id);
           }
-          vendorIds.push(id);
         }
-      }
+      });
     }
 
     const assetIds = [];

@@ -60,8 +60,8 @@ define([
           case 'updateResourceAssignment':
             mod.WorkOrderResource.updateResourceAssignment(scriptContext);
             break;
-          case 'updateResourceDateTime':
-            mod.WorkOrderResource.updateResourceDateTime(scriptContext);
+          case 'updateResourceTime':
+            mod.WorkOrderResource.updateResourceTime(scriptContext);
             break;
           case 'completeEvent':
             mod.Event.completeEvent(scriptContext);
@@ -102,7 +102,7 @@ define([
       const resources = mod.Resource.getEmployees(events);
       const resourceGroups = mod.Resource.getResourceGroups(resources);
       const vendors = mod.Resource.getVendors(events);
-      const assets = mod.Resource.getAssets(woAssets);
+      const assets = mod.Resource.getAssets();
       const resourceSkills = mod.Resource.getResourceSkills(resources);
       const resourceLocations = mod.Resource.getResourceLocations(resources, vendors, assets);
       const resourceDepartments = mod.Resource.getResourceDepartments(resources, vendors, assets);

@@ -212,7 +212,7 @@ $(document).ready(() => {
           columns: cePunchItemsDtColumns,
           initComplete: () => {
             completeEventModalHandlers();
-            hideCustomLoader('completeEventModal');
+            setTimeout(() => hideCustomLoader('completeEventModal'), 1000);
           }
         });
       })
@@ -232,8 +232,7 @@ $(document).ready(() => {
 
     const payload = {
       eventDataSrc: {},
-      timeSheets: [],
-      fulfillItems: []
+      timeSheets: []
     }
 
     payload.eventDataSrc = JSON.parse(decodeURIComponent($('#completeEventModal').attr('eventDataSrc')));
@@ -241,6 +240,7 @@ $(document).ready(() => {
     const unresolvedPunchCount = punchLines.filter(punch => punch.status.value != 6).length; // 6 (Resolved)
     const eventId = payload.eventDataSrc.id;
     const eventData = events.find(event => event.id == eventId);
+    const assetMaintenance = eventData.assetMaintenance;
     const woRef = eventData.woRef;
     const woId = woRef?.id || '';
 
@@ -313,17 +313,6 @@ $(document).ready(() => {
       });
     });
 
-    $('#items_ce tbody > tr').each(function () {
-      const customRecordId = $(this).find('.dt-line-select').attr('recordId');
-      const checked = ($(this).find('.dt-line-select') || [])[0]?.checked || false;
-      const lineId = $(this).find('.lineId').text();
-      const quantity = +$(this).find('.itemQty').text();
-      const completeQty = +$(this).find('.completeQty').val();
-      if (checked) {
-        payload.fulfillItems.push({ customRecordId, lineId, quantity, completeQty });
-      }
-    });
-
     // Sanitize: Filter out undefined, null etc values
     payload.timeSheets = payload.timeSheets.filter(timeSheet => {
       Object.keys(timeSheet).forEach(key => {
@@ -333,25 +322,31 @@ $(document).ready(() => {
       return timeSheet;
     })
 
-    const allowedProperties = ['id', 'location', 'startTime', 'endTime', 'awayHrs', 'awayMins', 'stHrs', 'stMins', 'otHrs', 'otMins', 'dtHrs', 'dtMins', 'notes'];
+    const allowedProperties = [
+      'id',
+      'location',
+      'startTime',
+      'endTime',
+      'awayHrs',
+      'awayMins',
+      'stHrs',
+      'stMins',
+      'otHrs',
+      'otMins',
+      'dtHrs',
+      'dtMins',
+      'notes'
+    ];
 
     // Check if any object property is in the allowedProperties array
     payload.timeSheets = payload.timeSheets.filter(obj =>
       Object.keys(obj).some(key => allowedProperties.includes(key))
     );
 
-    payload.fulfillItems = payload.fulfillItems.filter(fulfillItem => {
-      Object.keys(fulfillItem).forEach(key => {
-        if (!fulfillItem[key])
-          delete fulfillItem[key];
-      })
-      return fulfillItem;
-    }).filter(fulfillItem => !!Object.keys(fulfillItem).length);
-
     console.log('----- Complete Event Payload -----');
     console.log(payload);
 
-    if (!payload.timeSheets.length) {
+    if (!payload.timeSheets.length && !assetMaintenance) {
       Swal.fire(
         'Unable to Proceed',
         `Time Sheets Required`,
