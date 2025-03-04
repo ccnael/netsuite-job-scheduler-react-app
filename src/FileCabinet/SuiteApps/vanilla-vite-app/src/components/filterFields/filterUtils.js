@@ -444,7 +444,7 @@ export function onFilterBoardEvent(fieldId) {
         $selected[id] = $(this).val() || (!id.match(/date/gi) ? [] : '');
         filterItems();
         // Highlight resource rows
-        if (id == 'resource') {
+        if (id === 'resource') {
           $('.person-container').each(function () {
             const elementId = $(this)[0].id;
             const resourceId = elementId.split('-').pop();

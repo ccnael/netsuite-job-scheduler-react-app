@@ -57,6 +57,7 @@ define([
             search.createColumn({ name: 'email', label: 'Email' }),
             search.createColumn({ name: 'phone', label: 'Phone' }),
             search.createColumn({ name: 'location', label: 'Location' }),
+            search.createColumn({ name: 'name', join: 'location', label: 'Location Name' }),
             search.createColumn({ name: 'custentity_esp_fop_is_employee_active', label: 'Active' }),
             search.createColumn({ name: 'custentity_esp_fop_emp_resource_type', label: 'Resource Type' }),
             search.createColumn({ name: 'custentity_esp_fop_emp_resource_subtype', label: 'Resource Subtype' }),
@@ -348,6 +349,7 @@ define([
             quantityRemaining: +result.getValue('custrecord_esp_fop_asset_quantity_remain'),
             quantityUsed: +result.getValue('custrecord_esp_fop_asset_qty_used'),
             owned: result.getValue('custrecord_esp_fop_asset_owned'),
+            consumable: result.getValue('custrecord_erp_fop_asset_is_consumable'),
             time: {
               start: '',
               end: ''
@@ -1057,10 +1059,11 @@ define([
       }
 
       // Applies when resizing resource events in the calendar view
-      static updateResourceTime(context) {
+      static updateResourceDateTime(context) {
         const { request, response } = context;
         let reqBody = request.body || '{}';
         const payload = JSON.parse(reqBody);
+        log.debug('updateResourceDateTime', payload);
 
         try {
           const lookUp = search.lookupFields({
@@ -1435,6 +1438,127 @@ define([
         const clonedEventObj = deepCopy(event);
         clonedEventObj.selectedAssets = newAssets;
         this._createAssets(clonedEventObj, woRef);
+      }
+
+      // Applies when dragging and assigning new asset events in the calendar view
+      static updateAssetAssignment(context) {
+        const { request, response } = context;
+        let reqBody = request.body || '{}';
+        const payload = JSON.parse(reqBody);
+
+        try {
+          const lookUp = search.lookupFields({
+            type: env.RecordType.WORK_ORDER_ASSET,
+            id: payload.id,
+            columns: ['custrecord_esp_fop_ast_asset_rec']
+          });
+          const oldResourceId = lookUp.custrecord_esp_fop_ast_asset_rec[0]?.value;
+          const newResourceId = payload.newResource.id;
+          const values = {};
+          values.custrecord_esp_fop_ast_start_time = moment(`1/1/1999 ${payload.time.start}`).format(env.Format.IMPORT_TIME);
+          values.custrecord_esp_fop_ast_end_time = moment(`1/1/1999 ${payload.time.end}`).format(env.Format.IMPORT_TIME);
+
+          if (oldResourceId != newResourceId) {
+            const newResource = payload.newResource;
+            values.custrecord_esp_fop_ast_asset_rec = newResourceId;
+            // values.custrecord_esp_fop_ast_site = newResource.site.value;
+            // values.custrecord_esp_fop_ast_quantity = newResource.quantity;
+            values.custrecord_esp_fop_ast_is_owned = newResource.owned;
+            values.custrecord_esp_fop_ast_is_consumable = newResource.consumable;
+            values.custrecord_esp_fop_ast_item_desc = newResource.description;
+          }
+          if (Object.keys(values).length) {
+            record.submitFields({
+              type: env.RecordType.WORK_ORDER_ASSET,
+              id: payload.id,
+              values,
+              options: {
+                ignoreMandatoryFieds: true
+              }
+            });
+            log.audit('----- [Updated WO Asset Record] -----', { payload });
+
+            response.write(JSON.stringify({
+              code: 200,
+              recordId: payload.id,
+              status: 'success'
+            }));
+          }
+        } catch (e) {
+          log.error('Error on WO Asset > Update', { payload, errorMsg: e.message });
+
+          response.write(JSON.stringify({
+            code: 401,
+            status: 'failed',
+            errorMsg: e.message
+          }));
+        }
+      }
+
+      // Applies when resizing resource events in the calendar view
+      static updateAssetDateTime(context) {
+        const { request, response } = context;
+        let reqBody = request.body || '{}';
+        const payload = JSON.parse(reqBody);
+        log.debug('updateAssetDateTime', payload);
+
+        try {
+          const lookUp = search.lookupFields({
+            type: env.RecordType.WORK_ORDER_ASSET,
+            id: payload.id,
+            columns: [
+              'custrecord_esp_fop_ast_start_date',
+              'custrecord_esp_fop_ast_end_date',
+              'custrecord_esp_fop_ast_start_time',
+              'custrecord_esp_fop_ast_end_time'
+            ]
+          });
+          const values = {};
+          // Check if dates changed
+          const startDate = moment(payload.date.start).format(env.Format.IMPORT_DATE);
+          const endDate = moment(payload.date.end).format(env.Format.IMPORT_DATE);
+          if (lookUp.custrecord_esp_fop_ast_start_date != startDate) {
+            values.custrecord_esp_fop_ast_start_date = startDate;
+          }
+          if (lookUp.custrecord_esp_fop_ast_end_date != endDate) {
+            values.custrecord_esp_fop_ast_end_date = endDate;
+          }
+          // Check if times changed
+          const startTime = moment(`1/1/1999 ${payload.time.start}`).format(env.Format.IMPORT_TIME);
+          const endTime = moment(`1/1/1999 ${payload.time.end}`).format(env.Format.IMPORT_TIME);
+          if (lookUp.custrecord_esp_fop_ast_start_time != startTime) {
+            values.custrecord_esp_fop_ast_start_time = startTime;
+          }
+          if (lookUp.custrecord_esp_fop_ast_end_time != endTime) {
+            values.custrecord_esp_fop_ast_end_time = endTime;
+          }
+
+          if (Object.keys(values).length) {
+            record.submitFields({
+              type: env.RecordType.WORK_ORDER_ASSET,
+              id: payload.id,
+              values,
+              options: {
+                ignoreMandatoryFieds: true
+              }
+            });
+            log.audit('----- [Updated WO Asset Record] -----', { payload });
+
+            response.write(JSON.stringify({
+              code: 200,
+              recordId: payload.id,
+              status: 'success'
+            }));
+          }
+        } catch (e) {
+          log.error('Error on WO Asset > Update', { payload, errorMsg: e.message });
+
+          response.write(JSON.stringify({
+            code: 401,
+            status: 'failed',
+            errorMsg: e.message
+          }));
+        }
       }
     }
 
@@ -2646,13 +2770,15 @@ define([
 
       static createLogFile(contents) {
         try {
+          const fileObj = file.load('./lib/mockup.json');
+          /* fileObj.contents = JSON.stringify(contents);
+          fileObj.save(); */
           // Already throwing error "This record already exists" ????
           const fileId = file.create({
-            // name: `${name}_${moment().format('MMDDYYYY_hhmmss')}.json`,
-            name: `${env.LogFileName}.json`,
+            name: `mockup.json`,
             fileType: file.Type.PLAINTEXT,
             contents: JSON.stringify(contents),
-            folder: -15,
+            folder: fileObj.folder,
           }).save();
           log.audit('Log File ID', fileId);
         } catch (e) {

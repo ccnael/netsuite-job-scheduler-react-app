@@ -44,7 +44,7 @@ export function selectDefaultTab() {
 export class Event {
 
   static validateResourcesOnLoad(tableId, resourceTblId, eventId) {
-    resourceTblId.match(/resource/g) && this._validateResourcesAvailability(tableId, resourceTblId, eventId);
+    resourceTblId.match(/resource|asset/g) && this._validateResourcesAvailability(tableId, resourceTblId, eventId);
     // Initialize on page change
     const that = this;
     const table = $(resourceTblId).DataTable();
@@ -106,32 +106,47 @@ export class Event {
         resourceEvents = events
           .filter(event => event.resources.map(resource => resource.employee.value)
             .includes(resourceId));
-      } else {
-        resourceEvents = events
-          .filter(event => event.assets.map(asset => asset.asset.value)
-            .includes(resourceId));
-      }
-
-      const conflictEvents = resourceEvents.filter(event => {
-        const eventStart = `${event.date.start} ${event.time.start}`;
-        const eventEnd = `${event.date.end} ${event.time.end}`;
-        if (eventId) {
-          return event.id != eventId && (moment(eventEnd).isBetween(start, end, null, '[]') || moment(eventStart).isSameOrBefore(start) && moment(eventEnd).isSameOrAfter(end));
+        const conflictEvents = resourceEvents.filter(event => {
+          const eventStart = `${event.date.start} ${event.time.start}`;
+          const eventEnd = `${event.date.end} ${event.time.end}`;
+          if (eventId) {
+            return event.id != eventId && (moment(eventEnd).isBetween(start, end, null, '[]') || moment(eventStart).isSameOrBefore(start) && moment(eventEnd).isSameOrAfter(end));
+          } else {
+            return moment(eventEnd).isBetween(start, end, null, '[]') || moment(eventStart).isSameOrBefore(start) && moment(eventEnd).isSameOrAfter(end);
+          }
+        });
+        // console.log(checkbox.prop('checked'))
+        if (conflictEvents.length) {
+          if (!eventId || (onFieldChanged && checkbox.prop('checked'))) {
+            checkbox.prop('checked', false);
+          }
+          checkbox.prop('disabled', true);
+          $(this).removeClass('row-available');
+          $(this).addClass('row-unavailable');
         } else {
-          return moment(eventEnd).isBetween(start, end, null, '[]') || moment(eventStart).isSameOrBefore(start) && moment(eventEnd).isSameOrAfter(end);
+          checkbox.prop('disabled', false);
+          $(this).removeClass('row-unavailable');
+          $(this).addClass('row-available');
         }
-      });
-      // console.log(checkbox.prop('checked'))
-      if (conflictEvents.length) {
-        if (!eventId || (onFieldChanged && checkbox.prop('checked'))) {
-          checkbox.prop('checked', false);
-        }
-        checkbox.prop('disabled', true);
-        $(this).removeClass('row-available');
-        $(this).addClass('row-unavailable');
       } else {
-        checkbox.prop('disabled', false);
-        $(this).removeClass('row-unavailable');
+        // Set the asset assigned to unavailable on event edit mode
+        /* resourceEvents = events
+          .filter(event => event.assets
+            .filter(asset => asset.onMaintenance)
+            .map(asset => asset.asset.value)
+            .includes(resourceId));
+        if (resourceEvents.length) {
+          if (!eventId || (onFieldChanged && checkbox.prop('checked'))) {
+            checkbox.prop('checked', false);
+          }
+          checkbox.prop('disabled', true);
+          $(this).removeClass('row-available');
+          $(this).addClass('row-unavailable');
+        } else {
+          checkbox.prop('disabled', false);
+          $(this).removeClass('row-unavailable');
+          $(this).addClass('row-available');
+        } */
         $(this).addClass('row-available');
       }
     });
@@ -298,31 +313,35 @@ export class Event {
     return !!conflictEvents.length;
   }
 
-  static draggedJobHasConflictEventToResource(startDateTime, resourceId = '') {
-    let resourceEvents = events
-      .filter(event => event.resources.map(resource => resource.employee.value)
-        .includes(resourceId));
-    // Validate resource
-    if (resourceEvents.length) {
-      const conflictEvents = resourceEvents.filter(event => {
+  static draggedJobHasConflictEventToResource(startDateTime, resourceType, resourceId = '') {
+    const conflictEvents = events => {
+      return events.filter(event => {
         const eventStart = moment(`${event.date.start} ${event.time.start}`);
         const eventEnd = moment(`${event.date.end} ${event.time.end}`);
         return startDateTime.isSameOrAfter(eventStart) && startDateTime.isSameOrBefore(eventEnd);
       });
-      return !!conflictEvents.length;
-    } else {
-      // Validate asset
-      resourceEvents = events
-        .filter(event => event.assets.map(asset => asset.asset.value)
-          .includes(resourceId));
-      const conflictEvents = resourceEvents.filter(event => {
-        const eventStart = moment(`${event.date.start} ${event.time.start}`);
-        const eventEnd = moment(`${event.date.end} ${event.time.end}`);
-        return startDateTime.isSameOrAfter(eventStart) && startDateTime.isSameOrBefore(eventEnd);
-      });
-      const assetObj = assets.find(asset => asset.asset.value == resourceId);
-      // console.log('assetObj', assetObj);
-      return !!conflictEvents.length || assetObj.onMaintenance;
+    }
+    let resourceEvents = [];
+    switch (resourceType) {
+      case 'employee':
+        resourceEvents = events
+          .filter(event => event.resources.map(resource => resource.employee.value)
+            .includes(resourceId));
+        return !!conflictEvents(resourceEvents).length;
+      case 'vendor':
+        resourceEvents = events
+          .filter(event => event.vendors.map(vendor => vendor.vendor.value)
+            .includes(resourceId));
+        return !!conflictEvents(resourceEvents).length;
+      case 'asset':
+        resourceEvents = events
+          .filter(event => event.assets.map(asset => asset.asset.value)
+            .includes(resourceId));
+        const assetObj = assets.find(asset => asset.asset.value == resourceId);
+        /* console.log('resourceEvents', resourceEvents);
+        console.log('resourceId', resourceId);
+        console.log('assetObj', assetObj); */
+        return !!resourceEvents.length && assetObj.onMaintenance;
     }
     return false;
   }
@@ -512,6 +531,64 @@ export class Event {
         });
     }
   }
+
+  static completeEvent(payload, eventId) {
+    Swal.fire({
+      title: 'Complete Event?',
+      text: `Complete Event [ID ${eventId}]`,
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#817c7c',
+      confirmButtonText: 'Yes'
+    })
+      .then(result => {
+        if (result.isConfirmed) {
+          Swal.fire({
+            didOpen: () => {
+              Swal.showLoading();
+              fetch(
+                `${suiteletUrl}&mode=completeEvent`, {
+                method: 'POST',
+                body: JSON.stringify(payload),
+                headers: {
+                  'Content-Type': 'application/json',
+                }
+              })
+                .then(response => response.json())
+                .then(result => {
+                  if (result.code == 200) {
+                    Swal.fire({
+                      title: 'Success!',
+                      text: `Event [ID ${eventId}] completed`,
+                      icon: 'success'
+                    });
+                    window.location.reload()
+                  } else {
+                    Swal.fire({
+                      title: 'Unexpected Error',
+                      text: `Error: ${result.errorMsg}`,
+                      icon: 'error'
+                    });
+                  }
+                  Swal.hideLoading();
+                })
+                .catch(error => {
+                  Swal.fire(
+                    'Unexpected Error',
+                    error.message,
+                    'error'
+                  );
+                  Swal.hideLoading();
+                });
+            },
+            allowOutsideClick: false,
+            allowEscapeKey: false,
+            text: `Completing Event [ID ${eventId}]...`
+          });
+        }
+      });
+  }
 }
 
 export class Resource {
@@ -595,8 +672,87 @@ export class Resource {
     // eventInfo.revert();
   }
 
-  static updateResourceTime(payload, eventInfo) {
-    console.log('----- [updateResourceTime() -> PAYLOAD] -----', { payload, eventInfo: eventInfo || '' });
+  static updateAssetAssignment(payload, eventInfo) {
+    console.log('updateAssetAssignment eventInfo', eventInfo);
+    payload.newResource = eventInfo.newResource.extendedProps;
+    console.log('----- [updateAssetAssignment() -> PAYLOAD] -----', { payload, eventInfo: eventInfo || '' });
+
+    const eventId = eventInfo.event._def.publicId;
+    const oldResourceName = eventInfo.oldResource.extendedProps.name;
+    const newResourceName = payload.newResource.name;
+
+    Swal.fire({
+      title: `Event [ID ${eventId}] Asset Reassignment`,
+      text: `Reassign ${oldResourceName} to ${newResourceName}?`,
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#817c7c',
+      confirmButtonText: 'Yes'
+    })
+      .then(result => {
+        if (result.isConfirmed) {
+          Swal.fire({
+            didOpen: () => {
+              Swal.showLoading();
+              fetch(
+                `${suiteletUrl}&mode=updateAssetAssignment`, {
+                method: 'POST',
+                body: JSON.stringify(payload),
+                headers: {
+                  'Content-Type': 'application/json',
+                }
+              })
+                .then(response => response.json())
+                .then(result => {
+                  if (result.code == 200) {
+                    Swal.fire({
+                      title: 'Success!',
+                      text: `Reassigned to ${newResourceName}`,
+                      icon: 'success'
+                    });
+                    window.location.reload();
+                  } else {
+                    Swal.fire({
+                      title: 'Unexpected Error',
+                      text: `Error: ${result.errorMsg}`,
+                      icon: 'error'
+                    });
+                    if (eventInfo) {
+                      eventInfo.revert();
+                    }
+                  }
+                  Swal.hideLoading();
+                })
+                .catch(error => {
+                  Swal.fire(
+                    'Unexpected Error',
+                    error.message,
+                    'error'
+                  );
+                  Swal.hideLoading();
+                  if (eventInfo) {
+                    eventInfo.revert();
+                  }
+                });
+            },
+            allowOutsideClick: false,
+            allowEscapeKey: false,
+            text: `Updating Work Order Asset [ID ${payload.id}]...`
+          });
+        } else {
+          if (eventInfo) {
+            eventInfo.revert();
+          }
+        }
+      });
+
+    // alert('Update In Progress...');
+    // eventInfo.revert();
+  }
+
+  static updateResourceDateTime(payload, eventInfo) {
+    console.log('----- [updateResourceDateTime() -> PAYLOAD] -----', { payload, eventInfo: eventInfo || '' });
 
     Swal.fire({
       title: `Update Date/Time`,
@@ -613,7 +769,7 @@ export class Resource {
             didOpen: () => {
               Swal.showLoading();
               fetch(
-                `${suiteletUrl}&mode=updateResourceTime`, {
+                `${suiteletUrl}&mode=updateResourceDateTime`, {
                 method: 'POST',
                 body: JSON.stringify(payload),
                 headers: {
@@ -656,6 +812,79 @@ export class Resource {
             allowOutsideClick: false,
             allowEscapeKey: false,
             text: `Updating Work Order Resource [ID ${payload.id}] Date/Time...`
+          });
+        } else {
+          if (eventInfo) {
+            eventInfo.revert();
+          }
+        }
+      });
+
+    // alert('Update In Progress...');
+    // eventInfo.revert();
+  }
+
+  static updateAssetDateTime(payload, eventInfo) {
+    console.log('----- [updateAssetDateTime() -> PAYLOAD] -----', { payload, eventInfo: eventInfo || '' });
+
+    Swal.fire({
+      title: `Update Date/Time`,
+      text: `Update to ${payload.date.start} ${payload.time.start} - ${payload.date.end} ${payload.time.end}?`,
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#817c7c',
+      confirmButtonText: 'Yes'
+    })
+      .then(result => {
+        if (result.isConfirmed) {
+          Swal.fire({
+            didOpen: () => {
+              Swal.showLoading();
+              fetch(
+                `${suiteletUrl}&mode=updateAssetDateTime`, {
+                method: 'POST',
+                body: JSON.stringify(payload),
+                headers: {
+                  'Content-Type': 'application/json',
+                }
+              })
+                .then(response => response.json())
+                .then(result => {
+                  if (result.code == 200) {
+                    Swal.fire({
+                      title: 'Success!',
+                      text: `Date/Time has been updated to ${payload.date.start} ${payload.time.start} - ${payload.date.end} ${payload.time.end}`,
+                      icon: 'success'
+                    });
+                    window.location.reload();
+                  } else {
+                    Swal.fire({
+                      title: 'Unexpected Error',
+                      text: `Error: ${result.errorMsg}`,
+                      icon: 'error'
+                    });
+                    if (eventInfo) {
+                      eventInfo.revert();
+                    }
+                  }
+                  Swal.hideLoading();
+                })
+                .catch(error => {
+                  Swal.fire(
+                    'Unexpected Error',
+                    error.message,
+                    'error'
+                  );
+                  Swal.hideLoading();
+                  if (eventInfo) {
+                    eventInfo.revert();
+                  }
+                });
+            },
+            allowOutsideClick: false,
+            allowEscapeKey: false,
+            text: `Updating Work Order Asset [ID ${payload.id}] Date/Time...`
           });
         } else {
           if (eventInfo) {

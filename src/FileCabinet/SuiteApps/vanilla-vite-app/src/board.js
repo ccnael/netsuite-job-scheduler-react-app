@@ -375,14 +375,14 @@ export default class Board {
             const eventData = dataSet.events.find(event => event.id == id);
 
             let foundObj, allowEvent = false;
-            if (resourceType == 'employee') {
+            if (resourceType === 'employee') {
               foundObj = eventData.resources.find(resource => resource.employee.value == resourceId);
               const hasConflict = Event.draggedResourceHasConflictEvent(eventData.id, eventData.date, eventData.time, resourceId);
               allowEvent = !foundObj && !hasConflict;
-            } else if (resourceType == 'vendor') {
+            } else if (resourceType === 'vendor') {
               foundObj = eventData.vendors.find(vendor => vendor.vendor.value == resourceId);
               allowEvent = !foundObj;
-            } else if (resourceType == 'asset') {
+            } else if (resourceType === 'asset') {
               foundObj = eventData.assets.find(asset => asset.asset.value == resourceId);
               allowEvent = !foundObj;
             }
@@ -401,14 +401,14 @@ export default class Board {
           dataTransfer = JSON.parse(localStorage.getItem('dragResourceFunctions'));
 
           let foundObj, allowResource = false;
-          if (dataTransfer.type == 'employee') {
+          if (dataTransfer.type === 'employee') {
             foundObj = eventData.resources.find(resource => resource.employee.value == dataTransfer.id);
             const hasConflict = Event.draggedResourceHasConflictEvent(eventData.id, eventData.date, eventData.time, dataTransfer.id);
             allowResource = !foundObj && !hasConflict;
-          } else if (dataTransfer.type == 'vendor') {
+          } else if (dataTransfer.type === 'vendor') {
             foundObj = eventData.vendors.find(vendor => vendor.vendor.value == dataTransfer.id);
             allowResource = !foundObj;
-          } else if (dataTransfer.type == 'asset') {
+          } else if (dataTransfer.type === 'asset') {
             foundObj = eventData.assets.find(asset => asset.asset.value == dataTransfer.id);
             allowResource = !foundObj;
           }

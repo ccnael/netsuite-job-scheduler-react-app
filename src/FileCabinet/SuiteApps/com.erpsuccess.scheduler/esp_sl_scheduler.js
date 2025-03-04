@@ -60,8 +60,14 @@ define([
           case 'updateResourceAssignment':
             mod.WorkOrderResource.updateResourceAssignment(scriptContext);
             break;
-          case 'updateResourceTime':
-            mod.WorkOrderResource.updateResourceTime(scriptContext);
+          case 'updateAssetAssignment':
+            mod.WorkOrderAsset.updateAssetAssignment(scriptContext);
+            break;
+          case 'updateResourceDateTime':
+            mod.WorkOrderResource.updateResourceDateTime(scriptContext);
+            break;
+          case 'updateAssetDateTime':
+            mod.WorkOrderAsset.updateAssetDateTime(scriptContext);
             break;
           case 'completeEvent':
             mod.Event.completeEvent(scriptContext);

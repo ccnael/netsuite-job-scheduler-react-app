@@ -230,13 +230,18 @@ export const ceTimeSheetsDtColumns = [
   },
   {
     className: 'dt-head-center',
-    render: (_data, _type, row, _meta) => `<input type="time" class="form-control starttime" required>`,
-    title: 'Start Time'
+    data: 'location.text',
+    title: 'Location <span class="required"></span>'
+  },
+  {
+    className: 'dt-head-center',
+    render: () => `<input type="time" class="form-control starttime" required>`,
+    title: 'Start Time <span class="required"></span>'
   },
   {
     className: 'dt-head-center',
     render: () => `<input type="time" class="form-control endtime" required>`,
-    title: 'End Time'
+    title: 'End Time <span class="required"></span>'
   },
   {
     className: 'dt-head-center',

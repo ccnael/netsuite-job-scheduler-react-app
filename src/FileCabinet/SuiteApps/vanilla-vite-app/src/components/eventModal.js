@@ -322,6 +322,12 @@ $(document).ready(() => {
           $('#eventModal .dateto').val(calendarEventDrop.date.end);
           $('#eventModal .starttime').val(calendarEventDrop.time.start);
           $('#eventModal .endtime').val(calendarEventDrop.time.end);
+          calendarEventDrop.resourceType === 'asset'
+            && setTimeout(() => {
+              const toggleEl = $('#eventModal .asset-maintenance-toggle');
+              toggleEl.prop('checked', true).change();
+              toggleEl.prop('disabled', true);
+            });
         }
       } else if (mode === 'edit') { // Find Event Data to update from Work Orders
         modalTitle = `Update Event Details [ID ${eventId}]`;
@@ -474,6 +480,11 @@ $(document).ready(() => {
                 const unassignedAssets = deepCopy(dataSet.assets)
                   .filter(asset => !asset.onMaintenance && !eventData.assets.map(asset => asset.asset.value)
                     .includes(asset.id));
+                /* unassignedAssets.map(asset => {
+                  asset.selected = true;
+                  return asset;
+                }) */
+                // console.log('unassignedAssets', unassignedAssets);
                 return [...eventData.assets, ...unassignedAssets];
               }
             })()
@@ -620,11 +631,15 @@ $(document).ready(() => {
         return resource;
       });
 
-      let unassignedVendors = deepCopy(dataSet.vendors).filter(vendor => !eventData.vendors.map(vendor => vendor.vendor.value).includes(vendor.id));
+      let unassignedVendors = deepCopy(dataSet.vendors)
+        .filter(vendor => !eventData.vendors.map(vendor => vendor.vendor.value)
+          .includes(vendor.id));
       unassignedVendors = [...eventData.vendors, ...unassignedVendors];
       vendorsToUse = unassignedVendors;
 
-      let unassignedAssets = deepCopy(dataSet.assets).filter(asset => !eventData.assets.map(asset => asset.item.value).includes(asset.id));
+      let unassignedAssets = deepCopy(dataSet.assets)
+        .filter(asset => !eventData.assets.map(asset => asset.asset.value)
+          .includes(asset.id));
       unassignedAssets = [...eventData.assets, ...unassignedAssets];
       assetsToUse = unassignedAssets;
     }
