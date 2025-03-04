@@ -455,7 +455,7 @@ define([
               search.createColumn({ name: 'custrecord_esp_cfi_wo_est_hours', label: 'Estimated Hours' }),
               search.createColumn({ name: 'custrecord_esp_fop_wo_location', label: 'Location' }),
               search.createColumn({ name: 'custrecord_esp_fop_wo_ir_status', label: 'Item Receipt Status' }),
-              search.createColumn({ name: 'custrecord_esp_fop_wo_rel_pi', label: 'Project Insight' })
+              search.createColumn({ name: 'custbody_so_oi', join: 'custrecord_esp_cfi_wo_so', label: 'Project Insight' })
             ]
         });
 
@@ -548,8 +548,14 @@ define([
               }
             },
             projectInsight: {
-              text: result.getText('custrecord_esp_fop_wo_rel_pi'),
-              values: result.getValue('custrecord_esp_fop_wo_rel_pi')
+              text: result.getText({
+                name: 'custbody_so_oi',
+                join: 'custrecord_esp_cfi_wo_so'
+              }),
+              value: result.getValue({
+                name: 'custbody_so_oi',
+                join: 'custrecord_esp_cfi_wo_so'
+              })
             }
           });
           return true;
@@ -1244,8 +1250,8 @@ define([
               columns: ['custrecord_esp_fop_wo_sub_qty_rqd', 'custrecord_esp_fop_wo_sub_comment']
             });
             const values = {};
-            if (lookUp.custrecord_esp_fop_wo_sub_qty_rqd != vendor.quantityRequired) {
-              values.custrecord_esp_fop_wo_sub_qty_rqd = vendor.quantityRequired
+            if (lookUp.custrecord_esp_fop_wo_sub_qty_rqd != vendor.quantity) {
+              values.custrecord_esp_fop_wo_sub_qty_rqd = vendor.quantity
             }
             if (lookUp.custrecord_esp_fop_wo_sub_comment != vendor.memo) {
               values.custrecord_esp_fop_wo_sub_comment = vendor.memo
@@ -2043,7 +2049,7 @@ define([
             },
             projectInsight: {
               text: result.getText('custevent_task_pi'),
-              values: result.getValue('custevent_task_pi')
+              value: result.getValue('custevent_task_pi')
             },
             assetMaintenance: result.getValue('custevent_esp_fop_asset_maintenance')
           });
@@ -2441,7 +2447,7 @@ define([
         const payload = JSON.parse(reqBody);
         let { eventDataSrc, timeSheets } = payload;
         const eventId = eventDataSrc.id;
-        log.audit('----- [Complete Event] -----', { timeSheets });
+        log.audit('----- [Complete Event] -----', { eventDataSrc, timeSheets });
 
         try {
           timeSheets.length && Event._createTimeTracking(eventDataSrc, timeSheets);
@@ -2502,6 +2508,7 @@ define([
             id: eventId
           });
           const lineCount = rec.getLineCount({ sublistId: 'timeitem' });
+          const projectInsight = eventDataSrc.woRef?.projectInsight?.value;
 
           for (let i in timeSheets) {
             const timeSheet = timeSheets[i];
@@ -2552,7 +2559,7 @@ define([
               rec.setSublistValue({
                 sublistId: 'timeitem',
                 fieldId: 'custcol_time_pi',
-                value: eventDataSrc.projectInsight.value,
+                value: projectInsight || '',
                 line
               });
               log.audit('Timesheet Added', timeSheet);

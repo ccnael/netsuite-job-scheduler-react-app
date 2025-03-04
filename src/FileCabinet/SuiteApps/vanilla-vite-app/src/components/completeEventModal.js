@@ -246,10 +246,8 @@ $(document).ready(() => {
     const eventId = payload.eventDataSrc.id;
     const eventData = events.find(event => event.id == eventId);
     const assetMaintenance = eventData.assetMaintenance;
-    const woRef = eventData.woRef;
 
-    console.log('----- Punch Items -----');
-    console.log(punchLines);
+    console.log('----- Punch Items -----', payload);
 
     if (unresolvedPunchCount) {
       Swal.fire(
