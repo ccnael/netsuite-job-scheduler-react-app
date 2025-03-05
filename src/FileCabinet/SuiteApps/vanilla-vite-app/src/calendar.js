@@ -227,7 +227,7 @@ export default class Calendar {
       snapDuration: '01:00:00', // Snap to 15 minutes
       // -----------------------------------------------------------------
       viewDidMount: info => {
-        // console.log('viewDidMount triggered.');
+        console.log('viewDidMount triggered.');
         this._appendHeaderAndFilterFields();
       },
       headerToolbar: {
@@ -238,7 +238,7 @@ export default class Calendar {
       // Resource etc settings
       // -----------------------------------------------------------------
       initialView: 'resourceTimelineDefault',
-      resourceAreaWidth: '17%',
+      resourceAreaWidth: '15%',
       views: {
         resourceTimelineDay: {
           buttonText: 'Day'
@@ -330,7 +330,7 @@ export default class Calendar {
           try {
             const html = `
               <div 
-                style="margin-left: 5px; height: 60px;" id="${event.id}" 
+                clas="card-event" id="${event.id}" 
                 draggable=true
                 data-bs-toggle="tooltip" 
                 data-bs-placement="right" 
@@ -383,7 +383,7 @@ export default class Calendar {
             if (eventData.resourceType === 'employee') {
               this._confirmResourceDateTimeUpdate(info); // Dragging the event horizontally
             } else {
-              this._confirmAssetAssignment(info);
+              this._confirmAssetDateTimeUpdate(info);
             }
           }
         } else {
@@ -733,7 +733,7 @@ export default class Calendar {
     }
 
     payload.eventData = eventData;
-    payload.eventDataSrc = dataSet.events.find(event => event.id == payload.eventData.id) || {};
+    payload.oldEventData = dataSet.events.find(event => event.id == payload.eventData.id) || {};
     const startSplit = moment(info.event.startStr).format('YYYY-MM-DDTHH:mm').split('T');
     const endSplit = moment(info.event.endStr).format('YYYY-MM-DDTHH:mm').split('T');
     const date = {

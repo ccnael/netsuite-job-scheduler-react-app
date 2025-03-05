@@ -11,6 +11,14 @@ $background-color_19: #f0f0f0;
 	.main-container {
 		// display: none;
 	}
+	.card-head {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		margin-bottom: 5px;
+		border-bottom: 1px solid #ccc;
+		padding-bottom: 5px;
+	}
 	.secondColumn {
 		.card-header {
 			background-color: $background-color_5;

@@ -1,6 +1,10 @@
 /**
  * @NApiVersion 2.1
  * @NModuleScope Public
+ * 
+ * TODO: 
+ * - Convert searches to queries
+ * - Split other classes/functions as separate modules
  */
 define([
   'N/file',
@@ -13,7 +17,7 @@ define([
   'N/record',
   'N/format',
   './lib/moment.min',
-  './lib/constants'
+  './esp_scheduler_constants'
 ],
   /**
    * @param{file} file
@@ -1594,6 +1598,7 @@ define([
               search.createColumn({ name: 'custrecord_esp_fop_wo_item_line_id', label: 'Line ID' }),
               search.createColumn({ name: 'custrecord_esp_fop_wo_item_uuid', label: 'UUID' }),
               search.createColumn({ name: 'custrecord_esp_fop_total_ir', label: 'Received Quantity' }),
+              search.createColumn({ name: 'custrecord_esp_fop_wo_item_completedqty', label: 'Completed Quantity' }),
             ]
         });
 
@@ -1620,7 +1625,8 @@ define([
             quantity: +result.getValue('custrecord_esp_fop_wo_item_quantity'),
             availableQty: +result.getValue('custrecord_esp_fop_wo_item_quantity'),
             note: result.getValue('custrecord_esp_fop_wo_item_memo'),
-            quantityReceived: +result.getValue('custrecord_esp_fop_total_ir')
+            quantityReceived: +result.getValue('custrecord_esp_fop_total_ir'),
+            completedQty: +result.getValue('custrecord_esp_fop_wo_item_completedqty')
           });
           return true;
         });
@@ -1641,6 +1647,7 @@ define([
             rec.setValue({ fieldId: 'name', value: item.item.text });
             rec.setValue({ fieldId: 'custrecord_esp_fop_wo_item_event', value: event.id });
             rec.setValue({ fieldId: 'custrecord_esp_fop_wo_item_quantity', value: item.quantity });
+            rec.setValue({ fieldId: 'custrecord_esp_fop_wo_item_completedqty', value: 0 });
             item.id = rec.save({ ignoreMandatoryFieds: true });
             log.audit('----- [Created WO Item Record] -----', item.id);
           } catch (e) {
@@ -1666,15 +1673,24 @@ define([
             const lookUp = search.lookupFields({
               type: env.RecordType.WORK_ORDER_ITEM,
               id: item.id,
-              columns: 'custrecord_esp_fop_wo_item_quantity'
+              columns: [
+                'custrecord_esp_fop_wo_item_quantity',
+                'custrecord_esp_fop_wo_item_completedqty'
+              ]
             });
+            const values = {};
             if (lookUp.custrecord_esp_fop_wo_item_quantity != item.quantity) {
+              values.custrecord_esp_fop_wo_item_quantity = item.quantity;
+            }
+            // Upon event completion
+            if (lookUp.custrecord_esp_fop_wo_item_completedqty != item.completedQty) {
+              values.custrecord_esp_fop_wo_item_completedqty = item.completedQty;
+            }
+            if (!!Object.keys(values).length) {
               record.submitFields({
                 type: env.RecordType.WORK_ORDER_ITEM,
                 id: item.id,
-                values: {
-                  custrecord_esp_fop_wo_item_quantity: item.quantity
-                },
+                values,
                 options: {
                   ignoreMandatoryFieds: true
                 }
@@ -2227,7 +2243,7 @@ define([
         const user = runtime.getCurrentUser();
         let reqBody = request.body || '{}';
         const payload = JSON.parse(reqBody);
-        const { eventDataSrc, eventData, woRef, draggedResource } = payload;
+        const { oldEventData, eventData, woRef, draggedResource } = payload;
         const eventDataProps = Object.keys(eventData);
 
         log.audit('----- [Update Work Order Event] -----', { eventDataProps, payload });
@@ -2346,19 +2362,19 @@ define([
             }
 
             if (eventData.selectedResources) {
-              WorkOrderResource._updateResources(eventData, eventDataSrc, woRef);
+              WorkOrderResource._updateResources(eventData, oldEventData, woRef);
             }
             if (eventData.selectedVendors) {
-              WorkOrderVendor._updateVendors(eventData, eventDataSrc, woRef);
+              WorkOrderVendor._updateVendors(eventData, oldEventData, woRef);
             }
             if (eventData.selectedAssets) {
-              WorkOrderAsset._updateAssets(eventData, eventDataSrc, woRef);
+              WorkOrderAsset._updateAssets(eventData, oldEventData, woRef);
             }
             if (eventData.selectedItems) {
-              WorkOrderItem._updateItems(eventData, eventDataSrc);
+              WorkOrderItem._updateItems(eventData, oldEventData);
             }
             if (eventData.selectedContacts) {
-              WorkOrderContact._updateContacts(eventData, eventDataSrc);
+              WorkOrderContact._updateContacts(eventData, oldEventData);
             }
           }
 
@@ -2445,12 +2461,16 @@ define([
         const { request, response } = context;
         let reqBody = request.body || '{}';
         const payload = JSON.parse(reqBody);
-        let { eventDataSrc, timeSheets } = payload;
-        const eventId = eventDataSrc.id;
-        log.audit('----- [Complete Event] -----', { eventDataSrc, timeSheets });
+        let { eventData, oldEventData, timeSheets } = payload;
+        const eventId = eventData.id;
+        log.audit('----- [Complete Event] -----', { oldEventData, timeSheets });
 
         try {
-          timeSheets.length && Event._createTimeTracking(eventDataSrc, timeSheets);
+          timeSheets.length
+            && Event._createTimeTracking(oldEventData, timeSheets);
+
+          !!eventData.selectedItems.length
+            && WorkOrderItem._updateItems(eventData, oldEventData);
 
           record.submitFields({
             type: record.Type.CALENDAR_EVENT,
@@ -2479,8 +2499,8 @@ define([
         }
       }
 
-      static _createTimeTracking(eventDataSrc, timeSheets) {
-        const eventId = eventDataSrc.id;
+      static _createTimeTracking(oldEventData, timeSheets) {
+        const eventId = oldEventData.id;
 
         // Map hours and location
         timeSheets = timeSheets.map(timeSheet => {
@@ -2490,7 +2510,7 @@ define([
           const diffDate = _diffDates(`1/1/1999 ${timeSheet.startTime}`, `1/1/1999 ${timeSheet.endTime}`);
           // timeSheet.hours = `${diffDate.hour}:${String(diffDate.minute).length == 1 ? `0${diffDate.minute}` : diffDate.minute}`;
           timeSheet.hours = _convertTimeToDecimal(diffDate.hour, diffDate.minute);
-          const _resource = eventDataSrc.resources.find(resource => resource.id == timeSheet.id);
+          const _resource = oldEventData.resources.find(resource => resource.id == timeSheet.id);
           if (_resource) {
             timeSheet.location = _resource.location.value;
           }
@@ -2508,7 +2528,7 @@ define([
             id: eventId
           });
           const lineCount = rec.getLineCount({ sublistId: 'timeitem' });
-          const projectInsight = eventDataSrc.woRef?.projectInsight?.value;
+          const projectInsight = oldEventData.woRef?.projectInsight?.value;
 
           for (let i in timeSheets) {
             const timeSheet = timeSheets[i];
@@ -2711,7 +2731,7 @@ define([
 
       static getFilters(params) {
         const userId = params.user.id;
-        const filterMap = file.load(env.FilterPath);
+        const filterMap = file.load(env.FilterMapPath);
         let filterFields = filterMap.getContents();
         if (!!filterFields) {
           filterFields = JSON.parse(filterFields);
@@ -2737,7 +2757,7 @@ define([
 
         try {
           const selectedFields = JSON.parse(reqBody);
-          const filterMap = file.load(env.FilterPath);
+          const filterMap = file.load(env.FilterMapPath);
           let filterFields = filterMap.getContents();
           filterFields = filterFields && JSON.parse(filterFields);
 

@@ -111,24 +111,9 @@ header > div.tab {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 12px;
   margin-bottom: 10px;
   border-bottom: 1px solid #ccc;
   padding-bottom: 10px;
-}
-
-.card-name {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  box-sizing: border-box;
-}
-
-.card-content-memo {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  box-sizing: border-box;
 }
 
 .card-header-options {

@@ -224,7 +224,7 @@ $(document).ready(() => {
 
       if (mode === 'edit') {
         if (eventData) {
-          $('#generalEventModal').attr('eventDataSrc', encodeURIComponent(JSON.stringify(eventData))); // Data from NS
+          $('#generalEventModal').attr('oldEventData', encodeURIComponent(JSON.stringify(eventData))); // Data from NS
           $('#generalEventModal .datefrom').val(eventData.date.start);
           $('#generalEventModal .dateto').val(eventData.date.end);
           $('#generalEventModal .starttime').val(eventData.time.start);
@@ -366,7 +366,7 @@ $(document).ready(() => {
     }
 
     const payload = {
-      eventDataSrc: {},
+      oldEventData: {},
       woRef: {},
       eventData: {},
       woResources: []
@@ -455,6 +455,7 @@ $(document).ready(() => {
       });
     }
 
+    // Filter only items that needs update
     payload.eventData.selectedResources = resourcesToUse.filter(resource => !!resourceIds.includes(resource.id));
     payload.eventData.selectedVendors = vendorsToUse.filter(vendor => !!vendorIds.includes(vendor.id));
     payload.eventData.selectedAssets = assetsToUse.filter(asset => !!assetIds.includes(asset.id));
@@ -463,7 +464,7 @@ $(document).ready(() => {
       Event.createEventRecord(payload, 'generalEventModal');
     } else if (mode === 'edit') {
       payload.eventData.id = eventId;
-      payload.eventDataSrc = JSON.parse(decodeURIComponent($('#generalEventModal').attr('eventDataSrc')));
+      payload.oldEventData = JSON.parse(decodeURIComponent($('#generalEventModal').attr('oldEventData')));
       Event.updateEventRecord(payload, 'generalEventModal');
     }
   });
@@ -510,7 +511,7 @@ $(document).ready(() => {
     $(`#generalEventModal`).attr('mode', '');
     $(`#generalEventModal`).attr('woId', '');
     $(`#generalEventModal`).attr('eventId', '');
-    $(`#generalEventModal`).attr('eventDataSrc', '');
+    $(`#generalEventModal`).attr('oldEventData', '');
     $(`#generalEventModal .datefrom`).val('');
     $(`#generalEventModal .dateto`).val('');
     $(`#generalEventModal .starttime`).val('');

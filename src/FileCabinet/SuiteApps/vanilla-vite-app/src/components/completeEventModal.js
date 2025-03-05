@@ -138,7 +138,7 @@ $(document).ready(() => {
       $('#completeEventModal .title p').html(`<a href="${woRef.woUrl}" target="_blank">${woRef.title}</a>`);
       $('#completeEventModal .project p').html(`<a href="${woRef.projectUrl}" target="_blank">${woRef.project.text}</a>`);
     }
-    $('#completeEventModal').attr('eventDataSrc', encodeURIComponent(JSON.stringify(eventData))); // Data from NS
+    $('#completeEventModal').attr('oldEventData', encodeURIComponent(JSON.stringify(eventData))); // Data from NS
     $('#completeEventModalLabel').text(`Complete Event [ID ${eventData.id}]`);
     $('#completeEventModal .eventTitle p').html(`<a href="${eventData.url}" target="_blank">${eventData.title}</a>`);
     $('#completeEventModal .status p').text(eventData.status.text);
@@ -237,14 +237,17 @@ $(document).ready(() => {
     ev.preventDefault();
 
     const payload = {
-      eventDataSrc: {},
-      timeSheets: [],
-      items: []
+      eventData: {},
+      get oldEventData() {
+        return deepCopy(this.eventData);
+      },
+      timeSheets: []
     }
-    payload.eventDataSrc = JSON.parse(decodeURIComponent($('#completeEventModal').attr('eventDataSrc')));
+    payload.eventData = JSON.parse(decodeURIComponent($('#completeEventModal').attr('oldEventData')));
+    const woRef = payload.eventData.woRef;
     const punchLines = JSON.parse(decodeURIComponent($('#completeEventModal').attr('punchLines')));
     const unresolvedPunchCount = punchLines.filter(punch => punch.status.value != 6).length; // 6 (Resolved)
-    const eventId = payload.eventDataSrc.id;
+    const eventId = payload.oldEventData.id;
     const eventData = events.find(event => event.id == eventId);
     const assetMaintenance = eventData.assetMaintenance;
 
@@ -347,34 +350,39 @@ $(document).ready(() => {
     );
 
     // WO Items
+    const itemIds = [];
     if (temp_ceItemsDataTable) {
       const items_dt_tr = temp_ceItemsDataTable.rows({ search: 'applied' }).nodes();
       items_dt_tr.each(function (node) {
         const line = $(node).find('input.dt-line-select');
         if (line.is(':checked')) {
           const id = line.attr('recordId');
-          const completeQty = +$(node).find('.quantity').val();
           if (id) {
-            payload.items.push({
-              id,
-              completeQty
-            });
+            const foundObj = woRef.items.find(item => item.id == id);
+            if (foundObj) {
+              const completedQty = +$(node).find('.quantity').val();
+              foundObj.completedQty = completedQty;
+            }
+            itemIds.push(id);
           }
         }
       });
     }
 
+    // Filter only items that needs update
+    payload.eventData.selectedItems = (woRef?.items || []).filter(item => !!itemIds.includes(item.id));
+
     console.log('----- Complete Event Payload -----');
     console.log(payload);
-
-    if (!payload.timeSheets.length && !assetMaintenance) {
+    /* // Not general event and non asset maintenance and has timesheets
+    if (!!woRef && !assetMaintenance && !payload.timeSheets.length) {
       Swal.fire(
         'Unable to Proceed',
         `Time Sheets Required`,
         'error'
       );
       return;
-    }
+    } */
 
     Event.completeEvent(payload, eventId);
   });
@@ -418,7 +426,7 @@ $(document).ready(() => {
 
     $(`#completeEventModal`).attr('eventId', '');
     $(`#completeEventModal`).attr('woId', '');
-    $(`#completeEventModal`).attr('eventDataSrc', '');
+    $(`#completeEventModal`).attr('oldEventData', '');
     $(`#completeEventModal`).attr('punchLines', '');
     $(`#completeEventModal eventTitle p`).html('');
     $(`#completeEventModal title p`).html('');
@@ -449,5 +457,9 @@ $(document).ready(() => {
   function hideCustomLoader() {
     $(`#completeEventModal .spinner`).hide();
     $(`#completeEventModal .modal-body`).css('z-index', '1');
+  }
+
+  function deepCopy(obj) {
+    return JSON.parse(JSON.stringify(obj));
   }
 })

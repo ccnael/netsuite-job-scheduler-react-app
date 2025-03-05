@@ -6,7 +6,7 @@ import './eventModal.css';
 let temp_resourcesDataTable, temp_vendorsDataTable, temp_assetsDataTable, temp_itemsDataTable, temp_contactsDataTable, temp_addressesDataTable;
 
 $(document).ready(() => {
-  $('#app').append(`<div class="modal fade" id="eventModal" mode="" woId="" eventId="" eventDataSrc="" calendarEventDrop="" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false">
+  $('#app').append(`<div class="modal fade" id="eventModal" mode="" woId="" eventId="" oldEventData="" calendarEventDrop="" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false">
     <div class="modal-dialog modal-xl">
       <div class="modal-content">
         <div class="modal-header">
@@ -349,7 +349,7 @@ $(document).ready(() => {
       if (mode === 'edit') {
         if (eventData) {
           $('#eventModal').attr('woId', eventData.workorder.value);
-          $('#eventModal').attr('eventDataSrc', encodeURIComponent(JSON.stringify(eventData))); // Data from NS
+          $('#eventModal').attr('oldEventData', encodeURIComponent(JSON.stringify(eventData))); // Data from NS
           $('#eventModal .datefrom').val(eventData.date.start);
           $('#eventModal .dateto').val(eventData.date.end);
           $('#eventModal .starttime').val(eventData.time.start);
@@ -645,7 +645,7 @@ $(document).ready(() => {
     }
 
     const payload = {
-      eventDataSrc: {},
+      oldEventData: {},
       woRef,
       eventData: {},
       woResources: woResourcesFiltered
@@ -745,6 +745,11 @@ $(document).ready(() => {
         if (line.is(':checked')) {
           const id = line.attr('recordId');
           if (id) {
+            const foundObj = woRef.items.find(item => item.id == id);
+            if (foundObj) {
+              const newQty = +$(node).find('.quantity').val();
+              foundObj.quantity = newQty;
+            }
             itemIds.push(id);
           }
         }
@@ -780,7 +785,7 @@ $(document).ready(() => {
       });
     }
 
-    // Filter objects by id
+    // Filter only items that needs update
     payload.eventData.selectedResources = resourcesToUse.filter(resource => !!resourceIds.includes(resource.id));
     payload.eventData.selectedVendors = vendorsToUse.filter(vendor => !!vendorIds.includes(vendor.id));
     payload.eventData.selectedAssets = assetsToUse.filter(asset => !!assetIds.includes(asset.id));
@@ -793,7 +798,7 @@ $(document).ready(() => {
       Event.createEventRecord(payload, 'eventModal');
     } else if (mode === 'edit') {
       payload.eventData.id = eventId;
-      payload.eventDataSrc = JSON.parse(decodeURIComponent($('#eventModal').attr('eventDataSrc')));
+      payload.oldEventData = JSON.parse(decodeURIComponent($('#eventModal').attr('oldEventData')));
       Event.updateEventRecord(payload, 'eventModal');
     }
   });
@@ -840,7 +845,7 @@ $(document).ready(() => {
     $(`#eventModal`).attr('mode', '');
     $(`#eventModal`).attr('woId', '');
     $(`#eventModal`).attr('eventId', '');
-    $(`#eventModal`).attr('eventDataSrc', '');
+    $(`#eventModal`).attr('oldEventData', '');
     $(`#eventModal`).attr('calendarEventDrop', '');
     $(`#eventModal .datefrom`).val('');
     $(`#eventModal .dateto`).val('');

@@ -4,3 +4,9 @@
 /src/FileCabinet/SuiteApps/vanilla-vite-app/node_modules
 /src/FileCabinet/SuiteApps/react-vite-app/dist
 /src/FileCabinet/SuiteApps/react-vite-app/node_modules
+/src/FileCabinet/SuiteApps/vanilla-vite-app-bundle/.DS_Store
+/src/FileCabinet/SuiteApps/vanilla-vite-app-bundle/assets/.DS_Store
+/src/FileCabinet/SuiteApps/vanilla-vite-app-bundle/assets/images/.DS_Store
+/src/FileCabinet/SuiteApps/react-vite-app-bundle/.DS_Store
+/src/FileCabinet/SuiteApps/react-vite-app-bundle/assets/.DS_Store
+/src/FileCabinet/SuiteApps/react-vite-app-bundle/assets/images/.DS_Store

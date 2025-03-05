@@ -31,7 +31,7 @@ $(document).ready(() => {
 
         payload = {
           draggedResource: type,
-          // eventDataSrc: eventData,
+          // oldEventData: eventData,
           woRef,
           eventData: {
             id: eventId,
@@ -112,7 +112,7 @@ $(document).ready(() => {
 
         payload = {
           draggedResource: type,
-          // eventDataSrc: eventData,
+          // oldEventData: eventData,
           woRef,
           eventData: {
             id: eventId,
@@ -211,7 +211,7 @@ $(document).ready(() => {
 
         payload = {
           draggedResource: type,
-          // eventDataSrc: eventData,
+          // oldEventData: eventData,
           woRef,
           eventData: {
             id: eventId,
