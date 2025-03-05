@@ -227,7 +227,7 @@ export default class Calendar {
       snapDuration: '01:00:00', // Snap to 15 minutes
       // -----------------------------------------------------------------
       viewDidMount: info => {
-        console.log('viewDidMount triggered.');
+        // console.log('viewDidMount triggered.');
         this._appendHeaderAndFilterFields();
       },
       headerToolbar: {
@@ -301,7 +301,7 @@ export default class Calendar {
       // Event actions etc settings
       // -----------------------------------------------------------------
       eventDidMount: info => {
-        console.log('eventDidMount triggered.');
+        // console.log('eventDidMount triggered.');
         const event = info.event.extendedProps;
         if (event.id) {
           try {
@@ -369,7 +369,7 @@ export default class Calendar {
       // Moving events to change dates (Updates start and end date)
       // -----------------------------------------------------------------
       eventDrop: info => {
-        console.log('eventDrop triggered.', info);
+        // console.log('eventDrop triggered.', info);
         info.action = 'eventDrop';
         const eventData = info.event.extendedProps;
         if (eventData?.hasOwnTime) {
@@ -393,7 +393,7 @@ export default class Calendar {
       // Updates start and end time and day
       // -----------------------------------------------------------------
       eventResize: info => {
-        console.log('eventResize triggered.', info);
+        // console.log('eventResize triggered.', info);
         info.action = 'eventResize';
         const eventData = info.event.extendedProps;
         if (eventData?.hasOwnTime) {
@@ -409,13 +409,13 @@ export default class Calendar {
       // Ex. Dropping external events/jobs
       // -----------------------------------------------------------------
       eventReceive: info => {
-        console.log('eventReceive triggered.');
+        // console.log('eventReceive triggered.');
         info.action = 'eventReceive';
         this._calendarEventDrop(info);
       },
       // Disable event drop on Groups
       eventAllow: (dropInfo, draggedEvent) => {
-        console.log('eventAllow triggered.');
+        // console.log('eventAllow triggered.');
         return !dropInfo.resource.extendedProps.resourceCount;
       },
       windowResize: arg => {
@@ -783,9 +783,6 @@ export default class Calendar {
               if (resourceType === 'vendor') {
                 foundObj = payload.eventData.vendors.find(vendor => vendor.vendor.value == resourceId);
                 allowEvent = !foundObj;
-              } else if (resourceType === 'asset') {
-                foundObj = payload.eventData.assets.find(asset => asset.asset.value == resourceId);
-                allowEvent = !foundObj && !foundObj.onMaintenance;
               }
             }
 
