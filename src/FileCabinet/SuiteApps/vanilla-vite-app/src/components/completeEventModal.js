@@ -238,7 +238,8 @@ $(document).ready(() => {
 
     const payload = {
       eventDataSrc: {},
-      timeSheets: []
+      timeSheets: [],
+      items: []
     }
     payload.eventDataSrc = JSON.parse(decodeURIComponent($('#completeEventModal').attr('eventDataSrc')));
     const punchLines = JSON.parse(decodeURIComponent($('#completeEventModal').attr('punchLines')));
@@ -344,6 +345,24 @@ $(document).ready(() => {
     payload.timeSheets = payload.timeSheets.filter(obj =>
       Object.keys(obj).some(key => allowedProperties.includes(key))
     );
+
+    // WO Items
+    if (temp_ceItemsDataTable) {
+      const items_dt_tr = temp_ceItemsDataTable.rows({ search: 'applied' }).nodes();
+      items_dt_tr.each(function (node) {
+        const line = $(node).find('input.dt-line-select');
+        if (line.is(':checked')) {
+          const id = line.attr('recordId');
+          const completeQty = +$(node).find('.quantity').val();
+          if (id) {
+            payload.items.push({
+              id,
+              completeQty
+            });
+          }
+        }
+      });
+    }
 
     console.log('----- Complete Event Payload -----');
     console.log(payload);
