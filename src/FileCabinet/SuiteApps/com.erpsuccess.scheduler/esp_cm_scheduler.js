@@ -435,7 +435,9 @@ define([
           type: env.RecordType.WORK_ORDER,
           filters:
             [
-              ['isinactive', 'is', 'F']
+              ['isinactive', 'is', 'F'],
+              'AND',
+              ['custrecord_esp_cfi_wo_so.mainline', 'is', 'T']
             ],
           columns:
             [
