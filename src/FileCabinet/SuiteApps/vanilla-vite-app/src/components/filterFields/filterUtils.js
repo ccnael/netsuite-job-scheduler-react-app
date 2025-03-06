@@ -79,19 +79,19 @@ export function handleFilters() {
   window.clearFilters = modalId => {
     // Clear multiselect fields
     $(`${modalId} .filter-fields select[class*="multiple"]`).each(function () {
-      clearFieldValue($(this), 'multiselect');
+      !!$(this).val().length && clearFieldValue($(this), 'multiselect');
     });
     // Unmark checkboxes
     $(`${modalId} .filter-fields .form-check-input`).each(function () {
-      clearFieldValue($(this), 'checkbox');
+      !!$(this).val() && clearFieldValue($(this), 'checkbox');
     });
     // Date fields
     $(`${modalId} .filter-fields input[type="date"]`).each(function () {
-      clearFieldValue($(this), 'date');
+      !!$(this).val() && clearFieldValue($(this), 'date');
     });
     // Clear freeform
     $(`${modalId} .filter-fields input[type="text"]`).each(function () {
-      clearFieldValue($(this), 'text');
+      !!$(this).val() && clearFieldValue($(this), 'text');
     });
   }
 
