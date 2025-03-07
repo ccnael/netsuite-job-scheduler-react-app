@@ -187,7 +187,10 @@ Z`,url:"/app/crm/calendar/event.nl?id=101075&compid=TSTDRV2617106&selectedtab=cu
                     </div>
                     <div class="card-wrapper">
                       ${Ae.map(e=>`
-                        <div type="workorder" class="card-item" id="${e.id}" draggable="true" ondragstart="dragJobFunctions(event);" ondragend="dragJobFunctions(event);">
+                        <div type="workorder" class="card-item" id="${e.id}" draggable="true" ondragstart="dragJobFunctions(event);" ondragend="dragJobFunctions(event);"
+                          data-bs-toggle="tooltip" 
+                          data-bs-placement="right" 
+                          title="${e.name}">
                           <div class="card-head">
                             <div class="card-name"><a href="${e.woUrl}" target="_blank"><strong>${e.name}</strong></a></div>
                             <div class="card-header-options">
