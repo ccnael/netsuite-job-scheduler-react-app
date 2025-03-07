@@ -139,7 +139,10 @@ export default class Board {
                     </div>
                     <div class="card-wrapper">
                       ${dataSet.workOrders.map(wo => `
-                        <div type="workorder" class="card-item" id="${wo.id}" draggable="true" ondragstart="dragJobFunctions(event);" ondragend="dragJobFunctions(event);">
+                        <div type="workorder" class="card-item" id="${wo.id}" draggable="true" ondragstart="dragJobFunctions(event);" ondragend="dragJobFunctions(event);"
+                          data-bs-toggle="tooltip" 
+                          data-bs-placement="right" 
+                          title="${wo.name}">
                           <div class="card-head">
                             <div class="card-name"><a href="${wo.woUrl}" target="_blank"><strong>${wo.name}</strong></a></div>
                             <div class="card-header-options">
