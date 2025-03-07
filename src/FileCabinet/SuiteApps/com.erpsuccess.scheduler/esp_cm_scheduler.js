@@ -1256,8 +1256,8 @@ define([
               columns: ['custrecord_esp_fop_wo_sub_qty_rqd', 'custrecord_esp_fop_wo_sub_comment']
             });
             const values = {};
-            if (lookUp.custrecord_esp_fop_wo_sub_qty_rqd != vendor.quantity) {
-              values.custrecord_esp_fop_wo_sub_qty_rqd = vendor.quantity
+            if (lookUp.custrecord_esp_fop_wo_sub_qty_rqd != vendor.quantityRequired) {
+              values.custrecord_esp_fop_wo_sub_qty_rqd = vendor.quantityRequired
             }
             if (lookUp.custrecord_esp_fop_wo_sub_comment != vendor.memo) {
               values.custrecord_esp_fop_wo_sub_comment = vendor.memo
