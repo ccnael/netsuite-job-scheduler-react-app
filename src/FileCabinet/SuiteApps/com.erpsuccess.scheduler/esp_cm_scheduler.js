@@ -17,7 +17,7 @@ define([
   'N/record',
   'N/format',
   './lib/moment.min',
-  './esp_scheduler_constants'
+  './lib/esp_cm_constants'
 ],
   /**
    * @param{file} file
@@ -2799,12 +2799,12 @@ define([
 
       static createLogFile(contents) {
         try {
-          const fileObj = file.load('./lib/mockup.json');
+          const fileObj = file.load('./lib/esp_cm_mockup.json');
           /* fileObj.contents = JSON.stringify(contents);
           fileObj.save(); */
           // Already throwing error "This record already exists" ????
           const fileId = file.create({
-            name: `mockup.json`,
+            name: `esp_cm_mockup.json`,
             fileType: file.Type.PLAINTEXT,
             contents: JSON.stringify(contents),
             folder: fileObj.folder,

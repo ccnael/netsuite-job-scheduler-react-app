@@ -705,7 +705,7 @@ $(document).ready(() => {
             if (foundObj) {
               const newQty = +$(node).find('.quantity').val();
               const memo = $(node).find('.note').val();
-              foundObj.quantity = newQty;
+              foundObj.quantityRequired = newQty;
               foundObj.memo = memo;
             }
             vendorIds.push(id);
