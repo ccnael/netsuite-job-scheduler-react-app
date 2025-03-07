@@ -42,8 +42,11 @@ $(document).ready(() => {
                   multiple>
                   ${fields.map(field => `<option value="${field.className}" ${field.display && 'selected'}>${field.label}</option>`)}
                 </select>
-                <i class="fa-solid fa-square-plus ms-2 d-flex align-items-center justify-content-center" style="cursor: pointer; font-size: 2rem; color: #218938" onclick="alert('Not yet available.')">
-                </i>
+                <button class="add-custom-field" disabled>
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 5v14M5 12h14" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </button>
               </div>
               <div class="col-md-5 d-flex justify-content-end">
                 <button type="submit" class="btn btn-primary me-2" onclick="selectFilters(event, 'resource', '${modalId}')">Save</button>
@@ -106,10 +109,8 @@ $(document).ready(() => {
       return holder;
     }, '');
     // Display/not display fields
-    console.log('fields', fields)
     fields.map(field => {
       const el = $(`${modalId} .filter-fields .${field.className}`);
-      console.log(el, field);
       !!el.length && el.closest('div.col-md-6').css('display', ` ${field.display ? 'block' : 'none'}`);
     });
 
@@ -119,7 +120,9 @@ $(document).ready(() => {
 
     $(modalId).modal('show');
     $(modalId).css('z-index', '9999');
-    setTimeout(() => hideCustomLoader(), 150);
+    setTimeout(() => {
+      hideCustomLoader();
+    }, 150);
   });
 
   $(modalId).on('hidden.bs.modal', e => {

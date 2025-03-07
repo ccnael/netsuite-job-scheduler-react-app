@@ -5,7 +5,7 @@ export const resourcesDtColumns = [
         <input type="checkbox" class="form-check-input" style="left: 30px" onclick="markAll(event);">
       </div>`,
     render: (_data, _type, row, _meta) => `<div class="form-group form-check container d-flex justify-content-center">
-        <input recordId="${row.id}" employeeId="${row.employee.value}" type="checkbox" class="form-check-input dt-line-select" ${row.selected ? 'checked' : ''}>
+        <input recordId="${row.id}" validate-datetime-resource-type="employee" validate-datetime-resource-id="${row.employee.value}" type="checkbox" class="form-check-input dt-line-select" ${row.selected ? 'checked' : ''}>
       </div>`,
     width: "5%",
     orderable: false
@@ -25,11 +25,6 @@ export const resourcesDtColumns = [
     render: (_data, _type, row, _meta) => `${row.resourceSkills.reduce((x, y) => x += `<span class="badge bg-info">${y.text}</span> `, '')}`,
     title: 'Skill'
   },
-  /* {
-    className: 'dt-head-center',
-    render: (_data, _type, row, _meta) => `${row.types.map(type => type.text).join(', ')}`,
-    title: 'Type'
-  }, */
   {
     className: 'dt-head-center',
     data: 'email',
@@ -81,18 +76,6 @@ export const vendorsDtColumns = [
     render: (_data, _type, row, _meta) => `<textarea class="form-control note" rows="3">${row.memo}</textarea>`,
     title: 'Comments'
   },
-  /* {
-    className: 'dt-head-center',
-    render: (_data, _type, row, _meta) => `<input type="time" class="form-control starttime-row" value="${row?.time?.start}" required>`,
-    title: 'Start Time <span class="required"></span>',
-    orderable: false
-  },
-  {
-    className: 'dt-head-center',
-    render: (_data, _type, row, _meta) => `<input type="time" class="form-control endtime-row" value="${row?.time?.end}" required>`,
-    title: 'End Time <span class="required"></span>',
-    orderable: false
-  } */
 ];
 
 export const assetsDtColumns = [
@@ -102,7 +85,7 @@ export const assetsDtColumns = [
         <input type="checkbox" class="form-check-input" style="left: 30px" onclick="markAll(event);">
       </div>`,
     render: (_data, _type, row, _meta) => `<div class="form-group form-check container d-flex justify-content-center">
-        <input recordId="${row.id}" type="checkbox" class="form-check-input dt-line-select" ${row.selected ? 'checked' : ''}>
+        <input recordId="${row.id}" validate-datetime-resource-type="asset" validate-datetime-resource-id="${row.asset.value}" type="checkbox" class="form-check-input dt-line-select" ${row.selected ? 'checked' : ''}>
       </div>`,
     width: "5%",
     orderable: false
@@ -119,15 +102,15 @@ export const assetsDtColumns = [
   },
   {
     className: 'dt-head-center dt-body-center',
-    data: 'equipmentType.text',
+    data: 'type.text',
     title: 'Type'
   },
   {
     className: 'dt-head-center dt-body-center',
-    render: (_data, _type, row, _meta) => `<input type="number" class="quantity" value="${row?.quantity || 0}" min="0" required />`,
+    render: (_data, _type, row, _meta) => `<input type="number" class="quantity" value="${row?.quantity || 0}" max="${row?.maxQuantity || 0}" min="0" required />`,
     title: 'Quantity'
   },
-  /* {
+  {
     className: 'dt-head-center',
     render: (_data, _type, row, _meta) => `<input type="time" class="form-control starttime-row" value="${row?.time?.start}" required>`,
     title: 'Start Time <span class="required"></span>',
@@ -138,7 +121,7 @@ export const assetsDtColumns = [
     render: (_data, _type, row, _meta) => `<input type="time" class="form-control endtime-row" value="${row?.time?.end}" required>`,
     title: 'End Time <span class="required"></span>',
     orderable: false
-  } */
+  }
 ];
 
 export const itemsDtColumns = [
@@ -247,13 +230,18 @@ export const ceTimeSheetsDtColumns = [
   },
   {
     className: 'dt-head-center',
-    render: (_data, _type, row, _meta) => `<input type="time" class="form-control starttime" required>`,
-    title: 'Start Time'
+    data: 'location.text',
+    title: 'Location <span class="required"></span>'
+  },
+  {
+    className: 'dt-head-center',
+    render: () => `<input type="time" class="form-control starttime" required>`,
+    title: 'Start Time <span class="required"></span>'
   },
   {
     className: 'dt-head-center',
     render: () => `<input type="time" class="form-control endtime" required>`,
-    title: 'End Time'
+    title: 'End Time <span class="required"></span>'
   },
   {
     className: 'dt-head-center',
@@ -314,11 +302,6 @@ export const ceItemsDtColumns = [
     width: "5%",
     orderable: false
   },
-  /* {
-    className: 'dt-head-center dt-body-center',
-    data: 'id',
-    title: 'ID'
-  }, */
   {
     className: 'dt-head-center dt-body-center lineId',
     data: 'line',

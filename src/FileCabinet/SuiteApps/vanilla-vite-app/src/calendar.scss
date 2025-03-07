@@ -53,22 +53,33 @@ $background-color_19: #f0f0f0;
 			padding: 8px;
 			font-size: 11px;
 			box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-		}
-		.fc-event * {
-			font-size: 10px;
-		}
-		.card-content .badge {
-			zoom: 0.8;
-		}
-
-		.fc-event .card-name > a {
-			color: #fff !important;
-		}
-		.fc-event .card-content {
-			color: #fff !important;
-			overflow: hidden;
-			text-overflow: ellipsis;
-			white-space: nowrap;
+			* {
+				font-size: 9px;
+			}
+			.card-event {
+				margin-left: 5px; 
+				height: 150px;
+			}
+			.card-head {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				margin-bottom: 5px;
+				border-bottom: 1px solid #ccc;
+				padding-bottom: 5px;
+			}
+			.card-name > a {
+				color: #fff !important;
+			}
+			.card-content {
+				color: #fff !important;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				white-space: nowrap;
+			}
+			.card-content .badge {
+				zoom: 0.8;
+			}
 		}
 		.fc-event:hover {
 			// background-color: #2980b9;
@@ -129,7 +140,8 @@ $background-color_19: #f0f0f0;
 			height: 20;
 		}
 		.dropdown-content {
-			display: none;
+			display: block;
+  			opacity: 0;
 			position: absolute;
 			background-color: $background-color_17;
 			min-width: 120px;
@@ -153,7 +165,8 @@ $background-color_19: #f0f0f0;
 		.dropdown {
 			&:hover {
 				.dropdown-content {
-					display: block;
+					opacity: 1;
+  					visibility: visible;
 				}
 			}
 		}

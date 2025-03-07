@@ -1,5 +1,6 @@
 import { suiteletUrl, resources, events } from './dataSet';
 import { ceTimeSheetsDtColumns, ceItemsDtColumns, cePunchItemsDtColumns } from './dataTableColumns';
+import { Event } from './utils';
 import './completeEventModal.css';
 
 let temp_ceTimeSheetDataTable, temp_ceItemsDataTable, temp_cePunchItemsDataTable;
@@ -14,7 +15,7 @@ $(document).ready(() => {
         </div>
         <div class="spinner"></div>
         <div class="modal-body">
-          <form id="completeEventSubmitForm" onsubmit="return validateForm()">
+          <form id="completeEventSubmitForm" onsubmit="return completeEventValidateForm()">
             <div>
               <table class="table table-striped">
                 <thead>
@@ -110,7 +111,7 @@ $(document).ready(() => {
           </form>
         </div>
         <div class="modal-footer">
-          <button type="submit" form="completeEventSubmitForm" class="btn btn-primary">Save</button>
+          <button type="submit" form="completeEventSubmitForm" class="btn btn-primary">Complete</button>
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
         </div>
       </div>
@@ -128,6 +129,7 @@ $(document).ready(() => {
   $('#completeEventModal').on('shown.bs.modal', ev => {
     const eventId = $('#completeEventModal').attr('eventId');
     const eventData = events.find(event => event.id == eventId);
+    const noLocationResources = eventData.resources.filter(resource => !resource.location.value);
     const woRef = eventData.woRef;
     const woId = woRef?.id || '';
 
@@ -136,10 +138,11 @@ $(document).ready(() => {
       $('#completeEventModal .title p').html(`<a href="${woRef.woUrl}" target="_blank">${woRef.title}</a>`);
       $('#completeEventModal .project p').html(`<a href="${woRef.projectUrl}" target="_blank">${woRef.project.text}</a>`);
     }
-    $('#completeEventModal').attr('eventDataSrc', encodeURIComponent(JSON.stringify(eventData))); // Data from NS
+    $('#completeEventModal').attr('oldEventData', encodeURIComponent(JSON.stringify(eventData))); // Data from NS
     $('#completeEventModalLabel').text(`Complete Event [ID ${eventData.id}]`);
     $('#completeEventModal .eventTitle p').html(`<a href="${eventData.url}" target="_blank">${eventData.title}</a>`);
     $('#completeEventModal .status p').text(eventData.status.text);
+    $('#completeEventModal .modal-footer').find('button[type*="submit"]').attr('disabled', !!noLocationResources.length);
 
     temp_ceTimeSheetDataTable = $('#timesheets').DataTable({
       processing: true,
@@ -169,61 +172,64 @@ $(document).ready(() => {
     });
 
     // Fetch order punch list
-    /* $('#completeEventModal').attr('punchLines', encodeURIComponent('[]'));
-    temp_cePunchItemsDataTable = $('#punchItems').DataTable({
-      processing: true,
-      retrieve: true,
-      searching: false,
-      paging: false, 
-      info: false,
-      ajax(_data, callback, _settings) {
-        callback({
-          data: []
-        })
-      },
-      columns: cePunchItemsDtColumns,
-      initComplete: () => {  
-        completeEventModalHandlers();
-        hideCustomLoader();
-      }
-    }); */
-    fetch(
-      `${suiteletUrl}&mode=getOrderPunchList&woId=${woId}`, {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-      }
-    })
-      .then(response => response.json())
-      .then(result => {
-        $('#completeEventModal').attr('punchLines', encodeURIComponent(JSON.stringify(result)));
-
-        temp_cePunchItemsDataTable = $('#punchItems').DataTable({
-          processing: true,
-          retrieve: true,
-          searching: false,
-          paging: false,
-          info: false,
-          ajax(_data, callback, _settings) {
-            callback({
-              data: result
-            })
-          },
-          columns: cePunchItemsDtColumns,
-          initComplete: () => {
-            completeEventModalHandlers();
-            hideCustomLoader('completeEventModal');
-          }
-        });
-      })
-      .catch(error => {
-        Swal.fire(
-          'Unexpected Error',
-          error.message,
-          'error'
-        );
-        hideCustomLoader('completeEventModal');
+    if (window.location.hostname === 'localhost') {
+      $('#completeEventModal').attr('punchLines', encodeURIComponent('[]'));
+      temp_cePunchItemsDataTable = $('#punchItems').DataTable({
+        processing: true,
+        retrieve: true,
+        searching: false,
+        paging: false,
+        info: false,
+        ajax(_data, callback, _settings) {
+          callback({
+            data: []
+          })
+        },
+        columns: cePunchItemsDtColumns,
+        initComplete: () => {
+          completeEventModalHandlers();
+          hideCustomLoader();
+        }
       });
+    } else {
+      fetch(
+        `${suiteletUrl}&mode=getOrderPunchList&woId=${woId}`, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        }
+      })
+        .then(response => response.json())
+        .then(result => {
+          $('#completeEventModal').attr('punchLines', encodeURIComponent(JSON.stringify(result)));
+
+          temp_cePunchItemsDataTable = $('#punchItems').DataTable({
+            processing: true,
+            retrieve: true,
+            searching: false,
+            paging: false,
+            info: false,
+            ajax(_data, callback, _settings) {
+              callback({
+                data: result
+              })
+            },
+            columns: cePunchItemsDtColumns,
+            initComplete: () => {
+              completeEventModalHandlers();
+              setTimeout(() => hideCustomLoader('completeEventModal'), 1000);
+            }
+          });
+        })
+        .catch(error => {
+          Swal.fire(
+            'Unexpected Error',
+            error.message,
+            'error'
+          );
+          hideCustomLoader('completeEventModal');
+        });
+    }
   });
 
   // General Event Form -> On Submit
@@ -231,21 +237,21 @@ $(document).ready(() => {
     ev.preventDefault();
 
     const payload = {
-      eventDataSrc: {},
-      timeSheets: [],
-      fulfillItems: []
+      eventData: {},
+      get oldEventData() {
+        return deepCopy(this.eventData);
+      },
+      timeSheets: []
     }
-
-    payload.eventDataSrc = JSON.parse(decodeURIComponent($('#completeEventModal').attr('eventDataSrc')));
+    payload.eventData = JSON.parse(decodeURIComponent($('#completeEventModal').attr('oldEventData')));
+    const woRef = payload.eventData.woRef;
     const punchLines = JSON.parse(decodeURIComponent($('#completeEventModal').attr('punchLines')));
     const unresolvedPunchCount = punchLines.filter(punch => punch.status.value != 6).length; // 6 (Resolved)
-    const eventId = payload.eventDataSrc.id;
+    const eventId = payload.oldEventData.id;
     const eventData = events.find(event => event.id == eventId);
-    const woRef = eventData.woRef;
-    const woId = woRef?.id || '';
+    const assetMaintenance = eventData.assetMaintenance;
 
-    console.log('----- Punch Items -----');
-    console.log(punchLines);
+    console.log('----- Punch Items -----', payload);
 
     if (unresolvedPunchCount) {
       Swal.fire(
@@ -263,14 +269,14 @@ $(document).ready(() => {
         location: that.find('.resourceName p').attr('locationId'),
         startTime: that.find('.starttime').val(),
         endTime: that.find('.endtime').val(),
-        awayHrs: +that.find('.away-hrs').val(),
-        awayMins: +that.find('.away-mins').val(),
-        stHrs: +that.find('.st-hrs').val(),
-        stMins: +that.find('.st-mins').val(),
-        otHrs: +that.find('.ot-hrs').val(),
-        otMins: +that.find('.ot-mins').val(),
-        dtHrs: +that.find('.dt-hrs').val(),
-        dtMins: +that.find('.dt-mins').val(),
+        awayHrs: +that.find('.away-hrs').val() || 0,
+        awayMins: +that.find('.away-mins').val() || 0,
+        stHrs: +that.find('.st-hrs').val() || 0,
+        stMins: +that.find('.st-mins').val() || 0,
+        otHrs: +that.find('.ot-hrs').val() || 0,
+        otMins: +that.find('.ot-mins').val() || 0,
+        dtHrs: +that.find('.dt-hrs').val() || 0,
+        dtMins: +that.find('.dt-mins').val() || 0,
         notes: that.find('.note').val(),
         get labRates() {
           const resource = resources.find(resource => resource.id == this.id);
@@ -313,17 +319,6 @@ $(document).ready(() => {
       });
     });
 
-    $('#items_ce tbody > tr').each(function () {
-      const customRecordId = $(this).find('.dt-line-select').attr('recordId');
-      const checked = ($(this).find('.dt-line-select') || [])[0]?.checked || false;
-      const lineId = $(this).find('.lineId').text();
-      const quantity = +$(this).find('.itemQty').text();
-      const completeQty = +$(this).find('.completeQty').val();
-      if (checked) {
-        payload.fulfillItems.push({ customRecordId, lineId, quantity, completeQty });
-      }
-    });
-
     // Sanitize: Filter out undefined, null etc values
     payload.timeSheets = payload.timeSheets.filter(timeSheet => {
       Object.keys(timeSheet).forEach(key => {
@@ -333,90 +328,63 @@ $(document).ready(() => {
       return timeSheet;
     })
 
-    const allowedProperties = ['id', 'location', 'startTime', 'endTime', 'awayHrs', 'awayMins', 'stHrs', 'stMins', 'otHrs', 'otMins', 'dtHrs', 'dtMins', 'notes'];
+    const allowedProperties = [
+      'id',
+      'location',
+      'startTime',
+      'endTime',
+      'awayHrs',
+      'awayMins',
+      'stHrs',
+      'stMins',
+      'otHrs',
+      'otMins',
+      'dtHrs',
+      'dtMins',
+      'notes'
+    ];
 
     // Check if any object property is in the allowedProperties array
     payload.timeSheets = payload.timeSheets.filter(obj =>
       Object.keys(obj).some(key => allowedProperties.includes(key))
     );
 
-    payload.fulfillItems = payload.fulfillItems.filter(fulfillItem => {
-      Object.keys(fulfillItem).forEach(key => {
-        if (!fulfillItem[key])
-          delete fulfillItem[key];
-      })
-      return fulfillItem;
-    }).filter(fulfillItem => !!Object.keys(fulfillItem).length);
+    // WO Items
+    const itemIds = [];
+    if (temp_ceItemsDataTable) {
+      const items_dt_tr = temp_ceItemsDataTable.rows({ search: 'applied' }).nodes();
+      items_dt_tr.each(function (node) {
+        const line = $(node).find('input.dt-line-select');
+        if (line.is(':checked')) {
+          const id = line.attr('recordId');
+          if (id) {
+            const foundObj = woRef.items.find(item => item.id == id);
+            if (foundObj) {
+              const completedQty = +$(node).find('.quantity').val();
+              foundObj.completedQty = completedQty;
+            }
+            itemIds.push(id);
+          }
+        }
+      });
+    }
+
+    // Filter only items that needs update
+    payload.eventData.selectedItems = (woRef?.items || []).filter(item => !!itemIds.includes(item.id));
 
     console.log('----- Complete Event Payload -----');
     console.log(payload);
-
-    if (!payload.timeSheets.length) {
+    /* // Not general event and non asset maintenance and has timesheets
+    if (!!woRef && !assetMaintenance && !payload.timeSheets.length) {
       Swal.fire(
         'Unable to Proceed',
         `Time Sheets Required`,
         'error'
       );
       return;
-    }
+    } */
 
-    Swal.fire({
-      title: 'Complete Event?',
-      text: woId ? `This will fulfill order items for Event [ID ${eventId}]` : `Complete Event [ID ${eventId}]`,
-      icon: 'warning',
-      showCancelButton: true,
-      confirmButtonColor: '#3085d6',
-      cancelButtonColor: '#817c7c',
-      confirmButtonText: 'Yes'
-    })
-      .then(result => {
-        if (result.isConfirmed) {
-          Swal.fire({
-            didOpen: () => {
-              Swal.showLoading();
-              fetch(
-                `${suiteletUrl}&mode=completeEvent`, {
-                method: 'POST',
-                body: JSON.stringify(payload),
-                headers: {
-                  'Content-Type': 'application/json',
-                }
-              })
-                .then(response => response.json())
-                .then(result => {
-                  if (result.code == 200) {
-                    Swal.fire({
-                      title: 'Success!',
-                      text: `Event [ID ${eventId}] Completed`,
-                      icon: 'success'
-                    })
-                      .then(() => {
-                        window.location.reload();
-                      });
-                  } else {
-                    Swal.fire({
-                      title: 'Unexpected Error',
-                      text: `Error: ${result.errorMsg}`,
-                      icon: 'error'
-                    });
-                  }
-                  Swal.hideLoading();
-                })
-                .catch(error => {
-                  Swal.fire(
-                    'Unexpected Error',
-                    error.message,
-                    'error'
-                  );
-                  Swal.hideLoading();
-                });
-            },
-            allowOutsideClick: false,
-            allowEscapeKey: false,
-            text: `Completing Event [ID ${eventId}]...`
-          });
-        }
-      });
+    Event.completeEvent(payload, eventId);
   });
 
   // General Event Form -> On Close
@@ -433,7 +401,7 @@ $(document).ready(() => {
       }
     }
 
-    window.validateForm = () => true;
+    window.completeEventValidateForm = () => true;
   }
 
   function completeEventModalHandlers() {
@@ -458,7 +426,7 @@ $(document).ready(() => {
 
     $(`#completeEventModal`).attr('eventId', '');
     $(`#completeEventModal`).attr('woId', '');
-    $(`#completeEventModal`).attr('eventDataSrc', '');
+    $(`#completeEventModal`).attr('oldEventData', '');
     $(`#completeEventModal`).attr('punchLines', '');
     $(`#completeEventModal eventTitle p`).html('');
     $(`#completeEventModal title p`).html('');
@@ -489,5 +457,9 @@ $(document).ready(() => {
   function hideCustomLoader() {
     $(`#completeEventModal .spinner`).hide();
     $(`#completeEventModal .modal-body`).css('z-index', '1');
+  }
+
+  function deepCopy(obj) {
+    return JSON.parse(JSON.stringify(obj));
   }
 })

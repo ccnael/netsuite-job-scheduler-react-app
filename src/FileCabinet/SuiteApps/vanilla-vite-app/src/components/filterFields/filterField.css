@@ -28,4 +28,28 @@
 
 /* #filterFieldEventResource {
   z-index: 9999;
-} *//*# sourceMappingURL=filterField.css.map */
+} */
+.add-custom-field {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border: none;
+  background: #28a745;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-left: 10px;
+}
+
+/* Hover effect */
+.add-custom-field:hover {
+  background: #218838;
+}
+
+/* Disabled state */
+.add-custom-field:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+  opacity: 0.6;
+}/*# sourceMappingURL=filterField.css.map */

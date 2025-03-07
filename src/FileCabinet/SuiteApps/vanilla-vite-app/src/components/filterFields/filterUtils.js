@@ -1,6 +1,6 @@
 import * as dataSet from '../dataSet';
 
-export function setupFilters() {
+export function handleFilters() {
   // 2nd Form
   // ----------------------------
   window.showSecondForm = (ev, modalId) => {
@@ -79,19 +79,19 @@ export function setupFilters() {
   window.clearFilters = modalId => {
     // Clear multiselect fields
     $(`${modalId} .filter-fields select[class*="multiple"]`).each(function () {
-      clearFieldValue($(this), 'multiselect');
+      !!$(this).val().length && clearFieldValue($(this), 'multiselect');
     });
     // Unmark checkboxes
     $(`${modalId} .filter-fields .form-check-input`).each(function () {
-      clearFieldValue($(this), 'checkbox');
+      !!$(this).val() && clearFieldValue($(this), 'checkbox');
     });
     // Date fields
     $(`${modalId} .filter-fields input[type="date"]`).each(function () {
-      clearFieldValue($(this), 'date');
+      !!$(this).val() && clearFieldValue($(this), 'date');
     });
     // Clear freeform
     $(`${modalId} .filter-fields input[type="text"]`).each(function () {
-      clearFieldValue($(this), 'text');
+      !!$(this).val() && clearFieldValue($(this), 'text');
     });
   }
 
@@ -197,9 +197,10 @@ export function onFilterResource(fieldId) {
       const groupId = (containerId.match('asset') || containerId.match('vendor') || containerId.match(/\d+/))[0];
       const _resource = dataSet.resources.find(resource => resource.employee.value == resourceId);
       const _vendor = dataSet.vendors.find(vendor => vendor.vendor.value == resourceId);
-      const _asset = dataSet.assets.find(asset => asset.item.value == resourceId);
+      const _asset = dataSet.assets.find(asset => asset.asset.value == resourceId);
+      const resourceObj = _resource || _vendor || _asset;
 
-      if (_resource || _vendor || _asset) {
+      if (resourceObj) {
         let _resourceGroup = [], _resourceSkill = [];
         if (_resource) {
           _resourceGroup = [..._resourceGroup, ..._resource.resourceGroups.map(resourceGroup => resourceGroup.value)];
@@ -209,12 +210,12 @@ export function onFilterResource(fieldId) {
         } else {
           _resourceGroup = ['vendor', 'asset'];
         }
-        const _resourceStatus = (_resource || _vendor || _asset).active ? '1' : '0';
-        const _resourceLocation = (_resource || _vendor || _asset).location.value;
-        const _resourceDepartment = (_resource || _vendor || _asset).department.value;
-        const email = (_resource || _vendor || _asset).email;
+        const _resourceStatus = resourceObj.active ? '1' : '0';
+        const _resourceLocation = resourceObj.location?.value || '';
+        const _resourceDepartment = resourceObj.department?.value || '';
+        const email = resourceObj.email;
         const email_regExp = new RegExp($selected.email, 'gi');
-        const phone = (_resource || _vendor || _asset).phone;
+        const phone = resourceObj.phone;
         const phone_regExp = new RegExp($selected.phone, 'gi');
         const shouldDisplay = !!(
           (!$selected.resource.length || $selected.resource.includes(resourceId)) &&
@@ -443,7 +444,7 @@ export function onFilterBoardEvent(fieldId) {
         $selected[id] = $(this).val() || (!id.match(/date/gi) ? [] : '');
         filterItems();
         // Highlight resource rows
-        if (id == 'resource') {
+        if (id === 'resource') {
           $('.person-container').each(function () {
             const elementId = $(this)[0].id;
             const resourceId = elementId.split('-').pop();
@@ -598,7 +599,7 @@ export function onClickResource() {
       if (eventData) {
         const eventResources = eventData.resources.map(resource => resource.employee.value);
         const eventVendors = eventData.vendors.map(vendor => vendor.vendor.value);
-        const eventAssets = eventData.assets.map(asset => asset.item.value);
+        const eventAssets = eventData.assets.map(asset => asset.asset.value);
         const combinedResources = [...eventResources, ...eventVendors, ...eventAssets];
         const shouldDisplay = !!(
           (!$selected.resource.length || $selected.resource.some(value => new Set(combinedResources).has(value)))
@@ -682,11 +683,12 @@ export function onFilterCalendarEvent(fieldId, pageSwitched, info) {
     let calendarResources = dataSet.combinedResourceGroups.map(resourceGroup => ({
       id: resourceGroup.value,
       title: resourceGroup.text,
-      children: resourceGroup.resources.map(resource => ({
-        id: `${resourceGroup.value}-${resource.id}`,
-        title: resource.name,
-        extendedProps: resource
-      })),
+      children: resourceGroup.resources
+        .map(resource => ({
+          id: `${resourceGroup.value}-${resource.id}`,
+          title: resource.name,
+          extendedProps: resource
+        })),
       get resourceCount() {
         return this.children.length;
       },
@@ -715,7 +717,7 @@ export function onFilterCalendarEvent(fieldId, pageSwitched, info) {
       calendarEvents = calendarEvents.filter(event => !!($selected.eventType.includes(!!event.extendedProps.workorder.text ? '2' : '1')));
     }
     if ($selected.receiptStatus.length) {
-      calendarEvents = calendarEvents.filter(event => !!($selected.receiptStatus.includes(event.extendedProps.woRef.receiptStatus)));
+      calendarEvents = calendarEvents.filter(event => !!($selected.receiptStatus.includes(event.extendedProps.woRef?.receiptStatus?.value)));
     }
     // Events with no resource gets assigned here
     if (!$selected.resource.length && !$selected.resourceGroup.length || $selected.resourceGroup.includes('z-unassigned')) {
@@ -901,6 +903,8 @@ export function onFilterEventResource(fieldId) {
   }
 }
 
+// General Event Modal Filters
+// -----------------------------------------------------------------
 export function onFilterGeneralEventResource(fieldId) {
   const dataTable = $('#resources_ge').DataTable();
   const $resourceFilter = $(`${fieldId} select.multiple-resource-field`);

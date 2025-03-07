@@ -1,30 +1,36 @@
 /**
  * @NApiVersion 2.1
  * @NModuleScope Public
+ * 
+ * TODO: 
+ * - Convert searches to queries
+ * - Split other classes/functions as separate modules
  */
 define([
   'N/file',
   'N/runtime',
   'N/search',
+  'N/query',
   'N/config',
   'N/url',
   'N/render',
   'N/record',
   'N/format',
   './lib/moment.min',
-  './lib/constants'
+  './lib/esp_cm_constants'
 ],
   /**
    * @param{file} file
    * @param{runtime} runtime
    * @param{search} search
+   * @param{query} query
    * @param{config} config
    * @param{url} url
    * @param{render} render
    * @param{record} record
    * @param{format} format
    */
-  (file, runtime, search, config, url, render, record, format, moment, env) => {
+  (file, runtime, search, query, config, url, render, record, format, moment, env) => {
 
     // INITIAL RESOURCE
     // -------------------------
@@ -55,6 +61,7 @@ define([
             search.createColumn({ name: 'email', label: 'Email' }),
             search.createColumn({ name: 'phone', label: 'Phone' }),
             search.createColumn({ name: 'location', label: 'Location' }),
+            search.createColumn({ name: 'name', join: 'location', label: 'Location Name' }),
             search.createColumn({ name: 'custentity_esp_fop_is_employee_active', label: 'Active' }),
             search.createColumn({ name: 'custentity_esp_fop_emp_resource_type', label: 'Resource Type' }),
             search.createColumn({ name: 'custentity_esp_fop_emp_resource_subtype', label: 'Resource Subtype' }),
@@ -206,7 +213,9 @@ define([
           type: 'vendor',
           filters:
             [
-              ['custentity_esp_fop_is_wo_vendor', 'is', 'T']
+              ['custentity_esp_fop_is_wo_vendor', 'is', 'T'],
+              'AND',
+              ['isinactive', 'is', 'F']
             ],
           columns:
             [
@@ -248,7 +257,6 @@ define([
             },
             quantityRequired: 0,
             quantityAvailable: +result.getValue('custentity_esp_fop_ven_avail_resources'),
-            active: !result.getValue('isinactive'),
             purchaseOrder: {
               text: '',
               value: ''
@@ -275,73 +283,83 @@ define([
         return vendors;
       }
 
-      static getAssetsAndEquipments(events) {
+      static getAssets() {
+        // const queryStr = `
+        //   SELECT 
+        //       x.name, 
+        //       x.custrecord_esp_fop_asset_site, 
+        //       x.custrecord_esp_fop_asset_type, 
+        //       x.custrecord_esp_fop_asset_description, 
+        //       x.custrecord_esp_fop_asset_quantity, 
+        //       x.custrecord_esp_fop_asset_quantity_remain, 
+        //       x.custrecord_esp_fop_asset_owned, 
+        //       x.custrecord_erp_fop_asset_is_consumable, 
+        //       x.custrecord_esp_fop_is_maintenance, 
+        //   FROM 
+        //     customrecord_esp_fop_asset AS x
+        //   WHERE 
+        //     x.custrecord_erp_fop_asset_is_consumable = 'F'
+        // `;
+
+        // const resultSet = query.runSuiteQL({ query: queryStr });
+        // const results = resultSet.asMappedResults(); // Convert to array of objects
+
+        // log.debug('SuiteQL Results', results);
         const searchObj = search.create({
-          type: 'item',
+          type: 'customrecord_esp_fop_asset',
           filters:
             [
-              ['custitem_esp_fop_asset_owned', 'is', 'T'],
-              'AND',
-              ['custitem_esp_fop_resource_item_asset', 'is', 'T']
+              ['isinactive', 'is', 'F']
             ],
           columns:
             [
-              search.createColumn({ name: 'itemid', label: 'Name' }),
-              search.createColumn({ name: 'displayname', label: 'Display Name' }),
-              search.createColumn({ name: 'salesdescription', label: 'Description' }),
-              search.createColumn({ name: 'type', label: 'Type' }),
-              // search.createColumn({ name: 'custitem_esp_fop_equipment_type', label: 'Equipment Type' }),
-              search.createColumn({ name: 'vendor', label: 'Preferred Vendor' }),
-              search.createColumn({ name: 'custitem_esp_fop_rental_duration', label: 'Rental Duration' }),
-              search.createColumn({ name: 'custitem_esp_fop_rental_matrix', label: 'Rental Matrix' }),
-              search.createColumn({ name: 'custitem_esp_fop_rental_unit', label: 'Rental Unit' }),
-              search.createColumn({ name: 'location', label: 'Location' }),
-              search.createColumn({ name: 'department', label: 'Department' })
+              search.createColumn({ name: 'name', label: 'Name' }),
+              search.createColumn({ name: 'custrecord_esp_fop_asset_site', label: 'Asset Site' }),
+              search.createColumn({ name: 'custrecord_esp_fop_asset_type', label: 'Asset Type' }),
+              search.createColumn({ name: 'custrecord_esp_fop_asset_description', label: 'Description' }),
+              search.createColumn({ name: 'custrecord_esp_fop_asset_quantity', label: 'Quantity' }),
+              search.createColumn({ name: 'custrecord_esp_fop_asset_quantity_remain', label: 'Quantity Remaining' }),
+              search.createColumn({ name: 'custrecord_esp_fop_asset_owned', label: 'Asset Owned' }),
+              search.createColumn({ name: 'custrecord_erp_fop_asset_is_consumable', label: 'Consumable' }),
+              search.createColumn({ name: 'custrecord_esp_fop_is_maintenance', label: 'Asset on Maintenance' }),
+              search.createColumn({ name: 'custrecord_esp_fop_asset_qty_used', label: 'Quantity Used' }),
+              search.createColumn({ name: 'custrecord_esp_fop_asset_start_date', label: 'Start Date' }),
+              search.createColumn({ name: 'custrecord_esp_fop_asset_end_date', label: 'End Date' }),
             ]
         });
-
         const assets = [];
         searchObj.run().each(result => {
-          assets.push({
+          const assetObj = {
             id: result.id,
-            name: result.getValue('itemid'),
-            displayname: result.getValue('displayname'),
-            quantity: 0,
-            description: result.getValue('salesdescription'),
-            /* equipmentType: {
-              text: result.getText('custitem_esp_fop_equipment_type'),
-              value: result.getValue('custitem_esp_fop_equipment_type')
-            }, */
-            get item() {
+            name: result.getValue('name'),
+            get asset() {
               return {
                 text: this.name,
                 value: this.id
               }
             },
-            vendor: {
-              text: result.getText('vendor'),
-              value: result.getValue('vendor')
+            onMaintenance: result.getValue('custrecord_esp_fop_is_maintenance'),
+            description: result.getValue('custrecord_esp_fop_asset_description'),
+            type: {
+              text: result.getText('custrecord_esp_fop_asset_type'),
+              value: result.getValue('custrecord_esp_fop_asset_type')
             },
-            rentalDuration: +result.getValue('custitem_esp_fop_rental_duration'),
-            rentalMatrix: +result.getValue('custitem_esp_fop_rental_matrix'),
-            rentalUnit: {
-              text: result.getText('custitem_esp_fop_rental_unit'),
-              value: result.getValue('custitem_esp_fop_rental_unit')
+            site: {
+              text: result.getText('custrecord_esp_fop_asset_site'),
+              value: result.getValue('custrecord_esp_fop_asset_site')
             },
-            events: events.filter(event => event.assets.map(asset => asset.item.value).includes(result.id)).map(event => event.id),
-            location: {
-              text: result.getText('location'),
-              value: result.getValue('location')
-            },
-            department: {
-              text: result.getText('department'),
-              value: result.getValue('department')
-            },
+            quantity: 0,
+            maxQuantity: +result.getValue('custrecord_esp_fop_asset_quantity'),
+            quantityRemaining: +result.getValue('custrecord_esp_fop_asset_quantity_remain'),
+            quantityUsed: +result.getValue('custrecord_esp_fop_asset_qty_used'),
+            owned: result.getValue('custrecord_esp_fop_asset_owned'),
+            consumable: result.getValue('custrecord_erp_fop_asset_is_consumable'),
             time: {
               start: '',
               end: ''
             }
-          });
+          };
+          assets.push(assetObj);
           return true;
         });
         // log.audit('----- [Assets & Equipments] -----', assets);
@@ -417,7 +435,9 @@ define([
           type: env.RecordType.WORK_ORDER,
           filters:
             [
-              ['isinactive', 'is', 'F']
+              ['isinactive', 'is', 'F'],
+              'AND',
+              ['custrecord_esp_cfi_wo_so.mainline', 'is', 'T']
             ],
           columns:
             [
@@ -440,7 +460,8 @@ define([
               search.createColumn({ name: 'created', label: 'Date Created' }),
               search.createColumn({ name: 'custrecord_esp_cfi_wo_est_hours', label: 'Estimated Hours' }),
               search.createColumn({ name: 'custrecord_esp_fop_wo_location', label: 'Location' }),
-              search.createColumn({ name: 'custrecord_esp_fop_wo_ir_status', label: 'Item Receipt Status' })
+              search.createColumn({ name: 'custrecord_esp_fop_wo_ir_status', label: 'Item Receipt Status' }),
+              search.createColumn({ name: 'custbody_so_oi', join: 'custrecord_esp_cfi_wo_so', label: 'Project Insight' })
             ]
         });
 
@@ -513,8 +534,8 @@ define([
               value: result.getValue('custrecord_esp_fop_wo_location'),
             },
             receiptStatus: {
-              text: result.getText('custrecord_esp_fop_wo_ir_status'),
-              value: result.getValue('custrecord_esp_fop_wo_ir_status'),
+              text: result.getText('custrecord_esp_fop_wo_ir_status') || 'Not Received',
+              value: result.getValue('custrecord_esp_fop_wo_ir_status') || '1',
               get code() {
                 switch (this.value) {
                   case '2':
@@ -531,6 +552,16 @@ define([
                     return env.ReceiptStatusDisplay.FULL;
                 }
               }
+            },
+            projectInsight: {
+              text: result.getText({
+                name: 'custbody_so_oi',
+                join: 'custrecord_esp_cfi_wo_so'
+              }),
+              value: result.getValue({
+                name: 'custbody_so_oi',
+                join: 'custrecord_esp_cfi_wo_so'
+              })
             }
           });
           return true;
@@ -682,11 +713,9 @@ define([
           type: env.RecordType.WORK_ORDER,
           id: woId
         });
-
         const subsidiaryId = woRec.getValue({
           fieldId: 'custrecord_esp_cfi_wo_subsidiary'
         });
-
         const subRec = record.load({
           type: 'subsidiary',
           id: subsidiaryId
@@ -762,21 +791,10 @@ define([
 
     class WorkOrderResource {
 
-      static getList(workOrders, events) {
-        const woIds = workOrders.map(wo => wo.id);
-        const eventIds = events.map(event => event.id);
+      static getList() {
         const filters = [
           ['isinactive', 'is', 'F']
         ];
-        /* if (woIds.length) {
-          filters.push('AND');
-          filters.push(['custrecord_esp_fop_res_rel_wo', 'anyof', woIds]);
-        } */
-
-        /* if (eventIds.length) {
-          filters.pu1sh('AND');
-          filters.push(['custrecord_esp_fop_res_rel_wo_event', 'anyof', eventIds]);
-        } */
         const searchObj = search.create({
           type: env.RecordType.WORK_ORDER_RESOURCE,
           filters,
@@ -1057,6 +1075,7 @@ define([
         const { request, response } = context;
         let reqBody = request.body || '{}';
         const payload = JSON.parse(reqBody);
+        log.debug('updateResourceDateTime', payload);
 
         try {
           const lookUp = search.lookupFields({
@@ -1120,22 +1139,10 @@ define([
 
     class WorkOrderVendor {
 
-      static getList(workOrders, events) {
-        const woIds = workOrders.map(wo => wo.id);
-        const eventIds = events.map(event => event.id);
+      static getList() {
         const filters = [
           ['isinactive', 'is', 'F']
         ];
-        // To include general events
-        /* if (woIds.length) {
-          filters.push('AND');
-          filters.push(['custrecord_esp_fop_wo_sub_rel_wo', 'anyof', woIds]);
-        
-        }
-        if (eventIds.length) {
-          filters.push('AND');
-          filters.push(['custrecord_esp_fop_wo_sub_event', 'anyof', eventIds]);
-        } */
         const searchObj = search.create({
           type: env.RecordType.WORK_ORDER_VENDOR,
           filters,
@@ -1283,22 +1290,10 @@ define([
 
     class WorkOrderAsset {
 
-      static getList(workOrders, events) {
-        const woIds = workOrders.map(wo => wo.id);
-        const eventIds = events.map(event => event.id);
+      static getList() {
         const filters = [
           ['isinactive', 'is', 'F']
         ];
-        // To include general events
-        /* if (woIds.length) {
-          filters.push('AND');
-          filters.push(['custrecord_esp_fop_ast_rel_wo', 'anyof', woIds]);
-        
-        }
-        if (eventIds.length) {
-          filters.push('AND');
-          filters.push(['custrecord_esp_fop_ast_wo_event', 'anyof', eventIds]);
-        } */
         const searchObj = search.create({
           type: env.RecordType.WORK_ORDER_ASSET,
           filters,
@@ -1306,9 +1301,10 @@ define([
             [
               search.createColumn({ name: 'custrecord_esp_fop_ast_rel_wo', label: 'Work Order' }),
               search.createColumn({ name: 'custrecord_esp_fop_ast_wo_event', label: 'Work Order Event' }),
+              search.createColumn({ name: 'custrecord_esp_fop_ast_asset_rec', label: 'Asset' }),
               search.createColumn({ name: 'custrecord_esp_fop_ast_quantity', label: 'Quantity' }),
               search.createColumn({ name: 'custrecord_esp_fop_ast_item_desc', label: 'Item Description' }),
-              search.createColumn({ name: 'custrecord_esp_fop_ast_equipment', label: 'Equipment' }),
+              // search.createColumn({ name: 'custrecord_esp_fop_ast_equipment', label: 'Equipment' }),
               search.createColumn({ name: 'custrecordesp_fop_ast_rental_unit', label: 'Rental Unit' }),
               search.createColumn({ name: 'custrecord_esp_fop_ast_rental_duration', label: 'Rental Duration' }),
               search.createColumn({ name: 'custrecord_esp_fop_ast_rental_rate', label: 'Rental Rate' }),
@@ -1317,28 +1313,40 @@ define([
               search.createColumn({ name: 'custrecord_esp_fop_ast_primary_vendor', label: 'Vendor' }),
               search.createColumn({ name: 'custrecord_esp_fop_ast_equip_type', label: 'Equipment Type' }),
               search.createColumn({ name: 'custrecord_esp_fop_ast_is_owned', label: 'Is Owned' }),
+              search.createColumn({ name: 'custrecord_esp_fop_ast_rental_mtrx', label: 'Rental Matrix' }),
+              search.createColumn({ name: 'custrecord_esp_fop_ast_start_date', label: 'Start Date' }),
+              search.createColumn({ name: 'custrecord_esp_fop_ast_end_date', label: 'End Date' }),
+              search.createColumn({ name: 'custrecord_esp_fop_ast_start_time', label: 'Start Time' }),
+              search.createColumn({ name: 'custrecord_esp_fop_ast_end_time', label: 'End Time' }),
+              search.createColumn({ name: 'custrecord_esp_fop_is_maintenance', join: 'custrecord_esp_fop_ast_asset_rec', label: 'Asset on Maintenance' }),
             ]
         });
         const assets = [];
         searchObj.run().each(result => {
           assets.push({
             id: result.id,
-            name: result.getText('custrecord_esp_fop_ast_equipment'),
+            name: result.getText('custrecord_esp_fop_ast_asset_rec'),
             workorder: {
               text: result.getText('custrecord_esp_fop_ast_rel_wo'),
               value: result.getValue('custrecord_esp_fop_ast_rel_wo')
             },
             event: result.getValue('custrecord_esp_fop_ast_wo_event'),
             quantity: +result.getValue('custrecord_esp_fop_ast_quantity'),
+            maxQuantity: +result.getValue('custrecord_esp_fop_ast_quantity'),
             description: result.getValue('custrecord_esp_fop_ast_item_desc'),
-            item: {
+            asset: {
+              text: result.getText('custrecord_esp_fop_ast_asset_rec'),
+              value: result.getValue('custrecord_esp_fop_ast_asset_rec')
+            },
+            onMaintenance: result.getValue({ name: 'custrecord_esp_fop_is_maintenance', join: 'custrecord_esp_fop_ast_asset_rec' }),
+            /* item: {
               text: result.getText('custrecord_esp_fop_ast_equipment'),
               value: result.getValue('custrecord_esp_fop_ast_equipment'),
-            },
-            equipmentType: {
+            }, */
+            /* equipmentType: {
               text: result.getText('custrecord_esp_fop_ast_equip_type'),
               value: result.getValue('custrecord_esp_fop_ast_equip_type'),
-            },
+            }, */
             rentalUnit: {
               text: result.getText('custrecordesp_fop_ast_rental_unit'),
               value: result.getValue('custrecordesp_fop_ast_rental_unit'),
@@ -1356,10 +1364,14 @@ define([
             },
             owned: result.getValue('custrecord_esp_fop_ast_is_owned'),
             rentalMatrix: +result.getValue('custrecord_esp_fop_ast_rental_mtrx'),
-            time: {
-              start: '',
-              end: ''
-            }
+            get time() {
+              const startTime = result.getValue('custrecord_esp_fop_ast_start_time');
+              const endTime = result.getValue('custrecord_esp_fop_ast_end_time');
+              return {
+                start: startTime && moment(`1/1/1999 ${startTime}`).format(env.Format.EXPORT_TIME),
+                end: endTime && moment(`1/1/1999 ${endTime}`).format(env.Format.EXPORT_TIME)
+              }
+            },
           });
           return true;
         });
@@ -1368,7 +1380,7 @@ define([
         return assets;
       }
 
-      static _createAssets(event, woRef) {
+      static _createAssets(event, woRef, copyEventTime) {
         const assets = event?.selectedAssets || [];
         for (const asset of assets) {
           try {
@@ -1376,26 +1388,18 @@ define([
               type: env.RecordType.WORK_ORDER_ASSET,
               isDynamic: true
             });
-            rec.setValue({ fieldId: 'custrecord_esp_fop_ast_equipment', value: asset.id });
+            rec.setValue({ fieldId: 'custrecord_esp_fop_ast_asset_rec', value: asset.id });
             rec.setValue({ fieldId: 'custrecord_esp_fop_ast_wo_event', value: event.id });
             rec.setValue({ fieldId: 'custrecord_esp_fop_ast_quantity', value: asset.quantity });
             rec.setValue({ fieldId: 'custrecord_esp_fop_ast_rental_duration', value: asset.rentalDuration });
             rec.setValue({ fieldId: 'custrecord_esp_fop_ast_rental_rate', value: asset.rentalRate });
-            // rec.setValue({ fieldId: 'custrecord_esp_fop_ast_rental_amount', value: asset. }); // TBD
             rec.setValue({ fieldId: 'custrecord_esp_fop_ast_is_owned', value: !!asset.owned });
             rec.setValue({ fieldId: 'custrecord_esp_fop_ast_rental_mtrx', value: asset.rentalMatrix });
-            if (woRef?.id) {
-              rec.setValue({ fieldId: 'custrecord_esp_fop_ast_rel_wo', value: woRef?.id });
-            }
-            if (asset?.rentalUnit?.value) {
-              rec.setValue({ fieldId: 'custrecordesp_fop_ast_rental_unit', value: asset?.rentalUnit?.value });
-            }
-            if (asset?.vendor?.value) {
-              rec.setValue({ fieldId: 'custrecord_esp_fop_ast_primary_vendor', value: asset?.vendor?.value });
-            }
-            if (asset?.equipmentType?.value) {
-              rec.setValue({ fieldId: 'custrecord_esp_fop_ast_equip_type', value: asset?.equipmentType?.value });
-            }
+            rec.setValue({ fieldId: 'custrecord_esp_fop_ast_rel_wo', value: woRef?.id || '' });
+            rec.setValue({ fieldId: 'custrecordesp_fop_ast_rental_unit', value: asset?.rentalUnit?.value || '' });
+            rec.setValue({ fieldId: 'custrecord_esp_fop_ast_primary_vendor', value: asset?.vendor?.value || '' });
+            rec.setValue({ fieldId: 'custrecord_esp_fop_ast_start_time', value: _toDateTimez(event.date.start, !copyEventTime ? asset.time.start : event.time.start) }); // If no asset start time, use event start time instead
+            rec.setValue({ fieldId: 'custrecord_esp_fop_ast_end_time', value: _toDateTimez(event.date.start, !copyEventTime ? asset.time.end : event.time.end) }); // If no asset end time, use event end time instead
             const newId = rec.save({ ignoreMandatoryFieds: true });
             log.audit('----- [Created WO Asset Record] -----', newId);
           } catch (e) {
@@ -1408,10 +1412,10 @@ define([
       static _updateAssets(event, dataSrc, woRef) {
         const selectedAssets = event.selectedAssets;
         const selectedassetIds = selectedAssets.map(asset => asset.id);
-        const srcassets = dataSrc.assets.filter(asset => !!(asset.selected));
-        const srcassetIds = srcassets.map(asset => asset.id);
-        const removedAssets = srcassets.filter(asset => !(selectedassetIds.includes(asset.id)));
-        const newAssets = selectedAssets.filter(asset => !(srcassetIds.includes(asset.id)));
+        const srcAssets = dataSrc.assets.filter(asset => !!asset.selected);
+        const srcAssetIds = srcAssets.map(asset => asset.id);
+        const removedAssets = srcAssets.filter(asset => !(selectedassetIds.includes(asset.id)));
+        const newAssets = selectedAssets.filter(asset => !(srcAssetIds.includes(asset.id)));
 
         log.audit('Updating WO asset Event List', { selectedAssets, removedAssets, newAssets });
 
@@ -1442,11 +1446,131 @@ define([
         }
         // If theres to remove
         Utils._deleteRecords(env.RecordType.WORK_ORDER_ASSET, removedAssets.map(asset => asset.id));
-
         // If theres to create
         const clonedEventObj = deepCopy(event);
         clonedEventObj.selectedAssets = newAssets;
         this._createAssets(clonedEventObj, woRef);
+      }
+
+      // Applies when dragging and assigning new asset events in the calendar view
+      static updateAssetAssignment(context) {
+        const { request, response } = context;
+        let reqBody = request.body || '{}';
+        const payload = JSON.parse(reqBody);
+
+        try {
+          const lookUp = search.lookupFields({
+            type: env.RecordType.WORK_ORDER_ASSET,
+            id: payload.id,
+            columns: ['custrecord_esp_fop_ast_asset_rec']
+          });
+          const oldResourceId = lookUp.custrecord_esp_fop_ast_asset_rec[0]?.value;
+          const newResourceId = payload.newResource.id;
+          const values = {};
+          values.custrecord_esp_fop_ast_start_time = moment(`1/1/1999 ${payload.time.start}`).format(env.Format.IMPORT_TIME);
+          values.custrecord_esp_fop_ast_end_time = moment(`1/1/1999 ${payload.time.end}`).format(env.Format.IMPORT_TIME);
+
+          if (oldResourceId != newResourceId) {
+            const newResource = payload.newResource;
+            values.custrecord_esp_fop_ast_asset_rec = newResourceId;
+            // values.custrecord_esp_fop_ast_site = newResource.site.value;
+            // values.custrecord_esp_fop_ast_quantity = newResource.quantity;
+            values.custrecord_esp_fop_ast_is_owned = newResource.owned;
+            values.custrecord_esp_fop_ast_is_consumable = newResource.consumable;
+            values.custrecord_esp_fop_ast_item_desc = newResource.description;
+          }
+          if (Object.keys(values).length) {
+            record.submitFields({
+              type: env.RecordType.WORK_ORDER_ASSET,
+              id: payload.id,
+              values,
+              options: {
+                ignoreMandatoryFieds: true
+              }
+            });
+            log.audit('----- [Updated WO Asset Record] -----', { payload });
+
+            response.write(JSON.stringify({
+              code: 200,
+              recordId: payload.id,
+              status: 'success'
+            }));
+          }
+        } catch (e) {
+          log.error('Error on WO Asset > Update', { payload, errorMsg: e.message });
+
+          response.write(JSON.stringify({
+            code: 401,
+            status: 'failed',
+            errorMsg: e.message
+          }));
+        }
+      }
+
+      // Applies when resizing resource events in the calendar view
+      static updateAssetDateTime(context) {
+        const { request, response } = context;
+        let reqBody = request.body || '{}';
+        const payload = JSON.parse(reqBody);
+        log.debug('updateAssetDateTime', payload);
+
+        try {
+          const lookUp = search.lookupFields({
+            type: env.RecordType.WORK_ORDER_ASSET,
+            id: payload.id,
+            columns: [
+              'custrecord_esp_fop_ast_start_date',
+              'custrecord_esp_fop_ast_end_date',
+              'custrecord_esp_fop_ast_start_time',
+              'custrecord_esp_fop_ast_end_time'
+            ]
+          });
+          const values = {};
+          // Check if dates changed
+          const startDate = moment(payload.date.start).format(env.Format.IMPORT_DATE);
+          const endDate = moment(payload.date.end).format(env.Format.IMPORT_DATE);
+          if (lookUp.custrecord_esp_fop_ast_start_date != startDate) {
+            values.custrecord_esp_fop_ast_start_date = startDate;
+          }
+          if (lookUp.custrecord_esp_fop_ast_end_date != endDate) {
+            values.custrecord_esp_fop_ast_end_date = endDate;
+          }
+          // Check if times changed
+          const startTime = moment(`1/1/1999 ${payload.time.start}`).format(env.Format.IMPORT_TIME);
+          const endTime = moment(`1/1/1999 ${payload.time.end}`).format(env.Format.IMPORT_TIME);
+          if (lookUp.custrecord_esp_fop_ast_start_time != startTime) {
+            values.custrecord_esp_fop_ast_start_time = startTime;
+          }
+          if (lookUp.custrecord_esp_fop_ast_end_time != endTime) {
+            values.custrecord_esp_fop_ast_end_time = endTime;
+          }
+
+          if (Object.keys(values).length) {
+            record.submitFields({
+              type: env.RecordType.WORK_ORDER_ASSET,
+              id: payload.id,
+              values,
+              options: {
+                ignoreMandatoryFieds: true
+              }
+            });
+            log.audit('----- [Updated WO Asset Record] -----', { payload });
+
+            response.write(JSON.stringify({
+              code: 200,
+              recordId: payload.id,
+              status: 'success'
+            }));
+          }
+        } catch (e) {
+          log.error('Error on WO Asset > Update', { payload, errorMsg: e.message });
+
+          response.write(JSON.stringify({
+            code: 401,
+            status: 'failed',
+            errorMsg: e.message
+          }));
+        }
       }
     }
 
@@ -1476,6 +1600,7 @@ define([
               search.createColumn({ name: 'custrecord_esp_fop_wo_item_line_id', label: 'Line ID' }),
               search.createColumn({ name: 'custrecord_esp_fop_wo_item_uuid', label: 'UUID' }),
               search.createColumn({ name: 'custrecord_esp_fop_total_ir', label: 'Received Quantity' }),
+              search.createColumn({ name: 'custrecord_esp_fop_wo_item_completedqty', label: 'Completed Quantity' }),
             ]
         });
 
@@ -1502,7 +1627,8 @@ define([
             quantity: +result.getValue('custrecord_esp_fop_wo_item_quantity'),
             availableQty: +result.getValue('custrecord_esp_fop_wo_item_quantity'),
             note: result.getValue('custrecord_esp_fop_wo_item_memo'),
-            quantityReceived: +result.getValue('custrecord_esp_fop_total_ir')
+            quantityReceived: +result.getValue('custrecord_esp_fop_total_ir'),
+            completedQty: +result.getValue('custrecord_esp_fop_wo_item_completedqty')
           });
           return true;
         });
@@ -1523,6 +1649,7 @@ define([
             rec.setValue({ fieldId: 'name', value: item.item.text });
             rec.setValue({ fieldId: 'custrecord_esp_fop_wo_item_event', value: event.id });
             rec.setValue({ fieldId: 'custrecord_esp_fop_wo_item_quantity', value: item.quantity });
+            rec.setValue({ fieldId: 'custrecord_esp_fop_wo_item_completedqty', value: 0 });
             item.id = rec.save({ ignoreMandatoryFieds: true });
             log.audit('----- [Created WO Item Record] -----', item.id);
           } catch (e) {
@@ -1548,15 +1675,24 @@ define([
             const lookUp = search.lookupFields({
               type: env.RecordType.WORK_ORDER_ITEM,
               id: item.id,
-              columns: 'custrecord_esp_fop_wo_item_quantity'
+              columns: [
+                'custrecord_esp_fop_wo_item_quantity',
+                'custrecord_esp_fop_wo_item_completedqty'
+              ]
             });
+            const values = {};
             if (lookUp.custrecord_esp_fop_wo_item_quantity != item.quantity) {
+              values.custrecord_esp_fop_wo_item_quantity = item.quantity;
+            }
+            // Upon event completion
+            if (lookUp.custrecord_esp_fop_wo_item_completedqty != item.completedQty) {
+              values.custrecord_esp_fop_wo_item_completedqty = item.completedQty;
+            }
+            if (!!Object.keys(values).length) {
               record.submitFields({
                 type: env.RecordType.WORK_ORDER_ITEM,
                 id: item.id,
-                values: {
-                  custrecord_esp_fop_wo_item_quantity: item.quantity
-                },
+                values,
                 options: {
                   ignoreMandatoryFieds: true
                 }
@@ -1825,8 +1961,10 @@ define([
               search.createColumn({ name: 'custevent_esp_fop_memo', label: 'Memo' }),
               search.createColumn({ name: 'recurrence', label: 'Recurrency' }), // Extract endbydate field. Ex. output "occurs every day from 9/10/2024 until 9/12/2024"
               // search.createColumn({ name: 'alldayevent', label: 'All Day'}) // Invalid search column
-              search.createColumn({ name: 'custevent_esp_fop_event_contact', label: 'Selected Contact' }),
+              // search.createColumn({ name: 'custevent_esp_fop_event_contact', label: 'Selected Contact' }),
               search.createColumn({ name: 'custevent_esp_fop_event_address', label: 'Selected Address' }),
+              search.createColumn({ name: 'custevent_task_pi', label: 'Project Insight' }),
+              search.createColumn({ name: 'custevent_esp_fop_asset_maintenance', label: 'Asset Maintenance' }),
             ]
         });
         searchObj.run().each(result => {
@@ -1915,10 +2053,10 @@ define([
             items: [],
             contacts: [],
             addresses: [],
-            contact: { // Selected contact
+            /* contact: { // Selected contact
               text: result.getText('custevent_esp_fop_event_contact'),
               value: result.getValue('custevent_esp_fop_event_contact')
-            },
+            }, */
             address: { // Selected address
               text: result.getText('custevent_esp_fop_event_address'),
               value: result.getValue('custevent_esp_fop_event_address')
@@ -1926,7 +2064,12 @@ define([
             organizer: {
               text: result.getText('organizer'),
               value: result.getValue('organizer')
-            }
+            },
+            projectInsight: {
+              text: result.getText('custevent_task_pi'),
+              value: result.getValue('custevent_task_pi')
+            },
+            assetMaintenance: result.getValue('custevent_esp_fop_asset_maintenance')
           });
           return true;
         });
@@ -2041,6 +2184,8 @@ define([
           fieldToSet.endtime = _toDateTimez(eventData.date.start, eventData.time.end);
           fieldToSet.custevent_esp_fop_event_priority = eventData.priority;
           fieldToSet.custevent_esp_fop_memo = eventData.note;
+          fieldToSet.custevent_task_pi = woRef?.projectInsight?.value;
+          fieldToSet.custevent_esp_fop_asset_maintenance = eventData.assetMaintenance;
 
           if (!!eventData.selectedAddress) {
             fieldToSet.custevent_esp_fop_event_address = eventData.selectedAddress.id;
@@ -2098,7 +2243,7 @@ define([
         const user = runtime.getCurrentUser();
         let reqBody = request.body || '{}';
         const payload = JSON.parse(reqBody);
-        const { eventDataSrc, eventData, woRef, draggedResource } = payload;
+        const { oldEventData, eventData, woRef, draggedResource } = payload;
         const eventDataProps = Object.keys(eventData);
 
         log.audit('----- [Update Work Order Event] -----', { eventDataProps, payload });
@@ -2114,8 +2259,9 @@ define([
               case 'vendor':
                 WorkOrderVendor._createVendors(eventData, woRef);
                 break;
+                break;
               case 'asset':
-                WorkOrderAsset._createAssets(eventData, woRef);
+                WorkOrderAsset._createAssets(eventData, woRef, true);
                 break;
             }
           } else {
@@ -2141,10 +2287,10 @@ define([
               note: rec.getValue('custevent_esp_fop_memo'),
               status: rec.getValue('status'),
               priority: rec.getValue('custevent_esp_fop_event_priority'),
-              contact: {
+              /* contact: {
                 text: rec.getText('custevent_esp_fop_event_contact'),
                 value: rec.getText('custevent_esp_fop_event_contact')
-              },
+              }, */
               address: {
                 text: rec.getText('custevent_esp_fop_event_address'),
                 value: rec.getText('custevent_esp_fop_event_address')
@@ -2217,19 +2363,19 @@ define([
             }
 
             if (eventData.selectedResources) {
-              WorkOrderResource._updateResources(eventData, eventDataSrc, woRef);
+              WorkOrderResource._updateResources(eventData, oldEventData, woRef);
             }
             if (eventData.selectedVendors) {
-              WorkOrderVendor._updateVendors(eventData, eventDataSrc, woRef);
+              WorkOrderVendor._updateVendors(eventData, oldEventData, woRef);
             }
             if (eventData.selectedAssets) {
-              WorkOrderAsset._updateAssets(eventData, eventDataSrc, woRef);
+              WorkOrderAsset._updateAssets(eventData, oldEventData, woRef);
             }
             if (eventData.selectedItems) {
-              WorkOrderItem._updateItems(eventData, eventDataSrc);
+              WorkOrderItem._updateItems(eventData, oldEventData);
             }
             if (eventData.selectedContacts) {
-              WorkOrderContact._updateContacts(eventData, eventDataSrc);
+              WorkOrderContact._updateContacts(eventData, oldEventData);
             }
           }
 
@@ -2316,19 +2462,16 @@ define([
         const { request, response } = context;
         let reqBody = request.body || '{}';
         const payload = JSON.parse(reqBody);
-        let { eventDataSrc, timeSheets, fulfillItems } = payload;
-        const eventId = eventDataSrc.id;
-        const soId = eventDataSrc.woRef?.salesorder?.value;
-        log.audit('----- [Complete Event] -----', { timeSheets, fulfillItems });
+        let { eventData, oldEventData, timeSheets } = payload;
+        const eventId = eventData.id;
+        log.audit('----- [Complete Event] -----', { oldEventData, timeSheets });
 
         try {
-          Event._createTimeTracking(eventDataSrc, timeSheets);
-          // Prevent blocker if something happens
-          try {
-            Event._fulfillOrderItems(soId, fulfillItems);
-          } catch (e) {
-            log.audit('Complete Event Fulfillment Unexpected Error', e.message);
-          }
+          timeSheets.length
+            && Event._createTimeTracking(oldEventData, timeSheets);
+
+          !!eventData.selectedItems.length
+            && WorkOrderItem._updateItems(eventData, oldEventData);
 
           record.submitFields({
             type: record.Type.CALENDAR_EVENT,
@@ -2357,8 +2500,8 @@ define([
         }
       }
 
-      static _createTimeTracking(eventDataSrc, timeSheets) {
-        const eventId = eventDataSrc.id;
+      static _createTimeTracking(oldEventData, timeSheets) {
+        const eventId = oldEventData.id;
 
         // Map hours and location
         timeSheets = timeSheets.map(timeSheet => {
@@ -2368,7 +2511,7 @@ define([
           const diffDate = _diffDates(`1/1/1999 ${timeSheet.startTime}`, `1/1/1999 ${timeSheet.endTime}`);
           // timeSheet.hours = `${diffDate.hour}:${String(diffDate.minute).length == 1 ? `0${diffDate.minute}` : diffDate.minute}`;
           timeSheet.hours = _convertTimeToDecimal(diffDate.hour, diffDate.minute);
-          const _resource = eventDataSrc.resources.find(resource => resource.id == timeSheet.id);
+          const _resource = oldEventData.resources.find(resource => resource.id == timeSheet.id);
           if (_resource) {
             timeSheet.location = _resource.location.value;
           }
@@ -2376,7 +2519,6 @@ define([
         });
 
         log.audit('Mapped Timesheets', timeSheets);
-
         timeSheets = timeSheets.filter(timeSheet => !!(timeSheet.location)); // Location is mandatory in the event record timetracking sublist
 
         if (timeSheets.length) {
@@ -2387,6 +2529,7 @@ define([
             id: eventId
           });
           const lineCount = rec.getLineCount({ sublistId: 'timeitem' });
+          const projectInsight = oldEventData.woRef?.projectInsight?.value;
 
           for (let i in timeSheets) {
             const timeSheet = timeSheets[i];
@@ -2434,6 +2577,12 @@ define([
                 value: timeSheet.actualCostData,
                 line
               });
+              rec.setSublistValue({
+                sublistId: 'timeitem',
+                fieldId: 'custcol_time_pi',
+                value: projectInsight || '',
+                line
+              });
               log.audit('Timesheet Added', timeSheet);
             } catch (e) {
               log.error('Error Setting Timesheet', { errorMsg: e.message, timeSheet });
@@ -2441,44 +2590,7 @@ define([
           }
           rec.save({ ignoreMandatoryFields: true });
         } else {
-          throw new Error('Time tracking location is required.');
-        }
-      }
-
-      static _fulfillOrderItems(soId, items) {
-        log.audit('----- [Fulfill Order Items] -----', { soId, items });
-
-        if (soId) {
-          const rec = record.transform({
-            fromType: record.Type.SALES_ORDER,
-            fromId: soId,
-            toType: record.Type.ITEM_FULFILLMENT,
-            isDynamic: true
-          });
-          for (const item of items) {
-            const idx = rec.findSublistLineWithValue({
-              sublistId: 'item',
-              fieldId: 'orderline',
-              value: item.lineId
-            });
-            log.audit('Fulfilling item', { idx, item })
-            if (idx > -1) {
-              rec.selectLine({ sublistId: 'item', line: idx });
-              rec.setCurrentSublistValue({
-                sublistId: 'item',
-                fieldId: 'itemreceive',
-                value: true
-              });
-              rec.setCurrentSublistValue({
-                sublistId: 'item',
-                fieldId: 'quantity',
-                value: item.completeQty
-              });
-              rec.commitLine({ sublistId: 'item' });
-            }
-          }
-          rec.save({ ignoreMandatoryFieds: true });
-          log.audit('Fulfilled Items!', items);
+          // throw new Error('Time tracking location is required.');
         }
       }
 
@@ -2511,7 +2623,7 @@ define([
               line: i
             });
           }
-          rec.setValue({ fieldId: 'custevent_esp_fop_event_contact', value: '' });
+          // rec.setValue({ fieldId: 'custevent_esp_fop_event_contact', value: '' });
           rec.setValue({ fieldId: 'custevent_esp_fop_event_address', value: '' });
           rec.setValue({ fieldId: 'custevent_esp_fop_sales_order', value: '' });
           rec.save({
@@ -2620,7 +2732,7 @@ define([
 
       static getFilters(params) {
         const userId = params.user.id;
-        const filterMap = file.load(env.FilterPath);
+        const filterMap = file.load(env.FilterMapPath);
         let filterFields = filterMap.getContents();
         if (!!filterFields) {
           filterFields = JSON.parse(filterFields);
@@ -2646,7 +2758,7 @@ define([
 
         try {
           const selectedFields = JSON.parse(reqBody);
-          const filterMap = file.load(env.FilterPath);
+          const filterMap = file.load(env.FilterMapPath);
           let filterFields = filterMap.getContents();
           filterFields = filterFields && JSON.parse(filterFields);
 
@@ -2686,13 +2798,15 @@ define([
 
       static createLogFile(contents) {
         try {
+          const fileObj = file.load('./lib/esp_cm_mockup.json');
+          /* fileObj.contents = JSON.stringify(contents);
+          fileObj.save(); */
           // Already throwing error "This record already exists" ????
           const fileId = file.create({
-            // name: `${name}_${moment().format('MMDDYYYY_hhmmss')}.json`,
-            name: `${env.LogFileName}.json`,
+            name: `esp_cm_mockup.json`,
             fileType: file.Type.PLAINTEXT,
             contents: JSON.stringify(contents),
-            folder: -15,
+            folder: fileObj.folder,
           }).save();
           log.audit('Log File ID', fileId);
         } catch (e) {

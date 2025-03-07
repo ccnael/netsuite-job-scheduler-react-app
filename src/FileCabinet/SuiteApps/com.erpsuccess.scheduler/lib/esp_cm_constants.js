@@ -1,5 +1,6 @@
 /**
  * @NApiVersion 2.1
+ * @NModuleScope Public
  */
 define(() => ({
   RecordType: {
@@ -13,6 +14,7 @@ define(() => ({
     WORK_ORDER_ADDRESS: 'customrecord_esp_fop_wo_address',
     PUNCH: 'customrecord_esp_pp_punch',
     RESOURCE_SKILL: 'customrecord_esp_fop_resource_skill',
+    ASSET: 'customrecord_esp_fop_asset'
   },
   WorkOrderCode: {
     NOT_STARTED: '#026adf',
@@ -53,6 +55,5 @@ define(() => ({
     EXPORT_TIME: 'HH:mm',
     IMPORT_TIME: 'h:mm a'
   },
-  FilterPath: './lib/filterMap.json',
-  LogFileName: 'scheduler-mockup-dataset'
+  FilterMapPath: './lib/esp_cm_filtermap.json'
 }))

@@ -1,6 +1,6 @@
-import { userId, suiteletUrl, events, filterFields } from './dataSet';
+import { userId, suiteletUrl, assets, events, filterFields } from './dataSet';
 
-export function cacheTabSwitch() {
+export function selectDefaultTab() {
   const sessionKey = /netsuite\.com/.test(window.location.href) ? `${userId}:lastClickedTab` : 'lastClickedTab';
   const lastTab = localStorage.getItem(sessionKey);
   if (lastTab) {
@@ -44,37 +44,37 @@ export function cacheTabSwitch() {
 export class Event {
 
   static validateResourcesOnLoad(tableId, resourceTblId, eventId) {
-    resourceTblId.match(/resource/g) && this.validateResourcesAvailability(tableId, resourceTblId, eventId);
+    resourceTblId.match(/resource|asset/g) && this._validateResourcesAvailability(tableId, resourceTblId, eventId);
     // Initialize on page change
     const that = this;
     const table = $(resourceTblId).DataTable();
 
     table.on('draw', function () {
-      that.validateResourcesAvailability(tableId, resourceTblId, eventId);
-      const allDaySwitched = $('.alldayevent-switch').prop('checked');
-      allDaySwitched && that.setAllDayResourceTime(resourceTblId);
+      that._validateResourcesAvailability(tableId, resourceTblId, eventId);
+      const allDaySwitched = $('.allday-switch').prop('checked');
+      allDaySwitched && that._setAllDayResourceTime(resourceTblId);
     });
   }
 
   static validateOnHeaderFieldChange(tableId, resourceTblId, eventId, section) {
     const that = this;
     $(`${tableId} input.datefrom, ${tableId} input.dateto, ${tableId} input.starttime, ${tableId} input.endtime`).on('change', function () {
-      section && that.unMarkAvailableResource(section);
+      section && that._unMarkAvailableResource(section);
 
-      if (!that.validateEventDateTime(this, tableId)) {
+      if (!that._validateEventDateTime(this, tableId)) {
         return;
       }
-      that.validateResourcesAvailability(tableId, resourceTblId, eventId, true);
+      that._validateResourcesAvailability(tableId, resourceTblId, eventId, true);
     });
   }
 
-  static unMarkAvailableResource(section) {
+  static _unMarkAvailableResource(section) {
     const modalId = filterFields[section].modalId;
     const el = $(`${modalId} .filter-fields .show-available-resource-field`);
     el && el.prop('checked', false).change();
   }
 
-  static validateOnLineFieldChange(tableId, resourceTblId, eventId) {
+  static validateOnLineFieldChange(tableId, resourceTblId) {
     const that = this;
     // On resource check
     $(`${resourceTblId} input.dt-line-select`).on('change', function () {
@@ -83,50 +83,76 @@ export class Event {
         end: $(`${tableId} input.endtime`).val(),
       }
       // Copy header start/endto current line time fields
-      $(this).parent().parent().parent().find('input.starttime-row').val(time.start);
-      $(this).parent().parent().parent().find('input.endtime-row').val(time.end);
+      $(this).closest('input.starttime-row').val(time.start);
+      $(this).closest('input.endtime-row').val(time.end);
     });
     $(`${resourceTblId} input.starttime-row, ${resourceTblId} input.endtime-row`).on('change', function () {
-      if (!that.validateResourceTime(this, tableId, resourceTblId)) {
+      if (!that._validateResourceTime(this, tableId)) {
         return;
       }
     });
   }
 
-  static validateResourcesAvailability(tableId, resourceTblId, eventId, onFieldChanged = false) {
+  static _validateResourcesAvailability(tableId, resourceTblId, eventId, onFieldChanged = false) {
     const start = moment(`${$(`${tableId} input.datefrom`).val()} ${$(`${tableId} input.starttime`).val()}`);
     const end = moment(`${$(`${tableId} input.dateto`).val()} ${$(`${tableId} input.endtime`).val()}`);
 
     $(`${resourceTblId} tbody tr`).each(function () {
       const checkbox = $(this).find('input.dt-line-select');
-      const resourceId = checkbox.attr('employeeId');
-      const resourceEvents = events.filter(event => event.resources.map(resource => resource.employee.value).includes(resourceId));
-      const conflictEvents = resourceEvents.filter(event => {
-        const eventStart = `${event.date.start} ${event.time.start}`;
-        const eventEnd = `${event.date.end} ${event.time.end}`;
-        if (eventId) {
-          return event.id != eventId && (moment(eventEnd).isBetween(start, end, null, '[]') || moment(eventStart).isSameOrBefore(start) && moment(eventEnd).isSameOrAfter(end));
+      const resourceType = checkbox.attr('validate-datetime-resource-type');
+      const resourceId = checkbox.attr('validate-datetime-resource-id');
+      let resourceEvents = [];
+      if (resourceType === 'employee') {
+        resourceEvents = events
+          .filter(event => event.resources.map(resource => resource.employee.value)
+            .includes(resourceId));
+        const conflictEvents = resourceEvents.filter(event => {
+          const eventStart = `${event.date.start} ${event.time.start}`;
+          const eventEnd = `${event.date.end} ${event.time.end}`;
+          if (eventId) {
+            return event.id != eventId && (moment(eventEnd).isBetween(start, end, null, '[]') || moment(eventStart).isSameOrBefore(start) && moment(eventEnd).isSameOrAfter(end));
+          } else {
+            return moment(eventEnd).isBetween(start, end, null, '[]') || moment(eventStart).isSameOrBefore(start) && moment(eventEnd).isSameOrAfter(end);
+          }
+        });
+        // console.log(checkbox.prop('checked'))
+        if (conflictEvents.length) {
+          if (!eventId || (onFieldChanged && checkbox.prop('checked'))) {
+            checkbox.prop('checked', false);
+          }
+          checkbox.prop('disabled', true);
+          $(this).removeClass('row-available');
+          $(this).addClass('row-unavailable');
         } else {
-          return moment(eventEnd).isBetween(start, end, null, '[]') || moment(eventStart).isSameOrBefore(start) && moment(eventEnd).isSameOrAfter(end);
+          checkbox.prop('disabled', false);
+          $(this).removeClass('row-unavailable');
+          $(this).addClass('row-available');
         }
-      });
-      // console.log(checkbox.prop('checked'))
-      if (conflictEvents.length) {
-        if (!eventId || (onFieldChanged && checkbox.prop('checked'))) {
-          checkbox.prop('checked', false);
-        }
-        checkbox.prop('disabled', true);
-        $(this).removeClass('row-available');
-        $(this).addClass('row-unavailable');
       } else {
-        checkbox.prop('disabled', false);
-        $(this).removeClass('row-unavailable');
+        // Set the asset assigned to unavailable on event edit mode
+        /* resourceEvents = events
+          .filter(event => event.assets
+            .filter(asset => asset.onMaintenance)
+            .map(asset => asset.asset.value)
+            .includes(resourceId));
+        if (resourceEvents.length) {
+          if (!eventId || (onFieldChanged && checkbox.prop('checked'))) {
+            checkbox.prop('checked', false);
+          }
+          checkbox.prop('disabled', true);
+          $(this).removeClass('row-available');
+          $(this).addClass('row-unavailable');
+        } else {
+          checkbox.prop('disabled', false);
+          $(this).removeClass('row-unavailable');
+          $(this).addClass('row-available');
+        } */
         $(this).addClass('row-available');
       }
     });
   }
 
-  static validateEventDateTime(that, tableId) {
+  static _validateEventDateTime(that, tableId) {
     const date = {
       start: $(`${tableId} input.datefrom`).val(),
       end: $(`${tableId} input.dateto`).val(),
@@ -157,14 +183,14 @@ export class Event {
     return true;
   }
 
-  static validateResourceTime(that, tableId, resourceTblId) {
+  static _validateResourceTime(that, tableId) {
     const eventTime = {
       start: $(`${tableId} input.starttime`).val(),
       end: $(`${tableId} input.endtime`).val(),
     }
     const resourceTime = {
-      start: $(`${resourceTblId} input.starttime-row`).val(),
-      end: $(`${resourceTblId} input.endtime-row`).val(),
+      start: $(that).closest('input.starttime-row').val(),
+      end: $(that).closest('input.endtime-row').val(),
     }
     if (!!resourceTime.start && moment(`1/1/1999 ${resourceTime.start}`).isBefore(moment(`1/1/1999 ${eventTime.start}`))) {
       Swal.fire(
@@ -193,14 +219,14 @@ export class Event {
     }
   }
 
-  static switchAllDay(selector) {
-    $(`${selector} .alldayevent-switch`).on('change', ev => {
+  static handleAllDayToggle(selector) {
+    $(`${selector} .allday-toggle`).on('change', ev => {
       if (ev.target.checked) {
         $(`${selector} .starttime`).val('08:00'); // NS default starttime
         $(`${selector} .endtime`).val('18:00'); // NS default endtime
         $(`${selector} .starttime`).prop('disabled', true);
         $(`${selector} .endtime`).prop('disabled', true);
-        this.setAllDayResourceTime(selector);
+        this._setAllDayResourceTime(selector);
       } else {
         $(`${selector} .starttime`).prop('disabled', false);
         $(`${selector} .endtime`).prop('disabled', false);
@@ -208,7 +234,69 @@ export class Event {
     });
   }
 
-  static setAllDayResourceTime(selector) {
+  static handleAssetMaintenanceToggle(selector, mode, dataTables) {
+    const toggleEl = $(`${selector} .asset-maintenance-toggle`);
+    if (mode === 'edit') {
+      const isChecked = toggleEl.prop('checked');
+      if (isChecked) {
+        this.setAssetMaintenance(selector, true, dataTables);
+        toggleEl.prop('disabled', true); // Do not allow toggle on edit if already checked
+      } else {
+        toggleEl.parent().css('display', 'none'); // Hide toggle on edit if unchecked
+      }
+    }
+    toggleEl.on('change', ev => {
+      const isChecked = ev.target.checked;
+      this.setAssetMaintenance(selector, isChecked, dataTables);
+    });
+  }
+
+  static setAssetMaintenance(selector, isChecked, dataTables) {
+    const resourceAccordionCollapsed = $(`${selector} div[id*="2ndAccordion"] .accordion-button`).hasClass('collapsed');
+    const vendorAccordionCollapsed = $(`${selector} div[id*="3rdAccordion"] .accordion-button`).hasClass('collapsed');
+    let cssObj;
+
+    if (isChecked) {
+      !resourceAccordionCollapsed &&
+        $(`${selector} div[id*="2ndAccordion"] button.accordion-button`).click();
+      !vendorAccordionCollapsed &&
+        $(`${selector} div[id*="3rdAccordion"] button.accordion-button`).click();
+      cssObj = {
+        'pointer-events': 'none',
+        'cursor': 'not-allowed',
+        'opacity': '0.6'
+      };
+      $(`${selector} div[id*="2ndAccordion"]`).css(cssObj); // Resources table
+      $(`${selector} div[id*="3rdAccordion"]`).css(cssObj); // Vendors table
+      // Deselect rows
+      dataTables.map(dt => {
+        if (dt) {
+          const dt_tr = dt.rows({ search: 'applied' }).nodes();
+          dt_tr.each(function (node) {
+            const line = $(node).find('input.dt-line-select');
+            line.prop('checked', false).change();
+          });
+        }
+      });
+      // Deselect header row 1st column checkbox
+      $(`${selector} div[id*="2ndAccordion"] .dt-head-center input.form-check-input`).prop('checked', false);
+      $(`${selector} div[id*="3rdAccordion"] .dt-head-center input.form-check-input`).prop('checked', false);
+    } else {
+      !!resourceAccordionCollapsed &&
+        $(`${selector} div[id*="2ndAccordion"] button.accordion-button`).click();
+      !!vendorAccordionCollapsed &&
+        $(`${selector} div[id*="3rdAccordion"] button.accordion-button`).click();
+      cssObj = {
+        'pointer-events': 'auto',
+        'cursor': 'auto',
+        'opacity': ''
+      };
+      $(`${selector} div[id*="2ndAccordion"]`).css(cssObj);
+      $(`${selector} div[id*="3rdAccordion"]`).css(cssObj);
+    }
+  }
+
+  static _setAllDayResourceTime(selector) {
     $(`${selector} .starttime-row`).val('08:00');
     $(`${selector} .endtime-row`).val('18:00');
   }
@@ -225,22 +313,44 @@ export class Event {
     return !!conflictEvents.length;
   }
 
-  static draggedJobHasConflictEvent(startDateTime, elementId = '') {
-    const resourceId = elementId.split('-').pop();
-    const resourceEvents = events.filter(event => event.resources.map(resource => resource.employee.value).includes(resourceId));
-    const conflictEvents = resourceEvents.filter(event => {
-      const eventStart = moment(`${event.date.start} ${event.time.start}`);
-      const eventEnd = moment(`${event.date.end} ${event.time.end}`);
-      return startDateTime.isSameOrAfter(eventStart) && startDateTime.isSameOrBefore(eventEnd);
-    });
-    return !!conflictEvents.length;
+  static draggedJobHasConflictEventToResource(startDateTime, resourceType, resourceId = '') {
+    const conflictEvents = events => {
+      return events.filter(event => {
+        const eventStart = moment(`${event.date.start} ${event.time.start}`);
+        const eventEnd = moment(`${event.date.end} ${event.time.end}`);
+        return startDateTime.isSameOrAfter(eventStart) && startDateTime.isSameOrBefore(eventEnd);
+      });
+    }
+    let resourceEvents = [];
+    switch (resourceType) {
+      case 'employee':
+        resourceEvents = events
+          .filter(event => event.resources.map(resource => resource.employee.value)
+            .includes(resourceId));
+        return !!conflictEvents(resourceEvents).length;
+      case 'vendor':
+        resourceEvents = events
+          .filter(event => event.vendors.map(vendor => vendor.vendor.value)
+            .includes(resourceId));
+        return !!conflictEvents(resourceEvents).length;
+      case 'asset':
+        resourceEvents = events
+          .filter(event => event.assets.map(asset => asset.asset.value)
+            .includes(resourceId));
+        const assetObj = assets.find(asset => asset.asset.value == resourceId);
+        /* console.log('resourceEvents', resourceEvents);
+        console.log('resourceId', resourceId);
+        console.log('assetObj', assetObj); */
+        return !!resourceEvents.length && assetObj.onMaintenance;
+    }
+    return false;
   }
 
   static createEventRecord(payload, modalId) {
     console.log('----- [createEventRecord() -> PAYLOAD] -----', payload);
     Swal.fire({
       title: 'Create Event Record?',
-      text: payload.woRef?.name ? `Create Event for Work Order : ${payload.woRef.name}` : 'Create Event',
+      text: payload.woRef?.name ? `Create Event for Work Order : ${payload.woRef.name}` : '',
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
@@ -267,11 +377,9 @@ export class Event {
                       title: 'Success!',
                       text: `Event ${payload.eventData.title} [ID ${result.recordId}] has been created`,
                       icon: 'success'
-                    })
-                      .then(() => {
-                        $(`#${modalId}`).modal('hide');
-                        window.location.reload();
-                      });
+                    });
+                    $(`#${modalId}`).modal('hide');
+                    window.location.reload();
                   } else {
                     Swal.fire({
                       title: 'Unexpected Error',
@@ -329,11 +437,9 @@ export class Event {
                       title: 'Success!',
                       text: `Event ${payload.eventData.title} [ID ${payload.eventData.id}] has been updated`,
                       icon: 'success'
-                    })
-                      .then(() => {
-                        $(`#${modalId}`).modal('hide');
-                        window.location.reload();
-                      });
+                    });
+                    $(`#${modalId}`).modal('hide');
+                    window.location.reload();
                   } else {
                     Swal.fire({
                       title: 'Unexpected Error',
@@ -370,7 +476,7 @@ export class Event {
       });
   }
 
-  static setupDeleteEventRecord() {
+  static handleDeleteEventRecord() {
     window.deleteEventRecord = (ev, eventId) => {
       eventId = eventId || ev.target.closest('.card-item').getAttribute('id');
       console.log('deleteEventRecord() > Event ID', eventId);
@@ -404,10 +510,8 @@ export class Event {
                       title: 'Deleted!',
                       text: `Event ${payload.eventData?.title || ''} [ID ${eventId}] has been deleted`,
                       icon: 'success'
-                    })
-                      .then(() => {
-                        window.location.reload();
-                      });
+                    });
+                    window.location.reload();
                     Swal.hideLoading();
                   })
                   .catch(error => {
@@ -427,11 +531,70 @@ export class Event {
         });
     }
   }
+
+  static completeEvent(payload, eventId) {
+    Swal.fire({
+      title: 'Complete Event?',
+      text: `Complete Event [ID ${eventId}]`,
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#817c7c',
+      confirmButtonText: 'Yes'
+    })
+      .then(result => {
+        if (result.isConfirmed) {
+          Swal.fire({
+            didOpen: () => {
+              Swal.showLoading();
+              fetch(
+                `${suiteletUrl}&mode=completeEvent`, {
+                method: 'POST',
+                body: JSON.stringify(payload),
+                headers: {
+                  'Content-Type': 'application/json',
+                }
+              })
+                .then(response => response.json())
+                .then(result => {
+                  if (result.code == 200) {
+                    Swal.fire({
+                      title: 'Success!',
+                      text: `Event [ID ${eventId}] completed`,
+                      icon: 'success'
+                    });
+                    window.location.reload()
+                  } else {
+                    Swal.fire({
+                      title: 'Unexpected Error',
+                      text: `Error: ${result.errorMsg}`,
+                      icon: 'error'
+                    });
+                  }
+                  Swal.hideLoading();
+                })
+                .catch(error => {
+                  Swal.fire(
+                    'Unexpected Error',
+                    error.message,
+                    'error'
+                  );
+                  Swal.hideLoading();
+                });
+            },
+            allowOutsideClick: false,
+            allowEscapeKey: false,
+            text: `Completing Event [ID ${eventId}]...`
+          });
+        }
+      });
+  }
 }
 
 export class Resource {
 
   static updateResourceAssignment(payload, eventInfo) {
+    console.log('updateResourceAssignment eventInfo', eventInfo);
     payload.newResource = eventInfo.newResource.extendedProps;
     console.log('----- [updateResourceAssignment() -> PAYLOAD] -----', { payload, eventInfo: eventInfo || '' });
 
@@ -468,10 +631,8 @@ export class Resource {
                       title: 'Success!',
                       text: `Reassigned to ${newResourceName}`,
                       icon: 'success'
-                    })
-                      .then(() => {
-                        window.location.reload();
-                      });
+                    });
+                    window.location.reload();
                   } else {
                     Swal.fire({
                       title: 'Unexpected Error',
@@ -499,6 +660,85 @@ export class Resource {
             allowOutsideClick: false,
             allowEscapeKey: false,
             text: `Updating Work Order Resource [ID ${payload.id}]...`
+          });
+        } else {
+          if (eventInfo) {
+            eventInfo.revert();
+          }
+        }
+      });
+
+    // alert('Update In Progress...');
+    // eventInfo.revert();
+  }
+
+  static updateAssetAssignment(payload, eventInfo) {
+    console.log('updateAssetAssignment eventInfo', eventInfo);
+    payload.newResource = eventInfo.newResource.extendedProps;
+    console.log('----- [updateAssetAssignment() -> PAYLOAD] -----', { payload, eventInfo: eventInfo || '' });
+
+    const eventId = eventInfo.event._def.publicId;
+    const oldResourceName = eventInfo.oldResource.extendedProps.name;
+    const newResourceName = payload.newResource.name;
+
+    Swal.fire({
+      title: `Event [ID ${eventId}] Asset Reassignment`,
+      text: `Reassign ${oldResourceName} to ${newResourceName}?`,
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#817c7c',
+      confirmButtonText: 'Yes'
+    })
+      .then(result => {
+        if (result.isConfirmed) {
+          Swal.fire({
+            didOpen: () => {
+              Swal.showLoading();
+              fetch(
+                `${suiteletUrl}&mode=updateAssetAssignment`, {
+                method: 'POST',
+                body: JSON.stringify(payload),
+                headers: {
+                  'Content-Type': 'application/json',
+                }
+              })
+                .then(response => response.json())
+                .then(result => {
+                  if (result.code == 200) {
+                    Swal.fire({
+                      title: 'Success!',
+                      text: `Reassigned to ${newResourceName}`,
+                      icon: 'success'
+                    });
+                    window.location.reload();
+                  } else {
+                    Swal.fire({
+                      title: 'Unexpected Error',
+                      text: `Error: ${result.errorMsg}`,
+                      icon: 'error'
+                    });
+                    if (eventInfo) {
+                      eventInfo.revert();
+                    }
+                  }
+                  Swal.hideLoading();
+                })
+                .catch(error => {
+                  Swal.fire(
+                    'Unexpected Error',
+                    error.message,
+                    'error'
+                  );
+                  Swal.hideLoading();
+                  if (eventInfo) {
+                    eventInfo.revert();
+                  }
+                });
+            },
+            allowOutsideClick: false,
+            allowEscapeKey: false,
+            text: `Updating Work Order Asset [ID ${payload.id}]...`
           });
         } else {
           if (eventInfo) {
@@ -543,10 +783,8 @@ export class Resource {
                       title: 'Success!',
                       text: `Date/Time has been updated to ${payload.date.start} ${payload.time.start} - ${payload.date.end} ${payload.time.end}`,
                       icon: 'success'
-                    })
-                      .then(() => {
-                        window.location.reload();
-                      });
+                    });
+                    window.location.reload();
                   } else {
                     Swal.fire({
                       title: 'Unexpected Error',
@@ -585,9 +823,82 @@ export class Resource {
     // alert('Update In Progress...');
     // eventInfo.revert();
   }
+
+  static updateAssetDateTime(payload, eventInfo) {
+    console.log('----- [updateAssetDateTime() -> PAYLOAD] -----', { payload, eventInfo: eventInfo || '' });
+
+    Swal.fire({
+      title: `Update Date/Time`,
+      text: `Update to ${payload.date.start} ${payload.time.start} - ${payload.date.end} ${payload.time.end}?`,
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#817c7c',
+      confirmButtonText: 'Yes'
+    })
+      .then(result => {
+        if (result.isConfirmed) {
+          Swal.fire({
+            didOpen: () => {
+              Swal.showLoading();
+              fetch(
+                `${suiteletUrl}&mode=updateAssetDateTime`, {
+                method: 'POST',
+                body: JSON.stringify(payload),
+                headers: {
+                  'Content-Type': 'application/json',
+                }
+              })
+                .then(response => response.json())
+                .then(result => {
+                  if (result.code == 200) {
+                    Swal.fire({
+                      title: 'Success!',
+                      text: `Date/Time has been updated to ${payload.date.start} ${payload.time.start} - ${payload.date.end} ${payload.time.end}`,
+                      icon: 'success'
+                    });
+                    window.location.reload();
+                  } else {
+                    Swal.fire({
+                      title: 'Unexpected Error',
+                      text: `Error: ${result.errorMsg}`,
+                      icon: 'error'
+                    });
+                    if (eventInfo) {
+                      eventInfo.revert();
+                    }
+                  }
+                  Swal.hideLoading();
+                })
+                .catch(error => {
+                  Swal.fire(
+                    'Unexpected Error',
+                    error.message,
+                    'error'
+                  );
+                  Swal.hideLoading();
+                  if (eventInfo) {
+                    eventInfo.revert();
+                  }
+                });
+            },
+            allowOutsideClick: false,
+            allowEscapeKey: false,
+            text: `Updating Work Order Asset [ID ${payload.id}] Date/Time...`
+          });
+        } else {
+          if (eventInfo) {
+            eventInfo.revert();
+          }
+        }
+      });
+
+    // alert('Update In Progress...');
+    // eventInfo.revert();
+  }
 }
 
-export function setupWorkOrderAction() {
+export function handleWorkOrderAction() {
   window.holdWorkOrder = ev => {
     ev.preventDefault();
     const woId = ev.target.closest('.card-item').id;
@@ -672,6 +983,21 @@ export function setupWorkOrderAction() {
     ev.preventDefault();
     const woId = ev.target.closest('.card-item').id;
     window.open(`${suiteletUrl}&mode=printPickList&woId=${woId}`);
+  }
+}
+
+export class ToolTip {
+  static setup() {
+    this.remove();
+    $('[data-bs-toggle="tooltip"]').each(function () {
+      new bootstrap.Tooltip(this, {
+        html: true,
+        placement: 'right'
+      });
+    });
+  }
+  static remove() {
+    $('.tooltip').remove();
   }
 }
 

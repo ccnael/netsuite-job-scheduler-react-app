@@ -1,5 +1,5 @@
 import * as dataSet from './components/dataSet';
-import { Event } from './components/utils';
+import { Event, ToolTip } from './components/utils';
 import { onClickResource } from './components/filterFields/filterUtils';
 import './board.css';
 
@@ -43,13 +43,13 @@ export default class Board {
                                     Email: ${resource.email}<br/>
                                     Phone: ${resource.phone}<br/>
                                     Location: ${resource.location.text}<br/>
-                                    Events: ${resource.events.length}<br/>
+                                    Events: ${resource.events.length}<br/>"
                                 <span class="initials">${resource.initials}</span>
                                 ${!!(resource.active) ? '<span class="status active"></span>' : '<span class="status busy"></span>'}
                             </div>
                             <div class="person-info">
-                                <span class="full-name">${resource.name}</span>
-                                ${!!(resource.active) ? '<span class="status-text">Active</span>' : '<span class="status-text">Inactive</span>'}
+                              <span class="full-name">${resource.name}</span>
+                              ${!!(resource.active) ? '<span class="status-text">Active</span>' : '<span class="status-text">Inactive</span>'}
                             </div>
                           </div>`)}
                         </div>
@@ -89,8 +89,8 @@ export default class Board {
                       <div class="accordion-item">
                         <h2 class="accordion-header" id="resourceGroup-asset-filter-tableHeading">
                           <button class="accordion-button" type="button" data-toggle="collapse" data-target="#resourceGroup-asset-filter-table" aria-expanded="true" aria-controls="resourceGroup-asset-filter-table">
-                            <i class="fa-solid fa-icon-size fa-user-group"></i>
-                            <strong class="grid-header">&nbsp;Asset & Equipment&nbsp;</strong>
+                            <i class="fa-solid fa-screwdriver-wrench"></i>
+                            <strong class="grid-header">&nbsp;Assets&nbsp;</strong>
                             <span class="badge badge-danger badge-pill counter">${dataSet.assets.length}</span>
                           </button>
                         </h2>
@@ -103,12 +103,12 @@ export default class Board {
                                   title="<strong>${asset.name}</strong><br/>
                                   Name: ${asset.name}<br/>
                                   Description: ${asset.description}<br/>
-                                <span class="initials">${asset.name.substring(0, 2)}</span>
-                                <span class="status active"></span>
+                                <span class="initials">${asset.name.substring(0, 1)}</span>
+                                ${!asset.onMaintenance ? '<span class="status active"></span>' : '<span class="status busy"></span>'}
                             </div>
                             <div class="person-info">
                                 <span class="full-name">${asset.name}</span>
-                                <span class="status-text">Active</span>
+                                ${!asset.onMaintenance ? '<span class="status-text">Available</span>' : '<span class="status-text">Not Available</span>'}
                             </div>
                           </div>`)}
                         </div>
@@ -126,7 +126,7 @@ export default class Board {
                     <div class="card-header header">
                       <div style="display: flex; justify-content: space-between; align-items: center; text-align: center;">
                         <div style="display: flex; align-items: center;">
-                          <i class="fa-solid fa-screwdriver-wrench" style="font-size: 16px;"></i>
+                          <i class="fa-solid fa-pen-to-square" style="font-size: 16px;"></i>
                           <span style="margin-left: 5px; display: flex; align-items: center;">
                             <h5 style="margin: 0;"><strong>Available Jobs</strong></h5>
                           </span>
@@ -181,7 +181,7 @@ export default class Board {
                     <div class="card-header header">
                       <div style="display: flex; justify-content: space-between; align-items: center; text-align: center;">
                         <div style="display: flex; align-items: center;">
-                          <i class="fa-solid fa-screwdriver-wrench" style="font-size: 16px;"></i>
+                          <i class="fa-solid fa-calendar-check" style="font-size: 16px;"></i>
                           <span style="margin-left: 5px; display: flex; align-items: center;">
                             <h5 style="margin: 0;"><strong>Events</strong></h5>
                           </span>
@@ -193,7 +193,7 @@ export default class Board {
                       </div>
                     </div>
                     <div class="secondary-row">
-                      <button class="btn btn-primary button-add" onclick="openGeneralEventModal(event)">
+                      <button class="btn btn-primary button-new-event" onclick="openGeneralEventModal(event)">
                         <i class="fa-regular fa-icon-size fa-plus-square"></i> New
                       </button>
                       <div class="col-md-6">
@@ -207,25 +207,28 @@ export default class Board {
                     </div>
                     <div class="card-wrapper">
                       ${dataSet.events.map(event => `
-                        <div type="event" class="card-item" id="${event.id}" data-bs-toggle="tooltip" data-bs-placement="right" 
+                        <div type="event" class="card-item" id="${event.id}" 
+                        data-bs-toggle="tooltip" 
+                        data-bs-placement="right" 
                         title="
                           <strong>${event.title}</strong><br/><br/>
                           Resources:<br/>
-                            ${(event.resources.length || event.vendors.length || event.assets.length) ? `${event.resources.map((resource, counter) => `${+counter + 1}. ${resource.employee.text}`).join('<br/>')}<br/>
-                            ${event.vendors.map((vendor, counter) => `${event.resources.length + counter + 1}. ${vendor.vendor.text || vendor.name}`).join('<br/>')}<br/>
-                            ${event.assets.map((asset, counter) => `${event.resources.length + event.vendors.length + counter + 1}. ${asset.item.text || asset.name}`).join('<br/>')}` : '- None -'}"
-                            
+                            ${(event.resources.length || event.vendors.length || event.assets.length) ? `${event.resources.map((resource, counter) => `${+counter + 1}. ${resource.employee.text}`).join('<br/>')}${event.resources.length ? '<br/>' : ''}
+                              ${event.vendors.map((vendor, counter) => `${event.resources.length + counter + 1}. ${vendor.vendor.text || vendor.name}`).join('<br/>')}${event.vendors.length ? '<br/>' : ''}
+                              ${event.assets.map((asset, counter) => `${event.resources.length + event.vendors.length + counter + 1}. ${asset.asset.text || asset.name}`).join('<br/>')}` : '- None -'}"
                         style="${''/* event.status.value === 'COMPLETED' ? 'display: none' : 'display: initial' */}">
                           <div class="card-head">
                             <div class="card-name"><a href="${event.url}" target="_blank"><strong>${event.title}</strong></a></div>
                             <div class="card-header-options">
                               <div class="dropdown">
                                 <i class="fa-solid fa-angles-down" style="cursor: pointer"></i>
-                                <div class="dropdown-content">
+                                ${event.status.value !== 'COMPLETED' ? `<div class="dropdown-content">
                                   ${(!event.workorder.value) ? `<a href="#" onclick="openGeneralEventModal(${event.id})">Update Event</a>` : '<a href="#" onclick="openEventModal(event)">Update Event</a>'}
                                   <a href="#" onclick="openCompleteEventModal(event)">Complete Event</a>
                                   <a href="#" onclick="deleteEventRecord(event)">Remove Event</a>
-                                </div>
+                                </div>` : `<div class="dropdown-content">
+                                  <a href="#" onclick="deleteEventRecord(event)">Remove Event</a>
+                                </div>`}
                               </div>
                             </div>
                           </div>
@@ -256,10 +259,10 @@ export default class Board {
       .replace(/,/g, ''))
       .insertAfter('header');
 
+    ToolTip.setup();
     this._initLayoutHandlers();
-    this._initToolTip();
     this._onDragResource();
-    this._showBanners();
+    // this._showBanners();
   }
 
   // Instantiate column resizer etc.
@@ -372,15 +375,15 @@ export default class Board {
             const eventData = dataSet.events.find(event => event.id == id);
 
             let foundObj, allowEvent = false;
-            if (resourceType == 'employee') {
+            if (resourceType === 'employee') {
               foundObj = eventData.resources.find(resource => resource.employee.value == resourceId);
               const hasConflict = Event.draggedResourceHasConflictEvent(eventData.id, eventData.date, eventData.time, resourceId);
               allowEvent = !foundObj && !hasConflict;
-            } else if (resourceType == 'vendor') {
+            } else if (resourceType === 'vendor') {
               foundObj = eventData.vendors.find(vendor => vendor.vendor.value == resourceId);
               allowEvent = !foundObj;
-            } else if (resourceType == 'asset') {
-              foundObj = eventData.assets.find(asset => asset.item.value == resourceId);
+            } else if (resourceType === 'asset') {
+              foundObj = eventData.assets.find(asset => asset.asset.value == resourceId);
               allowEvent = !foundObj;
             }
             if (allowEvent) {
@@ -398,15 +401,15 @@ export default class Board {
           dataTransfer = JSON.parse(localStorage.getItem('dragResourceFunctions'));
 
           let foundObj, allowResource = false;
-          if (dataTransfer.type == 'employee') {
+          if (dataTransfer.type === 'employee') {
             foundObj = eventData.resources.find(resource => resource.employee.value == dataTransfer.id);
             const hasConflict = Event.draggedResourceHasConflictEvent(eventData.id, eventData.date, eventData.time, dataTransfer.id);
             allowResource = !foundObj && !hasConflict;
-          } else if (dataTransfer.type == 'vendor') {
+          } else if (dataTransfer.type === 'vendor') {
             foundObj = eventData.vendors.find(vendor => vendor.vendor.value == dataTransfer.id);
             allowResource = !foundObj;
-          } else if (dataTransfer.type == 'asset') {
-            foundObj = eventData.assets.find(asset => asset.item.value == dataTransfer.id);
+          } else if (dataTransfer.type === 'asset') {
+            foundObj = eventData.assets.find(asset => asset.asset.value == dataTransfer.id);
             allowResource = !foundObj;
           }
           $draggedEl = $(`#${dataTransfer.elementId}`).find('.person-circle');
@@ -498,15 +501,6 @@ export default class Board {
       ];
       toasties.map(toast => Toastify(toast).showToast());
     }, 250);
-  }
-
-  static _initToolTip() {
-    $('[data-bs-toggle="tooltip"]').each(function () {
-      new bootstrap.Tooltip(this, {
-        html: true,
-        placement: 'right'
-      });
-    });
   }
 
   // This prevents conflict dropping conflict with the job items drag and drop

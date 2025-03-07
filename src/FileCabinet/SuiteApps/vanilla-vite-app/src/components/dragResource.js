@@ -31,7 +31,7 @@ $(document).ready(() => {
 
         payload = {
           draggedResource: type,
-          // eventDataSrc: eventData,
+          // oldEventData: eventData,
           woRef,
           eventData: {
             id: eventId,
@@ -72,9 +72,10 @@ $(document).ready(() => {
                           text: `Resource ${resourceName} has been added to Event [ID ${eventId}]`,
                           icon: 'success'
                         })
-                          .then(() => {
-                            window.location.reload();
-                          });
+                        /* .then(() => {
+                          
+                        }); */
+                        window.location.reload();
                       } else {
                         Swal.fire({
                           title: 'Unexpected Error',
@@ -103,13 +104,15 @@ $(document).ready(() => {
 
       case 'vendor':
         resourceName = dataSet.vendors.find(vendor => vendor.id == id).name;
-        let unassignedVendors = deepCopy(dataSet.vendors).filter(vendor => !eventData.vendors.map(vendor => vendor.vendor.value).includes(vendor.id));
+        let unassignedVendors = deepCopy(dataSet.vendors)
+          .filter(vendor => !eventData.vendors.map(vendor => vendor.vendor.value)
+            .includes(vendor.id));
         unassignedVendors = [...eventData.vendors, ...unassignedVendors];
         const vendorToUse = unassignedVendors.find(vendor => vendor.id == id);
 
         payload = {
           draggedResource: type,
-          // eventDataSrc: eventData,
+          // oldEventData: eventData,
           woRef,
           eventData: {
             id: eventId,
@@ -168,9 +171,10 @@ $(document).ready(() => {
                           text: `Vendor ${resourceName} has been added to Event [ID ${eventId}]`,
                           icon: 'success'
                         })
-                          .then(() => {
-                            window.location.reload();
-                          });
+                        /* .then(() => {
+                          
+                        }); */
+                        window.location.reload();
                       } else {
                         Swal.fire({
                           title: 'Unexpected Error',
@@ -199,19 +203,21 @@ $(document).ready(() => {
 
       case 'asset':
         resourceName = dataSet.assets.find(asset => asset.id == id).name;
-        let unassignedAssets = deepCopy(dataSet.assets).filter(asset => !eventData.assets.map(asset => asset.item.value).includes(asset.id));
+        let unassignedAssets = deepCopy(dataSet.assets)
+          .filter(asset => !eventData.assets.map(asset => asset.asset.value)
+            .includes(asset.id));
         unassignedAssets = [...eventData.assets, ...unassignedAssets];
         const assetToUse = unassignedAssets.find(asset => asset.id == id);
 
         payload = {
           draggedResource: type,
-          // eventDataSrc: eventData,
+          // oldEventData: eventData,
           woRef,
           eventData: {
             id: eventId,
             selectedAssets: [assetToUse],
-            /* date: eventData.date,
-            time: eventData.time */
+            date: eventData.date,
+            time: eventData.time
           },
           woResources: []
         };
@@ -228,7 +234,7 @@ $(document).ready(() => {
           inputValue: 1, // Set the default value
           inputAttributes: {
             min: 1, // Minimum value for quantity
-            max: 100, // Maximum value for quantity
+            max: assetToUse.maxQuantity, // Maximum value for quantity
             step: 1 // Step increment (optional)
           },
           preConfirm: (quantity) => {
@@ -264,9 +270,10 @@ $(document).ready(() => {
                           text: `Asset ${resourceName} has been added to Event [ID ${eventId}]`,
                           icon: 'success'
                         })
-                          .then(() => {
-                            window.location.reload();
-                          });
+                        /* .then(() => {
+                          
+                        }); */
+                        window.location.reload();
                       } else {
                         Swal.fire({
                           title: 'Unexpected Error',

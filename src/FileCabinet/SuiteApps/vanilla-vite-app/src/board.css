@@ -1,6 +1,14 @@
 #boardSection {
   display: block;
 }
+#boardSection .card-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 5px;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 5px;
+}
 #boardSection .secondColumn {
   overflow: auto;
 }
@@ -26,6 +34,9 @@
 #boardSection .leftSidebar {
   width: 18%;
   height: 90%;
+}
+#boardSection .leftSidebar .grid-header, #boardSection .leftSidebar .person-info * {
+  font-size: 9pt !important;
 }
 #boardSection .toggleLeft {
   font-size: 22px;
