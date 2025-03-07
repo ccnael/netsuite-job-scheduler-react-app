@@ -1,6 +1,12 @@
 #boardSection {
   display: block;
 }
+#boardSection .card-name {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  box-sizing: border-box;
+}
 #boardSection .card-head {
   display: flex;
   justify-content: space-between;
@@ -8,6 +14,10 @@
   margin-bottom: 5px;
   border-bottom: 1px solid #ccc;
   padding-bottom: 5px;
+}
+#boardSection .card-content {
+  font-size: 12px;
+  color: #333;
 }
 #boardSection .secondColumn {
   overflow: auto;

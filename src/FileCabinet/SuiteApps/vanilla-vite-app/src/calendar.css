@@ -213,6 +213,10 @@
 }
 #calendarSection .card-name {
   margin: 2;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  box-sizing: border-box;
 }
 #calendarSection .card-item {
   margin-top: 10px;

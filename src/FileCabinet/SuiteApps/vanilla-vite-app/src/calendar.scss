@@ -241,6 +241,10 @@ $background-color_19: #f0f0f0;
 	}
 	.card-name {
 		margin: 2;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		box-sizing: border-box;
 	}
 	.card-item {
 		margin-top: 10px;

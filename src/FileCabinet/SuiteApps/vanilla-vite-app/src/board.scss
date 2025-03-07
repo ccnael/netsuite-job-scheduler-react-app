@@ -11,6 +11,12 @@ $background-color_19: #f0f0f0;
 	.main-container {
 		// display: none;
 	}
+	.card-name {
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		box-sizing: border-box;
+	}
 	.card-head {
 		display: flex;
 		justify-content: space-between;
@@ -18,6 +24,10 @@ $background-color_19: #f0f0f0;
 		margin-bottom: 5px;
 		border-bottom: 1px solid #ccc;
 		padding-bottom: 5px;
+	}
+	.card-content {
+		font-size: 12px;
+		color: $color_7;
 	}
 	.secondColumn {
 		.card-header {
