@@ -280,7 +280,9 @@ $(document).ready(() => {
                 return dataSet.vendors;
               } else {
                 // Combine vendors and WO vendors
-                const unassignedVendors = deepCopy(dataSet.vendors).filter(vendor => !eventData.vendors.map(vendor => vendor.vendor.value).includes(vendor.id));
+                const unassignedVendors = deepCopy(dataSet.vendors)
+                  .filter(vendor => !eventData.vendors.map(vendor => vendor.vendor.value)
+                    .includes(vendor.id));
                 return [...eventData.vendors, ...unassignedVendors];
               }
             })()
@@ -299,10 +301,12 @@ $(document).ready(() => {
           callback({
             data: (() => {
               if (mode === 'create') {
-                return dataSet.assets.filter(asset => !asset.onMaintenance);
+                return dataSet.assets.filter(asset => !asset.consumable && !asset.onMaintenance);
               } else {
                 // Combine assets and WO assets
-                const unassignedAssets = deepCopy(dataSet.assets).filter(asset => !eventData.assets.map(asset => asset.asset.value).includes(asset.id));
+                const unassignedAssets = deepCopy(dataSet.assets)
+                  .filter(asset => !eventData.assets.map(asset => asset.asset.value)
+                    .includes(asset.id));
                 return [...eventData.assets, ...unassignedAssets];
               }
             })()

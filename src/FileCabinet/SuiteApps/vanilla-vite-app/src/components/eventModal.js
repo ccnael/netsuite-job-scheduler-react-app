@@ -111,8 +111,8 @@ $(document).ready(() => {
                                 <td width="75%">
                                   <div class="d-flex align-items-right ms-3">
                                     <div class="form-check form-switch w-100" style="margin-top: 10px; margin-left: 20px; display: flex; align-items: center;">
-                                      <input class="form-check-input me-2 asset-maintenance-toggle" type="checkbox">
-                                      <label class="form-check-label" style="font-size: 11px; margin: 0; align-self: flex-end;">Asset Maintenance</label>
+                                      <!-- <input class="form-check-input me-2 asset-maintenance-toggle" type="checkbox"> 
+                                      <label class="form-check-label" style="font-size: 11px; margin: 0; align-self: flex-end;">Asset Maintenance</label> -->
                                     </div>
                                   </div>
                                 </td>
@@ -506,7 +506,9 @@ $(document).ready(() => {
                 return woRef.items.filter(item => !item.event);
               } else {
                 let unassignedItems = deepCopy(woRef.items.filter(item => !item.event));
-                unassignedItems = unassignedItems.filter(item => !eventData.items.map(item => item.item.value).includes(item.item.value));
+                unassignedItems = unassignedItems
+                  .filter(item => !eventData.items.map(item => item.item.value)
+                    .includes(item.item.value));
                 return [...eventData.items, ...unassignedItems];
               }
             })()
@@ -543,7 +545,9 @@ $(document).ready(() => {
                 return contacts;
               } else {
                 let unassignedContacts = deepCopy(woRef.contacts.filter(contact => !contact.event));
-                unassignedContacts = unassignedContacts.filter(contact => !eventData.contacts.map(contact => contact.contact.value).includes(contact.contact.value));
+                unassignedContacts = unassignedContacts
+                  .filter(contact => !eventData.contacts.map(contact => contact.contact.value)
+                    .includes(contact.contact.value));
                 return [...eventData.contacts, ...unassignedContacts];
               }
             })()
