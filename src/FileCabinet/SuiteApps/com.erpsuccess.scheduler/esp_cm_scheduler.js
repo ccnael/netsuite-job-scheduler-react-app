@@ -1257,10 +1257,10 @@ define([
             });
             const values = {};
             if (lookUp.custrecord_esp_fop_wo_sub_qty_rqd != vendor.quantityRequired) {
-              values.custrecord_esp_fop_wo_sub_qty_rqd = vendor.quantityRequired
+              values.custrecord_esp_fop_wo_sub_qty_rqd = vendor.quantityRequired;
             }
             if (lookUp.custrecord_esp_fop_wo_sub_comment != vendor.memo) {
-              values.custrecord_esp_fop_wo_sub_comment = vendor.memo
+              values.custrecord_esp_fop_wo_sub_comment = vendor.memo;
             }
 
             if (Object.keys(values).length) {
@@ -2585,7 +2585,7 @@ define([
                 value: projectInsight || '',
                 line
               });
-              rec.setSublistValue({
+              /* rec.setSublistValue({
                 sublistId: 'timeitem',
                 fieldId: 'custcol_esp_tran_fop_related_wo',
                 value: woId || '',
@@ -2596,7 +2596,7 @@ define([
                 fieldId: 'customer',
                 value: project || '',
                 line
-              });
+              }); */
               log.audit('Timesheet Added', timeSheet);
             } catch (e) {
               log.error('Error Setting Timesheet', { errorMsg: e.message, timeSheet });

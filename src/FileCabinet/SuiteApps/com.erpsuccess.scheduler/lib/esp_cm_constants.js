@@ -35,10 +35,10 @@ define(() => ({
     URGENT: '#9a2407'
   },
   Status: {
-    PENDING: '1',
-    IN_PROGRESS: '2',
+    IN_PROGRESS: '1',
+    COMPLETED: '2',
     CLOSED: '3',
-    COMPLETED: '4',
+    PENDING: '4',
     ON_HOLD: '5'
   },
   ReceiptStatusCode: {
