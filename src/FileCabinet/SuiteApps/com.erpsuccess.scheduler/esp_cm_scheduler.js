@@ -2185,7 +2185,7 @@ define([
           fieldToSet.custevent_esp_fop_event_priority = eventData.priority;
           fieldToSet.custevent_esp_fop_memo = eventData.note;
           fieldToSet.custevent_task_pi = woRef?.projectInsight?.value;
-          fieldToSet.custevent_esp_fop_asset_maintenance = eventData.assetMaintenance;
+          fieldToSet.custevent_esp_fop_asset_maintenance = !!(eventData?.assetMaintenance);
 
           if (!!eventData.selectedAddress) {
             fieldToSet.custevent_esp_fop_event_address = eventData.selectedAddress.id;
@@ -2530,6 +2530,8 @@ define([
           });
           const lineCount = rec.getLineCount({ sublistId: 'timeitem' });
           const projectInsight = oldEventData.woRef?.projectInsight?.value;
+          const woId = oldEventData.woRef?.id;
+          const project = oldEventData.woRef?.project?.value;
 
           for (let i in timeSheets) {
             const timeSheet = timeSheets[i];
@@ -2581,6 +2583,18 @@ define([
                 sublistId: 'timeitem',
                 fieldId: 'custcol_time_pi',
                 value: projectInsight || '',
+                line
+              });
+              rec.setSublistValue({
+                sublistId: 'timeitem',
+                fieldId: 'custcol_esp_tran_fop_related_wo',
+                value: woId || '',
+                line
+              });
+              rec.setSublistValue({
+                sublistId: 'timeitem',
+                fieldId: 'customer',
+                value: project || '',
                 line
               });
               log.audit('Timesheet Added', timeSheet);
