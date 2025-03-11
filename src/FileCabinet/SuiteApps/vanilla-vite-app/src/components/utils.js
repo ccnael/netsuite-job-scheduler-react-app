@@ -110,9 +110,9 @@ export class Event {
           const eventStart = `${event.date.start} ${event.time.start}`;
           const eventEnd = `${event.date.end} ${event.time.end}`;
           if (eventId) {
-            return event.id != eventId && (moment(eventEnd).isBetween(start, end, null, '[]') || moment(eventStart).isSameOrBefore(start) && moment(eventEnd).isSameOrAfter(end));
+            return event.id != eventId && event.status.value !== 'COMPLETED' && (moment(eventEnd).isBetween(start, end, null, '[]') || moment(eventStart).isSameOrBefore(start) && moment(eventEnd).isSameOrAfter(end));
           } else {
-            return moment(eventEnd).isBetween(start, end, null, '[]') || moment(eventStart).isSameOrBefore(start) && moment(eventEnd).isSameOrAfter(end);
+            return event.status.value !== 'COMPLETED' && moment(eventEnd).isBetween(start, end, null, '[]') || moment(eventStart).isSameOrBefore(start) && moment(eventEnd).isSameOrAfter(end);
           }
         });
         // console.log(checkbox.prop('checked'))

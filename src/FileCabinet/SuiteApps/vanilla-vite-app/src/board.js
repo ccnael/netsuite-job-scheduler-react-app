@@ -75,11 +75,11 @@ export default class Board {
                                   Email: ${vendor.email}<br/>
                                   Events: ${vendor.events.length}<br/>
                                 <span class="initials">${vendor.initials}</span>
-                                ${!!(vendor.active) ? '<span class="status active"></span>' : '<span class="status busy"></span>'}
+                                <span class="status active"></span>
                             </div>
                             <div class="person-info">
                                 <span class="full-name">${vendor.name}</span>
-                                ${!!(vendor.active) ? '<span class="status-text">Active</span>' : '<span class="status-text">Inactive</span>'}
+                                <span class="status-text">Active</span>
                             </div>
                           </div>`)}
                         </div>
@@ -97,18 +97,20 @@ export default class Board {
                         <div id="resourceGroup-asset-filter-table" class="accordion-collapse collapse show" aria-labelledby="resourceGroup-asset-filter-tableHeading" data-parent="#resourceGroup-asset-filter-tableWrapper">
                           ${dataSet.assets.map(asset => `
                           <div class="person-container" resourceType="asset" id="${asset.id}">
-                            <div draggable="true" ondragstart="dragResourceFunctions(event);" ondragend="dragResourceFunctions(event);" class="person-circle cursor-grab" 
+                            <div draggable=${asset.quantityRemaining > 0 ? "true" : "false"} ondragstart="dragResourceFunctions(event);" ondragend="dragResourceFunctions(event);" class="person-circle cursor-grab" 
                                   data-bs-toggle="tooltip" 
                                   data-bs-placement="right" 
                                   title="<strong>${asset.name}</strong><br/>
                                   Name: ${asset.name}<br/>
                                   Description: ${asset.description}<br/>
+                                  Quantity Remaining: ${asset.quantityRemaining}<br/>
+                                  Quantity Used: ${asset.quantityUsed}
                                 <span class="initials">${asset.name.substring(0, 1)}</span>
-                                ${!asset.onMaintenance ? '<span class="status active"></span>' : '<span class="status busy"></span>'}
+                                ${asset.quantityRemaining > 0 ? '<span class="status active"></span>' : '<span class="status busy"></span>'}
                             </div>
                             <div class="person-info">
                                 <span class="full-name">${asset.name}</span>
-                                ${!asset.onMaintenance ? '<span class="status-text">Available</span>' : '<span class="status-text">Not Available</span>'}
+                                ${asset.quantityRemaining > 0 ? '<span class="status-text">Available</span>' : '<span class="status-text">Not Available</span>'}
                             </div>
                           </div>`)}
                         </div>

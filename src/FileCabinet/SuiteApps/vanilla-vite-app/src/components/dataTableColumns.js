@@ -111,6 +111,11 @@ export const assetsDtColumns = [
     title: 'Quantity'
   },
   {
+    className: 'dt-head-center dt-body-center',
+    render: (_data, _type, row, _meta) => addCommas(row?.quantityRemaining),
+    title: 'Quantity Remaining'
+  },
+  {
     className: 'dt-head-center',
     render: (_data, _type, row, _meta) => `<input type="time" class="form-control starttime-row" value="${row?.time?.start}" required>`,
     title: 'Start Time <span class="required"></span>',
@@ -361,3 +366,7 @@ export const cePunchItemsDtColumns = [
     title: 'Entered By'
   }
 ];
+
+function addCommas(num) {
+  return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
