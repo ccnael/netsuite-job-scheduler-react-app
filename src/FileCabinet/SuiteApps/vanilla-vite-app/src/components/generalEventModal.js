@@ -301,7 +301,7 @@ $(document).ready(() => {
           callback({
             data: (() => {
               if (mode === 'create') {
-                return dataSet.assets.filter(asset => !asset.consumable && !asset.onMaintenance);
+                return dataSet.assets;//.filter(asset => !asset.consumable && !asset.onMaintenance);
               } else {
                 // Combine assets and WO assets
                 const unassignedAssets = deepCopy(dataSet.assets)

@@ -308,7 +308,7 @@ export class Event {
     const conflictEvents = resourceEvents.filter(event => {
       const eventStart = `${event.date.start} ${event.time.start}`;
       const eventEnd = `${event.date.end} ${event.time.end}`;
-      return event.id != eventId && (moment(eventEnd).isBetween(start, end, null, '[]') || moment(eventStart).isSameOrBefore(start) && moment(eventEnd).isSameOrAfter(end));
+      return event.status.value !== 'COMPLETED' && event.id != eventId && (moment(eventEnd).isBetween(start, end, null, '[]') || moment(eventStart).isSameOrBefore(start) && moment(eventEnd).isSameOrAfter(end));
     });
     return !!conflictEvents.length;
   }
@@ -318,7 +318,7 @@ export class Event {
       return events.filter(event => {
         const eventStart = moment(`${event.date.start} ${event.time.start}`);
         const eventEnd = moment(`${event.date.end} ${event.time.end}`);
-        return startDateTime.isSameOrAfter(eventStart) && startDateTime.isSameOrBefore(eventEnd);
+        return event.status.value !== 'COMPLETED' && startDateTime.isSameOrAfter(eventStart) && startDateTime.isSameOrBefore(eventEnd);
       });
     }
     let resourceEvents = [];
@@ -337,11 +337,7 @@ export class Event {
         resourceEvents = events
           .filter(event => event.assets.map(asset => asset.asset.value)
             .includes(resourceId));
-        const assetObj = assets.find(asset => asset.asset.value == resourceId);
-        /* console.log('resourceEvents', resourceEvents);
-        console.log('resourceId', resourceId);
-        console.log('assetObj', assetObj); */
-        return !!resourceEvents.length && assetObj.onMaintenance;
+        return !!conflictEvents(resourceEvents).length;
     }
     return false;
   }

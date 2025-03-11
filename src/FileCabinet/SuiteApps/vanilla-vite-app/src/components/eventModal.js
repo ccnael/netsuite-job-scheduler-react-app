@@ -463,7 +463,7 @@ $(document).ready(() => {
               if (mode === 'create') {
                 if (!!calendarEventDrop) {
                   return dataSet.assets
-                    .filter(asset => !asset.onMaintenance)
+                    // .filter(asset => !asset.onMaintenance)
                     .map(asset => {
                       const _asset = deepCopy(asset);
                       if (calendarEventDrop.selectedAssetId == _asset.id) {
@@ -473,12 +473,13 @@ $(document).ready(() => {
                       return _asset;
                     })
                 } else {
-                  return dataSet.assets.filter(asset => !asset.onMaintenance);
+                  // return dataSet.assets.filter(asset => !asset.onMaintenance);
+                  return dataSet.assets;
                 }
               } else if (mode === 'edit') {
                 // Combine assets and WO assets
                 const unassignedAssets = deepCopy(dataSet.assets)
-                  .filter(asset => !asset.onMaintenance && !eventData.assets.map(asset => asset.asset.value)
+                  .filter(asset => /* !asset.onMaintenance &&  */!eventData.assets.map(asset => asset.asset.value)
                     .includes(asset.id));
                 /* unassignedAssets.map(asset => {
                   asset.selected = true;

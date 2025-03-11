@@ -492,7 +492,7 @@ export default class Calendar {
   }
 
   static _calendarEventDrop(info) {
-    console.log('Event Received', info);
+    // console.log('Event Received', info);
     ToolTip.remove();
 
     const data = {};
@@ -517,8 +517,13 @@ export default class Calendar {
     data.selectedAssetId = dataSet.assets
       .map(asset => asset.id)
       .includes(selectedResourceId) ? selectedResourceId : '';
-    data.resourceType = (info.event._def.resourceIds[0] || '').split('-')[0] || '';
-
+    if (data.selectedResourceId) {
+      data.resourceType = 'employee';
+    } else if (data.selectedVendorId) {
+      data.resourceType = 'vendor';
+    } else if (data.selectedAssetId) {
+      data.resourceType = 'asset';
+    }
     const hasConflict = Event.draggedJobHasConflictEventToResource(start, data.resourceType, selectedResourceId);
     if (hasConflict) {
       Swal.fire(
