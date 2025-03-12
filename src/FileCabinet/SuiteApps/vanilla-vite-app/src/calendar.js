@@ -222,8 +222,8 @@ export default class Calendar {
       scrollTime: '08:00:00', // Set default scroll start time
       dayMinWidth: 100, // Adjust as needed
       slotMinWidth: 75, // Adjust this value based on your needs
-      slotDuration: '04:00:00', // Set slot duration to 4 hours
-      slotLabelInterval: '04:00', // Optionally, set the slot label interval to 4 hours
+      // slotDuration: '04:00:00', // Set slot duration to 4 hours
+      // slotLabelInterval: '04:00', // Optionally, set the slot label interval to 4 hours
       snapDuration: '01:00:00', // Snap to 15 minutes
       // -----------------------------------------------------------------
       viewDidMount: info => {
@@ -241,7 +241,9 @@ export default class Calendar {
       resourceAreaWidth: '15%',
       views: {
         resourceTimelineDay: {
-          buttonText: 'Day'
+          buttonText: 'Day',
+          slotDuration: '01:00:00',  // 1-hour interval for today view
+          slotLabelInterval: '01:00', // Optionally, set the slot label interval to 1 hour
         },
         resourceTimelineDefault: {
           type: 'resourceTimeline',
@@ -250,7 +252,17 @@ export default class Calendar {
           slotLabelFormat: [
             { weekday: 'long' },  // Display day of the week
             { hour: 'numeric', /* minute: '2-digit', */ meridiem: 'short' }  // Time format
-          ]
+          ],
+          slotDuration: '04:00:00', // Set slot duration to 4 hours
+          slotLabelInterval: '04:00', // Optionally, set the slot label interval to 4 hours
+        },
+        resourceTimelineWeek: {
+          slotDuration: '04:00:00', // Set slot duration to 4 hours
+          slotLabelInterval: '04:00', // Optionally, set the slot label interval to 4 hours
+        },
+        resourceTimelineMonth: {
+          slotDuration: '04:00:00', // Set slot duration to 4 hours
+          slotLabelInterval: '04:00', // Optionally, set the slot label interval to 4 hours
         }
       },
       resourceAreaHeaderContent: arg => {
@@ -527,8 +539,8 @@ export default class Calendar {
     const hasConflict = Event.draggedJobHasConflictEventToResource(start, data.resourceType, selectedResourceId);
     if (hasConflict) {
       Swal.fire(
-        'Theres already an assigned event.',
-        '',
+        "There's already an assigned event.",
+        ``,
         'warning'
       );
       info.revert();
@@ -569,7 +581,7 @@ export default class Calendar {
           Resource.updateResourceAssignment(payload, info);
         } else {
           Swal.fire(
-            'Theres already an assigned event.',
+            "There's already an assigned event.",
             '',
             'warning'
           );
@@ -610,7 +622,7 @@ export default class Calendar {
           Resource.updateAssetAssignment(payload, info);
         } else {
           Swal.fire(
-            'Theres already an assigned event.',
+            "There's already an assigned event.",
             '',
             'warning'
           );

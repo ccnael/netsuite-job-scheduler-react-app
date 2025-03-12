@@ -368,5 +368,5 @@ export const cePunchItemsDtColumns = [
 ];
 
 function addCommas(num) {
-  return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  return num ? num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") : '';
 }

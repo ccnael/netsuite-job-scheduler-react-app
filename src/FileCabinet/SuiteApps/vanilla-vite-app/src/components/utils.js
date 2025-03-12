@@ -327,6 +327,7 @@ export class Event {
         resourceEvents = events
           .filter(event => event.resources.map(resource => resource.employee.value)
             .includes(resourceId));
+        // console.log('>>>', conflictEvents(resourceEvents));
         return !!conflictEvents(resourceEvents).length;
       case 'vendor':
         resourceEvents = events
