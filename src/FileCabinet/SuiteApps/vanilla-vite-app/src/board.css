@@ -30,6 +30,7 @@
   font-size: 9pt !important;
 }
 #boardSection .leftSidebar .card-header {
+  background-color: #607799;
   border-radius: 5px;
   margin: 2.5px;
 }
@@ -40,7 +41,7 @@
   overflow: auto;
 }
 #boardSection .secondColumn .card-header {
-  background-color: #499ff9;
+  background-color: #607799;
   border-radius: 5px;
 }
 #boardSection .secondColumn .card-item {
@@ -50,7 +51,7 @@
   overflow: auto;
 }
 #boardSection .thirdColumn .card-header {
-  background-color: #35687d;
+  background-color: #607799;
   border-radius: 5px;
 }
 #boardSection .thirdColumn .event-available {
