@@ -1,17 +1,17 @@
-import { onFilterEventResource } from './filterUtils';
+import { onFilterEventAsset } from './filterUtils';
 import './filterField.css';
 import * as dataSet from '../dataSet';
 
 $(document).ready(() => {
-  const { modalId, fields } = dataSet.filterFields.eventResource;
-  const parentModalId = '#eventModal';
+    const { modalId, fields } = dataSet.filterFields.eventAsset;
+    const parentModalId = '#eventModal';
 
-  $('#app').append(`
+    $('#app').append(`
     <div class="modal fade" id="${modalId.replace('#', '')}" mode="" title="" tabindex="-1" style="z-index: -999">
     <div class="modal-dialog modal-md">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="${modalId.replace('#', '')}Label"><strong class="table-header">Filter Resources</strong></h5>
+          <h5 class="modal-title" id="${modalId.replace('#', '')}Label"><strong class="table-header">Filter Assets</strong></h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="spinner"></div>
@@ -49,7 +49,7 @@ $(document).ready(() => {
                 </i>
               </div>
               <div class="col-md-5 d-flex justify-content-end">
-                <button type="submit" class="btn btn-primary me-2" onclick="selectFilters(event, 'eventResource', '${modalId}')">Save</button>
+                <button type="submit" class="btn btn-primary me-2" onclick="selectFilters(event, 'eventAsset', '${modalId}')">Save</button>
                 <button type="button" class="btn btn-secondary btn-back" onclick="backToFirstForm(event, '${modalId}')">Back</button>
               </div>
             </div>
@@ -59,18 +59,18 @@ $(document).ready(() => {
     </div>
   </div>`);
 
-  $(modalId).on('shown.bs.modal', () => {
-    showCustomLoader();
-    $(this).removeAttr('aria-hidden'); // Ensure it's not hidden when shown
-    $(this).focus(); // Set focus to a valid element
-    // Append/not append fields
-    const fieldsStr = fields.reduce((holder, field) => {
-      // Do not append fields that already exist
-      const el = $(`${modalId} .filter-fields .${field.className}`);
-      let fieldStr = '';
-      switch (field.type) {
-        case 'multiselect':
-          fieldStr = `<select class="selectpicker mx-auto ${field.className}" 
+    $(modalId).on('shown.bs.modal', () => {
+        showCustomLoader();
+        $(this).removeAttr('aria-hidden'); // Ensure it's not hidden when shown
+        $(this).focus(); // Set focus to a valid element
+        // Append/not append fields
+        const fieldsStr = fields.reduce((holder, field) => {
+            // Do not append fields that already exist
+            const el = $(`${modalId} .filter-fields .${field.className}`);
+            let fieldStr = '';
+            switch (field.type) {
+                case 'multiselect':
+                    fieldStr = `<select class="selectpicker mx-auto ${field.className}" 
               title="Filter by ${field.label}" 
               data-live-search="true" 
               data-selected-text-format="count>2" 
@@ -80,66 +80,66 @@ $(document).ready(() => {
               multiple>
               ${field.options.map(option => `<option value="${option.value}" data-icon="${field['data-icon'] || ''}">${option.text}</option>`)}
             </select>`;
-          break;
-        case 'date':
-          fieldStr = `<div class="d-flex align-items-center">
+                    break;
+                case 'date':
+                    fieldStr = `<div class="d-flex align-items-center">
             <label for="${field.className}" class="me-2 mb-0">${field.label.replace('Date ', '')}:</label>
             <input type="date" class="form-control ${field.className}" id="${field.className}">
           </div>`;
-          break;
-        case 'checkbox':
-          fieldStr = `<div class="d-flex align-items-center ms-3">
+                    break;
+                case 'checkbox':
+                    fieldStr = `<div class="d-flex align-items-center ms-3">
             <div class="form-check form-switch w-100" style="margin-top: 10px; margin-left: 20px; display: flex; align-items: center;">
               <input class="form-check-input me-2 ${field.className}" type="checkbox">
-              <label class="form-check-label" style="font-size: 11px; margin: 0;">Show Available Resource Only</label>
+              <label class="form-check-label" style="font-size: 11px; margin: 0;">Show Available Asset Only</label>
             </div>
           </div>`;
-          break;
-        case 'text':
-          fieldStr = `<input type="text" class="form-control ${field.className} custom-select-style" placeholder="Enter ${field.label}">`;
-          break;
-      }
-      holder += !el.length
-        ?
-        `<div class="col-md-6" style="display: ${field.display ? 'block' : 'none'}">
+                    break;
+                case 'text':
+                    fieldStr = `<input type="text" class="form-control ${field.className} custom-select-style" placeholder="Enter ${field.label}">`;
+                    break;
+            }
+            holder += !el.length
+                ?
+                `<div class="col-md-6" style="display: ${field.display ? 'block' : 'none'}">
         ${fieldStr}
         </div>`
-        :
-        '';
-      return holder;
-    }, '');
-    // Display/not display fields
-    fields.map(field => {
-      const el = $(`${modalId} .filter-fields .${field.className}`);
-      !!el.length && el.closest('div.col-md-6').css('display', ` ${field.display ? 'block' : 'none'}`);
+                :
+                '';
+            return holder;
+        }, '');
+        // Display/not display fields
+        fields.map(field => {
+            const el = $(`${modalId} .filter-fields .${field.className}`);
+            !!el.length && el.closest('div.col-md-6').css('display', ` ${field.display ? 'block' : 'none'}`);
+        });
+
+        $(`${modalId} .filter-fields`).append(fieldsStr);
+        $(`${modalId} .selectpicker`).selectpicker();
+        onFilterEventAsset(modalId);
+
+        $(modalId).modal('show');
+        $(modalId).css('z-index', '9999');
+        setTimeout(() => hideCustomLoader(), 150);
     });
 
-    $(`${modalId} .filter-fields`).append(fieldsStr);
-    $(`${modalId} .selectpicker`).selectpicker();
-    onFilterEventResource(modalId);
+    $(modalId).on('hidden.bs.modal', e => {
+        $(`${modalId} .selectFiltersForm`).hide();
+        $(`${modalId} .filterForm`).show();
+        $(modalId).css('z-index', '-999');
+        $(parentModalId).css('z-index', '9999');
+        $(parentModalId).css('overflow', 'auto'); // Re-enable scrolling
+    });
 
-    $(modalId).modal('show');
-    $(modalId).css('z-index', '9999');
-    setTimeout(() => hideCustomLoader(), 150);
-  });
+    function showCustomLoader() {
+        $(parentModalId).css('z-index') != '1' && $(parentModalId).css('z-index', '1');
+        $(`${modalId} .spinner`).show();
+        $(`${modalId} .modal-body`).css('z-index', '-1');
+    }
 
-  $(modalId).on('hidden.bs.modal', e => {
-    $(`${modalId} .selectFiltersForm`).hide();
-    $(`${modalId} .filterForm`).show();
-    $(modalId).css('z-index', '-999');
-    $(parentModalId).css('z-index', '9999');
-    $(parentModalId).css('overflow', 'auto'); // Re-enable scrolling
-  });
-
-  function showCustomLoader() {
-    $(parentModalId).css('z-index') != '1' && $(parentModalId).css('z-index', '1');
-    $(`${modalId} .spinner`).show();
-    $(`${modalId} .modal-body`).css('z-index', '-1');
-  }
-
-  function hideCustomLoader() {
-    $(`${modalId} .spinner`).hide();
-    $(`${modalId} .modal-body`).css('z-index', '1');
-    $(parentModalId).css('z-index') != '9999' && $(parentModalId).css('z-index', '9999');
-  }
+    function hideCustomLoader() {
+        $(`${modalId} .spinner`).hide();
+        $(`${modalId} .modal-body`).css('z-index', '1');
+        $(parentModalId).css('z-index') != '9999' && $(parentModalId).css('z-index', '9999');
+    }
 })

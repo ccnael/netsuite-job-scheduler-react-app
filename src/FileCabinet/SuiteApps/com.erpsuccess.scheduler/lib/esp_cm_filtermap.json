@@ -252,6 +252,12 @@
       "modalId": "#filterFieldCalendarEvent",
       "fields": [
         {
+          "label": "Event ID",
+          "className": "calendar-event-id",
+          "type": "text",
+          "display": true
+        },
+        {
           "label": "Resource Name",
           "className": "multiple-resource-field",
           "type": "multiselect",
@@ -312,7 +318,7 @@
           "className": "multiple-resource-field",
           "type": "multiselect",
           "display": true,
-          "options": "[...params.resources.map(resource => ({ value: resource.id, text: resource.name })),...params.vendors.map(vendor => ({ value: vendor.id, text: vendor.name })),...params.assets.map(asset => ({ value: asset.id, text: asset.name }))]",
+          "options": "params.resources.map(resource => ({ value: resource.id, text: resource.name }))",
           "data-icon": "bi bi-person"
         },
         {
@@ -358,7 +364,7 @@
           "className": "multiple-resource-field",
           "type": "multiselect",
           "display": true,
-          "options": "[...params.resources.map(resource => ({ value: resource.id, text: resource.name })),...params.vendors.map(vendor => ({ value: vendor.id, text: vendor.name })),...params.assets.map(asset => ({ value: asset.id, text: asset.name }))]",
+          "options": "params.resources.map(resource => ({ value: resource.id, text: resource.name }))",
           "data-icon": "bi bi-person"
         },
         {
@@ -393,6 +399,46 @@
           "className": "show-available-resource-field",
           "type": "checkbox",
           "display": true
+        }
+      ]
+    },
+    "eventAsset": {
+      "modalId": "#filterFieldEventAsset",
+      "fields": [
+        {
+          "label": "Asset Name",
+          "className": "multiple-asset-field",
+          "type": "multiselect",
+          "display": true,
+          "options": "params.assets.map(asset => ({ value: asset.id, text: asset.name }))",
+          "data-icon": "bi bi-person"
+        },
+        {
+          "label": "Asset Type",
+          "className": "multiple-asset-type-field",
+          "type": "multiselect",
+          "display": true,
+          "options": "params.assetTypes"
+        }
+      ]
+    },
+    "generalEventAsset": {
+      "modalId": "#filterFieldGeneralEventAsset",
+      "fields": [
+        {
+          "label": "Asset Name",
+          "className": "multiple-asset-field",
+          "type": "multiselect",
+          "display": true,
+          "options": "params.assets.map(asset => ({ value: asset.id, text: asset.name }))",
+          "data-icon": "bi bi-person"
+        },
+        {
+          "label": "Asset Type",
+          "className": "multiple-asset-type-field",
+          "type": "multiselect",
+          "display": true,
+          "options": "params.assetTypes"
         }
       ]
     }

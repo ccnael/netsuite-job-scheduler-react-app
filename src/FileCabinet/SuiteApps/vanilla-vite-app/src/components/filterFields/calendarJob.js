@@ -16,11 +16,9 @@ $(document).ready(() => {
         <div class="spinner"></div>
         <div class="modal-body">
           <form class="filterForm">
-            <div class="row" style=" margin-top: 10px;">
+            <div class="row">
               <div class="d-flex justify-content-center align-items-center">
-                <div class="container p-4 border rounded bg-light">
-                  <div class="row g-3 filter-fields">
-                  </div>
+                <div class="row g-3 filter-fields">
                 </div>
               </div>
             </div>

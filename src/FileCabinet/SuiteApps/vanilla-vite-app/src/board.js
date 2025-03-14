@@ -130,7 +130,7 @@ export default class Board {
                         <div style="display: flex; align-items: center;">
                           <i class="fa-solid fa-pen-to-square" style="font-size: 16px;"></i>
                           <span style="margin-left: 5px; display: flex; align-items: center;">
-                            <h5 style="margin: 0;"><strong>Available Jobs</strong></h5>
+                            <h4 style="margin: 0;"><strong>Available Jobs</strong></h4>
                           </span>
                           &nbsp;
                           <span class="badge badge-danger badge-pill counter" id="header-boardjob-counter">${dataSet.workOrders.length}</span>
@@ -188,7 +188,7 @@ export default class Board {
                         <div style="display: flex; align-items: center;">
                           <i class="fa-solid fa-calendar-check" style="font-size: 16px;"></i>
                           <span style="margin-left: 5px; display: flex; align-items: center;">
-                            <h5 style="margin: 0;"><strong>Events</strong></h5>
+                            <h4 style="margin: 0;"><strong>Events</strong></h4>
                           </span>
                           &nbsp;
                           <span class="badge badge-danger badge-pill counter" id="header-boardevent-counter">${dataSet.events/* .filter(event => event.status.value !== 'COMPLETED') */.length}</span>
@@ -227,11 +227,9 @@ export default class Board {
                             <div class="card-header-options">
                               <div class="dropdown">
                                 <i class="fa-solid fa-angles-down" style="cursor: pointer"></i>
-                                ${event.status.value !== 'COMPLETED' ? `<div class="dropdown-content">
-                                  ${(!event.workorder.value) ? `<a href="#" onclick="openGeneralEventModal(${event.id})">Update Event</a>` : '<a href="#" onclick="openEventModal(event)">Update Event</a>'}
-                                  <a href="#" onclick="openCompleteEventModal(event)">Complete Event</a>
-                                  <a href="#" onclick="deleteEventRecord(event)">Remove Event</a>
-                                </div>` : `<div class="dropdown-content">
+                                ${`<div class="dropdown-content">
+                                  ${(!event.workorder.value) ? `<a href="#" onclick="openGeneralEventModal(${event.id})" ${event.status.value === 'COMPLETED' && "class='disabled'"}>Update Event</a>` : `<a href="#" onclick="openEventModal(event)" ${event.status.value === 'COMPLETED' && "class='disabled'"}>Update Event</a>`}
+                                  <a href="#" onclick="openCompleteEventModal(event)" ${event.status.value === 'COMPLETED' && "class='disabled'"}>Complete Event</a>
                                   <a href="#" onclick="deleteEventRecord(event)">Remove Event</a>
                                 </div>`}
                               </div>
@@ -460,53 +458,53 @@ export default class Board {
     onClickResource();
   }
 
-  static _showBanners() {
-    setTimeout(() => {
-      const toasties = [
-        /* {
-          text: 'TBD Resource Info, Schedules & Allocation View on click..',
-          duration: 99999,
-          close: true,
-          gravity: 'bottom',
-          position: 'left',
-          style: {
-            background: 'linear-gradient(to right, #00b09b, #96c93d)',
-          }
-        },
-        {
-          text: 'TBD Resource Info, Schedules & Allocation View on click..',
-          duration: 99999,
-          close: true,
-          gravity: 'bottom',
-          position: 'left',
-          style: {
-            background: 'linear-gradient(to right, #00b09b, #96c93d)',
-          }
-        }, */
-        /* {
-          text: 'Under Construction...',
-          duration: 99999,
-          close: true,
-          gravity: 'top',
-          position: 'right',
-          style: {
-            background: 'linear-gradient(to right, #00b09b, #96c93d)',
-          }
-        }, */
-        {
-          text: 'Drag Available Jobs to Events Column',
-          duration: 3000,
-          close: true,
-          gravity: 'top',
-          position: 'center',
-          style: {
-            background: 'linear-gradient(to right, #00b09b, #96c93d)',
-          }
-        }
-      ];
-      toasties.map(toast => Toastify(toast).showToast());
-    }, 250);
-  }
+  // static _showBanners() {
+  //   setTimeout(() => {
+  //     const toasties = [
+  //       /* {
+  //         text: 'TBD Resource Info, Schedules & Allocation View on click..',
+  //         duration: 99999,
+  //         close: true,
+  //         gravity: 'bottom',
+  //         position: 'left',
+  //         style: {
+  //           background: 'linear-gradient(to right, #00b09b, #96c93d)',
+  //         }
+  //       },
+  //       {
+  //         text: 'TBD Resource Info, Schedules & Allocation View on click..',
+  //         duration: 99999,
+  //         close: true,
+  //         gravity: 'bottom',
+  //         position: 'left',
+  //         style: {
+  //           background: 'linear-gradient(to right, #00b09b, #96c93d)',
+  //         }
+  //       }, */
+  //       /* {
+  //         text: 'Under Construction...',
+  //         duration: 99999,
+  //         close: true,
+  //         gravity: 'top',
+  //         position: 'right',
+  //         style: {
+  //           background: 'linear-gradient(to right, #00b09b, #96c93d)',
+  //         }
+  //       }, */
+  //       {
+  //         text: 'Drag Available Jobs to Events Column',
+  //         duration: 3000,
+  //         close: true,
+  //         gravity: 'top',
+  //         position: 'center',
+  //         style: {
+  //           background: 'linear-gradient(to right, #00b09b, #96c93d)',
+  //         }
+  //       }
+  //     ];
+  //     toasties.map(toast => Toastify(toast).showToast());
+  //   }, 250);
+  // }
 
   // This prevents conflict dropping conflict with the job items drag and drop
   static _onDragResource() {

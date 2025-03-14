@@ -7,7 +7,7 @@ import timeGridPlugin from '@fullcalendar/timegrid';
 import resourceTimelinePlugin from '@fullcalendar/resource-timeline';
 import * as dataSet from './components/dataSet';
 import { onFilterCalendarEvent, onFilterJob } from './components/filterFields/filterUtils';
-import { Event, Resource, ToolTip } from './components/utils';
+import { Event, Resource, ToolTip, WarningAlert } from './components/utils';
 import './calendar.css';
 
 export default class Calendar {
@@ -31,7 +31,7 @@ export default class Calendar {
                         <div style="display: flex; align-items: center;">
                           <i class="fa-solid fa-screwdriver-wrench" style="font-size: 16px;"></i>
                           <span style="margin-left: 5px; display: flex; align-items: center;">
-                            <h5 style="margin: 0;"><strong>Available Jobs</strong></h5>
+                            <h4 style="margin: 0;"><strong>Available Jobs</strong></h4>
                           </span>
                           &nbsp;
                           <span class="badge badge-danger badge-pill counter" id="header-calendarjob-counter">${dataSet.workOrders.length}</span>
@@ -269,7 +269,7 @@ export default class Calendar {
         return {
           html: `<div style="padding: 10px; width: 100%" id="main-resource-header">
             <i class="fa-solid fa-icon-size fa-users-gear" style="font-size: 14px; margin-right: 5px"></i>
-            <span style="display: inline-block;"><h5><strong>Resources</strong></h5></span>
+            <span style="display: inline-block;"><h4><strong>Resources</strong></h4></span>
           </div>`
         }
       },
@@ -538,11 +538,7 @@ export default class Calendar {
     }
     const hasConflict = Event.draggedJobHasConflictEventToResource(start, data.resourceType, selectedResourceId);
     if (hasConflict) {
-      Swal.fire(
-        "There's already an assigned event.",
-        ``,
-        'warning'
-      );
+      WarningAlert.conflictSchedule();
       info.revert();
       return;
     }
@@ -556,8 +552,7 @@ export default class Calendar {
     ToolTip.remove();
 
     const payload = {};
-    const eventData = deepCopy(info.event.extendedProps);
-    const resourceId = eventData.woResourceId
+    const resourceId = info.newResource.id.split('-').pop();
     payload.id = resourceId;
     const startSplit = moment(info.event.startStr).format('YYYY-MM-DDTHH:mm').split('T');
     const endSplit = moment(info.event.endStr).format('YYYY-MM-DDTHH:mm').split('T');
@@ -573,18 +568,14 @@ export default class Calendar {
     if (calEvents.length) {
       const calEvent = calEvents.find(event => event.id == info.event.id);
       if (calEvent) {
-        const hasConflict = Event.draggedResourceHasConflictEvent(eventData.id, payload.date, payload.time, resourceId);
+        const hasConflict = Event.draggedEventToNewResourceHasConflictEvent(payload.date, payload.time, resourceId);
         const allowEvent = !hasConflict;
 
         if (allowEvent) {
           // console.log('----- [Updated Event Details] -----', payload, info);
           Resource.updateResourceAssignment(payload, info);
         } else {
-          Swal.fire(
-            "There's already an assigned event.",
-            '',
-            'warning'
-          );
+          WarningAlert.conflictSchedule();
           info.revert();
         }
       }
@@ -595,8 +586,7 @@ export default class Calendar {
     ToolTip.remove();
 
     const payload = {};
-    const eventData = deepCopy(info.event.extendedProps);
-    const resourceId = eventData.woAssetId;
+    const resourceId = info.newResource.id.split('-').pop();
     payload.id = resourceId;
     const startSplit = moment(info.event.startStr).format('YYYY-MM-DDTHH:mm').split('T');
     const endSplit = moment(info.event.endStr).format('YYYY-MM-DDTHH:mm').split('T');
@@ -612,20 +602,14 @@ export default class Calendar {
     if (calEvents.length) {
       const calEvent = calEvents.find(event => event.id == info.event.id);
       if (calEvent) {
-        const assetEvents = dataSet.assets
-          .map(asset => asset.id)
-          .includes(eventData.woAssetId);
-        const allowEvent = !assetEvents.length;
+        const hasConflict = Event.draggedEventToNewAssetHasConflictEvent(payload.date, payload.time, resourceId);
+        const allowEvent = !hasConflict;
 
         if (allowEvent) {
           // console.log('----- [Updated Event Details] -----', payload, info);
           Resource.updateAssetAssignment(payload, info);
         } else {
-          Swal.fire(
-            "There's already an assigned event.",
-            '',
-            'warning'
-          );
+          WarningAlert.conflictSchedule();
           info.revert();
         }
       }
@@ -671,11 +655,7 @@ export default class Calendar {
           // console.log('----- [Updated Event Details] -----', payload, info);
           Resource.updateResourceDateTime(payload, info);
         } else {
-          Swal.fire(
-            'Notice',
-            `Unable to proceed due to conflict event`,
-            'error'
-          );
+          WarningAlert.conflictSchedule();
           info.revert();
         }
       }
@@ -714,20 +694,14 @@ export default class Calendar {
     if (calEvents.length) {
       const calEvent = calEvents.find(event => event.id == info.event.id);
       if (calEvent) {
-        const assetEvents = dataSet.assets
-          .map(asset => asset.id)
-          .includes(resourceId);
-        const allowEvent = !assetEvents.length;
+        const hasConflict = Event.draggedAssetHasConflictEvent(eventData.id, payload.date, payload.time, resourceId);
+        const allowEvent = !hasConflict;
 
         if (allowEvent) {
           // console.log('----- [Updated Event Details] -----', payload, info);
           Resource.updateAssetDateTime(payload, info);
         } else {
-          Swal.fire(
-            'Notice',
-            `Unable to proceed due to conflict event`,
-            'error'
-          );
+          WarningAlert.conflictSchedule();
           info.revert();
         }
       }
@@ -861,11 +835,7 @@ export default class Calendar {
                 }
               }
             } else {
-              Swal.fire(
-                'Notice',
-                `Unable to proceed due to conflict event`,
-                'error'
-              );
+              WarningAlert.conflictSchedule();
               info.revert();
               return;
             }
@@ -896,11 +866,9 @@ export default class Calendar {
     const html = `<div class="card-header-options">
       <div class="dropdown" style="display:inline-block">
         <i class="fa-solid fa-angles-down" style="cursor: pointer"></i>
-        ${event.status.value !== 'COMPLETED' ? `<div class="dropdown-content" style="top: -30px">
-            ${(!event.workorder.value) ? `<a href="#" onclick="openGeneralEventModal(${eventId})">Update Event</a>` : `<a href="#" onclick="openEventModal('', '', ${eventId})">Update Event</a>`}
-            <a href="#" onclick="openCompleteEventModal('', ${eventId})">Complete Event</a>
-            <a href="#" onclick="deleteEventRecord('', ${eventId})">Remove Event</a>
-          </div>` : `<div class="dropdown-content">
+        ${`<div class="dropdown-content" style="top: -30px">
+            ${(!event.workorder.value) ? `<a href="#" onclick="openGeneralEventModal(${eventId})" ${event.status.value === 'COMPLETED' && "class='disabled'"}>Update Event</a>` : `<a href="#" onclick="openEventModal('', '', ${eventId})" ${event.status.value === 'COMPLETED' && "class='disabled'"}>Update Event</a>`}
+            <a href="#" onclick="openCompleteEventModal('', ${eventId})" ${event.status.value === 'COMPLETED' && "class='disabled'"}>Complete Event</a>
             <a href="#" onclick="deleteEventRecord('', ${eventId})">Remove Event</a>
           </div>`}
       </div>

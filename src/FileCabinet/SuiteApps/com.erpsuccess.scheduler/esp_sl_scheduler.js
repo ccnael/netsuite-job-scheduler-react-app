@@ -109,6 +109,7 @@ define([
       const resourceGroups = mod.Resource.getResourceGroups(resources);
       const vendors = mod.Resource.getVendors(events);
       const assets = mod.Resource.getAssets();
+      const assetTypes = mod.Resource.getAssetTypes(assets);
       const resourceSkills = mod.Resource.getResourceSkills(resources);
       const resourceLocations = mod.Resource.getResourceLocations(resources, vendors, assets);
       const resourceDepartments = mod.Resource.getResourceDepartments(resources, vendors, assets);
@@ -119,6 +120,7 @@ define([
         resourceGroups,
         vendors,
         assets,
+        assetTypes,
         resourceSkills,
         resourceLocations,
         resourceDepartments,
@@ -129,8 +131,8 @@ define([
         organizers
       });
 
-      const sampleWOs = workOrders.filter((_, index) => index < 30); // TBR
-      const sampleEvents = events.filter((_, index) => index < 30); // TBR
+      const sampleWOs = workOrders.filter((_, index) => index < 20); // TBR
+      const sampleEvents = events.filter((_, index) => index < 20); // TBR
 
       mod.Utils.createLogFile({
         userId: user.id,

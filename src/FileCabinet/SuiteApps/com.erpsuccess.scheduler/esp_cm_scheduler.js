@@ -3,7 +3,7 @@
  * @NModuleScope Public
  * 
  * TODO: 
- * - Convert searches to queries
+ * - Convert searches to sql queries
  * - Split other classes/functions as separate modules
  */
 define([
@@ -314,7 +314,7 @@ define([
           columns:
             [
               search.createColumn({ name: 'name', label: 'Name' }),
-              search.createColumn({ name: 'custrecord_esp_fop_asset_site', label: 'Asset Site' }),
+              // search.createColumn({ name: 'custrecord_esp_fop_asset_site', label: 'Asset Site' }),
               search.createColumn({ name: 'custrecord_esp_fop_asset_type', label: 'Asset Type' }),
               search.createColumn({ name: 'custrecord_esp_fop_asset_description', label: 'Description' }),
               search.createColumn({ name: 'custrecord_esp_fop_asset_quantity', label: 'Quantity' }),
@@ -344,10 +344,10 @@ define([
               text: result.getText('custrecord_esp_fop_asset_type'),
               value: result.getValue('custrecord_esp_fop_asset_type')
             },
-            site: {
+            /* site: {
               text: result.getText('custrecord_esp_fop_asset_site'),
               value: result.getValue('custrecord_esp_fop_asset_site')
-            },
+            }, */
             quantity: 0,
             maxQuantity: +result.getValue('custrecord_esp_fop_asset_quantity'),
             quantityRemaining: +result.getValue('custrecord_esp_fop_asset_quantity_remain'),
@@ -364,6 +364,17 @@ define([
         });
         // log.audit('----- [Assets & Equipments] -----', assets);
         return assets;
+      }
+
+      static getAssetTypes(assets) {
+        const assetTypes = assets
+          .map(asset => asset.type)
+          .filter(type => !!(type.value))
+          .filter((x, i, arr) =>
+            arr.findIndex(y => (y.value === x.value)) === i // Merge duplicates
+          );
+        // log.audit('ASSET TYPES', assetTypes);
+        return assetTypes;
       }
 
       static getResourceSkills(resources) {
@@ -952,7 +963,7 @@ define([
             }
             rec.setValue({ fieldId: 'custrecord_esp_fop_res_rate', value: resource.rate });
             rec.setValue({ fieldId: 'custrecord_esp_fop_res_vendor', value: resource.vendor.value });
-            rec.setValue({ fieldId: 'custrecord_esp_fop_res_rel_po', value: resource.purchaseOrder.value });
+            // rec.setValue({ fieldId: 'custrecord_esp_fop_res_rel_po', value: resource.purchaseOrder.value });
             rec.setValue({ fieldId: 'custrecord_esp_fop_res_aff_type', value: resource.affiliationType.value });
             rec.setValue({ fieldId: 'custrecord_esp_fop_res_start_time', value: _toDateTimez(event.date.start, !copyEventTime ? resource.time.start : event.time.start) }); // If no resource start time, use event start time instead
             rec.setValue({ fieldId: 'custrecord_esp_fop_res_end_time', value: _toDateTimez(event.date.start, !copyEventTime ? resource.time.end : event.time.end) }); // If no resource end time, use event end time instead
@@ -1305,15 +1316,15 @@ define([
               search.createColumn({ name: 'custrecord_esp_fop_ast_quantity', label: 'Quantity' }),
               search.createColumn({ name: 'custrecord_esp_fop_ast_item_desc', label: 'Item Description' }),
               // search.createColumn({ name: 'custrecord_esp_fop_ast_equipment', label: 'Equipment' }),
-              search.createColumn({ name: 'custrecordesp_fop_ast_rental_unit', label: 'Rental Unit' }),
-              search.createColumn({ name: 'custrecord_esp_fop_ast_rental_duration', label: 'Rental Duration' }),
-              search.createColumn({ name: 'custrecord_esp_fop_ast_rental_rate', label: 'Rental Rate' }),
-              search.createColumn({ name: 'custrecord_esp_fop_ast_rental_amount', label: 'Rental Amount' }),
-              search.createColumn({ name: 'custrecord_esp_fop_ast_related_po', label: 'Related Purchase Order' }),
-              search.createColumn({ name: 'custrecord_esp_fop_ast_primary_vendor', label: 'Vendor' }),
-              search.createColumn({ name: 'custrecord_esp_fop_ast_equip_type', label: 'Equipment Type' }),
+              // search.createColumn({ name: 'custrecordesp_fop_ast_rental_unit', label: 'Rental Unit' }),
+              // search.createColumn({ name: 'custrecord_esp_fop_ast_rental_duration', label: 'Rental Duration' }),
+              // search.createColumn({ name: 'custrecord_esp_fop_ast_rental_rate', label: 'Rental Rate' }),
+              // search.createColumn({ name: 'custrecord_esp_fop_ast_rental_amount', label: 'Rental Amount' }),
+              // search.createColumn({ name: 'custrecord_esp_fop_ast_related_po', label: 'Related Purchase Order' }),
+              // search.createColumn({ name: 'custrecord_esp_fop_ast_primary_vendor', label: 'Vendor' }),
+              // search.createColumn({ name: 'custrecord_esp_fop_ast_equip_type', label: 'Equipment Type' }),
               search.createColumn({ name: 'custrecord_esp_fop_ast_is_owned', label: 'Is Owned' }),
-              search.createColumn({ name: 'custrecord_esp_fop_ast_rental_mtrx', label: 'Rental Matrix' }),
+              // search.createColumn({ name: 'custrecord_esp_fop_ast_rental_mtrx', label: 'Rental Matrix' }),
               search.createColumn({ name: 'custrecord_esp_fop_ast_start_date', label: 'Start Date' }),
               search.createColumn({ name: 'custrecord_esp_fop_ast_end_date', label: 'End Date' }),
               search.createColumn({ name: 'custrecord_esp_fop_ast_start_time', label: 'Start Time' }),
@@ -1347,23 +1358,23 @@ define([
               text: result.getText('custrecord_esp_fop_ast_equip_type'),
               value: result.getValue('custrecord_esp_fop_ast_equip_type'),
             }, */
-            rentalUnit: {
+            /* rentalUnit: {
               text: result.getText('custrecordesp_fop_ast_rental_unit'),
               value: result.getValue('custrecordesp_fop_ast_rental_unit'),
-            },
-            rentalDuration: +result.getValue('custrecord_esp_fop_ast_rental_duration'),
-            rentalRate: +result.getValue('custrecord_esp_fop_ast_rental_rate'),
-            rentalAmount: +result.getValue('custrecord_esp_fop_ast_rental_amount'),
-            purchaseOrder: {
+            }, */
+            // rentalDuration: +result.getValue('custrecord_esp_fop_ast_rental_duration'),
+            // rentalRate: +result.getValue('custrecord_esp_fop_ast_rental_rate'),
+            // rentalAmount: +result.getValue('custrecord_esp_fop_ast_rental_amount'),
+            /* purchaseOrder: {
               text: result.getText('custrecord_esp_fop_ast_related_po'),
               value: result.getText('custrecord_esp_fop_ast_related_po'),
-            },
-            vendor: {
+            }, */
+            /* vendor: {
               text: result.getText('custrecord_esp_fop_ast_primary_vendor'),
               value: result.getValue('custrecord_esp_fop_ast_primary_vendor'),
-            },
+            }, */
             owned: result.getValue('custrecord_esp_fop_ast_is_owned'),
-            rentalMatrix: +result.getValue('custrecord_esp_fop_ast_rental_mtrx'),
+            // rentalMatrix: +result.getValue('custrecord_esp_fop_ast_rental_mtrx'),
             get time() {
               const startTime = result.getValue('custrecord_esp_fop_ast_start_time');
               const endTime = result.getValue('custrecord_esp_fop_ast_end_time');
@@ -1391,13 +1402,13 @@ define([
             rec.setValue({ fieldId: 'custrecord_esp_fop_ast_asset_rec', value: asset.id });
             rec.setValue({ fieldId: 'custrecord_esp_fop_ast_wo_event', value: event.id });
             rec.setValue({ fieldId: 'custrecord_esp_fop_ast_quantity', value: asset.quantity });
-            rec.setValue({ fieldId: 'custrecord_esp_fop_ast_rental_duration', value: asset.rentalDuration });
-            rec.setValue({ fieldId: 'custrecord_esp_fop_ast_rental_rate', value: asset.rentalRate });
+            // rec.setValue({ fieldId: 'custrecord_esp_fop_ast_rental_duration', value: asset.rentalDuration });
+            // rec.setValue({ fieldId: 'custrecord_esp_fop_ast_rental_rate', value: asset.rentalRate });
             rec.setValue({ fieldId: 'custrecord_esp_fop_ast_is_owned', value: !!asset.owned });
-            rec.setValue({ fieldId: 'custrecord_esp_fop_ast_rental_mtrx', value: asset.rentalMatrix });
+            // rec.setValue({ fieldId: 'custrecord_esp_fop_ast_rental_mtrx', value: asset.rentalMatrix });
             rec.setValue({ fieldId: 'custrecord_esp_fop_ast_rel_wo', value: woRef?.id || '' });
-            rec.setValue({ fieldId: 'custrecordesp_fop_ast_rental_unit', value: asset?.rentalUnit?.value || '' });
-            rec.setValue({ fieldId: 'custrecord_esp_fop_ast_primary_vendor', value: asset?.vendor?.value || '' });
+            // rec.setValue({ fieldId: 'custrecordesp_fop_ast_rental_unit', value: asset?.rentalUnit?.value || '' });
+            // rec.setValue({ fieldId: 'custrecord_esp_fop_ast_primary_vendor', value: asset?.vendor?.value || '' });
             rec.setValue({ fieldId: 'custrecord_esp_fop_ast_start_time', value: _toDateTimez(event.date.start, !copyEventTime ? asset.time.start : event.time.start) }); // If no asset start time, use event start time instead
             rec.setValue({ fieldId: 'custrecord_esp_fop_ast_end_time', value: _toDateTimez(event.date.start, !copyEventTime ? asset.time.end : event.time.end) }); // If no asset end time, use event end time instead
             const newId = rec.save({ ignoreMandatoryFieds: true });
@@ -1417,7 +1428,7 @@ define([
         const removedAssets = srcAssets.filter(asset => !(selectedassetIds.includes(asset.id)));
         const newAssets = selectedAssets.filter(asset => !(srcAssetIds.includes(asset.id)));
 
-        log.audit('Updating WO asset Event List', { selectedAssets, removedAssets, newAssets });
+        log.audit('Updating WO Asset Event List', { selectedAssets, removedAssets, newAssets });
 
         // If theres to quantity update
         for (const asset of selectedAssets) {
@@ -1441,7 +1452,7 @@ define([
               log.audit('----- [Updated WO Asset Record] -----', { asset });
             }
           } catch (e) {
-            log.error('Error on WO asset > Update', { asset, errorMsg: e.message });
+            log.error('Error on WO Asset > Update', { asset, errorMsg: e.message });
           }
         }
         // If theres to remove

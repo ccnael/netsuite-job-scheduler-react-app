@@ -1,6 +1,8 @@
 $color_7: #333;
 $background-color_2: #ffffff;
 $background-color_5: #499ff9;
+// $background-color_5: #234678;
+// $background-color_5: #2d3e50;
 $background-color_6: #f9944a;
 $background-color_10: #888;
 $background-color_17: #f1f1f1;
@@ -184,10 +186,21 @@ $background-color_19: #f0f0f0;
 	.thirdColumn {
 		flex-basis: 10%;
 		min-width: 350px;
+		// .card-header {
+		// 	justify-content: center;
+		// 	background-color: $background-color_5;
+		// 	text-align: center;
+		// }
+		// .card-header {
+		// 	// background-color: $background-color_6;
+		// 	background: white;
+		// 	color: black;
+		// 	border-radius: 5px;
+		// }
 		.card-header {
-			justify-content: center;
 			background-color: $background-color_5;
-			text-align: center;
+			border-radius: 5px;
+			margin: 2.5px;
 		}
 		overflow: auto;
 		.card-item {

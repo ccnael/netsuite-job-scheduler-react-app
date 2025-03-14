@@ -93,7 +93,7 @@ export const assetsDtColumns = [
   {
     className: 'dt-head-center dt-body-center',
     data: 'name',
-    title: 'Item Code'
+    title: 'Name'
   },
   {
     className: 'dt-head-center dt-body-center',

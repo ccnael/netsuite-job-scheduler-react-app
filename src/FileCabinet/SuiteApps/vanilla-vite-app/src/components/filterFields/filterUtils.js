@@ -635,6 +635,7 @@ export function onClickResource() {
 // -----------------------------------------------------------------
 export function onFilterCalendarEvent(fieldId, pageSwitched, info) {
   const $field = {
+    eventId: $(`${fieldId} input[class*="event-id"]`),
     resource: $(`${fieldId} select.multiple-resource-field`),
     resourceGroup: $(`${fieldId} select.multiple-resource-group-field`),
     status: $(`${fieldId} select.multiple-event-status-field`),
@@ -644,6 +645,7 @@ export function onFilterCalendarEvent(fieldId, pageSwitched, info) {
     receiptStatus: $(`${fieldId} select.multiple-event-receipt-field`)
   };
   const $selected = {
+    eventId: '',
     resource: [],
     resourceGroup: [],
     status: [],
@@ -665,16 +667,24 @@ export function onFilterCalendarEvent(fieldId, pageSwitched, info) {
     }
   } else {
     for (const id in $field) {
-      if ($field[id].length) {
-        $field[id].on('change', function () {
-          $selected[id] = $(this).val() || [];
+      if (id === 'eventId') {
+        $field[id].on('keyup', function () {
+          $selected.eventId = $(this).val() || '';
           filterItems();
         });
+      } else {
+        if ($field[id].length) {
+          $field[id].on('change', function () {
+            $selected[id] = $(this).val() || [];
+            filterItems();
+          });
+        }
       }
     }
   }
 
   function filterItems() {
+    // console.log('$selected', $selected);
     window.FullCalendar.refetchResources();
     window.FullCalendar.refetchEvents();
     window.FullCalendar.getResources().forEach(resource => {
@@ -698,12 +708,19 @@ export function onFilterCalendarEvent(fieldId, pageSwitched, info) {
     if ($selected.resourceGroup.length) {
       calendarResources = calendarResources.filter(calendarResource => $selected.resourceGroup.includes(calendarResource.id.split('-').pop()));
     }
+    if ($selected.resourceGroup.length) {
+      calendarResources = calendarResources.filter(calendarResource => $selected.resourceGroup.includes(calendarResource.id.split('-').pop()));
+    }
     if ($selected.resource.length) {
       calendarResources.forEach(calendarResource => {
         calendarResource.children = calendarResource.children.filter(resource => $selected.resource.includes(resource.id.split('-').pop()));
       });
     }
     let calendarEvents = window.FullCalendar.getEvents();
+    if ($selected.eventId.length) {
+      const id_regExp = new RegExp($selected.eventId, 'gi');
+      calendarEvents = calendarEvents.filter(event => event.id && event.id.match(id_regExp));
+    }
     if ($selected.status.length) {
       calendarEvents = calendarEvents.filter(event => !!($selected.status.includes(event.extendedProps.status.value)));
     }
@@ -903,6 +920,69 @@ export function onFilterEventResource(fieldId) {
   }
 }
 
+export function onFilterEventAsset(fieldId) {
+  const dataTable = $('#assets').DataTable();
+  const $assetFilter = $(`${fieldId} select.multiple-asset-field`);
+  const $assetTypeFilter = $(`${fieldId} select.multiple-asset-type-field`);
+  if ($assetFilter.length) {
+    $assetFilter.on('change', () => {
+      filterItems();
+      dataTable.draw();
+      updateFilterCounter();
+    });
+  }
+  if ($assetTypeFilter.length) {
+    $assetTypeFilter.on('change', () => {
+      filterItems();
+      dataTable.draw();
+      updateFilterCounter();
+    });
+  }
+
+  function filterItems() {
+    // Asset custom filtering
+    $.fn.dataTable.ext.search.push(function (settings, data, dataIndex) {
+      const assetTexts = $assetFilter.find('option:selected').map(function () {
+        return $(this).text();
+      }).get();
+      if (!assetTexts.length) {
+        return true; // No filter applied, show all rows
+      }
+      const cellContent = $(dataTable.cell(dataIndex, 1).node()).text(); // Change index to target your rendered column
+      return assetTexts.includes(cellContent);
+    });
+    // Asset Type custom filtering
+    $.fn.dataTable.ext.search.push(function (settings, data, dataIndex) {
+      const assetTypeTexts = $assetTypeFilter.find('option:selected').map(function () {
+        return $(this).text();
+      }).get();
+      if (!assetTypeTexts.length) {
+        return true; // No filter applied, show all rows
+      }
+      const cellContent = $(dataTable.cell(dataIndex, 3).node()).text(); // Change index to target your rendered column
+      return assetTypeTexts.includes(cellContent);
+    });
+
+    $assetFilter.selectpicker();
+    $assetTypeFilter.selectpicker();
+  }
+
+  function updateFilterCounter() {
+    const $selected = {
+      asset: $assetFilter.val() || [],
+      assetType: $assetTypeFilter.val() || [],
+    };
+    let counter = 0;
+    for (const key in $selected) {
+      if (!key.match(/date/g))
+        counter += $selected[key].length;
+      else if (!!$selected[key])
+        counter++;
+    }
+    $('#filter-eventasset-counter').html(counter);
+  }
+}
+
 // General Event Modal Filters
 // -----------------------------------------------------------------
 export function onFilterGeneralEventResource(fieldId) {
@@ -1046,5 +1126,69 @@ export function onFilterGeneralEventResource(fieldId) {
       counter++;
     }
     $('#filter-generaleventresource-counter').html(counter);
+  }
+}
+
+export function onFilterGeneralEventAsset(fieldId) {
+  const dataTable = $('#assets_ge').DataTable();
+  const $assetFilter = $(`${fieldId} select.multiple-asset-field`);
+  const $assetTypeFilter = $(`${fieldId} select.multiple-asset-type-field`);
+
+  if ($assetFilter.length) {
+    $assetFilter.on('change', () => {
+      filterItems();
+      dataTable.draw();
+      updateFilterCounter();
+    });
+  }
+  if ($assetTypeFilter.length) {
+    $assetTypeFilter.on('change', () => {
+      filterItems();
+      dataTable.draw();
+      updateFilterCounter();
+    });
+  }
+
+  function filterItems() {
+    // Asset custom filtering
+    $.fn.dataTable.ext.search.push(function (settings, data, dataIndex) {
+      const assetTexts = $assetFilter.find('option:selected').map(function () {
+        return $(this).text();
+      }).get();
+      if (!assetTexts.length) {
+        return true; // No filter applied, show all rows
+      }
+      const cellContent = $(dataTable.cell(dataIndex, 1).node()).text(); // Change index to target your rendered column
+      return assetTexts.includes(cellContent);
+    });
+    // Asset Type custom filtering
+    $.fn.dataTable.ext.search.push(function (settings, data, dataIndex) {
+      const assetTypeTexts = $assetTypeFilter.find('option:selected').map(function () {
+        return $(this).text();
+      }).get();
+      if (!assetTypeTexts.length) {
+        return true; // No filter applied, show all rows
+      }
+      const cellContent = $(dataTable.cell(dataIndex, 3).node()).text(); // Change index to target your rendered column
+      return assetTypeTexts.includes(cellContent);
+    });
+
+    $assetFilter.selectpicker();
+    $assetTypeFilter.selectpicker();
+  }
+
+  function updateFilterCounter() {
+    const $selected = {
+      asset: $assetFilter.val() || [],
+      assetType: $assetTypeFilter.val() || [],
+    };
+    let counter = 0;
+    for (const key in $selected) {
+      if (!key.match(/date/g))
+        counter += $selected[key].length;
+      else if (!!$selected[key])
+        counter++;
+    }
+    $('#filter-generaleventasset-counter').html(counter);
   }
 }

@@ -1,44 +1,87 @@
 import { userId, suiteletUrl, assets, events, filterFields } from './dataSet';
 
-export function selectDefaultTab() {
-  const sessionKey = /netsuite\.com/.test(window.location.href) ? `${userId}:lastClickedTab` : 'lastClickedTab';
-  const lastTab = localStorage.getItem(sessionKey);
-  if (lastTab) {
-    $('.tab').removeClass('active');
-    $(`div[data-target="${lastTab}"]`).closest(`.${lastTab.replace('Section', '')}`).addClass('active');
-    $('.tab-content').hide();
-    $(`#${lastTab}`).show();
+const CACHE_KEY = {
+  NewEvent: 'newEvent',
+  UpdatedEvent: 'updatedEvent',
+  ActiveTab: 'activeTab'
+}
 
-    if (lastTab === 'calendarSection') {
-      setTimeout(() => {
-        hideCustomLoader();
-        window.FullCalendar.render();
-      }, 500);
+export class Cache {
+
+  static get(key) {
+    return localStorage.getItem(key);
+  }
+
+  static clear(key) {
+    localStorage.removeItem(key);
+  }
+
+  static set(key, value) {
+    localStorage.setItem(key, value);
+  }
+
+  static setDefaultTab() {
+    const sessionKey = CACHE_KEY.ActiveTab;
+    const activeTab = this.get(sessionKey);
+    if (activeTab) {
+      $('.tab').removeClass('active');
+      $(`div[data-target="${activeTab}"]`)
+        .closest(`.${activeTab.replace('Section', '')}`)
+        .addClass('active');
+      $('.tab-content').hide();
+      $(`#${activeTab}`).show();
+
+      if (activeTab === 'calendarSection') {
+        setTimeout(() => {
+          hideCustomLoader();
+          window.FullCalendar.render();
+        }, 500);
+      } else {
+        setTimeout(() => {
+          hideCustomLoader();
+          $('#calendarSection').hide();
+        }, 500);
+      }
     } else {
       setTimeout(() => {
         hideCustomLoader();
         $('#calendarSection').hide();
       }, 500);
     }
-  } else {
-    setTimeout(() => {
-      hideCustomLoader();
-      $('#calendarSection').hide();
-    }, 500);
+
+    // Onchange tab
+    $('header div.tab').on('click', function () {
+      $('.tab').removeClass('active');
+      $(this).addClass('active');
+
+      const targetSectionId = $(this).data('target');
+      localStorage.setItem(sessionKey, targetSectionId);
+      $('.tab-content').hide();
+      $(`#${targetSectionId}`).show();
+
+      targetSectionId === 'calendarSection' && setTimeout(() => window.FullCalendar.render());
+    });
   }
 
-  // Onchange tab
-  $('header div.tab').on('click', function () {
-    $('.tab').removeClass('active');
-    $(this).addClass('active');
-
-    const targetSectionId = $(this).data('target');
-    localStorage.setItem(sessionKey, targetSectionId);
-    $('.tab-content').hide();
-    $(`#${targetSectionId}`).show();
-
-    targetSectionId === 'calendarSection' && setTimeout(() => window.FullCalendar.render());
-  });
+  static showLastAction() {
+    for (const key in CACHE_KEY) {
+      if (key === 'ActiveTab') continue;
+      const message = localStorage.getItem(CACHE_KEY[key]);
+      if (message) {
+        Toastify({
+          text: message,
+          duration: 99999,
+          close: true,
+          gravity: 'top',
+          position: 'right',
+          style: {
+            background: 'linear-gradient(to right, #00b09b, #96c93d)',
+          }
+        }).showToast();
+        this.clear(CACHE_KEY[key]);
+      }
+    }
+  }
 }
 
 export class Event {
@@ -224,12 +267,12 @@ export class Event {
       if (ev.target.checked) {
         $(`${selector} .starttime`).val('08:00'); // NS default starttime
         $(`${selector} .endtime`).val('18:00'); // NS default endtime
-        $(`${selector} .starttime`).prop('disabled', true);
-        $(`${selector} .endtime`).prop('disabled', true);
+        $(`${selector} .starttime`).addClass('disabled');
+        $(`${selector} .endtime`).addClass('disabled');
         this._setAllDayResourceTime(selector);
       } else {
-        $(`${selector} .starttime`).prop('disabled', false);
-        $(`${selector} .endtime`).prop('disabled', false);
+        $(`${selector} .starttime`).removeClass('disabled');
+        $(`${selector} .endtime`).removeClass('disabled');
       }
     });
   }
@@ -302,6 +345,7 @@ export class Event {
   }
 
   static draggedResourceHasConflictEvent(eventId, date, time, resourceId) {
+    // console.log('draggedResourceHasConflictEvent args', arguments);
     const start = moment(`${date.start} ${time.start}`);
     const end = moment(`${date.end} ${time.end}`);
     const resourceEvents = events.filter(event => event.resources.map(resource => resource.employee.value).includes(resourceId));
@@ -309,6 +353,59 @@ export class Event {
       const eventStart = `${event.date.start} ${event.time.start}`;
       const eventEnd = `${event.date.end} ${event.time.end}`;
       return event.status.value !== 'COMPLETED' && event.id != eventId && (moment(eventEnd).isBetween(start, end, null, '[]') || moment(eventStart).isSameOrBefore(start) && moment(eventEnd).isSameOrAfter(end));
+    });
+    // console.log('draggedResourceHasConflictEvent > conflictEvents', conflictEvents);
+    return !!conflictEvents.length;
+  }
+
+  static draggedEventToNewResourceHasConflictEvent(date, time, resourceId) {
+    const start = moment(`${date.start} ${time.start}`);
+    const end = moment(`${date.end} ${time.end}`);
+    const resourceEvents = events.filter(event => event.resources.map(resource => resource.employee.value).includes(resourceId));
+    const conflictEvents = resourceEvents.filter(event => {
+      const eventStart = `${event.date.start} ${event.time.start}`;
+      const eventEnd = `${event.date.end} ${event.time.end}`;
+      const result = event.status.value !== 'COMPLETED' && (moment(eventEnd).isBetween(start, end, null, '[]') || moment(eventStart).isSameOrBefore(start) || moment(eventEnd).isSameOrAfter(end));
+      /* console.log('EVENT', event, result, 'Check Conditions', {
+        "event.status.value !== 'COMPLETED'": event.status.value !== 'COMPLETED',
+        "moment(eventEnd).isBetween(start, end, null, '[]')": moment(eventEnd).isBetween(start, end, null, '[]'),
+        "moment(eventStart).isSameOrBefore(start)": moment(eventStart).isSameOrBefore(start),
+        "moment(eventEnd).isSameOrAfter(end)": moment(eventEnd).isSameOrAfter(end)
+      }); */
+      return result;
+    });
+    return !!conflictEvents.length;
+  }
+
+  static draggedAssetHasConflictEvent(eventId, date, time, resourceId) {
+    // console.log('draggedAssetHasConflictEvent args', arguments);
+    const start = moment(`${date.start} ${time.start}`);
+    const end = moment(`${date.end} ${time.end}`);
+    const resourceEvents = events.filter(event => event.assets.map(asset => asset.asset.value).includes(resourceId));
+    const conflictEvents = resourceEvents.filter(event => {
+      const eventStart = `${event.date.start} ${event.time.start}`;
+      const eventEnd = `${event.date.end} ${event.time.end}`;
+      return event.status.value !== 'COMPLETED' && event.id != eventId && (moment(eventEnd).isBetween(start, end, null, '[]') || moment(eventStart).isSameOrBefore(start) && moment(eventEnd).isSameOrAfter(end));
+    });
+    // console.log('draggedAssetHasConflictEvent > conflictEvents', conflictEvents);
+    return !!conflictEvents.length;
+  }
+
+  static draggedEventToNewAssetHasConflictEvent(date, time, resourceId) {
+    const start = moment(`${date.start} ${time.start}`);
+    const end = moment(`${date.end} ${time.end}`);
+    const resourceEvents = events.filter(event => event.assets.map(asset => asset.asset.value).includes(resourceId));
+    const conflictEvents = resourceEvents.filter(event => {
+      const eventStart = `${event.date.start} ${event.time.start}`;
+      const eventEnd = `${event.date.end} ${event.time.end}`;
+      const result = event.status.value !== 'COMPLETED' && (moment(eventEnd).isBetween(start, end, null, '[]') || moment(eventStart).isSameOrBefore(start) || moment(eventEnd).isSameOrAfter(end));
+      /* console.log('EVENT', event, result, 'Check Conditions', {
+        "event.status.value !== 'COMPLETED'": event.status.value !== 'COMPLETED',
+        "moment(eventEnd).isBetween(start, end, null, '[]')": moment(eventEnd).isBetween(start, end, null, '[]'),
+        "moment(eventStart).isSameOrBefore(start)": moment(eventStart).isSameOrBefore(start),
+        "moment(eventEnd).isSameOrAfter(end)": moment(eventEnd).isSameOrAfter(end)
+      }); */
+      return result;
     });
     return !!conflictEvents.length;
   }
@@ -327,7 +424,7 @@ export class Event {
         resourceEvents = events
           .filter(event => event.resources.map(resource => resource.employee.value)
             .includes(resourceId));
-        // console.log('>>>', conflictEvents(resourceEvents));
+        // console.log('draggedJobHasConflictEventToResource > conflictEvents', conflictEvents(resourceEvents));
         return !!conflictEvents(resourceEvents).length;
       case 'vendor':
         resourceEvents = events
@@ -370,11 +467,13 @@ export class Event {
                 .then(response => response.json())
                 .then(result => {
                   if (result.code == 200) {
+                    const messageTxt = `Event ${payload.eventData.title} [ID ${result.recordId}] has been created`;
                     Swal.fire({
                       title: 'Success!',
-                      text: `Event ${payload.eventData.title} [ID ${result.recordId}] has been created`,
+                      text: messageTxt,
                       icon: 'success'
                     });
+                    Cache.set(CACHE_KEY.NewEvent, messageTxt);
                     $(`#${modalId}`).modal('hide');
                     window.location.reload();
                   } else {
@@ -430,11 +529,13 @@ export class Event {
                 .then(response => response.json())
                 .then(result => {
                   if (result.code == 200) {
+                    const messageTxt = `Event ${payload.eventData.title} [ID ${payload.eventData.id}] has been updated`;
                     Swal.fire({
                       title: 'Success!',
-                      text: `Event ${payload.eventData.title} [ID ${payload.eventData.id}] has been updated`,
+                      text: messageTxt,
                       icon: 'success'
                     });
+                    Cache.set(CACHE_KEY.UpdatedEvent, messageTxt);
                     $(`#${modalId}`).modal('hide');
                     window.location.reload();
                   } else {
@@ -996,6 +1097,17 @@ export class ToolTip {
   static remove() {
     $('.tooltip').remove();
   }
+}
+
+export class WarningAlert {
+  static conflictSchedule() {
+    Swal.fire(
+      "Oops! There's a scheduling conflict.",
+      `Another event overlaps with your selected date and time. Try adjusting the time or checking the calendar for availability.`,
+      'warning'
+    );
+  }
+  // TBD
 }
 
 function hideCustomLoader() {
