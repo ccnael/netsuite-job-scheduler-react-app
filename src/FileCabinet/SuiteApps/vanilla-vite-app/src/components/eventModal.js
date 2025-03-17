@@ -416,7 +416,7 @@ $(document).ready(() => {
         columns: resourcesDtColumns,
         initComplete: () => {
           eventFormHandlers();
-          addFilterIcon();
+          applyFiltersWithDelay();
         }
       });
 
@@ -828,7 +828,7 @@ $(document).ready(() => {
     window.validateForm = () => true;
   }
 
-  function addFilterIcon() {
+  async function applyFiltersWithDelay(delay = 10) {
     const sections = [{
       wrapper: 'resources',
       id: 'resource',
@@ -838,11 +838,14 @@ $(document).ready(() => {
       id: 'asset',
       target: 'filterFieldEventAsset'
     }];
-    sections.map(section => {
+    await new Promise(resolve => setTimeout(resolve, delay)); // Delay execution
+
+    sections.forEach(section => {
       const entriesLabel = $(`#${section.wrapper}_wrapper div.dt-length`);
       entriesLabel.addClass('d-flex align-items-center mb-2'); // Align entries label with search bar
       const dtSearch = $(`#${section.wrapper}_wrapper .dt-search`);
       dtSearch.addClass('d-flex align-items-center mb-2'); // Align search bar as well
+
       // Add filter icon beside the entries label
       entriesLabel.append(`
         <div class="d-flex align-items-center">

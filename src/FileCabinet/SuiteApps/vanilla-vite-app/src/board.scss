@@ -125,7 +125,8 @@ $background-color_19: #f0f0f0;
 	.cursor-x {
 		cursor: not-allowed; /* 'x' cursor to show restricted drag area */
 	}
-	.multiple-resource-field-hidden {
+	.multiple-boardeventresource-field-hidden,
+	.multiple-boardresource-field-hidden {
 		display: none;
 	}
 }

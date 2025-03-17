@@ -125,6 +125,12 @@
       "modalId": "#filterFieldBoardEvent",
       "fields": [
         {
+          "label": "Event ID",
+          "className": "board-event-id",
+          "type": "text",
+          "display": true
+        },
+        {
           "label": "Resource Name",
           "className": "multiple-resource-field",
           "type": "multiselect",

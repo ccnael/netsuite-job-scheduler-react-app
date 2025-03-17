@@ -105,6 +105,7 @@
 #boardSection .cursor-x {
   cursor: not-allowed; /* 'x' cursor to show restricted drag area */
 }
-#boardSection .multiple-resource-field-hidden {
+#boardSection .multiple-boardeventresource-field-hidden,
+#boardSection .multiple-boardresource-field-hidden {
   display: none;
 }/*# sourceMappingURL=board.css.map */

@@ -95,7 +95,12 @@ $(document).ready(() => {
           </div>`;
           break;
         case 'text':
-          fieldStr = `<input type="text" class="form-control ${field.className} custom-select-style" placeholder="Enter ${field.label}">`;
+          fieldStr = `<input type="text" class="form-control ${field.className}" placeholder="Enter ${field.label}">
+          <button type="button" class="position-absolute end-0 top-50 translate-middle-y border-0 bg-transparent text-muted me-4 d-none"
+            onclick="triggerClearTextField('${`${modalId} .filter-fields .${field.className}`}');">
+            &times;
+          </button>
+          `;
           break;
       }
       holder += !el.length
@@ -127,6 +132,22 @@ $(document).ready(() => {
     $(`${modalId} .filterForm`).show();
     $(modalId).css('z-index', '-999');
   });
+
+  function addClearInputText() {
+    const $input = $("#searchInput");
+    const $clearBtn = $("#clearButton");
+
+    // Show/hide "X" button based on input value
+    $input.on("input", function () {
+      $clearBtn.toggle($(this).val().length > 0);
+    });
+
+    // When "X" is clicked, clear input and trigger keyup event
+    $clearBtn.on("click", function () {
+      $input.val("").trigger("keyup").focus();
+      $(this).hide();
+    });
+  }
 
   function showCustomLoader() {
     $(`${modalId} .spinner`).show();

@@ -145,7 +145,9 @@ define([
             get url() {
               return encodeURIComponent(Url.resource(this.id))
             },
-            events: events.filter(event => event.resources.map(resource => resource.employee.value).includes(result.id)).map(event => event.id),
+            events: events
+              .filter(event => event.resources.map(resource => resource.employee.value).includes(result.id))
+              .map(event => event.id),
             labRates: JSON.parse(result.getValue('custentity_esp_fop_labour_rate_matrix') || '[]'),
             time: {
               start: '',
@@ -262,7 +264,10 @@ define([
               value: ''
             },
             woVendor: false,
-            events: events.filter(event => event.vendors.map(vendor => vendor.vendor.value).includes(result.id)).map(event => event.id),
+            events: events
+              .filter(event => event.vendors.map(vendor => vendor.vendor.value)
+                .includes(result.id))
+              .map(event => event.id),
             memo: '',
             location: {
               text: '',
@@ -275,7 +280,8 @@ define([
             time: {
               start: '',
               end: ''
-            }
+            },
+            active: true
           });
           return true;
         })
@@ -357,6 +363,9 @@ define([
             time: {
               start: '',
               end: ''
+            },
+            get active() {
+              return this.quantityRemaining > 0;
             }
           };
           assets.push(assetObj);
@@ -1033,6 +1042,7 @@ define([
         const { request, response } = context;
         let reqBody = request.body || '{}';
         const payload = JSON.parse(reqBody);
+        log.debug('payload', payload);
 
         try {
           const lookUp = search.lookupFields({
@@ -1040,6 +1050,7 @@ define([
             id: payload.id,
             columns: ['custrecord_esp_fop_res_employee']
           });
+          log.debug('lookUp', lookUp);
           const oldResourceId = lookUp.custrecord_esp_fop_res_employee[0]?.value;
           const newResourceId = payload.newResource.id;
           const values = {};

@@ -95,7 +95,12 @@ $(document).ready(() => {
           </div>`;
           break;
         case 'text':
-          fieldStr = `<input type="text" class="form-control ${field.className} custom-select-style" placeholder="Enter ${field.label}">`;
+          fieldStr = `<input type="text" class="form-control ${field.className}" placeholder="Enter ${field.label}">
+          <button type="button" class="position-absolute end-0 top-50 translate-middle-y border-0 bg-transparent text-muted me-4 d-none"
+            onclick="triggerClearTextField('${`${modalId} .filter-fields .${field.className}`}');">
+            &times;
+          </button>
+          `;
           break;
       }
       holder += !el.length

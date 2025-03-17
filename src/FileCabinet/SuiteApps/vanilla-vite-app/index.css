@@ -658,4 +658,12 @@ button.btn {
   overflow: hidden; /* Ensures border-radius is applied */
   border-collapse: separate;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow */
+}
+
+/* Show the button only when input has text */
+input:not(:-moz-placeholder-shown) + button {
+  display: block !important;
+}
+input:not(:placeholder-shown) + button {
+  display: block !important;
 }/*# sourceMappingURL=index.css.map */

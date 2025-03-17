@@ -1,28 +1,38 @@
-import { userId, suiteletUrl, assets, events, filterFields } from './dataSet';
+import { suiteletUrl, events, filterFields } from './dataSet';
 
 const CACHE_KEY = {
+  UpdatedWOStatus: 'updatedWOStatus',
   NewEvent: 'newEvent',
   UpdatedEvent: 'updatedEvent',
+  DeletedEvent: 'deletedEvent',
   ActiveTab: 'activeTab'
+}
+
+const DateFormat = {
+  EXPORT_DATE: 'YYYY-MM-DD',
+  IMPORT_DATE: 'M/D/YYYY',
+  EXPORT_TIME: 'HH:mm',
+  IMPORT_TIME: 'h:mm a'
 }
 
 export class Cache {
 
-  static get(key) {
+  static _get(key) {
     return localStorage.getItem(key);
   }
 
-  static clear(key) {
-    localStorage.removeItem(key);
+  static _set(key, value) {
+    localStorage.setItem(key, value);
   }
 
-  static set(key, value) {
-    localStorage.setItem(key, value);
+  static _clear(key) {
+    localStorage.removeItem(key);
   }
 
   static setDefaultTab() {
     const sessionKey = CACHE_KEY.ActiveTab;
-    const activeTab = this.get(sessionKey);
+    const activeTab = this._get(sessionKey);
+
     if (activeTab) {
       $('.tab').removeClass('active');
       $(`div[data-target="${activeTab}"]`)
@@ -64,23 +74,33 @@ export class Cache {
   }
 
   static showLastAction() {
-    for (const key in CACHE_KEY) {
-      if (key === 'ActiveTab') continue;
-      const message = localStorage.getItem(CACHE_KEY[key]);
-      if (message) {
-        Toastify({
-          text: message,
-          duration: 99999,
-          close: true,
-          gravity: 'top',
-          position: 'right',
-          style: {
-            background: 'linear-gradient(to right, #00b09b, #96c93d)',
-          }
-        }).showToast();
-        this.clear(CACHE_KEY[key]);
+    const that = this;
+
+    async function showToast() {
+      for (const key in CACHE_KEY) {
+        if (key === "ActiveTab") continue;
+        const message = that._get(CACHE_KEY[key]);
+        if (message) {
+          await new Promise((resolve) => {
+            Toastify({
+              text: message,
+              duration: 99999,
+              close: true,
+              gravity: "top",
+              position: "right",
+              style: {
+                background: "linear-gradient(to right, #00b09b, #96c93d)",
+              },
+              callback: resolve
+            }).showToast();
+            setTimeout(resolve, 1000);
+          });
+
+          that._clear(CACHE_KEY[key]);
+        }
       }
     }
+    showToast();
   }
 }
 
@@ -473,7 +493,7 @@ export class Event {
                       text: messageTxt,
                       icon: 'success'
                     });
-                    Cache.set(CACHE_KEY.NewEvent, messageTxt);
+                    Cache._set(CACHE_KEY.NewEvent, messageTxt);
                     $(`#${modalId}`).modal('hide');
                     window.location.reload();
                   } else {
@@ -535,7 +555,7 @@ export class Event {
                       text: messageTxt,
                       icon: 'success'
                     });
-                    Cache.set(CACHE_KEY.UpdatedEvent, messageTxt);
+                    Cache._set(CACHE_KEY.UpdatedEvent, messageTxt);
                     $(`#${modalId}`).modal('hide');
                     window.location.reload();
                   } else {
@@ -604,11 +624,13 @@ export class Event {
                 })
                   .then(response => response.json())
                   .then(result => {
+                    const messageTxt = `Event ${payload.eventData?.title || ''} [ID ${eventId}] has been deleted`;
                     Swal.fire({
                       title: 'Deleted!',
-                      text: `Event ${payload.eventData?.title || ''} [ID ${eventId}] has been deleted`,
+                      text: messageTxt,
                       icon: 'success'
                     });
+                    Cache._set(CACHE_KEY.DeletedEvent, messageTxt);
                     window.location.reload();
                     Swal.hideLoading();
                   })
@@ -656,12 +678,14 @@ export class Event {
                 .then(response => response.json())
                 .then(result => {
                   if (result.code == 200) {
+                    const messageTxt = `Event [ID ${eventId}] has been completed`;
                     Swal.fire({
                       title: 'Success!',
-                      text: `Event [ID ${eventId}] completed`,
+                      text: messageTxt,
                       icon: 'success'
                     });
-                    window.location.reload()
+                    Cache._set(CACHE_KEY.UpdatedEvent, messageTxt);
+                    window.location.reload();
                   } else {
                     Swal.fire({
                       title: 'Unexpected Error',
@@ -692,7 +716,6 @@ export class Event {
 export class Resource {
 
   static updateResourceAssignment(payload, eventInfo) {
-    console.log('updateResourceAssignment eventInfo', eventInfo);
     payload.newResource = eventInfo.newResource.extendedProps;
     console.log('----- [updateResourceAssignment() -> PAYLOAD] -----', { payload, eventInfo: eventInfo || '' });
 
@@ -725,11 +748,13 @@ export class Resource {
                 .then(response => response.json())
                 .then(result => {
                   if (result.code == 200) {
+                    const messageTxt = `Event [ID ${eventId}] has been reassigned from ${oldResourceName} to ${newResourceName}`;
                     Swal.fire({
                       title: 'Success!',
-                      text: `Reassigned to ${newResourceName}`,
+                      text: messageTxt,
                       icon: 'success'
                     });
+                    Cache._set(CACHE_KEY.UpdatedEvent, messageTxt);
                     window.location.reload();
                   } else {
                     Swal.fire({
@@ -765,13 +790,9 @@ export class Resource {
           }
         }
       });
-
-    // alert('Update In Progress...');
-    // eventInfo.revert();
   }
 
   static updateAssetAssignment(payload, eventInfo) {
-    console.log('updateAssetAssignment eventInfo', eventInfo);
     payload.newResource = eventInfo.newResource.extendedProps;
     console.log('----- [updateAssetAssignment() -> PAYLOAD] -----', { payload, eventInfo: eventInfo || '' });
 
@@ -804,11 +825,13 @@ export class Resource {
                 .then(response => response.json())
                 .then(result => {
                   if (result.code == 200) {
+                    const messageTxt = `Event [ID ${eventId}] has been reassigned from ${oldResourceName} to ${newResourceName}`;
                     Swal.fire({
                       title: 'Success!',
-                      text: `Reassigned to ${newResourceName}`,
+                      text: messageTxt,
                       icon: 'success'
                     });
+                    Cache._set(CACHE_KEY.UpdatedEvent, messageTxt);
                     window.location.reload();
                   } else {
                     Swal.fire({
@@ -851,10 +874,15 @@ export class Resource {
 
   static updateResourceDateTime(payload, eventInfo) {
     console.log('----- [updateResourceDateTime() -> PAYLOAD] -----', { payload, eventInfo: eventInfo || '' });
+    const eventId = eventInfo.event.extendedProps.id;
+    const dateStart = moment(payload.date.start).format(DateFormat.IMPORT_DATE);
+    const dateEnd = moment(payload.date.end).format(DateFormat.IMPORT_DATE);
+    const timeStart = moment(`1/1/1999 ${payload.time.start}`).format(DateFormat.IMPORT_TIME);
+    const timeEnd = moment(`1/1/1999 ${payload.time.end}`).format(DateFormat.IMPORT_TIME);
 
     Swal.fire({
       title: `Update Date/Time?`,
-      text: `Update to ${payload.date.start} ${payload.time.start} - ${payload.date.end} ${payload.time.end}?`,
+      text: `Update to ${dateStart} ${timeStart} - ${dateEnd} ${timeEnd}?`,
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
@@ -877,11 +905,13 @@ export class Resource {
                 .then(response => response.json())
                 .then(result => {
                   if (result.code == 200) {
+                    const messageTxt = `Event [ID ${eventId}] Date/Time has been updated to ${dateStart} ${timeStart} - ${dateEnd} ${timeEnd}`;
                     Swal.fire({
                       title: 'Success!',
-                      text: `Date/Time has been updated to ${payload.date.start} ${payload.time.start} - ${payload.date.end} ${payload.time.end}`,
+                      text: messageTxt,
                       icon: 'success'
                     });
+                    Cache._set(CACHE_KEY.UpdatedEvent, messageTxt);
                     window.location.reload();
                   } else {
                     Swal.fire({
@@ -924,10 +954,15 @@ export class Resource {
 
   static updateAssetDateTime(payload, eventInfo) {
     console.log('----- [updateAssetDateTime() -> PAYLOAD] -----', { payload, eventInfo: eventInfo || '' });
+    const eventId = eventInfo.event.extendedProps.id;
+    const dateStart = moment(payload.date.start).format(DateFormat.IMPORT_DATE);
+    const dateEnd = moment(payload.date.end).format(DateFormat.IMPORT_DATE);
+    const timeStart = moment(`1/1/1999 ${payload.time.start}`).format(DateFormat.IMPORT_TIME);
+    const timeEnd = moment(`1/1/1999 ${payload.time.end}`).format(DateFormat.IMPORT_TIME);
 
     Swal.fire({
       title: `Update Date/Time`,
-      text: `Update to ${payload.date.start} ${payload.time.start} - ${payload.date.end} ${payload.time.end}?`,
+      text: `Update to ${dateStart} ${timeStart} - ${dateEnd} ${timeEnd}?`,
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
@@ -950,11 +985,13 @@ export class Resource {
                 .then(response => response.json())
                 .then(result => {
                   if (result.code == 200) {
+                    const messageTxt = `Event [ID ${eventId}] Date/Time has been updated to ${dateStart} ${timeStart} - ${dateEnd} ${timeEnd}`;
                     Swal.fire({
                       title: 'Success!',
-                      text: `Date/Time has been updated to ${payload.date.start} ${payload.time.start} - ${payload.date.end} ${payload.time.end}`,
+                      text: messageTxt,
                       icon: 'success'
                     });
+                    Cache._set(CACHE_KEY.UpdatedEvent, messageTxt);
                     window.location.reload();
                   } else {
                     Swal.fire({
@@ -990,9 +1027,6 @@ export class Resource {
           }
         }
       });
-
-    // alert('Update In Progress...');
-    // eventInfo.revert();
   }
 }
 
@@ -1011,11 +1045,13 @@ export function handleWorkOrderAction() {
         })
           .then(response => response.json())
           .then(result => {
+            const messageTxt = `Work Order [ID ${woId}] Status has been set to Hold`;
             Swal.fire({
               title: 'Success!',
-              text: `Work Order [ID ${woId}] Status has been set to Hold`,
+              text: messageTxt,
               icon: 'success'
             });
+            Cache._set(CACHE_KEY.UpdatedWOStatus, messageTxt);
             Swal.hideLoading();
             window.location.reload();
           })
@@ -1048,11 +1084,13 @@ export function handleWorkOrderAction() {
         })
           .then(response => response.json())
           .then(result => {
+            const messageTxt = `Work Order [ID ${woId}] Status has been set to Closed`;
             Swal.fire({
               title: 'Success!',
-              text: `Work Order [ID ${woId}] Status has been set to Closed`,
+              text: messageTxt,
               icon: 'success'
             });
+            Cache._set(CACHE_KEY.UpdatedWOStatus, messageTxt);
             Swal.hideLoading();
             window.location.reload();
           })

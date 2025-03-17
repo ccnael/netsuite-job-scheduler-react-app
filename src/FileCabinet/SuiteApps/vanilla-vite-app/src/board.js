@@ -1,6 +1,6 @@
 import * as dataSet from './components/dataSet';
 import { Event, ToolTip } from './components/utils';
-import { onClickResource } from './components/filterFields/filterUtils';
+import { onQuickSearchResource, onClickResource } from './components/filterFields/filterUtils';
 import './board.css';
 
 export default class Board {
@@ -18,6 +18,22 @@ export default class Board {
                     <h5 style="margin: 0;"><strong>Resources</strong></h5>
                     <i class="fa-solid fa-filter filter-icon" style="margin-left: auto; font-size: 14px;" title="Filter" data-bs-toggle="modal" data-bs-target="#filterFieldResource"></i>
                     <span class="badge badge-danger badge-pill counter" id="filter-resource-counter">0</span>
+                  </div>
+                  <div class="secondary-row">
+                    <div class="col-md-6">
+                      <select class="selectpicker mx-auto multiple-resource-field multiple-boardresource-field-hidden" title="Filter by Resource Name" data-live-search="true" data-selected-text-format="count>2" data-style="" data-style-base="form-control" data-actions-box="true" multiple>
+                        ${dataSet.resources.map(resource => `<option value="${resource.id}">${resource.name}</option>`)}
+                        ${dataSet.vendors.map(vendor => `<option value="${vendor.id}">${vendor.name}</option>`)}
+                        ${dataSet.assets.map(asset => `<option value="${asset.id}">${asset.name}</option>`)}
+                      </select>
+                    </div>
+                  </div>
+                  <div class="position-relative" style="padding: 2.5px; display: flex; align-items: center;">
+                    <input type="text" class="form-control pe-5 resource-name-quicksearch" placeholder="Quick Search by Name">
+                    <button type="button" class="position-absolute end-0 top-50 translate-middle-y border-0 bg-transparent text-muted me-2 d-none"
+                      onclick="triggerClearTextField('.resource-name-quicksearch');">
+                      &times;
+                    </button>
                   </div>
                 </div>
                 <div class="collapsible-list overflow-auto" style="height: 100%; overflow: scroll">
@@ -38,6 +54,7 @@ export default class Board {
                                   data-bs-toggle="tooltip" 
                                   data-bs-placement="right" 
                                   title="<strong>${resource.name}</strong><br/>
+                                    ID: ${resource.id}<br/>
                                     Groups: ${resource.resourceGroups.map(_resourceGroup => _resourceGroup.text).join(' / ')}<br/>
                                     Skills: ${resource.resourceSkills.map(resourceSkill => resourceSkill.text).join(' / ')}<br/>
                                     Email: ${resource.email}<br/>
@@ -67,10 +84,11 @@ export default class Board {
                         <div id="resourceGroup-vendor-filter-table" class="accordion-collapse collapse show" aria-labelledby="resourceGroup-vendor-filter-tableHeading" data-parent="#resourceGroup-vendor-filter-tableWrapper">
                           ${dataSet.vendors.map(vendor => `
                           <div class="person-container" resourceType="vendor" id="${vendor.id}">
-                            <div draggable="true" ondragstart="dragResourceFunctions(event);" ondragend="dragResourceFunctions(event);" class="person-circle cursor-grab" 
+                            <div draggable=${!!(vendor.active) ? "true" : "false"} ondragstart="dragResourceFunctions(event);" ondragend="dragResourceFunctions(event);" class="person-circle cursor-grab" 
                                   data-bs-toggle="tooltip" 
                                   data-bs-placement="right" 
                                   title="<strong>${vendor.name}</strong><br/>
+                                  ID: ${vendor.id}<br/>
                                   URL: ${vendor.url}<br/>
                                   Email: ${vendor.email}<br/>
                                   Events: ${vendor.events.length}<br/>
@@ -79,7 +97,7 @@ export default class Board {
                             </div>
                             <div class="person-info">
                                 <span class="full-name">${vendor.name}</span>
-                                <span class="status-text">Active</span>
+                                ${!!(vendor.active) ? '<span class="status-text">Active</span>' : '<span class="status-text">Inactive</span>'}
                             </div>
                           </div>`)}
                         </div>
@@ -97,20 +115,20 @@ export default class Board {
                         <div id="resourceGroup-asset-filter-table" class="accordion-collapse collapse show" aria-labelledby="resourceGroup-asset-filter-tableHeading" data-parent="#resourceGroup-asset-filter-tableWrapper">
                           ${dataSet.assets.map(asset => `
                           <div class="person-container" resourceType="asset" id="${asset.id}">
-                            <div draggable=${asset.quantityRemaining > 0 ? "true" : "false"} ondragstart="dragResourceFunctions(event);" ondragend="dragResourceFunctions(event);" class="person-circle cursor-grab" 
+                            <div draggable=${!!(asset.active) ? "true" : "false"} ondragstart="dragResourceFunctions(event);" ondragend="dragResourceFunctions(event);" class="person-circle cursor-grab" 
                                   data-bs-toggle="tooltip" 
                                   data-bs-placement="right" 
                                   title="<strong>${asset.name}</strong><br/>
-                                  Name: ${asset.name}<br/>
+                                  ID: ${asset.id}<br/>
                                   Description: ${asset.description}<br/>
                                   Quantity Remaining: ${asset.quantityRemaining}<br/>
                                   Quantity Used: ${asset.quantityUsed}
                                 <span class="initials">${asset.name.substring(0, 1)}</span>
-                                ${asset.quantityRemaining > 0 ? '<span class="status active"></span>' : '<span class="status busy"></span>'}
+                                ${!!(asset.active) ? '<span class="status active"></span>' : '<span class="status busy"></span>'}
                             </div>
                             <div class="person-info">
                                 <span class="full-name">${asset.name}</span>
-                                ${asset.quantityRemaining > 0 ? '<span class="status-text">Available</span>' : '<span class="status-text">Not Available</span>'}
+                                ${!!(asset.active) ? '<span class="status-text">Active</span>' : '<span class="status-text">Inactive</span>'}
                             </div>
                           </div>`)}
                         </div>
@@ -202,13 +220,12 @@ export default class Board {
                         <i class="fa-regular fa-icon-size fa-plus-square"></i> New
                       </button>
                       <div class="col-md-6">
-                        <select class="selectpicker mx-auto multiple-resource-field multiple-resource-field-hidden" title="Filter by Resource Name" data-live-search="true" data-selected-text-format="count>2" data-style="" data-style-base="form-control" data-actions-box="true" multiple>
+                        <select class="selectpicker mx-auto multiple-resource-field multiple-boardeventresource-field-hidden" title="Filter by Resource Name" data-live-search="true" data-selected-text-format="count>2" data-style="" data-style-base="form-control" data-actions-box="true" multiple>
                           ${dataSet.resources.map(resource => `<option value="${resource.id}">${resource.name}</option>`)}
                           ${dataSet.vendors.map(vendor => `<option value="${vendor.id}">${vendor.name}</option>`)}
                           ${dataSet.assets.map(asset => `<option value="${asset.id}">${asset.name}</option>`)}
                         </select>
                       </div>
-                      </button>
                     </div>
                     <div class="card-wrapper">
                       ${dataSet.events.map(event => `
@@ -455,6 +472,7 @@ export default class Board {
       ev.preventDefault();
     }
 
+    onQuickSearchResource();
     onClickResource();
   }
 

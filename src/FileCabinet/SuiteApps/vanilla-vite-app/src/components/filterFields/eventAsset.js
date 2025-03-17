@@ -3,10 +3,10 @@ import './filterField.css';
 import * as dataSet from '../dataSet';
 
 $(document).ready(() => {
-    const { modalId, fields } = dataSet.filterFields.eventAsset;
-    const parentModalId = '#eventModal';
+  const { modalId, fields } = dataSet.filterFields.eventAsset;
+  const parentModalId = '#eventModal';
 
-    $('#app').append(`
+  $('#app').append(`
     <div class="modal fade" id="${modalId.replace('#', '')}" mode="" title="" tabindex="-1" style="z-index: -999">
     <div class="modal-dialog modal-md">
       <div class="modal-content">
@@ -59,18 +59,18 @@ $(document).ready(() => {
     </div>
   </div>`);
 
-    $(modalId).on('shown.bs.modal', () => {
-        showCustomLoader();
-        $(this).removeAttr('aria-hidden'); // Ensure it's not hidden when shown
-        $(this).focus(); // Set focus to a valid element
-        // Append/not append fields
-        const fieldsStr = fields.reduce((holder, field) => {
-            // Do not append fields that already exist
-            const el = $(`${modalId} .filter-fields .${field.className}`);
-            let fieldStr = '';
-            switch (field.type) {
-                case 'multiselect':
-                    fieldStr = `<select class="selectpicker mx-auto ${field.className}" 
+  $(modalId).on('shown.bs.modal', () => {
+    showCustomLoader();
+    $(this).removeAttr('aria-hidden'); // Ensure it's not hidden when shown
+    $(this).focus(); // Set focus to a valid element
+    // Append/not append fields
+    const fieldsStr = fields.reduce((holder, field) => {
+      // Do not append fields that already exist
+      const el = $(`${modalId} .filter-fields .${field.className}`);
+      let fieldStr = '';
+      switch (field.type) {
+        case 'multiselect':
+          fieldStr = `<select class="selectpicker mx-auto ${field.className}" 
               title="Filter by ${field.label}" 
               data-live-search="true" 
               data-selected-text-format="count>2" 
@@ -80,66 +80,71 @@ $(document).ready(() => {
               multiple>
               ${field.options.map(option => `<option value="${option.value}" data-icon="${field['data-icon'] || ''}">${option.text}</option>`)}
             </select>`;
-                    break;
-                case 'date':
-                    fieldStr = `<div class="d-flex align-items-center">
+          break;
+        case 'date':
+          fieldStr = `<div class="d-flex align-items-center">
             <label for="${field.className}" class="me-2 mb-0">${field.label.replace('Date ', '')}:</label>
             <input type="date" class="form-control ${field.className}" id="${field.className}">
           </div>`;
-                    break;
-                case 'checkbox':
-                    fieldStr = `<div class="d-flex align-items-center ms-3">
+          break;
+        case 'checkbox':
+          fieldStr = `<div class="d-flex align-items-center ms-3">
             <div class="form-check form-switch w-100" style="margin-top: 10px; margin-left: 20px; display: flex; align-items: center;">
               <input class="form-check-input me-2 ${field.className}" type="checkbox">
               <label class="form-check-label" style="font-size: 11px; margin: 0;">Show Available Asset Only</label>
             </div>
           </div>`;
-                    break;
-                case 'text':
-                    fieldStr = `<input type="text" class="form-control ${field.className} custom-select-style" placeholder="Enter ${field.label}">`;
-                    break;
-            }
-            holder += !el.length
-                ?
-                `<div class="col-md-6" style="display: ${field.display ? 'block' : 'none'}">
+          break;
+        case 'text':
+          fieldStr = `<input type="text" class="form-control ${field.className}" placeholder="Enter ${field.label}">
+          <button type="button" class="position-absolute end-0 top-50 translate-middle-y border-0 bg-transparent text-muted me-4 d-none"
+            onclick="triggerClearTextField('${`${modalId} .filter-fields .${field.className}`}');">
+            &times;
+          </button>
+          `;
+          break;
+      }
+      holder += !el.length
+        ?
+        `<div class="col-md-6" style="display: ${field.display ? 'block' : 'none'}">
         ${fieldStr}
         </div>`
-                :
-                '';
-            return holder;
-        }, '');
-        // Display/not display fields
-        fields.map(field => {
-            const el = $(`${modalId} .filter-fields .${field.className}`);
-            !!el.length && el.closest('div.col-md-6').css('display', ` ${field.display ? 'block' : 'none'}`);
-        });
-
-        $(`${modalId} .filter-fields`).append(fieldsStr);
-        $(`${modalId} .selectpicker`).selectpicker();
-        onFilterEventAsset(modalId);
-
-        $(modalId).modal('show');
-        $(modalId).css('z-index', '9999');
-        setTimeout(() => hideCustomLoader(), 150);
+        :
+        '';
+      return holder;
+    }, '');
+    // Display/not display fields
+    fields.map(field => {
+      const el = $(`${modalId} .filter-fields .${field.className}`);
+      !!el.length && el.closest('div.col-md-6').css('display', ` ${field.display ? 'block' : 'none'}`);
     });
 
-    $(modalId).on('hidden.bs.modal', e => {
-        $(`${modalId} .selectFiltersForm`).hide();
-        $(`${modalId} .filterForm`).show();
-        $(modalId).css('z-index', '-999');
-        $(parentModalId).css('z-index', '9999');
-        $(parentModalId).css('overflow', 'auto'); // Re-enable scrolling
-    });
+    $(`${modalId} .filter-fields`).append(fieldsStr);
+    $(`${modalId} .selectpicker`).selectpicker();
+    onFilterEventAsset(modalId);
 
-    function showCustomLoader() {
-        $(parentModalId).css('z-index') != '1' && $(parentModalId).css('z-index', '1');
-        $(`${modalId} .spinner`).show();
-        $(`${modalId} .modal-body`).css('z-index', '-1');
-    }
+    $(modalId).modal('show');
+    $(modalId).css('z-index', '9999');
+    setTimeout(() => hideCustomLoader(), 150);
+  });
 
-    function hideCustomLoader() {
-        $(`${modalId} .spinner`).hide();
-        $(`${modalId} .modal-body`).css('z-index', '1');
-        $(parentModalId).css('z-index') != '9999' && $(parentModalId).css('z-index', '9999');
-    }
+  $(modalId).on('hidden.bs.modal', e => {
+    $(`${modalId} .selectFiltersForm`).hide();
+    $(`${modalId} .filterForm`).show();
+    $(modalId).css('z-index', '-9999');
+    $(parentModalId).css('z-index', '9999');
+    $(parentModalId).css('overflow', 'auto'); // Re-enable scrolling
+  });
+
+  function showCustomLoader() {
+    $(parentModalId).css('z-index') != '1' && $(parentModalId).css('z-index', '1');
+    $(`${modalId} .spinner`).show();
+    $(`${modalId} .modal-body`).css('z-index', '-1');
+  }
+
+  function hideCustomLoader() {
+    $(`${modalId} .spinner`).hide();
+    $(`${modalId} .modal-body`).css('z-index', '1');
+    $(parentModalId).css('z-index') != '999' && $(parentModalId).css('z-index', '999');
+  }
 })

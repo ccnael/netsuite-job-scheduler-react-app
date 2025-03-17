@@ -552,7 +552,8 @@ export default class Calendar {
     ToolTip.remove();
 
     const payload = {};
-    const resourceId = info.newResource.id.split('-').pop();
+    const eventData = info.event.extendedProps;
+    const resourceId = eventData.woResourceId;
     payload.id = resourceId;
     const startSplit = moment(info.event.startStr).format('YYYY-MM-DDTHH:mm').split('T');
     const endSplit = moment(info.event.endStr).format('YYYY-MM-DDTHH:mm').split('T');
@@ -586,7 +587,8 @@ export default class Calendar {
     ToolTip.remove();
 
     const payload = {};
-    const resourceId = info.newResource.id.split('-').pop();
+    const eventData = info.event.extendedProps;
+    const resourceId = eventData.woAssetId;
     payload.id = resourceId;
     const startSplit = moment(info.event.startStr).format('YYYY-MM-DDTHH:mm').split('T');
     const endSplit = moment(info.event.endStr).format('YYYY-MM-DDTHH:mm').split('T');
