@@ -37,6 +37,11 @@ export const resourcesDtColumns = [
   },
   {
     className: 'dt-head-center',
+    data: 'affiliationType.text',
+    title: 'Affilitation Type'
+  },
+  {
+    className: 'dt-head-center',
     render: (_data, _type, row, _meta) => `<input type="time" class="form-control starttime-row" value="${row?.time?.start}" required>`,
     title: 'Start Time <span class="required"></span>',
     orderable: false

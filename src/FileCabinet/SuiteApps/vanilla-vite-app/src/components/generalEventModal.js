@@ -515,7 +515,7 @@ $(document).ready(() => {
       entriesLabel.append(`
         <div class="d-flex align-items-center">
           <i class="fa-solid fa-filter filter-icon" style="font-size: 20px; margin-left: 20px" title="Filter" data-bs-toggle="modal" data-bs-target="#${section.target}"></i>
-          <span class="badge badge-danger badge-pill counter" style="font-size: 8px" id="filter-event${section.id}-counter">0</span>
+          <span class="badge badge-danger badge-pill counter" style="font-size: 8px" id="filter-generalevent${section.id}-counter">0</span>
         </div>
       `);
     });

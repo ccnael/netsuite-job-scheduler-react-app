@@ -553,6 +553,7 @@ export default class Calendar {
 
     const payload = {};
     const eventData = info.event.extendedProps;
+    const employeeId = info.newResource.id.split('-').pop();
     const resourceId = eventData.woResourceId;
     payload.id = resourceId;
     const startSplit = moment(info.event.startStr).format('YYYY-MM-DDTHH:mm').split('T');
@@ -569,7 +570,7 @@ export default class Calendar {
     if (calEvents.length) {
       const calEvent = calEvents.find(event => event.id == info.event.id);
       if (calEvent) {
-        const hasConflict = Event.draggedEventToNewResourceHasConflictEvent(payload.date, payload.time, resourceId);
+        const hasConflict = Event.draggedEventToNewResourceHasConflictEvent(payload.date, payload.time, employeeId);
         const allowEvent = !hasConflict;
 
         if (allowEvent) {
@@ -588,6 +589,7 @@ export default class Calendar {
 
     const payload = {};
     const eventData = info.event.extendedProps;
+    const assetId = info.newResource.id.split('-').pop();
     const resourceId = eventData.woAssetId;
     payload.id = resourceId;
     const startSplit = moment(info.event.startStr).format('YYYY-MM-DDTHH:mm').split('T');
@@ -604,7 +606,7 @@ export default class Calendar {
     if (calEvents.length) {
       const calEvent = calEvents.find(event => event.id == info.event.id);
       if (calEvent) {
-        const hasConflict = Event.draggedEventToNewAssetHasConflictEvent(payload.date, payload.time, resourceId);
+        const hasConflict = Event.draggedEventToNewAssetHasConflictEvent(payload.date, payload.time, assetId);
         const allowEvent = !hasConflict;
 
         if (allowEvent) {

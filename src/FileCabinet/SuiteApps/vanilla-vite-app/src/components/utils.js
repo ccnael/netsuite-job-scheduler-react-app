@@ -1,11 +1,11 @@
 import { suiteletUrl, events, filterFields } from './dataSet';
 
-const CACHE_KEY = {
-  UpdatedWOStatus: 'updatedWOStatus',
-  NewEvent: 'newEvent',
-  UpdatedEvent: 'updatedEvent',
-  DeletedEvent: 'deletedEvent',
-  ActiveTab: 'activeTab'
+export const SessionKey = {
+  UPDATED_WO_STATUS: 'updatedWOStatus',
+  NEW_EVENT: 'newEvent',
+  UPDATED_EVENT: 'updatedEvent',
+  DELETED_EVENT: 'deletedEvent',
+  ACTIVE_TAB: 'activeTab'
 }
 
 const DateFormat = {
@@ -21,16 +21,16 @@ export class Cache {
     return localStorage.getItem(key);
   }
 
-  static _set(key, value) {
-    localStorage.setItem(key, value);
-  }
-
   static _clear(key) {
     localStorage.removeItem(key);
   }
 
+  static set(key, value) {
+    localStorage.setItem(key, value);
+  }
+
   static setDefaultTab() {
-    const sessionKey = CACHE_KEY.ActiveTab;
+    const sessionKey = SessionKey.ACTIVE_TAB;
     const activeTab = this._get(sessionKey);
 
     if (activeTab) {
@@ -77,9 +77,9 @@ export class Cache {
     const that = this;
 
     async function showToast() {
-      for (const key in CACHE_KEY) {
-        if (key === "ActiveTab") continue;
-        const message = that._get(CACHE_KEY[key]);
+      for (const key in SessionKey) {
+        if (key === "ACTIVE_TAB") continue;
+        const message = that._get(SessionKey[key]);
         if (message) {
           await new Promise((resolve) => {
             Toastify({
@@ -95,8 +95,7 @@ export class Cache {
             }).showToast();
             setTimeout(resolve, 1000);
           });
-
-          that._clear(CACHE_KEY[key]);
+          that._clear(SessionKey[key]);
         }
       }
     }
@@ -141,19 +140,35 @@ export class Event {
     const that = this;
     // On resource check
     $(`${resourceTblId} input.dt-line-select`).on('change', function () {
-      const time = {
-        start: $(`${tableId} input.starttime`).val(),
-        end: $(`${tableId} input.endtime`).val(),
+      const isChecked = $(this).prop('checked');
+      const row = $(this).closest('tr');
+      const classStr = row.prop('class');
+      if (isChecked) {
+        const time = {
+          start: $(`${tableId} input.starttime`).val(),
+          end: $(`${tableId} input.endtime`).val(),
+        }
+        that._copyHeaderTimeToResourceTime(row, time);
       }
-      // Copy header start/endto current line time fields
-      $(this).closest('input.starttime-row').val(time.start);
-      $(this).closest('input.endtime-row').val(time.end);
+      // Disable checkbox if row is unavailable
+      // If the unavailable row is checked, allow to uncheck it and disable the checkbox after
+      /* if (!isChecked && classStr.includes('row-unavailable')) {
+        $(this).prop('disabled', true);
+      } else {
+        $(this).css('opacity', 2);
+      } */
     });
     $(`${resourceTblId} input.starttime-row, ${resourceTblId} input.endtime-row`).on('change', function () {
       if (!that._validateResourceTime(this, tableId)) {
         return;
       }
     });
+  }
+
+  // Copy header start/endto current line time fields
+  static _copyHeaderTimeToResourceTime(row, time) {
+    row.find('input.starttime-row').val(time.start);
+    row.find('input.endtime-row').val(time.end);
   }
 
   static _validateResourcesAvailability(tableId, resourceTblId, eventId, onFieldChanged = false) {
@@ -183,11 +198,11 @@ export class Event {
           if (!eventId || (onFieldChanged && checkbox.prop('checked'))) {
             checkbox.prop('checked', false);
           }
-          checkbox.prop('disabled', true);
+          // checkbox.prop('disabled', true);
           $(this).removeClass('row-available');
           $(this).addClass('row-unavailable');
         } else {
-          checkbox.prop('disabled', false);
+          // checkbox.prop('disabled', false);
           $(this).removeClass('row-unavailable');
           $(this).addClass('row-available');
         }
@@ -491,9 +506,11 @@ export class Event {
                     Swal.fire({
                       title: 'Success!',
                       text: messageTxt,
-                      icon: 'success'
+                      icon: 'success',
+                      showConfirmButton: false,
+                      allowOutsideClick: false
                     });
-                    Cache._set(CACHE_KEY.NewEvent, messageTxt);
+                    Cache.set(SessionKey.NEW_EVENT, messageTxt);
                     $(`#${modalId}`).modal('hide');
                     window.location.reload();
                   } else {
@@ -553,9 +570,11 @@ export class Event {
                     Swal.fire({
                       title: 'Success!',
                       text: messageTxt,
-                      icon: 'success'
+                      icon: 'success',
+                      showConfirmButton: false,
+                      allowOutsideClick: false
                     });
-                    Cache._set(CACHE_KEY.UpdatedEvent, messageTxt);
+                    Cache.set(SessionKey.UPDATED_EVENT, messageTxt);
                     $(`#${modalId}`).modal('hide');
                     window.location.reload();
                   } else {
@@ -628,9 +647,11 @@ export class Event {
                     Swal.fire({
                       title: 'Deleted!',
                       text: messageTxt,
-                      icon: 'success'
+                      icon: 'success',
+                      showConfirmButton: false,
+                      allowOutsideClick: false
                     });
-                    Cache._set(CACHE_KEY.DeletedEvent, messageTxt);
+                    Cache.set(SessionKey.DELETED_EVENT, messageTxt);
                     window.location.reload();
                     Swal.hideLoading();
                   })
@@ -682,9 +703,11 @@ export class Event {
                     Swal.fire({
                       title: 'Success!',
                       text: messageTxt,
-                      icon: 'success'
+                      icon: 'success',
+                      showConfirmButton: false,
+                      allowOutsideClick: false
                     });
-                    Cache._set(CACHE_KEY.UpdatedEvent, messageTxt);
+                    Cache.set(SessionKey.UPDATED_EVENT, messageTxt);
                     window.location.reload();
                   } else {
                     Swal.fire({
@@ -752,9 +775,11 @@ export class Resource {
                     Swal.fire({
                       title: 'Success!',
                       text: messageTxt,
-                      icon: 'success'
+                      icon: 'success',
+                      showConfirmButton: false,
+                      allowOutsideClick: false
                     });
-                    Cache._set(CACHE_KEY.UpdatedEvent, messageTxt);
+                    Cache.set(SessionKey.UPDATED_EVENT, messageTxt);
                     window.location.reload();
                   } else {
                     Swal.fire({
@@ -829,9 +854,11 @@ export class Resource {
                     Swal.fire({
                       title: 'Success!',
                       text: messageTxt,
-                      icon: 'success'
+                      icon: 'success',
+                      showConfirmButton: false,
+                      allowOutsideClick: false
                     });
-                    Cache._set(CACHE_KEY.UpdatedEvent, messageTxt);
+                    Cache.set(SessionKey.UPDATED_EVENT, messageTxt);
                     window.location.reload();
                   } else {
                     Swal.fire({
@@ -909,9 +936,11 @@ export class Resource {
                     Swal.fire({
                       title: 'Success!',
                       text: messageTxt,
-                      icon: 'success'
+                      icon: 'success',
+                      showConfirmButton: false,
+                      allowOutsideClick: false
                     });
-                    Cache._set(CACHE_KEY.UpdatedEvent, messageTxt);
+                    Cache.set(SessionKey.UPDATED_EVENT, messageTxt);
                     window.location.reload();
                   } else {
                     Swal.fire({
@@ -989,9 +1018,11 @@ export class Resource {
                     Swal.fire({
                       title: 'Success!',
                       text: messageTxt,
-                      icon: 'success'
+                      icon: 'success',
+                      showConfirmButton: false,
+                      allowOutsideClick: false
                     });
-                    Cache._set(CACHE_KEY.UpdatedEvent, messageTxt);
+                    Cache.set(SessionKey.UPDATED_EVENT, messageTxt);
                     window.location.reload();
                   } else {
                     Swal.fire({
@@ -1049,9 +1080,11 @@ export function handleWorkOrderAction() {
             Swal.fire({
               title: 'Success!',
               text: messageTxt,
-              icon: 'success'
+              icon: 'success',
+              showConfirmButton: false,
+              allowOutsideClick: false
             });
-            Cache._set(CACHE_KEY.UpdatedWOStatus, messageTxt);
+            Cache.set(SessionKey.UPDATED_WO_STATUS, messageTxt);
             Swal.hideLoading();
             window.location.reload();
           })
@@ -1088,9 +1121,11 @@ export function handleWorkOrderAction() {
             Swal.fire({
               title: 'Success!',
               text: messageTxt,
-              icon: 'success'
+              icon: 'success',
+              showConfirmButton: false,
+              allowOutsideClick: false
             });
-            Cache._set(CACHE_KEY.UpdatedWOStatus, messageTxt);
+            Cache.set(SessionKey.UPDATED_WO_STATUS, messageTxt);
             Swal.hideLoading();
             window.location.reload();
           })

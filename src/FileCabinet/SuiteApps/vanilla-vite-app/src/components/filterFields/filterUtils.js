@@ -229,9 +229,9 @@ export function onFilterResource(fieldId) {
   const $departmentFilter = $(`${fieldId} select.multiple-department-field`);
   const $emailFilter = $(`${fieldId} input.email-field`);
   const $phoneFilter = $(`${fieldId} input.phone-field`);
+  const resource_temp = $(`#boardSection select.multiple-boardresource-field-hidden`).val();
 
   const $selected = {
-    resource_temp: $(`#boardSection select.multiple-boardresource-field-hidden`).val(),
     resource: [],
     resourceGroup: [],
     resourceSkill: [],
@@ -242,7 +242,7 @@ export function onFilterResource(fieldId) {
     phone: '',
   };
   // Set default resource filter value (TBD move to on hide/close modal instead?)
-  $selected.resource_temp.length && $resourceFilter.val($selected.resource_temp).change();
+  resource_temp.length && $resourceFilter.val(resource_temp).change();
 
   let $groupCounterMap = {};
   if ($resourceFilter.length) {
@@ -350,10 +350,10 @@ export function onFilterResource(fieldId) {
   }
 
   function clearQuickSearch() {
-    // if ($selected.resource_temp.length != $selected.resource.length) {
-    $('input.resource-name-quicksearch').val('').change()/* .trigger('keyup') */;
-    $('select.multiple-boardresource-field-hidden').val([]).change();
-    // }
+    if (resource_temp.length != $selected.resource.length) {
+      $('input.resource-name-quicksearch').val('').change()/* .trigger('keyup') */;
+      $('select.multiple-boardresource-field-hidden').val([]).change();
+    }
   }
 
   // Update header column counter
@@ -370,7 +370,6 @@ export function onFilterResource(fieldId) {
         counter += $selected[key].length;
       else if (!!$selected[key])
         counter++;
-      console.log('key', key, $selected[key], counter);
     }
     $(`#filter-resource-counter`).html(counter);
   }
