@@ -227,25 +227,54 @@ header > div.tab {
 		background-color: $background-color_16;
 	}
 }
-.dropdown-content {
-	display: none;
-	position: absolute;
-	background-color: $background-color_17;
-	min-width: 120px;
-	overflow: auto;
-	box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-	z-index: 9999;
-	line-height: .15 !important;
-	border-radius: 5px;
-	right: 0px;
-	top: 0px;
-	a {
-		color: $color_7;
-		padding: 12px 16px;
-		text-decoration: none;
-		display: block;
-		&:hover {
-			background-color: $background-color_18;
+// .dropdown-content {
+// 	position: absolute;
+// 	background-color: $background-color_17;
+// 	min-width: 120px;
+// 	overflow: auto;
+// 	box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+// 	z-index: 9999;
+// 	line-height: .15 !important;
+// 	border-radius: 5px;
+// 	right: 0px;
+// 	top: 0px;
+// 	display: none; // Initially hidden
+// 	a {
+// 		color: $color_7;
+// 		padding: 12px 16px;
+// 		text-decoration: none;
+// 		display: block;
+// 		&:hover {
+// 			background-color: $background-color_18;
+// 		}
+// 	}
+// }
+.dropdown {
+	position: relative;
+	cursor: pointer;
+
+	.dropdown-content {
+		display: none; // Initially hidden
+		position: absolute;
+		background-color: $background-color_17;
+		min-width: 120px;
+		overflow: auto;
+		box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+		z-index: 9999;
+		line-height: .15 !important;
+		border-radius: 5px;
+		right: 0px;
+		top: 0px;
+
+		a {
+			color: $color_7;
+			padding: 12px 16px;
+			text-decoration: none;
+			display: block;
+
+			&:hover {
+				background-color: $background-color_18;
+			}
 		}
 	}
 }
@@ -254,13 +283,13 @@ header > div.tab {
 	opacity: 0.3;          /* Fades it out */
 	cursor: not-allowed;   /* Shows a disabled cursor */
 }
-.dropdown {
+/* .dropdown {
 	&:hover {
 		.dropdown-content {
 			display: block;
 		}
 	}
-}
+} */
 .accordion {
 	height: auto;
 }

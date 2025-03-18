@@ -1,5 +1,6 @@
 import { suiteletUrl, events, filterFields } from './dataSet';
 
+// TODO: Move to separate constants file
 export const SessionKey = {
   UPDATED_WO_STATUS: 'updatedWOStatus',
   NEW_EVENT: 'newEvent',
@@ -8,7 +9,7 @@ export const SessionKey = {
   ACTIVE_TAB: 'activeTab'
 }
 
-const DateFormat = {
+export const DateFormat = {
   EXPORT_DATE: 'YYYY-MM-DD',
   IMPORT_DATE: 'M/D/YYYY',
   EXPORT_TIME: 'HH:mm',
@@ -38,25 +39,31 @@ export class Cache {
       $(`div[data-target="${activeTab}"]`)
         .closest(`.${activeTab.replace('Section', '')}`)
         .addClass('active');
+
       $('.tab-content').hide();
       $(`#${activeTab}`).show();
 
-      if (activeTab === 'calendarSection') {
+      const rerenderCalendar = () => {
         setTimeout(() => {
           hideCustomLoader();
           window.FullCalendar.render();
         }, 500);
-      } else {
+      }
+
+      const hideCalendarSection = () => {
         setTimeout(() => {
           hideCustomLoader();
           $('#calendarSection').hide();
         }, 500);
       }
+
+      if (activeTab === 'calendarSection') {
+        rerenderCalendar();
+      } else {
+        hideCalendarSection();
+      }
     } else {
-      setTimeout(() => {
-        hideCustomLoader();
-        $('#calendarSection').hide();
-      }, 500);
+      hideCalendarSection();
     }
 
     // Onchange tab
@@ -397,15 +404,16 @@ export class Event {
     const start = moment(`${date.start} ${time.start}`);
     const end = moment(`${date.end} ${time.end}`);
     const resourceEvents = events.filter(event => event.resources.map(resource => resource.employee.value).includes(resourceId));
+    // console.log('>>>', { start: `${date.start} ${time.start}`, end: `${date.end} ${time.end}`, resourceEvents });
     const conflictEvents = resourceEvents.filter(event => {
       const eventStart = `${event.date.start} ${event.time.start}`;
       const eventEnd = `${event.date.end} ${event.time.end}`;
-      const result = event.status.value !== 'COMPLETED' && (moment(eventEnd).isBetween(start, end, null, '[]') || moment(eventStart).isSameOrBefore(start) || moment(eventEnd).isSameOrAfter(end));
+      const result = event.status.value !== 'COMPLETED' && (moment(eventStart).isBetween(start, end, null, '[]') || moment(eventEnd).isBetween(start, end, null, '[]'));
       /* console.log('EVENT', event, result, 'Check Conditions', {
         "event.status.value !== 'COMPLETED'": event.status.value !== 'COMPLETED',
-        "moment(eventEnd).isBetween(start, end, null, '[]')": moment(eventEnd).isBetween(start, end, null, '[]'),
-        "moment(eventStart).isSameOrBefore(start)": moment(eventStart).isSameOrBefore(start),
-        "moment(eventEnd).isSameOrAfter(end)": moment(eventEnd).isSameOrAfter(end)
+        "moment(eventEnd).isBetween(start, end, null, '[]')": { eventEnd: `${event.date.end} ${event.time.end}`, start: `${date.start} ${time.start}`, end: `${date.end} ${time.end}`, result: moment(eventEnd).isBetween(start, end, null, '[]') },
+        "moment(eventStart).isSameOrBefore(start)": { eventStart: `${event.date.start} ${event.time.start}`, start: `${date.start} ${time.start}`, result: moment(eventStart).isSameOrBefore(start) },
+        "moment(eventEnd).isSameOrAfter(end)": { eventEnd: `${event.date.end} ${event.time.end}`, end: `${date.end} ${time.end}`, result: moment(eventEnd).isSameOrAfter(end) }
       }); */
       return result;
     });
@@ -433,7 +441,7 @@ export class Event {
     const conflictEvents = resourceEvents.filter(event => {
       const eventStart = `${event.date.start} ${event.time.start}`;
       const eventEnd = `${event.date.end} ${event.time.end}`;
-      const result = event.status.value !== 'COMPLETED' && (moment(eventEnd).isBetween(start, end, null, '[]') || moment(eventStart).isSameOrBefore(start) || moment(eventEnd).isSameOrAfter(end));
+      const result = event.status.value !== 'COMPLETED' && (moment(eventStart).isBetween(start, end, null, '[]') || moment(eventEnd).isBetween(start, end, null, '[]'));
       /* console.log('EVENT', event, result, 'Check Conditions', {
         "event.status.value !== 'COMPLETED'": event.status.value !== 'COMPLETED',
         "moment(eventEnd).isBetween(start, end, null, '[]')": moment(eventEnd).isBetween(start, end, null, '[]'),
@@ -1059,6 +1067,19 @@ export class Resource {
         }
       });
   }
+}
+
+export function handleDropDownOptions() {
+  // Toggle dropdown on click
+  $(document).on('click', '.dropdown', function (event) {
+    event.stopPropagation(); // Prevent immediate closing
+    $('.dropdown-content').not($(this).find('.dropdown-content')).hide(); // Hide other dropdowns
+    $(this).find('.dropdown-content').toggle(); // Show/Hide current dropdown
+  });
+  // Close dropdown when clicking outside
+  $(document).on('click', function () {
+    $('.dropdown-content').hide();
+  });
 }
 
 export function handleWorkOrderAction() {

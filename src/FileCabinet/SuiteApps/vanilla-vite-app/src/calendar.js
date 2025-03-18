@@ -7,7 +7,7 @@ import timeGridPlugin from '@fullcalendar/timegrid';
 import resourceTimelinePlugin from '@fullcalendar/resource-timeline';
 import * as dataSet from './components/dataSet';
 import { onFilterCalendarEvent, onFilterJob } from './components/filterFields/filterUtils';
-import { Event, Resource, ToolTip, WarningAlert } from './components/utils';
+import { DateFormat, Event, Resource, ToolTip, WarningAlert } from './components/utils';
 import './calendar.css';
 
 export default class Calendar {
@@ -48,7 +48,7 @@ export default class Calendar {
                               <div class="card-name"><a href="${wo.woUrl}" target="_blank"><strong>${wo.name}</strong></a></div>
                               <div class="card-header-options">
                                 <div class="dropdown">
-                                  <i class="fa-solid fa-angles-down" style="cursor: pointer"></i>
+                                  <i class="fa-solid fa-sliders" style="cursor: pointer"></i>
                                   <div class="dropdown-content">
                                     <a href="#" onclick="holdWorkOrder(event)">Hold</a>
                                     <a href="#" onclick="printWorkOrder(event)">Print</a>
@@ -329,7 +329,7 @@ export default class Calendar {
                 break;
             }
             ToolTip.setup();
-            this._initDropDown(info);
+            this._addDropDown(info);
             this._adjustZoomLevel(info);
           } catch (e) {
             console.log('eventDidMount Unexpected Error', e.message);
@@ -864,13 +864,14 @@ export default class Calendar {
     });
   }
 
-  static _initDropDown(info) {
+  static _addDropDown(info) {
     const eventId = info.event.id;
     const event = dataSet.events.find(event => event.id == eventId);
+    const isTwoOrLess = getHoursDiff(event.date, event.time) <= 2;
     const html = `<div class="card-header-options">
-      <div class="dropdown" style="display:inline-block">
-        <i class="fa-solid fa-angles-down" style="cursor: pointer"></i>
-        ${`<div class="dropdown-content" style="top: -30px">
+      <div class="dropdown" style="display:inline-block; ${isTwoOrLess && 'left: -10px'}">
+        <i class="fa-solid fa-sliders" style="cursor: pointer"></i>
+        ${`<div class="dropdown-content" style="top: -30px;">
             ${(!event.workorder.value) ? `<a href="#" onclick="openGeneralEventModal(${eventId})" ${event.status.value === 'COMPLETED' && "class='disabled'"}>Update Event</a>` : `<a href="#" onclick="openEventModal('', '', ${eventId})" ${event.status.value === 'COMPLETED' && "class='disabled'"}>Update Event</a>`}
             <a href="#" onclick="openCompleteEventModal('', ${eventId})" ${event.status.value === 'COMPLETED' && "class='disabled'"}>Complete Event</a>
             <a href="#" onclick="deleteEventRecord('', ${eventId})">Remove Event</a>
@@ -880,6 +881,13 @@ export default class Calendar {
     const el = info.el.querySelector('div.card-name');
     el.insertAdjacentHTML('afterend', html);
   }
+}
+
+function getHoursDiff(date, time) {
+  const start = moment(`${date.start} ${time.start}`, `${DateFormat.EXPORT_DATE} ${DateFormat.EXPORT_TIME}`);
+  const end = moment(`${date.end} ${time.end}`, `${DateFormat.EXPORT_DATE} ${DateFormat.EXPORT_TIME}`);
+  const duration = moment.duration(end.diff(start));
+  return duration.asHours();
 }
 
 function deepCopy(obj) {

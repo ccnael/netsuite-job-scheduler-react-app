@@ -168,13 +168,6 @@
           "options": "[{ text: 'General Event', value: '1' }, { text: 'Non General Event', value: '2' }]"
         },
         {
-          "label": "Organizer",
-          "className": "multiple-event-organizer-field",
-          "type": "multiselect",
-          "display": true,
-          "options": "params.organizers"
-        },
-        {
           "label": "Date From",
           "className": "board-event-datefrom",
           "type": "date",
@@ -185,6 +178,13 @@
           "className": "board-event-dateto",
           "type": "date",
           "display": true
+        },
+        {
+          "label": "Organizer",
+          "className": "multiple-event-organizer-field",
+          "type": "multiselect",
+          "display": true,
+          "options": "params.organizers"
         },
         {
           "label": "Receipt Status",

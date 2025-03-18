@@ -691,7 +691,6 @@ export function onClickResource() {
   let resourceIds = [];
   // On click resource row
   $('.person-container').on('click', function () {
-    console.log("$selected.resource", $selected.resource);
     const elementId = $(this)[0].id;
     const resourceId = elementId.split('-').pop();
     if ($(this).hasClass('row-available')) {

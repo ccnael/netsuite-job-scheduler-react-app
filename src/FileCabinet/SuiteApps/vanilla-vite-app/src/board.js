@@ -167,7 +167,7 @@ export default class Board {
                             <div class="card-name"><a href="${wo.woUrl}" target="_blank"><strong>${wo.name}</strong></a></div>
                             <div class="card-header-options">
                               <div class="dropdown">
-                                <i class="fa-solid fa-angles-down" style="cursor: pointer"></i>
+                                <i class="fa-solid fa-sliders" style="cursor: pointer"></i>
                                 <div class="dropdown-content">
                                   <a href="#" onclick="holdWorkOrder(event)">Hold</a>
                                   <a href="#" onclick="printWorkOrder(event)">Print</a>
@@ -243,7 +243,7 @@ export default class Board {
                             <div class="card-name"><a href="${event.url}" target="_blank"><strong>${event.title}</strong></a></div>
                             <div class="card-header-options">
                               <div class="dropdown">
-                                <i class="fa-solid fa-angles-down" style="cursor: pointer"></i>
+                                <i class="fa-solid fa-sliders" style="cursor: pointer"></i>
                                 ${`<div class="dropdown-content">
                                   ${(!event.workorder.value) ? `<a href="#" onclick="openGeneralEventModal(${event.id})" ${event.status.value === 'COMPLETED' && "class='disabled'"}>Update Event</a>` : `<a href="#" onclick="openEventModal(event)" ${event.status.value === 'COMPLETED' && "class='disabled'"}>Update Event</a>`}
                                   <a href="#" onclick="openCompleteEventModal(event)" ${event.status.value === 'COMPLETED' && "class='disabled'"}>Complete Event</a>
@@ -282,7 +282,6 @@ export default class Board {
     ToolTip.setup();
     this._initLayoutHandlers();
     this._onDragResource();
-    // this._showBanners();
   }
 
   // Instantiate column resizer etc.
@@ -475,54 +474,6 @@ export default class Board {
     onQuickSearchResource();
     onClickResource();
   }
-
-  // static _showBanners() {
-  //   setTimeout(() => {
-  //     const toasties = [
-  //       /* {
-  //         text: 'TBD Resource Info, Schedules & Allocation View on click..',
-  //         duration: 99999,
-  //         close: true,
-  //         gravity: 'bottom',
-  //         position: 'left',
-  //         style: {
-  //           background: 'linear-gradient(to right, #00b09b, #96c93d)',
-  //         }
-  //       },
-  //       {
-  //         text: 'TBD Resource Info, Schedules & Allocation View on click..',
-  //         duration: 99999,
-  //         close: true,
-  //         gravity: 'bottom',
-  //         position: 'left',
-  //         style: {
-  //           background: 'linear-gradient(to right, #00b09b, #96c93d)',
-  //         }
-  //       }, */
-  //       /* {
-  //         text: 'Under Construction...',
-  //         duration: 99999,
-  //         close: true,
-  //         gravity: 'top',
-  //         position: 'right',
-  //         style: {
-  //           background: 'linear-gradient(to right, #00b09b, #96c93d)',
-  //         }
-  //       }, */
-  //       {
-  //         text: 'Drag Available Jobs to Events Column',
-  //         duration: 3000,
-  //         close: true,
-  //         gravity: 'top',
-  //         position: 'center',
-  //         style: {
-  //           background: 'linear-gradient(to right, #00b09b, #96c93d)',
-  //         }
-  //       }
-  //     ];
-  //     toasties.map(toast => Toastify(toast).showToast());
-  //   }, 250);
-  // }
 
   // This prevents conflict dropping conflict with the job items drag and drop
   static _onDragResource() {

@@ -1,6 +1,6 @@
 import Board from './src/board';
 import Calendar from './src/calendar';
-import { Cache, Event, handleWorkOrderAction } from './src/components/utils';
+import { Cache, Event, handleDropDownOptions, handleWorkOrderAction } from './src/components/utils';
 import { handleFilters } from './src/components/filterFields/filterUtils';
 
 $(document).ready(() => {
@@ -8,8 +8,12 @@ $(document).ready(() => {
   Calendar.setup();
   Cache.setDefaultTab();
   Cache.showLastAction();
+
+  handleDropDownOptions();
   handleWorkOrderAction();
   handleFilters();
 
   Event.handleDeleteEventRecord();
+
+
 });

@@ -98,7 +98,7 @@ $(document).ready(() => {
                                   <div class="d-flex align-items-center ms-3">
                                     <div class="form-check form-switch w-100" style="margin-top: 10px; margin-left: 20px; display: flex; align-items: center;">
                                       <input class="form-check-input me-2 allday-toggle" type="checkbox">
-                                      <label class="form-check-label" style="font-size: 11px; margin: 0; align-self: flex-end;">All Day</label>
+                                      <label class="form-check-label" style="font-size: 11px; margin: 0; align-self: flex-end; white-space: nowrap;">All Day</label>
                                     </div>
                                   </div>
                                 </td>
