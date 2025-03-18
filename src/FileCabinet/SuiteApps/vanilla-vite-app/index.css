@@ -108,6 +108,10 @@ header > div.tab {
   color: #007BFF; /* Change this to your preferred hover color */
 }
 
+.fa-sliders:hover {
+  transform: scale(1.2);
+}
+
 .card-head {
   display: flex;
   justify-content: space-between;

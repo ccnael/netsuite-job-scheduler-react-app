@@ -641,9 +641,9 @@
         },
         "date": "3/11/2025",
         "status": {
-            "text": "Not Started",
-            "value": "8",
-            "code": "#026adf"
+            "text": "Closed",
+            "value": "3",
+            "code": "#6c757d"
         },
         "type": {
             "text": "Maintenance",
@@ -26815,7 +26815,7 @@
         },
         "time": {
             "start": "08:00",
-            "end": "18:00"
+            "end": "04:00"
         },
         "resourceSkills": [],
         "department": {
@@ -28417,9 +28417,9 @@
             },
             "date": "3/11/2025",
             "status": {
-                "text": "Not Started",
-                "value": "8",
-                "code": "#026adf"
+                "text": "Closed",
+                "value": "3",
+                "code": "#6c757d"
             },
             "type": {
                 "text": "Maintenance",
@@ -28967,7 +28967,7 @@
             },
             "time": {
                 "start": "08:00",
-                "end": "18:00"
+                "end": "04:00"
             },
             "resourceSkills": [],
             "department": {
@@ -32600,9 +32600,9 @@
             },
             "date": "3/11/2025",
             "status": {
-                "text": "Not Started",
-                "value": "8",
-                "code": "#026adf"
+                "text": "Closed",
+                "value": "3",
+                "code": "#6c757d"
             },
             "type": {
                 "text": "Maintenance",
@@ -52719,6 +52719,16 @@
                     "value": "2"
                 }]
             }, {
+                "label": "Date From",
+                "className": "board-event-datefrom",
+                "type": "date",
+                "display": true
+            }, {
+                "label": "Date To",
+                "className": "board-event-dateto",
+                "type": "date",
+                "display": true
+            }, {
                 "label": "Organizer",
                 "className": "multiple-event-organizer-field",
                 "type": "multiselect",
@@ -52793,16 +52803,6 @@
                     "text": "Brad M Sparling",
                     "value": "27"
                 }]
-            }, {
-                "label": "Date From",
-                "className": "board-event-datefrom",
-                "type": "date",
-                "display": true
-            }, {
-                "label": "Date To",
-                "className": "board-event-dateto",
-                "type": "date",
-                "display": true
             }, {
                 "label": "Receipt Status",
                 "className": "multiple-event-receipt-field",
