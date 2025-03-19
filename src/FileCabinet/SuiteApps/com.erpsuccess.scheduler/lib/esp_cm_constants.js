@@ -55,5 +55,12 @@ define(() => ({
     EXPORT_TIME: 'HH:mm',
     IMPORT_TIME: 'h:mm a'
   },
-  FilterMapPath: './lib/esp_cm_filtermap.json'
+  FilePath: {
+    FILTER_MAP: './esp_cm_filtermap.json',
+    TEMPLATE: '../vanilla-vite-app-bundle/index.html',
+    STYLE: '../vanilla-vite-app-bundle/index.css',
+    JS: '../vanilla-vite-app-bundle/app.js',
+    SVG: '../vanilla-vite-app-bundle/assets/images/vite.svg',
+    AI_ICON: '../vanilla-vite-app-bundle/assets/images/ai.png'
+  }
 }))
