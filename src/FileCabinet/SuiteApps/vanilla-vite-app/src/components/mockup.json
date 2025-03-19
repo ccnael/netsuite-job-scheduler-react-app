@@ -495,6 +495,7 @@
             "vendors": [],
             "assets": [],
             "items": [],
+            "floating": true,
             "contacts": [],
             "addresses": [],
             "address": {
@@ -546,6 +547,7 @@
             "vendors": [],
             "assets": [],
             "items": [],
+            "floating": true,
             "contacts": [],
             "addresses": [],
             "address": {
@@ -597,6 +599,7 @@
             "vendors": [],
             "assets": [],
             "items": [],
+            "floating": true,
             "contacts": [],
             "addresses": [],
             "address": {
@@ -1066,6 +1069,7 @@
             "vendors": [],
             "assets": [],
             "items": [],
+            "floating": true,
             "contacts": [],
             "addresses": [],
             "address": {
@@ -1117,6 +1121,7 @@
             "vendors": [],
             "assets": [],
             "items": [],
+            "floating": true,
             "contacts": [],
             "addresses": [],
             "address": {
@@ -1475,6 +1480,7 @@
             "vendors": [],
             "assets": [],
             "items": [],
+            "floating": true,
             "contacts": [],
             "addresses": [],
             "address": {
@@ -1979,6 +1985,7 @@
             "vendors": [],
             "assets": [],
             "items": [],
+            "floating": true,
             "contacts": [],
             "addresses": [],
             "address": {
@@ -2493,6 +2500,7 @@
             "vendors": [],
             "assets": [],
             "items": [],
+            "floating": true,
             "contacts": [],
             "addresses": [],
             "address": {
@@ -2544,6 +2552,7 @@
             "vendors": [],
             "assets": [],
             "items": [],
+            "floating": true,
             "contacts": [],
             "addresses": [],
             "address": {
@@ -2595,6 +2604,7 @@
             "vendors": [],
             "assets": [],
             "items": [],
+            "floating": true,
             "contacts": [],
             "addresses": [],
             "address": {
@@ -2646,6 +2656,7 @@
             "vendors": [],
             "assets": [],
             "items": [],
+            "floating": true,
             "contacts": [],
             "addresses": [],
             "address": {
@@ -2697,6 +2708,7 @@
             "vendors": [],
             "assets": [],
             "items": [],
+            "floating": true,
             "contacts": [],
             "addresses": [],
             "address": {
@@ -2748,6 +2760,7 @@
             "vendors": [],
             "assets": [],
             "items": [],
+            "floating": true,
             "contacts": [],
             "addresses": [],
             "address": {
@@ -2799,6 +2812,7 @@
             "vendors": [],
             "assets": [],
             "items": [],
+            "floating": true,
             "contacts": [],
             "addresses": [],
             "address": {
@@ -3281,6 +3295,7 @@
             "vendors": [],
             "assets": [],
             "items": [],
+            "floating": true,
             "contacts": [],
             "addresses": [],
             "address": {
@@ -3505,6 +3520,7 @@
             "vendors": [],
             "assets": [],
             "items": [],
+            "floating": true,
             "contacts": [],
             "addresses": [],
             "address": {
@@ -3796,6 +3812,7 @@
             "vendors": [],
             "assets": [],
             "items": [],
+            "floating": true,
             "contacts": [],
             "addresses": [],
             "address": {
@@ -4141,6 +4158,7 @@
             "vendors": [],
             "assets": [],
             "items": [],
+            "floating": true,
             "contacts": [],
             "addresses": [],
             "address": {
@@ -4192,6 +4210,7 @@
             "vendors": [],
             "assets": [],
             "items": [],
+            "floating": true,
             "contacts": [],
             "addresses": [],
             "address": {
@@ -4243,6 +4262,7 @@
             "vendors": [],
             "assets": [],
             "items": [],
+            "floating": true,
             "contacts": [],
             "addresses": [],
             "address": {
@@ -4294,6 +4314,7 @@
             "vendors": [],
             "assets": [],
             "items": [],
+            "floating": true,
             "contacts": [],
             "addresses": [],
             "address": {
@@ -4345,6 +4366,7 @@
             "vendors": [],
             "assets": [],
             "items": [],
+            "floating": true,
             "contacts": [],
             "addresses": [],
             "address": {
@@ -5534,6 +5556,7 @@
             "vendors": [],
             "assets": [],
             "items": [],
+            "floating": true,
             "contacts": [],
             "addresses": [],
             "address": {
@@ -6517,6 +6540,7 @@
             "vendors": [],
             "assets": [],
             "items": [],
+            "floating": true,
             "contacts": [],
             "addresses": [],
             "address": {
@@ -6568,6 +6592,7 @@
             "vendors": [],
             "assets": [],
             "items": [],
+            "floating": true,
             "contacts": [],
             "addresses": [],
             "address": {
@@ -6619,6 +6644,7 @@
             "vendors": [],
             "assets": [],
             "items": [],
+            "floating": true,
             "contacts": [],
             "addresses": [],
             "address": {
@@ -6670,6 +6696,7 @@
             "vendors": [],
             "assets": [],
             "items": [],
+            "floating": true,
             "contacts": [],
             "addresses": [],
             "address": {
@@ -6721,6 +6748,7 @@
             "vendors": [],
             "assets": [],
             "items": [],
+            "floating": true,
             "contacts": [],
             "addresses": [],
             "address": {
@@ -6772,6 +6800,7 @@
             "vendors": [],
             "assets": [],
             "items": [],
+            "floating": true,
             "contacts": [],
             "addresses": [],
             "address": {
@@ -6823,6 +6852,7 @@
             "vendors": [],
             "assets": [],
             "items": [],
+            "floating": true,
             "contacts": [],
             "addresses": [],
             "address": {
@@ -6874,6 +6904,7 @@
             "vendors": [],
             "assets": [],
             "items": [],
+            "floating": true,
             "contacts": [],
             "addresses": [],
             "address": {
@@ -6925,6 +6956,7 @@
             "vendors": [],
             "assets": [],
             "items": [],
+            "floating": true,
             "contacts": [],
             "addresses": [],
             "address": {
@@ -26815,7 +26847,7 @@
         },
         "time": {
             "start": "08:00",
-            "end": "04:00"
+            "end": "08:00"
         },
         "resourceSkills": [],
         "department": {
@@ -26913,7 +26945,7 @@
             "value": "1"
         },
         "time": {
-            "start": "07:00",
+            "start": "08:00",
             "end": "18:00"
         },
         "resourceSkills": [],
@@ -28056,7 +28088,7 @@
                 "value": "1"
             },
             "time": {
-                "start": "07:00",
+                "start": "08:00",
                 "end": "18:00"
             },
             "resourceSkills": [],
@@ -28361,6 +28393,7 @@
             "selected": true
         }],
         "items": [],
+        "floating": false,
         "contacts": [],
         "addresses": [],
         "address": {
@@ -28842,6 +28875,7 @@
                 "vendors": [],
                 "assets": [],
                 "items": [],
+                "floating": true,
                 "contacts": [],
                 "addresses": [],
                 "address": {
@@ -28893,6 +28927,7 @@
                 "vendors": [],
                 "assets": [],
                 "items": [],
+                "floating": true,
                 "contacts": [],
                 "addresses": [],
                 "address": {
@@ -28967,7 +29002,7 @@
             },
             "time": {
                 "start": "08:00",
-                "end": "04:00"
+                "end": "08:00"
             },
             "resourceSkills": [],
             "department": {
@@ -29074,6 +29109,7 @@
             "completedQty": 0,
             "selected": true
         }],
+        "floating": false,
         "contacts": [],
         "addresses": [{
             "id": "231",
@@ -29632,6 +29668,7 @@
                 "vendors": [],
                 "assets": [],
                 "items": [],
+                "floating": true,
                 "contacts": [],
                 "addresses": [],
                 "address": {
@@ -29683,6 +29720,7 @@
                 "vendors": [],
                 "assets": [],
                 "items": [],
+                "floating": true,
                 "contacts": [],
                 "addresses": [],
                 "address": {
@@ -29734,6 +29772,7 @@
                 "vendors": [],
                 "assets": [],
                 "items": [],
+                "floating": true,
                 "contacts": [],
                 "addresses": [],
                 "address": {
@@ -29773,6 +29812,7 @@
         "vendors": [],
         "assets": [],
         "items": [],
+        "floating": true,
         "contacts": [],
         "addresses": [{
             "id": "234",
@@ -30349,6 +30389,7 @@
                 "vendors": [],
                 "assets": [],
                 "items": [],
+                "floating": true,
                 "contacts": [],
                 "addresses": [],
                 "address": {
@@ -30400,6 +30441,7 @@
                 "vendors": [],
                 "assets": [],
                 "items": [],
+                "floating": true,
                 "contacts": [],
                 "addresses": [],
                 "address": {
@@ -30451,6 +30493,7 @@
                 "vendors": [],
                 "assets": [],
                 "items": [],
+                "floating": true,
                 "contacts": [],
                 "addresses": [],
                 "address": {
@@ -30490,6 +30533,7 @@
         "vendors": [],
         "assets": [],
         "items": [],
+        "floating": true,
         "contacts": [],
         "addresses": [{
             "id": "233",
@@ -31035,6 +31079,7 @@
                 "vendors": [],
                 "assets": [],
                 "items": [],
+                "floating": true,
                 "contacts": [],
                 "addresses": [],
                 "address": {
@@ -31086,6 +31131,7 @@
                 "vendors": [],
                 "assets": [],
                 "items": [],
+                "floating": true,
                 "contacts": [],
                 "addresses": [],
                 "address": {
@@ -31137,6 +31183,7 @@
                 "vendors": [],
                 "assets": [],
                 "items": [],
+                "floating": true,
                 "contacts": [],
                 "addresses": [],
                 "address": {
@@ -31188,6 +31235,7 @@
                 "vendors": [],
                 "assets": [],
                 "items": [],
+                "floating": true,
                 "contacts": [],
                 "addresses": [],
                 "address": {
@@ -31239,6 +31287,7 @@
                 "vendors": [],
                 "assets": [],
                 "items": [],
+                "floating": true,
                 "contacts": [],
                 "addresses": [],
                 "address": {
@@ -31290,6 +31339,7 @@
                 "vendors": [],
                 "assets": [],
                 "items": [],
+                "floating": true,
                 "contacts": [],
                 "addresses": [],
                 "address": {
@@ -31341,6 +31391,7 @@
                 "vendors": [],
                 "assets": [],
                 "items": [],
+                "floating": true,
                 "contacts": [],
                 "addresses": [],
                 "address": {
@@ -31380,6 +31431,7 @@
         "vendors": [],
         "assets": [],
         "items": [],
+        "floating": true,
         "contacts": [],
         "addresses": [],
         "address": {
@@ -31920,6 +31972,7 @@
                 "vendors": [],
                 "assets": [],
                 "items": [],
+                "floating": true,
                 "contacts": [],
                 "addresses": [],
                 "address": {
@@ -31971,6 +32024,7 @@
                 "vendors": [],
                 "assets": [],
                 "items": [],
+                "floating": true,
                 "contacts": [],
                 "addresses": [],
                 "address": {
@@ -32022,6 +32076,7 @@
                 "vendors": [],
                 "assets": [],
                 "items": [],
+                "floating": true,
                 "contacts": [],
                 "addresses": [],
                 "address": {
@@ -32391,6 +32446,7 @@
             "completedQty": 3,
             "selected": true
         }],
+        "floating": false,
         "contacts": [{
             "id": "224",
             "workorder": {
@@ -32544,6 +32600,7 @@
             "selected": true
         }],
         "items": [],
+        "floating": false,
         "contacts": [],
         "addresses": [],
         "address": {
@@ -33025,6 +33082,7 @@
                 "vendors": [],
                 "assets": [],
                 "items": [],
+                "floating": true,
                 "contacts": [],
                 "addresses": [],
                 "address": {
@@ -33076,6 +33134,7 @@
                 "vendors": [],
                 "assets": [],
                 "items": [],
+                "floating": true,
                 "contacts": [],
                 "addresses": [],
                 "address": {
@@ -33254,6 +33313,7 @@
             "completedQty": 1,
             "selected": true
         }],
+        "floating": false,
         "contacts": [{
             "id": "219",
             "workorder": {
@@ -33664,6 +33724,7 @@
                 "vendors": [],
                 "assets": [],
                 "items": [],
+                "floating": true,
                 "contacts": [],
                 "addresses": [],
                 "address": {
@@ -33916,6 +33977,7 @@
             "completedQty": 0,
             "selected": true
         }],
+        "floating": false,
         "contacts": [{
             "id": "218",
             "workorder": {
@@ -34472,6 +34534,7 @@
                 "vendors": [],
                 "assets": [],
                 "items": [],
+                "floating": true,
                 "contacts": [],
                 "addresses": [],
                 "address": {
@@ -34755,6 +34818,7 @@
             "completedQty": 1,
             "selected": true
         }],
+        "floating": false,
         "contacts": [{
             "id": "215",
             "workorder": {
@@ -34908,6 +34972,7 @@
             "selected": true
         }],
         "items": [],
+        "floating": false,
         "contacts": [],
         "addresses": [],
         "address": {
@@ -35436,6 +35501,7 @@
                 "vendors": [],
                 "assets": [],
                 "items": [],
+                "floating": true,
                 "contacts": [],
                 "addresses": [],
                 "address": {
@@ -35487,6 +35553,7 @@
                 "vendors": [],
                 "assets": [],
                 "items": [],
+                "floating": true,
                 "contacts": [],
                 "addresses": [],
                 "address": {
@@ -35538,6 +35605,7 @@
                 "vendors": [],
                 "assets": [],
                 "items": [],
+                "floating": true,
                 "contacts": [],
                 "addresses": [],
                 "address": {
@@ -35589,6 +35657,7 @@
                 "vendors": [],
                 "assets": [],
                 "items": [],
+                "floating": true,
                 "contacts": [],
                 "addresses": [],
                 "address": {
@@ -35640,6 +35709,7 @@
                 "vendors": [],
                 "assets": [],
                 "items": [],
+                "floating": true,
                 "contacts": [],
                 "addresses": [],
                 "address": {
@@ -35691,6 +35761,7 @@
                 "vendors": [],
                 "assets": [],
                 "items": [],
+                "floating": true,
                 "contacts": [],
                 "addresses": [],
                 "address": {
@@ -35742,6 +35813,7 @@
                 "vendors": [],
                 "assets": [],
                 "items": [],
+                "floating": true,
                 "contacts": [],
                 "addresses": [],
                 "address": {
@@ -35974,6 +36046,7 @@
             "completedQty": 0,
             "selected": true
         }],
+        "floating": false,
         "contacts": [],
         "addresses": [{
             "id": "225",
@@ -36520,6 +36593,7 @@
                 "vendors": [],
                 "assets": [],
                 "items": [],
+                "floating": true,
                 "contacts": [],
                 "addresses": [],
                 "address": {
@@ -36571,6 +36645,7 @@
                 "vendors": [],
                 "assets": [],
                 "items": [],
+                "floating": true,
                 "contacts": [],
                 "addresses": [],
                 "address": {
@@ -36622,6 +36697,7 @@
                 "vendors": [],
                 "assets": [],
                 "items": [],
+                "floating": true,
                 "contacts": [],
                 "addresses": [],
                 "address": {
@@ -36673,6 +36749,7 @@
                 "vendors": [],
                 "assets": [],
                 "items": [],
+                "floating": true,
                 "contacts": [],
                 "addresses": [],
                 "address": {
@@ -36724,6 +36801,7 @@
                 "vendors": [],
                 "assets": [],
                 "items": [],
+                "floating": true,
                 "contacts": [],
                 "addresses": [],
                 "address": {
@@ -36775,6 +36853,7 @@
                 "vendors": [],
                 "assets": [],
                 "items": [],
+                "floating": true,
                 "contacts": [],
                 "addresses": [],
                 "address": {
@@ -36826,6 +36905,7 @@
                 "vendors": [],
                 "assets": [],
                 "items": [],
+                "floating": true,
                 "contacts": [],
                 "addresses": [],
                 "address": {
@@ -36987,6 +37067,7 @@
             "completedQty": 0,
             "selected": true
         }],
+        "floating": false,
         "contacts": [],
         "addresses": [{
             "id": "227",
@@ -37533,6 +37614,7 @@
                 "vendors": [],
                 "assets": [],
                 "items": [],
+                "floating": true,
                 "contacts": [],
                 "addresses": [],
                 "address": {
@@ -37584,6 +37666,7 @@
                 "vendors": [],
                 "assets": [],
                 "items": [],
+                "floating": true,
                 "contacts": [],
                 "addresses": [],
                 "address": {
@@ -37635,6 +37718,7 @@
                 "vendors": [],
                 "assets": [],
                 "items": [],
+                "floating": true,
                 "contacts": [],
                 "addresses": [],
                 "address": {
@@ -37686,6 +37770,7 @@
                 "vendors": [],
                 "assets": [],
                 "items": [],
+                "floating": true,
                 "contacts": [],
                 "addresses": [],
                 "address": {
@@ -37737,6 +37822,7 @@
                 "vendors": [],
                 "assets": [],
                 "items": [],
+                "floating": true,
                 "contacts": [],
                 "addresses": [],
                 "address": {
@@ -37788,6 +37874,7 @@
                 "vendors": [],
                 "assets": [],
                 "items": [],
+                "floating": true,
                 "contacts": [],
                 "addresses": [],
                 "address": {
@@ -37839,6 +37926,7 @@
                 "vendors": [],
                 "assets": [],
                 "items": [],
+                "floating": true,
                 "contacts": [],
                 "addresses": [],
                 "address": {
@@ -38049,6 +38137,7 @@
             "completedQty": 0,
             "selected": true
         }],
+        "floating": false,
         "contacts": [{
             "id": "206",
             "workorder": {
@@ -38615,6 +38704,7 @@
                 "vendors": [],
                 "assets": [],
                 "items": [],
+                "floating": true,
                 "contacts": [],
                 "addresses": [],
                 "address": {
@@ -38666,6 +38756,7 @@
                 "vendors": [],
                 "assets": [],
                 "items": [],
+                "floating": true,
                 "contacts": [],
                 "addresses": [],
                 "address": {
@@ -38717,6 +38808,7 @@
                 "vendors": [],
                 "assets": [],
                 "items": [],
+                "floating": true,
                 "contacts": [],
                 "addresses": [],
                 "address": {
@@ -38768,6 +38860,7 @@
                 "vendors": [],
                 "assets": [],
                 "items": [],
+                "floating": true,
                 "contacts": [],
                 "addresses": [],
                 "address": {
@@ -38819,6 +38912,7 @@
                 "vendors": [],
                 "assets": [],
                 "items": [],
+                "floating": true,
                 "contacts": [],
                 "addresses": [],
                 "address": {
@@ -38870,6 +38964,7 @@
                 "vendors": [],
                 "assets": [],
                 "items": [],
+                "floating": true,
                 "contacts": [],
                 "addresses": [],
                 "address": {
@@ -38921,6 +39016,7 @@
                 "vendors": [],
                 "assets": [],
                 "items": [],
+                "floating": true,
                 "contacts": [],
                 "addresses": [],
                 "address": {
@@ -39198,6 +39294,7 @@
             "completedQty": 0,
             "selected": true
         }],
+        "floating": false,
         "contacts": [{
             "id": "209",
             "workorder": {
@@ -39800,6 +39897,7 @@
                 "vendors": [],
                 "assets": [],
                 "items": [],
+                "floating": true,
                 "contacts": [],
                 "addresses": [],
                 "address": {
@@ -39851,6 +39949,7 @@
                 "vendors": [],
                 "assets": [],
                 "items": [],
+                "floating": true,
                 "contacts": [],
                 "addresses": [],
                 "address": {
@@ -39902,6 +40001,7 @@
                 "vendors": [],
                 "assets": [],
                 "items": [],
+                "floating": true,
                 "contacts": [],
                 "addresses": [],
                 "address": {
@@ -39953,6 +40053,7 @@
                 "vendors": [],
                 "assets": [],
                 "items": [],
+                "floating": true,
                 "contacts": [],
                 "addresses": [],
                 "address": {
@@ -40004,6 +40105,7 @@
                 "vendors": [],
                 "assets": [],
                 "items": [],
+                "floating": true,
                 "contacts": [],
                 "addresses": [],
                 "address": {
@@ -40055,6 +40157,7 @@
                 "vendors": [],
                 "assets": [],
                 "items": [],
+                "floating": true,
                 "contacts": [],
                 "addresses": [],
                 "address": {
@@ -40106,6 +40209,7 @@
                 "vendors": [],
                 "assets": [],
                 "items": [],
+                "floating": true,
                 "contacts": [],
                 "addresses": [],
                 "address": {
@@ -40219,6 +40323,7 @@
             "selected": true
         }],
         "items": [],
+        "floating": false,
         "contacts": [],
         "addresses": [{
             "id": "227",
@@ -40801,6 +40906,7 @@
                 "vendors": [],
                 "assets": [],
                 "items": [],
+                "floating": true,
                 "contacts": [],
                 "addresses": [],
                 "address": {
@@ -40852,6 +40958,7 @@
                 "vendors": [],
                 "assets": [],
                 "items": [],
+                "floating": true,
                 "contacts": [],
                 "addresses": [],
                 "address": {
@@ -40903,6 +41010,7 @@
                 "vendors": [],
                 "assets": [],
                 "items": [],
+                "floating": true,
                 "contacts": [],
                 "addresses": [],
                 "address": {
@@ -40954,6 +41062,7 @@
                 "vendors": [],
                 "assets": [],
                 "items": [],
+                "floating": true,
                 "contacts": [],
                 "addresses": [],
                 "address": {
@@ -41005,6 +41114,7 @@
                 "vendors": [],
                 "assets": [],
                 "items": [],
+                "floating": true,
                 "contacts": [],
                 "addresses": [],
                 "address": {
@@ -41056,6 +41166,7 @@
                 "vendors": [],
                 "assets": [],
                 "items": [],
+                "floating": true,
                 "contacts": [],
                 "addresses": [],
                 "address": {
@@ -41107,6 +41218,7 @@
                 "vendors": [],
                 "assets": [],
                 "items": [],
+                "floating": true,
                 "contacts": [],
                 "addresses": [],
                 "address": {
@@ -41238,6 +41350,7 @@
         "vendors": [],
         "assets": [],
         "items": [],
+        "floating": false,
         "contacts": [],
         "addresses": [],
         "address": {
@@ -41355,6 +41468,7 @@
             "selected": true
         }],
         "items": [],
+        "floating": false,
         "contacts": [],
         "addresses": [],
         "address": {
@@ -41510,6 +41624,7 @@
             "selected": true
         }],
         "items": [],
+        "floating": false,
         "contacts": [],
         "addresses": [],
         "address": {
@@ -41869,6 +41984,7 @@
                 "vendors": [],
                 "assets": [],
                 "items": [],
+                "floating": true,
                 "contacts": [],
                 "addresses": [],
                 "address": {
@@ -41920,6 +42036,7 @@
                 "vendors": [],
                 "assets": [],
                 "items": [],
+                "floating": true,
                 "contacts": [],
                 "addresses": [],
                 "address": {
@@ -41971,6 +42088,7 @@
                 "vendors": [],
                 "assets": [],
                 "items": [],
+                "floating": true,
                 "contacts": [],
                 "addresses": [],
                 "address": {
@@ -42022,6 +42140,7 @@
                 "vendors": [],
                 "assets": [],
                 "items": [],
+                "floating": true,
                 "contacts": [],
                 "addresses": [],
                 "address": {
@@ -42073,6 +42192,7 @@
                 "vendors": [],
                 "assets": [],
                 "items": [],
+                "floating": true,
                 "contacts": [],
                 "addresses": [],
                 "address": {
@@ -42238,6 +42358,7 @@
             "completedQty": 0,
             "selected": true
         }],
+        "floating": false,
         "contacts": [],
         "addresses": [],
         "address": {

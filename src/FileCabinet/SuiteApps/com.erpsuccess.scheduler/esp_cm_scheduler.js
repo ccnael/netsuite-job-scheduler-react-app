@@ -2071,6 +2071,12 @@ define([
             vendors: [],
             assets: [],
             items: [],
+            // Event without resources
+            get floating() {
+              return !this.resources.length &&
+                !this.vendors.length &&
+                !this.assets.length
+            },
             contacts: [],
             addresses: [],
             /* contact: { // Selected contact

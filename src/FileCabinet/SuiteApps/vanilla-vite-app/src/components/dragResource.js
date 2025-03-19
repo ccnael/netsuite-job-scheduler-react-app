@@ -1,5 +1,6 @@
 import * as dataSet from './dataSet';
-import { Cache, SessionKey } from './utils';
+import { Cache } from './utils';
+import * as env from './constants';
 
 $(document).ready(() => {
   window.openDragResourceModal = (eventId, dataTransfer) => {
@@ -76,7 +77,7 @@ $(document).ready(() => {
                           showConfirmButton: false,
                           allowOutsideClick: false
                         });
-                        Cache.set(SessionKey.UPDATED_EVENT, messageTxt);
+                        Cache.set(env.SessionKey.UPDATED_EVENT, messageTxt);
                         window.location.reload();
                       } else {
                         Swal.fire({
@@ -176,7 +177,7 @@ $(document).ready(() => {
                           showConfirmButton: false,
                           allowOutsideClick: false
                         });
-                        Cache.set(SessionKey.UPDATED_EVENT, messageTxt);
+                        Cache.set(env.SessionKey.UPDATED_EVENT, messageTxt);
                         window.location.reload();
                       } else {
                         Swal.fire({
@@ -276,7 +277,7 @@ $(document).ready(() => {
                           showConfirmButton: false,
                           allowOutsideClick: false
                         });
-                        Cache.set(SessionKey.UPDATED_EVENT, messageTxt);
+                        Cache.set(env.SessionKey.UPDATED_EVENT, messageTxt);
                         window.location.reload();
                       } else {
                         Swal.fire({

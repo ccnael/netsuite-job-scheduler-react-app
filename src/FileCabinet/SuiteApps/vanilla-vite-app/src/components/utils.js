@@ -1,20 +1,5 @@
 import { suiteletUrl, events, filterFields } from './dataSet';
-
-// TODO: Move to separate constants file
-export const SessionKey = {
-  UPDATED_WO_STATUS: 'updatedWOStatus',
-  NEW_EVENT: 'newEvent',
-  UPDATED_EVENT: 'updatedEvent',
-  DELETED_EVENT: 'deletedEvent',
-  ACTIVE_TAB: 'activeTab'
-}
-
-export const DateFormat = {
-  EXPORT_DATE: 'YYYY-MM-DD',
-  IMPORT_DATE: 'M/D/YYYY',
-  EXPORT_TIME: 'HH:mm',
-  IMPORT_TIME: 'h:mm a'
-}
+import * as env from './constants';
 
 export class Cache {
 
@@ -31,7 +16,7 @@ export class Cache {
   }
 
   static setDefaultTab() {
-    const sessionKey = SessionKey.ACTIVE_TAB;
+    const sessionKey = env.SessionKey.ACTIVE_TAB;
     const activeTab = this._get(sessionKey);
 
     if (activeTab) {
@@ -84,9 +69,9 @@ export class Cache {
     const that = this;
 
     async function showToast() {
-      for (const key in SessionKey) {
+      for (const key in env.SessionKey) {
         if (key === "ACTIVE_TAB") continue;
-        const message = that._get(SessionKey[key]);
+        const message = that._get(env.SessionKey[key]);
         if (message) {
           await new Promise((resolve) => {
             Toastify({
@@ -100,9 +85,9 @@ export class Cache {
               },
               callback: resolve
             }).showToast();
-            setTimeout(resolve, 1000);
+            setTimeout(resolve, 2000);
           });
-          that._clear(SessionKey[key]);
+          that._clear(env.SessionKey[key]);
         }
       }
     }
@@ -529,7 +514,7 @@ export class Event {
                       showConfirmButton: false,
                       allowOutsideClick: false
                     });
-                    Cache.set(SessionKey.NEW_EVENT, messageTxt);
+                    Cache.set(env.SessionKey.NEW_EVENT, messageTxt);
                     $(`#${modalId}`).modal('hide');
                     window.location.reload();
                   } else {
@@ -593,7 +578,7 @@ export class Event {
                       showConfirmButton: false,
                       allowOutsideClick: false
                     });
-                    Cache.set(SessionKey.UPDATED_EVENT, messageTxt);
+                    Cache.set(env.SessionKey.UPDATED_EVENT, messageTxt);
                     $(`#${modalId}`).modal('hide');
                     window.location.reload();
                   } else {
@@ -673,7 +658,7 @@ export class Event {
                       showConfirmButton: false,
                       allowOutsideClick: false
                     });
-                    Cache.set(SessionKey.DELETED_EVENT, messageTxt);
+                    Cache.set(env.SessionKey.DELETED_EVENT, messageTxt);
                     window.location.reload();
                     Swal.hideLoading();
                   })
@@ -729,7 +714,7 @@ export class Event {
                       showConfirmButton: false,
                       allowOutsideClick: false
                     });
-                    Cache.set(SessionKey.UPDATED_EVENT, messageTxt);
+                    Cache.set(env.SessionKey.UPDATED_EVENT, messageTxt);
                     window.location.reload();
                   } else {
                     Swal.fire({
@@ -801,7 +786,7 @@ export class Resource {
                       showConfirmButton: false,
                       allowOutsideClick: false
                     });
-                    Cache.set(SessionKey.UPDATED_EVENT, messageTxt);
+                    Cache.set(env.SessionKey.UPDATED_EVENT, messageTxt);
                     window.location.reload();
                   } else {
                     Swal.fire({
@@ -883,7 +868,7 @@ export class Resource {
                       showConfirmButton: false,
                       allowOutsideClick: false
                     });
-                    Cache.set(SessionKey.UPDATED_EVENT, messageTxt);
+                    Cache.set(env.SessionKey.UPDATED_EVENT, messageTxt);
                     window.location.reload();
                   } else {
                     Swal.fire({
@@ -927,10 +912,10 @@ export class Resource {
   static updateResourceDateTime(payload, eventInfo) {
     console.log('----- [updateResourceDateTime() -> PAYLOAD] -----', { payload, eventInfo: eventInfo || '' });
     const eventId = eventInfo.event.extendedProps.id;
-    const dateStart = moment(payload.date.start).format(DateFormat.IMPORT_DATE);
-    const dateEnd = moment(payload.date.end).format(DateFormat.IMPORT_DATE);
-    const timeStart = moment(`1/1/1999 ${payload.time.start}`).format(DateFormat.IMPORT_TIME);
-    const timeEnd = moment(`1/1/1999 ${payload.time.end}`).format(DateFormat.IMPORT_TIME);
+    const dateStart = moment(payload.date.start).format(env.DateFormat.IMPORT_DATE);
+    const dateEnd = moment(payload.date.end).format(env.DateFormat.IMPORT_DATE);
+    const timeStart = moment(`1/1/1999 ${payload.time.start}`).format(env.DateFormat.IMPORT_TIME);
+    const timeEnd = moment(`1/1/1999 ${payload.time.end}`).format(env.DateFormat.IMPORT_TIME);
 
     Swal.fire({
       title: `Update Date/Time?`,
@@ -965,7 +950,7 @@ export class Resource {
                       showConfirmButton: false,
                       allowOutsideClick: false
                     });
-                    Cache.set(SessionKey.UPDATED_EVENT, messageTxt);
+                    Cache.set(env.SessionKey.UPDATED_EVENT, messageTxt);
                     window.location.reload();
                   } else {
                     Swal.fire({
@@ -1013,10 +998,10 @@ export class Resource {
   static updateAssetDateTime(payload, eventInfo) {
     console.log('----- [updateAssetDateTime() -> PAYLOAD] -----', { payload, eventInfo: eventInfo || '' });
     const eventId = eventInfo.event.extendedProps.id;
-    const dateStart = moment(payload.date.start).format(DateFormat.IMPORT_DATE);
-    const dateEnd = moment(payload.date.end).format(DateFormat.IMPORT_DATE);
-    const timeStart = moment(`1/1/1999 ${payload.time.start}`).format(DateFormat.IMPORT_TIME);
-    const timeEnd = moment(`1/1/1999 ${payload.time.end}`).format(DateFormat.IMPORT_TIME);
+    const dateStart = moment(payload.date.start).format(env.DateFormat.IMPORT_DATE);
+    const dateEnd = moment(payload.date.end).format(env.DateFormat.IMPORT_DATE);
+    const timeStart = moment(`1/1/1999 ${payload.time.start}`).format(env.DateFormat.IMPORT_TIME);
+    const timeEnd = moment(`1/1/1999 ${payload.time.end}`).format(env.DateFormat.IMPORT_TIME);
 
     Swal.fire({
       title: `Update Date/Time`,
@@ -1051,7 +1036,7 @@ export class Resource {
                       showConfirmButton: false,
                       allowOutsideClick: false
                     });
-                    Cache.set(SessionKey.UPDATED_EVENT, messageTxt);
+                    Cache.set(env.SessionKey.UPDATED_EVENT, messageTxt);
                     window.location.reload();
                   } else {
                     Swal.fire({
@@ -1129,7 +1114,7 @@ export function handleWorkOrderAction() {
               showConfirmButton: false,
               allowOutsideClick: false
             });
-            Cache.set(SessionKey.UPDATED_WO_STATUS, messageTxt);
+            Cache.set(env.SessionKey.UPDATED_WO_STATUS, messageTxt);
             Swal.hideLoading();
             window.location.reload();
           })
@@ -1170,7 +1155,7 @@ export function handleWorkOrderAction() {
               showConfirmButton: false,
               allowOutsideClick: false
             });
-            Cache.set(SessionKey.UPDATED_WO_STATUS, messageTxt);
+            Cache.set(env.SessionKey.UPDATED_WO_STATUS, messageTxt);
             Swal.hideLoading();
             window.location.reload();
           })
@@ -1254,35 +1239,9 @@ export class ToolTip {
   }
 }
 
-export const WarningMessage = {
-  conflictSchedule() {
-    Swal.fire(
-      "Oops! There's a scheduling conflict.",
-      `Another event overlaps with your selected date and time.<br/>Try adjusting the time or checking the calendar for availability.`,
-      'warning'
-    );
-  },
-  invalidResizedCalendarEvent() {
-    Swal.fire({
-      title: "Invalid Date/Time",
-      html: `
-        <ul style="text-align: left; margin-left: 20px;">
-          <li>The resource start date/time cannot be earlier than event start date/time</li>
-          <li>The resource end time cannot exceed event end date/time</li>
-        </ul>
-        <p style="text-align: center;">Please adjust the event accordingly.</p>
-      `,
-      icon: "warning",
-      customClass: {
-        popup: "swal-wide", // Optional: Adjust width if needed
-      }
-    });
-  }
-}
-
 function getHoursDiff(date, time) {
-  const start = moment(`${date.start} ${time.start}`, `${DateFormat.EXPORT_DATE} ${DateFormat.EXPORT_TIME}`);
-  const end = moment(`${date.end} ${time.end}`, `${DateFormat.EXPORT_DATE} ${DateFormat.EXPORT_TIME}`);
+  const start = moment(`${date.start} ${time.start}`, `${env.DateFormat.EXPORT_DATE} ${env.DateFormat.EXPORT_TIME}`);
+  const end = moment(`${date.end} ${time.end}`, `${env.DateFormat.EXPORT_DATE} ${env.DateFormat.EXPORT_TIME}`);
   const duration = moment.duration(end.diff(start));
   return duration.asHours();
 }

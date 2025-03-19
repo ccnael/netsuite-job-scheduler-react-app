@@ -7,7 +7,8 @@ import timeGridPlugin from '@fullcalendar/timegrid';
 import resourceTimelinePlugin from '@fullcalendar/resource-timeline';
 import * as dataSet from './components/dataSet';
 import { onFilterCalendarEvent, onFilterJob } from './components/filterFields/filterUtils';
-import { DateFormat, CalendarAddOns, Event, Resource, ToolTip, WarningMessage } from './components/utils';
+import { CalendarAddOns, Event, Resource, ToolTip } from './components/utils';
+import * as env from './components/constants';
 import './calendar.css';
 
 export default class Calendar {
@@ -339,16 +340,16 @@ export default class Calendar {
         if (event.id) {
           try {
             const eventDate = {
-              start: moment(event.date.start).format(DateFormat.IMPORT_DATE),
-              end: moment(event.date.end).format(DateFormat.IMPORT_DATE)
+              start: moment(event.date.start).format(env.DateFormat.IMPORT_DATE),
+              end: moment(event.date.end).format(env.DateFormat.IMPORT_DATE)
             }
             const eventTime = {
-              start: moment(`1/1/1999 ${event.time.start}`).format(DateFormat.IMPORT_TIME),
-              end: moment(`1/1/1999 ${event.time.end}`).format(DateFormat.IMPORT_TIME)
+              start: moment(`1/1/1999 ${event.time.start}`).format(env.DateFormat.IMPORT_TIME),
+              end: moment(`1/1/1999 ${event.time.end}`).format(env.DateFormat.IMPORT_TIME)
             }
             const resourceTime = {
-              start: moment(el.event.start).format(DateFormat.IMPORT_TIME),
-              end: moment(el.event.end).format(DateFormat.IMPORT_TIME)
+              start: moment(el.event.start).format(env.DateFormat.IMPORT_TIME),
+              end: moment(el.event.end).format(env.DateFormat.IMPORT_TIME)
             }
             const resourceIds = el.event._def.resourceIds || [];
             let isVendor = false; // If not vendor, display the resource schedule
@@ -369,10 +370,10 @@ export default class Calendar {
                   Event Schedule:<br/>
                   ${event.date.start == event.date.end ? eventDate.start : `${eventDate.start} - ${eventDate.end}`}<br/>
                   ${eventTime.start} - ${eventTime.end}
-                  ${!isVendor && `<br/>
+                  ${!isVendor && !event.floating ? `<br/>
                   <br/>
                   Resource Schedule:<br/>
-                  ${resourceTime.start} - ${resourceTime.end}`}"
+                  ${resourceTime.start} - ${resourceTime.end}` : ''}"
               >
               <div class="card-head">
                 <div class="card-name"><a href="${event.url}" target="_blank" onclick="window.open('/app/crm/calendar/event.nl?id=${event.id}', '_blank')"><strong>${event.title}</strong> [ID ${event.id}]</a>
@@ -550,7 +551,7 @@ export default class Calendar {
     }
     const hasConflict = Event.draggedJobHasConflictEventToResource(start, data.resourceType, selectedResourceId);
     if (hasConflict) {
-      WarningMessage.conflictSchedule();
+      env.WarningMessage.conflictSchedule();
       info.revert();
       CalendarAddOns.reinitializeAddOns(info);
       return;
@@ -603,7 +604,7 @@ export default class Calendar {
           // console.log('----- [Updated Event Details] -----', payload, info);
           Resource.updateResourceAssignment(payload, info);
         } else {
-          WarningMessage.conflictSchedule();
+          env.WarningMessage.conflictSchedule();
           info.revert();
           CalendarAddOns.reinitializeAddOns(info);
         }
@@ -652,7 +653,7 @@ export default class Calendar {
           // console.log('----- [Updated Event Details] -----', payload, info);
           Resource.updateAssetAssignment(payload, info);
         } else {
-          WarningMessage.conflictSchedule();
+          env.WarningMessage.conflictSchedule();
           info.revert();
           CalendarAddOns.reinitializeAddOns(info);
         }
@@ -707,7 +708,7 @@ export default class Calendar {
           // console.log('----- [Updated Event Details] -----', payload, info);
           Resource.updateResourceDateTime(payload, info);
         } else {
-          WarningMessage[msgKey]();
+          env.WarningMessage[msgKey]();
           info.revert();
           CalendarAddOns.reinitializeAddOns(info);
         }
@@ -762,7 +763,7 @@ export default class Calendar {
           // console.log('----- [Updated Event Details] -----', payload, info);
           Resource.updateResourceDateTime(payload, info);
         } else {
-          WarningMessage[msgKey]();
+          env.WarningMessage[msgKey]();
           info.revert();
           CalendarAddOns.reinitializeAddOns(info);
         }
@@ -823,6 +824,9 @@ export default class Calendar {
             const elementId = info.newResource._resource.id;
             const resourceId = elementId.split('-').pop();
             let foundObj, allowEvent = false;
+
+            // console.log('>>>', resourceType, resourceId, eventData);
+            // eventData.floating // Event without resources
 
             if (resourceType === 'employee') {
               foundObj = payload.eventData.resources.find(resource => resource.employee.value == resourceId);
@@ -898,7 +902,7 @@ export default class Calendar {
                 }
               }
             } else {
-              WarningMessage.conflictSchedule();
+              env.WarningMessage.conflictSchedule();
               info.revert();
               CalendarAddOns.reinitializeAddOns(info);
               return;
