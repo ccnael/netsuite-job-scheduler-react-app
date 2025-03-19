@@ -133,8 +133,17 @@ header > div.tab {
 	transform: scale(1.2);
 	color: #007BFF; /* Change this to your preferred hover color */
 }
-.fa-sliders:hover {
-	transform: scale(1.2);
+.fa-ellipsis,
+.fa-ellipsis-vertical {
+	cursor: pointer;
+	font-size: 16px;
+	padding: 5px;
+	&:hover {
+		transform: scale(1.2);
+    	border: 2px solid #3498db;
+    	border-radius: 5px;
+    	padding: 3px;
+	}
 }
 .card-head {
 	display: flex;
@@ -163,7 +172,7 @@ header > div.tab {
 	border: none;
 	font-size: 12px;
 	cursor: pointer;
-	:hover {
+	&:hover {
 		color: $color_6;
 	}
 }
@@ -456,25 +465,42 @@ div.form-check {
 	content: " *";
 	color: $color_6;
 }
-.spinner {
-	border: 16px solid #f3f3f3;
-	border-top: 16px solid #3498db;
-	border-radius: 50%;
-	width: 120px;
-	height: 120px;
-	animation: spin 2s linear infinite;
-	position: absolute;
-	top: 25%;
-	left: 42.5%;
-}
+// .spinner {
+// 	border: 16px solid #f3f3f3;
+// 	border-top: 16px solid #3498db;
+// 	border-radius: 50%;
+// 	width: 120px;
+// 	height: 120px;
+// 	animation: spin 2s linear infinite;
+// 	position: absolute;
+// 	top: 25%;
+// 	left: 42.5%;
+// }
 
+// @keyframes spin {
+// 	0% {
+// 		transform: rotate(0deg);
+// 	}
+// 	100% {
+// 		transform: rotate(360deg);
+// 	}
+// }
+.spinner {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 8px solid rgba(0, 0, 0, 0.1);
+    border-top-color: #3498db; /* Main color */
+    animation: spin 1s ease-in-out infinite;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 10px rgba(52, 152, 219, 0.5);
+}
 @keyframes spin {
-	0% {
-		transform: rotate(0deg);
-	}
-	100% {
-		transform: rotate(360deg);
-	}
+	0% { transform: translate(-50%, -50%) rotate(0deg); }
+	100% { transform: translate(-50%, -50%) rotate(360deg); }
 }
 
 @media (prefers-color-scheme: light) {
@@ -483,7 +509,7 @@ div.form-check {
 		background-color: $background-color_2;
 	}
 	a {
-		:hover {
+		&:hover {
 			color: $color_3;
 		}
 	}

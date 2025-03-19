@@ -386,68 +386,79 @@ export class Event {
     $(`${selector} .endtime-row`).val('18:00');
   }
 
+  // From board view, sidebar > applied to resources and vendors section
   static draggedResourceHasConflictEvent(eventId, date, time, resourceId) {
-    // console.log('draggedResourceHasConflictEvent args', arguments);
     const start = moment(`${date.start} ${time.start}`);
     const end = moment(`${date.end} ${time.end}`);
-    const resourceEvents = events.filter(event => event.resources.map(resource => resource.employee.value).includes(resourceId));
-    const conflictEvents = resourceEvents.filter(event => {
-      const eventStart = `${event.date.start} ${event.time.start}`;
-      const eventEnd = `${event.date.end} ${event.time.end}`;
-      return event.status.value !== 'COMPLETED' && event.id != eventId && (moment(eventEnd).isBetween(start, end, null, '[]') || moment(eventStart).isSameOrBefore(start) && moment(eventEnd).isSameOrAfter(end));
+    const resourceEvents = events
+      .filter(event => event.resources.map(resource => resource.employee.value)
+        .includes(resourceId));
+    const conflictEvents = resourceEvents.filter(resEvent => {
+      const resEventStart = `${resEvent.date.start} ${resEvent.time.start}`;
+      const resEventEnd = `${resEvent.date.end} ${resEvent.time.end}`;
+      return resEvent.status.value !== 'COMPLETED' &&
+        resEvent.id != eventId &&
+        (moment(resEventEnd).isBetween(start, end, null, '[]') || moment(resEventStart).isSameOrBefore(start) && moment(resEventEnd).isSameOrAfter(end))
     });
     // console.log('draggedResourceHasConflictEvent > conflictEvents', conflictEvents);
     return !!conflictEvents.length;
   }
 
-  static draggedEventToNewResourceHasConflictEvent(date, time, resourceId) {
-    const start = moment(`${date.start} ${time.start}`);
-    const end = moment(`${date.end} ${time.end}`);
-    const resourceEvents = events.filter(event => event.resources.map(resource => resource.employee.value).includes(resourceId));
-    // console.log('>>>', { start: `${date.start} ${time.start}`, end: `${date.end} ${time.end}`, resourceEvents });
-    const conflictEvents = resourceEvents.filter(event => {
-      const eventStart = `${event.date.start} ${event.time.start}`;
-      const eventEnd = `${event.date.end} ${event.time.end}`;
-      const result = event.status.value !== 'COMPLETED' && (moment(eventStart).isBetween(start, end, null, '[]') || moment(eventEnd).isBetween(start, end, null, '[]'));
-      /* console.log('EVENT', event, result, 'Check Conditions', {
-        "event.status.value !== 'COMPLETED'": event.status.value !== 'COMPLETED',
-        "moment(eventEnd).isBetween(start, end, null, '[]')": { eventEnd: `${event.date.end} ${event.time.end}`, start: `${date.start} ${time.start}`, end: `${date.end} ${time.end}`, result: moment(eventEnd).isBetween(start, end, null, '[]') },
-        "moment(eventStart).isSameOrBefore(start)": { eventStart: `${event.date.start} ${event.time.start}`, start: `${date.start} ${time.start}`, result: moment(eventStart).isSameOrBefore(start) },
-        "moment(eventEnd).isSameOrAfter(end)": { eventEnd: `${event.date.end} ${event.time.end}`, end: `${date.end} ${time.end}`, result: moment(eventEnd).isSameOrAfter(end) }
-      }); */
-      return result;
-    });
-    return !!conflictEvents.length;
-  }
-
+  // From board view, sidebar > applied to assets section
   static draggedAssetHasConflictEvent(eventId, date, time, resourceId) {
-    // console.log('draggedAssetHasConflictEvent args', arguments);
     const start = moment(`${date.start} ${time.start}`);
     const end = moment(`${date.end} ${time.end}`);
-    const resourceEvents = events.filter(event => event.assets.map(asset => asset.asset.value).includes(resourceId));
-    const conflictEvents = resourceEvents.filter(event => {
-      const eventStart = `${event.date.start} ${event.time.start}`;
-      const eventEnd = `${event.date.end} ${event.time.end}`;
-      return event.status.value !== 'COMPLETED' && event.id != eventId && (moment(eventEnd).isBetween(start, end, null, '[]') || moment(eventStart).isSameOrBefore(start) && moment(eventEnd).isSameOrAfter(end));
+    const resourceEvents = events
+      .filter(event => event.assets.map(asset => asset.asset.value)
+        .includes(resourceId));
+    const conflictEvents = resourceEvents.filter(resEvent => {
+      const resEventStart = `${resEvent.date.start} ${resEvent.time.start}`;
+      const resEventEnd = `${resEvent.date.end} ${resEvent.time.end}`;
+      return resEvent.status.value !== 'COMPLETED' &&
+        resEvent.id != eventId &&
+        (moment(resEventEnd).isBetween(start, end, null, '[]') || moment(resEventStart).isSameOrBefore(start) && moment(resEventEnd).isSameOrAfter(end));
     });
     // console.log('draggedAssetHasConflictEvent > conflictEvents', conflictEvents);
     return !!conflictEvents.length;
   }
 
-  static draggedEventToNewAssetHasConflictEvent(date, time, resourceId) {
+  static invalidResizedCalendarEvent(eventId, date, time) {
     const start = moment(`${date.start} ${time.start}`);
     const end = moment(`${date.end} ${time.end}`);
-    const resourceEvents = events.filter(event => event.assets.map(asset => asset.asset.value).includes(resourceId));
-    const conflictEvents = resourceEvents.filter(event => {
-      const eventStart = `${event.date.start} ${event.time.start}`;
-      const eventEnd = `${event.date.end} ${event.time.end}`;
-      const result = event.status.value !== 'COMPLETED' && (moment(eventStart).isBetween(start, end, null, '[]') || moment(eventEnd).isBetween(start, end, null, '[]'));
-      /* console.log('EVENT', event, result, 'Check Conditions', {
-        "event.status.value !== 'COMPLETED'": event.status.value !== 'COMPLETED',
-        "moment(eventEnd).isBetween(start, end, null, '[]')": moment(eventEnd).isBetween(start, end, null, '[]'),
-        "moment(eventStart).isSameOrBefore(start)": moment(eventStart).isSameOrBefore(start),
-        "moment(eventEnd).isSameOrAfter(end)": moment(eventEnd).isSameOrAfter(end)
-      }); */
+    const eventData = events.find(event => event.id == eventId);
+    console.log('invalidResizedCalendarEvent > eventData', eventData);
+    const eventDate = {
+      start: moment(`${eventData.date.start} ${eventData.time.start}`),
+      end: moment(`${eventData.date.end} ${eventData.time.end}`)
+    }
+    return start.isBefore(eventDate.start) || end.isAfter(eventDate.end);
+  }
+
+  static draggedEventToNewResourceHasConflictEvent(eventId, date, time, resourceId) {
+    const start = moment(`${date.start} ${time.start}`);
+    const end = moment(`${date.end} ${time.end}`);
+    const resourceEvents = events
+      .filter(event => event.resources.map(resource => resource.employee.value)
+        .includes(resourceId));
+    const conflictEvents = resourceEvents.filter(resEvent => {
+      const resEventStart = `${resEvent.date.start} ${resEvent.time.start}`;
+      const resEventEnd = `${resEvent.date.end} ${resEvent.time.end}`;
+      const result = (resEvent.status.value !== 'COMPLETED' && (moment(resEventStart).isBetween(start, end, null, '[]') || moment(resEventEnd).isBetween(start, end, null, '[]'))) || resEvent.id == eventId;
+      return result;
+    });
+    return !!conflictEvents.length;
+  }
+
+  static draggedEventToNewAssetHasConflictEvent(eventId, date, time, resourceId) {
+    const start = moment(`${date.start} ${time.start}`);
+    const end = moment(`${date.end} ${time.end}`);
+    const resourceEvents = events
+      .filter(event => event.assets.map(asset => asset.asset.value)
+        .includes(resourceId));
+    const conflictEvents = resourceEvents.filter(resEvent => {
+      const resEventStart = `${resEvent.date.start} ${resEvent.time.start}`;
+      const resEventEnd = `${resEvent.date.end} ${resEvent.time.end}`;
+      const result = (resEvent.status.value !== 'COMPLETED' && (moment(resEventStart).isBetween(start, end, null, '[]') || moment(resEventEnd).isBetween(start, end, null, '[]'))) || resEvent.id == eventId;
       return result;
     });
     return !!conflictEvents.length;
@@ -593,6 +604,7 @@ export class Event {
                     });
                     if (eventInfo) {
                       eventInfo.revert();
+                      CalendarAddOns.reinitializeAddOns(eventInfo);
                     }
                   }
                   Swal.hideLoading();
@@ -606,6 +618,7 @@ export class Event {
                   Swal.hideLoading();
                   if (eventInfo) {
                     eventInfo.revert();
+                    CalendarAddOns.reinitializeAddOns(eventInfo);
                   }
                 });
             },
@@ -616,6 +629,7 @@ export class Event {
         } else {
           if (eventInfo) {
             eventInfo.revert();
+            CalendarAddOns.reinitializeAddOns(eventInfo);
           }
         }
       });
@@ -797,6 +811,7 @@ export class Resource {
                     });
                     if (eventInfo) {
                       eventInfo.revert();
+                      CalendarAddOns.reinitializeAddOns(eventInfo);
                     }
                   }
                   Swal.hideLoading();
@@ -810,6 +825,7 @@ export class Resource {
                   Swal.hideLoading();
                   if (eventInfo) {
                     eventInfo.revert();
+                    CalendarAddOns.reinitializeAddOns(eventInfo);
                   }
                 });
             },
@@ -820,6 +836,7 @@ export class Resource {
         } else {
           if (eventInfo) {
             eventInfo.revert();
+            CalendarAddOns.reinitializeAddOns(eventInfo);
           }
         }
       });
@@ -876,6 +893,7 @@ export class Resource {
                     });
                     if (eventInfo) {
                       eventInfo.revert();
+                      CalendarAddOns.reinitializeAddOns(eventInfo);
                     }
                   }
                   Swal.hideLoading();
@@ -889,6 +907,7 @@ export class Resource {
                   Swal.hideLoading();
                   if (eventInfo) {
                     eventInfo.revert();
+                    CalendarAddOns.reinitializeAddOns(eventInfo);
                   }
                 });
             },
@@ -899,12 +918,10 @@ export class Resource {
         } else {
           if (eventInfo) {
             eventInfo.revert();
+            CalendarAddOns.reinitializeAddOns(eventInfo);
           }
         }
       });
-
-    // alert('Update In Progress...');
-    // eventInfo.revert();
   }
 
   static updateResourceDateTime(payload, eventInfo) {
@@ -958,6 +975,7 @@ export class Resource {
                     });
                     if (eventInfo) {
                       eventInfo.revert();
+                      CalendarAddOns.reinitializeAddOns(eventInfo);
                     }
                   }
                   Swal.hideLoading();
@@ -971,6 +989,7 @@ export class Resource {
                   Swal.hideLoading();
                   if (eventInfo) {
                     eventInfo.revert();
+                    CalendarAddOns.reinitializeAddOns(eventInfo);
                   }
                 });
             },
@@ -981,12 +1000,14 @@ export class Resource {
         } else {
           if (eventInfo) {
             eventInfo.revert();
+            CalendarAddOns.reinitializeAddOns(eventInfo);
           }
         }
       });
 
     // alert('Update In Progress...');
     // eventInfo.revert();
+    CalendarAddOns.reinitializeAddOns(eventInfo);
   }
 
   static updateAssetDateTime(payload, eventInfo) {
@@ -1040,6 +1061,7 @@ export class Resource {
                     });
                     if (eventInfo) {
                       eventInfo.revert();
+                      CalendarAddOns.reinitializeAddOns(eventInfo);
                     }
                   }
                   Swal.hideLoading();
@@ -1053,6 +1075,7 @@ export class Resource {
                   Swal.hideLoading();
                   if (eventInfo) {
                     eventInfo.revert();
+                    CalendarAddOns.reinitializeAddOns(eventInfo);
                   }
                 });
             },
@@ -1063,6 +1086,7 @@ export class Resource {
         } else {
           if (eventInfo) {
             eventInfo.revert();
+            CalendarAddOns.reinitializeAddOns(eventInfo);
           }
         }
       });
@@ -1178,6 +1202,43 @@ export function handleWorkOrderAction() {
   }
 }
 
+export class CalendarAddOns {
+
+  static reinitializeAddOns(info) {
+    ToolTip.setup();
+    this.addDropDown(info);
+    this.adjustZoomLevel(info);
+  }
+
+  static addDropDown(info) {
+    const eventId = info.event.id;
+    const event = events.find(event => event.id == eventId);
+    const isTwoOrLess = getHoursDiff(event.date, event.time) <= 2;
+    const html = `<div class="card-header-options">
+      <div class="dropdown" style="display:inline-block; ${isTwoOrLess && 'left: -10px'}">
+        <i class="fa-solid fa-ellipsis" style="cursor: pointer"></i>
+        ${`<div class="dropdown-content" style="top: -30px;">
+            ${(!event.workorder.value) ? `<a href="#" onclick="openGeneralEventModal(${eventId})" ${event.status.value === 'COMPLETED' && "class='disabled'"}>Update Event</a>` : `<a href="#" onclick="openEventModal('', '', ${eventId})" ${event.status.value === 'COMPLETED' && "class='disabled'"}>Update Event</a>`}
+            <a href="#" onclick="openCompleteEventModal('', ${eventId})" ${event.status.value === 'COMPLETED' && "class='disabled'"}>Complete Event</a>
+            <a href="#" onclick="deleteEventRecord('', ${eventId})">Remove Event</a>
+          </div>`}
+      </div>
+    </div>`;
+    const el = info.el.querySelector('div.card-name');
+    el.insertAdjacentHTML('afterend', html);
+  }
+
+  static adjustZoomLevel(el) {
+    if (el.view.type === 'resourceTimelineDay' || (screen.width > 1470 && screen.height > 956)) { // Restore original zoom level for resourceTimelineDay view
+      $('#calendarSection .grid-container').css('zoom', 1);
+      $('#calendarSection .fc-timeline-event-harness').css('zoom', 1);
+    } else {
+      $('#calendarSection .grid-container').css('zoom', 0.8);
+      $('#calendarSection .fc-timeline-event-harness').css('zoom', 1.25);
+    }
+  }
+}
+
 export class ToolTip {
   static setup() {
     this.remove();
@@ -1193,15 +1254,37 @@ export class ToolTip {
   }
 }
 
-export class WarningAlert {
-  static conflictSchedule() {
+export const WarningMessage = {
+  conflictSchedule() {
     Swal.fire(
       "Oops! There's a scheduling conflict.",
-      `Another event overlaps with your selected date and time. Try adjusting the time or checking the calendar for availability.`,
+      `Another event overlaps with your selected date and time.<br/>Try adjusting the time or checking the calendar for availability.`,
       'warning'
     );
+  },
+  invalidResizedCalendarEvent() {
+    Swal.fire({
+      title: "Invalid Date/Time",
+      html: `
+        <ul style="text-align: left; margin-left: 20px;">
+          <li>The resource start date/time cannot be earlier than event start date/time</li>
+          <li>The resource end time cannot exceed event end date/time</li>
+        </ul>
+        <p style="text-align: center;">Please adjust the event accordingly.</p>
+      `,
+      icon: "warning",
+      customClass: {
+        popup: "swal-wide", // Optional: Adjust width if needed
+      }
+    });
   }
-  // TBD
+}
+
+function getHoursDiff(date, time) {
+  const start = moment(`${date.start} ${time.start}`, `${DateFormat.EXPORT_DATE} ${DateFormat.EXPORT_TIME}`);
+  const end = moment(`${date.end} ${time.end}`, `${DateFormat.EXPORT_DATE} ${DateFormat.EXPORT_TIME}`);
+  const duration = moment.duration(end.diff(start));
+  return duration.asHours();
 }
 
 function hideCustomLoader() {

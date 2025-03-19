@@ -167,7 +167,7 @@ export default class Board {
                             <div class="card-name"><a href="${wo.woUrl}" target="_blank"><strong>${wo.name}</strong></a></div>
                             <div class="card-header-options">
                               <div class="dropdown">
-                                <i class="fa-solid fa-sliders" style="cursor: pointer"></i>
+                                <i class="fa-solid fa-ellipsis-vertical"></i>
                                 <div class="dropdown-content">
                                   <a href="#" onclick="holdWorkOrder(event)">Hold</a>
                                   <a href="#" onclick="printWorkOrder(event)">Print</a>
@@ -243,7 +243,7 @@ export default class Board {
                             <div class="card-name"><a href="${event.url}" target="_blank"><strong>${event.title}</strong></a></div>
                             <div class="card-header-options">
                               <div class="dropdown">
-                                <i class="fa-solid fa-sliders" style="cursor: pointer"></i>
+                                <i class="fa-solid fa-ellipsis-vertical"></i>
                                 ${`<div class="dropdown-content">
                                   ${(!event.workorder.value) ? `<a href="#" onclick="openGeneralEventModal(${event.id})" ${event.status.value === 'COMPLETED' && "class='disabled'"}>Update Event</a>` : `<a href="#" onclick="openEventModal(event)" ${event.status.value === 'COMPLETED' && "class='disabled'"}>Update Event</a>`}
                                   <a href="#" onclick="openCompleteEventModal(event)" ${event.status.value === 'COMPLETED' && "class='disabled'"}>Complete Event</a>
