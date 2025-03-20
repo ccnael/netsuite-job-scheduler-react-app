@@ -134,7 +134,6 @@ export default class Calendar {
             map.extendedProps = deepCopy(event);
             map.extendedProps.hasOwnTime = true;
             map.extendedProps.resourceType = 'employee';
-            map.extendedProps.resourceKey = 'resources';
             map.extendedProps.woResourceId = resource.id;
             calendarEvents.push(map);
           }
@@ -156,7 +155,6 @@ export default class Calendar {
       if (map.resourceIds.length) {
         map.extendedProps = deepCopy(event);
         map.extendedProps.resourceType = 'vendor';
-        map.extendedProps.resourceKey = 'vendors';
         calendarEvents.push(map);
       }
     });
@@ -179,7 +177,6 @@ export default class Calendar {
             map.extendedProps = deepCopy(event);
             map.extendedProps.hasOwnTime = true;
             map.extendedProps.resourceType = 'asset';
-            map.extendedProps.resourceKey = 'assets';
             map.extendedProps.woAssetId = asset.id;
             calendarEvents.push(map);
           }
@@ -228,7 +225,7 @@ export default class Calendar {
       snapDuration: '01:00:00', // Snap to 15 minutes
       // -----------------------------------------------------------------
       viewDidMount: info => {
-        console.log('viewDidMount triggered.');
+        // console.log('viewDidMount triggered.');
         this._appendHeaderAndFilterFields();
       },
       headerToolbar: {
@@ -314,7 +311,7 @@ export default class Calendar {
       // Event actions etc settings
       // -----------------------------------------------------------------
       eventDidMount: info => {
-        console.log('eventDidMount triggered.');
+        // console.log('eventDidMount triggered.');
         const event = info.event.extendedProps;
         if (event.id) {
           try {
@@ -370,9 +367,10 @@ export default class Calendar {
                   Event Schedule:<br/>
                   ${event.date.start == event.date.end ? eventDate.start : `${eventDate.start} - ${eventDate.end}`}<br/>
                   ${eventTime.start} - ${eventTime.end}
-                  ${!isVendor && !event.floating ? `<br/>
+                  ${!isVendor && !event.unassigned ? `<br/>
                   <br/>
                   Resource Schedule:<br/>
+                  ${eventDate.start} - ${eventDate.end}<br/>
                   ${resourceTime.start} - ${resourceTime.end}` : ''}"
               >
               <div class="card-head">
@@ -404,7 +402,7 @@ export default class Calendar {
       // Moving events to change dates (Updates start and end date)
       // -----------------------------------------------------------------
       eventDrop: info => {
-        console.log('eventDrop triggered.', info);
+        // console.log('eventDrop triggered.', info);
         info.action = 'eventDrop';
         const eventData = info.event.extendedProps;
         if (eventData?.hasOwnTime) {
@@ -428,7 +426,7 @@ export default class Calendar {
       // Updates start and end time and day
       // -----------------------------------------------------------------
       eventResize: info => {
-        console.log('eventResize triggered.', info);
+        // console.log('eventResize triggered.', info);
         info.action = 'eventResize';
         const eventData = info.event.extendedProps;
         if (eventData?.hasOwnTime) {
@@ -444,13 +442,13 @@ export default class Calendar {
       // Ex. Dropping external events/jobs
       // -----------------------------------------------------------------
       eventReceive: info => {
-        console.log('eventReceive triggered.');
+        // console.log('eventReceive triggered.');
         info.action = 'eventReceive';
         this._calendarEventDrop(info);
       },
       // Disable event drop on Groups
       eventAllow: (dropInfo, draggedEvent) => {
-        console.log('eventAllow triggered.');
+        // console.log('eventAllow triggered.');
         return !dropInfo.resource.extendedProps.resourceCount;
       },
       windowResize: arg => {
@@ -517,18 +515,19 @@ export default class Calendar {
   }
 
   static _calendarEventDrop(info) {
-    // console.log('Event Received', info);
+    console.log('Event Received', info);
     ToolTip.remove();
 
     const data = {};
     data.date = {};
     data.time = {};
 
-    const woId = info.event.extendedProps.woId;
-    const startSplit = moment(info.event.startStr).format('YYYY-MM-DDTHH:mm').split('T');
+    const eventData = info.event.extendedProps;
+    const woId = eventData.woId || eventData.woRef.id;
+    const startSplit = moment(info.event.startStr).format(`${env.DateFormat.EXPORT_DATE}T${env.DateFormat.EXPORT_TIME}`).split('T');
     data.date.start = startSplit[0];
     data.time.start = startSplit[1];
-    const endSplit = moment(info.event.endStr).format('YYYY-MM-DDTHH:mm').split('T');
+    const endSplit = moment(info.event.endStr).format(`${env.DateFormat.EXPORT_DATE}T${env.DateFormat.EXPORT_TIME}`).split('T');
     data.date.end = endSplit[0];
     data.time.end = endSplit[1];
     const start = moment(`${data.date.start} ${data.time.start}`);
@@ -549,7 +548,8 @@ export default class Calendar {
     } else if (data.selectedAssetId) {
       data.resourceType = 'asset';
     }
-    const hasConflict = Event.draggedJobHasConflictEventToResource(start, data.resourceType, selectedResourceId);
+
+    const hasConflict = Event.draggedJobEventHasConflictEventToResource(start, data.resourceType, selectedResourceId);
     if (hasConflict) {
       env.WarningMessage.conflictSchedule();
       info.revert();
@@ -557,7 +557,7 @@ export default class Calendar {
       return;
     }
 
-    console.log('Calendar Drop Data', data);
+    console.log('Calendar Drop Data', woId, data);
     openEventModal(null, woId, '', data);
     info.revert();
     CalendarAddOns.reinitializeAddOns(info);
@@ -583,8 +583,8 @@ export default class Calendar {
     const employeeId = info.newResource.id.split('-').pop();
     const resourceId = eventData.woResourceId;
     payload.id = resourceId;
-    const startSplit = moment(info.event.startStr).format('YYYY-MM-DDTHH:mm').split('T');
-    const endSplit = moment(info.event.endStr).format('YYYY-MM-DDTHH:mm').split('T');
+    const startSplit = moment(info.event.startStr).format(`${env.DateFormat.EXPORT_DATE}T${env.DateFormat.EXPORT_TIME}`).split('T');
+    const endSplit = moment(info.event.endStr).format(`${env.DateFormat.EXPORT_DATE}T${env.DateFormat.EXPORT_TIME}`).split('T');
     payload.date = {
       start: startSplit[0],
       end: endSplit[0]
@@ -632,8 +632,8 @@ export default class Calendar {
     const assetId = info.newResource.id.split('-').pop();
     const resourceId = eventData.woAssetId;
     payload.id = resourceId;
-    const startSplit = moment(info.event.startStr).format('YYYY-MM-DDTHH:mm').split('T');
-    const endSplit = moment(info.event.endStr).format('YYYY-MM-DDTHH:mm').split('T');
+    const startSplit = moment(info.event.startStr).format(`${env.DateFormat.EXPORT_DATE}T${env.DateFormat.EXPORT_TIME}`).split('T');
+    const endSplit = moment(info.event.endStr).format(`${env.DateFormat.EXPORT_DATE}T${env.DateFormat.EXPORT_TIME}`).split('T');
     payload.date = {
       start: startSplit[0],
       end: endSplit[0]
@@ -680,8 +680,8 @@ export default class Calendar {
     }
 
     payload.id = resourceId;
-    const startSplit = moment(info.event.startStr).format('YYYY-MM-DDTHH:mm').split('T');
-    const endSplit = moment(info.event.endStr).format('YYYY-MM-DDTHH:mm').split('T');
+    const startSplit = moment(info.event.startStr).format(`${env.DateFormat.EXPORT_DATE}T${env.DateFormat.EXPORT_TIME}`).split('T');
+    const endSplit = moment(info.event.endStr).format(`${env.DateFormat.EXPORT_DATE}T${env.DateFormat.EXPORT_TIME}`).split('T');
     payload.date = {
       start: startSplit[0],
       end: endSplit[0]
@@ -695,9 +695,12 @@ export default class Calendar {
       const calEvent = calEvents.find(event => event.id == info.event.id);
       if (calEvent) {
         let hasConflict = false, msgKey;
-        if (info.action === 'eventResize') {
-          hasConflict = Event.invalidResizedCalendarEvent(eventData.id, payload.date, payload.time);
-          msgKey = 'invalidResizedCalendarEvent';
+        if (!info.oldResource && !info.newResource) { // Horizontal repositioning of event
+          hasConflict = Event.sameRowDraggedEventHasConflict(eventData.id, payload.date, payload.time);
+          msgKey = 'sameRowDraggedEventConflict';
+        } else if (info.action === 'eventResize') {
+          hasConflict = Event.resizedEventHasConflict(eventData.id, payload.date, payload.time);
+          msgKey = 'eventResizeConflict';
         } else {
           hasConflict = Event.draggedResourceHasConflictEvent(eventData.id, payload.date, payload.time, resourceId);
           msgKey = 'conflictSchedule';
@@ -735,8 +738,8 @@ export default class Calendar {
     }
 
     payload.id = resourceId;
-    const startSplit = moment(info.event.startStr).format('YYYY-MM-DDTHH:mm').split('T');
-    const endSplit = moment(info.event.endStr).format('YYYY-MM-DDTHH:mm').split('T');
+    const startSplit = moment(info.event.startStr).format(`${env.DateFormat.EXPORT_DATE}T${env.DateFormat.EXPORT_TIME}`).split('T');
+    const endSplit = moment(info.event.endStr).format(`${env.DateFormat.EXPORT_DATE}T${env.DateFormat.EXPORT_TIME}`).split('T');
     payload.date = {
       start: startSplit[0],
       end: endSplit[0]
@@ -750,9 +753,12 @@ export default class Calendar {
       const calEvent = calEvents.find(event => event.id == info.event.id);
       if (calEvent) {
         let hasConflict = false, msgKey;
-        if (info.action === 'eventResize') {
-          hasConflict = Event.invalidResizedCalendarEvent(eventData.id, payload.date, payload.time);
-          msgKey = 'invalidResizedCalendarEvent';
+        if (!info.oldResource && !info.newResource) { // Horizontal repositioning of event
+          hasConflict = Event.sameRowDraggedEventHasConflict(eventData.id, payload.date, payload.time);
+          msgKey = 'sameRowDraggedEventConflict';
+        } else if (info.action === 'eventResize') {
+          hasConflict = Event.resizedEventHasConflict(eventData.id, payload.date, payload.time);
+          msgKey = 'eventResizeConflict';
         } else {
           hasConflict = Event.draggedAssetHasConflictEvent(eventData.id, payload.date, payload.time, resourceId);
           msgKey = 'conflictSchedule';
@@ -789,8 +795,8 @@ export default class Calendar {
 
     payload.eventData = eventData;
     payload.oldEventData = dataSet.events.find(event => event.id == payload.eventData.id) || {};
-    const startSplit = moment(info.event.startStr).format('YYYY-MM-DDTHH:mm').split('T');
-    const endSplit = moment(info.event.endStr).format('YYYY-MM-DDTHH:mm').split('T');
+    const startSplit = moment(info.event.startStr).format(`${env.DateFormat.EXPORT_DATE}T${env.DateFormat.EXPORT_TIME}`).split('T');
+    const endSplit = moment(info.event.endStr).format(`${env.DateFormat.EXPORT_DATE}T${env.DateFormat.EXPORT_TIME}`).split('T');
     const date = {
       start: startSplit[0],
       end: endSplit[0]
@@ -819,87 +825,115 @@ export default class Calendar {
             payload.woRef = woRef;
             payload.woResources = woResourcesFiltered;
 
-            const { resourceType, resourceKey } = eventData;
-
             const elementId = info.newResource._resource.id;
             const resourceId = elementId.split('-').pop();
-            let foundObj, allowEvent = false;
+            let foundObj, hasConflict = false, allowEvent = false;
 
-            // console.log('>>>', resourceType, resourceId, eventData);
-            // eventData.floating // Event without resources
+            if (eventData.unassigned && !eventData.resourceType) { // Event with no resources (resourceType is empty)
+              const _resourceProps = info.newResource._resource.extendedProps;
 
-            if (resourceType === 'employee') {
-              foundObj = payload.eventData.resources.find(resource => resource.employee.value == resourceId);
-              const hasConflict = Event.draggedResourceHasConflictEvent(payload.eventData.id, date, time, resourceId);
-              allowEvent = !foundObj && !hasConflict;
-            } else {
-              payload.eventData.date.start = date.start;
-              payload.eventData.date.end = date.end;
-              payload.eventData.time.start = time.start;
-              payload.eventData.time.end = time.end;
-
-              if (resourceType === 'vendor') {
-                foundObj = payload.eventData.vendors.find(vendor => vendor.vendor.value == resourceId);
-                allowEvent = !foundObj;
+              if ('employee' in _resourceProps) {
+                eventData.resourceType = 'employee';
+              } else if ('vendor' in _resourceProps) {
+                eventData.resourceType = 'vendor';
+              } else if ('asset' in _resourceProps) {
+                eventData.resourceType = 'asset';
               }
             }
 
+            console.log('>>>', { resourceType: eventData.resourceType, resourceId, eventData });
+
+            switch (eventData.resourceType) {
+              case 'employee':
+                foundObj = payload.eventData.resources.find(resource => resource.employee.value == resourceId);
+                hasConflict = Event.draggedResourceHasConflictEvent(payload.eventData.id, date, time, resourceId);
+                break;
+              case 'vendor':
+                payload.eventData.date.start = date.start;
+                payload.eventData.date.end = date.end;
+                payload.eventData.time.start = time.start;
+                payload.eventData.time.end = time.end;
+                const start = moment(`${date.start} ${time.start}`);
+                hasConflict = Event.draggedJobEventHasConflictEventToResource(start, eventData.resourceType, resourceId);
+                foundObj = payload.eventData.vendors.find(vendor => vendor.vendor.value == resourceId);
+                break;
+              case 'asset':
+                foundObj = payload.eventData.assets.find(asset => asset.asset.value == resourceId);
+                hasConflict = Event.draggedAssetHasConflictEvent(payload.eventData.id, date, time, resourceId);
+                break;
+            }
+
+            allowEvent = !foundObj && !hasConflict;
+
             if (allowEvent) {
-              if (resourceKey === 'resources') {
-                const resourcesToUse = dataSet.activeResources.map(resource => {
-                  const id = resource.id;
-                  let foundObj = woResourcesFiltered.find(woResource => woResource.employee.value == id);
-                  if (foundObj) {
-                    resource = deepCopy(foundObj);
+              switch (eventData.resourceType) {
+                case 'employee':
+                  const resourcesToUse = dataSet.activeResources.map(resource => {
+                    const id = resource.id;
+                    let foundObj = woResourcesFiltered.find(woResource => woResource.employee.value == id);
+                    if (foundObj) {
+                      resource = deepCopy(foundObj);
+                    }
+                    foundObj = payload.eventData.resources.find(eventResource => eventResource.employee.value == id);
+                    if (foundObj) {
+                      resource = deepCopy(foundObj);
+                    }
+                    return resource;
+                  });
+                  payload.eventData.selectedResources = resourcesToUse.filter(resource => resourceId == resource.id);
+                  payload.eventData.selectedResources = [...payload.eventData.resources, ...payload.eventData.selectedResources];
+                  if (info.oldResource) {
+                    const _oldResourceProps = info.oldResource.extendedProps;
+                    if (!!_oldResourceProps.employee) {
+                      const index = payload.eventData.selectedResources
+                        .map(resource => resource.employee.value)
+                        .indexOf(_oldResourceProps.employee.value);
+                      if (index > -1) {
+                        payload.eventData.selectedResources.splice(index, 1); // Removed resource
+                      }
+                    }
                   }
-                  foundObj = payload.eventData.resources.find(eventResource => eventResource.employee.value == id);
-                  if (foundObj) {
-                    resource = deepCopy(foundObj);
+                  break;
+                case 'vendor':
+                  let unassignedVendors = deepCopy(dataSet.vendors)
+                    .filter(vendor => !payload.eventData.vendors.map(vendor => vendor.vendor.value)
+                      .includes(vendor.id));
+                  unassignedVendors = [...payload.eventData.vendors, ...unassignedVendors];
+                  const vendorsToUse = unassignedVendors;
+                  payload.eventData.selectedVendors = vendorsToUse.filter(vendor => resourceId == vendor.id);
+                  payload.eventData.selectedVendors = [...payload.eventData.vendors, ...payload.eventData.selectedVendors];
+                  if (info.oldResource) {
+                    const _oldResourceProps = info.oldResource.extendedProps;
+                    if (!!_oldResourceProps.vendor) {
+                      const index = payload.eventData.selectedVendors
+                        .map(vendor => vendor.vendor.value)
+                        .indexOf(_oldResourceProps.vendor.value);
+                      if (index > -1) {
+                        payload.eventData.selectedVendors.splice(index, 1); // Removed vendor
+                      }
+                    }
                   }
-                  return resource;
-                });
-                payload.eventData.selectedResources = resourcesToUse.filter(resource => resourceId == resource.id);
-                payload.eventData.selectedResources = [...payload.eventData.resources, ...payload.eventData.selectedResources];
-                if (info.oldResource) {
-                  const index = payload.eventData.selectedResources
-                    .map(resource => resource.employee.value)
-                    .indexOf(info.oldResource.extendedProps.employee.value);
-                  if (index > -1) {
-                    payload.eventData.selectedResources.splice(index, 1); // Removed resource
+                  break;
+                case 'asset':
+                  let unassignedAssets = deepCopy(dataSet.assets)
+                    .filter(asset => !payload.eventData.assets.map(asset => asset.asset.value)
+                      .includes(asset.id));
+                  unassignedAssets = [...payload.eventData.assets, ...unassignedAssets];
+                  const assetsToUse = unassignedAssets;
+                  payload.eventData.selectedAssets = assetsToUse.filter(asset => resourceId == asset.id);
+                  payload.eventData.selectedAssets = [...payload.eventData.assets, ...payload.eventData.selectedAssets];
+                  if (info.oldResource) {
+                    const _oldResourceProps = info.oldResource.extendedProps;
+                    if (!!_oldResourceProps.asset) {
+                      const index = payload.eventData.selectedAssets
+                        .map(asset => asset.asset.value)
+                        .indexOf(_oldResourceProps.asset.value);
+                      if (index > -1) {
+                        payload.eventData.selectedAssets.splice(index, 1); // Removed asset
+                      }
+                    }
                   }
-                }
-              } else if (resourceKey === 'vendors') {
-                let unassignedVendors = deepCopy(dataSet.vendors)
-                  .filter(vendor => !payload.eventData.vendors.map(vendor => vendor.vendor.value)
-                    .includes(vendor.id));
-                unassignedVendors = [...payload.eventData.vendors, ...unassignedVendors];
-                const vendorsToUse = unassignedVendors;
-                payload.eventData.selectedVendors = vendorsToUse.filter(vendor => resourceId == vendor.id);
-                payload.eventData.selectedVendors = [...payload.eventData.vendors, ...payload.eventData.selectedVendors];
-                if (info.oldResource) {
-                  const index = payload.eventData.selectedVendors
-                    .map(vendor => vendor.vendor.value)
-                    .indexOf(info.oldResource.extendedProps.vendor.value);
-                  if (index > -1) {
-                    payload.eventData.selectedVendors.splice(index, 1); // Removed vendor
-                  }
-                }
-              } else if (resourceKey === 'assets') { // TBR
-                let unassignedAssets = deepCopy(dataSet.assets)
-                  .filter(asset => !payload.eventData.assets.map(asset => asset.asset.value)
-                    .includes(asset.id));
-                unassignedAssets = [...payload.eventData.assets, ...unassignedAssets];
-                const assetsToUse = unassignedAssets;
-                payload.eventData.selectedAssets = assetsToUse.filter(asset => resourceId == asset.id);
-                payload.eventData.selectedAssets = [...payload.eventData.assets, ...payload.eventData.selectedAssets];
-                if (info.oldResource) {
-                  const index = payload.eventData.selectedAssets
-                    .map(asset => asset.asset.value)
-                    .indexOf(info.oldResource.extendedProps.asset.value);
-                  if (index > -1) {
-                    payload.eventData.selectedAssets.splice(index, 1); // Removed asset
-                  }
-                }
+                  break;
               }
             } else {
               env.WarningMessage.conflictSchedule();

@@ -56,6 +56,7 @@ define(() => ({
     IMPORT_TIME: 'h:mm a'
   },
   FilePath: {
+    MOCKUP: './esp_cm_mockup.json',
     FILTER_MAP: './esp_cm_filtermap.json',
     TEMPLATE: '../vanilla-vite-app-bundle/index.html',
     STYLE: '../vanilla-vite-app-bundle/index.css',

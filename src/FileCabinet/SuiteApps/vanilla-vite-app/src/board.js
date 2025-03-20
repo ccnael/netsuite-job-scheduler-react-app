@@ -1,6 +1,7 @@
 import * as dataSet from './components/dataSet';
 import { Event, ToolTip } from './components/utils';
 import { onQuickSearchResource, onClickResource } from './components/filterFields/filterUtils';
+import * as env from './components/constants';
 import './board.css';
 
 export default class Board {
@@ -255,8 +256,8 @@ export default class Board {
                           <div class="card-content">
                             <div class="card-content-eventId" eventId="${event.id}">ID ${event.id}</div>
                             <div class="card-content-woText">${!!event.workorder.text ? `<a href="${event.woRef.woUrl}" target="_blank">${event.woRef.name}</a>` : '<span class="badge py-1 px-2 rounded-pill text-uppercase general-bg">General</span>'}</div>
-                            <div class="card-content-date">${event.date.start == event.date.end ? moment(event.date.start).format('M/D/YYYY') : `${moment(event.date.start).format('M/D/YYYY')} - ${moment(event.date.end).format('M/D/YYYY')}`}</div>
-                            <div class="card-content-time">${moment(`1/1/1999 ${event.time.start}`).format('h:mm a')} - ${moment(`1/1/1999 ${event.time.end}`).format('h:mm a')}</div>
+                            <div class="card-content-date">${event.date.start == event.date.end ? moment(event.date.start).format(env.DateFormat.IMPORT_DATE) : `${moment(event.date.start).format(env.DateFormat.IMPORT_DATE)} - ${moment(event.date.end).format(env.DateFormat.IMPORT_DATE)}`}</div>
+                            <div class="card-content-time">${moment(`1/1/1999 ${event.time.start}`).format(env.DateFormat.IMPORT_TIME)} - ${moment(`1/1/1999 ${event.time.end}`).format(env.DateFormat.IMPORT_TIME)}</div>
                             <div>Organizer: ${event.organizer.text}</div>
                             <div class="">
                               <div class=row"col-2 fc-event-status" style="font-size: ${event.woRef?.receiptStatus?.value ? '10px' : '12px'}">

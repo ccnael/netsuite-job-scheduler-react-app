@@ -373,6 +373,7 @@ export class Event {
 
   // From board view, sidebar > applied to resources and vendors section
   static draggedResourceHasConflictEvent(eventId, date, time, resourceId) {
+    console.log('draggedResourceHasConflictEvent() triggered', arguments);
     const start = moment(`${date.start} ${time.start}`);
     const end = moment(`${date.end} ${time.end}`);
     const resourceEvents = events
@@ -383,14 +384,14 @@ export class Event {
       const resEventEnd = `${resEvent.date.end} ${resEvent.time.end}`;
       return resEvent.status.value !== 'COMPLETED' &&
         resEvent.id != eventId &&
-        (moment(resEventEnd).isBetween(start, end, null, '[]') || moment(resEventStart).isSameOrBefore(start) && moment(resEventEnd).isSameOrAfter(end))
+        (moment(resEventEnd).isBetween(start, end, null, '[]') || moment(resEventStart).isBefore(start) && moment(resEventEnd).isAfter(end))
     });
-    // console.log('draggedResourceHasConflictEvent > conflictEvents', conflictEvents);
     return !!conflictEvents.length;
   }
 
   // From board view, sidebar > applied to assets section
   static draggedAssetHasConflictEvent(eventId, date, time, resourceId) {
+    console.log('draggedAssetHasConflictEvent() triggered', arguments);
     const start = moment(`${date.start} ${time.start}`);
     const end = moment(`${date.end} ${time.end}`);
     const resourceEvents = events
@@ -401,17 +402,26 @@ export class Event {
       const resEventEnd = `${resEvent.date.end} ${resEvent.time.end}`;
       return resEvent.status.value !== 'COMPLETED' &&
         resEvent.id != eventId &&
-        (moment(resEventEnd).isBetween(start, end, null, '[]') || moment(resEventStart).isSameOrBefore(start) && moment(resEventEnd).isSameOrAfter(end));
+        (moment(resEventEnd).isBetween(start, end, null, '[]') || moment(resEventStart).isBefore(start) && moment(resEventEnd).isAfter(end));
     });
     // console.log('draggedAssetHasConflictEvent > conflictEvents', conflictEvents);
     return !!conflictEvents.length;
   }
 
-  static invalidResizedCalendarEvent(eventId, date, time) {
+  static sameRowDraggedEventHasConflict(eventId, date, time) {
+    console.log('sameRowDraggedEventHasConflict() triggered', arguments);
+    return this._updateEventHasConflict(eventId, date, time);
+  }
+
+  static resizedEventHasConflict(eventId, date, time) {
+    console.log('resizedEventHasConflict() triggered', arguments);
+    return this._updateEventHasConflict(eventId, date, time);
+  }
+
+  static _updateEventHasConflict(eventId, date, time) {
     const start = moment(`${date.start} ${time.start}`);
     const end = moment(`${date.end} ${time.end}`);
     const eventData = events.find(event => event.id == eventId);
-    console.log('invalidResizedCalendarEvent > eventData', eventData);
     const eventDate = {
       start: moment(`${eventData.date.start} ${eventData.time.start}`),
       end: moment(`${eventData.date.end} ${eventData.time.end}`)
@@ -419,7 +429,9 @@ export class Event {
     return start.isBefore(eventDate.start) || end.isAfter(eventDate.end);
   }
 
+  // Reassignment
   static draggedEventToNewResourceHasConflictEvent(eventId, date, time, resourceId) {
+    console.log('draggedEventToNewResourceHasConflictEvent() triggered', arguments);
     const start = moment(`${date.start} ${time.start}`);
     const end = moment(`${date.end} ${time.end}`);
     const resourceEvents = events
@@ -434,7 +446,9 @@ export class Event {
     return !!conflictEvents.length;
   }
 
+  // Reassignment
   static draggedEventToNewAssetHasConflictEvent(eventId, date, time, resourceId) {
+    console.log('draggedEventToNewAssetHasConflictEvent() triggered', arguments);
     const start = moment(`${date.start} ${time.start}`);
     const end = moment(`${date.end} ${time.end}`);
     const resourceEvents = events
@@ -449,12 +463,13 @@ export class Event {
     return !!conflictEvents.length;
   }
 
-  static draggedJobHasConflictEventToResource(startDateTime, resourceType, resourceId = '') {
+  static draggedJobEventHasConflictEventToResource(startDateTime, resourceType, resourceId = '') {
+    console.log('draggedJobEventHasConflictEventToResource() triggered', arguments);
     const conflictEvents = events => {
       return events.filter(event => {
         const eventStart = moment(`${event.date.start} ${event.time.start}`);
         const eventEnd = moment(`${event.date.end} ${event.time.end}`);
-        return event.status.value !== 'COMPLETED' && startDateTime.isSameOrAfter(eventStart) && startDateTime.isSameOrBefore(eventEnd);
+        return event.status.value !== 'COMPLETED' && startDateTime.isAfter(eventStart) && startDateTime.isBefore(eventEnd);
       });
     }
     let resourceEvents = [];
@@ -463,7 +478,6 @@ export class Event {
         resourceEvents = events
           .filter(event => event.resources.map(resource => resource.employee.value)
             .includes(resourceId));
-        // console.log('draggedJobHasConflictEventToResource > conflictEvents', conflictEvents(resourceEvents));
         return !!conflictEvents(resourceEvents).length;
       case 'vendor':
         resourceEvents = events
@@ -623,9 +637,7 @@ export class Event {
   static handleDeleteEventRecord() {
     window.deleteEventRecord = (ev, eventId) => {
       eventId = eventId || ev.target.closest('.card-item').getAttribute('id');
-      console.log('deleteEventRecord() > Event ID', eventId);
       const payload = events.find(event => event.id == eventId) || {};
-      console.log('PAYLOAD', payload);
 
       Swal.fire({
         title: `Delete Event Record [ID ${eventId}]?`,
@@ -1197,7 +1209,9 @@ export class CalendarAddOns {
 
   static addDropDown(info) {
     const eventId = info.event.id;
+    if (!eventId) return;
     const event = events.find(event => event.id == eventId);
+    if (!event) return;
     const isTwoOrLess = getHoursDiff(event.date, event.time) <= 2;
     const html = `<div class="card-header-options">
       <div class="dropdown" style="display:inline-block; ${isTwoOrLess && 'left: -10px'}">
