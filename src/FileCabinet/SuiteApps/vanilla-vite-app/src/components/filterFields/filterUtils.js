@@ -1,14 +1,20 @@
 import * as dataSet from '../dataSet';
 
 export function handleFilters() {
-  // 2nd Form
+
+  window.triggerClearTextField = selector => {
+    const el = $(selector);
+    const type = 'text';
+    clearFieldValue(el, type);
+  };
+  // Select Filters Form
   // ----------------------------
   window.showSecondForm = (ev, modalId) => {
     ev.preventDefault();
     $(`${modalId} .filterForm`).hide();
     $(`${modalId} .selectFiltersForm`).show();
   }
-  // 2nd Form Submit
+  // Select Filters Form Submit
   // ----------------------------
   window.selectFilters = (ev, section, modalId) => {
     ev.preventDefault();
@@ -31,7 +37,6 @@ export function handleFilters() {
     });
     writeFilterFields(selectedFields)
       .then(result => {
-        // console.log('RESULT', result);
         // Properly reset & reinitialize modal
         $(modalId).modal('hide').on('hidden.bs.modal', function () {
           $(this).off('hidden.bs.modal'); // Unbind to prevent stacking
@@ -42,7 +47,7 @@ export function handleFilters() {
       });
   }
 
-  // Update the filterMap.json in NS
+  // Update the esp_cm_filtermap.json in NS
   async function writeFilterFields(selectedFields) {
     const swalLoading = Swal.fire({
       title: 'Updating Fields...',
@@ -117,6 +122,103 @@ export function handleFilters() {
 
 // Board Filters
 // -----------------------------------------------------------------
+export function onQuickSearchResource() {
+  const $items = $(`#boardSection .leftSidebar .collapsible-list .person-container`);
+  const $resourceQuickSearch = $('input.resource-name-quicksearch');
+  const $resourceFilterHidden = $(`#boardSection select.multiple-boardresource-field-hidden`);
+  const $selected = {
+    resource: []
+  };
+  let $groupCounterMap = {};
+
+  // This hidden filter field is to trigger the filter resource field
+  if ($resourceFilterHidden.length) {
+    $resourceFilterHidden.on('change', function () {
+      $selected.resource = $(this).val() || [];
+      filterItems();
+    });
+  }
+
+  let quickSearchVal;
+  if ($resourceQuickSearch.length) {
+    $resourceQuickSearch.on('keyup', function () {
+      quickSearchVal = $(this).val();
+      let resourceIds = [];
+      if (quickSearchVal) {
+        dataSet.resources.map(resource => {
+          const name = resource.name;
+          const name_regExp = new RegExp(quickSearchVal, 'gi');
+          if (name && name.match(name_regExp)) {
+            resourceIds.push(resource.id);
+          }
+        });
+        dataSet.vendors.map(vendor => {
+          const name = vendor.name;
+          const name_regExp = new RegExp(quickSearchVal, 'gi');
+          if (name && name.match(name_regExp)) {
+            resourceIds.push(vendor.id);
+          }
+        });
+        dataSet.assets.map(asset => {
+          const name = asset.name;
+          const name_regExp = new RegExp(quickSearchVal, 'gi');
+          if (name && name.match(name_regExp)) {
+            resourceIds.push(asset.id);
+          }
+        });
+        resourceIds = Array.from(new Set(resourceIds));
+      }
+      $(`#boardSection select.multiple-boardresource-field-hidden`).val(resourceIds).change();
+    });
+  }
+
+  function filterItems() {
+    $groupCounterMap = {};
+    $items.each(function () {
+      const $el = $(this);
+      const elementId = $(this)[0].id;
+      const resourceId = elementId.split('-').pop();
+      const containerId = $el.closest('div[id*="-filter-tableWrapper"]').attr('id');
+      const groupId = (containerId.match('asset') || containerId.match('vendor') || containerId.match(/\d+/))[0];
+      const _resource = dataSet.resources.find(resource => resource.employee.value == resourceId);
+      const _vendor = dataSet.vendors.find(vendor => vendor.vendor.value == resourceId);
+      const _asset = dataSet.assets.find(asset => asset.asset.value == resourceId);
+      const resourceObj = _resource || _vendor || _asset;
+      if (resourceObj) {
+        const shouldDisplay = !quickSearchVal || !!$selected.resource.includes(resourceId);
+        $el.toggle(shouldDisplay);
+        // Group counter map
+        if (!$groupCounterMap[groupId]) {
+          $groupCounterMap[groupId] = 0;
+        }
+        if (shouldDisplay) {
+          $groupCounterMap[groupId]++;
+        }
+      }
+    });
+    updateHeaderGroupCount();
+    updateFilterCounter();
+  }
+
+  // Update header column counter
+  function updateHeaderGroupCount() {
+    $.each($groupCounterMap, (headerId, count) => {
+      $(`#boardSection .leftSidebar #resourceGroup-${headerId}-filter-tableWrapper span.counter`).html(count);
+    });
+  }
+
+  function updateFilterCounter() {
+    let counter = 0;
+    for (const key in $selected) {
+      if (!key.match(/date/g))
+        counter += $selected[key].length;
+      else if (!!$selected[key])
+        counter++;
+    }
+    $(`#filter-resource-counter`).html(counter);
+  }
+}
+
 export function onFilterResource(fieldId) {
   const $items = $(`#boardSection .leftSidebar .collapsible-list .person-container`);
   const $resourceFilter = $(`${fieldId} select.multiple-resource-field`);
@@ -127,6 +229,8 @@ export function onFilterResource(fieldId) {
   const $departmentFilter = $(`${fieldId} select.multiple-department-field`);
   const $emailFilter = $(`${fieldId} input.email-field`);
   const $phoneFilter = $(`${fieldId} input.phone-field`);
+  const resource_temp = $(`#boardSection select.multiple-boardresource-field-hidden`).val();
+
   const $selected = {
     resource: [],
     resourceGroup: [],
@@ -135,8 +239,11 @@ export function onFilterResource(fieldId) {
     location: [],
     department: [],
     email: '',
-    phone: ''
+    phone: '',
   };
+  // Set default resource filter value (TBD move to on hide/close modal instead?)
+  resource_temp.length && $resourceFilter.val(resource_temp).change();
+
   let $groupCounterMap = {};
   if ($resourceFilter.length) {
     $resourceFilter.on('change', function () {
@@ -188,6 +295,7 @@ export function onFilterResource(fieldId) {
   }
 
   function filterItems() {
+    clearQuickSearch();
     $groupCounterMap = {};
     $items.each(function () {
       const $el = $(this);
@@ -239,6 +347,13 @@ export function onFilterResource(fieldId) {
     });
     updateHeaderGroupCount();
     updateFilterCounter();
+  }
+
+  function clearQuickSearch() {
+    if (resource_temp.length != $selected.resource.length) {
+      $('input.resource-name-quicksearch').val('').change()/* .trigger('keyup') */;
+      $('select.multiple-boardresource-field-hidden').val([]).change();
+    }
   }
 
   // Update header column counter
@@ -396,7 +511,7 @@ export function onFilterJob(selectorId, fieldId) {
   function updateFilterCounter() {
     let counter = 0;
     for (const key in $selected) {
-      if (!key.match(/date/g))
+      if (!key.match(/date|woId|woTitle/g))
         counter += $selected[key].length;
       else if (!!$selected[key])
         counter++;
@@ -414,6 +529,7 @@ export function onFilterJob(selectorId, fieldId) {
 export function onFilterBoardEvent(fieldId) {
   const $items = $(`#boardSection .thirdColumn .card-wrapper .card-item`);
   const $field = {
+    eventId: $(`${fieldId} input[class*="event-id"]`),
     dateFrom: $(`${fieldId} input[id*="datefrom"]`),
     dateTo: $(`${fieldId} input[id*="dateto"]`),
     resource: $(`${fieldId} select.multiple-resource-field`),
@@ -425,9 +541,10 @@ export function onFilterBoardEvent(fieldId) {
     receiptStatus: $(`${fieldId} select.multiple-event-receipt-field`)
   };
   // Set default resource filter value (TBD move to on hide/close modal instead?)
-  const $resourceIds_temp = $(`#boardSection select.multiple-resource-field-hidden`).val();
+  const $resourceIds_temp = $(`#boardSection select.multiple-boardeventresource-field-hidden`).val();
   $field.resource.val($resourceIds_temp).change();
   const $selected = {
+    eventId: '',
     dateFrom: '',
     dateTo: '',
     resource: [],
@@ -440,23 +557,30 @@ export function onFilterBoardEvent(fieldId) {
   };
   for (const id in $field) {
     if ($field[id].length) {
-      $field[id].on('change', function () {
-        $selected[id] = $(this).val() || (!id.match(/date/gi) ? [] : '');
-        filterItems();
-        // Highlight resource rows
-        if (id === 'resource') {
-          $('.person-container').each(function () {
-            const elementId = $(this)[0].id;
-            const resourceId = elementId.split('-').pop();
-            if ($selected[id].includes(resourceId)) {
-              $(this).addClass('row-available');
-            } else {
-              $(this).removeClass('row-available');
-            }
-          });
-          $(`#boardSection select.multiple-resource-field-hidden`).val($selected[id]).change();
-        }
-      });
+      if (id === 'eventId') {
+        $field[id].on('keyup', function () {
+          $selected.eventId = $(this).val() || '';
+          filterItems();
+        });
+      } else {
+        $field[id].on('change', function () {
+          $selected[id] = $(this).val() || (!id.match(/date/gi) ? [] : '');
+          filterItems();
+          // Highlight resource rows
+          if (id === 'resource') {
+            $('.person-container').each(function () {
+              const elementId = $(this)[0].id;
+              const resourceId = elementId.split('-').pop();
+              if ($selected[id].includes(resourceId)) {
+                $(this).addClass('row-available');
+              } else {
+                $(this).removeClass('row-available');
+              }
+            });
+            $(`#boardSection select.multiple-boardeventresource-field-hidden`).val($selected[id]).change();
+          }
+        });
+      }
     }
   }
 
@@ -467,6 +591,7 @@ export function onFilterBoardEvent(fieldId) {
       const eventData = dataSet.events.find(event => event.id == eventId);
 
       if (eventData) {
+        const id_regExp = new RegExp($selected.eventId, 'gi');
         let date = eventData.date.end || eventData.date.start;
         const eventResources = eventData.resources.map(resource => resource.employee.value);
         const eventVendors = eventData.vendors.map(vendor => vendor.vendor.value);
@@ -510,7 +635,8 @@ export function onFilterBoardEvent(fieldId) {
           (!$selected.priority.length || $selected.priority.includes(eventPriority)) &&
           (!$selected.organizer.length || $selected.organizer.includes(eventOrganizer)) &&
           (!$selected.eventType.length || $selected.eventType.includes(eventType)) &&
-          (!$selected.receiptStatus.length || $selected.receiptStatus.includes(receiptStatus))
+          (!$selected.receiptStatus.length || $selected.receiptStatus.includes(receiptStatus)) &&
+          ($selected.eventId ? eventId.match(id_regExp) : true)
         );
         $el.toggle(shouldDisplay);
       }
@@ -530,7 +656,7 @@ export function onFilterBoardEvent(fieldId) {
   function updateFilterCounter() {
     let counter = 0;
     for (const key in $selected) {
-      if (!key.match(/date|showReceivedItems/g))
+      if (!key.match(/date|eventId|showReceivedItems/g))
         counter += $selected[key].length;
       else if (!!$selected[key])
         counter++;
@@ -541,7 +667,7 @@ export function onFilterBoardEvent(fieldId) {
 
 export function onClickResource() {
   const $items = $(`#boardSection .thirdColumn .card-wrapper .card-item`);
-  const $resourceFilterHidden = $(`#boardSection select.multiple-resource-field-hidden`);
+  const $resourceFilterHidden = $(`#boardSection select.multiple-boardeventresource-field-hidden`);
   const $selected = {
     resource: []
   };
@@ -587,7 +713,7 @@ export function onClickResource() {
       }
     });
     resourceIds = Array.from(new Set(resourceIds));
-    $(`#boardSection select.multiple-resource-field-hidden`).val(resourceIds).change();
+    $(`#boardSection select.multiple-boardeventresource-field-hidden`).val(resourceIds).change();
   });
 
   function filterItems() {
@@ -635,6 +761,7 @@ export function onClickResource() {
 // -----------------------------------------------------------------
 export function onFilterCalendarEvent(fieldId, pageSwitched, info) {
   const $field = {
+    eventId: $(`${fieldId} input[class*="event-id"]`),
     resource: $(`${fieldId} select.multiple-resource-field`),
     resourceGroup: $(`${fieldId} select.multiple-resource-group-field`),
     status: $(`${fieldId} select.multiple-event-status-field`),
@@ -644,6 +771,7 @@ export function onFilterCalendarEvent(fieldId, pageSwitched, info) {
     receiptStatus: $(`${fieldId} select.multiple-event-receipt-field`)
   };
   const $selected = {
+    eventId: '',
     resource: [],
     resourceGroup: [],
     status: [],
@@ -665,16 +793,24 @@ export function onFilterCalendarEvent(fieldId, pageSwitched, info) {
     }
   } else {
     for (const id in $field) {
-      if ($field[id].length) {
-        $field[id].on('change', function () {
-          $selected[id] = $(this).val() || [];
+      if (id === 'eventId') {
+        $field[id].on('keyup', function () {
+          $selected.eventId = $(this).val() || '';
           filterItems();
         });
+      } else {
+        if ($field[id].length) {
+          $field[id].on('change', function () {
+            $selected[id] = $(this).val() || [];
+            filterItems();
+          });
+        }
       }
     }
   }
 
   function filterItems() {
+    // console.log('$selected', $selected);
     window.FullCalendar.refetchResources();
     window.FullCalendar.refetchEvents();
     window.FullCalendar.getResources().forEach(resource => {
@@ -698,12 +834,19 @@ export function onFilterCalendarEvent(fieldId, pageSwitched, info) {
     if ($selected.resourceGroup.length) {
       calendarResources = calendarResources.filter(calendarResource => $selected.resourceGroup.includes(calendarResource.id.split('-').pop()));
     }
+    if ($selected.resourceGroup.length) {
+      calendarResources = calendarResources.filter(calendarResource => $selected.resourceGroup.includes(calendarResource.id.split('-').pop()));
+    }
     if ($selected.resource.length) {
       calendarResources.forEach(calendarResource => {
         calendarResource.children = calendarResource.children.filter(resource => $selected.resource.includes(resource.id.split('-').pop()));
       });
     }
     let calendarEvents = window.FullCalendar.getEvents();
+    if ($selected.eventId.length) {
+      const id_regExp = new RegExp($selected.eventId, 'gi');
+      calendarEvents = calendarEvents.filter(event => event.id && event.id.match(id_regExp));
+    }
     if ($selected.status.length) {
       calendarEvents = calendarEvents.filter(event => !!($selected.status.includes(event.extendedProps.status.value)));
     }
@@ -748,7 +891,7 @@ export function onFilterCalendarEvent(fieldId, pageSwitched, info) {
   function updateFilterCounter() {
     let counter = 0;
     for (const key in $selected) {
-      if (!key.match(/date|showReceivedItems/g))
+      if (!key.match(/date|eventId|showReceivedItems/g))
         counter += $selected[key].length;
       else if (!!$selected[key])
         counter++;
@@ -903,6 +1046,69 @@ export function onFilterEventResource(fieldId) {
   }
 }
 
+export function onFilterEventAsset(fieldId) {
+  const dataTable = $('#assets').DataTable();
+  const $assetFilter = $(`${fieldId} select.multiple-asset-field`);
+  const $assetTypeFilter = $(`${fieldId} select.multiple-asset-type-field`);
+  if ($assetFilter.length) {
+    $assetFilter.on('change', () => {
+      filterItems();
+      dataTable.draw();
+      updateFilterCounter();
+    });
+  }
+  if ($assetTypeFilter.length) {
+    $assetTypeFilter.on('change', () => {
+      filterItems();
+      dataTable.draw();
+      updateFilterCounter();
+    });
+  }
+
+  function filterItems() {
+    // Asset custom filtering
+    $.fn.dataTable.ext.search.push(function (settings, data, dataIndex) {
+      const assetTexts = $assetFilter.find('option:selected').map(function () {
+        return $(this).text();
+      }).get();
+      if (!assetTexts.length) {
+        return true; // No filter applied, show all rows
+      }
+      const cellContent = $(dataTable.cell(dataIndex, 1).node()).text(); // Change index to target your rendered column
+      return assetTexts.includes(cellContent);
+    });
+    // Asset Type custom filtering
+    $.fn.dataTable.ext.search.push(function (settings, data, dataIndex) {
+      const assetTypeTexts = $assetTypeFilter.find('option:selected').map(function () {
+        return $(this).text();
+      }).get();
+      if (!assetTypeTexts.length) {
+        return true; // No filter applied, show all rows
+      }
+      const cellContent = $(dataTable.cell(dataIndex, 3).node()).text(); // Change index to target your rendered column
+      return assetTypeTexts.includes(cellContent);
+    });
+
+    $assetFilter.selectpicker();
+    $assetTypeFilter.selectpicker();
+  }
+
+  function updateFilterCounter() {
+    const $selected = {
+      asset: $assetFilter.val() || [],
+      assetType: $assetTypeFilter.val() || [],
+    };
+    let counter = 0;
+    for (const key in $selected) {
+      if (!key.match(/date/g))
+        counter += $selected[key].length;
+      else if (!!$selected[key])
+        counter++;
+    }
+    $('#filter-eventasset-counter').html(counter);
+  }
+}
+
 // General Event Modal Filters
 // -----------------------------------------------------------------
 export function onFilterGeneralEventResource(fieldId) {
@@ -1046,5 +1252,69 @@ export function onFilterGeneralEventResource(fieldId) {
       counter++;
     }
     $('#filter-generaleventresource-counter').html(counter);
+  }
+}
+
+export function onFilterGeneralEventAsset(fieldId) {
+  const dataTable = $('#assets_ge').DataTable();
+  const $assetFilter = $(`${fieldId} select.multiple-asset-field`);
+  const $assetTypeFilter = $(`${fieldId} select.multiple-asset-type-field`);
+
+  if ($assetFilter.length) {
+    $assetFilter.on('change', () => {
+      filterItems();
+      dataTable.draw();
+      updateFilterCounter();
+    });
+  }
+  if ($assetTypeFilter.length) {
+    $assetTypeFilter.on('change', () => {
+      filterItems();
+      dataTable.draw();
+      updateFilterCounter();
+    });
+  }
+
+  function filterItems() {
+    // Asset custom filtering
+    $.fn.dataTable.ext.search.push(function (settings, data, dataIndex) {
+      const assetTexts = $assetFilter.find('option:selected').map(function () {
+        return $(this).text();
+      }).get();
+      if (!assetTexts.length) {
+        return true; // No filter applied, show all rows
+      }
+      const cellContent = $(dataTable.cell(dataIndex, 1).node()).text(); // Change index to target your rendered column
+      return assetTexts.includes(cellContent);
+    });
+    // Asset Type custom filtering
+    $.fn.dataTable.ext.search.push(function (settings, data, dataIndex) {
+      const assetTypeTexts = $assetTypeFilter.find('option:selected').map(function () {
+        return $(this).text();
+      }).get();
+      if (!assetTypeTexts.length) {
+        return true; // No filter applied, show all rows
+      }
+      const cellContent = $(dataTable.cell(dataIndex, 3).node()).text(); // Change index to target your rendered column
+      return assetTypeTexts.includes(cellContent);
+    });
+
+    $assetFilter.selectpicker();
+    $assetTypeFilter.selectpicker();
+  }
+
+  function updateFilterCounter() {
+    const $selected = {
+      asset: $assetFilter.val() || [],
+      assetType: $assetTypeFilter.val() || [],
+    };
+    let counter = 0;
+    for (const key in $selected) {
+      if (!key.match(/date/g))
+        counter += $selected[key].length;
+      else if (!!$selected[key])
+        counter++;
+    }
+    $('#filter-generaleventasset-counter').html(counter);
   }
 }

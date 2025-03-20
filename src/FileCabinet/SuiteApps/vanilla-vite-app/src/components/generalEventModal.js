@@ -98,7 +98,7 @@ $(document).ready(() => {
                                   <div class="d-flex align-items-center ms-3">
                                     <div class="form-check form-switch w-100" style="margin-top: 10px; margin-left: 20px; display: flex; align-items: center;">
                                       <input class="form-check-input me-2 allday-toggle" type="checkbox">
-                                      <label class="form-check-label" style="font-size: 11px; margin: 0; align-self: flex-end;">All Day</label>
+                                      <label class="form-check-label" style="font-size: 11px; margin: 0; align-self: flex-end; white-space: nowrap;">All Day</label>
                                     </div>
                                   </div>
                                 </td>
@@ -266,7 +266,7 @@ $(document).ready(() => {
         columns: resourcesDtColumns,
         initComplete: () => {
           eventFormHandlers();
-          addFilterIcon();
+          applyFiltersWithDelay();
         }
       });
 
@@ -493,18 +493,32 @@ $(document).ready(() => {
     window.validateForm = () => true;
   }
 
-  function addFilterIcon() {
-    const entriesLabel = $(`#resources_ge_wrapper div.dt-length`);
-    entriesLabel.addClass('d-flex align-items-center mb-2'); // Align entries label with search bar
-    const dtSearch = $(`#resources_ge_wrapper .dt-search`);
-    dtSearch.addClass('d-flex align-items-center mb-2'); // Align search bar as well
-    // Add filter icon beside the entries label
-    entriesLabel.append(`
-      <div class="d-flex align-items-center">
-      <i class="fa-solid fa-filter filter-icon" style="font-size: 20px; margin-left: 20px" title="Filter" data-bs-toggle="modal" data-bs-target="#filterFieldGeneralEventResource"></i>
-        <span class="badge badge-danger badge-pill counter" style="font-size: 8px" id="filter-generaleventresource-counter">0</span>
-      </div>
-    `);
+  async function applyFiltersWithDelay(delay = 10) {
+    const sections = [{
+      wrapper: 'resources_ge',
+      id: 'resource',
+      target: 'filterFieldGeneralEventResource'
+    }, {
+      wrapper: 'assets_ge',
+      id: 'asset',
+      target: 'filterFieldGeneralEventAsset'
+    }];
+    await new Promise(resolve => setTimeout(resolve, delay)); // Delay execution
+
+    sections.forEach(section => {
+      const entriesLabel = $(`#${section.wrapper}_wrapper div.dt-length`);
+      entriesLabel.addClass('d-flex align-items-center mb-2'); // Align entries label with search bar
+      const dtSearch = $(`#${section.wrapper}_wrapper .dt-search`);
+      dtSearch.addClass('d-flex align-items-center mb-2'); // Align search bar as well
+
+      // Add filter icon beside the entries label
+      entriesLabel.append(`
+        <div class="d-flex align-items-center">
+          <i class="fa-solid fa-filter filter-icon" style="font-size: 20px; margin-left: 20px" title="Filter" data-bs-toggle="modal" data-bs-target="#${section.target}"></i>
+          <span class="badge badge-danger badge-pill counter" style="font-size: 8px" id="filter-generalevent${section.id}-counter">0</span>
+        </div>
+      `);
+    });
   }
 
   function clearFieldValues() {

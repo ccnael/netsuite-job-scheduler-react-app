@@ -9,9 +9,12 @@
   background: rgba(0, 0, 0, 0.5);
   z-index: 999;
 }
-#filterFieldResources .modal-header, #filterFieldBoardJob .modal-header, #filterFieldBoardEvent .modal-header, #filterFieldCalendarJob .modal-header, #filterFieldCalendarEvent .modal-header, #filterFieldEventResource .modal-header, #openFilterGeneralEventResourceModal .modal-header {
-  font-weight: bold;
-  text-align: center;
+#filterFieldResources .modal-body, #filterFieldBoardJob .modal-body, #filterFieldBoardEvent .modal-body, #filterFieldCalendarJob .modal-body, #filterFieldCalendarEvent .modal-body, #filterFieldEventResource .modal-body, #openFilterGeneralEventResourceModal .modal-body {
+  z-index: -1;
+}
+#filterFieldResources .modal-content, #filterFieldBoardJob .modal-content, #filterFieldBoardEvent .modal-content, #filterFieldCalendarJob .modal-content, #filterFieldCalendarEvent .modal-content, #filterFieldEventResource .modal-content, #openFilterGeneralEventResourceModal .modal-content {
+  margin-bottom: 0;
+  padding-bottom: 0;
 }
 #filterFieldResources .filter-group, #filterFieldBoardJob .filter-group, #filterFieldBoardEvent .filter-group, #filterFieldCalendarJob .filter-group, #filterFieldCalendarEvent .filter-group, #filterFieldEventResource .filter-group, #openFilterGeneralEventResourceModal .filter-group {
   margin: 10px 0;

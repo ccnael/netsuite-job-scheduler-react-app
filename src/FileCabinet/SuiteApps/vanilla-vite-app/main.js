@@ -1,15 +1,19 @@
 import Board from './src/board';
 import Calendar from './src/calendar';
-import { selectDefaultTab, Event, handleWorkOrderAction } from './src/components/utils';
+import { Cache, Event, handleDropDownOptions, handleWorkOrderAction } from './src/components/utils';
 import { handleFilters } from './src/components/filterFields/filterUtils';
 
 $(document).ready(() => {
   Board.setup();
   Calendar.setup();
+  Cache.setDefaultTab();
+  Cache.showLastAction();
 
-  selectDefaultTab();
+  handleDropDownOptions();
   handleWorkOrderAction();
   handleFilters();
 
   Event.handleDeleteEventRecord();
+
+
 });

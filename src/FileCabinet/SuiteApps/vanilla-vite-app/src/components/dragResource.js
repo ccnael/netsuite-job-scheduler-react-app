@@ -1,4 +1,6 @@
 import * as dataSet from './dataSet';
+import { Cache } from './utils';
+import * as env from './constants';
 
 $(document).ready(() => {
   window.openDragResourceModal = (eventId, dataTransfer) => {
@@ -67,14 +69,15 @@ $(document).ready(() => {
                     .then(response => response.json())
                     .then(result => {
                       if (result.code == 200) {
+                        const messageTxt = `Resource ${resourceName} has been added to Event [ID ${eventId}]`;
                         Swal.fire({
                           title: 'Success!',
-                          text: `Resource ${resourceName} has been added to Event [ID ${eventId}]`,
-                          icon: 'success'
-                        })
-                        /* .then(() => {
-                          
-                        }); */
+                          text: messageTxt,
+                          icon: 'success',
+                          showConfirmButton: false,
+                          allowOutsideClick: false
+                        });
+                        Cache.set(env.SessionKey.UPDATED_EVENT, messageTxt);
                         window.location.reload();
                       } else {
                         Swal.fire({
@@ -166,14 +169,15 @@ $(document).ready(() => {
                     .then(response => response.json())
                     .then(result => {
                       if (result.code == 200) {
+                        const messageTxt = `Vendor ${resourceName} has been added to Event [ID ${eventId}]`;
                         Swal.fire({
                           title: 'Success!',
-                          text: `Vendor ${resourceName} has been added to Event [ID ${eventId}]`,
-                          icon: 'success'
-                        })
-                        /* .then(() => {
-                          
-                        }); */
+                          text: messageTxt,
+                          icon: 'success',
+                          showConfirmButton: false,
+                          allowOutsideClick: false
+                        });
+                        Cache.set(env.SessionKey.UPDATED_EVENT, messageTxt);
                         window.location.reload();
                       } else {
                         Swal.fire({
@@ -265,14 +269,15 @@ $(document).ready(() => {
                     .then(response => response.json())
                     .then(result => {
                       if (result.code == 200) {
+                        const messageTxt = `Asset ${resourceName} has been added to Event [ID ${eventId}]`;
                         Swal.fire({
                           title: 'Success!',
-                          text: `Asset ${resourceName} has been added to Event [ID ${eventId}]`,
-                          icon: 'success'
-                        })
-                        /* .then(() => {
-                          
-                        }); */
+                          text: messageTxt,
+                          icon: 'success',
+                          showConfirmButton: false,
+                          allowOutsideClick: false
+                        });
+                        Cache.set(env.SessionKey.UPDATED_EVENT, messageTxt);
                         window.location.reload();
                       } else {
                         Swal.fire({

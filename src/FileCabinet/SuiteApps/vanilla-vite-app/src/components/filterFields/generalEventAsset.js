@@ -1,16 +1,17 @@
-import { onFilterJob } from './filterUtils';
+import { onFilterGeneralEventAsset } from './filterUtils';
 import './filterField.css';
 import * as dataSet from '../dataSet';
 
 $(document).ready(() => {
-  const { modalId, fields } = dataSet.filterFields.calendarJob;
+  const { modalId, fields } = dataSet.filterFields.generalEventAsset;
+  const parentModalId = '#generalEventModal';
 
   $('#app').append(`
     <div class="modal fade" id="${modalId.replace('#', '')}" mode="" title="" tabindex="-1" style="z-index: -999">
     <div class="modal-dialog modal-md">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="${modalId.replace('#', '')}Label"><strong class="table-header">Filter Jobs</strong></h5>
+          <h5 class="modal-title" id="${modalId.replace('#', '')}Label"><strong class="table-header">Filter Assets</strong></h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="spinner"></div>
@@ -48,7 +49,7 @@ $(document).ready(() => {
                 </i>
               </div>
               <div class="col-md-5 d-flex justify-content-end">
-                <button type="submit" class="btn btn-primary me-2" onclick="selectFilters(event, 'calendarJob', '${modalId}')">Save</button>
+                <button type="submit" class="btn btn-primary me-2" onclick="selectFilters(event, 'generalEventAsset', '${modalId}')">Save</button>
                 <button type="button" class="btn btn-secondary btn-back" onclick="backToFirstForm(event, '${modalId}')">Back</button>
               </div>
             </div>
@@ -90,7 +91,7 @@ $(document).ready(() => {
           fieldStr = `<div class="d-flex align-items-center ms-3">
             <div class="form-check form-switch w-100" style="margin-top: 10px; margin-left: 20px; display: flex; align-items: center;">
               <input class="form-check-input me-2 ${field.className}" type="checkbox">
-              <label class="form-check-label" style="font-size: 11px; margin: 0;">Show Available Resource Only</label>
+              <label class="form-check-label" style="font-size: 11px; margin: 0;">Show Available Asset Only</label>
             </div>
           </div>`;
           break;
@@ -103,12 +104,10 @@ $(document).ready(() => {
           `;
           break;
       }
-      holder += !el.length
-        ?
+      holder += !el.length ?
         `<div class="col-md-6" style="display: ${field.display ? 'block' : 'none'}">
         ${fieldStr}
-        </div>`
-        :
+        </div>` :
         '';
       return holder;
     }, '');
@@ -120,7 +119,7 @@ $(document).ready(() => {
 
     $(`${modalId} .filter-fields`).append(fieldsStr);
     $(`${modalId} .selectpicker`).selectpicker();
-    onFilterJob('#calendarSection .thirdColumn', modalId);
+    onFilterGeneralEventAsset(modalId);
 
     $(modalId).modal('show');
     $(modalId).css('z-index', '9999');
@@ -130,10 +129,13 @@ $(document).ready(() => {
   $(modalId).on('hidden.bs.modal', e => {
     $(`${modalId} .selectFiltersForm`).hide();
     $(`${modalId} .filterForm`).show();
-    $(modalId).css('z-index', '-999');
+    $(modalId).css('z-index', '-9999');
+    $(parentModalId).css('z-index', '9999');
+    $(parentModalId).css('overflow', 'auto'); // Re-enable scrolling
   });
 
   function showCustomLoader() {
+    $(parentModalId).css('z-index') != '1' && $(parentModalId).css('z-index', '1');
     $(`${modalId} .spinner`).show();
     $(`${modalId} .modal-body`).css('z-index', '-1');
   }
@@ -141,5 +143,6 @@ $(document).ready(() => {
   function hideCustomLoader() {
     $(`${modalId} .spinner`).hide();
     $(`${modalId} .modal-body`).css('z-index', '1');
+    $(parentModalId).css('z-index') != '999' && $(parentModalId).css('z-index', '999');
   }
 })

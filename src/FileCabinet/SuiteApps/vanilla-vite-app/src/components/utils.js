@@ -1,44 +1,98 @@
-import { userId, suiteletUrl, assets, events, filterFields } from './dataSet';
+import { suiteletUrl, events, filterFields } from './dataSet';
+import * as env from './constants';
 
-export function selectDefaultTab() {
-  const sessionKey = /netsuite\.com/.test(window.location.href) ? `${userId}:lastClickedTab` : 'lastClickedTab';
-  const lastTab = localStorage.getItem(sessionKey);
-  if (lastTab) {
-    $('.tab').removeClass('active');
-    $(`div[data-target="${lastTab}"]`).closest(`.${lastTab.replace('Section', '')}`).addClass('active');
-    $('.tab-content').hide();
-    $(`#${lastTab}`).show();
+export class Cache {
 
-    if (lastTab === 'calendarSection') {
-      setTimeout(() => {
-        hideCustomLoader();
-        window.FullCalendar.render();
-      }, 500);
-    } else {
-      setTimeout(() => {
-        hideCustomLoader();
-        $('#calendarSection').hide();
-      }, 500);
-    }
-  } else {
-    setTimeout(() => {
-      hideCustomLoader();
-      $('#calendarSection').hide();
-    }, 500);
+  static _get(key) {
+    return localStorage.getItem(key);
   }
 
-  // Onchange tab
-  $('header div.tab').on('click', function () {
-    $('.tab').removeClass('active');
-    $(this).addClass('active');
+  static _clear(key) {
+    localStorage.removeItem(key);
+  }
 
-    const targetSectionId = $(this).data('target');
-    localStorage.setItem(sessionKey, targetSectionId);
-    $('.tab-content').hide();
-    $(`#${targetSectionId}`).show();
+  static set(key, value) {
+    localStorage.setItem(key, value);
+  }
 
-    targetSectionId === 'calendarSection' && setTimeout(() => window.FullCalendar.render());
-  });
+  static setDefaultTab() {
+    const sessionKey = env.SessionKey.ACTIVE_TAB;
+    const activeTab = this._get(sessionKey);
+
+    if (activeTab) {
+      $('.tab').removeClass('active');
+      $(`div[data-target="${activeTab}"]`)
+        .closest(`.${activeTab.replace('Section', '')}`)
+        .addClass('active');
+
+      $('.tab-content').hide();
+      $(`#${activeTab}`).show();
+
+      const rerenderCalendar = () => {
+        setTimeout(() => {
+          hideCustomLoader();
+          window.FullCalendar.render();
+        }, 500);
+      }
+
+      const hideCalendarSection = () => {
+        setTimeout(() => {
+          hideCustomLoader();
+          $('#calendarSection').hide();
+        }, 500);
+      }
+
+      if (activeTab === 'calendarSection') {
+        rerenderCalendar();
+      } else {
+        hideCalendarSection();
+      }
+    } else {
+      hideCalendarSection();
+    }
+
+    // Onchange tab
+    $('header div.tab').on('click', function () {
+      $('.tab').removeClass('active');
+      $(this).addClass('active');
+
+      const targetSectionId = $(this).data('target');
+      localStorage.setItem(sessionKey, targetSectionId);
+      $('.tab-content').hide();
+      $(`#${targetSectionId}`).show();
+
+      targetSectionId === 'calendarSection' && setTimeout(() => window.FullCalendar.render());
+    });
+  }
+
+  static showLastAction() {
+    const that = this;
+
+    async function showToast() {
+      for (const key in env.SessionKey) {
+        if (key === "ACTIVE_TAB") continue;
+        const message = that._get(env.SessionKey[key]);
+        if (message) {
+          await new Promise((resolve) => {
+            Toastify({
+              text: message,
+              duration: 99999,
+              close: true,
+              gravity: "top",
+              position: "right",
+              style: {
+                background: "linear-gradient(to right, #00b09b, #96c93d)",
+              },
+              callback: resolve
+            }).showToast();
+            setTimeout(resolve, 2000);
+          });
+          that._clear(env.SessionKey[key]);
+        }
+      }
+    }
+    showToast();
+  }
 }
 
 export class Event {
@@ -78,19 +132,35 @@ export class Event {
     const that = this;
     // On resource check
     $(`${resourceTblId} input.dt-line-select`).on('change', function () {
-      const time = {
-        start: $(`${tableId} input.starttime`).val(),
-        end: $(`${tableId} input.endtime`).val(),
+      const isChecked = $(this).prop('checked');
+      const row = $(this).closest('tr');
+      const classStr = row.prop('class');
+      if (isChecked) {
+        const time = {
+          start: $(`${tableId} input.starttime`).val(),
+          end: $(`${tableId} input.endtime`).val(),
+        }
+        that._copyHeaderTimeToResourceTime(row, time);
       }
-      // Copy header start/endto current line time fields
-      $(this).closest('input.starttime-row').val(time.start);
-      $(this).closest('input.endtime-row').val(time.end);
+      // Disable checkbox if row is unavailable
+      // If the unavailable row is checked, allow to uncheck it and disable the checkbox after
+      /* if (!isChecked && classStr.includes('row-unavailable')) {
+        $(this).prop('disabled', true);
+      } else {
+        $(this).css('opacity', 2);
+      } */
     });
     $(`${resourceTblId} input.starttime-row, ${resourceTblId} input.endtime-row`).on('change', function () {
       if (!that._validateResourceTime(this, tableId)) {
         return;
       }
     });
+  }
+
+  // Copy header start/endto current line time fields
+  static _copyHeaderTimeToResourceTime(row, time) {
+    row.find('input.starttime-row').val(time.start);
+    row.find('input.endtime-row').val(time.end);
   }
 
   static _validateResourcesAvailability(tableId, resourceTblId, eventId, onFieldChanged = false) {
@@ -110,9 +180,9 @@ export class Event {
           const eventStart = `${event.date.start} ${event.time.start}`;
           const eventEnd = `${event.date.end} ${event.time.end}`;
           if (eventId) {
-            return event.id != eventId && (moment(eventEnd).isBetween(start, end, null, '[]') || moment(eventStart).isSameOrBefore(start) && moment(eventEnd).isSameOrAfter(end));
+            return event.id != eventId && event.status.value !== 'COMPLETED' && (moment(eventEnd).isBetween(start, end, null, '[]') || moment(eventStart).isSameOrBefore(start) && moment(eventEnd).isSameOrAfter(end));
           } else {
-            return moment(eventEnd).isBetween(start, end, null, '[]') || moment(eventStart).isSameOrBefore(start) && moment(eventEnd).isSameOrAfter(end);
+            return event.status.value !== 'COMPLETED' && moment(eventEnd).isBetween(start, end, null, '[]') || moment(eventStart).isSameOrBefore(start) && moment(eventEnd).isSameOrAfter(end);
           }
         });
         // console.log(checkbox.prop('checked'))
@@ -120,11 +190,11 @@ export class Event {
           if (!eventId || (onFieldChanged && checkbox.prop('checked'))) {
             checkbox.prop('checked', false);
           }
-          checkbox.prop('disabled', true);
+          // checkbox.prop('disabled', true);
           $(this).removeClass('row-available');
           $(this).addClass('row-unavailable');
         } else {
-          checkbox.prop('disabled', false);
+          // checkbox.prop('disabled', false);
           $(this).removeClass('row-unavailable');
           $(this).addClass('row-available');
         }
@@ -224,12 +294,12 @@ export class Event {
       if (ev.target.checked) {
         $(`${selector} .starttime`).val('08:00'); // NS default starttime
         $(`${selector} .endtime`).val('18:00'); // NS default endtime
-        $(`${selector} .starttime`).prop('disabled', true);
-        $(`${selector} .endtime`).prop('disabled', true);
+        $(`${selector} .starttime`).addClass('disabled');
+        $(`${selector} .endtime`).addClass('disabled');
         this._setAllDayResourceTime(selector);
       } else {
-        $(`${selector} .starttime`).prop('disabled', false);
-        $(`${selector} .endtime`).prop('disabled', false);
+        $(`${selector} .starttime`).removeClass('disabled');
+        $(`${selector} .endtime`).removeClass('disabled');
       }
     });
   }
@@ -301,24 +371,105 @@ export class Event {
     $(`${selector} .endtime-row`).val('18:00');
   }
 
+  // From board view, sidebar > applied to resources and vendors section
   static draggedResourceHasConflictEvent(eventId, date, time, resourceId) {
+    console.log('draggedResourceHasConflictEvent() triggered', arguments);
     const start = moment(`${date.start} ${time.start}`);
     const end = moment(`${date.end} ${time.end}`);
-    const resourceEvents = events.filter(event => event.resources.map(resource => resource.employee.value).includes(resourceId));
-    const conflictEvents = resourceEvents.filter(event => {
-      const eventStart = `${event.date.start} ${event.time.start}`;
-      const eventEnd = `${event.date.end} ${event.time.end}`;
-      return event.status.value !== 'COMPLETED' && event.id != eventId && (moment(eventEnd).isBetween(start, end, null, '[]') || moment(eventStart).isSameOrBefore(start) && moment(eventEnd).isSameOrAfter(end));
+    const resourceEvents = events
+      .filter(event => event.resources.map(resource => resource.employee.value)
+        .includes(resourceId));
+    const conflictEvents = resourceEvents.filter(resEvent => {
+      const resEventStart = `${resEvent.date.start} ${resEvent.time.start}`;
+      const resEventEnd = `${resEvent.date.end} ${resEvent.time.end}`;
+      return resEvent.status.value !== 'COMPLETED' &&
+        resEvent.id != eventId &&
+        (moment(resEventEnd).isBetween(start, end, null, '[]') || moment(resEventStart).isBefore(start) && moment(resEventEnd).isAfter(end))
     });
     return !!conflictEvents.length;
   }
 
-  static draggedJobHasConflictEventToResource(startDateTime, resourceType, resourceId = '') {
+  // From board view, sidebar > applied to assets section
+  static draggedAssetHasConflictEvent(eventId, date, time, resourceId) {
+    console.log('draggedAssetHasConflictEvent() triggered', arguments);
+    const start = moment(`${date.start} ${time.start}`);
+    const end = moment(`${date.end} ${time.end}`);
+    const resourceEvents = events
+      .filter(event => event.assets.map(asset => asset.asset.value)
+        .includes(resourceId));
+    const conflictEvents = resourceEvents.filter(resEvent => {
+      const resEventStart = `${resEvent.date.start} ${resEvent.time.start}`;
+      const resEventEnd = `${resEvent.date.end} ${resEvent.time.end}`;
+      return resEvent.status.value !== 'COMPLETED' &&
+        resEvent.id != eventId &&
+        (moment(resEventEnd).isBetween(start, end, null, '[]') || moment(resEventStart).isBefore(start) && moment(resEventEnd).isAfter(end));
+    });
+    // console.log('draggedAssetHasConflictEvent > conflictEvents', conflictEvents);
+    return !!conflictEvents.length;
+  }
+
+  static sameRowDraggedEventHasConflict(eventId, date, time) {
+    console.log('sameRowDraggedEventHasConflict() triggered', arguments);
+    return this._updateEventHasConflict(eventId, date, time);
+  }
+
+  static resizedEventHasConflict(eventId, date, time) {
+    console.log('resizedEventHasConflict() triggered', arguments);
+    return this._updateEventHasConflict(eventId, date, time);
+  }
+
+  static _updateEventHasConflict(eventId, date, time) {
+    const start = moment(`${date.start} ${time.start}`);
+    const end = moment(`${date.end} ${time.end}`);
+    const eventData = events.find(event => event.id == eventId);
+    const eventDate = {
+      start: moment(`${eventData.date.start} ${eventData.time.start}`),
+      end: moment(`${eventData.date.end} ${eventData.time.end}`)
+    }
+    return start.isBefore(eventDate.start) || end.isAfter(eventDate.end);
+  }
+
+  // Reassignment
+  static draggedEventToNewResourceHasConflictEvent(eventId, date, time, resourceId) {
+    console.log('draggedEventToNewResourceHasConflictEvent() triggered', arguments);
+    const start = moment(`${date.start} ${time.start}`);
+    const end = moment(`${date.end} ${time.end}`);
+    const resourceEvents = events
+      .filter(event => event.resources.map(resource => resource.employee.value)
+        .includes(resourceId));
+    const conflictEvents = resourceEvents.filter(resEvent => {
+      const resEventStart = `${resEvent.date.start} ${resEvent.time.start}`;
+      const resEventEnd = `${resEvent.date.end} ${resEvent.time.end}`;
+      const result = (resEvent.status.value !== 'COMPLETED' && (moment(resEventStart).isBetween(start, end, null, '[]') || moment(resEventEnd).isBetween(start, end, null, '[]'))) || resEvent.id == eventId;
+      return result;
+    });
+    return !!conflictEvents.length;
+  }
+
+  // Reassignment
+  static draggedEventToNewAssetHasConflictEvent(eventId, date, time, resourceId) {
+    console.log('draggedEventToNewAssetHasConflictEvent() triggered', arguments);
+    const start = moment(`${date.start} ${time.start}`);
+    const end = moment(`${date.end} ${time.end}`);
+    const resourceEvents = events
+      .filter(event => event.assets.map(asset => asset.asset.value)
+        .includes(resourceId));
+    const conflictEvents = resourceEvents.filter(resEvent => {
+      const resEventStart = `${resEvent.date.start} ${resEvent.time.start}`;
+      const resEventEnd = `${resEvent.date.end} ${resEvent.time.end}`;
+      const result = (resEvent.status.value !== 'COMPLETED' && (moment(resEventStart).isBetween(start, end, null, '[]') || moment(resEventEnd).isBetween(start, end, null, '[]'))) || resEvent.id == eventId;
+      return result;
+    });
+    return !!conflictEvents.length;
+  }
+
+  static draggedJobEventHasConflictEventToResource(startDateTime, resourceType, resourceId = '') {
+    console.log('draggedJobEventHasConflictEventToResource() triggered', arguments);
     const conflictEvents = events => {
       return events.filter(event => {
         const eventStart = moment(`${event.date.start} ${event.time.start}`);
         const eventEnd = moment(`${event.date.end} ${event.time.end}`);
-        return event.status.value !== 'COMPLETED' && startDateTime.isSameOrAfter(eventStart) && startDateTime.isSameOrBefore(eventEnd);
+        return event.status.value !== 'COMPLETED' && startDateTime.isAfter(eventStart) && startDateTime.isBefore(eventEnd);
       });
     }
     let resourceEvents = [];
@@ -369,11 +520,15 @@ export class Event {
                 .then(response => response.json())
                 .then(result => {
                   if (result.code == 200) {
+                    const messageTxt = `Event ${payload.eventData.title} [ID ${result.recordId}] has been created`;
                     Swal.fire({
                       title: 'Success!',
-                      text: `Event ${payload.eventData.title} [ID ${result.recordId}] has been created`,
-                      icon: 'success'
+                      text: messageTxt,
+                      icon: 'success',
+                      showConfirmButton: false,
+                      allowOutsideClick: false
                     });
+                    Cache.set(env.SessionKey.NEW_EVENT, messageTxt);
                     $(`#${modalId}`).modal('hide');
                     window.location.reload();
                   } else {
@@ -429,11 +584,15 @@ export class Event {
                 .then(response => response.json())
                 .then(result => {
                   if (result.code == 200) {
+                    const messageTxt = `Event ${payload.eventData.title} [ID ${payload.eventData.id}] has been updated`;
                     Swal.fire({
                       title: 'Success!',
-                      text: `Event ${payload.eventData.title} [ID ${payload.eventData.id}] has been updated`,
-                      icon: 'success'
+                      text: messageTxt,
+                      icon: 'success',
+                      showConfirmButton: false,
+                      allowOutsideClick: false
                     });
+                    Cache.set(env.SessionKey.UPDATED_EVENT, messageTxt);
                     $(`#${modalId}`).modal('hide');
                     window.location.reload();
                   } else {
@@ -444,6 +603,7 @@ export class Event {
                     });
                     if (eventInfo) {
                       eventInfo.revert();
+                      CalendarAddOns.reinitializeAddOns(eventInfo);
                     }
                   }
                   Swal.hideLoading();
@@ -457,6 +617,7 @@ export class Event {
                   Swal.hideLoading();
                   if (eventInfo) {
                     eventInfo.revert();
+                    CalendarAddOns.reinitializeAddOns(eventInfo);
                   }
                 });
             },
@@ -467,6 +628,7 @@ export class Event {
         } else {
           if (eventInfo) {
             eventInfo.revert();
+            CalendarAddOns.reinitializeAddOns(eventInfo);
           }
         }
       });
@@ -475,9 +637,7 @@ export class Event {
   static handleDeleteEventRecord() {
     window.deleteEventRecord = (ev, eventId) => {
       eventId = eventId || ev.target.closest('.card-item').getAttribute('id');
-      console.log('deleteEventRecord() > Event ID', eventId);
       const payload = events.find(event => event.id == eventId) || {};
-      console.log('PAYLOAD', payload);
 
       Swal.fire({
         title: `Delete Event Record [ID ${eventId}]?`,
@@ -502,11 +662,15 @@ export class Event {
                 })
                   .then(response => response.json())
                   .then(result => {
+                    const messageTxt = `Event ${payload.eventData?.title || ''} [ID ${eventId}] has been deleted`;
                     Swal.fire({
                       title: 'Deleted!',
-                      text: `Event ${payload.eventData?.title || ''} [ID ${eventId}] has been deleted`,
-                      icon: 'success'
+                      text: messageTxt,
+                      icon: 'success',
+                      showConfirmButton: false,
+                      allowOutsideClick: false
                     });
+                    Cache.set(env.SessionKey.DELETED_EVENT, messageTxt);
                     window.location.reload();
                     Swal.hideLoading();
                   })
@@ -554,12 +718,16 @@ export class Event {
                 .then(response => response.json())
                 .then(result => {
                   if (result.code == 200) {
+                    const messageTxt = `Event [ID ${eventId}] has been completed`;
                     Swal.fire({
                       title: 'Success!',
-                      text: `Event [ID ${eventId}] completed`,
-                      icon: 'success'
+                      text: messageTxt,
+                      icon: 'success',
+                      showConfirmButton: false,
+                      allowOutsideClick: false
                     });
-                    window.location.reload()
+                    Cache.set(env.SessionKey.UPDATED_EVENT, messageTxt);
+                    window.location.reload();
                   } else {
                     Swal.fire({
                       title: 'Unexpected Error',
@@ -590,7 +758,6 @@ export class Event {
 export class Resource {
 
   static updateResourceAssignment(payload, eventInfo) {
-    console.log('updateResourceAssignment eventInfo', eventInfo);
     payload.newResource = eventInfo.newResource.extendedProps;
     console.log('----- [updateResourceAssignment() -> PAYLOAD] -----', { payload, eventInfo: eventInfo || '' });
 
@@ -623,11 +790,15 @@ export class Resource {
                 .then(response => response.json())
                 .then(result => {
                   if (result.code == 200) {
+                    const messageTxt = `Event [ID ${eventId}] has been reassigned from ${oldResourceName} to ${newResourceName}`;
                     Swal.fire({
                       title: 'Success!',
-                      text: `Reassigned to ${newResourceName}`,
-                      icon: 'success'
+                      text: messageTxt,
+                      icon: 'success',
+                      showConfirmButton: false,
+                      allowOutsideClick: false
                     });
+                    Cache.set(env.SessionKey.UPDATED_EVENT, messageTxt);
                     window.location.reload();
                   } else {
                     Swal.fire({
@@ -637,6 +808,7 @@ export class Resource {
                     });
                     if (eventInfo) {
                       eventInfo.revert();
+                      CalendarAddOns.reinitializeAddOns(eventInfo);
                     }
                   }
                   Swal.hideLoading();
@@ -650,6 +822,7 @@ export class Resource {
                   Swal.hideLoading();
                   if (eventInfo) {
                     eventInfo.revert();
+                    CalendarAddOns.reinitializeAddOns(eventInfo);
                   }
                 });
             },
@@ -660,16 +833,13 @@ export class Resource {
         } else {
           if (eventInfo) {
             eventInfo.revert();
+            CalendarAddOns.reinitializeAddOns(eventInfo);
           }
         }
       });
-
-    // alert('Update In Progress...');
-    // eventInfo.revert();
   }
 
   static updateAssetAssignment(payload, eventInfo) {
-    console.log('updateAssetAssignment eventInfo', eventInfo);
     payload.newResource = eventInfo.newResource.extendedProps;
     console.log('----- [updateAssetAssignment() -> PAYLOAD] -----', { payload, eventInfo: eventInfo || '' });
 
@@ -702,11 +872,15 @@ export class Resource {
                 .then(response => response.json())
                 .then(result => {
                   if (result.code == 200) {
+                    const messageTxt = `Event [ID ${eventId}] has been reassigned from ${oldResourceName} to ${newResourceName}`;
                     Swal.fire({
                       title: 'Success!',
-                      text: `Reassigned to ${newResourceName}`,
-                      icon: 'success'
+                      text: messageTxt,
+                      icon: 'success',
+                      showConfirmButton: false,
+                      allowOutsideClick: false
                     });
+                    Cache.set(env.SessionKey.UPDATED_EVENT, messageTxt);
                     window.location.reload();
                   } else {
                     Swal.fire({
@@ -716,6 +890,7 @@ export class Resource {
                     });
                     if (eventInfo) {
                       eventInfo.revert();
+                      CalendarAddOns.reinitializeAddOns(eventInfo);
                     }
                   }
                   Swal.hideLoading();
@@ -729,6 +904,7 @@ export class Resource {
                   Swal.hideLoading();
                   if (eventInfo) {
                     eventInfo.revert();
+                    CalendarAddOns.reinitializeAddOns(eventInfo);
                   }
                 });
             },
@@ -739,20 +915,23 @@ export class Resource {
         } else {
           if (eventInfo) {
             eventInfo.revert();
+            CalendarAddOns.reinitializeAddOns(eventInfo);
           }
         }
       });
-
-    // alert('Update In Progress...');
-    // eventInfo.revert();
   }
 
   static updateResourceDateTime(payload, eventInfo) {
     console.log('----- [updateResourceDateTime() -> PAYLOAD] -----', { payload, eventInfo: eventInfo || '' });
+    const eventId = eventInfo.event.extendedProps.id;
+    const dateStart = moment(payload.date.start).format(env.DateFormat.IMPORT_DATE);
+    const dateEnd = moment(payload.date.end).format(env.DateFormat.IMPORT_DATE);
+    const timeStart = moment(`1/1/1999 ${payload.time.start}`).format(env.DateFormat.IMPORT_TIME);
+    const timeEnd = moment(`1/1/1999 ${payload.time.end}`).format(env.DateFormat.IMPORT_TIME);
 
     Swal.fire({
       title: `Update Date/Time?`,
-      text: `Update to ${payload.date.start} ${payload.time.start} - ${payload.date.end} ${payload.time.end}?`,
+      text: `Update to ${dateStart} ${timeStart} - ${dateEnd} ${timeEnd}?`,
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
@@ -775,11 +954,15 @@ export class Resource {
                 .then(response => response.json())
                 .then(result => {
                   if (result.code == 200) {
+                    const messageTxt = `Event [ID ${eventId}] Date/Time has been updated to ${dateStart} ${timeStart} - ${dateEnd} ${timeEnd}`;
                     Swal.fire({
                       title: 'Success!',
-                      text: `Date/Time has been updated to ${payload.date.start} ${payload.time.start} - ${payload.date.end} ${payload.time.end}`,
-                      icon: 'success'
+                      text: messageTxt,
+                      icon: 'success',
+                      showConfirmButton: false,
+                      allowOutsideClick: false
                     });
+                    Cache.set(env.SessionKey.UPDATED_EVENT, messageTxt);
                     window.location.reload();
                   } else {
                     Swal.fire({
@@ -789,6 +972,7 @@ export class Resource {
                     });
                     if (eventInfo) {
                       eventInfo.revert();
+                      CalendarAddOns.reinitializeAddOns(eventInfo);
                     }
                   }
                   Swal.hideLoading();
@@ -802,6 +986,7 @@ export class Resource {
                   Swal.hideLoading();
                   if (eventInfo) {
                     eventInfo.revert();
+                    CalendarAddOns.reinitializeAddOns(eventInfo);
                   }
                 });
             },
@@ -812,20 +997,27 @@ export class Resource {
         } else {
           if (eventInfo) {
             eventInfo.revert();
+            CalendarAddOns.reinitializeAddOns(eventInfo);
           }
         }
       });
 
     // alert('Update In Progress...');
     // eventInfo.revert();
+    CalendarAddOns.reinitializeAddOns(eventInfo);
   }
 
   static updateAssetDateTime(payload, eventInfo) {
     console.log('----- [updateAssetDateTime() -> PAYLOAD] -----', { payload, eventInfo: eventInfo || '' });
+    const eventId = eventInfo.event.extendedProps.id;
+    const dateStart = moment(payload.date.start).format(env.DateFormat.IMPORT_DATE);
+    const dateEnd = moment(payload.date.end).format(env.DateFormat.IMPORT_DATE);
+    const timeStart = moment(`1/1/1999 ${payload.time.start}`).format(env.DateFormat.IMPORT_TIME);
+    const timeEnd = moment(`1/1/1999 ${payload.time.end}`).format(env.DateFormat.IMPORT_TIME);
 
     Swal.fire({
       title: `Update Date/Time`,
-      text: `Update to ${payload.date.start} ${payload.time.start} - ${payload.date.end} ${payload.time.end}?`,
+      text: `Update to ${dateStart} ${timeStart} - ${dateEnd} ${timeEnd}?`,
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
@@ -848,11 +1040,15 @@ export class Resource {
                 .then(response => response.json())
                 .then(result => {
                   if (result.code == 200) {
+                    const messageTxt = `Event [ID ${eventId}] Date/Time has been updated to ${dateStart} ${timeStart} - ${dateEnd} ${timeEnd}`;
                     Swal.fire({
                       title: 'Success!',
-                      text: `Date/Time has been updated to ${payload.date.start} ${payload.time.start} - ${payload.date.end} ${payload.time.end}`,
-                      icon: 'success'
+                      text: messageTxt,
+                      icon: 'success',
+                      showConfirmButton: false,
+                      allowOutsideClick: false
                     });
+                    Cache.set(env.SessionKey.UPDATED_EVENT, messageTxt);
                     window.location.reload();
                   } else {
                     Swal.fire({
@@ -862,6 +1058,7 @@ export class Resource {
                     });
                     if (eventInfo) {
                       eventInfo.revert();
+                      CalendarAddOns.reinitializeAddOns(eventInfo);
                     }
                   }
                   Swal.hideLoading();
@@ -875,6 +1072,7 @@ export class Resource {
                   Swal.hideLoading();
                   if (eventInfo) {
                     eventInfo.revert();
+                    CalendarAddOns.reinitializeAddOns(eventInfo);
                   }
                 });
             },
@@ -885,13 +1083,24 @@ export class Resource {
         } else {
           if (eventInfo) {
             eventInfo.revert();
+            CalendarAddOns.reinitializeAddOns(eventInfo);
           }
         }
       });
-
-    // alert('Update In Progress...');
-    // eventInfo.revert();
   }
+}
+
+export function handleDropDownOptions() {
+  // Toggle dropdown on click
+  $(document).on('click', '.dropdown', function (event) {
+    event.stopPropagation(); // Prevent immediate closing
+    $('.dropdown-content').not($(this).find('.dropdown-content')).hide(); // Hide other dropdowns
+    $(this).find('.dropdown-content').toggle(); // Show/Hide current dropdown
+  });
+  // Close dropdown when clicking outside
+  $(document).on('click', function () {
+    $('.dropdown-content').hide();
+  });
 }
 
 export function handleWorkOrderAction() {
@@ -909,11 +1118,15 @@ export function handleWorkOrderAction() {
         })
           .then(response => response.json())
           .then(result => {
+            const messageTxt = `Work Order [ID ${woId}] Status has been set to Hold`;
             Swal.fire({
               title: 'Success!',
-              text: `Work Order [ID ${woId}] Status has been set to Hold`,
-              icon: 'success'
+              text: messageTxt,
+              icon: 'success',
+              showConfirmButton: false,
+              allowOutsideClick: false
             });
+            Cache.set(env.SessionKey.UPDATED_WO_STATUS, messageTxt);
             Swal.hideLoading();
             window.location.reload();
           })
@@ -946,11 +1159,15 @@ export function handleWorkOrderAction() {
         })
           .then(response => response.json())
           .then(result => {
+            const messageTxt = `Work Order [ID ${woId}] Status has been set to Closed`;
             Swal.fire({
               title: 'Success!',
-              text: `Work Order [ID ${woId}] Status has been set to Closed`,
-              icon: 'success'
+              text: messageTxt,
+              icon: 'success',
+              showConfirmButton: false,
+              allowOutsideClick: false
             });
+            Cache.set(env.SessionKey.UPDATED_WO_STATUS, messageTxt);
             Swal.hideLoading();
             window.location.reload();
           })
@@ -982,6 +1199,45 @@ export function handleWorkOrderAction() {
   }
 }
 
+export class CalendarAddOns {
+
+  static reinitializeAddOns(info) {
+    ToolTip.setup();
+    this.addDropDown(info);
+    this.adjustZoomLevel(info);
+  }
+
+  static addDropDown(info) {
+    const eventId = info.event.id;
+    if (!eventId) return;
+    const event = events.find(event => event.id == eventId);
+    if (!event) return;
+    const isTwoOrLess = getHoursDiff(event.date, event.time) <= 2;
+    const html = `<div class="card-header-options">
+      <div class="dropdown" style="display:inline-block; ${isTwoOrLess && 'left: -10px'}">
+        <i class="fa-solid fa-ellipsis" style="cursor: pointer"></i>
+        ${`<div class="dropdown-content" style="top: -30px;">
+            ${(!event.workorder.value) ? `<a href="#" onclick="openGeneralEventModal(${eventId})" ${event.status.value === 'COMPLETED' && "class='disabled'"}>Update Event</a>` : `<a href="#" onclick="openEventModal('', '', ${eventId})" ${event.status.value === 'COMPLETED' && "class='disabled'"}>Update Event</a>`}
+            <a href="#" onclick="openCompleteEventModal('', ${eventId})" ${event.status.value === 'COMPLETED' && "class='disabled'"}>Complete Event</a>
+            <a href="#" onclick="deleteEventRecord('', ${eventId})">Remove Event</a>
+          </div>`}
+      </div>
+    </div>`;
+    const el = info.el.querySelector('div.card-name');
+    el.insertAdjacentHTML('afterend', html);
+  }
+
+  static adjustZoomLevel(el) {
+    if (el.view.type === 'resourceTimelineDay' || (screen.width > 1470 && screen.height > 956)) { // Restore original zoom level for resourceTimelineDay view
+      $('#calendarSection .grid-container').css('zoom', 1);
+      $('#calendarSection .fc-timeline-event-harness').css('zoom', 1);
+    } else {
+      $('#calendarSection .grid-container').css('zoom', 0.8);
+      $('#calendarSection .fc-timeline-event-harness').css('zoom', 1.25);
+    }
+  }
+}
+
 export class ToolTip {
   static setup() {
     this.remove();
@@ -995,6 +1251,13 @@ export class ToolTip {
   static remove() {
     $('.tooltip').remove();
   }
+}
+
+function getHoursDiff(date, time) {
+  const start = moment(`${date.start} ${time.start}`, `${env.DateFormat.EXPORT_DATE} ${env.DateFormat.EXPORT_TIME}`);
+  const end = moment(`${date.end} ${time.end}`, `${env.DateFormat.EXPORT_DATE} ${env.DateFormat.EXPORT_TIME}`);
+  const duration = moment.duration(end.diff(start));
+  return duration.asHours();
 }
 
 function hideCustomLoader() {

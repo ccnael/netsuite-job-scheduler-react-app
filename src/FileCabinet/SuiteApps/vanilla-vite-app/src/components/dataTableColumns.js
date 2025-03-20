@@ -37,6 +37,11 @@ export const resourcesDtColumns = [
   },
   {
     className: 'dt-head-center',
+    data: 'affiliationType.text',
+    title: 'Affilitation Type'
+  },
+  {
+    className: 'dt-head-center',
     render: (_data, _type, row, _meta) => `<input type="time" class="form-control starttime-row" value="${row?.time?.start}" required>`,
     title: 'Start Time <span class="required"></span>',
     orderable: false
@@ -93,7 +98,7 @@ export const assetsDtColumns = [
   {
     className: 'dt-head-center dt-body-center',
     data: 'name',
-    title: 'Item Code'
+    title: 'Name'
   },
   {
     className: 'dt-head-center dt-body-center',
@@ -109,6 +114,11 @@ export const assetsDtColumns = [
     className: 'dt-head-center dt-body-center',
     render: (_data, _type, row, _meta) => `<input type="number" class="quantity" value="${row?.quantity || 0}" max="${row?.maxQuantity || 0}" min="0" required />`,
     title: 'Quantity'
+  },
+  {
+    className: 'dt-head-center dt-body-center',
+    render: (_data, _type, row, _meta) => addCommas(row?.quantityRemaining),
+    title: 'Quantity Remaining'
   },
   {
     className: 'dt-head-center',
@@ -361,3 +371,7 @@ export const cePunchItemsDtColumns = [
     title: 'Entered By'
   }
 ];
+
+function addCommas(num) {
+  return num ? num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") : '';
+}

@@ -1,50 +1,19 @@
 # CFI-Work-Order-Scheduler
 
-Features:
-
-TBD
-
 # VanillaJS-Vite
 
-Create Project:
+How to run:
 
-1. npm create vite@latest [projectName] -- --template vanilla
-2. cd [projectName]
-3. npm install
+1. cd vanilla-vite-app
+2. npm install
+3. Install FullCalendar dependencies
+   - "npm install @fullcalendar/core @fullcalendar/adaptive @fullcalendar/interaction @fullcalendar/resource-timeline @fullcalendar/daygrid"
 4. npm run dev
-5. Create vite.config.js
 
-Sample:
+# Deploying to NS
 
-import { defineConfig } from 'vite';
-
-export default defineConfig({
-build: {
-outDir: '../com.erpsuccess.scheduler/vanilla-vite-app-bundle/',
-assetsDir: 'assets',
-rollupOptions: {
-output: {
-entryFileNames: 'app.js', // JavaScript file naming convention
-chunkFileNames: 'app.chunk.js', // Chunk file naming
-assetFileNames: ({ name }) => {
-if (name && name.endsWith('.css')) {
-return 'index.css'; // For CSS files
-} else if (name === 'vite.svg') {
-return 'assets/images/[name].[ext]'; // Move vite.svg to assets/images folder
-}
-return 'assets/[name].[ext]'; // Other assets like images, fonts, etc.
-},
-}
-},
-codeSplit: false
-}
-});
-
-6. Install FullCalendar dependencies
-   "npm install @fullcalendar/core @fullcalendar/adaptive @fullcalendar/interaction @fullcalendar/resource-timeline @fullcalendar/daygrid"
-
-7. npm run build
+1. npm run build
    - This will compile and generate bundle/build (html, js, css files) (see config > rollupOptions > output)
-8. Load the bundle/build files to the suitelet
+2. Load the bundled index.html file that sources the bundled js and css files into the suitelet
 
 NOTE: execute "npm run build" everytime changes happen under vanilla-vite-app folder before deployment

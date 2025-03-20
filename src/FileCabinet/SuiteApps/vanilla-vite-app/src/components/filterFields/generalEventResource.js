@@ -17,11 +17,9 @@ $(document).ready(() => {
         <div class="spinner"></div>
         <div class="modal-body">
           <form class="filterForm">
-            <div class="row" style=" margin-top: 10px;">
+            <div class="row">
               <div class="d-flex justify-content-center align-items-center">
-                <div class="container p-4 border rounded bg-light">
-                  <div class="row g-3 filter-fields">
-                  </div>
+                <div class="row g-3 filter-fields">
                 </div>
               </div>
             </div>
@@ -98,7 +96,12 @@ $(document).ready(() => {
           </div>`;
           break;
         case 'text':
-          fieldStr = `<input type="text" class="form-control ${field.className} custom-select-style" placeholder="Enter ${field.label}">`;
+          fieldStr = `<input type="text" class="form-control ${field.className}" placeholder="Enter ${field.label}">
+          <button type="button" class="position-absolute end-0 top-50 translate-middle-y border-0 bg-transparent text-muted me-4 d-none"
+            onclick="triggerClearTextField('${`${modalId} .filter-fields .${field.className}`}');">
+            &times;
+          </button>
+          `;
           break;
       }
       holder += !el.length

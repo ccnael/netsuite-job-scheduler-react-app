@@ -3,7 +3,7 @@
  * @NModuleScope Public
  * 
  * TODO: 
- * - Convert searches to queries
+ * - Convert searches to sql queries
  * - Split other classes/functions as separate modules
  */
 define([
@@ -16,8 +16,8 @@ define([
   'N/render',
   'N/record',
   'N/format',
-  './lib/moment.min',
-  './lib/esp_cm_constants'
+  './moment.min',
+  './esp_cm_constants'
 ],
   /**
    * @param{file} file
@@ -31,6 +31,114 @@ define([
    * @param{format} format
    */
   (file, runtime, search, query, config, url, render, record, format, moment, env) => {
+
+    function runApp(context) {
+      const user = runtime.getCurrentUser();
+      const suiteletUrl = Url.suitelet();
+      // Fetch needed data
+      const workOrders = WorkOrder.getList();
+      const events = Event.getList(); // Includes standalone/general events
+      const customers = WorkOrder.getCustomers(workOrders);
+      const woLocations = WorkOrder.getLocations(workOrders);
+      const woProjects = WorkOrder.getProjects(workOrders);
+      const woResources = WorkOrderResource.getList();
+      const woVendors = WorkOrderVendor.getList();
+      const woAssets = WorkOrderAsset.getList();
+      const woItems = WorkOrderItem.getList(workOrders);
+      const woContacts = WorkOrderContact.getList(workOrders);
+      const woAddresses = WorkOrderAddress.getList(workOrders);
+      const organizers = Event.getOrganizers(events);
+
+      WorkOrder.fullMap(workOrders, events, woVendors, woAssets, woItems, woContacts, woAddresses);
+      Event.fullMap(workOrders, events, woResources, woVendors, woAssets, woItems, woContacts, woAddresses);
+
+      const resources = Resource.getEmployees(events);
+      const resourceGroups = Resource.getResourceGroups(resources);
+      const vendors = Resource.getVendors(events);
+      const assets = Resource.getAssets();
+      const assetTypes = Resource.getAssetTypes(assets);
+      const resourceSkills = Resource.getResourceSkills(resources);
+      const resourceLocations = Resource.getResourceLocations(resources, vendors, assets);
+      const resourceDepartments = Resource.getResourceDepartments(resources, vendors, assets);
+      const woStatuses = WorkOrder.getStatuses();
+      const filterFields = Utils.getFilters({
+        user,
+        resources,
+        resourceGroups,
+        vendors,
+        assets,
+        assetTypes,
+        resourceSkills,
+        resourceLocations,
+        resourceDepartments,
+        customers,
+        woLocations,
+        woProjects,
+        woStatuses,
+        organizers
+      });
+
+      const sampleWOs = workOrders.filter((_, index) => index < 20); // TBR
+      const sampleEvents = events.filter((_, index) => index < 20); // TBR
+
+      Utils.createLogFile({
+        userId: user.id,
+        suiteletUrl,
+        workOrders: sampleWOs,
+        customers,
+        woLocations,
+        woProjects,
+        resources,
+        resourceGroups,
+        woResources,
+        vendors,
+        assets,
+        events: sampleEvents,
+        woContacts,
+        woAddresses,
+        organizers,
+        resourceSkills,
+        resourceLocations,
+        resourceDepartments,
+        filterFields,
+        woStatuses
+      });
+
+      const fileObj = {
+        template: file.load(env.FilePath.TEMPLATE),
+        style: file.load(env.FilePath.STYLE),
+        js: file.load(env.FilePath.JS),
+        svg: file.load(env.FilePath.SVG),
+        aiIcon: file.load(env.FilePath.AI_ICON),
+      }
+
+      // UI DATA SET
+      const htmlStr = fileObj.template.getContents()
+        .replace('<script type="module" crossorigin src="/app.js"></script>', `<script type="module" crossorigin src="${fileObj.js.url}"></script>`)
+        .replace('<link rel="stylesheet" crossorigin href="/index.css">', `<link rel="stylesheet" crossorigin href="${fileObj.style.url}">`)
+        .replace('<link rel="icon" type="image/svg+xml" href="/public/vite.svg" />', `<link rel="icon" type="image/svg+xml" href="${fileObj.svg.url}" />`)
+        .replace('<img src="/assets/images/ai.png" alt="Logo" />', `<img src="${fileObj.aiIcon.url}" alt="Logo" />`)
+        .replace('{{userId}}', user.id)
+        .replace('{{suiteletUrl}}', encodeURIComponent(suiteletUrl))
+        .replace('{{resources}}', encodeURIComponent(JSON.stringify(resources)))
+        .replace('{{resourceGroups}}', encodeURIComponent(JSON.stringify(resourceGroups)))
+        .replace('{{resourceSkills}}', encodeURIComponent(JSON.stringify(resourceSkills)))
+        .replace('{{resourceLocations}}', encodeURIComponent(JSON.stringify(resourceLocations)))
+        .replace('{{resourceDepartments}}', encodeURIComponent(JSON.stringify(resourceDepartments)))
+        .replace('{{woResources}}', encodeURIComponent(JSON.stringify(woResources)))
+        .replace('{{vendors}}', encodeURIComponent(JSON.stringify(vendors)))
+        .replace('{{assets}}', encodeURIComponent(JSON.stringify(assets)))
+        .replace('{{workOrders}}', encodeURIComponent(JSON.stringify(workOrders)))
+        .replace('{{customers}}', encodeURIComponent(JSON.stringify(customers)))
+        .replace('{{woLocations}}', encodeURIComponent(JSON.stringify(woLocations)))
+        .replace('{{woProjects}}', encodeURIComponent(JSON.stringify(woProjects)))
+        .replace('{{woStatuses}}', encodeURIComponent(JSON.stringify(woStatuses)))
+        .replace('{{events}}', encodeURIComponent(JSON.stringify(events)))
+        .replace('{{organizers}}', encodeURIComponent(JSON.stringify(organizers)))
+        .replace('{{filterFields}}', encodeURIComponent(JSON.stringify(filterFields)));
+
+      context.response.write(htmlStr);
+    }
 
     // INITIAL RESOURCE
     // -------------------------
@@ -145,7 +253,9 @@ define([
             get url() {
               return encodeURIComponent(Url.resource(this.id))
             },
-            events: events.filter(event => event.resources.map(resource => resource.employee.value).includes(result.id)).map(event => event.id),
+            events: events
+              .filter(event => event.resources.map(resource => resource.employee.value).includes(result.id))
+              .map(event => event.id),
             labRates: JSON.parse(result.getValue('custentity_esp_fop_labour_rate_matrix') || '[]'),
             time: {
               start: '',
@@ -262,7 +372,10 @@ define([
               value: ''
             },
             woVendor: false,
-            events: events.filter(event => event.vendors.map(vendor => vendor.vendor.value).includes(result.id)).map(event => event.id),
+            events: events
+              .filter(event => event.vendors.map(vendor => vendor.vendor.value)
+                .includes(result.id))
+              .map(event => event.id),
             memo: '',
             location: {
               text: '',
@@ -275,7 +388,8 @@ define([
             time: {
               start: '',
               end: ''
-            }
+            },
+            active: true
           });
           return true;
         })
@@ -314,7 +428,7 @@ define([
           columns:
             [
               search.createColumn({ name: 'name', label: 'Name' }),
-              search.createColumn({ name: 'custrecord_esp_fop_asset_site', label: 'Asset Site' }),
+              // search.createColumn({ name: 'custrecord_esp_fop_asset_site', label: 'Asset Site' }),
               search.createColumn({ name: 'custrecord_esp_fop_asset_type', label: 'Asset Type' }),
               search.createColumn({ name: 'custrecord_esp_fop_asset_description', label: 'Description' }),
               search.createColumn({ name: 'custrecord_esp_fop_asset_quantity', label: 'Quantity' }),
@@ -344,10 +458,10 @@ define([
               text: result.getText('custrecord_esp_fop_asset_type'),
               value: result.getValue('custrecord_esp_fop_asset_type')
             },
-            site: {
+            /* site: {
               text: result.getText('custrecord_esp_fop_asset_site'),
               value: result.getValue('custrecord_esp_fop_asset_site')
-            },
+            }, */
             quantity: 0,
             maxQuantity: +result.getValue('custrecord_esp_fop_asset_quantity'),
             quantityRemaining: +result.getValue('custrecord_esp_fop_asset_quantity_remain'),
@@ -357,6 +471,9 @@ define([
             time: {
               start: '',
               end: ''
+            },
+            get active() {
+              return this.quantityRemaining > 0;
             }
           };
           assets.push(assetObj);
@@ -364,6 +481,17 @@ define([
         });
         // log.audit('----- [Assets & Equipments] -----', assets);
         return assets;
+      }
+
+      static getAssetTypes(assets) {
+        const assetTypes = assets
+          .map(asset => asset.type)
+          .filter(type => !!(type.value))
+          .filter((x, i, arr) =>
+            arr.findIndex(y => (y.value === x.value)) === i // Merge duplicates
+          );
+        // log.audit('ASSET TYPES', assetTypes);
+        return assetTypes;
       }
 
       static getResourceSkills(resources) {
@@ -952,7 +1080,7 @@ define([
             }
             rec.setValue({ fieldId: 'custrecord_esp_fop_res_rate', value: resource.rate });
             rec.setValue({ fieldId: 'custrecord_esp_fop_res_vendor', value: resource.vendor.value });
-            rec.setValue({ fieldId: 'custrecord_esp_fop_res_rel_po', value: resource.purchaseOrder.value });
+            // rec.setValue({ fieldId: 'custrecord_esp_fop_res_rel_po', value: resource.purchaseOrder.value });
             rec.setValue({ fieldId: 'custrecord_esp_fop_res_aff_type', value: resource.affiliationType.value });
             rec.setValue({ fieldId: 'custrecord_esp_fop_res_start_time', value: _toDateTimez(event.date.start, !copyEventTime ? resource.time.start : event.time.start) }); // If no resource start time, use event start time instead
             rec.setValue({ fieldId: 'custrecord_esp_fop_res_end_time', value: _toDateTimez(event.date.start, !copyEventTime ? resource.time.end : event.time.end) }); // If no resource end time, use event end time instead
@@ -1075,7 +1203,7 @@ define([
         const { request, response } = context;
         let reqBody = request.body || '{}';
         const payload = JSON.parse(reqBody);
-        log.debug('updateResourceDateTime', payload);
+        // log.debug('updateResourceDateTime', payload);
 
         try {
           const lookUp = search.lookupFields({
@@ -1305,15 +1433,15 @@ define([
               search.createColumn({ name: 'custrecord_esp_fop_ast_quantity', label: 'Quantity' }),
               search.createColumn({ name: 'custrecord_esp_fop_ast_item_desc', label: 'Item Description' }),
               // search.createColumn({ name: 'custrecord_esp_fop_ast_equipment', label: 'Equipment' }),
-              search.createColumn({ name: 'custrecordesp_fop_ast_rental_unit', label: 'Rental Unit' }),
-              search.createColumn({ name: 'custrecord_esp_fop_ast_rental_duration', label: 'Rental Duration' }),
-              search.createColumn({ name: 'custrecord_esp_fop_ast_rental_rate', label: 'Rental Rate' }),
-              search.createColumn({ name: 'custrecord_esp_fop_ast_rental_amount', label: 'Rental Amount' }),
-              search.createColumn({ name: 'custrecord_esp_fop_ast_related_po', label: 'Related Purchase Order' }),
-              search.createColumn({ name: 'custrecord_esp_fop_ast_primary_vendor', label: 'Vendor' }),
-              search.createColumn({ name: 'custrecord_esp_fop_ast_equip_type', label: 'Equipment Type' }),
+              // search.createColumn({ name: 'custrecordesp_fop_ast_rental_unit', label: 'Rental Unit' }),
+              // search.createColumn({ name: 'custrecord_esp_fop_ast_rental_duration', label: 'Rental Duration' }),
+              // search.createColumn({ name: 'custrecord_esp_fop_ast_rental_rate', label: 'Rental Rate' }),
+              // search.createColumn({ name: 'custrecord_esp_fop_ast_rental_amount', label: 'Rental Amount' }),
+              // search.createColumn({ name: 'custrecord_esp_fop_ast_related_po', label: 'Related Purchase Order' }),
+              // search.createColumn({ name: 'custrecord_esp_fop_ast_primary_vendor', label: 'Vendor' }),
+              // search.createColumn({ name: 'custrecord_esp_fop_ast_equip_type', label: 'Equipment Type' }),
               search.createColumn({ name: 'custrecord_esp_fop_ast_is_owned', label: 'Is Owned' }),
-              search.createColumn({ name: 'custrecord_esp_fop_ast_rental_mtrx', label: 'Rental Matrix' }),
+              // search.createColumn({ name: 'custrecord_esp_fop_ast_rental_mtrx', label: 'Rental Matrix' }),
               search.createColumn({ name: 'custrecord_esp_fop_ast_start_date', label: 'Start Date' }),
               search.createColumn({ name: 'custrecord_esp_fop_ast_end_date', label: 'End Date' }),
               search.createColumn({ name: 'custrecord_esp_fop_ast_start_time', label: 'Start Time' }),
@@ -1347,23 +1475,23 @@ define([
               text: result.getText('custrecord_esp_fop_ast_equip_type'),
               value: result.getValue('custrecord_esp_fop_ast_equip_type'),
             }, */
-            rentalUnit: {
+            /* rentalUnit: {
               text: result.getText('custrecordesp_fop_ast_rental_unit'),
               value: result.getValue('custrecordesp_fop_ast_rental_unit'),
-            },
-            rentalDuration: +result.getValue('custrecord_esp_fop_ast_rental_duration'),
-            rentalRate: +result.getValue('custrecord_esp_fop_ast_rental_rate'),
-            rentalAmount: +result.getValue('custrecord_esp_fop_ast_rental_amount'),
-            purchaseOrder: {
+            }, */
+            // rentalDuration: +result.getValue('custrecord_esp_fop_ast_rental_duration'),
+            // rentalRate: +result.getValue('custrecord_esp_fop_ast_rental_rate'),
+            // rentalAmount: +result.getValue('custrecord_esp_fop_ast_rental_amount'),
+            /* purchaseOrder: {
               text: result.getText('custrecord_esp_fop_ast_related_po'),
               value: result.getText('custrecord_esp_fop_ast_related_po'),
-            },
-            vendor: {
+            }, */
+            /* vendor: {
               text: result.getText('custrecord_esp_fop_ast_primary_vendor'),
               value: result.getValue('custrecord_esp_fop_ast_primary_vendor'),
-            },
+            }, */
             owned: result.getValue('custrecord_esp_fop_ast_is_owned'),
-            rentalMatrix: +result.getValue('custrecord_esp_fop_ast_rental_mtrx'),
+            // rentalMatrix: +result.getValue('custrecord_esp_fop_ast_rental_mtrx'),
             get time() {
               const startTime = result.getValue('custrecord_esp_fop_ast_start_time');
               const endTime = result.getValue('custrecord_esp_fop_ast_end_time');
@@ -1391,13 +1519,13 @@ define([
             rec.setValue({ fieldId: 'custrecord_esp_fop_ast_asset_rec', value: asset.id });
             rec.setValue({ fieldId: 'custrecord_esp_fop_ast_wo_event', value: event.id });
             rec.setValue({ fieldId: 'custrecord_esp_fop_ast_quantity', value: asset.quantity });
-            rec.setValue({ fieldId: 'custrecord_esp_fop_ast_rental_duration', value: asset.rentalDuration });
-            rec.setValue({ fieldId: 'custrecord_esp_fop_ast_rental_rate', value: asset.rentalRate });
+            // rec.setValue({ fieldId: 'custrecord_esp_fop_ast_rental_duration', value: asset.rentalDuration });
+            // rec.setValue({ fieldId: 'custrecord_esp_fop_ast_rental_rate', value: asset.rentalRate });
             rec.setValue({ fieldId: 'custrecord_esp_fop_ast_is_owned', value: !!asset.owned });
-            rec.setValue({ fieldId: 'custrecord_esp_fop_ast_rental_mtrx', value: asset.rentalMatrix });
+            // rec.setValue({ fieldId: 'custrecord_esp_fop_ast_rental_mtrx', value: asset.rentalMatrix });
             rec.setValue({ fieldId: 'custrecord_esp_fop_ast_rel_wo', value: woRef?.id || '' });
-            rec.setValue({ fieldId: 'custrecordesp_fop_ast_rental_unit', value: asset?.rentalUnit?.value || '' });
-            rec.setValue({ fieldId: 'custrecord_esp_fop_ast_primary_vendor', value: asset?.vendor?.value || '' });
+            // rec.setValue({ fieldId: 'custrecordesp_fop_ast_rental_unit', value: asset?.rentalUnit?.value || '' });
+            // rec.setValue({ fieldId: 'custrecord_esp_fop_ast_primary_vendor', value: asset?.vendor?.value || '' });
             rec.setValue({ fieldId: 'custrecord_esp_fop_ast_start_time', value: _toDateTimez(event.date.start, !copyEventTime ? asset.time.start : event.time.start) }); // If no asset start time, use event start time instead
             rec.setValue({ fieldId: 'custrecord_esp_fop_ast_end_time', value: _toDateTimez(event.date.start, !copyEventTime ? asset.time.end : event.time.end) }); // If no asset end time, use event end time instead
             const newId = rec.save({ ignoreMandatoryFieds: true });
@@ -1417,7 +1545,7 @@ define([
         const removedAssets = srcAssets.filter(asset => !(selectedassetIds.includes(asset.id)));
         const newAssets = selectedAssets.filter(asset => !(srcAssetIds.includes(asset.id)));
 
-        log.audit('Updating WO asset Event List', { selectedAssets, removedAssets, newAssets });
+        log.audit('Updating WO Asset Event List', { selectedAssets, removedAssets, newAssets });
 
         // If theres to quantity update
         for (const asset of selectedAssets) {
@@ -1441,7 +1569,7 @@ define([
               log.audit('----- [Updated WO Asset Record] -----', { asset });
             }
           } catch (e) {
-            log.error('Error on WO asset > Update', { asset, errorMsg: e.message });
+            log.error('Error on WO Asset > Update', { asset, errorMsg: e.message });
           }
         }
         // If theres to remove
@@ -2051,6 +2179,12 @@ define([
             vendors: [],
             assets: [],
             items: [],
+            // Event without resources
+            get unassigned() {
+              return !this.resources.length &&
+                !this.vendors.length &&
+                !this.assets.length
+            },
             contacts: [],
             addresses: [],
             /* contact: { // Selected contact
@@ -2240,14 +2374,14 @@ define([
 
       static updateEventRecord(context) {
         const { request, response } = context;
-        const user = runtime.getCurrentUser();
         let reqBody = request.body || '{}';
         const payload = JSON.parse(reqBody);
         const { oldEventData, eventData, woRef, draggedResource } = payload;
         const eventDataProps = Object.keys(eventData);
 
         log.audit('----- [Update Work Order Event] -----', { eventDataProps, payload });
-        // Utils.createLogFile(`updateEventRecord()`, JSON.stringify(payload), 2199);
+        // log.debug(`eventData.unassigned`, eventData.unassigned);
+        // log.debug(`eventData.resourceType`, eventData.resourceType);
 
         try {
           // Drag single resource scenario
@@ -2262,6 +2396,19 @@ define([
                 break;
               case 'asset':
                 WorkOrderAsset._createAssets(eventData, woRef, true);
+                break;
+            }
+          } else if (eventData.unassigned) { // Assigning new resource scenario
+            switch (eventData.resourceType) {
+              case 'employee':
+                WorkOrderResource._createResources(eventData, woRef, false);
+                break;
+              case 'vendor':
+                WorkOrderVendor._createVendors(eventData, woRef);
+                break;
+                break;
+              case 'asset':
+                WorkOrderAsset._createAssets(eventData, woRef, false);
                 break;
             }
           } else {
@@ -2746,7 +2893,7 @@ define([
 
       static getFilters(params) {
         const userId = params.user.id;
-        const filterMap = file.load(env.FilterMapPath);
+        const filterMap = file.load(env.FilePath.FILTER_MAP);
         let filterFields = filterMap.getContents();
         if (!!filterFields) {
           filterFields = JSON.parse(filterFields);
@@ -2772,7 +2919,7 @@ define([
 
         try {
           const selectedFields = JSON.parse(reqBody);
-          const filterMap = file.load(env.FilterMapPath);
+          const filterMap = file.load(env.FilePath.FILTER_MAP);
           let filterFields = filterMap.getContents();
           filterFields = filterFields && JSON.parse(filterFields);
 
@@ -2812,15 +2959,16 @@ define([
 
       static createLogFile(contents) {
         try {
-          const fileObj = file.load('./lib/esp_cm_mockup.json');
+          const fileObj = file.load(env.FilePath.MOCKUP);
+          const { name, folder } = fileObj;
           /* fileObj.contents = JSON.stringify(contents);
           fileObj.save(); */
           // Already throwing error "This record already exists" ????
           const fileId = file.create({
-            name: `esp_cm_mockup.json`,
+            name,
             fileType: file.Type.PLAINTEXT,
             contents: JSON.stringify(contents),
-            folder: fileObj.folder,
+            folder,
           }).save();
           log.audit('Log File ID', fileId);
         } catch (e) {
@@ -2890,6 +3038,7 @@ define([
     }
 
     return {
+      runApp,
       Resource,
       WorkOrder,
       WorkOrderResource,
