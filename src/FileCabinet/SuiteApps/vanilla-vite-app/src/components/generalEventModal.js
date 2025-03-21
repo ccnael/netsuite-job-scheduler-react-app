@@ -323,11 +323,11 @@ $(document).ready(() => {
         temp_resourcesDataTable,
         temp_vendorsDataTable
       ]);
-      Event.validateResourcesOnLoad('#wo-primaryinfo-ge', '#resources_ge', eventId);
+      Event.validateResourcesOnLoad('#wo-primaryinfo-ge', '#resources_ge', eventId, 'generalEventResource');
       Event.validateOnHeaderFieldChange('#wo-primaryinfo-ge', '#resources_ge', eventId, 'generalEventResource');
       Event.validateOnLineFieldChange('#wo-primaryinfo-ge', '#resources_ge');
 
-      Event.validateResourcesOnLoad('#wo-primaryinfo-ge', '#assets_ge', eventId);
+      Event.validateResourcesOnLoad('#wo-primaryinfo-ge', '#assets_ge', eventId, 'generalEventResource');
       Event.validateOnHeaderFieldChange('#wo-primaryinfo-ge', '#assets_ge', eventId, 'generalEventResource');
       Event.validateOnLineFieldChange('#wo-primaryinfo-ge', '#assets_ge');
     }, 250);

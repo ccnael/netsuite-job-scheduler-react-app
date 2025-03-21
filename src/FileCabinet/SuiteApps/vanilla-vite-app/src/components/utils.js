@@ -97,8 +97,9 @@ export class Cache {
 
 export class Event {
 
-  static validateResourcesOnLoad(tableId, resourceTblId, eventId) {
+  static validateResourcesOnLoad(tableId, resourceTblId, eventId, section) {
     resourceTblId.match(/resource|asset/g) && this._validateResourcesAvailability(tableId, resourceTblId, eventId);
+
     // Initialize on page change
     const that = this;
     const table = $(resourceTblId).DataTable();
@@ -107,6 +108,7 @@ export class Event {
       that._validateResourcesAvailability(tableId, resourceTblId, eventId);
       const allDaySwitched = $('.allday-switch').prop('checked');
       allDaySwitched && that._setAllDayResourceTime(resourceTblId);
+      that.validateOnLineFieldChange(tableId, resourceTblId)
     });
   }
 
@@ -464,7 +466,7 @@ export class Event {
   }
 
   static draggedJobEventHasConflictEventToResource(startDateTime, resourceType, resourceId = '') {
-    console.log('draggedJobEventHasConflictEventToResource() triggered', arguments);
+    console.log('draggedJobEventHasConflictEventToResource() triggered', { resourceType, resourceId });
     const conflictEvents = events => {
       return events.filter(event => {
         const eventStart = moment(`${event.date.start} ${event.time.start}`);
@@ -489,6 +491,9 @@ export class Event {
           .filter(event => event.assets.map(asset => asset.asset.value)
             .includes(resourceId));
         return !!conflictEvents(resourceEvents).length;
+      default: // Unassigned events
+        return !!conflictEvents(events).length;
+        break;
     }
     return false;
   }
