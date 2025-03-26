@@ -15,6 +15,20 @@ export class Cache {
     localStorage.setItem(key, value);
   }
 
+  static _rerenderCalendar = () => {
+    setTimeout(() => {
+      hideCustomLoader();
+      window.FullCalendar.render();
+    }, 500);
+  }
+
+  static _hideCalendarSection = () => {
+    setTimeout(() => {
+      hideCustomLoader();
+      $('#calendarSection').hide();
+    }, 500);
+  }
+
   static setDefaultTab() {
     const sessionKey = env.SessionKey.ACTIVE_TAB;
     const activeTab = this._get(sessionKey);
@@ -28,27 +42,13 @@ export class Cache {
       $('.tab-content').hide();
       $(`#${activeTab}`).show();
 
-      const rerenderCalendar = () => {
-        setTimeout(() => {
-          hideCustomLoader();
-          window.FullCalendar.render();
-        }, 500);
-      }
-
-      const hideCalendarSection = () => {
-        setTimeout(() => {
-          hideCustomLoader();
-          $('#calendarSection').hide();
-        }, 500);
-      }
-
       if (activeTab === 'calendarSection') {
-        rerenderCalendar();
+        this._rerenderCalendar();
       } else {
-        hideCalendarSection();
+        this._hideCalendarSection();
       }
     } else {
-      hideCalendarSection();
+      this._hideCalendarSection();
     }
 
     // Onchange tab
