@@ -531,22 +531,23 @@ export default class Calendar {
     data.date.end = endSplit[0];
     data.time.end = endSplit[1];
     const start = moment(`${data.date.start} ${data.time.start}`);
-    const selectedResourceId = info.event._def.resourceIds[0].split('-').pop();
-    data.selectedResourceId = dataSet.resources
-      .map(resource => resource.id)
-      .includes(selectedResourceId) ? selectedResourceId : '';
-    data.selectedVendorId = dataSet.vendors
-      .map(vendor => vendor.id)
-      .includes(selectedResourceId) ? selectedResourceId : '';
-    data.selectedAssetId = dataSet.assets
-      .map(asset => asset.id)
-      .includes(selectedResourceId) ? selectedResourceId : '';
-    if (data.selectedResourceId) {
+    const splitResourceId = info.event._def.resourceIds[0].split('-');
+    const parentId = splitResourceId[0];
+    const selectedResourceId = splitResourceId.pop();
+    // console.log('selectedResourceId', { parentId, selectedResourceId });
+
+    if (!parentId.match(/asset|vendor|z/g)) {
       data.resourceType = 'employee';
-    } else if (data.selectedVendorId) {
+      data.selectedResourceId = selectedResourceId;
+    } else if (parentId === 'vendor') {
       data.resourceType = 'vendor';
-    } else if (data.selectedAssetId) {
+      data.selectedVendorId = selectedResourceId;
+    } else if (parentId === 'asset') {
       data.resourceType = 'asset';
+      data.selectedAssetId = selectedResourceId;
+    } else {
+      data.resourceType = 'unassigned';
+      data.selectedResourceId = 'unassigned';
     }
 
     const hasConflict = Event.draggedJobEventHasConflictEventToResource(start, data.resourceType, selectedResourceId);
@@ -831,7 +832,6 @@ export default class Calendar {
 
             if (eventData.unassigned && !eventData.resourceType) { // Event with no resources (resourceType is empty)
               const _resourceProps = info.newResource._resource.extendedProps;
-
               if ('employee' in _resourceProps) {
                 eventData.resourceType = 'employee';
               } else if ('vendor' in _resourceProps) {
@@ -839,10 +839,12 @@ export default class Calendar {
               } else if ('asset' in _resourceProps) {
                 eventData.resourceType = 'asset';
               }
+              openEventModal('', '', eventData.id);
+              info.revert();
+              CalendarAddOns.reinitializeAddOns(info);
+              return;
             }
-
-            console.log('>>>', { resourceType: eventData.resourceType, resourceId, eventData });
-
+            // console.log('>>>', { resourceType: eventData.resourceType, resourceId, eventData });
             switch (eventData.resourceType) {
               case 'employee':
                 foundObj = payload.eventData.resources.find(resource => resource.employee.value == resourceId);
@@ -864,7 +866,6 @@ export default class Calendar {
             }
 
             allowEvent = !foundObj && !hasConflict;
-
             if (allowEvent) {
               switch (eventData.resourceType) {
                 case 'employee':

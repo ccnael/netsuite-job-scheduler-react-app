@@ -357,7 +357,7 @@
                 "text": "World Bank",
                 "value": "1249"
             },
-            "events": ["101138", "101144"],
+            "events": ["101138"],
             "address": {
                 "text": "343 York",
                 "value": "245154"
@@ -374,7 +374,7 @@
                 "text": "World Bank",
                 "value": "1249"
             },
-            "events": ["101140", "101144"],
+            "events": ["101140"],
             "address": {
                 "text": "54 Tale",
                 "value": "245152"
@@ -728,8 +728,8 @@
             "onMaintenance": true,
             "owned": true,
             "time": {
-                "start": "08:00",
-                "end": "18:00"
+                "start": "06:00",
+                "end": "16:00"
             }
         }],
         "items": [{
@@ -2165,6 +2165,90 @@
                 "start": "08:00",
                 "end": "18:00"
             }
+        }, {
+            "id": "204",
+            "name": "Screwdrivers",
+            "workorder": {
+                "text": "Android Full Dryrun",
+                "value": "137"
+            },
+            "event": "",
+            "quantity": 0,
+            "maxQuantity": 0,
+            "description": "",
+            "asset": {
+                "text": "Screwdrivers",
+                "value": "27"
+            },
+            "onMaintenance": true,
+            "owned": true,
+            "time": {
+                "start": "17:00",
+                "end": "17:00"
+            }
+        }, {
+            "id": "205",
+            "name": "Screwdrivers",
+            "workorder": {
+                "text": "Android Full Dryrun",
+                "value": "137"
+            },
+            "event": "",
+            "quantity": 0,
+            "maxQuantity": 0,
+            "description": "",
+            "asset": {
+                "text": "Screwdrivers",
+                "value": "27"
+            },
+            "onMaintenance": true,
+            "owned": true,
+            "time": {
+                "start": "19:00",
+                "end": "21:00"
+            }
+        }, {
+            "id": "206",
+            "name": "Screwdrivers",
+            "workorder": {
+                "text": "Android Full Dryrun",
+                "value": "137"
+            },
+            "event": "",
+            "quantity": 0,
+            "maxQuantity": 0,
+            "description": "",
+            "asset": {
+                "text": "Screwdrivers",
+                "value": "27"
+            },
+            "onMaintenance": true,
+            "owned": true,
+            "time": {
+                "start": "19:00",
+                "end": "21:00"
+            }
+        }, {
+            "id": "207",
+            "name": "Walkie-talkies",
+            "workorder": {
+                "text": "Android Full Dryrun",
+                "value": "137"
+            },
+            "event": "",
+            "quantity": 0,
+            "maxQuantity": 0,
+            "description": "",
+            "asset": {
+                "text": "Walkie-talkies",
+                "value": "22"
+            },
+            "onMaintenance": false,
+            "owned": true,
+            "time": {
+                "start": "16:00",
+                "end": "20:00"
+            }
         }],
         "items": [{
             "id": "634",
@@ -2479,14 +2563,14 @@
                 "code": "bg-success"
             },
             "date": {
-                "recurrence": "one time event on 3/20/2025",
-                "dates": ["3/20/2025"],
-                "start": "2025-03-20",
-                "end": "2025-03-20"
+                "recurrence": "one time event on 3/18/2025",
+                "dates": ["3/18/2025"],
+                "start": "2025-03-18",
+                "end": "2025-03-18"
             },
             "time": {
-                "start": "12:00",
-                "end": "14:00"
+                "start": "16:00",
+                "end": "20:00"
             },
             "priority": {
                 "text": "",
@@ -27427,8 +27511,8 @@
         },
         "quantity": 0,
         "maxQuantity": 9,
-        "quantityRemaining": 0,
-        "quantityUsed": 9,
+        "quantityRemaining": -5,
+        "quantityUsed": 14,
         "owned": true,
         "consumable": false,
         "time": {
@@ -28371,7 +28455,7 @@
         }],
         "assets": [{
             "id": "200",
-            "name": "Bolts",
+            "name": "Disposable gloves",
             "workorder": {
                 "text": "",
                 "value": ""
@@ -28381,8 +28465,8 @@
             "maxQuantity": 3,
             "description": "",
             "asset": {
-                "text": "Bolts",
-                "value": "29"
+                "text": "Disposable gloves",
+                "value": "10"
             },
             "onMaintenance": true,
             "owned": true,
@@ -28534,8 +28618,8 @@
                 "onMaintenance": true,
                 "owned": true,
                 "time": {
-                    "start": "08:00",
-                    "end": "18:00"
+                    "start": "06:00",
+                    "end": "16:00"
                 }
             }],
             "items": [{
@@ -29079,8 +29163,8 @@
             "onMaintenance": true,
             "owned": true,
             "time": {
-                "start": "08:00",
-                "end": "18:00"
+                "start": "06:00",
+                "end": "16:00"
             },
             "selected": true
         }],
@@ -29530,7 +29614,7 @@
                     "text": "World Bank",
                     "value": "1249"
                 },
-                "events": ["101138", "101144"],
+                "events": ["101138"],
                 "address": {
                     "text": "343 York",
                     "value": "245154"
@@ -29547,7 +29631,7 @@
                     "text": "World Bank",
                     "value": "1249"
                 },
-                "events": ["101140", "101144"],
+                "events": ["101140"],
                 "address": {
                     "text": "54 Tale",
                     "value": "245152"
@@ -29814,43 +29898,7 @@
         "items": [],
         "unassigned": true,
         "contacts": [],
-        "addresses": [{
-            "id": "234",
-            "workorder": {
-                "text": "HVAC Maintenance",
-                "value": "141"
-            },
-            "customer": {
-                "text": "World Bank",
-                "value": "1249"
-            },
-            "events": ["101138", "101144"],
-            "address": {
-                "text": "343 York",
-                "value": "245154"
-            },
-            "addressDetails": "343 York AV<br/>NY 121312<br/>United States",
-            "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106",
-            "selected": true
-        }, {
-            "id": "233",
-            "workorder": {
-                "text": "HVAC Maintenance",
-                "value": "141"
-            },
-            "customer": {
-                "text": "World Bank",
-                "value": "1249"
-            },
-            "events": ["101140", "101144"],
-            "address": {
-                "text": "54 Tale",
-                "value": "245152"
-            },
-            "addressDetails": "54 Tale AV<br/>Akron OH 123123<br/>United States",
-            "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106",
-            "selected": true
-        }],
+        "addresses": [],
         "address": {
             "text": "",
             "value": ""
@@ -30251,7 +30299,7 @@
                     "text": "World Bank",
                     "value": "1249"
                 },
-                "events": ["101138", "101144"],
+                "events": ["101138"],
                 "address": {
                     "text": "343 York",
                     "value": "245154"
@@ -30268,7 +30316,7 @@
                     "text": "World Bank",
                     "value": "1249"
                 },
-                "events": ["101140", "101144"],
+                "events": ["101140"],
                 "address": {
                     "text": "54 Tale",
                     "value": "245152"
@@ -30545,7 +30593,7 @@
                 "text": "World Bank",
                 "value": "1249"
             },
-            "events": ["101140", "101144"],
+            "events": ["101140"],
             "address": {
                 "text": "54 Tale",
                 "value": "245152"
@@ -30581,14 +30629,14 @@
             "code": "bg-success"
         },
         "date": {
-            "recurrence": "one time event on 3/20/2025",
-            "dates": ["3/20/2025"],
-            "start": "2025-03-20",
-            "end": "2025-03-20"
+            "recurrence": "one time event on 3/18/2025",
+            "dates": ["3/18/2025"],
+            "start": "2025-03-18",
+            "end": "2025-03-18"
         },
         "time": {
-            "start": "12:00",
-            "end": "14:00"
+            "start": "16:00",
+            "end": "20:00"
         },
         "priority": {
             "text": "",
@@ -30743,6 +30791,90 @@
                 "time": {
                     "start": "08:00",
                     "end": "18:00"
+                }
+            }, {
+                "id": "204",
+                "name": "Screwdrivers",
+                "workorder": {
+                    "text": "Android Full Dryrun",
+                    "value": "137"
+                },
+                "event": "",
+                "quantity": 0,
+                "maxQuantity": 0,
+                "description": "",
+                "asset": {
+                    "text": "Screwdrivers",
+                    "value": "27"
+                },
+                "onMaintenance": true,
+                "owned": true,
+                "time": {
+                    "start": "17:00",
+                    "end": "17:00"
+                }
+            }, {
+                "id": "205",
+                "name": "Screwdrivers",
+                "workorder": {
+                    "text": "Android Full Dryrun",
+                    "value": "137"
+                },
+                "event": "",
+                "quantity": 0,
+                "maxQuantity": 0,
+                "description": "",
+                "asset": {
+                    "text": "Screwdrivers",
+                    "value": "27"
+                },
+                "onMaintenance": true,
+                "owned": true,
+                "time": {
+                    "start": "19:00",
+                    "end": "21:00"
+                }
+            }, {
+                "id": "206",
+                "name": "Screwdrivers",
+                "workorder": {
+                    "text": "Android Full Dryrun",
+                    "value": "137"
+                },
+                "event": "",
+                "quantity": 0,
+                "maxQuantity": 0,
+                "description": "",
+                "asset": {
+                    "text": "Screwdrivers",
+                    "value": "27"
+                },
+                "onMaintenance": true,
+                "owned": true,
+                "time": {
+                    "start": "19:00",
+                    "end": "21:00"
+                }
+            }, {
+                "id": "207",
+                "name": "Walkie-talkies",
+                "workorder": {
+                    "text": "Android Full Dryrun",
+                    "value": "137"
+                },
+                "event": "",
+                "quantity": 0,
+                "maxQuantity": 0,
+                "description": "",
+                "asset": {
+                    "text": "Walkie-talkies",
+                    "value": "22"
+                },
+                "onMaintenance": false,
+                "owned": true,
+                "time": {
+                    "start": "16:00",
+                    "end": "20:00"
                 }
             }],
             "items": [{
@@ -31058,14 +31190,14 @@
                     "code": "bg-success"
                 },
                 "date": {
-                    "recurrence": "one time event on 3/20/2025",
-                    "dates": ["3/20/2025"],
-                    "start": "2025-03-20",
-                    "end": "2025-03-20"
+                    "recurrence": "one time event on 3/18/2025",
+                    "dates": ["3/18/2025"],
+                    "start": "2025-03-18",
+                    "end": "2025-03-18"
                 },
                 "time": {
-                    "start": "12:00",
-                    "end": "14:00"
+                    "start": "16:00",
+                    "end": "20:00"
                 },
                 "priority": {
                     "text": "",
@@ -31834,7 +31966,7 @@
                     "text": "World Bank",
                     "value": "1249"
                 },
-                "events": ["101138", "101144"],
+                "events": ["101138"],
                 "address": {
                     "text": "343 York",
                     "value": "245154"
@@ -31851,7 +31983,7 @@
                     "text": "World Bank",
                     "value": "1249"
                 },
-                "events": ["101140", "101144"],
+                "events": ["101140"],
                 "address": {
                     "text": "54 Tale",
                     "value": "245152"
@@ -32498,7 +32630,7 @@
                 "text": "World Bank",
                 "value": "1249"
             },
-            "events": ["101138", "101144"],
+            "events": ["101138"],
             "address": {
                 "text": "343 York",
                 "value": "245154"
@@ -32741,8 +32873,8 @@
                 "onMaintenance": true,
                 "owned": true,
                 "time": {
-                    "start": "08:00",
-                    "end": "18:00"
+                    "start": "06:00",
+                    "end": "16:00"
                 }
             }],
             "items": [{
@@ -35166,6 +35298,90 @@
                     "start": "08:00",
                     "end": "18:00"
                 }
+            }, {
+                "id": "204",
+                "name": "Screwdrivers",
+                "workorder": {
+                    "text": "Android Full Dryrun",
+                    "value": "137"
+                },
+                "event": "",
+                "quantity": 0,
+                "maxQuantity": 0,
+                "description": "",
+                "asset": {
+                    "text": "Screwdrivers",
+                    "value": "27"
+                },
+                "onMaintenance": true,
+                "owned": true,
+                "time": {
+                    "start": "17:00",
+                    "end": "17:00"
+                }
+            }, {
+                "id": "205",
+                "name": "Screwdrivers",
+                "workorder": {
+                    "text": "Android Full Dryrun",
+                    "value": "137"
+                },
+                "event": "",
+                "quantity": 0,
+                "maxQuantity": 0,
+                "description": "",
+                "asset": {
+                    "text": "Screwdrivers",
+                    "value": "27"
+                },
+                "onMaintenance": true,
+                "owned": true,
+                "time": {
+                    "start": "19:00",
+                    "end": "21:00"
+                }
+            }, {
+                "id": "206",
+                "name": "Screwdrivers",
+                "workorder": {
+                    "text": "Android Full Dryrun",
+                    "value": "137"
+                },
+                "event": "",
+                "quantity": 0,
+                "maxQuantity": 0,
+                "description": "",
+                "asset": {
+                    "text": "Screwdrivers",
+                    "value": "27"
+                },
+                "onMaintenance": true,
+                "owned": true,
+                "time": {
+                    "start": "19:00",
+                    "end": "21:00"
+                }
+            }, {
+                "id": "207",
+                "name": "Walkie-talkies",
+                "workorder": {
+                    "text": "Android Full Dryrun",
+                    "value": "137"
+                },
+                "event": "",
+                "quantity": 0,
+                "maxQuantity": 0,
+                "description": "",
+                "asset": {
+                    "text": "Walkie-talkies",
+                    "value": "22"
+                },
+                "onMaintenance": false,
+                "owned": true,
+                "time": {
+                    "start": "16:00",
+                    "end": "20:00"
+                }
             }],
             "items": [{
                 "id": "634",
@@ -35480,14 +35696,14 @@
                     "code": "bg-success"
                 },
                 "date": {
-                    "recurrence": "one time event on 3/20/2025",
-                    "dates": ["3/20/2025"],
-                    "start": "2025-03-20",
-                    "end": "2025-03-20"
+                    "recurrence": "one time event on 3/18/2025",
+                    "dates": ["3/18/2025"],
+                    "start": "2025-03-18",
+                    "end": "2025-03-18"
                 },
                 "time": {
-                    "start": "12:00",
-                    "end": "14:00"
+                    "start": "16:00",
+                    "end": "20:00"
                 },
                 "priority": {
                     "text": "",
@@ -36258,6 +36474,90 @@
                     "start": "08:00",
                     "end": "18:00"
                 }
+            }, {
+                "id": "204",
+                "name": "Screwdrivers",
+                "workorder": {
+                    "text": "Android Full Dryrun",
+                    "value": "137"
+                },
+                "event": "",
+                "quantity": 0,
+                "maxQuantity": 0,
+                "description": "",
+                "asset": {
+                    "text": "Screwdrivers",
+                    "value": "27"
+                },
+                "onMaintenance": true,
+                "owned": true,
+                "time": {
+                    "start": "17:00",
+                    "end": "17:00"
+                }
+            }, {
+                "id": "205",
+                "name": "Screwdrivers",
+                "workorder": {
+                    "text": "Android Full Dryrun",
+                    "value": "137"
+                },
+                "event": "",
+                "quantity": 0,
+                "maxQuantity": 0,
+                "description": "",
+                "asset": {
+                    "text": "Screwdrivers",
+                    "value": "27"
+                },
+                "onMaintenance": true,
+                "owned": true,
+                "time": {
+                    "start": "19:00",
+                    "end": "21:00"
+                }
+            }, {
+                "id": "206",
+                "name": "Screwdrivers",
+                "workorder": {
+                    "text": "Android Full Dryrun",
+                    "value": "137"
+                },
+                "event": "",
+                "quantity": 0,
+                "maxQuantity": 0,
+                "description": "",
+                "asset": {
+                    "text": "Screwdrivers",
+                    "value": "27"
+                },
+                "onMaintenance": true,
+                "owned": true,
+                "time": {
+                    "start": "19:00",
+                    "end": "21:00"
+                }
+            }, {
+                "id": "207",
+                "name": "Walkie-talkies",
+                "workorder": {
+                    "text": "Android Full Dryrun",
+                    "value": "137"
+                },
+                "event": "",
+                "quantity": 0,
+                "maxQuantity": 0,
+                "description": "",
+                "asset": {
+                    "text": "Walkie-talkies",
+                    "value": "22"
+                },
+                "onMaintenance": false,
+                "owned": true,
+                "time": {
+                    "start": "16:00",
+                    "end": "20:00"
+                }
             }],
             "items": [{
                 "id": "634",
@@ -36572,14 +36872,14 @@
                     "code": "bg-success"
                 },
                 "date": {
-                    "recurrence": "one time event on 3/20/2025",
-                    "dates": ["3/20/2025"],
-                    "start": "2025-03-20",
-                    "end": "2025-03-20"
+                    "recurrence": "one time event on 3/18/2025",
+                    "dates": ["3/18/2025"],
+                    "start": "2025-03-18",
+                    "end": "2025-03-18"
                 },
                 "time": {
-                    "start": "12:00",
-                    "end": "14:00"
+                    "start": "16:00",
+                    "end": "20:00"
                 },
                 "priority": {
                     "text": "",
@@ -37279,6 +37579,90 @@
                     "start": "08:00",
                     "end": "18:00"
                 }
+            }, {
+                "id": "204",
+                "name": "Screwdrivers",
+                "workorder": {
+                    "text": "Android Full Dryrun",
+                    "value": "137"
+                },
+                "event": "",
+                "quantity": 0,
+                "maxQuantity": 0,
+                "description": "",
+                "asset": {
+                    "text": "Screwdrivers",
+                    "value": "27"
+                },
+                "onMaintenance": true,
+                "owned": true,
+                "time": {
+                    "start": "17:00",
+                    "end": "17:00"
+                }
+            }, {
+                "id": "205",
+                "name": "Screwdrivers",
+                "workorder": {
+                    "text": "Android Full Dryrun",
+                    "value": "137"
+                },
+                "event": "",
+                "quantity": 0,
+                "maxQuantity": 0,
+                "description": "",
+                "asset": {
+                    "text": "Screwdrivers",
+                    "value": "27"
+                },
+                "onMaintenance": true,
+                "owned": true,
+                "time": {
+                    "start": "19:00",
+                    "end": "21:00"
+                }
+            }, {
+                "id": "206",
+                "name": "Screwdrivers",
+                "workorder": {
+                    "text": "Android Full Dryrun",
+                    "value": "137"
+                },
+                "event": "",
+                "quantity": 0,
+                "maxQuantity": 0,
+                "description": "",
+                "asset": {
+                    "text": "Screwdrivers",
+                    "value": "27"
+                },
+                "onMaintenance": true,
+                "owned": true,
+                "time": {
+                    "start": "19:00",
+                    "end": "21:00"
+                }
+            }, {
+                "id": "207",
+                "name": "Walkie-talkies",
+                "workorder": {
+                    "text": "Android Full Dryrun",
+                    "value": "137"
+                },
+                "event": "",
+                "quantity": 0,
+                "maxQuantity": 0,
+                "description": "",
+                "asset": {
+                    "text": "Walkie-talkies",
+                    "value": "22"
+                },
+                "onMaintenance": false,
+                "owned": true,
+                "time": {
+                    "start": "16:00",
+                    "end": "20:00"
+                }
             }],
             "items": [{
                 "id": "634",
@@ -37593,14 +37977,14 @@
                     "code": "bg-success"
                 },
                 "date": {
-                    "recurrence": "one time event on 3/20/2025",
-                    "dates": ["3/20/2025"],
-                    "start": "2025-03-20",
-                    "end": "2025-03-20"
+                    "recurrence": "one time event on 3/18/2025",
+                    "dates": ["3/18/2025"],
+                    "start": "2025-03-18",
+                    "end": "2025-03-18"
                 },
                 "time": {
-                    "start": "12:00",
-                    "end": "14:00"
+                    "start": "16:00",
+                    "end": "20:00"
                 },
                 "priority": {
                     "text": "",
@@ -38369,6 +38753,90 @@
                     "start": "08:00",
                     "end": "18:00"
                 }
+            }, {
+                "id": "204",
+                "name": "Screwdrivers",
+                "workorder": {
+                    "text": "Android Full Dryrun",
+                    "value": "137"
+                },
+                "event": "",
+                "quantity": 0,
+                "maxQuantity": 0,
+                "description": "",
+                "asset": {
+                    "text": "Screwdrivers",
+                    "value": "27"
+                },
+                "onMaintenance": true,
+                "owned": true,
+                "time": {
+                    "start": "17:00",
+                    "end": "17:00"
+                }
+            }, {
+                "id": "205",
+                "name": "Screwdrivers",
+                "workorder": {
+                    "text": "Android Full Dryrun",
+                    "value": "137"
+                },
+                "event": "",
+                "quantity": 0,
+                "maxQuantity": 0,
+                "description": "",
+                "asset": {
+                    "text": "Screwdrivers",
+                    "value": "27"
+                },
+                "onMaintenance": true,
+                "owned": true,
+                "time": {
+                    "start": "19:00",
+                    "end": "21:00"
+                }
+            }, {
+                "id": "206",
+                "name": "Screwdrivers",
+                "workorder": {
+                    "text": "Android Full Dryrun",
+                    "value": "137"
+                },
+                "event": "",
+                "quantity": 0,
+                "maxQuantity": 0,
+                "description": "",
+                "asset": {
+                    "text": "Screwdrivers",
+                    "value": "27"
+                },
+                "onMaintenance": true,
+                "owned": true,
+                "time": {
+                    "start": "19:00",
+                    "end": "21:00"
+                }
+            }, {
+                "id": "207",
+                "name": "Walkie-talkies",
+                "workorder": {
+                    "text": "Android Full Dryrun",
+                    "value": "137"
+                },
+                "event": "",
+                "quantity": 0,
+                "maxQuantity": 0,
+                "description": "",
+                "asset": {
+                    "text": "Walkie-talkies",
+                    "value": "22"
+                },
+                "onMaintenance": false,
+                "owned": true,
+                "time": {
+                    "start": "16:00",
+                    "end": "20:00"
+                }
             }],
             "items": [{
                 "id": "634",
@@ -38683,14 +39151,14 @@
                     "code": "bg-success"
                 },
                 "date": {
-                    "recurrence": "one time event on 3/20/2025",
-                    "dates": ["3/20/2025"],
-                    "start": "2025-03-20",
-                    "end": "2025-03-20"
+                    "recurrence": "one time event on 3/18/2025",
+                    "dates": ["3/18/2025"],
+                    "start": "2025-03-18",
+                    "end": "2025-03-18"
                 },
                 "time": {
-                    "start": "12:00",
-                    "end": "14:00"
+                    "start": "16:00",
+                    "end": "20:00"
                 },
                 "priority": {
                     "text": "",
@@ -39562,6 +40030,90 @@
                     "start": "08:00",
                     "end": "18:00"
                 }
+            }, {
+                "id": "204",
+                "name": "Screwdrivers",
+                "workorder": {
+                    "text": "Android Full Dryrun",
+                    "value": "137"
+                },
+                "event": "",
+                "quantity": 0,
+                "maxQuantity": 0,
+                "description": "",
+                "asset": {
+                    "text": "Screwdrivers",
+                    "value": "27"
+                },
+                "onMaintenance": true,
+                "owned": true,
+                "time": {
+                    "start": "17:00",
+                    "end": "17:00"
+                }
+            }, {
+                "id": "205",
+                "name": "Screwdrivers",
+                "workorder": {
+                    "text": "Android Full Dryrun",
+                    "value": "137"
+                },
+                "event": "",
+                "quantity": 0,
+                "maxQuantity": 0,
+                "description": "",
+                "asset": {
+                    "text": "Screwdrivers",
+                    "value": "27"
+                },
+                "onMaintenance": true,
+                "owned": true,
+                "time": {
+                    "start": "19:00",
+                    "end": "21:00"
+                }
+            }, {
+                "id": "206",
+                "name": "Screwdrivers",
+                "workorder": {
+                    "text": "Android Full Dryrun",
+                    "value": "137"
+                },
+                "event": "",
+                "quantity": 0,
+                "maxQuantity": 0,
+                "description": "",
+                "asset": {
+                    "text": "Screwdrivers",
+                    "value": "27"
+                },
+                "onMaintenance": true,
+                "owned": true,
+                "time": {
+                    "start": "19:00",
+                    "end": "21:00"
+                }
+            }, {
+                "id": "207",
+                "name": "Walkie-talkies",
+                "workorder": {
+                    "text": "Android Full Dryrun",
+                    "value": "137"
+                },
+                "event": "",
+                "quantity": 0,
+                "maxQuantity": 0,
+                "description": "",
+                "asset": {
+                    "text": "Walkie-talkies",
+                    "value": "22"
+                },
+                "onMaintenance": false,
+                "owned": true,
+                "time": {
+                    "start": "16:00",
+                    "end": "20:00"
+                }
             }],
             "items": [{
                 "id": "634",
@@ -39876,14 +40428,14 @@
                     "code": "bg-success"
                 },
                 "date": {
-                    "recurrence": "one time event on 3/20/2025",
-                    "dates": ["3/20/2025"],
-                    "start": "2025-03-20",
-                    "end": "2025-03-20"
+                    "recurrence": "one time event on 3/18/2025",
+                    "dates": ["3/18/2025"],
+                    "start": "2025-03-18",
+                    "end": "2025-03-18"
                 },
                 "time": {
-                    "start": "12:00",
-                    "end": "14:00"
+                    "start": "16:00",
+                    "end": "20:00"
                 },
                 "priority": {
                     "text": "",
@@ -40571,6 +41123,90 @@
                     "start": "08:00",
                     "end": "18:00"
                 }
+            }, {
+                "id": "204",
+                "name": "Screwdrivers",
+                "workorder": {
+                    "text": "Android Full Dryrun",
+                    "value": "137"
+                },
+                "event": "",
+                "quantity": 0,
+                "maxQuantity": 0,
+                "description": "",
+                "asset": {
+                    "text": "Screwdrivers",
+                    "value": "27"
+                },
+                "onMaintenance": true,
+                "owned": true,
+                "time": {
+                    "start": "17:00",
+                    "end": "17:00"
+                }
+            }, {
+                "id": "205",
+                "name": "Screwdrivers",
+                "workorder": {
+                    "text": "Android Full Dryrun",
+                    "value": "137"
+                },
+                "event": "",
+                "quantity": 0,
+                "maxQuantity": 0,
+                "description": "",
+                "asset": {
+                    "text": "Screwdrivers",
+                    "value": "27"
+                },
+                "onMaintenance": true,
+                "owned": true,
+                "time": {
+                    "start": "19:00",
+                    "end": "21:00"
+                }
+            }, {
+                "id": "206",
+                "name": "Screwdrivers",
+                "workorder": {
+                    "text": "Android Full Dryrun",
+                    "value": "137"
+                },
+                "event": "",
+                "quantity": 0,
+                "maxQuantity": 0,
+                "description": "",
+                "asset": {
+                    "text": "Screwdrivers",
+                    "value": "27"
+                },
+                "onMaintenance": true,
+                "owned": true,
+                "time": {
+                    "start": "19:00",
+                    "end": "21:00"
+                }
+            }, {
+                "id": "207",
+                "name": "Walkie-talkies",
+                "workorder": {
+                    "text": "Android Full Dryrun",
+                    "value": "137"
+                },
+                "event": "",
+                "quantity": 0,
+                "maxQuantity": 0,
+                "description": "",
+                "asset": {
+                    "text": "Walkie-talkies",
+                    "value": "22"
+                },
+                "onMaintenance": false,
+                "owned": true,
+                "time": {
+                    "start": "16:00",
+                    "end": "20:00"
+                }
             }],
             "items": [{
                 "id": "634",
@@ -40885,14 +41521,14 @@
                     "code": "bg-success"
                 },
                 "date": {
-                    "recurrence": "one time event on 3/20/2025",
-                    "dates": ["3/20/2025"],
-                    "start": "2025-03-20",
-                    "end": "2025-03-20"
+                    "recurrence": "one time event on 3/18/2025",
+                    "dates": ["3/18/2025"],
+                    "start": "2025-03-18",
+                    "end": "2025-03-18"
                 },
                 "time": {
-                    "start": "12:00",
-                    "end": "14:00"
+                    "start": "16:00",
+                    "end": "20:00"
                 },
                 "priority": {
                     "text": "",
@@ -48957,7 +49593,7 @@
             "text": "World Bank",
             "value": "1249"
         },
-        "events": ["101138", "101144"],
+        "events": ["101138"],
         "address": {
             "text": "343 York",
             "value": "245154"
@@ -48991,7 +49627,7 @@
             "text": "World Bank",
             "value": "1249"
         },
-        "events": ["101140", "101144"],
+        "events": ["101140"],
         "address": {
             "text": "54 Tale",
             "value": "245152"

@@ -1080,8 +1080,9 @@ define([
             }
             rec.setValue({ fieldId: 'custrecord_esp_fop_res_rate', value: resource.rate });
             rec.setValue({ fieldId: 'custrecord_esp_fop_res_vendor', value: resource.vendor.value });
-            // rec.setValue({ fieldId: 'custrecord_esp_fop_res_rel_po', value: resource.purchaseOrder.value });
             rec.setValue({ fieldId: 'custrecord_esp_fop_res_aff_type', value: resource.affiliationType.value });
+            rec.setValue({ fieldId: 'custrecord_esp_fop_res_event_start_date', value: new Date(event.date.start) });
+            rec.setValue({ fieldId: 'custrecord_esp_fop_res_event_end_date', value: new Date(event.date.end) });
             rec.setValue({ fieldId: 'custrecord_esp_fop_res_start_time', value: _toDateTimez(event.date.start, !copyEventTime ? resource.time.start : event.time.start) }); // If no resource start time, use event start time instead
             rec.setValue({ fieldId: 'custrecord_esp_fop_res_end_time', value: _toDateTimez(event.date.start, !copyEventTime ? resource.time.end : event.time.end) }); // If no resource end time, use event end time instead
             const newId = rec.save({ ignoreMandatoryFieds: true });
@@ -1519,13 +1520,10 @@ define([
             rec.setValue({ fieldId: 'custrecord_esp_fop_ast_asset_rec', value: asset.id });
             rec.setValue({ fieldId: 'custrecord_esp_fop_ast_wo_event', value: event.id });
             rec.setValue({ fieldId: 'custrecord_esp_fop_ast_quantity', value: asset.quantity });
-            // rec.setValue({ fieldId: 'custrecord_esp_fop_ast_rental_duration', value: asset.rentalDuration });
-            // rec.setValue({ fieldId: 'custrecord_esp_fop_ast_rental_rate', value: asset.rentalRate });
             rec.setValue({ fieldId: 'custrecord_esp_fop_ast_is_owned', value: !!asset.owned });
-            // rec.setValue({ fieldId: 'custrecord_esp_fop_ast_rental_mtrx', value: asset.rentalMatrix });
             rec.setValue({ fieldId: 'custrecord_esp_fop_ast_rel_wo', value: woRef?.id || '' });
-            // rec.setValue({ fieldId: 'custrecordesp_fop_ast_rental_unit', value: asset?.rentalUnit?.value || '' });
-            // rec.setValue({ fieldId: 'custrecord_esp_fop_ast_primary_vendor', value: asset?.vendor?.value || '' });
+            rec.setValue({ fieldId: 'custrecord_esp_fop_ast_start_date', value: new Date(event.date.start) });
+            rec.setValue({ fieldId: 'custrecord_esp_fop_ast_end_date', value: new Date(event.date.end) });
             rec.setValue({ fieldId: 'custrecord_esp_fop_ast_start_time', value: _toDateTimez(event.date.start, !copyEventTime ? asset.time.start : event.time.start) }); // If no asset start time, use event start time instead
             rec.setValue({ fieldId: 'custrecord_esp_fop_ast_end_time', value: _toDateTimez(event.date.start, !copyEventTime ? asset.time.end : event.time.end) }); // If no asset end time, use event end time instead
             const newId = rec.save({ ignoreMandatoryFieds: true });
@@ -2378,7 +2376,6 @@ define([
         const payload = JSON.parse(reqBody);
         const { oldEventData, eventData, woRef, draggedResource } = payload;
         const eventDataProps = Object.keys(eventData);
-
         log.audit('----- [Update Work Order Event] -----', { eventDataProps, payload });
         // log.debug(`eventData.unassigned`, eventData.unassigned);
         // log.debug(`eventData.resourceType`, eventData.resourceType);
@@ -2393,22 +2390,20 @@ define([
               case 'vendor':
                 WorkOrderVendor._createVendors(eventData, woRef);
                 break;
-                break;
               case 'asset':
                 WorkOrderAsset._createAssets(eventData, woRef, true);
                 break;
             }
-          } else if (eventData.unassigned) { // Assigning new resource scenario
+          } else if (eventData.unassigned && eventData.resourceType) { // Assigning new resource scenario (TBR)
             switch (eventData.resourceType) {
               case 'employee':
-                WorkOrderResource._createResources(eventData, woRef, false);
+                WorkOrderResource._createResources(eventData, woRef, true);
                 break;
               case 'vendor':
                 WorkOrderVendor._createVendors(eventData, woRef);
                 break;
-                break;
               case 'asset':
-                WorkOrderAsset._createAssets(eventData, woRef, false);
+                WorkOrderAsset._createAssets(eventData, woRef, true);
                 break;
             }
           } else {
