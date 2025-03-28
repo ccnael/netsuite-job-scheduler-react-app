@@ -1206,7 +1206,7 @@ NDUP: No Duplex Receptacles`,quantity:1,availableQty:1,note:"",quantityReceived:
     <div class="modal-dialog modal-md">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="${n.replace("#","")}Label"><strong class="table-header">Filter Jobs</strong></h5>
+          <h5 class="modal-title" id="${n.replace("#","")}Label"><strong class="table-header">Filter Events</strong></h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="spinner"></div>
