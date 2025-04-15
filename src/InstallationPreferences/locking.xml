@@ -1,4 +1,4 @@
-<preference type="LOCKING" defaultAction="UNLOCK">
-       <!-- <apply action="UNLOCK">
-       </apply> -->
+<preference type="LOCKING" defaultAction="LOCK">
+       <apply action="UNLOCK">
+       </apply>
 </preference>
