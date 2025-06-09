@@ -1,10 +1,10 @@
 import { Calendar as FullCalendar } from '@fullcalendar/core';
-import adaptivePlugin from '@fullcalendar/adaptive';
-import interactionPlugin, { Draggable } from '@fullcalendar/interaction';
-import dayGridPlugin from '@fullcalendar/daygrid';
-import listPlugin from '@fullcalendar/list';
-import timeGridPlugin from '@fullcalendar/timegrid';
-import resourceTimelinePlugin from '@fullcalendar/resource-timeline';
+import adaptivePlugin from '@fullcalendar/adaptive/index.js';
+import interactionPlugin, { Draggable } from '@fullcalendar/interaction/index.js';
+import dayGridPlugin from '@fullcalendar/daygrid/index.js';
+import listPlugin from '@fullcalendar/list/index.js';
+import timeGridPlugin from '@fullcalendar/timegrid/index.js';
+import resourceTimelinePlugin from '@fullcalendar/resource-timeline/index.js';
 import * as dataSet from './components/dataSet';
 import { onFilterCalendarEvent, onFilterJob } from './components/filterFields/filterUtils';
 import { CalendarAddOns, Event, Resource, ToolTip } from './components/utils';

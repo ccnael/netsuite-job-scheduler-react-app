@@ -3,7 +3,7 @@ import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
   build: {
-    outDir: '../com.erpsuccess.scheduler/vanilla-vite-app-bundle/',
+    outDir: '../FileCabinet/SuiteApps/com.erpsuccess.scheduler/vanilla-vite-app-bundle/',
     assetsDir: 'assets',
     rollupOptions: {
       output: {
