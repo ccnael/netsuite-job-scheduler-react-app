@@ -55,13 +55,21 @@ define(() => ({
     EXPORT_TIME: 'HH:mm',
     IMPORT_TIME: 'h:mm a'
   },
-  FilePath: {
+  AppFilePath: {
+    VanillaJS: {
+      TEMPLATE: '../vanilla-vite-app-bundle/index.html',
+      STYLE: '../vanilla-vite-app-bundle/index.css',
+      JS: '../vanilla-vite-app-bundle/app.js',
+      SVG: '../vanilla-vite-app-bundle/assets/images/vite.svg',
+      AI_ICON: '../vanilla-vite-app-bundle/assets/images/ai.png'
+    },
+    React: {
+      TEMPLATE: '../react-vite-app-bundle/index.html',
+      STYLE: '../react-vite-app-bundle/index.css',
+      JS: '../react-vite-app-bundle/app.js',
+      SVG: '../react-vite-app-bundle/assets/images/react.svg',
+    },
     MOCKUP: './esp_cm_mockup.json',
     FILTER_MAP: './esp_cm_filtermap.json',
-    TEMPLATE: '../vanilla-vite-app-bundle/index.html',
-    STYLE: '../vanilla-vite-app-bundle/index.css',
-    JS: '../vanilla-vite-app-bundle/app.js',
-    SVG: '../vanilla-vite-app-bundle/assets/images/vite.svg',
-    AI_ICON: '../vanilla-vite-app-bundle/assets/images/ai.png'
   }
 }))

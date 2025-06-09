@@ -21,5 +21,18 @@
       <status>RELEASED</status>
       <title>WO Scheduler</title>
     </scriptdeployment>
+    <scriptdeployment scriptid="customdeploy_esp_sl_scheduler_test">
+      <allemployees>F</allemployees>
+      <allpartners>F</allpartners>
+      <allroles>T</allroles>
+      <audslctrole></audslctrole>
+      <eventtype></eventtype>
+      <isdeployed>T</isdeployed>
+      <isonline>F</isonline>
+      <loglevel>DEBUG</loglevel>
+      <runasrole>ADMINISTRATOR</runasrole>
+      <status>RELEASED</status>
+      <title>WO Scheduler (TEST)</title>
+    </scriptdeployment>
   </scriptdeployments>
 </suitelet>
