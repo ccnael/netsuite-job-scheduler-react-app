@@ -32,8 +32,7 @@ define([
    */
   (file, runtime, search, query, config, url, render, record, format, moment, env) => {
 
-    function runApp(context) {
-      const script = runtime.getCurrentScript();
+    function runVanillaApp(context) {
       const user = runtime.getCurrentUser();
       const suiteletUrl = Url.suitelet();
       // Fetch needed data
@@ -105,55 +104,54 @@ define([
         woStatuses
       });
 
-      let fileObj = {}, htmlStr;
-
-      if (script.deploymentId === 'customdeploy_esp_sl_scheduler_test') {
-        fileObj = {
-          template: file.load(env.AppFilePath.React.TEMPLATE),
-          style: file.load(env.AppFilePath.React.STYLE),
-          js: file.load(env.AppFilePath.React.JS),
-          svg: file.load(env.AppFilePath.React.SVG),
-        }
-        htmlStr = fileObj.template.getContents();
-        htmlStr = htmlStr
-          .replace('<script type="module" crossorigin src="/app.js"></script>', `<script type="module" crossorigin src="${fileObj.js.url}"></script>`)
-          .replace('<link rel="stylesheet" crossorigin href="/index.css">', `<link rel="stylesheet" crossorigin href="${fileObj.style.url}">`)
-          .replace('<link rel="icon" type="image/svg+xml" href="/public/react.svg" />', `<link rel="icon" type="image/svg+xml" href="${fileObj.svg.url}" />`)
-      } else {
-        fileObj = {
-          template: file.load(env.AppFilePath.VanillaJS.TEMPLATE),
-          style: file.load(env.AppFilePath.VanillaJS.STYLE),
-          js: file.load(env.AppFilePath.VanillaJS.JS),
-          svg: file.load(env.AppFilePath.VanillaJS.SVG),
-          aiIcon: file.load(env.AppFilePath.VanillaJS.AI_ICON),
-        }
-        // UI DATA SET
-        htmlStr = fileObj.template.getContents();
-        htmlStr = htmlStr
-          .replace('<script type="module" crossorigin src="/app.js"></script>', `<script type="module" crossorigin src="${fileObj.js.url}"></script>`)
-          .replace('<link rel="stylesheet" crossorigin href="/index.css">', `<link rel="stylesheet" crossorigin href="${fileObj.style.url}">`)
-          .replace('<link rel="icon" type="image/svg+xml" href="/public/vite.svg" />', `<link rel="icon" type="image/svg+xml" href="${fileObj.svg.url}" />`)
-          .replace('<img src="/assets/images/ai.png" alt="Logo" />', `<img src="${fileObj.aiIcon.url}" alt="Logo" />`)
-          .replace('{{userId}}', user.id)
-          .replace('{{suiteletUrl}}', encodeURIComponent(suiteletUrl))
-          .replace('{{resources}}', encodeURIComponent(JSON.stringify(resources)))
-          .replace('{{resourceGroups}}', encodeURIComponent(JSON.stringify(resourceGroups)))
-          .replace('{{resourceSkills}}', encodeURIComponent(JSON.stringify(resourceSkills)))
-          .replace('{{resourceLocations}}', encodeURIComponent(JSON.stringify(resourceLocations)))
-          .replace('{{resourceDepartments}}', encodeURIComponent(JSON.stringify(resourceDepartments)))
-          .replace('{{woResources}}', encodeURIComponent(JSON.stringify(woResources)))
-          .replace('{{vendors}}', encodeURIComponent(JSON.stringify(vendors)))
-          .replace('{{assets}}', encodeURIComponent(JSON.stringify(assets)))
-          .replace('{{workOrders}}', encodeURIComponent(JSON.stringify(workOrders)))
-          .replace('{{customers}}', encodeURIComponent(JSON.stringify(customers)))
-          .replace('{{woLocations}}', encodeURIComponent(JSON.stringify(woLocations)))
-          .replace('{{woProjects}}', encodeURIComponent(JSON.stringify(woProjects)))
-          .replace('{{woStatuses}}', encodeURIComponent(JSON.stringify(woStatuses)))
-          .replace('{{events}}', encodeURIComponent(JSON.stringify(events)))
-          .replace('{{organizers}}', encodeURIComponent(JSON.stringify(organizers)))
-          .replace('{{filterFields}}', encodeURIComponent(JSON.stringify(filterFields)));
+      const fileObj = {
+        template: file.load(env.AppFilePath.VanillaJS.TEMPLATE),
+        style: file.load(env.AppFilePath.VanillaJS.STYLE),
+        js: file.load(env.AppFilePath.VanillaJS.JS),
+        svg: file.load(env.AppFilePath.VanillaJS.SVG),
+        aiIcon: file.load(env.AppFilePath.VanillaJS.AI_ICON),
       }
+      // UI DATA SET
+      let htmlStr = fileObj.template.getContents();
+      htmlStr = htmlStr
+        .replace('<script type="module" crossorigin src="/app.js"></script>', `<script type="module" crossorigin src="${fileObj.js.url}"></script>`)
+        .replace('<link rel="stylesheet" crossorigin href="/index.css">', `<link rel="stylesheet" crossorigin href="${fileObj.style.url}">`)
+        .replace('<link rel="icon" type="image/svg+xml" href="/public/vite.svg" />', `<link rel="icon" type="image/svg+xml" href="${fileObj.svg.url}" />`)
+        .replace('<img src="/assets/images/ai.png" alt="Logo" />', `<img src="${fileObj.aiIcon.url}" alt="Logo" />`)
+        .replace('{{userId}}', user.id)
+        .replace('{{suiteletUrl}}', encodeURIComponent(suiteletUrl))
+        .replace('{{resources}}', encodeURIComponent(JSON.stringify(resources)))
+        .replace('{{resourceGroups}}', encodeURIComponent(JSON.stringify(resourceGroups)))
+        .replace('{{resourceSkills}}', encodeURIComponent(JSON.stringify(resourceSkills)))
+        .replace('{{resourceLocations}}', encodeURIComponent(JSON.stringify(resourceLocations)))
+        .replace('{{resourceDepartments}}', encodeURIComponent(JSON.stringify(resourceDepartments)))
+        .replace('{{woResources}}', encodeURIComponent(JSON.stringify(woResources)))
+        .replace('{{vendors}}', encodeURIComponent(JSON.stringify(vendors)))
+        .replace('{{assets}}', encodeURIComponent(JSON.stringify(assets)))
+        .replace('{{workOrders}}', encodeURIComponent(JSON.stringify(workOrders)))
+        .replace('{{customers}}', encodeURIComponent(JSON.stringify(customers)))
+        .replace('{{woLocations}}', encodeURIComponent(JSON.stringify(woLocations)))
+        .replace('{{woProjects}}', encodeURIComponent(JSON.stringify(woProjects)))
+        .replace('{{woStatuses}}', encodeURIComponent(JSON.stringify(woStatuses)))
+        .replace('{{events}}', encodeURIComponent(JSON.stringify(events)))
+        .replace('{{organizers}}', encodeURIComponent(JSON.stringify(organizers)))
+        .replace('{{filterFields}}', encodeURIComponent(JSON.stringify(filterFields)));
 
+      context.response.write(htmlStr);
+    }
+
+    function runReactApp() {
+      const fileObj = {
+        template: file.load(env.AppFilePath.React.TEMPLATE),
+        style: file.load(env.AppFilePath.React.STYLE),
+        js: file.load(env.AppFilePath.React.JS),
+        svg: file.load(env.AppFilePath.React.SVG),
+      }
+      let htmlStr = fileObj.template.getContents();
+      htmlStr = htmlStr
+        .replace('<script type="module" crossorigin src="/app.js"></script>', `<script type="module" crossorigin src="${fileObj.js.url}"></script>`)
+        .replace('<link rel="stylesheet" crossorigin href="/index.css">', `<link rel="stylesheet" crossorigin href="${fileObj.style.url}">`)
+        .replace('<link rel="icon" type="image/svg+xml" href="/public/react.svg" />', `<link rel="icon" type="image/svg+xml" href="${fileObj.svg.url}" />`);
       context.response.write(htmlStr);
     }
 
@@ -3051,7 +3049,8 @@ define([
     }
 
     return {
-      runApp,
+      runVanillaApp,
+      runReactApp,
       Resource,
       WorkOrder,
       WorkOrderResource,

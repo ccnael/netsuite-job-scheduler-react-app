@@ -41,7 +41,10 @@ define(['N/runtime', './lib/esp_cm_scheduler'],
             schedulerLib.Event.getOrderPunchList(scriptContext);
             break;
           default:
-            schedulerLib.runApp(scriptContext);
+            (script.deploymentId === 'customdeploy_esp_sl_scheduler_test')
+              ? schedulerLib.runVanillaApp(scriptContext)
+              : schedulerLib.runReactApp(scriptContext);
+
             break;
         }
       } else if (method === 'POST') {

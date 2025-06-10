@@ -2,7 +2,7 @@
  * @NApiVersion 2.1
  * @NModuleScope Public
  */
-define(() => ({
+define({
   RecordType: {
     RESOURCE_GROUP: 'customrecord_esp_fop_wo_resources',
     WORK_ORDER: 'customrecord_esp_fop_work_order',
@@ -70,6 +70,7 @@ define(() => ({
       SVG: '../react-vite-app-bundle/assets/images/react.svg',
     },
     MOCKUP: './esp_cm_mockup.json',
-    FILTER_MAP: './esp_cm_filtermap.json',
-  }
-}))
+    FILTER_MAP: './esp_cm_filterMap.json',
+  },
+  WO_PDF_TEMPLATE_ID: 'CUSTTMPL_FOP_WORK_ORDER'
+})
