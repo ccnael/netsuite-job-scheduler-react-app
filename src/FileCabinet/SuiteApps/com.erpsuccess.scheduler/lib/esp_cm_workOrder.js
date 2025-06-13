@@ -161,7 +161,7 @@ define([
     response.write(JSON.stringify(workOrders));
   }
 
-  function hold(context) {
+  function holdWorkOrder(context) {
     const { request, response } = context;
     const { parameters: params } = request;
     const { woId } = params;
@@ -187,7 +187,7 @@ define([
     response.write(JSON.stringify(result));
   }
 
-  function cancel(context) {
+  function cancelWorkOrder(context) {
     const { request, response } = context;
     const { parameters: params } = request;
     const { woId } = params;
@@ -292,8 +292,8 @@ define([
 
   return {
     getList,
-    hold,
-    cancel,
+    holdWorkOrder,
+    cancelWorkOrder,
     printWorkOrder,
     printPickList,
     getStatuses

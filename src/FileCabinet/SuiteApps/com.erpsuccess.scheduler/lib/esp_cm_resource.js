@@ -1,12 +1,6 @@
 /**
  * @NApiVersion 2.1
  * @NModuleScope Public
- * 
- * TBD - to be done in the frontend
- * 
- * events
- *  .filter(event => event.resources.map(resource => resource.employee.value).includes(result.id))
- *  .map(event => event.id)
  */
 define([
   'N/search',
@@ -134,9 +128,7 @@ define([
       get url() {
         return encodeURIComponent(utils.NSUrl.resourceUrl(this.id))
       },
-      events: []/* events
-        .filter(event => event.resources.map(resource => resource.employee.value).includes(result.id))
-        .map(event => event.id) */,
+      events: [], // Will be updated in the front end side once events data is fetched
       labRates: JSON.parse(map.getValue('custentity_esp_fop_labour_rate_matrix') || '[]'),
       time: {
         start: '',
@@ -158,7 +150,7 @@ define([
       }
     }));
 
-    // log.audit('----- [Resources] -----', all);
+    // log.audit('----- [Resources] -----', resources);
     response.write(JSON.stringify(resources));
   }
 

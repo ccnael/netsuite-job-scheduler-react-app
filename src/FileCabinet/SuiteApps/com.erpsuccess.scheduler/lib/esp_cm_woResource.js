@@ -1,7 +1,6 @@
 /**
  * @NApiVersion 2.1
  * @NModuleScope Public
- * 
  */
 define([
   'N/search',
@@ -160,7 +159,6 @@ define([
 
   /**
    * Transform employees to WO resources
-   * 
    * @param {Object} event Event data
    * @param {Object} woRef WO data
    * @param {Boolean} copyEventTime 
@@ -222,10 +220,9 @@ define([
 
   /**
    * Update existing resources start/end time etc
-   * 
    * @param {Object} event Event data
    * @param {Object} dataSrc Data source
-   * @param {Object} woRef 
+   * @param {Object} woRef WO data
    */
   function updateResources(event, dataSrc, woRef) {
     const selectedResources = event.selectedResources;
@@ -273,6 +270,7 @@ define([
         log.error('Error on WO Resource > Update', { resource, errorMsg: e.message });
       }
     }
+
     // If theres to remove (removed resources)
     utils.deleteRecords(env.RecordType.WORK_ORDER_RESOURCE, removedResources.map(x => x.id));
 
@@ -284,12 +282,11 @@ define([
 
   /**
    * Applies when dragging and assigning new resource events in the calendar view
-   * 
    * @param {Object} context Suitelet object
    */
   function updateCalendarResourceAssignment(context) {
     const { request, response } = context;
-    let requestBody = request.body || '{}';
+    const requestBody = request.body || '{}';
     const payload = JSON.parse(requestBody);
 
     try {
@@ -311,6 +308,7 @@ define([
         values.custrecord_esp_fop_res_resource_subtype = payload.newResource.subTypes.map(x => x.value);
         values.custrecord_esp_fop_res_aff_type = payload.newResource.affiliationType.value;
       }
+
       if (Object.keys(values).length) {
         record.submitFields({
           type: env.RecordType.WORK_ORDER_RESOURCE,
@@ -341,7 +339,6 @@ define([
 
   /**
    * Applies when resizing resource events in the calendar view
-   * 
    * @param {Object} context Suitelet object 
    */
   function updateCalendarResizedDateTime(context) {

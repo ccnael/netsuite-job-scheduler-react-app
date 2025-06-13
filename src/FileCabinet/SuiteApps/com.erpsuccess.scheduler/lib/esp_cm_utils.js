@@ -20,7 +20,7 @@ define([
      */
     static suiteletUrl() {
       return url.resolveScript({
-        deploymentId: 'customdeploy_esp_sl_scheduler',
+        deploymentId: 'customdeploy_esp_sl_scheduler_new',
         scriptId: 'customscript_esp_sl_scheduler'
       });
     }

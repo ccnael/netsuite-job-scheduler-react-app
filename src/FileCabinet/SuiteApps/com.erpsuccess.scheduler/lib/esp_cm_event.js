@@ -1,34 +1,20 @@
 /**
  * @NApiVersion 2.1
  * @NModuleScope Public
- * 
- * TBD - 
- * w
-    WorkOrderVendor._createVendors
-    WorkOrderAsset._createAssets
-    WorkOrderItem._createItems
-    WorkOrderContact._createContacts
-    
-    WorkOrderVendor._createVendors
-    WorkOrderAsset._createAssets
-    
-    WorkOrderVendor._createVendors
-    WorkOrderAsset._createAssets
-
-    
-    WorkOrderVendor._updateVendors
-    WorkOrderAsset._updateAssets
-    WorkOrderItem._updateItems
-    WorkOrderContact._updateContacts
-    */
+ */
 define([
   'N/search',
   'N/record',
   './esp_cm_woResource',
+  './esp_cm_woVendor',
+  './esp_cm_woAsset',
+  './esp_cm_woItem',
+  './esp_cm_woContact',
+  './esp_cm_woAddress',
   './esp_cm_helper',
   './esp_cm_utils',
   './moment.min',
-], (search, record, woResourceLib, helper, utils, moment) => {
+], (search, record, woResourceLib, woVendorLib, woAssetLib, woItemLib, woContactLib, woAddressLib, helper, utils, moment) => {
   /**
    * Get the list of events. Includes standalone/general events
    * @param {Object} context Suitelet object
@@ -41,7 +27,7 @@ define([
     const filters = [
       ['response', 'is', 'ACCEPTED'], // To prevent duplicate results
       'AND',
-      ['status', 'noneof', ['CANCELLED'/* , 'COMPLETE' */]]
+      ['status', 'noneof', ['CANCELLED']]
     ];
 
     const searchObj = search.create({
@@ -248,11 +234,11 @@ define([
       log.audit('----- [Created Event Record] -----', { recordId: eventData.id });
 
       woResourceLib.createResources(eventData, woRef);
-      WorkOrderVendor._createVendors(eventData, woRef);
-      WorkOrderAsset._createAssets(eventData, woRef);
-      WorkOrderItem._createItems(eventData);
-      WorkOrderContact._createContacts(eventData);
-      WorkOrderAddress._appendEventToAddresses(eventData);
+      woVendorLib.createVendors(eventData, woRef);
+      woAssetLib.createAssets(eventData, woRef);
+      woItemLib.createItems(eventData);
+      woContactLib.createContacts(eventData);
+      woAddressLib.addEventToAddresses(eventData);
 
       response.write(JSON.stringify({
         code: 200,
@@ -292,10 +278,10 @@ define([
             woResourceLib.createResources(eventData, woRef, true);
             break;
           case 'vendor':
-            WorkOrderVendor._createVendors(eventData, woRef);
+            woVendorLib.createVendors(eventData, woRef);
             break;
           case 'asset':
-            WorkOrderAsset._createAssets(eventData, woRef, true);
+            woAssetLib.createAssets(eventData, woRef, true);
             break;
         }
       } else if (eventData.unassigned && eventData.resourceType) { // Assigning new resource scenario (TBR)
@@ -304,10 +290,10 @@ define([
             woResourceLib.createResources(eventData, woRef, true);
             break;
           case 'vendor':
-            WorkOrderVendor._createVendors(eventData, woRef);
+            woVendorLib.createVendors(eventData, woRef);
             break;
           case 'asset':
-            WorkOrderAsset._createAssets(eventData, woRef, true);
+            woAssetLib.createAssets(eventData, woRef, true);
             break;
         }
       } else {
@@ -399,16 +385,16 @@ define([
           woResourceLib.updateResources(eventData, oldEventData, woRef);
         }
         if (eventData.selectedVendors) {
-          WorkOrderVendor._updateVendors(eventData, oldEventData, woRef);
+          woVendorLib.updateVendors(eventData, oldEventData, woRef);
         }
         if (eventData.selectedAssets) {
-          WorkOrderAsset._updateAssets(eventData, oldEventData, woRef);
+          woAssetLib.updateAssets(eventData, oldEventData, woRef);
         }
         if (eventData.selectedItems) {
-          WorkOrderItem._updateItems(eventData, oldEventData);
+          woItemLib.updateItems(eventData, oldEventData);
         }
         if (eventData.selectedContacts) {
-          WorkOrderContact._updateContacts(eventData, oldEventData);
+          woContactLib.updateContacts(eventData, oldEventData);
         }
       }
 
@@ -427,9 +413,68 @@ define([
     }
   }
 
+  /**
+   * Delete event record
+   * @param {Object} context Suitelet object
+   */
+  function deleteEvent(context) {
+    const { request, response } = context;
+    const { parameters: params } = request;
+    const requestBody = request.body || '{}';
+    const eventId = params.id;
+
+    try {
+      const eventData = JSON.parse(requestBody);
+
+      // Unlink event from related child records before the deletion
+      utils.deleteRecords(env.RecordType.WORK_ORDER_RESOURCE, eventData.resources.map(x => x.id));
+      utils.deleteRecords(env.RecordType.WORK_ORDER_VENDOR, eventData.vendors.map(x => x.id));
+      utils.deleteRecords(env.RecordType.WORK_ORDER_ASSET, eventData.assets.map(x => x.id));
+      utils.deleteRecords(env.RecordType.WORK_ORDER_ITEM, eventData.items.map(x => x.id));
+      utils.deleteRecords(env.RecordType.WORK_ORDER_CONTACT, eventData.contacts.map(x => x.id));
+      WorkOrderAddress._removeEventFromAddresses(eventData.addresses, eventData.id);
+
+      // Remove timetracking lines
+      const rec = record.load({
+        type: record.Type.CALENDAR_EVENT,
+        id: eventId,
+        isDynamic: true
+      });
+      const lineCount = rec.getLineCount({ sublistId: 'timeitem' });
+      for (let i = lineCount - 1; i >= 0; i--) {
+        rec.removeLine({
+          sublistId: 'timeitem',
+          line: i
+        });
+      }
+
+      // Unlink related records first
+      rec.setValue({ fieldId: 'custevent_esp_fop_event_address', value: '' });
+      rec.setValue({ fieldId: 'custevent_esp_fop_sales_order', value: '' });
+      rec.save({ ignoreMandatoryFieds: true });
+
+      record.delete({
+        type: record.Type.CALENDAR_EVENT,
+        id: eventId
+      });
+      response.write(JSON.stringify({
+        code: 200,
+        status: 'success'
+      }));
+    } catch (e) {
+      log.audit('deleteRecord() Unexpected Error', e.message);
+      response.write(JSON.stringify({
+        code: 401,
+        status: 'failed',
+        errorMsg: e.message
+      }));
+    }
+  }
+
   return {
     getList,
     createEvent,
-    updateEvent
+    updateEvent,
+    deleteEvent
   }
 })

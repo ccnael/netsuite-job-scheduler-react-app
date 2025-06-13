@@ -21,7 +21,7 @@
       <status>RELEASED</status>
       <title>WO Scheduler</title>
     </scriptdeployment>
-    <scriptdeployment scriptid="customdeploy_esp_sl_scheduler_test">
+    <scriptdeployment scriptid="customdeploy_esp_sl_scheduler_new">
       <allemployees>F</allemployees>
       <allpartners>F</allpartners>
       <allroles>T</allroles>
@@ -32,7 +32,7 @@
       <loglevel>DEBUG</loglevel>
       <runasrole>ADMINISTRATOR</runasrole>
       <status>RELEASED</status>
-      <title>WO Scheduler (TEST)</title>
+      <title>WO Scheduler (TBD)</title>
     </scriptdeployment>
   </scriptdeployments>
 </suitelet>

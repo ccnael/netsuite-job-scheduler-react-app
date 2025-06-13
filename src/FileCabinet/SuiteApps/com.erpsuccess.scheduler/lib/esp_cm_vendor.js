@@ -1,12 +1,6 @@
 /**
  * @NApiVersion 2.1
  * @NModuleScope Public
- * 
- * TBD - to be done in the frontend
- * 
- * events
- *  .filter(event => event.vendors.map(vendor => vendor.vendor.value).includes(result.id))
- *  .map(event => event.id)
  */
 define(['N/search'], (search) => {
   /**
@@ -76,10 +70,7 @@ define(['N/search'], (search) => {
         value: ''
       },
       woVendor: false,
-      events: []/* events
-        .filter(event => event.vendors.map(vendor => vendor.vendor.value)
-          .includes(result.id))
-        .map(event => event.id) */,
+      events: [], // Will be updated in the front end side once events data is fetched
       memo: '',
       location: {
         text: '',

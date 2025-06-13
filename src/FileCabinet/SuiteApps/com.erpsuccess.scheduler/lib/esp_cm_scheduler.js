@@ -3,8 +3,8 @@
  * @NModuleScope Public
  * 
  * TODO: 
- * - Convert searches to sql queries
- * - Split other classes/functions as separate modules
+ * - Convert searches to sql queries (?)
+ * - Split other classes/functions as separate modules (FOPS-575 Refactor in progress)
  */
 define([
   'N/file',
@@ -17,7 +17,8 @@ define([
   'N/record',
   'N/format',
   './moment.min',
-  './esp_cm_constants'
+  './esp_cm_constants',
+  './esp_cm_utils'
 ],
   /**
    * @param{file} file
@@ -30,7 +31,7 @@ define([
    * @param{record} record
    * @param{format} format
    */
-  (file, runtime, search, query, config, url, render, record, format, moment, env) => {
+  (file, runtime, search, query, config, url, render, record, format, moment, env, utils) => {
 
     function runVanillaApp(context) {
       const user = runtime.getCurrentUser();
@@ -140,7 +141,8 @@ define([
       context.response.write(htmlStr);
     }
 
-    function runReactApp() {
+    function runReactApp(context) {
+      const suiteletUrl = utils.NSUrl.suiteletUrl();
       const fileObj = {
         template: file.load(env.AppFilePath.React.TEMPLATE),
         style: file.load(env.AppFilePath.React.STYLE),
@@ -149,6 +151,7 @@ define([
       }
       let htmlStr = fileObj.template.getContents();
       htmlStr = htmlStr
+        .replace('{{suiteletUrl}}', encodeURIComponent(suiteletUrl))
         .replace('<script type="module" crossorigin src="/app.js"></script>', `<script type="module" crossorigin src="${fileObj.js.url}"></script>`)
         .replace('<link rel="stylesheet" crossorigin href="/index.css">', `<link rel="stylesheet" crossorigin href="${fileObj.style.url}">`)
         .replace('<link rel="icon" type="image/svg+xml" href="/public/react.svg" />', `<link rel="icon" type="image/svg+xml" href="${fileObj.svg.url}" />`);
@@ -1561,7 +1564,7 @@ define([
 
         log.audit('Updating WO Asset Event List', { selectedAssets, removedAssets, newAssets });
 
-        // If theres to quantity update
+        // If theres quantity to update
         for (const asset of selectedAssets) {
           try {
             const lookUp = search.lookupFields({
@@ -2613,7 +2616,7 @@ define([
           }
         }
         log.audit('----- [Punch List] -----', punchList);
-        return response.write(JSON.stringify(punchList));
+        response.write(JSON.stringify(punchList));
       }
 
       static completeEvent(context) {
