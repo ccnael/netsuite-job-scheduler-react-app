@@ -14,7 +14,7 @@ define([
    * Get the list of WO resources
    * @param {Object} context Suitelet object
    */
-  function getList(context) {
+  function getResources(context) {
     const { request, response } = context;
     const { parameters: params } = request;
     const { start, end } = params;
@@ -152,6 +152,11 @@ define([
         value: map.getValue({ name: 'department', join: 'custrecord_esp_fop_res_employee' }),
       }
     }));
+
+    response.setHeader({
+      name: 'Content-Type',
+      value: 'application/json'
+    });
 
     // log.audit('----- [Work Order Resources] -----', resources);
     response.write(JSON.stringify(resources));
@@ -407,7 +412,7 @@ define([
   }
 
   return {
-    getList,
+    getResources,
     createResources,
     updateResources,
     updateCalendarResourceAssignment,

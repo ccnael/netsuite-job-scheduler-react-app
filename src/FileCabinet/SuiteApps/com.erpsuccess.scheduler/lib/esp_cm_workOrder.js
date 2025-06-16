@@ -13,7 +13,7 @@ define([
    * Get the list of work orders
    * @param {Object} context Suitelet object
    */
-  function getList(context) {
+  function getWorkOrders(context) {
     const { request, response } = context;
     const { parameters: params } = request;
     const { start, end } = params;
@@ -112,13 +112,13 @@ define([
       contacts: [],
       events: [],
       get projectUrl() {
-        return utils.NSUtl.projectUrl(this.project.value)
+        return utils.NSUrl.projectUrl(this.project.value)
       },
       get woUrl() {
-        return utils.NSUtl.workOrderUrl(this.id)
+        return utils.NSUrl.workOrderUrl(this.id)
       },
       get soUrl() {
-        return utils.NSUtl.salesOrderUrl(this.salesorder.value)
+        return utils.NSUrl.salesOrderUrl(this.salesorder.value)
       },
       esthours: map.getValue('custrecord_esp_cfi_wo_est_hours'),
       location: {
@@ -126,8 +126,8 @@ define([
         value: map.getValue('custrecord_esp_fop_wo_location'),
       },
       receiptStatus: {
-        text: map.getText('custrecord_esp_fop_wo_ir_status') || 'Not Received',
-        value: map.getValue('custrecord_esp_fop_wo_ir_status') || '1',
+        text: map.getText('custrecord_esp_fop_wo_ir_status'),
+        value: map.getValue('custrecord_esp_fop_wo_ir_status'),
         get code() {
           switch (this.value) {
             case '2':
@@ -157,7 +157,14 @@ define([
       }
     }));
 
-    // log.audit('----- [Work Orders] -----', workOrders);
+    // utils.createLogFile(JSON.stringify(workOrders));
+
+    response.setHeader({
+      name: 'Content-Type',
+      value: 'application/json'
+    });
+
+    log.audit('----- [Work Orders] -----', workOrders.length);
     response.write(JSON.stringify(workOrders));
   }
 
@@ -277,7 +284,7 @@ define([
     }
   }
 
-  function getStatuses() {
+  function getWorkOrderStatuses() {
     const formatText = txt => {
       return txt
         .toLowerCase()
@@ -291,11 +298,11 @@ define([
   }
 
   return {
-    getList,
+    getWorkOrders,
     holdWorkOrder,
     cancelWorkOrder,
     printWorkOrder,
     printPickList,
-    getStatuses
+    getWorkOrderStatuses
   }
 })

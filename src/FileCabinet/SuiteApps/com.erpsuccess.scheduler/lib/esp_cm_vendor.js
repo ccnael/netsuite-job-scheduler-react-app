@@ -87,6 +87,11 @@ define(['N/search'], (search) => {
       active: true
     }));
 
+    response.setHeader({
+      name: 'Content-Type',
+      value: 'application/json'
+    });
+
     // log.audit('----- [Vendors] -----', vendors);
     response.write(JSON.stringify(vendors));
   }

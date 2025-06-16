@@ -14,7 +14,7 @@ define([
    * Get the list of WO assets
    * @param {Object} context Suitelet object
    */
-  function getList(context) {
+  function getAssets(context) {
     const { request, response } = context;
     const { parameters: params } = request;
     const { start, end } = params;
@@ -79,6 +79,11 @@ define([
         }
       },
     }));
+
+    response.setHeader({
+      name: 'Content-Type',
+      value: 'application/json'
+    });
 
     // log.audit('----- [Work Order Assets] -----', assets);
     response.write(JSON.stringify(assets));
@@ -305,7 +310,7 @@ define([
   }
 
   return {
-    getList,
+    getAssets,
     createAssets,
     updateAssets,
     updateCalendarAssetAssignment,

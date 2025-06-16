@@ -13,7 +13,7 @@ define([
    * Get the list of WO vendors
    * @param {Object} context Suitelet object
    */
-  function getList(context) {
+  function getVendors(context) {
     const { request, response } = context;
     const { parameters: params } = request;
     const { start, end } = params;
@@ -92,6 +92,11 @@ define([
         end: ''
       }
     }));
+
+    response.setHeader({
+      name: 'Content-Type',
+      value: 'application/json'
+    });
 
     // log.audit('----- [Work Order Vendors] -----', vendors);
     response.write(JSON.stringify(vendors));
@@ -188,7 +193,7 @@ define([
   }
 
   return {
-    getList,
+    getVendors,
     createVendors,
     updateVendors
   }

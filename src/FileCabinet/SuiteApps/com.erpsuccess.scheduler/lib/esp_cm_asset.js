@@ -44,6 +44,9 @@ define(['N/search'], (search) => {
     const assets = searchResult.map((map) => ({
       id: map.id,
       name: map.getValue('name'),
+      get initials() {
+        return this.name[0]
+      },
       get asset() {
         return {
           text: this.name,
@@ -70,6 +73,11 @@ define(['N/search'], (search) => {
         return this.quantityRemaining > 0;
       }
     }));
+
+    response.setHeader({
+      name: 'Content-Type',
+      value: 'application/json'
+    });
 
     // log.audit('----- [Assets & Equipments] -----', assets);
     response.write(JSON.stringify(assets));

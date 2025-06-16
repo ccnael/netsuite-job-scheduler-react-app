@@ -23,10 +23,15 @@ define({
     ON_HOLD: '#6c757d',
     CLOSED: '#6c757d'
   },
-  EventCode: {
+  /* EventCode: {
     TENTATIVE: 'bg-secondary',
     CONFIRMED: 'bg-success',
     COMPLETED: 'bg-info'
+  }, */
+  EventCode: {
+    TENTATIVE: '#6c757d',
+    CONFIRMED: '#22c55e',
+    COMPLETED: '#3b82f6'
   },
   PriorityCode: {
     LOW: '#026adf',

@@ -13,13 +13,14 @@ define([
   './esp_cm_woAddress',
   './esp_cm_helper',
   './esp_cm_utils',
+  './esp_cm_constants',
   './moment.min',
-], (search, record, woResourceLib, woVendorLib, woAssetLib, woItemLib, woContactLib, woAddressLib, helper, utils, moment) => {
+], (search, record, woResourceLib, woVendorLib, woAssetLib, woItemLib, woContactLib, woAddressLib, helper, utils, env, moment) => {
   /**
    * Get the list of events. Includes standalone/general events
    * @param {Object} context Suitelet object
    */
-  function getList(context) {
+  function getEvents(context) {
     const { request, response } = context;
     const { parameters: params } = request;
     const { start, end } = params;
@@ -166,7 +167,12 @@ define([
       assetMaintenance: map.getValue('custevent_esp_fop_asset_maintenance')
     }));
 
-    //  log.audit('----- [Work Order Events] -----', events);
+    response.setHeader({
+      name: 'Content-Type',
+      value: 'application/json'
+    });
+
+    log.audit('----- [Work Order Events] -----', events.length);
     response.write(JSON.stringify(events));
   }
 
@@ -472,7 +478,7 @@ define([
   }
 
   return {
-    getList,
+    getEvents,
     createEvent,
     updateEvent,
     deleteEvent

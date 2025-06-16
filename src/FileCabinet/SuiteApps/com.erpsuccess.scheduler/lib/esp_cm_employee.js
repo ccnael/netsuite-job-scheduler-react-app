@@ -65,7 +65,7 @@ define([
         end: +end
       });
 
-    const resources = searchResult.map((map) => ({
+    const employees = searchResult.map((map) => ({
       id: map.id,
       name: map.getValue(map.columns[2]),
       initials: map.getValue(map.columns[1]),
@@ -150,8 +150,13 @@ define([
       }
     }));
 
-    // log.audit('----- [Resources] -----', resources);
-    response.write(JSON.stringify(resources));
+    response.setHeader({
+      name: 'Content-Type',
+      value: 'application/json'
+    });
+
+    // log.audit('----- [Employees] -----', employees);
+    response.write(JSON.stringify(employees));
   }
 
   return {

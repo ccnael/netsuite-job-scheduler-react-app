@@ -10,14 +10,15 @@
 define([
   'N/runtime',
   './lib/esp_cm_scheduler',
-  './lib/esp_cm_resource',
+  './lib/esp_cm_employee',
   './lib/esp_cm_vendor',
   './lib/esp_cm_asset',
   './lib/esp_cm_workOrder',
   './lib/esp_cm_event',
   './lib/esp_cm_woResource',
+  './lib/esp_cm_woVendor',
   './lib/esp_cm_woAsset'
-], (runtime, schedulerLib, resourceLib, vendorLib, assetLib, woLib, eventLib, woResourceLib, woAssetLib) => {
+], (runtime, schedulerLib, employeeLib, vendorLib, assetLib, woLib, eventLib, woResourceLib, woVendorLib, woAssetLib) => {
   /**
    * Vanilla JS UI Suitelet entry point (to be replaced)
    * Defines the Suitelet script trigger point.
@@ -112,13 +113,28 @@ define([
 
       switch (mode) {
         case 'getEmployees':
-          resourceLib.getEmployees(context);
+          employeeLib.getEmployees(context);
           break;
         case 'getVendors':
           vendorLib.getVendors(context);
           break;
         case 'getAssets':
           assetLib.getAssets(context);
+          break;
+        case 'getWorkOrders':
+          woLib.getWorkOrders(context);
+          break;
+        case 'getEvents':
+          eventLib.getEvents(context);
+          break;
+        case 'getWorkOrderResources':
+          woResourceLib.getResources(context);
+          break;
+        case 'getWorkOrderVendors':
+          woVendorLib.getVendors(context);
+          break;
+        case 'getWorkOrderAssets':
+          woAssetLib.getAssets(context);
           break;
         case 'holdWorkOrder':
           woLib.holdWorkOrder(context);
