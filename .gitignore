@@ -1,7 +1,7 @@
 /.DS_Store
 /Do Not Deploy
-/src/vanilla-app/dist
-/src/vanilla-app/node_modules
+# /src/vanilla-app/dist
+# /src/vanilla-app/node_modules
 /src/react-app/dist
 /src/react-app/node_modules
 /src/FileCabinet/SuiteApps/vanilla-app-bundle/.DS_Store
