@@ -3,8 +3,8 @@
  * @NModuleScope Public
  * 
  * TODO: 
- * - Convert searches to sql queries
- * - Split other classes/functions as separate modules
+ * - Convert searches to sql queries (?)
+ * - Split other classes/functions as separate modules (FOPS-575 Refactor in progress)
  */
 define([
   'N/file',
@@ -17,7 +17,8 @@ define([
   'N/record',
   'N/format',
   './moment.min',
-  './esp_cm_constants'
+  './esp_cm_constants',
+  './esp_cm_utils'
 ],
   /**
    * @param{file} file
@@ -30,9 +31,9 @@ define([
    * @param{record} record
    * @param{format} format
    */
-  (file, runtime, search, query, config, url, render, record, format, moment, env) => {
+  (file, runtime, search, query, config, url, render, record, format, moment, env, utils) => {
 
-    function runApp(context) {
+    function runVanillaApp(context) {
       const user = runtime.getCurrentUser();
       const suiteletUrl = Url.suitelet();
       // Fetch needed data
@@ -105,15 +106,15 @@ define([
       });
 
       const fileObj = {
-        template: file.load(env.FilePath.TEMPLATE),
-        style: file.load(env.FilePath.STYLE),
-        js: file.load(env.FilePath.JS),
-        svg: file.load(env.FilePath.SVG),
-        aiIcon: file.load(env.FilePath.AI_ICON),
+        template: file.load(env.AppFilePath.VanillaJS.TEMPLATE),
+        style: file.load(env.AppFilePath.VanillaJS.STYLE),
+        js: file.load(env.AppFilePath.VanillaJS.JS),
+        svg: file.load(env.AppFilePath.VanillaJS.SVG),
+        aiIcon: file.load(env.AppFilePath.VanillaJS.AI_ICON),
       }
-
       // UI DATA SET
-      const htmlStr = fileObj.template.getContents()
+      let htmlStr = fileObj.template.getContents();
+      htmlStr = htmlStr
         .replace('<script type="module" crossorigin src="/app.js"></script>', `<script type="module" crossorigin src="${fileObj.js.url}"></script>`)
         .replace('<link rel="stylesheet" crossorigin href="/index.css">', `<link rel="stylesheet" crossorigin href="${fileObj.style.url}">`)
         .replace('<link rel="icon" type="image/svg+xml" href="/public/vite.svg" />', `<link rel="icon" type="image/svg+xml" href="${fileObj.svg.url}" />`)
@@ -137,6 +138,23 @@ define([
         .replace('{{organizers}}', encodeURIComponent(JSON.stringify(organizers)))
         .replace('{{filterFields}}', encodeURIComponent(JSON.stringify(filterFields)));
 
+      context.response.write(htmlStr);
+    }
+
+    function runReactApp(context) {
+      const suiteletUrl = utils.Url.suiteletUrl();
+      const fileObj = {
+        template: file.load(env.AppFilePath.React.TEMPLATE),
+        style: file.load(env.AppFilePath.React.STYLE),
+        js: file.load(env.AppFilePath.React.JS),
+        svg: file.load(env.AppFilePath.React.SVG),
+      }
+      let htmlStr = fileObj.template.getContents();
+      htmlStr = htmlStr
+        .replace('{{suiteletUrl}}', encodeURIComponent(suiteletUrl))
+        .replace('<script type="module" crossorigin src="/app.js"></script>', `<script type="module" crossorigin src="${fileObj.js.url}"></script>`)
+        .replace('<link rel="stylesheet" crossorigin href="/index.css">', `<link rel="stylesheet" crossorigin href="${fileObj.style.url}">`)
+        .replace('<link rel="icon" type="image/svg+xml" href="/public/react.svg" />', `<link rel="icon" type="image/svg+xml" href="${fileObj.svg.url}" />`);
       context.response.write(htmlStr);
     }
 
@@ -441,6 +459,7 @@ define([
               search.createColumn({ name: 'custrecord_esp_fop_asset_end_date', label: 'End Date' }),
             ]
         });
+
         const assets = [];
         searchObj.run().each(result => {
           const assetObj = {
@@ -1545,7 +1564,7 @@ define([
 
         log.audit('Updating WO Asset Event List', { selectedAssets, removedAssets, newAssets });
 
-        // If theres to quantity update
+        // If theres quantity to update
         for (const asset of selectedAssets) {
           try {
             const lookUp = search.lookupFields({
@@ -2597,7 +2616,7 @@ define([
           }
         }
         log.audit('----- [Punch List] -----', punchList);
-        return response.write(JSON.stringify(punchList));
+        response.write(JSON.stringify(punchList));
       }
 
       static completeEvent(context) {
@@ -2888,7 +2907,7 @@ define([
 
       static getFilters(params) {
         const userId = params.user.id;
-        const filterMap = file.load(env.FilePath.FILTER_MAP);
+        const filterMap = file.load(env.AppFilePath.FILTER_MAP);
         let filterFields = filterMap.getContents();
         if (!!filterFields) {
           filterFields = JSON.parse(filterFields);
@@ -2914,7 +2933,7 @@ define([
 
         try {
           const selectedFields = JSON.parse(reqBody);
-          const filterMap = file.load(env.FilePath.FILTER_MAP);
+          const filterMap = file.load(env.AppFilePath.FILTER_MAP);
           let filterFields = filterMap.getContents();
           filterFields = filterFields && JSON.parse(filterFields);
 
@@ -2954,7 +2973,7 @@ define([
 
       static createLogFile(contents) {
         try {
-          const fileObj = file.load(env.FilePath.MOCKUP);
+          const fileObj = file.load(env.AppFilePath.MOCKUP);
           const { name, folder } = fileObj;
           /* fileObj.contents = JSON.stringify(contents);
           fileObj.save(); */
@@ -3033,7 +3052,8 @@ define([
     }
 
     return {
-      runApp,
+      runVanillaApp,
+      runReactApp,
       Resource,
       WorkOrder,
       WorkOrderResource,

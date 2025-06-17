@@ -1,0 +1,3 @@
+[submodule "src/react-vite-app"]
+	path = src/react-vite-app
+	url = https://github.com/ccnael/scheduler-react-sample.git

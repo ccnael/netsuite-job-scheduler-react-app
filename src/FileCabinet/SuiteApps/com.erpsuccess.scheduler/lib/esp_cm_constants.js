@@ -2,7 +2,7 @@
  * @NApiVersion 2.1
  * @NModuleScope Public
  */
-define(() => ({
+define({
   RecordType: {
     RESOURCE_GROUP: 'customrecord_esp_fop_wo_resources',
     WORK_ORDER: 'customrecord_esp_fop_work_order',
@@ -23,10 +23,15 @@ define(() => ({
     ON_HOLD: '#6c757d',
     CLOSED: '#6c757d'
   },
-  EventCode: {
+  /* EventCode: {
     TENTATIVE: 'bg-secondary',
     CONFIRMED: 'bg-success',
     COMPLETED: 'bg-info'
+  }, */
+  EventCode: {
+    TENTATIVE: '#6c757d',
+    CONFIRMED: '#22c55e',
+    COMPLETED: '#3b82f6'
   },
   PriorityCode: {
     LOW: '#026adf',
@@ -55,13 +60,22 @@ define(() => ({
     EXPORT_TIME: 'HH:mm',
     IMPORT_TIME: 'h:mm a'
   },
-  FilePath: {
+  AppFilePath: {
+    VanillaJS: {
+      TEMPLATE: '../vanilla-vite-app-bundle/index.html',
+      STYLE: '../vanilla-vite-app-bundle/index.css',
+      JS: '../vanilla-vite-app-bundle/app.js',
+      SVG: '../vanilla-vite-app-bundle/assets/images/vite.svg',
+      AI_ICON: '../vanilla-vite-app-bundle/assets/images/ai.png'
+    },
+    React: {
+      TEMPLATE: '../react-vite-app-bundle/index.html',
+      STYLE: '../react-vite-app-bundle/index.css',
+      JS: '../react-vite-app-bundle/app.js',
+      SVG: '../react-vite-app-bundle/assets/images/react.svg',
+    },
     MOCKUP: './esp_cm_mockup.json',
-    FILTER_MAP: './esp_cm_filtermap.json',
-    TEMPLATE: '../vanilla-vite-app-bundle/index.html',
-    STYLE: '../vanilla-vite-app-bundle/index.css',
-    JS: '../vanilla-vite-app-bundle/app.js',
-    SVG: '../vanilla-vite-app-bundle/assets/images/vite.svg',
-    AI_ICON: '../vanilla-vite-app-bundle/assets/images/ai.png'
-  }
-}))
+    FILTER_MAP: './esp_cm_filterMap.json',
+  },
+  WO_PDF_TEMPLATE_ID: 'CUSTTMPL_FOP_WORK_ORDER'
+})
