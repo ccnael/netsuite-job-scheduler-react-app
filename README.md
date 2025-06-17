@@ -1,19 +1,27 @@
 # CFI-Work-Order-Scheduler
 
-# VanillaJS-Vite
+A comprehensive scheduling and resource management platform designed for field operations teams
 
-How to run:
+### Step 1: Clone the repository using the project's Git URL.
 
-1. cd vanilla-vite-app
-2. npm install
-3. Install FullCalendar dependencies
-   - "npm install @fullcalendar/core @fullcalendar/adaptive @fullcalendar/interaction @fullcalendar/resource-timeline @fullcalendar/daygrid"
-4. npm run dev
+git clone https://github.com/erpsp/CFI-Work-Order-Scheduler.git
 
-# Deploying to NS
+### Step 2: Navigate to the project directory.
 
-1. npm run build
-   - This will compile and generate bundle/build (html, js, css files) (see config > rollupOptions > output)
-2. Load the bundled index.html file that sources the bundled js and css files into the suitelet
+cd react-vite-app
 
-NOTE: execute "npm run build" everytime changes happen under vanilla-vite-app folder before deployment
+### Step 3: Install the necessary dependencies.
+
+npm i
+
+### Step 4: Start the development server with auto-reloading and an instant preview.
+
+npm run dev
+
+### Techstack
+
+- Vite
+- TypeScript
+- React
+- shadcn-ui
+- Tailwind CSS
