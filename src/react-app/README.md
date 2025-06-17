@@ -8,7 +8,7 @@ git clone https://github.com/erpsp/CFI-Work-Order-Scheduler.git
 
 ### Step 2: Navigate to the project directory.
 
-cd react-app
+cd react-vite-app
 
 ### Step 3: Install the necessary dependencies.
 
