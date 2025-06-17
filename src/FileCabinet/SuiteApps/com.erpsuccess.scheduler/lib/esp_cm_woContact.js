@@ -51,7 +51,7 @@ define([
         text: map.getText('custrecord_esp_fop_rel_wo'),
         value: map.getValue('custrecord_esp_fop_rel_wo')
       },
-      events: _stringToArray(map.getValue('custrecord_esp_fop_wo_rel_event')), // TBD change to just list field
+      events: helper.stringToArray(map.getValue('custrecord_esp_fop_wo_rel_event')), // TBD change to just list field
       get event() {
         return this.events[0] || '';
       },

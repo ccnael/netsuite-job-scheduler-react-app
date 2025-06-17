@@ -142,7 +142,7 @@ define([
     }
 
     function runReactApp(context) {
-      const suiteletUrl = utils.NSUrl.suiteletUrl();
+      const suiteletUrl = utils.Url.suiteletUrl();
       const fileObj = {
         template: file.load(env.AppFilePath.React.TEMPLATE),
         style: file.load(env.AppFilePath.React.STYLE),

@@ -136,7 +136,7 @@ define([
       },
       note: map.getValue('custevent_esp_fop_memo'),
       get url() {
-        return utils.NSUrl.eventUrl(this.id)
+        return utils.Url.eventUrl(this.id)
       },
       color: '#1a6756',
       woRef: {},

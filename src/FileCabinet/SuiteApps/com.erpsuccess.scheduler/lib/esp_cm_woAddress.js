@@ -53,7 +53,7 @@ define([
         text: result.getText('custrecord_esp_fop_wo_add_customer'),
         value: result.getValue('custrecord_esp_fop_wo_add_customer')
       },
-      events: _stringToArray(result.getValue('custrecord_esp_fop_wo_add_event')),
+      events: helper.stringToArray(result.getValue('custrecord_esp_fop_wo_add_event')),
       address: {
         text: result.getText('custrecord_esp_fop_wo_address'),
         value: result.getValue('custrecord_esp_fop_wo_address')

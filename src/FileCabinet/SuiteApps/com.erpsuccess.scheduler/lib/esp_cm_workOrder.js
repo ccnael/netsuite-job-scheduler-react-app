@@ -112,13 +112,13 @@ define([
       contacts: [],
       events: [],
       get projectUrl() {
-        return utils.NSUrl.projectUrl(this.project.value)
+        return utils.Url.projectUrl(this.project.value)
       },
       get woUrl() {
-        return utils.NSUrl.workOrderUrl(this.id)
+        return utils.Url.workOrderUrl(this.id)
       },
       get soUrl() {
-        return utils.NSUrl.salesOrderUrl(this.salesorder.value)
+        return utils.Url.salesOrderUrl(this.salesorder.value)
       },
       esthours: map.getValue('custrecord_esp_cfi_wo_est_hours'),
       location: {

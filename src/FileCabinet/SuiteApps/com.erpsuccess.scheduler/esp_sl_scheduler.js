@@ -17,8 +17,11 @@ define([
   './lib/esp_cm_event',
   './lib/esp_cm_woResource',
   './lib/esp_cm_woVendor',
-  './lib/esp_cm_woAsset'
-], (runtime, schedulerLib, employeeLib, vendorLib, assetLib, woLib, eventLib, woResourceLib, woVendorLib, woAssetLib) => {
+  './lib/esp_cm_woAsset',
+  './lib/esp_cm_woItem',
+  './lib/esp_cm_woContact',
+  './lib/esp_cm_woAddress',
+], (runtime, schedulerLib, employeeLib, vendorLib, assetLib, woLib, eventLib, woResourceLib, woVendorLib, woAssetLib, woItemLib, woContactLib, woAddressLib) => {
   /**
    * Vanilla JS UI Suitelet entry point (to be replaced)
    * Defines the Suitelet script trigger point.
@@ -135,6 +138,15 @@ define([
           break;
         case 'getWorkOrderAssets':
           woAssetLib.getAssets(context);
+          break;
+        case 'getWorkOrderItems':
+          woItemLib.getItems(context);
+          break;
+        case 'getWorkOrderContacts':
+          woContactLib.getContacts(context);
+          break;
+        case 'getWorkOrderAddresses':
+          woAddressLib.getAddresses(context);
           break;
         case 'holdWorkOrder':
           woLib.holdWorkOrder(context);

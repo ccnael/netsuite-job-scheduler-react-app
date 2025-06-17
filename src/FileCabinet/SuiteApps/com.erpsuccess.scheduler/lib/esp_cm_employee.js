@@ -126,7 +126,7 @@ define([
         value: map.getValue('custentity_esp_fop_emp_affiliation_type')
       },
       get url() {
-        return encodeURIComponent(utils.NSUrl.resourceUrl(this.id))
+        return encodeURIComponent(utils.Url.resourceUrl(this.id))
       },
       events: [], // Will be updated in the front end side once events data is fetched
       labRates: JSON.parse(map.getValue('custentity_esp_fop_labour_rate_matrix') || '[]'),

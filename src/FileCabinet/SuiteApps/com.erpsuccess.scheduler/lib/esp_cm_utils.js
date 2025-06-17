@@ -13,7 +13,7 @@ define([
   /**
    * Class containing methods to generate NetSuite record and script URLs.
    */
-  class NSUrl {
+  class Url {
     /**
      * Returns the resolved URL of the ESP Scheduler Suitelet.
      * @returns {string} Suitelet URL
@@ -157,7 +157,7 @@ define([
   }
 
   return {
-    NSUrl,
+    Url,
     createLogFile,
     deleteRecords
   };
