@@ -62,17 +62,17 @@ define({
   },
   AppFilePath: {
     VanillaJS: {
-      TEMPLATE: '../vanilla-vite-app-bundle/index.html',
-      STYLE: '../vanilla-vite-app-bundle/index.css',
-      JS: '../vanilla-vite-app-bundle/app.js',
-      SVG: '../vanilla-vite-app-bundle/assets/images/vite.svg',
-      AI_ICON: '../vanilla-vite-app-bundle/assets/images/ai.png'
+      TEMPLATE: '../vanilla-app-bundle/index.html',
+      STYLE: '../vanilla-app-bundle/index.css',
+      JS: '../vanilla-app-bundle/app.js',
+      SVG: '../vanilla-app-bundle/assets/images/vite.svg',
+      AI_ICON: '../vanilla-app-bundle/assets/images/ai.png'
     },
     React: {
-      TEMPLATE: '../react-vite-app-bundle/index.html',
-      STYLE: '../react-vite-app-bundle/index.css',
-      JS: '../react-vite-app-bundle/app.js',
-      SVG: '../react-vite-app-bundle/assets/images/react.svg',
+      TEMPLATE: '../react-app-bundle/index.html',
+      STYLE: '../react-app-bundle/index.css',
+      JS: '../react-app-bundle/app.js',
+      SVG: '../react-app-bundle/assets/images/react.svg',
     },
     MOCKUP: './esp_cm_mockup.json',
     FILTER_MAP: './esp_cm_filterMap.json',
