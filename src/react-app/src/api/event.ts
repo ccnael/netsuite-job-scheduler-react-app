@@ -52,169 +52,65 @@ export interface Event {
     text: string;
     value: string;
   };
-  assetMaintenance?: string;
+  assetMaintenance?: boolean;
 }
 
 const getMockEvents = (): Event[] => {
   return [
     {
-      id: '1',
-      title: 'Project Kickoff Meeting',
-      workorder: {
-        text: 'Test Work Order - Mei',
-        value: '86'
+      "id": "101147",
+      "title": "12345",
+      "workorder": {
+          "text": "",
+          "value": ""
       },
-      location: 'Conference Room A',
-      status: {
-        text: 'Confirmed',
-        value: 'CONFIRMED',
-        code: 'CONFIRMED'
+      "location": "",
+      "status": {
+          "text": "Tentative",
+          "value": "TENTATIVE",
+          "code": "#6c757d"
       },
-      date: {
-        recurrence: '7/1/2024',
-        dates: ['7/1/2024'],
-        start: '2024-07-01',
-        end: '2024-07-01'
+      "date": {
+          "recurrence": "one time event on 3/18/2025",
+          "dates": [
+              "6/19/2025"
+          ],
+          "start": "2025-06-19",
+          "end": "2025-06-19"
       },
-      time: {
-        start: '09:00',
-        end: '10:30'
+      "time": {
+          "start": "07:00",
+          "end": "18:00"
       },
-      priority: {
-        text: 'High',
-        value: '3',
-        code: 'HIGH'
+      "priority": {
+          "text": "Low",
+          "value": "1",
+          "code": "#026adf"
       },
-      note: 'Initial meeting to discuss project requirements and timeline',
-      url: '/event/1',
-      color: '#1a6756',
-      woRef: {},
-      resources: [],
-      vendors: [],
-      assets: [],
-      items: [],
-      unassigned: true,
-      contacts: [],
-      addresses: [],
-      address: {
-        text: 'Main Office',
-        value: 'addr_001'
+      "note": "",
+      "url": "/app/crm/calendar/event.nl?id=101147&compid=TSTDRV2617106",
+      "color": "#1a6756",
+      "woRef": {},
+      "resources": [],
+      "vendors": [],
+      "assets": [],
+      "items": [],
+      "unassigned": true,
+      "contacts": [],
+      "addresses": [],
+      "address": {
+          "text": "",
+          "value": ""
       },
-      organizer: {
-        text: 'John Doe',
-        value: 'emp_001'
+      "organizer": {
+          "text": "Lean Cendaña",
+          "value": "1765"
       },
-      projectInsight: {
-        text: 'Field Operations Insight',
-        value: 'pi_001'
+      "projectInsight": {
+          "text": "",
+          "value": ""
       },
-      assetMaintenance: 'false'
-    },
-    {
-      id: '2',
-      title: 'Design Review Session',
-      workorder: {
-        text: 'Test Work Order - Mei',
-        value: '85'
-      },
-      location: 'Design Studio',
-      status: {
-        text: 'Confirmed',
-        value: 'CONFIRMED',
-        code: 'CONFIRMED'
-      },
-      date: {
-        recurrence: '7/2/2024',
-        dates: ['7/2/2024'],
-        start: '2024-07-02',
-        end: '2024-07-02'
-      },
-      time: {
-        start: '14:00',
-        end: '16:00'
-      },
-      priority: {
-        text: 'Medium',
-        value: '2',
-        code: 'MEDIUM'
-      },
-      note: 'Review and approve design mockups',
-      url: '/event/2',
-      color: '#1a6756',
-      woRef: {},
-      resources: [],
-      vendors: [],
-      assets: [],
-      items: [],
-      unassigned: true,
-      contacts: [],
-      addresses: [],
-      address: {
-        text: 'Design Studio',
-        value: 'addr_002'
-      },
-      organizer: {
-        text: 'Jane Smith',
-        value: 'emp_002'
-      },
-      projectInsight: {
-        text: 'Design Insight',
-        value: 'pi_002'
-      },
-      assetMaintenance: 'false'
-    },
-    {
-      id: '3',
-      title: 'Client Presentation',
-      workorder: {
-        text: 'Test Work order',
-        value: '84'
-      },
-      location: 'Client Office',
-      status: {
-        text: 'Tentative',
-        value: 'TENTATIVE',
-        code: 'TENTATIVE'
-      },
-      date: {
-        recurrence: '7/3/2024',
-        dates: ['7/3/2024'],
-        start: '2024-07-03',
-        end: '2024-07-03'
-      },
-      time: {
-        start: '10:00',
-        end: '11:30'
-      },
-      priority: {
-        text: 'High',
-        value: '3',
-        code: 'HIGH'
-      },
-      note: 'Present final deliverables to client',
-      url: '/event/3',
-      color: '#1a6756',
-      woRef: {},
-      resources: [],
-      vendors: [],
-      assets: [],
-      items: [],
-      unassigned: true,
-      contacts: [],
-      addresses: [],
-      address: {
-        text: 'Client Office',
-        value: 'addr_003'
-      },
-      organizer: {
-        text: 'Mike Johnson',
-        value: 'emp_003'
-      },
-      projectInsight: {
-        text: 'Standard Operations Insight',
-        value: 'pi_003'
-      },
-      assetMaintenance: 'true'
+      "assetMaintenance": false
     }
   ];
 };

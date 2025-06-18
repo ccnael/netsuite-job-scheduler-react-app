@@ -5,7 +5,7 @@ import { Badge } from "@/components/ui/badge";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 import { ChevronLeft, ChevronRight, Clock, MapPin, ChevronDown, ChevronRight as ChevronRightIcon, Users, Plus } from "lucide-react";
-import { format, startOfWeek, endOfWeek, eachDayOfInterval, addWeeks, subWeeks, isSameDay, parseISO, addDays, startOfDay } from "date-fns";
+import { format, parse, startOfWeek, endOfWeek, eachDayOfInterval, addWeeks, subWeeks, isSameDay, parseISO, addDays, startOfDay } from "date-fns";
 
 interface Resource {
   id: string;
@@ -90,8 +90,8 @@ const CustomCalendar: React.FC<CustomCalendarProps> = ({
         }
       }
     } else {
-      // 6-hour intervals for week and 3-day views
-      const hours = [0, 6, 12, 18]; // 12am, 6am, 12pm, 6pm
+      // 4-hour intervals for week and 3-day views
+      const hours = [0, 4, 8, 12, 16, 20]; // 12am, 4am, 8am, 12pm, 4pm, 8pm
       hours.forEach(hour => {
         const displayHour = hour === 0 ? 12 : hour > 12 ? hour - 12 : hour;
         const ampm = hour < 12 ? 'am' : 'pm';
@@ -201,29 +201,70 @@ const CustomCalendar: React.FC<CustomCalendarProps> = ({
   };
 
   const renderEvent = (event: CalendarEvent) => {
-    const startTime = format(parseISO(event.start), 'HH:mm');
-    const endTime = event.end ? format(parseISO(event.end), 'HH:mm') : '';
+    const eventStart = parseISO(event.start);
+    const eventEnd = parseISO(event.end);
+    const startHour = eventStart.getHours();
+    const startMinutes = eventStart.getMinutes();
+    const endHour = eventEnd.getHours();
+    const endMinutes = eventEnd.getMinutes();
+    
+    // Calculate position based on actual times within the time slots
+    let left = 0;
+    let width = 100;
+    
+    if (view === 'day') {
+      // For day view: each slot is 1 hour
+      const totalSlots = 24;
+      const slotWidth = 100 / totalSlots;
+      
+      const startTime = startHour + startMinutes / 60;
+      const endTime = endHour + endMinutes / 60;
+      
+      left = (startTime / 24) * 100;
+      width = ((endTime - startTime) / 24) * 100;
+    } else {
+      // For week/3day view: 4-hour slots
+      const timeSlotHours = [0, 4, 8, 12, 16, 20, 24]; // Include 24 for end boundary
+      const totalSlots = timeSlotHours.length - 1; // 6 slots
+      const slotWidth = 100 / totalSlots;
+      
+      // Calculate precise position within the day (0-24 hours)
+      const startTime = startHour + startMinutes / 60;
+      const endTime = endHour + endMinutes / 60;
+      
+      // Convert to percentage of the day
+      left = (startTime / 24) * 100;
+      width = ((endTime - startTime) / 24) * 100;
+    }
+    
+    const startTime = format(eventStart, 'HH:mm');
+    const endTime = format(eventEnd, 'HH:mm');
     
     return (
       <div
         key={event.id}
-        className="absolute left-0 right-0 mx-1 px-1 py-0.5 text-[8px] rounded cursor-pointer hover:opacity-80 transition-opacity"
+        className="absolute top-1 bottom-1 px-1 py-1 text-[9px] rounded cursor-pointer hover:opacity-80 transition-opacity overflow-hidden"
         style={{
           backgroundColor: event.backgroundColor || '#3b82f6',
           color: event.textColor || '#ffffff',
           borderLeft: `3px solid ${event.borderColor || event.backgroundColor || '#3b82f6'}`,
-          top: '1px',
-          height: 'calc(100% - 2px)',
-          zIndex: 10
+          left: `${left}%`,
+          width: `${width}%`,
+          zIndex: 10,
+          minHeight: '32px'
         }}
         onClick={() => onEventClick(event)}
       >
-        <div className="font-medium truncate text-[8px]">{event.title}</div>
-        <div className="text-[7px] opacity-90">
-          {startTime}{endTime && endTime !== startTime ? ` - ${endTime}` : ''}
+        {/* <div className="flex justify-between items-start">
+          <div className="text-[9px] font-medium">{event.title}</div>
+          <div className="truncate text-[8px] font-extralight">[ID {event.id}]</div>
+        </div> */}
+        <div className="truncate text-[8px]"><span className="font-medium">{event.title}</span> <span className="font-extralight">[ID {event.id}]</span></div>
+        <div className="text-[8px] opacity-90 mt-0.5">
+          {format(parse(startTime, 'HH:mm', new Date()), 'h:mm a').toLowerCase()}{endTime && endTime !== startTime ? ` - ${format(parse(endTime, 'HH:mm', new Date()), 'h:mm a').toLowerCase()}` : ''}
         </div>
         {event.extendedProps?.workorder && (
-          <div className="text-[6px] opacity-80 truncate">
+          <div className="text-[7px] opacity-80 truncate mt-0.5">
             WO: {event.extendedProps.workorder}
           </div>
         )}
@@ -247,8 +288,8 @@ const CustomCalendar: React.FC<CustomCalendarProps> = ({
       // For day view: each hour slot
       position = (currentHour + currentMinutes / 60) / 24 * 100;
     } else {
-      // For week/3day view: 6-hour intervals
-      const slotDuration = 6; // hours per slot
+      // For week/3day view: 4-hour intervals
+      const slotDuration = 4; // hours per slot
       const totalSlots = timeSlots.length;
       const currentSlot = Math.floor(currentHour / slotDuration);
       const minutesIntoSlot = (currentHour % slotDuration) * 60 + currentMinutes;
@@ -316,7 +357,7 @@ const CustomCalendar: React.FC<CustomCalendarProps> = ({
 
   };
 
-  const ROW_HEIGHT = 28; // Reduced from 32 to 28
+  const ROW_HEIGHT = 36; // Increased from 28 to 36
 
   return (
     <div className="h-full flex flex-col bg-white">
@@ -364,11 +405,12 @@ const CustomCalendar: React.FC<CustomCalendarProps> = ({
             </Button>
           ))}
           <Button
-            variant="default"
+            variant="outline"
             size="sm"
-            className="h-6 px-1.5 text-[9px] bg-blue-600 hover:bg-blue-700 ml-1"
+            className="h-6 px-1.5 text-[9px] ml-1 hover:bg-gray-700 hover:text-white"
             onClick={onNewEvent}
           >
+            <span className="text-[10px]">+</span>
             New Event
           </Button>
         </div>
