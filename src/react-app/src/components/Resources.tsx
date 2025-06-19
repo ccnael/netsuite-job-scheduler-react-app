@@ -19,18 +19,20 @@ import { MultiSelect } from './MultiSelect';
 import { fetchEmployees, type Employee } from '@/api/employee';
 import { fetchVendors, type Vendor } from '@/api/vendor';
 import { fetchAssets, type Asset } from '@/api/asset';
+import { type Event } from '@/api/event';
 import { Skeleton } from "@/components/ui/skeleton";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { toast } from "sonner";
 
 interface ResourcesProps {
   filterText: string;
+  events: Event[];
 }
 
 // Union type for all resources
 type Resource = (Employee & { type: 'employee' }) | (Vendor & { type: 'vendor' }) | (Asset & { type: 'asset' });
 
-export const Resources: React.FC<ResourcesProps> = ({ filterText }) => {
+export const Resources: React.FC<ResourcesProps> = ({ filterText, events }) => {
   const [isFilterOpen, setIsFilterOpen] = useState(false);
   const [selectedGroups, setSelectedGroups] = useState<string[]>([]);
   const [selectedStatuses, setSelectedStatuses] = useState<string[]>([]);
@@ -48,12 +50,52 @@ export const Resources: React.FC<ResourcesProps> = ({ filterText }) => {
           fetchVendors(),
           fetchAssets()
         ]);
-        setEmployees(employeeData || []);
-        setVendors(vendorData || []);
-        setAssets(assetData || []);
-        console.log('Resources: Loaded employees:', employeeData);
-        console.log('Resources: Loaded vendors:', vendorData);
-        console.log('Resources: Loaded assets:', assetData);
+
+        // Populate events for employees
+        const employeesWithEvents = (employeeData || []).map(employee => {
+          const matchingEvents = (events || []).filter(event => 
+            (event.resources || []).some(resource => 
+              resource.employee?.value === employee.employee?.value
+            )
+          );
+          return {
+            ...employee,
+            events: matchingEvents.map(event => event.id)
+          };
+        });
+
+        // Populate events for vendors
+        const vendorsWithEvents = (vendorData || []).map(vendor => {
+          const matchingEvents = (events || []).filter(event => 
+            (event.vendors || []).some(eventVendor => 
+              eventVendor.vendor?.value === vendor.vendor?.value
+            )
+          );
+          return {
+            ...vendor,
+            events: matchingEvents.map(event => event.id)
+          };
+        });
+
+        // Populate events for assets
+        const assetsWithEvents = (assetData || []).map(asset => {
+          const matchingEvents = (events || []).filter(event => 
+            (event.assets || []).some(eventAsset => 
+              eventAsset.asset?.value === eventAsset.asset?.value
+            )
+          );
+          return {
+            ...asset,
+            events: matchingEvents.map(event => event.id)
+          };
+        });
+
+        setEmployees(employeesWithEvents || []);
+        setVendors(vendorsWithEvents || []);
+        setAssets(assetsWithEvents || []);
+        console.log('Resources: Loaded employees with events:', employeesWithEvents);
+        console.log('Resources: Loaded vendors with events:', vendorsWithEvents);
+        console.log('Resources: Loaded assets:', assetsWithEvents);
       } catch (error) {
         console.error('Resources: Failed to load resources:', error);
         toast.error('Failed to load resource data');

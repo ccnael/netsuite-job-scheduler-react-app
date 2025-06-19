@@ -65,6 +65,7 @@ define(['N/search'], (search) => {
       quantityUsed: +map.getValue('custrecord_esp_fop_asset_qty_used'),
       owned: map.getValue('custrecord_esp_fop_asset_owned'),
       consumable: map.getValue('custrecord_erp_fop_asset_is_consumable'),
+      events: [], // Will be updated in the front end side once events data is fetched
       time: {
         start: '',
         end: ''
