@@ -80,7 +80,7 @@ define(['N/search'], (search) => {
       value: 'application/json'
     });
 
-    // log.audit('----- [Assets & Equipments] -----', assets);
+    log.audit('----- [Assets & Equipments] -----', assets.length);
     response.write(JSON.stringify(assets));
   }
 

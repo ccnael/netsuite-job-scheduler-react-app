@@ -17,11 +17,18 @@ define([
   function getResources(context) {
     const { request, response } = context;
     const { parameters: params } = request;
-    const { start, end } = params;
+    const { woId, start, end } = params;
 
     const filters = [
       ['isinactive', 'is', 'F']
     ];
+
+    if (woId) {
+      filters.push(
+        'AND',
+        ['custrecord_esp_fop_res_rel_wo', 'is', woId]
+      );
+    }
 
     const searchObj = search.create({
       type: env.RecordType.WORK_ORDER_RESOURCE,

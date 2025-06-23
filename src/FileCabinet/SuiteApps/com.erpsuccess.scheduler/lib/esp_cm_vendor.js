@@ -92,7 +92,7 @@ define(['N/search'], (search) => {
       value: 'application/json'
     });
 
-    // log.audit('----- [Vendors] -----', vendors);
+    log.audit('----- [Vendors] -----', vendors.length);
     response.write(JSON.stringify(vendors));
   }
 

@@ -155,7 +155,7 @@ define([
       value: 'application/json'
     });
 
-    // log.audit('----- [Employees] -----', employees);
+    log.audit('----- [Employees] -----', employees.length);
     response.write(JSON.stringify(employees));
   }
 
