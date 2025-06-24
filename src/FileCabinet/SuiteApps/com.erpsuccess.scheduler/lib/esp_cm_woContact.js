@@ -13,17 +13,33 @@ define([
    * Get the list of WO contacts
    * @param {Object} context Suitelet object
    */
-  function getList(context) {
+  function getContacts(context) {
     const { request, response } = context;
     const { parameters: params } = request;
-    const { start, end } = params;
+    const { woId, eventId, start, end } = params;
+    log.debug('WO Contacts params', params);
+
+    const filters = [
+      ['isinactive', 'is', 'F']
+    ];
+
+    if (woId) {
+      filters.push(
+        'AND',
+        ['custrecord_esp_fop_rel_wo', 'is', woId]
+      );
+    }
+
+    if (eventId) {
+      filters.push(
+        'AND',
+        ['custrecord_esp_fop_wo_rel_event', 'is', eventId]
+      );
+    }
 
     const searchObj = search.create({
       type: env.RecordType.WORK_ORDER_CONTACT,
-      filters:
-        [
-          ['isinactive', 'is', 'F']
-        ],
+      filters,
       columns:
         [
           search.createColumn({ name: 'custrecord_esp_fop_rel_wo', label: 'Work Order' }),
@@ -66,9 +82,14 @@ define([
       phone: map.getValue('custrecord_esp_fop_wo_phone_number'),
       primary: !!((map.getText('custrecord_esp_fop_wo_contact_role') || '').match(/primary contact/gi)),
       get url() {
-        return Url.contact(this.contact.value)
+        return utils.Url.contactUrl(this.contact.value)
       }
     }));
+
+    response.setHeader({
+      name: 'Content-Type',
+      value: 'application/json'
+    });
 
     // log.audit('----- [Work Order Contacts] -----', contacts);
     response.write(JSON.stringify(contacts));
@@ -122,7 +143,7 @@ define([
   }
 
   return {
-    getList,
+    getContacts,
     createContacts,
     updateContacts
   }

@@ -16,11 +16,18 @@ define([
   function getVendors(context) {
     const { request, response } = context;
     const { parameters: params } = request;
-    const { start, end } = params;
+    const { eventId, start, end } = params;
 
     const filters = [
       ['isinactive', 'is', 'F']
     ];
+
+    if (eventId) {
+      filters.push(
+        'AND',
+        ['custrecord_esp_fop_wo_sub_event', 'anyof', eventId]
+      );
+    }
 
     const searchObj = search.create({
       type: env.RecordType.WORK_ORDER_VENDOR,

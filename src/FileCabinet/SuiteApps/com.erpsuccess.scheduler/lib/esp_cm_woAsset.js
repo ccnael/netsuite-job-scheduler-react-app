@@ -17,11 +17,18 @@ define([
   function getAssets(context) {
     const { request, response } = context;
     const { parameters: params } = request;
-    const { start, end } = params;
+    const { eventId, start, end } = params;
 
     const filters = [
       ['isinactive', 'is', 'F']
     ];
+
+    if (eventId) {
+      filters.push(
+        'AND',
+        ['custrecord_esp_fop_ast_wo_event', 'anyof', eventId]
+      );
+    }
 
     const searchObj = search.create({
       type: env.RecordType.WORK_ORDER_ASSET,

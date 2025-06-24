@@ -13,17 +13,33 @@ define([
    * Get the list of WO items
    * @param {Object} context Suitelet object
    */
-  function getList(context) {
+  function getItems(context) {
     const { request, response } = context;
     const { parameters: params } = request;
-    const { start, end } = params;
+    const { woId, eventId, start, end } = params;
+    log.debug('WO Items params', params);
+
+    const filters = [
+      ['isinactive', 'is', 'F']
+    ];
+
+    if (woId) {
+      filters.push(
+        'AND',
+        ['custrecord_esp_fop_wo_item_rel_wo', 'is', woId]
+      );
+    }
+
+    if (eventId) {
+      filters.push(
+        'AND',
+        ['custrecord_esp_fop_wo_item_event', 'is', eventId]
+      );
+    }
 
     const searchObj = search.create({
       type: env.RecordType.WORK_ORDER_ITEM,
-      filters:
-        [
-          ['isinactive', 'is', 'F']
-        ],
+      filters,
       columns:
         [
           search.createColumn({ name: 'custrecord_esp_fop_wo_item_rel_wo', label: 'Work Order' }),
@@ -72,7 +88,12 @@ define([
       completedQty: +map.getValue('custrecord_esp_fop_wo_item_completedqty')
     }));
 
-    // log.audit('----- [Work Order Items] -----', items);
+    response.setHeader({
+      name: 'Content-Type',
+      value: 'application/json'
+    });
+
+    // log.audit('----- [Work Order Items] -----', items.length);
     response.write(JSON.stringify(items));
   }
 
@@ -168,7 +189,7 @@ define([
   }
 
   return {
-    getList,
+    getItems,
     createItems,
     updateItems
   }

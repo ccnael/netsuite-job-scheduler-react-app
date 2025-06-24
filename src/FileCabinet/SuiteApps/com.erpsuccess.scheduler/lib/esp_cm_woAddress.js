@@ -13,19 +13,32 @@ define([
    * Get the list of WO addresses
    * @param {Object} context Suitelet object
    */
-  function getList(context) {
+  function getAddresses(context) {
     const { request, response } = context;
     const { parameters: params } = request;
-    const { start, end } = params;
+    const { woId, eventId, start, end } = params;
+
+    const filters = [
+      ['isinactive', 'is', 'F']
+    ];
+
+    if (woId) {
+      filters.push(
+        'AND',
+        ['custrecord_esp_fop_address_rel_wo', 'is', woId]
+      );
+    }
+
+    if (eventId) {
+      filters.push(
+        'AND',
+        ['custrecord_esp_fop_wo_add_event', 'is', eventId]
+      );
+    }
 
     const searchObj = search.create({
       type: env.RecordType.WORK_ORDER_ADDRESS,
-      filters:
-        [
-          ['isinactive', 'is', 'F'],
-          'AND',
-          ['custrecord_esp_fop_address_rel_wo', 'anyof', woIds]
-        ],
+      filters,
       columns:
         [
           search.createColumn({ name: 'custrecord_esp_fop_address_rel_wo', label: 'Work Order' }),
@@ -44,27 +57,32 @@ define([
       });
 
     const addresses = searchResult.map((map) => ({
-      id: result.id,
+      id: map.id,
       workorder: {
-        text: result.getText('custrecord_esp_fop_address_rel_wo'),
-        value: result.getValue('custrecord_esp_fop_address_rel_wo')
+        text: map.getText('custrecord_esp_fop_address_rel_wo'),
+        value: map.getValue('custrecord_esp_fop_address_rel_wo')
       },
       customer: {
-        text: result.getText('custrecord_esp_fop_wo_add_customer'),
-        value: result.getValue('custrecord_esp_fop_wo_add_customer')
+        text: map.getText('custrecord_esp_fop_wo_add_customer'),
+        value: map.getValue('custrecord_esp_fop_wo_add_customer')
       },
-      events: helper.stringToArray(result.getValue('custrecord_esp_fop_wo_add_event')),
+      events: helper.stringToArray(map.getValue('custrecord_esp_fop_wo_add_event')),
       address: {
-        text: result.getText('custrecord_esp_fop_wo_address'),
-        value: result.getValue('custrecord_esp_fop_wo_address')
+        text: map.getText('custrecord_esp_fop_wo_address'),
+        value: map.getValue('custrecord_esp_fop_wo_address')
       },
-      addressDetails: (result.getValue('custrecord_esp_fop_wo_add_details') || '').replace(/\n/g, '<br/>'),
+      addressDetails: (map.getValue('custrecord_esp_fop_wo_add_details') || '').replace(/\n/g, '<br/>'),
       get customerUrl() {
-        return Url.customer(this.customer.value)
+        return utils.Url.customerUrl(this.customer.value)
       }
     }));
 
-    // log.audit('----- [Work Order Addresses] -----', addresses);
+    response.setHeader({
+      name: 'Content-Type',
+      value: 'application/json'
+    });
+
+    log.audit('----- [Work Order Addresses] -----', addresses);
     response.write(JSON.stringify(addresses));
   }
 
@@ -148,7 +166,7 @@ define([
   }
 
   return {
-    getList,
+    getAddresses,
     addEventToAddresses,
     removeEventFromAddresses
   }

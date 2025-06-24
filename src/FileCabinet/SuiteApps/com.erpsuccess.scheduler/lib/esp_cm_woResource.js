@@ -17,16 +17,16 @@ define([
   function getResources(context) {
     const { request, response } = context;
     const { parameters: params } = request;
-    const { woId, start, end } = params;
+    const { eventId, start, end } = params;
 
     const filters = [
       ['isinactive', 'is', 'F']
     ];
 
-    if (woId) {
+    if (eventId) {
       filters.push(
         'AND',
-        ['custrecord_esp_fop_res_rel_wo', 'is', woId]
+        ['custrecord_esp_fop_res_rel_wo_event', 'anyof', eventId]
       );
     }
 
@@ -84,7 +84,7 @@ define([
         text: map.getText('custrecord_esp_fop_res_rel_wo'),
         value: map.getValue('custrecord_esp_fop_res_rel_wo')
       },
-      events: helper.stringToArray(map.getValue('custrecord_esp_fop_res_rel_wo_event')),
+      event: map.getValue('custrecord_esp_fop_res_rel_wo_event'),
       employee: {
         text: map.getText('custrecord_esp_fop_res_employee'),
         value: map.getValue('custrecord_esp_fop_res_employee')
