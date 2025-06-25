@@ -1,5 +1,6 @@
 
 import { suiteletUrl } from '@/lib/constants';
+import { isLocalDevelopment } from '@/lib/helpers';
 
 export interface WOAsset {
   id: string;
@@ -3217,11 +3218,7 @@ const mockWOAssets: WOAsset[] = [{
   }
 ];
 
-const isLocalDevelopment = (): boolean => {
-  return import.meta.env.DEV || window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
-};
-
-export const fetchWOAssets = async (): Promise<WOAsset[]> => {
+export const fetchWOAssets = async (eventId: string): Promise<WOAsset[]> => {
   if (isLocalDevelopment()) {
     console.log('Using mock asset data for local development');
     return new Promise((resolve) => {
@@ -3240,7 +3237,7 @@ export const fetchWOAssets = async (): Promise<WOAsset[]> => {
     while (hasMoreData) {
       const start = 0 + (i * chunkSize);
       const end = chunkSize + (i * chunkSize);
-      const url = `${suiteletUrl}&mode=getWorkOrderAssets&start=${start}&end=${end}`;
+      const url = `${suiteletUrl}&mode=getWorkOrderAssets&eventId=${eventId}&start=${start}&end=${end}`;
       const response = await fetch(url);
       console.log(`WOAsset service RESPONSE chunk ${i + 1}:`, response);
       

@@ -1,5 +1,6 @@
 
 import { suiteletUrl } from '@/lib/constants';
+import { isLocalDevelopment } from '@/lib/helpers';
 
 export interface WOItem {
   id: string;
@@ -27,86 +28,206 @@ export interface WOItem {
 }
 
 // Mockup data for local development
-const mockWOItems: WOItem[] = [
-  {
-    id: '1',
-    workorder: {
-      text: 'WO-001',
-      value: '1'
+const mockWOItems: WOItem[] = [{
+    "id": "648",
+    "workorder": {
+      "text": "Lobby Area - Product Core Dryrun",
+      "value": "138"
     },
-    salesorder: {
-      text: 'SO-001',
-      value: '1'
+    "salesorder": {
+      "text": "Sales Order #SLS00000835",
+      "value": "24427"
     },
-    event: 'event1',
-    uuid: 'uuid-001',
-    line: '1',
-    item: {
-      text: 'Steel Beam 10ft',
-      value: '1'
+    "event": "101132",
+    "uuid": "24427_6",
+    "line": "6",
+    "item": {
+      "text": "J2HB-5124-SS1RS1",
+      "value": "2036"
     },
-    description: 'High-grade steel beam for structural support',
-    quantity: 5,
-    availableQty: 5,
-    note: 'Handle with care',
-    quantityReceived: 3,
-    completedQty: 2
+    "description": "X Series PST,HngdDr,51.5Hx24Wx24D,B/B/F,Valet,RH,PtdDwr,Ptd/StlDr,Ellipse Pull,Reg Top,Glide",
+    "quantity": 3,
+    "availableQty": 3,
+    "note": "",
+    "quantityReceived": 12,
+    "completedQty": 3
   },
   {
-    id: '2',
-    workorder: {
-      text: 'WO-002',
-      value: '2'
+    "id": "647",
+    "workorder": {
+      "text": "Lobby Area - Product Core Dryrun",
+      "value": "138"
     },
-    salesorder: {
-      text: 'SO-002',
-      value: '2'
+    "salesorder": {
+      "text": "Sales Order #SLS00000835",
+      "value": "24427"
     },
-    event: 'event2',
-    uuid: 'uuid-002',
-    line: '2',
-    item: {
-      text: 'Concrete Mix 50kg',
-      value: '2'
+    "event": "",
+    "uuid": "24427_6",
+    "line": "6",
+    "item": {
+      "text": "J2HB-5124-SS1RS1",
+      "value": "2036"
     },
-    description: 'Premium concrete mix for foundation',
-    quantity: 20,
-    availableQty: 20,
-    note: 'Store in dry place',
-    quantityReceived: 15,
-    completedQty: 10
+    "description": "X Series PST,HngdDr,51.5Hx24Wx24D,B/B/F,Valet,RH,PtdDwr,Ptd/StlDr,Ellipse Pull,Reg Top,Glide",
+    "quantity": 3,
+    "availableQty": 3,
+    "note": "",
+    "quantityReceived": 12,
+    "completedQty": 0
   },
   {
-    id: '3',
-    workorder: {
-      text: 'WO-003',
-      value: '3'
+    "id": "642",
+    "workorder": {
+      "text": "Lobby Area - Product Core Dryrun",
+      "value": "138"
     },
-    salesorder: {
-      text: 'SO-003',
-      value: '3'
+    "salesorder": {
+      "text": "Sales Order #SLS00000835",
+      "value": "24427"
     },
-    event: 'event3',
-    uuid: 'uuid-003',
-    line: '3',
-    item: {
-      text: 'Electrical Cable 100m',
-      value: '3'
+    "event": "",
+    "uuid": "24427_1",
+    "line": "1",
+    "item": {
+      "text": "VZCC-0054-HSS1",
+      "value": "2031"
     },
-    description: 'Heavy-duty electrical cable for power distribution',
-    quantity: 10,
-    availableQty: 8,
-    note: 'Weather-resistant coating',
-    quantityReceived: 10,
-    completedQty: 8
+    "description": "Compose,Top Trim 54In.W,Stl, Pnl Frame",
+    "quantity": 1,
+    "availableQty": 1,
+    "note": "",
+    "quantityReceived": 30,
+    "completedQty": 0
+  },
+  {
+    "id": "649",
+    "workorder": {
+      "text": "Lobby Area - Product Core Dryrun",
+      "value": "138"
+    },
+    "salesorder": {
+      "text": "Sales Order #SLS00000835",
+      "value": "24427"
+    },
+    "event": "101132",
+    "uuid": "24427_1",
+    "line": "1",
+    "item": {
+      "text": "VZCC-0054-HSS1",
+      "value": "2031"
+    },
+    "description": "Compose,Top Trim 54In.W,Stl, Pnl Frame",
+    "quantity": 1,
+    "availableQty": 1,
+    "note": "",
+    "quantityReceived": 30,
+    "completedQty": 1
+  },
+  {
+    "id": "643",
+    "workorder": {
+      "text": "Lobby Area - Product Core Dryrun",
+      "value": "138"
+    },
+    "salesorder": {
+      "text": "Sales Order #SLS00000835",
+      "value": "24427"
+    },
+    "event": "",
+    "uuid": "24427_2",
+    "line": "2",
+    "item": {
+      "text": "VZCE-7400-HS1",
+      "value": "2032"
+    },
+    "description": "Compose,Panel Trim,End-Of-Run 74In.H, Steel",
+    "quantity": 3,
+    "availableQty": 3,
+    "note": "",
+    "quantityReceived": 90,
+    "completedQty": 0
+  },
+  {
+    "id": "644",
+    "workorder": {
+      "text": "Lobby Area - Product Core Dryrun",
+      "value": "138"
+    },
+    "salesorder": {
+      "text": "Sales Order #SLS00000835",
+      "value": "24427"
+    },
+    "event": "",
+    "uuid": "24427_3",
+    "line": "3",
+    "item": {
+      "text": "VZCW-0000-PS1S1",
+      "value": "2033"
+    },
+    "description": "Compose,Wall Mount,Fits All Heights",
+    "quantity": 3,
+    "availableQty": 3,
+    "note": "",
+    "quantityReceived": 48,
+    "completedQty": 0
+  },
+  {
+    "id": "645",
+    "workorder": {
+      "text": "Lobby Area - Product Core Dryrun",
+      "value": "138"
+    },
+    "salesorder": {
+      "text": "Sales Order #SLS00000835",
+      "value": "24427"
+    },
+    "event": "",
+    "uuid": "24427_4",
+    "line": "4",
+    "item": {
+      "text": "VZFS-1654-RS1",
+      "value": "2034"
+    },
+    "description": "Compose,Stack Frame 16In.H X 54In.W,Std Accoust,NoPwr",
+    "quantity": 6,
+    "availableQty": 6,
+    "note": "",
+    "quantityReceived": 108,
+    "completedQty": 0
+  },
+  {
+    "id": "646",
+    "workorder": {
+      "text": "Lobby Area - Product Core Dryrun",
+      "value": "138"
+    },
+    "salesorder": {
+      "text": "Sales Order #SLS00000835",
+      "value": "24427"
+    },
+    "event": "",
+    "uuid": "24427_5",
+    "line": "5",
+    "item": {
+      "text": "VZTI-1654-FNNS1",
+      "value": "2035"
+    },
+    "description": "Compose,Single Tile,16In.HX54In.W,Fabric/Tackable,Std Core,No Tech",
+    "quantity": 12,
+    "availableQty": 12,
+    "note": "",
+    "quantityReceived": 192,
+    "completedQty": 0
   }
 ];
 
-export const fetchWOItems = async (): Promise<WOItem[]> => {
-  // Check if running locally (development environment)
-  if (suiteletUrl.includes('api.example.com')) {
-    console.log('WOItem: Using mockup data for local development');
-    return mockWOItems;
+export const fetchWOItems = async (woId: string, eventId: string): Promise<WOItem[]> => {
+  if (isLocalDevelopment()) {
+    console.log('Using mock item data for local development');
+    return new Promise((resolve) => {
+      setTimeout(() => resolve(mockWOItems), 500);
+    });
   }
 
   try {
@@ -120,7 +241,7 @@ export const fetchWOItems = async (): Promise<WOItem[]> => {
     while (hasMoreData) {
       const start = 0 + (i * chunkSize);
       const end = chunkSize + (i * chunkSize);
-      const url = `${suiteletUrl}&action=getWorkOrderItems&start=${start}&end=${end}`;
+      const url = `${suiteletUrl}&mode=getWorkOrderItems&woId=${woId}&eventId=${eventId}&start=${start}&end=${end}`;
       const response = await fetch(url);
       console.log(`WOItem service RESPONSE chunk ${i + 1}:`, response);
       

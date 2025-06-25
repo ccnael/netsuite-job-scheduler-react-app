@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import {
   Table,
@@ -18,31 +19,13 @@ import {
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 
-interface DataTableProps {
-  data: Array<{
-    id: number;
-    title: string;
-    description: string;
-  }>;
+interface DataTableProps<TData> {
+  data: TData[];
+  columns: ColumnDef<TData>[];
 }
 
-export const DataTable = ({ data }: DataTableProps) => {
+export const DataTable = <TData,>({ data, columns }: DataTableProps<TData>) => {
   const [globalFilter, setGlobalFilter] = useState("");
-
-  const columns: ColumnDef<DataTableProps["data"][0]>[] = [
-    {
-      accessorKey: "id",
-      header: "ID",
-    },
-    {
-      accessorKey: "title",
-      header: "Title",
-    },
-    {
-      accessorKey: "description",
-      header: "Description",
-    },
-  ];
 
   const table = useReactTable({
     data,

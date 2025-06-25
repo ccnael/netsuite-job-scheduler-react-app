@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+
+import React, { useState, useEffect, useCallback } from 'react';
 import { Card } from './Card';
 import { Resources } from './Resources';
 import { toast } from "sonner";
@@ -14,7 +15,7 @@ import {
 } from "@/components/ui/collapsible";
 import { Button } from "@/components/ui/button";
 import { MultiSelect } from './MultiSelect';
-import { ChevronRight, Filter, Bot, ClipboardCheck, Calendar } from "lucide-react";
+import { ChevronRight, Filter, Bot, ClipboardCheck, Calendar, Plus } from "lucide-react";
 import {
   Dialog,
   DialogContent,
@@ -42,11 +43,16 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Badge } from "@/components/ui/badge";
+import { Switch } from "@/components/ui/switch";
 import { fetchEmployees, type Employee } from '@/api/employee';
+import { fetchVendors, type Vendor } from '@/api/vendor';
+import { fetchAssets, type Asset } from '@/api/asset';
 import { fetchWorkOrders, type WorkOrder } from '@/api/workOrder';
 import { fetchEvents, type Event } from '@/api/event';
 import { Skeleton } from "@/components/ui/skeleton";
 import { Stars } from "lucide-react";
+import { CreateEvent } from './forms/CreateEvent';
+import { UpdateEvent } from './forms/UpdateEvent';
 
 interface FilterState {
   titles: string[];
@@ -81,112 +87,111 @@ interface Job {
   woUrl?: string;
   soUrl?: string;
   projectUrl?: string;
+  customerUrl?: string;
+  workOrder?: WorkOrder;
   receiptStatus: ReceiptStatus;
 }
 
 interface EventFormData {
-  text: string;
-  memo: string;
-  dateFrom: string;
-  dateTo: string;
+  eventTitle: string;
+  notes: string;
+  startDate: string;
+  endDate: string;
+  startTime: string;
+  endTime: string;
   status: string;
   priority: string;
+  allDay: boolean;
+  routingGroup: string;
+  selectedResources: any[];
+  selectedVendors: any[];
+  selectedAssets: any[];
+  selectedWOItems: any[];
+  selectedWOContacts: any[];
+  selectedWOAddresses: any[];
 }
 
-export const Board = () => {
-  const [employees, setEmployees] = useState<Employee[]>([]);
-  const [isEmployeesLoading, setIsEmployeesLoading] = useState(true);
+interface SelectedJob {
+  id: string;
+  title: string;
+  description: string;
+  woUrl: string;
+  project: string;
+  projectUrl: string;
+}
+
+interface BoardProps {
+  employees: Employee[];
+  vendors: Vendor[];
+  assets: Asset[];
+  isResourcesLoading: boolean;
+}
+
+export const Board: React.FC<BoardProps> = ({ employees, vendors, assets, isResourcesLoading }) => {
   const [jobs, setJobs] = useState<Job[]>([]);
-  const [isJobsLoading, setIsJobsLoading] = useState(true);
   const [events, setEvents] = useState<Event[]>([]);
-  const [isEventsLoading, setIsEventsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(true);
   const [loadingError, setLoadingError] = useState<string | null>(null);
 
   useEffect(() => {
-    const loadEmployees = async () => {
+    const loadAllData = async () => {
       try {
-        setIsEmployeesLoading(true);
-        const employeeData = await fetchEmployees();
-        setEmployees(employeeData);
-        console.log('Board: Loaded employees:', employeeData);
-      } catch (error) {
-        console.error('Board: Failed to load employees:', error);
-        toast.error('Failed to load employee data');
-      } finally {
-        setIsEmployeesLoading(false);
-      }
-    };
+        setIsLoading(true);
+        console.log('Board: Starting to load all data...');
+        
+        // Load all data in parallel
+        const [workOrderData, eventData] = await Promise.all([
+          fetchWorkOrders().catch(error => {
+            console.error('Board: Failed to load work orders:', error);
+            return [];
+          }),
+          fetchEvents().catch(error => {
+            console.error('Board: Failed to load events:', error);
+            return [];
+          })
+        ]);
 
-    loadEmployees();
-  }, []);
+        console.log('Board: Loaded work orders:', workOrderData);
+        console.log('Board: Loaded events:', eventData);
 
-  useEffect(() => {
-    const loadWorkOrders = async () => {
-      try {
-        setIsJobsLoading(true);
-        setLoadingError(null);
-        
-        const workOrders = await fetchWorkOrders();
-        
-        if (!workOrders || workOrders.length === 0) {
-          console.warn('Board: No work orders returned');
-          setJobs([]);
-          return;
-        }
-        
-        const jobsData = workOrders.map((wo: WorkOrder): Job => ({
+        // Transform work orders to jobs
+        const jobsData = (workOrderData || []).map((wo: WorkOrder): Job => ({
           id: wo.id,
-          title: wo.title || wo.name || 'Untitled Work Order',
-          description: wo.memo || 'No description',
+          title: wo.title || 'Untitled Work Order',
+          description: wo.description || 'No description',
           status: {
             text: wo.status?.text ?? '',
             value: wo.status?.value ?? '',
-            code: wo.status?.code ?? wo.status?.value ?? '',
+            code: wo.status?.code ?? ''
           },
-          type: wo.type?.text || 'Standard',
+          type: wo.type || '',
           date: wo.date || new Date().toLocaleDateString(),
-          customer: wo.customer?.text || 'Unknown Customer',
-          project: wo.project?.text || 'No Project',
-          salesOrder: wo.salesorder?.text || 'No Sales Order',
-          estHours: wo.esthours || 0,
+          customer: (typeof wo.customer === 'string') ? wo.customer : (wo.customer?.text || 'Unknown Customer'),
+          project: (typeof wo.project === 'string') ? wo.project : (wo.project?.text || 'No Project'),
+          salesOrder: wo.salesOrder || 'No Sales Order',
+          estHours: typeof wo.estHours === 'number' ? wo.estHours : (typeof wo.estHours === 'string' ? parseFloat(wo.estHours) || 0 : 0),
           woUrl: wo.woUrl,
           soUrl: wo.soUrl,
           projectUrl: wo.projectUrl,
-          receiptStatus: wo.receiptStatus
+          customerUrl: (typeof wo.customer === 'string') ? undefined : wo.customer?.url,
+          workOrder: wo,
+          receiptStatus: wo.receiptStatus || { text: '', value: '' }
         }));
         
         setJobs(jobsData);
-        console.log('Board: Loaded work orders as jobs:', jobsData);
+        setEvents(eventData || []);
+
+        console.log('Board: Successfully loaded all data');
       } catch (error) {
-        console.error('Board: Failed to load work orders:', error);
-        setLoadingError('Failed to load work orders. Using default data.');
-        toast.error('Failed to load work orders');
-        setJobs([]);
+        console.error('Board: Failed to load data:', error);
+        setLoadingError('Failed to load data. Using default values.');
+        toast.error('Failed to load data');
       } finally {
-        setIsJobsLoading(false);
+        setIsLoading(false);
       }
     };
 
-    loadWorkOrders();
-  }, []);
-
-  useEffect(() => {
-    const loadEvents = async () => {
-      try {
-        setIsEventsLoading(true);
-        const eventData = await fetchEvents();
-        setEvents(eventData);
-        console.log('Board: Loaded events:', eventData);
-      } catch (error) {
-        console.error('Board: Failed to load events:', error);
-        toast.error('Failed to load event data');
-        setEvents([]);
-      } finally {
-        setIsEventsLoading(false);
-      }
-    };
-
-    loadEvents();
+    loadAllData();
   }, []);
 
   const handleCardAction = (cardId: string, action: string, isEvent: boolean = false) => {
@@ -248,7 +253,7 @@ export const Board = () => {
 
   const [draggedCard, setDraggedCard] = useState<string | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [selectedCard, setSelectedCard] = useState<Job | null>(null);
+  const [selectedJob, setSelectedJob] = useState<Job | null>(null);
   const [isCollapsed, setIsCollapsed] = useState(false);
   
   const [resourcesFilter, setResourcesFilter] = useState<FilterState>({
@@ -283,63 +288,65 @@ export const Board = () => {
     if (draggedCard) {
       const card = jobs.find(c => c.id === draggedCard);
       if (card) {
-        setSelectedCard(card);
+        // Create the proper SelectedJob format
+        const selectedJobData: SelectedJob = {
+          id: card.id,
+          title: card.title,
+          description: card.description,
+          woUrl: card.woUrl || '',
+          project: card.project,
+          projectUrl: card.projectUrl || ''
+        };
+        setSelectedJob(card);
         setIsModalOpen(true);
       }
     }
   };
 
-  const [formData, setFormData] = useState<EventFormData>({
-    text: '',
-    memo: '',
-    dateFrom: '',
-    dateTo: '',
-    status: 'pending',
-    priority: 'medium'
-  });
-
-  const handleSubmit = () => {
-    if (!formData.text || !formData.dateFrom || !formData.dateTo) {
+  const handleSubmit = useCallback((submittedFormData: EventFormData) => {
+    if (!submittedFormData.eventTitle || !submittedFormData.startDate || !submittedFormData.endDate || (!submittedFormData.allDay && (!submittedFormData.startTime || !submittedFormData.endTime))) {
+      console.log('Form Data', submittedFormData);
       toast.error("Please fill in all required fields");
       return;
     }
 
-    if (selectedCard) {
+    if (selectedJob) {
       const newEvent: Event = {
-        id: String(Date.now()),
-        title: formData.text,
-        note: formData.memo,
+        id: '',
+        title: submittedFormData.eventTitle,
+        note: submittedFormData.notes,
         date: {
-          recurrence: formData.dateFrom,
-          dates: [formData.dateFrom],
-          start: formData.dateFrom,
-          end: formData.dateTo
+          recurrence: submittedFormData.startDate,
+          dates: [submittedFormData.startDate],
+          start: submittedFormData.startDate,
+          end: submittedFormData.endDate
+        },
+        time: submittedFormData.allDay ? undefined : {
+          start: submittedFormData.startTime,
+          end: submittedFormData.endTime
         },
         status: {
-          text: formData.status,
-          value: formData.status.toUpperCase(),
-          code: formData.status.toUpperCase()
+          text: submittedFormData.status,
+          value: submittedFormData.status.toUpperCase(),
+          code: submittedFormData.status.toUpperCase()
         },
         priority: {
-          text: formData.priority,
-          value: formData.priority,
-          code: formData.priority.toUpperCase()
+          text: submittedFormData.priority === '1' ? 'Low' : submittedFormData.priority === '2' ? 'Mid' : submittedFormData.priority === '3' ? 'High' : 'Urgent',
+          value: submittedFormData.priority,
+          code: submittedFormData.priority
+        },
+        workorder: {
+          text: selectedJob.title,
+          value: selectedJob.id
         }
       };
       
       setEvents([...events, newEvent]);
+      console.log('NEW EVENT', { newEvent, events });
       setIsModalOpen(false);
-      setSelectedCard(null);
-      setFormData({
-        text: '',
-        memo: '',
-        dateFrom: '',
-        dateTo: '',
-        status: 'pending',
-        priority: 'medium'
-      });
+      setSelectedJob(null);
     }
-  };
+  }, [selectedJob, events]);
 
   const [isUpdateModalOpen, setIsUpdateModalOpen] = useState(false);
   const [selectedEventForUpdate, setSelectedEventForUpdate] = useState<Event | null>(null);
@@ -397,7 +404,12 @@ export const Board = () => {
     return undefined;
   };
 
-  if (isJobsLoading || isEventsLoading) {
+  const handleCreateNewEvent = () => {
+    setIsModalOpen(true);
+    setSelectedJob(null); // Clear any selected card since this is a new event
+  };
+
+  if (isLoading) {
     return (
       <div className="p-6 h-screen bg-gray-50">
         <div className="flex rounded-lg border relative overflow-hidden h-full">
@@ -409,41 +421,20 @@ export const Board = () => {
                   <Skeleton key={i} className="h-16 w-full" />
                 ))}
               </div>
-              {/* <div className="flex justify-center items-center h-40">
-                <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div>
-              </div> */}
-              {/* <div className="absolute inset-0 flex justify-center items-center bg-opacity-60 z-50">
-                <div className="animate-spin rounded-full h-10 w-10 border-b-2 border-primary"></div>
-              </div> */}
             </div>
           </div>
           <div className="flex-1 bg-white p-4 h-full">
-            <div className="space-y-4 h-full flex flex-col border-r">
-              {/* <Skeleton className="h-6 w-32" />
-              <div className="grid auto-rows-max gap-0 flex-1" style={{ gridTemplateColumns: 'repeat(auto-fill, minmax(150px, 1fr))' }}>
-                {[1, 2, 3, 4].map((i) => (
-                  <Skeleton key={i} className="h-24 w-full" />
-                ))}
-              </div> */}
-              <div className="absolute flex inset-0 justify-center items-center" style={{ marginRight: 200 }}>
+            <div className="space-y-4 h-full flex flex-col border-r relative">
+              <div className="absolute inset-0 flex justify-center items-center">
                 <div className="animate-spin rounded-full h-10 w-10 border-b-2 border-primary"></div>
               </div>
             </div>
           </div>
           <div className="flex-1 bg-white p-4 h-full">
-            <div className="space-y-4 h-full flex flex-col">
-              <Skeleton className="h-6 w-32" />
-              <div className="grid auto-rows-max gap-0 flex-1" style={{ gridTemplateColumns: 'repeat(auto-fill, minmax(150px, 1fr))' }}>
-                {[1, 2, 3, 4].map((i) => (
-                  <Skeleton key={i} className="h-24 w-full" />
-                ))}
-              </div>
-              {/* <div className="flex justify-center items-center h-40">
-                <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div>
-              </div> */}
-              {/* <div className="absolute inset-0 flex justify-center items-center bg-opacity-60 z-50">
+            <div className="space-y-4 h-full flex flex-col relative">
+              <div className="absolute inset-0 flex justify-center items-center">
                 <div className="animate-spin rounded-full h-10 w-10 border-b-2 border-primary"></div>
-              </div> */}
+              </div>
             </div>
           </div>
         </div>
@@ -467,7 +458,14 @@ export const Board = () => {
           <div className="flex h-full">
             <CollapsibleContent className="w-[250px] min-w-[250px] h-full bg-white p-4 border-r">
               <div className="h-full flex flex-col">
-                <Resources filterText={resourcesFilter.titles.join(' ')} />
+                <Resources 
+                  filterText={resourcesFilter.titles.join(' ')} 
+                  events={events} 
+                  employees={employees}
+                  vendors={vendors}
+                  assets={assets}
+                  isLoading={isResourcesLoading}
+                />
               </div>
             </CollapsibleContent>
 
@@ -566,22 +564,32 @@ export const Board = () => {
                       {events.length}
                     </Badge>
                   </div>
-                  <div className="relative">
+                  <div className="flex items-center gap-2">
                     <Button
                       variant="outline"
                       size="icon"
-                      onClick={() => handleOpenFilter('events')}
+                      onClick={handleCreateNewEvent}
+                      title="Create new event"
                     >
-                      <Filter className="h-4 w-4" />
+                      <Plus className="h-4 w-4" />
                     </Button>
-                    {getActiveFiltersCount(resourcesFilter) > 0 && (
-                      <Badge 
-                        variant="secondary"
-                        className="absolute -top-2 -right-2 h-5 w-5 flex items-center justify-center p-0"
+                    <div className="relative">
+                      <Button
+                        variant="outline"
+                        size="icon"
+                        onClick={() => handleOpenFilter('events')}
                       >
-                        {getActiveFiltersCount(resourcesFilter)}
-                      </Badge>
-                    )}
+                        <Filter className="h-4 w-4" />
+                      </Button>
+                      {getActiveFiltersCount(resourcesFilter) > 0 && (
+                        <Badge 
+                          variant="secondary"
+                          className="absolute -top-2 -right-2 h-5 w-5 flex items-center justify-center p-0"
+                        >
+                          {getActiveFiltersCount(resourcesFilter)}
+                        </Badge>
+                      )}
+                    </div>
                   </div>
                 </div>
                 <ScrollArea className="flex-1 h-full">
@@ -639,183 +647,32 @@ export const Board = () => {
         </Button>
       </div>
 
-      {/* Event Form Dialog */}
-      <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
-        <DialogContent className="sm:max-w-[1024px]">
-          <DialogHeader>
-            <DialogTitle>Create Event</DialogTitle>
-          </DialogHeader>
-          
-          <div className="py-4">
-            <Accordion type="multiple" defaultValue={["item-1", "item-2"]} className="w-full">
-              <AccordionItem value="item-1">
-                <AccordionTrigger>Primary Information</AccordionTrigger>
-                <AccordionContent>
-                  <div className="space-y-4">
-                    <div className="grid grid-cols-2 gap-4">
-                      <div className="space-y-2">
-                        <Label htmlFor="priority">Priority</Label>
-                        <Select
-                          value={formData.priority}
-                          onValueChange={(value) => setFormData({ ...formData, priority: value })}
-                        >
-                          <SelectTrigger>
-                            <SelectValue placeholder="Select priority" />
-                          </SelectTrigger>
-                          <SelectContent>
-                            <SelectItem value="low">Low</SelectItem>
-                            <SelectItem value="medium">Medium</SelectItem>
-                            <SelectItem value="high">High</SelectItem>
-                          </SelectContent>
-                        </Select>
-                      </div>
-                      <div className="space-y-2">
-                        <Label htmlFor="status">Status</Label>
-                        <Select
-                          value={formData.status}
-                          onValueChange={(value) => setFormData({ ...formData, status: value })}
-                        >
-                          <SelectTrigger>
-                            <SelectValue placeholder="Select status" />
-                          </SelectTrigger>
-                          <SelectContent>
-                            <SelectItem value="pending">Pending</SelectItem>
-                            <SelectItem value="in-progress">In Progress</SelectItem>
-                            <SelectItem value="completed">Completed</SelectItem>
-                          </SelectContent>
-                        </Select>
-                      </div>
-                    </div>
-                    <div className="space-y-2">
-                      <Label htmlFor="text">Text *</Label>
-                      <Input
-                        id="text"
-                        value={formData.text}
-                        onChange={(e) => setFormData({ ...formData, text: e.target.value })}
-                        placeholder="Enter text"
-                        required
-                      />
-                    </div>
-                    <div className="space-y-2">
-                      <Label htmlFor="memo">Memo</Label>
-                      <Textarea
-                        id="memo"
-                        value={formData.memo}
-                        onChange={(e) => setFormData({ ...formData, memo: e.target.value })}
-                        placeholder="Enter memo"
-                      />
-                    </div>
-                    <div className="grid grid-cols-2 gap-4">
-                      <div className="space-y-2">
-                        <Label htmlFor="dateFrom">Date From *</Label>
-                        <Input
-                          id="dateFrom"
-                          type="date"
-                          value={formData.dateFrom}
-                          onChange={(e) => setFormData({ ...formData, dateFrom: e.target.value })}
-                          required
-                        />
-                      </div>
-                      <div className="space-y-2">
-                        <Label htmlFor="dateTo">Date To *</Label>
-                        <Input
-                          id="dateTo"
-                          type="date"
-                          value={formData.dateTo}
-                          onChange={(e) => setFormData({ ...formData, dateTo: e.target.value })}
-                          required
-                        />
-                      </div>
-                    </div>
-                  </div>
-                </AccordionContent>
-              </AccordionItem>
-              <AccordionItem value="item-2">
-                <AccordionTrigger>Card Details</AccordionTrigger>
-                <AccordionContent>
-                  <DataTable data={selectedCard ? [{ id: parseInt(selectedCard.id), title: selectedCard.title, description: selectedCard.description }] : []} />
-                </AccordionContent>
-              </AccordionItem>
-            </Accordion>
-          </div>
+      {/* Create Event Form */}
+      <CreateEvent
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        selectedJob={selectedJob ? {
+          id: selectedJob.id,
+          title: selectedJob.title,
+          description: selectedJob.description,
+          woUrl: selectedJob.woUrl || '',
+          project: selectedJob.project,
+          projectUrl: selectedJob.projectUrl || ''
+        } : undefined}
+        onSubmit={handleSubmit}
+        employees={employees}
+        vendors={vendors}
+        assets={assets}
+      />
 
-          <DialogFooter>
-            <Button variant="outline" onClick={() => setIsModalOpen(false)}>
-              Cancel
-            </Button>
-            <Button onClick={handleSubmit}>Submit</Button>
-          </DialogFooter>
-        </DialogContent>
-      </Dialog>
-
-      {/* Add Update Event Modal */}
-      <Dialog open={isUpdateModalOpen} onOpenChange={setIsUpdateModalOpen}>
-        <DialogContent className="sm:max-w-[500px]">
-          <DialogHeader>
-            <DialogTitle>Update Event</DialogTitle>
-            <DialogDescription>
-              Make changes to the event details below.
-            </DialogDescription>
-          </DialogHeader>
-          
-          {selectedEventForUpdate && (
-            <div className="space-y-4">
-              <div className="space-y-2">
-                <Label htmlFor="update-title">Title</Label>
-                <Input
-                  id="update-title"
-                  value={selectedEventForUpdate.title || ''}
-                  onChange={(e) => setSelectedEventForUpdate({
-                    ...selectedEventForUpdate,
-                    title: e.target.value
-                  })}
-                />
-              </div>
-              <div className="space-y-2">
-                <Label htmlFor="update-description">Description</Label>
-                <Textarea
-                  id="update-description"
-                  value={selectedEventForUpdate.note || ''}
-                  onChange={(e) => setSelectedEventForUpdate({
-                    ...selectedEventForUpdate,
-                    note: e.target.value
-                  })}
-                />
-              </div>
-              <div className="space-y-2">
-                <Label htmlFor="update-status">Status</Label>
-                <Select
-                  value={selectedEventForUpdate.status?.text || 'Pending'}
-                  onValueChange={(value) => setSelectedEventForUpdate({
-                    ...selectedEventForUpdate,
-                    status: {
-                      text: value,
-                      value: value.toUpperCase(),
-                      code: value.toUpperCase()
-                    }
-                  })}
-                >
-                  <SelectTrigger>
-                    <SelectValue />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="Confirmed">Confirmed</SelectItem>
-                    <SelectItem value="Pending">Pending</SelectItem>
-                    <SelectItem value="Cancelled">Cancelled</SelectItem>
-                  </SelectContent>
-                </Select>
-              </div>
-            </div>
-          )}
-
-          <DialogFooter>
-            <Button variant="outline" onClick={() => setIsUpdateModalOpen(false)}>
-              Cancel
-            </Button>
-            <Button onClick={handleUpdateEvent}>Update Event</Button>
-          </DialogFooter>
-        </DialogContent>
-      </Dialog>
+      {/* Update Event Form */}
+      <UpdateEvent
+        isOpen={isUpdateModalOpen}
+        onClose={() => setIsUpdateModalOpen(false)}
+        selectedEvent={selectedEventForUpdate}
+        setSelectedEvent={setSelectedEventForUpdate}
+        onUpdate={handleUpdateEvent}
+      />
 
       {/* Filter Modal */}
       <Dialog open={isFilterModalOpen} onOpenChange={setIsFilterModalOpen}>

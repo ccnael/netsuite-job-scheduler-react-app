@@ -16,105 +16,82 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Filter, Users } from "lucide-react";
 import { MultiSelect } from './MultiSelect';
-import { fetchEmployees, type Employee } from '@/api/employee';
-import { fetchVendors, type Vendor } from '@/api/vendor';
-import { fetchAssets, type Asset } from '@/api/asset';
+import { type Employee } from '@/api/employee';
+import { type Vendor } from '@/api/vendor';
+import { type Asset } from '@/api/asset';
 import { type Event } from '@/api/event';
 import { Skeleton } from "@/components/ui/skeleton";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { toast } from "sonner";
 
 interface ResourcesProps {
   filterText: string;
   events: Event[];
+  employees: Employee[];
+  vendors: Vendor[];
+  assets: Asset[];
+  isLoading: boolean;
 }
 
 // Union type for all resources
 type Resource = (Employee & { type: 'employee' }) | (Vendor & { type: 'vendor' }) | (Asset & { type: 'asset' });
 
-export const Resources: React.FC<ResourcesProps> = ({ filterText, events }) => {
+export const Resources: React.FC<ResourcesProps> = ({ 
+  filterText, 
+  events, 
+  employees, 
+  vendors, 
+  assets, 
+  isLoading 
+}) => {
   const [isFilterOpen, setIsFilterOpen] = useState(false);
   const [selectedGroups, setSelectedGroups] = useState<string[]>([]);
   const [selectedStatuses, setSelectedStatuses] = useState<string[]>([]);
-  const [employees, setEmployees] = useState<Employee[]>([]);
-  const [vendors, setVendors] = useState<Vendor[]>([]);
-  const [assets, setAssets] = useState<Asset[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const loadResources = async () => {
-      try {
-        setIsLoading(true);
-        const [employeeData, vendorData, assetData] = await Promise.all([
-          fetchEmployees(),
-          fetchVendors(),
-          fetchAssets()
-        ]);
-
-        // Populate events for employees
-        const employeesWithEvents = (employeeData || []).map(employee => {
-          const matchingEvents = (events || []).filter(event => 
-            (event.resources || []).some(resource => 
-              resource.employee?.value === employee.employee?.value
-            )
-          );
-          return {
-            ...employee,
-            events: matchingEvents.map(event => event.id)
-          };
-        });
-
-        // Populate events for vendors
-        const vendorsWithEvents = (vendorData || []).map(vendor => {
-          const matchingEvents = (events || []).filter(event => 
-            (event.vendors || []).some(eventVendor => 
-              eventVendor.vendor?.value === vendor.vendor?.value
-            )
-          );
-          return {
-            ...vendor,
-            events: matchingEvents.map(event => event.id)
-          };
-        });
-
-        // Populate events for assets
-        const assetsWithEvents = (assetData || []).map(asset => {
-          const matchingEvents = (events || []).filter(event => 
-            (event.assets || []).some(eventAsset => 
-              eventAsset.asset?.value === eventAsset.asset?.value
-            )
-          );
-          return {
-            ...asset,
-            events: matchingEvents.map(event => event.id)
-          };
-        });
-
-        setEmployees(employeesWithEvents || []);
-        setVendors(vendorsWithEvents || []);
-        setAssets(assetsWithEvents || []);
-        console.log('Resources: Loaded employees with events:', employeesWithEvents);
-        console.log('Resources: Loaded vendors with events:', vendorsWithEvents);
-        console.log('Resources: Loaded assets:', assetsWithEvents);
-      } catch (error) {
-        console.error('Resources: Failed to load resources:', error);
-        toast.error('Failed to load resource data');
-        setEmployees([]);
-        setVendors([]);
-        setAssets([]);
-      } finally {
-        setIsLoading(false);
-      }
-    };
-
-    loadResources();
-  }, []);
+    // Populate events for employees, vendors, and assets when events change
+    if (events.length > 0) {
+      console.log('Resources: Processing events for resources');
+    }
+  }, [events]);
 
   // Combine employees, vendors, and assets into a unified resource list with proper null checks
   const allResources: Resource[] = [
-    ...(employees || []).map(emp => ({ ...emp, type: 'employee' as const })),
-    ...(vendors || []).map(vendor => ({ ...vendor, type: 'vendor' as const })),
-    ...(assets || []).map(asset => ({ ...asset, type: 'asset' as const }))
+    ...(employees || []).map(emp => {
+      const matchingEvents = (events || []).filter(event => 
+        (event.resources || []).some(resource => 
+          resource.employee?.value === emp.employee?.value
+        )
+      );
+      return { 
+        ...emp, 
+        type: 'employee' as const,
+        events: matchingEvents.map(event => event.id)
+      };
+    }),
+    ...(vendors || []).map(vendor => {
+      const matchingEvents = (events || []).filter(event => 
+        (event.vendors || []).some(eventVendor => 
+          eventVendor.vendor?.value === vendor.vendor?.value
+        )
+      );
+      return { 
+        ...vendor, 
+        type: 'vendor' as const,
+        events: matchingEvents.map(event => event.id)
+      };
+    }),
+    ...(assets || []).map(asset => {
+      const matchingEvents = (events || []).filter(event => 
+        (event.assets || []).some(eventAsset => 
+          eventAsset.asset?.value === asset.asset?.value
+        )
+      );
+      return { 
+        ...asset, 
+        type: 'asset' as const,
+        events: matchingEvents.map(event => event.id)
+      };
+    })
   ];
 
   const filteredResources = allResources.filter(resource => {

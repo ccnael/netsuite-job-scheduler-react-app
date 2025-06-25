@@ -11,7 +11,10 @@ import { fetchEmployees, type Employee } from '@/api/employee';
 import { fetchVendors, type Vendor } from '@/api/vendor';
 import { fetchAssets, type Asset } from '@/api/asset';
 import { fetchWorkOrders, type WorkOrder } from '@/api/workOrder';
-import { fetchEvents, type Event } from '@/api/event';
+import { fetchEvents, updateEvent, type Event } from '@/api/event';
+import { fetchWOResources, type WOResource } from '@/api/woResource';
+import { fetchWOVendors, type WOVendor } from '@/api/woVendor';
+import { fetchWOAssets, type WOAsset } from '@/api/woAsset';
 import { Skeleton } from "@/components/ui/skeleton";
 import { Card } from "@/components/Card";
 import { ScrollArea } from "@/components/ui/scroll-area";
@@ -21,7 +24,7 @@ import {
   ResizableHandle,
 } from "@/components/ui/resizable";
 import { Stars, Users, ClipboardCheck } from "lucide-react";
-import { format } from "date-fns";
+import { format, parseISO } from "date-fns";
 import CustomCalendar from '@/components/CustomCalendar';
 
 interface Job {
@@ -44,6 +47,9 @@ interface Job {
 const Calendar = () => {
   const [calendarEvents, setCalendarEvents] = useState<any[]>([]);
   const [events, setEvents] = useState<Event[]>([]);
+  const [woResources, setWOResources] = useState<WOResource[]>([]);
+  const [woVendors, setWOVendors] = useState<WOVendor[]>([]);
+  const [woAssets, setWOAssets] = useState<WOAsset[]>([]);
   const [isEventsLoading, setIsEventsLoading] = useState(true);
   const [open, setOpen] = useState(false);
   const [eventId, setEventId] = useState('');
@@ -65,23 +71,35 @@ const Calendar = () => {
     const loadResources = async () => {
       try {
         setIsLoading(true);
-        const [employeeData, vendorData, assetData] = await Promise.all([
+        const [employeeData, vendorData, assetData, woResourceData, woVendorData, woAssetData] = await Promise.all([
           fetchEmployees(),
           fetchVendors(),
-          fetchAssets()
+          fetchAssets(),
+          fetchWOResources(),
+          fetchWOVendors(),
+          fetchWOAssets()
         ]);
         setEmployees(employeeData);
         setVendors(vendorData);
         setAssets(assetData);
+        setWOResources(woResourceData);
+        setWOVendors(woVendorData);
+        setWOAssets(woAssetData);
         console.log('Calendar: Loaded employees:', employeeData);
         console.log('Calendar: Loaded vendors:', vendorData);
         console.log('Calendar: Loaded assets:', assetData);
+        console.log('Calendar: Loaded WO resources:', woResourceData);
+        console.log('Calendar: Loaded WO vendors:', woVendorData);
+        console.log('Calendar: Loaded WO assets:', woAssetData);
       } catch (error) {
         console.error('Calendar: Failed to load resources:', error);
         toast.error('Failed to load resource data');
         setEmployees([]);
         setVendors([]);
         setAssets([]);
+        setWOResources([]);
+        setWOVendors([]);
+        setWOAssets([]);
       } finally {
         setIsLoading(false);
       }
@@ -206,6 +224,180 @@ const Calendar = () => {
     loadEvents();
   }, []);
 
+  useEffect(() => {
+    if (woResources.length > 0 && events.length > 0) {
+      const mappedEvents: any[] = [];
+      
+      woResources.forEach(woResource => {
+        // Find events for this WOResource using the events property
+        woResource.events.forEach(eventId => {
+          const foundEvent = events.find(event => event.id === eventId);
+          if (foundEvent) {
+            let startDateTime, endDateTime;
+            
+            // Handle date and time formatting
+            if (foundEvent.date?.start && foundEvent.time?.start) {
+              startDateTime = `${foundEvent.date.start}T${foundEvent.time.start}:00`;
+            } else if (foundEvent.date?.start) {
+              startDateTime = `${foundEvent.date.start}T09:00:00`;
+            }
+            
+            if (foundEvent.date?.end && foundEvent.time?.end) {
+              endDateTime = `${foundEvent.date.end}T${foundEvent.time.end}:00`;
+            } else if (foundEvent.date?.end) {
+              endDateTime = `${foundEvent.date.end}T17:00:00`;
+            } else if (startDateTime) {
+              const startDate = new Date(startDateTime);
+              startDate.setHours(startDate.getHours() + 1);
+              endDateTime = startDate.toISOString().slice(0, 19);
+            }
+            
+            if (startDateTime) {
+              mappedEvents.push({
+                id: foundEvent.id,
+                title: foundEvent.title || 'Untitled Event',
+                start: startDateTime,
+                end: endDateTime || startDateTime,
+                resourceId: woResource.employee.value, // Map to employee value
+                description: foundEvent.note || '',
+                backgroundColor: foundEvent.color || '#1a6756',
+                borderColor: foundEvent.color || '#1a6756',
+                textColor: '#ffffff',
+                extendedProps: {
+                  description: foundEvent.note || '',
+                  workorder: foundEvent.workorder?.text || '',
+                  location: foundEvent.location || '',
+                  status: foundEvent.status?.text || '',
+                  priority: foundEvent.priority?.text || '',
+                  woResourceName: woResource.name
+                }
+              });
+            }
+          }
+        });
+      });
+      
+      console.log('Calendar: Mapped WOResource events:', mappedEvents);
+      setCalendarEvents(prev => [...prev, ...mappedEvents]);
+    }
+  }, [woResources, events]);
+
+  useEffect(() => {
+    if (woVendors.length > 0 && events.length > 0) {
+      const mappedVendorEvents: any[] = [];
+      
+      woVendors.forEach(woVendor => {
+        // Find event for this WOVendor using the event property (single value, not array)
+        if (woVendor.event) {
+          const foundEvent = events.find(event => event.id === woVendor.event);
+          if (foundEvent) {
+            let startDateTime, endDateTime;
+            
+            // Handle date and time formatting
+            if (foundEvent.date?.start && foundEvent.time?.start) {
+              startDateTime = `${foundEvent.date.start}T${foundEvent.time.start}:00`;
+            } else if (foundEvent.date?.start) {
+              startDateTime = `${foundEvent.date.start}T09:00:00`;
+            }
+            
+            if (foundEvent.date?.end && foundEvent.time?.end) {
+              endDateTime = `${foundEvent.date.end}T${foundEvent.time.end}:00`;
+            } else if (foundEvent.date?.end) {
+              endDateTime = `${foundEvent.date.end}T17:00:00`;
+            } else if (startDateTime) {
+              const startDate = new Date(startDateTime);
+              startDate.setHours(startDate.getHours() + 1);
+              endDateTime = startDate.toISOString().slice(0, 19);
+            }
+            
+            if (startDateTime) {
+              mappedVendorEvents.push({
+                id: foundEvent.id,
+                title: foundEvent.title || 'Untitled Event',
+                start: startDateTime,
+                end: endDateTime || startDateTime,
+                resourceId: woVendor.vendor.value, // Map to vendor value
+                description: foundEvent.note || '',
+                backgroundColor: foundEvent.color || '#ff6b35',
+                borderColor: foundEvent.color || '#ff6b35',
+                textColor: '#ffffff',
+                extendedProps: {
+                  description: foundEvent.note || '',
+                  workorder: foundEvent.workorder?.text || '',
+                  location: foundEvent.location || '',
+                  status: foundEvent.status?.text || '',
+                  priority: foundEvent.priority?.text || '',
+                  woVendorName: woVendor.name
+                }
+              });
+            }
+          }
+        }
+      });
+      
+      console.log('Calendar: Mapped WOVendor events:', mappedVendorEvents);
+      setCalendarEvents(prev => [...prev, ...mappedVendorEvents]);
+    }
+  }, [woVendors, events]);
+
+  useEffect(() => {
+    if (woAssets.length > 0 && events.length > 0) {
+      const mappedAssetEvents: any[] = [];
+      
+      woAssets.forEach(woAsset => {
+        // Find event for this WOAsset using the event property (single value, not array)
+        if (woAsset.event) {
+          const foundEvent = events.find(event => event.id === woAsset.event);
+          if (foundEvent) {
+            let startDateTime, endDateTime;
+            
+            // Handle date and time formatting
+            if (foundEvent.date?.start && foundEvent.time?.start) {
+              startDateTime = `${foundEvent.date.start}T${foundEvent.time.start}:00`;
+            } else if (foundEvent.date?.start) {
+              startDateTime = `${foundEvent.date.start}T09:00:00`;
+            }
+            
+            if (foundEvent.date?.end && foundEvent.time?.end) {
+              endDateTime = `${foundEvent.date.end}T${foundEvent.time.end}:00`;
+            } else if (foundEvent.date?.end) {
+              endDateTime = `${foundEvent.date.end}T17:00:00`;
+            } else if (startDateTime) {
+              const startDate = new Date(startDateTime);
+              startDate.setHours(startDate.getHours() + 1);
+              endDateTime = startDate.toISOString().slice(0, 19);
+            }
+            
+            if (startDateTime) {
+              mappedAssetEvents.push({
+                id: foundEvent.id,
+                title: foundEvent.title || 'Untitled Event',
+                start: startDateTime,
+                end: endDateTime || startDateTime,
+                resourceId: woAsset.asset.value, // Map to asset value
+                description: foundEvent.note || '',
+                backgroundColor: foundEvent.color || '#f59e0b',
+                borderColor: foundEvent.color || '#f59e0b',
+                textColor: '#ffffff',
+                extendedProps: {
+                  description: foundEvent.note || '',
+                  workorder: foundEvent.workorder?.text || '',
+                  location: foundEvent.location || '',
+                  status: foundEvent.status?.text || '',
+                  priority: foundEvent.priority?.text || '',
+                  woAssetName: woAsset.name
+                }
+              });
+            }
+          }
+        }
+      });
+      
+      console.log('Calendar: Mapped WOAsset events:', mappedAssetEvents);
+      setCalendarEvents(prev => [...prev, ...mappedAssetEvents]);
+    }
+  }, [woAssets, events]);
+
   const handleEventClick = (event: any) => {
     setOpen(true);
     setIsEditMode(true);
@@ -225,19 +417,77 @@ const Calendar = () => {
     setResourceId(selectInfo.resource.id);
   };
 
-  const handleEventResize = (info: any) => {
-    const updatedEvents = calendarEvents.map(event => {
-      if (event.id === info.event.id) {
-        return {
-          ...event,
-          start: info.event.start,
-          end: info.event.end,
-        };
+  const handleEventResize = async (info: any) => {
+    console.log('Resizing event:', info.event);
+    
+    try {
+      // Find the original event from our events array
+      const originalEvent = events.find(e => e.id === info.event.id);
+      if (!originalEvent) {
+        console.error('Original event not found for resize');
+        return;
       }
-      return event;
-    });
-    setCalendarEvents(updatedEvents);
-    toast.success("Event resized successfully!");
+
+      // Prepare the update payload
+      const updates = {
+        date: {
+          ...originalEvent.date,
+          start: format(parseISO(info.event.start), 'yyyy-MM-dd'),
+          end: format(parseISO(info.event.end), 'yyyy-MM-dd')
+        },
+        time: {
+          start: format(parseISO(info.event.start), 'HH:mm'),
+          end: format(parseISO(info.event.end), 'HH:mm')
+        }
+      };
+
+      console.log('Sending update request with payload:', updates);
+      
+      // Call the updateEvent API
+      await updateEvent(info.event.id, updates);
+      
+      // Update the local calendar events state
+      const updatedEvents = calendarEvents.map(event => {
+        if (event.id === info.event.id) {
+          return {
+            ...event,
+            start: info.event.start,
+            end: info.event.end,
+          };
+        }
+        return event;
+      });
+      setCalendarEvents(updatedEvents);
+      
+      // Update the events state as well
+      setEvents(prevEvents => 
+        prevEvents.map(event => {
+          if (event.id === info.event.id) {
+            return {
+              ...event,
+              date: updates.date,
+              time: updates.time
+            };
+          }
+          return event;
+        })
+      );
+      
+      toast.success("Event resized successfully!");
+    } catch (error) {
+      console.error('Error resizing event:', error);
+      toast.error("Failed to resize event");
+      
+      // Reload events to restore original state
+      try {
+        const eventData = await fetchEvents();
+        setEvents(eventData);
+        // Re-process the events for calendar display
+        // ... existing event processing logic would go here
+      } catch (fetchError) {
+        console.error('Error reloading events after failed resize:', fetchError);
+      }
+    }
   };
 
   const handleSubmit = () => {

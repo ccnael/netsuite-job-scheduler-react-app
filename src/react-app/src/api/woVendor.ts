@@ -1,5 +1,6 @@
 
 import { suiteletUrl } from '@/lib/constants';
+import { isLocalDevelopment } from '@/lib/helpers';
 
 export interface WOVendor {
   id: string;
@@ -4175,11 +4176,7 @@ const mockWOVendors: WOVendor[] = [{
   }
 ];
 
-const isLocalDevelopment = (): boolean => {
-  return import.meta.env.DEV || window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
-};
-
-export const fetchWOVendors = async (): Promise<WOVendor[]> => {
+export const fetchWOVendors = async (eventId: string): Promise<WOVendor[]> => {
   if (isLocalDevelopment()) {
     console.log('Using mock asset data for local development');
     return new Promise((resolve) => {
@@ -4198,7 +4195,7 @@ export const fetchWOVendors = async (): Promise<WOVendor[]> => {
     while (hasMoreData) {
       const start = 0 + (i * chunkSize);
       const end = chunkSize + (i * chunkSize);
-      const url = `${suiteletUrl}&mode=getWorkOrderVendors&start=${start}&end=${end}`;
+      const url = `${suiteletUrl}&mode=getWorkOrderVendors&eventId=${eventId}&start=${start}&end=${end}`;
       const response = await fetch(url);
       console.log(`WOVendor service RESPONSE chunk ${i + 1}:`, response);
       

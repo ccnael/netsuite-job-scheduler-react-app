@@ -1,5 +1,6 @@
 
 import { suiteletUrl } from '@/lib/constants';
+import { isLocalDevelopment } from '@/lib/helpers';
 
 export interface WOAddress {
   id: string;
@@ -21,68 +22,109 @@ export interface WOAddress {
 }
 
 // Mockup data for local development
-const mockWOAddresses: WOAddress[] = [
-  {
-    id: '1',
-    workorder: {
-      text: 'WO-001',
-      value: '1'
+const mockWOAddresses: WOAddress[] = [{
+    "id": "1",
+    "workorder": {
+      "text": "Furniture Installation",
+      "value": "1"
     },
-    customer: {
-      text: 'ABC Construction Corp',
-      value: '1'
+    "customer": {
+      "text": "World Bank",
+      "value": "1249"
     },
-    events: ['event1', 'event2'],
-    address: {
-      text: '123 Main Street, Downtown District',
-      value: '1'
+    "events": [
+      "100792",
+      "100798"
+    ],
+    "address": {
+      "text": "434 Carlaw",
+      "value": "244878"
     },
-    addressDetails: '123 Main Street<br/>Suite 100<br/>Downtown District<br/>New York, NY 10001',
-    customerUrl: '/customer/1'
+    "addressDetails": "Test Address 1<br/>Test Address 1<br/>Test Address 1<br/>Test Address 1<br/>Test Address 1<br/>Los Angeles NY 12412<br/>United States",
+    "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
   },
   {
-    id: '2',
-    workorder: {
-      text: 'WO-002',
-      value: '2'
+    "id": "10",
+    "workorder": {
+      "text": "Walls Installation",
+      "value": "17"
     },
-    customer: {
-      text: 'XYZ Development LLC',
-      value: '2'
+    "customer": {
+      "text": "World Bank",
+      "value": "1249"
     },
-    events: ['event2'],
-    address: {
-      text: '456 Oak Avenue, Industrial Park',
-      value: '2'
+    "events": [],
+    "address": {
+      "text": "434 Carlaw",
+      "value": "244878"
     },
-    addressDetails: '456 Oak Avenue<br/>Building B<br/>Industrial Park<br/>Los Angeles, CA 90210',
-    customerUrl: '/customer/2'
+    "addressDetails": "Test Address 1<br/>Test Address 1<br/>Test Address 1<br/>Test Address 1<br/>Test Address 1<br/>Los Angeles NY 12412<br/>United States",
+    "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
   },
   {
-    id: '3',
-    workorder: {
-      text: 'WO-003',
-      value: '3'
+    "id": "11",
+    "workorder": {
+      "text": "Install Walls",
+      "value": "18"
     },
-    customer: {
-      text: 'Metro Infrastructure Inc',
-      value: '3'
+    "customer": {
+      "text": "World Bank",
+      "value": "1249"
     },
-    events: ['event3', 'event4'],
-    address: {
-      text: '789 Pine Road, Commercial Zone',
-      value: '3'
+    "events": [],
+    "address": {
+      "text": "434 Carlaw",
+      "value": "244878"
     },
-    addressDetails: '789 Pine Road<br/>Floor 5<br/>Commercial Zone<br/>Chicago, IL 60601',
-    customerUrl: '/customer/3'
+    "addressDetails": "Chad Bass<br/>AB&I Holdings<br/>1701 Rollins Road<br/>Sacramento CA 94207<br/>United States",
+    "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+  },
+  {
+    "id": "110",
+    "workorder": {
+      "text": "Work Order - Oct 31 - Test 1",
+      "value": "92"
+    },
+    "customer": {
+      "text": "World Bank",
+      "value": "1249"
+    },
+    "events": [
+      "101008"
+    ],
+    "address": {
+      "text": "12 Carlton Av",
+      "value": "245148"
+    },
+    "addressDetails": "",
+    "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+  },
+  {
+    "id": "111",
+    "workorder": {
+      "text": "Work Order - Oct 31 - Test 1",
+      "value": "92"
+    },
+    "customer": {
+      "text": "World Bank",
+      "value": "1249"
+    },
+    "events": [],
+    "address": {
+      "text": "54 Tale",
+      "value": "245152"
+    },
+    "addressDetails": "",
+    "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
   }
-];
+]
 
-export const fetchWOAddresses = async (): Promise<WOAddress[]> => {
-  // Check if running locally (development environment)
-  if (suiteletUrl.includes('api.example.com')) {
-    console.log('WOAddress: Using mockup data for local development');
-    return mockWOAddresses;
+export const fetchWOAddresses = async (woId: string, eventId: string): Promise<WOAddress[]> => {
+  if (isLocalDevelopment()) {
+    console.log('Using mock address data for local development');
+    return new Promise((resolve) => {
+      setTimeout(() => resolve(mockWOAddresses), 500);
+    });
   }
 
   try {
@@ -96,7 +138,7 @@ export const fetchWOAddresses = async (): Promise<WOAddress[]> => {
     while (hasMoreData) {
       const start = 0 + (i * chunkSize);
       const end = chunkSize + (i * chunkSize);
-      const url = `${suiteletUrl}&action=getWorkOrderAddresses&start=${start}&end=${end}`;
+      const url = `${suiteletUrl}&mode=getWorkOrderAddresses&woId=${woId}&eventId=${eventId}&start=${start}&end=${end}`;
       const response = await fetch(url);
       console.log(`WOAddress service RESPONSE chunk ${i + 1}:`, response);
       

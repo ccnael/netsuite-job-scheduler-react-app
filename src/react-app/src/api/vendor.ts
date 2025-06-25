@@ -1,4 +1,6 @@
+
 import { suiteletUrl } from '@/lib/constants';
+import { isLocalDevelopment } from '@/lib/helpers';
 
 export interface Vendor {
   id: string;
@@ -32,6 +34,11 @@ export interface Vendor {
     end: string;
   };
   active: boolean;
+  resourceGroups?: Array<{
+    text: string;
+    value: string;
+  }>;
+  color?: string;
 }
 
 
@@ -202,10 +209,6 @@ const getMockVendors = (): Vendor[] => {
       "active": true
     }
   ]
-};
-
-const isLocalDevelopment = (): boolean => {
-  return import.meta.env.DEV || window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
 };
 
 export const fetchVendors = async (): Promise<Vendor[]> => {

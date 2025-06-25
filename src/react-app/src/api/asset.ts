@@ -1,5 +1,6 @@
 
 import { suiteletUrl } from '@/lib/constants';
+import { isLocalDevelopment } from '@/lib/helpers';
 
 export interface Asset {
   id: string;
@@ -21,7 +22,6 @@ export interface Asset {
   quantityUsed: number;
   owned: boolean;
   consumable: boolean;
-  events: string[];
   time: {
     start: string;
     end: string;
@@ -50,7 +50,6 @@ const getMockAssets = (): Asset[] => {
       "quantityUsed": 807,
       "owned": true,
       "consumable": true,
-      "events": [],
       "time": {
         "start": "",
         "end": ""
@@ -77,7 +76,6 @@ const getMockAssets = (): Asset[] => {
       "quantityUsed": 1000,
       "owned": true,
       "consumable": true,
-      "events": [],
       "time": {
         "start": "",
         "end": ""
@@ -104,7 +102,6 @@ const getMockAssets = (): Asset[] => {
       "quantityUsed": 0,
       "owned": true,
       "consumable": false,
-      "events": [],
       "time": {
         "start": "",
         "end": ""
@@ -131,7 +128,6 @@ const getMockAssets = (): Asset[] => {
       "quantityUsed": 500,
       "owned": true,
       "consumable": true,
-      "events": [],
       "time": {
         "start": "",
         "end": ""
@@ -158,7 +154,6 @@ const getMockAssets = (): Asset[] => {
       "quantityUsed": 500,
       "owned": true,
       "consumable": true,
-      "events": [],
       "time": {
         "start": "",
         "end": ""
@@ -185,7 +180,6 @@ const getMockAssets = (): Asset[] => {
       "quantityUsed": 34,
       "owned": true,
       "consumable": false,
-      "events": [],
       "time": {
         "start": "",
         "end": ""
@@ -212,7 +206,6 @@ const getMockAssets = (): Asset[] => {
       "quantityUsed": 14,
       "owned": true,
       "consumable": false,
-      "events": [],
       "time": {
         "start": "",
         "end": ""
@@ -239,7 +232,6 @@ const getMockAssets = (): Asset[] => {
       "quantityUsed": 1,
       "owned": true,
       "consumable": false,
-      "events": [],
       "time": {
         "start": "",
         "end": ""
@@ -266,7 +258,6 @@ const getMockAssets = (): Asset[] => {
       "quantityUsed": 5000,
       "owned": true,
       "consumable": true,
-      "events": [],
       "time": {
         "start": "",
         "end": ""
@@ -293,7 +284,6 @@ const getMockAssets = (): Asset[] => {
       "quantityUsed": 15,
       "owned": true,
       "consumable": false,
-      "events": [],
       "time": {
         "start": "",
         "end": ""
@@ -320,7 +310,6 @@ const getMockAssets = (): Asset[] => {
       "quantityUsed": 2,
       "owned": true,
       "consumable": false,
-      "events": [],
       "time": {
         "start": "",
         "end": ""
@@ -347,7 +336,6 @@ const getMockAssets = (): Asset[] => {
       "quantityUsed": 25,
       "owned": true,
       "consumable": false,
-      "events": [],
       "time": {
         "start": "",
         "end": ""
@@ -374,7 +362,6 @@ const getMockAssets = (): Asset[] => {
       "quantityUsed": 0,
       "owned": true,
       "consumable": false,
-      "events": [],
       "time": {
         "start": "",
         "end": ""
@@ -401,7 +388,6 @@ const getMockAssets = (): Asset[] => {
       "quantityUsed": 1,
       "owned": true,
       "consumable": false,
-      "events": [],
       "time": {
         "start": "",
         "end": ""
@@ -428,7 +414,6 @@ const getMockAssets = (): Asset[] => {
       "quantityUsed": 0,
       "owned": true,
       "consumable": false,
-      "events": [],
       "time": {
         "start": "",
         "end": ""
@@ -455,7 +440,6 @@ const getMockAssets = (): Asset[] => {
       "quantityUsed": 2,
       "owned": true,
       "consumable": false,
-      "events": [],
       "time": {
         "start": "",
         "end": ""
@@ -482,7 +466,6 @@ const getMockAssets = (): Asset[] => {
       "quantityUsed": 0,
       "owned": true,
       "consumable": false,
-      "events": [],
       "time": {
         "start": "",
         "end": ""
@@ -509,7 +492,6 @@ const getMockAssets = (): Asset[] => {
       "quantityUsed": 0,
       "owned": true,
       "consumable": false,
-      "events": [],
       "time": {
         "start": "",
         "end": ""
@@ -536,7 +518,6 @@ const getMockAssets = (): Asset[] => {
       "quantityUsed": 0,
       "owned": true,
       "consumable": false,
-      "events": [],
       "time": {
         "start": "",
         "end": ""
@@ -563,7 +544,6 @@ const getMockAssets = (): Asset[] => {
       "quantityUsed": 0,
       "owned": true,
       "consumable": false,
-      "events": [],
       "time": {
         "start": "",
         "end": ""
@@ -590,7 +570,6 @@ const getMockAssets = (): Asset[] => {
       "quantityUsed": 0,
       "owned": true,
       "consumable": false,
-      "events": [],
       "time": {
         "start": "",
         "end": ""
@@ -617,7 +596,6 @@ const getMockAssets = (): Asset[] => {
       "quantityUsed": 0,
       "owned": true,
       "consumable": false,
-      "events": [],
       "time": {
         "start": "",
         "end": ""
@@ -644,7 +622,6 @@ const getMockAssets = (): Asset[] => {
       "quantityUsed": 10,
       "owned": true,
       "consumable": false,
-      "events": [],
       "time": {
         "start": "",
         "end": ""
@@ -671,7 +648,6 @@ const getMockAssets = (): Asset[] => {
       "quantityUsed": 45,
       "owned": true,
       "consumable": false,
-      "events": [],
       "time": {
         "start": "",
         "end": ""
@@ -698,7 +674,6 @@ const getMockAssets = (): Asset[] => {
       "quantityUsed": 1,
       "owned": true,
       "consumable": false,
-      "events": [],
       "time": {
         "start": "",
         "end": ""
@@ -725,7 +700,6 @@ const getMockAssets = (): Asset[] => {
       "quantityUsed": 1,
       "owned": true,
       "consumable": false,
-      "events": [],
       "time": {
         "start": "",
         "end": ""
@@ -752,7 +726,6 @@ const getMockAssets = (): Asset[] => {
       "quantityUsed": 0,
       "owned": true,
       "consumable": false,
-      "events": [],
       "time": {
         "start": "",
         "end": ""
@@ -779,7 +752,6 @@ const getMockAssets = (): Asset[] => {
       "quantityUsed": 1,
       "owned": true,
       "consumable": false,
-      "events": [],
       "time": {
         "start": "",
         "end": ""
@@ -806,7 +778,6 @@ const getMockAssets = (): Asset[] => {
       "quantityUsed": 7,
       "owned": true,
       "consumable": false,
-      "events": [],
       "time": {
         "start": "",
         "end": ""
@@ -833,7 +804,6 @@ const getMockAssets = (): Asset[] => {
       "quantityUsed": 0,
       "owned": true,
       "consumable": false,
-      "events": [],
       "time": {
         "start": "",
         "end": ""
@@ -860,7 +830,6 @@ const getMockAssets = (): Asset[] => {
       "quantityUsed": -30000,
       "owned": true,
       "consumable": true,
-      "events": [],
       "time": {
         "start": "",
         "end": ""
@@ -868,10 +837,6 @@ const getMockAssets = (): Asset[] => {
       "active": true
     }
   ]
-};
-
-const isLocalDevelopment = (): boolean => {
-  return import.meta.env.DEV || window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
 };
 
 export const fetchAssets = async (): Promise<Asset[]> => {
