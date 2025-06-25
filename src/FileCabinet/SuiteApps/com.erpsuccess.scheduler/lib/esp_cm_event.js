@@ -54,6 +54,7 @@ define([
           search.createColumn({ name: 'custevent_esp_fop_event_address', label: 'Selected Address' }),
           search.createColumn({ name: 'custevent_task_pi', label: 'Project Insight' }),
           search.createColumn({ name: 'custevent_esp_fop_asset_maintenance', label: 'Asset Maintenance' }),
+          search.createColumn({ name: 'custevent_esp_fop_routing_group', label: 'Routing Group' })
         ]
     });
 
@@ -164,7 +165,8 @@ define([
         text: map.getText('custevent_task_pi'),
         value: map.getValue('custevent_task_pi')
       },
-      assetMaintenance: map.getValue('custevent_esp_fop_asset_maintenance')
+      assetMaintenance: map.getValue('custevent_esp_fop_asset_maintenance'),
+      routingGroup: map.getValue('custevent_esp_fop_routing_group')
     }));
 
     response.setHeader({

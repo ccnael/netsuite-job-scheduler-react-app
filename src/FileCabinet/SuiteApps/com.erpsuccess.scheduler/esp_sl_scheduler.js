@@ -21,7 +21,23 @@ define([
   './lib/esp_cm_woItem',
   './lib/esp_cm_woContact',
   './lib/esp_cm_woAddress',
-], (runtime, schedulerLib, employeeLib, vendorLib, assetLib, woLib, eventLib, woResourceLib, woVendorLib, woAssetLib, woItemLib, woContactLib, woAddressLib) => {
+  './lib/esp_cm_routingGroup'
+], (
+  runtime,
+  schedulerLib,
+  employeeLib,
+  vendorLib,
+  assetLib,
+  woLib,
+  eventLib,
+  woResourceLib,
+  woVendorLib,
+  woAssetLib,
+  woItemLib,
+  woContactLib,
+  woAddressLib,
+  routingGroupLib
+) => {
   /**
    * Vanilla JS UI Suitelet entry point (to be replaced)
    * Defines the Suitelet script trigger point.
@@ -163,6 +179,9 @@ define([
         case 'getOrderPunchList':
           eventLib.getOrderPunchList(context);
           break;
+        case 'getRoutingGroups':
+          routingGroupLib.getRoutingGroups(context);
+          break;
         default:
           schedulerLib.runReactApp(context);
           break;
@@ -193,6 +212,9 @@ define([
           break;
         case 'deleteEvent':
           eventLib.deleteEvent(context);
+          break;
+        case 'createRoutingGroup':
+          routingGroupLib.createRoutingGroup(context);
           break;
       }
     }

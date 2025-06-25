@@ -82,7 +82,7 @@ define([
       value: 'application/json'
     });
 
-    log.audit('----- [Work Order Addresses] -----', addresses);
+    // log.audit('----- [Work Order Addresses] -----', addresses);
     response.write(JSON.stringify(addresses));
   }
 

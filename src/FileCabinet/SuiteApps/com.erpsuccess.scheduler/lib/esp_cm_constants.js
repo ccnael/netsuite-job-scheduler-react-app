@@ -14,7 +14,8 @@ define({
     WORK_ORDER_ADDRESS: 'customrecord_esp_fop_wo_address',
     PUNCH: 'customrecord_esp_pp_punch',
     RESOURCE_SKILL: 'customrecord_esp_fop_resource_skill',
-    ASSET: 'customrecord_esp_fop_asset'
+    ASSET: 'customrecord_esp_fop_asset',
+    ROUTING_GROUP: 'customlist_esp_fop_routing_group'
   },
   WorkOrderCode: {
     NOT_STARTED: '#026adf',
