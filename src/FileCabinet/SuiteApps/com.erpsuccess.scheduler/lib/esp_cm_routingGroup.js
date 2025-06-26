@@ -59,15 +59,27 @@ define([
     const payload = JSON.parse(requestBody);
     const groupName = payload.name;
 
-    const rec = record.create({ type: env.RecordType.ROUTING_GROUP });
-    rec.setValue({ fieldId: 'name', value: groupName });
-    const id = rec.save({ ignoreMandatoryFieds: true });
-    log.audit('----- [New Routing Group] -----', { groupName, id });
+    try {
+      const rec = record.create({ type: env.RecordType.ROUTING_GROUP });
+      rec.setValue({ fieldId: 'name', value: groupName });
+      const id = rec.save({ ignoreMandatoryFieds: true });
+      log.audit('----- [New Routing Group] -----', { groupName, id });
 
-    response.write(JSON.stringify({
-      name: groupName,
-      id
-    }));
+      response.write(JSON.stringify({
+        code: 200,
+        status: 'success',
+        name: groupName,
+        id
+      }));
+    } catch (e) {
+      log.error('Routing Group Creation Error', e.message);
+      response.write(JSON.stringify({
+        code: 401,
+        status: 'failed',
+        name: groupName,
+        errorMsg: e.message
+      }));
+    }
   }
 
   return {
