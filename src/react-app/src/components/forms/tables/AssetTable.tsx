@@ -1,4 +1,3 @@
-
 import React, { useState, useMemo, useCallback, useEffect } from 'react';
 import {
   ColumnDef, flexRender, getCoreRowModel, getFilteredRowModel,
@@ -10,6 +9,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
+import { Badge } from "@/components/ui/badge";
 import { Search, ChevronLeft, ChevronRight, ChevronsLeft, ChevronsRight, ChevronUp, ChevronDown, ChevronsUpDown, Filter } from "lucide-react";
 import { Asset } from "@/api/asset";
 import * as helper from "@/lib/helpers";
@@ -69,17 +69,27 @@ export const AssetTable: React.FC<AssetTableProps> = ({
     setRowSelection(prev => ({ ...prev, [rowIndex]: checked }));
   }, []);
 
-  const handleSelectAll = useCallback((checked: boolean) => {
+  // Updated handleSelectAll to only select current page rows
+  const handleSelectAll = useCallback((checked: boolean, table: any) => {
     if (checked) {
-      const newSelection = {};
-      tableDataState.forEach((_, index) => {
-        newSelection[index] = true;
+      const newSelection: Record<string, boolean> = {};
+      // Only select rows on the current page
+      table.getRowModel().rows.forEach((row: any) => {
+        newSelection[row.index.toString()] = true;
       });
-      setRowSelection(newSelection);
+      setRowSelection(prev => ({ ...prev, ...newSelection }));
     } else {
-      setRowSelection({});
+      // Deselect only the rows on the current page
+      const currentPageRowIndices = table.getRowModel().rows.map((row: any) => row.index.toString());
+      setRowSelection(prev => {
+        const newSelection = { ...prev };
+        currentPageRowIndices.forEach(index => {
+          delete newSelection[index];
+        });
+        return newSelection;
+      });
     }
-  }, [tableDataState]);
+  }, []);
 
   // Memoize the selection computation to prevent infinite loops
   const selectedAssets = useMemo(() => {
@@ -114,13 +124,20 @@ export const AssetTable: React.FC<AssetTableProps> = ({
   const columns: ColumnDef<TableAsset>[] = useMemo(() => [
     {
       id: "select",
-      header: ({ table }) => (
-        <Checkbox 
-          checked={table.getIsAllPageRowsSelected()} 
-          onCheckedChange={(value) => handleSelectAll(!!value)}
-          className="translate-y-[2px]" 
-        />
-      ),
+      header: ({ table }) => {
+        // Calculate if all rows on current page are selected
+        const currentPageRows = table.getRowModel().rows;
+        const isAllCurrentPageSelected = currentPageRows.length > 0 && 
+          currentPageRows.every(row => rowSelection[row.index]);
+
+        return (
+          <Checkbox 
+            checked={isAllCurrentPageSelected}
+            onCheckedChange={(value) => handleSelectAll(!!value, table)}
+            className="translate-y-[2px]" 
+          />
+        );
+      },
       cell: ({ row }) => (
         <Checkbox 
           checked={row.getIsSelected()} 
@@ -207,7 +224,7 @@ export const AssetTable: React.FC<AssetTableProps> = ({
         </div>
       )
     },
-  ], [updateField, handleSelectAll, handleRowToggle, renderSortIcon]);
+  ], [updateField, handleSelectAll, handleRowToggle, renderSortIcon, rowSelection]);
 
   const table = useReactTable({
     data: tableDataState, 
@@ -247,15 +264,25 @@ export const AssetTable: React.FC<AssetTableProps> = ({
           </Button>
         </div>
 
-        {/* Right - Search */}
-        <div className="relative w-[200px]">
-          <Search className="absolute left-2 top-1/2 transform -translate-y-1/2 text-slate-400 h-3 w-3" />
-          <Input
-            placeholder="Search..."
-            value={globalFilter}
-            onChange={(e) => setGlobalFilter(e.target.value)}
-            className="pl-8 h-6 border-slate-200 text-[12px] font-sans placeholder:text-[12px]"
-          />
+        {/* Right - Selected Counter and Search */}
+        <div className="flex items-center space-x-2">
+          {selectedAssets.length > 0 && (
+            <div className="flex items-center space-x-1">
+              <span className="text-[12px] font-sans text-slate-700">Selected:</span>
+              <Badge variant="secondary" className="text-[10px] px-1 py-0.5 h-4">
+                {selectedAssets.length}
+              </Badge>
+            </div>
+          )}
+          <div className="relative w-[200px]">
+            <Search className="absolute left-2 top-1/2 transform -translate-y-1/2 text-slate-400 h-3 w-3" />
+            <Input
+              placeholder="Search..."
+              value={globalFilter}
+              onChange={(e) => setGlobalFilter(e.target.value)}
+              className="pl-8 h-6 border-slate-200 text-[12px] font-sans placeholder:text-[12px]"
+            />
+          </div>
         </div>
       </div>
 

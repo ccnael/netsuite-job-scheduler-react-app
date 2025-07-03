@@ -28,6 +28,11 @@ define([
         'AND',
         ['custrecord_esp_fop_rel_wo', 'is', woId]
       );
+    } else {
+      filters.push(
+        'AND',
+        ['custrecord_esp_fop_rel_wo', 'noneof', ['@NONE@', '']]
+      );
     }
 
     if (eventId) {

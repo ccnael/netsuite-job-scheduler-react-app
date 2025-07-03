@@ -17,16 +17,33 @@ define([
   function getResources(context) {
     const { request, response } = context;
     const { parameters: params } = request;
-    const { eventId, start, end } = params;
+    const { woId, eventId, start, end } = params;
 
     const filters = [
       ['isinactive', 'is', 'F']
     ];
 
+    if (woId) {
+      filters.push(
+        'AND',
+        ['custrecord_esp_fop_res_rel_wo', 'anyof', woId]
+      );
+    } else {
+      filters.push(
+        'AND',
+        ['custrecord_esp_fop_res_rel_wo', 'noneof', ['@NONE@', '']]
+      );
+    }
+
     if (eventId) {
       filters.push(
         'AND',
         ['custrecord_esp_fop_res_rel_wo_event', 'anyof', eventId]
+      );
+    } else {
+      filters.push(
+        'AND',
+        ['custrecord_esp_fop_res_rel_wo_event', 'noneof', ['@NONE@', '']]
       );
     }
 
@@ -165,7 +182,7 @@ define([
       value: 'application/json'
     });
 
-    // log.audit('----- [Work Order Resources] -----', resources);
+    log.audit('----- [Work Order Resources] -----', resources);
     response.write(JSON.stringify(resources));
   }
 

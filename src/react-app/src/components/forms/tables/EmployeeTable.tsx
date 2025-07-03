@@ -1,5 +1,4 @@
-
-import React, { useState, useMemo, useCallback, useEffect } from 'react';
+import React, { useState, useMemo, useCallback, useEffect, useRef } from 'react';
 import {
   ColumnDef, flexRender, getCoreRowModel, getFilteredRowModel,
   getPaginationRowModel, getSortedRowModel, SortingState, useReactTable,
@@ -10,6 +9,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
+import { Badge } from "@/components/ui/badge";
 import { Search, ChevronLeft, ChevronRight, ChevronsLeft, ChevronsRight, ChevronUp, ChevronDown, ChevronsUpDown, Filter } from "lucide-react";
 import { Employee } from "@/api/employee";
 import TimeRangeFilter from '../TimeRangeFilter';
@@ -27,6 +27,7 @@ interface EmployeeTableProps {
   onSelectionChange?: (selectedResources: SelectedResource[]) => void;
   primaryStartTime?: string;
   primaryEndTime?: string;
+  woResources?: any[];
 }
 
 interface TableEmployee {
@@ -39,122 +40,142 @@ interface TableEmployee {
   affiliationType: string;
   startTime: string;
   endTime: string;
+  woResourceId: string;
 }
 
 export const EmployeeTable: React.FC<EmployeeTableProps> = ({ 
   data = [], 
-  woId, 
+  woResources = [],
   onSelectionChange,
   primaryStartTime = '08:00',
   primaryEndTime = '18:00'
 }) => {
   const [globalFilter, setGlobalFilter] = useState('');
   const [sorting, setSorting] = useState<SortingState>([]);
-  const [tableDataState, setTableDataState] = useState<TableEmployee[]>(() =>
-    data.map(emp => ({
-      id: emp.id, name: emp.name,
-      group: emp.resourceGroups?.map(x => x.text).join(', ') || '-',
-      skill: emp.resourceSkills?.map(x => x.text).join(', ') || '-',
-      email: emp.email, phone: emp.phone || '-',
-      affiliationType: emp.affiliationType?.text || '-',
-      startTime: emp.time?.start || primaryStartTime,
-      endTime: emp.time?.end || primaryEndTime
-    }))
-  );
-
   const [rowSelection, setRowSelection] = useState({});
+  const [timeOverrides, setTimeOverrides] = useState<Record<string, { startTime?: string; endTime?: string }>>({});
+  const [pagination, setPagination] = useState({ pageIndex: 0, pageSize: 5 });
+  
+  // Use ref to track the last selection to prevent unnecessary calls
+  const lastSelectionRef = useRef<string>('');
+
+  console.log('EmployeeTable render - woResources:', woResources);
+  console.log('EmployeeTable render - data:', data);
+
+  // Memoize the table data to prevent infinite loops
+  const tableData = useMemo(() => {
+    console.log('[EmployeeTable] Building table data', { dataLen: data.length, woResourcesLen: woResources.length });
+
+    if (!data.length) return [];
+
+    return data.map(emp => {
+      const woResource = woResources.find(wr => wr.employee?.value === emp.id);
+      const timeOverride = timeOverrides[emp.id];
+
+      return {
+        id: emp.id,
+        name: emp.name,
+        group: emp.resourceGroups?.map(x => x.text).join(', ') || '-',
+        skill: emp.resourceSkills?.map(x => x.text).join(', ') || '-',
+        email: emp.email,
+        phone: emp.phone || '-',
+        affiliationType: emp.affiliationType?.text || '-',
+        startTime: timeOverride?.startTime || emp.time?.start/*  || primaryStartTime */,
+        endTime: timeOverride?.endTime || emp.time?.end/*  || primaryEndTime */,
+        woResourceId: woResource?.id || ''
+      };
+    });
+  }, [data, woResources, primaryStartTime, primaryEndTime, timeOverrides]);
 
   const updateTime = useCallback((rowId: string, key: 'startTime' | 'endTime', value: string) => {
-    setTableDataState(prev => prev.map(row => row.id === rowId ? { ...row, [key]: value } : row));
+    console.log('Time update requested:', { rowId, key, value });
+    setTimeOverrides(prev => ({
+      ...prev,
+      [rowId]: {
+        ...prev[rowId],
+        [key]: value
+      }
+    }));
   }, []);
 
-  // Helper function to copy primary times if times are not set
-  const copyPrimaryTimesIfNeeded = useCallback((employee: TableEmployee) => {
-    const updatedEmployee = { ...employee };
-    if (!updatedEmployee.startTime || updatedEmployee.startTime === '08:00') {
-      updatedEmployee.startTime = primaryStartTime;
-    }
-    if (!updatedEmployee.endTime || updatedEmployee.endTime === '18:00') {
-      updatedEmployee.endTime = primaryEndTime;
-    }
-    return updatedEmployee;
-  }, [primaryStartTime, primaryEndTime]);
+  // Fixed checkbox handlers that don't reset pagination
+  const handleRowToggle = useCallback((rowId: string, checked: boolean) => {
+    setRowSelection(prev => ({ 
+      ...prev, 
+      [rowId]: checked 
+    }));
+  }, []);
 
-  // Custom row selection handler for individual checkboxes
-  const handleRowToggle = useCallback((rowIndex: string, checked: boolean) => {
+  const handleSelectAll = useCallback((checked: boolean, table: any) => {
     if (checked) {
-      // Copy primary times if needed when selecting
-      const employee = tableDataState[parseInt(rowIndex)];
-      const updatedEmployee = copyPrimaryTimesIfNeeded(employee);
-      
-      setTableDataState(prev => prev.map((row, idx) => 
-        idx === parseInt(rowIndex) ? updatedEmployee : row
-      ));
-    }
-    
-    setRowSelection(prev => ({ ...prev, [rowIndex]: checked }));
-  }, [tableDataState, copyPrimaryTimesIfNeeded]);
-
-  // Custom select all handler
-  const handleSelectAll = useCallback((checked: boolean) => {
-    if (checked) {
-      // Copy primary times for all employees when selecting all
-      setTableDataState(prev => prev.map(copyPrimaryTimesIfNeeded));
-      
-      // Select all rows
-      const newSelection = {};
-      tableDataState.forEach((_, index) => {
-        newSelection[index] = true;
+      const newSelection: Record<string, boolean> = {};
+      // Only select rows on the current page using their IDs
+      table.getRowModel().rows.forEach((row: any) => {
+        newSelection[row.original.id] = true;
       });
-      setRowSelection(newSelection);
+      setRowSelection(prev => ({ ...prev, ...newSelection }));
     } else {
-      setRowSelection({});
+      // Deselect only the rows on the current page using their IDs
+      const currentPageRowIds = table.getRowModel().rows.map((row: any) => row.original.id);
+      setRowSelection(prev => {
+        const newSelection = { ...prev };
+        currentPageRowIds.forEach(id => {
+          delete newSelection[id];
+        });
+        return newSelection;
+      });
     }
-  }, [tableDataState, copyPrimaryTimesIfNeeded]);
+  }, []);
 
-  // Memoize the selection computation to prevent infinite loops
+  // Memoize selected resources to prevent infinite loops
   const selectedResources = useMemo(() => {
-    const selectedRows = Object.keys(rowSelection).filter(key => rowSelection[key]);
-    return selectedRows.map(rowIndex => {
-      const employee = tableDataState[parseInt(rowIndex)];
-      return {
+    const selectedIds = Object.keys(rowSelection).filter(key => rowSelection[key]);
+    return selectedIds.map(id => {
+      const employee = tableData.find(emp => emp.id === id);
+      return employee ? {
         id: employee.id,
         name: employee.name,
         startTime: employee.startTime,
-        endTime: employee.endTime
-      };
-    });
-  }, [rowSelection, tableDataState]);
+        endTime: employee.endTime,
+        woResourceId: employee?.woResourceId || ''
+      } : null;
+    }).filter(Boolean);
+  }, [rowSelection, tableData]);
 
-  // Effect to communicate selection changes to parent - only when selectedResources actually changes
+  // Only call onSelectionChange when selection actually changes
   useEffect(() => {
-    if (onSelectionChange) {
-      console.log('EmployeeTable - Selected resources:', selectedResources);
-      onSelectionChange(selectedResources);
+    const currentSelection = JSON.stringify(selectedResources);
+    if (currentSelection !== lastSelectionRef.current) {
+      lastSelectionRef.current = currentSelection;
+      if (onSelectionChange) {
+        console.log('EmployeeTable - Selected resources:', selectedResources);
+        onSelectionChange(selectedResources);
+      }
     }
   }, [selectedResources, onSelectionChange]);
 
-  const renderSortIcon = (column: any) => {
+  const renderSortIcon = useCallback((column: any) => {
     const isSorted = column.getIsSorted();
     if (isSorted === 'asc') return <ChevronUp className="ml-1 h-3 w-3" />;
     if (isSorted === 'desc') return <ChevronDown className="ml-1 h-3 w-3" />;
     return <ChevronsUpDown className="ml-1 h-3 w-3 text-slate-400" />;
-  };
+  }, []);
 
+  // Memoize columns to prevent recreation on every render
   const columns: ColumnDef<TableEmployee>[] = useMemo(() => [
     {
       id: "select",
       header: ({ table }) => (
         <Checkbox 
           checked={table.getIsAllPageRowsSelected()} 
-          onCheckedChange={(value) => handleSelectAll(!!value)}
+          onCheckedChange={(value) => handleSelectAll(!!value, table)}
           className="translate-y-[2px]" 
         />
       ),
       cell: ({ row }) => (
         <Checkbox 
-          checked={row.getIsSelected()} 
-          onCheckedChange={(value) => handleRowToggle(row.index.toString(), !!value)}
+          checked={!!rowSelection[row.original.id]} 
+          onCheckedChange={(value) => handleRowToggle(row.original.id, !!value)}
           className="translate-y-[2px]" 
         />
       ),
@@ -186,7 +207,7 @@ export const EmployeeTable: React.FC<EmployeeTableProps> = ({
         return (
           <div className="flex flex-wrap gap-1 justify-center">
             {groups.map((group, idx) => (
-              <span key={idx} className="inline-block rounded bg-blue-500 text-white px-1.5 text-[10px] font-medium">{group}</span>
+              <span key={idx} className="inline-block rounded bg-blue-500 text-white px-1 text-[9px] font-medium">{group}</span>
             ))}
           </div>
         );
@@ -205,7 +226,7 @@ export const EmployeeTable: React.FC<EmployeeTableProps> = ({
         return (
           <div className="flex flex-wrap gap-1 justify-center">
             {skills.map((skill, idx) => (
-              <span key={idx} className="inline-block rounded bg-blue-500 text-white px-1.5 text-[10px] font-medium">{skill}</span>
+              <span key={idx} className="inline-block rounded bg-blue-500 text-white px-1 text-[9px] font-medium">{skill}</span>
             ))}
           </div>
         );
@@ -260,10 +281,10 @@ export const EmployeeTable: React.FC<EmployeeTableProps> = ({
         </div>
       )
     },
-  ], [updateTime, handleSelectAll, handleRowToggle, renderSortIcon]);
+  ], [updateTime, handleSelectAll, handleRowToggle, renderSortIcon, rowSelection]);
 
   const table = useReactTable({
-    data: tableDataState, 
+    data: tableData, 
     columns,
     getCoreRowModel: getCoreRowModel(),
     getPaginationRowModel: getPaginationRowModel(),
@@ -272,13 +293,18 @@ export const EmployeeTable: React.FC<EmployeeTableProps> = ({
     state: { 
       globalFilter, 
       sorting,
-      rowSelection
+      rowSelection,
+      pagination
     },
     onGlobalFilterChange: setGlobalFilter,
     onSortingChange: setSorting,
     onRowSelectionChange: setRowSelection,
+    onPaginationChange: setPagination,
     enableRowSelection: true,
-    initialState: { pagination: { pageSize: 5 } },
+    manualPagination: false,
+    getRowId: (row) => row.id,
+    // This is the key fix - prevent pagination reset on selection changes
+    autoResetPageIndex: false,
   });
 
   return (
@@ -300,15 +326,25 @@ export const EmployeeTable: React.FC<EmployeeTableProps> = ({
           </Button>
         </div>
 
-        {/* Right - Search */}
-        <div className="relative w-[200px]">
-          <Search className="absolute left-2 top-1/2 transform -translate-y-1/2 text-slate-400 h-3 w-3" />
-          <Input
-            placeholder="Search..."
-            value={globalFilter}
-            onChange={(e) => setGlobalFilter(e.target.value)}
-            className="pl-8 h-6 border-slate-200 text-[12px] font-sans placeholder:text-[12px]"
-          />
+        {/* Right - Selected Counter and Search */}
+        <div className="flex items-center space-x-2">
+          {selectedResources.length > 0 && (
+            <div className="flex items-center space-x-1">
+              <span className="text-[12px] font-sans text-slate-700">Selected:</span>
+              <Badge variant="secondary" className="text-[10px] px-1 py-0.5 h-4">
+                {selectedResources.length}
+              </Badge>
+            </div>
+          )}
+          <div className="relative w-[200px]">
+            <Search className="absolute left-2 top-1/2 transform -translate-y-1/2 text-slate-400 h-3 w-3" />
+            <Input
+              placeholder="Search..."
+              value={globalFilter}
+              onChange={(e) => setGlobalFilter(e.target.value)}
+              className="pl-8 h-6 border-slate-200 text-[12px] font-sans placeholder:text-[12px]"
+            />
+          </div>
         </div>
       </div>
 

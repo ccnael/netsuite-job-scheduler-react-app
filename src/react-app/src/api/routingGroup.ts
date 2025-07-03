@@ -20,7 +20,28 @@ export const getMockRoutingGroups = (): RoutingGroup[] => {
   }, {
     "name": "Group D",
     "id": "4"
-  }]
+  }/* , {
+    "name": "Group E",
+    "id": "5"
+  }, {
+    "name": "Group F",
+    "id": "6"
+  }, {
+    "name": "Group G",
+    "id": "7"
+  }, {
+    "name": "Group H",
+    "id": "8"
+  }, {
+    "name": "Group I",
+    "id": "9"
+  }, {
+    "name": "Group J",
+    "id": "10"
+  }, {
+    "name": "Group K",
+    "id": "11"
+  } */]
 };
 
 export const fetchRoutingGroups = async (): Promise<RoutingGroup[]> => {

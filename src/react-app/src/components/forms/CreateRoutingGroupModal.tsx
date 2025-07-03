@@ -5,17 +5,20 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { suiteletUrl } from '@/lib/constants';
 import { fetchRoutingGroups, RoutingGroup } from "@/api/routingGroup";
+import { toast } from 'sonner';
 
 interface CreateRoutingGroupModalProps {
   open: boolean;
   onOpenChange: (open: boolean) => void;
-  onRoutingGroupCreated: (groups: RoutingGroup[], newGroupId: string) => void;
+  onRoutingGroupCreated: (groups: RoutingGroup[], newGroupName: string, newGroupId: string) => void;
+  onLoadingChange?: (loading: boolean) => void;
 }
 
 export const CreateRoutingGroupModal: React.FC<CreateRoutingGroupModalProps> = ({
   open,
   onOpenChange,
-  onRoutingGroupCreated
+  onRoutingGroupCreated,
+  onLoadingChange
 }) => {
   const [newGroupName, setNewGroupName] = useState('');
   const [creatingRoutingGroup, setCreatingRoutingGroup] = useState(false);
@@ -24,6 +27,11 @@ export const CreateRoutingGroupModal: React.FC<CreateRoutingGroupModalProps> = (
     if (!newGroupName.trim()) return;
 
     setCreatingRoutingGroup(true);
+    // Notify parent that loading has started
+    if (onLoadingChange) {
+      onLoadingChange(true);
+    }
+
     try {
       const url = `${suiteletUrl}&mode=createRoutingGroup`;
       const response = await fetch(url, {
@@ -45,16 +53,27 @@ export const CreateRoutingGroupModal: React.FC<CreateRoutingGroupModalProps> = (
       const updatedGroups = await fetchRoutingGroups();
       
       // Notify parent component with the new group ID for auto-selection
-      onRoutingGroupCreated(updatedGroups, newGroup.id);
+      onRoutingGroupCreated(updatedGroups, newGroup.name, newGroup.id);
+
+      toast.success(`Routing group "${newGroup.name}" created successfully`, {
+        className: "!bg-green-100 !text-green-800 !border !border-green-300",
+      });
       
       // Close modal and reset form
       onOpenChange(false);
       setNewGroupName('');
     } catch (err) {
       console.error('Failed to create routing group:', err);
-      alert('Failed to create routing group. Please try again.');
+      // alert('Failed to create routing group. Please try again.');
+      toast.error(`Failed to create routing group. ${err}`, {
+        className: "!bg-red-100 !text-red-800 !border !border-red-300",
+      });
     } finally {
       setCreatingRoutingGroup(false);
+      // Notify parent that loading has ended
+      if (onLoadingChange) {
+        onLoadingChange(false);
+      }
     }
   };
 
@@ -68,9 +87,9 @@ export const CreateRoutingGroupModal: React.FC<CreateRoutingGroupModalProps> = (
       <AlertDialogContent className="max-w-md">
         <AlertDialogHeader>
           <AlertDialogTitle className="text-[16px]">Create New Routing Group</AlertDialogTitle>
-          <AlertDialogDescription className="text-[14px]">
+          {/* <AlertDialogDescription className="text-[14px]">
             Enter a name for the new routing group. This will be used to organize your events.
-          </AlertDialogDescription>
+          </AlertDialogDescription> */}
         </AlertDialogHeader>
         <div className="py-4">
           <Label htmlFor="group-name" className="text-[12px] tracking-tight">

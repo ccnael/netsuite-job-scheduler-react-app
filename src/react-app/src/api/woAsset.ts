@@ -3218,7 +3218,7 @@ const mockWOAssets: WOAsset[] = [{
   }
 ];
 
-export const fetchWOAssets = async (eventId: string): Promise<WOAsset[]> => {
+export const fetchWOAssets = async (woId: string, eventId: string): Promise<WOAsset[]> => {
   if (isLocalDevelopment()) {
     console.log('Using mock asset data for local development');
     return new Promise((resolve) => {
@@ -3237,7 +3237,7 @@ export const fetchWOAssets = async (eventId: string): Promise<WOAsset[]> => {
     while (hasMoreData) {
       const start = 0 + (i * chunkSize);
       const end = chunkSize + (i * chunkSize);
-      const url = `${suiteletUrl}&mode=getWorkOrderAssets&eventId=${eventId}&start=${start}&end=${end}`;
+      const url = `${suiteletUrl}&mode=getWorkOrderAssets&woId=${woId}eventId=${eventId}&start=${start}&end=${end}`;
       const response = await fetch(url);
       console.log(`WOAsset service RESPONSE chunk ${i + 1}:`, response);
       

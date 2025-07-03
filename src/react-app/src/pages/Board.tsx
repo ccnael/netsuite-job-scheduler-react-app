@@ -1,7 +1,6 @@
-
 import React, { useState, useEffect, useCallback } from 'react';
-import { Card } from './Card';
-import { Resources } from './Resources';
+import { Card } from '../components/Card';
+import { Resources } from '../components/Resources';
 import { toast } from "sonner";
 import {
   ResizablePanelGroup,
@@ -14,8 +13,8 @@ import {
   CollapsibleTrigger,
 } from "@/components/ui/collapsible";
 import { Button } from "@/components/ui/button";
-import { MultiSelect } from './MultiSelect';
-import { ChevronRight, Filter, Bot, ClipboardCheck, Calendar, Plus } from "lucide-react";
+import { MultiSelect } from '../components/MultiSelect';
+import { ChevronRight, Filter, Bot, ClipboardCheck, Calendar, Plus, Search, Users } from "lucide-react";
 import {
   Dialog,
   DialogContent,
@@ -24,7 +23,6 @@ import {
   DialogFooter,
   DialogDescription,
 } from "@/components/ui/dialog";
-import { DataTable } from './DataTable';
 import {
   Accordion,
   AccordionContent,
@@ -44,15 +42,15 @@ import {
 } from "@/components/ui/select";
 import { Badge } from "@/components/ui/badge";
 import { Switch } from "@/components/ui/switch";
-import { fetchEmployees, type Employee } from '@/api/employee';
-import { fetchVendors, type Vendor } from '@/api/vendor';
-import { fetchAssets, type Asset } from '@/api/asset';
 import { fetchWorkOrders, type WorkOrder } from '@/api/workOrder';
 import { fetchEvents, type Event } from '@/api/event';
 import { Skeleton } from "@/components/ui/skeleton";
 import { Stars } from "lucide-react";
-import { CreateEvent } from './forms/CreateEvent';
-import { UpdateEvent } from './forms/UpdateEvent';
+import { CreateEvent } from '../components/forms/CreateEvent';
+import { UpdateEvent } from '../components/forms/UpdateEvent';
+import { type Employee } from "@/api/employee";
+import { type Vendor } from "@/api/vendor";
+import { type Asset } from "@/api/asset";
 
 interface FilterState {
   titles: string[];
@@ -77,6 +75,7 @@ interface Job {
   id: string;
   title: string;
   description: string;
+  memo: string;
   status: Status;
   type: string;
   date: string;
@@ -132,6 +131,7 @@ export const Board: React.FC<BoardProps> = ({ employees, vendors, assets, isReso
   const [events, setEvents] = useState<Event[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [loadingError, setLoadingError] = useState<string | null>(null);
+  const [resourceSearchQuery, setResourceSearchQuery] = useState('');
 
   useEffect(() => {
     const loadAllData = async () => {
@@ -159,21 +159,21 @@ export const Board: React.FC<BoardProps> = ({ employees, vendors, assets, isReso
           id: wo.id,
           title: wo.title || 'Untitled Work Order',
           description: wo.description || 'No description',
+          memo: wo.memo,
           status: {
             text: wo.status?.text ?? '',
             value: wo.status?.value ?? '',
             code: wo.status?.code ?? ''
           },
-          type: wo.type || '',
+          type: wo.type.text || '',
           date: wo.date || new Date().toLocaleDateString(),
-          customer: (typeof wo.customer === 'string') ? wo.customer : (wo.customer?.text || 'Unknown Customer'),
-          project: (typeof wo.project === 'string') ? wo.project : (wo.project?.text || 'No Project'),
-          salesOrder: wo.salesOrder || 'No Sales Order',
-          estHours: typeof wo.estHours === 'number' ? wo.estHours : (typeof wo.estHours === 'string' ? parseFloat(wo.estHours) || 0 : 0),
+          customer:  wo.customer.text,
+          project: wo.project.text,
+          salesOrder: wo.salesorder.text,
+          estHours: +wo.esthours,
           woUrl: wo.woUrl,
           soUrl: wo.soUrl,
           projectUrl: wo.projectUrl,
-          customerUrl: (typeof wo.customer === 'string') ? undefined : wo.customer?.url,
           workOrder: wo,
           receiptStatus: wo.receiptStatus || { text: '', value: '' }
         }));
@@ -185,7 +185,10 @@ export const Board: React.FC<BoardProps> = ({ employees, vendors, assets, isReso
       } catch (error) {
         console.error('Board: Failed to load data:', error);
         setLoadingError('Failed to load data. Using default values.');
-        toast.error('Failed to load data');
+        toast.error('Failed to load data', {
+          position: "top-right",
+          className: "!bg-red-100 !text-red-800 !border !border-red-300",
+        });
       } finally {
         setIsLoading(false);
       }
@@ -204,7 +207,10 @@ export const Board: React.FC<BoardProps> = ({ employees, vendors, assets, isReso
 
     switch (action) {
       case 'print':
-        toast.success(`Printing ${cardTitle}`);
+        toast.success(`Printing ${cardTitle}`, {
+          position: "top-right",
+          className: "!bg-green-100 !text-green-800 !border !border-green-300",
+        });
         break;
       case 'hold':
         // Update job status to ON_HOLD
@@ -232,7 +238,10 @@ export const Board: React.FC<BoardProps> = ({ employees, vendors, assets, isReso
               : job
           ));
         }
-        toast.success(`${cardTitle} closed`);
+        toast.success(`${cardTitle} closed`, {
+          position: "top-right",
+          className: "!bg-green-100 !text-green-800 !border !border-green-300",
+        });
         break;
       case 'update':
         if (isEvent) {
@@ -242,7 +251,10 @@ export const Board: React.FC<BoardProps> = ({ employees, vendors, assets, isReso
         break;
       case 'complete':
         setEvents(events.filter(e => e.id !== cardId));
-        toast.success(`${cardTitle} completed`);
+        toast.success(`${cardTitle} completed`, {
+          position: "top-right",
+          className: "!bg-green-100 !text-green-800 !border !border-green-300",
+        });
         break;
       case 'remove':
         setEvents(events.filter(e => e.id !== cardId));
@@ -306,7 +318,10 @@ export const Board: React.FC<BoardProps> = ({ employees, vendors, assets, isReso
   const handleSubmit = useCallback((submittedFormData: EventFormData) => {
     if (!submittedFormData.eventTitle || !submittedFormData.startDate || !submittedFormData.endDate || (!submittedFormData.allDay && (!submittedFormData.startTime || !submittedFormData.endTime))) {
       console.log('Form Data', submittedFormData);
-      toast.error("Please fill in all required fields");
+      toast.error("Please fill in all required fields", {
+        position: "top-right",
+        className: "!bg-red-100 !text-red-800 !border !border-red-300",
+      });
       return;
     }
 
@@ -359,7 +374,10 @@ export const Board: React.FC<BoardProps> = ({ employees, vendors, assets, isReso
     ));
     setIsUpdateModalOpen(false);
     setSelectedEventForUpdate(null);
-    toast.success("Event updated successfully");
+    toast.success("Event updated successfully", {
+      position: "top-right",
+      className: "!bg-green-100 !text-green-800 !border !border-green-300",
+    });
   };
 
   const [isFilterModalOpen, setIsFilterModalOpen] = useState(false);
@@ -417,7 +435,7 @@ export const Board: React.FC<BoardProps> = ({ employees, vendors, assets, isReso
             <div className="space-y-2 h-full flex flex-col">
               <Skeleton className="h-6 w-24" />
               <div className="space-y-1 flex-1">
-                {[1, 2, 3].map((i) => (
+                {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15].map((i) => (
                   <Skeleton key={i} className="h-16 w-full" />
                 ))}
               </div>
@@ -459,7 +477,6 @@ export const Board: React.FC<BoardProps> = ({ employees, vendors, assets, isReso
             <CollapsibleContent className="w-[250px] min-w-[250px] h-full bg-white p-4 border-r">
               <div className="h-full flex flex-col">
                 <Resources 
-                  filterText={resourcesFilter.titles.join(' ')} 
                   events={events} 
                   employees={employees}
                   vendors={vendors}
@@ -551,7 +568,11 @@ export const Board: React.FC<BoardProps> = ({ employees, vendors, assets, isReso
 
           <ResizablePanel defaultSize={50}>
             <div 
-              className="h-full bg-white p-4"
+              // className="h-full bg-white p-4"
+              className={`h-full bg-white p-4 ${
+                draggedCard ? 'border-[5px] border-dashed' : ''
+              }`}
+              style={draggedCard ? { borderColor: '#26CC4E' } : undefined}
               onDragOver={handleDragOver}
               onDrop={handleDrop}
             >
@@ -641,7 +662,10 @@ export const Board: React.FC<BoardProps> = ({ employees, vendors, assets, isReso
         <Button
           size="icon"
           className="h-9 w-9 rounded-full shadow-lg bg-blue-600 hover:bg-blue-700"
-          onClick={() => toast.info("AI Assistant coming soon!", { duration: 500 })}
+          onClick={() => toast.info("AI Assistant coming soon!", { 
+            duration: 500,
+            className: "!bg-blue-100 !text-blue-800 !border !border-blue-300"
+          })}
         >
           <Stars className="h-8 w-8" />
         </Button>

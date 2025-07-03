@@ -11,11 +11,11 @@ interface Event {
   id: string;
   title?: string;
   note?: string;
-  status?: {
-    text: string;
-    value: string;
-    code: string;
-  };
+  // status?: {
+  //   text: string;
+  //   value: string;
+  //   code: string;
+  // };
 }
 
 interface UpdateEventProps {
@@ -71,14 +71,14 @@ export const UpdateEvent: React.FC<UpdateEventProps> = ({
           <div className="space-y-2">
             <Label htmlFor="update-status">Status</Label>
             <Select
-              value={selectedEvent.status?.text || 'Pending'}
+              value={/* selectedEvent.status?.text ||  */'Pending'}
               onValueChange={(value) => setSelectedEvent({
                 ...selectedEvent,
-                status: {
+                /* status: {
                   text: value,
                   value: value.toUpperCase(),
                   code: value.toUpperCase()
-                }
+                } */
               })}
             >
               <SelectTrigger>

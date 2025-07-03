@@ -14,7 +14,7 @@ import {
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Filter, Users } from "lucide-react";
+import { Filter, Users, Search } from "lucide-react";
 import { MultiSelect } from './MultiSelect';
 import { type Employee } from '@/api/employee';
 import { type Vendor } from '@/api/vendor';
@@ -22,9 +22,9 @@ import { type Asset } from '@/api/asset';
 import { type Event } from '@/api/event';
 import { Skeleton } from "@/components/ui/skeleton";
 import { ScrollArea } from "@/components/ui/scroll-area";
+import { Input } from "@/components/ui/input";
 
 interface ResourcesProps {
-  filterText: string;
   events: Event[];
   employees: Employee[];
   vendors: Vendor[];
@@ -32,11 +32,31 @@ interface ResourcesProps {
   isLoading: boolean;
 }
 
-// Union type for all resources
-type Resource = (Employee & { type: 'employee' }) | (Vendor & { type: 'vendor' }) | (Asset & { type: 'asset' });
+// Union type for all resources with proper type definitions
+type ExtendedEmployee = Employee & { 
+  resourceType: 'employee'; 
+  resourceGroups?: { text: string; value: string }[]; 
+  color?: string; 
+  events?: string[] 
+};
+
+type ExtendedVendor = Vendor & { 
+  resourceType: 'vendor'; 
+  resourceGroups?: { text: string; value: string }[]; 
+  color?: string; 
+  events?: string[] 
+};
+
+type ExtendedAsset = Asset & { 
+  resourceType: 'asset'; 
+  resourceGroups?: { text: string; value: string }[]; 
+  color?: string; 
+  events?: string[] 
+};
+
+type Resource = ExtendedEmployee | ExtendedVendor | ExtendedAsset;
 
 export const Resources: React.FC<ResourcesProps> = ({ 
-  filterText, 
   events, 
   employees, 
   vendors, 
@@ -46,6 +66,7 @@ export const Resources: React.FC<ResourcesProps> = ({
   const [isFilterOpen, setIsFilterOpen] = useState(false);
   const [selectedGroups, setSelectedGroups] = useState<string[]>([]);
   const [selectedStatuses, setSelectedStatuses] = useState<string[]>([]);
+  const [filterText, setFilterText] = useState('');
 
   useEffect(() => {
     // Populate events for employees, vendors, and assets when events change
@@ -56,7 +77,7 @@ export const Resources: React.FC<ResourcesProps> = ({
 
   // Combine employees, vendors, and assets into a unified resource list with proper null checks
   const allResources: Resource[] = [
-    ...(employees || []).map(emp => {
+    ...(employees || []).map((emp): ExtendedEmployee => {
       const matchingEvents = (events || []).filter(event => 
         (event.resources || []).some(resource => 
           resource.employee?.value === emp.employee?.value
@@ -64,11 +85,13 @@ export const Resources: React.FC<ResourcesProps> = ({
       );
       return { 
         ...emp, 
-        type: 'employee' as const,
-        events: matchingEvents.map(event => event.id)
+        resourceType: 'employee' as const,
+        events: matchingEvents.map(event => event.id),
+        resourceGroups: emp.resourceGroups || [],
+        color: emp.color || '#007bff'
       };
     }),
-    ...(vendors || []).map(vendor => {
+    ...(vendors || []).map((vendor): ExtendedVendor => {
       const matchingEvents = (events || []).filter(event => 
         (event.vendors || []).some(eventVendor => 
           eventVendor.vendor?.value === vendor.vendor?.value
@@ -76,11 +99,13 @@ export const Resources: React.FC<ResourcesProps> = ({
       );
       return { 
         ...vendor, 
-        type: 'vendor' as const,
-        events: matchingEvents.map(event => event.id)
+        resourceType: 'vendor' as const,
+        events: matchingEvents.map(event => event.id),
+        resourceGroups: vendor.resourceGroups || [],
+        color: vendor.color || '#007bff'
       };
     }),
-    ...(assets || []).map(asset => {
+    ...(assets || []).map((asset): ExtendedAsset => {
       const matchingEvents = (events || []).filter(event => 
         (event.assets || []).some(eventAsset => 
           eventAsset.asset?.value === asset.asset?.value
@@ -88,8 +113,10 @@ export const Resources: React.FC<ResourcesProps> = ({
       );
       return { 
         ...asset, 
-        type: 'asset' as const,
-        events: matchingEvents.map(event => event.id)
+        resourceType: 'asset' as const,
+        events: matchingEvents.map(event => event.id),
+        resourceGroups: [],
+        color: '#007bff'
       };
     })
   ];
@@ -97,11 +124,11 @@ export const Resources: React.FC<ResourcesProps> = ({
   const filteredResources = allResources.filter(resource => {
     try {
       let name = '';
-      if (resource.type === 'employee') {
+      if (resource.resourceType === 'employee') {
         name = resource.employee?.text || '';
-      } else if (resource.type === 'vendor') {
+      } else if (resource.resourceType === 'vendor') {
         name = resource.vendor?.text || '';
-      } else if (resource.type === 'asset') {
+      } else if (resource.resourceType === 'asset') {
         name = resource.asset?.text || '';
       }
       
@@ -125,9 +152,9 @@ export const Resources: React.FC<ResourcesProps> = ({
       if (resourceGroups.length === 0) {
         // Add resources without groups to appropriate default group
         let defaultGroup = 'Other';
-        if (resource.type === 'vendor') {
+        if (resource.resourceType === 'vendor') {
           defaultGroup = 'Vendors';
-        } else if (resource.type === 'asset') {
+        } else if (resource.resourceType === 'asset') {
           defaultGroup = 'Assets';
         }
         
@@ -136,21 +163,21 @@ export const Resources: React.FC<ResourcesProps> = ({
         }
         
         let resourceId = '';
-        if (resource.type === 'employee') {
+        if (resource.resourceType === 'employee') {
           resourceId = resource.employee?.value || '';
-        } else if (resource.type === 'vendor') {
+        } else if (resource.resourceType === 'vendor') {
           resourceId = resource.vendor?.value || '';
-        } else if (resource.type === 'asset') {
+        } else if (resource.resourceType === 'asset') {
           resourceId = resource.asset?.value || '';
         }
         
         if (resourceId && !acc[defaultGroup].find(res => {
           let existingId = '';
-          if (res.type === 'employee') {
+          if (res.resourceType === 'employee') {
             existingId = res.employee?.value || '';
-          } else if (res.type === 'vendor') {
+          } else if (res.resourceType === 'vendor') {
             existingId = res.vendor?.value || '';
-          } else if (res.type === 'asset') {
+          } else if (res.resourceType === 'asset') {
             existingId = res.asset?.value || '';
           }
           return existingId === resourceId;
@@ -165,21 +192,21 @@ export const Resources: React.FC<ResourcesProps> = ({
           }
           
           let resourceId = '';
-          if (resource.type === 'employee') {
+          if (resource.resourceType === 'employee') {
             resourceId = resource.employee?.value || '';
-          } else if (resource.type === 'vendor') {
+          } else if (resource.resourceType === 'vendor') {
             resourceId = resource.vendor?.value || '';
-          } else if (resource.type === 'asset') {
+          } else if (resource.resourceType === 'asset') {
             resourceId = resource.asset?.value || '';
           }
           
           if (resourceId && !acc[groupName].find(res => {
             let existingId = '';
-            if (res.type === 'employee') {
+            if (res.resourceType === 'employee') {
               existingId = res.employee?.value || '';
-            } else if (res.type === 'vendor') {
+            } else if (res.resourceType === 'vendor') {
               existingId = res.vendor?.value || '';
-            } else if (res.type === 'asset') {
+            } else if (res.resourceType === 'asset') {
               existingId = res.asset?.value || '';
             }
             return existingId === resourceId;
@@ -197,7 +224,6 @@ export const Resources: React.FC<ResourcesProps> = ({
   const uniqueGroups = Array.from(new Set([
     ...(employees || []).flatMap(emp => (emp.resourceGroups || []).map(group => group?.text || '')),
     ...(vendors || []).flatMap(vendor => (vendor.resourceGroups || []).map(group => group?.text || '')),
-    ...(assets || []).flatMap(asset => (asset.resourceGroups || []).map(group => group?.text || '')),
     'Vendors', // Always include Vendors group
     'Assets' // Always include Assets group
   ])).filter(group => group !== '');
@@ -219,6 +245,7 @@ export const Resources: React.FC<ResourcesProps> = ({
             <Filter className="h-3 w-3" />
           </Button>
         </div>
+        {/* <Search className="h-4 w-4 text-gray-400 mb-3" /> */}
         <div className="space-y-1 flex-1">
           {[1, 2, 3].map((i) => (
             <div key={i} className="border rounded p-2">
@@ -281,6 +308,15 @@ export const Resources: React.FC<ResourcesProps> = ({
           </DialogContent>
         </Dialog>
       </div>
+      <div className="relative mb-3">
+        <Search className="absolute left-2 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400 pointer-events-none" />
+        <Input
+          placeholder="Search by name..."
+          value={filterText}
+          onChange={(e) => setFilterText(e.target.value)}
+          className="h-8 text-sm !text-[12px] placeholder:text-[12px] pl-7"
+        />
+      </div>
       <ScrollArea className="flex-1 h-full">
         <Accordion 
           type="multiple" 
@@ -303,13 +339,13 @@ export const Resources: React.FC<ResourcesProps> = ({
                     let name = 'Unknown';
                     let id = '';
                     
-                    if (resource.type === 'employee') {
+                    if (resource.resourceType === 'employee') {
                       name = resource.employee?.text || 'Unknown';
                       id = resource.employee?.value || '';
-                    } else if (resource.type === 'vendor') {
+                    } else if (resource.resourceType === 'vendor') {
                       name = resource.vendor?.text || 'Unknown';
                       id = resource.vendor?.value || '';
-                    } else if (resource.type === 'asset') {
+                    } else if (resource.resourceType === 'asset') {
                       name = resource.asset?.text || 'Unknown';
                       id = resource.asset?.value || '';
                     }
@@ -318,7 +354,7 @@ export const Resources: React.FC<ResourcesProps> = ({
                     
                     return (
                       <div 
-                        key={`${resource.type}-${id}`}
+                        key={`${resource.resourceType}-${id}`}
                         className="flex items-center justify-between p-1 hover:bg-gray-50 rounded text-xs"
                       >
                         <div className="flex items-center space-x-1">

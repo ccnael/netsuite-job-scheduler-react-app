@@ -61,6 +61,7 @@ export interface Employee {
     text: string;
     value: string;
   };
+  woResourceId?: string;
 }
 
 export const getMockEmployees = (): Employee[] => {

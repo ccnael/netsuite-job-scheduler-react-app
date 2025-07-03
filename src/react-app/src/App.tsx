@@ -7,7 +7,7 @@ import { HashRouter, Routes, Route } from "react-router-dom";
 import { ThemeProvider } from "next-themes";
 import { Navigation } from "./components/Navigation";
 import Index from "./pages/Index";
-import Calendar from "./pages/Calendar";
+import FullCalendarPage from "./pages/FullCalendar";
 
 const queryClient = new QueryClient();
 
@@ -27,7 +27,7 @@ function App() {
             <Navigation />
             <Routes>
               <Route path="/" element={<Index />} />
-              <Route path="/calendar" element={<Calendar />} />
+              <Route path="/fullcalendar" element={<FullCalendarPage />} />
             </Routes>
           </HashRouter>
         </TooltipProvider>

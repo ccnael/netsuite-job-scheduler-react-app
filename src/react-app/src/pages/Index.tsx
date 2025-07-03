@@ -1,6 +1,6 @@
 
 import { useState, useEffect } from 'react';
-import { Board } from "@/components/Board";
+import { Board } from "@/pages/Board";
 import { fetchEmployees, type Employee } from '@/api/employee';
 import { fetchVendors, type Vendor } from '@/api/vendor';
 import { fetchAssets, type Asset } from '@/api/asset';

@@ -1,4 +1,3 @@
-
 import React, { useState, useMemo, useCallback, useEffect } from 'react';
 import {
   ColumnDef, flexRender, getCoreRowModel, getFilteredRowModel,
@@ -10,6 +9,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
+import { Badge } from "@/components/ui/badge";
 import { Search, ChevronLeft, ChevronRight, ChevronsLeft, ChevronsRight, ChevronUp, ChevronDown, ChevronsUpDown, Filter } from "lucide-react";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { fetchWOAddresses } from "@/api/woAddress";
@@ -175,14 +175,25 @@ export const WOAddressTable: React.FC<WOAddressTableProps> = ({ woId, onSelectio
           </Button>
         </div>
 
-        <div className="relative w-[200px]">
-          <Search className="absolute left-2 top-1/2 transform -translate-y-1/2 text-slate-400 h-3 w-3" />
-          <Input
-            placeholder="Search..."
-            value={globalFilter}
-            onChange={(e) => setGlobalFilter(e.target.value)}
-            className="pl-8 h-6 border-slate-200 text-[12px] font-sans placeholder:text-[12px]"
-          />
+        {/* Right - Selected Counter and Search */}
+        <div className="flex items-center space-x-2">
+          {/* {selectedWOAddresses.length > 0 && (
+            <div className="flex items-center space-x-1">
+              <span className="text-[12px] font-sans text-slate-700">Selected:</span>
+              <Badge variant="secondary" className="text-[10px] px-1 py-0.5 h-4">
+                {selectedWOAddresses.length}
+              </Badge>
+            </div>
+          )} */}
+          <div className="relative w-[200px]">
+            <Search className="absolute left-2 top-1/2 transform -translate-y-1/2 text-slate-400 h-3 w-3" />
+            <Input
+              placeholder="Search..."
+              value={globalFilter}
+              onChange={(e) => setGlobalFilter(e.target.value)}
+              className="pl-8 h-6 border-slate-200 text-[12px] font-sans placeholder:text-[12px]"
+            />
+          </div>
         </div>
       </div>
 

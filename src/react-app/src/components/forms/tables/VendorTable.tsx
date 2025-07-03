@@ -9,6 +9,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
+import { Badge } from "@/components/ui/badge";
 import { Search, ChevronLeft, ChevronRight, ChevronsLeft, ChevronsRight, ChevronUp, ChevronDown, ChevronsUpDown, Filter, AlertTriangle } from "lucide-react";
 import { Vendor } from "@/api/vendor";
 
@@ -97,31 +98,35 @@ export const VendorTable: React.FC<VendorTableProps> = ({ data = [], onSelection
     setRowSelection(prev => ({ ...prev, [rowIndex]: checked }));
   }, [tableDataState]);
 
-  // Custom select all handler to skip vendors with 0 manpower
-  const handleSelectAll = useCallback((checked: boolean) => {
+  // Custom select all handler to skip vendors with 0 manpower and only select current page
+  const handleSelectAll = useCallback((checked: boolean, table: any) => {
     if (checked) {
-      const newSelection = {};
-      tableDataState.forEach((vendor, index) => {
-        // Only select vendors with manpower greater than 0
+      const newSelection: Record<string, boolean> = {};
+      // Only select rows on the current page with valid manpower
+      table.getRowModel().rows.forEach((row: any) => {
+        const vendor = tableDataState[row.index];
         if (vendor.quantityRequired && vendor.quantityRequired > 0) {
-          newSelection[index] = true;
+          newSelection[row.index.toString()] = true;
         }
       });
-      setRowSelection(newSelection);
+      setRowSelection(prev => ({ ...prev, ...newSelection }));
     } else {
-      setRowSelection({});
+      // Deselect only the rows on the current page
+      const currentPageRowIndices = table.getRowModel().rows.map((row: any) => row.index.toString());
+      setRowSelection(prev => {
+        const newSelection = { ...prev };
+        currentPageRowIndices.forEach(index => {
+          delete newSelection[index];
+        });
+        return newSelection;
+      });
     }
   }, [tableDataState]);
 
-  // Calculate if all selectable vendors are selected for header checkbox
+  // Calculate if all selectable vendors on current page are selected for header checkbox
   const isAllSelectableSelected = useMemo(() => {
-    const selectableVendors = tableDataState.filter(vendor => vendor.quantityRequired && vendor.quantityRequired > 0);
-    if (selectableVendors.length === 0) return false;
-    
-    return selectableVendors.every((vendor) => {
-      const tableIndex = tableDataState.findIndex(v => v.id === vendor.id);
-      return rowSelection[tableIndex];
-    });
+    // We need the table instance to get current page rows
+    return false; // Will be updated in the table definition
   }, [tableDataState, rowSelection]);
 
   // Memoize the selection computation to prevent infinite loops
@@ -156,15 +161,27 @@ export const VendorTable: React.FC<VendorTableProps> = ({ data = [], onSelection
   const columns: ColumnDef<Vendor>[] = useMemo(() => [
     {
       id: "select",
-      header: ({ table }) => (
-        <div className="flex justify-center items-center">
-          <Checkbox 
-            checked={isAllSelectableSelected}
-            onCheckedChange={(value) => handleSelectAll(!!value)}
-            className="translate-y-[1px]"
-          />
-        </div>
-      ),
+      header: ({ table }) => {
+        // Calculate if all selectable vendors on current page are selected
+        const currentPageRows = table.getRowModel().rows;
+        const selectableRows = currentPageRows.filter(row => {
+          const vendor = row.original;
+          return vendor.quantityRequired && vendor.quantityRequired > 0;
+        });
+        
+        const isAllCurrentPageSelected = selectableRows.length > 0 && 
+          selectableRows.every(row => rowSelection[row.index]);
+
+        return (
+          <div className="flex justify-center items-center">
+            <Checkbox 
+              checked={isAllCurrentPageSelected}
+              onCheckedChange={(value) => handleSelectAll(!!value, table)}
+              className="translate-y-[1px]"
+            />
+          </div>
+        );
+      },
       cell: ({ row }) => {
         const vendor = row.original;
         const hasValidManpower = vendor.quantityRequired && vendor.quantityRequired > 0;
@@ -241,7 +258,7 @@ export const VendorTable: React.FC<VendorTableProps> = ({ data = [], onSelection
         />
       ),
     },
-  ], [updateField, updateMemoField, handleSelectAll, handleRowToggle, renderSortIcon, validationWarnings, isAllSelectableSelected]);
+  ], [updateField, updateMemoField, handleSelectAll, handleRowToggle, renderSortIcon, validationWarnings, rowSelection]);
 
   const table = useReactTable({
     data: tableDataState,
@@ -277,14 +294,25 @@ export const VendorTable: React.FC<VendorTableProps> = ({ data = [], onSelection
           <Button variant="outline" size="sm"><Filter className="h-3 w-3" /></Button>
         </div>
 
-        <div className="relative w-[200px]">
-          <Search className="absolute left-2 top-1/2 transform -translate-y-1/2 text-slate-400 h-3 w-3" />
-          <Input
-            placeholder="Search..."
-            value={globalFilter}
-            onChange={(e) => setGlobalFilter(e.target.value)}
-            className="pl-8 h-6 border-slate-200 text-[12px] font-sans placeholder:text-[12px]"
-          />
+        {/* Right - Selected Counter and Search */}
+        <div className="flex items-center space-x-2">
+          {selectedVendors.length > 0 && (
+            <div className="flex items-center space-x-1">
+              <span className="text-[12px] font-sans text-slate-700">Selected:</span>
+              <Badge variant="secondary" className="text-[10px] px-1 py-0.5 h-4">
+                {selectedVendors.length}
+              </Badge>
+            </div>
+          )}
+          <div className="relative w-[200px]">
+            <Search className="absolute left-2 top-1/2 transform -translate-y-1/2 text-slate-400 h-3 w-3" />
+            <Input
+              placeholder="Search..."
+              value={globalFilter}
+              onChange={(e) => setGlobalFilter(e.target.value)}
+              className="pl-8 h-6 border-slate-200 text-[12px] font-sans placeholder:text-[12px]"
+            />
+          </div>
         </div>
       </div>
 

@@ -17,6 +17,7 @@ interface DropdownFilterProps {
   id: string;
   label: string;
   options: DropdownOption[];
+  text?: string;
   value: string;
   onChange: (value: string) => void;
   placeholder?: string;
@@ -24,13 +25,13 @@ interface DropdownFilterProps {
   dependentFilter?: string;
   fetchOptionsOnOpen?: FetchOptionsFunction;
   alwaysRefetch?: boolean;
-  onCollapseDashboard?: () => void;
 }
 
 const DropdownFilter: React.FC<DropdownFilterProps> = ({
   id,
   label,
   options,
+  text,
   value,
   onChange,
   placeholder = "Select option",
@@ -38,7 +39,6 @@ const DropdownFilter: React.FC<DropdownFilterProps> = ({
   dependentFilter,
   fetchOptionsOnOpen,
   alwaysRefetch = false,
-  onCollapseDashboard
 }) => {
   const [open, setOpen] = useState(false);
   
@@ -52,17 +52,18 @@ const DropdownFilter: React.FC<DropdownFilterProps> = ({
     fetchOptionsOnOpen,
     alwaysRefetch
   });
-  
-  // If value is set but not found in options, clear it
-  const selectedOption = localOptions.find((opt) => opt.value === value);
-  
-  // Reset value if not found in current options and we have a value
-  React.useEffect(() => {
-    if (value && localOptions.length > 0 && !selectedOption) {
-      onChange("");
-    }
-  }, [localOptions, value, selectedOption, onChange]);
 
+  console.log('DropdownFilter options:', localOptions);
+  console.log('DropdownFilter value:', value);
+  
+  // Find the selected option - check both localOptions and provided options
+  let selectedOption = localOptions.find((opt) => opt.value === value);
+  if (!selectedOption && value) {
+    selectedOption = options.find((opt) => opt.value === value);
+  }
+  
+  console.log('DropdownFilter selectedOption:', selectedOption);
+  
   const handleClear = (e: React.MouseEvent) => {
     e.stopPropagation();
     onChange("");
@@ -71,12 +72,25 @@ const DropdownFilter: React.FC<DropdownFilterProps> = ({
   const onOpenChange = async (isOpen: boolean) => {
     setOpen(isOpen);
     
-    // Collapse dashboard when opening dropdown
-    if (isOpen && onCollapseDashboard) {
-      onCollapseDashboard();
+    await handleOpenChange(isOpen);
+  };
+
+  // Get display text for the selected value
+  const getDisplayText = () => {
+    if (!value) {
+      return <span className="text-muted-foreground">{placeholder}</span>;
+    }
+
+    if (id === 'routingGroup' && !selectedOption) {
+      return text;
     }
     
-    await handleOpenChange(isOpen);
+    if (selectedOption) {
+      return typeof selectedOption.text === 'string' ? selectedOption.text : selectedOption.text;
+    }
+    
+    // If we have a value but no matching option, try to show the value as fallback
+    return <span className="text-foreground">{value}</span>;
   };
 
   return (
@@ -95,9 +109,7 @@ const DropdownFilter: React.FC<DropdownFilterProps> = ({
             disabled={disabled}
             type="button"
           >
-            {value && selectedOption ? selectedOption.text : (
-              <span className="text-muted-foreground">{placeholder}</span>
-            )}
+            {getDisplayText()}
             {isLoading ? (
               <Loader2 className="ml-auto h-4 w-4 animate-spin" />
             ) : value ? (
@@ -116,7 +128,7 @@ const DropdownFilter: React.FC<DropdownFilterProps> = ({
           </Button>
         </PopoverTrigger>
         <PopoverContent 
-          className="w-[--radix-popover-trigger-width] p-0 animate-fade-in rounded-md border border-input shadow-md overflow-hidden" 
+          className="w-[--radix-popover-trigger-width] p-0 animate-fade-in rounded-md border border-input shadow-md overflow-hidden z-50" 
           align="start"
           sideOffset={8}
         >
