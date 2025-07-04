@@ -20,20 +20,20 @@ export const Navigation = () => {
             {/* Left links */}
             <div className="flex space-x-6">
               <Link
-                to="/"
+                to="/board"
                 className={cn(
                   "flex items-center space-x-1 text-xs font-medium transition-colors hover:text-white",
-                  location.pathname === "/" ? "text-white" : "text-white/50"
+                  (location.pathname === "/board" || location.pathname === "/") ? "text-white" : "text-white/50"
                 )}
               >
-                <Kanban className={cn("h-3 w-3 text-white",location.pathname === "/" ? "text-white" : "text-white/30")} />
+                <Kanban className={cn("h-3 w-3 text-white",(location.pathname === "/board" || location.pathname === "/") ? "text-white" : "text-white/30")} />
                 <span style={{ fontSize: '10pt' }}>Board</span>
               </Link>
               <Link
-                to="/fullcalendar"
+                to="/calendar"
                 className={cn(
                   "flex items-center space-x-1 text-xs font-medium transition-colors hover:text-white",
-                  location.pathname === "/fullcalendar" ? "text-white" : "text-white/50"
+                  location.pathname === "/calendar" ? "text-white" : "text-white/50"
                 )}
               >
                 <CalendarDays className={cn("h-3 w-3 text-white",location.pathname === "/fullcalendar" ? "text-white" : "text-white/30")} />

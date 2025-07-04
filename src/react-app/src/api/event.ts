@@ -1,6 +1,7 @@
 
 import { suiteletUrl } from '@/lib/constants';
 import { isLocalDevelopment } from '@/lib/helpers';
+import { type WorkOrder } from "@/api/workOrder";
 
 export interface Event {
   id: string;
@@ -33,7 +34,7 @@ export interface Event {
   note?: string;
   url?: string;
   color?: string;
-  woRef?: any;
+  woRef?: WorkOrder;
   resources?: any[];
   vendors?: any[];
   assets?: any[];
@@ -54,7 +55,10 @@ export interface Event {
     value: string;
   };
   assetMaintenance?: boolean;
-  routingGroup?: string;
+  routingGroup?: {
+    text: string;
+    value: string;
+  };
 }
 
 const getMockEvents = (): Event[] => {
@@ -111,7 +115,10 @@ const getMockEvents = (): Event[] => {
         "value": "414"
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "101152",
@@ -168,7 +175,10 @@ const getMockEvents = (): Event[] => {
         "value": "235"
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "101151",
@@ -224,7 +234,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "101150",
@@ -281,7 +294,10 @@ const getMockEvents = (): Event[] => {
         "value": "362"
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "Group A",
+        "value": "1"
+      }
     },
     {
       "id": "101149",
@@ -337,7 +353,10 @@ const getMockEvents = (): Event[] => {
         "value": "362"
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "101147",
@@ -393,7 +412,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "101146",
@@ -450,7 +472,10 @@ const getMockEvents = (): Event[] => {
         "value": "366"
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "101144",
@@ -506,7 +531,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "101140",
@@ -562,7 +590,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "101139",
@@ -617,7 +648,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "101138",
@@ -674,7 +708,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "101135",
@@ -730,7 +767,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": true,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "101134",
@@ -787,7 +827,10 @@ const getMockEvents = (): Event[] => {
         "value": "366"
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "101133",
@@ -844,7 +887,10 @@ const getMockEvents = (): Event[] => {
         "value": "362"
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "101132",
@@ -900,7 +946,10 @@ const getMockEvents = (): Event[] => {
         "value": "361"
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "101127",
@@ -957,7 +1006,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": true,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "101126",
@@ -1014,7 +1066,10 @@ const getMockEvents = (): Event[] => {
         "value": "351"
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "101124",
@@ -1071,7 +1126,10 @@ const getMockEvents = (): Event[] => {
         "value": "351"
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "101123",
@@ -1128,7 +1186,10 @@ const getMockEvents = (): Event[] => {
         "value": "351"
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "101122",
@@ -1185,7 +1246,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "101121",
@@ -1241,7 +1305,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": true,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "101120",
@@ -1298,7 +1365,10 @@ const getMockEvents = (): Event[] => {
         "value": "351"
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "101119",
@@ -1354,7 +1424,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": true,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "101102",
@@ -1410,7 +1483,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "101099",
@@ -1467,7 +1543,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "101098",
@@ -1524,7 +1603,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "101097",
@@ -1581,7 +1663,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "101096",
@@ -1638,7 +1723,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "101095",
@@ -1694,7 +1782,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "101088",
@@ -1751,7 +1842,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "101087",
@@ -1808,7 +1902,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "101086",
@@ -1864,7 +1961,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "101085",
@@ -1921,7 +2021,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "101084",
@@ -1977,7 +2080,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "101083",
@@ -2033,7 +2139,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "101082",
@@ -2089,7 +2198,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "101080",
@@ -2146,7 +2258,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "101079",
@@ -2202,7 +2317,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "101078",
@@ -2258,7 +2376,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "101077",
@@ -2314,7 +2435,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "101076",
@@ -2370,7 +2494,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "101075",
@@ -2426,7 +2553,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "101072",
@@ -2483,7 +2613,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "101064",
@@ -2539,7 +2672,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "101063",
@@ -2595,7 +2731,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "101061",
@@ -2652,7 +2791,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "101060",
@@ -2709,7 +2851,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "101058",
@@ -2766,7 +2911,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "101057",
@@ -2822,7 +2970,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "101056",
@@ -2879,7 +3030,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "101055",
@@ -2935,7 +3089,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "101054",
@@ -2992,7 +3149,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "101052",
@@ -3048,7 +3208,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "101051",
@@ -3104,7 +3267,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "101050",
@@ -3161,7 +3327,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "101049",
@@ -3217,7 +3386,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "101048",
@@ -3273,7 +3445,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "101045",
@@ -3330,7 +3505,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "101044",
@@ -3387,7 +3565,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "101043",
@@ -3443,7 +3624,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "101042",
@@ -3500,7 +3684,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "101041",
@@ -3556,7 +3743,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "101040",
@@ -3612,7 +3802,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "101039",
@@ -3669,7 +3862,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "101038",
@@ -3725,7 +3921,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "101037",
@@ -3782,7 +3981,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "101036",
@@ -3839,7 +4041,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "101035",
@@ -3895,7 +4100,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "101034",
@@ -3952,7 +4160,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "101033",
@@ -4009,7 +4220,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "101032",
@@ -4066,7 +4280,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "101031",
@@ -4122,7 +4339,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "101030",
@@ -4179,7 +4399,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "101029",
@@ -4235,7 +4458,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "101028",
@@ -4291,7 +4517,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "101018",
@@ -4348,7 +4577,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "101017",
@@ -4405,7 +4637,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "101016",
@@ -4462,7 +4697,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "101015",
@@ -4519,7 +4757,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "101012",
@@ -4576,7 +4817,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "101011",
@@ -4633,7 +4877,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "101010",
@@ -4690,7 +4937,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "101008",
@@ -4747,7 +4997,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "101007",
@@ -4804,7 +5057,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "101006",
@@ -4861,7 +5117,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "101005",
@@ -4918,7 +5177,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "101004",
@@ -4974,7 +5236,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "101003",
@@ -5030,7 +5295,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100971",
@@ -5086,7 +5354,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100970",
@@ -5142,7 +5413,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100969",
@@ -5198,7 +5472,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100968",
@@ -5254,7 +5531,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100965",
@@ -5311,7 +5591,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100964",
@@ -5368,7 +5651,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100963",
@@ -5423,7 +5709,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100962",
@@ -5478,7 +5767,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100961",
@@ -5534,7 +5826,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100960",
@@ -5590,7 +5885,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100959",
@@ -5647,7 +5945,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100956",
@@ -5703,7 +6004,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100955",
@@ -5759,7 +6063,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100954",
@@ -5816,7 +6123,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100953",
@@ -5873,7 +6183,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100952",
@@ -5929,7 +6242,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100951",
@@ -5985,7 +6301,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100950",
@@ -6041,7 +6360,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100947",
@@ -6097,7 +6419,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100946",
@@ -6153,7 +6478,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100945",
@@ -6209,7 +6537,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100942",
@@ -6265,7 +6596,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100941",
@@ -6321,7 +6655,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100940",
@@ -6377,7 +6714,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100939",
@@ -6434,7 +6774,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100938",
@@ -6490,7 +6833,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100937",
@@ -6546,7 +6892,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100936",
@@ -6602,7 +6951,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100934",
@@ -6658,7 +7010,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100933",
@@ -6714,7 +7069,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100932",
@@ -6770,7 +7128,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100931",
@@ -6826,7 +7187,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100930",
@@ -6881,7 +7245,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100927",
@@ -6937,7 +7304,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100924",
@@ -6993,7 +7363,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100923",
@@ -7049,7 +7422,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100922",
@@ -7105,7 +7481,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100921",
@@ -7161,7 +7540,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100916",
@@ -7216,7 +7598,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100915",
@@ -7271,7 +7656,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100913",
@@ -7326,7 +7714,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100912",
@@ -7382,7 +7773,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100908",
@@ -7438,7 +7832,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100907",
@@ -7494,7 +7891,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100906",
@@ -7549,7 +7949,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100905",
@@ -7604,7 +8007,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100904",
@@ -7659,7 +8065,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100903",
@@ -7714,7 +8123,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100902",
@@ -7769,7 +8181,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100901",
@@ -7824,7 +8239,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100900",
@@ -7879,7 +8297,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100899",
@@ -7934,7 +8355,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100898",
@@ -7990,7 +8414,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100891",
@@ -8045,7 +8472,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100890",
@@ -8100,7 +8530,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100889",
@@ -8155,7 +8588,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100888",
@@ -8210,7 +8646,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100887",
@@ -8265,7 +8704,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100886",
@@ -8320,7 +8762,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100885",
@@ -8375,7 +8820,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100884",
@@ -8430,7 +8878,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100883",
@@ -8485,7 +8936,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100882",
@@ -8540,7 +8994,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100881",
@@ -8595,7 +9052,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100880",
@@ -8650,7 +9110,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100879",
@@ -8705,7 +9168,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100878",
@@ -8760,7 +9226,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100877",
@@ -8815,7 +9284,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100876",
@@ -8871,7 +9343,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100875",
@@ -8927,7 +9402,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100874",
@@ -8983,7 +9461,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100872",
@@ -9039,7 +9520,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100871",
@@ -9095,7 +9579,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100870",
@@ -9151,7 +9638,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100869",
@@ -9207,7 +9697,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100868",
@@ -9263,7 +9756,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100867",
@@ -9319,7 +9815,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100866",
@@ -9375,7 +9874,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100865",
@@ -9431,7 +9933,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100864",
@@ -9487,7 +9992,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100863",
@@ -9543,7 +10051,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100862",
@@ -9599,7 +10110,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100861",
@@ -9655,7 +10169,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100860",
@@ -9711,7 +10228,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100859",
@@ -9767,7 +10287,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100858",
@@ -9823,7 +10346,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100857",
@@ -9879,7 +10405,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100856",
@@ -9935,7 +10464,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100855",
@@ -9991,7 +10523,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100854",
@@ -10047,7 +10582,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100853",
@@ -10103,7 +10641,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100852",
@@ -10159,7 +10700,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100851",
@@ -10215,7 +10759,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100850",
@@ -10271,7 +10818,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100849",
@@ -10327,7 +10877,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100847",
@@ -10383,7 +10936,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100846",
@@ -10439,7 +10995,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100845",
@@ -10495,7 +11054,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100844",
@@ -10551,7 +11113,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100843",
@@ -10607,7 +11172,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100834",
@@ -10664,7 +11232,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100833",
@@ -10721,7 +11292,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100829",
@@ -10778,7 +11352,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100825",
@@ -10835,7 +11412,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100823",
@@ -10890,7 +11470,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100822",
@@ -10946,7 +11529,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100821",
@@ -11002,7 +11588,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100820",
@@ -11058,7 +11647,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100819",
@@ -11114,7 +11706,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100818",
@@ -11170,7 +11765,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100817",
@@ -11226,7 +11824,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100816",
@@ -11281,7 +11882,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100815",
@@ -11337,7 +11941,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100814",
@@ -11393,7 +12000,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100813",
@@ -11450,7 +12060,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100812",
@@ -11506,7 +12119,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100811",
@@ -11562,7 +12178,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100810",
@@ -11618,7 +12237,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100809",
@@ -11674,7 +12296,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100808",
@@ -11730,7 +12355,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100807",
@@ -11786,7 +12414,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100806",
@@ -11842,7 +12473,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100805",
@@ -11898,7 +12532,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100804",
@@ -11953,7 +12590,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100803",
@@ -12010,7 +12650,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100801",
@@ -12065,7 +12708,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100800",
@@ -12121,7 +12767,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100799",
@@ -12176,7 +12825,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100798",
@@ -12233,7 +12885,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100796",
@@ -12290,7 +12945,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100795",
@@ -12346,7 +13004,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100792",
@@ -12402,7 +13063,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100787",
@@ -12459,7 +13123,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100786",
@@ -12516,7 +13183,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100783",
@@ -12573,7 +13243,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100782",
@@ -12630,7 +13303,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100781",
@@ -12687,7 +13363,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100778",
@@ -12743,7 +13422,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100777",
@@ -12799,7 +13481,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100773",
@@ -12855,7 +13540,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100772",
@@ -12911,7 +13599,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100771",
@@ -12967,7 +13658,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100770",
@@ -13023,7 +13717,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100769",
@@ -13079,7 +13776,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100768",
@@ -13135,7 +13835,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100767",
@@ -13191,7 +13894,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100762",
@@ -13247,7 +13953,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100760",
@@ -13303,7 +14012,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100758",
@@ -13359,7 +14071,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100756",
@@ -13415,7 +14130,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100753",
@@ -13471,7 +14189,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100752",
@@ -13526,7 +14247,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100751",
@@ -13581,7 +14305,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100750",
@@ -13636,7 +14363,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100749",
@@ -13692,7 +14422,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100740",
@@ -13748,7 +14481,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100739",
@@ -13804,7 +14540,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100724",
@@ -13860,7 +14599,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100723",
@@ -13916,7 +14658,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100721",
@@ -13972,7 +14717,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100718",
@@ -14028,7 +14776,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100686",
@@ -14084,7 +14835,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100684",
@@ -14140,7 +14894,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100682",
@@ -14196,7 +14953,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100681",
@@ -14252,7 +15012,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100449",
@@ -14307,7 +15070,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100448",
@@ -14362,7 +15128,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100288",
@@ -14417,7 +15186,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100258",
@@ -14472,7 +15244,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100257",
@@ -14527,7 +15302,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100246",
@@ -14582,7 +15360,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100245",
@@ -14637,7 +15418,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100244",
@@ -14692,7 +15476,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100243",
@@ -14747,7 +15534,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100206",
@@ -14802,7 +15592,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100158",
@@ -14857,7 +15650,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100145",
@@ -14912,7 +15708,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100136",
@@ -14967,7 +15766,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100133",
@@ -15022,7 +15824,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100131",
@@ -15077,7 +15882,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100129",
@@ -15132,7 +15940,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100119",
@@ -15187,7 +15998,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100115",
@@ -15242,7 +16056,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100112",
@@ -15297,7 +16114,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100107",
@@ -15352,7 +16172,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100106",
@@ -15407,7 +16230,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100101",
@@ -15462,7 +16288,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100099",
@@ -15517,7 +16346,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100093",
@@ -15572,7 +16404,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100087",
@@ -15627,7 +16462,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100082",
@@ -15682,7 +16520,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100069",
@@ -15737,7 +16578,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100068",
@@ -15792,7 +16636,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100067",
@@ -15847,7 +16694,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100061",
@@ -15902,7 +16752,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100060",
@@ -15957,7 +16810,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100050",
@@ -16012,7 +16868,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100044",
@@ -16067,7 +16926,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100043",
@@ -16122,7 +16984,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100039",
@@ -16177,7 +17042,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100038",
@@ -16232,7 +17100,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100035",
@@ -16287,7 +17158,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100033",
@@ -16342,7 +17216,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100028",
@@ -16397,7 +17274,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100027",
@@ -16452,7 +17332,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100021",
@@ -16507,7 +17390,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100020",
@@ -16562,7 +17448,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100017",
@@ -16617,7 +17506,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "100015",
@@ -16672,7 +17564,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "39",
@@ -16728,7 +17623,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "36",
@@ -16783,7 +17681,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "33",
@@ -16838,7 +17739,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "26",
@@ -16894,7 +17798,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "23",
@@ -16949,7 +17856,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "22",
@@ -17004,7 +17914,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "21",
@@ -17059,7 +17972,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "20",
@@ -17114,7 +18030,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "19",
@@ -17169,7 +18088,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "18",
@@ -17225,7 +18147,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "14",
@@ -17280,7 +18205,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "12",
@@ -17335,7 +18263,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "8",
@@ -17390,7 +18321,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "7",
@@ -17445,7 +18379,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "6",
@@ -17500,7 +18437,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "5",
@@ -17556,7 +18496,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     },
     {
       "id": "3",
@@ -17612,7 +18555,10 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "assetMaintenance": false,
-      "routingGroup": ""
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      }
     }
   ];
 };

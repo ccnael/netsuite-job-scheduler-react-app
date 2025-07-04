@@ -2,9 +2,9 @@ import { suiteletUrl } from '@/lib/constants';
 import { isLocalDevelopment } from '@/lib/helpers';
 
 export interface WorkOrder {
-  id: string;
-  name: string;
-  title: string;
+  id?: string;
+  name?: string;
+  title?: string;
   description?: string;
   memo?: string;
   status?: {

@@ -18,20 +18,26 @@ interface SelectedVendor {
   name: string;
   manpower: number;
   notes: string;
+  woVendorId: string;
 }
 
 interface VendorTableProps { 
   data?: Vendor[]; 
   onSelectionChange?: (selectedVendors: SelectedVendor[]) => void;
+  woVendors?: any[];
 }
 
-export const VendorTable: React.FC<VendorTableProps> = ({ data = [], onSelectionChange }) => {
+export const VendorTable: React.FC<VendorTableProps> = ({ data = [], onSelectionChange, woVendors = [] }) => {
   const [globalFilter, setGlobalFilter] = useState('');
   const [sorting, setSorting] = useState<SortingState>([]);
   const [tableDataState, setTableDataState] = useState<Vendor[]>(() =>
-    data.map(vendor => ({
-      ...vendor
-    }))
+    data.map(vendor => {
+      const woVendor = woVendors.find(wv => wv.vendor?.value === vendor.id);
+      return {
+        ...vendor,
+        woVendorId: woVendor?.id || ''
+      }
+    })
   );
 
   const [rowSelection, setRowSelection] = useState({});
@@ -123,12 +129,6 @@ export const VendorTable: React.FC<VendorTableProps> = ({ data = [], onSelection
     }
   }, [tableDataState]);
 
-  // Calculate if all selectable vendors on current page are selected for header checkbox
-  const isAllSelectableSelected = useMemo(() => {
-    // We need the table instance to get current page rows
-    return false; // Will be updated in the table definition
-  }, [tableDataState, rowSelection]);
-
   // Memoize the selection computation to prevent infinite loops
   const selectedVendors = useMemo(() => {
     const selectedRows = Object.keys(rowSelection).filter(key => rowSelection[key]);
@@ -138,7 +138,8 @@ export const VendorTable: React.FC<VendorTableProps> = ({ data = [], onSelection
         id: vendor.id,
         name: vendor.name,
         manpower: vendor.quantityRequired || 0,
-        notes: vendor.memo || ''
+        notes: vendor.memo || '',
+        woVendorId: vendor.woVendorId || ''
       };
     });
   }, [rowSelection, tableDataState]);

@@ -51,7 +51,7 @@ interface Job {
   };
 }
 
-const FullCalendarPage = () => {
+const Calendar = () => {
   const [events, setEvents] = useState<Event[]>([]);
   const [employees, setEmployees] = useState<Employee[]>([]);
   const [vendors, setVendors] = useState<Vendor[]>([]);
@@ -737,4 +737,4 @@ const FullCalendarPage = () => {
   );
 };
 
-export default FullCalendarPage;
+export default Calendar;

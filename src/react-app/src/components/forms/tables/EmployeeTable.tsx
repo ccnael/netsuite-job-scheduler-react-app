@@ -23,7 +23,6 @@ interface SelectedResource {
 
 interface EmployeeTableProps { 
   data?: Employee[]; 
-  woId?: string;
   onSelectionChange?: (selectedResources: SelectedResource[]) => void;
   primaryStartTime?: string;
   primaryEndTime?: string;
@@ -85,7 +84,7 @@ export const EmployeeTable: React.FC<EmployeeTableProps> = ({
         woResourceId: woResource?.id || ''
       };
     });
-  }, [data, woResources, primaryStartTime, primaryEndTime, timeOverrides]);
+  }, [data, woResources, /* primaryStartTime, primaryEndTime,  */timeOverrides]);
 
   const updateTime = useCallback((rowId: string, key: 'startTime' | 'endTime', value: string) => {
     console.log('Time update requested:', { rowId, key, value });

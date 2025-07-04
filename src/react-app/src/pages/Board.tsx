@@ -1,6 +1,14 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { Card } from '../components/Card';
 import { Resources } from '../components/Resources';
+import { fetchEvents, type Event } from '@/api/event';
+import { fetchEmployees, type Employee } from '@/api/employee';
+import { fetchVendors, type Vendor } from '@/api/vendor';
+import { fetchAssets, type Asset } from '@/api/asset';
+import { fetchWOResources, type WOResource } from '@/api/woResource';
+import { fetchWOVendors, type WOVendor } from '@/api/woVendor';
+import { fetchWOAssets, type WOAsset } from '@/api/woAsset';
+import { fetchWorkOrders, type WorkOrder } from '@/api/workOrder';
 import { toast } from "sonner";
 import {
   ResizablePanelGroup,
@@ -23,34 +31,14 @@ import {
   DialogFooter,
   DialogDescription,
 } from "@/components/ui/dialog";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Textarea } from "@/components/ui/textarea";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
 import { Badge } from "@/components/ui/badge";
-import { Switch } from "@/components/ui/switch";
-import { fetchWorkOrders, type WorkOrder } from '@/api/workOrder';
-import { fetchEvents, type Event } from '@/api/event';
 import { Skeleton } from "@/components/ui/skeleton";
 import { Stars } from "lucide-react";
 import { CreateEvent } from '../components/forms/CreateEvent';
 import { UpdateEvent } from '../components/forms/UpdateEvent';
-import { type Employee } from "@/api/employee";
-import { type Vendor } from "@/api/vendor";
-import { type Asset } from "@/api/asset";
+import { em } from 'node_modules/@fullcalendar/core/internal-common';
 
 interface FilterState {
   titles: string[];
@@ -119,40 +107,83 @@ interface SelectedJob {
   projectUrl: string;
 }
 
-interface BoardProps {
-  employees: Employee[];
-  vendors: Vendor[];
-  assets: Asset[];
-  isResourcesLoading: boolean;
-}
-
-export const Board: React.FC<BoardProps> = ({ employees, vendors, assets, isResourcesLoading }) => {
-  const [jobs, setJobs] = useState<Job[]>([]);
+const Board = () => {
   const [events, setEvents] = useState<Event[]>([]);
+  const [employees, setEmployees] = useState<Employee[]>([]);
+  const [vendors, setVendors] = useState<Vendor[]>([]);
+  const [assets, setAssets] = useState<Asset[]>([]);
+  const [jobs, setJobs] = useState<Job[]>([]);
+  const [woResources, setWoResources] = useState<WOResource[]>([]);
+  const [woVendors, setWoVendors] = useState<WOVendor[]>([]);
+  const [woAssets, setWoAssets] = useState<WOAsset[]>([]);
   const [isLoading, setIsLoading] = useState(true);
+  // const [draggedJob, setDraggedJob] = useState<Job | null>(null);
+  // const [jobs, setJobs] = useState<Job[]>([]);
+  // const [events, setEvents] = useState<Event[]>([]);
+  // const [isLoading, setIsLoading] = useState(true);
   const [loadingError, setLoadingError] = useState<string | null>(null);
-  const [resourceSearchQuery, setResourceSearchQuery] = useState('');
 
   useEffect(() => {
     const loadAllData = async () => {
       try {
         setIsLoading(true);
-        console.log('Board: Starting to load all data...');
-        
-        // Load all data in parallel
-        const [workOrderData, eventData] = await Promise.all([
-          fetchWorkOrders().catch(error => {
-            console.error('Board: Failed to load work orders:', error);
-            return [];
-          }),
-          fetchEvents().catch(error => {
-            console.error('Board: Failed to load events:', error);
-            return [];
-          })
+
+        const [
+          eventData,
+          employeeData,
+          vendorData,
+          assetData,
+          woResourceData,
+          woVendorData,
+          woAssetData,
+          workOrderData
+        ] = await Promise.all([
+          fetchEvents().catch(() => []),
+          fetchEmployees().catch(() => []),
+          fetchVendors().catch(() => []),
+          fetchAssets().catch(() => []),
+          fetchWOResources('', '').catch(() => []),
+          fetchWOVendors('', '').catch(() => []),
+          fetchWOAssets('', '').catch(() => []),
+          fetchWorkOrders().catch(() => [])
         ]);
 
-        console.log('Board: Loaded work orders:', workOrderData);
-        console.log('Board: Loaded events:', eventData);
+        for (const resource of woResourceData) {
+          const event = eventData.find(e => e.id === resource.event);
+          if (event) {
+            event.resources = event.resources || [];
+            event.resources.push({
+              ...resource
+            });
+          }
+        }
+
+        for (const vendor of woVendorData) {
+          const event = eventData.find(e => e.id === vendor.event);
+          if (event) {
+            event.vendors = event.vendors || [];
+            event.vendors.push({
+              ...vendor
+            });
+          }
+        }
+
+        for (const asset of woAssetData) {
+          const event = eventData.find(e => e.id === asset.event);
+          if (event) {
+            event.assets = event.assets || [];
+            event.assets.push({
+              ...asset
+            });
+          }
+        }
+
+        for (const wo of workOrderData) {
+          const event = eventData.find(e => e.workorder.value === wo.id);
+          if (event) {
+            event.woRef = { ...wo };
+          }
+        }
 
         // Transform work orders to jobs
         const jobsData = (workOrderData || []).map((wo: WorkOrder): Job => ({
@@ -167,7 +198,7 @@ export const Board: React.FC<BoardProps> = ({ employees, vendors, assets, isReso
           },
           type: wo.type.text || '',
           date: wo.date || new Date().toLocaleDateString(),
-          customer:  wo.customer.text,
+          customer: wo.customer.text,
           project: wo.project.text,
           salesOrder: wo.salesorder.text,
           estHours: +wo.esthours,
@@ -177,18 +208,19 @@ export const Board: React.FC<BoardProps> = ({ employees, vendors, assets, isReso
           workOrder: wo,
           receiptStatus: wo.receiptStatus || { text: '', value: '' }
         }));
-        
-        setJobs(jobsData);
-        setEvents(eventData || []);
 
-        console.log('Board: Successfully loaded all data');
+        // Set all the updated data
+        setEvents(eventData);
+        setEmployees(employeeData);
+        setVendors(vendorData);
+        setAssets(assetData);
+        setJobs(jobsData);
+        setWoResources(woResourceData);
+        setWoVendors(woVendorData);
+        setWoAssets(woAssetData);
       } catch (error) {
-        console.error('Board: Failed to load data:', error);
-        setLoadingError('Failed to load data. Using default values.');
-        toast.error('Failed to load data', {
-          position: "top-right",
-          className: "!bg-red-100 !text-red-800 !border !border-red-300",
-        });
+        console.error('Calendar: Failed to load data:', error);
+        toast.error('Failed to load calendar data');
       } finally {
         setIsLoading(false);
       }
@@ -264,7 +296,7 @@ export const Board: React.FC<BoardProps> = ({ employees, vendors, assets, isReso
   };
 
   const [draggedCard, setDraggedCard] = useState<string | null>(null);
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isCreateModalOpen, setIsCreateModalOpen] = useState(false);
   const [selectedJob, setSelectedJob] = useState<Job | null>(null);
   const [isCollapsed, setIsCollapsed] = useState(false);
   
@@ -300,17 +332,8 @@ export const Board: React.FC<BoardProps> = ({ employees, vendors, assets, isReso
     if (draggedCard) {
       const card = jobs.find(c => c.id === draggedCard);
       if (card) {
-        // Create the proper SelectedJob format
-        const selectedJobData: SelectedJob = {
-          id: card.id,
-          title: card.title,
-          description: card.description,
-          woUrl: card.woUrl || '',
-          project: card.project,
-          projectUrl: card.projectUrl || ''
-        };
         setSelectedJob(card);
-        setIsModalOpen(true);
+        setIsCreateModalOpen(true);
       }
     }
   };
@@ -358,7 +381,7 @@ export const Board: React.FC<BoardProps> = ({ employees, vendors, assets, isReso
       
       setEvents([...events, newEvent]);
       console.log('NEW EVENT', { newEvent, events });
-      setIsModalOpen(false);
+      setIsCreateModalOpen(false);
       setSelectedJob(null);
     }
   }, [selectedJob, events]);
@@ -423,7 +446,7 @@ export const Board: React.FC<BoardProps> = ({ employees, vendors, assets, isReso
   };
 
   const handleCreateNewEvent = () => {
-    setIsModalOpen(true);
+    setIsCreateModalOpen(true);
     setSelectedJob(null); // Clear any selected card since this is a new event
   };
 
@@ -481,7 +504,7 @@ export const Board: React.FC<BoardProps> = ({ employees, vendors, assets, isReso
                   employees={employees}
                   vendors={vendors}
                   assets={assets}
-                  isLoading={isResourcesLoading}
+                  isLoading={isLoading}
                 />
               </div>
             </CollapsibleContent>
@@ -673,8 +696,8 @@ export const Board: React.FC<BoardProps> = ({ employees, vendors, assets, isReso
 
       {/* Create Event Form */}
       <CreateEvent
-        isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
+        isOpen={isCreateModalOpen}
+        onClose={() => setIsCreateModalOpen(false)}
         selectedJob={selectedJob ? {
           id: selectedJob.id,
           title: selectedJob.title,
@@ -687,6 +710,27 @@ export const Board: React.FC<BoardProps> = ({ employees, vendors, assets, isReso
         employees={employees}
         vendors={vendors}
         assets={assets}
+        woResources={selectedJob ? 
+          woResources.filter(x => 
+            x.workorder.value == selectedJob.id
+            && !x.event
+          ) : 
+          []
+        }
+        woVendors={selectedJob ? 
+          woVendors.filter(x => 
+            x.workorder.value == selectedJob.id
+            && !x.event
+          ) : 
+          []
+        }
+        woAssets={selectedJob ? 
+          woAssets.filter(x => 
+            x.workorder.value == selectedJob.id
+            && !x.event
+          ) : 
+          []
+        }
       />
 
       {/* Update Event Form */}
@@ -694,8 +738,22 @@ export const Board: React.FC<BoardProps> = ({ employees, vendors, assets, isReso
         isOpen={isUpdateModalOpen}
         onClose={() => setIsUpdateModalOpen(false)}
         selectedEvent={selectedEventForUpdate}
-        setSelectedEvent={setSelectedEventForUpdate}
-        onUpdate={handleUpdateEvent}
+        onSubmit={handleUpdateEvent}
+        employees={employees}
+        vendors={vendors}
+        assets={assets}
+        woResources={selectedEventForUpdate ? 
+          woResources.filter(x => x.event == selectedEventForUpdate.id) : 
+          []
+        }
+        woVendors={selectedEventForUpdate ? 
+          woVendors.filter(x => x.event == selectedEventForUpdate.id) : 
+          []
+        }
+        woAssets={selectedEventForUpdate ? 
+          woAssets.filter(x => x.event == selectedEventForUpdate.id) : 
+          []
+        }
       />
 
       {/* Filter Modal */}
@@ -747,3 +805,5 @@ export const Board: React.FC<BoardProps> = ({ employees, vendors, assets, isReso
     </div>
   );
 };
+
+export default Board;

@@ -20,7 +20,9 @@ import { Clock, Loader2 } from 'lucide-react';
 import { type Employee } from "@/api/employee";
 import { type Vendor } from "@/api/vendor";
 import { type Asset } from "@/api/asset";
-import { fetchWOResources } from "@/api/woResource";
+import { type WOResource } from "@/api/woResource";
+import { type WOVendor } from "@/api/woVendor";
+import { type WOAsset } from "@/api/woAsset";
 import * as helper from "@/lib/helpers";
 import { fetchRoutingGroups, RoutingGroup } from "@/api/routingGroup";
 import DropdownFilter from './DropdownFilter';
@@ -42,6 +44,7 @@ interface SelectedVendor {
   name: string;
   manpower: number;
   notes: string;
+  woVendorId?: string;
 }
 
 interface SelectedAsset {
@@ -50,6 +53,7 @@ interface SelectedAsset {
   quantity: number;
   startTime: string;
   endTime: string;
+  woAssetId?: string;
 }
 
 interface SelectedWOItem {
@@ -107,6 +111,9 @@ interface CreateEventProps {
   employees?: Employee[];
   vendors?: Vendor[];
   assets?: Asset[];
+  woResources?: WOResource[];
+  woVendors?: WOVendor[];
+  woAssets?: WOAsset[];
 }
 
 export const CreateEvent: React.FC<CreateEventProps> = ({ 
@@ -116,7 +123,10 @@ export const CreateEvent: React.FC<CreateEventProps> = ({
   onSubmit,
   employees = [],
   vendors = [],
-  assets = []
+  assets = [],
+  woResources = [],
+  woVendors = [],
+  woAssets = []
 }) => {
   const defaultFormData: EventFormData = {
     eventTitle: '', 
@@ -143,8 +153,6 @@ export const CreateEvent: React.FC<CreateEventProps> = ({
   const [formData, setFormData] = useState<EventFormData>(defaultFormData);
   const [bubbleEffect, setBubbleEffect] = useState(false);
   const previousIsOpenRef = useRef(false);
-  const [woResources, setWoResources] = useState<any[]>([]);
-
   const [accordionValues, setAccordionValues] = useState<string[]>(['primary-info', 'resources', 'vendors', 'assets']);
   const [routingGroups, setRoutingGroups] = useState<RoutingGroup[]>([]);
   const [hasFetchedRoutingGroups, setHasFetchedRoutingGroups] = useState(false);
@@ -152,6 +160,14 @@ export const CreateEvent: React.FC<CreateEventProps> = ({
   const [showCreateModal, setShowCreateModal] = useState(false);
   const [isCreatingRoutingGroup, setIsCreatingRoutingGroup] = useState(false);
   const [dropdownKey, setDropdownKey] = useState(0); // Force re-render of dropdown
+
+  console.log('CreateEvent props', {
+    employees,
+    vendors,
+    assets,
+    woId: selectedJob?.id,
+    woResources
+  });
 
   const fetchRoutingGroupOptions = async (): Promise<DropdownOption[]> => {
     try {
@@ -201,20 +217,6 @@ export const CreateEvent: React.FC<CreateEventProps> = ({
       setFormData(prev => ({ ...prev, routingGroup: value }));
     }
   };
-
-  // Fetch WO Resources when dialog opens with woId
-  useEffect(() => {
-    const loadData = async () => {
-      console.log('Fetching WO resources for woId:', selectedJob.id);
-      let resources = await fetchWOResources(selectedJob.id, '');
-      resources = resources.filter(x => !x.event);
-      setWoResources(resources);
-    }
-
-    if (isOpen && selectedJob?.id && !previousIsOpenRef.current) {
-      loadData();
-    }
-  }, [isOpen]);
 
   // Only reset form data when dialog opens (transition from closed to open)
   useEffect(() => {
@@ -315,8 +317,6 @@ export const CreateEvent: React.FC<CreateEventProps> = ({
     }
   };
 
-  const timeOptions = helper.generateTimeOptions();
-
   // Custom dropdown options for routing group with loading state
   const routingGroupOptions = React.useMemo(() => {
     if (isCreatingRoutingGroup) {
@@ -367,7 +367,7 @@ export const CreateEvent: React.FC<CreateEventProps> = ({
                           value={formData.eventTitle}
                           onChange={(e) => setFormData(prev => ({ ...prev, eventTitle: e.target.value }))}
                           placeholder="Enter title"
-                          className="h-7 px-2 placeholder:text-[12px]"
+                          className="h-7 px-2 !text-[12px] placeholder:text-[12px]"
                         />
                       </div>
 
@@ -376,7 +376,7 @@ export const CreateEvent: React.FC<CreateEventProps> = ({
                         <div className="h-7 px-2 rounded flex items-center text-gray-600 truncate text-[12px]">
                           {selectedJob ? (
                             <a href={selectedJob.woUrl} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline truncate">{selectedJob.title}</a>
-                          ) : 'No work order selected'}
+                          ) : '-'}
                         </div>
                       </div>
 
@@ -385,7 +385,7 @@ export const CreateEvent: React.FC<CreateEventProps> = ({
                         <div className="h-7 px-2 rounded flex items-center text-gray-600 truncate text-[12px]">
                           {selectedJob ? (
                             <a href={selectedJob.projectUrl} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline truncate">{selectedJob.project}</a>
-                          ) : 'No project'}
+                          ) : '-'}
                         </div>
                       </div>
 
@@ -541,7 +541,6 @@ export const CreateEvent: React.FC<CreateEventProps> = ({
                         key={`employee-table-${formData.assetMaintenance}`}
                         data={employees.filter(x => !!x.active)} 
                         woResources={woResources}
-                        woId={selectedJob?.id}
                         onSelectionChange={handleResourceSelection}
                       />
                     </div>
@@ -570,6 +569,7 @@ export const CreateEvent: React.FC<CreateEventProps> = ({
                       <VendorTable 
                         key={`vendor-table-${formData.assetMaintenance}`}
                         data={vendors.filter(x => !!x.active)}
+                        woVendors={woVendors}
                         onSelectionChange={handleVendorSelection}
                       />
                     </div>
@@ -586,6 +586,7 @@ export const CreateEvent: React.FC<CreateEventProps> = ({
                     <div className="max-h-[400px] overflow-y-auto">
                       <AssetTable 
                         data={assets.filter(x => !!x.active)}
+                        woAssets={woAssets}
                         onSelectionChange={handleAssetSelection}
                       />
                     </div>

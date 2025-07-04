@@ -6,8 +6,8 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { HashRouter, Routes, Route } from "react-router-dom";
 import { ThemeProvider } from "next-themes";
 import { Navigation } from "./components/Navigation";
-import Index from "./pages/Index";
-import FullCalendarPage from "./pages/FullCalendar";
+import Board from "./pages/Board";
+import Calendar from "./pages/FullCalendar";
 
 const queryClient = new QueryClient();
 
@@ -26,8 +26,9 @@ function App() {
           <HashRouter>
             <Navigation />
             <Routes>
-              <Route path="/" element={<Index />} />
-              <Route path="/fullcalendar" element={<FullCalendarPage />} />
+              <Route path="/" element={<Board />} />
+              <Route path="/board" element={<Board />} />
+              <Route path="/calendar" element={<Calendar />} />
             </Routes>
           </HashRouter>
         </TooltipProvider>

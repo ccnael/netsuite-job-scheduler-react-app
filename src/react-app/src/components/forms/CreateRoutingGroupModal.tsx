@@ -56,6 +56,7 @@ export const CreateRoutingGroupModal: React.FC<CreateRoutingGroupModalProps> = (
       onRoutingGroupCreated(updatedGroups, newGroup.name, newGroup.id);
 
       toast.success(`Routing group "${newGroup.name}" created successfully`, {
+        position: "top-right",
         className: "!bg-green-100 !text-green-800 !border !border-green-300",
       });
       
@@ -66,6 +67,7 @@ export const CreateRoutingGroupModal: React.FC<CreateRoutingGroupModalProps> = (
       console.error('Failed to create routing group:', err);
       // alert('Failed to create routing group. Please try again.');
       toast.error(`Failed to create routing group. ${err}`, {
+        position: "top-right",
         className: "!bg-red-100 !text-red-800 !border !border-red-300",
       });
     } finally {

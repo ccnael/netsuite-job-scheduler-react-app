@@ -26,6 +26,7 @@ interface SelectedAsset {
 interface AssetTableProps { 
   data?: Asset[]; 
   onSelectionChange?: (selectedAssets: SelectedAsset[]) => void;
+  woAssets?: any[];
 }
 
 interface TableAsset {
@@ -37,25 +38,31 @@ interface TableAsset {
   quantityRemaining: number;
   startTime: string;
   endTime: string;
+  woAssetId: string;
 }
 
 export const AssetTable: React.FC<AssetTableProps> = ({ 
   data = [], 
-  onSelectionChange
+  onSelectionChange,
+  woAssets = []
 }) => {
   const [globalFilter, setGlobalFilter] = useState('');
   const [sorting, setSorting] = useState<SortingState>([]);
   const [tableDataState, setTableDataState] = useState<TableAsset[]>(() =>
-    data.map(asset => ({
-      id: asset.id,
-      name: asset.name,
-      description: asset.description || '-',
-      type: asset.type?.text ?? '-',
-      quantity: asset.quantityUsed ?? 0,
-      quantityRemaining: asset.quantityRemaining ?? 0,
-      startTime: asset.time.start || '08:00',
-      endTime: asset.time.end || '18:00'
-    }))
+    data.map(asset => {
+      const woAsset = woAssets.find(wa => wa.asset?.value === asset.id);
+      return {
+        id: asset.id,
+        name: asset.name,
+        description: asset.description || '-',
+        type: asset.type?.text ?? '-',
+        quantity: asset.quantityUsed ?? 0,
+        quantityRemaining: asset.quantityRemaining ?? 0,
+        startTime: asset.time.start || '08:00',
+        endTime: asset.time.end || '18:00',
+        woAssetId: woAsset?.id || ''
+      }
+    })
   );
 
   const [rowSelection, setRowSelection] = useState({});
@@ -101,7 +108,8 @@ export const AssetTable: React.FC<AssetTableProps> = ({
         name: asset.name,
         quantity: asset.quantity,
         startTime: asset.startTime,
-        endTime: asset.endTime
+        endTime: asset.endTime,
+        woAssetId: asset.woAssetId || ''
       };
     });
   }, [rowSelection, tableDataState]);

@@ -27,6 +27,7 @@ export interface Asset {
     end: string;
   };
   active: boolean;
+  woAssetId?: string;
 }
 
 const getMockAssets = (): Asset[] => {

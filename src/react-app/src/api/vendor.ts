@@ -39,6 +39,7 @@ export interface Vendor {
     value: string;
   }>;
   color?: string;
+  woVendorId?: string;
 }
 
 

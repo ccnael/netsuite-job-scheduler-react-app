@@ -166,7 +166,10 @@ define([
         value: map.getValue('custevent_task_pi')
       },
       assetMaintenance: map.getValue('custevent_esp_fop_asset_maintenance'),
-      routingGroup: map.getValue('custevent_esp_fop_routing_group')
+      routingGroup: {
+        text: map.getText('custevent_esp_fop_routing_group'),
+        value: map.getValue('custevent_esp_fop_routing_group')
+      }
     }));
 
     response.setHeader({
