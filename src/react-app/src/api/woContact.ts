@@ -825,26 +825,6 @@ const mockWOContacts: WOContact[] = [{
     "url": "/app/common/entity/contact.nl?id=1892&compid=TSTDRV2617106"
   },
   {
-    "id": "51",
-    "workorder": {
-      "text": "",
-      "value": ""
-    },
-    "events": [],
-    "event": "",
-    "contact": {
-      "text": "pravallika",
-      "value": "2009"
-    },
-    "name": "pravallika",
-    "email": "pravallismart@gmail.com",
-    "jobTitle": "developer",
-    "mobilePhone": "",
-    "phone": "",
-    "primary": false,
-    "url": "/app/common/entity/contact.nl?id=2009&compid=TSTDRV2617106"
-  },
-  {
     "id": "53",
     "workorder": {
       "text": "Test customer center",
@@ -991,26 +971,6 @@ const mockWOContacts: WOContact[] = [{
     "workorder": {
       "text": "Test Work Order 3",
       "value": "78"
-    },
-    "events": [],
-    "event": "",
-    "contact": {
-      "text": "World Bank : John Smith",
-      "value": "1892"
-    },
-    "name": "Test Prav",
-    "email": "pravallika@erpsuccesspartners.com",
-    "jobTitle": "QA",
-    "mobilePhone": "",
-    "phone": "",
-    "primary": false,
-    "url": "/app/common/entity/contact.nl?id=1892&compid=TSTDRV2617106"
-  },
-  {
-    "id": "66",
-    "workorder": {
-      "text": "",
-      "value": ""
     },
     "events": [],
     "event": "",
@@ -3957,7 +3917,7 @@ export const fetchWOContacts = async (woId: string, eventId: string): Promise<WO
   if (isLocalDevelopment()) {
     console.log('Using mock contact data for local development');
     return new Promise((resolve) => {
-      setTimeout(() => resolve(mockWOContacts), 500);
+      setTimeout(() => resolve(woId ? mockWOContacts.filter(x => x.workorder.value == woId) : mockWOContacts), 500);
     });
   }
 

@@ -88,7 +88,7 @@ export const fetchRoutingGroups = async (): Promise<RoutingGroup[]> => {
     console.log(`Finished chunked fetch. Total routing group records collected: ${allData.length}`);
     
     if (allData.length === 0) {
-      console.error("API returned no employee data across all chunks");
+      console.error("API returned no routing group data across all chunks");
       throw new Error("No routing group data returned from API");
     }
 

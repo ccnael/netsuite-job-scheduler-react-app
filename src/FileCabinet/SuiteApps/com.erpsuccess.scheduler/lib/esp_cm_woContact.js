@@ -73,6 +73,7 @@ define([
         value: map.getValue('custrecord_esp_fop_rel_wo')
       },
       events: helper.stringToArray(map.getValue('custrecord_esp_fop_wo_rel_event')), // TBD change to just list field
+      // TBR
       get event() {
         return this.events[0] || '';
       },

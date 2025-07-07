@@ -3599,7 +3599,7 @@ const mockWOResources: WOResource[] = [{
 
 export const fetchWOResources = async (woId: string, eventId: string): Promise<WOResource[]> => {
   if (isLocalDevelopment()) {
-    console.log('Using mock asset data for local development');
+    console.log('Using mock woResource data for local development');
     return new Promise((resolve) => {
       setTimeout(() => resolve(mockWOResources), 500);
     });

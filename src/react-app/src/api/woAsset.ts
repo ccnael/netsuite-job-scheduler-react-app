@@ -3220,7 +3220,7 @@ const mockWOAssets: WOAsset[] = [{
 
 export const fetchWOAssets = async (woId: string, eventId: string): Promise<WOAsset[]> => {
   if (isLocalDevelopment()) {
-    console.log('Using mock asset data for local development');
+    console.log('Using mock woAsset data for local development');
     return new Promise((resolve) => {
       setTimeout(() => resolve(mockWOAssets), 500);
     });

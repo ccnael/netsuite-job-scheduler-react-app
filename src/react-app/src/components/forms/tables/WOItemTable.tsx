@@ -12,6 +12,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Badge } from "@/components/ui/badge";
 import { Search, ChevronLeft, ChevronRight, ChevronsLeft, ChevronsRight, ChevronUp, ChevronDown, ChevronsUpDown, Filter, AlertTriangle } from "lucide-react";
 import { fetchWOItems } from "@/api/woItem";
+import { type Event } from "@/api/event";
 
 interface SelectedWOItem {
   id: string;
@@ -22,6 +23,8 @@ interface SelectedWOItem {
 interface WOItemTableProps { 
   woId: string; 
   onSelectionChange?: (selectedWOItems: SelectedWOItem[]) => void;
+  onUpdate?: boolean;
+  selectedEvent?: Event;
 }
 
 interface TableWOItem {
@@ -29,9 +32,10 @@ interface TableWOItem {
   name: string;
   description: string;
   quantity: number;
+  event?: any;
 }
 
-export const WOItemTable: React.FC<WOItemTableProps> = ({ woId, onSelectionChange }) => {
+export const WOItemTable: React.FC<WOItemTableProps> = ({ woId, onSelectionChange, onUpdate, selectedEvent }) => {
   const [globalFilter, setGlobalFilter] = useState('');
   const [sorting, setSorting] = useState<SortingState>([]);
   const [tableDataState, setTableDataState] = useState<TableWOItem[]>([]);
@@ -42,12 +46,15 @@ export const WOItemTable: React.FC<WOItemTableProps> = ({ woId, onSelectionChang
   useEffect(() => {
     const loadData = async () => {
       let data = await fetchWOItems(woId, '');
-      data = data.filter(x => !x.event);
+      if (!onUpdate) {
+        data = data.filter(x => !x.event);
+      }
       const mappedData = data.map(woItem => ({
         id: woItem.id,
         name: woItem.item.text,
         description: woItem.description || '-',
         quantity: woItem.quantity ?? 0,
+        event: woItem.event
       }));
       setTableDataState(mappedData);
     };
@@ -55,7 +62,25 @@ export const WOItemTable: React.FC<WOItemTableProps> = ({ woId, onSelectionChang
     if (woId) {
       loadData();
     }
-  }, [woId]);
+  }, [woId, onUpdate]);
+
+  // Auto-select rows that have an event value when onUpdate is true and data loads
+  useEffect(() => {
+    if (onUpdate && tableDataState.length > 0) {
+      const initialSelection: Record<string, boolean> = {};
+      
+      tableDataState.forEach((item, index) => {
+        if (item?.event === selectedEvent?.id) {
+          initialSelection[index.toString()] = true;
+        }
+      });
+      
+      // console.log('Auto-selecting rows with event values:', initialSelection);
+      setRowSelection(initialSelection);
+    }
+  }, [tableDataState, onUpdate, selectedEvent?.id]);
+
+  // console.log('tableDataState', tableDataState);
 
   const updateField = useCallback((rowId: string, key: keyof TableWOItem, value: any) => {
     setTableDataState(prev => {
@@ -77,7 +102,6 @@ export const WOItemTable: React.FC<WOItemTableProps> = ({ woId, onSelectionChang
     });
   }, []);
 
-  // Custom row selection handler to validate quantity and show warnings only on check attempt
   const handleRowToggle = useCallback((rowIndex: string, checked: boolean) => {
     const woItem = tableDataState[parseInt(rowIndex)];
     
@@ -94,7 +118,6 @@ export const WOItemTable: React.FC<WOItemTableProps> = ({ woId, onSelectionChang
     setRowSelection(prev => ({ ...prev, [rowIndex]: checked }));
   }, [tableDataState]);
 
-  // Updated handleSelectAll to only select current page rows with valid quantity
   const handleSelectAll = useCallback((checked: boolean, table: any) => {
     if (checked) {
       const newSelection: Record<string, boolean> = {};
@@ -119,13 +142,6 @@ export const WOItemTable: React.FC<WOItemTableProps> = ({ woId, onSelectionChang
     }
   }, [tableDataState]);
 
-  // Calculate if all selectable items on current page are selected for header checkbox
-  const isAllSelectableSelected = useMemo(() => {
-    // We need the table instance to get current page rows
-    return false; // Will be updated in the table definition
-  }, [tableDataState, rowSelection]);
-
-  // Memoize the selection computation to prevent infinite loops
   const selectedWOItems = useMemo(() => {
     const selectedRows = Object.keys(rowSelection).filter(key => rowSelection[key]);
     return selectedRows.map(rowIndex => {
@@ -138,7 +154,6 @@ export const WOItemTable: React.FC<WOItemTableProps> = ({ woId, onSelectionChang
     });
   }, [rowSelection, tableDataState]);
 
-  // Effect to communicate selection changes to parent
   useEffect(() => {
     if (onSelectionChange) {
       console.log('WOItemTable - Selected items:', selectedWOItems);
@@ -303,7 +318,7 @@ export const WOItemTable: React.FC<WOItemTableProps> = ({ woId, onSelectionChang
               placeholder="Search..."
               value={globalFilter}
               onChange={(e) => setGlobalFilter(e.target.value)}
-              className="pl-8 h-6 border-slate-200 text-[12px] font-sans placeholder:text-[12px]"
+              className="pl-8 h-6 border-slate-200 !text-[12px] font-sans placeholder:text-[12px]"
             />
           </div>
         </div>

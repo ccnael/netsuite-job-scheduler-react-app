@@ -151,8 +151,8 @@ define([
           !this.vendors.length &&
           !this.assets.length
       },
-      contacts: [],
-      addresses: [],
+      // contacts: [], // Not sure if still needed
+      // addresses: [],
       address: { // Selected address
         text: map.getText('custevent_esp_fop_event_address'),
         value: map.getValue('custevent_esp_fop_event_address')

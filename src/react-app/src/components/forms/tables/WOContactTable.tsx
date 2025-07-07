@@ -11,7 +11,8 @@ import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Badge } from "@/components/ui/badge";
 import { Search, ChevronLeft, ChevronRight, ChevronsLeft, ChevronsRight, ChevronUp, ChevronDown, ChevronsUpDown, Filter } from "lucide-react";
-import { WOContact, fetchWOContacts } from "@/api/woContact";
+import { fetchWOContacts, type WOContact } from "@/api/woContact";
+import { type Event } from "@/api/event";
 
 interface SelectedWOContact {
   id: string;
@@ -21,9 +22,11 @@ interface SelectedWOContact {
 interface WOContactTableProps { 
   woId: string; 
   onSelectionChange?: (selectedWOContacts: SelectedWOContact[]) => void;
+  onUpdate?: boolean;
+  selectedEvent?: Event;
 }
 
-export const WOContactTable: React.FC<WOContactTableProps> = ({ woId, onSelectionChange }) => {
+export const WOContactTable: React.FC<WOContactTableProps> = ({ woId, onSelectionChange, onUpdate, selectedEvent }) => {
   const [globalFilter, setGlobalFilter] = useState('');
   const [sorting, setSorting] = useState<SortingState>([]);
   const [tableDataState, setTableDataState] = useState<WOContact[]>([]);
@@ -32,8 +35,7 @@ export const WOContactTable: React.FC<WOContactTableProps> = ({ woId, onSelectio
   // Fetch data on load
   useEffect(() => {
     const loadData = async () => {
-      let data = await fetchWOContacts(woId, '');
-      data = data.filter(x => !x.event.length);
+      const data = await fetchWOContacts(woId, '');
       const mappedData = data;
       setTableDataState(mappedData);
     };
@@ -41,7 +43,23 @@ export const WOContactTable: React.FC<WOContactTableProps> = ({ woId, onSelectio
     if (woId) {
       loadData();
     }
-  }, [woId]);
+  }, [onUpdate, woId]);
+
+  // Auto-select rows that have an event value when onUpdate is true and data loads
+  useEffect(() => {
+    if (onUpdate && tableDataState.length > 0) {
+      const initialSelection: Record<string, boolean> = {};
+      
+      tableDataState.forEach((contact, index) => {
+        if (contact?.events.includes(selectedEvent?.id)) {
+          initialSelection[index.toString()] = true;
+        }
+      });
+      
+      // console.log('Auto-selecting rows with event values:', initialSelection);
+      setRowSelection(initialSelection);
+    }
+  }, [tableDataState, onUpdate, selectedEvent?.id]);
 
   // Updated handleSelectAll to only select current page rows
   const handleSelectAll = useCallback((checked: boolean, table: any) => {
@@ -229,7 +247,7 @@ export const WOContactTable: React.FC<WOContactTableProps> = ({ woId, onSelectio
               placeholder="Search..."
               value={globalFilter}
               onChange={(e) => setGlobalFilter(e.target.value)}
-              className="pl-8 h-6 border-slate-200 text-[12px] font-sans placeholder:text-[12px]"
+              className="pl-8 h-6 border-slate-200 !text-[12px] font-sans placeholder:text-[12px]"
             />
           </div>
         </div>

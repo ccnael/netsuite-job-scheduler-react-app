@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useCallback, useEffect } from 'react';
+import React, { useState, useMemo, useCallback, useEffect, useRef } from 'react';
 import {
   ColumnDef, flexRender, getCoreRowModel, getFilteredRowModel,
   getPaginationRowModel, getSortedRowModel, SortingState, useReactTable,
@@ -27,6 +27,7 @@ interface AssetTableProps {
   data?: Asset[]; 
   onSelectionChange?: (selectedAssets: SelectedAsset[]) => void;
   woAssets?: any[];
+  onUpdate?: boolean;
 }
 
 interface TableAsset {
@@ -44,54 +45,122 @@ interface TableAsset {
 export const AssetTable: React.FC<AssetTableProps> = ({ 
   data = [], 
   onSelectionChange,
-  woAssets = []
+  woAssets = [],
+  onUpdate
+
 }) => {
   const [globalFilter, setGlobalFilter] = useState('');
   const [sorting, setSorting] = useState<SortingState>([]);
-  const [tableDataState, setTableDataState] = useState<TableAsset[]>(() =>
-    data.map(asset => {
+  const [rowSelection, setRowSelection] = useState({});
+  const [dataOverrides, setDataOverrides] = useState<Record<string, { startTime?: string; endTime?: string; quantity?: number; }>>({});
+  const [pagination, setPagination] = useState({ pageIndex: 0, pageSize: 5 });
+  const [isInitialized, setIsInitialized] = useState(false);
+
+  // Use ref to track the last selection to prevent unnecessary calls
+  const lastSelectionRef = useRef<string>('');
+
+  // Memoize the table data to prevent infinite loops
+  const tableData = useMemo(() => {
+    console.log('[AssetTable] Building table data', { dataLen: data.length, woResourcesLen: woAssets.length });
+
+    if (!data.length) return [];
+
+    return data.map(asset => {
       const woAsset = woAssets.find(wa => wa.asset?.value === asset.id);
+      const dataOverride = dataOverrides[asset.id];
+
+      /* console.log(`Asset ${asset.name} (ID: ${asset.id}):`, {
+        woAsset: woAsset,
+        woAssetId: woAsset?.id,
+        hasWoAsset: !!woAsset,
+        woAssetAssetValue: woAsset?.asset?.value
+      }); */
+
       return {
         id: asset.id,
         name: asset.name,
         description: asset.description || '-',
         type: asset.type?.text ?? '-',
-        quantity: asset.quantityUsed ?? 0,
+        quantity: dataOverride?.quantity || woAsset?.quantity || 0,
         quantityRemaining: asset.quantityRemaining ?? 0,
-        startTime: asset.time.start || '08:00',
-        endTime: asset.time.end || '18:00',
+        startTime: dataOverride?.startTime || woAsset?.time?.start || '',
+        endTime: dataOverride?.endTime || woAsset?.time?.end || '',
         woAssetId: woAsset?.id || ''
       }
-    })
-  );
+    });
+  }, [data, woAssets, dataOverrides]);
 
-  const [rowSelection, setRowSelection] = useState({});
+  useEffect(() => {
+    // Only initialize selection and time override when onUpdate is true and not already initialized
+    if (onUpdate && !isInitialized && tableData.length > 0) {
+      const initialSelection: Record<string, boolean> = {};
+      const initialOverrides: Record<string, { startTime?: string; endTime?: string; quantity?: number; }> = {};
 
-  const updateField = useCallback((rowId: string, key: keyof TableAsset, value: any) => {
-    setTableDataState(prev => prev.map(row => row.id === rowId ? { ...row, [key]: value } : row));
+      // console.log('Initializing AssetTable selection for onUpdate mode...');
+
+      tableData.forEach(asset => {
+        // console.log(`Checking asset ${asset.name} (ID: ${asset.id}) - woAssetId: ${asset.woAssetId}`);
+        if (asset.woAssetId) {
+          // console.log(`Auto-selecting asset ${asset.name} because it has woAssetId: ${asset.woAssetId}`);
+          initialSelection[asset.id] = true;
+
+          initialOverrides[asset.id] = {
+            startTime: asset.startTime,
+            endTime: asset.endTime,
+            quantity: asset.quantity,
+          };
+        }
+      });
+
+      // console.log('Initial selection for assets:', initialSelection);
+      // console.log('Initial overrides for assets:', initialOverrides);
+
+      setRowSelection(initialSelection);
+      setDataOverrides(initialOverrides);
+      setIsInitialized(true);
+    }
+  }, [tableData, onUpdate, isInitialized]);
+
+  // Reset initialization when onUpdate or data changes
+  useEffect(() => {
+    setIsInitialized(false);
+  }, [onUpdate, data.length]);
+
+  const updateField = useCallback((rowId: string, key: 'startTime' | 'endTime' | 'quantity', value: string | number) => {
+    // console.log('Field update requested:', { rowId, key, value });
+    setDataOverrides(prev => ({
+      ...prev,
+      [rowId]: {
+        ...prev[rowId],
+        [key]: value
+      }
+    }));
   }, []);
 
   // Handler functions for row selection
-  const handleRowToggle = useCallback((rowIndex: string, checked: boolean) => {
-    setRowSelection(prev => ({ ...prev, [rowIndex]: checked }));
+  const handleRowToggle = useCallback((rowId: string, checked: boolean) => {
+    setRowSelection(prev => ({ 
+      ...prev, 
+      [rowId]: checked 
+    }));
   }, []);
 
   // Updated handleSelectAll to only select current page rows
   const handleSelectAll = useCallback((checked: boolean, table: any) => {
     if (checked) {
       const newSelection: Record<string, boolean> = {};
-      // Only select rows on the current page
+      // Only select rows on the current page using their IDs
       table.getRowModel().rows.forEach((row: any) => {
-        newSelection[row.index.toString()] = true;
+        newSelection[row.original.id] = true;
       });
       setRowSelection(prev => ({ ...prev, ...newSelection }));
     } else {
-      // Deselect only the rows on the current page
-      const currentPageRowIndices = table.getRowModel().rows.map((row: any) => row.index.toString());
+      // Deselect only the rows on the current page using their IDs
+      const currentPageRowIds = table.getRowModel().rows.map((row: any) => row.original.id);
       setRowSelection(prev => {
         const newSelection = { ...prev };
-        currentPageRowIndices.forEach(index => {
-          delete newSelection[index];
+        currentPageRowIds.forEach(id => {
+          delete newSelection[id];
         });
         return newSelection;
       });
@@ -100,9 +169,9 @@ export const AssetTable: React.FC<AssetTableProps> = ({
 
   // Memoize the selection computation to prevent infinite loops
   const selectedAssets = useMemo(() => {
-    const selectedRows = Object.keys(rowSelection).filter(key => rowSelection[key]);
-    return selectedRows.map(rowIndex => {
-      const asset = tableDataState[parseInt(rowIndex)];
+    const selectedIds = Object.keys(rowSelection).filter(key => rowSelection[key]);
+    return selectedIds.map(id => {
+      const asset = tableData.find(asset => asset.id === id);
       return {
         id: asset.id,
         name: asset.name,
@@ -111,45 +180,42 @@ export const AssetTable: React.FC<AssetTableProps> = ({
         endTime: asset.endTime,
         woAssetId: asset.woAssetId || ''
       };
-    });
-  }, [rowSelection, tableDataState]);
+    }).filter(Boolean);
+  }, [rowSelection, tableData]);
 
-  // Effect to communicate selection changes to parent
+// Only call onSelectionChange when selection actually changes
   useEffect(() => {
-    if (onSelectionChange) {
-      console.log('AssetTable - Selected assets:', selectedAssets);
-      onSelectionChange(selectedAssets);
+    const currentSelection = JSON.stringify(selectedAssets);
+    if (currentSelection !== lastSelectionRef.current) {
+      lastSelectionRef.current = currentSelection;
+      if (onSelectionChange) {
+        // console.log('AssetTable - Selected assets:', selectedAssets);
+        onSelectionChange(selectedAssets);
+      }
     }
   }, [selectedAssets, onSelectionChange]);
 
-  const renderSortIcon = (column: any) => {
+  const renderSortIcon = useCallback((column: any) => {
     const isSorted = column.getIsSorted();
     if (isSorted === 'asc') return <ChevronUp className="ml-1 h-3 w-3" />;
     if (isSorted === 'desc') return <ChevronDown className="ml-1 h-3 w-3" />;
     return <ChevronsUpDown className="ml-1 h-3 w-3 text-slate-400" />;
-  };
+  }, []);
 
   const columns: ColumnDef<TableAsset>[] = useMemo(() => [
     {
       id: "select",
-      header: ({ table }) => {
-        // Calculate if all rows on current page are selected
-        const currentPageRows = table.getRowModel().rows;
-        const isAllCurrentPageSelected = currentPageRows.length > 0 && 
-          currentPageRows.every(row => rowSelection[row.index]);
-
-        return (
-          <Checkbox 
-            checked={isAllCurrentPageSelected}
-            onCheckedChange={(value) => handleSelectAll(!!value, table)}
-            className="translate-y-[2px]" 
-          />
-        );
-      },
+      header: ({ table }) => (
+        <Checkbox 
+          checked={table.getIsAllPageRowsSelected()} 
+          onCheckedChange={(value) => handleSelectAll(!!value, table)}
+          className="translate-y-[2px]" 
+        />
+      ),
       cell: ({ row }) => (
         <Checkbox 
-          checked={row.getIsSelected()} 
-          onCheckedChange={(value) => handleRowToggle(row.index.toString(), !!value)}
+          checked={!!rowSelection[row.original.id]} 
+          onCheckedChange={(value) => handleRowToggle(row.original.id, !!value)}
           className="translate-y-[2px]" 
         />
       ),
@@ -190,7 +256,7 @@ export const AssetTable: React.FC<AssetTableProps> = ({
           <Input
             type="number"
             value={row.original.quantity}
-            onChange={(e) => updateField(row.original.id, 'quantity', Number(e.target.value))}
+            onChange={(e) => updateField(row.original.id, 'quantity', +e.target.value)}
             className="h-6 text-center w-[80px] !text-[12px] appearance-none"
             min={0}
           />
@@ -235,7 +301,7 @@ export const AssetTable: React.FC<AssetTableProps> = ({
   ], [updateField, handleSelectAll, handleRowToggle, renderSortIcon, rowSelection]);
 
   const table = useReactTable({
-    data: tableDataState, 
+    data: tableData, 
     columns,
     getCoreRowModel: getCoreRowModel(),
     getPaginationRowModel: getPaginationRowModel(),
@@ -244,13 +310,18 @@ export const AssetTable: React.FC<AssetTableProps> = ({
     state: { 
       globalFilter, 
       sorting,
-      rowSelection
+      rowSelection,
+      pagination
     },
     onGlobalFilterChange: setGlobalFilter,
     onSortingChange: setSorting,
     onRowSelectionChange: setRowSelection,
+    onPaginationChange: setPagination,
     enableRowSelection: true,
-    initialState: { pagination: { pageSize: 5 } },
+    manualPagination: false,
+    getRowId: (row) => row.id,
+    // This is the key fix - prevent pagination reset on selection changes
+    autoResetPageIndex: false,
   });
 
   return (
@@ -288,7 +359,7 @@ export const AssetTable: React.FC<AssetTableProps> = ({
               placeholder="Search..."
               value={globalFilter}
               onChange={(e) => setGlobalFilter(e.target.value)}
-              className="pl-8 h-6 border-slate-200 text-[12px] font-sans placeholder:text-[12px]"
+              className="pl-8 h-6 border-slate-200 !text-[12px] font-sans placeholder:text-[12px]"
             />
           </div>
         </div>

@@ -1,3 +1,4 @@
+
 import React, { useState, useMemo, useCallback, useEffect } from 'react';
 import {
   ColumnDef, flexRender, getCoreRowModel, getFilteredRowModel,
@@ -13,6 +14,7 @@ import { Badge } from "@/components/ui/badge";
 import { Search, ChevronLeft, ChevronRight, ChevronsLeft, ChevronsRight, ChevronUp, ChevronDown, ChevronsUpDown, Filter } from "lucide-react";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { fetchWOAddresses } from "@/api/woAddress";
+import { type Event } from "@/api/event";
 
 interface SelectedWOAddress {
   id: string;
@@ -21,7 +23,9 @@ interface SelectedWOAddress {
 
 interface WOAddressTableProps { 
   woId: string; 
-  onSelectionChange?: (selectedWOAddresses: SelectedWOAddress[]) => void;
+  onSelectionChange?: (selectedWOAddress: SelectedWOAddress) => void;
+  onUpdate?: boolean;
+  selectedEvent?: Event;
 }
 
 interface TableWOAddress {
@@ -29,9 +33,10 @@ interface TableWOAddress {
   customer: string;
   address: string;
   fullAddress: string;
+  events?: string[];
 }
 
-export const WOAddressTable: React.FC<WOAddressTableProps> = ({ woId, onSelectionChange }) => {
+export const WOAddressTable: React.FC<WOAddressTableProps> = ({ woId, onSelectionChange, onUpdate, selectedEvent }) => {
   const [globalFilter, setGlobalFilter] = useState('');
   const [sorting, setSorting] = useState<SortingState>([]);
   const [tableDataState, setTableDataState] = useState<TableWOAddress[]>([]);
@@ -45,11 +50,12 @@ export const WOAddressTable: React.FC<WOAddressTableProps> = ({ woId, onSelectio
         customer: woAddress.customer.text,
         address: woAddress.address.text || '-',
         fullAddress: woAddress.addressDetails || '-',
+        events: woAddress.events || []
       }));
       setTableDataState(mappedData);
       
-      // Auto-select if only 1 row
-      if (mappedData.length === 1) {
+      // Auto-select if only 1 row(on create only)
+      if (!onUpdate && mappedData.length === 1) {
         setSelectedRowId(mappedData[0].id);
       }
     };
@@ -57,7 +63,9 @@ export const WOAddressTable: React.FC<WOAddressTableProps> = ({ woId, onSelectio
     if (woId) {
       loadData();
     }
-  }, [woId]);
+  }, [onUpdate, woId]);
+
+  console.log('WOAddresses', tableDataState);
 
   const renderSortIcon = (column: any) => {
     const isSorted = column.getIsSorted();
@@ -68,23 +76,37 @@ export const WOAddressTable: React.FC<WOAddressTableProps> = ({ woId, onSelectio
 
   const [selectedRowId, setSelectedRowId] = useState<string | null>(null);
 
+  // Auto-select rows that have an event value when onUpdate is true and data loads
+  useEffect(() => {
+    if (onUpdate && tableDataState.length > 0 && selectedEvent?.id) {
+      const addressWithEvent = tableDataState.find(address => 
+        address.events && address.events.includes(selectedEvent.id)
+      );
+      
+      if (addressWithEvent) {
+        console.log('Auto-selecting WOAddress row with event:', addressWithEvent.id);
+        setSelectedRowId(addressWithEvent.id);
+      }
+    }
+  }, [tableDataState, onUpdate, selectedEvent?.id]);
+
   // Memoize the selection computation to prevent infinite loops
-  const selectedWOAddresses = useMemo(() => {
-    if (!selectedRowId) return [];
+  const selectedWOAddress = useMemo(() => {
+    if (!selectedRowId) return null;
     const selectedAddress = tableDataState.find(addr => addr.id === selectedRowId);
-    return selectedAddress ? [{
-      id: selectedAddress.id,
-      name: selectedAddress.customer
-    }] : [];
+    return {
+      id: selectedAddress?.id || '',
+      name: selectedAddress?.customer || ''
+    };
   }, [selectedRowId, tableDataState]);
 
   // Effect to communicate selection changes to parent
   useEffect(() => {
     if (onSelectionChange) {
-      console.log('WOAddressTable - Selected addresses:', selectedWOAddresses);
-      onSelectionChange(selectedWOAddresses);
+      // console.log('WOAddressTable - Selected addresses:', selectedWOAddress);
+      onSelectionChange(selectedWOAddress);
     }
-  }, [selectedWOAddresses, onSelectionChange]);
+  }, [selectedWOAddress, onSelectionChange]);
 
   const columns: ColumnDef<TableWOAddress>[] = useMemo(() => [
   {
@@ -177,11 +199,11 @@ export const WOAddressTable: React.FC<WOAddressTableProps> = ({ woId, onSelectio
 
         {/* Right - Selected Counter and Search */}
         <div className="flex items-center space-x-2">
-          {/* {selectedWOAddresses.length > 0 && (
+          {/* {selectedWOAddress.length > 0 && (
             <div className="flex items-center space-x-1">
               <span className="text-[12px] font-sans text-slate-700">Selected:</span>
               <Badge variant="secondary" className="text-[10px] px-1 py-0.5 h-4">
-                {selectedWOAddresses.length}
+                {selectedWOAddress.length}
               </Badge>
             </div>
           )} */}
@@ -191,7 +213,7 @@ export const WOAddressTable: React.FC<WOAddressTableProps> = ({ woId, onSelectio
               placeholder="Search..."
               value={globalFilter}
               onChange={(e) => setGlobalFilter(e.target.value)}
-              className="pl-8 h-6 border-slate-200 text-[12px] font-sans placeholder:text-[12px]"
+              className="pl-8 h-6 border-slate-200 !text-[12px] font-sans placeholder:text-[12px]"
             />
           </div>
         </div>

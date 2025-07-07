@@ -4178,7 +4178,7 @@ const mockWOVendors: WOVendor[] = [{
 
 export const fetchWOVendors = async (woId: string, eventId: string): Promise<WOVendor[]> => {
   if (isLocalDevelopment()) {
-    console.log('Using mock asset data for local development');
+    console.log('Using mock woVendor data for local development');
     return new Promise((resolve) => {
       setTimeout(() => resolve(mockWOVendors), 500);
     });

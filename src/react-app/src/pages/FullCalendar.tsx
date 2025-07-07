@@ -13,6 +13,9 @@ import { fetchWOResources, type WOResource } from '@/api/woResource';
 import { fetchWOVendors, type WOVendor } from '@/api/woVendor';
 import { fetchWOAssets, type WOAsset } from '@/api/woAsset';
 import { fetchWorkOrders, type WorkOrder } from '@/api/workOrder';
+/* import { fetchWOItems, type WOItem } from '@/api/woItem';
+import { fetchWOContacts, type WOContact } from '@/api/woContact';
+import { fetchWOAddresses, type WOAddress } from '@/api/woAddress'; */
 import { toast } from "sonner";
 import { Card } from '../components/Card';
 import { ScrollArea } from "@/components/ui/scroll-area";
@@ -73,7 +76,10 @@ const Calendar = () => {
           woResourceData,
           woVendorData,
           woAssetData,
-          workOrderData
+          workOrderData,
+          /* woItemData,
+          woContactData,
+          woAddressData */
         ] = await Promise.all([
           fetchEvents().catch(() => []),
           fetchEmployees().catch(() => []),
@@ -82,7 +88,10 @@ const Calendar = () => {
           fetchWOResources('', '').catch(() => []),
           fetchWOVendors('', '').catch(() => []),
           fetchWOAssets('', '').catch(() => []),
-          fetchWorkOrders().catch(() => [])
+          fetchWorkOrders().catch(() => []),
+          /* fetchWOItems('', '').catch(() => []),
+          fetchWOContacts('', '').catch(() => []),
+          fetchWOAddresses('', '').catch(() => []), */
         ]);
 
         // Hydrate event data with WO resource links
@@ -115,6 +124,34 @@ const Calendar = () => {
             });
           }
         }
+
+        for (const event of eventData) {
+          const wo = workOrderData.find(e => e.id === event.workorder.value);
+          if (wo) {
+            event.woRef = { ...wo };
+          }
+        }
+
+        /* for (const item of woItemData) {
+          const event = eventData.find(e => e.id === item.event);
+          if (event) {
+            event.items.push({ ...item });
+          }
+        }
+
+        for (const contact of woContactData) {
+          const event = eventData.find(e => contact.event.includes(e.id));
+          if (event) {
+            event.contacts.push({ ...contact });
+          }
+        }
+
+        for (const address of woAddressData) {
+          const event = eventData.find(e => address.event.includes(e.id));
+          if (event) {
+            event.address = { ...address.address };
+          }
+        } */
 
         // Transform work orders to jobs
         const jobsData = (workOrderData || []).map((wo: WorkOrder): Job => ({

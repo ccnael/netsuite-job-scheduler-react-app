@@ -21,7 +21,8 @@ define([
   './lib/esp_cm_woItem',
   './lib/esp_cm_woContact',
   './lib/esp_cm_woAddress',
-  './lib/esp_cm_routingGroup'
+  './lib/esp_cm_routingGroup',
+  './lib/esp_cm_completeEvent'
 ], (
   runtime,
   schedulerLib,
@@ -36,7 +37,8 @@ define([
   woItemLib,
   woContactLib,
   woAddressLib,
-  routingGroupLib
+  routingGroupLib,
+  completeEventLib
 ) => {
   /**
    * Vanilla JS UI Suitelet entry point (to be replaced)
@@ -70,8 +72,8 @@ define([
         case 'printPickList':
           schedulerLib.WorkOrder.printPickList(context);
           break;
-        case 'getOrderPunchList':
-          schedulerLib.Event.getOrderPunchList(context);
+        case 'getPunchItems':
+          schedulerLib.Event.getPunchItems(context);
           break;
         default:
           schedulerLib.runVanillaApp(context);
@@ -176,11 +178,11 @@ define([
         case 'printPickList':
           woLib.printPickList(context);
           break;
-        case 'getOrderPunchList':
-          eventLib.getOrderPunchList(context);
-          break;
         case 'getRoutingGroups':
           routingGroupLib.getRoutingGroups(context);
+          break;
+        case 'getPunchItems':
+          completeEventLib.getPunchItems(context);
           break;
         default:
           schedulerLib.runReactApp(context);

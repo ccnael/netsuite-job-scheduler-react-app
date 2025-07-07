@@ -91,7 +91,6 @@ interface EventFormData {
   selectedWOItems: SelectedWOItem[];
   selectedWOContacts: SelectedWOContact[];
   selectedWOAddress: SelectedWOAddress | null;
-  selectedWOAddresses: SelectedWOAddress[];
 }
 
 interface SelectedJob {
@@ -146,8 +145,7 @@ export const CreateEvent: React.FC<CreateEventProps> = ({
     selectedAssets: [],
     selectedWOItems: [],
     selectedWOContacts: [],
-    selectedWOAddress: null,
-    selectedWOAddresses: []
+    selectedWOAddress: null
   };
   
   const [formData, setFormData] = useState<EventFormData>(defaultFormData);
@@ -255,9 +253,13 @@ export const CreateEvent: React.FC<CreateEventProps> = ({
     setFormData(prev => ({ ...prev, selectedWOContacts }));
   }, []);
 
-  const handleWOAddressSelection = useCallback((selectedWOAddresses: SelectedWOAddress[]) => {
+  /* const handleWOAddressSelection = useCallback((selectedWOAddresses: SelectedWOAddress[]) => {
     const selectedAddress = selectedWOAddresses.length > 0 ? selectedWOAddresses[0] : null;
     setFormData(prev => ({ ...prev, selectedWOAddress: selectedAddress }));
+  }, []); */
+
+  const handleWOAddressSelection = useCallback((selectedWOAddress: SelectedWOAddress) => {
+    setFormData(prev => ({ ...prev, selectedWOAddress }));
   }, []);
   
   const handleStartDateSelect = (date: Date | undefined) => { 

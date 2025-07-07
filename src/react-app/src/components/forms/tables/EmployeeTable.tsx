@@ -27,6 +27,7 @@ interface EmployeeTableProps {
   primaryStartTime?: string;
   primaryEndTime?: string;
   woResources?: any[];
+  onUpdate?: boolean;
 }
 
 interface TableEmployee {
@@ -47,18 +48,20 @@ export const EmployeeTable: React.FC<EmployeeTableProps> = ({
   woResources = [],
   onSelectionChange,
   primaryStartTime = '08:00',
-  primaryEndTime = '18:00'
+  primaryEndTime = '18:00',
+  onUpdate
 }) => {
   const [globalFilter, setGlobalFilter] = useState('');
   const [sorting, setSorting] = useState<SortingState>([]);
   const [rowSelection, setRowSelection] = useState({});
   const [timeOverrides, setTimeOverrides] = useState<Record<string, { startTime?: string; endTime?: string }>>({});
   const [pagination, setPagination] = useState({ pageIndex: 0, pageSize: 5 });
+  const [isInitialized, setIsInitialized] = useState(false);
   
   // Use ref to track the last selection to prevent unnecessary calls
   const lastSelectionRef = useRef<string>('');
 
-  console.log('EmployeeTable render - woResources:', woResources);
+  // console.log('EmployeeTable render - woResources:', woResources);
   console.log('EmployeeTable render - data:', data);
 
   // Memoize the table data to prevent infinite loops
@@ -79,15 +82,43 @@ export const EmployeeTable: React.FC<EmployeeTableProps> = ({
         email: emp.email,
         phone: emp.phone || '-',
         affiliationType: emp.affiliationType?.text || '-',
-        startTime: timeOverride?.startTime || emp.time?.start/*  || primaryStartTime */,
-        endTime: timeOverride?.endTime || emp.time?.end/*  || primaryEndTime */,
+        startTime: timeOverride?.startTime || woResource?.time?.start || '',
+        endTime: timeOverride?.endTime || woResource?.time?.end || '',
         woResourceId: woResource?.id || ''
       };
     });
-  }, [data, woResources, /* primaryStartTime, primaryEndTime,  */timeOverrides]);
+  }, [data, woResources, timeOverrides]);
+
+  useEffect(() => {
+    // Only initialize selection and time override when onUpdate is true and not already initialized
+    if (onUpdate && !isInitialized && tableData.length > 0) {
+      const initialSelection: Record<string, boolean> = {};
+      const initialOverrides: Record<string, { startTime?: string; endTime?: string }> = {};
+
+      tableData.forEach(emp => {
+        if (emp.woResourceId) {
+          initialSelection[emp.id] = true;
+
+          initialOverrides[emp.id] = {
+            startTime: emp.startTime,
+            endTime: emp.endTime,
+          };
+        }
+      });
+
+      setRowSelection(initialSelection);
+      setTimeOverrides(initialOverrides);
+      setIsInitialized(true);
+    }
+  }, [tableData, onUpdate, isInitialized]);
+
+  // Reset initialization when onUpdate or data changes
+  useEffect(() => {
+    setIsInitialized(false);
+  }, [onUpdate, data.length]);
 
   const updateTime = useCallback((rowId: string, key: 'startTime' | 'endTime', value: string) => {
-    console.log('Time update requested:', { rowId, key, value });
+    // console.log('Time update requested:', { rowId, key, value });
     setTimeOverrides(prev => ({
       ...prev,
       [rowId]: {
@@ -147,7 +178,7 @@ export const EmployeeTable: React.FC<EmployeeTableProps> = ({
     if (currentSelection !== lastSelectionRef.current) {
       lastSelectionRef.current = currentSelection;
       if (onSelectionChange) {
-        console.log('EmployeeTable - Selected resources:', selectedResources);
+        // console.log('EmployeeTable - Selected resources:', selectedResources);
         onSelectionChange(selectedResources);
       }
     }
@@ -341,7 +372,7 @@ export const EmployeeTable: React.FC<EmployeeTableProps> = ({
               placeholder="Search..."
               value={globalFilter}
               onChange={(e) => setGlobalFilter(e.target.value)}
-              className="pl-8 h-6 border-slate-200 text-[12px] font-sans placeholder:text-[12px]"
+              className="pl-8 h-6 border-slate-200 !text-[12px] font-sans placeholder:text-[12px]"
             />
           </div>
         </div>
@@ -349,7 +380,7 @@ export const EmployeeTable: React.FC<EmployeeTableProps> = ({
 
       {/* Table */}
       <div className="rounded border border-slate-200 bg-white shadow-sm overflow-x-auto">
-        <Table className="min-w-[900px] md:min-w-[1000px] lg:min-w-[1400px]">
+        <Table className="min-w-[700px] md:min-w-[800px] lg:min-w-[1200px]">
           <TableHeader>
             {table.getHeaderGroups().map((headerGroup) => (
               <TableRow key={headerGroup.id} className="bg-slate-50/50">

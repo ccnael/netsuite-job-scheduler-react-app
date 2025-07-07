@@ -15,69 +15,63 @@ define([
    * Get the SO punch list
    * @param {Object} context Suitelet object
    */
-  function getOrderPunchList(context) {
+  function getPunchItems(context) {
     const { request, response } = context;
     const { parameters: params } = request;
-    const { woId } = params;
+    const { soId } = params;
 
-    const punchList = [];
+    const punchItems = [];
 
-    if (woId) {
-      const woLookUp = search.lookupFields({
-        type: env.RecordType.WORK_ORDER,
-        id: woId,
-        columns: 'custrecord_esp_cfi_wo_so'
-      });
-      if (woLookUp.custrecord_esp_cfi_wo_so && woLookUp.custrecord_esp_cfi_wo_so.length) {
-        const soId = woLookUp.custrecord_esp_cfi_wo_so[0].value;
+    // if (soId) {
+    const searchObj = search.create({
+      type: env.RecordType.PUNCH,
+      filters:
+        [
+          // ['custrecord_esp_pp_so', 'is', soId]
+        ],
+      columns:
+        [
+          search.createColumn({ name: 'custrecord_esp_pp_status', label: 'Status' }),
+          search.createColumn({ name: 'custrecord_esp_pp_so', label: 'Sales Order' }),
+          search.createColumn({ name: 'custrecord_esp_pp_linked_tran_line', label: 'Linked Transaction Line' }),
+          search.createColumn({ name: 'custrecord_esp_pp_item', label: 'Item' }),
+          search.createColumn({ name: 'custrecord_esp_pp_qty', label: 'Qty' }),
+          search.createColumn({ name: 'custrecord_esp_pp_assign', label: 'Assigned To' }),
+          search.createColumn({ name: 'custrecord_esp_pp_reason', label: 'Reason' }),
+          search.createColumn({ name: 'custrecord_esp_pp_prod_loca', label: 'Product Location' }),
+          search.createColumn({ name: 'custrecord_esp_pp_laborhours', label: 'Labor Cost & Hours to Fix' }),
+          search.createColumn({ name: 'custrecord_esp_pp_intnotes', label: 'Resolutions Instructions' }),
+          search.createColumn({ name: 'custrecord_esp_pp_reasoncode', label: 'Reason Code:' }),
+          search.createColumn({ name: 'custrecord_esp_pp_hold_tillresolve', label: 'Do Not Invoice Till Resolved' }),
+          search.createColumn({ name: 'custrecord_esp_pp_refnumber', label: 'Reference #' }),
+          search.createColumn({ name: 'custrecord_esp_pp_descr', label: 'Description of Issue and CORRECT Part Number' }),
+          search.createColumn({ name: 'custrecord_esp_pp_ackno', label: 'Original Acknoweldgement #' }),
+          search.createColumn({ name: 'created', label: 'Date Created' })
+        ]
+    });
+    searchObj.run().each((result) => {
+      punchItems.push({
+        status: {
+          text: result.getText('custrecord_esp_pp_status'),
+          value: result.getValue('custrecord_esp_pp_status')
+        },
+        reason: result.getText('custrecord_esp_pp_reason'),
+        description: result.getValue('custrecord_esp_pp_descr'),
+        resolution: result.getValue('custrecord_esp_pp_intnotes'),
+        dateCreated: result.getValue('created'),
+        enteredBy: result.getText('custrecord_esp_pp_assign')
+      })
+      return true;
+    });
+    // }
 
-        if (soId) {
-          const searchObj = search.create({
-            type: env.RecordType.PUNCH,
-            filters:
-              [
-                ['custrecord_esp_pp_so', 'is', soId]
-              ],
-            columns:
-              [
-                search.createColumn({ name: 'custrecord_esp_pp_status', label: 'Status' }),
-                search.createColumn({ name: 'custrecord_esp_pp_so', label: 'Sales Order' }),
-                search.createColumn({ name: 'custrecord_esp_pp_linked_tran_line', label: 'Linked Transaction Line' }),
-                search.createColumn({ name: 'custrecord_esp_pp_item', label: 'Item' }),
-                search.createColumn({ name: 'custrecord_esp_pp_qty', label: 'Qty' }),
-                search.createColumn({ name: 'custrecord_esp_pp_assign', label: 'Assigned To' }),
-                search.createColumn({ name: 'custrecord_esp_pp_reason', label: 'Reason' }),
-                search.createColumn({ name: 'custrecord_esp_pp_prod_loca', label: 'Product Location' }),
-                search.createColumn({ name: 'custrecord_esp_pp_laborhours', label: 'Labor Cost & Hours to Fix' }),
-                search.createColumn({ name: 'custrecord_esp_pp_intnotes', label: 'Resolutions Instructions' }),
-                search.createColumn({ name: 'custrecord_esp_pp_reasoncode', label: 'Reason Code:' }),
-                search.createColumn({ name: 'custrecord_esp_pp_hold_tillresolve', label: 'Do Not Invoice Till Resolved' }),
-                search.createColumn({ name: 'custrecord_esp_pp_refnumber', label: 'Reference #' }),
-                search.createColumn({ name: 'custrecord_esp_pp_descr', label: 'Description of Issue and CORRECT Part Number' }),
-                search.createColumn({ name: 'custrecord_esp_pp_ackno', label: 'Original Acknoweldgement #' }),
-                search.createColumn({ name: 'created', label: 'Date Created' })
-              ]
-          });
-          searchObj.run().each((result) => {
-            punchList.push({
-              status: {
-                text: result.getText('custrecord_esp_pp_status'),
-                value: result.getValue('custrecord_esp_pp_status')
-              },
-              reason: result.getText('custrecord_esp_pp_reason'),
-              description: result.getValue('custrecord_esp_pp_descr'),
-              resolution: result.getValue('custrecord_esp_pp_intnotes'),
-              dateCreated: result.getValue('created'),
-              enteredBy: result.getText('custrecord_esp_pp_assign')
-            })
-            return true;
-          });
-        }
-      }
-    }
+    response.setHeader({
+      name: 'Content-Type',
+      value: 'application/json'
+    });
 
-    log.audit('----- [Punch List] -----', punchList);
-    response.write(JSON.stringify(punchList));
+    log.audit('----- [Punch Items] -----', punchItems);
+    response.write(JSON.stringify(punchItems));
   }
 
   /**
@@ -224,7 +218,7 @@ define([
   }
 
   return {
-    getOrderPunchList,
+    getPunchItems,
     completeEvent
   }
 })

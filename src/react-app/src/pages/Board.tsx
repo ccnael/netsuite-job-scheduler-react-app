@@ -9,6 +9,9 @@ import { fetchWOResources, type WOResource } from '@/api/woResource';
 import { fetchWOVendors, type WOVendor } from '@/api/woVendor';
 import { fetchWOAssets, type WOAsset } from '@/api/woAsset';
 import { fetchWorkOrders, type WorkOrder } from '@/api/workOrder';
+/* import { fetchWOItems, type WOItem } from '@/api/woItem';
+import { fetchWOContacts, type WOContact } from '@/api/woContact';
+import { fetchWOAddresses, type WOAddress } from '@/api/woAddress'; */
 import { toast } from "sonner";
 import {
   ResizablePanelGroup,
@@ -38,7 +41,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { Stars } from "lucide-react";
 import { CreateEvent } from '../components/forms/CreateEvent';
 import { UpdateEvent } from '../components/forms/UpdateEvent';
-import { em } from 'node_modules/@fullcalendar/core/internal-common';
+import { CompleteEvent } from '../components/forms/CompleteEvent';
 
 interface FilterState {
   titles: string[];
@@ -79,6 +82,45 @@ interface Job {
   receiptStatus: ReceiptStatus;
 }
 
+interface SelectedResource {
+  id: string;
+  name: string;
+  startTime: string;
+  endTime: string;
+  woResourceId?: string;
+}
+
+interface SelectedVendor {
+  id: string;
+  name: string;
+  manpower: number;
+  notes: string;
+}
+
+interface SelectedAsset {
+  id: string;
+  name: string;
+  quantity: number;
+  startTime: string;
+  endTime: string;
+}
+
+interface SelectedWOItem {
+  id: string;
+  name: string;
+  quantity: number;
+}
+
+interface SelectedWOContact {
+  id: string;
+  name: string;
+}
+
+interface SelectedWOAddress {
+  id: string;
+  name: string;
+}
+
 interface EventFormData {
   eventTitle: string;
   notes: string;
@@ -90,21 +132,12 @@ interface EventFormData {
   priority: string;
   allDay: boolean;
   routingGroup: string;
-  selectedResources: any[];
-  selectedVendors: any[];
-  selectedAssets: any[];
-  selectedWOItems: any[];
-  selectedWOContacts: any[];
-  selectedWOAddresses: any[];
-}
-
-interface SelectedJob {
-  id: string;
-  title: string;
-  description: string;
-  woUrl: string;
-  project: string;
-  projectUrl: string;
+  selectedResources: SelectedResource[];
+  selectedVendors: SelectedVendor[];
+  selectedAssets: SelectedAsset[];
+  selectedWOItems: SelectedWOItem[];
+  selectedWOContacts: SelectedWOContact[];
+  selectedWOAddress: SelectedWOAddress | null;
 }
 
 const Board = () => {
@@ -117,10 +150,6 @@ const Board = () => {
   const [woVendors, setWoVendors] = useState<WOVendor[]>([]);
   const [woAssets, setWoAssets] = useState<WOAsset[]>([]);
   const [isLoading, setIsLoading] = useState(true);
-  // const [draggedJob, setDraggedJob] = useState<Job | null>(null);
-  // const [jobs, setJobs] = useState<Job[]>([]);
-  // const [events, setEvents] = useState<Event[]>([]);
-  // const [isLoading, setIsLoading] = useState(true);
   const [loadingError, setLoadingError] = useState<string | null>(null);
 
   useEffect(() => {
@@ -136,7 +165,10 @@ const Board = () => {
           woResourceData,
           woVendorData,
           woAssetData,
-          workOrderData
+          workOrderData,
+          /* woItemData,
+          woContactData,
+          woAddressData */
         ] = await Promise.all([
           fetchEvents().catch(() => []),
           fetchEmployees().catch(() => []),
@@ -145,7 +177,10 @@ const Board = () => {
           fetchWOResources('', '').catch(() => []),
           fetchWOVendors('', '').catch(() => []),
           fetchWOAssets('', '').catch(() => []),
-          fetchWorkOrders().catch(() => [])
+          fetchWorkOrders().catch(() => []),
+          /* fetchWOItems('', '').catch(() => []),
+          fetchWOContacts('', '').catch(() => []),
+          fetchWOAddresses('', '').catch(() => []), */
         ]);
 
         for (const resource of woResourceData) {
@@ -178,12 +213,33 @@ const Board = () => {
           }
         }
 
-        for (const wo of workOrderData) {
-          const event = eventData.find(e => e.workorder.value === wo.id);
-          if (event) {
+        for (const event of eventData) {
+          const wo = workOrderData.find(e => e.id === event.workorder.value);
+          if (wo) {
             event.woRef = { ...wo };
           }
         }
+
+        /* for (const item of woItemData) {
+          const event = eventData.find(e => e.id === item.event);
+          if (event) {
+            event.items.push({ ...item });
+          }
+        }
+
+        for (const contact of woContactData) {
+          const event = eventData.find(e => contact.event.includes(e.id));
+          if (event) {
+            event.contacts.push({ ...contact });
+          }
+        }
+
+        for (const address of woAddressData) {
+          const event = eventData.find(e => address.event.includes(e.id));
+          if (event) {
+            event.address = { ...address.address };
+          }
+        } */
 
         // Transform work orders to jobs
         const jobsData = (workOrderData || []).map((wo: WorkOrder): Job => ({
@@ -228,6 +284,11 @@ const Board = () => {
 
     loadAllData();
   }, []);
+
+  const [isUpdateModalOpen, setIsUpdateModalOpen] = useState(false);
+  const [isCompleteEventModalOpen, setIsCompleteEventModalOpen] = useState(false);
+  const [selectedEventForUpdate, setSelectedEventForUpdate] = useState<Event | null>(null);
+  const [selectedEventForComplete, setSelectedEventForComplete] = useState<Event | null>(null);
 
   const handleCardAction = (cardId: string, action: string, isEvent: boolean = false) => {
     const cardList = isEvent ? events : jobs;
@@ -282,11 +343,16 @@ const Board = () => {
         }
         break;
       case 'complete':
-        setEvents(events.filter(e => e.id !== cardId));
-        toast.success(`${cardTitle} completed`, {
-          position: "top-right",
-          className: "!bg-green-100 !text-green-800 !border !border-green-300",
-        });
+        if (isEvent) {
+          setSelectedEventForComplete(card as Event);
+          setIsCompleteEventModalOpen(true);
+        } else {
+          setEvents(events.filter(e => e.id !== cardId));
+          toast.success(`${cardTitle} completed`, {
+            position: "top-right",
+            className: "!bg-green-100 !text-green-800 !border !border-green-300",
+          });
+        }
         break;
       case 'remove':
         setEvents(events.filter(e => e.id !== cardId));
@@ -348,60 +414,99 @@ const Board = () => {
       return;
     }
 
+    const newEvent: Event = {
+      id: '',
+      title: submittedFormData.eventTitle,
+      note: submittedFormData.notes,
+      date: {
+        recurrence: submittedFormData.startDate,
+        dates: [submittedFormData.startDate],
+        start: submittedFormData.startDate,
+        end: submittedFormData.endDate
+      },
+      time: submittedFormData.allDay ? undefined : {
+        start: submittedFormData.startTime,
+        end: submittedFormData.endTime
+      },
+      status: {
+        text: submittedFormData.status,
+        value: submittedFormData.status.toUpperCase(),
+      },
+      priority: {
+        text: submittedFormData.priority === '1' ? 'Low' : submittedFormData.priority === '2' ? 'Mid' : submittedFormData.priority === '3' ? 'High' : 'Urgent',
+        value: submittedFormData.priority,
+      },
+      resources: submittedFormData.selectedResources,
+      vendors: submittedFormData.selectedVendors,
+      assets: submittedFormData.selectedAssets,
+      items: submittedFormData?.selectedWOItems,
+      contacts: submittedFormData?.selectedWOContacts,
+      address: {
+        value: submittedFormData?.selectedWOAddress.id,
+        text: submittedFormData?.selectedWOAddress.name
+      }
+    };
+    
+    setEvents([...events, newEvent]);
+    console.log('NEW EVENT', { newEvent, events });
+    setIsCreateModalOpen(false);
+
     if (selectedJob) {
-      const newEvent: Event = {
-        id: '',
-        title: submittedFormData.eventTitle,
-        note: submittedFormData.notes,
-        date: {
-          recurrence: submittedFormData.startDate,
-          dates: [submittedFormData.startDate],
-          start: submittedFormData.startDate,
-          end: submittedFormData.endDate
-        },
-        time: submittedFormData.allDay ? undefined : {
-          start: submittedFormData.startTime,
-          end: submittedFormData.endTime
-        },
-        status: {
-          text: submittedFormData.status,
-          value: submittedFormData.status.toUpperCase(),
-          code: submittedFormData.status.toUpperCase()
-        },
-        priority: {
-          text: submittedFormData.priority === '1' ? 'Low' : submittedFormData.priority === '2' ? 'Mid' : submittedFormData.priority === '3' ? 'High' : 'Urgent',
-          value: submittedFormData.priority,
-          code: submittedFormData.priority
-        },
-        workorder: {
-          text: selectedJob.title,
-          value: selectedJob.id
-        }
-      };
-      
-      setEvents([...events, newEvent]);
-      console.log('NEW EVENT', { newEvent, events });
-      setIsCreateModalOpen(false);
       setSelectedJob(null);
     }
   }, [selectedJob, events]);
 
-  const [isUpdateModalOpen, setIsUpdateModalOpen] = useState(false);
-  const [selectedEventForUpdate, setSelectedEventForUpdate] = useState<Event | null>(null);
-
-  const handleUpdateEvent = () => {
+  const handleUpdateEvent = useCallback((submittedFormData: EventFormData) => {
+    console.log('selectedEventForUpdate', selectedEventForUpdate);
     if (!selectedEventForUpdate) return;
     
-    setEvents(events.map(event => 
-      event.id === selectedEventForUpdate.id ? selectedEventForUpdate : event
-    ));
+    if (!submittedFormData.eventTitle || !submittedFormData.startDate || !submittedFormData.endDate || (!submittedFormData.allDay && (!submittedFormData.startTime || !submittedFormData.endTime))) {
+      console.log('Form Data', submittedFormData);
+      toast.error("Please fill in all required fields", {
+        position: "top-right",
+        className: "!bg-red-100 !text-red-800 !border !border-red-300",
+      });
+      return;
+    }
+
+    const updatedEvent: Event = {
+      id: selectedEventForUpdate.id,
+      title: submittedFormData.eventTitle,
+      note: submittedFormData.notes,
+      date: {
+        recurrence: submittedFormData.startDate,
+        dates: [submittedFormData.startDate],
+        start: submittedFormData.startDate,
+        end: submittedFormData.endDate
+      },
+      time: submittedFormData.allDay ? undefined : {
+        start: submittedFormData.startTime,
+        end: submittedFormData.endTime
+      },
+      status: {
+        text: submittedFormData.status,
+        value: submittedFormData.status.toUpperCase()
+      },
+      priority: {
+        text: submittedFormData.priority === '1' ? 'Low' : submittedFormData.priority === '2' ? 'Mid' : submittedFormData.priority === '3' ? 'High' : 'Urgent',
+        value: submittedFormData.priority
+      },
+      resources: submittedFormData.selectedResources,
+      vendors: submittedFormData.selectedVendors,
+      assets: submittedFormData.selectedAssets,
+      items: submittedFormData?.selectedWOItems,
+      contacts: submittedFormData?.selectedWOContacts,
+      address: {
+        value: submittedFormData?.selectedWOAddress?.id || '',
+        text: submittedFormData?.selectedWOAddress?.name || ''
+      }
+    };
+    
+    // setEvents([...events, updateEvent]);
+    console.log('UPDATED EVENT', { updatedEvent });
     setIsUpdateModalOpen(false);
-    setSelectedEventForUpdate(null);
-    toast.success("Event updated successfully", {
-      position: "top-right",
-      className: "!bg-green-100 !text-green-800 !border !border-green-300",
-    });
-  };
+    setSelectedJob(null);
+  }, [selectedEventForUpdate/* , events */]);
 
   const [isFilterModalOpen, setIsFilterModalOpen] = useState(false);
   const [filterType, setFilterType] = useState<'jobs' | 'events'>('jobs');
@@ -482,6 +587,8 @@ const Board = () => {
       </div>
     );
   }
+
+  console.log('selectedEventForComplete', selectedEventForComplete);
 
   return (
     <div className="p-6 h-screen bg-gray-50">
@@ -755,6 +862,15 @@ const Board = () => {
           []
         }
       />
+
+      {/* Complete Event Dialog */}
+      {selectedEventForComplete && (
+        <CompleteEvent 
+          selectedEvent={selectedEventForComplete} 
+          isOpen={isCompleteEventModalOpen}
+          onClose={() => setIsCompleteEventModalOpen(false)}
+        />
+      )}
 
       {/* Filter Modal */}
       <Dialog open={isFilterModalOpen} onOpenChange={setIsFilterModalOpen}>

@@ -25,26 +25,61 @@ interface VendorTableProps {
   data?: Vendor[]; 
   onSelectionChange?: (selectedVendors: SelectedVendor[]) => void;
   woVendors?: any[];
+  onUpdate?: boolean;
 }
 
-export const VendorTable: React.FC<VendorTableProps> = ({ data = [], onSelectionChange, woVendors = [] }) => {
+export const VendorTable: React.FC<VendorTableProps> = ({ data = [], onSelectionChange, woVendors = [], onUpdate = false }) => {
   const [globalFilter, setGlobalFilter] = useState('');
   const [sorting, setSorting] = useState<SortingState>([]);
   const [tableDataState, setTableDataState] = useState<Vendor[]>(() =>
     data.map(vendor => {
       const woVendor = woVendors.find(wv => wv.vendor?.value === vendor.id);
+      
+      // Auto-populate fields when onUpdate is true and woVendor exists
+      if (onUpdate && woVendor?.id) {
+        return {
+          ...vendor,
+          woVendorId: woVendor.id,
+          quantityRequired: woVendor.quantityRequired || vendor.quantityRequired,
+          memo: woVendor.memo || vendor.memo
+        };
+      }
+      
       return {
         ...vendor,
         woVendorId: woVendor?.id || ''
-      }
+      };
     })
   );
 
-  const [rowSelection, setRowSelection] = useState({});
+  const [rowSelection, setRowSelection] = useState(() => {
+    // Auto-select rows when onUpdate is true and woVendor exists with valid data
+    if (onUpdate) {
+      const initialSelection: Record<string, boolean> = {};
+      data.forEach((vendor, index) => {
+        const woVendor = woVendors.find(wv => wv.vendor?.value === vendor.id);
+        if (woVendor?.id && woVendor.quantityRequired > 0) {
+          initialSelection[index.toString()] = true;
+        }
+      });
+      return initialSelection;
+    }
+    return {};
+  });
+
   const [validationWarnings, setValidationWarnings] = useState<Record<string, boolean>>({});
 
-  // Debounce refs for memo fields
-  const memoTimeouts = useRef<Record<string, NodeJS.Timeout>>({});
+  // Local state for memo inputs to prevent auto-exit - initialize properly
+  const [memoInputs, setMemoInputs] = useState<Record<string, string>>(() => {
+    const initialMemos: Record<string, string> = {};
+    data.forEach(vendor => {
+      const woVendor = woVendors.find(wv => wv.vendor?.value === vendor.id);
+      if (onUpdate && woVendor?.memo) {
+        initialMemos[vendor.id] = woVendor.memo;
+      }
+    });
+    return initialMemos;
+  });
 
   const updateField = useCallback((rowId: string, key: keyof Vendor, value: any) => {
     setTableDataState(prev => {
@@ -66,26 +101,15 @@ export const VendorTable: React.FC<VendorTableProps> = ({ data = [], onSelection
     });
   }, []);
 
-  // Debounced memo update function
-  const updateMemoField = useCallback((rowId: string, value: string) => {
-    // Clear existing timeout for this row
-    if (memoTimeouts.current[rowId]) {
-      clearTimeout(memoTimeouts.current[rowId]);
-    }
-
-    // Set new timeout
-    memoTimeouts.current[rowId] = setTimeout(() => {
-      updateField(rowId, 'memo', value);
-      delete memoTimeouts.current[rowId];
-    }, 300); // 300ms debounce
-  }, [updateField]);
-
-  // Cleanup timeouts on unmount
-  useEffect(() => {
-    return () => {
-      Object.values(memoTimeouts.current).forEach(timeout => clearTimeout(timeout));
-    };
+  // Handle memo input changes locally
+  const handleMemoChange = useCallback((rowId: string, value: string) => {
+    setMemoInputs(prev => ({ ...prev, [rowId]: value }));
   }, []);
+
+  // Handle memo blur to update main state
+  const handleMemoBlur = useCallback((rowId: string, value: string) => {
+    updateField(rowId, 'memo', value);
+  }, [updateField]);
 
   // Custom row selection handler to validate manpower and show warnings only on check attempt
   const handleRowToggle = useCallback((rowIndex: string, checked: boolean) => {
@@ -158,6 +182,21 @@ export const VendorTable: React.FC<VendorTableProps> = ({ data = [], onSelection
     if (isSorted === 'desc') return <ChevronDown className="ml-1 h-3 w-3" />;
     return <ChevronsUpDown className="ml-1 h-3 w-3 text-slate-400" />;
   };
+
+  // Memoized memo cell component to prevent re-renders
+  const MemoCell = React.memo(({ vendorId, initialValue }: { vendorId: string, initialValue: string }) => {
+    const [localValue, setLocalValue] = useState(initialValue);
+    
+    return (
+      <textarea
+        value={localValue}
+        onChange={(e) => setLocalValue(e.target.value)}
+        onBlur={(e) => updateField(vendorId, 'memo', e.target.value)}
+        className="w-full text-[12px] p-1 border border-slate-300 rounded"
+        rows={2}
+      />
+    );
+  });
 
   const columns: ColumnDef<Vendor>[] = useMemo(() => [
     {
@@ -250,16 +289,16 @@ export const VendorTable: React.FC<VendorTableProps> = ({ data = [], onSelection
     {
       accessorKey: "memo",
       header: () => "Memo",
-      cell: ({ row }) => (
-        <textarea
-          defaultValue={row.original.memo}
-          onChange={(e) => updateMemoField(row.original.id, e.target.value)}
-          className="w-full text-[12px] p-1 border border-slate-300 rounded"
-          rows={2}
-        />
-      ),
+      cell: ({ row }) => {
+        return (
+          <MemoCell 
+            vendorId={row.original.id} 
+            initialValue={row.original.memo || ''}
+          />
+        );
+      },
     },
-  ], [updateField, updateMemoField, handleSelectAll, handleRowToggle, renderSortIcon, validationWarnings, rowSelection]);
+  ], [handleSelectAll, handleRowToggle, renderSortIcon, validationWarnings, rowSelection, updateField]);
 
   const table = useReactTable({
     data: tableDataState,
@@ -311,7 +350,7 @@ export const VendorTable: React.FC<VendorTableProps> = ({ data = [], onSelection
               placeholder="Search..."
               value={globalFilter}
               onChange={(e) => setGlobalFilter(e.target.value)}
-              className="pl-8 h-6 border-slate-200 text-[12px] font-sans placeholder:text-[12px]"
+              className="pl-8 h-6 border-slate-200 !text-[12px] font-sans placeholder:text-[12px]"
             />
           </div>
         </div>

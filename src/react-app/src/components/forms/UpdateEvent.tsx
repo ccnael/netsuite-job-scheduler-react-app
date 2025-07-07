@@ -91,7 +91,6 @@ interface EventFormData {
   selectedWOItems: SelectedWOItem[];
   selectedWOContacts: SelectedWOContact[];
   selectedWOAddress: SelectedWOAddress | null;
-  selectedWOAddresses: SelectedWOAddress[];
 }
 
 interface UpdateEventProps {
@@ -120,25 +119,24 @@ export const UpdateEvent: React.FC<UpdateEventProps> = ({
   woAssets = []
 }) => {
   const defaultFormData: EventFormData = {
-    eventTitle: selectedEvent?.title, 
-    notes: selectedEvent?.note, 
-    startDate: selectedEvent?.date?.start, 
-    endDate: selectedEvent?.date?.end, 
-    startTime: selectedEvent?.time?.start, 
-    endTime: selectedEvent?.time?.end, 
-    status: selectedEvent?.status?.value, 
-    priority: selectedEvent?.priority?.value, 
+    eventTitle: selectedEvent?.title || '', 
+    notes: selectedEvent?.note || '', 
+    startDate: selectedEvent?.date?.start || '', 
+    endDate: selectedEvent?.date?.end || '', 
+    startTime: selectedEvent?.time?.start || '08:00', 
+    endTime: selectedEvent?.time?.end || '18:00', 
+    status: selectedEvent?.status?.value || 'TENTATIVE', 
+    priority: selectedEvent?.priority?.value || '1', 
     allDay: false, 
     assetMaintenance: false,
-    routingGroupText: selectedEvent?.routingGroup.text,
-    routingGroup: selectedEvent?.routingGroup?.value,
+    routingGroupText: selectedEvent?.routingGroup?.text || '',
+    routingGroup: selectedEvent?.routingGroup?.value || '',
     selectedResources: [],
     selectedVendors: [],
     selectedAssets: [],
     selectedWOItems: [],
     selectedWOContacts: [],
-    selectedWOAddress: null,
-    selectedWOAddresses: []
+    selectedWOAddress: null
   };
   
   const [formData, setFormData] = useState<EventFormData>(defaultFormData);
@@ -217,8 +215,9 @@ export const UpdateEvent: React.FC<UpdateEventProps> = ({
     onSubmit(formData); 
   };
 
-  // Memoized handler functions for table selections to prevent infinite loops
+  // Updated memoized handler functions for table selections to prevent infinite loops
   const handleResourceSelection = useCallback((selectedResources: SelectedResource[]) => {
+    // console.log('Resource selection changed:', selectedResources);
     setFormData(prev => ({ ...prev, selectedResources }));
   }, []);
 
@@ -238,9 +237,13 @@ export const UpdateEvent: React.FC<UpdateEventProps> = ({
     setFormData(prev => ({ ...prev, selectedWOContacts }));
   }, []);
 
-  const handleWOAddressSelection = useCallback((selectedWOAddresses: SelectedWOAddress[]) => {
+  /* const handleWOAddressSelection = useCallback((selectedWOAddresses: SelectedWOAddress[]) => {
     const selectedAddress = selectedWOAddresses.length > 0 ? selectedWOAddresses[0] : null;
     setFormData(prev => ({ ...prev, selectedWOAddress: selectedAddress }));
+  }, []); */
+
+  const handleWOAddressSelection = useCallback((selectedWOAddress: SelectedWOAddress) => {
+    setFormData(prev => ({ ...prev, selectedWOAddress }));
   }, []);
   
   const handleStartDateSelect = (date: Date | undefined) => { 
@@ -363,7 +366,7 @@ export const UpdateEvent: React.FC<UpdateEventProps> = ({
                       <div className="col-span-1 space-y-1">
                         <Label className="text-[12px] tracking-tight">Work Order</Label>
                         <div className="h-7 px-2 rounded flex items-center text-gray-600 truncate text-[12px]">
-                          {selectedJob ? (
+                          {(selectedJob?.id) ? (
                             <a href={selectedJob.woUrl} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline truncate">{selectedJob.title}</a>
                           ) : '-'}
                         </div>
@@ -372,8 +375,8 @@ export const UpdateEvent: React.FC<UpdateEventProps> = ({
                       <div className="col-span-1 space-y-1">
                         <Label className="text-[12px] tracking-tight">Project</Label>
                         <div className="h-7 px-2 rounded flex items-center text-gray-600 truncate text-[12px]">
-                          {selectedJob ? (
-                            <a href={selectedJob.projectUrl} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline truncate">{selectedJob.project.text}</a>
+                          {(selectedJob?.id) ? (
+                            <a href={selectedJob.projectUrl} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline truncate">{selectedJob.project?.text}</a>
                           ) : '-'}
                         </div>
                       </div>
@@ -527,10 +530,11 @@ export const UpdateEvent: React.FC<UpdateEventProps> = ({
                   <AccordionContent className="p-2">
                     <div className="max-h-[400px] overflow-y-auto">
                       <EmployeeTable 
-                        key={`employee-table-${formData.assetMaintenance}`}
+                        key={`employee-table-${formData.assetMaintenance}-${selectedEvent?.id}`}
                         data={employees.filter(x => !!x.active)} 
                         woResources={woResources}
                         onSelectionChange={handleResourceSelection}
+                        onUpdate={true}
                       />
                     </div>
                   </AccordionContent>
@@ -560,6 +564,7 @@ export const UpdateEvent: React.FC<UpdateEventProps> = ({
                         data={vendors.filter(x => !!x.active)}
                         woVendors={woVendors}
                         onSelectionChange={handleVendorSelection}
+                        onUpdate={true}
                       />
                     </div>
                   </AccordionContent>
@@ -577,6 +582,7 @@ export const UpdateEvent: React.FC<UpdateEventProps> = ({
                         data={assets.filter(x => !!x.active)}
                         woAssets={woAssets}
                         onSelectionChange={handleAssetSelection}
+                        onUpdate={true}
                       />
                     </div>
                   </AccordionContent>
@@ -596,6 +602,8 @@ export const UpdateEvent: React.FC<UpdateEventProps> = ({
                           <WOItemTable 
                             woId={selectedJob?.id}
                             onSelectionChange={handleWOItemSelection}
+                            onUpdate={true}
+                            selectedEvent={selectedEvent}
                           />
                         </div>
                       </AccordionContent>
@@ -611,6 +619,8 @@ export const UpdateEvent: React.FC<UpdateEventProps> = ({
                           <WOContactTable 
                             woId={selectedJob?.id}
                             onSelectionChange={handleWOContactSelection}
+                            onUpdate={true}
+                            selectedEvent={selectedEvent}
                           />
                         </div>
                       </AccordionContent>
@@ -626,6 +636,8 @@ export const UpdateEvent: React.FC<UpdateEventProps> = ({
                           <WOAddressTable 
                             woId={selectedJob?.id}
                             onSelectionChange={handleWOAddressSelection}
+                            onUpdate={true}
+                            selectedEvent={selectedEvent}
                           />
                         </div>
                       </AccordionContent>
@@ -638,7 +650,7 @@ export const UpdateEvent: React.FC<UpdateEventProps> = ({
 
           <DialogFooter className="mt-2 flex-shrink-0">
             <Button variant="outline" onClick={onClose} className="text-[12px] h-7 px-3 tracking-tight">Cancel</Button>
-            <Button onClick={handleSubmit} className="text-[12px] h-7 px-3 tracking-tight">Create</Button>
+            <Button onClick={handleSubmit} className="text-[12px] h-7 px-3 tracking-tight">Update</Button>
           </DialogFooter>
         </DialogContent>
       </Dialog>

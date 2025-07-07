@@ -53,8 +53,8 @@ const DropdownFilter: React.FC<DropdownFilterProps> = ({
     alwaysRefetch
   });
 
-  console.log('DropdownFilter options:', localOptions);
-  console.log('DropdownFilter value:', value);
+  // console.log('DropdownFilter options:', localOptions);
+  // console.log('DropdownFilter value:', value);
   
   // Find the selected option - check both localOptions and provided options
   let selectedOption = localOptions.find((opt) => opt.value === value);
@@ -62,7 +62,7 @@ const DropdownFilter: React.FC<DropdownFilterProps> = ({
     selectedOption = options.find((opt) => opt.value === value);
   }
   
-  console.log('DropdownFilter selectedOption:', selectedOption);
+  // console.log('DropdownFilter selectedOption:', selectedOption);
   
   const handleClear = (e: React.MouseEvent) => {
     e.stopPropagation();
