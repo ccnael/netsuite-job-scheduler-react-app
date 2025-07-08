@@ -30,8 +30,8 @@ export const getMockPunchItems = (): PunchItem[] => {
       "dateCreated": "8/6/2024 6:12 am",
       "enteredBy": "Lean Cendaña",
       "salesorder": {
-        "text": "Sales Order #SLS00000609",
-        "value": "11722"
+        "text": "Sales Order #SLS00000655",
+        "value": "16212"
       }
     },
     {
@@ -75,8 +75,8 @@ export const getMockPunchItems = (): PunchItem[] => {
       "dateCreated": "9/26/2024 8:51 am",
       "enteredBy": "Lean Cendaña",
       "salesorder": {
-        "text": "Sales Order #SLS00000609",
-        "value": "11722"
+        "text": "Sales Order #SLS00000713",
+        "value": "19372"
       }
     },
     {
@@ -90,8 +90,8 @@ export const getMockPunchItems = (): PunchItem[] => {
       "dateCreated": "10/30/2024 4:36 am",
       "enteredBy": "Lean Cendaña",
       "salesorder": {
-        "text": "Sales Order #SLS00000609",
-        "value": "11722"
+        "text": "Sales Order #SLS00000739",
+        "value": "19521"
       }
     },
     {
@@ -105,8 +105,8 @@ export const getMockPunchItems = (): PunchItem[] => {
       "dateCreated": "11/6/2024 7:49 am",
       "enteredBy": "Mei Matriano",
       "salesorder": {
-        "text": "Sales Order #SLS00000609",
-        "value": "11722"
+        "text": "Sales Order #SLS00000755",
+        "value": "20872"
       }
     },
     {
@@ -120,8 +120,8 @@ export const getMockPunchItems = (): PunchItem[] => {
       "dateCreated": "11/6/2024 8:13 am",
       "enteredBy": "Mei Matriano",
       "salesorder": {
-        "text": "Sales Order #SLS00000609",
-        "value": "11722"
+        "text": "Sales Order #SLS00000755",
+        "value": "20872"
       }
     },
     {
@@ -135,8 +135,8 @@ export const getMockPunchItems = (): PunchItem[] => {
       "dateCreated": "11/6/2024 8:16 am",
       "enteredBy": "Mei Matriano",
       "salesorder": {
-        "text": "Sales Order #SLS00000609",
-        "value": "11722"
+        "text": "Sales Order #SLS00000755",
+        "value": "20872"
       }
     },
     {
@@ -150,8 +150,8 @@ export const getMockPunchItems = (): PunchItem[] => {
       "dateCreated": "11/7/2024 4:14 am",
       "enteredBy": "Arun Sharma",
       "salesorder": {
-        "text": "Sales Order #SLS00000609",
-        "value": "11722"
+        "text": " ",
+        "value": ""
       }
     },
     {
@@ -165,8 +165,8 @@ export const getMockPunchItems = (): PunchItem[] => {
       "dateCreated": "11/7/2024 12:48 pm",
       "enteredBy": "Arun Sharma",
       "salesorder": {
-        "text": "Sales Order #SLS00000609",
-        "value": "11722"
+        "text": " ",
+        "value": ""
       }
     },
     {
@@ -180,8 +180,8 @@ export const getMockPunchItems = (): PunchItem[] => {
       "dateCreated": "11/7/2024 12:52 pm",
       "enteredBy": "Arun Sharma",
       "salesorder": {
-        "text": "Sales Order #SLS00000609",
-        "value": "11722"
+        "text": " ",
+        "value": ""
       }
     },
     {
@@ -195,8 +195,8 @@ export const getMockPunchItems = (): PunchItem[] => {
       "dateCreated": "11/10/2024 11:43 pm",
       "enteredBy": "Arun Sharma",
       "salesorder": {
-        "text": "Sales Order #SLS00000609",
-        "value": "11722"
+        "text": " ",
+        "value": ""
       }
     },
     {
@@ -210,8 +210,8 @@ export const getMockPunchItems = (): PunchItem[] => {
       "dateCreated": "11/10/2024 11:43 pm",
       "enteredBy": "Arun Sharma",
       "salesorder": {
-        "text": "Sales Order #SLS00000609",
-        "value": "11722"
+        "text": " ",
+        "value": ""
       }
     },
     {
@@ -225,8 +225,8 @@ export const getMockPunchItems = (): PunchItem[] => {
       "dateCreated": "11/11/2024 12:10 am",
       "enteredBy": "Arun Sharma",
       "salesorder": {
-        "text": "Sales Order #SLS00000609",
-        "value": "11722"
+        "text": "Sales Order #SLS00000654",
+        "value": "16211"
       }
     },
     {
@@ -240,8 +240,8 @@ export const getMockPunchItems = (): PunchItem[] => {
       "dateCreated": "11/11/2024 5:30 am",
       "enteredBy": "Arun Sharma",
       "salesorder": {
-        "text": "Sales Order #SLS00000609",
-        "value": "11722"
+        "text": "Sales Order #SLS00000654",
+        "value": "16211"
       }
     },
     {
@@ -255,8 +255,8 @@ export const getMockPunchItems = (): PunchItem[] => {
       "dateCreated": "11/11/2024 5:54 am",
       "enteredBy": "Arun Sharma",
       "salesorder": {
-        "text": "Sales Order #SLS00000609",
-        "value": "11722"
+        "text": "Sales Order #SLS00000654",
+        "value": "16211"
       }
     },
     {
@@ -270,8 +270,8 @@ export const getMockPunchItems = (): PunchItem[] => {
       "dateCreated": "11/11/2024 5:54 am",
       "enteredBy": "Arun Sharma",
       "salesorder": {
-        "text": "Sales Order #SLS00000609",
-        "value": "11722"
+        "text": "Sales Order #SLS00000654",
+        "value": "16211"
       }
     },
     {
@@ -285,8 +285,8 @@ export const getMockPunchItems = (): PunchItem[] => {
       "dateCreated": "11/11/2024 5:43 am",
       "enteredBy": "Arun Sharma",
       "salesorder": {
-        "text": "Sales Order #SLS00000609",
-        "value": "11722"
+        "text": "Sales Order #SLS00000654",
+        "value": "16211"
       }
     },
     {
@@ -300,8 +300,8 @@ export const getMockPunchItems = (): PunchItem[] => {
       "dateCreated": "11/11/2024 5:43 am",
       "enteredBy": "Arun Sharma",
       "salesorder": {
-        "text": "Sales Order #SLS00000609",
-        "value": "11722"
+        "text": "Sales Order #SLS00000654",
+        "value": "16211"
       }
     },
     {
@@ -315,8 +315,8 @@ export const getMockPunchItems = (): PunchItem[] => {
       "dateCreated": "11/11/2024 6:00 am",
       "enteredBy": "Arun Sharma",
       "salesorder": {
-        "text": "Sales Order #SLS00000609",
-        "value": "11722"
+        "text": "Sales Order #SLS00000654",
+        "value": "16211"
       }
     },
     {
@@ -330,8 +330,8 @@ export const getMockPunchItems = (): PunchItem[] => {
       "dateCreated": "11/11/2024 6:00 am",
       "enteredBy": "Arun Sharma",
       "salesorder": {
-        "text": "Sales Order #SLS00000609",
-        "value": "11722"
+        "text": "Sales Order #SLS00000654",
+        "value": "16211"
       }
     },
     {
@@ -375,8 +375,8 @@ export const getMockPunchItems = (): PunchItem[] => {
       "dateCreated": "11/11/2024 8:49 am",
       "enteredBy": "Mei Matriano",
       "salesorder": {
-        "text": "Sales Order #SLS00000609",
-        "value": "11722"
+        "text": "Sales Order #SLS00000770",
+        "value": "20899"
       }
     },
     {
@@ -390,8 +390,8 @@ export const getMockPunchItems = (): PunchItem[] => {
       "dateCreated": "11/11/2024 9:42 am",
       "enteredBy": "Arun Sharma",
       "salesorder": {
-        "text": "Sales Order #SLS00000609",
-        "value": "11722"
+        "text": "Sales Order #SLS00000654",
+        "value": "16211"
       }
     },
     {
@@ -405,8 +405,8 @@ export const getMockPunchItems = (): PunchItem[] => {
       "dateCreated": "11/11/2024 9:42 am",
       "enteredBy": "Arun Sharma",
       "salesorder": {
-        "text": "Sales Order #SLS00000609",
-        "value": "11722"
+        "text": "Sales Order #SLS00000654",
+        "value": "16211"
       }
     },
     {
@@ -420,8 +420,8 @@ export const getMockPunchItems = (): PunchItem[] => {
       "dateCreated": "11/11/2024 9:42 am",
       "enteredBy": "Arun Sharma",
       "salesorder": {
-        "text": "Sales Order #SLS00000609",
-        "value": "11722"
+        "text": "Sales Order #SLS00000654",
+        "value": "16211"
       }
     },
     {
@@ -435,8 +435,8 @@ export const getMockPunchItems = (): PunchItem[] => {
       "dateCreated": "11/11/2024 12:54 pm",
       "enteredBy": "Arun Sharma",
       "salesorder": {
-        "text": "Sales Order #SLS00000609",
-        "value": "11722"
+        "text": "Sales Order #SLS00000778",
+        "value": "20907"
       }
     },
     {
@@ -450,8 +450,8 @@ export const getMockPunchItems = (): PunchItem[] => {
       "dateCreated": "11/11/2024 11:09 pm",
       "enteredBy": "Arun Sharma",
       "salesorder": {
-        "text": "Sales Order #SLS00000609",
-        "value": "11722"
+        "text": "Sales Order #SLS00000654",
+        "value": "16211"
       }
     },
     {
@@ -465,8 +465,8 @@ export const getMockPunchItems = (): PunchItem[] => {
       "dateCreated": "11/12/2024 4:07 am",
       "enteredBy": "Arun Sharma",
       "salesorder": {
-        "text": "Sales Order #SLS00000609",
-        "value": "11722"
+        "text": "Sales Order #SLS00000781",
+        "value": "20911"
       }
     },
     {
@@ -480,8 +480,8 @@ export const getMockPunchItems = (): PunchItem[] => {
       "dateCreated": "11/12/2024 6:52 am",
       "enteredBy": "Arun Sharma",
       "salesorder": {
-        "text": "Sales Order #SLS00000609",
-        "value": "11722"
+        "text": "Sales Order #SLS00000783",
+        "value": "20915"
       }
     },
     {
@@ -495,8 +495,8 @@ export const getMockPunchItems = (): PunchItem[] => {
       "dateCreated": "11/12/2024 1:21 pm",
       "enteredBy": "Arun Sharma",
       "salesorder": {
-        "text": "Sales Order #SLS00000609",
-        "value": "11722"
+        "text": "Sales Order #SLS00000785",
+        "value": "20917"
       }
     },
     {
@@ -570,8 +570,8 @@ export const getMockPunchItems = (): PunchItem[] => {
       "dateCreated": "11/13/2024 6:00 am",
       "enteredBy": "Arun Sharma",
       "salesorder": {
-        "text": "Sales Order #SLS00000609",
-        "value": "11722"
+        "text": "Sales Order #SLS00000654",
+        "value": "16211"
       }
     },
     {
@@ -585,8 +585,8 @@ export const getMockPunchItems = (): PunchItem[] => {
       "dateCreated": "11/13/2024 6:00 am",
       "enteredBy": "Arun Sharma",
       "salesorder": {
-        "text": "Sales Order #SLS00000609",
-        "value": "11722"
+        "text": "Sales Order #SLS00000654",
+        "value": "16211"
       }
     },
     {
@@ -600,8 +600,8 @@ export const getMockPunchItems = (): PunchItem[] => {
       "dateCreated": "11/13/2024 6:00 am",
       "enteredBy": "Arun Sharma",
       "salesorder": {
-        "text": "Sales Order #SLS00000609",
-        "value": "11722"
+        "text": "Sales Order #SLS00000654",
+        "value": "16211"
       }
     },
     {
@@ -660,8 +660,8 @@ export const getMockPunchItems = (): PunchItem[] => {
       "dateCreated": "11/13/2024 8:37 am",
       "enteredBy": "Arun Sharma",
       "salesorder": {
-        "text": "Sales Order #SLS00000609",
-        "value": "11722"
+        "text": "Sales Order #SLS00000785",
+        "value": "20917"
       }
     },
     {
@@ -705,8 +705,8 @@ export const getMockPunchItems = (): PunchItem[] => {
       "dateCreated": "11/13/2024 10:26 pm",
       "enteredBy": "Arun Sharma",
       "salesorder": {
-        "text": "Sales Order #SLS00000609",
-        "value": "11722"
+        "text": "Sales Order #SLS00000654",
+        "value": "16211"
       }
     },
     {
@@ -720,8 +720,8 @@ export const getMockPunchItems = (): PunchItem[] => {
       "dateCreated": "11/13/2024 10:26 pm",
       "enteredBy": "Arun Sharma",
       "salesorder": {
-        "text": "Sales Order #SLS00000609",
-        "value": "11722"
+        "text": "Sales Order #SLS00000654",
+        "value": "16211"
       }
     },
     {
@@ -735,8 +735,8 @@ export const getMockPunchItems = (): PunchItem[] => {
       "dateCreated": "11/13/2024 10:49 pm",
       "enteredBy": "Arun Sharma",
       "salesorder": {
-        "text": "Sales Order #SLS00000609",
-        "value": "11722"
+        "text": "Sales Order #SLS00000654",
+        "value": "16211"
       }
     },
     {
@@ -750,8 +750,8 @@ export const getMockPunchItems = (): PunchItem[] => {
       "dateCreated": "11/13/2024 10:49 pm",
       "enteredBy": "Arun Sharma",
       "salesorder": {
-        "text": "Sales Order #SLS00000609",
-        "value": "11722"
+        "text": "Sales Order #SLS00000654",
+        "value": "16211"
       }
     },
     {
@@ -765,8 +765,8 @@ export const getMockPunchItems = (): PunchItem[] => {
       "dateCreated": "11/13/2024 10:57 pm",
       "enteredBy": "Arun Sharma",
       "salesorder": {
-        "text": "Sales Order #SLS00000609",
-        "value": "11722"
+        "text": "Sales Order #SLS00000654",
+        "value": "16211"
       }
     },
     {
@@ -780,8 +780,8 @@ export const getMockPunchItems = (): PunchItem[] => {
       "dateCreated": "11/13/2024 10:57 pm",
       "enteredBy": "Arun Sharma",
       "salesorder": {
-        "text": "Sales Order #SLS00000609",
-        "value": "11722"
+        "text": "Sales Order #SLS00000654",
+        "value": "16211"
       }
     },
     {
@@ -795,8 +795,8 @@ export const getMockPunchItems = (): PunchItem[] => {
       "dateCreated": "11/13/2024 11:32 pm",
       "enteredBy": "Arun Sharma",
       "salesorder": {
-        "text": "Sales Order #SLS00000609",
-        "value": "11722"
+        "text": "Sales Order #SLS00000654",
+        "value": "16211"
       }
     },
     {
@@ -810,8 +810,8 @@ export const getMockPunchItems = (): PunchItem[] => {
       "dateCreated": "11/13/2024 11:32 pm",
       "enteredBy": "Arun Sharma",
       "salesorder": {
-        "text": "Sales Order #SLS00000609",
-        "value": "11722"
+        "text": "Sales Order #SLS00000654",
+        "value": "16211"
       }
     },
     {
@@ -825,8 +825,8 @@ export const getMockPunchItems = (): PunchItem[] => {
       "dateCreated": "11/14/2024 12:00 am",
       "enteredBy": "Arun Sharma",
       "salesorder": {
-        "text": "Sales Order #SLS00000609",
-        "value": "11722"
+        "text": "Sales Order #SLS00000654",
+        "value": "16211"
       }
     },
     {
@@ -840,8 +840,8 @@ export const getMockPunchItems = (): PunchItem[] => {
       "dateCreated": "11/14/2024 12:00 am",
       "enteredBy": "Arun Sharma",
       "salesorder": {
-        "text": "Sales Order #SLS00000609",
-        "value": "11722"
+        "text": "Sales Order #SLS00000654",
+        "value": "16211"
       }
     },
     {
@@ -855,8 +855,8 @@ export const getMockPunchItems = (): PunchItem[] => {
       "dateCreated": "11/14/2024 12:06 am",
       "enteredBy": "Arun Sharma",
       "salesorder": {
-        "text": "Sales Order #SLS00000609",
-        "value": "11722"
+        "text": "Sales Order #SLS00000654",
+        "value": "16211"
       }
     },
     {
@@ -870,8 +870,8 @@ export const getMockPunchItems = (): PunchItem[] => {
       "dateCreated": "11/14/2024 12:06 am",
       "enteredBy": "Arun Sharma",
       "salesorder": {
-        "text": "Sales Order #SLS00000609",
-        "value": "11722"
+        "text": "Sales Order #SLS00000654",
+        "value": "16211"
       }
     },
     {
@@ -885,8 +885,8 @@ export const getMockPunchItems = (): PunchItem[] => {
       "dateCreated": "11/14/2024 12:11 am",
       "enteredBy": "Arun Sharma",
       "salesorder": {
-        "text": "Sales Order #SLS00000609",
-        "value": "11722"
+        "text": "Sales Order #SLS00000654",
+        "value": "16211"
       }
     },
     {
@@ -900,8 +900,8 @@ export const getMockPunchItems = (): PunchItem[] => {
       "dateCreated": "11/14/2024 12:11 am",
       "enteredBy": "Arun Sharma",
       "salesorder": {
-        "text": "Sales Order #SLS00000609",
-        "value": "11722"
+        "text": "Sales Order #SLS00000654",
+        "value": "16211"
       }
     },
     {
@@ -915,8 +915,8 @@ export const getMockPunchItems = (): PunchItem[] => {
       "dateCreated": "11/14/2024 1:50 am",
       "enteredBy": "Arun Sharma",
       "salesorder": {
-        "text": "Sales Order #SLS00000609",
-        "value": "11722"
+        "text": "Sales Order #SLS00000654",
+        "value": "16211"
       }
     },
     {
@@ -930,8 +930,8 @@ export const getMockPunchItems = (): PunchItem[] => {
       "dateCreated": "11/14/2024 1:50 am",
       "enteredBy": "Arun Sharma",
       "salesorder": {
-        "text": "Sales Order #SLS00000609",
-        "value": "11722"
+        "text": "Sales Order #SLS00000654",
+        "value": "16211"
       }
     },
     {
@@ -1365,8 +1365,8 @@ export const getMockPunchItems = (): PunchItem[] => {
       "dateCreated": "2/27/2025 5:56 am",
       "enteredBy": "Arun Sharma",
       "salesorder": {
-        "text": "Sales Order #SLS00000609",
-        "value": "11722"
+        "text": "Sales Order #SLS00000826",
+        "value": "23471"
       }
     },
     {
@@ -1380,8 +1380,8 @@ export const getMockPunchItems = (): PunchItem[] => {
       "dateCreated": "2/27/2025 5:56 am",
       "enteredBy": "Arun Sharma",
       "salesorder": {
-        "text": "Sales Order #SLS00000609",
-        "value": "11722"
+        "text": "Sales Order #SLS00000826",
+        "value": "23471"
       }
     },
     {
@@ -1440,8 +1440,8 @@ export const getMockPunchItems = (): PunchItem[] => {
       "dateCreated": "3/5/2025 6:35 am",
       "enteredBy": "Arun Sharma",
       "salesorder": {
-        "text": "Sales Order #SLS00000609",
-        "value": "11722"
+        "text": "Sales Order #SLS00000826",
+        "value": "23471"
       }
     },
     {
@@ -1455,8 +1455,8 @@ export const getMockPunchItems = (): PunchItem[] => {
       "dateCreated": "3/5/2025 6:38 am",
       "enteredBy": "Arun Sharma",
       "salesorder": {
-        "text": "Sales Order #SLS00000609",
-        "value": "11722"
+        "text": "Sales Order #SLS00000826",
+        "value": "23471"
       }
     },
     {
@@ -1653,6 +1653,51 @@ export const getMockPunchItems = (): PunchItem[] => {
         "text": "Sales Order #SLS00000609",
         "value": "11722"
       }
+    },
+    {
+      "status": {
+        "text": "In Process",
+        "value": "3"
+      },
+      "reason": "Missing Product",
+      "description": "TEST\r\nXYZ",
+      "resolution": "Find the product\r\nFind the item",
+      "dateCreated": "7/8/2025 11:21 am",
+      "enteredBy": "Lean Cendaña",
+      "salesorder": {
+        "text": "Sales Order #SLS00000836",
+        "value": "24428"
+      }
+    },
+    {
+      "status": {
+        "text": "Not Started",
+        "value": "2"
+      },
+      "reason": "Wrong Product",
+      "description": "Wrong product\r\nWrong product",
+      "resolution": "Wrong product\r\nWrong product",
+      "dateCreated": "7/8/2025 11:22 am",
+      "enteredBy": "Lean Cendaña",
+      "salesorder": {
+        "text": "Sales Order #SLS00000836",
+        "value": "24428"
+      }
+    },
+    {
+      "status": {
+        "text": "Resolved",
+        "value": "6"
+      },
+      "reason": "Damaged Product",
+      "description": "123\r\n123",
+      "resolution": "XXXXXXX\r\nXXXXXXX",
+      "dateCreated": "7/8/2025 11:23 am",
+      "enteredBy": "Lean Cendaña",
+      "salesorder": {
+        "text": "Sales Order #SLS00000836",
+        "value": "24428"
+      }
     }
   ];
 };
@@ -1666,46 +1711,22 @@ export const fetchPunchItems = async (soId: string): Promise<PunchItem[]> => {
   }
 
   try {
-    let allData: PunchItem[] = [];
-    let i = 0;
-    let hasMoreData = true;
-    const chunkSize = 500;
+    const url = `${suiteletUrl}&mode=getPunchItems&soId=${soId}`;
+    const response = await fetch(url);
     
-    while (hasMoreData) {
-      const start = 0 + (i * chunkSize);
-      const end = chunkSize + (i * chunkSize);
-      const url = `${suiteletUrl}&mode=getPunchItems&soId=${soId}&start=${start}&end=${end}`;
-      const response = await fetch(url);
-      console.log(`Punch Item service RESPONSE chunk ${i + 1}:`, response);
-      
-      if (!response.ok) {
-        throw new Error(`Failed to fetch punch items chunk ${i + 1}: ${response.status}`);
-      }
-      
-      const chunkData = await response.json();
-      console.log(`Punch Item service RESULT chunk ${i + 1}:`, chunkData);
-      
-      if (!chunkData || chunkData.length === 0) {
-        hasMoreData = false;
-      } else {
-        allData = [...allData, ...chunkData];
-
-        if (chunkData.length < chunkSize) {
-          hasMoreData = false;
-        }
-      }
-      
-      i++;
+    if (!response.ok) {
+      throw new Error(`Failed to fetch punch items: ${response.status}`);
     }
+
+    const items = await response.json();
+    console.log(`Finished chunked fetch. Total punch item records collected: ${items.length}`);
     
-    console.log(`Finished chunked fetch. Total punch item records collected: ${allData.length}`);
-    
-    if (allData.length === 0) {
+    if (items.length === 0) {
       console.error("API returned no punch item data across all chunks");
       throw new Error("No punch item data returned from API");
     }
 
-    return allData;
+    return items;
   } catch (error) {
     console.error('Error fetching punch items:', error);
     throw error;

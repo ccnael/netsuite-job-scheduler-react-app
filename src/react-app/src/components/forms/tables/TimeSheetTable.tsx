@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useCallback } from 'react';
+import React, { useState, useMemo, useCallback, useEffect } from 'react';
 import {
   ColumnDef, flexRender, getCoreRowModel, getFilteredRowModel,
   getPaginationRowModel, getSortedRowModel, SortingState, useReactTable,
@@ -38,6 +38,7 @@ interface TimeSheetTableProps {
   onStartTimeChange: (time: string) => void;
   onEndTimeChange: (time: string) => void;
   selectedEvent: Event;
+  onDataChange?: (data: TimeSheetRow[]) => void;
 }
 
 export const TimeSheetTable: React.FC<TimeSheetTableProps> = ({ 
@@ -45,7 +46,8 @@ export const TimeSheetTable: React.FC<TimeSheetTableProps> = ({
   endTime, 
   onStartTimeChange, 
   onEndTimeChange,
-  selectedEvent
+  selectedEvent,
+  onDataChange
 }) => {
   const [globalFilter, setGlobalFilter] = useState('');
   const [sorting, setSorting] = useState<SortingState>([]);
@@ -116,6 +118,13 @@ export const TimeSheetTable: React.FC<TimeSheetTableProps> = ({
   console.log('Time sheet rows', rows);
   console.log('Selected event resources:', selectedEvent?.resources);
 
+  // Add useEffect to notify parent of data changes
+  useEffect(() => {
+    if (onDataChange) {
+      onDataChange(rows);
+    }
+  }, [rows, onDataChange]);
+
   // Fixed checkbox handlers that don't reset pagination - copied from EmployeeTable
   const handleRowToggle = useCallback((rowId: string, checked: boolean) => {
     setRowSelection(prev => ({ 
@@ -146,21 +155,30 @@ export const TimeSheetTable: React.FC<TimeSheetTableProps> = ({
   }, []);
 
   const handleInputChange = (id: string, field: keyof TimeSheetRow, value: string) => {
-    setRows(prev => prev.map(row => 
-      row.id === id ? { ...row, [field]: value } : row
-    ));
+    setRows(prev => {
+      const updated = prev.map(row => 
+        row.id === id ? { ...row, [field]: value } : row
+      );
+      return updated;
+    });
   };
 
   const handleRowStartTimeChange = (id: string, time: string) => {
-    setRows(prev => prev.map(row => 
-      row.id === id ? { ...row, startTime: time } : row
-    ));
+    setRows(prev => {
+      const updated = prev.map(row => 
+        row.id === id ? { ...row, startTime: time } : row
+      );
+      return updated;
+    });
   };
 
   const handleRowEndTimeChange = (id: string, time: string) => {
-    setRows(prev => prev.map(row => 
-      row.id === id ? { ...row, endTime: time } : row
-    ));
+    setRows(prev => {
+      const updated = prev.map(row => 
+        row.id === id ? { ...row, endTime: time } : row
+      );
+      return updated;
+    });
   };
 
   const renderSortIcon = useCallback((column: any) => {
@@ -181,7 +199,7 @@ export const TimeSheetTable: React.FC<TimeSheetTableProps> = ({
   const isAllSelected = useMemo(() => rows.length > 0 && rows.every(row => rowSelection[row.id]), [rows, rowSelection]);
 
   const columns: ColumnDef<TimeSheetRow>[] = useMemo(() => [
-    {
+    /* {
       id: "select",
       header: ({ table }) => (
         <div className="flex justify-center items-center h-full">
@@ -201,7 +219,7 @@ export const TimeSheetTable: React.FC<TimeSheetTableProps> = ({
       ),
       enableSorting: false,
       enableHiding: false,
-    },
+    }, */
     {
       accessorKey: "name",
       header: ({ column }) => (
@@ -413,7 +431,7 @@ export const TimeSheetTable: React.FC<TimeSheetTableProps> = ({
       ),
       enableSorting: false,
     },
-  ], [handleRowToggle, handleSelectAll, renderSortIcon, rowSelection]);
+  ], [/* handleRowToggle, handleSelectAll,  */renderSortIcon/* , rowSelection */]);
 
   const table = useReactTable({
     data: rows,
@@ -425,14 +443,14 @@ export const TimeSheetTable: React.FC<TimeSheetTableProps> = ({
     state: { 
       globalFilter, 
       sorting,
-      rowSelection,
+      // rowSelection,
       pagination
     },
     onGlobalFilterChange: setGlobalFilter,
     onSortingChange: setSorting,
-    onRowSelectionChange: setRowSelection,
+    // onRowSelectionChange: setRowSelection,
     onPaginationChange: setPagination,
-    enableRowSelection: true,
+    // enableRowSelection: true,
     manualPagination: false,
     getRowId: (row) => row.id,
     // This is the key fix - prevent pagination reset on selection changes

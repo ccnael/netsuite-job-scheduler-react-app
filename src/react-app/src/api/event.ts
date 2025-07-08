@@ -59,6 +59,10 @@ export interface Event {
     text: string;
     value: string;
   };
+  salesorder?: {
+    text: string;
+    value: string;
+  }
 }
 
 const getMockEvents = (): Event[] => {
@@ -98,6 +102,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -113,6 +118,10 @@ const getMockEvents = (): Event[] => {
       },
       "assetMaintenance": false,
       "routingGroup": {
+        "text": "",
+        "value": ""
+      },
+      "salesorder": {
         "text": "",
         "value": ""
       }
@@ -155,6 +164,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -172,6 +182,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000713",
+        "value": "19372"
       }
     },
     {
@@ -211,6 +225,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -226,6 +241,10 @@ const getMockEvents = (): Event[] => {
       },
       "assetMaintenance": false,
       "routingGroup": {
+        "text": "",
+        "value": ""
+      },
+      "salesorder": {
         "text": "",
         "value": ""
       }
@@ -268,6 +287,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -285,6 +305,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000836",
+        "value": "24428"
       }
     },
     {
@@ -324,6 +348,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -341,6 +366,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000836",
+        "value": "24428"
       }
     },
     {
@@ -380,6 +409,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -395,6 +425,10 @@ const getMockEvents = (): Event[] => {
       },
       "assetMaintenance": false,
       "routingGroup": {
+        "text": "",
+        "value": ""
+      },
+      "salesorder": {
         "text": "",
         "value": ""
       }
@@ -437,6 +471,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -454,6 +489,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000837",
+        "value": "24432"
       }
     },
     {
@@ -493,6 +532,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -510,6 +550,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000848",
+        "value": "25472"
       }
     },
     {
@@ -549,6 +593,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -566,6 +611,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000848",
+        "value": "25472"
       }
     },
     {
@@ -604,6 +653,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -621,6 +671,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000826",
+        "value": "23471"
       }
     },
     {
@@ -661,6 +715,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -678,6 +733,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000848",
+        "value": "25472"
       }
     },
     {
@@ -717,6 +776,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -732,6 +792,10 @@ const getMockEvents = (): Event[] => {
       },
       "assetMaintenance": true,
       "routingGroup": {
+        "text": "",
+        "value": ""
+      },
+      "salesorder": {
         "text": "",
         "value": ""
       }
@@ -774,6 +838,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -791,6 +856,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000837",
+        "value": "24432"
       }
     },
     {
@@ -831,6 +900,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -848,6 +918,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000836",
+        "value": "24428"
       }
     },
     {
@@ -887,6 +961,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "World Bank | 12 Carlton Av",
@@ -904,6 +979,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000835",
+        "value": "24427"
       }
     },
     {
@@ -944,6 +1023,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -959,6 +1039,10 @@ const getMockEvents = (): Event[] => {
       },
       "assetMaintenance": true,
       "routingGroup": {
+        "text": "",
+        "value": ""
+      },
+      "salesorder": {
         "text": "",
         "value": ""
       }
@@ -1001,6 +1085,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -1018,6 +1103,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000826",
+        "value": "23471"
       }
     },
     {
@@ -1058,6 +1147,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -1075,6 +1165,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000826",
+        "value": "23471"
       }
     },
     {
@@ -1115,6 +1209,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -1132,6 +1227,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000826",
+        "value": "23471"
       }
     },
     {
@@ -1172,6 +1271,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "World Bank | 931 Zetta Wells",
@@ -1189,6 +1289,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000826",
+        "value": "23471"
       }
     },
     {
@@ -1228,6 +1332,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -1245,6 +1350,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000826",
+        "value": "23471"
       }
     },
     {
@@ -1285,6 +1394,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -1302,6 +1412,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000826",
+        "value": "23471"
       }
     },
     {
@@ -1341,6 +1455,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -1356,6 +1471,10 @@ const getMockEvents = (): Event[] => {
       },
       "assetMaintenance": true,
       "routingGroup": {
+        "text": "",
+        "value": ""
+      },
+      "salesorder": {
         "text": "",
         "value": ""
       }
@@ -1397,6 +1516,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -1412,6 +1532,10 @@ const getMockEvents = (): Event[] => {
       },
       "assetMaintenance": false,
       "routingGroup": {
+        "text": "",
+        "value": ""
+      },
+      "salesorder": {
         "text": "",
         "value": ""
       }
@@ -1454,6 +1578,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -1471,6 +1596,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000810",
+        "value": "22901"
       }
     },
     {
@@ -1511,6 +1640,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -1528,6 +1658,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000810",
+        "value": "22901"
       }
     },
     {
@@ -1568,6 +1702,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -1585,6 +1720,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000810",
+        "value": "22901"
       }
     },
     {
@@ -1625,6 +1764,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -1642,6 +1782,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000811",
+        "value": "22902"
       }
     },
     {
@@ -1681,6 +1825,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "219",
@@ -1698,6 +1843,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000811",
+        "value": "22902"
       }
     },
     {
@@ -1738,6 +1887,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "216",
@@ -1755,6 +1905,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000810",
+        "value": "22901"
       }
     },
     {
@@ -1795,6 +1949,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "216",
@@ -1812,6 +1967,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000810",
+        "value": "22901"
       }
     },
     {
@@ -1851,6 +2010,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "217",
@@ -1868,6 +2028,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000810",
+        "value": "22901"
       }
     },
     {
@@ -1908,6 +2072,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -1925,6 +2090,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000807",
+        "value": "22898"
       }
     },
     {
@@ -1964,6 +2133,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -1981,6 +2151,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000803",
+        "value": "22468"
       }
     },
     {
@@ -2020,6 +2194,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -2037,6 +2212,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000803",
+        "value": "22468"
       }
     },
     {
@@ -2076,6 +2255,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -2093,6 +2273,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000803",
+        "value": "22468"
       }
     },
     {
@@ -2133,6 +2317,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -2150,6 +2335,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000803",
+        "value": "22468"
       }
     },
     {
@@ -2189,6 +2378,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -2206,6 +2396,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000803",
+        "value": "22468"
       }
     },
     {
@@ -2245,6 +2439,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -2262,6 +2457,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000803",
+        "value": "22468"
       }
     },
     {
@@ -2301,6 +2500,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -2318,6 +2518,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000803",
+        "value": "22468"
       }
     },
     {
@@ -2357,6 +2561,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "207",
@@ -2374,6 +2579,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000803",
+        "value": "22468"
       }
     },
     {
@@ -2413,6 +2622,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "207",
@@ -2430,6 +2640,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000803",
+        "value": "22468"
       }
     },
     {
@@ -2470,6 +2684,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "201",
@@ -2487,6 +2702,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000786",
+        "value": "20919"
       }
     },
     {
@@ -2526,6 +2745,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "201",
@@ -2543,6 +2763,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000786",
+        "value": "20919"
       }
     },
     {
@@ -2582,6 +2806,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "201",
@@ -2599,6 +2824,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000786",
+        "value": "20919"
       }
     },
     {
@@ -2639,6 +2868,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "175",
@@ -2656,6 +2886,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000778",
+        "value": "20907"
       }
     },
     {
@@ -2696,6 +2930,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "198",
@@ -2713,6 +2948,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000785",
+        "value": "20917"
       }
     },
     {
@@ -2753,6 +2992,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -2770,6 +3010,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000786",
+        "value": "20919"
       }
     },
     {
@@ -2809,6 +3053,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -2826,6 +3071,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000786",
+        "value": "20919"
       }
     },
     {
@@ -2866,6 +3115,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -2883,6 +3133,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000785",
+        "value": "20917"
       }
     },
     {
@@ -2922,6 +3176,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -2939,6 +3194,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000786",
+        "value": "20919"
       }
     },
     {
@@ -2979,6 +3238,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -2996,6 +3256,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000785",
+        "value": "20917"
       }
     },
     {
@@ -3035,6 +3299,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -3052,6 +3317,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000785",
+        "value": "20917"
       }
     },
     {
@@ -3091,6 +3360,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -3108,6 +3378,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000783",
+        "value": "20915"
       }
     },
     {
@@ -3148,6 +3422,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -3165,6 +3440,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000781",
+        "value": "20911"
       }
     },
     {
@@ -3204,6 +3483,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -3221,6 +3501,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000781",
+        "value": "20911"
       }
     },
     {
@@ -3260,6 +3544,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -3277,6 +3562,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000780",
+        "value": "20910"
       }
     },
     {
@@ -3317,6 +3606,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -3334,6 +3624,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000779",
+        "value": "20908"
       }
     },
     {
@@ -3374,6 +3668,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -3391,6 +3686,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000778",
+        "value": "20907"
       }
     },
     {
@@ -3430,6 +3729,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -3447,6 +3747,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000778",
+        "value": "20907"
       }
     },
     {
@@ -3487,6 +3791,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -3504,6 +3809,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000770",
+        "value": "20899"
       }
     },
     {
@@ -3543,6 +3852,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -3560,6 +3870,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000777",
+        "value": "20906"
       }
     },
     {
@@ -3599,6 +3913,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -3616,6 +3931,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000776",
+        "value": "20905"
       }
     },
     {
@@ -3656,6 +3975,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -3673,6 +3993,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000776",
+        "value": "20905"
       }
     },
     {
@@ -3712,6 +4036,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -3729,6 +4054,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000776",
+        "value": "20905"
       }
     },
     {
@@ -3769,6 +4098,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -3786,6 +4116,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000774",
+        "value": "20903"
       }
     },
     {
@@ -3826,6 +4160,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -3843,6 +4178,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000774",
+        "value": "20903"
       }
     },
     {
@@ -3882,6 +4221,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -3899,6 +4239,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000774",
+        "value": "20903"
       }
     },
     {
@@ -3939,6 +4283,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -3956,6 +4301,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000771",
+        "value": "20900"
       }
     },
     {
@@ -3996,6 +4345,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -4013,6 +4363,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000771",
+        "value": "20900"
       }
     },
     {
@@ -4053,6 +4407,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -4070,6 +4425,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000771",
+        "value": "20900"
       }
     },
     {
@@ -4109,6 +4468,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -4126,6 +4486,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000770",
+        "value": "20899"
       }
     },
     {
@@ -4166,6 +4530,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -4183,6 +4548,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000769",
+        "value": "20898"
       }
     },
     {
@@ -4222,6 +4591,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -4239,6 +4609,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000770",
+        "value": "20899"
       }
     },
     {
@@ -4278,6 +4652,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -4295,6 +4670,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000769",
+        "value": "20898"
       }
     },
     {
@@ -4335,6 +4714,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -4352,6 +4732,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000713",
+        "value": "19372"
       }
     },
     {
@@ -4392,6 +4776,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -4409,6 +4794,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000713",
+        "value": "19372"
       }
     },
     {
@@ -4449,6 +4838,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -4466,6 +4856,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000766",
+        "value": "20892"
       }
     },
     {
@@ -4506,6 +4900,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -4523,6 +4918,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000766",
+        "value": "20892"
       }
     },
     {
@@ -4563,6 +4962,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -4580,6 +4980,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000755",
+        "value": "20872"
       }
     },
     {
@@ -4620,6 +5024,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -4637,6 +5042,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000750",
+        "value": "20867"
       }
     },
     {
@@ -4677,6 +5086,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -4694,6 +5104,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000751",
+        "value": "20868"
       }
     },
     {
@@ -4734,6 +5148,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -4751,6 +5166,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000748",
+        "value": "20852"
       }
     },
     {
@@ -4791,6 +5210,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -4808,6 +5228,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000748",
+        "value": "20852"
       }
     },
     {
@@ -4848,6 +5272,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -4865,6 +5290,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000748",
+        "value": "20852"
       }
     },
     {
@@ -4905,6 +5334,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -4920,6 +5350,10 @@ const getMockEvents = (): Event[] => {
       },
       "assetMaintenance": false,
       "routingGroup": {
+        "text": "",
+        "value": ""
+      },
+      "salesorder": {
         "text": "",
         "value": ""
       }
@@ -4961,6 +5395,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -4976,6 +5411,10 @@ const getMockEvents = (): Event[] => {
       },
       "assetMaintenance": false,
       "routingGroup": {
+        "text": "",
+        "value": ""
+      },
+      "salesorder": {
         "text": "",
         "value": ""
       }
@@ -5017,6 +5456,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -5034,6 +5474,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000739",
+        "value": "19521"
       }
     },
     {
@@ -5073,6 +5517,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -5090,6 +5535,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000739",
+        "value": "19521"
       }
     },
     {
@@ -5129,6 +5578,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -5146,6 +5596,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000739",
+        "value": "19521"
       }
     },
     {
@@ -5185,6 +5639,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -5200,6 +5655,10 @@ const getMockEvents = (): Event[] => {
       },
       "assetMaintenance": false,
       "routingGroup": {
+        "text": "",
+        "value": ""
+      },
+      "salesorder": {
         "text": "",
         "value": ""
       }
@@ -5241,6 +5700,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -5258,6 +5718,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000713",
+        "value": "19372"
       }
     },
     {
@@ -5298,6 +5762,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -5315,6 +5780,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000748",
+        "value": "20852"
       }
     },
     {
@@ -5355,6 +5824,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -5372,6 +5842,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000748",
+        "value": "20852"
       }
     },
     {
@@ -5410,6 +5884,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -5425,6 +5900,10 @@ const getMockEvents = (): Event[] => {
       },
       "assetMaintenance": false,
       "routingGroup": {
+        "text": "",
+        "value": ""
+      },
+      "salesorder": {
         "text": "",
         "value": ""
       }
@@ -5465,6 +5944,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -5480,6 +5960,10 @@ const getMockEvents = (): Event[] => {
       },
       "assetMaintenance": false,
       "routingGroup": {
+        "text": "",
+        "value": ""
+      },
+      "salesorder": {
         "text": "",
         "value": ""
       }
@@ -5521,6 +6005,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -5538,6 +6023,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000713",
+        "value": "19372"
       }
     },
     {
@@ -5577,6 +6066,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -5594,6 +6084,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000713",
+        "value": "19372"
       }
     },
     {
@@ -5634,6 +6128,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -5651,6 +6146,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000746",
+        "value": "20845"
       }
     },
     {
@@ -5690,6 +6189,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -5707,6 +6207,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000736",
+        "value": "19418"
       }
     },
     {
@@ -5746,6 +6250,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -5763,6 +6268,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000739",
+        "value": "19521"
       }
     },
     {
@@ -5803,6 +6312,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -5820,6 +6330,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000740",
+        "value": "20024"
       }
     },
     {
@@ -5860,6 +6374,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -5877,6 +6392,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000740",
+        "value": "20024"
       }
     },
     {
@@ -5916,6 +6435,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -5933,6 +6453,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000740",
+        "value": "20024"
       }
     },
     {
@@ -5972,6 +6496,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -5987,6 +6512,10 @@ const getMockEvents = (): Event[] => {
       },
       "assetMaintenance": false,
       "routingGroup": {
+        "text": "",
+        "value": ""
+      },
+      "salesorder": {
         "text": "",
         "value": ""
       }
@@ -6028,6 +6557,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -6045,6 +6575,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000740",
+        "value": "20024"
       }
     },
     {
@@ -6084,6 +6618,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -6101,6 +6636,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000739",
+        "value": "19521"
       }
     },
     {
@@ -6140,6 +6679,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -6157,6 +6697,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000739",
+        "value": "19521"
       }
     },
     {
@@ -6196,6 +6740,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -6211,6 +6756,10 @@ const getMockEvents = (): Event[] => {
       },
       "assetMaintenance": false,
       "routingGroup": {
+        "text": "",
+        "value": ""
+      },
+      "salesorder": {
         "text": "",
         "value": ""
       }
@@ -6252,6 +6801,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -6269,6 +6819,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000739",
+        "value": "19521"
       }
     },
     {
@@ -6308,6 +6862,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -6323,6 +6878,10 @@ const getMockEvents = (): Event[] => {
       },
       "assetMaintenance": false,
       "routingGroup": {
+        "text": "",
+        "value": ""
+      },
+      "salesorder": {
         "text": "",
         "value": ""
       }
@@ -6364,6 +6923,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -6381,6 +6941,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000739",
+        "value": "19521"
       }
     },
     {
@@ -6421,6 +6985,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -6436,6 +7001,10 @@ const getMockEvents = (): Event[] => {
       },
       "assetMaintenance": false,
       "routingGroup": {
+        "text": "",
+        "value": ""
+      },
+      "salesorder": {
         "text": "",
         "value": ""
       }
@@ -6477,6 +7046,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -6494,6 +7064,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000739",
+        "value": "19521"
       }
     },
     {
@@ -6533,6 +7107,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -6550,6 +7125,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000739",
+        "value": "19521"
       }
     },
     {
@@ -6589,6 +7168,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -6606,6 +7186,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000739",
+        "value": "19521"
       }
     },
     {
@@ -6645,6 +7229,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -6662,6 +7247,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000739",
+        "value": "19521"
       }
     },
     {
@@ -6701,6 +7290,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -6718,6 +7308,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000740",
+        "value": "20024"
       }
     },
     {
@@ -6757,6 +7351,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -6774,6 +7369,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000740",
+        "value": "20024"
       }
     },
     {
@@ -6813,6 +7412,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -6830,6 +7430,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000740",
+        "value": "20024"
       }
     },
     {
@@ -6868,6 +7472,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -6885,6 +7490,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000721",
+        "value": "19394"
       }
     },
     {
@@ -6924,6 +7533,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -6941,6 +7551,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000739",
+        "value": "19521"
       }
     },
     {
@@ -6980,6 +7594,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -6997,6 +7612,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000739",
+        "value": "19521"
       }
     },
     {
@@ -7036,6 +7655,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -7053,6 +7673,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000739",
+        "value": "19521"
       }
     },
     {
@@ -7092,6 +7716,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -7109,6 +7734,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000739",
+        "value": "19521"
       }
     },
     {
@@ -7148,6 +7777,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -7165,6 +7795,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000726",
+        "value": "19400"
       }
     },
     {
@@ -7203,6 +7837,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -7220,6 +7855,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000736",
+        "value": "19418"
       }
     },
     {
@@ -7258,6 +7897,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -7275,6 +7915,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000736",
+        "value": "19418"
       }
     },
     {
@@ -7313,6 +7957,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -7330,6 +7975,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000736",
+        "value": "19418"
       }
     },
     {
@@ -7369,6 +8018,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -7386,6 +8036,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000736",
+        "value": "19418"
       }
     },
     {
@@ -7425,6 +8079,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -7442,6 +8097,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000726",
+        "value": "19400"
       }
     },
     {
@@ -7481,6 +8140,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -7498,6 +8158,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000726",
+        "value": "19400"
       }
     },
     {
@@ -7536,6 +8200,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -7553,6 +8218,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000734",
+        "value": "19414"
       }
     },
     {
@@ -7591,6 +8260,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -7608,6 +8278,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000734",
+        "value": "19414"
       }
     },
     {
@@ -7646,6 +8320,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -7663,6 +8338,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000734",
+        "value": "19414"
       }
     },
     {
@@ -7701,6 +8380,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -7718,6 +8398,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000734",
+        "value": "19414"
       }
     },
     {
@@ -7756,6 +8440,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -7773,6 +8458,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000734",
+        "value": "19414"
       }
     },
     {
@@ -7811,6 +8500,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -7828,6 +8518,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000734",
+        "value": "19414"
       }
     },
     {
@@ -7866,6 +8560,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -7883,6 +8578,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000734",
+        "value": "19414"
       }
     },
     {
@@ -7921,6 +8620,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -7938,6 +8638,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000734",
+        "value": "19414"
       }
     },
     {
@@ -7977,6 +8681,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -7994,6 +8699,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000726",
+        "value": "19400"
       }
     },
     {
@@ -8032,6 +8741,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -8049,6 +8759,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000734",
+        "value": "19414"
       }
     },
     {
@@ -8087,6 +8801,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -8104,6 +8819,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000734",
+        "value": "19414"
       }
     },
     {
@@ -8142,6 +8861,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -8159,6 +8879,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000734",
+        "value": "19414"
       }
     },
     {
@@ -8197,6 +8921,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -8214,6 +8939,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000734",
+        "value": "19414"
       }
     },
     {
@@ -8252,6 +8981,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -8269,6 +8999,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000734",
+        "value": "19414"
       }
     },
     {
@@ -8307,6 +9041,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -8324,6 +9059,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000734",
+        "value": "19414"
       }
     },
     {
@@ -8362,6 +9101,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -8379,6 +9119,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000734",
+        "value": "19414"
       }
     },
     {
@@ -8417,6 +9161,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -8434,6 +9179,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000734",
+        "value": "19414"
       }
     },
     {
@@ -8472,6 +9221,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -8489,6 +9239,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000734",
+        "value": "19414"
       }
     },
     {
@@ -8527,6 +9281,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -8544,6 +9299,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000734",
+        "value": "19414"
       }
     },
     {
@@ -8582,6 +9341,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -8599,6 +9359,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000734",
+        "value": "19414"
       }
     },
     {
@@ -8637,6 +9401,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -8654,6 +9419,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000734",
+        "value": "19414"
       }
     },
     {
@@ -8692,6 +9461,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -8709,6 +9479,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000715",
+        "value": "19388"
       }
     },
     {
@@ -8747,6 +9521,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -8764,6 +9539,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000715",
+        "value": "19388"
       }
     },
     {
@@ -8802,6 +9581,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -8819,6 +9599,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000715",
+        "value": "19388"
       }
     },
     {
@@ -8858,6 +9642,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -8875,6 +9660,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000715",
+        "value": "19388"
       }
     },
     {
@@ -8914,6 +9703,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -8931,6 +9721,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000733",
+        "value": "19413"
       }
     },
     {
@@ -8970,6 +9764,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -8987,6 +9782,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000733",
+        "value": "19413"
       }
     },
     {
@@ -9026,6 +9825,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -9043,6 +9843,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000725",
+        "value": "19399"
       }
     },
     {
@@ -9082,6 +9886,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -9099,6 +9904,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000715",
+        "value": "19388"
       }
     },
     {
@@ -9138,6 +9947,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -9155,6 +9965,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000715",
+        "value": "19388"
       }
     },
     {
@@ -9194,6 +10008,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -9211,6 +10026,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000715",
+        "value": "19388"
       }
     },
     {
@@ -9250,6 +10069,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -9267,6 +10087,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000715",
+        "value": "19388"
       }
     },
     {
@@ -9306,6 +10130,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -9323,6 +10148,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000715",
+        "value": "19388"
       }
     },
     {
@@ -9362,6 +10191,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -9379,6 +10209,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000715",
+        "value": "19388"
       }
     },
     {
@@ -9418,6 +10252,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -9435,6 +10270,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000715",
+        "value": "19388"
       }
     },
     {
@@ -9474,6 +10313,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -9491,6 +10331,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000715",
+        "value": "19388"
       }
     },
     {
@@ -9530,6 +10374,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -9547,6 +10392,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000715",
+        "value": "19388"
       }
     },
     {
@@ -9586,6 +10435,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -9603,6 +10453,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000715",
+        "value": "19388"
       }
     },
     {
@@ -9642,6 +10496,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -9659,6 +10514,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000715",
+        "value": "19388"
       }
     },
     {
@@ -9698,6 +10557,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -9715,6 +10575,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000715",
+        "value": "19388"
       }
     },
     {
@@ -9754,6 +10618,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -9771,6 +10636,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000715",
+        "value": "19388"
       }
     },
     {
@@ -9810,6 +10679,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -9827,6 +10697,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000715",
+        "value": "19388"
       }
     },
     {
@@ -9866,6 +10740,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -9883,6 +10758,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000715",
+        "value": "19388"
       }
     },
     {
@@ -9922,6 +10801,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -9939,6 +10819,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000715",
+        "value": "19388"
       }
     },
     {
@@ -9978,6 +10862,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -9995,6 +10880,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000715",
+        "value": "19388"
       }
     },
     {
@@ -10034,6 +10923,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -10051,6 +10941,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000715",
+        "value": "19388"
       }
     },
     {
@@ -10090,6 +10984,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -10107,6 +11002,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000715",
+        "value": "19388"
       }
     },
     {
@@ -10146,6 +11045,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -10163,6 +11063,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000715",
+        "value": "19388"
       }
     },
     {
@@ -10202,6 +11106,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -10219,6 +11124,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000715",
+        "value": "19388"
       }
     },
     {
@@ -10258,6 +11167,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -10275,6 +11185,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000715",
+        "value": "19388"
       }
     },
     {
@@ -10314,6 +11228,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -10331,6 +11246,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000715",
+        "value": "19388"
       }
     },
     {
@@ -10370,6 +11289,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -10387,6 +11307,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000718",
+        "value": "19391"
       }
     },
     {
@@ -10426,6 +11350,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -10443,6 +11368,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000715",
+        "value": "19388"
       }
     },
     {
@@ -10482,6 +11411,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -10499,6 +11429,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000715",
+        "value": "19388"
       }
     },
     {
@@ -10538,6 +11472,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -10555,6 +11490,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000715",
+        "value": "19388"
       }
     },
     {
@@ -10594,6 +11533,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -10611,6 +11551,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000715",
+        "value": "19388"
       }
     },
     {
@@ -10651,6 +11595,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -10666,6 +11611,10 @@ const getMockEvents = (): Event[] => {
       },
       "assetMaintenance": false,
       "routingGroup": {
+        "text": "",
+        "value": ""
+      },
+      "salesorder": {
         "text": "",
         "value": ""
       }
@@ -10708,6 +11657,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -10723,6 +11673,10 @@ const getMockEvents = (): Event[] => {
       },
       "assetMaintenance": false,
       "routingGroup": {
+        "text": "",
+        "value": ""
+      },
+      "salesorder": {
         "text": "",
         "value": ""
       }
@@ -10765,6 +11719,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -10780,6 +11735,10 @@ const getMockEvents = (): Event[] => {
       },
       "assetMaintenance": false,
       "routingGroup": {
+        "text": "",
+        "value": ""
+      },
+      "salesorder": {
         "text": "",
         "value": ""
       }
@@ -10822,6 +11781,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -10839,6 +11799,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000654",
+        "value": "16211"
       }
     },
     {
@@ -10877,6 +11841,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -10892,6 +11857,10 @@ const getMockEvents = (): Event[] => {
       },
       "assetMaintenance": false,
       "routingGroup": {
+        "text": "",
+        "value": ""
+      },
+      "salesorder": {
         "text": "",
         "value": ""
       }
@@ -10933,6 +11902,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -10950,6 +11920,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000686",
+        "value": "17729"
       }
     },
     {
@@ -10989,6 +11963,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -11006,6 +11981,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000686",
+        "value": "17729"
       }
     },
     {
@@ -11045,6 +12024,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -11062,6 +12042,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000686",
+        "value": "17729"
       }
     },
     {
@@ -11101,6 +12085,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -11118,6 +12103,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000686",
+        "value": "17729"
       }
     },
     {
@@ -11157,6 +12146,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -11174,6 +12164,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000686",
+        "value": "17729"
       }
     },
     {
@@ -11213,6 +12207,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -11230,6 +12225,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000686",
+        "value": "17729"
       }
     },
     {
@@ -11268,6 +12267,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -11283,6 +12283,10 @@ const getMockEvents = (): Event[] => {
       },
       "assetMaintenance": false,
       "routingGroup": {
+        "text": "",
+        "value": ""
+      },
+      "salesorder": {
         "text": "",
         "value": ""
       }
@@ -11324,6 +12328,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -11341,6 +12346,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000654",
+        "value": "16211"
       }
     },
     {
@@ -11380,6 +12389,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -11395,6 +12405,10 @@ const getMockEvents = (): Event[] => {
       },
       "assetMaintenance": false,
       "routingGroup": {
+        "text": "",
+        "value": ""
+      },
+      "salesorder": {
         "text": "",
         "value": ""
       }
@@ -11437,6 +12451,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -11454,6 +12469,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000686",
+        "value": "17729"
       }
     },
     {
@@ -11493,6 +12512,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -11510,6 +12530,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000686",
+        "value": "17729"
       }
     },
     {
@@ -11549,6 +12573,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -11566,6 +12591,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000686",
+        "value": "17729"
       }
     },
     {
@@ -11605,6 +12634,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -11622,6 +12652,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000686",
+        "value": "17729"
       }
     },
     {
@@ -11661,6 +12695,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -11678,6 +12713,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000686",
+        "value": "17729"
       }
     },
     {
@@ -11717,6 +12756,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -11734,6 +12774,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000686",
+        "value": "17729"
       }
     },
     {
@@ -11773,6 +12817,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -11790,6 +12835,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000686",
+        "value": "17729"
       }
     },
     {
@@ -11829,6 +12878,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -11846,6 +12896,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000686",
+        "value": "17729"
       }
     },
     {
@@ -11885,6 +12939,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -11902,6 +12957,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000686",
+        "value": "17729"
       }
     },
     {
@@ -11940,6 +12999,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -11955,6 +13015,10 @@ const getMockEvents = (): Event[] => {
       },
       "assetMaintenance": false,
       "routingGroup": {
+        "text": "",
+        "value": ""
+      },
+      "salesorder": {
         "text": "",
         "value": ""
       }
@@ -11997,6 +13061,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -12014,6 +13079,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000686",
+        "value": "17729"
       }
     },
     {
@@ -12052,6 +13121,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -12069,6 +13139,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000654",
+        "value": "16211"
       }
     },
     {
@@ -12108,6 +13182,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -12125,6 +13200,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000654",
+        "value": "16211"
       }
     },
     {
@@ -12163,6 +13242,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -12178,6 +13258,10 @@ const getMockEvents = (): Event[] => {
       },
       "assetMaintenance": false,
       "routingGroup": {
+        "text": "",
+        "value": ""
+      },
+      "salesorder": {
         "text": "",
         "value": ""
       }
@@ -12220,6 +13304,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -12235,6 +13320,10 @@ const getMockEvents = (): Event[] => {
       },
       "assetMaintenance": false,
       "routingGroup": {
+        "text": "",
+        "value": ""
+      },
+      "salesorder": {
         "text": "",
         "value": ""
       }
@@ -12277,6 +13366,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -12292,6 +13382,10 @@ const getMockEvents = (): Event[] => {
       },
       "assetMaintenance": false,
       "routingGroup": {
+        "text": "",
+        "value": ""
+      },
+      "salesorder": {
         "text": "",
         "value": ""
       }
@@ -12333,6 +13427,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -12348,6 +13443,10 @@ const getMockEvents = (): Event[] => {
       },
       "assetMaintenance": false,
       "routingGroup": {
+        "text": "",
+        "value": ""
+      },
+      "salesorder": {
         "text": "",
         "value": ""
       }
@@ -12389,6 +13488,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -12404,6 +13504,10 @@ const getMockEvents = (): Event[] => {
       },
       "assetMaintenance": false,
       "routingGroup": {
+        "text": "",
+        "value": ""
+      },
+      "salesorder": {
         "text": "",
         "value": ""
       }
@@ -12446,6 +13550,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -12461,6 +13566,10 @@ const getMockEvents = (): Event[] => {
       },
       "assetMaintenance": false,
       "routingGroup": {
+        "text": "",
+        "value": ""
+      },
+      "salesorder": {
         "text": "",
         "value": ""
       }
@@ -12503,6 +13612,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -12520,6 +13630,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000600",
+        "value": "11712"
       }
     },
     {
@@ -12560,6 +13674,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -12575,6 +13690,10 @@ const getMockEvents = (): Event[] => {
       },
       "assetMaintenance": false,
       "routingGroup": {
+        "text": "",
+        "value": ""
+      },
+      "salesorder": {
         "text": "",
         "value": ""
       }
@@ -12617,6 +13736,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -12632,6 +13752,10 @@ const getMockEvents = (): Event[] => {
       },
       "assetMaintenance": false,
       "routingGroup": {
+        "text": "",
+        "value": ""
+      },
+      "salesorder": {
         "text": "",
         "value": ""
       }
@@ -12674,6 +13798,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -12689,6 +13814,10 @@ const getMockEvents = (): Event[] => {
       },
       "assetMaintenance": false,
       "routingGroup": {
+        "text": "",
+        "value": ""
+      },
+      "salesorder": {
         "text": "",
         "value": ""
       }
@@ -12730,6 +13859,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -12745,6 +13875,10 @@ const getMockEvents = (): Event[] => {
       },
       "assetMaintenance": false,
       "routingGroup": {
+        "text": "",
+        "value": ""
+      },
+      "salesorder": {
         "text": "",
         "value": ""
       }
@@ -12786,6 +13920,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -12801,6 +13936,10 @@ const getMockEvents = (): Event[] => {
       },
       "assetMaintenance": false,
       "routingGroup": {
+        "text": "",
+        "value": ""
+      },
+      "salesorder": {
         "text": "",
         "value": ""
       }
@@ -12842,6 +13981,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -12857,6 +13997,10 @@ const getMockEvents = (): Event[] => {
       },
       "assetMaintenance": false,
       "routingGroup": {
+        "text": "",
+        "value": ""
+      },
+      "salesorder": {
         "text": "",
         "value": ""
       }
@@ -12898,6 +14042,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -12913,6 +14058,10 @@ const getMockEvents = (): Event[] => {
       },
       "assetMaintenance": false,
       "routingGroup": {
+        "text": "",
+        "value": ""
+      },
+      "salesorder": {
         "text": "",
         "value": ""
       }
@@ -12954,6 +14103,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -12969,6 +14119,10 @@ const getMockEvents = (): Event[] => {
       },
       "assetMaintenance": false,
       "routingGroup": {
+        "text": "",
+        "value": ""
+      },
+      "salesorder": {
         "text": "",
         "value": ""
       }
@@ -13010,6 +14164,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -13025,6 +14180,10 @@ const getMockEvents = (): Event[] => {
       },
       "assetMaintenance": false,
       "routingGroup": {
+        "text": "",
+        "value": ""
+      },
+      "salesorder": {
         "text": "",
         "value": ""
       }
@@ -13066,6 +14225,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -13081,6 +14241,10 @@ const getMockEvents = (): Event[] => {
       },
       "assetMaintenance": false,
       "routingGroup": {
+        "text": "",
+        "value": ""
+      },
+      "salesorder": {
         "text": "",
         "value": ""
       }
@@ -13122,6 +14286,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -13139,6 +14304,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000500",
+        "value": "4588"
       }
     },
     {
@@ -13178,6 +14347,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -13195,6 +14365,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000727",
+        "value": "19403"
       }
     },
     {
@@ -13234,6 +14408,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -13249,6 +14424,10 @@ const getMockEvents = (): Event[] => {
       },
       "assetMaintenance": false,
       "routingGroup": {
+        "text": "",
+        "value": ""
+      },
+      "salesorder": {
         "text": "",
         "value": ""
       }
@@ -13290,6 +14469,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -13305,6 +14485,10 @@ const getMockEvents = (): Event[] => {
       },
       "assetMaintenance": false,
       "routingGroup": {
+        "text": "",
+        "value": ""
+      },
+      "salesorder": {
         "text": "",
         "value": ""
       }
@@ -13346,6 +14530,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -13361,6 +14546,10 @@ const getMockEvents = (): Event[] => {
       },
       "assetMaintenance": false,
       "routingGroup": {
+        "text": "",
+        "value": ""
+      },
+      "salesorder": {
         "text": "",
         "value": ""
       }
@@ -13402,6 +14591,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -13417,6 +14607,10 @@ const getMockEvents = (): Event[] => {
       },
       "assetMaintenance": false,
       "routingGroup": {
+        "text": "",
+        "value": ""
+      },
+      "salesorder": {
         "text": "",
         "value": ""
       }
@@ -13458,6 +14652,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -13473,6 +14668,10 @@ const getMockEvents = (): Event[] => {
       },
       "assetMaintenance": false,
       "routingGroup": {
+        "text": "",
+        "value": ""
+      },
+      "salesorder": {
         "text": "",
         "value": ""
       }
@@ -13513,6 +14712,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -13528,6 +14728,10 @@ const getMockEvents = (): Event[] => {
       },
       "assetMaintenance": false,
       "routingGroup": {
+        "text": "",
+        "value": ""
+      },
+      "salesorder": {
         "text": "",
         "value": ""
       }
@@ -13568,6 +14772,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -13583,6 +14788,10 @@ const getMockEvents = (): Event[] => {
       },
       "assetMaintenance": false,
       "routingGroup": {
+        "text": "",
+        "value": ""
+      },
+      "salesorder": {
         "text": "",
         "value": ""
       }
@@ -13623,6 +14832,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -13640,6 +14850,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000500",
+        "value": "4588"
       }
     },
     {
@@ -13679,6 +14893,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -13696,6 +14911,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000600",
+        "value": "11712"
       }
     },
     {
@@ -13735,6 +14954,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -13752,6 +14972,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000600",
+        "value": "11712"
       }
     },
     {
@@ -13791,6 +15015,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -13806,6 +15031,10 @@ const getMockEvents = (): Event[] => {
       },
       "assetMaintenance": false,
       "routingGroup": {
+        "text": "",
+        "value": ""
+      },
+      "salesorder": {
         "text": "",
         "value": ""
       }
@@ -13847,6 +15076,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -13864,6 +15094,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000600",
+        "value": "11712"
       }
     },
     {
@@ -13903,6 +15137,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -13920,6 +15155,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000609",
+        "value": "11722"
       }
     },
     {
@@ -13959,6 +15198,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -13974,6 +15214,10 @@ const getMockEvents = (): Event[] => {
       },
       "assetMaintenance": false,
       "routingGroup": {
+        "text": "",
+        "value": ""
+      },
+      "salesorder": {
         "text": "",
         "value": ""
       }
@@ -14015,6 +15259,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -14032,6 +15277,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000609",
+        "value": "11722"
       }
     },
     {
@@ -14071,6 +15320,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -14088,6 +15338,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000609",
+        "value": "11722"
       }
     },
     {
@@ -14127,6 +15381,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -14144,6 +15399,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000609",
+        "value": "11722"
       }
     },
     {
@@ -14183,6 +15442,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -14200,6 +15460,10 @@ const getMockEvents = (): Event[] => {
       "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "11-0092",
+        "value": "4356"
       }
     },
     {
@@ -14239,6 +15503,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -14254,6 +15519,10 @@ const getMockEvents = (): Event[] => {
       },
       "assetMaintenance": false,
       "routingGroup": {
+        "text": "",
+        "value": ""
+      },
+      "salesorder": {
         "text": "",
         "value": ""
       }
@@ -14294,6 +15563,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -14309,6 +15579,10 @@ const getMockEvents = (): Event[] => {
       },
       "assetMaintenance": false,
       "routingGroup": {
+        "text": "",
+        "value": ""
+      },
+      "salesorder": {
         "text": "",
         "value": ""
       }
@@ -14349,6 +15623,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -14364,6 +15639,10 @@ const getMockEvents = (): Event[] => {
       },
       "assetMaintenance": false,
       "routingGroup": {
+        "text": "",
+        "value": ""
+      },
+      "salesorder": {
         "text": "",
         "value": ""
       }
@@ -14404,6 +15683,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -14419,6 +15699,10 @@ const getMockEvents = (): Event[] => {
       },
       "assetMaintenance": false,
       "routingGroup": {
+        "text": "",
+        "value": ""
+      },
+      "salesorder": {
         "text": "",
         "value": ""
       }
@@ -14459,6 +15743,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -14474,6 +15759,10 @@ const getMockEvents = (): Event[] => {
       },
       "assetMaintenance": false,
       "routingGroup": {
+        "text": "",
+        "value": ""
+      },
+      "salesorder": {
         "text": "",
         "value": ""
       }
@@ -14514,6 +15803,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -14529,6 +15819,10 @@ const getMockEvents = (): Event[] => {
       },
       "assetMaintenance": false,
       "routingGroup": {
+        "text": "",
+        "value": ""
+      },
+      "salesorder": {
         "text": "",
         "value": ""
       }
@@ -14569,6 +15863,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -14584,6 +15879,10 @@ const getMockEvents = (): Event[] => {
       },
       "assetMaintenance": false,
       "routingGroup": {
+        "text": "",
+        "value": ""
+      },
+      "salesorder": {
         "text": "",
         "value": ""
       }
@@ -14624,6 +15923,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -14639,6 +15939,10 @@ const getMockEvents = (): Event[] => {
       },
       "assetMaintenance": false,
       "routingGroup": {
+        "text": "",
+        "value": ""
+      },
+      "salesorder": {
         "text": "",
         "value": ""
       }
@@ -14679,6 +15983,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -14694,6 +15999,10 @@ const getMockEvents = (): Event[] => {
       },
       "assetMaintenance": false,
       "routingGroup": {
+        "text": "",
+        "value": ""
+      },
+      "salesorder": {
         "text": "",
         "value": ""
       }
@@ -14734,6 +16043,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -14749,6 +16059,10 @@ const getMockEvents = (): Event[] => {
       },
       "assetMaintenance": false,
       "routingGroup": {
+        "text": "",
+        "value": ""
+      },
+      "salesorder": {
         "text": "",
         "value": ""
       }
@@ -14789,6 +16103,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -14804,6 +16119,10 @@ const getMockEvents = (): Event[] => {
       },
       "assetMaintenance": false,
       "routingGroup": {
+        "text": "",
+        "value": ""
+      },
+      "salesorder": {
         "text": "",
         "value": ""
       }
@@ -14844,6 +16163,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -14859,6 +16179,10 @@ const getMockEvents = (): Event[] => {
       },
       "assetMaintenance": false,
       "routingGroup": {
+        "text": "",
+        "value": ""
+      },
+      "salesorder": {
         "text": "",
         "value": ""
       }
@@ -14899,6 +16223,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -14914,6 +16239,10 @@ const getMockEvents = (): Event[] => {
       },
       "assetMaintenance": false,
       "routingGroup": {
+        "text": "",
+        "value": ""
+      },
+      "salesorder": {
         "text": "",
         "value": ""
       }
@@ -14954,6 +16283,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -14969,6 +16299,10 @@ const getMockEvents = (): Event[] => {
       },
       "assetMaintenance": false,
       "routingGroup": {
+        "text": "",
+        "value": ""
+      },
+      "salesorder": {
         "text": "",
         "value": ""
       }
@@ -15009,6 +16343,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -15024,6 +16359,10 @@ const getMockEvents = (): Event[] => {
       },
       "assetMaintenance": false,
       "routingGroup": {
+        "text": "",
+        "value": ""
+      },
+      "salesorder": {
         "text": "",
         "value": ""
       }
@@ -15064,6 +16403,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -15079,6 +16419,10 @@ const getMockEvents = (): Event[] => {
       },
       "assetMaintenance": false,
       "routingGroup": {
+        "text": "",
+        "value": ""
+      },
+      "salesorder": {
         "text": "",
         "value": ""
       }
@@ -15119,6 +16463,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -15134,6 +16479,10 @@ const getMockEvents = (): Event[] => {
       },
       "assetMaintenance": false,
       "routingGroup": {
+        "text": "",
+        "value": ""
+      },
+      "salesorder": {
         "text": "",
         "value": ""
       }
@@ -15174,6 +16523,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -15189,6 +16539,10 @@ const getMockEvents = (): Event[] => {
       },
       "assetMaintenance": false,
       "routingGroup": {
+        "text": "",
+        "value": ""
+      },
+      "salesorder": {
         "text": "",
         "value": ""
       }
@@ -15229,6 +16583,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -15244,6 +16599,10 @@ const getMockEvents = (): Event[] => {
       },
       "assetMaintenance": false,
       "routingGroup": {
+        "text": "",
+        "value": ""
+      },
+      "salesorder": {
         "text": "",
         "value": ""
       }
@@ -15284,6 +16643,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -15299,6 +16659,10 @@ const getMockEvents = (): Event[] => {
       },
       "assetMaintenance": false,
       "routingGroup": {
+        "text": "",
+        "value": ""
+      },
+      "salesorder": {
         "text": "",
         "value": ""
       }
@@ -15339,6 +16703,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -15354,6 +16719,10 @@ const getMockEvents = (): Event[] => {
       },
       "assetMaintenance": false,
       "routingGroup": {
+        "text": "",
+        "value": ""
+      },
+      "salesorder": {
         "text": "",
         "value": ""
       }
@@ -15394,6 +16763,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -15409,6 +16779,10 @@ const getMockEvents = (): Event[] => {
       },
       "assetMaintenance": false,
       "routingGroup": {
+        "text": "",
+        "value": ""
+      },
+      "salesorder": {
         "text": "",
         "value": ""
       }
@@ -15449,6 +16823,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -15464,6 +16839,10 @@ const getMockEvents = (): Event[] => {
       },
       "assetMaintenance": false,
       "routingGroup": {
+        "text": "",
+        "value": ""
+      },
+      "salesorder": {
         "text": "",
         "value": ""
       }
@@ -15504,6 +16883,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -15519,6 +16899,10 @@ const getMockEvents = (): Event[] => {
       },
       "assetMaintenance": false,
       "routingGroup": {
+        "text": "",
+        "value": ""
+      },
+      "salesorder": {
         "text": "",
         "value": ""
       }
@@ -15559,6 +16943,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -15574,6 +16959,10 @@ const getMockEvents = (): Event[] => {
       },
       "assetMaintenance": false,
       "routingGroup": {
+        "text": "",
+        "value": ""
+      },
+      "salesorder": {
         "text": "",
         "value": ""
       }
@@ -15614,6 +17003,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -15629,6 +17019,10 @@ const getMockEvents = (): Event[] => {
       },
       "assetMaintenance": false,
       "routingGroup": {
+        "text": "",
+        "value": ""
+      },
+      "salesorder": {
         "text": "",
         "value": ""
       }
@@ -15669,6 +17063,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -15684,6 +17079,10 @@ const getMockEvents = (): Event[] => {
       },
       "assetMaintenance": false,
       "routingGroup": {
+        "text": "",
+        "value": ""
+      },
+      "salesorder": {
         "text": "",
         "value": ""
       }
@@ -15724,6 +17123,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -15739,6 +17139,10 @@ const getMockEvents = (): Event[] => {
       },
       "assetMaintenance": false,
       "routingGroup": {
+        "text": "",
+        "value": ""
+      },
+      "salesorder": {
         "text": "",
         "value": ""
       }
@@ -15779,6 +17183,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -15794,6 +17199,10 @@ const getMockEvents = (): Event[] => {
       },
       "assetMaintenance": false,
       "routingGroup": {
+        "text": "",
+        "value": ""
+      },
+      "salesorder": {
         "text": "",
         "value": ""
       }
@@ -15834,6 +17243,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -15849,6 +17259,10 @@ const getMockEvents = (): Event[] => {
       },
       "assetMaintenance": false,
       "routingGroup": {
+        "text": "",
+        "value": ""
+      },
+      "salesorder": {
         "text": "",
         "value": ""
       }
@@ -15889,6 +17303,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -15904,6 +17319,10 @@ const getMockEvents = (): Event[] => {
       },
       "assetMaintenance": false,
       "routingGroup": {
+        "text": "",
+        "value": ""
+      },
+      "salesorder": {
         "text": "",
         "value": ""
       }
@@ -15944,6 +17363,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -15959,6 +17379,10 @@ const getMockEvents = (): Event[] => {
       },
       "assetMaintenance": false,
       "routingGroup": {
+        "text": "",
+        "value": ""
+      },
+      "salesorder": {
         "text": "",
         "value": ""
       }
@@ -15999,6 +17423,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -16014,6 +17439,10 @@ const getMockEvents = (): Event[] => {
       },
       "assetMaintenance": false,
       "routingGroup": {
+        "text": "",
+        "value": ""
+      },
+      "salesorder": {
         "text": "",
         "value": ""
       }
@@ -16054,6 +17483,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -16069,6 +17499,10 @@ const getMockEvents = (): Event[] => {
       },
       "assetMaintenance": false,
       "routingGroup": {
+        "text": "",
+        "value": ""
+      },
+      "salesorder": {
         "text": "",
         "value": ""
       }
@@ -16109,6 +17543,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -16124,6 +17559,10 @@ const getMockEvents = (): Event[] => {
       },
       "assetMaintenance": false,
       "routingGroup": {
+        "text": "",
+        "value": ""
+      },
+      "salesorder": {
         "text": "",
         "value": ""
       }
@@ -16164,6 +17603,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -16179,6 +17619,10 @@ const getMockEvents = (): Event[] => {
       },
       "assetMaintenance": false,
       "routingGroup": {
+        "text": "",
+        "value": ""
+      },
+      "salesorder": {
         "text": "",
         "value": ""
       }
@@ -16219,6 +17663,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -16234,6 +17679,10 @@ const getMockEvents = (): Event[] => {
       },
       "assetMaintenance": false,
       "routingGroup": {
+        "text": "",
+        "value": ""
+      },
+      "salesorder": {
         "text": "",
         "value": ""
       }
@@ -16274,6 +17723,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -16289,6 +17739,10 @@ const getMockEvents = (): Event[] => {
       },
       "assetMaintenance": false,
       "routingGroup": {
+        "text": "",
+        "value": ""
+      },
+      "salesorder": {
         "text": "",
         "value": ""
       }
@@ -16329,6 +17783,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -16344,6 +17799,10 @@ const getMockEvents = (): Event[] => {
       },
       "assetMaintenance": false,
       "routingGroup": {
+        "text": "",
+        "value": ""
+      },
+      "salesorder": {
         "text": "",
         "value": ""
       }
@@ -16384,6 +17843,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -16399,6 +17859,10 @@ const getMockEvents = (): Event[] => {
       },
       "assetMaintenance": false,
       "routingGroup": {
+        "text": "",
+        "value": ""
+      },
+      "salesorder": {
         "text": "",
         "value": ""
       }
@@ -16439,6 +17903,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -16454,6 +17919,10 @@ const getMockEvents = (): Event[] => {
       },
       "assetMaintenance": false,
       "routingGroup": {
+        "text": "",
+        "value": ""
+      },
+      "salesorder": {
         "text": "",
         "value": ""
       }
@@ -16494,6 +17963,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -16509,6 +17979,10 @@ const getMockEvents = (): Event[] => {
       },
       "assetMaintenance": false,
       "routingGroup": {
+        "text": "",
+        "value": ""
+      },
+      "salesorder": {
         "text": "",
         "value": ""
       }
@@ -16549,6 +18023,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -16564,6 +18039,10 @@ const getMockEvents = (): Event[] => {
       },
       "assetMaintenance": false,
       "routingGroup": {
+        "text": "",
+        "value": ""
+      },
+      "salesorder": {
         "text": "",
         "value": ""
       }
@@ -16604,6 +18083,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -16619,6 +18099,10 @@ const getMockEvents = (): Event[] => {
       },
       "assetMaintenance": false,
       "routingGroup": {
+        "text": "",
+        "value": ""
+      },
+      "salesorder": {
         "text": "",
         "value": ""
       }
@@ -16659,6 +18143,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -16674,6 +18159,10 @@ const getMockEvents = (): Event[] => {
       },
       "assetMaintenance": false,
       "routingGroup": {
+        "text": "",
+        "value": ""
+      },
+      "salesorder": {
         "text": "",
         "value": ""
       }
@@ -16715,6 +18204,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -16730,6 +18220,10 @@ const getMockEvents = (): Event[] => {
       },
       "assetMaintenance": false,
       "routingGroup": {
+        "text": "",
+        "value": ""
+      },
+      "salesorder": {
         "text": "",
         "value": ""
       }
@@ -16770,6 +18264,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -16785,6 +18280,10 @@ const getMockEvents = (): Event[] => {
       },
       "assetMaintenance": false,
       "routingGroup": {
+        "text": "",
+        "value": ""
+      },
+      "salesorder": {
         "text": "",
         "value": ""
       }
@@ -16825,6 +18324,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -16840,6 +18340,10 @@ const getMockEvents = (): Event[] => {
       },
       "assetMaintenance": false,
       "routingGroup": {
+        "text": "",
+        "value": ""
+      },
+      "salesorder": {
         "text": "",
         "value": ""
       }
@@ -16881,6 +18385,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -16896,6 +18401,10 @@ const getMockEvents = (): Event[] => {
       },
       "assetMaintenance": false,
       "routingGroup": {
+        "text": "",
+        "value": ""
+      },
+      "salesorder": {
         "text": "",
         "value": ""
       }
@@ -16936,6 +18445,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -16951,6 +18461,10 @@ const getMockEvents = (): Event[] => {
       },
       "assetMaintenance": false,
       "routingGroup": {
+        "text": "",
+        "value": ""
+      },
+      "salesorder": {
         "text": "",
         "value": ""
       }
@@ -16991,6 +18505,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -17006,6 +18521,10 @@ const getMockEvents = (): Event[] => {
       },
       "assetMaintenance": false,
       "routingGroup": {
+        "text": "",
+        "value": ""
+      },
+      "salesorder": {
         "text": "",
         "value": ""
       }
@@ -17046,6 +18565,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -17061,6 +18581,10 @@ const getMockEvents = (): Event[] => {
       },
       "assetMaintenance": false,
       "routingGroup": {
+        "text": "",
+        "value": ""
+      },
+      "salesorder": {
         "text": "",
         "value": ""
       }
@@ -17101,6 +18625,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -17116,6 +18641,10 @@ const getMockEvents = (): Event[] => {
       },
       "assetMaintenance": false,
       "routingGroup": {
+        "text": "",
+        "value": ""
+      },
+      "salesorder": {
         "text": "",
         "value": ""
       }
@@ -17156,6 +18685,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -17171,6 +18701,10 @@ const getMockEvents = (): Event[] => {
       },
       "assetMaintenance": false,
       "routingGroup": {
+        "text": "",
+        "value": ""
+      },
+      "salesorder": {
         "text": "",
         "value": ""
       }
@@ -17212,6 +18746,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -17227,6 +18762,10 @@ const getMockEvents = (): Event[] => {
       },
       "assetMaintenance": false,
       "routingGroup": {
+        "text": "",
+        "value": ""
+      },
+      "salesorder": {
         "text": "",
         "value": ""
       }
@@ -17267,6 +18806,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -17282,6 +18822,10 @@ const getMockEvents = (): Event[] => {
       },
       "assetMaintenance": false,
       "routingGroup": {
+        "text": "",
+        "value": ""
+      },
+      "salesorder": {
         "text": "",
         "value": ""
       }
@@ -17322,6 +18866,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -17337,6 +18882,10 @@ const getMockEvents = (): Event[] => {
       },
       "assetMaintenance": false,
       "routingGroup": {
+        "text": "",
+        "value": ""
+      },
+      "salesorder": {
         "text": "",
         "value": ""
       }
@@ -17377,6 +18926,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -17392,6 +18942,10 @@ const getMockEvents = (): Event[] => {
       },
       "assetMaintenance": false,
       "routingGroup": {
+        "text": "",
+        "value": ""
+      },
+      "salesorder": {
         "text": "",
         "value": ""
       }
@@ -17432,6 +18986,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -17447,6 +19002,10 @@ const getMockEvents = (): Event[] => {
       },
       "assetMaintenance": false,
       "routingGroup": {
+        "text": "",
+        "value": ""
+      },
+      "salesorder": {
         "text": "",
         "value": ""
       }
@@ -17487,6 +19046,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -17502,6 +19062,10 @@ const getMockEvents = (): Event[] => {
       },
       "assetMaintenance": false,
       "routingGroup": {
+        "text": "",
+        "value": ""
+      },
+      "salesorder": {
         "text": "",
         "value": ""
       }
@@ -17543,6 +19107,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -17558,6 +19123,10 @@ const getMockEvents = (): Event[] => {
       },
       "assetMaintenance": false,
       "routingGroup": {
+        "text": "",
+        "value": ""
+      },
+      "salesorder": {
         "text": "",
         "value": ""
       }
@@ -17599,6 +19168,7 @@ const getMockEvents = (): Event[] => {
       "resources": [],
       "vendors": [],
       "assets": [],
+      "items": [],
       "unassigned": true,
       "address": {
         "text": "",
@@ -17614,6 +19184,10 @@ const getMockEvents = (): Event[] => {
       },
       "assetMaintenance": false,
       "routingGroup": {
+        "text": "",
+        "value": ""
+      },
+      "salesorder": {
         "text": "",
         "value": ""
       }

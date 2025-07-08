@@ -12874,7 +12874,11 @@ export const fetchWOItems = async (woId: string, eventId: string): Promise<WOIte
   if (isLocalDevelopment()) {
     console.log('Using mock item data for local development');
     return new Promise((resolve) => {
-      setTimeout(() => resolve(woId ? mockWOItems.filter(x => x.workorder.value == woId) : mockWOItems), 500);
+      let loadData = woId ? mockWOItems.filter(x => x.workorder.value == woId) : mockWOItems;
+      if (eventId) {
+        loadData = loadData.filter(x => x.event == eventId);
+      }
+      setTimeout(() => resolve(loadData), 500);
     });
   }
 

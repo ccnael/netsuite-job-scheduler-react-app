@@ -2616,6 +2616,12 @@ define([
           }
         }
         log.audit('----- [Punch List] -----', punchList);
+
+        response.setHeader({
+          name: 'Content-Type',
+          value: 'application/json'
+        });
+
         response.write(JSON.stringify(punchList));
       }
 

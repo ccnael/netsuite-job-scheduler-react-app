@@ -508,6 +508,31 @@ const Board = () => {
     setSelectedJob(null);
   }, [selectedEventForUpdate/* , events */]);
 
+  const handleCompleteEvent = useCallback((submittedFormData: any) => {
+    console.log('Complete event form data:', submittedFormData);
+
+    // const unresolvedPunchCount = submittedFormData.punchItemsData.filter(x => x.status.value != 6).length;
+    
+    // Update the event status to completed
+    const updatedEvents = events.map(event => 
+      event.id === selectedEventForComplete?.id 
+        ? { 
+            ...event, 
+            status: { text: 'Completed', value: 'COMPLETED', code: 'COMPLETED' } 
+          }
+        : event
+    );
+    
+    setEvents(updatedEvents);
+    setIsCompleteEventModalOpen(false);
+    setSelectedEventForComplete(null);
+    
+    toast.success(`Event completed successfully`, {
+      position: "top-right",
+      className: "!bg-green-100 !text-green-800 !border !border-green-300",
+    });
+  }, [events, selectedEventForComplete]);
+
   const [isFilterModalOpen, setIsFilterModalOpen] = useState(false);
   const [filterType, setFilterType] = useState<'jobs' | 'events'>('jobs');
 
@@ -869,6 +894,7 @@ const Board = () => {
           selectedEvent={selectedEventForComplete} 
           isOpen={isCompleteEventModalOpen}
           onClose={() => setIsCompleteEventModalOpen(false)}
+          onSubmit={handleCompleteEvent}
         />
       )}
 

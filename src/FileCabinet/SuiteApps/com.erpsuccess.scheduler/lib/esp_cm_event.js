@@ -54,7 +54,9 @@ define([
           search.createColumn({ name: 'custevent_esp_fop_event_address', label: 'Selected Address' }),
           search.createColumn({ name: 'custevent_task_pi', label: 'Project Insight' }),
           search.createColumn({ name: 'custevent_esp_fop_asset_maintenance', label: 'Asset Maintenance' }),
-          search.createColumn({ name: 'custevent_esp_fop_routing_group', label: 'Routing Group' })
+          search.createColumn({ name: 'custevent_esp_fop_routing_group', label: 'Routing Group' }),
+          search.createColumn({ name: 'custevent_esp_fop_sales_order', label: 'Sales Order' }),
+          search.createColumn({ name: 'tranid', join: 'custevent_esp_fop_sales_order', label: 'Document Number' }),
         ]
     });
 
@@ -169,6 +171,13 @@ define([
       routingGroup: {
         text: map.getText('custevent_esp_fop_routing_group'),
         value: map.getValue('custevent_esp_fop_routing_group')
+      },
+      salesorder: {
+        text: map.getValue({
+          name: 'tranid',
+          join: 'custevent_esp_fop_sales_order'
+        }),
+        value: map.getValue('custevent_esp_fop_sales_order')
       }
     }));
 
