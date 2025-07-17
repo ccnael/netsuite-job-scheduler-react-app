@@ -31,8 +31,8 @@ define({
   }, */
   EventCode: {
     TENTATIVE: '#6c757d',
-    CONFIRMED: '#22c55e',
-    COMPLETED: '#3b82f6'
+    CONFIRMED: '#026adf',
+    COMPLETED: '#28a745'
   },
   PriorityCode: {
     LOW: '#026adf',
