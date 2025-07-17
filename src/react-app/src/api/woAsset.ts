@@ -3237,7 +3237,7 @@ export const fetchWOAssets = async (woId: string, eventId: string): Promise<WOAs
     while (hasMoreData) {
       const start = 0 + (i * chunkSize);
       const end = chunkSize + (i * chunkSize);
-      const url = `${suiteletUrl}&mode=getWorkOrderAssets&woId=${woId}eventId=${eventId}&start=${start}&end=${end}`;
+      const url = `${suiteletUrl}&mode=getWorkOrderAssets&woId=${woId}&eventId=${eventId}&start=${start}&end=${end}`;
       const response = await fetch(url);
       console.log(`WOAsset service RESPONSE chunk ${i + 1}:`, response);
       

@@ -182,7 +182,7 @@ define([
       value: 'application/json'
     });
 
-    log.audit('----- [Work Order Resources] -----', resources);
+    log.audit('----- [Work Order Resources] -----', resources.length);
     response.write(JSON.stringify(resources));
   }
 
