@@ -24,6 +24,7 @@ interface DateRangeFilterProps {
   onChange: (date: Date | undefined) => void;
   disabledDate?: (date: Date) => boolean;
   isRequired?: boolean;
+  placeholder?: string;
 }
 
 export const useDateRangeFilter = (initialRange?: DateRange) => {
@@ -49,7 +50,8 @@ const DateRangeFilter: React.FC<DateRangeFilterProps> = ({
   value,
   onChange,
   disabledDate,
-  isRequired
+  isRequired,
+  placeholder
 }) => {
   const handleClear = (e: React.MouseEvent) => {
     e.stopPropagation();
@@ -73,7 +75,7 @@ const DateRangeFilter: React.FC<DateRangeFilterProps> = ({
             )}
           >
             <CalendarIcon className="mr-2 h-3 w-3" />
-            {value ? format(value, "MMM d, yyyy") : "Select date"}
+            {value ? format(value, "MMM d, yyyy") : (placeholder || "Select date")}
             {value && (
               <div 
                 className="ml-auto flex items-center"

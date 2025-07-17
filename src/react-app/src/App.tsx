@@ -8,6 +8,7 @@ import { ThemeProvider } from "next-themes";
 import { Navigation } from "./components/Navigation";
 import Board from "./pages/Board";
 import Calendar from "./pages/FullCalendar";
+import 'react-tooltip/dist/react-tooltip.css';
 
 const queryClient = new QueryClient();
 

@@ -493,14 +493,14 @@ export const UpdateEvent: React.FC<UpdateEventProps> = ({
                                 className="h-5 w-10 data-[state=checked]:bg-blue-600 [&>span]:h-4 [&>span]:w-4"
                               />
                             </div>
-
                             {/* Asset Maintenance Toggle */}
                             <div className="flex flex-col items-center space-y-1 ml-8">
                               <Label className="text-[12px] tracking-tight">Asset Maintenance</Label>
                               <Switch
                                 checked={formData.assetMaintenance}
                                 onCheckedChange={handleAssetMaintenanceToggle}
-                                className="h-5 w-10 data-[state=checked]:bg-blue-600 [&>span]:h-4 [&>span]:w-4"
+                                disabled
+                                className="h-5 w-10 data-[state=checked]:bg-blue-600 [&>span]:h-4 [&>span]:w-4 opacity-50 cursor-not-allowed"
                               />
                             </div>
                           </div>
@@ -531,7 +531,7 @@ export const UpdateEvent: React.FC<UpdateEventProps> = ({
                     <div className="max-h-[400px] overflow-y-auto">
                       <EmployeeTable 
                         key={`employee-table-${formData.assetMaintenance}-${selectedEvent?.id}`}
-                        data={employees.filter(x => !!x.active)} 
+                        data={employees/* .filter(x => !!x.active) */} 
                         woResources={woResources}
                         onSelectionChange={handleResourceSelection}
                         onUpdate={true}
@@ -561,7 +561,7 @@ export const UpdateEvent: React.FC<UpdateEventProps> = ({
                     <div className="max-h-[400px] overflow-y-auto">
                       <VendorTable 
                         key={`vendor-table-${formData.assetMaintenance}`}
-                        data={vendors.filter(x => !!x.active)}
+                        data={vendors/* .filter(x => !!x.active) */}
                         woVendors={woVendors}
                         onSelectionChange={handleVendorSelection}
                         onUpdate={true}
@@ -579,7 +579,7 @@ export const UpdateEvent: React.FC<UpdateEventProps> = ({
                   <AccordionContent className="p-2">
                     <div className="max-h-[400px] overflow-y-auto">
                       <AssetTable 
-                        data={assets.filter(x => !!x.active)}
+                        data={assets/* .filter(x => !!x.active) */}
                         woAssets={woAssets}
                         onSelectionChange={handleAssetSelection}
                         onUpdate={true}
@@ -649,8 +649,8 @@ export const UpdateEvent: React.FC<UpdateEventProps> = ({
           </ScrollArea>
 
           <DialogFooter className="mt-2 flex-shrink-0">
-            <Button variant="outline" onClick={onClose} className="text-[12px] h-7 px-3 tracking-tight">Cancel</Button>
-            <Button onClick={handleSubmit} className="text-[12px] h-7 px-3 tracking-tight">Update</Button>
+            <Button variant="outline" onClick={onClose} className="text-[12px] h-8 px-3 tracking-tight">Cancel</Button>
+            <Button onClick={handleSubmit} className="text-[12px] h-8 px-3 tracking-tight">Update</Button>
           </DialogFooter>
         </DialogContent>
       </Dialog>

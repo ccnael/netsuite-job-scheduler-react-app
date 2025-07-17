@@ -28,6 +28,9 @@ interface AssetTableProps {
   onSelectionChange?: (selectedAssets: SelectedAsset[]) => void;
   woAssets?: any[];
   onUpdate?: boolean;
+  preselectedAssetIds?: string[];
+  prefilledStartTime?: string;
+  prefilledEndTime?: string;
 }
 
 interface TableAsset {
@@ -46,8 +49,10 @@ export const AssetTable: React.FC<AssetTableProps> = ({
   data = [], 
   onSelectionChange,
   woAssets = [],
-  onUpdate
-
+  onUpdate,
+  preselectedAssetIds = [],
+  prefilledStartTime = '08:00',
+  prefilledEndTime = '18:00'
 }) => {
   const [globalFilter, setGlobalFilter] = useState('');
   const [sorting, setSorting] = useState<SortingState>([]);
@@ -91,17 +96,33 @@ export const AssetTable: React.FC<AssetTableProps> = ({
   }, [data, woAssets, dataOverrides]);
 
   useEffect(() => {
-    // Only initialize selection and time override when onUpdate is true and not already initialized
-    if (onUpdate && !isInitialized && tableData.length > 0) {
+    // Handle preselected assets (for drag and drop functionality)
+    if (preselectedAssetIds.length > 0 && tableData.length > 0 && !isInitialized) {
       const initialSelection: Record<string, boolean> = {};
       const initialOverrides: Record<string, { startTime?: string; endTime?: string; quantity?: number; }> = {};
 
-      // console.log('Initializing AssetTable selection for onUpdate mode...');
+      tableData.forEach(asset => {
+        if (preselectedAssetIds.includes(asset.id)) {
+          initialSelection[asset.id] = true;
+          initialOverrides[asset.id] = {
+            startTime: prefilledStartTime,
+            endTime: prefilledEndTime,
+            quantity: 1,
+          };
+        }
+      });
+
+      setRowSelection(initialSelection);
+      setDataOverrides(initialOverrides);
+      setIsInitialized(true);
+    }
+    // Only initialize selection and time override when onUpdate is true and not already initialized
+    else if (onUpdate && !isInitialized && tableData.length > 0) {
+      const initialSelection: Record<string, boolean> = {};
+      const initialOverrides: Record<string, { startTime?: string; endTime?: string; quantity?: number; }> = {};
 
       tableData.forEach(asset => {
-        // console.log(`Checking asset ${asset.name} (ID: ${asset.id}) - woAssetId: ${asset.woAssetId}`);
         if (asset.woAssetId) {
-          // console.log(`Auto-selecting asset ${asset.name} because it has woAssetId: ${asset.woAssetId}`);
           initialSelection[asset.id] = true;
 
           initialOverrides[asset.id] = {
@@ -112,19 +133,16 @@ export const AssetTable: React.FC<AssetTableProps> = ({
         }
       });
 
-      // console.log('Initial selection for assets:', initialSelection);
-      // console.log('Initial overrides for assets:', initialOverrides);
-
       setRowSelection(initialSelection);
       setDataOverrides(initialOverrides);
       setIsInitialized(true);
     }
-  }, [tableData, onUpdate, isInitialized]);
+  }, [tableData, onUpdate, isInitialized, preselectedAssetIds, prefilledStartTime, prefilledEndTime]);
 
-  // Reset initialization when onUpdate or data changes
+  // Reset initialization when onUpdate, data, or preselectedAssetIds changes
   useEffect(() => {
     setIsInitialized(false);
-  }, [onUpdate, data.length]);
+  }, [onUpdate, data.length, preselectedAssetIds.length]);
 
   const updateField = useCallback((rowId: string, key: 'startTime' | 'endTime' | 'quantity', value: string | number) => {
     // console.log('Field update requested:', { rowId, key, value });

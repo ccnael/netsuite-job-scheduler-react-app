@@ -26,9 +26,16 @@ interface VendorTableProps {
   onSelectionChange?: (selectedVendors: SelectedVendor[]) => void;
   woVendors?: any[];
   onUpdate?: boolean;
+  preselectedVendorIds?: string[];
 }
 
-export const VendorTable: React.FC<VendorTableProps> = ({ data = [], onSelectionChange, woVendors = [], onUpdate = false }) => {
+export const VendorTable: React.FC<VendorTableProps> = ({ 
+  data = [], 
+  onSelectionChange, 
+  woVendors = [], 
+  onUpdate = false, 
+  preselectedVendorIds = [] 
+}) => {
   const [globalFilter, setGlobalFilter] = useState('');
   const [sorting, setSorting] = useState<SortingState>([]);
   const [tableDataState, setTableDataState] = useState<Vendor[]>(() =>
@@ -47,14 +54,25 @@ export const VendorTable: React.FC<VendorTableProps> = ({ data = [], onSelection
       
       return {
         ...vendor,
-        woVendorId: woVendor?.id || ''
+        woVendorId: woVendor?.id || '',
+        quantityRequired: preselectedVendorIds.includes(vendor.id) ? vendor.quantityRequired || 1 : vendor.quantityRequired
       };
     })
   );
 
   const [rowSelection, setRowSelection] = useState(() => {
+    // Handle preselected vendors (for drag and drop functionality)
+    if (preselectedVendorIds.length > 0) {
+      const initialSelection: Record<string, boolean> = {};
+      data.forEach((vendor, index) => {
+        if (preselectedVendorIds.includes(vendor.id)) {
+          initialSelection[index.toString()] = true;
+        }
+      });
+      return initialSelection;
+    }
     // Auto-select rows when onUpdate is true and woVendor exists with valid data
-    if (onUpdate) {
+    else if (onUpdate) {
       const initialSelection: Record<string, boolean> = {};
       data.forEach((vendor, index) => {
         const woVendor = woVendors.find(wv => wv.vendor?.value === vendor.id);

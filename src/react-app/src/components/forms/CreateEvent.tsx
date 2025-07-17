@@ -113,6 +113,10 @@ interface CreateEventProps {
   woResources?: WOResource[];
   woVendors?: WOVendor[];
   woAssets?: WOAsset[];
+  prefilledResourceId?: string;
+  prefilledStartDate?: string;
+  prefilledStartTime?: string;
+  prefilledEndTime?: string;
 }
 
 export const CreateEvent: React.FC<CreateEventProps> = ({ 
@@ -125,15 +129,19 @@ export const CreateEvent: React.FC<CreateEventProps> = ({
   assets = [],
   woResources = [],
   woVendors = [],
-  woAssets = []
+  woAssets = [],
+  prefilledResourceId,
+  prefilledStartDate,
+  prefilledStartTime,
+  prefilledEndTime
 }) => {
   const defaultFormData: EventFormData = {
     eventTitle: '', 
     notes: '', 
-    startDate: '', 
-    endDate: '', 
-    startTime: '08:00', 
-    endTime: '18:00', 
+    startDate: prefilledStartDate || '', 
+    endDate: prefilledStartDate || '', 
+    startTime: prefilledStartTime || '08:00', 
+    endTime: prefilledEndTime || '18:00', 
     status: 'TENTATIVE', 
     priority: '1', 
     allDay: false, 
@@ -220,10 +228,62 @@ export const CreateEvent: React.FC<CreateEventProps> = ({
   useEffect(() => {
     if (isOpen && !previousIsOpenRef.current) {
       console.log('Dialog opened, resetting form data');
+      console.log('prefilledResourceId:', prefilledResourceId);
+      console.log('preselectedResourceIds:', getPreselectedResourceIds());
       setFormData(defaultFormData);
     }
     previousIsOpenRef.current = isOpen;
   }, [isOpen]);
+
+  // Get preselected resource IDs based on prefilledResourceId
+  const getPreselectedResourceIds = () => {
+    if (!prefilledResourceId) return [];
+    
+    // Parse the resourceId to get the type and id
+    const resourceParts = prefilledResourceId.split('-');
+    if (resourceParts.length >= 2) {
+      const resourceType = resourceParts[0];
+      const resourceId = resourceParts.slice(1).join('-');
+      
+      // Only return the resource ID if it's an employee resource
+      if (resourceType !== 'vendor' && resourceType !== 'asset') {
+        return [resourceId];
+      }
+    }
+    return [];
+  };
+
+  const getPreselectedVendorIds = () => {
+    if (!prefilledResourceId) return [];
+    
+    // Parse the resourceId to get the type and id
+    const resourceParts = prefilledResourceId.split('-');
+    if (resourceParts.length >= 2) {
+      const resourceType = resourceParts[0];
+      const resourceId = resourceParts.slice(1).join('-');
+      
+      if (resourceType === 'vendor') {
+        return [resourceId];
+      }
+    }
+    return [];
+  };
+
+  const getPreselectedAssetIds = () => {
+    if (!prefilledResourceId) return [];
+    
+    // Parse the resourceId to get the type and id
+    const resourceParts = prefilledResourceId.split('-');
+    if (resourceParts.length >= 2) {
+      const resourceType = resourceParts[0];
+      const resourceId = resourceParts.slice(1).join('-');
+      
+      if (resourceType === 'asset') {
+        return [resourceId];
+      }
+    }
+    return [];
+  };
 
   const handleOutsideClick = () => { setBubbleEffect(true); setTimeout(() => setBubbleEffect(false), 300); };
   
@@ -539,12 +599,15 @@ export const CreateEvent: React.FC<CreateEventProps> = ({
                   </AccordionTrigger>
                   <AccordionContent className="p-2">
                     <div className="max-h-[400px] overflow-y-auto">
-                      <EmployeeTable 
-                        key={`employee-table-${formData.assetMaintenance}`}
-                        data={employees.filter(x => !!x.active)} 
-                        woResources={woResources}
-                        onSelectionChange={handleResourceSelection}
-                      />
+                       <EmployeeTable 
+                         key={`employee-table-${formData.assetMaintenance}`}
+                         data={employees/* .filter(x => !!x.active) */} 
+                         woResources={woResources}
+                         onSelectionChange={handleResourceSelection}
+                         preselectedResourceIds={getPreselectedResourceIds()}
+                         primaryStartTime={prefilledStartTime}
+                         primaryEndTime={prefilledEndTime}
+                       />
                     </div>
                   </AccordionContent>
                 </AccordionItem>
@@ -568,12 +631,13 @@ export const CreateEvent: React.FC<CreateEventProps> = ({
                   </AccordionTrigger>
                   <AccordionContent className="p-2">
                     <div className="max-h-[400px] overflow-y-auto">
-                      <VendorTable 
-                        key={`vendor-table-${formData.assetMaintenance}`}
-                        data={vendors.filter(x => !!x.active)}
-                        woVendors={woVendors}
-                        onSelectionChange={handleVendorSelection}
-                      />
+                       <VendorTable 
+                         key={`vendor-table-${formData.assetMaintenance}`}
+                         data={vendors/* .filter(x => !!x.active) */}
+                         woVendors={woVendors}
+                         onSelectionChange={handleVendorSelection}
+                         preselectedVendorIds={getPreselectedVendorIds()}
+                       />
                     </div>
                   </AccordionContent>
                 </AccordionItem>
@@ -586,11 +650,14 @@ export const CreateEvent: React.FC<CreateEventProps> = ({
                   </AccordionTrigger>
                   <AccordionContent className="p-2">
                     <div className="max-h-[400px] overflow-y-auto">
-                      <AssetTable 
-                        data={assets.filter(x => !!x.active)}
-                        woAssets={woAssets}
-                        onSelectionChange={handleAssetSelection}
-                      />
+                       <AssetTable 
+                         data={assets/* .filter(x => !!x.active) */}
+                         woAssets={woAssets}
+                         onSelectionChange={handleAssetSelection}
+                         preselectedAssetIds={getPreselectedAssetIds()}
+                         prefilledStartTime={prefilledStartTime}
+                         prefilledEndTime={prefilledEndTime}
+                       />
                     </div>
                   </AccordionContent>
                 </AccordionItem>
@@ -650,8 +717,8 @@ export const CreateEvent: React.FC<CreateEventProps> = ({
           </ScrollArea>
 
           <DialogFooter className="mt-2 flex-shrink-0">
-            <Button variant="outline" onClick={onClose} className="text-[12px] h-7 px-3 tracking-tight">Cancel</Button>
-            <Button onClick={handleSubmit} className="text-[12px] h-7 px-3 tracking-tight">Create</Button>
+            <Button variant="outline" onClick={onClose} className="text-[12px] h-8 px-3 tracking-tight">Cancel</Button>
+            <Button onClick={handleSubmit} className="text-[12px] h-8 px-3 tracking-tight">Create</Button>
           </DialogFooter>
         </DialogContent>
       </Dialog>

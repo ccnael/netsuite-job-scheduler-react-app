@@ -9,10 +9,8 @@ import { fetchWOResources, type WOResource } from '@/api/woResource';
 import { fetchWOVendors, type WOVendor } from '@/api/woVendor';
 import { fetchWOAssets, type WOAsset } from '@/api/woAsset';
 import { fetchWorkOrders, type WorkOrder } from '@/api/workOrder';
-/* import { fetchWOItems, type WOItem } from '@/api/woItem';
-import { fetchWOContacts, type WOContact } from '@/api/woContact';
-import { fetchWOAddresses, type WOAddress } from '@/api/woAddress'; */
 import { toast } from "sonner";
+import { format, parse } from "date-fns";
 import {
   ResizablePanelGroup,
   ResizablePanel,
@@ -25,7 +23,9 @@ import {
 } from "@/components/ui/collapsible";
 import { Button } from "@/components/ui/button";
 import { MultiSelect } from '../components/MultiSelect';
-import { ChevronRight, Filter, Bot, ClipboardCheck, Calendar, Plus, Search, Users } from "lucide-react";
+import MultiSelectFilter from '../components/forms/MultiSelectFilter';
+import { ChevronRight, Filter, Bot, ClipboardCheck, Calendar, Plus, Search, Users, X } from "lucide-react";
+import DateRangeFilter from '../components/forms/DateRangeFilter';
 import {
   Dialog,
   DialogContent,
@@ -39,14 +39,25 @@ import { Label } from "@/components/ui/label";
 import { Badge } from "@/components/ui/badge";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Stars } from "lucide-react";
+import { Input } from "@/components/ui/input";
 import { CreateEvent } from '../components/forms/CreateEvent';
 import { UpdateEvent } from '../components/forms/UpdateEvent';
 import { CompleteEvent } from '../components/forms/CompleteEvent';
+import { Tooltip } from 'react-tooltip';
 
 interface FilterState {
   titles: string[];
   descriptions: string[];
   statuses: string[];
+  eventId: string;
+  resourceNames: string[];
+  resourceGroups: string[];
+  priorities: string[];
+  eventTypes: string[];
+  dateFrom: Date | undefined;
+  dateTo: Date | undefined;
+  organizers: string[];
+  receiptStatuses: string[];
 }
 
 export interface Status {
@@ -166,9 +177,6 @@ const Board = () => {
           woVendorData,
           woAssetData,
           workOrderData,
-          /* woItemData,
-          woContactData,
-          woAddressData */
         ] = await Promise.all([
           fetchEvents().catch(() => []),
           fetchEmployees().catch(() => []),
@@ -178,9 +186,6 @@ const Board = () => {
           fetchWOVendors('', '').catch(() => []),
           fetchWOAssets('', '').catch(() => []),
           fetchWorkOrders().catch(() => []),
-          /* fetchWOItems('', '').catch(() => []),
-          fetchWOContacts('', '').catch(() => []),
-          fetchWOAddresses('', '').catch(() => []), */
         ]);
 
         for (const resource of woResourceData) {
@@ -220,28 +225,6 @@ const Board = () => {
           }
         }
 
-        /* for (const item of woItemData) {
-          const event = eventData.find(e => e.id === item.event);
-          if (event) {
-            event.items.push({ ...item });
-          }
-        }
-
-        for (const contact of woContactData) {
-          const event = eventData.find(e => contact.event.includes(e.id));
-          if (event) {
-            event.contacts.push({ ...contact });
-          }
-        }
-
-        for (const address of woAddressData) {
-          const event = eventData.find(e => address.event.includes(e.id));
-          if (event) {
-            event.address = { ...address.address };
-          }
-        } */
-
-        // Transform work orders to jobs
         const jobsData = (workOrderData || []).map((wo: WorkOrder): Job => ({
           id: wo.id,
           title: wo.title || 'Untitled Work Order',
@@ -265,7 +248,6 @@ const Board = () => {
           receiptStatus: wo.receiptStatus || { text: '', value: '' }
         }));
 
-        // Set all the updated data
         setEvents(eventData);
         setEmployees(employeeData);
         setVendors(vendorData);
@@ -362,6 +344,10 @@ const Board = () => {
   };
 
   const [draggedCard, setDraggedCard] = useState<string | null>(null);
+  const [draggedResource, setDraggedResource] = useState<{
+    id: string;
+    type: 'employee' | 'vendor' | 'asset';
+  } | null>(null);
   const [isCreateModalOpen, setIsCreateModalOpen] = useState(false);
   const [selectedJob, setSelectedJob] = useState<Job | null>(null);
   const [isCollapsed, setIsCollapsed] = useState(false);
@@ -370,16 +356,169 @@ const Board = () => {
     titles: [],
     descriptions: [],
     statuses: [],
+    eventId: '',
+    resourceNames: [],
+    resourceGroups: [],
+    priorities: [],
+    eventTypes: [],
+    dateFrom: undefined,
+    dateTo: undefined,
+    organizers: [],
+    receiptStatuses: [],
   });
   const [availableJobsFilter, setAvailableJobsFilter] = useState<FilterState>({
     titles: [],
     descriptions: [],
     statuses: [],
+    eventId: '',
+    resourceNames: [],
+    resourceGroups: [],
+    priorities: [],
+    eventTypes: [],
+    dateFrom: undefined,
+    dateTo: undefined,
+    organizers: [],
+    receiptStatuses: [],
   });
 
   const uniqueTitles = Array.from(new Set(jobs?.map(job => job.title) ?? []));
   const uniqueDescriptions = Array.from(new Set(jobs?.map(job => job.description) ?? []));
   const uniqueStatuses = Array.from(new Set(jobs?.map(job => job.status.text) ?? []));
+  /* const uniqueEventStatuses = Array.from(new Set(events?.map(event => event.status?.text || '') ?? [])).filter(Boolean).map(status => ({
+    value: status,
+    label: status
+  })); */
+  const uniqueEventStatuses = [
+    {
+      value: 'Tentative',
+      label: 'Tentative'
+    },
+    {
+      value: 'Confirmed',
+      label: 'Confirmed'
+    },
+    {
+      value: 'Completed',
+      label: 'Completed'
+    }
+  ];
+
+  /* const uniqueEventPriorities = Array.from(new Set(events?.map(event => event.priority?.text || '') ?? [])).filter(Boolean).map(priority => ({
+    value: priority,
+    label: priority
+  })); */
+  const uniqueEventPriorities = [
+    {
+      value: 'Low',
+      label: 'Low'
+    },
+    {
+      value: 'Medium',
+      label: 'Medium'
+    },
+    {
+      value: 'High',
+      label: 'High'
+    },
+    {
+      value: 'Urgent',
+      label: 'Urgent'
+    }
+  ];
+
+  const uniqueEventTypes = [
+    {
+      value: 'General Event',
+      label: 'General Event'
+    },
+    {
+      value: 'Non General Event',
+      label: 'Non General Event'
+    },
+    {
+      value: 'Unassigned Event',
+      label: 'Unassigned Event'
+    }
+  ];
+  
+  // Get unique resource names from all events
+  const allResourceNames = events.flatMap(event => [
+    ...(event.resources || []).map(r => r.employee?.text || ''),
+    ...(event.vendors || []).map(v => v.vendor?.text || ''),
+    ...(event.assets || []).map(a => a.asset?.text || '')
+  ]).filter(Boolean);
+  const uniqueResourceNames = Array.from(new Set(allResourceNames)).map(name => ({
+    value: name,
+    label: name
+  }));
+
+  // Get unique resource groups from employees and vendors, plus default groups
+  const allResourceGroups = [
+    ...(employees || []).flatMap(emp => (emp.resourceGroups || []).map(group => group.text)),
+    ...(vendors || []).flatMap(vendor => (vendor.resourceGroups || []).map(group => group.text)),
+    'Vendors', // Default group for vendors
+    'Assets'   // Default group for assets
+  ].filter(Boolean);
+  const uniqueResourceGroups = Array.from(new Set(allResourceGroups)).map(group => ({
+    value: group,
+    label: group
+  }));
+
+  // Get unique organizers from events
+  const uniqueOrganizers = Array.from(new Set(events.map(event => event.organizer?.text || '').filter(Boolean))).map(organizer => ({
+    value: organizer,
+    label: organizer
+  }));
+
+  const getReceiptStatusForEvent = (event: Event) => {
+    if (event.workorder?.text && event.workorder.text.trim() && event.workorder.value) {
+      const matchingJob = jobs.find(job => job.id === event.workorder?.value);
+      if (matchingJob && matchingJob.receiptStatus) {
+        return {
+          ...matchingJob.receiptStatus,
+          display: matchingJob.receiptStatus.display || matchingJob.receiptStatus.text
+        };
+      }
+    }
+    return undefined;
+  };
+
+  // Get unique receipt statuses (hardcoded)
+  const uniqueReceiptStatuses = [
+    { value: 'Not Received', label: 'Not Received' },
+    { value: 'Partially Received', label: 'Partially Received' },
+    { value: 'Fully Received', label: 'Fully Received' }
+  ];
+
+  const handleResourceDragStart = (resourceId: string, resourceType: 'employee' | 'vendor' | 'asset') => {
+    console.log('Resource drag started:', { resourceId, resourceType });
+    setDraggedResource({ id: resourceId, type: resourceType });
+  };
+
+  const handleResourceDragEnd = () => {
+    console.log('Resource drag ended');
+    setDraggedResource(null);
+  };
+
+  const handleResourceClick = (resourceName: string) => {
+    setResourcesFilter(prev => {
+      const isAlreadySelected = prev.resourceNames.includes(resourceName);
+      
+      if (isAlreadySelected) {
+        // Remove from selection
+        return {
+          ...prev,
+          resourceNames: prev.resourceNames.filter(name => name !== resourceName)
+        };
+      } else {
+        // Add to selection
+        return {
+          ...prev,
+          resourceNames: [...prev.resourceNames, resourceName]
+        };
+      }
+    });
+  };
 
   const handleDragStart = (cardId: string) => {
     setDraggedCard(cardId);
@@ -393,7 +532,7 @@ const Board = () => {
     e.preventDefault();
   };
 
-  const handleDrop = (e: React.DragEvent) => {
+  const handleJobDrop = (e: React.DragEvent) => {
     e.preventDefault();
     if (draggedCard) {
       const card = jobs.find(c => c.id === draggedCard);
@@ -402,6 +541,128 @@ const Board = () => {
         setIsCreateModalOpen(true);
       }
     }
+  };
+
+  const handleResourceDrop = (e: React.DragEvent, eventId: string) => {
+    e.preventDefault();
+    e.stopPropagation();
+    
+    if (draggedResource) {
+      const event = events.find(e => e.id === eventId);
+      if (!event) return;
+
+      let isAlreadyAssigned = false;
+      
+      if (draggedResource.type === 'employee') {
+        isAlreadyAssigned = (event.resources || []).some(resource => 
+          resource.employee?.value === draggedResource.id
+        );
+      } else if (draggedResource.type === 'vendor') {
+        isAlreadyAssigned = (event.vendors || []).some(vendor => 
+          vendor.vendor?.value === draggedResource.id
+        );
+      } else if (draggedResource.type === 'asset') {
+        isAlreadyAssigned = (event.assets || []).some(asset => 
+          asset.asset?.value === draggedResource.id
+        );
+      }
+
+      if (isAlreadyAssigned) {
+        toast.error(`${draggedResource.type.charAt(0).toUpperCase() + draggedResource.type.slice(1)} is already assigned to this event`);
+        return;
+      }
+
+      let resourceDetails = null;
+      if (draggedResource.type === 'employee') {
+        resourceDetails = employees.find(emp => emp.employee?.value === draggedResource.id);
+      } else if (draggedResource.type === 'vendor') {
+        resourceDetails = vendors.find(vendor => vendor.vendor?.value === draggedResource.id);
+      } else if (draggedResource.type === 'asset') {
+        resourceDetails = assets.find(asset => asset.asset?.value === draggedResource.id);
+      }
+
+      if (resourceDetails) {
+        const updatedEvents = events.map(e => 
+          e.id === eventId 
+            ? {
+                ...e,
+                ...(draggedResource.type === 'employee' && {
+                  resources: [
+                    ...(e.resources || []),
+                    {
+                      id: '', // This would typically be generated by the backend
+                      employee: resourceDetails.employee,
+                      startTime: '',
+                      endTime: '',
+                      woResourceId: ''
+                    }
+                  ]
+                }),
+                ...(draggedResource.type === 'vendor' && {
+                  vendors: [
+                    ...(e.vendors || []),
+                    {
+                      id: '', // This would typically be generated by the backend
+                      vendor: resourceDetails.vendor,
+                      manpower: 1,
+                      notes: ''
+                    }
+                  ]
+                }),
+                ...(draggedResource.type === 'asset' && {
+                  assets: [
+                    ...(e.assets || []),
+                    {
+                      id: '', // This would typically be generated by the backend
+                      asset: resourceDetails.asset,
+                      quantity: 1,
+                      startTime: '',
+                      endTime: ''
+                    }
+                  ]
+                })
+              }
+            : e
+        );
+        
+        setEvents(updatedEvents);
+        toast.success(`${draggedResource.type.charAt(0).toUpperCase() + draggedResource.type.slice(1)} assigned to event`, {
+          position: "top-right",
+          className: "!bg-green-100 !text-green-800 !border !border-green-300",
+        });
+      }
+    }
+  };
+
+  const isResourceAssignedToEvent = (eventId: string, resourceId: string, resourceType: 'employee' | 'vendor' | 'asset') => {
+    const event = events.find(e => e.id === eventId);
+    if (!event) return false;
+    
+    if (resourceType === 'employee') {
+      return (event.resources || []).some(resource => 
+        resource.employee?.value === resourceId
+      );
+    } else if (resourceType === 'vendor') {
+      return (event.vendors || []).some(vendor => 
+        vendor.vendor?.value === resourceId
+      );
+    } else if (resourceType === 'asset') {
+      return (event.assets || []).some(asset => 
+        asset.asset?.value === resourceId
+      );
+    }
+    
+    return false;
+  };
+
+  const shouldShowDropZone = (eventId: string) => {
+    if (!draggedResource) {
+      // console.log('No dragged resource, not showing drop zone');
+      return false;
+    }
+    const isAssigned = isResourceAssignedToEvent(eventId, draggedResource.id, draggedResource.type);
+    console.log('Should show drop zone for event', eventId, ':', !isAssigned);
+    return !isAssigned;
   };
 
   const handleSubmit = useCallback((submittedFormData: EventFormData) => {
@@ -502,7 +763,6 @@ const Board = () => {
       }
     };
     
-    // setEvents([...events, updateEvent]);
     console.log('UPDATED EVENT', { updatedEvent });
     setIsUpdateModalOpen(false);
     setSelectedJob(null);
@@ -511,9 +771,6 @@ const Board = () => {
   const handleCompleteEvent = useCallback((submittedFormData: any) => {
     console.log('Complete event form data:', submittedFormData);
 
-    // const unresolvedPunchCount = submittedFormData.punchItemsData.filter(x => x.status.value != 6).length;
-    
-    // Update the event status to completed
     const updatedEvents = events.map(event => 
       event.id === selectedEventForComplete?.id 
         ? { 
@@ -542,7 +799,10 @@ const Board = () => {
   };
 
   const getActiveFiltersCount = (filter: FilterState) => {
-    return filter.titles.length + filter.descriptions.length + filter.statuses.length;
+    return filter.titles.length + filter.descriptions.length + filter.statuses.length + 
+           (filter.eventId ? 1 : 0) + filter.resourceNames.length + filter.resourceGroups.length +
+           filter.priorities.length + filter.eventTypes.length + 
+           (filter.dateFrom ? 1 : 0) + (filter.dateTo ? 1 : 0);
   };
 
   const filteredJobs = jobs.filter(job => 
@@ -551,22 +811,127 @@ const Board = () => {
     (availableJobsFilter.statuses.length === 0 || availableJobsFilter.statuses.includes(job.status.text))
   );
 
-  // Helper function to get receipt status from work orders
-  const getReceiptStatusForEvent = (event: Event) => {
-    // If workorder.text is not empty, get receiptStatus from jobs
-    if (event.workorder?.text && event.workorder.text.trim() && event.workorder.value) {
-      const matchingJob = jobs.find(job => job.id === event.workorder?.value);
-      if (matchingJob && matchingJob.receiptStatus) {
-        return {
-          ...matchingJob.receiptStatus,
-          display: matchingJob.receiptStatus.display || matchingJob.receiptStatus.text
-        };
+  const filteredEvents = events.filter(event => {
+    // Filter by event ID
+    if (resourcesFilter.eventId && !event.id.includes(resourcesFilter.eventId)) {
+      return false;
+    }
+    
+    // Filter by resource names  
+    if (resourcesFilter.resourceNames.length > 0) {
+      const eventResourceNames = [
+        ...(event.resources || []).map(r => r.employee?.text || ''),
+        ...(event.vendors || []).map(v => v.vendor?.text || ''),
+        ...(event.assets || []).map(a => a.asset?.text || '')
+      ].filter(Boolean);
+      
+      const hasMatchingResource = eventResourceNames.some(resourceName => 
+        resourcesFilter.resourceNames.some(filterName => 
+          resourceName.toLowerCase().includes(filterName.toLowerCase())
+        )
+      );
+      
+      if (!hasMatchingResource) {
+        return false;
       }
     }
-    return undefined;
-  };
+    
+    // Filter by resource groups
+    if (resourcesFilter.resourceGroups.length > 0) {
+      const eventResourceGroups = [
+        ...(event.resources || []).flatMap(r => {
+          const employeeId = r.employee?.value;
+          const employee = employees.find(emp => emp.employee?.value === employeeId);
+          return (employee?.resourceGroups || []).map(group => group.text);
+        }),
+        ...(event.vendors || []).flatMap(v => {
+          const vendorId = v.vendor?.value;
+          const vendor = vendors.find(vend => vend.vendor?.value === vendorId);
+          return (vendor?.resourceGroups || []).map(group => group.text);
+        })
+      ].filter(Boolean);
+      
+      // Add default groups if resources exist
+      if ((event.vendors || []).length > 0) {
+        eventResourceGroups.push('Vendors');
+      }
+      if ((event.assets || []).length > 0) {
+        eventResourceGroups.push('Assets');
+      }
+      
+      const hasMatchingResourceGroup = eventResourceGroups.some(groupName => 
+        resourcesFilter.resourceGroups.some(filterGroup => 
+          groupName.toLowerCase().includes(filterGroup.toLowerCase())
+        )
+      );
+      
+      if (!hasMatchingResourceGroup) {
+        return false;
+      }
+    }
+    
+    // Filter by event types
+    if (resourcesFilter.eventTypes.length > 0) {
+      const hasWorkOrder = event.workorder && event.workorder.value;
+      const hasResources = (event.resources || []).length > 0;
+      const hasVendors = (event.vendors || []).length > 0;
+      const hasAssets = (event.assets || []).length > 0;
+      
+      const eventType = !hasWorkOrder 
+        ? 'General Event'
+        : (hasResources || hasVendors || hasAssets)
+        ? 'Non General Event'
+        : 'Unassigned Event';
+      
+      if (!resourcesFilter.eventTypes.includes(eventType)) {
+        return false;
+      }
+    }
+    
+    // Filter by date range
+    if (resourcesFilter.dateFrom || resourcesFilter.dateTo) {
+      const eventStartDate = new Date(event.date?.start || '');
+      const eventEndDate = new Date(event.date?.end || '');
+      
+      if (resourcesFilter.dateFrom) {
+        const fromDate = new Date(resourcesFilter.dateFrom);
+        if (eventEndDate < fromDate) {
+          return false;
+        }
+      }
+      
+      if (resourcesFilter.dateTo) {
+        const toDate = new Date(resourcesFilter.dateTo);
+        if (eventStartDate > toDate) {
+          return false;
+        }
+      }
+    }
+    
+    // Filter by organizers
+    if (resourcesFilter.organizers.length > 0) {
+      const eventOrganizer = event.organizer?.text || '';
+      if (!resourcesFilter.organizers.includes(eventOrganizer)) {
+        return false;
+      }
+    }
+    
+    // Filter by receipt statuses
+    if (resourcesFilter.receiptStatuses.length > 0) {
+      const eventReceiptStatus = getReceiptStatusForEvent(event);
+      const receiptStatusText = eventReceiptStatus?.text || '';
+      if (!resourcesFilter.receiptStatuses.includes(receiptStatusText)) {
+        return false;
+      }
+    }
+    
+    // Filter by titles, descriptions, statuses, and priorities
+    return (resourcesFilter.titles.length === 0 || resourcesFilter.titles.includes(event.title || '')) &&
+           (resourcesFilter.descriptions.length === 0 || resourcesFilter.descriptions.includes(event.note || '')) &&
+           (resourcesFilter.statuses.length === 0 || resourcesFilter.statuses.includes(event.status?.text || '')) &&
+           (resourcesFilter.priorities.length === 0 || resourcesFilter.priorities.includes(event.priority?.text || ''));
+  });
 
-  // Helper function to get work order URL for event
   const getWorkOrderUrl = (event: Event) => {
     if (event.workorder?.value && jobs.length > 0) {
       const matchingJob = jobs.find(job => job.id === event.workorder?.value);
@@ -577,7 +942,7 @@ const Board = () => {
 
   const handleCreateNewEvent = () => {
     setIsCreateModalOpen(true);
-    setSelectedJob(null); // Clear any selected card since this is a new event
+    setSelectedJob(null);
   };
 
   if (isLoading) {
@@ -637,6 +1002,10 @@ const Board = () => {
                   vendors={vendors}
                   assets={assets}
                   isLoading={isLoading}
+                  selectedResources={resourcesFilter.resourceNames}
+                  onResourceDragStart={handleResourceDragStart}
+                  onResourceDragEnd={handleResourceDragEnd}
+                  onResourceClick={handleResourceClick}
                 />
               </div>
             </CollapsibleContent>
@@ -689,9 +1058,14 @@ const Board = () => {
                          gridTemplateColumns: 'repeat(auto-fill, minmax(150px, 1fr))',
                          width: '100%'
                        }}>
-                    {filteredJobs.map((job) => (
-                      <div key={job.id} className="w-full max-w-[170px] p-0.5">
-                        <Card
+                     {filteredJobs.map((job) => (
+                       <div 
+                         key={job.id} 
+                         className="w-full max-w-[170px] p-0.5"
+                         data-tooltip-id="job-tooltip"
+                         data-tooltip-content={job.title}
+                       >
+                         <Card
                           id={parseInt(job.id)}
                           title={job.title}
                           description={job.description}
@@ -723,22 +1097,21 @@ const Board = () => {
 
           <ResizablePanel defaultSize={50}>
             <div 
-              // className="h-full bg-white p-4"
               className={`h-full bg-white p-4 ${
                 draggedCard ? 'border-[5px] border-dashed' : ''
               }`}
               style={draggedCard ? { borderColor: '#26CC4E' } : undefined}
               onDragOver={handleDragOver}
-              onDrop={handleDrop}
+              onDrop={handleJobDrop}
             >
               <div className="space-y-4 h-full flex flex-col">
                 <div className="flex justify-between items-center">
                   <div className="flex items-center gap-2">
                     <Calendar className="h-4 w-4 text-gray-900" strokeWidth={2.5} />
-                    <h2 className="text-lg font-medium text-gray-700">Events</h2>
-                    <Badge variant="secondary" className="text-[9px] px-1 py-0 h-3 min-w-[12px]">
-                      {events.length}
-                    </Badge>
+                     <h2 className="text-lg font-medium text-gray-700">Events</h2>
+                     <Badge variant="secondary" className="text-[9px] px-1 py-0 h-3 min-w-[12px]">
+                       {filteredEvents.length}
+                     </Badge>
                   </div>
                   <div className="flex items-center gap-2">
                     <Button
@@ -774,36 +1147,87 @@ const Board = () => {
                          gridTemplateColumns: 'repeat(auto-fill, minmax(150px, 1fr))',
                          width: '100%'
                        }}>
-                    {events.map((event) => (
-                      <div key={event.id} className="w-full max-w-[170px] p-0.5">
-                        <Card
-                          id={parseInt(event.id)}
-                          title={event.title || 'Untitled Event'}
-                          description={event.note || 'No description'}
-                          isEvent
-                          onAction={(action) => handleCardAction(event.id, action, true)}
-                          compact
-                          status={event.status ? {
-                            text: event.status.text,
-                            value: event.status.value,
-                            code: event.status.code || event.status.value || ''
-                          } : undefined}
-                          eventData={{
-                            workorder: event.workorder,
-                            url: event.url || '',
-                            date: event.date ? {
-                              start: event.date.start,
-                              end: event.date.end
-                            } : undefined,
-                            time: event.time,
-                            organizer: event.organizer,
-                            priority: event.priority,
-                            receiptStatus: getReceiptStatusForEvent(event),
-                            woUrl: getWorkOrderUrl(event)
-                          }}
-                        />
-                      </div>
-                    ))}
+                     {filteredEvents.map((event) => {
+                       const canAcceptDrop = shouldShowDropZone(event.id);
+                       const isAlreadyAssigned = draggedResource && isResourceAssignedToEvent(event.id, draggedResource.id, draggedResource.type);
+                       
+                      //  console.log('Event', event.id, 'canAcceptDrop:', canAcceptDrop, 'isAlreadyAssigned:', isAlreadyAssigned);
+                       
+                          // Format tooltip content with title, date, time, resources, vendors, and assets
+                          const formatDateSafe = (dateStr: string) => {
+                            try {
+                              return format(new Date(dateStr), 'M/d/yyyy');
+                            } catch {
+                              return dateStr;
+                            }
+                          };
+
+                          const formatTimeSafe = (timeStr: string) => {
+                            try {
+                              return format(parse(timeStr, 'HH:mm', new Date()), 'h:mm a');
+                            } catch {
+                              return timeStr;
+                            }
+                          };
+
+                          const tooltipContent = [
+                            `<strong>${event.title || 'Untitled Event'}</strong>`,
+                            event.date ? `${formatDateSafe(event.date.start)} - ${formatDateSafe(event.date.end)}` : '',
+                            event.time ? `${formatTimeSafe(event.time.start)} - ${formatTimeSafe(event.time.end)}` : '',
+                          event.resources?.length > 0 ? `Resources: ${event.resources.map(r => r.employee?.text || r.name || 'Unknown').join(', ')}` : '',
+                          event.vendors?.length > 0 ? `Vendors: ${event.vendors.map(v => v.vendor?.text || v.name || 'Unknown').join(', ')}` : '',
+                          event.assets?.length > 0 ? `Assets: ${event.assets.map(a => a.asset?.text || a.name || 'Unknown').join(', ')}` : ''
+                        ].filter(Boolean).join('<br>');
+                       
+                       return (
+                         <div 
+                           key={event.id} 
+                           className="w-full max-w-[170px] p-0.5"
+                           data-tooltip-id="event-tooltip"
+                           data-tooltip-html={tooltipContent}
+                         >
+                          <div
+                            className={`${
+                              canAcceptDrop
+                                ? 'border-[3px] border-dashed border-green-500 rounded-lg p-1 bg-green-50'
+                                : isAlreadyAssigned
+                                ? 'opacity-50 cursor-not-allowed'
+                                : ''
+                            }`}
+                            onDragOver={canAcceptDrop ? handleDragOver : undefined}
+                            onDrop={canAcceptDrop ? (e) => handleResourceDrop(e, event.id) : undefined}
+                            style={isAlreadyAssigned ? { pointerEvents: 'none' } : undefined}
+                          >
+                            <Card
+                              id={parseInt(event.id)}
+                              title={event.title || 'Untitled Event'}
+                              description={event.note || 'No description'}
+                              isEvent
+                              onAction={(action) => handleCardAction(event.id, action, true)}
+                              compact
+                              status={event.status ? {
+                                text: event.status.text,
+                                value: event.status.value,
+                                code: event.status.code || event.status.value || ''
+                              } : undefined}
+                              eventData={{
+                                workorder: event.workorder,
+                                url: event.url || '',
+                                date: event.date ? {
+                                  start: event.date.start,
+                                  end: event.date.end
+                                } : undefined,
+                                time: event.time,
+                                organizer: event.organizer,
+                                priority: event.priority,
+                                receiptStatus: getReceiptStatusForEvent(event),
+                                woUrl: getWorkOrderUrl(event)
+                              }}
+                            />
+                          </div>
+                        </div>
+                      );
+                    })}
                   </div>
                 </ScrollArea>
               </div>
@@ -812,7 +1236,6 @@ const Board = () => {
         </ResizablePanelGroup>
       </div>
 
-      {/* AI Assistant Button */}
       <div className="fixed bottom-6 right-6">
         <Button
           size="icon"
@@ -826,7 +1249,6 @@ const Board = () => {
         </Button>
       </div>
 
-      {/* Create Event Form */}
       <CreateEvent
         isOpen={isCreateModalOpen}
         onClose={() => setIsCreateModalOpen(false)}
@@ -865,7 +1287,6 @@ const Board = () => {
         }
       />
 
-      {/* Update Event Form */}
       <UpdateEvent
         isOpen={isUpdateModalOpen}
         onClose={() => setIsUpdateModalOpen(false)}
@@ -888,7 +1309,6 @@ const Board = () => {
         }
       />
 
-      {/* Complete Event Dialog */}
       {selectedEventForComplete && (
         <CompleteEvent 
           selectedEvent={selectedEventForComplete} 
@@ -898,54 +1318,269 @@ const Board = () => {
         />
       )}
 
-      {/* Filter Modal */}
       <Dialog open={isFilterModalOpen} onOpenChange={setIsFilterModalOpen}>
         <DialogContent>
           <DialogHeader>
-            <DialogTitle>Filter {filterType === 'jobs' ? 'Available Jobs' : 'Events'}</DialogTitle>
+            <DialogTitle className="text-[15px] tracking-tight font-semibold">Filter {filterType === 'jobs' ? 'Available Jobs' : 'Events'}</DialogTitle>
             <DialogDescription>
-              Select your filter criteria below
+              <span className="tracking-tight text-[12px]">Select your filter criteria below</span>
             </DialogDescription>
           </DialogHeader>
-          <div className="space-y-4">
-            <div className="space-y-2">
-              <Label>Title</Label>
-              <MultiSelect
-                options={uniqueTitles}
-                selected={filterType === 'jobs' ? availableJobsFilter.titles : []}
-                onChange={(value) => filterType === 'jobs' && setAvailableJobsFilter(prev => ({ ...prev, titles: value }))}
-                placeholder="Filter by title"
-              />
+          {filterType === 'events' ? (
+          <div className="space-y-3">
+            <div className="grid grid-cols-2 gap-2">
+              <div className="relative">
+                <Search className="absolute left-2 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400 pointer-events-none" />
+                <Input
+                  placeholder="Enter Event ID"
+                  value={resourcesFilter.eventId}
+                  onChange={(e) =>
+                    setResourcesFilter((prev) => ({ ...prev, eventId: e.target.value }))
+                  }
+                  className="h-8 text-sm !text-[12px] placeholder:text-[12px] pl-7 pr-8 outline-none focus:outline-none focus:ring-0 focus:ring-transparent focus-visible:ring-0 focus-visible:ring-transparent focus:shadow-none"
+                />
+                {resourcesFilter.eventId && (
+                  <button
+                    onClick={() => setResourcesFilter((prev) => ({ ...prev, eventId: '' }))}
+                    className="absolute right-2 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400 hover:text-gray-600 flex items-center justify-center"
+                  >
+                    <X className="!h-3 !w-3" />
+                  </button>
+                )}
+              </div>
+
+              <div className="-mt-[5px]">
+                <MultiSelectFilter
+                  id="resourceName"
+                  label=""
+                  options={uniqueResourceNames}
+                  selected={resourcesFilter.resourceNames}
+                  onChange={(value) =>
+                    setResourcesFilter((prev) => ({ ...prev, resourceNames: value }))
+                  }
+                  placeholder="Filter by Resource Name"
+                  className="w-full text-sm !text-[12px] placeholder:text-[12px] w-full"
+                />
+              </div>
             </div>
-            <div className="space-y-2">
-              <Label>Description</Label>
-              <MultiSelect
-                options={uniqueDescriptions}
-                selected={filterType === 'jobs' ? availableJobsFilter.descriptions : []}
-                onChange={(value) => filterType === 'jobs' && setAvailableJobsFilter(prev => ({ ...prev, descriptions: value }))}
-                placeholder="Filter by description"
-              />
+            
+            <div className="grid grid-cols-2 gap-2">
+              <div className="-mt-[5px]">
+                <MultiSelectFilter
+                  id="resourceGroup"
+                  label=""
+                  options={uniqueResourceGroups}
+                  selected={resourcesFilter.resourceGroups}
+                  onChange={(value) =>
+                    setResourcesFilter((prev) => ({ ...prev, resourceGroups: value }))
+                  }
+                  placeholder="Filter by Resource Group"
+                  className="w-full text-sm !text-[12px] placeholder:text-[12px] w-full"
+                />
+              </div>
+              
+              <div className="-mt-[5px]">
+                <MultiSelectFilter
+                  id="eventStatus"
+                  label=""
+                  options={uniqueEventStatuses}
+                  selected={resourcesFilter.statuses}
+                  onChange={(value) =>
+                    setResourcesFilter((prev) => ({ ...prev, statuses: value }))
+                  }
+                  placeholder="Filter by Status"
+                  className="w-full text-sm !text-[12px] placeholder:text-[12px] w-full"
+                />
+              </div>
             </div>
-            <div className="space-y-2">
-              <Label>Status</Label>
-              <MultiSelect
-                options={uniqueStatuses}
-                selected={filterType === 'jobs' ? availableJobsFilter.statuses : []}
-                onChange={(value) => filterType === 'jobs' && setAvailableJobsFilter(prev => ({ ...prev, statuses: value }))}
-                placeholder="Filter by status"
-              />
+            
+            <div className="grid grid-cols-2 gap-2">
+              <div className="-mt-[5px]">
+                <MultiSelectFilter
+                  id="eventPriority"
+                  label=""
+                  options={uniqueEventPriorities}
+                  selected={resourcesFilter.priorities}
+                  onChange={(value) =>
+                    setResourcesFilter((prev) => ({ ...prev, priorities: value }))
+                  }
+                  placeholder="Filter by Priority"
+                  className="w-full text-sm !text-[12px] placeholder:text-[12px]"
+                />
+              </div>
+              
+              <div className="-mt-[5px]">
+                <MultiSelectFilter
+                  id="eventType"
+                  label=""
+                  options={uniqueEventTypes}
+                  selected={resourcesFilter.eventTypes}
+                  onChange={(value) =>
+                    setResourcesFilter((prev) => ({ ...prev, eventTypes: value }))
+                  }
+                  placeholder="Filter by Event Type"
+                  className="w-full text-sm !text-[12px] placeholder:text-[12px] w-full"
+                />
+              </div>
+            </div>
+            
+            <div className="grid grid-cols-2 gap-2">
+              <div className="-mt-[5px]">
+                <DateRangeFilter
+                  id="dateFrom"
+                  label=""
+                  value={resourcesFilter.dateFrom}
+                  onChange={(value) =>
+                    setResourcesFilter((prev) => ({ ...prev, dateFrom: value }))
+                  }
+                  placeholder="Date From"
+                />
+              </div>
+              
+              <div className="-mt-[5px]">
+                <DateRangeFilter
+                  id="dateTo"
+                  label=""
+                  value={resourcesFilter.dateTo}
+                  onChange={(value) =>
+                    setResourcesFilter((prev) => ({ ...prev, dateTo: value }))
+                  }
+                  placeholder="Date To"
+                />
+              </div>
+            </div>
+            
+            <div className="grid grid-cols-2 gap-2">
+              <div className="-mt-[5px]">
+                <MultiSelectFilter
+                  id="organizer"
+                  label=""
+                  options={uniqueOrganizers}
+                  selected={resourcesFilter.organizers}
+                  onChange={(value) =>
+                    setResourcesFilter((prev) => ({ ...prev, organizers: value }))
+                  }
+                  placeholder="Filter by Organizer"
+                  className="w-full text-sm !text-[12px] placeholder:text-[12px]"
+                />
+              </div>
+              
+              <div className="-mt-[5px]">
+                <MultiSelectFilter
+                  id="receiptStatus"
+                  label=""
+                  options={uniqueReceiptStatuses}
+                  selected={resourcesFilter.receiptStatuses}
+                  onChange={(value) =>
+                    setResourcesFilter((prev) => ({ ...prev, receiptStatuses: value }))
+                  }
+                  placeholder="Filter by Receipt Status"
+                  className="w-full text-sm !text-[12px] placeholder:text-[12px]"
+                />
+              </div>
             </div>
           </div>
+          ) : (
+            <div className="space-y-4">
+              <div className="space-y-2">
+                <Label>Title</Label>
+                <MultiSelect
+                  options={uniqueTitles}
+                  selected={availableJobsFilter.titles}
+                  onChange={(value) => setAvailableJobsFilter(prev => ({ ...prev, titles: value }))}
+                  placeholder="Filter by title"
+                />
+              </div>
+              <div className="space-y-2">
+                <Label>Description</Label>
+                <MultiSelect
+                  options={uniqueDescriptions}
+                  selected={availableJobsFilter.descriptions}
+                  onChange={(value) => setAvailableJobsFilter(prev => ({ ...prev, descriptions: value }))}
+                  placeholder="Filter by description"
+                />
+              </div>
+              <div className="space-y-2">
+                <Label>Status</Label>
+                <MultiSelect
+                  options={uniqueStatuses}
+                  selected={availableJobsFilter.statuses}
+                  onChange={(value) => setAvailableJobsFilter(prev => ({ ...prev, statuses: value }))}
+                  placeholder="Filter by status"
+                />
+              </div>
+            </div>
+          )}
           <DialogFooter>
-            <Button variant="outline" onClick={() => setIsFilterModalOpen(false)}>
-              Cancel
+            <Button onClick={() => {
+              alert('TBD');
+              // setIsFilterModalOpen(false);
+            }} className="text-[12px] h-8 px-3 tracking-tight">Select Fields</Button>
+            <Button variant="outline" onClick={() => {
+              setResourcesFilter({
+                titles: [],
+                descriptions: [],
+                statuses: [],
+                eventId: '',
+                resourceNames: [],
+                resourceGroups: [],
+                priorities: [],
+                eventTypes: [],
+                dateFrom: undefined,
+                dateTo: undefined,
+                organizers: [],
+                receiptStatuses: [],
+              });
+              setAvailableJobsFilter({
+                titles: [],
+                descriptions: [],
+                statuses: [],
+                eventId: '',
+                resourceNames: [],
+                resourceGroups: [],
+                priorities: [],
+                eventTypes: [],
+                dateFrom: undefined,
+                dateTo: undefined,
+                organizers: [],
+                receiptStatuses: [],
+              });
+            }} className="text-[12px] h-8 px-3 tracking-tight">
+              Clear All
             </Button>
-            <Button onClick={() => setIsFilterModalOpen(false)}>Apply</Button>
           </DialogFooter>
-        </DialogContent>
-      </Dialog>
-    </div>
-  );
-};
-
-export default Board;
+         </DialogContent>
+       </Dialog>
+       
+       <Tooltip 
+         id="job-tooltip"
+         style={{ 
+           backgroundColor: '#1f2937',
+           color: 'white',
+           fontSize: '12px',
+           padding: '8px 12px',
+           borderRadius: '6px',
+           maxWidth: '300px',
+           zIndex: 9999,
+           boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)'
+         }}
+       />
+       
+       <Tooltip 
+         id="event-tooltip"
+         style={{ 
+           backgroundColor: '#1f2937',
+           color: 'white',
+           fontSize: '12px',
+           padding: '8px 12px',
+           borderRadius: '6px',
+           maxWidth: '300px',
+           zIndex: 9999,
+           boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)'
+         }}
+       />
+     </div>
+   );
+ };
+ 
+ export default Board;

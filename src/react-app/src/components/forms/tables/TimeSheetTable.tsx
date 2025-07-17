@@ -16,7 +16,7 @@ import { type Event } from "@/api/event";
 
 interface TimeSheetRow {
   id: string;
-  selected: boolean;
+  // selected: boolean;
   name: string;
   location: string;
   startTime: string;
@@ -59,7 +59,7 @@ export const TimeSheetTable: React.FC<TimeSheetTableProps> = ({
     if (selectedEvent?.resources && Array.isArray(selectedEvent.resources) && selectedEvent.resources.length > 0) {
       return selectedEvent.resources.map((resource, index) => ({
         id: String(resource?.id || `resource-${index}`),
-        selected: false,
+        // selected: false,
         name: String(resource?.name || resource?.text || `Resource ${index + 1}`),
         location: String(resource?.location?.text || '-'),
         startTime: '',
@@ -80,7 +80,7 @@ export const TimeSheetTable: React.FC<TimeSheetTableProps> = ({
     return [
       {
         id: '1',
-        selected: false,
+        // selected: false,
         name: 'John Doe',
         location: 'Site A',
         startTime: '',
@@ -97,7 +97,7 @@ export const TimeSheetTable: React.FC<TimeSheetTableProps> = ({
       },
       {
         id: '2',
-        selected: false,
+        // selected: false,
         name: 'Jane Smith',
         location: 'Site B',
         startTime: '',

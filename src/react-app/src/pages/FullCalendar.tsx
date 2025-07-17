@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import timeGridPlugin from '@fullcalendar/timegrid';
@@ -6,6 +6,7 @@ import { Draggable } from '@fullcalendar/interaction';
 import interactionPlugin from '@fullcalendar/interaction';
 import resourceTimelinePlugin from '@fullcalendar/resource-timeline';
 import { fetchEvents, type Event } from '@/api/event';
+import { format, parse } from "date-fns";
 import { fetchEmployees, type Employee } from '@/api/employee';
 import { fetchVendors, type Vendor } from '@/api/vendor';
 import { fetchAssets, type Asset } from '@/api/asset';
@@ -24,6 +25,15 @@ import { Button } from "@/components/ui/button";
 import { ClipboardCheck, Users, Stars, Filter } from "lucide-react";
 import { Skeleton } from "@/components/ui/skeleton";
 import { ResizablePanelGroup, ResizablePanel, ResizableHandle } from "@/components/ui/resizable";
+import { Tooltip } from 'react-tooltip';
+import { CreateEvent } from '../components/forms/CreateEvent';
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogFooter,
+} from "@/components/ui/dialog";
 
 interface Job {
   id: string;
@@ -54,6 +64,26 @@ interface Job {
   };
 }
 
+interface EventFormData {
+  eventTitle: string;
+  notes: string;
+  startDate: string;
+  endDate: string;
+  startTime: string;
+  endTime: string;
+  allDay: boolean;
+  assetMaintenance: boolean;
+  routingGroup: string;
+  status: string;
+  priority: string;
+  selectedResources: any[];
+  selectedVendors: any[];
+  selectedAssets: any[];
+  selectedWOItems: any[];
+  selectedWOContacts: any[];
+  selectedWOAddress: any;
+}
+
 const Calendar = () => {
   const [events, setEvents] = useState<Event[]>([]);
   const [employees, setEmployees] = useState<Employee[]>([]);
@@ -62,6 +92,25 @@ const Calendar = () => {
   const [jobs, setJobs] = useState<Job[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [draggedJob, setDraggedJob] = useState<Job | null>(null);
+  const [isCreateModalOpen, setIsCreateModalOpen] = useState(false);
+  const [selectedJob, setSelectedJob] = useState<Job | null>(null);
+  const [prefilledResourceId, setPrefilledResourceId] = useState<string | undefined>(undefined);
+  const [prefilledStartDate, setPrefilledStartDate] = useState<string | undefined>(undefined);
+  const [prefilledStartTime, setPrefilledStartTime] = useState<string | undefined>(undefined);
+  const [prefilledEndTime, setPrefilledEndTime] = useState<string | undefined>(undefined);
+  const [isConfirmDialogOpen, setIsConfirmDialogOpen] = useState(false);
+  const [confirmDialogData, setConfirmDialogData] = useState<{
+    type: 'move' | 'resize';
+    title: string;
+    oldStart: string;
+    oldEnd: string;
+    newStart: string;
+    newEnd: string;
+    oldResource?: string;
+    newResource?: string;
+    onConfirm: () => void;
+    onCancel: () => void;
+  } | null>(null);
 
   useEffect(() => {
     const loadAllData = async () => {
@@ -194,6 +243,66 @@ const Calendar = () => {
     loadAllData();
   }, []);
 
+  const handleCreateNewEvent = () => {
+    setIsCreateModalOpen(true);
+    setSelectedJob(null);
+    setPrefilledResourceId(undefined);
+    setPrefilledStartDate(undefined);
+    setPrefilledStartTime(undefined);
+    setPrefilledEndTime(undefined);
+  };
+
+  const handleSubmit = useCallback((submittedFormData: EventFormData) => {
+    if (!submittedFormData.eventTitle || !submittedFormData.startDate || !submittedFormData.endDate || (!submittedFormData.allDay && (!submittedFormData.startTime || !submittedFormData.endTime))) {
+      console.log('Form Data', submittedFormData);
+      toast.error("Please fill in all required fields", {
+        position: "top-right",
+      });
+      return;
+    }
+    
+    const newEvent: Event = {
+      id: `event-${Date.now()}`,
+      title: submittedFormData.eventTitle,
+      note: submittedFormData.notes,
+      date: {
+        recurrence: submittedFormData.startDate,
+        dates: [submittedFormData.startDate, submittedFormData.endDate],
+        start: submittedFormData.startDate,
+        end: submittedFormData.endDate
+      },
+      time: submittedFormData.allDay ? undefined : {
+        start: submittedFormData.startTime,
+        end: submittedFormData.endTime
+      },
+      status: {
+        text: submittedFormData.status === 'TENTATIVE' ? 'Tentative' : submittedFormData.status === 'CONFIRMED' ? 'Confirmed' : 'Completed',
+        value: submittedFormData.status,
+        code: submittedFormData.status
+      },
+      priority: {
+        text: submittedFormData.priority === '1' ? 'High' : submittedFormData.priority === '2' ? 'Mid' : 'Low',
+        value: submittedFormData.priority,
+        code: submittedFormData.priority
+      },
+      workorder: selectedJob ? {
+        text: selectedJob.title,
+        value: selectedJob.id
+      } : { text: '', value: '' },
+      resources: [],
+      vendors: [],
+      assets: []
+    };
+    
+    setEvents([...events, newEvent]);
+    console.log('NEW EVENT', { newEvent, events });
+    setIsCreateModalOpen(false);
+
+    if (selectedJob) {
+      setSelectedJob(null);
+    }
+  }, [selectedJob, events]);
+
   useEffect(() => {
     const containerEl = document.getElementById('external-jobs');
 
@@ -262,115 +371,184 @@ const Calendar = () => {
     console.log('handleCalendarDrop:', info);
     if (!draggedJob) return;
 
-    // Create a new event from the dropped job
-    const newEvent: Event = {
-      id: `event-${Date.now()}`,
-      title: draggedJob.title,
-      note: draggedJob.description,
-      date: {
-        recurrence: info.dateStr,
-        dates: [info.dateStr],
-        start: info.dateStr,
-        end: info.dateStr
-      },
-      time: info.allDay ? undefined : {
-        start: new Date(info.date).toLocaleTimeString('en-US', { hour12: false, hour: '2-digit', minute: '2-digit' }),
-        end: new Date(new Date(info.date).getTime() + 2 * 60 * 60 * 1000).toLocaleTimeString('en-US', { hour12: false, hour: '2-digit', minute: '2-digit' })
-      },
-      status: {
-        text: 'Tentative',
-        value: 'TENTATIVE',
-        code: 'TENTATIVE'
-      },
-      priority: {
-        text: 'Mid',
-        value: '2',
-        code: '2'
-      },
-      workorder: {
-        text: draggedJob.title,
-        value: draggedJob.id
-      },
-      resources: [],
-      vendors: [],
-      assets: []
-    };
-
-    setEvents([...events, newEvent]);
+    // Open CreateEvent modal with the dropped job
+    setSelectedJob(draggedJob);
+    setIsCreateModalOpen(true);
     setDraggedJob(null);
-
-    toast.success(`Created event for ${draggedJob.title}`, {
-      className: "!bg-green-100 !text-green-800 !border !border-green-300",
-    });
   };
 
   const calendarEvents = [];
 
   events.forEach(event => {
-    //  WO Resources
-    event.resources.forEach(resource => {
-      resource.resourceGroups.forEach(resourceGroup => {
+     //  WO Resources
+     event.resources.forEach(resource => {
+       resource.resourceGroups.forEach(resourceGroup => {
+           // Format tooltip content with event title, ID, resource info
+           const formatDate = (dateStr: string) => {
+             try {
+               return dateStr ? format(new Date(dateStr), 'M/d/yyyy') : '';
+             } catch {
+               return dateStr || '';
+             }
+           };
+           const formatTime = (timeStr: string) => {
+             try {
+               return timeStr ? format(parse(timeStr, 'HH:mm', new Date()), 'h:mm a') : '';
+             } catch {
+               return timeStr || '';
+             }
+           };
+           
+           const tooltipContent = [
+             `<strong>${event.title || 'Untitled Event'}</strong>`,
+             `ID ${event.id}`,
+             '',
+             `<strong>${resource.employee?.text || 'Unknown Resource'}</strong>`,
+             resource.date ? `${formatDate(resource.date.start)} - ${formatDate(resource.date.end)}` : (event.date ? `${formatDate(event.date.start)} - ${formatDate(event.date.end)}` : ''),
+             resource.time ? `${formatTime(resource.time.start)} - ${formatTime(resource.time.end)}` : (event.time ? `${formatTime(event.time.start)} - ${formatTime(event.time.end)}` : '')
+           ].filter(Boolean).join('<br>');
+         
+         calendarEvents.push({
+           id: event.id,
+           title: event.title || 'Untitled Event',
+           start: new Date(`${event.date.start}T${resource.time.start}:00`),
+           end: new Date(`${event.date.end}T${resource.time.end}:00`),
+           resourceId: `${resourceGroup.value}-${resource.employee.value}`,
+           description: event.note || '',
+           color: event.status.code,
+           extendedProps: {
+             resourceType: 'employee',
+             woResourceId: resource.id,
+             tooltipContent
+           }
+         });
+       })
+     });
+
+     // WO Vendors
+     event.vendors.forEach(vendor => {
+         // Format tooltip content with event title, ID, vendor info (uses event date/time)
+         const formatDate = (dateStr: string) => {
+           try {
+             return dateStr ? format(new Date(dateStr), 'M/d/yyyy') : '';
+           } catch {
+             return dateStr || '';
+           }
+         };
+         const formatTime = (timeStr: string) => {
+           try {
+             return timeStr ? format(parse(timeStr, 'HH:mm', new Date()), 'h:mm a') : '';
+           } catch {
+             return timeStr || '';
+           }
+         };
+         
+         const tooltipContent = [
+           `<strong>${event.title || 'Untitled Event'}</strong>`,
+           `ID ${event.id}`,
+           '',
+           `<strong>${vendor.vendor?.text || 'Unknown Vendor'}</strong>`,
+           event.date ? `${formatDate(event.date.start)} - ${formatDate(event.date.end)}` : '',
+           event.time ? `${formatTime(event.time.start)} - ${formatTime(event.time.end)}` : ''
+         ].filter(Boolean).join('<br>');
+       
+       calendarEvents.push({
+         id: event.id,
+         title: event.title || 'Untitled Event',
+         start: new Date(`${event.date.start}T${event.time.start}:00`),
+         end: new Date(`${event.date.end}T${event.time.end}:00`),
+         resourceId: `vendor-${vendor.vendor.value}`,
+         description: event.note || '',
+         color: event.status.code,
+         extendedProps: {
+           resourceType: 'vendor',
+           woVendorId: vendor.id,
+           tooltipContent
+         }
+       });
+     });
+
+     // WO Assets
+     event.assets.forEach(asset => {
+         // Format tooltip content with event title, ID, asset info
+         const formatDate = (dateStr: string) => {
+           try {
+             return dateStr ? format(new Date(dateStr), 'M/d/yyyy') : '';
+           } catch {
+             return dateStr || '';
+           }
+         };
+         const formatTime = (timeStr: string) => {
+           try {
+             return timeStr ? format(parse(timeStr, 'HH:mm', new Date()), 'h:mm a') : '';
+           } catch {
+             return timeStr || '';
+           }
+         };
+         
+         const tooltipContent = [
+           `<strong>${event.title || 'Untitled Event'}</strong>`,
+           `ID ${event.id}`,
+           '',
+           `<strong>${asset.asset?.text || 'Unknown Asset'}</strong>`,
+           asset.date ? `${formatDate(asset.date.start)} - ${formatDate(asset.date.end)}` : (event.date ? `${formatDate(event.date.start)} - ${formatDate(event.date.end)}` : ''),
+           asset.time ? `${formatTime(asset.time.start)} - ${formatTime(asset.time.end)}` : (event.time ? `${formatTime(event.time.start)} - ${formatTime(event.time.end)}` : '')
+         ].filter(Boolean).join('<br>');
+       
+       calendarEvents.push({
+         id: event.id,
+         title: event.title || 'Untitled Event',
+         start: new Date(`${event.date.start}T${asset.time.start}:00`),
+         end: new Date(`${event.date.end}T${asset.time.end}:00`),
+         resourceId: `asset-${asset.asset.value}`,
+         description: event.note || '',
+         color: event.status.code,
+         extendedProps: {
+           resourceType: 'asset',
+           woAssetId: asset.id,
+           tooltipContent
+         }
+       });
+     });
+
+     if (!event.resources.length && !event.vendors.length && !event.assets.length) {
+         // Format tooltip content for unassigned events
+         const formatDate = (dateStr: string) => {
+           try {
+             return dateStr ? format(new Date(dateStr), 'M/d/yyyy') : '';
+           } catch {
+             return dateStr || '';
+           }
+         };
+         const formatTime = (timeStr: string) => {
+           try {
+             return timeStr ? format(parse(timeStr, 'HH:mm', new Date()), 'h:mm a') : '';
+           } catch {
+             return timeStr || '';
+           }
+         };
+         
+         const tooltipContent = [
+           `<strong>${event.title || 'Untitled Event'}</strong>`,
+           `ID ${event.id}`,
+           '',
+           event.date ? `${formatDate(event.date.start)} - ${formatDate(event.date.end)}` : '',
+           event.time ? `${formatTime(event.time.start)} - ${formatTime(event.time.end)}` : ''
+         ].filter(Boolean).join('<br>');
+       
         calendarEvents.push({
           id: event.id,
           title: event.title || 'Untitled Event',
-          start: new Date(`${event.date.start}T${resource.time.start}:00`),
-          end: new Date(`${event.date.end}T${resource.time.end}:00`),
-          resourceId: `${resourceGroup.value}-${resource.employee.value}`,
-          description: event.note || '',
-          color: event.color,
-          extendedProps: {
-            resourceType: 'employee',
-            woResourceId: resource.id
+          start: new Date(`${event.date.start}T${event.time.start}:00`),
+          end: new Date(`${event.date.end}T${event.time.end}:00`),
+          resourceId: 'z-unassigned',
+          color: event.status.code,
+          extendedProps: { 
+            ...event,
+            tooltipContent
           }
         });
-      })
-    });
-
-    // WO Vendors
-    event.vendors.forEach(vendor => {
-      calendarEvents.push({
-        id: event.id,
-        title: event.title || 'Untitled Event',
-        start: new Date(`${event.date.start}T${event.time.start}:00`),
-        end: new Date(`${event.date.end}T${event.time.end}:00`),
-        resourceId: `vendor-${vendor.vendor.value}`,
-        description: event.note || '',
-        color: event.color,
-        extendedProps: {
-          resourceType: 'vendor',
-          woVendorId: vendor.id
-        }
-      });
-    });
-
-    // WO Assets
-    event.assets.forEach(asset => {
-      calendarEvents.push({
-        id: event.id,
-        title: event.title || 'Untitled Event',
-        start: new Date(`${event.date.start}T${asset.time.start}:00`),
-        end: new Date(`${event.date.end}T${asset.time.end}:00`),
-        resourceId: `asset-${asset.asset.value}`,
-        description: event.note || '',
-        color: event.color,
-        extendedProps: {
-          resourceType: 'asset',
-          woAssetId: asset.id
-        }
-      });
-    });
-
-    if (!event.resources.length && !event.vendors.length && !event.assets.length) {
-      calendarEvents.push({
-        id: event.id,
-        title: event.title || 'Untitled Event',
-        start: new Date(`${event.date.start}T${event.time.start}:00`),
-        end: new Date(`${event.date.end}T${event.time.end}:00`),
-        resourceId: ['z-unassigned'],
-        color: event.color,
-        extendedProps: { ...event }
-      });
-    }
+     }
   });
 
   console.log('Processed Events', calendarEvents);
@@ -394,10 +572,15 @@ const Calendar = () => {
     })
   })
 
+  // Generate unassigned events as resources
+  const unassignedEvents = events.filter(event =>
+    !event.resources.length && !event.vendors.length && !event.assets.length
+  );
+
   const combinedResourceGroups = [
     ...resourceGroups,
     {
-      text: 'Vendor Subcons',
+      text: 'Vendor',
       value: 'vendor',
       resources: vendors,
       resourceCount: vendors.length,
@@ -407,16 +590,6 @@ const Calendar = () => {
       value: 'asset',
       resources: assets,
       resourceCount: assets.length,
-    },
-    // Events with no resource gets assigned here
-    {
-      text: 'Unassigned',
-      value: 'z-unassugned', // Auto sorts by id, needs to ba after asset group
-      resources: []/* events.filter(event =>
-        !event.resources.length
-        && !event.vendors.length
-        && !event.assets.length
-      ) */,
     }
   ];
 
@@ -438,6 +611,18 @@ const Calendar = () => {
     }
   }));
 
+  // Add single Unassigned resource
+  if (unassignedEvents.length > 0) {
+    calendarResources.push({
+      id: 'z-unassigned',
+      title: 'Unassigned',
+      children: [],
+      extendedProps: {
+        customTitleHtml: `<span class="text-[12px] font-bold text-gray-700">Unassigned</span>`
+      }
+    });
+  }
+
   // // Events with no resource gets assigned here
   // calendarResources.push({
   //   id: 'z-unassigned', // Auto sorts by id, needs to ba after vendor group
@@ -452,13 +637,47 @@ const Calendar = () => {
 
   console.log('Calendar Resources', calendarResources);
 
+  const getResourceName = (resourceId: string) => {
+    if (!resourceId) return 'Unassigned';
+    
+    if (resourceId === 'z-unassigned') return 'Unassigned';
+    
+    // Find the resource in calendarResources
+    for (const group of calendarResources) {
+      if (group.children) {
+        const resource = group.children.find(child => child.id === resourceId);
+        if (resource) {
+          return resource.extendedProps?.name || resource.title || 'Unknown';
+        }
+      }
+    }
+    
+    return 'Unknown';
+  };
+
   const handleDateClick = (arg: any) => {
     toast.info(`Date clicked: ${arg.dateStr}`);
   };
 
-  const handleEventClick = (arg: any) => {
-    toast.info(`Event clicked: ${arg.event.title}`);
-  };
+   const handleEventClick = (arg: any) => {
+     toast.info(`Event clicked: ${arg.event.title}`);
+   };
+
+   const handleEventMouseEnter = (arg: any) => {
+     const eventElement = arg.el;
+     const tooltipContent = arg.event.extendedProps.tooltipContent;
+     
+     if (tooltipContent) {
+       eventElement.setAttribute('data-tooltip-id', 'event-tooltip');
+       eventElement.setAttribute('data-tooltip-html', tooltipContent);
+     }
+   };
+
+   const handleEventMouseLeave = (arg: any) => {
+     const eventElement = arg.el;
+     eventElement.removeAttribute('data-tooltip-id');
+     eventElement.removeAttribute('data-tooltip-html');
+   };
 
   const handleViewDidMount = () => {
     const titleEl = document.querySelector('h2.fc-toolbar-title');
@@ -486,7 +705,7 @@ const Calendar = () => {
           <polygon points="22,3 2,3 10,12.46 10,19 14,21 14,12.46"></polygon>
         </svg>
       `;
-      button.onclick = () => alert('TBD');
+      button.onclick = () => alert('IN PROGRESS');
 
       const flexWrapper = document.createElement('div');
       flexWrapper.className = 'flex items-center space-x-2';
@@ -506,15 +725,15 @@ const Calendar = () => {
       legend.className = 'flex items-center space-x-4 text-[11px]';
       legend.innerHTML = `
         <div class="flex items-center space-x-1">
-          <span class="w-3 h-3 bg-green-500 inline-block rounded-sm"></span>
-          <span>Confirmed</span>
-        </div>
-        <div class="flex items-center space-x-1">
-          <span class="w-3 h-3 bg-yellow-500 inline-block rounded-sm"></span>
+          <span class="w-3 h-3 bg-[#6c757d] inline-block rounded-sm"></span>
           <span>Tentative</span>
         </div>
         <div class="flex items-center space-x-1">
-          <span class="w-3 h-3 bg-gray-500 inline-block rounded-sm"></span>
+          <span class="w-3 h-3 bg-[#026adf] inline-block rounded-sm"></span>
+          <span>Confirmed</span>
+        </div>
+        <div class="flex items-center space-x-1">
+          <span class="w-3 h-3 bg-[#28a745] inline-block rounded-sm"></span>
           <span>Completed</span>
         </div>
       `;
@@ -623,8 +842,10 @@ const Calendar = () => {
                   events={calendarEvents}
                   resources={calendarResources}
                   resourceOrder={'group'}
-                  dateClick={handleDateClick}
-                  eventClick={handleEventClick}
+                   dateClick={handleDateClick}
+                   eventClick={handleEventClick}
+                   eventMouseEnter={handleEventMouseEnter}
+                   eventMouseLeave={handleEventMouseLeave}
                   selectable={true}
                   selectMirror={true}
                   dayMaxEvents={true}
@@ -638,7 +859,7 @@ const Calendar = () => {
                     {
                       field: 'title',
                       headerContent: () => (
-                        <div className="flex items-center gap-2">
+                        <div className="flex items-center gap-2 -mt-3">
                           <Users className="h-4 w-4 text-gray-900 mt-[1px]" strokeWidth={2.5} />
                           <h2 className="text-sm font-medium text-gray-700">Resources</h2>
                           <Badge
@@ -673,20 +894,101 @@ const Calendar = () => {
                   customButtons={{
                     newEvent: {
                       text: '+ New Event',
-                      click: () => {
-                        toast.info('New Event clicked!');
-                        // Replace with actual dialog/modal trigger later
-                      }
+                      click: handleCreateNewEvent
                     }
                   }}
                   viewDidMount={handleViewDidMount}
-                  slotLaneClassNames={() => ['fc-slot-hoverable']}
-                  eventReceive={(info) => {
-                      console.log('eventReceive:', info);
-                      alert('TBD');
-                      // Open create event modal
-                      info.revert();
-                  }}
+                   slotLaneClassNames={() => ['fc-slot-hoverable']}
+                   eventReceive={(info) => {
+                       console.log('eventReceive:', info);
+                       const woId = info.event.extendedProps.woId;
+                       if (woId) {
+                         const job = jobs.find(j => j.id === woId);
+                         if (job) {
+                           // Capture resource information
+                           const resources = info.event.getResources();
+                           const resourceId = resources.length > 0 ? resources[0].id : undefined;
+                           
+                           // Capture date/time information
+                           const startDate = info.event.start ? format(info.event.start, 'yyyy-MM-dd') : '';
+                           const endDate = info.event.end ? format(info.event.end, 'yyyy-MM-dd') : startDate;
+                           const startTime = info.event.start ? format(info.event.start, 'HH:mm') : '08:00';
+                           const endTime = info.event.end ? format(info.event.end, 'HH:mm') : '12:00';
+                           
+                           console.log('Drop info:', { resourceId, startDate, endDate, startTime, endTime });
+                           
+                           setSelectedJob(job);
+                           setPrefilledResourceId(resourceId);
+                           setPrefilledStartDate(startDate);
+                           setPrefilledStartTime(startTime);
+                           setPrefilledEndTime(endTime);
+                           setIsCreateModalOpen(true);
+                         }
+                       }
+                       info.revert();
+                   }}
+                     eventDrop={(info) => {
+                         const oldStart = info.oldEvent.start ? format(info.oldEvent.start, 'PPP p') : '';
+                         const oldEnd = info.oldEvent.end ? format(info.oldEvent.end, 'PPP p') : '';
+                         const newStart = info.event.start ? format(info.event.start, 'PPP p') : '';
+                         const newEnd = info.event.end ? format(info.event.end, 'PPP p') : '';
+                         
+                         const oldResourceId = info.oldResource?.id;
+                         const newResourceId = info.newResource?.id;
+                         const oldResourceName = getResourceName(oldResourceId);
+                         const newResourceName = getResourceName(newResourceId);
+                         
+                         setConfirmDialogData({
+                           type: 'move',
+                           title: info.event.title,
+                           oldStart,
+                           oldEnd,
+                           newStart,
+                           newEnd,
+                           oldResource: oldResourceName,
+                           newResource: newResourceName,
+                           onConfirm: () => {
+                             console.log('Event dropped:', info);
+                             toast.success('Event moved successfully');
+                             setIsConfirmDialogOpen(false);
+                           },
+                           onCancel: () => {
+                             info.revert();
+                             setIsConfirmDialogOpen(false);
+                           }
+                         });
+                         setIsConfirmDialogOpen(true);
+                     }}
+                     eventResize={(info) => {
+                         const oldStart = info.oldEvent.start ? format(info.oldEvent.start, 'PPP p') : '';
+                         const oldEnd = info.oldEvent.end ? format(info.oldEvent.end, 'PPP p') : '';
+                         const newStart = info.event.start ? format(info.event.start, 'PPP p') : '';
+                         const newEnd = info.event.end ? format(info.event.end, 'PPP p') : '';
+                         
+                         const resourceId = info.event.getResources()[0]?.id;
+                         const resourceName = getResourceName(resourceId);
+                         
+                         setConfirmDialogData({
+                           type: 'resize',
+                           title: info.event.title,
+                           oldStart,
+                           oldEnd,
+                           newStart,
+                           newEnd,
+                           oldResource: resourceName,
+                           newResource: resourceName,
+                           onConfirm: () => {
+                             console.log('Event resized:', info);
+                             toast.success('Event resized successfully');
+                             setIsConfirmDialogOpen(false);
+                           },
+                           onCancel: () => {
+                             info.revert();
+                             setIsConfirmDialogOpen(false);
+                           }
+                         });
+                         setIsConfirmDialogOpen(true);
+                     }}
                 />
               </div>
             </ScrollArea>
@@ -709,7 +1011,7 @@ const Calendar = () => {
                 <Button
                   variant="outline"
                   size="icon"
-                  onClick={() => alert('TBD')}
+                  onClick={() => alert('IN PROGRESS')}
                 >
                   <Filter className="h-4 w-4" />
                 </Button>
@@ -721,14 +1023,16 @@ const Calendar = () => {
                        width: '100%'
                      }}>
                   {jobs.map((job) => (
-                    <div
-                      key={job.id}
-                      id={job.id}
-                      className="card-item w-full max-w-[170px] p-0.5"
-                      data-title={job.title}
-                      data-wo-id={job.id}
-                      draggable
-                    >
+                     <div
+                       key={job.id}
+                       id={job.id}
+                       className="card-item w-full max-w-[170px] p-0.5"
+                       data-title={job.title}
+                       data-wo-id={job.id}
+                       data-tooltip-id="job-tooltip"
+                       data-tooltip-content={job.title}
+                       draggable
+                     >
                       <Card
                         id={parseInt(job.id)}
                         title={job.title}
@@ -770,6 +1074,103 @@ const Calendar = () => {
           <Stars className="h-8 w-8" />
         </Button>
       </div>
+      
+      <Tooltip 
+        id="job-tooltip"
+        style={{ 
+          backgroundColor: '#1f2937',
+          color: 'white',
+          fontSize: '12px',
+          padding: '8px 12px',
+          borderRadius: '6px',
+          maxWidth: '300px',
+          zIndex: 9999,
+          boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)'
+        }}
+      />
+      
+      <Tooltip 
+        id="event-tooltip"
+        style={{ 
+          backgroundColor: '#1f2937',
+          color: 'white',
+          fontSize: '12px',
+          padding: '8px 12px',
+          borderRadius: '6px',
+          maxWidth: '300px',
+          zIndex: 9999,
+          boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)'
+        }}
+      />
+
+      <CreateEvent
+        isOpen={isCreateModalOpen}
+        onClose={() => setIsCreateModalOpen(false)}
+        selectedJob={selectedJob ? {
+          id: selectedJob.id,
+          title: selectedJob.title,
+          description: selectedJob.description,
+          woUrl: selectedJob.woUrl || '',
+          project: selectedJob.project,
+          projectUrl: selectedJob.projectUrl || ''
+        } : undefined}
+        onSubmit={handleSubmit}
+        employees={employees}
+        vendors={vendors}
+        assets={assets}
+        prefilledResourceId={prefilledResourceId}
+        prefilledStartDate={prefilledStartDate}
+        prefilledStartTime={prefilledStartTime}
+        prefilledEndTime={prefilledEndTime}
+      />
+
+      {/* Confirmation Dialog */}
+      <Dialog open={isConfirmDialogOpen} onOpenChange={setIsConfirmDialogOpen}>
+        <DialogContent>
+          <DialogHeader>
+            <DialogTitle>
+              Confirm Update Event
+            </DialogTitle>
+          </DialogHeader>
+           <div className="space-y-4">
+             <div>
+               <p className="font-medium">{confirmDialogData?.title}</p>
+             </div>
+             <div className="space-y-2">
+               <div>
+                 <p className="text-sm font-medium">Original:</p>
+                 <p className="text-sm text-muted-foreground">
+                   {confirmDialogData?.oldStart} - {confirmDialogData?.oldEnd}
+                 </p>
+                 {confirmDialogData?.oldResource && (
+                   <p className="text-sm text-muted-foreground">
+                     Resource: {confirmDialogData.oldResource}
+                   </p>
+                 )}
+               </div>
+               <div>
+                 <p className="text-sm font-medium">New:</p>
+                 <p className="text-sm text-muted-foreground">
+                   {confirmDialogData?.newStart} - {confirmDialogData?.newEnd}
+                 </p>
+                 {confirmDialogData?.newResource && (
+                   <p className="text-sm text-muted-foreground">
+                     Resource: {confirmDialogData.newResource}
+                   </p>
+                 )}
+               </div>
+             </div>
+           </div>
+          <DialogFooter>
+            <Button variant="outline" onClick={confirmDialogData?.onCancel} className="text-[12px] h-8 px-3 tracking-tight">
+              Cancel
+            </Button>
+            <Button onClick={confirmDialogData?.onConfirm} className="text-[12px] h-8 px-3 tracking-tight">
+              Confirm
+            </Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 };

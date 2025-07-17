@@ -77,7 +77,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "one time event on 6/2/2025",
@@ -322,7 +322,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Completed",
         "value": "COMPLETED",
-        "code": "#3b82f6"
+        "code": "#28a745"
       },
       "date": {
         "recurrence": "one time event on 3/25/2025",
@@ -628,7 +628,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "one time event on 3/18/2025",
@@ -688,7 +688,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Completed",
         "value": "COMPLETED",
-        "code": "#3b82f6"
+        "code": "#28a745"
       },
       "date": {
         "recurrence": "occurs every day from 3/14/2025 until 3/17/2025",
@@ -811,7 +811,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Completed",
         "value": "COMPLETED",
-        "code": "#3b82f6"
+        "code": "#28a745"
       },
       "date": {
         "recurrence": "occurs every day from 3/11/2025 until 3/13/2025",
@@ -935,7 +935,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Completed",
         "value": "COMPLETED",
-        "code": "#3b82f6"
+        "code": "#28a745"
       },
       "date": {
         "recurrence": "one time event on 3/10/2025",
@@ -996,7 +996,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Completed",
         "value": "COMPLETED",
-        "code": "#3b82f6"
+        "code": "#28a745"
       },
       "date": {
         "recurrence": "occurs every day from 3/6/2025 until 3/7/2025",
@@ -1244,7 +1244,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Completed",
         "value": "COMPLETED",
-        "code": "#3b82f6"
+        "code": "#28a745"
       },
       "date": {
         "recurrence": "occurs every day from 3/5/2025 until 3/6/2025",
@@ -1306,7 +1306,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Completed",
         "value": "COMPLETED",
-        "code": "#3b82f6"
+        "code": "#28a745"
       },
       "date": {
         "recurrence": "one time event on 3/5/2025",
@@ -1429,7 +1429,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Completed",
         "value": "COMPLETED",
-        "code": "#3b82f6"
+        "code": "#28a745"
       },
       "date": {
         "recurrence": "one time event on 3/1/2025",
@@ -1737,7 +1737,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Completed",
         "value": "COMPLETED",
-        "code": "#3b82f6"
+        "code": "#28a745"
       },
       "date": {
         "recurrence": "occurs every day from 1/20/2025 until 1/24/2025",
@@ -2107,7 +2107,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Completed",
         "value": "COMPLETED",
-        "code": "#3b82f6"
+        "code": "#28a745"
       },
       "date": {
         "recurrence": "one time event on 1/17/2025",
@@ -2841,7 +2841,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Completed",
         "value": "COMPLETED",
-        "code": "#3b82f6"
+        "code": "#28a745"
       },
       "date": {
         "recurrence": "occurs every day from 12/23/2024 until 12/24/2024",
@@ -3027,7 +3027,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Completed",
         "value": "COMPLETED",
-        "code": "#3b82f6"
+        "code": "#28a745"
       },
       "date": {
         "recurrence": "one time event on 12/2/2024",
@@ -3334,7 +3334,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Completed",
         "value": "COMPLETED",
-        "code": "#3b82f6"
+        "code": "#28a745"
       },
       "date": {
         "recurrence": "one time event on 11/13/2024",
@@ -3703,7 +3703,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Completed",
         "value": "COMPLETED",
-        "code": "#3b82f6"
+        "code": "#28a745"
       },
       "date": {
         "recurrence": "one time event on 11/11/2024",
@@ -4749,7 +4749,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Completed",
         "value": "COMPLETED",
-        "code": "#3b82f6"
+        "code": "#28a745"
       },
       "date": {
         "recurrence": "occurs every day from 11/11/2024 until 11/12/2024",
@@ -5059,7 +5059,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "occurs every day from 11/19/2024 until 11/21/2024",
@@ -5121,7 +5121,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "occurs every day from 11/5/2024 until 11/6/2024",
@@ -5183,7 +5183,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "occurs every day from 11/12/2024 until 11/13/2024",
@@ -5245,7 +5245,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "occurs every day from 11/5/2024 until 11/7/2024",
@@ -5674,7 +5674,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "one time event on 9/6/2024",
@@ -5735,7 +5735,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "occurs every day from 11/4/2024 until 11/6/2024",
@@ -5797,7 +5797,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "occurs every day from 11/4/2024 until 11/7/2024",
@@ -5859,7 +5859,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "one time event on 10/31/2024",
@@ -5919,7 +5919,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "one time event on 10/31/2024",
@@ -5979,7 +5979,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "one time event on 9/6/2024",
@@ -6040,7 +6040,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "one time event on 11/1/2024",
@@ -6101,7 +6101,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "occurs every day from 11/4/2024 until 11/8/2024",
@@ -6285,7 +6285,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "occurs every day from 10/31/2024 until 11/5/2024",
@@ -6347,7 +6347,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "occurs every day from 10/31/2024 until 11/6/2024",
@@ -6409,7 +6409,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "one time event on 10/31/2024",
@@ -6531,7 +6531,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "one time event on 10/2/2024",
@@ -6653,7 +6653,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "one time event on 10/25/2024",
@@ -6714,7 +6714,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "one time event on 10/25/2024",
@@ -7264,7 +7264,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "one time event on 10/28/2024",
@@ -7325,7 +7325,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "one time event on 10/29/2024",
@@ -7386,7 +7386,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "one time event on 10/29/2024",
@@ -7447,7 +7447,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Completed",
         "value": "COMPLETED",
-        "code": "#3b82f6"
+        "code": "#28a745"
       },
       "date": {
         "recurrence": "one time event on 10/22/2024",
@@ -7507,7 +7507,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "one time event on 10/21/2024",
@@ -7568,7 +7568,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "one time event on 10/21/2024",
@@ -7629,7 +7629,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "one time event on 10/21/2024",
@@ -7690,7 +7690,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "one time event on 10/21/2024",
@@ -7812,7 +7812,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "one time event on 10/22/2024",
@@ -7872,7 +7872,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "one time event on 10/22/2024",
@@ -7932,7 +7932,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "one time event on 10/22/2024",
@@ -7992,7 +7992,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "one time event on 10/22/2024",
@@ -8175,7 +8175,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "one time event on 10/22/2024",
@@ -8235,7 +8235,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "one time event on 10/22/2024",
@@ -8295,7 +8295,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "one time event on 10/22/2024",
@@ -8355,7 +8355,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "one time event on 10/22/2024",
@@ -8415,7 +8415,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "one time event on 10/22/2024",
@@ -8475,7 +8475,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "one time event on 10/23/2024",
@@ -8535,7 +8535,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "one time event on 10/22/2024",
@@ -8595,7 +8595,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "one time event on 10/22/2024",
@@ -8716,7 +8716,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "one time event on 10/22/2024",
@@ -8776,7 +8776,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "one time event on 10/22/2024",
@@ -8836,7 +8836,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "one time event on 10/22/2024",
@@ -8896,7 +8896,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "one time event on 10/22/2024",
@@ -8956,7 +8956,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "one time event on 10/22/2024",
@@ -9016,7 +9016,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "one time event on 10/22/2024",
@@ -9076,7 +9076,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "one time event on 10/22/2024",
@@ -9136,7 +9136,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "one time event on 10/22/2024",
@@ -9196,7 +9196,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "one time event on 10/22/2024",
@@ -9256,7 +9256,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "one time event on 10/23/2024",
@@ -9316,7 +9316,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "one time event on 10/22/2024",
@@ -9376,7 +9376,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "one time event on 10/21/2024",
@@ -9436,7 +9436,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "one time event on 10/16/2024",
@@ -9496,7 +9496,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "one time event on 10/16/2024",
@@ -9556,7 +9556,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "one time event on 10/16/2024",
@@ -9616,7 +9616,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "one time event on 10/14/2024",
@@ -9677,7 +9677,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "one time event on 10/14/2024",
@@ -9738,7 +9738,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "one time event on 10/14/2024",
@@ -9799,7 +9799,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "one time event on 10/7/2024",
@@ -9860,7 +9860,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "one time event on 10/7/2024",
@@ -9921,7 +9921,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "one time event on 10/4/2024",
@@ -9982,7 +9982,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "one time event on 10/4/2024",
@@ -10043,7 +10043,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "one time event on 10/4/2024",
@@ -10104,7 +10104,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "one time event on 10/4/2024",
@@ -10165,7 +10165,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "one time event on 10/4/2024",
@@ -10226,7 +10226,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "one time event on 10/4/2024",
@@ -10287,7 +10287,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "one time event on 10/3/2024",
@@ -10348,7 +10348,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "one time event on 10/3/2024",
@@ -10409,7 +10409,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "one time event on 10/3/2024",
@@ -10470,7 +10470,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "one time event on 10/3/2024",
@@ -10531,7 +10531,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "one time event on 10/3/2024",
@@ -10592,7 +10592,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "one time event on 10/3/2024",
@@ -10653,7 +10653,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "one time event on 10/2/2024",
@@ -10714,7 +10714,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "one time event on 10/2/2024",
@@ -10775,7 +10775,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "one time event on 10/2/2024",
@@ -10836,7 +10836,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "one time event on 10/2/2024",
@@ -10897,7 +10897,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "one time event on 10/2/2024",
@@ -10958,7 +10958,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "one time event on 10/2/2024",
@@ -11019,7 +11019,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "one time event on 10/2/2024",
@@ -11080,7 +11080,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "one time event on 10/2/2024",
@@ -11141,7 +11141,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "one time event on 10/2/2024",
@@ -11202,7 +11202,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "one time event on 10/2/2024",
@@ -11324,7 +11324,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "one time event on 10/1/2024",
@@ -11385,7 +11385,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "one time event on 10/1/2024",
@@ -11446,7 +11446,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "one time event on 10/1/2024",
@@ -11507,7 +11507,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "one time event on 9/30/2024",
@@ -11692,7 +11692,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "occurs every day from 9/1/2024 until 9/7/2024",
@@ -11816,7 +11816,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "one time event on 9/25/2024",
@@ -11876,7 +11876,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "one time event on 9/24/2024",
@@ -11937,7 +11937,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "one time event on 9/24/2024",
@@ -11998,7 +11998,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "one time event on 9/24/2024",
@@ -12059,7 +12059,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "one time event on 9/24/2024",
@@ -12120,7 +12120,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "one time event on 9/24/2024",
@@ -12181,7 +12181,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "one time event on 9/24/2024",
@@ -12242,7 +12242,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "one time event on 9/24/2024",
@@ -12363,7 +12363,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "occurs every day from 9/19/2024 until 9/20/2024",
@@ -12486,7 +12486,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "one time event on 9/17/2024",
@@ -12547,7 +12547,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "one time event on 9/17/2024",
@@ -12608,7 +12608,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "one time event on 9/17/2024",
@@ -12669,7 +12669,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "one time event on 9/17/2024",
@@ -12730,7 +12730,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "one time event on 9/17/2024",
@@ -12791,7 +12791,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "one time event on 9/17/2024",
@@ -12852,7 +12852,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "one time event on 9/17/2024",
@@ -12913,7 +12913,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "one time event on 9/17/2024",
@@ -12974,7 +12974,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "one time event on 9/17/2024",
@@ -13034,7 +13034,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Completed",
         "value": "COMPLETED",
-        "code": "#3b82f6"
+        "code": "#28a745"
       },
       "date": {
         "recurrence": "occurs every day from 9/14/2024 until 9/15/2024",
@@ -13096,7 +13096,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "one time event on 9/13/2024",
@@ -13156,7 +13156,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "one time event on 9/12/2024",
@@ -13217,7 +13217,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "one time event on 9/12/2024",
@@ -13277,7 +13277,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Completed",
         "value": "COMPLETED",
-        "code": "#3b82f6"
+        "code": "#28a745"
       },
       "date": {
         "recurrence": "occurs every day from 9/12/2024 until 9/13/2024",
@@ -13401,7 +13401,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Completed",
         "value": "COMPLETED",
-        "code": "#3b82f6"
+        "code": "#28a745"
       },
       "date": {
         "recurrence": "one time event on 9/11/2024",
@@ -13585,7 +13585,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Completed",
         "value": "COMPLETED",
-        "code": "#3b82f6"
+        "code": "#28a745"
       },
       "date": {
         "recurrence": "occurs every day from 9/6/2024 until 9/24/2024",
@@ -13647,7 +13647,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "occurs every day from 9/4/2024 until 9/10/2024",
@@ -13709,7 +13709,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "occurs every day from 9/4/2024 until 9/29/2024",
@@ -13771,7 +13771,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Completed",
         "value": "COMPLETED",
-        "code": "#3b82f6"
+        "code": "#28a745"
       },
       "date": {
         "recurrence": "occurs every day from 9/4/2024 until 9/9/2024",
@@ -13833,7 +13833,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "one time event on 9/4/2024",
@@ -13894,7 +13894,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "one time event on 9/4/2024",
@@ -13955,7 +13955,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "one time event on 9/4/2024",
@@ -14016,7 +14016,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "one time event on 9/4/2024",
@@ -14077,7 +14077,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "one time event on 9/4/2024",
@@ -14138,7 +14138,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "one time event on 9/5/2024",
@@ -14199,7 +14199,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "one time event on 9/3/2024",
@@ -14260,7 +14260,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "one time event on 8/2/2024",
@@ -14321,7 +14321,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "one time event on 8/2/2024",
@@ -14382,7 +14382,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "one time event on 9/3/2024",
@@ -14443,7 +14443,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "one time event on 9/3/2024",
@@ -14504,7 +14504,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "one time event on 8/31/2024",
@@ -14565,7 +14565,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "one time event on 8/31/2024",
@@ -14626,7 +14626,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "one time event on 8/31/2024",
@@ -14687,7 +14687,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "one time event on 8/20/2024",
@@ -14747,7 +14747,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "one time event on 8/12/2024",
@@ -14807,7 +14807,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "one time event on 11/30/2024",
@@ -14928,7 +14928,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "one time event on 11/10/2024",
@@ -15050,7 +15050,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Completed",
         "value": "COMPLETED",
-        "code": "#3b82f6"
+        "code": "#28a745"
       },
       "date": {
         "recurrence": "one time event on 7/8/2024",
@@ -15111,7 +15111,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Completed",
         "value": "COMPLETED",
-        "code": "#3b82f6"
+        "code": "#28a745"
       },
       "date": {
         "recurrence": "one time event on 7/8/2024",
@@ -15172,7 +15172,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Completed",
         "value": "COMPLETED",
-        "code": "#3b82f6"
+        "code": "#28a745"
       },
       "date": {
         "recurrence": "one time event on 7/8/2024",
@@ -15233,7 +15233,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Completed",
         "value": "COMPLETED",
-        "code": "#3b82f6"
+        "code": "#28a745"
       },
       "date": {
         "recurrence": "one time event on 7/9/2024",
@@ -15294,7 +15294,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Completed",
         "value": "COMPLETED",
-        "code": "#3b82f6"
+        "code": "#28a745"
       },
       "date": {
         "recurrence": "one time event on 7/8/2024",
@@ -15355,7 +15355,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Completed",
         "value": "COMPLETED",
-        "code": "#3b82f6"
+        "code": "#28a745"
       },
       "date": {
         "recurrence": "one time event on 7/8/2024",
@@ -15416,7 +15416,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Completed",
         "value": "COMPLETED",
-        "code": "#3b82f6"
+        "code": "#28a745"
       },
       "date": {
         "recurrence": "one time event on 7/4/2024",
@@ -15477,7 +15477,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "occurs every day from 10/2/2024 until 10/2/2024",
@@ -15538,7 +15538,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "occurs every week day starting on 6/7/2024",
@@ -15598,7 +15598,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "occurs every week day starting on 6/20/2024",
@@ -15658,7 +15658,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "one time event on 4/25/2024",
@@ -15718,7 +15718,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "occurs every Friday starting on 2/10/2012",
@@ -15778,7 +15778,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "occurs every Wednesday starting on 2/8/2012",
@@ -15838,7 +15838,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "occurs every Saturday starting on 1/21/2012",
@@ -15898,7 +15898,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "occurs every Thursday starting on 2/9/2012",
@@ -15958,7 +15958,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "occurs every Tuesday starting on 2/7/2012",
@@ -16018,7 +16018,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "occurs every Sunday starting on 2/5/2012",
@@ -16078,7 +16078,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "one time event on 1/28/2024",
@@ -16138,7 +16138,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "one time event on 12/16/2009",
@@ -16198,7 +16198,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "one time event on 1/15/2024",
@@ -16258,7 +16258,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "one time event on 3/16/2010",
@@ -16318,7 +16318,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "one time event on 3/26/2010",
@@ -16378,7 +16378,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "one time event on 2/26/2010",
@@ -16438,7 +16438,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "one time event on 3/8/2010",
@@ -16498,7 +16498,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "one time event on 2/17/2010",
@@ -16618,7 +16618,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "one time event on 2/19/2010",
@@ -16678,7 +16678,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "one time event on 2/9/2010",
@@ -16738,7 +16738,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "one time event on 2/10/2010",
@@ -16798,7 +16798,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "one time event on 2/24/2010",
@@ -16858,7 +16858,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "one time event on 2/12/2010",
@@ -16978,7 +16978,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "one time event on 2/4/2010",
@@ -17038,7 +17038,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "one time event on 1/29/2010",
@@ -17098,7 +17098,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "occurs every Saturday starting on 1/6/2024",
@@ -17158,7 +17158,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "one time event on 1/6/2024",
@@ -17218,7 +17218,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "one time event on 1/6/2024",
@@ -17278,7 +17278,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "one time event on 1/3/2024",
@@ -17338,7 +17338,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "one time event on 2/28/2024",
@@ -17398,7 +17398,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "one time event on 8/23/2024",
@@ -17458,7 +17458,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "one time event on 9/30/2015",
@@ -17518,7 +17518,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "one time event on 9/21/2015",
@@ -17578,7 +17578,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "one time event on 9/8/2015",
@@ -17638,7 +17638,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "one time event on 9/8/2015",
@@ -17698,7 +17698,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "one time event on 9/8/2015",
@@ -17758,7 +17758,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "one time event on 8/2/2024",
@@ -17818,7 +17818,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "one time event on 3/18/2024",
@@ -17878,7 +17878,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "one time event on 10/16/2014",
@@ -17938,7 +17938,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "one time event on 3/4/2024",
@@ -17998,7 +17998,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "one time event on 7/18/2024",
@@ -18058,7 +18058,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "one time event on 8/4/2024",
@@ -18118,7 +18118,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "one time event on 7/4/2024",
@@ -18299,7 +18299,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Completed",
         "value": "COMPLETED",
-        "code": "#3b82f6"
+        "code": "#28a745"
       },
       "date": {
         "recurrence": "occurs every Wednesday starting on 1/22/2014",
@@ -18359,7 +18359,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "occurs every day from 1/14/2014 until 1/14/2014",
@@ -18420,7 +18420,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "occurs every second week starting on 1/28/2014",
@@ -18660,7 +18660,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "one time event on 3/4/2014",
@@ -18720,7 +18720,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "occurs every day from 2/18/2014 until 2/18/2014",
@@ -18781,7 +18781,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "one time event on 9/13/2010",
@@ -18841,7 +18841,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "one time event on 4/8/2014",
@@ -18901,7 +18901,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "one time event on 2/4/2014",
@@ -18961,7 +18961,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "one time event on 1/21/2014",
@@ -19021,7 +19021,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "one time event on 4/7/2014",
@@ -19081,7 +19081,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "occurs every week from 1/15/2014 until 1/15/2014",
@@ -19142,7 +19142,7 @@ const getMockEvents = (): Event[] => {
       "status": {
         "text": "Confirmed",
         "value": "CONFIRMED",
-        "code": "#22c55e"
+        "code": "#026adf"
       },
       "date": {
         "recurrence": "occurs every week from 1/20/2014 until 1/20/2014",

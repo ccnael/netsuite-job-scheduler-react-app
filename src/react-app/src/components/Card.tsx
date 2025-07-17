@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { format, parse } from "date-fns";
 import { MoreHorizontal } from "lucide-react";
 import {
   DropdownMenu,
@@ -219,14 +220,34 @@ export const Card = ({
           {/* Event Date */}
           {eventData.date && (
             <p className={`text-gray-600 truncate text-[11px]`}>
-              {eventData.date.start == eventData.date.end ? eventData.date.start : `${eventData.date.start} - ${eventData.date.end}`}
+              {(() => {
+                const formatDateSafe = (dateStr: string) => {
+                  try {
+                    return format(new Date(dateStr), 'M/d/yyyy');
+                  } catch {
+                    return dateStr;
+                  }
+                };
+                const startFormatted = formatDateSafe(eventData.date.start);
+                const endFormatted = formatDateSafe(eventData.date.end);
+                return eventData.date.start == eventData.date.end ? startFormatted : `${startFormatted} - ${endFormatted}`;
+              })()}
             </p>
           )}
 
           {/* Event Time */}
           {eventData.time && (
             <p className={`text-gray-600 truncate text-[11px]`}>
-              {eventData.time.start} - {eventData.time.end}
+              {(() => {
+                const formatTimeSafe = (timeStr: string) => {
+                  try {
+                    return format(parse(timeStr, 'HH:mm', new Date()), 'h:mm a');
+                  } catch {
+                    return timeStr;
+                  }
+                };
+                return `${formatTimeSafe(eventData.time.start)} - ${formatTimeSafe(eventData.time.end)}`;
+              })()}
             </p>
           )}
 

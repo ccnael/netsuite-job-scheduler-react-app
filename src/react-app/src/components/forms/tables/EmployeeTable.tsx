@@ -28,6 +28,7 @@ interface EmployeeTableProps {
   primaryEndTime?: string;
   woResources?: any[];
   onUpdate?: boolean;
+  preselectedResourceIds?: string[];
 }
 
 interface TableEmployee {
@@ -49,7 +50,8 @@ export const EmployeeTable: React.FC<EmployeeTableProps> = ({
   onSelectionChange,
   primaryStartTime = '08:00',
   primaryEndTime = '18:00',
-  onUpdate
+  onUpdate,
+  preselectedResourceIds = []
 }) => {
   const [globalFilter, setGlobalFilter] = useState('');
   const [sorting, setSorting] = useState<SortingState>([]);
@@ -90,8 +92,27 @@ export const EmployeeTable: React.FC<EmployeeTableProps> = ({
   }, [data, woResources, timeOverrides]);
 
   useEffect(() => {
+    // Handle preselected resources (for drag and drop functionality)
+    if (preselectedResourceIds.length > 0 && tableData.length > 0 && !isInitialized) {
+      const initialSelection: Record<string, boolean> = {};
+      const initialOverrides: Record<string, { startTime?: string; endTime?: string }> = {};
+
+      tableData.forEach(emp => {
+        if (preselectedResourceIds.includes(emp.id)) {
+          initialSelection[emp.id] = true;
+          initialOverrides[emp.id] = {
+            startTime: emp.startTime || primaryStartTime,
+            endTime: emp.endTime || primaryEndTime,
+          };
+        }
+      });
+
+      setRowSelection(initialSelection);
+      setTimeOverrides(initialOverrides);
+      setIsInitialized(true);
+    }
     // Only initialize selection and time override when onUpdate is true and not already initialized
-    if (onUpdate && !isInitialized && tableData.length > 0) {
+    else if (onUpdate && !isInitialized && tableData.length > 0) {
       const initialSelection: Record<string, boolean> = {};
       const initialOverrides: Record<string, { startTime?: string; endTime?: string }> = {};
 
@@ -110,12 +131,12 @@ export const EmployeeTable: React.FC<EmployeeTableProps> = ({
       setTimeOverrides(initialOverrides);
       setIsInitialized(true);
     }
-  }, [tableData, onUpdate, isInitialized]);
+  }, [tableData, onUpdate, isInitialized, preselectedResourceIds, primaryStartTime, primaryEndTime]);
 
-  // Reset initialization when onUpdate or data changes
+  // Reset initialization when onUpdate, data, or preselectedResourceIds changes
   useEffect(() => {
     setIsInitialized(false);
-  }, [onUpdate, data.length]);
+  }, [onUpdate, data.length, preselectedResourceIds.length]);
 
   const updateTime = useCallback((rowId: string, key: 'startTime' | 'endTime', value: string) => {
     // console.log('Time update requested:', { rowId, key, value });
