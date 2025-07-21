@@ -22,7 +22,9 @@ define([
   './lib/esp_cm_woContact',
   './lib/esp_cm_woAddress',
   './lib/esp_cm_routingGroup',
-  './lib/esp_cm_completeEvent'
+  './lib/esp_cm_completeEvent',
+  './lib/esp_cm_customer',
+  './lib/esp_cm_location',
 ], (
   runtime,
   schedulerLib,
@@ -38,7 +40,9 @@ define([
   woContactLib,
   woAddressLib,
   routingGroupLib,
-  completeEventLib
+  completeEventLib,
+  customerLib,
+  locationLib
 ) => {
   /**
    * Vanilla JS UI Suitelet entry point (to be replaced)
@@ -183,6 +187,12 @@ define([
           break;
         case 'getPunchItems':
           completeEventLib.getPunchItems(context);
+          break;
+        case 'getCustomers':
+          customerLib.getCustomers(context);
+          break;
+        case 'getLocations':
+          locationLib.getLocations(context);
           break;
         default:
           schedulerLib.runReactApp(context);
