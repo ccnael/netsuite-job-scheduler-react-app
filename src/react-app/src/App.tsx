@@ -22,16 +22,18 @@ function App() {
         disableTransitionOnChange
       >
         <TooltipProvider>
-          <Toaster />
-          <Sonner />
-          <HashRouter>
-            <Navigation />
-            <Routes>
-              <Route path="/" element={<Board />} />
-              <Route path="/board" element={<Board />} />
-              <Route path="/calendar" element={<Calendar />} />
-            </Routes>
-          </HashRouter>
+          <div className="min-h-screen bg-background text-foreground">
+            <Toaster />
+            <Sonner />
+            <HashRouter>
+              <Navigation />
+              <Routes>
+                <Route path="/" element={<Board />} />
+                <Route path="/board" element={<Board />} />
+                <Route path="/calendar" element={<Calendar />} />
+              </Routes>
+            </HashRouter>
+          </div>
         </TooltipProvider>
       </ThemeProvider>
     </QueryClientProvider>

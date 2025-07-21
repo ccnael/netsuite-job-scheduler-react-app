@@ -16,3 +16,58 @@ export const statusOptions: DropdownOption[] = [
   { value: 'CONFIRMED', text: 'Confirmed' },
   { value: 'COMPLETED', text: 'Completed' }
 ];
+
+export const eventStatuses = [
+  {
+    value: 'Tentative',
+    label: 'Tentative'
+  },
+  {
+    value: 'Confirmed',
+    label: 'Confirmed'
+  },
+  {
+    value: 'Completed',
+    label: 'Completed'
+  }
+];
+
+export const eventPriorities = [
+  {
+    value: 'Low',
+    label: 'Low'
+  },
+  {
+    value: 'Medium',
+    label: 'Medium'
+  },
+  {
+    value: 'High',
+    label: 'High'
+  },
+  {
+    value: 'Urgent',
+    label: 'Urgent'
+  }
+];
+
+export const eventTypes = [
+  {
+    value: 'General Event',
+    label: 'General Event'
+  },
+  {
+    value: 'Non General Event',
+    label: 'Non General Event'
+  },
+  {
+    value: 'Unassigned Event',
+    label: 'Unassigned Event'
+  }
+];
+
+export const receiptStatuses = [
+  { value: 'Not Received', label: 'Not Received' },
+  { value: 'Partially Received', label: 'Partially Received' },
+  { value: 'Fully Received', label: 'Fully Received' }
+];

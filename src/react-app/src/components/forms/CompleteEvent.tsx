@@ -89,11 +89,11 @@ export const CompleteEvent: React.FC<CompleteEventProps> = ({
           <div className="space-y-4">
             <Accordion type="multiple" defaultValue={["primary-info", "timesheet", "woitems", "punchitems"]} className="w-full border rounded-lg">
               <AccordionItem value="primary-info">
-                <AccordionTrigger className="bg-[#dfe4eb] px-2 py-1 rounded-t-lg">
-                  <span className="text-[#234678] font-semibold text-[14px] tracking-tight">Primary Information</span>
+                <AccordionTrigger className="bg-muted px-2 py-1 rounded-t-lg">
+                  <span className="text-foreground font-semibold text-[14px] tracking-tight">Primary Information</span>
                 </AccordionTrigger>
                 <AccordionContent className="p-2 space-y-3">
-                  <div className="p-4 border rounded bg-white space-y-2">
+                  <div className="p-4 border rounded bg-background space-y-2">
                     <dl className="grid grid-cols-1 md:grid-cols-4 gap-x-4 gap-y-3">
                       <div>
                         <dt className="text-[13px] tracking-tight font-semibold">Event Title</dt>
@@ -121,7 +121,7 @@ export const CompleteEvent: React.FC<CompleteEventProps> = ({
                       </div>
                       <div>
                         <dt className="text-[13px] tracking-tight font-semibold text-center">Status</dt>
-                        <dd className="text-[13px] text-slate-900 text-center">{selectedEvent.status?.text || "-"}</dd>
+                        <dd className="text-[13px] text-foreground text-center">{selectedEvent.status?.text || "-"}</dd>
                       </div>
                     </dl>
                   </div>
@@ -131,8 +131,8 @@ export const CompleteEvent: React.FC<CompleteEventProps> = ({
 
             <Accordion type="multiple" defaultValue={["primary-info", "timesheet", "woitems", "punchitems"]} className="w-full border rounded-lg">
               <AccordionItem value="timesheet">
-                <AccordionTrigger className="bg-[#dfe4eb] px-2 py-1 rounded-t-lg">
-                  <span className="text-[#234678] font-semibold text-[14px] tracking-tight">Time Sheets</span>
+                <AccordionTrigger className="bg-muted px-2 py-1 rounded-t-lg">
+                  <span className="text-foreground font-semibold text-[14px] tracking-tight">Time Sheets</span>
                 </AccordionTrigger>
                 <AccordionContent className="p-2">
                   <div className="max-h-[400px] overflow-y-auto">
@@ -151,8 +151,8 @@ export const CompleteEvent: React.FC<CompleteEventProps> = ({
 
             <Accordion type="multiple" defaultValue={["primary-info", "timesheet", "woitems", "punchitems"]} className="w-full border rounded-lg">
               <AccordionItem value="woitems">
-                <AccordionTrigger className="bg-[#dfe4eb] px-2 py-1 rounded-t-lg">
-                  <span className="text-[#234678] font-semibold text-[14px] tracking-tight">Work Order Items</span>
+                <AccordionTrigger className="bg-muted px-2 py-1 rounded-t-lg">
+                  <span className="text-foreground font-semibold text-[14px] tracking-tight">Work Order Items</span>
                 </AccordionTrigger>
                 <AccordionContent className="p-2">
                   <div className="max-h-[400px] overflow-y-auto">
@@ -169,8 +169,8 @@ export const CompleteEvent: React.FC<CompleteEventProps> = ({
 
             <Accordion type="multiple" defaultValue={["primary-info", "timesheet", "woitems", "punchitems"]} className="w-full border rounded-lg">
               <AccordionItem value="punchitems">
-                <AccordionTrigger className="bg-[#dfe4eb] px-2 py-1 rounded-t-lg">
-                  <span className="text-[#234678] font-semibold text-[14px] tracking-tight">Punch Items</span>
+                <AccordionTrigger className="bg-muted px-2 py-1 rounded-t-lg">
+                  <span className="text-foreground font-semibold text-[14px] tracking-tight">Punch Items</span>
                 </AccordionTrigger>
                 <AccordionContent className="p-2">
                   <div className="max-h-[400px] overflow-y-auto">

@@ -71,7 +71,7 @@ export const WOAddressTable: React.FC<WOAddressTableProps> = ({ woId, onSelectio
     const isSorted = column.getIsSorted();
     if (isSorted === 'asc') return <ChevronUp className="ml-1 h-3 w-3" />;
     if (isSorted === 'desc') return <ChevronDown className="ml-1 h-3 w-3" />;
-    return <ChevronsUpDown className="ml-1 h-3 w-3 text-slate-400" />;
+    return <ChevronsUpDown className="ml-1 h-3 w-3 text-muted-foreground" />;
   };
 
   const [selectedRowId, setSelectedRowId] = useState<string | null>(null);
@@ -125,36 +125,36 @@ export const WOAddressTable: React.FC<WOAddressTableProps> = ({ woId, onSelectio
       accessorKey: "customer",
       header: ({ column }) => (
         <Button variant="ghost" onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-          className="h-6 px-1 text-[12px] font-sans tracking-tight font-semibold hover:bg-slate-100/60">
+          className="h-6 px-1 text-[12px] font-sans tracking-tight font-semibold hover:bg-muted/60">
           Customer {renderSortIcon(column)}
         </Button>
       ),
       cell: ({ row }) => (
-        <div className="text-slate-900 text-[12px] font-sans tracking-tight">{row.getValue("customer")}</div>
+        <div className="text-foreground text-[12px] font-sans tracking-tight">{row.getValue("customer")}</div>
       ),
     },
     {
       accessorKey: "address",
       header: ({ column }) => (
         <Button variant="ghost" onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-          className="h-6 px-1 text-[12px] font-sans tracking-tight font-semibold hover:bg-slate-100/60">
+          className="h-6 px-1 text-[12px] font-sans tracking-tight font-semibold hover:bg-muted/60">
           Address {renderSortIcon(column)}
         </Button>
       ),
       cell: ({ row }) => (
-        <div className="text-slate-900 text-[12px] font-sans tracking-tight">{row.getValue("address")}</div>
+        <div className="text-foreground text-[12px] font-sans tracking-tight">{row.getValue("address")}</div>
       ),
     },
     {
       accessorKey: "fullAddress",
       header: ({ column }) => (
         <Button variant="ghost" onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-          className="h-6 px-1 text-[12px] font-sans tracking-tight font-semibold hover:bg-slate-100/60">
+          className="h-6 px-1 text-[12px] font-sans tracking-tight font-semibold hover:bg-muted/60">
           Full Address {renderSortIcon(column)}
         </Button>
       ),
       cell: ({ row }) => (
-        <div className="text-[12px] font-sans text-slate-900 tracking-tight text-center">
+        <div className="text-[12px] font-sans text-foreground tracking-tight text-center">
           {(row.getValue("fullAddress") as string).split('<br/>').map((line, idx) => (
             <React.Fragment key={idx}>
               {line}
@@ -184,11 +184,11 @@ export const WOAddressTable: React.FC<WOAddressTableProps> = ({ woId, onSelectio
       {/* Top Toolbar */}
       <div className="flex items-center justify-between">
         <div className="flex items-center space-x-1">
-          <span className="text-[12px] font-sans text-slate-700">Rows:</span>
+          <span className="text-[12px] font-sans text-foreground">Rows:</span>
           <select
             value={table.getState().pagination.pageSize}
             onChange={(e) => table.setPageSize(Number(e.target.value))}
-            className="h-6 w-[50px] rounded border border-slate-200 bg-white px-1 text-[12px] font-sans"
+            className="h-6 w-[50px] rounded border border-border bg-background px-1 text-[12px] font-sans"
           >
             {[5, 10, 20, 30].map((size) => <option key={size} value={size}>{size}</option>)}
           </select>
@@ -208,24 +208,24 @@ export const WOAddressTable: React.FC<WOAddressTableProps> = ({ woId, onSelectio
             </div>
           )} */}
           <div className="relative w-[200px]">
-            <Search className="absolute left-2 top-1/2 transform -translate-y-1/2 text-slate-400 h-3 w-3" />
+            <Search className="absolute left-2 top-1/2 transform -translate-y-1/2 text-muted-foreground h-3 w-3" />
             <Input
               placeholder="Search..."
               value={globalFilter}
               onChange={(e) => setGlobalFilter(e.target.value)}
-              className="pl-8 h-6 border-slate-200 !text-[12px] font-sans placeholder:text-[12px]"
+              className="pl-8 h-6 border-border !text-[12px] font-sans placeholder:text-[12px]"
             />
           </div>
         </div>
       </div>
 
-      <div className="rounded border border-slate-200 bg-white shadow-sm overflow-x-auto">
+      <div className="rounded border border-border bg-card shadow-sm overflow-x-auto">
         <Table>
           <TableHeader>
             {table.getHeaderGroups().map((headerGroup) => (
-              <TableRow key={headerGroup.id} className="bg-slate-50/50">
+              <TableRow key={headerGroup.id} className="bg-muted/50">
                 {headerGroup.headers.map((header) => (
-                  <TableHead key={header.id} className="h-8 px-2 text-center font-sans text-[12px] font-semibold text-slate-700 border-b border-slate-200">
+                  <TableHead key={header.id} className="h-8 px-2 text-center font-sans text-[12px] font-semibold text-foreground border-b border-border">
                     {header.isPlaceholder ? null : flexRender(header.column.columnDef.header, header.getContext())}
                   </TableHead>
                 ))}
@@ -235,21 +235,21 @@ export const WOAddressTable: React.FC<WOAddressTableProps> = ({ woId, onSelectio
           <TableBody>
             {table.getRowModel().rows.length ? (
               table.getRowModel().rows.map((row) => (
-                <TableRow key={row.id} className="border-b border-slate-100 hover:bg-slate-50/50">
+                <TableRow key={row.id} className="border-b border-border hover:bg-muted/50">
                   {row.getVisibleCells().map((cell) => (
                     <TableCell key={cell.id} className="px-2 py-1 text-center text-[12px] font-sans">{flexRender(cell.column.columnDef.cell, cell.getContext())}</TableCell>
                   ))}
                 </TableRow>
               ))
             ) : (
-              <TableRow><TableCell colSpan={columns.length} className="h-16 text-center text-slate-500 text-[12px]">No items found.</TableCell></TableRow>
+              <TableRow><TableCell colSpan={columns.length} className="h-16 text-center text-muted-foreground text-[12px]">No items found.</TableCell></TableRow>
             )}
           </TableBody>
         </Table>
       </div>
 
       <div className="flex items-center justify-between mt-2">
-        <div className="text-[12px] font-sans text-slate-700">
+        <div className="text-[12px] font-sans text-foreground">
           {(() => {
             const pageIndex = table.getState().pagination.pageIndex;
             const pageSize = table.getState().pagination.pageSize;

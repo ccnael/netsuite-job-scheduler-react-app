@@ -415,10 +415,10 @@ export const CreateEvent: React.FC<CreateEventProps> = ({
 
           <ScrollArea className="flex-1 overflow-y-auto">
             <div className="space-y-4">
-              <Accordion type="multiple" value={accordionValues} onValueChange={setAccordionValues} className="w-full border rounded-lg">
+              <Accordion type="multiple" value={accordionValues} onValueChange={setAccordionValues} className="w-full border border-border rounded-lg">
                 <AccordionItem value="primary-info">
-                  <AccordionTrigger className="bg-[#dfe4eb] px-2 py-1 rounded-t-lg">
-                    <span className="text-[#234678] font-semibold text-[14px] tracking-tight">Primary Information</span>
+                  <AccordionTrigger className="bg-muted px-2 py-1 rounded-t-lg">
+                    <span className="text-foreground font-semibold text-[14px] tracking-tight">Primary Information</span>
                   </AccordionTrigger>
                   <AccordionContent className="p-2 space-y-3">
                     <div className="grid grid-cols-4 gap-2">
@@ -435,7 +435,7 @@ export const CreateEvent: React.FC<CreateEventProps> = ({
 
                       <div className="col-span-1 space-y-1">
                         <Label className="text-[12px] tracking-tight">Work Order</Label>
-                        <div className="h-7 px-2 rounded flex items-center text-gray-600 truncate text-[12px]">
+                        <div className="h-7 px-2 rounded flex items-center text-muted-foreground truncate text-[12px]">
                           {selectedJob ? (
                             <a href={selectedJob.woUrl} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline truncate">{selectedJob.title}</a>
                           ) : '-'}
@@ -444,7 +444,7 @@ export const CreateEvent: React.FC<CreateEventProps> = ({
 
                       <div className="col-span-1 space-y-1">
                         <Label className="text-[12px] tracking-tight">Project</Label>
-                        <div className="h-7 px-2 rounded flex items-center text-gray-600 truncate text-[12px]">
+                        <div className="h-7 px-2 rounded flex items-center text-muted-foreground truncate text-[12px]">
                           {selectedJob ? (
                             <a href={selectedJob.projectUrl} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline truncate">{selectedJob.project}</a>
                           ) : '-'}
@@ -581,18 +581,18 @@ export const CreateEvent: React.FC<CreateEventProps> = ({
                 </AccordionItem>
               </Accordion>
 
-              <Accordion type="multiple" value={accordionValues} onValueChange={setAccordionValues} className="w-full border rounded-lg">
+              <Accordion type="multiple" value={accordionValues} onValueChange={setAccordionValues} className="w-full border border-border rounded-lg">
                 <AccordionItem value="resources">
                   <AccordionTrigger 
                     className={`px-2 py-1 rounded-t-lg ${
                       formData.assetMaintenance 
-                        ? 'bg-gray-200 text-gray-400 cursor-not-allowed' 
-                        : 'bg-[#dfe4eb]'
+                        ? 'bg-muted/50 text-muted-foreground cursor-not-allowed' 
+                        : 'bg-muted'
                     }`}
                     disabled={formData.assetMaintenance}
                   >
                     <span className={`font-semibold text-[14px] tracking-tight ${
-                      formData.assetMaintenance ? 'text-gray-400' : 'text-[#234678]'
+                      formData.assetMaintenance ? 'text-muted-foreground' : 'text-foreground'
                     }`}>
                       Resources
                     </span>
@@ -613,18 +613,18 @@ export const CreateEvent: React.FC<CreateEventProps> = ({
                 </AccordionItem>
               </Accordion>
 
-              <Accordion type="multiple" value={accordionValues} onValueChange={setAccordionValues} className="w-full border rounded-lg">
+              <Accordion type="multiple" value={accordionValues} onValueChange={setAccordionValues} className="w-full border border-border rounded-lg">
                 <AccordionItem value="vendors">
                   <AccordionTrigger 
                     className={`px-2 py-1 rounded-t-lg ${
                       formData.assetMaintenance 
-                        ? 'bg-gray-200 text-gray-400 cursor-not-allowed' 
-                        : 'bg-[#dfe4eb]'
+                        ? 'bg-muted/50 text-muted-foreground cursor-not-allowed' 
+                        : 'bg-muted'
                     }`}
                     disabled={formData.assetMaintenance}
                   >
                     <span className={`font-semibold text-[14px] tracking-tight ${
-                      formData.assetMaintenance ? 'text-gray-400' : 'text-[#234678]'
+                      formData.assetMaintenance ? 'text-muted-foreground' : 'text-foreground'
                     }`}>
                       Vendors
                     </span>
@@ -643,10 +643,10 @@ export const CreateEvent: React.FC<CreateEventProps> = ({
                 </AccordionItem>
               </Accordion>
 
-              <Accordion type="multiple" value={accordionValues} onValueChange={setAccordionValues} className="w-full border rounded-lg">
+              <Accordion type="multiple" value={accordionValues} onValueChange={setAccordionValues} className="w-full border border-border rounded-lg">
                 <AccordionItem value="assets">
-                  <AccordionTrigger className="bg-[#dfe4eb] px-2 py-1 rounded-t-lg">
-                    <span className="text-[#234678] font-semibold text-[14px] tracking-tight">Assets</span>
+                  <AccordionTrigger className="bg-muted px-2 py-1 rounded-t-lg">
+                    <span className="text-foreground font-semibold text-[14px] tracking-tight">Assets</span>
                   </AccordionTrigger>
                   <AccordionContent className="p-2">
                     <div className="max-h-[400px] overflow-y-auto">
@@ -666,10 +666,10 @@ export const CreateEvent: React.FC<CreateEventProps> = ({
               {
                 (selectedJob?.id) && 
                 <>
-                  <Accordion type="single" collapsible className="w-full border rounded-lg" defaultValue='woitems'>
+                  <Accordion type="single" collapsible className="w-full border border-border rounded-lg" defaultValue='woitems'>
                     <AccordionItem value="woitems">
-                      <AccordionTrigger className="bg-[#dfe4eb] px-2 py-1 rounded-t-lg">
-                        <span className="text-[#234678] font-semibold text-[14px] tracking-tight">Work Order Items</span>
+                      <AccordionTrigger className="bg-muted px-2 py-1 rounded-t-lg">
+                        <span className="text-foreground font-semibold text-[14px] tracking-tight">Work Order Items</span>
                       </AccordionTrigger>
                       <AccordionContent className="p-2">
                         <div className="max-h-[400px] overflow-y-auto">
@@ -681,10 +681,10 @@ export const CreateEvent: React.FC<CreateEventProps> = ({
                       </AccordionContent>
                     </AccordionItem>
                   </Accordion>
-                  <Accordion type="single" collapsible className="w-full border rounded-lg" defaultValue='wocontacts'>
+                  <Accordion type="single" collapsible className="w-full border border-border rounded-lg" defaultValue='wocontacts'>
                     <AccordionItem value="wocontacts">
-                      <AccordionTrigger className="bg-[#dfe4eb] px-2 py-1 rounded-t-lg">
-                        <span className="text-[#234678] font-semibold text-[14px] tracking-tight">Work Order Contacts</span>
+                      <AccordionTrigger className="bg-muted px-2 py-1 rounded-t-lg">
+                        <span className="text-foreground font-semibold text-[14px] tracking-tight">Work Order Contacts</span>
                       </AccordionTrigger>
                       <AccordionContent className="p-2">
                         <div className="max-h-[400px] overflow-y-auto">
@@ -696,10 +696,10 @@ export const CreateEvent: React.FC<CreateEventProps> = ({
                       </AccordionContent>
                     </AccordionItem>
                   </Accordion>
-                  <Accordion type="single" collapsible className="w-full border rounded-lg" defaultValue='woaddresses'>
+                  <Accordion type="single" collapsible className="w-full border border-border rounded-lg" defaultValue='woaddresses'>
                     <AccordionItem value="woaddresses">
-                      <AccordionTrigger className="bg-[#dfe4eb] px-2 py-1 rounded-t-lg">
-                        <span className="text-[#234678] font-semibold text-[14px] tracking-tight">Work Order Addresses</span>
+                      <AccordionTrigger className="bg-muted px-2 py-1 rounded-t-lg">
+                        <span className="text-foreground font-semibold text-[14px] tracking-tight">Work Order Addresses</span>
                       </AccordionTrigger>
                       <AccordionContent className="p-2">
                         <div className="max-h-[400px] overflow-y-auto">

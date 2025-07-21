@@ -44,6 +44,7 @@
     --sidebar-accent-foreground: 240 5.9% 10%;
     --sidebar-border: 220 13% 91%;
     --sidebar-ring: 217.2 91.2% 59.8%;
+    --fc-border-color: hsl(var(--border));
   }
 
   .dark {
@@ -83,6 +84,7 @@
     --sidebar-accent-foreground: 240 4.8% 95.9%;
     --sidebar-border: 240 3.7% 15.9%;
     --sidebar-ring: 217.2 91.2% 59.8%;
+    --fc-border-color: hsl(var(--border));
   }
 }
 
@@ -158,7 +160,7 @@
 
 /* Add this to your global CSS (e.g. styles/globals.css or in a <style> block) */
 .fc .fc-timeline-slot {
-  border-right: 1px solid #e5e7eb; /* Tailwind's gray-200 */
+
 }
 
 /* Optional: Make the last column not have a border */

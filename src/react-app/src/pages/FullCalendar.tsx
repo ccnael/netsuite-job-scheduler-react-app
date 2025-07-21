@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import timeGridPlugin from '@fullcalendar/timegrid';
@@ -14,15 +14,19 @@ import { fetchWOResources, type WOResource } from '@/api/woResource';
 import { fetchWOVendors, type WOVendor } from '@/api/woVendor';
 import { fetchWOAssets, type WOAsset } from '@/api/woAsset';
 import { fetchWorkOrders, type WorkOrder } from '@/api/workOrder';
+import { fetchRoutingGroups, type RoutingGroup } from '@/api/routingGroup';
 /* import { fetchWOItems, type WOItem } from '@/api/woItem';
 import { fetchWOContacts, type WOContact } from '@/api/woContact';
 import { fetchWOAddresses, type WOAddress } from '@/api/woAddress'; */
+import { fetchCustomers, type Customer } from "@/api/customer";
+import { fetchLocations, type Location } from "@/api/location";
 import { toast } from "sonner";
 import { Card } from '../components/Card';
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { ClipboardCheck, Users, Stars, Filter } from "lucide-react";
+// import { ClipboardCheck, Users, Stars, Filter, Search } from "lucide-react";
+import { Stars, ChevronRight, Filter, Bot, ClipboardCheck, Plus, Search, Users, X } from "lucide-react";
 import { Skeleton } from "@/components/ui/skeleton";
 import { ResizablePanelGroup, ResizablePanel, ResizableHandle } from "@/components/ui/resizable";
 import { Tooltip } from 'react-tooltip';
@@ -33,7 +37,46 @@ import {
   DialogHeader,
   DialogTitle,
   DialogFooter,
+  DialogDescription,
 } from "@/components/ui/dialog";
+import { MultiSelect } from '../components/MultiSelect';
+import MultiSelectFilter from '../components/forms/MultiSelectFilter';
+import { Option } from '@/components/ui-custom/MultiSelect';
+import DateRangeFilter from '../components/forms/DateRangeFilter';
+import { Label } from "@/components/ui/label";
+import { Input } from "@/components/ui/input";
+import { receiptStatuses, eventStatuses, eventPriorities, eventTypes } from "@/lib/constants";
+
+interface EventFilterState {
+  statuses: string[];
+  eventId: string;
+  resourceNames: string[];
+  resourceGroups: string[];
+  priorities: string[];
+  eventTypes: string[];
+  dateFrom: Date | undefined;
+  dateTo: Date | undefined;
+  organizers: string[];
+  receiptStatuses: string[];
+  routingGroups: string[];
+}
+
+interface JobFilterState {
+  statuses: string[];
+  woId: string;
+  title: string;
+  resourceNames: string[];
+  resourceGroups: string[];
+  priorities: string[];
+  eventTypes: string[];
+  dateFrom: Date | undefined;
+  dateTo: Date | undefined;
+  organizers: string[];
+  receiptStatuses: string[];
+  routingGroups: string[];
+  customers: string[];
+  locations: string[];
+}
 
 interface Job {
   id: string;
@@ -48,6 +91,7 @@ interface Job {
   type: string;
   date: string;
   customer: string;
+  location: string;
   project: string;
   salesOrder: string;
   estHours: number;
@@ -90,6 +134,12 @@ const Calendar = () => {
   const [vendors, setVendors] = useState<Vendor[]>([]);
   const [assets, setAssets] = useState<Asset[]>([]);
   const [jobs, setJobs] = useState<Job[]>([]);
+  const [routingGroups, setRoutingGroups] = useState<RoutingGroup[]>([]);
+  const [routingGroupsLoaded, setRoutingGroupsLoaded] = useState(false);
+  const [customers, setCustomers] = useState<Customer[]>([]);
+  const [customersLoaded, setCustomersLoaded] = useState(false);
+  const [locations, setLocations] = useState<Location[]>([]);
+  const [locationsLoaded, setLocationsLoaded] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [draggedJob, setDraggedJob] = useState<Job | null>(null);
   const [isCreateModalOpen, setIsCreateModalOpen] = useState(false);
@@ -111,6 +161,288 @@ const Calendar = () => {
     onConfirm: () => void;
     onCancel: () => void;
   } | null>(null);
+  const [currentViewStart, setCurrentViewStart] = useState<Date | null>(null);
+  const [currentViewEnd, setCurrentViewEnd] = useState<Date | null>(null);
+  const [currentViewType, setCurrentViewType] = useState<string | null>(null);
+  
+  // Filter state
+  const [isFilterModalOpen, setIsFilterModalOpen] = useState(false);
+  const [filterType, setFilterType] = useState<'jobs' | 'events'>('jobs');
+
+  const [eventsFilter, setEventsFilter] = useState<EventFilterState>({
+    statuses: [],
+    eventId: '',
+    resourceNames: [],
+    resourceGroups: [],
+    priorities: [],
+    eventTypes: [],
+    dateFrom: undefined,
+    dateTo: undefined,
+    organizers: [],
+    receiptStatuses: [],
+    routingGroups: [],
+  });
+  const [jobsFilter, setJobsFilter] = useState<JobFilterState>({
+    statuses: [],
+    woId: '',
+    title: '',
+    resourceNames: [],
+    resourceGroups: [],
+    priorities: [],
+    eventTypes: [],
+    dateFrom: undefined,
+    dateTo: undefined,
+    organizers: [],
+    receiptStatuses: [],
+    routingGroups: [],
+    customers: [],
+    locations: []
+  });
+  
+  const calendarRef = useRef<FullCalendar | null>(null);
+
+  const handleOpenFilter = (type: 'jobs' | 'events') => {
+    setFilterType(type);
+    setIsFilterModalOpen(true);
+  };
+
+  const getActiveEventFiltersCount = (filter: EventFilterState) => {
+    return filter.statuses.length + 
+           (filter.eventId ? 1 : 0) + filter.resourceNames.length + filter.resourceGroups.length +
+           filter.priorities.length + filter.eventTypes.length + 
+           (filter.dateFrom ? 1 : 0) + (filter.dateTo ? 1 : 0) + 
+           filter.organizers.length + filter.receiptStatuses.length + 
+           filter.routingGroups.length;
+  };
+
+  // Update badge when filter changes
+  useEffect(() => {
+    if ((window as any).updateEventFilterBadge) {
+      const activeCount = getActiveEventFiltersCount(eventsFilter);
+      (window as any).updateEventFilterBadge(activeCount);
+    }
+  }, [eventsFilter]);
+
+  // Function to count events in current view date range
+  const getEventsInCurrentView = () => {
+    console.log('getEventsInCurrentView called:', { 
+      currentViewStart, 
+      currentViewEnd, 
+      filteredEventsLength: filteredEvents.length 
+    });
+    
+    if (!currentViewStart || !currentViewEnd) {
+      console.log('No view dates set, returning 0');
+      return 0;
+    }
+    
+    const eventsInView = filteredEvents.filter(event => {
+      const eventStart = new Date(event.date?.start || '');
+      const eventEnd = new Date(event.date?.end || '');
+      
+      /* if (event.id == '101153') {
+        console.log('Checking event:', { 
+          eventId: event.id, 
+          eventStart: eventStart.toISOString(), 
+          eventEnd: eventEnd.toISOString(),
+          viewStart: currentViewStart.toISOString(),
+          viewEnd: currentViewEnd.toISOString()
+        });
+      } */
+      
+      // Check if event overlaps with current view range
+      const overlaps = eventStart <= currentViewEnd && eventEnd >= currentViewStart;
+      /* if (event.id == '101153') {
+        console.log('Event overlaps:', overlaps);
+      } */
+      return overlaps;
+    });
+    
+    console.log('Events in current view:', eventsInView.length);
+    return eventsInView.length;
+  };
+
+  const filteredJobs = jobs.filter(job => {
+    // Filter by job ID
+    if (jobsFilter.woId && !job.title.includes(jobsFilter.woId)) {
+      return false;
+    }
+
+    // Filter by job title
+    if (jobsFilter.title && !job.title.includes(jobsFilter.title)) {
+      return false;
+    }
+
+    // Filter by date range
+    if (jobsFilter.dateFrom || jobsFilter.dateTo) {
+      const jobDate = new Date(job.date || '');
+      
+      if (jobsFilter.dateFrom) {
+        const fromDate = new Date(jobsFilter.dateFrom);
+        if (jobDate < fromDate) {
+          return false;
+        }
+      }
+      
+      if (jobsFilter.dateTo) {
+        const toDate = new Date(jobsFilter.dateTo);
+        if (jobDate > toDate) {
+          return false;
+        }
+      }
+    }
+
+    return (jobsFilter.customers.length === 0 || jobsFilter.customers.includes(job.customer)) &&
+          (jobsFilter.locations.length === 0 || jobsFilter.locations.includes(job.location));
+  });
+
+  const getReceiptStatusForEvent = (event: Event) => {
+    if (event.workorder?.text && event.workorder.text.trim() && event.workorder.value) {
+      const matchingJob = jobs.find(job => job.id === event.workorder?.value);
+      if (matchingJob && matchingJob.receiptStatus) {
+        return {
+          ...matchingJob.receiptStatus,
+          display: matchingJob.receiptStatus.display || matchingJob.receiptStatus.text
+        };
+      }
+    }
+    return undefined;
+  };
+
+  const filteredEvents = events.filter(event => {
+    // Filter by event ID
+    if (eventsFilter.eventId && !event.id.includes(eventsFilter.eventId)) {
+      return false;
+    }
+    
+    // Filter by resource names  
+    if (eventsFilter.resourceNames.length > 0) {
+      const eventResourceNames = [
+        ...(event.resources || []).map(r => r.employee?.text || ''),
+        ...(event.vendors || []).map(v => v.vendor?.text || ''),
+        ...(event.assets || []).map(a => a.asset?.text || '')
+      ].filter(Boolean);
+      
+      const hasMatchingResource = eventResourceNames.some(resourceName => 
+        eventsFilter.resourceNames.some(filterName => 
+          resourceName.toLowerCase().includes(filterName.toLowerCase())
+        )
+      );
+      
+      if (!hasMatchingResource) {
+        return false;
+      }
+    }
+    
+    // Filter by resource groups
+    if (eventsFilter.resourceGroups.length > 0) {
+      const eventResourceGroups = [
+        ...(event.resources || []).flatMap(r => {
+          const employeeId = r.employee?.value;
+          const employee = employees.find(emp => emp.employee?.value === employeeId);
+          return (employee?.resourceGroups || []).map(group => group.text);
+        }),
+        ...(event.vendors || []).flatMap(v => {
+          const vendorId = v.vendor?.value;
+          const vendor = vendors.find(vend => vend.vendor?.value === vendorId);
+          return (vendor?.resourceGroups || []).map(group => group.text);
+        })
+      ].filter(Boolean);
+      
+      // Add default groups if resources exist
+      if ((event.vendors || []).length > 0) {
+        eventResourceGroups.push('Vendors');
+      }
+      if ((event.assets || []).length > 0) {
+        eventResourceGroups.push('Assets');
+      }
+      
+      const hasMatchingResourceGroup = eventResourceGroups.some(groupName => 
+        eventsFilter.resourceGroups.some(filterGroup => 
+          groupName.toLowerCase().includes(filterGroup.toLowerCase())
+        )
+      );
+      
+      if (!hasMatchingResourceGroup) {
+        return false;
+      }
+    }
+    
+    // Filter by event types
+    if (eventsFilter.eventTypes.length > 0) {
+      const hasWorkOrder = event.workorder && event.workorder.value;
+      const hasResources = (event.resources || []).length > 0;
+      const hasVendors = (event.vendors || []).length > 0;
+      const hasAssets = (event.assets || []).length > 0;
+      
+      const eventType = !hasWorkOrder 
+        ? 'General Event'
+        : (hasResources || hasVendors || hasAssets)
+        ? 'Non General Event'
+        : 'Unassigned Event';
+      
+      if (!eventsFilter.eventTypes.includes(eventType)) {
+        return false;
+      }
+    }
+    
+    // Filter by date range
+    if (eventsFilter.dateFrom || eventsFilter.dateTo) {
+      const eventStartDate = new Date(event.date?.start || '');
+      const eventEndDate = new Date(event.date?.end || '');
+      
+      if (eventsFilter.dateFrom) {
+        const fromDate = new Date(eventsFilter.dateFrom);
+        if (eventEndDate < fromDate) {
+          return false;
+        }
+      }
+      
+      if (eventsFilter.dateTo) {
+        const toDate = new Date(eventsFilter.dateTo);
+        if (eventStartDate > toDate) {
+          return false;
+        }
+      }
+    }
+    
+    // Filter by organizers
+    if (eventsFilter.organizers.length > 0) {
+      const eventOrganizer = event.organizer?.text || '';
+      if (!eventsFilter.organizers.includes(eventOrganizer)) {
+        return false;
+      }
+    }
+    
+    // Filter by receipt statuses
+    if (eventsFilter.receiptStatuses.length > 0) {
+      const eventReceiptStatus = getReceiptStatusForEvent(event);
+      const receiptStatusText = eventReceiptStatus?.text || '';
+      if (!eventsFilter.receiptStatuses.includes(receiptStatusText)) {
+        return false;
+      }
+    }
+    
+    // Filter by routing groups
+    if (eventsFilter.routingGroups.length > 0) {
+      const eventRoutingGroup = event.routingGroup?.text || '';
+      if (!eventsFilter.routingGroups.includes(eventRoutingGroup)) {
+        return false;
+      }
+    }
+    
+    // Filter by statuses, and priorities
+    return (eventsFilter.statuses.length === 0 || eventsFilter.statuses.includes(event.status?.text || '')) &&
+           (eventsFilter.priorities.length === 0 || eventsFilter.priorities.includes(event.priority?.text || ''));
+  });
+
+  // Update events count badge when filters change
+  useEffect(() => {
+    if ((window as any).updateEventCountBadge) {
+      (window as any).updateEventCountBadge(filteredEvents);
+    }
+  }, [eventsFilter, events, filteredEvents]);
+
 
   useEffect(() => {
     const loadAllData = async () => {
@@ -216,6 +548,7 @@ const Calendar = () => {
           type: wo.type.text || '',
           date: wo.date || new Date().toLocaleDateString(),
           customer: wo.customer.text,
+          location: wo.location.text,
           project: wo.project.text,
           salesOrder: wo.salesorder.text,
           estHours: +wo.esthours,
@@ -242,140 +575,6 @@ const Calendar = () => {
 
     loadAllData();
   }, []);
-
-  const handleCreateNewEvent = () => {
-    setIsCreateModalOpen(true);
-    setSelectedJob(null);
-    setPrefilledResourceId(undefined);
-    setPrefilledStartDate(undefined);
-    setPrefilledStartTime(undefined);
-    setPrefilledEndTime(undefined);
-  };
-
-  const handleSubmit = useCallback((submittedFormData: EventFormData) => {
-    if (!submittedFormData.eventTitle || !submittedFormData.startDate || !submittedFormData.endDate || (!submittedFormData.allDay && (!submittedFormData.startTime || !submittedFormData.endTime))) {
-      console.log('Form Data', submittedFormData);
-      toast.error("Please fill in all required fields", {
-        position: "top-right",
-      });
-      return;
-    }
-    
-    const newEvent: Event = {
-      id: `event-${Date.now()}`,
-      title: submittedFormData.eventTitle,
-      note: submittedFormData.notes,
-      date: {
-        recurrence: submittedFormData.startDate,
-        dates: [submittedFormData.startDate, submittedFormData.endDate],
-        start: submittedFormData.startDate,
-        end: submittedFormData.endDate
-      },
-      time: submittedFormData.allDay ? undefined : {
-        start: submittedFormData.startTime,
-        end: submittedFormData.endTime
-      },
-      status: {
-        text: submittedFormData.status === 'TENTATIVE' ? 'Tentative' : submittedFormData.status === 'CONFIRMED' ? 'Confirmed' : 'Completed',
-        value: submittedFormData.status,
-        code: submittedFormData.status
-      },
-      priority: {
-        text: submittedFormData.priority === '1' ? 'High' : submittedFormData.priority === '2' ? 'Mid' : 'Low',
-        value: submittedFormData.priority,
-        code: submittedFormData.priority
-      },
-      workorder: selectedJob ? {
-        text: selectedJob.title,
-        value: selectedJob.id
-      } : { text: '', value: '' },
-      resources: [],
-      vendors: [],
-      assets: []
-    };
-    
-    setEvents([...events, newEvent]);
-    console.log('NEW EVENT', { newEvent, events });
-    setIsCreateModalOpen(false);
-
-    if (selectedJob) {
-      setSelectedJob(null);
-    }
-  }, [selectedJob, events]);
-
-  useEffect(() => {
-    const containerEl = document.getElementById('external-jobs');
-
-    if (containerEl) {
-      new Draggable(containerEl, {
-        itemSelector: '.card-item',
-        eventData: function (el) {
-          return {
-            title: el.getAttribute('data-title') || '',
-            extendedProps: {
-              woId: el.getAttribute('data-wo-id')
-            },
-            duration: '04:00' // Optional default duration
-          };
-        }
-      });
-    }
-  }, [jobs]);
-
-  const handleCardAction = (cardId: string, action: string) => {
-    const card = jobs.find(j => j.id === cardId);
-    if (!card) return;
-
-    switch (action) {
-      case 'print':
-        toast.success(`Printing ${card.title}`, {
-          className: "!bg-green-100 !text-green-800 !border !border-green-300",
-        });
-        break;
-      case 'hold':
-        setJobs(jobs.map(job => 
-          job.id === cardId 
-            ? { 
-                ...job, 
-                status: { text: 'On Hold', value: 'ON_HOLD', code: 'ON_HOLD' } 
-              }
-            : job
-        ));
-        toast.info(`${card.title} put on hold`);
-        break;
-      case 'close':
-        setJobs(jobs.map(job => 
-          job.id === cardId 
-            ? { 
-                ...job, 
-                status: { text: 'Completed', value: 'COMPLETED', code: 'COMPLETED' } 
-              }
-            : job
-        ));
-        toast.success(`${card.title} closed`, {
-          className: "!bg-green-100 !text-green-800 !border !border-green-300",
-        });
-        break;
-    }
-  };
-
-  const handleJobDragStart = (job: Job) => {
-    setDraggedJob(job);
-  };
-
-  const handleJobDragEnd = () => {
-    setDraggedJob(null);
-  };
-
-  const handleCalendarDrop = (info: any) => {
-    console.log('handleCalendarDrop:', info);
-    if (!draggedJob) return;
-
-    // Open CreateEvent modal with the dropped job
-    setSelectedJob(draggedJob);
-    setIsCreateModalOpen(true);
-    setDraggedJob(null);
-  };
 
   const calendarEvents = [];
 
@@ -553,6 +752,275 @@ const Calendar = () => {
 
   console.log('Processed Events', calendarEvents);
 
+  const handleCreateNewEvent = () => {
+    setIsCreateModalOpen(true);
+    setSelectedJob(null);
+    setPrefilledResourceId(undefined);
+    setPrefilledStartDate(undefined);
+    setPrefilledStartTime(undefined);
+    setPrefilledEndTime(undefined);
+  };
+
+  const handleSubmit = useCallback((submittedFormData: EventFormData) => {
+    if (!submittedFormData.eventTitle || !submittedFormData.startDate || !submittedFormData.endDate || (!submittedFormData.allDay && (!submittedFormData.startTime || !submittedFormData.endTime))) {
+      console.log('Form Data', submittedFormData);
+      toast.error("Please fill in all required fields", {
+        position: "top-right",
+      });
+      return;
+    }
+    
+    const newEvent: Event = {
+      id: `event-${Date.now()}`,
+      title: submittedFormData.eventTitle,
+      note: submittedFormData.notes,
+      date: {
+        recurrence: submittedFormData.startDate,
+        dates: [submittedFormData.startDate, submittedFormData.endDate],
+        start: submittedFormData.startDate,
+        end: submittedFormData.endDate
+      },
+      time: submittedFormData.allDay ? undefined : {
+        start: submittedFormData.startTime,
+        end: submittedFormData.endTime
+      },
+      status: {
+        text: submittedFormData.status === 'TENTATIVE' ? 'Tentative' : submittedFormData.status === 'CONFIRMED' ? 'Confirmed' : 'Completed',
+        value: submittedFormData.status,
+        code: submittedFormData.status
+      },
+      priority: {
+        text: submittedFormData.priority === '1' ? 'High' : submittedFormData.priority === '2' ? 'Mid' : 'Low',
+        value: submittedFormData.priority,
+        code: submittedFormData.priority
+      },
+      workorder: selectedJob ? {
+        text: selectedJob.title,
+        value: selectedJob.id
+      } : { text: '', value: '' },
+      resources: [],
+      vendors: [],
+      assets: []
+    };
+    
+    setEvents([...events, newEvent]);
+    console.log('NEW EVENT', { newEvent, events });
+    setIsCreateModalOpen(false);
+
+    if (selectedJob) {
+      setSelectedJob(null);
+    }
+  }, [selectedJob, events]);
+
+  useEffect(() => {
+    const containerEl = document.getElementById('external-jobs');
+
+    if (containerEl) {
+      new Draggable(containerEl, {
+        itemSelector: '.card-item',
+        eventData: function (el) {
+          return {
+            title: el.getAttribute('data-title') || '',
+            extendedProps: {
+              woId: el.getAttribute('data-wo-id')
+            },
+            duration: '04:00' // Optional default duration
+          };
+        }
+      });
+    }
+  }, [jobs]);
+
+  const handleCardAction = (cardId: string, action: string) => {
+    const card = jobs.find(j => j.id === cardId);
+    if (!card) return;
+
+    switch (action) {
+      case 'print':
+        toast.success(`Printing ${card.title}`, {
+          className: "!bg-green-100 !text-green-800 !border !border-green-300",
+        });
+        break;
+      case 'hold':
+        setJobs(jobs.map(job => 
+          job.id === cardId 
+            ? { 
+                ...job, 
+                status: { text: 'On Hold', value: 'ON_HOLD', code: 'ON_HOLD' } 
+              }
+            : job
+        ));
+        toast.info(`${card.title} put on hold`);
+        break;
+      case 'close':
+        setJobs(jobs.map(job => 
+          job.id === cardId 
+            ? { 
+                ...job, 
+                status: { text: 'Completed', value: 'COMPLETED', code: 'COMPLETED' } 
+              }
+            : job
+        ));
+        toast.success(`${card.title} closed`, {
+          className: "!bg-green-100 !text-green-800 !border !border-green-300",
+        });
+        break;
+    }
+  };
+
+  const handleJobDragStart = (job: Job) => {
+    setDraggedJob(job);
+  };
+
+  const handleJobDragEnd = () => {
+    setDraggedJob(null);
+  };
+
+  const handleCalendarDrop = (info: any) => {
+    console.log('handleCalendarDrop:', info);
+    if (!draggedJob) return;
+
+    // Open CreateEvent modal with the dropped job
+    setSelectedJob(draggedJob);
+    setIsCreateModalOpen(true);
+    setDraggedJob(null);
+  };
+  
+  // Get unique resource names from all events
+  const allResourceNames = events.flatMap(event => [
+    ...(event.resources || []).map(r => r.employee?.text || ''),
+    ...(event.vendors || []).map(v => v.vendor?.text || ''),
+    ...(event.assets || []).map(a => a.asset?.text || '')
+  ]).filter(Boolean);
+  const uniqueResourceNames = Array.from(new Set(allResourceNames)).map(name => ({
+    value: name,
+    label: name
+  }));
+
+  // Get unique resource groups from employees and vendors, plus default groups
+  const allResourceGroups = [
+    ...(employees || []).flatMap(emp => (emp.resourceGroups || []).map(group => group.text)),
+    ...(vendors || []).flatMap(vendor => (vendor.resourceGroups || []).map(group => group.text)),
+    'Vendors', // Default group for vendors
+    'Assets'   // Default group for assets
+  ].filter(Boolean);
+  const uniqueResourceGroups = Array.from(new Set(allResourceGroups)).map(group => ({
+    value: group,
+    label: group
+  }));
+
+  // Get unique organizers from events
+  const uniqueOrganizers = Array.from(new Set(events.map(event => event.organizer?.text || '').filter(Boolean))).map(organizer => ({
+    value: organizer,
+    label: organizer
+  }));
+
+  const getActiveJobFiltersCount = (filter: JobFilterState) => {
+    return filter.customers.length + filter.locations.length + 
+    (filter.woId ? 1 : 0)+ (filter.title ? 1 : 0) +
+    (filter.dateFrom ? 1 : 0) + (filter.dateTo ? 1 : 0);
+  };
+
+  // Function to fetch routing groups when filter is clicked
+  const fetchRoutingGroupsOnDemand = async (): Promise<Option[]> => {
+    if (!routingGroupsLoaded) {
+      try {
+        console.log('Fetching routing groups on demand...');
+        const routingGroupData = await fetchRoutingGroups();
+        console.log('Fetched routing groups:', routingGroupData);
+        setRoutingGroups(routingGroupData);
+        setRoutingGroupsLoaded(true);
+        return routingGroupData.map(group => ({
+          value: group.name,
+          label: group.name
+        }));
+      } catch (error) {
+        console.error('Failed to fetch routing groups:', error);
+        toast.error('Failed to load routing groups');
+        return [];
+      }
+    }
+    return routingGroups.map(group => ({
+      value: group.name,
+      label: group.name
+    }));
+  };
+
+  const fetchCustomersOnDemand = async (): Promise<Option[]> => {
+    if (!customersLoaded) {
+      try {
+        console.log('Fetching customers on demand...');
+        const customerData = await fetchCustomers();
+        console.log('Fetched customers:', customerData);
+        setCustomers(customerData);
+        setCustomersLoaded(true);
+        return customerData.map(cust => ({
+          value: cust.name,
+          label: cust.name
+        }));
+      } catch (error) {
+        console.error('Failed to fetch customers:', error);
+        toast.error('Failed to load customers', {
+          position: "top-right",
+          className: "!bg-red-100 !text-red-800 !border !border-red-300",
+        });
+        return [];
+      }
+    }
+    return customers.map(cust => ({
+      value: cust.name,
+      label: cust.name
+    }));
+  }
+  
+  const fetchLocationsOnDemand = async (): Promise<Option[]> => {
+    if (!locationsLoaded) {
+      try {
+        console.log('Fetching locations on demand...');
+        const locationData = await fetchLocations();
+        console.log('Fetched locations:', locationData);
+        setLocations(locationData);
+        setLocationsLoaded(true);
+        return locationData.map(loc => ({
+          value: loc.name,
+          label: loc.name
+        }));
+      } catch (error) {
+        console.error('Failed to fetch locations:', error);
+        toast.error('Failed to load locations', {
+          position: "top-right",
+          className: "!bg-red-100 !text-red-800 !border !border-red-300",
+        });
+        return [];
+      }
+    }
+    return locations.map(loc => ({
+      value: loc.name,
+      label: loc.name
+    }));
+  }
+
+  // Get unique routing groups for MultiSelect options
+  const uniqueRoutingGroups = routingGroups.map(group => ({
+    value: group.name,
+    label: group.name
+  }));
+
+  const uniqueCustomers = customers.map(cust => ({
+    value: cust.name,
+    label: cust.name
+  }));
+
+  const uniqueLocations = locations.map(loc => ({
+    value: loc.name,
+    label: loc.name
+  }));
+
+  // Update calendarEvents to use filteredEvents instead of events
+  const filteredCalendarEvents = calendarEvents.filter(calEvent => 
+    filteredEvents.some(event => event.id === calEvent.id)
+  );
+
   const resourceGroups = [];
 
   employees.forEach(emp => {
@@ -573,7 +1041,7 @@ const Calendar = () => {
   })
 
   // Generate unassigned events as resources
-  const unassignedEvents = events.filter(event =>
+  const unassignedEvents = filteredEvents.filter(event =>
     !event.resources.length && !event.vendors.length && !event.assets.length
   );
 
@@ -599,14 +1067,14 @@ const Calendar = () => {
     children: resourceGroup.resources
       .map(resource => ({
         id: `${resourceGroup.value}-${resource.id}`,
-        customTitleHtml: `<span class="text-[11px] font-normal text-gray-700">${resource.name}</span>`,
+        customTitleHtml: `<span class="text-[11px] font-normal text-foreground">${resource.name}</span>`,
         extendedProps: resource
       })),
     extendedProps: {
       ...resourceGroup,
       customTitleHtml: `
-        <span class="text-[12px] font-semibold text-gray-700">${resourceGroup.text}</span>
-        <span class="inline-flex items-center rounded-full border border-transparent bg-gray-200 px-1 py-0 text-[9px] font-semibold text-gray-800 h-3 min-w-[12px] justify-center ml-1">${resourceGroup.resources.length}</span>
+        <span class="text-[12px] font-semibold text-foreground">${resourceGroup.text}</span>
+        <span class="inline-flex items-center rounded-full border border-transparent bg-secondary text-secondary-foreground px-1 py-0 text-[9px] font-semibold h-3 min-w-[12px] justify-center ml-1">${resourceGroup.resources.length}</span>
       `
     }
   }));
@@ -618,7 +1086,7 @@ const Calendar = () => {
       title: 'Unassigned',
       children: [],
       extendedProps: {
-        customTitleHtml: `<span class="text-[12px] font-bold text-gray-700">Unassigned</span>`
+        customTitleHtml: `<span class="text-[12px] font-bold text-foreground">Unassigned</span>`
       }
     });
   }
@@ -679,7 +1147,59 @@ const Calendar = () => {
      eventElement.removeAttribute('data-tooltip-html');
    };
 
-  const handleViewDidMount = () => {
+  
+  const handleDatesSet = (dateInfo: any) => {
+    console.log('handleDatesSet called with:', dateInfo);
+    
+    // Update current view date range
+    if (dateInfo.start && dateInfo.end) {
+      setCurrentViewStart(dateInfo.start);
+      setCurrentViewEnd(dateInfo.end);
+      
+      console.log('Updated view dates:', {
+        start: dateInfo.start.toISOString(),
+        end: dateInfo.end.toISOString()
+      });
+
+      if ((window as any).updateEventCountBadge) {
+        (window as any).updateEventCountBadge();
+      }
+    }
+  };
+
+  const handleViewDidMount = (viewInfo: any) => {
+    console.log('handleViewDidMount called with:', viewInfo);
+    console.log('View activeStart:', viewInfo.view?.activeStart);
+    console.log('View activeEnd:', viewInfo.view?.activeEnd);
+    
+    // Check if view type changed (only update event count badge on view type change)
+    const newViewType = viewInfo.view?.type;
+    const isViewTypeChange = currentViewType !== null && currentViewType !== newViewType;
+    const isInitialLoad = currentViewType === null;
+    
+    setCurrentViewType(newViewType);
+    
+    // Update current view date range
+    if (viewInfo.view?.activeStart && viewInfo.view?.activeEnd) {
+      setCurrentViewStart(viewInfo.view.activeStart);
+      setCurrentViewEnd(viewInfo.view.activeEnd);
+      console.log('Updated view dates:', {
+        start: viewInfo.view.activeStart.toISOString(),
+        end: viewInfo.view.activeEnd.toISOString()
+      });
+      
+      // Only update event count badge on page load or view type change
+      if (isInitialLoad || isViewTypeChange) {
+        console.log('Updating event count badge - reason:', isInitialLoad ? 'initial load' : 'view type change');
+        // Use a slight delay to ensure DOM is ready and state is updated
+        setTimeout(() => {
+          if ((window as any).updateEventCountBadge) {
+            (window as any).updateEventCountBadge();
+          }
+        }, 200);
+      }
+    }
+    
     const titleEl = document.querySelector('h2.fc-toolbar-title');
 
     if (titleEl && !document.querySelector('.fc-shadcn-filter-button')) {
@@ -705,13 +1225,87 @@ const Calendar = () => {
           <polygon points="22,3 2,3 10,12.46 10,19 14,21 14,12.46"></polygon>
         </svg>
       `;
-      button.onclick = () => alert('IN PROGRESS');
+      button.onclick = () => handleOpenFilter('events');
+
+      // Create button wrapper for badge positioning
+      const buttonWrapper = document.createElement('div');
+      buttonWrapper.className = 'relative';
+      buttonWrapper.appendChild(button);
+
+      // Add badge for active filters count
+      const updateBadge = (activeCount: number) => {
+        const existingBadge = buttonWrapper.querySelector('.filter-badge');
+        if (existingBadge) {
+          existingBadge.remove();
+        }
+        
+        if (activeCount > 0) {
+          const badge = document.createElement('div');
+          badge.className = 'filter-badge absolute -top-2 -right-2 mt-[7px] h-4 w-4 flex items-center justify-center p-0 text-[9px] font-semibold border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80 rounded-full border transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2';
+          badge.textContent = activeCount.toString();
+          buttonWrapper.appendChild(badge);
+        }
+      };
+
+      // Update badge initially with current filter count
+      const currentActiveCount = getActiveEventFiltersCount(eventsFilter);
+      updateBadge(currentActiveCount);
+      
+      // Store reference to update function for later use
+      (window as any).updateEventFilterBadge = updateBadge;
 
       const flexWrapper = document.createElement('div');
       flexWrapper.className = 'flex items-center space-x-2';
+      
+      // Create event count badge
+      const eventCountBadge = document.createElement('div');
+      eventCountBadge.className = 'inline-flex items-center rounded-full border border-transparent bg-secondary px-2 py-0 text-[11px] font-semibold text-secondary-foreground h-5 min-w-[20px] justify-center';
+      eventCountBadge.id = 'event-count-badge';
+      
       titleEl.replaceWith(flexWrapper);
       flexWrapper.appendChild(titleEl);
-      flexWrapper.appendChild(button);
+      flexWrapper.appendChild(eventCountBadge);
+      flexWrapper.appendChild(buttonWrapper);
+      
+      // Update event count badge function
+      const updateEventCountBadge = (currentFilteredEvents = filteredEvents) => {
+        // Use the most current view dates from the calendar itself
+        const calendarApi = calendarRef.current?.getApi();
+        if (calendarApi) {
+          const currentView = calendarApi.view;
+          const viewStart = currentView.activeStart;
+          const viewEnd = currentView.activeEnd;
+          
+          console.log('Badge update - using view dates:', {
+            start: viewStart.toISOString(),
+            end: viewEnd.toISOString(),
+            filteredEventsLength: currentFilteredEvents.length
+          });
+          
+          const eventsInView = currentFilteredEvents.filter(event => {
+            const eventStart = new Date(event.date?.start || '');
+            const eventEnd = new Date(event.date?.end || '');
+            
+            // Check if event overlaps with current view range
+            const overlaps = eventStart <= viewEnd && eventEnd >= viewStart;
+            return overlaps;
+          });
+          
+          console.log('Badge update - events in view:', eventsInView.length);
+          eventCountBadge.textContent = `${eventsInView.length}`;
+        } else {
+          // Fallback to state-based dates
+          const count = getEventsInCurrentView();
+          console.log('Badge update - fallback count:', count);
+          eventCountBadge.textContent = `${count}`;
+        }
+      };
+      
+      // Store reference for later updates
+      (window as any).updateEventCountBadge = updateEventCountBadge;
+      
+      // Initial update
+      updateEventCountBadge();
     }
 
     // Add Legend
@@ -725,15 +1319,15 @@ const Calendar = () => {
       legend.className = 'flex items-center space-x-4 text-[11px]';
       legend.innerHTML = `
         <div class="flex items-center space-x-1">
-          <span class="w-3 h-3 bg-[#6c757d] inline-block rounded-sm"></span>
+          <span class="w-3 h-3 bg-[#6c757d] inline-block rounded-[3px]"></span>
           <span>Tentative</span>
         </div>
         <div class="flex items-center space-x-1">
-          <span class="w-3 h-3 bg-[#026adf] inline-block rounded-sm"></span>
+          <span class="w-3 h-3 bg-[#026adf] inline-block rounded-[3px]"></span>
           <span>Confirmed</span>
         </div>
         <div class="flex items-center space-x-1">
-          <span class="w-3 h-3 bg-[#28a745] inline-block rounded-sm"></span>
+          <span class="w-3 h-3 bg-[#28a745] inline-block rounded-[3px]"></span>
           <span>Completed</span>
         </div>
       `;
@@ -754,10 +1348,10 @@ const Calendar = () => {
       </div>
     ); */
     return (
-      <div className="p-6 h-screen bg-gray-50">
+      <div className="p-6 h-screen bg-background">
         <div className="flex rounded-lg border relative overflow-hidden h-full">
           {/* Left side: 80% */}
-          <div className="basis-[80%] bg-white p-4 h-full">
+          <div className="basis-[80%] bg-background p-4 h-full">
             <div className="space-y-4 h-full flex flex-col border-r relative">
               <div className="absolute inset-0 flex justify-center items-center">
                 <div className="animate-spin rounded-full h-10 w-10 border-b-2 border-primary"></div>
@@ -766,7 +1360,7 @@ const Calendar = () => {
           </div>
 
           {/* Right side: 20% */}
-          <div className="basis-[20%] bg-white p-4 h-full">
+          <div className="basis-[20%] bg-background p-4 h-full">
             <div className="space-y-4 h-full flex flex-col relative">
               <div className="absolute inset-0 flex justify-center items-center">
                 <div className="animate-spin rounded-full h-10 w-10 border-b-2 border-primary"></div>
@@ -779,13 +1373,14 @@ const Calendar = () => {
   }
 
   return (
-    <div className="p-4 h-[calc(100vh-2rem)] bg-gray-50">
+    <div className="p-4 h-[calc(100vh-2rem)] bg-background">
       <ResizablePanelGroup direction="horizontal" className="gap-4">
         <ResizablePanel defaultSize={75} minSize={50}>
-          <div className="bg-white rounded-lg shadow-lg p-6 h-full">
+          <div className="bg-background rounded-lg shadow-lg p-6 h-full border">
             <ScrollArea className="h-[calc(100%-1rem)]">
-              <div className="h-[calc(100%-4rem)]">
+              <div className="h-[calc(100%-4rem)] bg-background">
                 <FullCalendar
+                  ref={calendarRef}
                   plugins={[dayGridPlugin, timeGridPlugin, resourceTimelinePlugin, interactionPlugin]}
                   schedulerLicenseKey="XXXX"
                   headerToolbar={{
@@ -839,7 +1434,7 @@ const Calendar = () => {
                       ]
                     }
                   }}
-                  events={calendarEvents}
+                  events={filteredCalendarEvents}
                   resources={calendarResources}
                   resourceOrder={'group'}
                    dateClick={handleDateClick}
@@ -860,11 +1455,11 @@ const Calendar = () => {
                       field: 'title',
                       headerContent: () => (
                         <div className="flex items-center gap-2 -mt-3">
-                          <Users className="h-4 w-4 text-gray-900 mt-[1px]" strokeWidth={2.5} />
-                          <h2 className="text-sm font-medium text-gray-700">Resources</h2>
+                          <Users className="h-4 w-4 text-foreground mt-[1px]" strokeWidth={2.5} />
+                          <h2 className="text-sm font-medium text-foreground">Resources</h2>
                           <Badge
                             variant="secondary"
-                            className="bg-gray-200 text-[9px] px-1 py-0 h-3 min-w-[12px]"
+                            className="text-[9px] px-1 py-0 h-3 min-w-[12px]"
                           >
                             {employees.length + vendors.length + assets.length}
                           </Badge>
@@ -897,7 +1492,8 @@ const Calendar = () => {
                       click: handleCreateNewEvent
                     }
                   }}
-                  viewDidMount={handleViewDidMount}
+                   viewDidMount={handleViewDidMount}
+                   datesSet={handleDatesSet}
                    slotLaneClassNames={() => ['fc-slot-hoverable']}
                    eventReceive={(info) => {
                        console.log('eventReceive:', info);
@@ -998,23 +1594,33 @@ const Calendar = () => {
         <ResizableHandle withHandle />
         
         <ResizablePanel defaultSize={18} minSize={18}>
-          <div className="bg-white rounded-lg shadow-lg p-4 h-full">
+          <div className="bg-background rounded-lg shadow-lg p-4 h-full border">
             <div className="space-y-4 h-full flex flex-col">
               <div className="flex items-center justify-between w-full">
                 <div className="flex items-center gap-2">
-                  <ClipboardCheck className="h-4 w-4 text-gray-900" strokeWidth={2.5} />
-                  <h2 className="text-lg font-medium text-gray-700">Available Jobs</h2>
+                  <ClipboardCheck className="h-4 w-4 text-foreground" strokeWidth={2.5} />
+                  <h2 className="text-lg font-medium text-foreground">Available Jobs</h2>
                   <Badge variant="secondary" className="text-[9px] px-1 py-0 h-3 min-w-[12px]">
-                    {jobs.length}
+                    {filteredJobs.length}
                   </Badge>
                 </div>
-                <Button
-                  variant="outline"
-                  size="icon"
-                  onClick={() => alert('IN PROGRESS')}
-                >
-                  <Filter className="h-4 w-4" />
-                </Button>
+                <div className="relative">
+                  <Button
+                    variant="outline"
+                    size="icon"
+                    onClick={() => handleOpenFilter('jobs')}
+                  >
+                    <Filter className="h-4 w-4" />
+                  </Button>
+                  {getActiveJobFiltersCount(jobsFilter) > 0 && (
+                    <Badge 
+                      variant="secondary"
+                      className="absolute -top-2 -right-2 h-5 w-5 flex items-center justify-center p-0"
+                    >
+                      {getActiveJobFiltersCount(jobsFilter)}
+                    </Badge>
+                  )}
+                </div>
               </div>
               <ScrollArea className="flex-1 h-[calc(100%-4rem)]">
                 <div id="external-jobs" className="grid auto-rows-max gap-0 justify-items-center"
@@ -1022,7 +1628,7 @@ const Calendar = () => {
                        gridTemplateColumns: 'repeat(auto-fill, minmax(150px, 1fr))',
                        width: '100%'
                      }}>
-                  {jobs.map((job) => (
+                  {filteredJobs.map((job) => (
                      <div
                        key={job.id}
                        id={job.id}
@@ -1171,6 +1777,327 @@ const Calendar = () => {
           </DialogFooter>
         </DialogContent>
       </Dialog>
+
+      <Dialog open={isFilterModalOpen} onOpenChange={setIsFilterModalOpen}>
+        <DialogContent>
+          <DialogHeader>
+            <DialogTitle className="text-[15px] tracking-tight font-semibold">Filter {filterType === 'jobs' ? 'Available Jobs' : 'Events'}</DialogTitle>
+            <DialogDescription>
+              <span className="tracking-tight text-[12px]">Select your filter criteria below</span>
+            </DialogDescription>
+          </DialogHeader>
+          {filterType === 'events' ? (
+          <div className="space-y-3">
+            <div className="grid grid-cols-2 gap-2">
+              <div className="relative">
+                <Search className="absolute left-2 top-1/2 -translate-y-1/2 h-3 w-3 text-foreground pointer-events-none" />
+                <Input
+                  placeholder="Enter Event ID"
+                  value={eventsFilter.eventId}
+                  onChange={(e) =>
+                    setEventsFilter((prev) => ({ ...prev, eventId: e.target.value }))
+                  }
+                  className="h-8 text-sm !text-[12px] !placeholder:text-[12px] pl-7 pr-8 outline-none focus:outline-none focus:ring-0 focus:ring-transparent focus-visible:ring-0 focus-visible:ring-transparent focus:shadow-none"
+                />
+                {eventsFilter.eventId && (
+                  <button
+                    onClick={() => setEventsFilter((prev) => ({ ...prev, eventId: '' }))}
+                    className="absolute right-2 top-1/2 -translate-y-1/2 h-4 w-4 text-foreground hover:text-foreground flex items-center justify-center"
+                  >
+                    <X className="!h-3 !w-3" />
+                  </button>
+                )}
+              </div>
+
+              <div className="-mt-[5px]">
+                <MultiSelectFilter
+                  id="resourceName"
+                  label=""
+                  options={uniqueResourceNames}
+                  selected={eventsFilter.resourceNames}
+                  onChange={(value) =>
+                    setEventsFilter((prev) => ({ ...prev, resourceNames: value }))
+                  }
+                  placeholder="Filter by Resource Name"
+                  className="w-full text-sm !text-[12px] placeholder:text-[12px]"
+                />
+              </div>
+            </div>
+            
+            <div className="grid grid-cols-2 gap-2">
+              <div className="-mt-[5px]">
+                <MultiSelectFilter
+                  id="resourceGroup"
+                  label=""
+                  options={uniqueResourceGroups}
+                  selected={eventsFilter.resourceGroups}
+                  onChange={(value) =>
+                    setEventsFilter((prev) => ({ ...prev, resourceGroups: value }))
+                  }
+                  placeholder="Filter by Resource Group"
+                  className="w-full text-sm !text-[12px] placeholder:text-[12px]"
+                />
+              </div>
+              
+              <div className="-mt-[5px]">
+                <MultiSelectFilter
+                  id="eventStatus"
+                  label=""
+                  options={eventStatuses}
+                  selected={eventsFilter.statuses}
+                  onChange={(value) =>
+                    setEventsFilter((prev) => ({ ...prev, statuses: value }))
+                  }
+                  placeholder="Filter by Status"
+                  className="w-full text-sm !text-[12px] placeholder:text-[12px]"
+                />
+              </div>
+            </div>
+            
+            <div className="grid grid-cols-2 gap-2">
+              <div className="-mt-[5px]">
+                <MultiSelectFilter
+                  id="eventPriority"
+                  label=""
+                  options={eventPriorities}
+                  selected={eventsFilter.priorities}
+                  onChange={(value) =>
+                    setEventsFilter((prev) => ({ ...prev, priorities: value }))
+                  }
+                  placeholder="Filter by Priority"
+                  className="w-full text-sm !text-[12px] placeholder:text-[12px]"
+                />
+              </div>
+              
+              <div className="-mt-[5px]">
+                <MultiSelectFilter
+                  id="eventType"
+                  label=""
+                  options={eventTypes}
+                  selected={eventsFilter.eventTypes}
+                  onChange={(value) =>
+                    setEventsFilter((prev) => ({ ...prev, eventTypes: value }))
+                  }
+                  placeholder="Filter by Event Type"
+                  className="w-full text-sm !text-[12px] placeholder:text-[12px]"
+                />
+              </div>
+            </div>
+            
+            {/* <div className="grid grid-cols-2 gap-2">
+              <div className="-mt-[5px]">
+                <DateRangeFilter
+                  id="dateFrom"
+                  label=""
+                  value={eventsFilter.dateFrom}
+                  onChange={(value) =>
+                    setEventsFilter((prev) => ({ ...prev, dateFrom: value }))
+                  }
+                  placeholder="Date From"
+                />
+              </div>
+              
+              <div className="-mt-[5px]">
+                <DateRangeFilter
+                  id="dateTo"
+                  label=""
+                  value={eventsFilter.dateTo}
+                  onChange={(value) =>
+                    setEventsFilter((prev) => ({ ...prev, dateTo: value }))
+                  }
+                  placeholder="Date To"
+                />
+              </div>
+            </div> */}
+            
+            <div className="grid grid-cols-2 gap-2">
+              <div className="-mt-[5px]">
+                <MultiSelectFilter
+                  id="organizer"
+                  label=""
+                  options={uniqueOrganizers}
+                  selected={eventsFilter.organizers}
+                  onChange={(value) =>
+                    setEventsFilter((prev) => ({ ...prev, organizers: value }))
+                  }
+                  placeholder="Filter by Organizer"
+                  className="w-full text-sm !text-[12px] placeholder:text-[12px]"
+                />
+              </div>
+              
+              <div className="-mt-[5px]">
+                <MultiSelectFilter
+                  id="receiptStatus"
+                  label=""
+                  options={receiptStatuses}
+                  selected={eventsFilter.receiptStatuses}
+                  onChange={(value) =>
+                    setEventsFilter((prev) => ({ ...prev, receiptStatuses: value }))
+                  }
+                  placeholder="Filter by Receipt Status"
+                  className="w-full text-sm !text-[12px] placeholder:text-[12px]"
+                />
+              </div>
+            </div>
+            
+            <div className="grid grid-cols-2 gap-2">
+              <div className="-mt-[5px]">
+                <MultiSelectFilter
+                  id="routingGroup"
+                  label=""
+                  options={uniqueRoutingGroups}
+                  selected={eventsFilter.routingGroups}
+                  onChange={(value) =>
+                    setEventsFilter((prev) => ({ ...prev, routingGroups: value }))
+                  }
+                  placeholder="Filter by Routing Group"
+                  className="w-full text-sm !text-[12px] placeholder:text-[12px]"
+                  fetchOptionsOnOpen={fetchRoutingGroupsOnDemand}
+                />
+              </div>
+            </div>
+          </div>
+          ) : (
+          <div className="space-y-3">
+            
+            <div className="grid grid-cols-2 gap-2">
+              <div className="-mt-[5px]">
+                <MultiSelectFilter
+                  id="customer"
+                  label=""
+                  options={uniqueCustomers}
+                  selected={jobsFilter.customers}
+                  onChange={(value) =>
+                    setJobsFilter((prev) => ({ ...prev, customers: value }))
+                  }
+                  placeholder="Filter by Customer"
+                  className="w-full text-sm !text-[12px] placeholder:text-[12px]"
+                  fetchOptionsOnOpen={fetchCustomersOnDemand}
+                />
+              </div>
+              <div className="-mt-[5px]">
+                <MultiSelectFilter
+                  id="location"
+                  label=""
+                  options={uniqueLocations}
+                  selected={jobsFilter.locations}
+                  onChange={(value) =>
+                    setJobsFilter((prev) => ({ ...prev, locations: value }))
+                  }
+                  placeholder="Filter by Location"
+                  className="w-full text-sm !text-[12px] placeholder:text-[12px]"
+                  fetchOptionsOnOpen={fetchLocationsOnDemand}
+                />
+              </div>
+            </div>
+            <div className="grid grid-cols-2 gap-2">
+              <div className="relative">
+                <Search className="absolute left-2 top-1/2 -translate-y-1/2 h-3 w-3 text-foreground pointer-events-none" />
+                <Input
+                  placeholder="Enter Work Order ID"
+                  value={jobsFilter.woId}
+                  onChange={(e) =>
+                    setJobsFilter((prev) => ({ ...prev, woId: e.target.value }))
+                  }
+                  className="h-8 text-sm !text-[12px] !placeholder:text-[12px] pl-7 pr-8 outline-none focus:outline-none focus:ring-0 focus:ring-transparent focus-visible:ring-0 focus-visible:ring-transparent focus:shadow-none"
+                />
+                {jobsFilter.woId && (
+                  <button
+                    onClick={() => setJobsFilter((prev) => ({ ...prev, woId: '' }))}
+                    className="absolute right-2 top-1/2 -translate-y-1/2 h-4 w-4 text-foreground hover:text-foreground flex items-center justify-center"
+                  >
+                    <X className="!h-3 !w-3" />
+                  </button>
+                )}
+              </div>
+              <div className="relative">
+                <Search className="absolute left-2 top-1/2 -translate-y-1/2 h-3 w-3 text-foreground pointer-events-none" />
+                <Input
+                  placeholder="Enter Work Order Title"
+                  value={jobsFilter.title}
+                  onChange={(e) =>
+                    setJobsFilter((prev) => ({ ...prev, title: e.target.value }))
+                  }
+                  className="h-8 text-sm !text-[12px] !placeholder:text-[12px] pl-7 pr-8 outline-none focus:outline-none focus:ring-0 focus:ring-transparent focus-visible:ring-0 focus-visible:ring-transparent focus:shadow-none"
+                />
+                {jobsFilter.title && (
+                  <button
+                    onClick={() => setJobsFilter((prev) => ({ ...prev, title: '' }))}
+                    className="absolute right-2 top-1/2 -translate-y-1/2 h-4 w-4 text-foreground hover:text-foreground flex items-center justify-center"
+                  >
+                    <X className="!h-3 !w-3" />
+                  </button>
+                )}
+              </div>
+            </div>
+            <div className="grid grid-cols-2 gap-2">
+              <div className="-mt-[5px]">
+                <DateRangeFilter
+                  id="dateFrom"
+                  label=""
+                  value={jobsFilter.dateFrom}
+                  onChange={(value) =>
+                    setJobsFilter((prev) => ({ ...prev, dateFrom: value }))
+                  }
+                  placeholder="Date From"
+                />
+              </div>
+              
+              <div className="-mt-[5px]">
+                <DateRangeFilter
+                  id="dateTo"
+                  label=""
+                  value={jobsFilter.dateTo}
+                  onChange={(value) =>
+                    setJobsFilter((prev) => ({ ...prev, dateTo: value }))
+                  }
+                  placeholder="Date To"
+                />
+              </div>
+            </div>
+          </div>
+          )}
+          <DialogFooter>
+            <Button onClick={() => {
+              alert('TBD');
+              // setIsFilterModalOpen(false);
+            }} className="text-[12px] h-8 px-3 tracking-tight">Select Fields</Button>
+            <Button variant="outline" onClick={() => {
+              setEventsFilter({
+                statuses: [],
+                eventId: '',
+                resourceNames: [],
+                resourceGroups: [],
+                priorities: [],
+                eventTypes: [],
+                dateFrom: undefined,
+                dateTo: undefined,
+                organizers: [],
+                receiptStatuses: [],
+                routingGroups: [],
+              });
+              setJobsFilter({
+                statuses: [],
+                woId: '',
+                title: '',
+                resourceNames: [],
+                resourceGroups: [],
+                priorities: [],
+                eventTypes: [],
+                dateFrom: undefined,
+                dateTo: undefined,
+                organizers: [],
+                receiptStatuses: [],
+                routingGroups: [],
+                customers: [],
+                locations: []
+              });
+            }} className="text-[12px] h-8 px-3 tracking-tight">
+              Clear All
+            </Button>
+          </DialogFooter>
+         </DialogContent>
+       </Dialog>
     </div>
   );
 };

@@ -9,6 +9,9 @@ import { fetchWOResources, type WOResource } from '@/api/woResource';
 import { fetchWOVendors, type WOVendor } from '@/api/woVendor';
 import { fetchWOAssets, type WOAsset } from '@/api/woAsset';
 import { fetchWorkOrders, type WorkOrder } from '@/api/workOrder';
+import { fetchRoutingGroups, type RoutingGroup } from '@/api/routingGroup';
+import { fetchCustomers, type Customer } from "@/api/customer";
+import { fetchLocations, type Location } from "@/api/location";
 import { toast } from "sonner";
 import { format, parse } from "date-fns";
 import {
@@ -24,6 +27,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { MultiSelect } from '../components/MultiSelect';
 import MultiSelectFilter from '../components/forms/MultiSelectFilter';
+import { Option } from '@/components/ui-custom/MultiSelect';
 import { ChevronRight, Filter, Bot, ClipboardCheck, Calendar, Plus, Search, Users, X } from "lucide-react";
 import DateRangeFilter from '../components/forms/DateRangeFilter';
 import {
@@ -44,10 +48,9 @@ import { CreateEvent } from '../components/forms/CreateEvent';
 import { UpdateEvent } from '../components/forms/UpdateEvent';
 import { CompleteEvent } from '../components/forms/CompleteEvent';
 import { Tooltip } from 'react-tooltip';
+import { receiptStatuses, eventStatuses, eventPriorities, eventTypes } from "@/lib/constants";
 
-interface FilterState {
-  titles: string[];
-  descriptions: string[];
+interface EventFilterState {
   statuses: string[];
   eventId: string;
   resourceNames: string[];
@@ -58,6 +61,24 @@ interface FilterState {
   dateTo: Date | undefined;
   organizers: string[];
   receiptStatuses: string[];
+  routingGroups: string[];
+}
+
+interface JobFilterState {
+  statuses: string[];
+  woId: string;
+  title: string;
+  resourceNames: string[];
+  resourceGroups: string[];
+  priorities: string[];
+  eventTypes: string[];
+  dateFrom: Date | undefined;
+  dateTo: Date | undefined;
+  organizers: string[];
+  receiptStatuses: string[];
+  routingGroups: string[];
+  customers: string[];
+  locations: string[];
 }
 
 export interface Status {
@@ -82,6 +103,7 @@ interface Job {
   type: string;
   date: string;
   customer: string;
+  location: string;
   project: string;
   salesOrder: string;
   estHours: number;
@@ -160,6 +182,12 @@ const Board = () => {
   const [woResources, setWoResources] = useState<WOResource[]>([]);
   const [woVendors, setWoVendors] = useState<WOVendor[]>([]);
   const [woAssets, setWoAssets] = useState<WOAsset[]>([]);
+  const [routingGroups, setRoutingGroups] = useState<RoutingGroup[]>([]);
+  const [routingGroupsLoaded, setRoutingGroupsLoaded] = useState(false);
+  const [customers, setCustomers] = useState<Customer[]>([]);
+  const [customersLoaded, setCustomersLoaded] = useState(false);
+  const [locations, setLocations] = useState<Location[]>([]);
+  const [locationsLoaded, setLocationsLoaded] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [loadingError, setLoadingError] = useState<string | null>(null);
 
@@ -238,6 +266,7 @@ const Board = () => {
           type: wo.type.text || '',
           date: wo.date || new Date().toLocaleDateString(),
           customer: wo.customer.text,
+          location: wo.location.text,
           project: wo.project.text,
           salesOrder: wo.salesorder.text,
           estHours: +wo.esthours,
@@ -257,8 +286,11 @@ const Board = () => {
         setWoVendors(woVendorData);
         setWoAssets(woAssetData);
       } catch (error) {
-        console.error('Calendar: Failed to load data:', error);
-        toast.error('Failed to load calendar data');
+        console.error('Board: Failed to load data:', error);
+        toast.error('Failed to load board data', {
+          position: "top-right",
+          className: "!bg-red-100 !text-red-800 !border !border-red-300",
+        });
       } finally {
         setIsLoading(false);
       }
@@ -352,9 +384,7 @@ const Board = () => {
   const [selectedJob, setSelectedJob] = useState<Job | null>(null);
   const [isCollapsed, setIsCollapsed] = useState(false);
   
-  const [resourcesFilter, setResourcesFilter] = useState<FilterState>({
-    titles: [],
-    descriptions: [],
+  const [eventsFilter, setEventsFilter] = useState<EventFilterState>({
     statuses: [],
     eventId: '',
     resourceNames: [],
@@ -365,12 +395,12 @@ const Board = () => {
     dateTo: undefined,
     organizers: [],
     receiptStatuses: [],
+    routingGroups: []
   });
-  const [availableJobsFilter, setAvailableJobsFilter] = useState<FilterState>({
-    titles: [],
-    descriptions: [],
+  const [jobsFilter, setJobsFilter] = useState<JobFilterState>({
     statuses: [],
-    eventId: '',
+    woId: '',
+    title: '',
     resourceNames: [],
     resourceGroups: [],
     priorities: [],
@@ -379,67 +409,10 @@ const Board = () => {
     dateTo: undefined,
     organizers: [],
     receiptStatuses: [],
+    routingGroups: [],
+    customers: [],
+    locations: []
   });
-
-  const uniqueTitles = Array.from(new Set(jobs?.map(job => job.title) ?? []));
-  const uniqueDescriptions = Array.from(new Set(jobs?.map(job => job.description) ?? []));
-  const uniqueStatuses = Array.from(new Set(jobs?.map(job => job.status.text) ?? []));
-  /* const uniqueEventStatuses = Array.from(new Set(events?.map(event => event.status?.text || '') ?? [])).filter(Boolean).map(status => ({
-    value: status,
-    label: status
-  })); */
-  const uniqueEventStatuses = [
-    {
-      value: 'Tentative',
-      label: 'Tentative'
-    },
-    {
-      value: 'Confirmed',
-      label: 'Confirmed'
-    },
-    {
-      value: 'Completed',
-      label: 'Completed'
-    }
-  ];
-
-  /* const uniqueEventPriorities = Array.from(new Set(events?.map(event => event.priority?.text || '') ?? [])).filter(Boolean).map(priority => ({
-    value: priority,
-    label: priority
-  })); */
-  const uniqueEventPriorities = [
-    {
-      value: 'Low',
-      label: 'Low'
-    },
-    {
-      value: 'Medium',
-      label: 'Medium'
-    },
-    {
-      value: 'High',
-      label: 'High'
-    },
-    {
-      value: 'Urgent',
-      label: 'Urgent'
-    }
-  ];
-
-  const uniqueEventTypes = [
-    {
-      value: 'General Event',
-      label: 'General Event'
-    },
-    {
-      value: 'Non General Event',
-      label: 'Non General Event'
-    },
-    {
-      value: 'Unassigned Event',
-      label: 'Unassigned Event'
-    }
-  ];
   
   // Get unique resource names from all events
   const allResourceNames = events.flatMap(event => [
@@ -483,12 +456,109 @@ const Board = () => {
     return undefined;
   };
 
-  // Get unique receipt statuses (hardcoded)
-  const uniqueReceiptStatuses = [
-    { value: 'Not Received', label: 'Not Received' },
-    { value: 'Partially Received', label: 'Partially Received' },
-    { value: 'Fully Received', label: 'Fully Received' }
-  ];
+  const getActiveJobFiltersCount = (filter: JobFilterState) => {
+    return filter.customers.length + filter.locations.length + 
+    (filter.woId ? 1 : 0)+ (filter.title ? 1 : 0) +
+    (filter.dateFrom ? 1 : 0) + (filter.dateTo ? 1 : 0);
+  };
+
+  // Function to fetch routing groups when filter is clicked
+  const fetchRoutingGroupsOnDemand = async (): Promise<Option[]> => {
+    if (!routingGroupsLoaded) {
+      try {
+        console.log('Fetching routing groups on demand...');
+        const routingGroupData = await fetchRoutingGroups();
+        console.log('Fetched routing groups:', routingGroupData);
+        setRoutingGroups(routingGroupData);
+        setRoutingGroupsLoaded(true);
+        return routingGroupData.map(group => ({
+          value: group.name,
+          label: group.name
+        }));
+      } catch (error) {
+        console.error('Failed to fetch routing groups:', error);
+        toast.error('Failed to load routing groups', {
+          position: "top-right",
+          className: "!bg-red-100 !text-red-800 !border !border-red-300",
+        });
+        return [];
+      }
+    }
+    return routingGroups.map(group => ({
+      value: group.name,
+      label: group.name
+    }));
+  };
+
+  const fetchCustomersOnDemand = async (): Promise<Option[]> => {
+    if (!customersLoaded) {
+      try {
+        console.log('Fetching customers on demand...');
+        const customerData = await fetchCustomers();
+        console.log('Fetched customers:', customerData);
+        setCustomers(customerData);
+        setCustomersLoaded(true);
+        return customerData.map(cust => ({
+          value: cust.name,
+          label: cust.name
+        }));
+      } catch (error) {
+        console.error('Failed to fetch customers:', error);
+        toast.error('Failed to load customers', {
+          position: "top-right",
+          className: "!bg-red-100 !text-red-800 !border !border-red-300",
+        });
+        return [];
+      }
+    }
+    return customers.map(cust => ({
+      value: cust.name,
+      label: cust.name
+    }));
+  }
+
+  const fetchLocationsOnDemand = async (): Promise<Option[]> => {
+    if (!locationsLoaded) {
+      try {
+        console.log('Fetching locations on demand...');
+        const locationData = await fetchLocations();
+        console.log('Fetched locations:', locationData);
+        setLocations(locationData);
+        setLocationsLoaded(true);
+        return locationData.map(loc => ({
+          value: loc.name,
+          label: loc.name
+        }));
+      } catch (error) {
+        console.error('Failed to fetch locations:', error);
+        toast.error('Failed to load locations', {
+          position: "top-right",
+          className: "!bg-red-100 !text-red-800 !border !border-red-300",
+        });
+        return [];
+      }
+    }
+    return locations.map(loc => ({
+      value: loc.name,
+      label: loc.name
+    }));
+  }
+
+  // Get unique routing groups for MultiSelect options
+  const uniqueRoutingGroups = routingGroups.map(group => ({
+    value: group.name,
+    label: group.name
+  }));
+
+  const uniqueCustomers = customers.map(cust => ({
+    value: cust.name,
+    label: cust.name
+  }));
+
+  const uniqueLocations = locations.map(loc => ({
+    value: loc.name,
+    label: loc.name
+  }));
 
   const handleResourceDragStart = (resourceId: string, resourceType: 'employee' | 'vendor' | 'asset') => {
     console.log('Resource drag started:', { resourceId, resourceType });
@@ -501,7 +571,7 @@ const Board = () => {
   };
 
   const handleResourceClick = (resourceName: string) => {
-    setResourcesFilter(prev => {
+    setEventsFilter(prev => {
       const isAlreadySelected = prev.resourceNames.includes(resourceName);
       
       if (isAlreadySelected) {
@@ -568,7 +638,10 @@ const Board = () => {
       }
 
       if (isAlreadyAssigned) {
-        toast.error(`${draggedResource.type.charAt(0).toUpperCase() + draggedResource.type.slice(1)} is already assigned to this event`);
+        toast.error(`${draggedResource.type.charAt(0).toUpperCase() + draggedResource.type.slice(1)} is already assigned to this event`, {
+          position: "top-right",
+          className: "!bg-red-100 !text-red-800 !border !border-red-300",
+        });
         return;
       }
 
@@ -798,27 +871,57 @@ const Board = () => {
     setIsFilterModalOpen(true);
   };
 
-  const getActiveFiltersCount = (filter: FilterState) => {
-    return filter.titles.length + filter.descriptions.length + filter.statuses.length + 
+  const getActiveEventFiltersCount = (filter: EventFilterState) => {
+    return filter.statuses.length + 
            (filter.eventId ? 1 : 0) + filter.resourceNames.length + filter.resourceGroups.length +
            filter.priorities.length + filter.eventTypes.length + 
-           (filter.dateFrom ? 1 : 0) + (filter.dateTo ? 1 : 0);
+           (filter.dateFrom ? 1 : 0) + (filter.dateTo ? 1 : 0) +
+           filter.organizers.length + filter.receiptStatuses.length + 
+           filter.routingGroups.length;
   };
 
-  const filteredJobs = jobs.filter(job => 
-    (availableJobsFilter.titles.length === 0 || availableJobsFilter.titles.includes(job.title)) &&
-    (availableJobsFilter.descriptions.length === 0 || availableJobsFilter.descriptions.includes(job.description)) &&
-    (availableJobsFilter.statuses.length === 0 || availableJobsFilter.statuses.includes(job.status.text))
-  );
+  const filteredJobs = jobs.filter(job => {
+    // Filter by job ID
+    if (jobsFilter.woId && !job.title.includes(jobsFilter.woId)) {
+      return false;
+    }
+
+    // Filter by job title
+    if (jobsFilter.title && !job.title.includes(jobsFilter.title)) {
+      return false;
+    }
+
+    // Filter by date range
+    if (jobsFilter.dateFrom || jobsFilter.dateTo) {
+      const jobDate = new Date(job.date || '');
+      
+      if (jobsFilter.dateFrom) {
+        const fromDate = new Date(jobsFilter.dateFrom);
+        if (jobDate < fromDate) {
+          return false;
+        }
+      }
+      
+      if (jobsFilter.dateTo) {
+        const toDate = new Date(jobsFilter.dateTo);
+        if (jobDate > toDate) {
+          return false;
+        }
+      }
+    }
+
+    return (jobsFilter.customers.length === 0 || jobsFilter.customers.includes(job.customer)) &&
+          (jobsFilter.locations.length === 0 || jobsFilter.locations.includes(job.location));
+  });
 
   const filteredEvents = events.filter(event => {
     // Filter by event ID
-    if (resourcesFilter.eventId && !event.id.includes(resourcesFilter.eventId)) {
+    if (eventsFilter.eventId && !event.id.includes(eventsFilter.eventId)) {
       return false;
     }
     
     // Filter by resource names  
-    if (resourcesFilter.resourceNames.length > 0) {
+    if (eventsFilter.resourceNames.length > 0) {
       const eventResourceNames = [
         ...(event.resources || []).map(r => r.employee?.text || ''),
         ...(event.vendors || []).map(v => v.vendor?.text || ''),
@@ -826,7 +929,7 @@ const Board = () => {
       ].filter(Boolean);
       
       const hasMatchingResource = eventResourceNames.some(resourceName => 
-        resourcesFilter.resourceNames.some(filterName => 
+        eventsFilter.resourceNames.some(filterName => 
           resourceName.toLowerCase().includes(filterName.toLowerCase())
         )
       );
@@ -837,7 +940,7 @@ const Board = () => {
     }
     
     // Filter by resource groups
-    if (resourcesFilter.resourceGroups.length > 0) {
+    if (eventsFilter.resourceGroups.length > 0) {
       const eventResourceGroups = [
         ...(event.resources || []).flatMap(r => {
           const employeeId = r.employee?.value;
@@ -860,7 +963,7 @@ const Board = () => {
       }
       
       const hasMatchingResourceGroup = eventResourceGroups.some(groupName => 
-        resourcesFilter.resourceGroups.some(filterGroup => 
+        eventsFilter.resourceGroups.some(filterGroup => 
           groupName.toLowerCase().includes(filterGroup.toLowerCase())
         )
       );
@@ -871,7 +974,7 @@ const Board = () => {
     }
     
     // Filter by event types
-    if (resourcesFilter.eventTypes.length > 0) {
+    if (eventsFilter.eventTypes.length > 0) {
       const hasWorkOrder = event.workorder && event.workorder.value;
       const hasResources = (event.resources || []).length > 0;
       const hasVendors = (event.vendors || []).length > 0;
@@ -883,25 +986,25 @@ const Board = () => {
         ? 'Non General Event'
         : 'Unassigned Event';
       
-      if (!resourcesFilter.eventTypes.includes(eventType)) {
+      if (!eventsFilter.eventTypes.includes(eventType)) {
         return false;
       }
     }
     
     // Filter by date range
-    if (resourcesFilter.dateFrom || resourcesFilter.dateTo) {
+    if (eventsFilter.dateFrom || eventsFilter.dateTo) {
       const eventStartDate = new Date(event.date?.start || '');
       const eventEndDate = new Date(event.date?.end || '');
       
-      if (resourcesFilter.dateFrom) {
-        const fromDate = new Date(resourcesFilter.dateFrom);
+      if (eventsFilter.dateFrom) {
+        const fromDate = new Date(eventsFilter.dateFrom);
         if (eventEndDate < fromDate) {
           return false;
         }
       }
       
-      if (resourcesFilter.dateTo) {
-        const toDate = new Date(resourcesFilter.dateTo);
+      if (eventsFilter.dateTo) {
+        const toDate = new Date(eventsFilter.dateTo);
         if (eventStartDate > toDate) {
           return false;
         }
@@ -909,27 +1012,33 @@ const Board = () => {
     }
     
     // Filter by organizers
-    if (resourcesFilter.organizers.length > 0) {
+    if (eventsFilter.organizers.length > 0) {
       const eventOrganizer = event.organizer?.text || '';
-      if (!resourcesFilter.organizers.includes(eventOrganizer)) {
+      if (!eventsFilter.organizers.includes(eventOrganizer)) {
         return false;
       }
     }
     
     // Filter by receipt statuses
-    if (resourcesFilter.receiptStatuses.length > 0) {
+    if (eventsFilter.receiptStatuses.length > 0) {
       const eventReceiptStatus = getReceiptStatusForEvent(event);
       const receiptStatusText = eventReceiptStatus?.text || '';
-      if (!resourcesFilter.receiptStatuses.includes(receiptStatusText)) {
+      if (!eventsFilter.receiptStatuses.includes(receiptStatusText)) {
         return false;
       }
     }
     
-    // Filter by titles, descriptions, statuses, and priorities
-    return (resourcesFilter.titles.length === 0 || resourcesFilter.titles.includes(event.title || '')) &&
-           (resourcesFilter.descriptions.length === 0 || resourcesFilter.descriptions.includes(event.note || '')) &&
-           (resourcesFilter.statuses.length === 0 || resourcesFilter.statuses.includes(event.status?.text || '')) &&
-           (resourcesFilter.priorities.length === 0 || resourcesFilter.priorities.includes(event.priority?.text || ''));
+    // Filter by routing groups
+    if (eventsFilter.routingGroups.length > 0) {
+      const eventRoutingGroup = event.routingGroup?.text || '';
+      if (!eventsFilter.routingGroups.includes(eventRoutingGroup)) {
+        return false;
+      }
+    }
+    
+    // Filter by statuses, and priorities
+    return (eventsFilter.statuses.length === 0 || eventsFilter.statuses.includes(event.status?.text || '')) &&
+           (eventsFilter.priorities.length === 0 || eventsFilter.priorities.includes(event.priority?.text || ''));
   });
 
   const getWorkOrderUrl = (event: Event) => {
@@ -947,9 +1056,9 @@ const Board = () => {
 
   if (isLoading) {
     return (
-      <div className="p-6 h-screen bg-gray-50">
+      <div className="p-6 h-screen bg-background">
         <div className="flex rounded-lg border relative overflow-hidden h-full">
-          <div className="w-[250px] min-w-[250px] h-full bg-white p-4 border-r">
+          <div className="w-[250px] min-w-[250px] h-full bg-background p-4 border-r">
             <div className="space-y-2 h-full flex flex-col">
               <Skeleton className="h-6 w-24" />
               <div className="space-y-1 flex-1">
@@ -959,14 +1068,14 @@ const Board = () => {
               </div>
             </div>
           </div>
-          <div className="flex-1 bg-white p-4 h-full">
+          <div className="flex-1 bg-background p-4 h-full">
             <div className="space-y-4 h-full flex flex-col border-r relative">
               <div className="absolute inset-0 flex justify-center items-center">
                 <div className="animate-spin rounded-full h-10 w-10 border-b-2 border-primary"></div>
               </div>
             </div>
           </div>
-          <div className="flex-1 bg-white p-4 h-full">
+          <div className="flex-1 bg-background p-4 h-full">
             <div className="space-y-4 h-full flex flex-col relative">
               <div className="absolute inset-0 flex justify-center items-center">
                 <div className="animate-spin rounded-full h-10 w-10 border-b-2 border-primary"></div>
@@ -981,7 +1090,7 @@ const Board = () => {
   console.log('selectedEventForComplete', selectedEventForComplete);
 
   return (
-    <div className="p-6 h-screen bg-gray-50">
+    <div className="p-6 h-screen bg-background">
       {loadingError && (
         <div className="bg-yellow-50 p-2 mb-4 border border-yellow-200 rounded text-yellow-800 text-sm">
           {loadingError}
@@ -994,7 +1103,7 @@ const Board = () => {
           className="relative"
         >
           <div className="flex h-full">
-            <CollapsibleContent className="w-[250px] min-w-[250px] h-full bg-white p-4 border-r">
+            <CollapsibleContent className="w-[250px] min-w-[250px] h-full bg-background p-4 border-r">
               <div className="h-full flex flex-col">
                 <Resources 
                   events={events} 
@@ -1002,7 +1111,7 @@ const Board = () => {
                   vendors={vendors}
                   assets={assets}
                   isLoading={isLoading}
-                  selectedResources={resourcesFilter.resourceNames}
+                  selectedResources={eventsFilter.resourceNames}
                   onResourceDragStart={handleResourceDragStart}
                   onResourceDragEnd={handleResourceDragEnd}
                   onResourceClick={handleResourceClick}
@@ -1024,12 +1133,12 @@ const Board = () => {
 
         <ResizablePanelGroup direction="horizontal" className="flex-1 h-full">
           <ResizablePanel defaultSize={50}>
-            <div className="h-full bg-white p-4">
+            <div className="h-full bg-background p-4">
               <div className="space-y-4 h-full flex flex-col">
                 <div className="flex justify-between items-center">
                   <div className="flex items-center gap-2">
-                    <ClipboardCheck className="h-4 w-4 text-gray-900" strokeWidth={2.5} />
-                    <h2 className="text-lg font-medium text-gray-700">Available Jobs</h2>
+                    <ClipboardCheck className="h-4 w-4 text-foreground" strokeWidth={2.5} />
+                    <h2 className="text-lg font-medium text-foreground">Available Jobs</h2>
                     <Badge variant="secondary" className="text-[9px] px-1 py-0 h-3 min-w-[12px]">
                       {filteredJobs.length}
                     </Badge>
@@ -1042,12 +1151,12 @@ const Board = () => {
                     >
                       <Filter className="h-4 w-4" />
                     </Button>
-                    {getActiveFiltersCount(availableJobsFilter) > 0 && (
+                    {getActiveJobFiltersCount(jobsFilter) > 0 && (
                       <Badge 
                         variant="secondary"
                         className="absolute -top-2 -right-2 h-5 w-5 flex items-center justify-center p-0"
                       >
-                        {getActiveFiltersCount(availableJobsFilter)}
+                        {getActiveJobFiltersCount(jobsFilter)}
                       </Badge>
                     )}
                   </div>
@@ -1097,7 +1206,7 @@ const Board = () => {
 
           <ResizablePanel defaultSize={50}>
             <div 
-              className={`h-full bg-white p-4 ${
+              className={`h-full bg-background p-4 ${
                 draggedCard ? 'border-[5px] border-dashed' : ''
               }`}
               style={draggedCard ? { borderColor: '#26CC4E' } : undefined}
@@ -1107,8 +1216,8 @@ const Board = () => {
               <div className="space-y-4 h-full flex flex-col">
                 <div className="flex justify-between items-center">
                   <div className="flex items-center gap-2">
-                    <Calendar className="h-4 w-4 text-gray-900" strokeWidth={2.5} />
-                     <h2 className="text-lg font-medium text-gray-700">Events</h2>
+                    <Calendar className="h-4 w-4 text-foreground" strokeWidth={2.5} />
+                     <h2 className="text-lg font-medium text-foreground">Events</h2>
                      <Badge variant="secondary" className="text-[9px] px-1 py-0 h-3 min-w-[12px]">
                        {filteredEvents.length}
                      </Badge>
@@ -1130,12 +1239,12 @@ const Board = () => {
                       >
                         <Filter className="h-4 w-4" />
                       </Button>
-                      {getActiveFiltersCount(resourcesFilter) > 0 && (
+                      {getActiveEventFiltersCount(eventsFilter) > 0 && (
                         <Badge 
                           variant="secondary"
                           className="absolute -top-2 -right-2 h-5 w-5 flex items-center justify-center p-0"
                         >
-                          {getActiveFiltersCount(resourcesFilter)}
+                          {getActiveEventFiltersCount(eventsFilter)}
                         </Badge>
                       )}
                     </div>
@@ -1330,19 +1439,19 @@ const Board = () => {
           <div className="space-y-3">
             <div className="grid grid-cols-2 gap-2">
               <div className="relative">
-                <Search className="absolute left-2 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400 pointer-events-none" />
+                <Search className="absolute left-2 top-1/2 -translate-y-1/2 h-3 w-3 text-muted-foreground pointer-events-none" />
                 <Input
                   placeholder="Enter Event ID"
-                  value={resourcesFilter.eventId}
+                  value={eventsFilter.eventId}
                   onChange={(e) =>
-                    setResourcesFilter((prev) => ({ ...prev, eventId: e.target.value }))
+                    setEventsFilter((prev) => ({ ...prev, eventId: e.target.value }))
                   }
-                  className="h-8 text-sm !text-[12px] placeholder:text-[12px] pl-7 pr-8 outline-none focus:outline-none focus:ring-0 focus:ring-transparent focus-visible:ring-0 focus-visible:ring-transparent focus:shadow-none"
+                  className="h-8 text-sm !text-[12px] !placeholder:text-[12px] pl-7 pr-8 outline-none focus:outline-none focus:ring-0 focus:ring-transparent focus-visible:ring-0 focus-visible:ring-transparent focus:shadow-none"
                 />
-                {resourcesFilter.eventId && (
+                {eventsFilter.eventId && (
                   <button
-                    onClick={() => setResourcesFilter((prev) => ({ ...prev, eventId: '' }))}
-                    className="absolute right-2 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400 hover:text-gray-600 flex items-center justify-center"
+                    onClick={() => setEventsFilter((prev) => ({ ...prev, eventId: '' }))}
+                    className="absolute right-2 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground hover:text-foreground flex items-center justify-center"
                   >
                     <X className="!h-3 !w-3" />
                   </button>
@@ -1354,12 +1463,12 @@ const Board = () => {
                   id="resourceName"
                   label=""
                   options={uniqueResourceNames}
-                  selected={resourcesFilter.resourceNames}
+                  selected={eventsFilter.resourceNames}
                   onChange={(value) =>
-                    setResourcesFilter((prev) => ({ ...prev, resourceNames: value }))
+                    setEventsFilter((prev) => ({ ...prev, resourceNames: value }))
                   }
                   placeholder="Filter by Resource Name"
-                  className="w-full text-sm !text-[12px] placeholder:text-[12px] w-full"
+                  className="w-full text-sm !text-[12px] placeholder:text-[12px]"
                 />
               </div>
             </div>
@@ -1370,12 +1479,12 @@ const Board = () => {
                   id="resourceGroup"
                   label=""
                   options={uniqueResourceGroups}
-                  selected={resourcesFilter.resourceGroups}
+                  selected={eventsFilter.resourceGroups}
                   onChange={(value) =>
-                    setResourcesFilter((prev) => ({ ...prev, resourceGroups: value }))
+                    setEventsFilter((prev) => ({ ...prev, resourceGroups: value }))
                   }
                   placeholder="Filter by Resource Group"
-                  className="w-full text-sm !text-[12px] placeholder:text-[12px] w-full"
+                  className="w-full text-sm !text-[12px] placeholder:text-[12px]"
                 />
               </div>
               
@@ -1383,13 +1492,13 @@ const Board = () => {
                 <MultiSelectFilter
                   id="eventStatus"
                   label=""
-                  options={uniqueEventStatuses}
-                  selected={resourcesFilter.statuses}
+                  options={eventStatuses}
+                  selected={eventsFilter.statuses}
                   onChange={(value) =>
-                    setResourcesFilter((prev) => ({ ...prev, statuses: value }))
+                    setEventsFilter((prev) => ({ ...prev, statuses: value }))
                   }
                   placeholder="Filter by Status"
-                  className="w-full text-sm !text-[12px] placeholder:text-[12px] w-full"
+                  className="w-full text-sm !text-[12px] placeholder:text-[12px]"
                 />
               </div>
             </div>
@@ -1399,10 +1508,10 @@ const Board = () => {
                 <MultiSelectFilter
                   id="eventPriority"
                   label=""
-                  options={uniqueEventPriorities}
-                  selected={resourcesFilter.priorities}
+                  options={eventPriorities}
+                  selected={eventsFilter.priorities}
                   onChange={(value) =>
-                    setResourcesFilter((prev) => ({ ...prev, priorities: value }))
+                    setEventsFilter((prev) => ({ ...prev, priorities: value }))
                   }
                   placeholder="Filter by Priority"
                   className="w-full text-sm !text-[12px] placeholder:text-[12px]"
@@ -1413,13 +1522,13 @@ const Board = () => {
                 <MultiSelectFilter
                   id="eventType"
                   label=""
-                  options={uniqueEventTypes}
-                  selected={resourcesFilter.eventTypes}
+                  options={eventTypes}
+                  selected={eventsFilter.eventTypes}
                   onChange={(value) =>
-                    setResourcesFilter((prev) => ({ ...prev, eventTypes: value }))
+                    setEventsFilter((prev) => ({ ...prev, eventTypes: value }))
                   }
                   placeholder="Filter by Event Type"
-                  className="w-full text-sm !text-[12px] placeholder:text-[12px] w-full"
+                  className="w-full text-sm !text-[12px] placeholder:text-[12px]"
                 />
               </div>
             </div>
@@ -1429,9 +1538,9 @@ const Board = () => {
                 <DateRangeFilter
                   id="dateFrom"
                   label=""
-                  value={resourcesFilter.dateFrom}
+                  value={eventsFilter.dateFrom}
                   onChange={(value) =>
-                    setResourcesFilter((prev) => ({ ...prev, dateFrom: value }))
+                    setEventsFilter((prev) => ({ ...prev, dateFrom: value }))
                   }
                   placeholder="Date From"
                 />
@@ -1441,9 +1550,9 @@ const Board = () => {
                 <DateRangeFilter
                   id="dateTo"
                   label=""
-                  value={resourcesFilter.dateTo}
+                  value={eventsFilter.dateTo}
                   onChange={(value) =>
-                    setResourcesFilter((prev) => ({ ...prev, dateTo: value }))
+                    setEventsFilter((prev) => ({ ...prev, dateTo: value }))
                   }
                   placeholder="Date To"
                 />
@@ -1456,9 +1565,9 @@ const Board = () => {
                   id="organizer"
                   label=""
                   options={uniqueOrganizers}
-                  selected={resourcesFilter.organizers}
+                  selected={eventsFilter.organizers}
                   onChange={(value) =>
-                    setResourcesFilter((prev) => ({ ...prev, organizers: value }))
+                    setEventsFilter((prev) => ({ ...prev, organizers: value }))
                   }
                   placeholder="Filter by Organizer"
                   className="w-full text-sm !text-[12px] placeholder:text-[12px]"
@@ -1469,47 +1578,135 @@ const Board = () => {
                 <MultiSelectFilter
                   id="receiptStatus"
                   label=""
-                  options={uniqueReceiptStatuses}
-                  selected={resourcesFilter.receiptStatuses}
+                  options={receiptStatuses}
+                  selected={eventsFilter.receiptStatuses}
                   onChange={(value) =>
-                    setResourcesFilter((prev) => ({ ...prev, receiptStatuses: value }))
+                    setEventsFilter((prev) => ({ ...prev, receiptStatuses: value }))
                   }
                   placeholder="Filter by Receipt Status"
                   className="w-full text-sm !text-[12px] placeholder:text-[12px]"
                 />
               </div>
             </div>
-          </div>
-          ) : (
-            <div className="space-y-4">
-              <div className="space-y-2">
-                <Label>Title</Label>
-                <MultiSelect
-                  options={uniqueTitles}
-                  selected={availableJobsFilter.titles}
-                  onChange={(value) => setAvailableJobsFilter(prev => ({ ...prev, titles: value }))}
-                  placeholder="Filter by title"
-                />
-              </div>
-              <div className="space-y-2">
-                <Label>Description</Label>
-                <MultiSelect
-                  options={uniqueDescriptions}
-                  selected={availableJobsFilter.descriptions}
-                  onChange={(value) => setAvailableJobsFilter(prev => ({ ...prev, descriptions: value }))}
-                  placeholder="Filter by description"
-                />
-              </div>
-              <div className="space-y-2">
-                <Label>Status</Label>
-                <MultiSelect
-                  options={uniqueStatuses}
-                  selected={availableJobsFilter.statuses}
-                  onChange={(value) => setAvailableJobsFilter(prev => ({ ...prev, statuses: value }))}
-                  placeholder="Filter by status"
+            
+            <div className="grid grid-cols-2 gap-2">
+              <div className="-mt-[5px]">
+                <MultiSelectFilter
+                  id="routingGroup"
+                  label=""
+                  options={uniqueRoutingGroups}
+                  selected={eventsFilter.routingGroups}
+                  onChange={(value) =>
+                    setEventsFilter((prev) => ({ ...prev, routingGroups: value }))
+                  }
+                  placeholder="Filter by Routing Group"
+                  className="w-full text-sm !text-[12px] placeholder:text-[12px]"
+                  fetchOptionsOnOpen={fetchRoutingGroupsOnDemand}
                 />
               </div>
             </div>
+          </div>
+          ) : (
+          <div className="space-y-3">
+            
+            <div className="grid grid-cols-2 gap-2">
+              <div className="-mt-[5px]">
+                <MultiSelectFilter
+                  id="customer"
+                  label=""
+                  options={uniqueCustomers}
+                  selected={jobsFilter.customers}
+                  onChange={(value) =>
+                    setJobsFilter((prev) => ({ ...prev, customers: value }))
+                  }
+                  placeholder="Filter by Customer"
+                  className="w-full text-sm !text-[12px] placeholder:text-[12px]"
+                  fetchOptionsOnOpen={fetchCustomersOnDemand}
+                />
+              </div>
+              <div className="-mt-[5px]">
+                <MultiSelectFilter
+                  id="location"
+                  label=""
+                  options={uniqueLocations}
+                  selected={jobsFilter.locations}
+                  onChange={(value) =>
+                    setJobsFilter((prev) => ({ ...prev, locations: value }))
+                  }
+                  placeholder="Filter by Location"
+                  className="w-full text-sm !text-[12px] placeholder:text-[12px]"
+                  fetchOptionsOnOpen={fetchLocationsOnDemand}
+                />
+              </div>
+            </div>
+
+            <div className="grid grid-cols-2 gap-2">
+              <div className="relative">
+                <Search className="absolute left-2 top-1/2 -translate-y-1/2 h-3 w-3 text-muted-foreground pointer-events-none" />
+                <Input
+                  placeholder="Enter Work Order ID"
+                  value={jobsFilter.woId}
+                  onChange={(e) =>
+                    setJobsFilter((prev) => ({ ...prev, woId: e.target.value }))
+                  }
+                  className="h-8 text-sm !text-[12px] !placeholder:text-[12px] pl-7 pr-8 outline-none focus:outline-none focus:ring-0 focus:ring-transparent focus-visible:ring-0 focus-visible:ring-transparent focus:shadow-none"
+                />
+                {jobsFilter.woId && (
+                  <button
+                    onClick={() => setJobsFilter((prev) => ({ ...prev, woId: '' }))}
+                    className="absolute right-2 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground hover:text-foreground flex items-center justify-center"
+                  >
+                    <X className="!h-3 !w-3" />
+                  </button>
+                )}
+              </div>
+              <div className="relative">
+                <Search className="absolute left-2 top-1/2 -translate-y-1/2 h-3 w-3 text-muted-foreground pointer-events-none" />
+                <Input
+                  placeholder="Enter Work Order Title"
+                  value={jobsFilter.title}
+                  onChange={(e) =>
+                    setJobsFilter((prev) => ({ ...prev, title: e.target.value }))
+                  }
+                  className="h-8 text-sm !text-[12px] !placeholder:text-[12px] pl-7 pr-8 outline-none focus:outline-none focus:ring-0 focus:ring-transparent focus-visible:ring-0 focus-visible:ring-transparent focus:shadow-none"
+                />
+                {jobsFilter.title && (
+                  <button
+                    onClick={() => setJobsFilter((prev) => ({ ...prev, title: '' }))}
+                    className="absolute right-2 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground hover:text-foreground flex items-center justify-center"
+                  >
+                    <X className="!h-3 !w-3" />
+                  </button>
+                )}
+              </div>
+            </div>
+
+            <div className="grid grid-cols-2 gap-2">
+              <div className="-mt-[5px]">
+                <DateRangeFilter
+                  id="dateFrom"
+                  label=""
+                  value={jobsFilter.dateFrom}
+                  onChange={(value) =>
+                    setJobsFilter((prev) => ({ ...prev, dateFrom: value }))
+                  }
+                  placeholder="Date From"
+                />
+              </div>
+              
+              <div className="-mt-[5px]">
+                <DateRangeFilter
+                  id="dateTo"
+                  label=""
+                  value={jobsFilter.dateTo}
+                  onChange={(value) =>
+                    setJobsFilter((prev) => ({ ...prev, dateTo: value }))
+                  }
+                  placeholder="Date To"
+                />
+              </div>
+            </div>
+          </div>
           )}
           <DialogFooter>
             <Button onClick={() => {
@@ -1517,9 +1714,7 @@ const Board = () => {
               // setIsFilterModalOpen(false);
             }} className="text-[12px] h-8 px-3 tracking-tight">Select Fields</Button>
             <Button variant="outline" onClick={() => {
-              setResourcesFilter({
-                titles: [],
-                descriptions: [],
+              setEventsFilter({
                 statuses: [],
                 eventId: '',
                 resourceNames: [],
@@ -1530,12 +1725,12 @@ const Board = () => {
                 dateTo: undefined,
                 organizers: [],
                 receiptStatuses: [],
+                routingGroups: [],
               });
-              setAvailableJobsFilter({
-                titles: [],
-                descriptions: [],
+              setJobsFilter({
                 statuses: [],
-                eventId: '',
+                woId: '',
+                title: '',
                 resourceNames: [],
                 resourceGroups: [],
                 priorities: [],
@@ -1544,6 +1739,9 @@ const Board = () => {
                 dateTo: undefined,
                 organizers: [],
                 receiptStatuses: [],
+                routingGroups: [],
+                customers: [],
+                locations: []
               });
             }} className="text-[12px] h-8 px-3 tracking-tight">
               Clear All

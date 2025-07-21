@@ -131,7 +131,7 @@ export function MultiSelect({
           {isLoading && (
             <div className="py-6 text-center">
               <Loader2 className="h-5 w-5 animate-spin mx-auto mb-2 text-primary" />
-              <p className="text-sm text-muted-foreground">Loading options...</p>
+              <p className="!text-[12px] tracking-tight text-muted-foreground">Loading options...</p>
             </div>
           )}
           

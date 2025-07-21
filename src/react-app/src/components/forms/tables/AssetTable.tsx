@@ -217,7 +217,7 @@ export const AssetTable: React.FC<AssetTableProps> = ({
     const isSorted = column.getIsSorted();
     if (isSorted === 'asc') return <ChevronUp className="ml-1 h-3 w-3" />;
     if (isSorted === 'desc') return <ChevronDown className="ml-1 h-3 w-3" />;
-    return <ChevronsUpDown className="ml-1 h-3 w-3 text-slate-400" />;
+    return <ChevronsUpDown className="ml-1 h-3 w-3 text-muted-foreground" />;
   }, []);
 
   const columns: ColumnDef<TableAsset>[] = useMemo(() => [
@@ -244,26 +244,26 @@ export const AssetTable: React.FC<AssetTableProps> = ({
       accessorKey: "name",
       header: ({ column }) => (
         <Button variant="ghost" onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-          className="h-6 px-1 text-[12px] font-sans tracking-tight font-semibold hover:bg-slate-100/60">
+          className="h-6 px-1 text-[12px] font-sans tracking-tight font-semibold hover:bg-muted/60">
           Name {renderSortIcon(column)}
         </Button>
       ),
       cell: ({ row }) => (
-        <div className="text-slate-900 text-[12px] font-sans tracking-tight">{row.getValue("name")}</div>
+        <div className="text-foreground text-[12px] font-sans tracking-tight">{row.getValue("name")}</div>
       ),
     },
     {
       accessorKey: "description",
       header: "Description",
       cell: ({ row }) => (
-        <div className="text-slate-700 font-sans tracking-tight text-[12px]">{row.getValue("description")}</div>
+        <div className="text-muted-foreground font-sans tracking-tight text-[12px]">{row.getValue("description")}</div>
       ),
     },
     {
       accessorKey: "type",
       header: "Type",
       cell: ({ row }) => (
-        <div className="text-slate-700 font-sans tracking-tight text-[12px]">{row.getValue("type")}</div>
+        <div className="text-muted-foreground font-sans tracking-tight text-[12px]">{row.getValue("type")}</div>
       ),
     },
     {
@@ -285,7 +285,7 @@ export const AssetTable: React.FC<AssetTableProps> = ({
       accessorKey: "quantityRemaining",
       header: "Quantity Remaining",
       cell: ({ row }) => (
-        <div className="text-slate-700 font-sans tracking-tight text-[12px]">{helper.addCommas(row.getValue("quantityRemaining"))}</div>
+        <div className="text-muted-foreground font-sans tracking-tight text-[12px]">{helper.addCommas(row.getValue("quantityRemaining"))}</div>
       ),
     },
     {
@@ -348,11 +348,11 @@ export const AssetTable: React.FC<AssetTableProps> = ({
       <div className="flex items-center justify-between">
         {/* Left - Rows and Filter */}
         <div className="flex items-center space-x-1">
-          <span className="text-[12px] font-sans text-slate-700">Rows:</span>
+          <span className="text-[12px] font-sans text-foreground">Rows:</span>
           <select
             value={table.getState().pagination.pageSize}
             onChange={(e) => table.setPageSize(Number(e.target.value))}
-            className="h-6 w-[50px] rounded border border-slate-200 bg-white px-1 text-[12px] font-sans"
+            className="h-6 w-[50px] rounded border border-border bg-background px-1 text-[12px] font-sans"
           >
             {[5, 10, 20, 30].map((size) => <option key={size} value={size}>{size}</option>)}
           </select>
@@ -365,32 +365,32 @@ export const AssetTable: React.FC<AssetTableProps> = ({
         <div className="flex items-center space-x-2">
           {selectedAssets.length > 0 && (
             <div className="flex items-center space-x-1">
-              <span className="text-[12px] font-sans text-slate-700">Selected:</span>
+              <span className="text-[12px] font-sans text-foreground">Selected:</span>
               <Badge variant="secondary" className="text-[10px] px-1 py-0.5 h-4">
                 {selectedAssets.length}
               </Badge>
             </div>
           )}
           <div className="relative w-[200px]">
-            <Search className="absolute left-2 top-1/2 transform -translate-y-1/2 text-slate-400 h-3 w-3" />
+            <Search className="absolute left-2 top-1/2 transform -translate-y-1/2 text-muted-foreground h-3 w-3" />
             <Input
               placeholder="Search..."
               value={globalFilter}
               onChange={(e) => setGlobalFilter(e.target.value)}
-              className="pl-8 h-6 border-slate-200 !text-[12px] font-sans placeholder:text-[12px]"
+              className="pl-8 h-6 border-border !text-[12px] font-sans placeholder:text-[12px]"
             />
           </div>
         </div>
       </div>
 
       {/* Table */}
-      <div className="rounded border border-slate-200 bg-white shadow-sm overflow-x-auto">
+      <div className="rounded border border-border bg-card shadow-sm overflow-x-auto">
         <Table>
           <TableHeader>
             {table.getHeaderGroups().map((headerGroup) => (
-              <TableRow key={headerGroup.id} className="bg-slate-50/50">
+              <TableRow key={headerGroup.id} className="bg-muted/50">
                 {headerGroup.headers.map((header) => (
-                  <TableHead key={header.id} className={`h-8 px-2 text-center font-sans text-[12px] font-semibold text-slate-700 border-b border-slate-200 
+                  <TableHead key={header.id} className={`h-8 px-2 text-center font-sans text-[12px] font-semibold text-foreground border-b border-border 
                     ${['startTime', 'endTime'].includes(header.column.id) ? 'min-w-[130px]' : ''}`}>
                     {header.isPlaceholder ? null : flexRender(header.column.columnDef.header, header.getContext())}
                   </TableHead>
@@ -401,14 +401,14 @@ export const AssetTable: React.FC<AssetTableProps> = ({
           <TableBody>
             {table.getRowModel().rows.length ? (
               table.getRowModel().rows.map((row) => (
-                <TableRow key={row.id} className="border-b border-slate-100 hover:bg-slate-50/50">
+                <TableRow key={row.id} className="border-b border-border hover:bg-muted/50">
                   {row.getVisibleCells().map((cell) => (
                     <TableCell key={cell.id} className="px-2 py-1 text-center text-[12px] font-sans">{flexRender(cell.column.columnDef.cell, cell.getContext())}</TableCell>
                   ))}
                 </TableRow>
               ))
             ) : (
-              <TableRow><TableCell colSpan={columns.length} className="h-16 text-center text-slate-500 text-[12px]">No assets found.</TableCell></TableRow>
+              <TableRow><TableCell colSpan={columns.length} className="h-16 text-center text-muted-foreground text-[12px]">No assets found.</TableCell></TableRow>
             )}
           </TableBody>
         </Table>
@@ -417,7 +417,7 @@ export const AssetTable: React.FC<AssetTableProps> = ({
       {/* Bottom Pagination */}
       <div className="flex items-center justify-between mt-2">
         {/* Bottom Left: Showing X to Y of Z entries */}
-        <div className="text-[12px] font-sans text-slate-700">
+        <div className="text-[12px] font-sans text-foreground">
           {(() => {
             const pageIndex = table.getState().pagination.pageIndex;
             const pageSize = table.getState().pagination.pageSize;

@@ -1105,8 +1105,8 @@ const getMockWorkOrders = (): WorkOrder[] => {
       "soUrl": "/app/accounting/transactions/salesord.nl?id=20919&compid=TSTDRV2617106",
       "esthours": "10",
       "location": {
-        "text": "",
-        "value": ""
+        "text": "02: Boston",
+        "value": "123123123213"
       },
       "receiptStatus": {
         "text": "",
@@ -1148,8 +1148,8 @@ const getMockWorkOrders = (): WorkOrder[] => {
       "soUrl": "/app/accounting/transactions/salesord.nl?id=20915&compid=TSTDRV2617106",
       "esthours": "200",
       "location": {
-        "text": "",
-        "value": ""
+        "text": "Atlanta",
+        "value": "99999999"
       },
       "receiptStatus": {
         "text": "",

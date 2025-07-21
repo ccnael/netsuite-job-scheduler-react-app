@@ -29,6 +29,7 @@ const MultiSelectFilter: React.FC<MultiSelectFilterProps> = ({
   const {
     options,
     isLoading,
+    handleFetchOptions
   } = useMultiSelectFetch({
     initialOptions,
     fetchOptionsOnOpen
@@ -48,6 +49,7 @@ const MultiSelectFilter: React.FC<MultiSelectFilterProps> = ({
         maxDisplay={maxDisplay}
         className="h-8 cursor-pointer"
         isLoading={isLoading}
+        onOpen={handleFetchOptions}
       />
     </div>
   );

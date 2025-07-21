@@ -267,11 +267,11 @@ export const Resources: React.FC<ResourcesProps> = ({
 
   if (isLoading) {
     return (
-      <div className="space-y-2 h-full flex flex-col">
+      <div className="space-y-2 h-full flex flex-col bg-background text-foreground">
         <div className="flex items-center justify-between mb-2">
           <div className="flex items-center gap-2">
-            <Users className="h-4 w-4 text-gray-900" strokeWidth={2.5} />
-            <h2 className="text-lg font-medium text-gray-700">Resources</h2>
+            <Users className="h-4 w-4 text-foreground" strokeWidth={2.5} />
+            <h2 className="text-lg font-medium text-foreground">Resources</h2>
           </div>
           <Button variant="outline" size="sm" disabled>
             <Filter className="h-3 w-3" />
@@ -351,11 +351,11 @@ export const Resources: React.FC<ResourcesProps> = ({
   };
 
   return (
-    <div className="space-y-2 h-full flex flex-col">
+    <div className="space-y-2 h-full flex flex-col bg-background text-foreground">
       <div className="flex items-center justify-between mb-2">
         <div className="flex items-center gap-2">
-          <Users className="h-4 w-4 text-gray-900" strokeWidth={2.5} />
-          <h2 className="text-lg font-medium text-gray-700">Resources</h2>
+          <Users className="h-4 w-4 text-foreground" strokeWidth={2.5} />
+          <h2 className="text-lg font-medium text-foreground">Resources</h2>
           <Badge variant="secondary" className="text-[10px] px-0.5 py-0.5">
             {filteredResources.length}
           </Badge>
@@ -394,7 +394,7 @@ export const Resources: React.FC<ResourcesProps> = ({
         </Dialog>
       </div>
       <div className="relative mb-3">
-        <Search className="absolute left-2 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400 pointer-events-none" />
+        <Search className="absolute left-2 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground pointer-events-none" />
         <Input
           placeholder="Search by name..."
           value={filterText}
@@ -404,7 +404,7 @@ export const Resources: React.FC<ResourcesProps> = ({
         {filterText && (
           <button
             onClick={() => setFilterText('')}
-            className="absolute right-2 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400 hover:text-gray-600 flex items-center justify-center"
+            className="absolute right-2 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground hover:text-foreground flex items-center justify-center"
           >
             <X className="h-3 w-3" />
           </button>
@@ -452,8 +452,8 @@ export const Resources: React.FC<ResourcesProps> = ({
                         key={`${resource.resourceType}-${id}`}
                         className={`flex items-center justify-between p-1 rounded text-xs cursor-pointer transition-colors ${
                           isSelected 
-                            ? 'bg-green-100 hover:bg-green-200' 
-                            : 'hover:bg-gray-50'
+                            ? 'bg-primary/10 hover:bg-primary/20' 
+                            : 'hover:bg-muted/50'
                         }`}
                         data-tooltip-id="resource-tooltip"
                         data-tooltip-html={formatTooltipContent(resource)}
