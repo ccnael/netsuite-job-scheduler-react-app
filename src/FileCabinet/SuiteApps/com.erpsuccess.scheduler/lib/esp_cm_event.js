@@ -198,37 +198,35 @@ define([
     const { request, response } = context;
     const user = runtime.getCurrentUser();
     let requestBody = request.body || '{}';
-    const payload = JSON.parse(requestBody);
+    const eventData = JSON.parse(requestBody);
 
     log.audit('----- [Create Work Order Event] -----', { payload });
 
-    const { eventData, woRef } = payload;
-
     try {
-      eventData.date.start = moment(eventData.date.start).format(env.Format.IMPORT_DATE);
-      eventData.date.end = moment(eventData.date.end).format(env.Format.IMPORT_DATE);
-      eventData.time.start = moment(`1/1/1999 ${eventData.time.start}`).format(env.Format.IMPORT_TIME);
-      eventData.time.end = moment(`1/1/1999 ${eventData.time.end}`).format(env.Format.IMPORT_TIME);
+      eventData.startDate = moment(eventData.startDate).format(env.Format.IMPORT_DATE);
+      eventData.endDate = moment(eventData.endDate).format(env.Format.IMPORT_DATE);
+      eventData.startTime = moment(`1/1/1999 ${eventData.startTime}`).format(env.Format.IMPORT_TIME);
+      eventData.endTime = moment(`1/1/1999 ${eventData.endTime}`).format(env.Format.IMPORT_TIME);
 
       const setField = {};
-      setField.title = eventData.title;
-      setField.custevent_esp_fop_work_order = woRef?.id || '';
+      setField.title = eventData.eventTitle;
+      setField.custevent_esp_fop_work_order = eventTitle?.woRef?.id || '';
       setField.organizer = user.id;
       setField.status = eventData.status;
       setField.accesslevel = 'PUBLIC';
-      setField.startdate = new Date(eventData.date.start);
-      setField.starttime = helper.toDateTimez(eventData.date.start, eventData.time.start);
-      setField.endtime = helper.toDateTimez(eventData.date.start, eventData.time.end);
+      setField.startdate = new Date(eventData.startDate);
+      setField.starttime = helper.toDateTimez(eventData.startDate, eventData.startTime);
+      setField.endtime = helper.toDateTimez(eventData.startDate, eventData.endTime);
       setField.custevent_esp_fop_event_priority = eventData.priority;
       setField.custevent_esp_fop_memo = eventData.note;
-      setField.custevent_task_pi = woRef?.projectInsight?.value;
+      setField.custevent_task_pi = eventData?.woRef?.projectInsight?.value;
       setField.custevent_esp_fop_asset_maintenance = !!(eventData?.assetMaintenance);
 
-      if (!!eventData.selectedAddress) {
+      if (eventData.selectedAddress) {
         setField.custevent_esp_fop_event_address = eventData.selectedAddress.id;
       }
 
-      const numberOfDays = moment(eventData.date.end).diff(moment(eventData.date.start), 'days') + 1;
+      const numberOfDays = moment(eventData.endDate).diff(moment(eventData.startDate), 'days') + 1;
 
       if (numberOfDays > 1) {
         setField.frequency = 'DAY';
@@ -236,7 +234,7 @@ define([
       } else {
         // Default > Single Day Event (value->NONE)
       }
-      setField.endbydate = new Date(eventData.date.end);
+      setField.endbydate = new Date(eventData.endDate);
 
       const rec = record.create({
         type: record.Type.CALENDAR_EVENT,
@@ -253,12 +251,12 @@ define([
       eventData.id = rec.save({ ignoreMandatoryFieds: true });
       log.audit('----- [Created Event Record] -----', { recordId: eventData.id });
 
-      woResourceLib.createResources(eventData, woRef);
-      woVendorLib.createVendors(eventData, woRef);
-      woAssetLib.createAssets(eventData, woRef);
-      woItemLib.createItems(eventData);
-      woContactLib.createContacts(eventData);
-      woAddressLib.addEventToAddresses(eventData);
+      eventData?.selectedResources.length && woResourceLib.createResources(eventData);
+      // woVendorLib.createVendors(eventData, woRef);
+      // woAssetLib.createAssets(eventData, woRef);
+      // woItemLib.createItems(eventData);
+      // woContactLib.createContacts(eventData);
+      // woAddressLib.addEventToAddresses(eventData);
 
       response.write(JSON.stringify({
         code: 200,

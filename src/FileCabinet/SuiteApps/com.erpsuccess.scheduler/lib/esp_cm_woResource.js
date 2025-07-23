@@ -189,10 +189,9 @@ define([
   /**
    * Transform employees to WO resources
    * @param {Object} event Event data
-   * @param {Object} woRef WO data
    * @param {Boolean} copyEventTime 
    */
-  function createResources(event, woRef, copyEventTime) {
+  function createResources(event, copyEventTime) {
     const resources = event?.selectedResources || [];
     for (const resource of resources) {
       try {
@@ -200,43 +199,18 @@ define([
           type: env.RecordType.WORK_ORDER_RESOURCE,
           isDynamic: false
         });
-        rec.setValue({ fieldId: 'custrecord_esp_fop_res_rel_wo', value: woRef?.id || '' });
+        rec.setValue({ fieldId: 'custrecord_esp_fop_res_rel_wo', value: event?.woRef?.id || '' });
         rec.setValue({ fieldId: 'custrecord_esp_fop_res_rel_wo_event', value: event.id });
-        rec.setValue({ fieldId: 'custrecord_esp_fop_res_employee', value: resource.employee.value });
-
-        if (resource.resourceGroups.length) {
-          rec.setValue({
-            fieldId: 'custrecord_esp_fop_res_rel_resource_grp',
-            value: resource.resourceGroups.map(x => x.value)
-          });
-        }
-
-        if (resource.types.length) {
-          rec.setValue({
-            fieldId: 'custrecord_esp_fop_res_resource_type',
-            value: resource.types.map(x => x.value)
-          });
-        }
-
-        if (resource.subTypes.length) {
-          rec.setValue({
-            fieldId: 'custrecord_esp_fop_res_resource_subtype',
-            value: resource.subTypes.map(x => x.value)
-          });
-        }
-
-        rec.setValue({ fieldId: 'custrecord_esp_fop_res_rate', value: resource.rate });
-        rec.setValue({ fieldId: 'custrecord_esp_fop_res_vendor', value: resource.vendor.value });
-        rec.setValue({ fieldId: 'custrecord_esp_fop_res_aff_type', value: resource.affiliationType.value });
-        rec.setValue({ fieldId: 'custrecord_esp_fop_res_event_start_date', value: new Date(event.date.start) });
-        rec.setValue({ fieldId: 'custrecord_esp_fop_res_event_end_date', value: new Date(event.date.end) });
+        rec.setValue({ fieldId: 'custrecord_esp_fop_res_employee', value: resource.id });
+        rec.setValue({ fieldId: 'custrecord_esp_fop_res_event_start_date', value: new Date(event.startDate) });
+        rec.setValue({ fieldId: 'custrecord_esp_fop_res_event_end_date', value: new Date(event.endDate) });
         rec.setValue({
           fieldId: 'custrecord_esp_fop_res_start_time',
-          value: helper.toDateTimez(event.date.start, !copyEventTime ? resource.time.start : event.time.start) // If no resource start time, use event start time instead
+          value: helper.toDateTimez(event.startDate, !copyEventTime ? resource.startTime : event.startTime) // If no resource start time, use event start time instead
         });
         rec.setValue({
           fieldId: 'custrecord_esp_fop_res_end_time',
-          value: helper.toDateTimez(event.date.start, !copyEventTime ? resource.time.end : event.time.end)  // If no resource end time, use event end time instead
+          value: helper.toDateTimez(event.startDate, !copyEventTime ? resource.endTime : event.endTime)  // If no resource end time, use event end time instead
         });
         const newId = rec.save({ ignoreMandatoryFields: true });
         log.audit('----- [Created WO Resource Record] -----', newId);

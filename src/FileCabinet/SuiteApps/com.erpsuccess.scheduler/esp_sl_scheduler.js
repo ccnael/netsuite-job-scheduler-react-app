@@ -52,7 +52,7 @@ define([
    * @param {ServerResponse} context.response - Suitelet response
    * @since 2015.2
    */
-  const _onRequest = (context) => {
+  const _onRequestVanillaJS = (context) => {
     const { parameters: params, method } = context.request;
     const script = runtime.getCurrentScript();
     const mode = params?.mode;
@@ -128,7 +128,7 @@ define([
    * @param {ServerResponse} context.response - Suitelet response
    * @since 2015.2
    */
-  const _onRequestNew = (context) => {
+  const _onRequestReact = (context) => {
     const { parameters: params, method } = context.request;
     const script = runtime.getCurrentScript();
     const mode = params?.mode;
@@ -239,10 +239,10 @@ define([
   return {
     onRequest(context) {
       const script = runtime.getCurrentScript();
-      if (script.deploymentId === 'customdeploy_esp_sl_scheduler_new') {
-        _onRequestNew(context);
+      if (script.deploymentId === 'customdeploy_esp_sl_scheduler_react') {
+        _onRequestReact(context);
       } else {
-        _onRequest(context);
+        _onRequestVanillaJS(context);
       }
     }
   }

@@ -2833,7 +2833,7 @@ define([
 
       static suitelet() {
         return url.resolveScript({
-          deploymentId: 'customdeploy_esp_sl_scheduler',
+          deploymentId: 'customdeploy_esp_sl_scheduler_vanillajs',
           scriptId: 'customscript_esp_sl_scheduler'
         })
       }

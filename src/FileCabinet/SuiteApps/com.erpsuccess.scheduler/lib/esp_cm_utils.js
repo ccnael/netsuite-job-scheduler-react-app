@@ -5,11 +5,12 @@
  * Utility module providing URL resolvers and NetSuite record helpers.
  */
 define([
+  'N/runtime',
   'N/url',
   'N/file',
   'N/record',
   './esp_cm_constants'
-], (url, file, record, env) => {
+], (runtime, url, file, record, env) => {
   /**
    * Class containing methods to generate NetSuite record and script URLs.
    */
@@ -19,9 +20,10 @@ define([
      * @returns {string} Suitelet URL
      */
     static suiteletUrl() {
+      const script = runtime.getCurrentScript();
       return url.resolveScript({
-        deploymentId: 'customdeploy_esp_sl_scheduler_new',
-        scriptId: 'customscript_esp_sl_scheduler'
+        deploymentId: script.deploymentId,
+        scriptId: script.id
       });
     }
 
