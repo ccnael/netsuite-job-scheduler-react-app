@@ -31,13 +31,10 @@ import { Option } from '@/components/ui-custom/MultiSelect';
 import { ChevronRight, Filter, Bot, ClipboardCheck, Calendar, Plus, Search, Users, X } from "lucide-react";
 import DateRangeFilter from '../components/forms/DateRangeFilter';
 import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-  DialogFooter,
-  DialogDescription,
-} from "@/components/ui/dialog";
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Label } from "@/components/ui/label";
 import { Badge } from "@/components/ui/badge";
@@ -113,6 +110,10 @@ interface Job {
   customerUrl?: string;
   workOrder?: WorkOrder;
   receiptStatus: ReceiptStatus;
+  projectInsight: {
+    text: string;
+    value: string;
+  }
 }
 
 interface SelectedResource {
@@ -274,7 +275,8 @@ const Board = () => {
           soUrl: wo.soUrl,
           projectUrl: wo.projectUrl,
           workOrder: wo,
-          receiptStatus: wo.receiptStatus || { text: '', value: '' }
+          receiptStatus: wo.receiptStatus || { text: '', value: '' },
+          projectInsight: wo.projectInsight
         }));
 
         setEvents(eventData);
@@ -882,12 +884,12 @@ const Board = () => {
 
   const filteredJobs = jobs.filter(job => {
     // Filter by job ID
-    if (jobsFilter.woId && !job.title.includes(jobsFilter.woId)) {
+    if (jobsFilter.woId && !job.id.includes(jobsFilter.woId)) {
       return false;
     }
 
     // Filter by job title
-    if (jobsFilter.title && !job.title.includes(jobsFilter.title)) {
+    if (jobsFilter.title && !job.title.toLowerCase().includes(jobsFilter.title.toLowerCase())) {
       return false;
     }
 
@@ -1144,21 +1146,159 @@ const Board = () => {
                     </Badge>
                   </div>
                   <div className="relative">
-                    <Button
-                      variant="outline"
-                      size="icon"
-                      onClick={() => handleOpenFilter('jobs')}
-                    >
-                      <Filter className="h-4 w-4" />
-                    </Button>
-                    {getActiveJobFiltersCount(jobsFilter) > 0 && (
-                      <Badge 
-                        variant="secondary"
-                        className="absolute -top-2 -right-2 h-5 w-5 flex items-center justify-center p-0"
-                      >
-                        {getActiveJobFiltersCount(jobsFilter)}
-                      </Badge>
-                    )}
+                    <Popover>
+                      <PopoverTrigger asChild>
+                        <Button
+                          variant="outline"
+                          size="icon"
+                          // onClick={() => setFilterType('jobs')}
+                        >
+                          <Filter className="h-3 w-3" />
+                        </Button>
+                      </PopoverTrigger>
+                      {getActiveJobFiltersCount(jobsFilter) > 0 && (
+                        <Badge 
+                          variant="destructive" 
+                          className="absolute -top-1 -right-1 h-4 w-4 p-0 flex items-center justify-center text-[9px] min-w-[16px]"
+                        >
+                          {getActiveJobFiltersCount(jobsFilter)}
+                        </Badge>
+                      )}
+                      <PopoverContent className="w-[500px] p-4" align="center">
+                        <div className="space-y-2">
+                          <div className="flex items-center justify-between">
+                            <div>
+                              <h3 className="text-md font-medium">Filter Available Jobs</h3>
+                              <p className="tracking-tight text-[12px] text-muted-foreground">Select your filter criteria below</p>
+                            </div>
+                            <Button 
+                              variant="outline" 
+                              className="text-[12px] h-8 px-3 tracking-tight"
+                              onClick={() => {
+                                setJobsFilter({
+                                  statuses: [],
+                                  woId: '',
+                                  title: '',
+                                  resourceNames: [],
+                                  resourceGroups: [],
+                                  priorities: [],
+                                  eventTypes: [],
+                                  dateFrom: undefined,
+                                  dateTo: undefined,
+                                  organizers: [],
+                                  receiptStatuses: [],
+                                  routingGroups: [],
+                                  customers: [],
+                                  locations: []
+                                });
+                              }}
+                            >
+                              Clear All
+                            </Button>
+                          </div>
+                          
+                          <div className="space-y-3">
+                            <div className="grid grid-cols-2 gap-2">
+                              <div className="-mt-[5px]">
+                                <MultiSelectFilter
+                                  id="customer"
+                                  label=""
+                                  options={uniqueCustomers}
+                                  selected={jobsFilter.customers}
+                                  onChange={(value) =>
+                                    setJobsFilter((prev) => ({ ...prev, customers: value }))
+                                  }
+                                  placeholder="Filter by Customer"
+                                  className="w-full text-sm !text-[12px] placeholder:text-[12px]"
+                                  fetchOptionsOnOpen={fetchCustomersOnDemand}
+                                />
+                              </div>
+                              <div className="-mt-[5px]">
+                                <MultiSelectFilter
+                                  id="location"
+                                  label=""
+                                  options={uniqueLocations}
+                                  selected={jobsFilter.locations}
+                                  onChange={(value) =>
+                                    setJobsFilter((prev) => ({ ...prev, locations: value }))
+                                  }
+                                  placeholder="Filter by Location"
+                                  className="w-full text-sm !text-[12px] placeholder:text-[12px]"
+                                  fetchOptionsOnOpen={fetchLocationsOnDemand}
+                                />
+                              </div>
+                            </div>
+
+                            <div className="grid grid-cols-2 gap-2">
+                              <div className="relative">
+                                <Search className="absolute left-2 top-1/2 -translate-y-1/2 h-3 w-3 text-muted-foreground pointer-events-none" />
+                                <Input
+                                  placeholder="Enter Work Order ID"
+                                  value={jobsFilter.woId}
+                                  onChange={(e) =>
+                                    setJobsFilter((prev) => ({ ...prev, woId: e.target.value }))
+                                  }
+                                  className="h-8 text-sm !text-[12px] !placeholder:text-[12px] pl-7 pr-8 outline-none focus:outline-none focus:ring-0 focus:ring-transparent focus-visible:ring-0 focus-visible:ring-transparent focus:shadow-none"
+                                />
+                                {jobsFilter.woId && (
+                                  <button
+                                    onClick={() => setJobsFilter((prev) => ({ ...prev, woId: '' }))}
+                                    className="absolute right-2 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground hover:text-foreground flex items-center justify-center"
+                                  >
+                                    <X className="!h-3 !w-3" />
+                                  </button>
+                                )}
+                              </div>
+                              <div className="relative">
+                                <Search className="absolute left-2 top-1/2 -translate-y-1/2 h-3 w-3 text-muted-foreground pointer-events-none" />
+                                <Input
+                                  placeholder="Enter Work Order Title"
+                                  value={jobsFilter.title}
+                                  onChange={(e) =>
+                                    setJobsFilter((prev) => ({ ...prev, title: e.target.value }))
+                                  }
+                                  className="h-8 text-sm !text-[12px] !placeholder:text-[12px] pl-7 pr-8 outline-none focus:outline-none focus:ring-0 focus:ring-transparent focus-visible:ring-0 focus-visible:ring-transparent focus:shadow-none"
+                                />
+                                {jobsFilter.title && (
+                                  <button
+                                    onClick={() => setJobsFilter((prev) => ({ ...prev, title: '' }))}
+                                    className="absolute right-2 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground hover:text-foreground flex items-center justify-center"
+                                  >
+                                    <X className="!h-3 !w-3" />
+                                  </button>
+                                )}
+                              </div>
+                            </div>
+
+                            <div className="grid grid-cols-2 gap-2">
+                              <div className="-mt-[5px]">
+                                <DateRangeFilter
+                                  id="dateFrom"
+                                  label=""
+                                  value={jobsFilter.dateFrom}
+                                  onChange={(value) =>
+                                    setJobsFilter((prev) => ({ ...prev, dateFrom: value }))
+                                  }
+                                  placeholder="Date From"
+                                />
+                              </div>
+                              
+                              <div className="-mt-[5px]">
+                                <DateRangeFilter
+                                  id="dateTo"
+                                  label=""
+                                  value={jobsFilter.dateTo}
+                                  onChange={(value) =>
+                                    setJobsFilter((prev) => ({ ...prev, dateTo: value }))
+                                  }
+                                  placeholder="Date To"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </PopoverContent>
+                    </Popover>
                   </div>
                 </div>
                 <ScrollArea className="flex-1 h-full">
@@ -1222,33 +1362,239 @@ const Board = () => {
                        {filteredEvents.length}
                      </Badge>
                   </div>
-                  <div className="flex items-center gap-2">
-                    <Button
-                      variant="outline"
-                      size="icon"
-                      onClick={handleCreateNewEvent}
-                      title="Create new event"
-                    >
-                      <Plus className="h-4 w-4" />
-                    </Button>
-                    <div className="relative">
+                    <div className="flex items-center gap-2">
                       <Button
                         variant="outline"
                         size="icon"
-                        onClick={() => handleOpenFilter('events')}
+                        onClick={handleCreateNewEvent}
+                        title="Create new event"
                       >
-                        <Filter className="h-4 w-4" />
+                        <Plus className="h-4 w-4" />
                       </Button>
-                      {getActiveEventFiltersCount(eventsFilter) > 0 && (
-                        <Badge 
-                          variant="secondary"
-                          className="absolute -top-2 -right-2 h-5 w-5 flex items-center justify-center p-0"
-                        >
-                          {getActiveEventFiltersCount(eventsFilter)}
-                        </Badge>
-                      )}
+                      <div className="relative">
+                        <Popover>
+                          <PopoverTrigger asChild>
+                            <Button
+                              variant="outline"
+                              size="icon"
+                              // onClick={() => setFilterType('events')}
+                            >
+                              <Filter className="h-3 w-3" />
+                            </Button>
+                          </PopoverTrigger>
+                          {getActiveEventFiltersCount(eventsFilter) > 0 && (
+                            <Badge 
+                              variant="destructive" 
+                              className="absolute -top-1 -right-1 h-4 w-4 p-0 flex items-center justify-center text-[9px] min-w-[16px]"
+                            >
+                              {getActiveEventFiltersCount(eventsFilter)}
+                            </Badge>
+                          )}
+                          <PopoverContent className="w-[500px] p-4" align="center">
+                            <div className="space-y-2">
+                              <div className="flex items-center justify-between">
+                                <div>
+                                  <h3 className="text-md font-medium">Filter Events</h3>
+                                  <p className="tracking-tight text-[12px] text-muted-foreground">Select your filter criteria below</p>
+                                </div>
+                                <Button 
+                                  variant="outline" 
+                                  className="text-[12px] h-8 px-3 tracking-tight"
+                                  onClick={() => {
+                                    setEventsFilter({
+                                      statuses: [],
+                                      eventId: '',
+                                      resourceNames: [],
+                                      resourceGroups: [],
+                                      priorities: [],
+                                      eventTypes: [],
+                                      dateFrom: undefined,
+                                      dateTo: undefined,
+                                      organizers: [],
+                                      receiptStatuses: [],
+                                      routingGroups: [],
+                                    });
+                                  }}
+                                >
+                                  Clear All
+                                </Button>
+                              </div>
+                              
+                              <div className="space-y-3">
+                                <div className="grid grid-cols-2 gap-2">
+                                  <div className="relative">
+                                    <Search className="absolute left-2 top-1/2 -translate-y-1/2 h-3 w-3 text-muted-foreground pointer-events-none" />
+                                    <Input
+                                      placeholder="Enter Event ID"
+                                      value={eventsFilter.eventId}
+                                      onChange={(e) =>
+                                        setEventsFilter((prev) => ({ ...prev, eventId: e.target.value }))
+                                      }
+                                      className="h-8 text-sm !text-[12px] !placeholder:text-[12px] pl-7 pr-8 outline-none focus:outline-none focus:ring-0 focus:ring-transparent focus-visible:ring-0 focus-visible:ring-transparent focus:shadow-none"
+                                    />
+                                    {eventsFilter.eventId && (
+                                      <button
+                                        onClick={() => setEventsFilter((prev) => ({ ...prev, eventId: '' }))}
+                                        className="absolute right-2 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground hover:text-foreground flex items-center justify-center"
+                                      >
+                                        <X className="!h-3 !w-3" />
+                                      </button>
+                                    )}
+                                  </div>
+
+                                  <div className="-mt-[5px]">
+                                    <MultiSelectFilter
+                                      id="resourceName"
+                                      label=""
+                                      options={uniqueResourceNames}
+                                      selected={eventsFilter.resourceNames}
+                                      onChange={(value) =>
+                                        setEventsFilter((prev) => ({ ...prev, resourceNames: value }))
+                                      }
+                                      placeholder="Filter by Resource Name"
+                                      className="w-full text-sm !text-[12px] placeholder:text-[12px]"
+                                    />
+                                  </div>
+                                </div>
+                                
+                                <div className="grid grid-cols-2 gap-2">
+                                  <div className="-mt-[5px]">
+                                    <MultiSelectFilter
+                                      id="resourceGroup"
+                                      label=""
+                                      options={uniqueResourceGroups}
+                                      selected={eventsFilter.resourceGroups}
+                                      onChange={(value) =>
+                                        setEventsFilter((prev) => ({ ...prev, resourceGroups: value }))
+                                      }
+                                      placeholder="Filter by Resource Group"
+                                      className="w-full text-sm !text-[12px] placeholder:text-[12px]"
+                                    />
+                                  </div>
+                                  
+                                  <div className="-mt-[5px]">
+                                    <MultiSelectFilter
+                                      id="eventStatus"
+                                      label=""
+                                      options={eventStatuses}
+                                      selected={eventsFilter.statuses}
+                                      onChange={(value) =>
+                                        setEventsFilter((prev) => ({ ...prev, statuses: value }))
+                                      }
+                                      placeholder="Filter by Status"
+                                      className="w-full text-sm !text-[12px] placeholder:text-[12px]"
+                                    />
+                                  </div>
+                                </div>
+                                
+                                <div className="grid grid-cols-2 gap-2">
+                                  <div className="-mt-[5px]">
+                                    <MultiSelectFilter
+                                      id="eventPriority"
+                                      label=""
+                                      options={eventPriorities}
+                                      selected={eventsFilter.priorities}
+                                      onChange={(value) =>
+                                        setEventsFilter((prev) => ({ ...prev, priorities: value }))
+                                      }
+                                      placeholder="Filter by Priority"
+                                      className="w-full text-sm !text-[12px] placeholder:text-[12px]"
+                                    />
+                                  </div>
+                                  
+                                  <div className="-mt-[5px]">
+                                    <MultiSelectFilter
+                                      id="eventType"
+                                      label=""
+                                      options={eventTypes}
+                                      selected={eventsFilter.eventTypes}
+                                      onChange={(value) =>
+                                        setEventsFilter((prev) => ({ ...prev, eventTypes: value }))
+                                      }
+                                      placeholder="Filter by Event Type"
+                                      className="w-full text-sm !text-[12px] placeholder:text-[12px]"
+                                    />
+                                  </div>
+                                </div>
+                                
+                                <div className="grid grid-cols-2 gap-2">
+                                  <div className="-mt-[5px]">
+                                    <DateRangeFilter
+                                      id="dateFrom"
+                                      label=""
+                                      value={eventsFilter.dateFrom}
+                                      onChange={(value) =>
+                                        setEventsFilter((prev) => ({ ...prev, dateFrom: value }))
+                                      }
+                                      placeholder="Date From"
+                                    />
+                                  </div>
+                                  
+                                  <div className="-mt-[5px]">
+                                    <DateRangeFilter
+                                      id="dateTo"
+                                      label=""
+                                      value={eventsFilter.dateTo}
+                                      onChange={(value) =>
+                                        setEventsFilter((prev) => ({ ...prev, dateTo: value }))
+                                      }
+                                      placeholder="Date To"
+                                    />
+                                  </div>
+                                </div>
+                                
+                                <div className="grid grid-cols-2 gap-2">
+                                  <div className="-mt-[5px]">
+                                    <MultiSelectFilter
+                                      id="organizer"
+                                      label=""
+                                      options={uniqueOrganizers}
+                                      selected={eventsFilter.organizers}
+                                      onChange={(value) =>
+                                        setEventsFilter((prev) => ({ ...prev, organizers: value }))
+                                      }
+                                      placeholder="Filter by Organizer"
+                                      className="w-full text-sm !text-[12px] placeholder:text-[12px]"
+                                    />
+                                  </div>
+                                  
+                                  <div className="-mt-[5px]">
+                                    <MultiSelectFilter
+                                      id="receiptStatus"
+                                      label=""
+                                      options={receiptStatuses}
+                                      selected={eventsFilter.receiptStatuses}
+                                      onChange={(value) =>
+                                        setEventsFilter((prev) => ({ ...prev, receiptStatuses: value }))
+                                      }
+                                      placeholder="Filter by Receipt Status"
+                                      className="w-full text-sm !text-[12px] placeholder:text-[12px]"
+                                    />
+                                  </div>
+                                </div>
+                                
+                                <div className="grid grid-cols-2 gap-2">
+                                  <div className="-mt-[5px]">
+                                    <MultiSelectFilter
+                                      id="routingGroup"
+                                      label=""
+                                      options={uniqueRoutingGroups}
+                                      selected={eventsFilter.routingGroups}
+                                      onChange={(value) =>
+                                        setEventsFilter((prev) => ({ ...prev, routingGroups: value }))
+                                      }
+                                      placeholder="Filter by Routing Group"
+                                      className="w-full text-sm !text-[12px] placeholder:text-[12px]"
+                                      fetchOptionsOnOpen={fetchRoutingGroupsOnDemand}
+                                    />
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </PopoverContent>
+                        </Popover>
+                      </div>
                     </div>
-                  </div>
                 </div>
                 <ScrollArea className="flex-1 h-full">
                   <div className="grid auto-rows-max gap-0 justify-items-center h-full"
@@ -1399,6 +1745,14 @@ const Board = () => {
       <UpdateEvent
         isOpen={isUpdateModalOpen}
         onClose={() => setIsUpdateModalOpen(false)}
+        selectedJob={selectedJob ? {
+          id: selectedJob.id,
+          title: selectedJob.title,
+          description: selectedJob.description,
+          woUrl: selectedJob.woUrl || '',
+          project: selectedJob.project,
+          projectUrl: selectedJob.projectUrl || ''
+        } : undefined}
         selectedEvent={selectedEventForUpdate}
         onSubmit={handleUpdateEvent}
         employees={employees}
@@ -1427,328 +1781,335 @@ const Board = () => {
         />
       )}
 
-      <Dialog open={isFilterModalOpen} onOpenChange={setIsFilterModalOpen}>
-        <DialogContent>
-          <DialogHeader>
-            <DialogTitle className="text-[15px] tracking-tight font-semibold">Filter {filterType === 'jobs' ? 'Available Jobs' : 'Events'}</DialogTitle>
-            <DialogDescription>
-              <span className="tracking-tight text-[12px]">Select your filter criteria below</span>
-            </DialogDescription>
-          </DialogHeader>
-          {filterType === 'events' ? (
-          <div className="space-y-3">
-            <div className="grid grid-cols-2 gap-2">
-              <div className="relative">
-                <Search className="absolute left-2 top-1/2 -translate-y-1/2 h-3 w-3 text-muted-foreground pointer-events-none" />
-                <Input
-                  placeholder="Enter Event ID"
-                  value={eventsFilter.eventId}
-                  onChange={(e) =>
-                    setEventsFilter((prev) => ({ ...prev, eventId: e.target.value }))
+      {/* <Popover>
+        <PopoverTrigger asChild>
+          <span className="hidden">Filter Trigger</span>
+        </PopoverTrigger>
+        <PopoverContent className="w-[500px] p-4" align="center">
+          <div className="space-y-2">
+            <div className="flex items-center justify-between">
+              <div>
+                <h3 className="text-md font-medium">Filter {filterType === 'jobs' ? 'Available Jobs' : 'Events'}</h3>
+                <p className="tracking-tight text-[12px] text-muted-foreground">Select your filter criteria below</p>
+              </div>
+              <Button 
+                variant="outline" 
+                className="text-[12px] h-8 px-3 tracking-tight"
+                onClick={() => {
+                  if (filterType === 'events') {
+                    setEventsFilter({
+                      statuses: [],
+                      eventId: '',
+                      resourceNames: [],
+                      resourceGroups: [],
+                      priorities: [],
+                      eventTypes: [],
+                      dateFrom: undefined,
+                      dateTo: undefined,
+                      organizers: [],
+                      receiptStatuses: [],
+                      routingGroups: [],
+                    });
+                  } else {
+                    setJobsFilter({
+                      statuses: [],
+                      woId: '',
+                      title: '',
+                      resourceNames: [],
+                      resourceGroups: [],
+                      priorities: [],
+                      eventTypes: [],
+                      dateFrom: undefined,
+                      dateTo: undefined,
+                      organizers: [],
+                      receiptStatuses: [],
+                      routingGroups: [],
+                      customers: [],
+                      locations: []
+                    });
                   }
-                  className="h-8 text-sm !text-[12px] !placeholder:text-[12px] pl-7 pr-8 outline-none focus:outline-none focus:ring-0 focus:ring-transparent focus-visible:ring-0 focus-visible:ring-transparent focus:shadow-none"
-                />
-                {eventsFilter.eventId && (
-                  <button
-                    onClick={() => setEventsFilter((prev) => ({ ...prev, eventId: '' }))}
-                    className="absolute right-2 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground hover:text-foreground flex items-center justify-center"
-                  >
-                    <X className="!h-3 !w-3" />
-                  </button>
-                )}
+                }}
+              >
+                Clear All
+              </Button>
+            </div>
+            
+            {filterType === 'events' ? (
+            <div className="space-y-3">
+              <div className="grid grid-cols-2 gap-2">
+                <div className="relative">
+                  <Search className="absolute left-2 top-1/2 -translate-y-1/2 h-3 w-3 text-muted-foreground pointer-events-none" />
+                  <Input
+                    placeholder="Enter Event ID"
+                    value={eventsFilter.eventId}
+                    onChange={(e) =>
+                      setEventsFilter((prev) => ({ ...prev, eventId: e.target.value }))
+                    }
+                    className="h-8 text-sm !text-[12px] !placeholder:text-[12px] pl-7 pr-8 outline-none focus:outline-none focus:ring-0 focus:ring-transparent focus-visible:ring-0 focus-visible:ring-transparent focus:shadow-none"
+                  />
+                  {eventsFilter.eventId && (
+                    <button
+                      onClick={() => setEventsFilter((prev) => ({ ...prev, eventId: '' }))}
+                      className="absolute right-2 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground hover:text-foreground flex items-center justify-center"
+                    >
+                      <X className="!h-3 !w-3" />
+                    </button>
+                  )}
+                </div>
+
+                <div className="-mt-[5px]">
+                  <MultiSelectFilter
+                    id="resourceName"
+                    label=""
+                    options={uniqueResourceNames}
+                    selected={eventsFilter.resourceNames}
+                    onChange={(value) =>
+                      setEventsFilter((prev) => ({ ...prev, resourceNames: value }))
+                    }
+                    placeholder="Filter by Resource Name"
+                    className="w-full text-sm !text-[12px] placeholder:text-[12px]"
+                  />
+                </div>
+              </div>
+              
+              <div className="grid grid-cols-2 gap-2">
+                <div className="-mt-[5px]">
+                  <MultiSelectFilter
+                    id="resourceGroup"
+                    label=""
+                    options={uniqueResourceGroups}
+                    selected={eventsFilter.resourceGroups}
+                    onChange={(value) =>
+                      setEventsFilter((prev) => ({ ...prev, resourceGroups: value }))
+                    }
+                    placeholder="Filter by Resource Group"
+                    className="w-full text-sm !text-[12px] placeholder:text-[12px]"
+                  />
+                </div>
+                
+                <div className="-mt-[5px]">
+                  <MultiSelectFilter
+                    id="eventStatus"
+                    label=""
+                    options={eventStatuses}
+                    selected={eventsFilter.statuses}
+                    onChange={(value) =>
+                      setEventsFilter((prev) => ({ ...prev, statuses: value }))
+                    }
+                    placeholder="Filter by Status"
+                    className="w-full text-sm !text-[12px] placeholder:text-[12px]"
+                  />
+                </div>
+              </div>
+              
+              <div className="grid grid-cols-2 gap-2">
+                <div className="-mt-[5px]">
+                  <MultiSelectFilter
+                    id="eventPriority"
+                    label=""
+                    options={eventPriorities}
+                    selected={eventsFilter.priorities}
+                    onChange={(value) =>
+                      setEventsFilter((prev) => ({ ...prev, priorities: value }))
+                    }
+                    placeholder="Filter by Priority"
+                    className="w-full text-sm !text-[12px] placeholder:text-[12px]"
+                  />
+                </div>
+                
+                <div className="-mt-[5px]">
+                  <MultiSelectFilter
+                    id="eventType"
+                    label=""
+                    options={eventTypes}
+                    selected={eventsFilter.eventTypes}
+                    onChange={(value) =>
+                      setEventsFilter((prev) => ({ ...prev, eventTypes: value }))
+                    }
+                    placeholder="Filter by Event Type"
+                    className="w-full text-sm !text-[12px] placeholder:text-[12px]"
+                  />
+                </div>
+              </div>
+              
+              <div className="grid grid-cols-2 gap-2">
+                <div className="-mt-[5px]">
+                  <DateRangeFilter
+                    id="dateFrom"
+                    label=""
+                    value={eventsFilter.dateFrom}
+                    onChange={(value) =>
+                      setEventsFilter((prev) => ({ ...prev, dateFrom: value }))
+                    }
+                    placeholder="Date From"
+                  />
+                </div>
+                
+                <div className="-mt-[5px]">
+                  <DateRangeFilter
+                    id="dateTo"
+                    label=""
+                    value={eventsFilter.dateTo}
+                    onChange={(value) =>
+                      setEventsFilter((prev) => ({ ...prev, dateTo: value }))
+                    }
+                    placeholder="Date To"
+                  />
+                </div>
+              </div>
+              
+              <div className="grid grid-cols-2 gap-2">
+                <div className="-mt-[5px]">
+                  <MultiSelectFilter
+                    id="organizer"
+                    label=""
+                    options={uniqueOrganizers}
+                    selected={eventsFilter.organizers}
+                    onChange={(value) =>
+                      setEventsFilter((prev) => ({ ...prev, organizers: value }))
+                    }
+                    placeholder="Filter by Organizer"
+                    className="w-full text-sm !text-[12px] placeholder:text-[12px]"
+                  />
+                </div>
+                
+                <div className="-mt-[5px]">
+                  <MultiSelectFilter
+                    id="receiptStatus"
+                    label=""
+                    options={receiptStatuses}
+                    selected={eventsFilter.receiptStatuses}
+                    onChange={(value) =>
+                      setEventsFilter((prev) => ({ ...prev, receiptStatuses: value }))
+                    }
+                    placeholder="Filter by Receipt Status"
+                    className="w-full text-sm !text-[12px] placeholder:text-[12px]"
+                  />
+                </div>
+              </div>
+              
+              <div className="grid grid-cols-2 gap-2">
+                <div className="-mt-[5px]">
+                  <MultiSelectFilter
+                    id="routingGroup"
+                    label=""
+                    options={uniqueRoutingGroups}
+                    selected={eventsFilter.routingGroups}
+                    onChange={(value) =>
+                      setEventsFilter((prev) => ({ ...prev, routingGroups: value }))
+                    }
+                    placeholder="Filter by Routing Group"
+                    className="w-full text-sm !text-[12px] placeholder:text-[12px]"
+                    fetchOptionsOnOpen={fetchRoutingGroupsOnDemand}
+                  />
+                </div>
+              </div>
+            </div>
+            ) : (
+            <div className="space-y-3">
+              
+              <div className="grid grid-cols-2 gap-2">
+                <div className="-mt-[5px]">
+                  <MultiSelectFilter
+                    id="customer"
+                    label=""
+                    options={uniqueCustomers}
+                    selected={jobsFilter.customers}
+                    onChange={(value) =>
+                      setJobsFilter((prev) => ({ ...prev, customers: value }))
+                    }
+                    placeholder="Filter by Customer"
+                    className="w-full text-sm !text-[12px] placeholder:text-[12px]"
+                    fetchOptionsOnOpen={fetchCustomersOnDemand}
+                  />
+                </div>
+                <div className="-mt-[5px]">
+                  <MultiSelectFilter
+                    id="location"
+                    label=""
+                    options={uniqueLocations}
+                    selected={jobsFilter.locations}
+                    onChange={(value) =>
+                      setJobsFilter((prev) => ({ ...prev, locations: value }))
+                    }
+                    placeholder="Filter by Location"
+                    className="w-full text-sm !text-[12px] placeholder:text-[12px]"
+                    fetchOptionsOnOpen={fetchLocationsOnDemand}
+                  />
+                </div>
               </div>
 
-              <div className="-mt-[5px]">
-                <MultiSelectFilter
-                  id="resourceName"
-                  label=""
-                  options={uniqueResourceNames}
-                  selected={eventsFilter.resourceNames}
-                  onChange={(value) =>
-                    setEventsFilter((prev) => ({ ...prev, resourceNames: value }))
-                  }
-                  placeholder="Filter by Resource Name"
-                  className="w-full text-sm !text-[12px] placeholder:text-[12px]"
-                />
+              <div className="grid grid-cols-2 gap-2">
+                <div className="relative">
+                  <Search className="absolute left-2 top-1/2 -translate-y-1/2 h-3 w-3 text-muted-foreground pointer-events-none" />
+                  <Input
+                    placeholder="Enter Work Order ID"
+                    value={jobsFilter.woId}
+                    onChange={(e) =>
+                      setJobsFilter((prev) => ({ ...prev, woId: e.target.value }))
+                    }
+                    className="h-8 text-sm !text-[12px] !placeholder:text-[12px] pl-7 pr-8 outline-none focus:outline-none focus:ring-0 focus:ring-transparent focus-visible:ring-0 focus-visible:ring-transparent focus:shadow-none"
+                  />
+                  {jobsFilter.woId && (
+                    <button
+                      onClick={() => setJobsFilter((prev) => ({ ...prev, woId: '' }))}
+                      className="absolute right-2 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground hover:text-foreground flex items-center justify-center"
+                    >
+                      <X className="!h-3 !w-3" />
+                    </button>
+                  )}
+                </div>
+                <div className="relative">
+                  <Search className="absolute left-2 top-1/2 -translate-y-1/2 h-3 w-3 text-muted-foreground pointer-events-none" />
+                  <Input
+                    placeholder="Enter Work Order Title"
+                    value={jobsFilter.title}
+                    onChange={(e) =>
+                      setJobsFilter((prev) => ({ ...prev, title: e.target.value }))
+                    }
+                    className="h-8 text-sm !text-[12px] !placeholder:text-[12px] pl-7 pr-8 outline-none focus:outline-none focus:ring-0 focus:ring-transparent focus-visible:ring-0 focus-visible:ring-transparent focus:shadow-none"
+                  />
+                  {jobsFilter.title && (
+                    <button
+                      onClick={() => setJobsFilter((prev) => ({ ...prev, title: '' }))}
+                      className="absolute right-2 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground hover:text-foreground flex items-center justify-center"
+                    >
+                      <X className="!h-3 !w-3" />
+                    </button>
+                  )}
+                </div>
+              </div>
+
+              <div className="grid grid-cols-2 gap-2">
+                <div className="-mt-[5px]">
+                  <DateRangeFilter
+                    id="dateFrom"
+                    label=""
+                    value={jobsFilter.dateFrom}
+                    onChange={(value) =>
+                      setJobsFilter((prev) => ({ ...prev, dateFrom: value }))
+                    }
+                    placeholder="Date From"
+                  />
+                </div>
+                
+                <div className="-mt-[5px]">
+                  <DateRangeFilter
+                    id="dateTo"
+                    label=""
+                    value={jobsFilter.dateTo}
+                    onChange={(value) =>
+                      setJobsFilter((prev) => ({ ...prev, dateTo: value }))
+                    }
+                    placeholder="Date To"
+                  />
+                </div>
               </div>
             </div>
-            
-            <div className="grid grid-cols-2 gap-2">
-              <div className="-mt-[5px]">
-                <MultiSelectFilter
-                  id="resourceGroup"
-                  label=""
-                  options={uniqueResourceGroups}
-                  selected={eventsFilter.resourceGroups}
-                  onChange={(value) =>
-                    setEventsFilter((prev) => ({ ...prev, resourceGroups: value }))
-                  }
-                  placeholder="Filter by Resource Group"
-                  className="w-full text-sm !text-[12px] placeholder:text-[12px]"
-                />
-              </div>
-              
-              <div className="-mt-[5px]">
-                <MultiSelectFilter
-                  id="eventStatus"
-                  label=""
-                  options={eventStatuses}
-                  selected={eventsFilter.statuses}
-                  onChange={(value) =>
-                    setEventsFilter((prev) => ({ ...prev, statuses: value }))
-                  }
-                  placeholder="Filter by Status"
-                  className="w-full text-sm !text-[12px] placeholder:text-[12px]"
-                />
-              </div>
-            </div>
-            
-            <div className="grid grid-cols-2 gap-2">
-              <div className="-mt-[5px]">
-                <MultiSelectFilter
-                  id="eventPriority"
-                  label=""
-                  options={eventPriorities}
-                  selected={eventsFilter.priorities}
-                  onChange={(value) =>
-                    setEventsFilter((prev) => ({ ...prev, priorities: value }))
-                  }
-                  placeholder="Filter by Priority"
-                  className="w-full text-sm !text-[12px] placeholder:text-[12px]"
-                />
-              </div>
-              
-              <div className="-mt-[5px]">
-                <MultiSelectFilter
-                  id="eventType"
-                  label=""
-                  options={eventTypes}
-                  selected={eventsFilter.eventTypes}
-                  onChange={(value) =>
-                    setEventsFilter((prev) => ({ ...prev, eventTypes: value }))
-                  }
-                  placeholder="Filter by Event Type"
-                  className="w-full text-sm !text-[12px] placeholder:text-[12px]"
-                />
-              </div>
-            </div>
-            
-            <div className="grid grid-cols-2 gap-2">
-              <div className="-mt-[5px]">
-                <DateRangeFilter
-                  id="dateFrom"
-                  label=""
-                  value={eventsFilter.dateFrom}
-                  onChange={(value) =>
-                    setEventsFilter((prev) => ({ ...prev, dateFrom: value }))
-                  }
-                  placeholder="Date From"
-                />
-              </div>
-              
-              <div className="-mt-[5px]">
-                <DateRangeFilter
-                  id="dateTo"
-                  label=""
-                  value={eventsFilter.dateTo}
-                  onChange={(value) =>
-                    setEventsFilter((prev) => ({ ...prev, dateTo: value }))
-                  }
-                  placeholder="Date To"
-                />
-              </div>
-            </div>
-            
-            <div className="grid grid-cols-2 gap-2">
-              <div className="-mt-[5px]">
-                <MultiSelectFilter
-                  id="organizer"
-                  label=""
-                  options={uniqueOrganizers}
-                  selected={eventsFilter.organizers}
-                  onChange={(value) =>
-                    setEventsFilter((prev) => ({ ...prev, organizers: value }))
-                  }
-                  placeholder="Filter by Organizer"
-                  className="w-full text-sm !text-[12px] placeholder:text-[12px]"
-                />
-              </div>
-              
-              <div className="-mt-[5px]">
-                <MultiSelectFilter
-                  id="receiptStatus"
-                  label=""
-                  options={receiptStatuses}
-                  selected={eventsFilter.receiptStatuses}
-                  onChange={(value) =>
-                    setEventsFilter((prev) => ({ ...prev, receiptStatuses: value }))
-                  }
-                  placeholder="Filter by Receipt Status"
-                  className="w-full text-sm !text-[12px] placeholder:text-[12px]"
-                />
-              </div>
-            </div>
-            
-            <div className="grid grid-cols-2 gap-2">
-              <div className="-mt-[5px]">
-                <MultiSelectFilter
-                  id="routingGroup"
-                  label=""
-                  options={uniqueRoutingGroups}
-                  selected={eventsFilter.routingGroups}
-                  onChange={(value) =>
-                    setEventsFilter((prev) => ({ ...prev, routingGroups: value }))
-                  }
-                  placeholder="Filter by Routing Group"
-                  className="w-full text-sm !text-[12px] placeholder:text-[12px]"
-                  fetchOptionsOnOpen={fetchRoutingGroupsOnDemand}
-                />
-              </div>
-            </div>
+            )}
           </div>
-          ) : (
-          <div className="space-y-3">
-            
-            <div className="grid grid-cols-2 gap-2">
-              <div className="-mt-[5px]">
-                <MultiSelectFilter
-                  id="customer"
-                  label=""
-                  options={uniqueCustomers}
-                  selected={jobsFilter.customers}
-                  onChange={(value) =>
-                    setJobsFilter((prev) => ({ ...prev, customers: value }))
-                  }
-                  placeholder="Filter by Customer"
-                  className="w-full text-sm !text-[12px] placeholder:text-[12px]"
-                  fetchOptionsOnOpen={fetchCustomersOnDemand}
-                />
-              </div>
-              <div className="-mt-[5px]">
-                <MultiSelectFilter
-                  id="location"
-                  label=""
-                  options={uniqueLocations}
-                  selected={jobsFilter.locations}
-                  onChange={(value) =>
-                    setJobsFilter((prev) => ({ ...prev, locations: value }))
-                  }
-                  placeholder="Filter by Location"
-                  className="w-full text-sm !text-[12px] placeholder:text-[12px]"
-                  fetchOptionsOnOpen={fetchLocationsOnDemand}
-                />
-              </div>
-            </div>
-
-            <div className="grid grid-cols-2 gap-2">
-              <div className="relative">
-                <Search className="absolute left-2 top-1/2 -translate-y-1/2 h-3 w-3 text-muted-foreground pointer-events-none" />
-                <Input
-                  placeholder="Enter Work Order ID"
-                  value={jobsFilter.woId}
-                  onChange={(e) =>
-                    setJobsFilter((prev) => ({ ...prev, woId: e.target.value }))
-                  }
-                  className="h-8 text-sm !text-[12px] !placeholder:text-[12px] pl-7 pr-8 outline-none focus:outline-none focus:ring-0 focus:ring-transparent focus-visible:ring-0 focus-visible:ring-transparent focus:shadow-none"
-                />
-                {jobsFilter.woId && (
-                  <button
-                    onClick={() => setJobsFilter((prev) => ({ ...prev, woId: '' }))}
-                    className="absolute right-2 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground hover:text-foreground flex items-center justify-center"
-                  >
-                    <X className="!h-3 !w-3" />
-                  </button>
-                )}
-              </div>
-              <div className="relative">
-                <Search className="absolute left-2 top-1/2 -translate-y-1/2 h-3 w-3 text-muted-foreground pointer-events-none" />
-                <Input
-                  placeholder="Enter Work Order Title"
-                  value={jobsFilter.title}
-                  onChange={(e) =>
-                    setJobsFilter((prev) => ({ ...prev, title: e.target.value }))
-                  }
-                  className="h-8 text-sm !text-[12px] !placeholder:text-[12px] pl-7 pr-8 outline-none focus:outline-none focus:ring-0 focus:ring-transparent focus-visible:ring-0 focus-visible:ring-transparent focus:shadow-none"
-                />
-                {jobsFilter.title && (
-                  <button
-                    onClick={() => setJobsFilter((prev) => ({ ...prev, title: '' }))}
-                    className="absolute right-2 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground hover:text-foreground flex items-center justify-center"
-                  >
-                    <X className="!h-3 !w-3" />
-                  </button>
-                )}
-              </div>
-            </div>
-
-            <div className="grid grid-cols-2 gap-2">
-              <div className="-mt-[5px]">
-                <DateRangeFilter
-                  id="dateFrom"
-                  label=""
-                  value={jobsFilter.dateFrom}
-                  onChange={(value) =>
-                    setJobsFilter((prev) => ({ ...prev, dateFrom: value }))
-                  }
-                  placeholder="Date From"
-                />
-              </div>
-              
-              <div className="-mt-[5px]">
-                <DateRangeFilter
-                  id="dateTo"
-                  label=""
-                  value={jobsFilter.dateTo}
-                  onChange={(value) =>
-                    setJobsFilter((prev) => ({ ...prev, dateTo: value }))
-                  }
-                  placeholder="Date To"
-                />
-              </div>
-            </div>
-          </div>
-          )}
-          <DialogFooter>
-            <Button onClick={() => {
-              alert('TBD');
-              // setIsFilterModalOpen(false);
-            }} className="text-[12px] h-8 px-3 tracking-tight">Select Fields</Button>
-            <Button variant="outline" onClick={() => {
-              setEventsFilter({
-                statuses: [],
-                eventId: '',
-                resourceNames: [],
-                resourceGroups: [],
-                priorities: [],
-                eventTypes: [],
-                dateFrom: undefined,
-                dateTo: undefined,
-                organizers: [],
-                receiptStatuses: [],
-                routingGroups: [],
-              });
-              setJobsFilter({
-                statuses: [],
-                woId: '',
-                title: '',
-                resourceNames: [],
-                resourceGroups: [],
-                priorities: [],
-                eventTypes: [],
-                dateFrom: undefined,
-                dateTo: undefined,
-                organizers: [],
-                receiptStatuses: [],
-                routingGroups: [],
-                customers: [],
-                locations: []
-              });
-            }} className="text-[12px] h-8 px-3 tracking-tight">
-              Clear All
-            </Button>
-          </DialogFooter>
-         </DialogContent>
-       </Dialog>
+        </PopoverContent>
+      </Popover> */}
        
        <Tooltip 
          id="job-tooltip"

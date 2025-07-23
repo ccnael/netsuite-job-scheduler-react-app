@@ -349,19 +349,19 @@ export const VendorTable: React.FC<VendorTableProps> = ({
           >
             {[5, 10, 20, 30].map((size) => <option key={size} value={size}>{size}</option>)}
           </select>
-          <Button variant="outline" size="sm"><Filter className="h-3 w-3" /></Button>
+          {/* <Button variant="outline" size="sm"><Filter className="h-3 w-3" /></Button> */}
         </div>
 
         {/* Right - Selected Counter and Search */}
         <div className="flex items-center space-x-2">
-          {selectedVendors.length > 0 && (
+          {/* {selectedVendors.length > 0 && (
             <div className="flex items-center space-x-1">
               <span className="text-[12px] font-sans text-foreground">Selected:</span>
               <Badge variant="secondary" className="text-[10px] px-1 py-0.5 h-4">
                 {selectedVendors.length}
               </Badge>
             </div>
-          )}
+          )} */}
           <div className="relative w-[200px]">
             <Search className="absolute left-2 top-1/2 transform -translate-y-1/2 text-muted-foreground h-3 w-3" />
             <Input

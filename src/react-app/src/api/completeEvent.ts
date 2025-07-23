@@ -1734,5 +1734,5 @@ export const fetchPunchItems = async (soId: string): Promise<PunchItem[]> => {
 };
 
 export const completeEvent = async () => {
-  alert('TBD!');
+  alert('Not yet available');
 }

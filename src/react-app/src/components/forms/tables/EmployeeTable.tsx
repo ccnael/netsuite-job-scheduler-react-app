@@ -13,6 +13,12 @@ import { Badge } from "@/components/ui/badge";
 import { Search, ChevronLeft, ChevronRight, ChevronsLeft, ChevronsRight, ChevronUp, ChevronDown, ChevronsUpDown, Filter } from "lucide-react";
 import { Employee } from "@/api/employee";
 import TimeRangeFilter from '../TimeRangeFilter';
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
+import MultiSelectFilter from '../MultiSelectFilter';
 
 interface SelectedResource {
   id: string;
@@ -42,6 +48,7 @@ interface TableEmployee {
   startTime: string;
   endTime: string;
   woResourceId: string;
+  active?: boolean;
 }
 
 export const EmployeeTable: React.FC<EmployeeTableProps> = ({ 
@@ -60,11 +67,46 @@ export const EmployeeTable: React.FC<EmployeeTableProps> = ({
   const [pagination, setPagination] = useState({ pageIndex: 0, pageSize: 5 });
   const [isInitialized, setIsInitialized] = useState(false);
   
+  const [selectedNames, setSelectedNames] = useState<string[]>([]);
+  const [selectedGroups, setSelectedGroups] = useState<string[]>([]);
+  const [selectedSkills, setSelectedSkills] = useState<string[]>([]);
+  const [selectedStatuses, setSelectedStatuses] = useState<string[]>([]);
+  const [selectedAffiliationTypes, setSelectedAffiliationTypes] = useState<string[]>([]);
+  
   // Use ref to track the last selection to prevent unnecessary calls
   const lastSelectionRef = useRef<string>('');
 
   // console.log('EmployeeTable render - woResources:', woResources);
   console.log('EmployeeTable render - data:', data);
+
+  // Calculate unique values for filters
+  const uniqueNames = useMemo(() => {
+    return Array.from(new Set(
+      data.map(emp => emp.name).filter(name => name !== '')
+    ));
+  }, [data]);
+
+  const uniqueGroups = useMemo(() => {
+    return Array.from(new Set(
+      data.flatMap(emp => (emp.resourceGroups || []).map(group => group?.text || '')).filter(group => group !== '')
+    ));
+  }, [data]);
+
+  const uniqueSkills = useMemo(() => {
+    return Array.from(new Set(
+      data.flatMap(emp => (emp.resourceSkills || []).map(skill => skill?.text || '')).filter(skill => skill !== '')
+    ));
+  }, [data]);
+
+  const uniqueStatuses = ['Active', 'Inactive'];
+
+  const uniqueAffiliationTypes = useMemo(() => {
+    return Array.from(new Set(
+      data.map(emp => emp.affiliationType?.text || '').filter(type => type !== '')
+    ));
+  }, [data]);
+
+  const selectedFilterCount = selectedNames.length + selectedGroups.length + selectedSkills.length + selectedStatuses.length + selectedAffiliationTypes.length;
 
   // Memoize the table data to prevent infinite loops
   const tableData = useMemo(() => {
@@ -72,7 +114,7 @@ export const EmployeeTable: React.FC<EmployeeTableProps> = ({
 
     if (!data.length) return [];
 
-    return data.map(emp => {
+    let processedData: TableEmployee[] = data.map(emp => {
       const woResource = woResources.find(wr => wr.employee?.value === emp.id);
       const timeOverride = timeOverrides[emp.id];
 
@@ -86,10 +128,34 @@ export const EmployeeTable: React.FC<EmployeeTableProps> = ({
         affiliationType: emp.affiliationType?.text || '-',
         startTime: timeOverride?.startTime || woResource?.time?.start || '',
         endTime: timeOverride?.endTime || woResource?.time?.end || '',
-        woResourceId: woResource?.id || ''
+        woResourceId: woResource?.id || '',
+        active: emp.active
       };
     });
-  }, [data, woResources, timeOverrides]);
+
+    console.log('selectedAffiliationTypes', selectedAffiliationTypes);
+    console.log('processedData', processedData);
+
+    // Apply filters
+    if (selectedNames.length > 0 || selectedGroups.length > 0 || selectedSkills.length > 0 || selectedStatuses.length > 0 || selectedAffiliationTypes.length > 0) {
+      processedData = processedData.filter(emp => {
+        const matchesName = selectedNames.length === 0 || selectedNames.includes(emp.name);
+        const empGroups = emp.group.split(',').map(g => g.trim()).filter(g => g !== '-');
+        const matchesGroup = selectedGroups.length === 0 || empGroups.some(group => selectedGroups.includes(group));
+        const empSkills = emp.skill.split(',').map(s => s.trim()).filter(s => s !== '-');
+        const matchesSkill = selectedSkills.length === 0 || empSkills.some(skill => selectedSkills.includes(skill));
+        const matchesStatus = selectedStatuses.length === 0 || 
+          (selectedStatuses.includes('Active') && emp.active) || 
+          (selectedStatuses.includes('Inactive') && !emp.active);
+        const matchesAffiliationType = selectedAffiliationTypes.length === 0 || 
+          selectedAffiliationTypes.includes(emp.affiliationType);
+        
+        return matchesName && matchesGroup && matchesSkill && matchesStatus && matchesAffiliationType;
+      });
+    }
+
+    return processedData;
+  }, [data, woResources, timeOverrides, selectedNames, selectedGroups, selectedSkills, selectedStatuses, selectedAffiliationTypes]);
 
   useEffect(() => {
     // Handle preselected resources (for drag and drop functionality)
@@ -299,7 +365,7 @@ export const EmployeeTable: React.FC<EmployeeTableProps> = ({
     },
     {
       accessorKey: "affiliationType",
-      header: "Type",
+      header: "Affiliation Type",
       cell: ({ row }) => (
         <div className="text-muted-foreground font-sans tracking-tight text-[12px]">{row.getValue("affiliationType")}</div>
       ),
@@ -372,21 +438,116 @@ export const EmployeeTable: React.FC<EmployeeTableProps> = ({
           >
             {[5, 10, 20, 30].map((size) => <option key={size} value={size}>{size}</option>)}
           </select>
-          <Button variant="outline" size="sm">
-            <Filter className="h-3 w-3" />
-          </Button>
+          <Popover>
+              <div className="relative">
+                <PopoverTrigger asChild>
+                  <Button variant="outline" size="icon" className="relative">
+                    <Filter className="h-3 w-3" />
+                  </Button>
+                </PopoverTrigger>
+                {selectedFilterCount > 0 && (
+                  <Badge 
+                    variant="destructive" 
+                    className="absolute top-0 -right-2 h-4 w-4 p-0 flex items-center justify-center text-[9px] min-w-[16px]"
+                  >
+                    {selectedFilterCount}
+                  </Badge>
+                )}
+              </div>
+              <PopoverContent className="w-[500px] p-3">
+                <div className="space-y-2">
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <h3 className="text-md font-medium">Filter Resources</h3>
+                      <p className="tracking-tight text-[12px] text-muted-foreground">Select your filter criteria below</p>
+                    </div>
+                    <Button 
+                      variant="outline" 
+                      className="text-[12px] h-8 px-3 tracking-tight"
+                      onClick={() => {
+                        setSelectedNames([]);
+                        setSelectedGroups([]);
+                        setSelectedSkills([]);
+                        setSelectedStatuses([]);
+                        setSelectedAffiliationTypes([]);
+                      }}
+                    >
+                      Clear All
+                    </Button>
+                  </div>
+                  <div className="space-y-3">
+                    <div className="grid grid-cols-2 gap-2">
+                      <div className="-mt-[5px]">
+                        <MultiSelectFilter
+                          id="employee-name-filter"
+                          label=""
+                          options={uniqueNames.map(name => ({ label: name, value: name }))}
+                          selected={selectedNames}
+                          onChange={setSelectedNames}
+                          placeholder="Filter by Name"
+                          maxDisplay={2}
+                        />
+                      </div>
+                      <div className="-mt-[5px]">
+                        <MultiSelectFilter
+                          id="employee-group-filter"
+                          label=""
+                          options={uniqueGroups.map(group => ({ label: group, value: group }))}
+                          selected={selectedGroups}
+                          onChange={setSelectedGroups}
+                          placeholder="Filter by Group"
+                          maxDisplay={2}
+                        />
+                      </div>
+                    </div>
+                    <div className="grid grid-cols-2 gap-2">
+                      <div className="-mt-[5px]">
+                        <MultiSelectFilter
+                          id="employee-skill-filter"
+                          label=""
+                          options={uniqueSkills.map(skill => ({ label: skill, value: skill }))}
+                          selected={selectedSkills}
+                          onChange={setSelectedSkills}
+                          placeholder="Filter by Skill"
+                          maxDisplay={2}
+                        />
+                      </div>
+                      <div className="-mt-[5px]">
+                        <MultiSelectFilter
+                          id="status-filter"
+                          label=""
+                          options={uniqueStatuses.map(status => ({ label: status, value: status }))}
+                          selected={selectedStatuses}
+                          onChange={setSelectedStatuses}
+                          placeholder="Filter by Status"
+                          maxDisplay={2}
+                        />
+                      </div>
+                    </div>
+                    <div className="grid grid-cols-2 gap-2">
+                      <div className="-mt-[5px]">
+                        <MultiSelectFilter
+                          id="affiliation-type-filter"
+                          label=""
+                          options={uniqueAffiliationTypes.map(type => ({ label: type, value: type }))}
+                          selected={selectedAffiliationTypes}
+                          onChange={setSelectedAffiliationTypes}
+                          placeholder="Filter by Affiliation Type"
+                          maxDisplay={2}
+                        />
+                      </div>
+                      <div className="-mt-[5px]">
+                        {/* Empty column for layout */}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </PopoverContent>
+          </Popover>
         </div>
 
-        {/* Right - Selected Counter and Search */}
+        {/* Right - Search */}
         <div className="flex items-center space-x-2">
-          {selectedResources.length > 0 && (
-            <div className="flex items-center space-x-1">
-              <span className="text-[12px] font-sans text-foreground">Selected:</span>
-              <Badge variant="secondary" className="text-[10px] px-1 py-0.5 h-4">
-                {selectedResources.length}
-              </Badge>
-            </div>
-          )}
           <div className="relative w-[200px]">
             <Search className="absolute left-2 top-1/2 transform -translate-y-1/2 text-muted-foreground h-3 w-3" />
             <Input

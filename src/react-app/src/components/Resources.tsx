@@ -6,16 +6,15 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog";
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Filter, Users, Search, X } from "lucide-react";
 import { MultiSelect } from './MultiSelect';
+import MultiSelectFilter from './forms/MultiSelectFilter';
 import { type Employee } from '@/api/employee';
 import { type Vendor } from '@/api/vendor';
 import { type Asset } from '@/api/asset';
@@ -24,8 +23,6 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Input } from "@/components/ui/input";
 import { Tooltip } from 'react-tooltip';
-
-
 
 interface ResourcesProps {
   events: Event[];
@@ -77,6 +74,9 @@ export const Resources: React.FC<ResourcesProps> = ({
   const [isFilterOpen, setIsFilterOpen] = useState(false);
   const [selectedGroups, setSelectedGroups] = useState<string[]>([]);
   const [selectedStatuses, setSelectedStatuses] = useState<string[]>([]);
+  const [selectedNames, setSelectedNames] = useState<string[]>([]);
+  const [selectedSkills, setSelectedSkills] = useState<string[]>([]);
+  const [selectedAffiliationTypes, setSelectedAffiliationTypes] = useState<string[]>([]);
   const [filterText, setFilterText] = useState('');
 
   useEffect(() => {
@@ -145,17 +145,45 @@ export const Resources: React.FC<ResourcesProps> = ({
       
       const matchesFilter = name.toLowerCase().includes((filterText || '').toLowerCase());
       const resourceGroups = resource.resourceGroups || [];
-      const matchesGroup = selectedGroups.length === 0 || resourceGroups.some(group => selectedGroups.includes(group?.text || ''));
-      const matchesStatus = selectedStatuses.length === 0 || 
-        (selectedStatuses.includes('active') && resource.active) || 
-        (selectedStatuses.includes('inactive') && !resource.active);
       
-      return matchesFilter && matchesGroup && matchesStatus;
+      // Check if resource matches group filter, including default groups for vendors and assets
+      let matchesGroup = selectedGroups.length === 0;
+      if (!matchesGroup) {
+        // Check explicit resource groups
+        matchesGroup = resourceGroups.some(group => selectedGroups.includes(group?.text || ''));
+        
+        // Check default groups for resources without explicit groups
+        if (!matchesGroup && resourceGroups.length === 0) {
+          if (resource.resourceType === 'vendor' && selectedGroups.includes('Vendors')) {
+            matchesGroup = true;
+          } else if (resource.resourceType === 'asset' && selectedGroups.includes('Assets')) {
+            matchesGroup = true;
+          }
+        }
+      }
+      const matchesStatus = selectedStatuses.length === 0 || 
+        (selectedStatuses.includes('Active') && resource.active) || 
+        (selectedStatuses.includes('Inactive') && !resource.active);
+      
+      // New filters
+      const matchesName = selectedNames.length === 0 || selectedNames.includes(name);
+      const resourceSkills = resource.resourceType === 'employee' ? (resource.resourceSkills || []) : [];
+      const matchesSkill = selectedSkills.length === 0 || resourceSkills.some(skill => selectedSkills.includes(skill?.text || ''));
+      
+      // Affiliation type filter (only applies to employees)
+      const resourceAffiliationType = resource.resourceType === 'employee' ? (resource.affiliationType?.text || '') : '';
+      const matchesAffiliationType = selectedAffiliationTypes.length === 0 || 
+        (resource.resourceType === 'employee' && selectedAffiliationTypes.includes(resourceAffiliationType));
+      
+      return matchesFilter && matchesGroup && matchesStatus && matchesName && matchesSkill && matchesAffiliationType;
     } catch (error) {
       console.error('Error filtering resource:', resource, error);
       return false;
     }
   });
+
+  // Calculate active filter count
+  const activeFilterCount = selectedGroups.length + selectedStatuses.length + selectedNames.length + selectedSkills.length + selectedAffiliationTypes.length;
 
   const groupedResources = filteredResources.reduce((acc, resource) => {
     try {
@@ -239,7 +267,24 @@ export const Resources: React.FC<ResourcesProps> = ({
     'Assets' // Always include Assets group
   ])).filter(group => group !== '');
 
-  const uniqueStatuses = ['active', 'inactive'];
+  const uniqueStatuses = ['Active', 'Inactive'];
+
+  // Get unique resource names
+  const uniqueNames = Array.from(new Set([
+    ...(employees || []).map(emp => emp.employee?.text || ''),
+    ...(vendors || []).map(vendor => vendor.vendor?.text || ''),
+    ...(assets || []).map(asset => asset.asset?.text || '')
+  ])).filter(name => name !== '');
+
+  // Get unique skills (only from employees)
+  const uniqueSkills = Array.from(new Set([
+    ...(employees || []).flatMap(emp => (emp.resourceSkills || []).map(skill => skill?.text || ''))
+  ])).filter(skill => skill !== '');
+
+  // Get unique affiliation types (only from employees)
+  const uniqueAffiliationTypes = Array.from(new Set([
+    ...(employees || []).map(emp => emp.affiliationType?.text || '').filter(type => type !== '')
+  ]));
 
   // Get all group values for the defaultValue
   const defaultExpandedGroups = Object.keys(groupedResources);
@@ -300,20 +345,14 @@ export const Resources: React.FC<ResourcesProps> = ({
 
   // Helper function to format tooltip content as HTML string
   const formatTooltipContent = (resource: Resource) => {
-    let name = 'Unknown';
-    let id = '';
-    let groups = '';
-    let skills = '';
-    let email = '';
-    let phone = '';
-    let location = '';
-    let events = '';
+    let name = 'Unknown', id = '', groups = '', skills = '', email = '', phone = '', location = '', events = '', affiliationType = '';
     
     if (resource.resourceType === 'employee') {
       name = resource.employee?.text || 'Unknown';
       id = resource.employee?.value || '';
       groups = resource.resourceGroups?.map(group => group.text).join(', ') || 'None';
       skills = resource.resourceSkills?.map(skill => skill.text).join(', ') || 'None';
+      affiliationType = resource.affiliationType?.text || '';
       email = resource.email || 'N/A';
       phone = resource.phone || 'N/A';
       location = resource.location?.text || 'N/A';
@@ -323,6 +362,7 @@ export const Resources: React.FC<ResourcesProps> = ({
       id = resource.vendor?.value || '';
       groups = resource.resourceGroups?.map(group => group.text).join(', ') || 'None';
       skills = 'N/A';
+      affiliationType = 'N/A';
       email = resource.email || 'N/A';
       phone = 'N/A';
       location = resource.location?.text || 'N/A';
@@ -332,6 +372,7 @@ export const Resources: React.FC<ResourcesProps> = ({
       id = resource.asset?.value || '';
       groups = resource.resourceGroups?.map(group => group.text).join(', ') || 'None';
       skills = 'N/A';
+      affiliationType = 'N/A';
       email = 'N/A';
       phone = 'N/A';
       location = 'N/A';
@@ -343,6 +384,7 @@ export const Resources: React.FC<ResourcesProps> = ({
       <div>ID: ${id}</div>
       <div>Groups: ${groups}</div>
       <div>Skills: ${skills}</div>
+      <div>Affiliation Type: ${affiliationType}</div>
       <div>Email: ${email}</div>
       <div>Phone: ${phone}</div>
       <div>Location: ${location}</div>
@@ -360,38 +402,127 @@ export const Resources: React.FC<ResourcesProps> = ({
             {filteredResources.length}
           </Badge>
         </div>
-        <Dialog open={isFilterOpen} onOpenChange={setIsFilterOpen}>
-          <DialogTrigger asChild>
-            <Button variant="outline" size="sm">
-              <Filter className="h-3 w-3" />
-            </Button>
-          </DialogTrigger>
-          <DialogContent>
-            <DialogHeader>
-              <DialogTitle>Filter Resources (IN PROGRESS)</DialogTitle>
-            </DialogHeader>
-            <div className="space-y-4 py-4">
+        <div className="relative">
+          <Popover>
+            <PopoverTrigger asChild>
+              <Button
+                variant="outline"
+                size="icon"
+              >
+                <Filter className="h-3 w-3" />
+              </Button>
+            </PopoverTrigger>
+            {activeFilterCount > 0 && (
+              <Badge 
+                variant="destructive" 
+                className="absolute -top-1 -right-1 h-4 w-4 p-0 flex items-center justify-center text-[9px] min-w-[16px]"
+              >
+                {activeFilterCount}
+              </Badge>
+            )}
+            <PopoverContent className="w-[500px] p-4" align="center">
               <div className="space-y-2">
-                <label className="text-sm font-medium">Filter by Group</label>
-                <MultiSelect
-                  options={uniqueGroups}
-                  selected={selectedGroups}
-                  onChange={setSelectedGroups}
-                  placeholder="Select groups"
-                />
+                <div className="flex items-center justify-between">
+                  <div>
+                    <h3 className="text-md font-medium">Filter Resources</h3>
+                    <p className="tracking-tight text-[12px] text-muted-foreground">Select your filter criteria below</p>
+                  </div>
+                  <Button 
+                    variant="outline" 
+                    className="text-[12px] h-8 px-3 tracking-tight"
+                    onClick={() => {
+                      setSelectedNames([]);
+                      setSelectedGroups([]);
+                      setSelectedSkills([]);
+                      setSelectedStatuses([]);
+                      setSelectedAffiliationTypes([]);
+                    }}
+                  >
+                    Clear All
+                  </Button>
+                </div>
+                <div className="space-y-3">
+                  <div className="grid grid-cols-2 gap-2">
+                    <div className="-mt-[5px]">
+                      <MultiSelectFilter
+                        id="resource-name-filter"
+                        label=""
+                        options={uniqueNames.map(name => ({ label: name, value: name }))}
+                        selected={selectedNames}
+                        onChange={setSelectedNames}
+                        placeholder="Filter by Name"
+                        maxDisplay={2}
+                      />
+                    </div>
+                    <div className="-mt-[5px]">
+                      <MultiSelectFilter
+                        id="resource-group-filter"
+                        label=""
+                        options={uniqueGroups.map(group => ({ label: group, value: group }))}
+                        selected={selectedGroups}
+                        onChange={setSelectedGroups}
+                        placeholder="Filter by Group"
+                        maxDisplay={2}
+                      />
+                    </div>
+                  </div>
+                  <div className="grid grid-cols-2 gap-2">
+                    <div className="-mt-[5px]">
+                      <MultiSelectFilter
+                        id="resource-skill-filter"
+                        label=""
+                        options={uniqueSkills.map(skill => ({ label: skill, value: skill }))}
+                        selected={selectedSkills}
+                        onChange={setSelectedSkills}
+                        placeholder="Filter by Skill"
+                        maxDisplay={2}
+                      />
+                    </div>
+                    <div className="-mt-[5px]">
+                      <MultiSelectFilter
+                        id="status-filter"
+                        label=""
+                        options={uniqueStatuses.map(status => ({ label: status, value: status }))}
+                        selected={selectedStatuses}
+                        onChange={setSelectedStatuses}
+                        placeholder="Filter by Status"
+                        maxDisplay={2}
+                      />
+                    </div>
+                  </div>
+                  <div className="grid grid-cols-2 gap-2">
+                    <div className="-mt-[5px]">
+                      <MultiSelectFilter
+                        id="affiliation-type-filter"
+                        label=""
+                        options={uniqueAffiliationTypes.map(type => ({ label: type, value: type }))}
+                        selected={selectedAffiliationTypes}
+                        onChange={setSelectedAffiliationTypes}
+                        placeholder="Filter by Affiliation Type"
+                        maxDisplay={2}
+                      />
+                    </div>
+                    <div className="-mt-[5px]">
+                      {/* Empty div for grid alignment */}
+                    </div>
+                  </div>
+                  {/* <Button 
+                    variant="outline" 
+                    onClick={() => {
+                      setSelectedNames([]);
+                      setSelectedGroups([]);
+                      setSelectedSkills([]);
+                      setSelectedStatuses([]);
+                    }}
+                    className="w-full"
+                  >
+                    Clear All Filters
+                  </Button> */}
+                </div>
               </div>
-              <div className="space-y-2">
-                <label className="text-sm font-medium">Filter by Status</label>
-                <MultiSelect
-                  options={uniqueStatuses}
-                  selected={selectedStatuses}
-                  onChange={setSelectedStatuses}
-                  placeholder="Select status"
-                />
-              </div>
-            </div>
-          </DialogContent>
-        </Dialog>
+            </PopoverContent>
+          </Popover>
+        </div>
       </div>
       <div className="relative mb-3">
         <Search className="absolute left-2 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground pointer-events-none" />

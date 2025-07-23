@@ -8,6 +8,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Switch } from "@/components/ui/switch";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { Badge } from "@/components/ui/badge";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { EmployeeTable } from './tables/EmployeeTable';
 import { VendorTable } from './tables/VendorTable';
@@ -85,6 +86,7 @@ interface EventFormData {
   assetMaintenance: boolean;
   routingGroupText: string;
   routingGroup: string;
+  woRef: object;
   selectedResources: SelectedResource[];
   selectedVendors: SelectedVendor[];
   selectedAssets: SelectedAsset[];
@@ -100,6 +102,10 @@ interface SelectedJob {
   woUrl: string;
   project: string;
   projectUrl: string;
+  projectInsight?: {
+    text: string;
+    value: string;
+  }
 }
 
 interface CreateEventProps {
@@ -148,6 +154,7 @@ export const CreateEvent: React.FC<CreateEventProps> = ({
     assetMaintenance: false,
     routingGroupText: '',
     routingGroup: '',
+    woRef: selectedJob,
     selectedResources: [],
     selectedVendors: [],
     selectedAssets: [],
@@ -591,11 +598,18 @@ export const CreateEvent: React.FC<CreateEventProps> = ({
                     }`}
                     disabled={formData.assetMaintenance}
                   >
-                    <span className={`font-semibold text-[14px] tracking-tight ${
-                      formData.assetMaintenance ? 'text-muted-foreground' : 'text-foreground'
-                    }`}>
-                      Resources
-                    </span>
+                    <div className="flex items-center space-x-2">
+                      <span className={`font-semibold text-[14px] tracking-tight ${
+                        formData.assetMaintenance ? 'text-muted-foreground' : 'text-foreground'
+                      }`}>
+                        Resources
+                      </span>
+                      {formData.selectedResources.length > 0 && (
+                        <Badge variant="destructive" className="text-[9px] px-1 py-0.5 h-4">
+                          {formData.selectedResources.length}
+                        </Badge>
+                      )}
+                    </div>
                   </AccordionTrigger>
                   <AccordionContent className="p-2">
                     <div className="max-h-[400px] overflow-y-auto">
@@ -623,11 +637,18 @@ export const CreateEvent: React.FC<CreateEventProps> = ({
                     }`}
                     disabled={formData.assetMaintenance}
                   >
-                    <span className={`font-semibold text-[14px] tracking-tight ${
-                      formData.assetMaintenance ? 'text-muted-foreground' : 'text-foreground'
-                    }`}>
-                      Vendors
-                    </span>
+                    <div className="flex items-center space-x-2">
+                      <span className={`font-semibold text-[14px] tracking-tight ${
+                        formData.assetMaintenance ? 'text-muted-foreground' : 'text-foreground'
+                      }`}>
+                        Vendors
+                      </span>
+                      {formData.selectedVendors.length > 0 && (
+                        <Badge variant="destructive" className="text-[9px] px-1 py-0.5 h-4">
+                          {formData.selectedVendors.length}
+                        </Badge>
+                      )}
+                    </div>
                   </AccordionTrigger>
                   <AccordionContent className="p-2">
                     <div className="max-h-[400px] overflow-y-auto">
@@ -646,7 +667,14 @@ export const CreateEvent: React.FC<CreateEventProps> = ({
               <Accordion type="multiple" value={accordionValues} onValueChange={setAccordionValues} className="w-full border border-border rounded-lg">
                 <AccordionItem value="assets">
                   <AccordionTrigger className="bg-muted px-2 py-1 rounded-t-lg">
-                    <span className="text-foreground font-semibold text-[14px] tracking-tight">Assets</span>
+                    <div className="flex items-center space-x-2">
+                      <span className="text-foreground font-semibold text-[14px] tracking-tight">Assets</span>
+                      {formData.selectedAssets.length > 0 && (
+                        <Badge variant="destructive" className="text-[9px] px-1 py-0.5 h-4">
+                          {formData.selectedAssets.length}
+                        </Badge>
+                      )}
+                    </div>
                   </AccordionTrigger>
                   <AccordionContent className="p-2">
                     <div className="max-h-[400px] overflow-y-auto">
@@ -669,7 +697,14 @@ export const CreateEvent: React.FC<CreateEventProps> = ({
                   <Accordion type="single" collapsible className="w-full border border-border rounded-lg" defaultValue='woitems'>
                     <AccordionItem value="woitems">
                       <AccordionTrigger className="bg-muted px-2 py-1 rounded-t-lg">
-                        <span className="text-foreground font-semibold text-[14px] tracking-tight">Work Order Items</span>
+                        <div className="flex items-center space-x-2">
+                          <span className="text-foreground font-semibold text-[14px] tracking-tight">Work Order Items</span>
+                          {formData.selectedWOItems.length > 0 && (
+                            <Badge variant="destructive" className="text-[9px] px-1 py-0.5 h-4">
+                              {formData.selectedWOItems.length}
+                            </Badge>
+                          )}
+                        </div>
                       </AccordionTrigger>
                       <AccordionContent className="p-2">
                         <div className="max-h-[400px] overflow-y-auto">
@@ -684,7 +719,14 @@ export const CreateEvent: React.FC<CreateEventProps> = ({
                   <Accordion type="single" collapsible className="w-full border border-border rounded-lg" defaultValue='wocontacts'>
                     <AccordionItem value="wocontacts">
                       <AccordionTrigger className="bg-muted px-2 py-1 rounded-t-lg">
-                        <span className="text-foreground font-semibold text-[14px] tracking-tight">Work Order Contacts</span>
+                        <div className="flex items-center space-x-2">
+                          <span className="text-foreground font-semibold text-[14px] tracking-tight">Work Order Contacts</span>
+                          {formData.selectedWOContacts.length > 0 && (
+                            <Badge variant="destructive" className="text-[9px] px-1 py-0.5 h-4">
+                              {formData.selectedWOContacts.length}
+                            </Badge>
+                          )}
+                        </div>
                       </AccordionTrigger>
                       <AccordionContent className="p-2">
                         <div className="max-h-[400px] overflow-y-auto">

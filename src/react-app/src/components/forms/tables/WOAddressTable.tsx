@@ -192,9 +192,9 @@ export const WOAddressTable: React.FC<WOAddressTableProps> = ({ woId, onSelectio
           >
             {[5, 10, 20, 30].map((size) => <option key={size} value={size}>{size}</option>)}
           </select>
-          <Button variant="outline" size="sm">
+          {/* <Button variant="outline" size="sm">
             <Filter className="h-3 w-3" />
-          </Button>
+          </Button> */}
         </div>
 
         {/* Right - Selected Counter and Search */}

@@ -14,6 +14,13 @@ import { Search, ChevronLeft, ChevronRight, ChevronsLeft, ChevronsRight, Chevron
 import { Asset } from "@/api/asset";
 import * as helper from "@/lib/helpers";
 import TimeRangeFilter from '../TimeRangeFilter';
+import MultiSelectFilter from '../MultiSelectFilter';
+import { Option } from "@/components/ui-custom/MultiSelect";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
 
 interface SelectedAsset {
   id: string;
@@ -60,9 +67,24 @@ export const AssetTable: React.FC<AssetTableProps> = ({
   const [dataOverrides, setDataOverrides] = useState<Record<string, { startTime?: string; endTime?: string; quantity?: number; }>>({});
   const [pagination, setPagination] = useState({ pageIndex: 0, pageSize: 5 });
   const [isInitialized, setIsInitialized] = useState(false);
+  
+  // Filter states
+  const [selectedNames, setSelectedNames] = useState<string[]>([]);
+  const [selectedTypes, setSelectedTypes] = useState<string[]>([]);
 
   // Use ref to track the last selection to prevent unnecessary calls
   const lastSelectionRef = useRef<string>('');
+
+  // Generate filter options from the data
+  const nameOptions = useMemo<Option[]>(() => {
+    const uniqueNames = [...new Set(data.map(asset => asset.name))].filter(Boolean);
+    return uniqueNames.map(name => ({ label: name, value: name }));
+  }, [data]);
+
+  const typeOptions = useMemo<Option[]>(() => {
+    const uniqueTypes = [...new Set(data.map(asset => asset.type?.text).filter(Boolean))];
+    return uniqueTypes.map(type => ({ label: type, value: type }));
+  }, [data]);
 
   // Memoize the table data to prevent infinite loops
   const tableData = useMemo(() => {
@@ -318,8 +340,27 @@ export const AssetTable: React.FC<AssetTableProps> = ({
     },
   ], [updateField, handleSelectAll, handleRowToggle, renderSortIcon, rowSelection]);
 
+  // Apply filters to the data
+  const filteredData = useMemo(() => {
+    return tableData.filter(asset => {
+      // Apply name filter if any names are selected
+      if (selectedNames.length > 0 && !selectedNames.includes(asset.name)) {
+        return false;
+      }
+      
+      // Apply type filter if any types are selected
+      if (selectedTypes.length > 0 && !selectedTypes.includes(asset.type)) {
+        return false;
+      }
+      
+      return true;
+    });
+  }, [tableData, selectedNames, selectedTypes]);
+
+  const selectedFilterCount = selectedNames.length + selectedTypes.length;
+
   const table = useReactTable({
-    data: tableData, 
+    data: filteredData, 
     columns,
     getCoreRowModel: getCoreRowModel(),
     getPaginationRowModel: getPaginationRowModel(),
@@ -356,21 +397,75 @@ export const AssetTable: React.FC<AssetTableProps> = ({
           >
             {[5, 10, 20, 30].map((size) => <option key={size} value={size}>{size}</option>)}
           </select>
-          <Button variant="outline" size="sm">
-            <Filter className="h-3 w-3" />
-          </Button>
+          <Popover>
+            <div className="relative">
+              <PopoverTrigger asChild>
+                <Button variant="outline" size="sm">
+                  <Filter className="h-3 w-3" />
+                </Button>
+              </PopoverTrigger>
+              {selectedFilterCount > 0 && (
+                <Badge 
+                  variant="destructive" 
+                  className="absolute top-0 -right-2 h-4 w-4 p-0 flex items-center justify-center text-[9px] min-w-[16px]"
+                >
+                  {selectedFilterCount}
+                </Badge>
+              )}
+            </div>
+            <PopoverContent className="w-[280px] p-3">
+              <div className="space-y-2">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <h3 className="text-md font-medium">Filter Assets</h3>
+                    <p className="tracking-tight text-[12px] text-muted-foreground">Select your filter criteria below</p>
+                  </div>
+                  <Button 
+                    variant="outline" 
+                    className="text-[12px] h-8 px-3 tracking-tight"
+                    onClick={() => {
+                      setSelectedNames([]);
+                      setSelectedTypes([]);
+                    }}
+                  >
+                    Clear All
+                  </Button>
+                </div>
+                <div className="space-y-2">
+                  <MultiSelectFilter
+                    id="filter-by-name"
+                    label=""
+                    options={nameOptions}
+                    selected={selectedNames}
+                    onChange={setSelectedNames}
+                    placeholder="Filter by Name"
+                    maxDisplay={1}
+                  />
+                  <MultiSelectFilter
+                    id="filter-by-type"
+                    label=""
+                    options={typeOptions}
+                    selected={selectedTypes}
+                    onChange={setSelectedTypes}
+                    placeholder="Filter by Type"
+                    maxDisplay={1}
+                  />
+                </div>
+              </div>
+            </PopoverContent>
+          </Popover>
         </div>
 
         {/* Right - Selected Counter and Search */}
         <div className="flex items-center space-x-2">
-          {selectedAssets.length > 0 && (
+          {/* {selectedAssets.length > 0 && (
             <div className="flex items-center space-x-1">
               <span className="text-[12px] font-sans text-foreground">Selected:</span>
               <Badge variant="secondary" className="text-[10px] px-1 py-0.5 h-4">
                 {selectedAssets.length}
               </Badge>
             </div>
-          )}
+          )} */}
           <div className="relative w-[200px]">
             <Search className="absolute left-2 top-1/2 transform -translate-y-1/2 text-muted-foreground h-3 w-3" />
             <Input
@@ -382,6 +477,7 @@ export const AssetTable: React.FC<AssetTableProps> = ({
           </div>
         </div>
       </div>
+
 
       {/* Table */}
       <div className="rounded border border-border bg-card shadow-sm overflow-x-auto">
