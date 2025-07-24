@@ -315,7 +315,6 @@ export const CreateEvent: React.FC<CreateEventProps> = ({
     
     // Validate mandatory fields
     if (!formData.eventTitle || !formData.startDate || !formData.endDate || (!formData.allDay && (!formData.startTime || !formData.endTime))) {
-      console.log('Form Data', formData);
       toast.error("Please fill in all required fields", {
         position: "top-right",
         className: "!bg-red-100 !text-red-800 !border !border-red-300",
@@ -342,13 +341,17 @@ export const CreateEvent: React.FC<CreateEventProps> = ({
         duration: Infinity
       }); */
       toast.custom((id) => (
-        <div data-sonner-rounded-toast className="flex items-center justify-between w-full max-w-xl bg-green-100 text-green-800 border border-green-300 px-4 py-3 rounded-md">
-          <span className="text-sm font-medium">
+        <div
+          data-sonner-rounded-toast
+          className="flex items-start gap-3 w-full max-w-xl bg-green-100 text-green-800 border border-green-300 px-4 py-3 rounded-md"
+        >
+          <CheckCircle className="h-5 w-5 mt-0.5 text-green-700 shrink-0" />
+          <div className="flex-1 text-sm font-medium">
             Event "{formData.eventTitle}" created successfully!
-          </span>
+          </div>
           <button
             onClick={() => toast.dismiss(id)}
-            className="ml-4 text-green-800 hover:text-red-500 p-1"
+            className="ml-3 text-green-800 hover:text-red-500 p-1"
           >
             <X size={16} />
           </button>
