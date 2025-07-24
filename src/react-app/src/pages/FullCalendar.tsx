@@ -444,36 +444,35 @@ const Calendar = () => {
   }, [eventsFilter, events, filteredEvents]);
 
 
-  useEffect(() => {
-    const loadAllData = async () => {
-      try {
-        setIsLoading(true);
+  const loadAllData = useCallback(async () => {
+    try {
+      setIsLoading(true);
 
-        const [
-          eventData,
-          employeeData,
-          vendorData,
-          assetData,
-          woResourceData,
-          woVendorData,
-          woAssetData,
-          workOrderData,
-          /* woItemData,
-          woContactData,
-          woAddressData */
-        ] = await Promise.all([
-          fetchEvents().catch(() => []),
-          fetchEmployees().catch(() => []),
-          fetchVendors().catch(() => []),
-          fetchAssets().catch(() => []),
-          fetchWOResources('', '').catch(() => []),
-          fetchWOVendors('', '').catch(() => []),
-          fetchWOAssets('', '').catch(() => []),
-          fetchWorkOrders().catch(() => []),
-          /* fetchWOItems('', '').catch(() => []),
-          fetchWOContacts('', '').catch(() => []),
-          fetchWOAddresses('', '').catch(() => []), */
-        ]);
+      const [
+        eventData,
+        employeeData,
+        vendorData,
+        assetData,
+        woResourceData,
+        woVendorData,
+        woAssetData,
+        workOrderData,
+        /* woItemData,
+        woContactData,
+        woAddressData */
+      ] = await Promise.all([
+        fetchEvents().catch(() => []),
+        fetchEmployees().catch(() => []),
+        fetchVendors().catch(() => []),
+        fetchAssets().catch(() => []),
+        fetchWOResources('', '').catch(() => []),
+        fetchWOVendors('', '').catch(() => []),
+        fetchWOAssets('', '').catch(() => []),
+        fetchWorkOrders().catch(() => []),
+        /* fetchWOItems('', '').catch(() => []),
+        fetchWOContacts('', '').catch(() => []),
+        fetchWOAddresses('', '').catch(() => []), */
+      ]);
 
         // Hydrate event data with WO resource links
         for (const resource of woResourceData) {
@@ -571,10 +570,11 @@ const Calendar = () => {
       } finally {
         setIsLoading(false);
       }
-    };
+    }, []);
 
+  useEffect(() => {
     loadAllData();
-  }, []);
+  }, [loadAllData]);
 
   const calendarEvents = [];
 
@@ -1846,6 +1846,7 @@ const Calendar = () => {
       <CreateEvent
         isOpen={isCreateModalOpen}
         onClose={() => setIsCreateModalOpen(false)}
+        onEventCreated={loadAllData}
         selectedJob={selectedJob ? {
           id: selectedJob.id,
           title: selectedJob.title,
@@ -1854,7 +1855,6 @@ const Calendar = () => {
           project: selectedJob.project,
           projectUrl: selectedJob.projectUrl || ''
         } : undefined}
-        onSubmit={handleSubmit}
         employees={employees}
         vendors={vendors}
         assets={assets}

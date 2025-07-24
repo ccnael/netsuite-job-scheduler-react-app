@@ -3,6 +3,7 @@
  * @NModuleScope Public
  */
 define([
+  'N/runtime',
   'N/search',
   'N/record',
   './esp_cm_woResource',
@@ -15,7 +16,21 @@ define([
   './esp_cm_utils',
   './esp_cm_constants',
   './moment.min',
-], (search, record, woResourceLib, woVendorLib, woAssetLib, woItemLib, woContactLib, woAddressLib, helper, utils, env, moment) => {
+], (
+  runtime,
+  search,
+  record,
+  woResourceLib,
+  woVendorLib,
+  woAssetLib,
+  woItemLib,
+  woContactLib,
+  woAddressLib,
+  helper,
+  utils,
+  env,
+  moment
+) => {
   /**
    * Get the list of events. Includes standalone/general events
    * @param {Object} context Suitelet object
@@ -200,7 +215,7 @@ define([
     let requestBody = request.body || '{}';
     const eventData = JSON.parse(requestBody);
 
-    log.audit('----- [Create Work Order Event] -----', { payload });
+    log.audit('----- [Create Work Order Event] -----', { eventData });
 
     try {
       eventData.startDate = moment(eventData.startDate).format(env.Format.IMPORT_DATE);
@@ -208,50 +223,53 @@ define([
       eventData.startTime = moment(`1/1/1999 ${eventData.startTime}`).format(env.Format.IMPORT_TIME);
       eventData.endTime = moment(`1/1/1999 ${eventData.endTime}`).format(env.Format.IMPORT_TIME);
 
-      const setField = {};
-      setField.title = eventData.eventTitle;
-      setField.custevent_esp_fop_work_order = eventTitle?.woRef?.id || '';
-      setField.organizer = user.id;
-      setField.status = eventData.status;
-      setField.accesslevel = 'PUBLIC';
-      setField.startdate = new Date(eventData.startDate);
-      setField.starttime = helper.toDateTimez(eventData.startDate, eventData.startTime);
-      setField.endtime = helper.toDateTimez(eventData.startDate, eventData.endTime);
-      setField.custevent_esp_fop_event_priority = eventData.priority;
-      setField.custevent_esp_fop_memo = eventData.note;
-      setField.custevent_task_pi = eventData?.woRef?.projectInsight?.value;
-      setField.custevent_esp_fop_asset_maintenance = !!(eventData?.assetMaintenance);
+      const fieldId = {};
+      fieldId.title = eventData.eventTitle;
+      fieldId.custevent_esp_fop_work_order = eventData.eventTitle?.woRef?.id || '';
+      fieldId.organizer = user.id;
+      fieldId.status = eventData.status;
+      fieldId.accesslevel = 'PUBLIC';
+      fieldId.startdate = new Date(eventData.startDate);
+      fieldId.starttime = helper.toDateTimez(eventData.startDate, eventData.startTime);
+      fieldId.endtime = helper.toDateTimez(eventData.startDate, eventData.endTime);
+      fieldId.custevent_esp_fop_event_priority = eventData.priority;
+      fieldId.custevent_esp_fop_memo = eventData.note;
+      fieldId.custevent_task_pi = eventData?.woRef?.projectInsight?.value;
+      fieldId.custevent_esp_fop_asset_maintenance = !!(eventData?.assetMaintenance);
 
       if (eventData.selectedAddress) {
-        setField.custevent_esp_fop_event_address = eventData.selectedAddress.id;
+        fieldId.custevent_esp_fop_event_address = eventData.selectedAddress.id;
       }
 
       const numberOfDays = moment(eventData.endDate).diff(moment(eventData.startDate), 'days') + 1;
 
       if (numberOfDays > 1) {
-        setField.frequency = 'DAY';
-        setField.period = '1'; // Repeat every 1 day(s) / Daily
+        fieldId.frequency = 'DAY';
+        fieldId.period = '1'; // Repeat every 1 day(s) / Daily
       } else {
         // Default > Single Day Event (value->NONE)
       }
-      setField.endbydate = new Date(eventData.endDate);
+      fieldId.endbydate = new Date(eventData.endDate);
+      fieldId.custevent_esp_fop_routing_group = eventData.routingGroup;
+
+      log.debug('Event Data', fieldId);
 
       const rec = record.create({
         type: record.Type.CALENDAR_EVENT,
         isDynamic: true
       });
 
-      for (const key in setField) {
+      for (const key in fieldId) {
         rec.setValue({
           fieldId: key,
-          value: setField[key]
+          value: fieldId[key]
         });
       }
 
       eventData.id = rec.save({ ignoreMandatoryFieds: true });
       log.audit('----- [Created Event Record] -----', { recordId: eventData.id });
 
-      eventData?.selectedResources.length && woResourceLib.createResources(eventData);
+      // eventData?.selectedResources.length && woResourceLib.createResources(eventData);
       // woVendorLib.createVendors(eventData, woRef);
       // woAssetLib.createAssets(eventData, woRef);
       // woItemLib.createItems(eventData);
@@ -343,55 +361,55 @@ define([
           }
         };
 
-        const setField = {};
+        const fieldId = {};
 
         if (eventRecObj.title != eventData.title) {
-          setField.title = eventData.title;
+          fieldId.title = eventData.title;
         }
         if (eventRecObj.date.start != eventData.date.start) {
-          setField.startdate = new Date(eventData.date.start);
+          fieldId.startdate = new Date(eventData.date.start);
         }
         if (eventRecObj.date.end != eventData.date.end) {
           const numberOfDays = moment(eventData.date.end).diff(moment(eventData.date.start), 'days') + 1;
           if (numberOfDays > 1) {
-            setField.frequency = 'DAY';
-            setField.period = '1';
+            fieldId.frequency = 'DAY';
+            fieldId.period = '1';
           }
-          setField.endbydate = new Date(eventData.date.end);
+          fieldId.endbydate = new Date(eventData.date.end);
         }
         if (eventRecObj.time.start != eventData.time.start) {
-          setField.starttime = _toDateTimez(eventData.date.start, eventData.time.start);
+          fieldId.starttime = _toDateTimez(eventData.date.start, eventData.time.start);
         }
         if (eventRecObj.time.end != eventData.time.end) {
-          setField.endtime = _toDateTimez(eventData.date.end, eventData.time.end);
+          fieldId.endtime = _toDateTimez(eventData.date.end, eventData.time.end);
         }
         if (eventRecObj.note != eventData.note) {
-          setField.custevent_esp_fop_memo = eventData.note;
+          fieldId.custevent_esp_fop_memo = eventData.note;
         }
         if (eventData.priority) {
           if (eventRecObj.priority != eventData.priority) {
-            setField.custevent_esp_fop_event_priority = eventData.priority;
+            fieldId.custevent_esp_fop_event_priority = eventData.priority;
           }
         }
         if (eventData.status) {
           if (eventRecObj.status != eventData.status) {
-            setField.status = eventData.status;
+            fieldId.status = eventData.status;
           }
         }
         if (eventData.selectedAddress) {
           if (eventData.selectedAddress.id != eventRecObj.address.id) {
-            setField.custevent_esp_fop_event_address = eventData.selectedAddress.id;
+            fieldId.custevent_esp_fop_event_address = eventData.selectedAddress.id;
           }
         }
-        log.audit('Fields to update', { eventRecObj, setField });
+        log.audit('Fields to update', { eventRecObj, fieldId });
 
-        if (Object.keys(setField).length) {
-          for (const key in setField) {
+        if (Object.keys(fieldId).length) {
+          for (const key in fieldId) {
             rec.setValue({
               fieldId: key,
-              value: setField[key]
+              value: fieldId[key]
             });
-            log.debug('Setting field ' + key, setField[key]);
+            log.debug('Setting field ' + key, fieldId[key]);
           }
           rec.save({ ignoreMandatoryFieds: true });
           log.audit('----- [Updated Event Record] -----', { recordId: eventData.id });

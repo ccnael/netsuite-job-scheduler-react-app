@@ -65,8 +65,13 @@ export interface Event {
   }
 }
 
+// Store for mock events to persist newly created ones
+let mockEventsStore: Event[] | null = null;
+
 const getMockEvents = (): Event[] => {
-  return [{
+  if (mockEventsStore) return mockEventsStore;
+  
+  const initialEvents = [{
       "id": "101153",
       "title": "TEST",
       "workorder": {
@@ -19193,6 +19198,9 @@ const getMockEvents = (): Event[] => {
       }
     }
   ];
+  
+  mockEventsStore = initialEvents;
+  return mockEventsStore;
 };
 
 export const fetchEvents = async (): Promise<Event[]> => {
@@ -19246,6 +19254,104 @@ export const fetchEvents = async (): Promise<Event[]> => {
     return allData;
   } catch (error) {
     console.error('Error fetching events:', error);
+    throw error;
+  }
+};
+
+export const createEvent = async (formData: any): Promise<Event> => {
+  if (isLocalDevelopment()) {
+    console.log('Mock creating event:', formData);
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        const newEvent: Event = {
+          id: String(Date.now()),
+          title: formData.eventTitle,
+          workorder: {
+            text: formData.selectedJob?.title || '',
+            value: formData.selectedJob?.id || ''
+          },
+          location: '',
+          status: {
+            text: formData.status || 'Tentative',
+            value: formData.status?.toUpperCase() || 'TENTATIVE',
+            code: '#6c757d'
+          },
+          date: {
+            recurrence: `one time event on ${formData.startDate}`,
+            dates: [formData.startDate],
+            start: formData.startDate,
+            end: formData.endDate
+          },
+          time: {
+            start: formData.startTime,
+            end: formData.endTime
+          },
+          priority: {
+            text: formData.priority || '',
+            value: formData.priority || '',
+            code: '#026adf'
+          },
+          note: formData.notes || '',
+          url: '',
+          color: '#1a6756',
+          woRef: formData.woRef,
+          resources: formData.selectedResources || [],
+          vendors: formData.selectedVendors || [],
+          assets: formData.selectedAssets || [],
+          items: formData.selectedWOItems || [],
+          unassigned: false,
+          contacts: formData.selectedWOContacts || [],
+          address: formData.selectedWOAddress ? {
+            text: formData.selectedWOAddress.text,
+            value: formData.selectedWOAddress.value
+          } : { text: '', value: '' },
+          organizer: {
+            text: 'Current User',
+            value: '1'
+          },
+          projectInsight: formData.selectedJob?.projectInsight || { text: '', value: '' },
+          assetMaintenance: formData.assetMaintenance || false,
+          routingGroup: {
+            text: formData.routingGroupText || '',
+            value: formData.routingGroup || ''
+          },
+          salesorder: {
+            text: '',
+            value: ''
+          }
+        };
+        
+        // Add the new event to the mock store so it persists
+        if (!mockEventsStore) mockEventsStore = getMockEvents();
+        mockEventsStore.unshift(newEvent); // Add to beginning of array
+        
+        resolve(newEvent);
+      }, 1000);
+    });
+  }
+
+  try {
+    const url = `${suiteletUrl}&mode=createEvent`;
+    const response = await fetch(url, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(formData)
+    });
+
+    console.log('Create event RESPONSE:', response);
+
+    if (!response.ok) {
+      throw new Error(`Failed to create event: ${response.status}`);
+    }
+
+    const newEvent = await response.json();
+    console.log('Create event RESULT:', newEvent);
+
+    return newEvent;
+  } catch (error) {
+    console.error('Error creating event:', error);
     throw error;
   }
 };

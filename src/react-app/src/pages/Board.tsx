@@ -192,30 +192,29 @@ const Board = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [loadingError, setLoadingError] = useState<string | null>(null);
 
-  useEffect(() => {
-    const loadAllData = async () => {
-      try {
-        setIsLoading(true);
+  const loadAllData = useCallback(async () => {
+    try {
+      setIsLoading(true);
 
-        const [
-          eventData,
-          employeeData,
-          vendorData,
-          assetData,
-          woResourceData,
-          woVendorData,
-          woAssetData,
-          workOrderData,
-        ] = await Promise.all([
-          fetchEvents().catch(() => []),
-          fetchEmployees().catch(() => []),
-          fetchVendors().catch(() => []),
-          fetchAssets().catch(() => []),
-          fetchWOResources('', '').catch(() => []),
-          fetchWOVendors('', '').catch(() => []),
-          fetchWOAssets('', '').catch(() => []),
-          fetchWorkOrders().catch(() => []),
-        ]);
+      const [
+        eventData,
+        employeeData,
+        vendorData,
+        assetData,
+        woResourceData,
+        woVendorData,
+        woAssetData,
+        workOrderData,
+      ] = await Promise.all([
+        fetchEvents().catch(() => []),
+        fetchEmployees().catch(() => []),
+        fetchVendors().catch(() => []),
+        fetchAssets().catch(() => []),
+        fetchWOResources('', '').catch(() => []),
+        fetchWOVendors('', '').catch(() => []),
+        fetchWOAssets('', '').catch(() => []),
+        fetchWorkOrders().catch(() => []),
+      ]);
 
         for (const resource of woResourceData) {
           const event = eventData.find(e => e.id === resource.event);
@@ -296,10 +295,11 @@ const Board = () => {
       } finally {
         setIsLoading(false);
       }
-    };
+    }, []);
 
+  useEffect(() => {
     loadAllData();
-  }, []);
+  }, [loadAllData]);
 
   const [isUpdateModalOpen, setIsUpdateModalOpen] = useState(false);
   const [isCompleteEventModalOpen, setIsCompleteEventModalOpen] = useState(false);
@@ -739,58 +739,6 @@ const Board = () => {
     console.log('Should show drop zone for event', eventId, ':', !isAssigned);
     return !isAssigned;
   };
-
-  const handleSubmit = useCallback((submittedFormData: EventFormData) => {
-    if (!submittedFormData.eventTitle || !submittedFormData.startDate || !submittedFormData.endDate || (!submittedFormData.allDay && (!submittedFormData.startTime || !submittedFormData.endTime))) {
-      console.log('Form Data', submittedFormData);
-      toast.error("Please fill in all required fields", {
-        position: "top-right",
-        className: "!bg-red-100 !text-red-800 !border !border-red-300",
-      });
-      return;
-    }
-
-    const newEvent: Event = {
-      id: '',
-      title: submittedFormData.eventTitle,
-      note: submittedFormData.notes,
-      date: {
-        recurrence: submittedFormData.startDate,
-        dates: [submittedFormData.startDate],
-        start: submittedFormData.startDate,
-        end: submittedFormData.endDate
-      },
-      time: submittedFormData.allDay ? undefined : {
-        start: submittedFormData.startTime,
-        end: submittedFormData.endTime
-      },
-      status: {
-        text: submittedFormData.status,
-        value: submittedFormData.status.toUpperCase(),
-      },
-      priority: {
-        text: submittedFormData.priority === '1' ? 'Low' : submittedFormData.priority === '2' ? 'Mid' : submittedFormData.priority === '3' ? 'High' : 'Urgent',
-        value: submittedFormData.priority,
-      },
-      resources: submittedFormData.selectedResources,
-      vendors: submittedFormData.selectedVendors,
-      assets: submittedFormData.selectedAssets,
-      items: submittedFormData?.selectedWOItems,
-      contacts: submittedFormData?.selectedWOContacts,
-      address: {
-        value: submittedFormData?.selectedWOAddress.id,
-        text: submittedFormData?.selectedWOAddress.name
-      }
-    };
-    
-    setEvents([...events, newEvent]);
-    console.log('NEW EVENT', { newEvent, events });
-    setIsCreateModalOpen(false);
-
-    if (selectedJob) {
-      setSelectedJob(null);
-    }
-  }, [selectedJob, events]);
 
   const handleUpdateEvent = useCallback((submittedFormData: EventFormData) => {
     console.log('selectedEventForUpdate', selectedEventForUpdate);
@@ -1707,6 +1655,7 @@ const Board = () => {
       <CreateEvent
         isOpen={isCreateModalOpen}
         onClose={() => setIsCreateModalOpen(false)}
+        onEventCreated={loadAllData}
         selectedJob={selectedJob ? {
           id: selectedJob.id,
           title: selectedJob.title,
@@ -1715,7 +1664,6 @@ const Board = () => {
           project: selectedJob.project,
           projectUrl: selectedJob.projectUrl || ''
         } : undefined}
-        onSubmit={handleSubmit}
         employees={employees}
         vendors={vendors}
         assets={assets}
@@ -1745,14 +1693,6 @@ const Board = () => {
       <UpdateEvent
         isOpen={isUpdateModalOpen}
         onClose={() => setIsUpdateModalOpen(false)}
-        selectedJob={selectedJob ? {
-          id: selectedJob.id,
-          title: selectedJob.title,
-          description: selectedJob.description,
-          woUrl: selectedJob.woUrl || '',
-          project: selectedJob.project,
-          projectUrl: selectedJob.projectUrl || ''
-        } : undefined}
         selectedEvent={selectedEventForUpdate}
         onSubmit={handleUpdateEvent}
         employees={employees}

@@ -26,11 +26,25 @@ import { type WOVendor } from "@/api/woVendor";
 import { type WOAsset } from "@/api/woAsset";
 import * as helper from "@/lib/helpers";
 import { fetchRoutingGroups, RoutingGroup } from "@/api/routingGroup";
+import { createEvent } from "@/api/event";
 import DropdownFilter from './DropdownFilter';
 import DateRangeFilter from './DateRangeFilter';
 import TimeRangeFilter from './TimeRangeFilter';
 import { DropdownOption } from './types';
 import { priorityOptions, statusOptions } from "@/lib/constants";
+import { toast } from "sonner";
+import { CheckCircle, X } from 'lucide-react';
+import { 
+  AlertDialog, 
+  AlertDialogContent, 
+  AlertDialogHeader, 
+  AlertDialogTitle, 
+  AlertDialogDescription, 
+  AlertDialogFooter, 
+  AlertDialogCancel, 
+  AlertDialogAction 
+} from "@/components/ui/alert-dialog";
+import { Loader } from "lucide-react";
 
 interface SelectedResource {
   id: string;
@@ -112,7 +126,7 @@ interface CreateEventProps {
   isOpen: boolean;
   onClose: () => void;
   selectedJob?: SelectedJob;
-  onSubmit: (formData: EventFormData) => void;
+  onEventCreated?: () => void;
   employees?: Employee[];
   vendors?: Vendor[];
   assets?: Asset[];
@@ -129,7 +143,7 @@ export const CreateEvent: React.FC<CreateEventProps> = ({
   isOpen, 
   onClose, 
   selectedJob, 
-  onSubmit,
+  onEventCreated,
   employees = [],
   vendors = [],
   assets = [],
@@ -173,6 +187,8 @@ export const CreateEvent: React.FC<CreateEventProps> = ({
   const [showCreateModal, setShowCreateModal] = useState(false);
   const [isCreatingRoutingGroup, setIsCreatingRoutingGroup] = useState(false);
   const [dropdownKey, setDropdownKey] = useState(0); // Force re-render of dropdown
+  const [isCreating, setIsCreating] = useState(false);
+  const [showConfirmDialog, setShowConfirmDialog] = useState(false);
 
   console.log('CreateEvent props', {
     employees,
@@ -294,9 +310,67 @@ export const CreateEvent: React.FC<CreateEventProps> = ({
 
   const handleOutsideClick = () => { setBubbleEffect(true); setTimeout(() => setBubbleEffect(false), 300); };
   
-  const handleSubmit = () => { 
+  const handleSubmit = async () => { 
     console.log('Form data on submit:', formData);
-    onSubmit(formData); 
+    
+    // Validate mandatory fields
+    if (!formData.eventTitle || !formData.startDate || !formData.endDate || (!formData.allDay && (!formData.startTime || !formData.endTime))) {
+      console.log('Form Data', formData);
+      toast.error("Please fill in all required fields", {
+        position: "top-right",
+        className: "!bg-red-100 !text-red-800 !border !border-red-300",
+        // duration: 2000
+      });
+      return;
+    }
+    
+    // Show confirmation dialog
+    setShowConfirmDialog(true);
+  };
+
+  const handleConfirmCreate = async () => {
+    try {
+      setIsCreating(true);
+      setShowConfirmDialog(false);
+      await createEvent(formData);
+      
+      // Success toast
+      /* toast.success(`Event "${formData.eventTitle}" created successfully!`, {
+        position: "top-right",
+        className: "!bg-green-100 !text-green-800 !border !border-green-300",
+        closeButton: true,
+        duration: Infinity
+      }); */
+      toast.custom((id) => (
+        <div data-sonner-rounded-toast className="flex items-center justify-between w-full max-w-xl bg-green-100 text-green-800 border border-green-300 px-4 py-3 rounded-md">
+          <span className="text-sm font-medium">
+            Event "{formData.eventTitle}" created successfully!
+          </span>
+          <button
+            onClick={() => toast.dismiss(id)}
+            className="ml-4 text-green-800 hover:text-red-500 p-1"
+          >
+            <X size={16} />
+          </button>
+        </div>
+      ), {
+        unstyled: true,
+        duration: Infinity,
+        position: "top-right",
+      });
+      
+      // Close modal and refresh events
+      onClose();
+      onEventCreated?.();
+    } catch (error) {
+      console.error('Error creating event:', error);
+      toast.error("Failed to create event. Please try again.", {
+        position: "top-right",
+        className: "!bg-red-100 !text-red-800 !border !border-red-300",
+      });
+    } finally {
+      setIsCreating(false);
+    }
   };
 
   // Memoized handler functions for table selections to prevent infinite loops
@@ -759,8 +833,17 @@ export const CreateEvent: React.FC<CreateEventProps> = ({
           </ScrollArea>
 
           <DialogFooter className="mt-2 flex-shrink-0">
-            <Button variant="outline" onClick={onClose} className="text-[12px] h-8 px-3 tracking-tight">Cancel</Button>
-            <Button onClick={handleSubmit} className="text-[12px] h-8 px-3 tracking-tight">Create</Button>
+            <Button variant="outline" onClick={onClose} disabled={isCreating} className="text-[12px] h-8 px-3 tracking-tight">Cancel</Button>
+            <Button onClick={handleSubmit} disabled={isCreating} className="text-[12px] h-8 px-3 tracking-tight">
+              {isCreating ? (
+                <>
+                  <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                  Creating...
+                </>
+              ) : (
+                'Create'
+              )}
+            </Button>
           </DialogFooter>
         </DialogContent>
       </Dialog>
@@ -772,6 +855,34 @@ export const CreateEvent: React.FC<CreateEventProps> = ({
         onRoutingGroupCreated={handleRoutingGroupCreated}
         onLoadingChange={handleRoutingGroupLoadingChange}
       />
+
+      {/* Confirmation Dialog */}
+      <AlertDialog open={showConfirmDialog} onOpenChange={setShowConfirmDialog}>
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle>Create Event</AlertDialogTitle>
+            <AlertDialogDescription>
+              {selectedJob 
+                ? `Create Event for ${selectedJob.title}?` 
+                : 'Create General Event?'
+              }
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogCancel disabled={isCreating}>Cancel</AlertDialogCancel>
+            <AlertDialogAction onClick={handleConfirmCreate} disabled={isCreating}>
+              {isCreating ? (
+                <>
+                  <Loader className="mr-2 h-4 w-4 animate-spin" />
+                  Creating...
+                </>
+              ) : (
+                'Create'
+              )}
+            </AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
     </>
   );
 };

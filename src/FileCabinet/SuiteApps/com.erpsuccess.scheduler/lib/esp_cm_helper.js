@@ -4,7 +4,7 @@
  * 
  * Helper functions
  */
-define(['./moment.min'], (moment) => {
+define(['N/runtime', './moment.min'], (runtime, moment) => {
 
   return {
     /**
@@ -39,8 +39,7 @@ define(['./moment.min'], (moment) => {
      */
     toDateTimez(dateStr, timeStr) {
       if (!dateStr) return '';
-      const dateTime = timeStr ? `${dateStr} ${timeStr}` : dateStr;
-      return moment(dateTime).format(`${this.dateFormat()} HH:mm`);
+      return moment(`${dateStr} ${timeStr}`)._d;
     },
 
     /**

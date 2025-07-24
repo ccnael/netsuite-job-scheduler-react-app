@@ -215,3 +215,11 @@
     @apply text-xs font-medium text-muted-foreground;
   }
 }
+
+[data-sonner-toast]:has([data-sonner-rounded-toast]) {
+    background: transparent !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    border-radius: 0 !important;
+    overflow: visible !important;
+  }
