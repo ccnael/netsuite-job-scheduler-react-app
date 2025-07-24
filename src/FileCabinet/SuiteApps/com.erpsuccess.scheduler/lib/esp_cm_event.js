@@ -225,7 +225,7 @@ define([
 
       const fieldId = {};
       fieldId.title = eventData.eventTitle;
-      fieldId.custevent_esp_fop_work_order = eventData.eventTitle?.woRef?.id || '';
+      fieldId.custevent_esp_fop_work_order = eventData?.woRef?.id || '';
       fieldId.organizer = user.id;
       fieldId.status = eventData.status;
       fieldId.accesslevel = 'PUBLIC';
