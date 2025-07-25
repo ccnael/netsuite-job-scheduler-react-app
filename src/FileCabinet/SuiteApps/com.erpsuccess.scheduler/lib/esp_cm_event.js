@@ -227,13 +227,13 @@ define([
       fieldId.title = eventData.eventTitle;
       fieldId.custevent_esp_fop_work_order = eventData?.woRef?.id || '';
       fieldId.organizer = user.id;
-      fieldId.status = eventData.status;
+      fieldId.status = eventData.status === 'COMPLETED' ? 'COMPLETE' : eventData.status;
       fieldId.accesslevel = 'PUBLIC';
       fieldId.startdate = new Date(eventData.startDate);
       fieldId.starttime = helper.toDateTimez(eventData.startDate, eventData.startTime);
       fieldId.endtime = helper.toDateTimez(eventData.startDate, eventData.endTime);
       fieldId.custevent_esp_fop_event_priority = eventData.priority;
-      fieldId.custevent_esp_fop_memo = eventData.note;
+      fieldId.custevent_esp_fop_memo = eventData.notes;
       fieldId.custevent_task_pi = eventData?.woRef?.projectInsight?.value;
       fieldId.custevent_esp_fop_asset_maintenance = !!(eventData?.assetMaintenance);
 
