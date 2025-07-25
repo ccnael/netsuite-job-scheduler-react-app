@@ -129,7 +129,8 @@ export const EmployeeTable: React.FC<EmployeeTableProps> = ({
         startTime: timeOverride?.startTime || woResource?.time?.start || '',
         endTime: timeOverride?.endTime || woResource?.time?.end || '',
         woResourceId: woResource?.id || '',
-        active: emp.active
+        active: emp.active,
+        // employeeProps: emp
       };
     });
 

@@ -28,11 +28,6 @@ define([
         'AND',
         ['custrecord_esp_fop_res_rel_wo', 'anyof', woId]
       );
-    } else {
-      filters.push(
-        'AND',
-        ['custrecord_esp_fop_res_rel_wo', 'noneof', ['@NONE@', '']]
-      );
     }
 
     if (eventId) {
@@ -40,10 +35,15 @@ define([
         'AND',
         ['custrecord_esp_fop_res_rel_wo_event', 'anyof', eventId]
       );
-    } else {
-      filters.push(
-        'AND',
-        ['custrecord_esp_fop_res_rel_wo_event', 'noneof', ['@NONE@', '']]
+    }
+
+    if (!woId && !eventId) {
+      filters.push('AND',
+        [
+          ['custrecord_esp_fop_res_rel_wo', 'noneof', ['@NONE@', '']],
+          'OR',
+          ['custrecord_esp_fop_res_rel_wo_event', 'noneof', ['@NONE@', '']]
+        ]
       );
     }
 
@@ -193,11 +193,12 @@ define([
    */
   function createResources(event, copyEventTime) {
     const resources = event?.selectedResources || [];
+    log.debug('createResources', resources)
     for (const resource of resources) {
       try {
         const rec = record.create({
           type: env.RecordType.WORK_ORDER_RESOURCE,
-          isDynamic: false
+          isDynamic: true
         });
         rec.setValue({ fieldId: 'custrecord_esp_fop_res_rel_wo', value: event?.woRef?.id || '' });
         rec.setValue({ fieldId: 'custrecord_esp_fop_res_rel_wo_event', value: event.id });

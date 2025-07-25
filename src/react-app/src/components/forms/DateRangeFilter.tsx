@@ -25,6 +25,7 @@ interface DateRangeFilterProps {
   disabledDate?: (date: Date) => boolean;
   isRequired?: boolean;
   placeholder?: string;
+  disabled?: boolean;
 }
 
 export const useDateRangeFilter = (initialRange?: DateRange) => {
@@ -51,7 +52,8 @@ const DateRangeFilter: React.FC<DateRangeFilterProps> = ({
   onChange,
   disabledDate,
   isRequired,
-  placeholder
+  placeholder,
+  disabled = false
 }) => {
   const handleClear = (e: React.MouseEvent) => {
     e.stopPropagation();
@@ -69,6 +71,7 @@ const DateRangeFilter: React.FC<DateRangeFilterProps> = ({
           <Button
             id={id}
             variant="outline"
+            disabled={disabled}
             className={cn(
               "w-full justify-start text-left font-normal h-7 text-[12px] tracking-tight",
               !value && "text-muted-foreground"

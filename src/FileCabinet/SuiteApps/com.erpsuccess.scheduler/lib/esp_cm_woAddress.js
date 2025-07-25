@@ -27,17 +27,22 @@ define([
         'AND',
         ['custrecord_esp_fop_address_rel_wo', 'is', woId]
       );
-    } else {
-      filters.push(
-        'AND',
-        ['custrecord_esp_fop_address_rel_wo', 'noneof', ['@NONE@', '']]
-      );
     }
 
     if (eventId) {
       filters.push(
         'AND',
         ['custrecord_esp_fop_wo_add_event', 'is', eventId]
+      );
+    }
+
+    if (!woId && !eventId) {
+      filters.push('AND',
+        [
+          ['custrecord_esp_fop_address_rel_wo', 'noneof', ['@NONE@', '']],
+          'OR',
+          ['custrecord_esp_fop_wo_add_event', 'noneof', ['@NONE@', '']]
+        ]
       );
     }
 

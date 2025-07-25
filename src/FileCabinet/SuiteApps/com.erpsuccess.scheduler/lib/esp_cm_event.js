@@ -162,14 +162,14 @@ define([
       vendors: [],
       assets: [],
       items: [],
+      contacts: [],
+      addresses: [],
       // Event without resources
       get unassigned() {
         return !this.resources.length &&
           !this.vendors.length &&
           !this.assets.length
       },
-      // contacts: [], // Not sure if still needed
-      // addresses: [],
       address: { // Selected address
         text: map.getText('custevent_esp_fop_event_address'),
         value: map.getValue('custevent_esp_fop_event_address')
@@ -269,7 +269,7 @@ define([
       eventData.id = rec.save({ ignoreMandatoryFieds: true });
       log.audit('----- [Created Event Record] -----', { recordId: eventData.id });
 
-      // eventData?.selectedResources.length && woResourceLib.createResources(eventData);
+      eventData?.selectedResources.length && woResourceLib.createResources(eventData);
       // woVendorLib.createVendors(eventData, woRef);
       // woAssetLib.createAssets(eventData, woRef);
       // woItemLib.createItems(eventData);
@@ -283,12 +283,7 @@ define([
       }));
     } catch (e) {
       log.audit('createEventRecord() Unexpected Error', e.message);
-
-      response.write(JSON.stringify({
-        code: 401,
-        status: 'failed',
-        errorMsg: e.message
-      }));
+      throw new Error(`Unexpected Error: ${e.message}`);
     }
   }
 
@@ -440,12 +435,7 @@ define([
       }));
     } catch (e) {
       log.error('updateEventRecord() Unexpected Error', e.message);
-
-      response.write(JSON.stringify({
-        code: 401,
-        status: 'failed',
-        errorMsg: e.message
-      }));
+      throw new Error(`Unexpected Error: ${e.message}`);
     }
   }
 
@@ -453,14 +443,14 @@ define([
    * Delete event record
    * @param {Object} context Suitelet object
    */
-  function deleteEvent(context) {
+  function removeEvent(context) {
     const { request, response } = context;
-    const { parameters: params } = request;
     const requestBody = request.body || '{}';
-    const eventId = params.id;
 
     try {
       const eventData = JSON.parse(requestBody);
+      const eventId = eventData.id;
+      log.debug('removeEvent eventData', eventData);
 
       // Unlink event from related child records before the deletion
       utils.deleteRecords(env.RecordType.WORK_ORDER_RESOURCE, eventData.resources.map(x => x.id));
@@ -468,7 +458,7 @@ define([
       utils.deleteRecords(env.RecordType.WORK_ORDER_ASSET, eventData.assets.map(x => x.id));
       utils.deleteRecords(env.RecordType.WORK_ORDER_ITEM, eventData.items.map(x => x.id));
       utils.deleteRecords(env.RecordType.WORK_ORDER_CONTACT, eventData.contacts.map(x => x.id));
-      WorkOrderAddress._removeEventFromAddresses(eventData.addresses, eventData.id);
+      woAddressLib.removeEventFromAddresses(eventData.addresses, eventData.id);
 
       // Remove timetracking lines
       const rec = record.load({
@@ -498,12 +488,8 @@ define([
         status: 'success'
       }));
     } catch (e) {
-      log.audit('deleteRecord() Unexpected Error', e.message);
-      response.write(JSON.stringify({
-        code: 401,
-        status: 'failed',
-        errorMsg: e.message
-      }));
+      log.audit('removeEvent() Unexpected Error', e.message);
+      throw new Error(`Unexpected Error: ${e.message}`);
     }
   }
 
@@ -511,6 +497,6 @@ define([
     getEvents,
     createEvent,
     updateEvent,
-    deleteEvent
+    removeEvent
   }
 })

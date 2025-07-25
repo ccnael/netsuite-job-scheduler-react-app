@@ -27,11 +27,6 @@ define([
       filters.push(
         'AND',
         ['custrecord_esp_fop_ast_rel_wo', 'anyof', woId]
-      )
-    } else {
-      filters.push(
-        'AND',
-        ['custrecord_esp_fop_ast_rel_wo', 'noneof', ['@NONE@', '']]
       );
     }
 
@@ -40,10 +35,15 @@ define([
         'AND',
         ['custrecord_esp_fop_ast_wo_event', 'anyof', eventId]
       );
-    } else {
-      filters.push(
-        'AND',
-        ['custrecord_esp_fop_ast_wo_event', 'noneof', ['@NONE@', '']]
+    }
+
+    if (!woId && !eventId) {
+      filters.push('AND',
+        [
+          ['custrecord_esp_fop_ast_rel_wo', 'noneof', ['@NONE@', '']],
+          'OR',
+          ['custrecord_esp_fop_ast_wo_event', 'noneof', ['@NONE@', '']]
+        ]
       );
     }
 

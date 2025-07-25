@@ -148,6 +148,7 @@ define([
    * @param {string[]} ids - Array of internal IDs to delete
    */
   function deleteRecords(type, ids) {
+    log.debug(type, ids);
     for (const id of ids) {
       try {
         record.delete({ type, id });

@@ -327,10 +327,11 @@ export const CreateEvent: React.FC<CreateEventProps> = ({
     setShowConfirmDialog(true);
   };
 
-  const handleConfirmCreate = async () => {
+  const handleConfirmCreate = async (e: React.MouseEvent) => {
+    e.preventDefault(); // Prevent default AlertDialogAction behavior
+    
     try {
       setIsCreating(true);
-      setShowConfirmDialog(false);
       await createEvent(formData);
       
       // Success toast
@@ -362,7 +363,8 @@ export const CreateEvent: React.FC<CreateEventProps> = ({
         position: "top-right",
       });
       
-      // Close modal and refresh events
+      // Close dialogs and refresh events
+      setShowConfirmDialog(false);
       onClose();
       onEventCreated?.();
     } catch (error) {
@@ -563,7 +565,7 @@ export const CreateEvent: React.FC<CreateEventProps> = ({
                           label="Start Time"
                           value={formData.startTime}
                           onChange={handleStartTimeSelect}
-                          disabled={formData.allDay}
+                          disabled={formData.allDay || isCreating}
                           isRequired={true}
                         />
                       </div>
@@ -574,7 +576,7 @@ export const CreateEvent: React.FC<CreateEventProps> = ({
                           label="End Time"
                           value={formData.endTime}
                           onChange={handleEndTimeSelect}
-                          disabled={formData.allDay}
+                          disabled={formData.allDay || isCreating}
                           isRequired={true}
                         />
                       </div>
@@ -623,7 +625,7 @@ export const CreateEvent: React.FC<CreateEventProps> = ({
                           onChange={handleRoutingGroupChange}
                           placeholder="Select routing group"
                           fetchOptionsOnOpen={fetchRoutingGroupOptions}
-                          disabled={isCreatingRoutingGroup}
+                          disabled={isCreatingRoutingGroup || isCreating}
                         />
                       </div>
                       {
@@ -669,11 +671,11 @@ export const CreateEvent: React.FC<CreateEventProps> = ({
                 <AccordionItem value="resources">
                   <AccordionTrigger 
                     className={`px-2 py-1 rounded-t-lg ${
-                      formData.assetMaintenance 
+                      formData.assetMaintenance || isCreating
                         ? 'bg-muted/50 text-muted-foreground cursor-not-allowed' 
                         : 'bg-muted'
                     }`}
-                    disabled={formData.assetMaintenance}
+                    disabled={formData.assetMaintenance || isCreating}
                   >
                     <div className="flex items-center space-x-2">
                       <span className={`font-semibold text-[14px] tracking-tight ${
@@ -708,11 +710,11 @@ export const CreateEvent: React.FC<CreateEventProps> = ({
                 <AccordionItem value="vendors">
                   <AccordionTrigger 
                     className={`px-2 py-1 rounded-t-lg ${
-                      formData.assetMaintenance 
+                      formData.assetMaintenance || isCreating
                         ? 'bg-muted/50 text-muted-foreground cursor-not-allowed' 
                         : 'bg-muted'
                     }`}
-                    disabled={formData.assetMaintenance}
+                    disabled={formData.assetMaintenance || isCreating}
                   >
                     <div className="flex items-center space-x-2">
                       <span className={`font-semibold text-[14px] tracking-tight ${
@@ -743,7 +745,11 @@ export const CreateEvent: React.FC<CreateEventProps> = ({
 
               <Accordion type="multiple" value={accordionValues} onValueChange={setAccordionValues} className="w-full border border-border rounded-lg">
                 <AccordionItem value="assets">
-                  <AccordionTrigger className="bg-muted px-2 py-1 rounded-t-lg">
+                  <AccordionTrigger 
+                    className={`px-2 py-1 rounded-t-lg ${
+                      isCreating ? 'bg-muted/50 text-muted-foreground cursor-not-allowed' : 'bg-muted'
+                    }`}
+                  >
                     <div className="flex items-center space-x-2">
                       <span className="text-foreground font-semibold text-[14px] tracking-tight">Assets</span>
                       {formData.selectedAssets.length > 0 && (
@@ -836,16 +842,9 @@ export const CreateEvent: React.FC<CreateEventProps> = ({
           </ScrollArea>
 
           <DialogFooter className="mt-2 flex-shrink-0">
-            <Button variant="outline" onClick={onClose} disabled={isCreating} className="text-[12px] h-8 px-3 tracking-tight">Cancel</Button>
-            <Button onClick={handleSubmit} disabled={isCreating} className="text-[12px] h-8 px-3 tracking-tight">
-              {isCreating ? (
-                <>
-                  <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                  Creating...
-                </>
-              ) : (
-                'Create'
-              )}
+            <Button variant="outline" onClick={onClose} className="text-[12px] h-8 px-3 tracking-tight">Cancel</Button>
+            <Button onClick={handleSubmit} className="text-[12px] h-8 px-3 tracking-tight">
+              Create
             </Button>
           </DialogFooter>
         </DialogContent>

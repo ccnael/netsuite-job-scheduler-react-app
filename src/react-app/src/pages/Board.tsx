@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { Card } from '../components/Card';
 import { Resources } from '../components/Resources';
-import { fetchEvents, type Event } from '@/api/event';
+import { fetchEvents, removeEvent, type Event } from '@/api/event';
 import { fetchEmployees, type Employee } from '@/api/employee';
 import { fetchVendors, type Vendor } from '@/api/vendor';
 import { fetchAssets, type Asset } from '@/api/asset';
@@ -9,6 +9,9 @@ import { fetchWOResources, type WOResource } from '@/api/woResource';
 import { fetchWOVendors, type WOVendor } from '@/api/woVendor';
 import { fetchWOAssets, type WOAsset } from '@/api/woAsset';
 import { fetchWorkOrders, type WorkOrder } from '@/api/workOrder';
+import { fetchWOItems } from "@/api/woItem";
+import { fetchWOContacts } from "@/api/woContact";
+import { fetchWOAddresses } from "@/api/woAddress";
 import { fetchRoutingGroups, type RoutingGroup } from '@/api/routingGroup';
 import { fetchCustomers, type Customer } from "@/api/customer";
 import { fetchLocations, type Location } from "@/api/location";
@@ -44,6 +47,17 @@ import { Input } from "@/components/ui/input";
 import { CreateEvent } from '../components/forms/CreateEvent';
 import { UpdateEvent } from '../components/forms/UpdateEvent';
 import { CompleteEvent } from '../components/forms/CompleteEvent';
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+} from "@/components/ui/alert-dialog";
+import { Loader2, CheckCircle } from "lucide-react";
 import { Tooltip } from 'react-tooltip';
 import { receiptStatuses, eventStatuses, eventPriorities, eventTypes } from "@/lib/constants";
 
@@ -198,22 +212,28 @@ const Board = () => {
 
       const [
         eventData,
+        workOrderData,
         employeeData,
         vendorData,
         assetData,
         woResourceData,
         woVendorData,
         woAssetData,
-        workOrderData,
+        woItemData,
+        woContactData,
+        woAddressData
       ] = await Promise.all([
         fetchEvents().catch(() => []),
+        fetchWorkOrders().catch(() => []),
         fetchEmployees().catch(() => []),
         fetchVendors().catch(() => []),
         fetchAssets().catch(() => []),
         fetchWOResources('', '').catch(() => []),
         fetchWOVendors('', '').catch(() => []),
         fetchWOAssets('', '').catch(() => []),
-        fetchWorkOrders().catch(() => []),
+        fetchWOItems('', '').catch(() => []),
+        fetchWOContacts('', '').catch(() => []),
+        fetchWOAddresses('', '').catch(() => [])
       ]);
 
         for (const resource of woResourceData) {
@@ -250,6 +270,31 @@ const Board = () => {
           const wo = workOrderData.find(e => e.id === event.workorder.value);
           if (wo) {
             event.woRef = { ...wo };
+          }
+        }
+
+        for (const item of woItemData) {
+          const event = eventData.find(e => e.id === item.event);
+          if (event) {
+            event.items.push({ ...item });
+          }
+        }
+
+        for (const contact of woContactData) {
+          const event = eventData.find(e => contact.event.includes(e.id));
+          if (event) {
+            event.contacts.push({ ...contact });
+          }
+        }
+
+        for (const address of woAddressData) {
+          const event = eventData.find(e => address.events.includes(e.id));
+          if (event) {
+            event.address = { ...address.address };
+            event.addresses = event.addresses || [];
+            event.addresses.push({
+              ...address
+            });
           }
         }
 
@@ -305,6 +350,57 @@ const Board = () => {
   const [isCompleteEventModalOpen, setIsCompleteEventModalOpen] = useState(false);
   const [selectedEventForUpdate, setSelectedEventForUpdate] = useState<Event | null>(null);
   const [selectedEventForComplete, setSelectedEventForComplete] = useState<Event | null>(null);
+  const [isRemoveDialogOpen, setIsRemoveDialogOpen] = useState(false);
+  const [selectedEventForRemove, setSelectedEventForRemove] = useState<Event | null>(null);
+  const [isRemoving, setIsRemoving] = useState(false);
+
+  const handleRemoveEvent = async (e: React.MouseEvent) => {
+    e.preventDefault(); // Prevent default AlertDialogAction behavior
+    
+    if (!selectedEventForRemove) return;
+
+    try {
+      setIsRemoving(true);
+      await removeEvent(selectedEventForRemove);
+      
+      // Reload events like in CreateEvent
+      await loadAllData();
+      
+      toast.custom((id) => (
+        <div
+          data-sonner-rounded-toast
+          className="flex items-start gap-3 w-full max-w-xl bg-green-100 text-green-800 border border-green-300 px-4 py-3 rounded-md"
+        >
+          <CheckCircle className="h-5 w-5 mt-0.5 text-green-700 shrink-0" />
+          <div className="flex-1 text-sm font-medium">
+            Event "{selectedEventForRemove.title}" removed successfully!
+          </div>
+          <button
+            onClick={() => toast.dismiss(id)}
+            className="ml-3 text-green-800 hover:text-red-500 p-1"
+          >
+            <X size={16} />
+          </button>
+        </div>
+      ), {
+        unstyled: true,
+        duration: Infinity,
+        position: "top-right",
+      });
+      
+      // Manually close the dialog after successful removal
+      setIsRemoveDialogOpen(false);
+      setSelectedEventForRemove(null);
+    } catch (error) {
+      console.error('Failed to remove event:', error);
+      toast.error('Failed to remove event', {
+        position: "top-right",
+        className: "!bg-red-100 !text-red-800 !border !border-red-300",
+      });
+    } finally {
+      setIsRemoving(false);
+    }
+  };
 
   const handleCardAction = (cardId: string, action: string, isEvent: boolean = false) => {
     const cardList = isEvent ? events : jobs;
@@ -371,8 +467,10 @@ const Board = () => {
         }
         break;
       case 'remove':
-        setEvents(events.filter(e => e.id !== cardId));
-        toast.info(`${cardTitle} removed from events`);
+        if (isEvent) {
+          setSelectedEventForRemove(card as Event);
+          setIsRemoveDialogOpen(true);
+        }
         break;
     }
   };
@@ -812,14 +910,6 @@ const Board = () => {
       className: "!bg-green-100 !text-green-800 !border !border-green-300",
     });
   }, [events, selectedEventForComplete]);
-
-  const [isFilterModalOpen, setIsFilterModalOpen] = useState(false);
-  const [filterType, setFilterType] = useState<'jobs' | 'events'>('jobs');
-
-  const handleOpenFilter = (type: 'jobs' | 'events') => {
-    setFilterType(type);
-    setIsFilterModalOpen(true);
-  };
 
   const getActiveEventFiltersCount = (filter: EventFilterState) => {
     return filter.statuses.length + 
@@ -2077,9 +2167,38 @@ const Board = () => {
            zIndex: 9999,
            boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)'
          }}
-       />
-     </div>
-   );
- };
- 
- export default Board;
+        />
+
+        {/* Remove Event Dialog */}
+        <AlertDialog open={isRemoveDialogOpen} onOpenChange={setIsRemoveDialogOpen}>
+          <AlertDialogContent>
+            <AlertDialogHeader>
+              <AlertDialogTitle>Remove Event</AlertDialogTitle>
+              <AlertDialogDescription>
+                Are you sure you want to remove "{selectedEventForRemove?.title || 'this event'}"? This action cannot be undone.
+              </AlertDialogDescription>
+            </AlertDialogHeader>
+            <AlertDialogFooter>
+              <AlertDialogCancel disabled={isRemoving}>Cancel</AlertDialogCancel>
+              <AlertDialogAction
+                onClick={handleRemoveEvent}
+                disabled={isRemoving}
+                className="bg-destructive text-destructive-foreground hover:bg-destructive/90"
+              >
+                {isRemoving ? (
+                  <>
+                    <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                    Removing...
+                  </>
+                ) : (
+                  'Remove Event'
+                )}
+              </AlertDialogAction>
+            </AlertDialogFooter>
+          </AlertDialogContent>
+        </AlertDialog>
+      </div>
+    );
+  };
+  
+  export default Board;

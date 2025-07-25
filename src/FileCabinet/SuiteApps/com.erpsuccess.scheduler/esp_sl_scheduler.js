@@ -222,8 +222,8 @@ define([
         case 'completeEvent':
           eventLib.completeEvent(context);
           break;
-        case 'deleteEvent':
-          eventLib.deleteEvent(context);
+        case 'removeEvent':
+          eventLib.removeEvent(context);
           break;
         case 'createRoutingGroup':
           routingGroupLib.createRoutingGroup(context);
