@@ -132,7 +132,7 @@ define([
     const { parameters: params, method } = context.request;
     const script = runtime.getCurrentScript();
     const mode = params?.mode;
-    log.audit('----- [START] -----', { mode });
+    // log.audit('----- [START] -----', { mode });
 
     if (method === 'GET') {
 
@@ -231,9 +231,9 @@ define([
       }
     }
 
-    log.audit('----- [END] -----', {
-      remainingUsage: script.getRemainingUsage()
-    });
+    // log.audit('----- [END] -----', {
+    //   remainingUsage: script.getRemainingUsage()
+    // });
   }
 
   return {

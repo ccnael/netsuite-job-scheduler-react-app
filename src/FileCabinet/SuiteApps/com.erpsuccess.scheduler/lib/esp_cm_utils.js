@@ -9,8 +9,9 @@ define([
   'N/url',
   'N/file',
   'N/record',
+  'N/config',
   './esp_cm_constants'
-], (runtime, url, file, record, env) => {
+], (runtime, url, file, record, config, env) => {
   /**
    * Class containing methods to generate NetSuite record and script URLs.
    */
@@ -148,7 +149,6 @@ define([
    * @param {string[]} ids - Array of internal IDs to delete
    */
   function deleteRecords(type, ids) {
-    log.debug(type, ids);
     for (const id of ids) {
       try {
         record.delete({ type, id });
@@ -159,9 +159,21 @@ define([
     }
   }
 
+  /**
+   * Parses a date string and forces the time to 12:00 noon (local time),
+   * to avoid timezone shifting issues (e.g., when storing in NetSuite).
+   *
+   * @param {string} dateStr - An ISO date string (e.g., "2025-07-09T00:00:00.000Z")
+   * @returns {Date} A local Date object set to 12:00 noon on the same calendar day
+   */
+  function parseDate(dateStr) {
+    return new Date(`${dateStr.split('T')[0]}T12:00:00`);
+  }
+
   return {
     Url,
     createLogFile,
-    deleteRecords
+    deleteRecords,
+    parseDate
   };
 });

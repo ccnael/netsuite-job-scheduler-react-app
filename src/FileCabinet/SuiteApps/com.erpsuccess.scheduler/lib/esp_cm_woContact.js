@@ -17,7 +17,6 @@ define([
     const { request, response } = context;
     const { parameters: params } = request;
     const { woId, eventId, start, end } = params;
-    log.debug('WO Contacts params', params);
 
     const filters = [
       ['isinactive', 'is', 'F']
@@ -110,7 +109,7 @@ define([
    * @param {Object} event Event data
    */
   function createContacts(event) {
-    const contacts = event?.selectedContacts || [];
+    const contacts = event?.contacts || [];
     for (const contact of contacts) {
       try {
         const rec = record.copy({
@@ -122,7 +121,7 @@ define([
         contact.id = rec.save({ ignoreMandatoryFieds: true });
         log.audit('----- [Created WO Contact Record] -----', contact.id);
       } catch (e) {
-        log.error('Error on WO Contact > Create', { id: contact.id, errorMsg: e.message });
+        log.error('Error on WO Contact > Create', { contact, errorMsg: e.message });
         contact.errorMsg = e.message;
       }
     }

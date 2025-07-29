@@ -68,9 +68,10 @@ define([
           search.createColumn({ name: 'location', join: 'custrecord_esp_fop_res_employee', label: 'Location' }),
           search.createColumn({ name: 'custrecord_esp_fop_res_rel_wo', label: 'Work Order' }),
           search.createColumn({ name: 'custrecord_esp_fop_res_rel_wo_event', label: 'Work Order Event' }),
-          search.createColumn({ name: 'custrecord_esp_fop_res_rel_resource_grp', label: 'Resource Group' }),
-          search.createColumn({ name: 'custrecord_esp_fop_res_resource_type', label: 'Resource Type' }),
-          search.createColumn({ name: 'custrecord_esp_fop_res_resource_subtype', label: 'Resource Subtype' }),
+          search.createColumn({ name: 'custentity_esp_fop_resource_group', join: 'custrecord_esp_fop_res_employee' }),
+          search.createColumn({ name: 'custentity_esp_fop_emp_resource_skill', join: 'custrecord_esp_fop_res_employee' }),
+          search.createColumn({ name: 'custentity_esp_fop_emp_resource_type', join: 'custrecord_esp_fop_res_employee', label: 'Resource Type' }),
+          search.createColumn({ name: 'custentity_esp_fop_emp_resource_subtype', join: 'custrecord_esp_fop_res_employee', label: 'Resource Subtype' }),
           search.createColumn({ name: 'custrecord_esp_fop_res_rate', label: 'Rate' }),
           search.createColumn({ name: 'custrecord_esp_fop_res_vendor', label: 'Vendor' }),
           search.createColumn({ name: 'custrecord_esp_fop_res_rel_po', label: 'Purchase Order' }),
@@ -108,8 +109,8 @@ define([
       },
       get resourceGroups() {
         const obj = {
-          texts: helper.stringToArray(map.getText('custrecord_esp_fop_res_rel_resource_grp')),
-          values: helper.stringToArray(map.getValue('custrecord_esp_fop_res_rel_resource_grp')),
+          texts: helper.stringToArray(map.getText({ name: 'custentity_esp_fop_resource_group', join: 'custrecord_esp_fop_res_employee' })),
+          values: helper.stringToArray(map.getValue({ name: 'custentity_esp_fop_resource_group', join: 'custrecord_esp_fop_res_employee' })),
         };
         return obj.texts.map((text, index) => ({
           text,
@@ -118,8 +119,8 @@ define([
       },
       get types() {
         const obj = {
-          texts: helper.stringToArray(map.getText('custrecord_esp_fop_res_resource_type')),
-          values: helper.stringToArray(map.getValue('custrecord_esp_fop_res_resource_type')),
+          texts: helper.stringToArray(map.getText({ name: 'custentity_esp_fop_emp_resource_type', join: 'custrecord_esp_fop_res_employee' })),
+          values: helper.stringToArray(map.getValue({ name: 'custentity_esp_fop_emp_resource_type', join: 'custrecord_esp_fop_res_employee' })),
         };
         return obj.texts.map((text, index) => ({
           text,
@@ -128,8 +129,8 @@ define([
       },
       get subTypes() {
         const obj = {
-          texts: helper.stringToArray(map.getText('custrecord_esp_fop_res_resource_subtype')),
-          values: helper.stringToArray(map.getValue('custrecord_esp_fop_res_resource_subtype')),
+          texts: helper.stringToArray(map.getText({ name: 'custentity_esp_fop_emp_resource_subtype', join: 'custrecord_esp_fop_res_employee' })),
+          values: helper.stringToArray(map.getValue({ name: 'custentity_esp_fop_emp_resource_subtype', join: 'custrecord_esp_fop_res_employee' })),
         };
         return obj.texts.map((text, index) => ({
           text,
@@ -192,31 +193,36 @@ define([
    * @param {Boolean} copyEventTime 
    */
   function createResources(event, copyEventTime) {
-    const resources = event?.selectedResources || [];
-    log.debug('createResources', resources)
+    const resources = event?.resources || [];
     for (const resource of resources) {
       try {
-        const rec = record.create({
-          type: env.RecordType.WORK_ORDER_RESOURCE,
-          isDynamic: true
-        });
+        const rec = resource.woResourceId
+          ? record.copy({
+            type: env.RecordType.WORK_ORDER_RESOURCE,
+            id: resource.woResourceId,
+            isDynamic: true
+          })
+          : record.create({
+            type: env.RecordType.WORK_ORDER_RESOURCE,
+            isDynamic: true
+          });
         rec.setValue({ fieldId: 'custrecord_esp_fop_res_rel_wo', value: event?.woRef?.id || '' });
         rec.setValue({ fieldId: 'custrecord_esp_fop_res_rel_wo_event', value: event.id });
         rec.setValue({ fieldId: 'custrecord_esp_fop_res_employee', value: resource.id });
-        rec.setValue({ fieldId: 'custrecord_esp_fop_res_event_start_date', value: new Date(event.startDate) });
-        rec.setValue({ fieldId: 'custrecord_esp_fop_res_event_end_date', value: new Date(event.endDate) });
+        rec.setValue({ fieldId: 'custrecord_esp_fop_res_event_start_date', value: event.parsedStartDate });
+        rec.setValue({ fieldId: 'custrecord_esp_fop_res_event_end_date', value: event.parsedEndDate });
         rec.setValue({
           fieldId: 'custrecord_esp_fop_res_start_time',
-          value: helper.toDateTimez(event.startDate, !copyEventTime ? resource.startTime : event.startTime) // If no resource start time, use event start time instead
+          value: helper.toDateTimez(event.date.start, !copyEventTime ? resource.startTime : event.time.start) // If no resource start time, use event start time instead
         });
         rec.setValue({
           fieldId: 'custrecord_esp_fop_res_end_time',
-          value: helper.toDateTimez(event.startDate, !copyEventTime ? resource.endTime : event.endTime)  // If no resource end time, use event end time instead
+          value: helper.toDateTimez(event.date.start, !copyEventTime ? resource.endTime : event.time.end)  // If no resource end time, use event end time instead
         });
         const newId = rec.save({ ignoreMandatoryFields: true });
         log.audit('----- [Created WO Resource Record] -----', newId);
       } catch (e) {
-        log.error('Error on WO Resource > Create', { resource: resource.employee, errorMsg: e.message });
+        log.error('Error on WO Resource > Create', { resource, errorMsg: e.message });
         resource.errorMsg = e.message;
       }
     }
@@ -228,60 +234,72 @@ define([
    * @param {Object} dataSrc Data source
    * @param {Object} woRef WO data
    */
-  function updateResources(event, dataSrc, woRef) {
-    const selectedResources = event.selectedResources;
-    const selectedResourceIds = selectedResources.map(x => x.id);
-    const srcResources = dataSrc.resources.filter(x => !!(x.selected));
-    const srcResourcesIds = srcResources.map(x => x.id);
-    const removedResources = srcResources.filter(x => !(selectedResourceIds.includes(x.id)));
-    const newResources = selectedResources.filter(x => !(srcResourcesIds.includes(x.id)));
+  function updateResources(eventData, updates) {
+    const selectedResources = updates.resources;
+    const srcResources = eventData.resources;
 
-    log.audit('Updating WO Resource Event List', { selectedResources, removedResources, newResources });
+    const selectedResourceIds = selectedResources.map(x => x.woResourceId).filter(Boolean);
+    const srcResourceIds = srcResources.map(x => x.id);
 
-    // If theres to start/end time to update
-    for (const resource of selectedResources) {
-      if (!resource.id) continue;
+    const removedResources = srcResources.filter(
+      src => !selectedResourceIds.includes(src.id)
+    );
 
-      try {
-        const resourceLookup = search.lookupFields({
-          type: env.RecordType.WORK_ORDER_RESOURCE,
-          id: resource.id,
-          columns: ['custrecord_esp_fop_res_start_time', 'custrecord_esp_fop_res_end_time']
-        });
-        const values = {};
+    const newResources = selectedResources.filter(
+      upd => !upd.woResourceId || !srcResourceIds.includes(upd.woResourceId)
+    );
+    const updatedResources = [];
 
-        const startTime = moment(`1/1/1999 ${resource.time.start}`).format(env.Format.IMPORT_TIME);
-        if (resourceLookup.custrecord_esp_fop_res_start_time != startTime) {
-          values.custrecord_esp_fop_res_start_time = startTime;
+    for (const upd of selectedResources) {
+      const matchId = upd.woResourceId;
+      if (!matchId) continue;
+
+      const existing = srcResources.find(src => src.id === matchId);
+      if (existing) {
+        const valuesToUpdate = {};
+        if (existing.time?.start !== upd.startTime) {
+          valuesToUpdate.updatedStartTime = upd.startTime;
         }
-
-        const endTime = moment(`1/1/1999 ${resource.time.end}`).format(env.Format.IMPORT_TIME);
-        if (resourceLookup.custrecord_esp_fop_res_end_time != endTime) {
-          values.custrecord_esp_fop_res_end_time = endTime;
+        if (existing.time?.end !== upd.endTime) {
+          valuesToUpdate.updatedEndTime = upd.endTime;
         }
-        if (Object.keys(values).length) {
-          record.submitFields({
-            type: env.RecordType.WORK_ORDER_RESOURCE,
-            id: resource.id,
-            values,
-            options: {
-              ignoreMandatoryFields: true
-            }
+        if (Object.keys(valuesToUpdate).length) {
+          updatedResources.push({
+            ...upd,
+            ...valuesToUpdate
           });
-          log.audit('----- [Updated WO Resource Record] -----', { resource });
         }
-      } catch (e) {
-        log.error('Error on WO Resource > Update', { resource, errorMsg: e.message });
       }
     }
 
-    // If theres to remove (removed resources)
-    utils.deleteRecords(env.RecordType.WORK_ORDER_RESOURCE, removedResources.map(x => x.id));
+    log.audit('Updating WO Resources', { updatedResources, newResources, removedResources });
 
-    // If theres to create (newly added resources)
-    const clonedEventObj = helper.deepCopy(event);
-    clonedEventObj.selectedResources = newResources;
-    createResources(clonedEventObj, woRef);
+    // Update updated resources
+    for (const update of updatedResources) {
+      const values = {};
+      if (update.updatedStartTime) {
+        values.custrecord_esp_fop_res_start_time = moment(`1/1/1999 ${update.updatedStartTime}`).format(env.Format.IMPORT_TIME);
+      }
+      if (update.updatedEndTime) {
+        values.custrecord_esp_fop_res_end_time = moment(`1/1/1999 ${update.updatedEndTime}`).format(env.Format.IMPORT_TIME);
+      }
+      record.submitFields({
+        type: env.RecordType.WORK_ORDER_RESOURCE,
+        id: update.id,
+        values,
+        options: {
+          ignoreMandatoryFieds: true,
+        }
+      });
+    }
+
+    eventData.resources = newResources;
+
+    // Create new resources
+    createResources(eventData);
+
+    // Delete removed resources
+    utils.deleteRecords(env.RecordType.WORK_ORDER_RESOURCE, removedResources.map(x => x.id));
   }
 
   /**

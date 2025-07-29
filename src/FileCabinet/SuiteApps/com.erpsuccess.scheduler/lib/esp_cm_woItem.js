@@ -17,7 +17,6 @@ define([
     const { request, response } = context;
     const { parameters: params } = request;
     const { woId, eventId, start, end } = params;
-    log.debug('WO Items params', params);
 
     const filters = [
       ['isinactive', 'is', 'F']
@@ -112,7 +111,7 @@ define([
    * @param {Object} event Event data
    */
   function createItems(event) {
-    const items = event?.selectedItems || [];
+    const items = event?.items || [];
     for (const item of items) {
       try {
         const rec = record.copy({
@@ -120,14 +119,14 @@ define([
           id: item.id,
           isDynamic: true
         });
-        rec.setValue({ fieldId: 'name', value: item.item.text });
+        rec.setValue({ fieldId: 'name', value: item.name });
         rec.setValue({ fieldId: 'custrecord_esp_fop_wo_item_event', value: event.id });
         rec.setValue({ fieldId: 'custrecord_esp_fop_wo_item_quantity', value: item.quantity });
         rec.setValue({ fieldId: 'custrecord_esp_fop_wo_item_completedqty', value: 0 });
         item.id = rec.save({ ignoreMandatoryFieds: true });
         log.audit('----- [Created WO Item Record] -----', item.id);
       } catch (e) {
-        log.error('Error on WO Item > Create', { item: item.item, errorMsg: e.message });
+        log.error('Error on WO Item > Create', { item, errorMsg: e.message });
         item.errorMsg = e.message;
       }
     }

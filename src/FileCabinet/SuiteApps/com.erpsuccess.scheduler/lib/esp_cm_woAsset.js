@@ -116,31 +116,36 @@ define([
   /**
    * Transform assets to WO assets
    * @param {Object} event Event data
-   * @param {Object} woRef WO data
    * @param {Boolean} copyEventTime 
    */
-  function createAssets(event, woRef, copyEventTime) {
-    const assets = event?.selectedAssets || [];
+  function createAssets(event, copyEventTime) {
+    const assets = event?.assets || [];
     for (const asset of assets) {
       try {
-        const rec = record.create({
-          type: env.RecordType.WORK_ORDER_ASSET,
-          isDynamic: true
-        });
+        const rec = asset.woAssetId
+          ? record.copy({
+            type: env.RecordType.WORK_ORDER_ASSET,
+            id: asset.woAssetId,
+            isDynamic: true
+          })
+          : record.create({
+            type: env.RecordType.WORK_ORDER_ASSET,
+            isDynamic: true
+          });
         rec.setValue({ fieldId: 'custrecord_esp_fop_ast_asset_rec', value: asset.id });
+        rec.setValue({ fieldId: 'custrecord_esp_fop_ast_rel_wo', value: event?.woRef?.id || '' });
         rec.setValue({ fieldId: 'custrecord_esp_fop_ast_wo_event', value: event.id });
         rec.setValue({ fieldId: 'custrecord_esp_fop_ast_quantity', value: asset.quantity });
         rec.setValue({ fieldId: 'custrecord_esp_fop_ast_is_owned', value: !!asset.owned });
-        rec.setValue({ fieldId: 'custrecord_esp_fop_ast_rel_wo', value: woRef?.id || '' });
-        rec.setValue({ fieldId: 'custrecord_esp_fop_ast_start_date', value: new Date(event.date.start) });
-        rec.setValue({ fieldId: 'custrecord_esp_fop_ast_end_date', value: new Date(event.date.end) });
+        rec.setValue({ fieldId: 'custrecord_esp_fop_ast_start_date', value: event.parsedStartDate });
+        rec.setValue({ fieldId: 'custrecord_esp_fop_ast_end_date', value: event.parsedEndDate });
         rec.setValue({
           fieldId: 'custrecord_esp_fop_ast_start_time',
-          value: helper.toDateTimez(event.date.start, !copyEventTime ? asset.time.start : event.time.start) // If no asset start time, use event start time instead
+          value: helper.toDateTimez(event.date.start, !copyEventTime ? asset.startTime : event.stime.starttartTime) // If no asset start time, use event start time instead
         });
         rec.setValue({
           fieldId: 'custrecord_esp_fop_ast_end_time',
-          value: helper.toDateTimez(event.date.start, !copyEventTime ? asset.time.end : event.time.end) // If no asset end time, use event end time instead
+          value: helper.toDateTimez(event.date.start, !copyEventTime ? asset.endTime : event.time.end) // If no asset end time, use event end time instead
         });
         const newId = rec.save({ ignoreMandatoryFieds: true });
         log.audit('----- [Created WO Asset Record] -----', newId);

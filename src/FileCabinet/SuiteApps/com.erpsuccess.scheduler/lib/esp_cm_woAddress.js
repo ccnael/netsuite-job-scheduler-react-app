@@ -100,37 +100,33 @@ define([
    * Add address to the events
    * @param {Object} event Event data
    */
-  function addEventToAddresses(event) {
-    const addresses = event?.addresses || [];
+  function addEventToAddress(event) {
+    const address = event?.address || {};
 
-    for (const address of addresses) {
-      if (!address.id) continue;
+    try {
+      const addressLookUp = search.lookupFields({
+        type: env.RecordType.WORK_ORDER_ADDRESS,
+        id: address.value,
+        columns: 'custrecord_esp_fop_wo_add_event'
+      });
+      let events = (addressLookUp.custrecord_esp_fop_wo_add_event[0]?.value || '').split(',');
+      events.push(event.id);
+      events = events.filter(Boolean);
 
-      try {
-        const addressLookUp = search.lookupFields({
-          type: env.RecordType.WORK_ORDER_ADDRESS,
-          id: address.id,
-          columns: 'custrecord_esp_fop_wo_add_event'
-        });
-        let events = (addressLookUp.custrecord_esp_fop_wo_add_event[0]?.value || '').split(',');
-        events.push(event.id);
-        events = events.filter(Boolean);
-
-        record.submitFields({
-          type: env.RecordType.WORK_ORDER_ADDRESS,
-          id: address.id,
-          values: {
-            custrecord_esp_fop_wo_add_event: events
-          },
-          options: {
-            ignoreMandatoryFieds: true
-          }
-        });
-        log.audit('----- [Added Event to WO Address Record] -----', address);
-      } catch (e) {
-        log.error('Error on WO Address > Add Events', { address: address.address.text, errorMsg: e.message });
-        address.errorMsg = e.message;
-      }
+      record.submitFields({
+        type: env.RecordType.WORK_ORDER_ADDRESS,
+        id: address.value,
+        values: {
+          custrecord_esp_fop_wo_add_event: events
+        },
+        options: {
+          ignoreMandatoryFieds: true
+        }
+      });
+      log.audit('----- [Added Event to WO Address Record] -----', address);
+    } catch (e) {
+      log.error('Error on WO Address > Add Events', { address, errorMsg: e.message });
+      address.errorMsg = e.message;
     }
   }
 
@@ -177,7 +173,7 @@ define([
 
   return {
     getAddresses,
-    addEventToAddresses,
+    addEventToAddress,
     removeEventFromAddresses
   }
 })

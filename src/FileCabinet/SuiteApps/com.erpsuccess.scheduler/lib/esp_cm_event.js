@@ -6,6 +6,7 @@ define([
   'N/runtime',
   'N/search',
   'N/record',
+  'N/format',
   './esp_cm_woResource',
   './esp_cm_woVendor',
   './esp_cm_woAsset',
@@ -20,6 +21,7 @@ define([
   runtime,
   search,
   record,
+  format,
   woResourceLib,
   woVendorLib,
   woAssetLib,
@@ -164,12 +166,6 @@ define([
       items: [],
       contacts: [],
       addresses: [],
-      // Event without resources
-      get unassigned() {
-        return !this.resources.length &&
-          !this.vendors.length &&
-          !this.assets.length
-      },
       address: { // Selected address
         text: map.getText('custevent_esp_fop_event_address'),
         value: map.getValue('custevent_esp_fop_event_address')
@@ -218,30 +214,32 @@ define([
     log.audit('----- [Create Work Order Event] -----', { eventData });
 
     try {
-      eventData.startDate = moment(eventData.startDate).format(env.Format.IMPORT_DATE);
-      eventData.endDate = moment(eventData.endDate).format(env.Format.IMPORT_DATE);
-      eventData.startTime = moment(`1/1/1999 ${eventData.startTime}`).format(env.Format.IMPORT_TIME);
-      eventData.endTime = moment(`1/1/1999 ${eventData.endTime}`).format(env.Format.IMPORT_TIME);
+      eventData.parsedStartDate = utils.parseDate(eventData.date.start);
+      eventData.parsedEndDate = utils.parseDate(eventData.date.end);
+      eventData.date.start = moment(eventData.date.start).format(env.Format.IMPORT_DATE);
+      eventData.date.end = moment(eventData.date.end).format(env.Format.IMPORT_DATE);
+      eventData.time.start = moment(`1/1/1999 ${eventData.time.start}`).format(env.Format.IMPORT_TIME);
+      eventData.time.end = moment(`1/1/1999 ${eventData.time.end}`).format(env.Format.IMPORT_TIME);
 
       const fieldId = {};
-      fieldId.title = eventData.eventTitle;
+      fieldId.title = eventData.title;
       fieldId.custevent_esp_fop_work_order = eventData?.woRef?.id || '';
       fieldId.organizer = user.id;
-      fieldId.status = eventData.status === 'COMPLETED' ? 'COMPLETE' : eventData.status;
+      fieldId.status = eventData.status.value.replace('COMPLETED', 'COMPLETE');
       fieldId.accesslevel = 'PUBLIC';
-      fieldId.startdate = new Date(eventData.startDate);
-      fieldId.starttime = helper.toDateTimez(eventData.startDate, eventData.startTime);
-      fieldId.endtime = helper.toDateTimez(eventData.startDate, eventData.endTime);
-      fieldId.custevent_esp_fop_event_priority = eventData.priority;
-      fieldId.custevent_esp_fop_memo = eventData.notes;
-      fieldId.custevent_task_pi = eventData?.woRef?.projectInsight?.value;
+      fieldId.startdate = eventData.parsedStartDate;
+      fieldId.starttime = helper.toDateTimez(eventData.date.start, eventData.time.start);
+      fieldId.endtime = helper.toDateTimez(eventData.date.start, eventData.time.end);
+      fieldId.custevent_esp_fop_event_priority = eventData.priority.value;
+      fieldId.custevent_esp_fop_memo = eventData.note;
+      fieldId.custevent_task_pi = eventData?.projectInsight?.value;
       fieldId.custevent_esp_fop_asset_maintenance = !!(eventData?.assetMaintenance);
 
-      if (eventData.selectedAddress) {
-        fieldId.custevent_esp_fop_event_address = eventData.selectedAddress.id;
+      if (eventData.address) {
+        fieldId.custevent_esp_fop_event_address = eventData.address?.value;
       }
 
-      const numberOfDays = moment(eventData.endDate).diff(moment(eventData.startDate), 'days') + 1;
+      const numberOfDays = moment(eventData.date.end).diff(moment(eventData.date.start), 'days') + 1;
 
       if (numberOfDays > 1) {
         fieldId.frequency = 'DAY';
@@ -249,8 +247,8 @@ define([
       } else {
         // Default > Single Day Event (value->NONE)
       }
-      fieldId.endbydate = new Date(eventData.endDate);
-      fieldId.custevent_esp_fop_routing_group = eventData.routingGroup;
+      fieldId.custevent_esp_fop_routing_group = eventData.routingGroup.value;
+      fieldId.endbydate = eventData.parsedEndDate;
 
       log.debug('Event Data', fieldId);
 
@@ -269,12 +267,12 @@ define([
       eventData.id = rec.save({ ignoreMandatoryFieds: true });
       log.audit('----- [Created Event Record] -----', { recordId: eventData.id });
 
-      eventData?.selectedResources.length && woResourceLib.createResources(eventData);
-      // woVendorLib.createVendors(eventData, woRef);
-      // woAssetLib.createAssets(eventData, woRef);
-      // woItemLib.createItems(eventData);
-      // woContactLib.createContacts(eventData);
-      // woAddressLib.addEventToAddresses(eventData);
+      eventData?.resources.length && woResourceLib.createResources(eventData);
+      eventData?.vendors.length && woVendorLib.createVendors(eventData);
+      eventData?.assets.length && woAssetLib.createAssets(eventData);
+      eventData?.items.length && woItemLib.createItems(eventData);
+      eventData?.contacts.length && woContactLib.createContacts(eventData);
+      eventData?.address?.value && woAddressLib.addEventToAddress(eventData);
 
       response.write(JSON.stringify({
         code: 200,
@@ -282,7 +280,7 @@ define([
         status: 'success'
       }));
     } catch (e) {
-      log.audit('createEventRecord() Unexpected Error', e.message);
+      log.error('createEventRecord() Unexpected Error', e.message);
       throw new Error(`Unexpected Error: ${e.message}`);
     }
   }
@@ -295,139 +293,80 @@ define([
     const { request, response } = context;
     let requestBody = request.body || '{}';
     const payload = JSON.parse(requestBody);
-    const { oldEventData, eventData, woRef, draggedResource } = payload;
-    const eventDataProps = Object.keys(eventData);
-    log.audit('----- [Update Work Order Event] -----', { eventDataProps, payload });
-    // log.debug(`eventData.unassigned`, eventData.unassigned);
-    // log.debug(`eventData.resourceType`, eventData.resourceType);
+    const { eventData, updates, eventFieldsToUpdate: nsFld } = payload;
+
+    log.audit('----- [Update Work Order Event] -----', { eventData, updates, nsFld });
+    updates.date.start = moment(updates.date.start).format(env.Format.IMPORT_DATE);
+    updates.date.end = moment(updates.date.end).format(env.Format.IMPORT_DATE);
+    updates.time.start = moment(`1/1/1999 ${updates.time.start}`).format(env.Format.IMPORT_TIME);
+    updates.time.end = moment(`1/1/1999 ${updates.time.end}`).format(env.Format.IMPORT_TIME);
 
     try {
-      // Drag single resource scenario
-      if (!!draggedResource) {
-        switch (draggedResource) {
-          case 'employee':
-            woResourceLib.createResources(eventData, woRef, true);
-            break;
-          case 'vendor':
-            woVendorLib.createVendors(eventData, woRef);
-            break;
-          case 'asset':
-            woAssetLib.createAssets(eventData, woRef, true);
-            break;
+      if (nsFld.startdate) {
+        nsFld.startdate = utils.parseDate(nsFld.startdate);
+      }
+      if (nsFld.endbydate) {
+        const numberOfDays = moment(updates.date.end).diff(moment(updates.date.start), 'days') + 1;
+        if (numberOfDays > 1) {
+          nsFld.frequency = 'DAY';
+          nsFld.period = '1';
         }
-      } else if (eventData.unassigned && eventData.resourceType) { // Assigning new resource scenario (TBR)
-        switch (eventData.resourceType) {
-          case 'employee':
-            woResourceLib.createResources(eventData, woRef, true);
-            break;
-          case 'vendor':
-            woVendorLib.createVendors(eventData, woRef);
-            break;
-          case 'asset':
-            woAssetLib.createAssets(eventData, woRef, true);
-            break;
-        }
-      } else {
-        eventData.date.start = moment(eventData.date.start).format(env.Format.IMPORT_DATE);
-        eventData.date.end = moment(eventData.date.end).format(env.Format.IMPORT_DATE);
-        eventData.time.start = moment(`1/1/1999 ${eventData.time.start}`).format(env.Format.IMPORT_TIME);
-        eventData.time.end = moment(`1/1/1999 ${eventData.time.end}`).format(env.Format.IMPORT_TIME);
+        nsFld.endbydate = utils.parseDate(nsFld.endbydate);
+      }
+      if (nsFld.starttime) {
+        nsFld.starttime = helper.toDateTimez(updates.date.start, updates.time.start);
+      }
+      if (nsFld.endtime) {
+        nsFld.endtime = helper.toDateTimez(updates.date.end, updates.time.end);
+      }
+      if (nsFld.status && nsFld.status === 'COMPLETED') {
+        nsFld.status = 'COMPLETE';
+      }
 
+      log.audit('Fields To Update', { updates, nsFld });
+
+      if (Object.keys(nsFld).length) {
+        // Will not work (doesnt support event native fields)
+        /* record.submitFields({
+          type: record.Type.CALENDAR_EVENT,
+          id: eventData.id,
+          values: nsFld,
+          options: {
+            ignoreMandatoryFieds: true,
+          }
+        }); */
         const rec = record.load({
           type: record.Type.CALENDAR_EVENT,
           id: eventData.id
         });
-        const eventRecObj = {
-          title: rec.getValue('title'),
-          date: {
-            start: rec.getText('startdate'),
-            end: rec.getText('endbydate')
-          },
-          time: {
-            start: rec.getText('starttime'),
-            end: rec.getText('endtime')
-          },
-          note: rec.getValue('custevent_esp_fop_memo'),
-          status: rec.getValue('status'),
-          priority: rec.getValue('custevent_esp_fop_event_priority'),
-          address: {
-            text: rec.getText('custevent_esp_fop_event_address'),
-            value: rec.getText('custevent_esp_fop_event_address')
-          }
-        };
-
-        const fieldId = {};
-
-        if (eventRecObj.title != eventData.title) {
-          fieldId.title = eventData.title;
+        for (const key in nsFld) {
+          rec.setValue({
+            fieldId: key,
+            value: nsFld[key]
+          });
+          // log.debug(`Setting Field ${key}`, nsFld[key]);
         }
-        if (eventRecObj.date.start != eventData.date.start) {
-          fieldId.startdate = new Date(eventData.date.start);
-        }
-        if (eventRecObj.date.end != eventData.date.end) {
-          const numberOfDays = moment(eventData.date.end).diff(moment(eventData.date.start), 'days') + 1;
-          if (numberOfDays > 1) {
-            fieldId.frequency = 'DAY';
-            fieldId.period = '1';
-          }
-          fieldId.endbydate = new Date(eventData.date.end);
-        }
-        if (eventRecObj.time.start != eventData.time.start) {
-          fieldId.starttime = _toDateTimez(eventData.date.start, eventData.time.start);
-        }
-        if (eventRecObj.time.end != eventData.time.end) {
-          fieldId.endtime = _toDateTimez(eventData.date.end, eventData.time.end);
-        }
-        if (eventRecObj.note != eventData.note) {
-          fieldId.custevent_esp_fop_memo = eventData.note;
-        }
-        if (eventData.priority) {
-          if (eventRecObj.priority != eventData.priority) {
-            fieldId.custevent_esp_fop_event_priority = eventData.priority;
-          }
-        }
-        if (eventData.status) {
-          if (eventRecObj.status != eventData.status) {
-            fieldId.status = eventData.status;
-          }
-        }
-        if (eventData.selectedAddress) {
-          if (eventData.selectedAddress.id != eventRecObj.address.id) {
-            fieldId.custevent_esp_fop_event_address = eventData.selectedAddress.id;
-          }
-        }
-        log.audit('Fields to update', { eventRecObj, fieldId });
-
-        if (Object.keys(fieldId).length) {
-          for (const key in fieldId) {
-            rec.setValue({
-              fieldId: key,
-              value: fieldId[key]
-            });
-            log.debug('Setting field ' + key, fieldId[key]);
-          }
-          rec.save({ ignoreMandatoryFieds: true });
-          log.audit('----- [Updated Event Record] -----', { recordId: eventData.id });
-        } else {
-          log.audit('----- [Update Event Record not needed!] -----', { recordId: eventData.id });
-        }
-
-        if (eventData.selectedResources) {
-          woResourceLib.updateResources(eventData, oldEventData, woRef);
-        }
-        if (eventData.selectedVendors) {
-          woVendorLib.updateVendors(eventData, oldEventData, woRef);
-        }
-        if (eventData.selectedAssets) {
-          woAssetLib.updateAssets(eventData, oldEventData, woRef);
-        }
-        if (eventData.selectedItems) {
-          woItemLib.updateItems(eventData, oldEventData);
-        }
-        if (eventData.selectedContacts) {
-          woContactLib.updateContacts(eventData, oldEventData);
-        }
+        rec.save({ ignoreMandatoryFieds: true });
+        log.audit('----- [Updated Event Record] -----', { recordId: eventData.id });
+      } else {
+        log.audit('----- [Update Event Record not needed!] -----', { recordId: eventData.id });
       }
+
+      if (updates.resources) {
+        woResourceLib.updateResources(eventData, updates);
+      }
+      /* if (eventData.selectedVendors) {
+        woVendorLib.updateVendors(eventData, oldEventData, woRef);
+      }
+      if (eventData.selectedAssets) {
+        woAssetLib.updateAssets(eventData, oldEventData, woRef);
+      }
+      if (eventData.selectedItems) {
+        woItemLib.updateItems(eventData, oldEventData);
+      }
+      if (eventData.selectedContacts) {
+        woContactLib.updateContacts(eventData, oldEventData);
+      } */
 
       response.write(JSON.stringify({
         code: 200,
@@ -450,7 +389,6 @@ define([
     try {
       const eventData = JSON.parse(requestBody);
       const eventId = eventData.id;
-      log.debug('removeEvent eventData', eventData);
 
       // Unlink event from related child records before the deletion
       utils.deleteRecords(env.RecordType.WORK_ORDER_RESOURCE, eventData.resources.map(x => x.id));
@@ -488,7 +426,7 @@ define([
         status: 'success'
       }));
     } catch (e) {
-      log.audit('removeEvent() Unexpected Error', e.message);
+      log.error('removeEvent() Unexpected Error', e.message);
       throw new Error(`Unexpected Error: ${e.message}`);
     }
   }

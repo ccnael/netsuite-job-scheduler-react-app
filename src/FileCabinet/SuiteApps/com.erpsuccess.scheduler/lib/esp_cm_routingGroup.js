@@ -49,7 +49,7 @@ define([
       value: 'application/json'
     });
 
-    log.audit('----- [Routing Groups] -----', routingGroups.length);
+    // log.audit('----- [Routing Groups] -----', routingGroups.length);
     response.write(JSON.stringify(routingGroups));
   }
 
@@ -63,7 +63,7 @@ define([
       const rec = record.create({ type: env.RecordType.ROUTING_GROUP });
       rec.setValue({ fieldId: 'name', value: groupName });
       const id = rec.save({ ignoreMandatoryFieds: true });
-      log.audit('----- [New Routing Group] -----', { groupName, id });
+      // log.audit('----- [New Routing Group] -----', { groupName, id });
 
       response.write(JSON.stringify({
         code: 200,

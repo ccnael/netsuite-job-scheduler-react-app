@@ -129,19 +129,24 @@ define([
   /**
    * Transform vendors to WO vendors
    * @param {Object} event Event data
-   * @param {Object} woRef WO data
    */
-  function createVendors(event, woRef) {
-    const vendors = event?.selectedVendors || [];
+  function createVendors(event) {
+    const vendors = event?.vendors || [];
     for (const vendor of vendors) {
       try {
-        const rec = record.create({
-          type: env.RecordType.WORK_ORDER_VENDOR,
-          isDynamic: true
-        });
+        const rec = vendor.woVendorId
+          ? record.copy({
+            type: env.RecordType.WORK_ORDER_VENDOR,
+            id: vendor.woVendorId,
+            isDynamic: true
+          })
+          : record.create({
+            type: env.RecordType.WORK_ORDER_VENDOR,
+            isDynamic: true
+          });
         rec.setValue({ fieldId: 'name', value: vendor.name });
         rec.setValue({ fieldId: 'custrecord_esp_fop_wo_sub_vendor', value: vendor.id });
-        rec.setValue({ fieldId: 'custrecord_esp_fop_wo_sub_rel_wo', value: woRef?.id || '' });
+        rec.setValue({ fieldId: 'custrecord_esp_fop_wo_sub_rel_wo', value: event?.woRef?.id || '' });
         rec.setValue({ fieldId: 'custrecord_esp_fop_wo_sub_event', value: event.id });
         rec.setValue({ fieldId: 'custrecord_esp_fop_wo_sub_qty_rqd', value: vendor.quantityRequired });
         rec.setValue({ fieldId: 'custrecord_esp_fop_wo_sub_comment', value: vendor.memo });
