@@ -327,14 +327,7 @@ define([
 
       if (Object.keys(nsFld).length) {
         // Will not work (doesnt support event native fields)
-        /* record.submitFields({
-          type: record.Type.CALENDAR_EVENT,
-          id: eventData.id,
-          values: nsFld,
-          options: {
-            ignoreMandatoryFieds: true,
-          }
-        }); */
+        /* record.submitFields({}); */
         const rec = record.load({
           type: record.Type.CALENDAR_EVENT,
           id: eventData.id
