@@ -26,7 +26,7 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 // import { ClipboardCheck, Users, Stars, Filter, Search } from "lucide-react";
-import { Stars, ChevronRight, Filter, Bot, ClipboardCheck, Plus, Search, Users, X } from "lucide-react";
+import { Stars, ChevronRight, Filter, Bot, ClipboardCheck, Plus, Search, Users, X, MoreVertical } from "lucide-react";
 import { Skeleton } from "@/components/ui/skeleton";
 import { ResizablePanelGroup, ResizablePanel, ResizableHandle } from "@/components/ui/resizable";
 import { Tooltip } from 'react-tooltip';
@@ -44,13 +44,19 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
-import { MultiSelect } from '../components/MultiSelect';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 import MultiSelectFilter from '../components/forms/MultiSelectFilter';
 import { Option } from '@/components/ui-custom/MultiSelect';
 import DateRangeFilter from '../components/forms/DateRangeFilter';
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { receiptStatuses, eventStatuses, eventPriorities, eventTypes } from "@/lib/constants";
+import { formatDate, formatTime } from "@/lib/helpers";
 
 interface EventFilterState {
   statuses: string[];
@@ -113,26 +119,6 @@ interface Job {
   };
 }
 
-interface EventFormData {
-  eventTitle: string;
-  notes: string;
-  startDate: string;
-  endDate: string;
-  startTime: string;
-  endTime: string;
-  allDay: boolean;
-  assetMaintenance: boolean;
-  routingGroup: string;
-  status: string;
-  priority: string;
-  selectedResources: any[];
-  selectedVendors: any[];
-  selectedAssets: any[];
-  selectedWOItems: any[];
-  selectedWOContacts: any[];
-  selectedWOAddress: any;
-}
-
 const Calendar = () => {
   const [events, setEvents] = useState<Event[]>([]);
   const [employees, setEmployees] = useState<Employee[]>([]);
@@ -151,11 +137,13 @@ const Calendar = () => {
   const [selectedJob, setSelectedJob] = useState<Job | null>(null);
   const [prefilledResourceId, setPrefilledResourceId] = useState<string | undefined>(undefined);
   const [prefilledStartDate, setPrefilledStartDate] = useState<string | undefined>(undefined);
+  const [prefilledEndDate, setPrefilledEndDate] = useState<string | undefined>(undefined);
   const [prefilledStartTime, setPrefilledStartTime] = useState<string | undefined>(undefined);
   const [prefilledEndTime, setPrefilledEndTime] = useState<string | undefined>(undefined);
   const [isConfirmDialogOpen, setIsConfirmDialogOpen] = useState(false);
   const [confirmDialogData, setConfirmDialogData] = useState<{
     type: 'move' | 'resize';
+    id: string;
     title: string;
     oldStart: string;
     oldEnd: string;
@@ -225,14 +213,14 @@ const Calendar = () => {
 
   // Function to count events in current view date range
   const getEventsInCurrentView = () => {
-    console.log('getEventsInCurrentView called:', { 
+    /* console.log('getEventsInCurrentView called:', { 
       currentViewStart, 
       currentViewEnd, 
       filteredEventsLength: filteredEvents.length 
-    });
+    }); */
     
     if (!currentViewStart || !currentViewEnd) {
-      console.log('No view dates set, returning 0');
+      // console.log('No view dates set, returning 0');
       return 0;
     }
     
@@ -580,241 +568,141 @@ const Calendar = () => {
     loadAllData();
   }, [loadAllData]);
 
+  // console.log('eventData', events.find(x => x.id == '101211'));
+
   const calendarEvents = [];
 
   events.forEach(event => {
      //  WO Resources
-     event.resources.forEach(resource => {
-       resource.resourceGroups.forEach(resourceGroup => {
-           // Format tooltip content with event title, ID, resource info
-           const formatDate = (dateStr: string) => {
-             try {
-               return dateStr ? format(new Date(dateStr), 'M/d/yyyy') : '';
-             } catch {
-               return dateStr || '';
-             }
-           };
-           const formatTime = (timeStr: string) => {
-             try {
-               return timeStr ? format(parse(timeStr, 'HH:mm', new Date()), 'h:mm a') : '';
-             } catch {
-               return timeStr || '';
-             }
-           };
-           
-           const tooltipContent = [
-             `<strong>${event.title || 'Untitled Event'}</strong>`,
-             `ID ${event.id}`,
-             '',
-             `<strong>${resource.employee?.text || 'Unknown Resource'}</strong>`,
-             resource.date ? `${formatDate(resource.date.start)} - ${formatDate(resource.date.end)}` : (event.date ? `${formatDate(event.date.start)} - ${formatDate(event.date.end)}` : ''),
-             resource.time ? `${formatTime(resource.time.start)} - ${formatTime(resource.time.end)}` : (event.time ? `${formatTime(event.time.start)} - ${formatTime(event.time.end)}` : '')
-           ].filter(Boolean).join('<br>');
-         
-         calendarEvents.push({
-           id: event.id,
-           title: event.title || 'Untitled Event',
-           start: new Date(`${event.date.start}T${resource.time.start}:00`),
-           end: new Date(`${event.date.end}T${resource.time.end}:00`),
-           resourceId: `${resourceGroup.value}-${resource.employee.value}`,
-           description: event.note || '',
-           color: event.status.code,
-           extendedProps: {
-             resourceType: 'employee',
-             woResourceId: resource.id,
-             tooltipContent
-           }
-         });
-       })
-     });
-
-     // WO Vendors
-     event.vendors.forEach(vendor => {
-         // Format tooltip content with event title, ID, vendor info (uses event date/time)
-         const formatDate = (dateStr: string) => {
-           try {
-             return dateStr ? format(new Date(dateStr), 'M/d/yyyy') : '';
-           } catch {
-             return dateStr || '';
-           }
-         };
-         const formatTime = (timeStr: string) => {
-           try {
-             return timeStr ? format(parse(timeStr, 'HH:mm', new Date()), 'h:mm a') : '';
-           } catch {
-             return timeStr || '';
-           }
-         };
-         
-         const tooltipContent = [
-           `<strong>${event.title || 'Untitled Event'}</strong>`,
-           `ID ${event.id}`,
-           '',
-           `<strong>${vendor.vendor?.text || 'Unknown Vendor'}</strong>`,
-           event.date ? `${formatDate(event.date.start)} - ${formatDate(event.date.end)}` : '',
-           event.time ? `${formatTime(event.time.start)} - ${formatTime(event.time.end)}` : ''
-         ].filter(Boolean).join('<br>');
-       
-       calendarEvents.push({
-         id: event.id,
-         title: event.title || 'Untitled Event',
-         start: new Date(`${event.date.start}T${event.time.start}:00`),
-         end: new Date(`${event.date.end}T${event.time.end}:00`),
-         resourceId: `vendor-${vendor.vendor.value}`,
-         description: event.note || '',
-         color: event.status.code,
-         extendedProps: {
-           resourceType: 'vendor',
-           woVendorId: vendor.id,
-           tooltipContent
-         }
-       });
-     });
-
-     // WO Assets
-     event.assets.forEach(asset => {
-         // Format tooltip content with event title, ID, asset info
-         const formatDate = (dateStr: string) => {
-           try {
-             return dateStr ? format(new Date(dateStr), 'M/d/yyyy') : '';
-           } catch {
-             return dateStr || '';
-           }
-         };
-         const formatTime = (timeStr: string) => {
-           try {
-             return timeStr ? format(parse(timeStr, 'HH:mm', new Date()), 'h:mm a') : '';
-           } catch {
-             return timeStr || '';
-           }
-         };
-         
-         const tooltipContent = [
-           `<strong>${event.title || 'Untitled Event'}</strong>`,
-           `ID ${event.id}`,
-           '',
-           `<strong>${asset.asset?.text || 'Unknown Asset'}</strong>`,
-           asset.date ? `${formatDate(asset.date.start)} - ${formatDate(asset.date.end)}` : (event.date ? `${formatDate(event.date.start)} - ${formatDate(event.date.end)}` : ''),
-           asset.time ? `${formatTime(asset.time.start)} - ${formatTime(asset.time.end)}` : (event.time ? `${formatTime(event.time.start)} - ${formatTime(event.time.end)}` : '')
-         ].filter(Boolean).join('<br>');
-       
-       calendarEvents.push({
-         id: event.id,
-         title: event.title || 'Untitled Event',
-         start: new Date(`${event.date.start}T${asset.time.start}:00`),
-         end: new Date(`${event.date.end}T${asset.time.end}:00`),
-         resourceId: `asset-${asset.asset.value}`,
-         description: event.note || '',
-         color: event.status.code,
-         extendedProps: {
-           resourceType: 'asset',
-           woAssetId: asset.id,
-           tooltipContent
-         }
-       });
-     });
-
-     if (!event.resources.length && !event.vendors.length && !event.assets.length) {
-         // Format tooltip content for unassigned events
-         const formatDate = (dateStr: string) => {
-           try {
-             return dateStr ? format(new Date(dateStr), 'M/d/yyyy') : '';
-           } catch {
-             return dateStr || '';
-           }
-         };
-         const formatTime = (timeStr: string) => {
-           try {
-             return timeStr ? format(parse(timeStr, 'HH:mm', new Date()), 'h:mm a') : '';
-           } catch {
-             return timeStr || '';
-           }
-         };
-         
-         const tooltipContent = [
-           `<strong>${event.title || 'Untitled Event'}</strong>`,
-           `ID ${event.id}`,
-           '',
-           event.date ? `${formatDate(event.date.start)} - ${formatDate(event.date.end)}` : '',
-           event.time ? `${formatTime(event.time.start)} - ${formatTime(event.time.end)}` : ''
-         ].filter(Boolean).join('<br>');
-       
+    event.resources.forEach(resource => {
+      resource.resourceGroups.forEach(resourceGroup => {             
+          const tooltipContent = [
+            `<strong>${event.title || 'Untitled Event'}</strong>`,
+            `ID ${event.id}`,
+            '',
+            `<strong>${resource.employee?.text || 'Unknown Resource'}</strong>`,
+            resource.date ? `${formatDate(resource.date.start)} - ${formatDate(resource.date.end)}` : (event.date ? `${formatDate(event.date.start)} - ${formatDate(event.date.end)}` : ''),
+            resource.time ? `${formatTime(resource.time.start)} - ${formatTime(resource.time.end)}` : (event.time ? `${formatTime(event.time.start)} - ${formatTime(event.time.end)}` : '')
+          ].filter(Boolean).join('<br>');
+        
         calendarEvents.push({
-          id: event.id,
+          id: `resource-${resourceGroup.value}-${resource.employee?.value}-${event.id}`,
           title: event.title || 'Untitled Event',
-          start: new Date(`${event.date.start}T${event.time.start}:00`),
-          end: new Date(`${event.date.end}T${event.time.end}:00`),
-          resourceId: 'z-unassigned',
+          start: new Date(`${event.date.start}T${resource.time.start}`),
+          end: new Date(`${event.date.end}T${resource.time.end}`),
+          resourceIds: [`${resourceGroup.value}-${resource.employee?.value}`],
+          description: event.note || '',
           color: event.status.code,
-          extendedProps: { 
+          extendedProps: {
             ...event,
+            resourceType: 'employee',
+            woResourceId: resource.id,
+            originalEventId: event.id,
+            calendarResourceId: `${resourceGroup.value}-${resource.employee?.value}`,
             tooltipContent
           }
         });
-     }
+      });
+    });
+
+     // WO Vendors
+    event.vendors.forEach(vendor => {
+      const tooltipContent = [
+        `<strong>${event.title || 'Untitled Event'}</strong>`,
+        `ID ${event.id}`,
+        '',
+        `<strong>${vendor.vendor?.text || 'Unknown Vendor'}</strong>`,
+        event.date ? `${formatDate(event.date.start)} - ${formatDate(event.date.end)}` : '',
+        event.time ? `${formatTime(event.time.start)} - ${formatTime(event.time.end)}` : ''
+      ].filter(Boolean).join('<br>');
+
+      calendarEvents.push({
+        id: `vendor-${vendor.vendor.value}-${event.id}`,
+        title: event.title || 'Untitled Event',
+        start: new Date(`${event.date.start}T${event.time.start}:00`),
+        end: new Date(`${event.date.end}T${event.time.end}:00`),
+        resourceIds: [`vendor-${vendor.vendor.value}`],
+        description: event.note || '',
+        color: event.status.code,
+        extendedProps: {
+          ...event,
+          resourceType: 'vendor',
+          woVendorId: vendor.id,
+          originalEventId: event.id,
+          calendarResourceId: `vendor-${vendor.vendor.value}`,
+          tooltipContent
+        }
+      });
+    });
+
+     // WO Assets
+    event.assets.forEach(asset => {
+       const tooltipContent = [
+         `<strong>${event.title || 'Untitled Event'}</strong>`,
+         `ID ${event.id}`,
+         '',
+         `<strong>${asset.asset?.text || 'Unknown Asset'}</strong>`,
+         asset.date ? `${formatDate(asset.date.start)} - ${formatDate(asset.date.end)}` : (event.date ? `${formatDate(event.date.start)} - ${formatDate(event.date.end)}` : ''),
+         asset.time ? `${formatTime(asset.time.start)} - ${formatTime(asset.time.end)}` : (event.time ? `${formatTime(event.time.start)} - ${formatTime(event.time.end)}` : '')
+       ].filter(Boolean).join('<br>');
+
+       calendarEvents.push({
+         id: `asset-${asset.asset.value}-${event.id}`,
+         title: event.title || 'Untitled Event',
+         start: new Date(`${event.date.start}T${asset.time?.start || event.time.start}:00`),
+         end: new Date(`${event.date.end}T${asset.time?.end || event.time.end}:00`),
+         resourceIds: [`asset-${asset.asset.value}`],
+         description: event.note || '',
+         color: event.status.code,
+         extendedProps: {
+          ...event,
+          resourceType: 'asset',
+          woAssetId: asset.id,
+          originalEventId: event.id,
+          calendarResourceId: `asset-${asset.asset.value}`,
+          tooltipContent
+         }
+       });
+    });
+
+    if (!event.resources.length && !event.vendors.length && !event.assets.length) {         
+      const tooltipContent = [
+        `<strong>${event.title || 'Untitled Event'}</strong>`,
+        `ID ${event.id}`,
+        '',
+        event.date ? `${formatDate(event.date.start)} - ${formatDate(event.date.end)}` : '',
+        event.time ? `${formatTime(event.time.start)} - ${formatTime(event.time.end)}` : ''
+      ].filter(Boolean).join('<br>');
+
+      calendarEvents.push({
+        id: event.id,
+        title: event.title || 'Untitled Event',
+        start: new Date(`${event.date.start}T${event.time.start}:00`),
+        end: new Date(`${event.date.end}T${event.time.end}:00`),
+        resourceId: 'z-unassigned',
+        color: event.status.code,
+        extendedProps: {
+          ...event,
+          originalEventId: event.id,
+          calendarResourceId: 'z-unassigned',
+          tooltipContent
+        }
+      });
+    }
   });
 
   console.log('Processed Events', calendarEvents);
+  // console.log('calendarEvents.find(x => x.id == 101211)', calendarEvents.find(x => x.id == '101211'));
 
   const handleCreateNewEvent = () => {
     setIsCreateModalOpen(true);
     setSelectedJob(null);
     setPrefilledResourceId(undefined);
     setPrefilledStartDate(undefined);
+    setPrefilledEndDate(undefined);
     setPrefilledStartTime(undefined);
     setPrefilledEndTime(undefined);
   };
-
-  const handleSubmit = useCallback((submittedFormData: EventFormData) => {
-    if (!submittedFormData.eventTitle || !submittedFormData.startDate || !submittedFormData.endDate || (!submittedFormData.allDay && (!submittedFormData.startTime || !submittedFormData.endTime))) {
-      console.log('Form Data', submittedFormData);
-      toast.error("Please fill in all required fields", {
-        position: "top-right",
-      });
-      return;
-    }
-    
-    const newEvent: Event = {
-      id: `event-${Date.now()}`,
-      title: submittedFormData.eventTitle,
-      note: submittedFormData.notes,
-      date: {
-        recurrence: submittedFormData.startDate,
-        dates: [submittedFormData.startDate, submittedFormData.endDate],
-        start: submittedFormData.startDate,
-        end: submittedFormData.endDate
-      },
-      time: submittedFormData.allDay ? undefined : {
-        start: submittedFormData.startTime,
-        end: submittedFormData.endTime
-      },
-      status: {
-        text: submittedFormData.status === 'TENTATIVE' ? 'Tentative' : submittedFormData.status === 'CONFIRMED' ? 'Confirmed' : 'Completed',
-        value: submittedFormData.status,
-        code: submittedFormData.status
-      },
-      priority: {
-        text: submittedFormData.priority === '1' ? 'High' : submittedFormData.priority === '2' ? 'Mid' : 'Low',
-        value: submittedFormData.priority,
-        code: submittedFormData.priority
-      },
-      workorder: selectedJob ? {
-        text: selectedJob.title,
-        value: selectedJob.id
-      } : { text: '', value: '' },
-      resources: [],
-      vendors: [],
-      assets: []
-    };
-    
-    setEvents([...events, newEvent]);
-    console.log('NEW EVENT', { newEvent, events });
-    setIsCreateModalOpen(false);
-
-    if (selectedJob) {
-      setSelectedJob(null);
-    }
-  }, [selectedJob, events]);
 
   useEffect(() => {
     const containerEl = document.getElementById('external-jobs');
@@ -1022,7 +910,7 @@ const Calendar = () => {
 
   // Update calendarEvents to use filteredEvents instead of events
   const filteredCalendarEvents = calendarEvents.filter(calEvent => 
-    filteredEvents.some(event => event.id === calEvent.id)
+    filteredEvents.some(event => event.id === calEvent.extendedProps.originalEventId)
   );
 
   const resourceGroups = [];
@@ -1065,15 +953,19 @@ const Calendar = () => {
     }
   ];
 
-  const calendarResources = combinedResourceGroups.map(resourceGroup => ({
-    id: resourceGroup.value,
-    title: resourceGroup.text,
-    children: resourceGroup.resources
-      .map(resource => ({
-        id: `${resourceGroup.value}-${resource.id}`,
-        customTitleHtml: `<span class="text-[11px] font-normal text-foreground">${resource.name}</span>`,
-        extendedProps: resource
-      })),
+  const calendarResources = combinedResourceGroups.map(resourceGroup => {    
+    return {
+      id: resourceGroup.value,
+      title: resourceGroup.text,
+      children: resourceGroup.resources
+        .map(resource => {
+          return {
+            id: `${resourceGroup.value}-${resource.id}`,
+            // title: resource.name,
+            customTitleHtml: `<span class="text-[11px] font-normal text-foreground">${resource.name}</span>`,
+            extendedProps: resource
+          };
+        }),
     extendedProps: {
       ...resourceGroup,
       customTitleHtml: `
@@ -1081,7 +973,8 @@ const Calendar = () => {
         <span class="inline-flex items-center rounded-full border border-transparent bg-secondary text-secondary-foreground px-1 py-0 text-[9px] font-semibold h-3 min-w-[12px] justify-center ml-1">${resourceGroup.resources.length}</span>
       `
     }
-  }));
+  };
+  });
 
   // Add single Unassigned resource
   if (unassignedEvents.length > 0) {
@@ -1095,25 +988,13 @@ const Calendar = () => {
     });
   }
 
-  // // Events with no resource gets assigned here
-  // calendarResources.push({
-  //   id: 'z-unassigned', // Auto sorts by id, needs to ba after vendor group
-  //   title: 'Unassigned',
-  //   children: events.filter(event =>
-  //     !event.resources
-  //     && !event.vendors
-  //     && !event.assets
-  //   ),
-  //   extendedProps: {}
-  // });
-
   console.log('Calendar Resources', calendarResources);
 
   const getResourceName = (resourceId: string) => {
     if (!resourceId) return 'Unassigned';
     
     if (resourceId === 'z-unassigned') return 'Unassigned';
-    
+    // console.log('getResourceName', resourceId);
     // Find the resource in calendarResources
     for (const group of calendarResources) {
       if (group.children) {
@@ -1132,7 +1013,27 @@ const Calendar = () => {
   };
 
    const handleEventClick = (arg: any) => {
-     toast.info(`Event clicked: ${arg.event.title}`);
+    //  toast.info(`Event clicked: ${arg.event.title}`);
+    console.log('Event. clicked', arg);
+    window.open(arg.event.extendedProps.url);
+    arg.jsEvent.preventDefault();
+   };
+
+   const handleEventAction = (action: string, eventId: string) => {
+     const event = events.find(e => e.id === eventId);
+     if (!event) return;
+
+     switch (action) {
+       case 'update':
+         toast.info(`Update event: ${event.title || 'Event'}`);
+         break;
+       case 'complete':
+         toast.info(`Complete event: ${event.title || 'Event'}`);
+         break;
+       case 'remove':
+         toast.info(`Remove event: ${event.title || 'Event'}`);
+         break;
+     }
    };
 
    const handleEventMouseEnter = (arg: any) => {
@@ -1153,17 +1054,17 @@ const Calendar = () => {
 
   
   const handleDatesSet = (dateInfo: any) => {
-    console.log('handleDatesSet called with:', dateInfo);
+    // console.log('handleDatesSet called with:', dateInfo);
     
     // Update current view date range
     if (dateInfo.start && dateInfo.end) {
       setCurrentViewStart(dateInfo.start);
       setCurrentViewEnd(dateInfo.end);
       
-      console.log('Updated view dates:', {
+      /* console.log('Updated view dates:', {
         start: dateInfo.start.toISOString(),
         end: dateInfo.end.toISOString()
-      });
+      }); */
 
       if ((window as any).updateEventCountBadge) {
         (window as any).updateEventCountBadge();
@@ -1172,9 +1073,9 @@ const Calendar = () => {
   };
 
   const handleViewDidMount = (viewInfo: any) => {
-    console.log('handleViewDidMount called with:', viewInfo);
-    console.log('View activeStart:', viewInfo.view?.activeStart);
-    console.log('View activeEnd:', viewInfo.view?.activeEnd);
+    // console.log('handleViewDidMount called with:', viewInfo);
+    // console.log('View activeStart:', viewInfo.view?.activeStart);
+    // console.log('View activeEnd:', viewInfo.view?.activeEnd);
     
     // Check if view type changed (only update event count badge on view type change)
     const newViewType = viewInfo.view?.type;
@@ -1280,11 +1181,11 @@ const Calendar = () => {
           const viewStart = currentView.activeStart;
           const viewEnd = currentView.activeEnd;
           
-          console.log('Badge update - using view dates:', {
+          /* console.log('Badge update - using view dates:', {
             start: viewStart.toISOString(),
             end: viewEnd.toISOString(),
             filteredEventsLength: currentFilteredEvents.length
-          });
+          }); */
           
           const eventsInView = currentFilteredEvents.filter(event => {
             const eventStart = new Date(event.date?.start || '');
@@ -1295,12 +1196,12 @@ const Calendar = () => {
             return overlaps;
           });
           
-          console.log('Badge update - events in view:', eventsInView.length);
+          // console.log('Badge update - events in view:', eventsInView.length);
           eventCountBadge.textContent = `${eventsInView.length}`;
         } else {
           // Fallback to state-based dates
           const count = getEventsInCurrentView();
-          console.log('Badge update - fallback count:', count);
+          // console.log('Badge update - fallback count:', count);
           eventCountBadge.textContent = `${count}`;
         }
       };
@@ -1438,13 +1339,68 @@ const Calendar = () => {
                       ]
                     }
                   }}
-                  events={filteredCalendarEvents}
-                  resources={calendarResources}
-                  resourceOrder={'group'}
-                   dateClick={handleDateClick}
-                   eventClick={handleEventClick}
-                   eventMouseEnter={handleEventMouseEnter}
-                   eventMouseLeave={handleEventMouseLeave}
+                   events={filteredCalendarEvents}
+                   resources={calendarResources}
+                   resourceOrder={'group'}
+                    dateClick={handleDateClick}
+                    eventClick={handleEventClick}
+                    eventMouseEnter={handleEventMouseEnter}
+                    eventMouseLeave={handleEventMouseLeave}
+                    eventContent={(arg) => {
+                      const event = events.find(e => e.id === arg.event.extendedProps.originalEventId);
+                      if (!event) return null;
+                      
+                      return (
+                        <div className="flex items-center justify-between w-full p-1 relative group">
+                          <div className="flex-1 min-w-0">
+                            <div className="text-xs font-medium truncate">
+                              {event.title || 'Untitled Event'} [ID {event.id}]
+                            </div>
+                          </div>
+                          <DropdownMenu>
+                            <DropdownMenuTrigger asChild>
+                              <Button
+                                variant="ghost"
+                                size="sm"
+                                className="h-5 w-5 p-0 hover:bg-background"
+                                onClick={(e) => e.stopPropagation()}
+                              >
+                                <MoreVertical className="h-3 w-3" />
+                              </Button>
+                            </DropdownMenuTrigger>
+                            <DropdownMenuContent align="end" className="w-32">
+                              <DropdownMenuItem 
+                                className="text-xs cursor-pointer"
+                                onClick={(e) => {
+                                  e.stopPropagation();
+                                  handleEventAction('update', event.id);
+                                }}
+                              >
+                                Update
+                              </DropdownMenuItem>
+                              <DropdownMenuItem 
+                                className="text-xs cursor-pointer"
+                                onClick={(e) => {
+                                  e.stopPropagation();
+                                  handleEventAction('complete', event.id);
+                                }}
+                              >
+                                Complete
+                              </DropdownMenuItem>
+                              <DropdownMenuItem 
+                                className="text-xs cursor-pointer"
+                                onClick={(e) => {
+                                  e.stopPropagation();
+                                  handleEventAction('remove', event.id);
+                                }}
+                              >
+                                Remove
+                              </DropdownMenuItem>
+                            </DropdownMenuContent>
+                          </DropdownMenu>
+                        </div>
+                      );
+                    }}
                   selectable={true}
                   selectMirror={true}
                   dayMaxEvents={true}
@@ -1520,6 +1476,7 @@ const Calendar = () => {
                            setSelectedJob(job);
                            setPrefilledResourceId(resourceId);
                            setPrefilledStartDate(startDate);
+                           setPrefilledEndDate(endDate);
                            setPrefilledStartTime(startTime);
                            setPrefilledEndTime(endTime);
                            setIsCreateModalOpen(true);
@@ -1532,14 +1489,18 @@ const Calendar = () => {
                          const oldEnd = info.oldEvent.end ? format(info.oldEvent.end, 'PPP p') : '';
                          const newStart = info.event.start ? format(info.event.start, 'PPP p') : '';
                          const newEnd = info.event.end ? format(info.event.end, 'PPP p') : '';
+                         const oldCalResourceId = info.oldEvent.extendedProps.calendarResourceId;
+                         const newCalResourceId = info.oldEvent.extendedProps.calendarResourceId;
                          
-                         const oldResourceId = info.oldResource?.id;
-                         const newResourceId = info.newResource?.id;
+                         const oldResourceId = info.oldResource?.id || oldCalResourceId;
+                         const newResourceId = info.newResource?.id || newCalResourceId;
                          const oldResourceName = getResourceName(oldResourceId);
                          const newResourceName = getResourceName(newResourceId);
+                         console.log('Confirm Event dropped:', info);
                          
                          setConfirmDialogData({
                            type: 'move',
+                           id: info.event.extendedProps.id,
                            title: info.event.title,
                            oldStart,
                            oldEnd,
@@ -1570,6 +1531,7 @@ const Calendar = () => {
                          
                          setConfirmDialogData({
                            type: 'resize',
+                           id: info.event.extendedProps.id,
                            title: info.event.title,
                            oldStart,
                            oldEnd,
@@ -1864,6 +1826,7 @@ const Calendar = () => {
         assets={assets}
         prefilledResourceId={prefilledResourceId}
         prefilledStartDate={prefilledStartDate}
+        prefilledEndDate={prefilledEndDate}
         prefilledStartTime={prefilledStartTime}
         prefilledEndTime={prefilledEndTime}
       />
@@ -1873,12 +1836,12 @@ const Calendar = () => {
         <DialogContent>
           <DialogHeader>
             <DialogTitle>
-              Confirm Update Event
+              Confirm Update Event [ID {confirmDialogData?.id}]
             </DialogTitle>
           </DialogHeader>
            <div className="space-y-4">
              <div>
-               <p className="font-medium">{confirmDialogData?.title}</p>
+               <p className="font-medium">Title: {confirmDialogData?.title}</p>
              </div>
              <div className="space-y-2">
                <div>
@@ -1906,10 +1869,10 @@ const Calendar = () => {
              </div>
            </div>
           <DialogFooter>
-            <Button variant="outline" onClick={confirmDialogData?.onCancel} className="text-[12px] h-8 px-3 tracking-tight">
+            <Button variant="outline" onClick={confirmDialogData?.onCancel}>
               Cancel
             </Button>
-            <Button onClick={confirmDialogData?.onConfirm} className="text-[12px] h-8 px-3 tracking-tight">
+            <Button onClick={confirmDialogData?.onConfirm}>
               Confirm
             </Button>
           </DialogFooter>

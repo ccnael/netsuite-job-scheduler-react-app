@@ -49,6 +49,7 @@ interface TableEmployee {
   endTime: string;
   woResourceId: string;
   active?: boolean;
+  // employeeProps?: any;
 }
 
 export const EmployeeTable: React.FC<EmployeeTableProps> = ({ 
@@ -134,8 +135,8 @@ export const EmployeeTable: React.FC<EmployeeTableProps> = ({
       };
     });
 
-    console.log('selectedAffiliationTypes', selectedAffiliationTypes);
-    console.log('processedData', processedData);
+    // console.log('selectedAffiliationTypes', selectedAffiliationTypes);
+    // console.log('processedData', processedData);
 
     // Apply filters
     if (selectedNames.length > 0 || selectedGroups.length > 0 || selectedSkills.length > 0 || selectedStatuses.length > 0 || selectedAffiliationTypes.length > 0) {
@@ -255,7 +256,8 @@ export const EmployeeTable: React.FC<EmployeeTableProps> = ({
         name: employee.name,
         startTime: employee.startTime,
         endTime: employee.endTime,
-        woResourceId: employee?.woResourceId || ''
+        woResourceId: employee?.woResourceId || '',
+        // employeeProps: employee?.employeeProps
       } : null;
     }).filter(Boolean);
   }, [rowSelection, tableData]);

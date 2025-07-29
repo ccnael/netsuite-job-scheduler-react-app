@@ -3915,7 +3915,6 @@ const mockWOContacts: WOContact[] = [{
 
 export const fetchWOContacts = async (woId: string, eventId: string): Promise<WOContact[]> => {
   if (isLocalDevelopment()) {
-    console.log('Using mock contact data for local development');
     return new Promise((resolve) => {
       setTimeout(() => resolve(woId ? mockWOContacts.filter(x => x.workorder.value == woId) : mockWOContacts), 500);
     });

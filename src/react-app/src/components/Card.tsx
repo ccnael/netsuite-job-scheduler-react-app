@@ -166,10 +166,10 @@ export const Card = ({
             ) : (
               <>
                 <DropdownMenuItem className="px-2 py-1 text-[11px]" onClick={() => onAction?.('update')}>
-                  Update Event
+                  Update
                 </DropdownMenuItem>
                 <DropdownMenuItem className="px-2 py-1 text-[11px]" onClick={() => onAction?.('complete')}>
-                  Complete Event
+                  Complete
                 </DropdownMenuItem>
                 <DropdownMenuItem className="px-2 py-1 text-[11px]" onClick={() => onAction?.('remove')}>
                   Remove

@@ -16,8 +16,8 @@ import { Vendor } from "@/api/vendor";
 interface SelectedVendor {
   id: string;
   name: string;
-  manpower: number;
-  notes: string;
+  quantityRequired: number;
+  memo: string;
   woVendorId: string;
 }
 
@@ -172,16 +172,17 @@ export const VendorTable: React.FC<VendorTableProps> = ({
   }, [tableDataState]);
 
   // Memoize the selection computation to prevent infinite loops
-  const selectedVendors = useMemo(() => {
+  const selectedVendors = useMemo<SelectedVendor[]>(() => {
     const selectedRows = Object.keys(rowSelection).filter(key => rowSelection[key]);
     return selectedRows.map(rowIndex => {
       const vendor = tableDataState[parseInt(rowIndex)];
+      // Only pick the fields required by SelectedVendor
       return {
         id: vendor.id,
         name: vendor.name,
-        manpower: vendor.quantityRequired || 0,
-        notes: vendor.memo || '',
-        woVendorId: vendor.woVendorId || ''
+        quantityRequired: vendor.quantityRequired,
+        memo: vendor.memo,
+        woVendorId: vendor.woVendorId ?? '', // ensure it's a string
       };
     });
   }, [rowSelection, tableDataState]);

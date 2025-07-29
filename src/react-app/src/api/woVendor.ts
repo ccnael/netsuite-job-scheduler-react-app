@@ -3005,6 +3005,96 @@ const mockWOVendors: WOVendor[] = [{
     }
   },
   {
+    "id": "249",
+    "name": "Best Fixture, Inc.",
+    "vendor": {
+      "text": "Best Fixture, Inc.",
+      "value": "12"
+    },
+    "url": "",
+    "email": "",
+    "initials": "BF",
+    "workorder": {
+      "text": "Lobby Area - Product Core Dryrun",
+      "value": "138"
+    },
+    "event": "101212",
+    "quantityRequired": 5,
+    "quantityAvailable": 0,
+    "purchaseOrder": {
+      "text": " ",
+      "value": ""
+    },
+    "amount": 0,
+    "active": false,
+    "woVendor": true,
+    "memo": "a\nb\nc",
+    "time": {
+      "start": "",
+      "end": ""
+    }
+  },
+  {
+    "id": "248",
+    "name": "Best Fixture, Inc.",
+    "vendor": {
+      "text": "Best Fixture, Inc.",
+      "value": "12"
+    },
+    "url": "",
+    "email": "",
+    "initials": "BF",
+    "workorder": {
+      "text": "Lobby Area - Product Core Dryrun",
+      "value": "138"
+    },
+    "event": "101211",
+    "quantityRequired": 1,
+    "quantityAvailable": 0,
+    "purchaseOrder": {
+      "text": " ",
+      "value": ""
+    },
+    "amount": 0,
+    "active": false,
+    "woVendor": true,
+    "memo": "",
+    "time": {
+      "start": "",
+      "end": ""
+    }
+  },
+  {
+    "id": "247",
+    "name": "Best Fixture, Inc.",
+    "vendor": {
+      "text": "Best Fixture, Inc.",
+      "value": "12"
+    },
+    "url": "",
+    "email": "",
+    "initials": "BF",
+    "workorder": {
+      "text": "Lobby Area - Product Core Dryrun",
+      "value": "138"
+    },
+    "event": "101210",
+    "quantityRequired": 3,
+    "quantityAvailable": 0,
+    "purchaseOrder": {
+      "text": " ",
+      "value": ""
+    },
+    "amount": 0,
+    "active": false,
+    "woVendor": true,
+    "memo": "aa\nbb",
+    "time": {
+      "start": "",
+      "end": ""
+    }
+  },
+  {
     "id": "220",
     "name": "Best Fixture, Inc.",
     "vendor": {
@@ -3305,36 +3395,6 @@ const mockWOVendors: WOVendor[] = [{
     }
   },
   {
-    "id": "68",
-    "name": "Bridgepoint Industries",
-    "vendor": {
-      "text": "Bridgepoint Industries",
-      "value": "1473"
-    },
-    "url": "http://www.bridgepointindustries.com.de",
-    "email": "support@bridgempointindustries.com.de",
-    "initials": "BI",
-    "workorder": {
-      "text": "",
-      "value": ""
-    },
-    "event": "100939",
-    "quantityRequired": 0,
-    "quantityAvailable": 20,
-    "purchaseOrder": {
-      "text": " ",
-      "value": ""
-    },
-    "amount": 0,
-    "active": true,
-    "woVendor": true,
-    "memo": "",
-    "time": {
-      "start": "",
-      "end": ""
-    }
-  },
-  {
     "id": "75",
     "name": "Bridgepoint Industries",
     "vendor": {
@@ -3515,7 +3575,37 @@ const mockWOVendors: WOVendor[] = [{
     }
   },
   {
-    "id": "114",
+    "id": "199",
+    "name": "Bridgepoint Industries",
+    "vendor": {
+      "text": "Bridgepoint Industries",
+      "value": "1473"
+    },
+    "url": "http://www.bridgepointindustries.com.de",
+    "email": "support@bridgempointindustries.com.de",
+    "initials": "BI",
+    "workorder": {
+      "text": "Creation of New Work Order",
+      "value": "135"
+    },
+    "event": "101095",
+    "quantityRequired": 5,
+    "quantityAvailable": 20,
+    "purchaseOrder": {
+      "text": " ",
+      "value": ""
+    },
+    "amount": 0,
+    "active": true,
+    "woVendor": true,
+    "memo": "CCC\nDDD",
+    "time": {
+      "start": "",
+      "end": ""
+    }
+  },
+  {
+    "id": "147",
     "name": "Bridgepoint Industries",
     "vendor": {
       "text": "Bridgepoint Industries",
@@ -3528,7 +3618,37 @@ const mockWOVendors: WOVendor[] = [{
       "text": "",
       "value": ""
     },
-    "event": "100969",
+    "event": "39",
+    "quantityRequired": 2,
+    "quantityAvailable": 20,
+    "purchaseOrder": {
+      "text": " ",
+      "value": ""
+    },
+    "amount": 0,
+    "active": true,
+    "woVendor": true,
+    "memo": "",
+    "time": {
+      "start": "",
+      "end": ""
+    }
+  },
+  {
+    "id": "157",
+    "name": "Bridgepoint Industries",
+    "vendor": {
+      "text": "Bridgepoint Industries",
+      "value": "1473"
+    },
+    "url": "http://www.bridgepointindustries.com.de",
+    "email": "support@bridgempointindustries.com.de",
+    "initials": "BI",
+    "workorder": {
+      "text": "",
+      "value": ""
+    },
+    "event": "6",
     "quantityRequired": 5,
     "quantityAvailable": 20,
     "purchaseOrder": {
@@ -3538,7 +3658,7 @@ const mockWOVendors: WOVendor[] = [{
     "amount": 0,
     "active": true,
     "woVendor": true,
-    "memo": "AAA\nBBB",
+    "memo": "",
     "time": {
       "start": "",
       "end": ""
@@ -3575,7 +3695,7 @@ const mockWOVendors: WOVendor[] = [{
     }
   },
   {
-    "id": "113",
+    "id": "68",
     "name": "Bridgepoint Industries",
     "vendor": {
       "text": "Bridgepoint Industries",
@@ -3585,41 +3705,11 @@ const mockWOVendors: WOVendor[] = [{
     "email": "support@bridgempointindustries.com.de",
     "initials": "BI",
     "workorder": {
-      "text": "Furniture Installation",
-      "value": "66"
-    },
-    "event": "100968",
-    "quantityRequired": 4,
-    "quantityAvailable": 20,
-    "purchaseOrder": {
-      "text": " ",
+      "text": "",
       "value": ""
     },
-    "amount": 0,
-    "active": true,
-    "woVendor": true,
-    "memo": "CCC\nDDDD\nEE",
-    "time": {
-      "start": "",
-      "end": ""
-    }
-  },
-  {
-    "id": "155",
-    "name": "Bridgepoint Industries",
-    "vendor": {
-      "text": "Bridgepoint Industries",
-      "value": "1473"
-    },
-    "url": "http://www.bridgepointindustries.com.de",
-    "email": "support@bridgempointindustries.com.de",
-    "initials": "BI",
-    "workorder": {
-      "text": "Furniture Installation",
-      "value": "1"
-    },
-    "event": "100682",
-    "quantityRequired": 2,
+    "event": "100939",
+    "quantityRequired": 0,
     "quantityAvailable": 20,
     "purchaseOrder": {
       "text": " ",
@@ -3629,36 +3719,6 @@ const mockWOVendors: WOVendor[] = [{
     "active": true,
     "woVendor": true,
     "memo": "",
-    "time": {
-      "start": "",
-      "end": ""
-    }
-  },
-  {
-    "id": "221",
-    "name": "Bridgepoint Industries",
-    "vendor": {
-      "text": "Bridgepoint Industries",
-      "value": "1473"
-    },
-    "url": "http://www.bridgepointindustries.com.de",
-    "email": "support@bridgempointindustries.com.de",
-    "initials": "BI",
-    "workorder": {
-      "text": "Lobby Area - Product Core Dryrun",
-      "value": "138"
-    },
-    "event": "101132",
-    "quantityRequired": 5,
-    "quantityAvailable": 20,
-    "purchaseOrder": {
-      "text": " ",
-      "value": ""
-    },
-    "amount": 0,
-    "active": true,
-    "woVendor": true,
-    "memo": "ABC\nDEF",
     "time": {
       "start": "",
       "end": ""
@@ -3755,7 +3815,7 @@ const mockWOVendors: WOVendor[] = [{
     }
   },
   {
-    "id": "199",
+    "id": "221",
     "name": "Bridgepoint Industries",
     "vendor": {
       "text": "Bridgepoint Industries",
@@ -3765,10 +3825,10 @@ const mockWOVendors: WOVendor[] = [{
     "email": "support@bridgempointindustries.com.de",
     "initials": "BI",
     "workorder": {
-      "text": "Creation of New Work Order",
-      "value": "135"
+      "text": "Lobby Area - Product Core Dryrun",
+      "value": "138"
     },
-    "event": "101095",
+    "event": "101132",
     "quantityRequired": 5,
     "quantityAvailable": 20,
     "purchaseOrder": {
@@ -3778,67 +3838,7 @@ const mockWOVendors: WOVendor[] = [{
     "amount": 0,
     "active": true,
     "woVendor": true,
-    "memo": "CCC\nDDD",
-    "time": {
-      "start": "",
-      "end": ""
-    }
-  },
-  {
-    "id": "147",
-    "name": "Bridgepoint Industries",
-    "vendor": {
-      "text": "Bridgepoint Industries",
-      "value": "1473"
-    },
-    "url": "http://www.bridgepointindustries.com.de",
-    "email": "support@bridgempointindustries.com.de",
-    "initials": "BI",
-    "workorder": {
-      "text": "",
-      "value": ""
-    },
-    "event": "39",
-    "quantityRequired": 2,
-    "quantityAvailable": 20,
-    "purchaseOrder": {
-      "text": " ",
-      "value": ""
-    },
-    "amount": 0,
-    "active": true,
-    "woVendor": true,
-    "memo": "",
-    "time": {
-      "start": "",
-      "end": ""
-    }
-  },
-  {
-    "id": "157",
-    "name": "Bridgepoint Industries",
-    "vendor": {
-      "text": "Bridgepoint Industries",
-      "value": "1473"
-    },
-    "url": "http://www.bridgepointindustries.com.de",
-    "email": "support@bridgempointindustries.com.de",
-    "initials": "BI",
-    "workorder": {
-      "text": "",
-      "value": ""
-    },
-    "event": "6",
-    "quantityRequired": 5,
-    "quantityAvailable": 20,
-    "purchaseOrder": {
-      "text": " ",
-      "value": ""
-    },
-    "amount": 0,
-    "active": true,
-    "woVendor": true,
-    "memo": "",
+    "memo": "ABC\nDEF",
     "time": {
       "start": "",
       "end": ""
@@ -3905,7 +3905,97 @@ const mockWOVendors: WOVendor[] = [{
     }
   },
   {
-    "id": "224",
+    "id": "155",
+    "name": "Bridgepoint Industries",
+    "vendor": {
+      "text": "Bridgepoint Industries",
+      "value": "1473"
+    },
+    "url": "http://www.bridgepointindustries.com.de",
+    "email": "support@bridgempointindustries.com.de",
+    "initials": "BI",
+    "workorder": {
+      "text": "Furniture Installation",
+      "value": "1"
+    },
+    "event": "100682",
+    "quantityRequired": 2,
+    "quantityAvailable": 20,
+    "purchaseOrder": {
+      "text": " ",
+      "value": ""
+    },
+    "amount": 0,
+    "active": true,
+    "woVendor": true,
+    "memo": "",
+    "time": {
+      "start": "",
+      "end": ""
+    }
+  },
+  {
+    "id": "114",
+    "name": "Bridgepoint Industries",
+    "vendor": {
+      "text": "Bridgepoint Industries",
+      "value": "1473"
+    },
+    "url": "http://www.bridgepointindustries.com.de",
+    "email": "support@bridgempointindustries.com.de",
+    "initials": "BI",
+    "workorder": {
+      "text": "",
+      "value": ""
+    },
+    "event": "100969",
+    "quantityRequired": 5,
+    "quantityAvailable": 20,
+    "purchaseOrder": {
+      "text": " ",
+      "value": ""
+    },
+    "amount": 0,
+    "active": true,
+    "woVendor": true,
+    "memo": "AAA\nBBB",
+    "time": {
+      "start": "",
+      "end": ""
+    }
+  },
+  {
+    "id": "113",
+    "name": "Bridgepoint Industries",
+    "vendor": {
+      "text": "Bridgepoint Industries",
+      "value": "1473"
+    },
+    "url": "http://www.bridgepointindustries.com.de",
+    "email": "support@bridgempointindustries.com.de",
+    "initials": "BI",
+    "workorder": {
+      "text": "Furniture Installation",
+      "value": "66"
+    },
+    "event": "100968",
+    "quantityRequired": 4,
+    "quantityAvailable": 20,
+    "purchaseOrder": {
+      "text": " ",
+      "value": ""
+    },
+    "amount": 0,
+    "active": true,
+    "woVendor": true,
+    "memo": "CCC\nDDDD\nEE",
+    "time": {
+      "start": "",
+      "end": ""
+    }
+  },
+  {
+    "id": "183",
     "name": "CFI Furniture Inc.",
     "vendor": {
       "text": "CFI Furniture Inc.",
@@ -3915,11 +4005,11 @@ const mockWOVendors: WOVendor[] = [{
     "email": "login+plural@erpsuccesspartners.com",
     "initials": "CF",
     "workorder": {
-      "text": "",
-      "value": ""
+      "text": "Furniture Installation",
+      "value": "119"
     },
-    "event": "101147",
-    "quantityRequired": 8,
+    "event": "101060",
+    "quantityRequired": 2,
     "quantityAvailable": 0,
     "purchaseOrder": {
       "text": " ",
@@ -3935,7 +4025,7 @@ const mockWOVendors: WOVendor[] = [{
     }
   },
   {
-    "id": "184",
+    "id": "224",
     "name": "CFI Furniture Inc.",
     "vendor": {
       "text": "CFI Furniture Inc.",
@@ -3945,11 +4035,11 @@ const mockWOVendors: WOVendor[] = [{
     "email": "login+plural@erpsuccesspartners.com",
     "initials": "CF",
     "workorder": {
-      "text": "AV Installation",
-      "value": "112"
+      "text": "",
+      "value": ""
     },
-    "event": "101061",
-    "quantityRequired": 0,
+    "event": "101147",
+    "quantityRequired": 8,
     "quantityAvailable": 0,
     "purchaseOrder": {
       "text": " ",
@@ -3995,7 +4085,7 @@ const mockWOVendors: WOVendor[] = [{
     }
   },
   {
-    "id": "183",
+    "id": "184",
     "name": "CFI Furniture Inc.",
     "vendor": {
       "text": "CFI Furniture Inc.",
@@ -4005,41 +4095,11 @@ const mockWOVendors: WOVendor[] = [{
     "email": "login+plural@erpsuccesspartners.com",
     "initials": "CF",
     "workorder": {
-      "text": "Furniture Installation",
-      "value": "119"
+      "text": "AV Installation",
+      "value": "112"
     },
-    "event": "101060",
-    "quantityRequired": 2,
-    "quantityAvailable": 0,
-    "purchaseOrder": {
-      "text": " ",
-      "value": ""
-    },
-    "amount": 0,
-    "active": false,
-    "woVendor": true,
-    "memo": "",
-    "time": {
-      "start": "",
-      "end": ""
-    }
-  },
-  {
-    "id": "149",
-    "name": "Computer Depot Pacific",
-    "vendor": {
-      "text": "Computer Depot Pacific",
-      "value": "965"
-    },
-    "url": "http://www.cdp.com",
-    "email": "payables@cdp.com",
-    "initials": "CD",
-    "workorder": {
-      "text": "",
-      "value": ""
-    },
-    "event": "39",
-    "quantityRequired": 2,
+    "event": "101061",
+    "quantityRequired": 0,
     "quantityAvailable": 0,
     "purchaseOrder": {
       "text": " ",
@@ -4115,7 +4175,37 @@ const mockWOVendors: WOVendor[] = [{
     }
   },
   {
-    "id": "163",
+    "id": "149",
+    "name": "Computer Depot Pacific",
+    "vendor": {
+      "text": "Computer Depot Pacific",
+      "value": "965"
+    },
+    "url": "http://www.cdp.com",
+    "email": "payables@cdp.com",
+    "initials": "CD",
+    "workorder": {
+      "text": "",
+      "value": ""
+    },
+    "event": "39",
+    "quantityRequired": 2,
+    "quantityAvailable": 0,
+    "purchaseOrder": {
+      "text": " ",
+      "value": ""
+    },
+    "amount": 0,
+    "active": false,
+    "woVendor": true,
+    "memo": "",
+    "time": {
+      "start": "",
+      "end": ""
+    }
+  },
+  {
+    "id": "150",
     "name": "Haworth, Inc.",
     "vendor": {
       "text": "Haworth, Inc.",
@@ -4128,7 +4218,7 @@ const mockWOVendors: WOVendor[] = [{
       "text": "",
       "value": ""
     },
-    "event": "100939",
+    "event": "39",
     "quantityRequired": 0,
     "quantityAvailable": 0,
     "purchaseOrder": {
@@ -4175,7 +4265,7 @@ const mockWOVendors: WOVendor[] = [{
     }
   },
   {
-    "id": "150",
+    "id": "163",
     "name": "Haworth, Inc.",
     "vendor": {
       "text": "Haworth, Inc.",
@@ -4188,7 +4278,7 @@ const mockWOVendors: WOVendor[] = [{
       "text": "",
       "value": ""
     },
-    "event": "39",
+    "event": "100939",
     "quantityRequired": 0,
     "quantityAvailable": 0,
     "purchaseOrder": {
@@ -4238,7 +4328,6 @@ const mockWOVendors: WOVendor[] = [{
 
 export const fetchWOVendors = async (woId: string, eventId: string): Promise<WOVendor[]> => {
   if (isLocalDevelopment()) {
-    console.log('Using mock woVendor data for local development');
     return new Promise((resolve) => {
       setTimeout(() => resolve(mockWOVendors), 500);
     });

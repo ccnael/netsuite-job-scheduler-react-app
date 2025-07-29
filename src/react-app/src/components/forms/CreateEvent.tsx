@@ -17,14 +17,12 @@ import { WOItemTable } from './tables/WOItemTable';
 import { WOContactTable } from './tables/WOContactTable';
 import { WOAddressTable } from './tables/WOAddressTable';
 import { CreateRoutingGroupModal } from './CreateRoutingGroupModal';
-import { Clock, Loader2 } from 'lucide-react';
 import { type Employee } from "@/api/employee";
 import { type Vendor } from "@/api/vendor";
 import { type Asset } from "@/api/asset";
 import { type WOResource } from "@/api/woResource";
 import { type WOVendor } from "@/api/woVendor";
 import { type WOAsset } from "@/api/woAsset";
-import * as helper from "@/lib/helpers";
 import { fetchRoutingGroups, RoutingGroup } from "@/api/routingGroup";
 import { createEvent } from "@/api/event";
 import DropdownFilter from './DropdownFilter';
@@ -57,8 +55,8 @@ interface SelectedResource {
 interface SelectedVendor {
   id: string;
   name: string;
-  manpower: number;
-  notes: string;
+  quantityRequired: number;
+  memo: string;
   woVendorId?: string;
 }
 
@@ -71,18 +69,18 @@ interface SelectedAsset {
   woAssetId?: string;
 }
 
-interface SelectedWOItem {
+interface SelectedItem {
   id: string;
   name: string;
   quantity: number;
 }
 
-interface SelectedWOContact {
+interface SelectedContact {
   id: string;
   name: string;
 }
 
-interface SelectedWOAddress {
+interface SelectedAddress {
   id: string;
   name: string;
 }
@@ -104,9 +102,9 @@ interface EventFormData {
   selectedResources: SelectedResource[];
   selectedVendors: SelectedVendor[];
   selectedAssets: SelectedAsset[];
-  selectedWOItems: SelectedWOItem[];
-  selectedWOContacts: SelectedWOContact[];
-  selectedWOAddress: SelectedWOAddress | null;
+  selectedItems: SelectedItem[];
+  selectedContacts: SelectedContact[];
+  selectedAddress: SelectedAddress | null;
 }
 
 interface SelectedJob {
@@ -135,6 +133,7 @@ interface CreateEventProps {
   woAssets?: WOAsset[];
   prefilledResourceId?: string;
   prefilledStartDate?: string;
+  prefilledEndDate?: string;
   prefilledStartTime?: string;
   prefilledEndTime?: string;
 }
@@ -152,6 +151,7 @@ export const CreateEvent: React.FC<CreateEventProps> = ({
   woAssets = [],
   prefilledResourceId,
   prefilledStartDate,
+  prefilledEndDate,
   prefilledStartTime,
   prefilledEndTime
 }) => {
@@ -159,7 +159,7 @@ export const CreateEvent: React.FC<CreateEventProps> = ({
     eventTitle: '', 
     notes: '', 
     startDate: prefilledStartDate || '', 
-    endDate: prefilledStartDate || '', 
+    endDate: prefilledEndDate || '', 
     startTime: prefilledStartTime || '08:00', 
     endTime: prefilledEndTime || '18:00', 
     status: 'TENTATIVE', 
@@ -172,9 +172,9 @@ export const CreateEvent: React.FC<CreateEventProps> = ({
     selectedResources: [],
     selectedVendors: [],
     selectedAssets: [],
-    selectedWOItems: [],
-    selectedWOContacts: [],
-    selectedWOAddress: null
+    selectedItems: [],
+    selectedContacts: [],
+    selectedAddress: null
   };
   
   const [formData, setFormData] = useState<EventFormData>(defaultFormData);
@@ -359,7 +359,7 @@ export const CreateEvent: React.FC<CreateEventProps> = ({
         </div>
       ), {
         unstyled: true,
-        duration: Infinity,
+        duration: 5000,
         position: "top-right",
       });
       
@@ -391,29 +391,31 @@ export const CreateEvent: React.FC<CreateEventProps> = ({
     setFormData(prev => ({ ...prev, selectedAssets }));
   }, []);
 
-  const handleWOItemSelection = useCallback((selectedWOItems: SelectedWOItem[]) => {
-    setFormData(prev => ({ ...prev, selectedWOItems }));
+  const handleWOItemSelection = useCallback((selectedItems: SelectedItem[]) => {
+    setFormData(prev => ({ ...prev, selectedItems }));
   }, []);
 
-  const handleWOContactSelection = useCallback((selectedWOContacts: SelectedWOContact[]) => {
-    setFormData(prev => ({ ...prev, selectedWOContacts }));
+  const handleWOContactSelection = useCallback((selectedContacts: SelectedContact[]) => {
+    setFormData(prev => ({ ...prev, selectedContacts }));
   }, []);
 
-  /* const handleWOAddressSelection = useCallback((selectedWOAddresses: SelectedWOAddress[]) => {
-    const selectedAddress = selectedWOAddresses.length > 0 ? selectedWOAddresses[0] : null;
-    setFormData(prev => ({ ...prev, selectedWOAddress: selectedAddress }));
+  /* const handleWOAddressSelection = useCallback((selectedAddresses: SelectedAddress[]) => {
+    const selectedAddress = selectedAddresses.length > 0 ? selectedAddresses[0] : null;
+    setFormData(prev => ({ ...prev, selectedAddress: selectedAddress }));
   }, []); */
 
-  const handleWOAddressSelection = useCallback((selectedWOAddress: SelectedWOAddress) => {
-    setFormData(prev => ({ ...prev, selectedWOAddress }));
+  const handleWOAddressSelection = useCallback((selectedAddress: SelectedAddress) => {
+    setFormData(prev => ({ ...prev, selectedAddress }));
   }, []);
   
   const handleStartDateSelect = (date: Date | undefined) => { 
     console.log('Start Date selected:', date); 
     if (date) {
-      const isoString = date.toISOString();
-      console.log('Setting start date to:', isoString);
-      setFormData(prev => ({ ...prev, startDate: isoString })); 
+      // const isoString = date.toISOString();
+      // console.log('Setting start date to:', isoString);
+      const normalized = new Date(date.getFullYear(), date.getMonth(), date.getDate(), 12).toISOString(); // Noon to avoid UTC shifts.toISOString();
+      // console.log('Setting start date to:', normalized, typeof normalized);
+      setFormData(prev => ({ ...prev, startDate: normalized })); 
     } else {
       setFormData(prev => ({ ...prev, startDate: '' })); 
     }
@@ -422,9 +424,10 @@ export const CreateEvent: React.FC<CreateEventProps> = ({
   const handleEndDateSelect = (date: Date | undefined) => { 
     console.log('End Date selected:', date); 
     if (date) {
-      const isoString = date.toISOString();
-      console.log('Setting end date to:', isoString);
-      setFormData(prev => ({ ...prev, endDate: isoString })); 
+      // const isoString = date.toISOString();
+      // console.log('Setting end date to:', isoString);
+      const normalized = new Date(date.getFullYear(), date.getMonth(), date.getDate(), 12).toISOString(); 
+      setFormData(prev => ({ ...prev, endDate: normalized })); 
     } else {
       setFormData(prev => ({ ...prev, endDate: '' })); 
     }
@@ -472,7 +475,7 @@ export const CreateEvent: React.FC<CreateEventProps> = ({
         value: 'LOADING',
         text: (
           <div className="flex items-center justify-center p-4">
-            <Loader2 className="h-4 w-4 animate-spin" />
+            <Loader className="h-4 w-4 animate-spin" />
             <span className="ml-2 text-[12px] text-muted-foreground">Loading...</span>
           </div>
         )
@@ -782,9 +785,9 @@ export const CreateEvent: React.FC<CreateEventProps> = ({
                       <AccordionTrigger className="bg-muted px-2 py-1 rounded-t-lg">
                         <div className="flex items-center space-x-2">
                           <span className="text-foreground font-semibold text-[14px] tracking-tight">Work Order Items</span>
-                          {formData.selectedWOItems.length > 0 && (
+                          {formData.selectedItems.length > 0 && (
                             <Badge variant="destructive" className="text-[9px] px-1 py-0.5 h-4">
-                              {formData.selectedWOItems.length}
+                              {formData.selectedItems.length}
                             </Badge>
                           )}
                         </div>
@@ -804,9 +807,9 @@ export const CreateEvent: React.FC<CreateEventProps> = ({
                       <AccordionTrigger className="bg-muted px-2 py-1 rounded-t-lg">
                         <div className="flex items-center space-x-2">
                           <span className="text-foreground font-semibold text-[14px] tracking-tight">Work Order Contacts</span>
-                          {formData.selectedWOContacts.length > 0 && (
+                          {formData.selectedContacts.length > 0 && (
                             <Badge variant="destructive" className="text-[9px] px-1 py-0.5 h-4">
-                              {formData.selectedWOContacts.length}
+                              {formData.selectedContacts.length}
                             </Badge>
                           )}
                         </div>
@@ -842,8 +845,8 @@ export const CreateEvent: React.FC<CreateEventProps> = ({
           </ScrollArea>
 
           <DialogFooter className="mt-2 flex-shrink-0">
-            <Button variant="outline" onClick={onClose} className="text-[12px] h-8 px-3 tracking-tight">Cancel</Button>
-            <Button onClick={handleSubmit} className="text-[12px] h-8 px-3 tracking-tight">
+            <Button variant="outline" onClick={onClose} /* className="text-[12px] h-8 px-3 tracking-tight" */>Cancel</Button>
+            <Button onClick={handleSubmit}/*  className="text-[12px] h-8 px-3 tracking-tight" */>
               Create
             </Button>
           </DialogFooter>

@@ -30,3 +30,18 @@ export const formatTimeDisplay = (time24: string) => {
 export function addCommas(num: { toString: () => string; }) {
   return num ? num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") : '';
 }
+
+export const formatDate = (dateStr: string) => {
+  try {
+    return dateStr ? format(new Date(dateStr), 'M/d/yyyy') : '';
+  } catch {
+    return dateStr || '';
+  }
+};
+export const formatTime = (timeStr: string) => {
+  try {
+    return timeStr ? format(parse(timeStr, 'HH:mm', new Date()), 'h:mm a') : '';
+  } catch {
+    return timeStr || '';
+  }
+};

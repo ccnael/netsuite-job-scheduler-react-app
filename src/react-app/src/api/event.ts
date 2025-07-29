@@ -39,7 +39,6 @@ export interface Event {
   vendors?: any[];
   assets?: any[];
   items?: any[];
-  unassigned?: boolean;
   contacts?: any[];
   // addresses?: any[];
   address?: {
@@ -72,38 +71,37 @@ const getMockEvents = (): Event[] => {
   if (mockEventsStore) return mockEventsStore;
   
   const initialEvents = [{
-      "id": "101183",
-      "title": "5555",
+      "id": "101212",
+      "title": "Lobby Area - Product Core Dryrun",
       "workorder": {
-        "text": "",
-        "value": ""
+        "text": "Lobby Area - Product Core Dryrun",
+        "value": "138"
       },
       "location": "",
       "status": {
-        "text": "Tentative",
-        "value": "TENTATIVE",
-        "code": "#6c757d"
-      },
-      "date": {
-        "recurrence": "occurs every day from 6/30/2025 until 7/8/2025",
-        "dates": [
-          "6/30/2025",
-          "7/8/2025"
-        ],
-        "start": "2025-06-30",
-        "end": "2025-07-08"
-      },
-      "time": {
-        "start": "08:00",
-        "end": "18:00"
-      },
-      "priority": {
-        "text": "Low",
-        "value": "1",
+        "text": "Confirmed",
+        "value": "CONFIRMED",
         "code": "#026adf"
       },
-      "note": "",
-      "url": "/app/crm/calendar/event.nl?id=101183&compid=TSTDRV2617106",
+      "date": {
+        "recurrence": "one time event on 7/28/2025",
+        "dates": [
+          "7/28/2025"
+        ],
+        "start": "2025-07-28",
+        "end": "2025-07-28"
+      },
+      "time": {
+        "start": "00:00",
+        "end": "04:00"
+      },
+      "priority": {
+        "text": "Medium",
+        "value": "2",
+        "code": "#dfcf02"
+      },
+      "note": "test\n123",
+      "url": "/app/crm/calendar/event.nl?id=101212&compid=TSTDRV2617106",
       "color": "#1a6756",
       "woRef": {},
       "resources": [],
@@ -112,10 +110,71 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
+        "text": "World Bank | 12 Carlton Av",
+        "value": "228"
+      },
+      "organizer": {
+        "text": "Lean Cendaña",
+        "value": "1765"
+      },
+      "projectInsight": {
+        "text": "PI361",
+        "value": "361"
+      },
+      "assetMaintenance": false,
+      "routingGroup": {
         "text": "",
         "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000835",
+        "value": "24427"
+      }
+    },
+    {
+      "id": "101211",
+      "title": "5123",
+      "workorder": {
+        "text": "Lobby Area - Product Core Dryrun",
+        "value": "138"
+      },
+      "location": "",
+      "status": {
+        "text": "Tentative",
+        "value": "TENTATIVE",
+        "code": "#6c757d"
+      },
+      "date": {
+        "recurrence": "one time event on 7/27/2025",
+        "dates": [
+          "7/27/2025"
+        ],
+        "start": "2025-07-27",
+        "end": "2025-07-27"
+      },
+      "time": {
+        "start": "12:00",
+        "end": "16:00"
+      },
+      "priority": {
+        "text": "Low",
+        "value": "1",
+        "code": "#026adf"
+      },
+      "note": "",
+      "url": "/app/crm/calendar/event.nl?id=101211&compid=TSTDRV2617106",
+      "color": "#1a6756",
+      "woRef": {},
+      "resources": [],
+      "vendors": [],
+      "assets": [],
+      "items": [],
+      "contacts": [],
+      "addresses": [],
+      "address": {
+        "text": "World Bank | 12 Carlton Av",
+        "value": "228"
       },
       "organizer": {
         "text": "Lean Cendaña",
@@ -131,8 +190,132 @@ const getMockEvents = (): Event[] => {
         "value": ""
       },
       "salesorder": {
+        "text": "SLS00000835",
+        "value": "24427"
+      }
+    },
+    {
+      "id": "101210",
+      "title": "412321",
+      "workorder": {
+        "text": "Lobby Area - Product Core Dryrun",
+        "value": "138"
+      },
+      "location": "",
+      "status": {
+        "text": "Tentative",
+        "value": "TENTATIVE",
+        "code": "#6c757d"
+      },
+      "date": {
+        "recurrence": "one time event on 7/27/2025",
+        "dates": [
+          "7/27/2025"
+        ],
+        "start": "2025-07-27",
+        "end": "2025-07-27"
+      },
+      "time": {
+        "start": "05:00",
+        "end": "09:00"
+      },
+      "priority": {
+        "text": "Low",
+        "value": "1",
+        "code": "#026adf"
+      },
+      "note": "rr\nr",
+      "url": "/app/crm/calendar/event.nl?id=101210&compid=TSTDRV2617106",
+      "color": "#1a6756",
+      "woRef": {},
+      "resources": [],
+      "vendors": [],
+      "assets": [],
+      "items": [],
+      "contacts": [],
+      "addresses": [],
+      "address": {
+        "text": "World Bank | 12 Carlton Av",
+        "value": "228"
+      },
+      "organizer": {
+        "text": "Lean Cendaña",
+        "value": "1765"
+      },
+      "projectInsight": {
         "text": "",
         "value": ""
+      },
+      "assetMaintenance": false,
+      "routingGroup": {
+        "text": "Group A",
+        "value": "1"
+      },
+      "salesorder": {
+        "text": "SLS00000835",
+        "value": "24427"
+      }
+    },
+    {
+      "id": "101208",
+      "title": "1111",
+      "workorder": {
+        "text": "Lobby Area - Product Core Dryrun",
+        "value": "138"
+      },
+      "location": "",
+      "status": {
+        "text": "Tentative",
+        "value": "TENTATIVE",
+        "code": "#6c757d"
+      },
+      "date": {
+        "recurrence": "one time event on 7/27/2025",
+        "dates": [
+          "7/27/2025"
+        ],
+        "start": "2025-07-27",
+        "end": "2025-07-27"
+      },
+      "time": {
+        "start": "09:00",
+        "end": "13:00"
+      },
+      "priority": {
+        "text": "Low",
+        "value": "1",
+        "code": "#026adf"
+      },
+      "note": "",
+      "url": "/app/crm/calendar/event.nl?id=101208&compid=TSTDRV2617106",
+      "color": "#1a6756",
+      "woRef": {},
+      "resources": [],
+      "vendors": [],
+      "assets": [],
+      "items": [],
+      "contacts": [],
+      "addresses": [],
+      "address": {
+        "text": "World Bank | 12 Carlton Av",
+        "value": "228"
+      },
+      "organizer": {
+        "text": "Lean Cendaña",
+        "value": "1765"
+      },
+      "projectInsight": {
+        "text": "",
+        "value": ""
+      },
+      "assetMaintenance": false,
+      "routingGroup": {
+        "text": "",
+        "value": ""
+      },
+      "salesorder": {
+        "text": "SLS00000835",
+        "value": "24427"
       }
     },
     {
@@ -175,7 +358,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "World Bank | 12 Carlton Av",
         "value": "228"
@@ -196,197 +378,6 @@ const getMockEvents = (): Event[] => {
       "salesorder": {
         "text": "SLS00000835",
         "value": "24427"
-      }
-    },
-    {
-      "id": "101168",
-      "title": "xaxaxa",
-      "workorder": {
-        "text": "",
-        "value": ""
-      },
-      "location": "",
-      "status": {
-        "text": "Tentative",
-        "value": "TENTATIVE",
-        "code": "#6c757d"
-      },
-      "date": {
-        "recurrence": "occurs every day from 7/24/2025 until 7/25/2025",
-        "dates": [
-          "7/24/2025",
-          "7/25/2025"
-        ],
-        "start": "2025-07-24",
-        "end": "2025-07-25"
-      },
-      "time": {
-        "start": "00:30",
-        "end": "18:00"
-      },
-      "priority": {
-        "text": "Medium",
-        "value": "2",
-        "code": "#dfcf02"
-      },
-      "note": "",
-      "url": "/app/crm/calendar/event.nl?id=101168&compid=TSTDRV2617106",
-      "color": "#1a6756",
-      "woRef": {},
-      "resources": [],
-      "vendors": [],
-      "assets": [],
-      "items": [],
-      "contacts": [],
-      "addresses": [],
-      "unassigned": true,
-      "address": {
-        "text": "",
-        "value": ""
-      },
-      "organizer": {
-        "text": "Lean Cendaña",
-        "value": "1765"
-      },
-      "projectInsight": {
-        "text": "",
-        "value": ""
-      },
-      "assetMaintenance": true,
-      "routingGroup": {
-        "text": "Group B",
-        "value": "2"
-      },
-      "salesorder": {
-        "text": "",
-        "value": ""
-      }
-    },
-    {
-      "id": "101167",
-      "title": "4444",
-      "workorder": {
-        "text": "Lobby Area - Product Core Dryrun",
-        "value": "138"
-      },
-      "location": "",
-      "status": {
-        "text": "Confirmed",
-        "value": "CONFIRMED",
-        "code": "#026adf"
-      },
-      "date": {
-        "recurrence": "one time event on 7/24/2025",
-        "dates": [
-          "7/24/2025"
-        ],
-        "start": "2025-07-24",
-        "end": "2025-07-24"
-      },
-      "time": {
-        "start": "08:00",
-        "end": "22:30"
-      },
-      "priority": {
-        "text": "Urgent",
-        "value": "4",
-        "code": "#9a2407"
-      },
-      "note": "",
-      "url": "/app/crm/calendar/event.nl?id=101167&compid=TSTDRV2617106",
-      "color": "#1a6756",
-      "woRef": {},
-      "resources": [],
-      "vendors": [],
-      "assets": [],
-      "items": [],
-      "contacts": [],
-      "addresses": [],
-      "unassigned": true,
-      "address": {
-        "text": "",
-        "value": ""
-      },
-      "organizer": {
-        "text": "Lean Cendaña",
-        "value": "1765"
-      },
-      "projectInsight": {
-        "text": "",
-        "value": ""
-      },
-      "assetMaintenance": false,
-      "routingGroup": {
-        "text": "aaa",
-        "value": "8"
-      },
-      "salesorder": {
-        "text": "SLS00000835",
-        "value": "24427"
-      }
-    },
-    {
-      "id": "101164",
-      "title": "1232",
-      "workorder": {
-        "text": "",
-        "value": ""
-      },
-      "location": "",
-      "status": {
-        "text": "Tentative",
-        "value": "TENTATIVE",
-        "code": "#6c757d"
-      },
-      "date": {
-        "recurrence": "occurs every day from 6/30/2025 until 7/30/2025",
-        "dates": [
-          "6/30/2025",
-          "7/30/2025"
-        ],
-        "start": "2025-06-30",
-        "end": "2025-07-30"
-      },
-      "time": {
-        "start": "08:00",
-        "end": "18:00"
-      },
-      "priority": {
-        "text": "Low",
-        "value": "1",
-        "code": "#026adf"
-      },
-      "note": "",
-      "url": "/app/crm/calendar/event.nl?id=101164&compid=TSTDRV2617106",
-      "color": "#1a6756",
-      "woRef": {},
-      "resources": [],
-      "vendors": [],
-      "assets": [],
-      "items": [],
-      "contacts": [],
-      "addresses": [],
-      "unassigned": true,
-      "address": {
-        "text": "",
-        "value": ""
-      },
-      "organizer": {
-        "text": "Lean Cendaña",
-        "value": "1765"
-      },
-      "projectInsight": {
-        "text": "",
-        "value": ""
-      },
-      "assetMaintenance": false,
-      "routingGroup": {
-        "text": "Group A",
-        "value": "1"
-      },
-      "salesorder": {
-        "text": "",
-        "value": ""
       }
     },
     {
@@ -430,7 +421,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -494,7 +484,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -558,7 +547,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -622,7 +610,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -686,7 +673,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -748,7 +734,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -812,7 +797,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -875,7 +859,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -939,7 +922,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -1002,7 +984,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -1065,7 +1046,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -1129,7 +1109,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -1192,7 +1171,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -1255,7 +1233,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -1317,7 +1294,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -1381,7 +1357,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -1444,7 +1419,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -1508,7 +1482,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -1572,7 +1545,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -1635,7 +1607,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "World Bank | 12 Carlton Av",
         "value": "228"
@@ -1699,7 +1670,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -1763,7 +1733,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -1827,7 +1796,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -1891,7 +1859,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -1955,7 +1922,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "World Bank | 931 Zetta Wells",
         "value": "225"
@@ -2018,7 +1984,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -2082,7 +2047,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -2145,7 +2109,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -2208,7 +2171,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -2272,7 +2234,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -2336,7 +2297,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -2400,7 +2360,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -2464,7 +2423,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -2527,7 +2485,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "219",
         "value": "219"
@@ -2591,7 +2548,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "216",
         "value": "216"
@@ -2655,7 +2611,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "216",
         "value": "216"
@@ -2718,7 +2673,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "217",
         "value": "217"
@@ -2782,7 +2736,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -2845,7 +2798,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -2908,7 +2860,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -2971,7 +2922,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -3035,7 +2985,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -3098,7 +3047,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -3161,7 +3109,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -3224,7 +3171,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -3287,7 +3233,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "207",
         "value": "207"
@@ -3350,7 +3295,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "207",
         "value": "207"
@@ -3414,7 +3358,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "201",
         "value": "201"
@@ -3477,7 +3420,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "201",
         "value": "201"
@@ -3540,7 +3482,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "201",
         "value": "201"
@@ -3604,7 +3545,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "175",
         "value": "175"
@@ -3668,7 +3608,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "198",
         "value": "198"
@@ -3732,7 +3671,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -3795,7 +3733,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -3859,7 +3796,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -3922,7 +3858,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -3986,7 +3921,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -4049,7 +3983,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -4112,7 +4045,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -4176,7 +4108,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -4239,7 +4170,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -4302,7 +4232,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -4366,7 +4295,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -4430,7 +4358,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -4493,7 +4420,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -4557,7 +4483,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -4620,7 +4545,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -4683,7 +4607,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -4747,7 +4670,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -4810,7 +4732,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -4874,7 +4795,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -4938,7 +4858,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -5001,7 +4920,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -5065,7 +4983,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -5129,7 +5046,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -5193,7 +5109,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -5256,7 +5171,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -5320,7 +5234,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -5383,7 +5296,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -5446,7 +5358,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -5510,7 +5421,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -5574,7 +5484,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -5638,7 +5547,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -5702,7 +5610,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -5766,7 +5673,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -5830,7 +5736,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -5894,7 +5799,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -5958,7 +5862,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -6022,7 +5925,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -6086,7 +5988,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -6150,7 +6051,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -6213,7 +6113,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -6276,7 +6175,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -6339,7 +6237,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -6402,7 +6299,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -6465,7 +6361,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -6528,7 +6423,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -6592,7 +6486,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -6656,7 +6549,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -6718,7 +6610,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -6780,7 +6671,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -6843,7 +6733,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -6906,7 +6795,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -6970,7 +6858,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -7033,7 +6920,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -7096,7 +6982,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -7160,7 +7045,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -7224,7 +7108,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -7287,7 +7170,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -7350,7 +7232,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -7413,7 +7294,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -7476,7 +7356,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -7539,7 +7418,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -7602,7 +7480,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -7665,7 +7542,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -7728,7 +7604,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -7791,7 +7666,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -7855,7 +7729,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -7918,7 +7791,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -7981,7 +7853,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -8044,7 +7915,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -8107,7 +7977,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -8170,7 +8039,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -8233,7 +8101,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -8296,7 +8163,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -8358,7 +8224,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -8421,7 +8286,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -8484,7 +8348,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -8547,7 +8410,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -8610,7 +8472,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -8673,7 +8534,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -8735,7 +8595,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -8797,7 +8656,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -8859,7 +8717,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -8922,7 +8779,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -8985,7 +8841,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -9048,7 +8903,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -9110,7 +8964,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -9172,7 +9025,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -9234,7 +9086,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -9296,7 +9147,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -9358,7 +9208,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -9420,7 +9269,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -9482,7 +9330,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -9544,7 +9391,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -9607,7 +9453,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -9669,7 +9514,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -9731,7 +9575,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -9793,7 +9636,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -9855,7 +9697,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -9917,7 +9758,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -9979,7 +9819,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -10041,7 +9880,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -10103,7 +9941,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -10165,7 +10002,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -10227,7 +10063,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -10289,7 +10124,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -10351,7 +10185,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -10413,7 +10246,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -10475,7 +10307,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -10537,7 +10368,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -10600,7 +10430,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -10663,7 +10492,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -10726,7 +10554,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -10789,7 +10616,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -10852,7 +10678,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -10915,7 +10740,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -10978,7 +10802,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -11041,7 +10864,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -11104,7 +10926,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -11167,7 +10988,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -11230,7 +11050,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -11293,7 +11112,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -11356,7 +11174,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -11419,7 +11236,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -11482,7 +11298,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -11545,7 +11360,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -11608,7 +11422,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -11671,7 +11484,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -11734,7 +11546,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -11797,7 +11608,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -11860,7 +11670,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -11923,7 +11732,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -11986,7 +11794,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -12049,7 +11856,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -12112,7 +11918,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -12175,7 +11980,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -12238,7 +12042,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -12301,7 +12104,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -12364,7 +12166,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -12427,7 +12228,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -12490,7 +12290,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -12553,7 +12352,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -12617,7 +12415,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -12681,7 +12478,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -12745,7 +12541,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -12809,7 +12604,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -12871,7 +12665,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -12934,7 +12727,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -12997,7 +12789,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -13060,7 +12851,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -13123,7 +12913,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -13186,7 +12975,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -13249,7 +13037,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -13311,7 +13098,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -13374,7 +13160,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -13437,7 +13222,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -13501,7 +13285,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -13564,7 +13347,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -13627,7 +13409,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -13690,7 +13471,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -13753,7 +13533,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -13816,7 +13595,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -13879,7 +13657,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -13942,7 +13719,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -14005,7 +13781,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -14067,7 +13842,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -14131,7 +13905,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -14193,7 +13966,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -14256,7 +14028,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -14318,7 +14089,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -14382,7 +14152,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -14446,7 +14215,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -14509,7 +14277,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -14572,7 +14339,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -14636,7 +14402,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -14700,7 +14465,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -14764,7 +14528,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -14828,7 +14591,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -14892,7 +14654,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -14955,7 +14716,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -15018,7 +14778,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -15081,7 +14840,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -15144,7 +14902,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -15207,7 +14964,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -15270,7 +15026,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -15333,7 +15088,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -15396,7 +15150,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -15459,7 +15212,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -15522,7 +15274,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -15585,7 +15336,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -15648,7 +15398,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -15711,7 +15460,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -15774,7 +15522,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -15836,7 +15583,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -15898,7 +15644,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -15960,7 +15705,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -16023,7 +15767,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -16086,7 +15829,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -16149,7 +15891,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -16212,7 +15953,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -16275,7 +16015,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -16338,7 +16077,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -16401,7 +16139,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -16464,7 +16201,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -16527,7 +16263,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -16590,7 +16325,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -16653,7 +16387,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -16715,7 +16448,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -16777,7 +16509,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -16839,7 +16570,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -16901,7 +16631,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -16963,7 +16692,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -17025,7 +16753,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -17087,7 +16814,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -17149,7 +16875,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -17211,7 +16936,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -17273,7 +16997,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -17335,7 +17058,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -17397,7 +17119,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -17459,7 +17180,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -17521,7 +17241,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -17583,7 +17302,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -17645,7 +17363,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -17707,7 +17424,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -17769,7 +17485,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -17831,7 +17546,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -17893,7 +17607,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -17955,7 +17668,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -18017,7 +17729,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -18079,7 +17790,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -18141,7 +17851,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -18203,7 +17912,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -18265,7 +17973,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -18327,7 +18034,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -18389,7 +18095,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -18451,7 +18156,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -18513,7 +18217,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -18575,7 +18278,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -18637,7 +18339,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -18699,7 +18400,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -18761,7 +18461,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -18823,7 +18522,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -18885,7 +18583,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -18947,7 +18644,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -19009,7 +18705,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -19071,7 +18766,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -19133,7 +18827,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -19195,7 +18888,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -19257,7 +18949,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -19319,7 +19010,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -19381,7 +19071,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -19444,7 +19133,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -19506,7 +19194,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -19568,7 +19255,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -19631,7 +19317,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -19693,7 +19378,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -19755,7 +19439,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -19817,7 +19500,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -19879,7 +19561,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -19941,7 +19622,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -20004,7 +19684,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -20066,7 +19745,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -20128,7 +19806,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -20190,7 +19867,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -20252,7 +19928,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -20314,7 +19989,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -20377,7 +20051,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -20440,7 +20113,6 @@ const getMockEvents = (): Event[] => {
       "items": [],
       "contacts": [],
       "addresses": [],
-      "unassigned": true,
       "address": {
         "text": "",
         "value": ""
@@ -20525,72 +20197,67 @@ export const fetchEvents = async (): Promise<Event[]> => {
 };
 
 export const createEvent = async (formData: any): Promise<Event> => {
+
+  const newEvent: Event = {
+    id: '',
+    title: formData.eventTitle,
+    workorder: {
+      text: formData.selectedJob?.title || '',
+      value: formData.selectedJob?.id || ''
+    },
+    location: '',
+    status: {
+      text: formData.status || 'Tentative',
+      value: formData.status,
+      code: '#6c757d'
+    },
+    date: {
+      recurrence: `one time event on ${formData.startDate}`,
+      dates: [formData.startDate],
+      start: formData.startDate,
+      end: formData.endDate
+    },
+    time: {
+      start: formData.startTime,
+      end: formData.endTime
+    },
+    priority: {
+      text: formData.priority || '',
+      value: formData.priority || '',
+      code: '#026adf'
+    },
+    note: formData.notes || '',
+    url: '',
+    color: '#1a6756',
+    woRef: formData.woRef,
+    resources: formData.selectedResources || [],
+    vendors: formData.selectedVendors || [],
+    assets: formData.selectedAssets || [],
+    items: formData.selectedItems || [],
+    contacts: formData.selectedContacts || [],
+    address: formData.selectedAddress ? {
+      text: formData.selectedAddress.name,
+      value: formData.selectedAddress.id
+    } : { text: '', value: '' },
+    projectInsight: formData.selectedJob?.projectInsight || { text: '', value: '' },
+    assetMaintenance: formData.assetMaintenance || false,
+    routingGroup: {
+      text: formData.routingGroupText || '',
+      value: formData.routingGroup || ''
+    },
+    salesorder: {
+      text: '',
+      value: ''
+    }
+  };
+
   if (isLocalDevelopment()) {
-    console.log('Mock creating event:', formData);
+    // console.log('Mock creating event:', formData);
     return new Promise((resolve) => {
       setTimeout(() => {
-        const newEvent: Event = {
-          id: String(Date.now()),
-          title: formData.eventTitle,
-          workorder: {
-            text: formData.selectedJob?.title || '',
-            value: formData.selectedJob?.id || ''
-          },
-          location: '',
-          status: {
-            text: formData.status || 'Tentative',
-            value: formData.status?.toUpperCase() || 'TENTATIVE',
-            code: '#6c757d'
-          },
-          date: {
-            recurrence: `one time event on ${formData.startDate}`,
-            dates: [formData.startDate],
-            start: formData.startDate,
-            end: formData.endDate
-          },
-          time: {
-            start: formData.startTime,
-            end: formData.endTime
-          },
-          priority: {
-            text: formData.priority || '',
-            value: formData.priority || '',
-            code: '#026adf'
-          },
-          note: formData.notes || '',
-          url: '',
-          color: '#1a6756',
-          woRef: formData.woRef,
-          resources: formData.selectedResources || [],
-          vendors: formData.selectedVendors || [],
-          assets: formData.selectedAssets || [],
-          items: formData.selectedWOItems || [],
-          unassigned: false,
-          contacts: formData.selectedWOContacts || [],
-          address: formData.selectedWOAddress ? {
-            text: formData.selectedWOAddress.text,
-            value: formData.selectedWOAddress.value
-          } : { text: '', value: '' },
-          organizer: {
-            text: 'Current User',
-            value: '1'
-          },
-          projectInsight: formData.selectedJob?.projectInsight || { text: '', value: '' },
-          assetMaintenance: formData.assetMaintenance || false,
-          routingGroup: {
-            text: formData.routingGroupText || '',
-            value: formData.routingGroup || ''
-          },
-          salesorder: {
-            text: '',
-            value: ''
-          }
-        };
-        
         // Add the new event to the mock store so it persists
         if (!mockEventsStore) mockEventsStore = getMockEvents();
         mockEventsStore.unshift(newEvent); // Add to beginning of array
-        
         resolve(newEvent);
       }, 1000);
     });
@@ -20603,7 +20270,7 @@ export const createEvent = async (formData: any): Promise<Event> => {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify(formData)
+      body: JSON.stringify(newEvent)
     });
 
     console.log('Create event RESPONSE:', response);
@@ -20612,22 +20279,74 @@ export const createEvent = async (formData: any): Promise<Event> => {
       throw new Error(`Failed to create event: ${response.status}`);
     }
 
-    const newEvent = await response.json();
-    console.log('Create event RESULT:', newEvent);
+    const createdEvent = await response.json();
+    console.log('Create event RESULT:', createdEvent);
 
-    return newEvent;
+    return createdEvent;
   } catch (error) {
     console.error('Error creating event:', error);
     throw error;
   }
 };
 
-export const updateEvent = async (eventId: string, updates: Partial<Event>): Promise<Event> => {
+export const updateEvent = async (eventData: Event, updates: Partial<Event>): Promise<Event> => {
+  // Filter out event fields to update
+  const eventFieldsToUpdate: Record<string, unknown> = {};
+
+  if (eventData.title != updates.title) {
+    eventFieldsToUpdate.title = updates.title;
+  }
+  if (eventData.date.start != updates.date.start) {
+    eventFieldsToUpdate.startdate = updates.date.start;
+  }
+  if (eventData.date.end != updates.date.end) {
+    eventFieldsToUpdate.endbydate = updates.date.end;
+  }
+  if (eventData.time.start != updates.time.start) {
+    eventFieldsToUpdate.starttime = updates.time.start;
+  }
+  if (eventData.time.end != updates.time.end) {
+    eventFieldsToUpdate.endtime = updates.time.end;
+  }
+  if (eventData.note != updates.note) {
+    eventFieldsToUpdate.custevent_esp_fop_memo = updates.note;
+  }
+  if (updates.priority) {
+    if (eventData.priority?.value != updates.priority?.value) {
+      eventFieldsToUpdate.custevent_esp_fop_event_priority = updates.priority.value;
+    }
+  }
+  if (updates.status) {
+    if (eventData.status?.value != updates.status?.value) {
+      eventFieldsToUpdate.status = updates.status.value;
+    }
+  }
+  if (updates.address) {
+    if (eventData.address?.value != updates.address?.value) {
+      eventFieldsToUpdate.custevent_esp_fop_event_address = updates.address.value;
+    }
+  }
+  if (eventData.routingGroup.value != updates.routingGroup.value) {
+    eventFieldsToUpdate.custevent_esp_fop_routing_group = updates.routingGroup.value;
+  }
+
+  // Filter out WO resources to update
+  // Filter out WO vendors to update
+  // Filter out WO assets to update
+  // Filter out WO items to update
+  // Filter out WO contacts to update
+  // Filter out WO address to update
+
+  console.log('Update Event Payload', {
+    eventData,
+    updates,
+    eventFieldsToUpdate
+  });
+
   if (isLocalDevelopment()) {
-    console.log('Mock updating event:', eventId, updates);
     return new Promise((resolve) => {
       setTimeout(() => {
-        const mockEvent = getMockEvents().find(e => e.id === eventId);
+        const mockEvent = eventData;
         if (mockEvent) {
           resolve({ ...mockEvent, ...updates });
         } else {
@@ -20645,8 +20364,9 @@ export const updateEvent = async (eventId: string, updates: Partial<Event>): Pro
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        eventId,
-        updates
+        eventData,
+        updates,
+        eventFieldsToUpdate
       })
     });
 

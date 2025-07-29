@@ -27,6 +27,50 @@ export interface WOAsset {
 
 // Mockup data for local development
 const mockWOAssets: WOAsset[] = [{
+    "id": "231",
+    "name": "Bolts",
+    "workorder": {
+      "text": "Lobby Area - Product Core Dryrun",
+      "value": "138"
+    },
+    "event": "101211",
+    "quantity": 3,
+    "maxQuantity": 3,
+    "description": "",
+    "asset": {
+      "text": "Bolts",
+      "value": "5"
+    },
+    "onMaintenance": false,
+    "owned": true,
+    "time": {
+      "start": "00:00",
+      "end": "12:00"
+    }
+  },
+  {
+    "id": "232",
+    "name": "Bolts",
+    "workorder": {
+      "text": "Lobby Area - Product Core Dryrun",
+      "value": "138"
+    },
+    "event": "101212",
+    "quantity": 0,
+    "maxQuantity": 0,
+    "description": "",
+    "asset": {
+      "text": "Bolts",
+      "value": "5"
+    },
+    "onMaintenance": false,
+    "owned": true,
+    "time": {
+      "start": "00:00",
+      "end": "04:00"
+    }
+  },
+  {
     "id": "1",
     "name": "",
     "workorder": {
@@ -3220,7 +3264,6 @@ const mockWOAssets: WOAsset[] = [{
 
 export const fetchWOAssets = async (woId: string, eventId: string): Promise<WOAsset[]> => {
   if (isLocalDevelopment()) {
-    console.log('Using mock woAsset data for local development');
     return new Promise((resolve) => {
       setTimeout(() => resolve(mockWOAssets), 500);
     });

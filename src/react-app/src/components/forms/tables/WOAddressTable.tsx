@@ -16,14 +16,14 @@ import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { fetchWOAddresses } from "@/api/woAddress";
 import { type Event } from "@/api/event";
 
-interface SelectedWOAddress {
+interface SelectedAddress {
   id: string;
   name: string;
 }
 
 interface WOAddressTableProps { 
   woId: string; 
-  onSelectionChange?: (selectedWOAddress: SelectedWOAddress) => void;
+  onSelectionChange?: (selectedAddress: SelectedAddress) => void;
   onUpdate?: boolean;
   selectedEvent?: Event;
 }
@@ -65,7 +65,7 @@ export const WOAddressTable: React.FC<WOAddressTableProps> = ({ woId, onSelectio
     }
   }, [onUpdate, woId]);
 
-  console.log('WOAddresses', tableDataState);
+  // console.log('WOAddresses', tableDataState);
 
   const renderSortIcon = (column: any) => {
     const isSorted = column.getIsSorted();
@@ -91,7 +91,7 @@ export const WOAddressTable: React.FC<WOAddressTableProps> = ({ woId, onSelectio
   }, [tableDataState, onUpdate, selectedEvent?.id]);
 
   // Memoize the selection computation to prevent infinite loops
-  const selectedWOAddress = useMemo(() => {
+  const selectedAddress = useMemo(() => {
     if (!selectedRowId) return null;
     const selectedAddress = tableDataState.find(addr => addr.id === selectedRowId);
     return {
@@ -103,10 +103,10 @@ export const WOAddressTable: React.FC<WOAddressTableProps> = ({ woId, onSelectio
   // Effect to communicate selection changes to parent
   useEffect(() => {
     if (onSelectionChange) {
-      // console.log('WOAddressTable - Selected addresses:', selectedWOAddress);
-      onSelectionChange(selectedWOAddress);
+      // console.log('WOAddressTable - Selected addresses:', selectedAddress);
+      onSelectionChange(selectedAddress);
     }
-  }, [selectedWOAddress, onSelectionChange]);
+  }, [selectedAddress, onSelectionChange]);
 
   const columns: ColumnDef<TableWOAddress>[] = useMemo(() => [
   {
@@ -199,11 +199,11 @@ export const WOAddressTable: React.FC<WOAddressTableProps> = ({ woId, onSelectio
 
         {/* Right - Selected Counter and Search */}
         <div className="flex items-center space-x-2">
-          {/* {selectedWOAddress.length > 0 && (
+          {/* {selectedAddress.length > 0 && (
             <div className="flex items-center space-x-1">
               <span className="text-[12px] font-sans text-slate-700">Selected:</span>
               <Badge variant="secondary" className="text-[10px] px-1 py-0.5 h-4">
-                {selectedWOAddress.length}
+                {selectedAddress.length}
               </Badge>
             </div>
           )} */}

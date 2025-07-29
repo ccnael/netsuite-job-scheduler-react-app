@@ -17,8 +17,8 @@ interface TimeRangeFilterProps {
   label: string;
   value: string;
   onChange: (time: string) => void;
-  disabled?: boolean;
   isRequired?: boolean;
+  disabled?: boolean;
 }
 
 const TimeRangeFilter: React.FC<TimeRangeFilterProps> = ({
@@ -26,8 +26,8 @@ const TimeRangeFilter: React.FC<TimeRangeFilterProps> = ({
   label,
   value,
   onChange,
-  disabled = false,
-  isRequired
+  isRequired,
+  disabled = false
 }) => {
   const handleClear = (e: React.MouseEvent) => {
     e.stopPropagation();
@@ -50,13 +50,12 @@ const TimeRangeFilter: React.FC<TimeRangeFilterProps> = ({
             disabled={disabled}
             className={cn(
               "w-full justify-start text-left font-normal h-7 text-[12px] tracking-tight",
-              !value && "text-muted-foreground",
-              disabled && "opacity-50 cursor-not-allowed"
+              !value && "text-muted-foreground"
             )}
           >
             <Clock className="mr-2 h-3 w-3" />
             {value ? helper.formatTimeDisplay(value) : "Select time"}
-            {value && !disabled && (
+            {value && (
               <div 
                 className="ml-auto flex items-center"
                 onClick={handleClear}

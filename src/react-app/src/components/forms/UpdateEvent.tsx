@@ -17,7 +17,7 @@ import { WOItemTable } from './tables/WOItemTable';
 import { WOContactTable } from './tables/WOContactTable';
 import { WOAddressTable } from './tables/WOAddressTable';
 import { CreateRoutingGroupModal } from './CreateRoutingGroupModal';
-import { Clock, Loader2 } from 'lucide-react';
+import { Clock, Loader, Loader2 } from 'lucide-react';
 import { type Employee } from "@/api/employee";
 import { type Vendor } from "@/api/vendor";
 import { type Asset } from "@/api/asset";
@@ -33,6 +33,19 @@ import DateRangeFilter from './DateRangeFilter';
 import TimeRangeFilter from './TimeRangeFilter';
 import { DropdownOption } from './types';
 import { priorityOptions, statusOptions } from "@/lib/constants";
+import { toast } from "sonner";
+import { CheckCircle, X } from 'lucide-react';
+import { 
+  AlertDialog, 
+  AlertDialogContent, 
+  AlertDialogHeader, 
+  AlertDialogTitle, 
+  AlertDialogDescription, 
+  AlertDialogFooter, 
+  AlertDialogCancel, 
+  AlertDialogAction 
+} from "@/components/ui/alert-dialog";
+import { updateEvent } from "@/api/event";
 
 interface SelectedResource {
   id: string;
@@ -45,8 +58,9 @@ interface SelectedResource {
 interface SelectedVendor {
   id: string;
   name: string;
-  manpower: number;
-  notes: string;
+  quantityRequired: number;
+  memo: string;
+  woVendorId?: string;
 }
 
 interface SelectedAsset {
@@ -57,18 +71,18 @@ interface SelectedAsset {
   endTime: string;
 }
 
-interface SelectedWOItem {
+interface SelectedItem {
   id: string;
   name: string;
   quantity: number;
 }
 
-interface SelectedWOContact {
+interface SelectedContact {
   id: string;
   name: string;
 }
 
-interface SelectedWOAddress {
+interface SelectedAddress {
   id: string;
   name: string;
 }
@@ -86,19 +100,20 @@ interface EventFormData {
   assetMaintenance: boolean;
   routingGroupText: string;
   routingGroup: string;
+  woRef: object;
   selectedResources: SelectedResource[];
   selectedVendors: SelectedVendor[];
   selectedAssets: SelectedAsset[];
-  selectedWOItems: SelectedWOItem[];
-  selectedWOContacts: SelectedWOContact[];
-  selectedWOAddress: SelectedWOAddress | null;
+  selectedItems: SelectedItem[];
+  selectedContacts: SelectedContact[];
+  selectedAddress: SelectedAddress | null;
 }
 
 interface UpdateEventProps {
   isOpen: boolean;
   onClose: () => void;
   selectedEvent?: Event;
-  onSubmit: (formData: EventFormData) => void;
+  onEventUpdated?: () => void;
   employees?: Employee[];
   vendors?: Vendor[];
   assets?: Asset[];
@@ -111,7 +126,7 @@ export const UpdateEvent: React.FC<UpdateEventProps> = ({
   isOpen, 
   onClose, 
   selectedEvent, 
-  onSubmit,
+  onEventUpdated,
   employees = [],
   vendors = [],
   assets = [],
@@ -132,12 +147,13 @@ export const UpdateEvent: React.FC<UpdateEventProps> = ({
     assetMaintenance: false,
     routingGroupText: selectedEvent?.routingGroup?.text || '',
     routingGroup: selectedEvent?.routingGroup?.value || '',
+    woRef: selectedEvent?.woRef,
     selectedResources: [],
     selectedVendors: [],
     selectedAssets: [],
-    selectedWOItems: [],
-    selectedWOContacts: [],
-    selectedWOAddress: null
+    selectedItems: [],
+    selectedContacts: [],
+    selectedAddress: null
   };
   
   const [formData, setFormData] = useState<EventFormData>(defaultFormData);
@@ -150,6 +166,8 @@ export const UpdateEvent: React.FC<UpdateEventProps> = ({
   const [showCreateModal, setShowCreateModal] = useState(false);
   const [isCreatingRoutingGroup, setIsCreatingRoutingGroup] = useState(false);
   const [dropdownKey, setDropdownKey] = useState(0); // Force re-render of dropdown
+  const [isUpdating, setIsUpdating] = useState(false);
+  const [showConfirmDialog, setShowConfirmDialog] = useState(false);
 
   const fetchRoutingGroupOptions = async (): Promise<DropdownOption[]> => {
     try {
@@ -211,9 +229,104 @@ export const UpdateEvent: React.FC<UpdateEventProps> = ({
 
   const handleOutsideClick = () => { setBubbleEffect(true); setTimeout(() => setBubbleEffect(false), 300); };
   
-  const handleSubmit = () => { 
+  const handleSubmit = async () => { 
     console.log('Form data on submit:', formData);
-    onSubmit(formData); 
+    
+    // Validate mandatory fields
+    if (!formData.eventTitle || !formData.startDate || !formData.endDate || (!formData.allDay && (!formData.startTime || !formData.endTime))) {
+      toast.error("Please fill in all required fields", {
+        position: "top-right",
+        className: "!bg-red-100 !text-red-800 !border !border-red-300",
+      });
+      return;
+    }
+    
+    // Show confirmation dialog
+    setShowConfirmDialog(true);
+  };
+
+  const handleConfirmUpdate = async (e: React.MouseEvent) => {
+    e.preventDefault(); // Prevent default AlertDialogAction behavior
+    
+    try {
+      setIsUpdating(true);
+      
+      // Transform formData to Event structure
+      const eventData: Partial<Event> = {
+        title: formData.eventTitle,
+        note: formData.notes,
+        date: {
+          start: formData.startDate,
+          end: formData.endDate,
+          recurrence: '',
+          dates: []
+        },
+        time: {
+          start: formData.startTime,
+          end: formData.endTime
+        },
+        status: {
+          text: String(statusOptions.find(s => s.value === formData.status)?.text || ''),
+          value: formData.status
+        },
+        priority: {
+          text: String(priorityOptions.find(p => p.value === formData.priority)?.text || ''),
+          value: formData.priority
+        },
+        assetMaintenance: formData.assetMaintenance,
+        routingGroup: {
+          text: formData.routingGroupText,
+          value: formData.routingGroup
+        },
+        resources: formData.selectedResources,
+        vendors: formData.selectedVendors,
+        assets: formData.selectedAssets,
+        items: formData.selectedItems,
+        contacts: formData.selectedContacts,
+        address: formData.selectedAddress ? {
+          text: formData.selectedAddress.name,
+          value: formData.selectedAddress.id
+        } : undefined
+      };
+      
+      await updateEvent(selectedEvent/* !.id */, eventData);
+      
+      // Success toast
+      toast.custom((id) => (
+        <div
+          data-sonner-rounded-toast
+          className="flex items-start gap-3 w-full max-w-xl bg-green-100 text-green-800 border border-green-300 px-4 py-3 rounded-md"
+        >
+          <CheckCircle className="h-5 w-5 mt-0.5 text-green-700 shrink-0" />
+          <div className="flex-1 text-sm font-medium">
+            Event "{formData.eventTitle}" updated successfully!
+          </div>
+          <button
+            onClick={() => toast.dismiss(id)}
+            className="ml-3 text-green-800 hover:text-red-500 p-1"
+          >
+            <X size={16} />
+          </button>
+        </div>
+      ), {
+        unstyled: true,
+        duration: 5000,
+        position: "top-right",
+      });
+      
+      // Close dialogs and refresh events
+      setShowConfirmDialog(false);
+      onClose();
+      onEventUpdated?.();
+    } catch (error) {
+      console.error('Error updating event:', error);
+      toast.error("Failed to update event. Please try again.", {
+        position: "top-right",
+        className: "!bg-red-100 !text-red-800 !border !border-red-300",
+      });
+    } finally {
+      setIsUpdating(false);
+    }
   };
 
   // Updated memoized handler functions for table selections to prevent infinite loops
@@ -230,29 +343,31 @@ export const UpdateEvent: React.FC<UpdateEventProps> = ({
     setFormData(prev => ({ ...prev, selectedAssets }));
   }, []);
 
-  const handleWOItemSelection = useCallback((selectedWOItems: SelectedWOItem[]) => {
-    setFormData(prev => ({ ...prev, selectedWOItems }));
+  const handleWOItemSelection = useCallback((selectedItems: SelectedItem[]) => {
+    setFormData(prev => ({ ...prev, selectedItems }));
   }, []);
 
-  const handleWOContactSelection = useCallback((selectedWOContacts: SelectedWOContact[]) => {
-    setFormData(prev => ({ ...prev, selectedWOContacts }));
+  const handleWOContactSelection = useCallback((selectedContacts: SelectedContact[]) => {
+    setFormData(prev => ({ ...prev, selectedContacts }));
   }, []);
 
-  /* const handleWOAddressSelection = useCallback((selectedWOAddresses: SelectedWOAddress[]) => {
-    const selectedAddress = selectedWOAddresses.length > 0 ? selectedWOAddresses[0] : null;
-    setFormData(prev => ({ ...prev, selectedWOAddress: selectedAddress }));
+  /* const handleWOAddressSelection = useCallback((selectedAddresses: SelectedAddress[]) => {
+    const selectedAddress = selectedAddresses.length > 0 ? selectedAddresses[0] : null;
+    setFormData(prev => ({ ...prev, selectedAddress: selectedAddress }));
   }, []); */
 
-  const handleWOAddressSelection = useCallback((selectedWOAddress: SelectedWOAddress) => {
-    setFormData(prev => ({ ...prev, selectedWOAddress }));
+  const handleWOAddressSelection = useCallback((selectedAddress: SelectedAddress) => {
+    setFormData(prev => ({ ...prev, selectedAddress }));
   }, []);
   
   const handleStartDateSelect = (date: Date | undefined) => { 
     console.log('Start Date selected:', date); 
     if (date) {
-      const isoString = date.toISOString();
-      console.log('Setting start date to:', isoString);
-      setFormData(prev => ({ ...prev, startDate: isoString })); 
+      // const isoString = date.toISOString();
+      // console.log('Setting start date to:', isoString);
+      const normalized = new Date(date.getFullYear(), date.getMonth(), date.getDate(), 12).toISOString(); // Noon to avoid UTC shifts.toISOString();
+      console.log('Setting start date to:', normalized, typeof normalized);
+      setFormData(prev => ({ ...prev, startDate: normalized })); 
     } else {
       setFormData(prev => ({ ...prev, startDate: '' })); 
     }
@@ -261,9 +376,11 @@ export const UpdateEvent: React.FC<UpdateEventProps> = ({
   const handleEndDateSelect = (date: Date | undefined) => { 
     console.log('End Date selected:', date); 
     if (date) {
-      const isoString = date.toISOString();
-      console.log('Setting end date to:', isoString);
-      setFormData(prev => ({ ...prev, endDate: isoString })); 
+      // const isoString = date.toISOString();
+      // console.log('Setting end date to:', isoString);
+      const normalized = new Date(date.getFullYear(), date.getMonth(), date.getDate(), 12).toISOString(); 
+      console.log('Setting end date to:', normalized, typeof normalized);
+      setFormData(prev => ({ ...prev, endDate: normalized })); 
     } else {
       setFormData(prev => ({ ...prev, endDate: '' })); 
     }
@@ -619,9 +736,9 @@ export const UpdateEvent: React.FC<UpdateEventProps> = ({
                       <AccordionTrigger className="bg-muted px-2 py-1 rounded-t-lg">
                         <div className="flex items-center space-x-2">
                           <span className="text-foreground font-semibold text-[14px] tracking-tight">Work Order Items</span>
-                          {formData.selectedWOItems.length > 0 && (
+                          {formData.selectedItems.length > 0 && (
                             <Badge variant="destructive" className="text-[9px] px-1 py-0.5 h-4">
-                              {formData.selectedWOItems.length}
+                              {formData.selectedItems.length}
                             </Badge>
                           )}
                         </div>
@@ -643,9 +760,9 @@ export const UpdateEvent: React.FC<UpdateEventProps> = ({
                       <AccordionTrigger className="bg-muted px-2 py-1 rounded-t-lg">
                         <div className="flex items-center space-x-2">
                           <span className="text-foreground font-semibold text-[14px] tracking-tight">Work Order Contacts</span>
-                          {formData.selectedWOContacts.length > 0 && (
+                          {formData.selectedContacts.length > 0 && (
                             <Badge variant="destructive" className="text-[9px] px-1 py-0.5 h-4">
-                              {formData.selectedWOContacts.length}
+                              {formData.selectedContacts.length}
                             </Badge>
                           )}
                         </div>
@@ -685,11 +802,40 @@ export const UpdateEvent: React.FC<UpdateEventProps> = ({
           </ScrollArea>
 
           <DialogFooter className="mt-2 flex-shrink-0">
-            <Button variant="outline" onClick={onClose} className="text-[12px] h-8 px-3 tracking-tight">Cancel</Button>
-            <Button onClick={handleSubmit} className="text-[12px] h-8 px-3 tracking-tight">Update</Button>
+            <Button variant="outline" onClick={onClose}>Cancel</Button>
+            <Button onClick={handleSubmit}>Update</Button>
           </DialogFooter>
         </DialogContent>
       </Dialog>
+
+      {/* Confirmation Dialog */}
+      <AlertDialog open={showConfirmDialog} onOpenChange={setShowConfirmDialog}>
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle>Confirm Update</AlertDialogTitle>
+            <AlertDialogDescription>
+              Are you sure you want to update the event "{formData.eventTitle}"? This action will modify the existing event details.
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogCancel disabled={isUpdating}>Cancel</AlertDialogCancel>
+            <AlertDialogAction 
+              onClick={handleConfirmUpdate} 
+              disabled={isUpdating}
+              className="bg-primary text-primary-foreground hover:bg-primary/90"
+            >
+              {isUpdating ? (
+                <>
+                  <Loader className="mr-2 h-4 w-4 animate-spin" />
+                  Updating...
+                </>
+              ) : (
+                "Update Event"
+              )}
+            </AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
 
       {/* Create Routing Group Modal */}
       <CreateRoutingGroupModal

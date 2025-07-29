@@ -58,8 +58,8 @@ export const AssetTable: React.FC<AssetTableProps> = ({
   woAssets = [],
   onUpdate,
   preselectedAssetIds = [],
-  prefilledStartTime = '08:00',
-  prefilledEndTime = '18:00'
+  prefilledStartTime = '',
+  prefilledEndTime = ''
 }) => {
   const [globalFilter, setGlobalFilter] = useState('');
   const [sorting, setSorting] = useState<SortingState>([]);

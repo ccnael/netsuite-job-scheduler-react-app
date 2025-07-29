@@ -3608,7 +3608,6 @@ const mockWOAddresses: WOAddress[] = [{
 
 export const fetchWOAddresses = async (woId: string, eventId: string): Promise<WOAddress[]> => {
   if (isLocalDevelopment()) {
-    console.log('Using mock address data for local development');
     return new Promise((resolve) => {
       setTimeout(() => resolve(woId ? mockWOAddresses.filter(x => x.workorder.value == woId) : mockWOAddresses), 500);
     });

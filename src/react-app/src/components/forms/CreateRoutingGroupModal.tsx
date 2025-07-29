@@ -6,6 +6,7 @@ import { Label } from "@/components/ui/label";
 import { suiteletUrl } from '@/lib/constants';
 import { fetchRoutingGroups, RoutingGroup } from "@/api/routingGroup";
 import { toast } from 'sonner';
+import { Loader } from "lucide-react";
 
 interface CreateRoutingGroupModalProps {
   open: boolean;
@@ -23,11 +24,13 @@ export const CreateRoutingGroupModal: React.FC<CreateRoutingGroupModalProps> = (
   const [newGroupName, setNewGroupName] = useState('');
   const [creatingRoutingGroup, setCreatingRoutingGroup] = useState(false);
 
-  const handleCreateRoutingGroup = async () => {
+  const handleCreateRoutingGroup = async (e: React.MouseEvent) => {
+    e.preventDefault(); // Prevent default AlertDialogAction behavior
     if (!newGroupName.trim()) return;
 
     setCreatingRoutingGroup(true);
     // Notify parent that loading has started
+    // TBR
     if (onLoadingChange) {
       onLoadingChange(true);
     }
@@ -95,7 +98,7 @@ export const CreateRoutingGroupModal: React.FC<CreateRoutingGroupModalProps> = (
         </AlertDialogHeader>
         <div className="py-4">
           <Label htmlFor="group-name" className="text-[12px] tracking-tight">
-            Group Name <span className="text-red-500">*</span>
+            Routing Group Name <span className="text-red-500">*</span>
           </Label>
           <Input
             id="group-name"
@@ -103,26 +106,32 @@ export const CreateRoutingGroupModal: React.FC<CreateRoutingGroupModalProps> = (
             onChange={(e) => setNewGroupName(e.target.value)}
             placeholder="Enter group name"
             className="mt-2 h-8 text-[12px]"
-            onKeyDown={(e) => {
-              if (e.key === 'Enter' && newGroupName.trim()) {
-                handleCreateRoutingGroup();
-              }
-            }}
+            // onKeyDown={(e) => {
+            //   if (e.key === 'Enter' && newGroupName.trim()) {
+            //     handleCreateRoutingGroup(e);
+            //   }
+            // }}
           />
         </div>
         <AlertDialogFooter>
           <AlertDialogCancel 
-            className="text-[12px] h-7 px-3"
             onClick={handleClose}
+            disabled={creatingRoutingGroup}
           >
             Cancel
           </AlertDialogCancel>
           <AlertDialogAction
-            className="text-[12px] h-7 px-3"
             onClick={handleCreateRoutingGroup}
             disabled={!newGroupName.trim() || creatingRoutingGroup}
           >
-            {creatingRoutingGroup ? 'Creating...' : 'Create'}
+            {creatingRoutingGroup ? (
+              <>
+                <Loader className="mr-2 h-4 w-4 animate-spin" />
+                Creating...
+              </>
+            ) : (
+              'Create'
+            )}
           </AlertDialogAction>
         </AlertDialogFooter>
       </AlertDialogContent>

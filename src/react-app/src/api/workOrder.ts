@@ -6029,7 +6029,6 @@ const getMockWorkOrders = (): WorkOrder[] => {
 
 export const fetchWorkOrders = async (): Promise<WorkOrder[]> => {
   if (isLocalDevelopment()) {
-    console.log('Using mock work order data for local development');
     return new Promise((resolve) => {
       setTimeout(() => resolve(getMockWorkOrders()), 500);
     });

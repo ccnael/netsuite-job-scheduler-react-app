@@ -63,23 +63,29 @@ export interface WOResource {
 
 // Mockup data for local development
 const mockWOResources: WOResource[] = [{
-    "id": "484",
+    "id": "529",
     "name": "Aiden Somerhalder",
     "initials": "AS",
     "email": "admin@ramsey.com",
     "phone": "",
     "active": true,
     "workorder": {
-      "text": "",
-      "value": ""
+      "text": "Lobby Area - Product Core Dryrun",
+      "value": "138"
     },
-    "event": "101183",
+    "event": "101208",
     "employee": {
       "text": "Aiden Somerhalder",
       "value": "1524"
     },
-    "resourceGroups": [],
-    "types": [],
+    "resourceGroups": [{
+      "text": "Installers",
+      "value": "1"
+    }],
+    "types": [{
+      "text": "Installer",
+      "value": "1"
+    }],
     "subTypes": [],
     "rate": 0,
     "vendor": {
@@ -95,13 +101,99 @@ const mockWOResources: WOResource[] = [{
       "value": "1"
     },
     "time": {
-      "start": "00:00",
-      "end": "00:15"
+      "start": "09:00",
+      "end": "13:00"
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Welding",
+        "value": "6"
+      },
+      {
+        "text": "Woodworking",
+        "value": "4"
+      }
+    ],
     "location": {
       "text": "01: San Francisco",
       "value": "2"
+    },
+    "department": {
+      "text": "",
+      "value": ""
+    }
+  },
+  {
+    "id": "531",
+    "name": "Arun Sharma",
+    "initials": "AS",
+    "email": "aruns.unlock2go@gmail.com",
+    "phone": "",
+    "active": true,
+    "workorder": {
+      "text": "Lobby Area - Product Core Dryrun",
+      "value": "138"
+    },
+    "event": "101211",
+    "employee": {
+      "text": "Arun Sharma",
+      "value": "1770"
+    },
+    "resourceGroups": [{
+        "text": "Designers",
+        "value": "2"
+      },
+      {
+        "text": "Drivers",
+        "value": "3"
+      },
+      {
+        "text": "Installers",
+        "value": "1"
+      }
+    ],
+    "types": [{
+        "text": "Delivery Driver",
+        "value": "2"
+      },
+      {
+        "text": "Designer",
+        "value": "3"
+      },
+      {
+        "text": "Installer",
+        "value": "1"
+      }
+    ],
+    "subTypes": [],
+    "rate": 0,
+    "vendor": {
+      "text": "",
+      "value": ""
+    },
+    "purchaseOrder": {
+      "text": " ",
+      "value": ""
+    },
+    "affiliationType": {
+      "text": "In-House",
+      "value": "1"
+    },
+    "time": {
+      "start": "12:00",
+      "end": "16:00"
+    },
+    "resourceSkills": [{
+        "text": "Driving",
+        "value": "3"
+      },
+      {
+        "text": "Plumbing",
+        "value": "2"
+      }
+    ],
+    "location": {
+      "text": "02: Boston",
+      "value": "1"
     },
     "department": {
       "text": "",
@@ -216,8 +308,14 @@ const mockWOResources: WOResource[] = [{
       "text": "Mei Matriano",
       "value": "1647"
     },
-    "resourceGroups": [],
-    "types": [],
+    "resourceGroups": [{
+      "text": "Designers",
+      "value": "2"
+    }],
+    "types": [{
+      "text": "Installer",
+      "value": "1"
+    }],
     "subTypes": [],
     "rate": 0,
     "vendor": {
@@ -236,7 +334,19 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Material Knowledge",
+        "value": "9"
+      },
+      {
+        "text": "Metalworking",
+        "value": "5"
+      },
+      {
+        "text": "Welding",
+        "value": "6"
+      }
+    ],
     "location": {
       "text": "New York",
       "value": "15"
@@ -262,8 +372,14 @@ const mockWOResources: WOResource[] = [{
       "text": "Bonita Kane",
       "value": "912"
     },
-    "resourceGroups": [],
-    "types": [],
+    "resourceGroups": [{
+      "text": "Installers",
+      "value": "1"
+    }],
+    "types": [{
+      "text": "Installer",
+      "value": "1"
+    }],
     "subTypes": [],
     "rate": 0,
     "vendor": {
@@ -282,7 +398,19 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Computer-Aided Design (CAD)",
+        "value": "8"
+      },
+      {
+        "text": "Furniture Assembly",
+        "value": "1"
+      },
+      {
+        "text": "Quality Control",
+        "value": "13"
+      }
+    ],
     "location": {
       "text": "02: Boston",
       "value": "1"
@@ -308,8 +436,14 @@ const mockWOResources: WOResource[] = [{
       "text": "Gary Grant",
       "value": "1312"
     },
-    "resourceGroups": [],
-    "types": [],
+    "resourceGroups": [{
+      "text": "Installers",
+      "value": "1"
+    }],
+    "types": [{
+      "text": "Installer",
+      "value": "1"
+    }],
     "subTypes": [],
     "rate": 0,
     "vendor": {
@@ -328,7 +462,15 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "CNC Machining",
+        "value": "12"
+      },
+      {
+        "text": "Driving",
+        "value": "3"
+      }
+    ],
     "location": {
       "text": "02: Boston",
       "value": "1"
@@ -354,8 +496,14 @@ const mockWOResources: WOResource[] = [{
       "text": "Mei Matriano",
       "value": "1647"
     },
-    "resourceGroups": [],
-    "types": [],
+    "resourceGroups": [{
+      "text": "Designers",
+      "value": "2"
+    }],
+    "types": [{
+      "text": "Installer",
+      "value": "1"
+    }],
     "subTypes": [],
     "rate": 0,
     "vendor": {
@@ -374,7 +522,19 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Material Knowledge",
+        "value": "9"
+      },
+      {
+        "text": "Metalworking",
+        "value": "5"
+      },
+      {
+        "text": "Welding",
+        "value": "6"
+      }
+    ],
     "location": {
       "text": "New York",
       "value": "15"
@@ -400,8 +560,14 @@ const mockWOResources: WOResource[] = [{
       "text": "Bonita Kane",
       "value": "912"
     },
-    "resourceGroups": [],
-    "types": [],
+    "resourceGroups": [{
+      "text": "Installers",
+      "value": "1"
+    }],
+    "types": [{
+      "text": "Installer",
+      "value": "1"
+    }],
     "subTypes": [],
     "rate": 300,
     "vendor": {
@@ -420,7 +586,19 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Computer-Aided Design (CAD)",
+        "value": "8"
+      },
+      {
+        "text": "Furniture Assembly",
+        "value": "1"
+      },
+      {
+        "text": "Quality Control",
+        "value": "13"
+      }
+    ],
     "location": {
       "text": "02: Boston",
       "value": "1"
@@ -446,8 +624,14 @@ const mockWOResources: WOResource[] = [{
       "text": "Gary Grant",
       "value": "1312"
     },
-    "resourceGroups": [],
-    "types": [],
+    "resourceGroups": [{
+      "text": "Installers",
+      "value": "1"
+    }],
+    "types": [{
+      "text": "Installer",
+      "value": "1"
+    }],
     "subTypes": [],
     "rate": 300,
     "vendor": {
@@ -466,7 +650,15 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "CNC Machining",
+        "value": "12"
+      },
+      {
+        "text": "Driving",
+        "value": "3"
+      }
+    ],
     "location": {
       "text": "02: Boston",
       "value": "1"
@@ -492,8 +684,14 @@ const mockWOResources: WOResource[] = [{
       "text": "Matt Nolan",
       "value": "1292"
     },
-    "resourceGroups": [],
-    "types": [],
+    "resourceGroups": [{
+      "text": "Installers",
+      "value": "1"
+    }],
+    "types": [{
+      "text": "Installer",
+      "value": "1"
+    }],
     "subTypes": [],
     "rate": 350,
     "vendor": {
@@ -512,7 +710,19 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Interior Design",
+        "value": "14"
+      },
+      {
+        "text": "Material Knowledge",
+        "value": "9"
+      },
+      {
+        "text": "Quality Control",
+        "value": "13"
+      }
+    ],
     "location": {
       "text": "01: San Francisco",
       "value": "2"
@@ -538,8 +748,14 @@ const mockWOResources: WOResource[] = [{
       "text": "Mei Matriano",
       "value": "1647"
     },
-    "resourceGroups": [],
-    "types": [],
+    "resourceGroups": [{
+      "text": "Designers",
+      "value": "2"
+    }],
+    "types": [{
+      "text": "Installer",
+      "value": "1"
+    }],
     "subTypes": [],
     "rate": 500,
     "vendor": {
@@ -558,7 +774,19 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Material Knowledge",
+        "value": "9"
+      },
+      {
+        "text": "Metalworking",
+        "value": "5"
+      },
+      {
+        "text": "Welding",
+        "value": "6"
+      }
+    ],
     "location": {
       "text": "New York",
       "value": "15"
@@ -584,8 +812,14 @@ const mockWOResources: WOResource[] = [{
       "text": "Bonita Kane",
       "value": "912"
     },
-    "resourceGroups": [],
-    "types": [],
+    "resourceGroups": [{
+      "text": "Installers",
+      "value": "1"
+    }],
+    "types": [{
+      "text": "Installer",
+      "value": "1"
+    }],
     "subTypes": [],
     "rate": 0,
     "vendor": {
@@ -604,7 +838,19 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Computer-Aided Design (CAD)",
+        "value": "8"
+      },
+      {
+        "text": "Furniture Assembly",
+        "value": "1"
+      },
+      {
+        "text": "Quality Control",
+        "value": "13"
+      }
+    ],
     "location": {
       "text": "02: Boston",
       "value": "1"
@@ -630,8 +876,14 @@ const mockWOResources: WOResource[] = [{
       "text": "Mei Matriano",
       "value": "1647"
     },
-    "resourceGroups": [],
-    "types": [],
+    "resourceGroups": [{
+      "text": "Designers",
+      "value": "2"
+    }],
+    "types": [{
+      "text": "Installer",
+      "value": "1"
+    }],
     "subTypes": [],
     "rate": 0,
     "vendor": {
@@ -650,7 +902,19 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Material Knowledge",
+        "value": "9"
+      },
+      {
+        "text": "Metalworking",
+        "value": "5"
+      },
+      {
+        "text": "Welding",
+        "value": "6"
+      }
+    ],
     "location": {
       "text": "New York",
       "value": "15"
@@ -676,8 +940,32 @@ const mockWOResources: WOResource[] = [{
       "text": "Bea Quilinguin",
       "value": "1767"
     },
-    "resourceGroups": [],
-    "types": [],
+    "resourceGroups": [{
+        "text": "Designers",
+        "value": "2"
+      },
+      {
+        "text": "Drivers",
+        "value": "3"
+      },
+      {
+        "text": "Installers",
+        "value": "1"
+      }
+    ],
+    "types": [{
+        "text": "Delivery Driver",
+        "value": "2"
+      },
+      {
+        "text": "Designer",
+        "value": "3"
+      },
+      {
+        "text": "Installer",
+        "value": "1"
+      }
+    ],
     "subTypes": [],
     "rate": 0,
     "vendor": {
@@ -696,7 +984,19 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "CNC Machining",
+        "value": "12"
+      },
+      {
+        "text": "Furniture Design",
+        "value": "7"
+      },
+      {
+        "text": "Interior Design",
+        "value": "14"
+      }
+    ],
     "location": {
       "text": "01: San Francisco",
       "value": "2"
@@ -722,8 +1022,14 @@ const mockWOResources: WOResource[] = [{
       "text": "Matt Nolan",
       "value": "1292"
     },
-    "resourceGroups": [],
-    "types": [],
+    "resourceGroups": [{
+      "text": "Installers",
+      "value": "1"
+    }],
+    "types": [{
+      "text": "Installer",
+      "value": "1"
+    }],
     "subTypes": [],
     "rate": 0,
     "vendor": {
@@ -742,7 +1048,19 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Interior Design",
+        "value": "14"
+      },
+      {
+        "text": "Material Knowledge",
+        "value": "9"
+      },
+      {
+        "text": "Quality Control",
+        "value": "13"
+      }
+    ],
     "location": {
       "text": "01: San Francisco",
       "value": "2"
@@ -768,8 +1086,14 @@ const mockWOResources: WOResource[] = [{
       "text": "Mei Matriano",
       "value": "1647"
     },
-    "resourceGroups": [],
-    "types": [],
+    "resourceGroups": [{
+      "text": "Designers",
+      "value": "2"
+    }],
+    "types": [{
+      "text": "Installer",
+      "value": "1"
+    }],
     "subTypes": [],
     "rate": 0,
     "vendor": {
@@ -788,7 +1112,19 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Material Knowledge",
+        "value": "9"
+      },
+      {
+        "text": "Metalworking",
+        "value": "5"
+      },
+      {
+        "text": "Welding",
+        "value": "6"
+      }
+    ],
     "location": {
       "text": "New York",
       "value": "15"
@@ -814,8 +1150,32 @@ const mockWOResources: WOResource[] = [{
       "text": "Bea Quilinguin",
       "value": "1767"
     },
-    "resourceGroups": [],
-    "types": [],
+    "resourceGroups": [{
+        "text": "Designers",
+        "value": "2"
+      },
+      {
+        "text": "Drivers",
+        "value": "3"
+      },
+      {
+        "text": "Installers",
+        "value": "1"
+      }
+    ],
+    "types": [{
+        "text": "Delivery Driver",
+        "value": "2"
+      },
+      {
+        "text": "Designer",
+        "value": "3"
+      },
+      {
+        "text": "Installer",
+        "value": "1"
+      }
+    ],
     "subTypes": [],
     "rate": 0,
     "vendor": {
@@ -834,7 +1194,19 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "CNC Machining",
+        "value": "12"
+      },
+      {
+        "text": "Furniture Design",
+        "value": "7"
+      },
+      {
+        "text": "Interior Design",
+        "value": "14"
+      }
+    ],
     "location": {
       "text": "01: San Francisco",
       "value": "2"
@@ -860,7 +1232,10 @@ const mockWOResources: WOResource[] = [{
       "text": "Rowe Riomalos",
       "value": "1766"
     },
-    "resourceGroups": [],
+    "resourceGroups": [{
+      "text": "Designers",
+      "value": "2"
+    }],
     "types": [],
     "subTypes": [],
     "rate": 0,
@@ -880,7 +1255,19 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Plumbing",
+        "value": "2"
+      },
+      {
+        "text": "Upholstery",
+        "value": "11"
+      },
+      {
+        "text": "Woodworking",
+        "value": "4"
+      }
+    ],
     "location": {
       "text": "",
       "value": ""
@@ -906,8 +1293,14 @@ const mockWOResources: WOResource[] = [{
       "text": "Matt Nolan",
       "value": "1292"
     },
-    "resourceGroups": [],
-    "types": [],
+    "resourceGroups": [{
+      "text": "Installers",
+      "value": "1"
+    }],
+    "types": [{
+      "text": "Installer",
+      "value": "1"
+    }],
     "subTypes": [],
     "rate": 0,
     "vendor": {
@@ -926,7 +1319,19 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Interior Design",
+        "value": "14"
+      },
+      {
+        "text": "Material Knowledge",
+        "value": "9"
+      },
+      {
+        "text": "Quality Control",
+        "value": "13"
+      }
+    ],
     "location": {
       "text": "01: San Francisco",
       "value": "2"
@@ -952,8 +1357,14 @@ const mockWOResources: WOResource[] = [{
       "text": "Mei Matriano",
       "value": "1647"
     },
-    "resourceGroups": [],
-    "types": [],
+    "resourceGroups": [{
+      "text": "Designers",
+      "value": "2"
+    }],
+    "types": [{
+      "text": "Installer",
+      "value": "1"
+    }],
     "subTypes": [],
     "rate": 0,
     "vendor": {
@@ -972,7 +1383,19 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Material Knowledge",
+        "value": "9"
+      },
+      {
+        "text": "Metalworking",
+        "value": "5"
+      },
+      {
+        "text": "Welding",
+        "value": "6"
+      }
+    ],
     "location": {
       "text": "New York",
       "value": "15"
@@ -998,8 +1421,32 @@ const mockWOResources: WOResource[] = [{
       "text": "Bea Quilinguin",
       "value": "1767"
     },
-    "resourceGroups": [],
-    "types": [],
+    "resourceGroups": [{
+        "text": "Designers",
+        "value": "2"
+      },
+      {
+        "text": "Drivers",
+        "value": "3"
+      },
+      {
+        "text": "Installers",
+        "value": "1"
+      }
+    ],
+    "types": [{
+        "text": "Delivery Driver",
+        "value": "2"
+      },
+      {
+        "text": "Designer",
+        "value": "3"
+      },
+      {
+        "text": "Installer",
+        "value": "1"
+      }
+    ],
     "subTypes": [],
     "rate": 0,
     "vendor": {
@@ -1018,7 +1465,19 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "CNC Machining",
+        "value": "12"
+      },
+      {
+        "text": "Furniture Design",
+        "value": "7"
+      },
+      {
+        "text": "Interior Design",
+        "value": "14"
+      }
+    ],
     "location": {
       "text": "01: San Francisco",
       "value": "2"
@@ -1044,7 +1503,10 @@ const mockWOResources: WOResource[] = [{
       "text": "Rowe Riomalos",
       "value": "1766"
     },
-    "resourceGroups": [],
+    "resourceGroups": [{
+      "text": "Designers",
+      "value": "2"
+    }],
     "types": [],
     "subTypes": [],
     "rate": 0,
@@ -1064,7 +1526,19 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Plumbing",
+        "value": "2"
+      },
+      {
+        "text": "Upholstery",
+        "value": "11"
+      },
+      {
+        "text": "Woodworking",
+        "value": "4"
+      }
+    ],
     "location": {
       "text": "",
       "value": ""
@@ -1090,8 +1564,14 @@ const mockWOResources: WOResource[] = [{
       "text": "Matt Nolan",
       "value": "1292"
     },
-    "resourceGroups": [],
-    "types": [],
+    "resourceGroups": [{
+      "text": "Installers",
+      "value": "1"
+    }],
+    "types": [{
+      "text": "Installer",
+      "value": "1"
+    }],
     "subTypes": [],
     "rate": 0,
     "vendor": {
@@ -1110,7 +1590,19 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Interior Design",
+        "value": "14"
+      },
+      {
+        "text": "Material Knowledge",
+        "value": "9"
+      },
+      {
+        "text": "Quality Control",
+        "value": "13"
+      }
+    ],
     "location": {
       "text": "01: San Francisco",
       "value": "2"
@@ -1136,8 +1628,14 @@ const mockWOResources: WOResource[] = [{
       "text": "Mei Matriano",
       "value": "1647"
     },
-    "resourceGroups": [],
-    "types": [],
+    "resourceGroups": [{
+      "text": "Designers",
+      "value": "2"
+    }],
+    "types": [{
+      "text": "Installer",
+      "value": "1"
+    }],
     "subTypes": [],
     "rate": 0,
     "vendor": {
@@ -1156,7 +1654,19 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Material Knowledge",
+        "value": "9"
+      },
+      {
+        "text": "Metalworking",
+        "value": "5"
+      },
+      {
+        "text": "Welding",
+        "value": "6"
+      }
+    ],
     "location": {
       "text": "New York",
       "value": "15"
@@ -1182,7 +1692,10 @@ const mockWOResources: WOResource[] = [{
       "text": "Rowe Riomalos",
       "value": "1766"
     },
-    "resourceGroups": [],
+    "resourceGroups": [{
+      "text": "Designers",
+      "value": "2"
+    }],
     "types": [],
     "subTypes": [],
     "rate": 0,
@@ -1202,7 +1715,19 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Plumbing",
+        "value": "2"
+      },
+      {
+        "text": "Upholstery",
+        "value": "11"
+      },
+      {
+        "text": "Woodworking",
+        "value": "4"
+      }
+    ],
     "location": {
       "text": "",
       "value": ""
@@ -1228,8 +1753,14 @@ const mockWOResources: WOResource[] = [{
       "text": "Gary Grant",
       "value": "1312"
     },
-    "resourceGroups": [],
-    "types": [],
+    "resourceGroups": [{
+      "text": "Installers",
+      "value": "1"
+    }],
+    "types": [{
+      "text": "Installer",
+      "value": "1"
+    }],
     "subTypes": [],
     "rate": 0,
     "vendor": {
@@ -1248,7 +1779,15 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "CNC Machining",
+        "value": "12"
+      },
+      {
+        "text": "Driving",
+        "value": "3"
+      }
+    ],
     "location": {
       "text": "02: Boston",
       "value": "1"
@@ -1274,8 +1813,14 @@ const mockWOResources: WOResource[] = [{
       "text": "Bonita Kane",
       "value": "912"
     },
-    "resourceGroups": [],
-    "types": [],
+    "resourceGroups": [{
+      "text": "Installers",
+      "value": "1"
+    }],
+    "types": [{
+      "text": "Installer",
+      "value": "1"
+    }],
     "subTypes": [],
     "rate": 0,
     "vendor": {
@@ -1294,7 +1839,19 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Computer-Aided Design (CAD)",
+        "value": "8"
+      },
+      {
+        "text": "Furniture Assembly",
+        "value": "1"
+      },
+      {
+        "text": "Quality Control",
+        "value": "13"
+      }
+    ],
     "location": {
       "text": "02: Boston",
       "value": "1"
@@ -1320,8 +1877,14 @@ const mockWOResources: WOResource[] = [{
       "text": "Bonita Kane",
       "value": "912"
     },
-    "resourceGroups": [],
-    "types": [],
+    "resourceGroups": [{
+      "text": "Installers",
+      "value": "1"
+    }],
+    "types": [{
+      "text": "Installer",
+      "value": "1"
+    }],
     "subTypes": [],
     "rate": 0,
     "vendor": {
@@ -1340,7 +1903,19 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Computer-Aided Design (CAD)",
+        "value": "8"
+      },
+      {
+        "text": "Furniture Assembly",
+        "value": "1"
+      },
+      {
+        "text": "Quality Control",
+        "value": "13"
+      }
+    ],
     "location": {
       "text": "02: Boston",
       "value": "1"
@@ -1366,8 +1941,14 @@ const mockWOResources: WOResource[] = [{
       "text": "Gary Grant",
       "value": "1312"
     },
-    "resourceGroups": [],
-    "types": [],
+    "resourceGroups": [{
+      "text": "Installers",
+      "value": "1"
+    }],
+    "types": [{
+      "text": "Installer",
+      "value": "1"
+    }],
     "subTypes": [],
     "rate": 0,
     "vendor": {
@@ -1386,7 +1967,15 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "CNC Machining",
+        "value": "12"
+      },
+      {
+        "text": "Driving",
+        "value": "3"
+      }
+    ],
     "location": {
       "text": "02: Boston",
       "value": "1"
@@ -1412,8 +2001,14 @@ const mockWOResources: WOResource[] = [{
       "text": "Mei Matriano",
       "value": "1647"
     },
-    "resourceGroups": [],
-    "types": [],
+    "resourceGroups": [{
+      "text": "Designers",
+      "value": "2"
+    }],
+    "types": [{
+      "text": "Installer",
+      "value": "1"
+    }],
     "subTypes": [],
     "rate": 0,
     "vendor": {
@@ -1432,7 +2027,19 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Material Knowledge",
+        "value": "9"
+      },
+      {
+        "text": "Metalworking",
+        "value": "5"
+      },
+      {
+        "text": "Welding",
+        "value": "6"
+      }
+    ],
     "location": {
       "text": "New York",
       "value": "15"
@@ -1458,8 +2065,14 @@ const mockWOResources: WOResource[] = [{
       "text": "Bonita Kane",
       "value": "912"
     },
-    "resourceGroups": [],
-    "types": [],
+    "resourceGroups": [{
+      "text": "Installers",
+      "value": "1"
+    }],
+    "types": [{
+      "text": "Installer",
+      "value": "1"
+    }],
     "subTypes": [],
     "rate": 0,
     "vendor": {
@@ -1478,7 +2091,19 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Computer-Aided Design (CAD)",
+        "value": "8"
+      },
+      {
+        "text": "Furniture Assembly",
+        "value": "1"
+      },
+      {
+        "text": "Quality Control",
+        "value": "13"
+      }
+    ],
     "location": {
       "text": "02: Boston",
       "value": "1"
@@ -1504,8 +2129,14 @@ const mockWOResources: WOResource[] = [{
       "text": "Gary Grant",
       "value": "1312"
     },
-    "resourceGroups": [],
-    "types": [],
+    "resourceGroups": [{
+      "text": "Installers",
+      "value": "1"
+    }],
+    "types": [{
+      "text": "Installer",
+      "value": "1"
+    }],
     "subTypes": [],
     "rate": 0,
     "vendor": {
@@ -1524,7 +2155,15 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "CNC Machining",
+        "value": "12"
+      },
+      {
+        "text": "Driving",
+        "value": "3"
+      }
+    ],
     "location": {
       "text": "02: Boston",
       "value": "1"
@@ -1550,8 +2189,32 @@ const mockWOResources: WOResource[] = [{
       "text": "Bea Quilinguin",
       "value": "1767"
     },
-    "resourceGroups": [],
-    "types": [],
+    "resourceGroups": [{
+        "text": "Designers",
+        "value": "2"
+      },
+      {
+        "text": "Drivers",
+        "value": "3"
+      },
+      {
+        "text": "Installers",
+        "value": "1"
+      }
+    ],
+    "types": [{
+        "text": "Delivery Driver",
+        "value": "2"
+      },
+      {
+        "text": "Designer",
+        "value": "3"
+      },
+      {
+        "text": "Installer",
+        "value": "1"
+      }
+    ],
     "subTypes": [],
     "rate": 0,
     "vendor": {
@@ -1570,7 +2233,19 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "CNC Machining",
+        "value": "12"
+      },
+      {
+        "text": "Furniture Design",
+        "value": "7"
+      },
+      {
+        "text": "Interior Design",
+        "value": "14"
+      }
+    ],
     "location": {
       "text": "01: San Francisco",
       "value": "2"
@@ -1596,8 +2271,14 @@ const mockWOResources: WOResource[] = [{
       "text": "Matt Nolan",
       "value": "1292"
     },
-    "resourceGroups": [],
-    "types": [],
+    "resourceGroups": [{
+      "text": "Installers",
+      "value": "1"
+    }],
+    "types": [{
+      "text": "Installer",
+      "value": "1"
+    }],
     "subTypes": [],
     "rate": 0,
     "vendor": {
@@ -1616,7 +2297,19 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Interior Design",
+        "value": "14"
+      },
+      {
+        "text": "Material Knowledge",
+        "value": "9"
+      },
+      {
+        "text": "Quality Control",
+        "value": "13"
+      }
+    ],
     "location": {
       "text": "01: San Francisco",
       "value": "2"
@@ -1642,8 +2335,14 @@ const mockWOResources: WOResource[] = [{
       "text": "Mei Matriano",
       "value": "1647"
     },
-    "resourceGroups": [],
-    "types": [],
+    "resourceGroups": [{
+      "text": "Designers",
+      "value": "2"
+    }],
+    "types": [{
+      "text": "Installer",
+      "value": "1"
+    }],
     "subTypes": [],
     "rate": 0,
     "vendor": {
@@ -1662,7 +2361,19 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Material Knowledge",
+        "value": "9"
+      },
+      {
+        "text": "Metalworking",
+        "value": "5"
+      },
+      {
+        "text": "Welding",
+        "value": "6"
+      }
+    ],
     "location": {
       "text": "New York",
       "value": "15"
@@ -1688,7 +2399,10 @@ const mockWOResources: WOResource[] = [{
       "text": "Rowe Riomalos",
       "value": "1766"
     },
-    "resourceGroups": [],
+    "resourceGroups": [{
+      "text": "Designers",
+      "value": "2"
+    }],
     "types": [],
     "subTypes": [],
     "rate": 0,
@@ -1708,7 +2422,19 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Plumbing",
+        "value": "2"
+      },
+      {
+        "text": "Upholstery",
+        "value": "11"
+      },
+      {
+        "text": "Woodworking",
+        "value": "4"
+      }
+    ],
     "location": {
       "text": "",
       "value": ""
@@ -1734,8 +2460,32 @@ const mockWOResources: WOResource[] = [{
       "text": "Bea Quilinguin",
       "value": "1767"
     },
-    "resourceGroups": [],
-    "types": [],
+    "resourceGroups": [{
+        "text": "Designers",
+        "value": "2"
+      },
+      {
+        "text": "Drivers",
+        "value": "3"
+      },
+      {
+        "text": "Installers",
+        "value": "1"
+      }
+    ],
+    "types": [{
+        "text": "Delivery Driver",
+        "value": "2"
+      },
+      {
+        "text": "Designer",
+        "value": "3"
+      },
+      {
+        "text": "Installer",
+        "value": "1"
+      }
+    ],
     "subTypes": [],
     "rate": 0,
     "vendor": {
@@ -1754,7 +2504,19 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "CNC Machining",
+        "value": "12"
+      },
+      {
+        "text": "Furniture Design",
+        "value": "7"
+      },
+      {
+        "text": "Interior Design",
+        "value": "14"
+      }
+    ],
     "location": {
       "text": "01: San Francisco",
       "value": "2"
@@ -1780,8 +2542,14 @@ const mockWOResources: WOResource[] = [{
       "text": "Bonita Kane",
       "value": "912"
     },
-    "resourceGroups": [],
-    "types": [],
+    "resourceGroups": [{
+      "text": "Installers",
+      "value": "1"
+    }],
+    "types": [{
+      "text": "Installer",
+      "value": "1"
+    }],
     "subTypes": [],
     "rate": 0,
     "vendor": {
@@ -1800,7 +2568,19 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Computer-Aided Design (CAD)",
+        "value": "8"
+      },
+      {
+        "text": "Furniture Assembly",
+        "value": "1"
+      },
+      {
+        "text": "Quality Control",
+        "value": "13"
+      }
+    ],
     "location": {
       "text": "02: Boston",
       "value": "1"
@@ -1826,8 +2606,14 @@ const mockWOResources: WOResource[] = [{
       "text": "Gary Grant",
       "value": "1312"
     },
-    "resourceGroups": [],
-    "types": [],
+    "resourceGroups": [{
+      "text": "Installers",
+      "value": "1"
+    }],
+    "types": [{
+      "text": "Installer",
+      "value": "1"
+    }],
     "subTypes": [],
     "rate": 0,
     "vendor": {
@@ -1846,7 +2632,15 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "CNC Machining",
+        "value": "12"
+      },
+      {
+        "text": "Driving",
+        "value": "3"
+      }
+    ],
     "location": {
       "text": "02: Boston",
       "value": "1"
@@ -1872,8 +2666,32 @@ const mockWOResources: WOResource[] = [{
       "text": "Bea Quilinguin",
       "value": "1767"
     },
-    "resourceGroups": [],
-    "types": [],
+    "resourceGroups": [{
+        "text": "Designers",
+        "value": "2"
+      },
+      {
+        "text": "Drivers",
+        "value": "3"
+      },
+      {
+        "text": "Installers",
+        "value": "1"
+      }
+    ],
+    "types": [{
+        "text": "Delivery Driver",
+        "value": "2"
+      },
+      {
+        "text": "Designer",
+        "value": "3"
+      },
+      {
+        "text": "Installer",
+        "value": "1"
+      }
+    ],
     "subTypes": [],
     "rate": 0,
     "vendor": {
@@ -1892,7 +2710,19 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "CNC Machining",
+        "value": "12"
+      },
+      {
+        "text": "Furniture Design",
+        "value": "7"
+      },
+      {
+        "text": "Interior Design",
+        "value": "14"
+      }
+    ],
     "location": {
       "text": "01: San Francisco",
       "value": "2"
@@ -1918,7 +2748,10 @@ const mockWOResources: WOResource[] = [{
       "text": "Rowe Riomalos",
       "value": "1766"
     },
-    "resourceGroups": [],
+    "resourceGroups": [{
+      "text": "Designers",
+      "value": "2"
+    }],
     "types": [],
     "subTypes": [],
     "rate": 0,
@@ -1938,7 +2771,19 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Plumbing",
+        "value": "2"
+      },
+      {
+        "text": "Upholstery",
+        "value": "11"
+      },
+      {
+        "text": "Woodworking",
+        "value": "4"
+      }
+    ],
     "location": {
       "text": "",
       "value": ""
@@ -1964,7 +2809,10 @@ const mockWOResources: WOResource[] = [{
       "text": "Rowe Riomalos",
       "value": "1766"
     },
-    "resourceGroups": [],
+    "resourceGroups": [{
+      "text": "Designers",
+      "value": "2"
+    }],
     "types": [],
     "subTypes": [],
     "rate": 0,
@@ -1984,7 +2832,19 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Plumbing",
+        "value": "2"
+      },
+      {
+        "text": "Upholstery",
+        "value": "11"
+      },
+      {
+        "text": "Woodworking",
+        "value": "4"
+      }
+    ],
     "location": {
       "text": "",
       "value": ""
@@ -2010,8 +2870,14 @@ const mockWOResources: WOResource[] = [{
       "text": "Bonita Kane",
       "value": "912"
     },
-    "resourceGroups": [],
-    "types": [],
+    "resourceGroups": [{
+      "text": "Installers",
+      "value": "1"
+    }],
+    "types": [{
+      "text": "Installer",
+      "value": "1"
+    }],
     "subTypes": [],
     "rate": 0,
     "vendor": {
@@ -2030,7 +2896,19 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Computer-Aided Design (CAD)",
+        "value": "8"
+      },
+      {
+        "text": "Furniture Assembly",
+        "value": "1"
+      },
+      {
+        "text": "Quality Control",
+        "value": "13"
+      }
+    ],
     "location": {
       "text": "02: Boston",
       "value": "1"
@@ -2056,8 +2934,14 @@ const mockWOResources: WOResource[] = [{
       "text": "Gary Grant",
       "value": "1312"
     },
-    "resourceGroups": [],
-    "types": [],
+    "resourceGroups": [{
+      "text": "Installers",
+      "value": "1"
+    }],
+    "types": [{
+      "text": "Installer",
+      "value": "1"
+    }],
     "subTypes": [],
     "rate": 0,
     "vendor": {
@@ -2076,7 +2960,15 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "CNC Machining",
+        "value": "12"
+      },
+      {
+        "text": "Driving",
+        "value": "3"
+      }
+    ],
     "location": {
       "text": "02: Boston",
       "value": "1"
@@ -2102,8 +2994,14 @@ const mockWOResources: WOResource[] = [{
       "text": "Bonita Kane",
       "value": "912"
     },
-    "resourceGroups": [],
-    "types": [],
+    "resourceGroups": [{
+      "text": "Installers",
+      "value": "1"
+    }],
+    "types": [{
+      "text": "Installer",
+      "value": "1"
+    }],
     "subTypes": [],
     "rate": 0,
     "vendor": {
@@ -2122,7 +3020,19 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Computer-Aided Design (CAD)",
+        "value": "8"
+      },
+      {
+        "text": "Furniture Assembly",
+        "value": "1"
+      },
+      {
+        "text": "Quality Control",
+        "value": "13"
+      }
+    ],
     "location": {
       "text": "02: Boston",
       "value": "1"
@@ -2148,8 +3058,32 @@ const mockWOResources: WOResource[] = [{
       "text": "Bea Quilinguin",
       "value": "1767"
     },
-    "resourceGroups": [],
-    "types": [],
+    "resourceGroups": [{
+        "text": "Designers",
+        "value": "2"
+      },
+      {
+        "text": "Drivers",
+        "value": "3"
+      },
+      {
+        "text": "Installers",
+        "value": "1"
+      }
+    ],
+    "types": [{
+        "text": "Delivery Driver",
+        "value": "2"
+      },
+      {
+        "text": "Designer",
+        "value": "3"
+      },
+      {
+        "text": "Installer",
+        "value": "1"
+      }
+    ],
     "subTypes": [],
     "rate": 0,
     "vendor": {
@@ -2168,7 +3102,19 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "CNC Machining",
+        "value": "12"
+      },
+      {
+        "text": "Furniture Design",
+        "value": "7"
+      },
+      {
+        "text": "Interior Design",
+        "value": "14"
+      }
+    ],
     "location": {
       "text": "01: San Francisco",
       "value": "2"
@@ -2194,8 +3140,32 @@ const mockWOResources: WOResource[] = [{
       "text": "Bea Quilinguin",
       "value": "1767"
     },
-    "resourceGroups": [],
-    "types": [],
+    "resourceGroups": [{
+        "text": "Designers",
+        "value": "2"
+      },
+      {
+        "text": "Drivers",
+        "value": "3"
+      },
+      {
+        "text": "Installers",
+        "value": "1"
+      }
+    ],
+    "types": [{
+        "text": "Delivery Driver",
+        "value": "2"
+      },
+      {
+        "text": "Designer",
+        "value": "3"
+      },
+      {
+        "text": "Installer",
+        "value": "1"
+      }
+    ],
     "subTypes": [],
     "rate": 0,
     "vendor": {
@@ -2214,7 +3184,19 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "CNC Machining",
+        "value": "12"
+      },
+      {
+        "text": "Furniture Design",
+        "value": "7"
+      },
+      {
+        "text": "Interior Design",
+        "value": "14"
+      }
+    ],
     "location": {
       "text": "01: San Francisco",
       "value": "2"
@@ -2240,8 +3222,14 @@ const mockWOResources: WOResource[] = [{
       "text": "Matt Nolan",
       "value": "1292"
     },
-    "resourceGroups": [],
-    "types": [],
+    "resourceGroups": [{
+      "text": "Installers",
+      "value": "1"
+    }],
+    "types": [{
+      "text": "Installer",
+      "value": "1"
+    }],
     "subTypes": [],
     "rate": 350,
     "vendor": {
@@ -2260,7 +3248,19 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Interior Design",
+        "value": "14"
+      },
+      {
+        "text": "Material Knowledge",
+        "value": "9"
+      },
+      {
+        "text": "Quality Control",
+        "value": "13"
+      }
+    ],
     "location": {
       "text": "01: San Francisco",
       "value": "2"
@@ -2286,8 +3286,14 @@ const mockWOResources: WOResource[] = [{
       "text": "Gary Grant",
       "value": "1312"
     },
-    "resourceGroups": [],
-    "types": [],
+    "resourceGroups": [{
+      "text": "Installers",
+      "value": "1"
+    }],
+    "types": [{
+      "text": "Installer",
+      "value": "1"
+    }],
     "subTypes": [],
     "rate": 0,
     "vendor": {
@@ -2306,7 +3312,15 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "CNC Machining",
+        "value": "12"
+      },
+      {
+        "text": "Driving",
+        "value": "3"
+      }
+    ],
     "location": {
       "text": "02: Boston",
       "value": "1"
@@ -2332,8 +3346,14 @@ const mockWOResources: WOResource[] = [{
       "text": "Matt Nolan",
       "value": "1292"
     },
-    "resourceGroups": [],
-    "types": [],
+    "resourceGroups": [{
+      "text": "Installers",
+      "value": "1"
+    }],
+    "types": [{
+      "text": "Installer",
+      "value": "1"
+    }],
     "subTypes": [],
     "rate": 0,
     "vendor": {
@@ -2352,7 +3372,19 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Interior Design",
+        "value": "14"
+      },
+      {
+        "text": "Material Knowledge",
+        "value": "9"
+      },
+      {
+        "text": "Quality Control",
+        "value": "13"
+      }
+    ],
     "location": {
       "text": "01: San Francisco",
       "value": "2"
@@ -2378,8 +3410,14 @@ const mockWOResources: WOResource[] = [{
       "text": "Matt Nolan",
       "value": "1292"
     },
-    "resourceGroups": [],
-    "types": [],
+    "resourceGroups": [{
+      "text": "Installers",
+      "value": "1"
+    }],
+    "types": [{
+      "text": "Installer",
+      "value": "1"
+    }],
     "subTypes": [],
     "rate": 0,
     "vendor": {
@@ -2398,7 +3436,19 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Interior Design",
+        "value": "14"
+      },
+      {
+        "text": "Material Knowledge",
+        "value": "9"
+      },
+      {
+        "text": "Quality Control",
+        "value": "13"
+      }
+    ],
     "location": {
       "text": "01: San Francisco",
       "value": "2"
@@ -2424,8 +3474,14 @@ const mockWOResources: WOResource[] = [{
       "text": "Gary Grant",
       "value": "1312"
     },
-    "resourceGroups": [],
-    "types": [],
+    "resourceGroups": [{
+      "text": "Installers",
+      "value": "1"
+    }],
+    "types": [{
+      "text": "Installer",
+      "value": "1"
+    }],
     "subTypes": [],
     "rate": 0,
     "vendor": {
@@ -2444,7 +3500,15 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "CNC Machining",
+        "value": "12"
+      },
+      {
+        "text": "Driving",
+        "value": "3"
+      }
+    ],
     "location": {
       "text": "02: Boston",
       "value": "1"
@@ -2470,8 +3534,14 @@ const mockWOResources: WOResource[] = [{
       "text": "Bonita Kane",
       "value": "912"
     },
-    "resourceGroups": [],
-    "types": [],
+    "resourceGroups": [{
+      "text": "Installers",
+      "value": "1"
+    }],
+    "types": [{
+      "text": "Installer",
+      "value": "1"
+    }],
     "subTypes": [],
     "rate": 0,
     "vendor": {
@@ -2490,7 +3560,19 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Computer-Aided Design (CAD)",
+        "value": "8"
+      },
+      {
+        "text": "Furniture Assembly",
+        "value": "1"
+      },
+      {
+        "text": "Quality Control",
+        "value": "13"
+      }
+    ],
     "location": {
       "text": "02: Boston",
       "value": "1"
@@ -2516,8 +3598,32 @@ const mockWOResources: WOResource[] = [{
       "text": "Bea Quilinguin",
       "value": "1767"
     },
-    "resourceGroups": [],
-    "types": [],
+    "resourceGroups": [{
+        "text": "Designers",
+        "value": "2"
+      },
+      {
+        "text": "Drivers",
+        "value": "3"
+      },
+      {
+        "text": "Installers",
+        "value": "1"
+      }
+    ],
+    "types": [{
+        "text": "Delivery Driver",
+        "value": "2"
+      },
+      {
+        "text": "Designer",
+        "value": "3"
+      },
+      {
+        "text": "Installer",
+        "value": "1"
+      }
+    ],
     "subTypes": [],
     "rate": 0,
     "vendor": {
@@ -2536,7 +3642,19 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "CNC Machining",
+        "value": "12"
+      },
+      {
+        "text": "Furniture Design",
+        "value": "7"
+      },
+      {
+        "text": "Interior Design",
+        "value": "14"
+      }
+    ],
     "location": {
       "text": "01: San Francisco",
       "value": "2"
@@ -2562,8 +3680,14 @@ const mockWOResources: WOResource[] = [{
       "text": "Matt Nolan",
       "value": "1292"
     },
-    "resourceGroups": [],
-    "types": [],
+    "resourceGroups": [{
+      "text": "Installers",
+      "value": "1"
+    }],
+    "types": [{
+      "text": "Installer",
+      "value": "1"
+    }],
     "subTypes": [],
     "rate": 0,
     "vendor": {
@@ -2582,7 +3706,19 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Interior Design",
+        "value": "14"
+      },
+      {
+        "text": "Material Knowledge",
+        "value": "9"
+      },
+      {
+        "text": "Quality Control",
+        "value": "13"
+      }
+    ],
     "location": {
       "text": "01: San Francisco",
       "value": "2"
@@ -2608,8 +3744,14 @@ const mockWOResources: WOResource[] = [{
       "text": "Gary Grant",
       "value": "1312"
     },
-    "resourceGroups": [],
-    "types": [],
+    "resourceGroups": [{
+      "text": "Installers",
+      "value": "1"
+    }],
+    "types": [{
+      "text": "Installer",
+      "value": "1"
+    }],
     "subTypes": [],
     "rate": 0,
     "vendor": {
@@ -2628,7 +3770,15 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "CNC Machining",
+        "value": "12"
+      },
+      {
+        "text": "Driving",
+        "value": "3"
+      }
+    ],
     "location": {
       "text": "02: Boston",
       "value": "1"
@@ -2654,8 +3804,14 @@ const mockWOResources: WOResource[] = [{
       "text": "Matt Nolan",
       "value": "1292"
     },
-    "resourceGroups": [],
-    "types": [],
+    "resourceGroups": [{
+      "text": "Installers",
+      "value": "1"
+    }],
+    "types": [{
+      "text": "Installer",
+      "value": "1"
+    }],
     "subTypes": [],
     "rate": 0,
     "vendor": {
@@ -2674,7 +3830,19 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Interior Design",
+        "value": "14"
+      },
+      {
+        "text": "Material Knowledge",
+        "value": "9"
+      },
+      {
+        "text": "Quality Control",
+        "value": "13"
+      }
+    ],
     "location": {
       "text": "01: San Francisco",
       "value": "2"
@@ -2700,8 +3868,14 @@ const mockWOResources: WOResource[] = [{
       "text": "Bonita Kane",
       "value": "912"
     },
-    "resourceGroups": [],
-    "types": [],
+    "resourceGroups": [{
+      "text": "Installers",
+      "value": "1"
+    }],
+    "types": [{
+      "text": "Installer",
+      "value": "1"
+    }],
     "subTypes": [],
     "rate": 0,
     "vendor": {
@@ -2720,7 +3894,19 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Computer-Aided Design (CAD)",
+        "value": "8"
+      },
+      {
+        "text": "Furniture Assembly",
+        "value": "1"
+      },
+      {
+        "text": "Quality Control",
+        "value": "13"
+      }
+    ],
     "location": {
       "text": "02: Boston",
       "value": "1"
@@ -2746,8 +3932,14 @@ const mockWOResources: WOResource[] = [{
       "text": "Gary Grant",
       "value": "1312"
     },
-    "resourceGroups": [],
-    "types": [],
+    "resourceGroups": [{
+      "text": "Installers",
+      "value": "1"
+    }],
+    "types": [{
+      "text": "Installer",
+      "value": "1"
+    }],
     "subTypes": [],
     "rate": 0,
     "vendor": {
@@ -2766,7 +3958,15 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "CNC Machining",
+        "value": "12"
+      },
+      {
+        "text": "Driving",
+        "value": "3"
+      }
+    ],
     "location": {
       "text": "02: Boston",
       "value": "1"
@@ -2792,8 +3992,14 @@ const mockWOResources: WOResource[] = [{
       "text": "Matt Nolan",
       "value": "1292"
     },
-    "resourceGroups": [],
-    "types": [],
+    "resourceGroups": [{
+      "text": "Installers",
+      "value": "1"
+    }],
+    "types": [{
+      "text": "Installer",
+      "value": "1"
+    }],
     "subTypes": [],
     "rate": 0,
     "vendor": {
@@ -2812,7 +4018,19 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Interior Design",
+        "value": "14"
+      },
+      {
+        "text": "Material Knowledge",
+        "value": "9"
+      },
+      {
+        "text": "Quality Control",
+        "value": "13"
+      }
+    ],
     "location": {
       "text": "01: San Francisco",
       "value": "2"
@@ -2838,8 +4056,14 @@ const mockWOResources: WOResource[] = [{
       "text": "Mei Matriano",
       "value": "1647"
     },
-    "resourceGroups": [],
-    "types": [],
+    "resourceGroups": [{
+      "text": "Designers",
+      "value": "2"
+    }],
+    "types": [{
+      "text": "Installer",
+      "value": "1"
+    }],
     "subTypes": [],
     "rate": 0,
     "vendor": {
@@ -2858,7 +4082,19 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Material Knowledge",
+        "value": "9"
+      },
+      {
+        "text": "Metalworking",
+        "value": "5"
+      },
+      {
+        "text": "Welding",
+        "value": "6"
+      }
+    ],
     "location": {
       "text": "New York",
       "value": "15"
@@ -2884,8 +4120,32 @@ const mockWOResources: WOResource[] = [{
       "text": "Bea Quilinguin",
       "value": "1767"
     },
-    "resourceGroups": [],
-    "types": [],
+    "resourceGroups": [{
+        "text": "Designers",
+        "value": "2"
+      },
+      {
+        "text": "Drivers",
+        "value": "3"
+      },
+      {
+        "text": "Installers",
+        "value": "1"
+      }
+    ],
+    "types": [{
+        "text": "Delivery Driver",
+        "value": "2"
+      },
+      {
+        "text": "Designer",
+        "value": "3"
+      },
+      {
+        "text": "Installer",
+        "value": "1"
+      }
+    ],
     "subTypes": [],
     "rate": 0,
     "vendor": {
@@ -2904,7 +4164,19 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "CNC Machining",
+        "value": "12"
+      },
+      {
+        "text": "Furniture Design",
+        "value": "7"
+      },
+      {
+        "text": "Interior Design",
+        "value": "14"
+      }
+    ],
     "location": {
       "text": "01: San Francisco",
       "value": "2"
@@ -2930,8 +4202,32 @@ const mockWOResources: WOResource[] = [{
       "text": "Bea Quilinguin",
       "value": "1767"
     },
-    "resourceGroups": [],
-    "types": [],
+    "resourceGroups": [{
+        "text": "Designers",
+        "value": "2"
+      },
+      {
+        "text": "Drivers",
+        "value": "3"
+      },
+      {
+        "text": "Installers",
+        "value": "1"
+      }
+    ],
+    "types": [{
+        "text": "Delivery Driver",
+        "value": "2"
+      },
+      {
+        "text": "Designer",
+        "value": "3"
+      },
+      {
+        "text": "Installer",
+        "value": "1"
+      }
+    ],
     "subTypes": [],
     "rate": 0,
     "vendor": {
@@ -2950,7 +4246,19 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "CNC Machining",
+        "value": "12"
+      },
+      {
+        "text": "Furniture Design",
+        "value": "7"
+      },
+      {
+        "text": "Interior Design",
+        "value": "14"
+      }
+    ],
     "location": {
       "text": "01: San Francisco",
       "value": "2"
@@ -2976,8 +4284,32 @@ const mockWOResources: WOResource[] = [{
       "text": "Bea Quilinguin",
       "value": "1767"
     },
-    "resourceGroups": [],
-    "types": [],
+    "resourceGroups": [{
+        "text": "Designers",
+        "value": "2"
+      },
+      {
+        "text": "Drivers",
+        "value": "3"
+      },
+      {
+        "text": "Installers",
+        "value": "1"
+      }
+    ],
+    "types": [{
+        "text": "Delivery Driver",
+        "value": "2"
+      },
+      {
+        "text": "Designer",
+        "value": "3"
+      },
+      {
+        "text": "Installer",
+        "value": "1"
+      }
+    ],
     "subTypes": [],
     "rate": 0,
     "vendor": {
@@ -2996,7 +4328,19 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "CNC Machining",
+        "value": "12"
+      },
+      {
+        "text": "Furniture Design",
+        "value": "7"
+      },
+      {
+        "text": "Interior Design",
+        "value": "14"
+      }
+    ],
     "location": {
       "text": "01: San Francisco",
       "value": "2"
@@ -3022,8 +4366,32 @@ const mockWOResources: WOResource[] = [{
       "text": "Bea Quilinguin",
       "value": "1767"
     },
-    "resourceGroups": [],
-    "types": [],
+    "resourceGroups": [{
+        "text": "Designers",
+        "value": "2"
+      },
+      {
+        "text": "Drivers",
+        "value": "3"
+      },
+      {
+        "text": "Installers",
+        "value": "1"
+      }
+    ],
+    "types": [{
+        "text": "Delivery Driver",
+        "value": "2"
+      },
+      {
+        "text": "Designer",
+        "value": "3"
+      },
+      {
+        "text": "Installer",
+        "value": "1"
+      }
+    ],
     "subTypes": [],
     "rate": 0,
     "vendor": {
@@ -3042,7 +4410,19 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "CNC Machining",
+        "value": "12"
+      },
+      {
+        "text": "Furniture Design",
+        "value": "7"
+      },
+      {
+        "text": "Interior Design",
+        "value": "14"
+      }
+    ],
     "location": {
       "text": "01: San Francisco",
       "value": "2"
@@ -3068,8 +4448,14 @@ const mockWOResources: WOResource[] = [{
       "text": "Youssef Ezz",
       "value": "1656"
     },
-    "resourceGroups": [],
-    "types": [],
+    "resourceGroups": [{
+      "text": "Installers",
+      "value": "1"
+    }],
+    "types": [{
+      "text": "Installer",
+      "value": "1"
+    }],
     "subTypes": [],
     "rate": 0,
     "vendor": {
@@ -3088,7 +4474,19 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Carpentry and Joinery",
+        "value": "10"
+      },
+      {
+        "text": "Quality Control",
+        "value": "13"
+      },
+      {
+        "text": "Upholstery",
+        "value": "11"
+      }
+    ],
     "location": {
       "text": "01: San Francisco",
       "value": "2"
@@ -3114,8 +4512,14 @@ const mockWOResources: WOResource[] = [{
       "text": "Gary Grant",
       "value": "1312"
     },
-    "resourceGroups": [],
-    "types": [],
+    "resourceGroups": [{
+      "text": "Installers",
+      "value": "1"
+    }],
+    "types": [{
+      "text": "Installer",
+      "value": "1"
+    }],
     "subTypes": [],
     "rate": 0,
     "vendor": {
@@ -3134,7 +4538,15 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "CNC Machining",
+        "value": "12"
+      },
+      {
+        "text": "Driving",
+        "value": "3"
+      }
+    ],
     "location": {
       "text": "02: Boston",
       "value": "1"
@@ -3160,8 +4572,32 @@ const mockWOResources: WOResource[] = [{
       "text": "Bea Quilinguin",
       "value": "1767"
     },
-    "resourceGroups": [],
-    "types": [],
+    "resourceGroups": [{
+        "text": "Designers",
+        "value": "2"
+      },
+      {
+        "text": "Drivers",
+        "value": "3"
+      },
+      {
+        "text": "Installers",
+        "value": "1"
+      }
+    ],
+    "types": [{
+        "text": "Delivery Driver",
+        "value": "2"
+      },
+      {
+        "text": "Designer",
+        "value": "3"
+      },
+      {
+        "text": "Installer",
+        "value": "1"
+      }
+    ],
     "subTypes": [],
     "rate": 0,
     "vendor": {
@@ -3180,7 +4616,19 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "CNC Machining",
+        "value": "12"
+      },
+      {
+        "text": "Furniture Design",
+        "value": "7"
+      },
+      {
+        "text": "Interior Design",
+        "value": "14"
+      }
+    ],
     "location": {
       "text": "01: San Francisco",
       "value": "2"
@@ -3206,8 +4654,14 @@ const mockWOResources: WOResource[] = [{
       "text": "Gary Grant",
       "value": "1312"
     },
-    "resourceGroups": [],
-    "types": [],
+    "resourceGroups": [{
+      "text": "Installers",
+      "value": "1"
+    }],
+    "types": [{
+      "text": "Installer",
+      "value": "1"
+    }],
     "subTypes": [],
     "rate": 0,
     "vendor": {
@@ -3226,7 +4680,15 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "CNC Machining",
+        "value": "12"
+      },
+      {
+        "text": "Driving",
+        "value": "3"
+      }
+    ],
     "location": {
       "text": "02: Boston",
       "value": "1"
@@ -3252,8 +4714,32 @@ const mockWOResources: WOResource[] = [{
       "text": "Bea Quilinguin",
       "value": "1767"
     },
-    "resourceGroups": [],
-    "types": [],
+    "resourceGroups": [{
+        "text": "Designers",
+        "value": "2"
+      },
+      {
+        "text": "Drivers",
+        "value": "3"
+      },
+      {
+        "text": "Installers",
+        "value": "1"
+      }
+    ],
+    "types": [{
+        "text": "Delivery Driver",
+        "value": "2"
+      },
+      {
+        "text": "Designer",
+        "value": "3"
+      },
+      {
+        "text": "Installer",
+        "value": "1"
+      }
+    ],
     "subTypes": [],
     "rate": 0,
     "vendor": {
@@ -3272,7 +4758,19 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "CNC Machining",
+        "value": "12"
+      },
+      {
+        "text": "Furniture Design",
+        "value": "7"
+      },
+      {
+        "text": "Interior Design",
+        "value": "14"
+      }
+    ],
     "location": {
       "text": "01: San Francisco",
       "value": "2"
@@ -3298,8 +4796,14 @@ const mockWOResources: WOResource[] = [{
       "text": "Youssef Ezz",
       "value": "1656"
     },
-    "resourceGroups": [],
-    "types": [],
+    "resourceGroups": [{
+      "text": "Installers",
+      "value": "1"
+    }],
+    "types": [{
+      "text": "Installer",
+      "value": "1"
+    }],
     "subTypes": [],
     "rate": 0,
     "vendor": {
@@ -3318,7 +4822,19 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Carpentry and Joinery",
+        "value": "10"
+      },
+      {
+        "text": "Quality Control",
+        "value": "13"
+      },
+      {
+        "text": "Upholstery",
+        "value": "11"
+      }
+    ],
     "location": {
       "text": "01: San Francisco",
       "value": "2"
@@ -3344,8 +4860,14 @@ const mockWOResources: WOResource[] = [{
       "text": "Gary Grant",
       "value": "1312"
     },
-    "resourceGroups": [],
-    "types": [],
+    "resourceGroups": [{
+      "text": "Installers",
+      "value": "1"
+    }],
+    "types": [{
+      "text": "Installer",
+      "value": "1"
+    }],
     "subTypes": [],
     "rate": 0,
     "vendor": {
@@ -3364,7 +4886,15 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "CNC Machining",
+        "value": "12"
+      },
+      {
+        "text": "Driving",
+        "value": "3"
+      }
+    ],
     "location": {
       "text": "02: Boston",
       "value": "1"
@@ -3390,8 +4920,14 @@ const mockWOResources: WOResource[] = [{
       "text": "Matt Nolan",
       "value": "1292"
     },
-    "resourceGroups": [],
-    "types": [],
+    "resourceGroups": [{
+      "text": "Installers",
+      "value": "1"
+    }],
+    "types": [{
+      "text": "Installer",
+      "value": "1"
+    }],
     "subTypes": [],
     "rate": 0,
     "vendor": {
@@ -3410,7 +4946,19 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Interior Design",
+        "value": "14"
+      },
+      {
+        "text": "Material Knowledge",
+        "value": "9"
+      },
+      {
+        "text": "Quality Control",
+        "value": "13"
+      }
+    ],
     "location": {
       "text": "01: San Francisco",
       "value": "2"
@@ -3436,8 +4984,32 @@ const mockWOResources: WOResource[] = [{
       "text": "Arun Sharma",
       "value": "1770"
     },
-    "resourceGroups": [],
-    "types": [],
+    "resourceGroups": [{
+        "text": "Designers",
+        "value": "2"
+      },
+      {
+        "text": "Drivers",
+        "value": "3"
+      },
+      {
+        "text": "Installers",
+        "value": "1"
+      }
+    ],
+    "types": [{
+        "text": "Delivery Driver",
+        "value": "2"
+      },
+      {
+        "text": "Designer",
+        "value": "3"
+      },
+      {
+        "text": "Installer",
+        "value": "1"
+      }
+    ],
     "subTypes": [],
     "rate": 0,
     "vendor": {
@@ -3456,7 +5028,15 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Driving",
+        "value": "3"
+      },
+      {
+        "text": "Plumbing",
+        "value": "2"
+      }
+    ],
     "location": {
       "text": "02: Boston",
       "value": "1"
@@ -3482,8 +5062,14 @@ const mockWOResources: WOResource[] = [{
       "text": "Gary Grant",
       "value": "1312"
     },
-    "resourceGroups": [],
-    "types": [],
+    "resourceGroups": [{
+      "text": "Installers",
+      "value": "1"
+    }],
+    "types": [{
+      "text": "Installer",
+      "value": "1"
+    }],
     "subTypes": [],
     "rate": 0,
     "vendor": {
@@ -3502,7 +5088,15 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "CNC Machining",
+        "value": "12"
+      },
+      {
+        "text": "Driving",
+        "value": "3"
+      }
+    ],
     "location": {
       "text": "02: Boston",
       "value": "1"
@@ -3528,8 +5122,14 @@ const mockWOResources: WOResource[] = [{
       "text": "Youssef Ezz",
       "value": "1656"
     },
-    "resourceGroups": [],
-    "types": [],
+    "resourceGroups": [{
+      "text": "Installers",
+      "value": "1"
+    }],
+    "types": [{
+      "text": "Installer",
+      "value": "1"
+    }],
     "subTypes": [],
     "rate": 0,
     "vendor": {
@@ -3548,7 +5148,19 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Carpentry and Joinery",
+        "value": "10"
+      },
+      {
+        "text": "Quality Control",
+        "value": "13"
+      },
+      {
+        "text": "Upholstery",
+        "value": "11"
+      }
+    ],
     "location": {
       "text": "01: San Francisco",
       "value": "2"
@@ -3574,8 +5186,14 @@ const mockWOResources: WOResource[] = [{
       "text": "Matt Nolan",
       "value": "1292"
     },
-    "resourceGroups": [],
-    "types": [],
+    "resourceGroups": [{
+      "text": "Installers",
+      "value": "1"
+    }],
+    "types": [{
+      "text": "Installer",
+      "value": "1"
+    }],
     "subTypes": [],
     "rate": 0,
     "vendor": {
@@ -3594,7 +5212,19 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Interior Design",
+        "value": "14"
+      },
+      {
+        "text": "Material Knowledge",
+        "value": "9"
+      },
+      {
+        "text": "Quality Control",
+        "value": "13"
+      }
+    ],
     "location": {
       "text": "01: San Francisco",
       "value": "2"
@@ -3620,8 +5250,32 @@ const mockWOResources: WOResource[] = [{
       "text": "Bea Quilinguin",
       "value": "1767"
     },
-    "resourceGroups": [],
-    "types": [],
+    "resourceGroups": [{
+        "text": "Designers",
+        "value": "2"
+      },
+      {
+        "text": "Drivers",
+        "value": "3"
+      },
+      {
+        "text": "Installers",
+        "value": "1"
+      }
+    ],
+    "types": [{
+        "text": "Delivery Driver",
+        "value": "2"
+      },
+      {
+        "text": "Designer",
+        "value": "3"
+      },
+      {
+        "text": "Installer",
+        "value": "1"
+      }
+    ],
     "subTypes": [],
     "rate": 0,
     "vendor": {
@@ -3640,7 +5294,19 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "CNC Machining",
+        "value": "12"
+      },
+      {
+        "text": "Furniture Design",
+        "value": "7"
+      },
+      {
+        "text": "Interior Design",
+        "value": "14"
+      }
+    ],
     "location": {
       "text": "01: San Francisco",
       "value": "2"
@@ -3667,17 +5333,32 @@ const mockWOResources: WOResource[] = [{
       "value": "1770"
     },
     "resourceGroups": [{
-      "text": "Designers",
-      "value": "2"
-    }],
+        "text": "Designers",
+        "value": "2"
+      },
+      {
+        "text": "Drivers",
+        "value": "3"
+      },
+      {
+        "text": "Installers",
+        "value": "1"
+      }
+    ],
     "types": [{
-      "text": "Installer",
-      "value": "1"
-    }],
-    "subTypes": [{
-      "text": "designer",
-      "value": "1"
-    }],
+        "text": "Delivery Driver",
+        "value": "2"
+      },
+      {
+        "text": "Designer",
+        "value": "3"
+      },
+      {
+        "text": "Installer",
+        "value": "1"
+      }
+    ],
+    "subTypes": [],
     "rate": 10,
     "vendor": {
       "text": "Template - Service Person",
@@ -3695,7 +5376,15 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Driving",
+        "value": "3"
+      },
+      {
+        "text": "Plumbing",
+        "value": "2"
+      }
+    ],
     "location": {
       "text": "02: Boston",
       "value": "1"
@@ -3722,17 +5411,32 @@ const mockWOResources: WOResource[] = [{
       "value": "1767"
     },
     "resourceGroups": [{
-      "text": "Designers",
-      "value": "2"
-    }],
+        "text": "Designers",
+        "value": "2"
+      },
+      {
+        "text": "Drivers",
+        "value": "3"
+      },
+      {
+        "text": "Installers",
+        "value": "1"
+      }
+    ],
     "types": [{
-      "text": "Installer",
-      "value": "1"
-    }],
-    "subTypes": [{
-      "text": "designer",
-      "value": "1"
-    }],
+        "text": "Delivery Driver",
+        "value": "2"
+      },
+      {
+        "text": "Designer",
+        "value": "3"
+      },
+      {
+        "text": "Installer",
+        "value": "1"
+      }
+    ],
+    "subTypes": [],
     "rate": 5,
     "vendor": {
       "text": "Torrance Printing, Inc.",
@@ -3750,7 +5454,19 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "CNC Machining",
+        "value": "12"
+      },
+      {
+        "text": "Furniture Design",
+        "value": "7"
+      },
+      {
+        "text": "Interior Design",
+        "value": "14"
+      }
+    ],
     "location": {
       "text": "01: San Francisco",
       "value": "2"
@@ -3777,17 +5493,14 @@ const mockWOResources: WOResource[] = [{
       "value": "1656"
     },
     "resourceGroups": [{
-      "text": "Designers",
-      "value": "2"
+      "text": "Installers",
+      "value": "1"
     }],
     "types": [{
       "text": "Installer",
       "value": "1"
     }],
-    "subTypes": [{
-      "text": "designer",
-      "value": "1"
-    }],
+    "subTypes": [],
     "rate": 5,
     "vendor": {
       "text": "Template - Sales Person",
@@ -3805,7 +5518,19 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Carpentry and Joinery",
+        "value": "10"
+      },
+      {
+        "text": "Quality Control",
+        "value": "13"
+      },
+      {
+        "text": "Upholstery",
+        "value": "11"
+      }
+    ],
     "location": {
       "text": "01: San Francisco",
       "value": "2"
@@ -3832,17 +5557,14 @@ const mockWOResources: WOResource[] = [{
       "value": "1312"
     },
     "resourceGroups": [{
-      "text": "Designers",
-      "value": "2"
+      "text": "Installers",
+      "value": "1"
     }],
     "types": [{
       "text": "Installer",
       "value": "1"
     }],
-    "subTypes": [{
-      "text": "designer",
-      "value": "1"
-    }],
+    "subTypes": [],
     "rate": 10,
     "vendor": {
       "text": "Template - Sales Person",
@@ -3860,7 +5582,15 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "CNC Machining",
+        "value": "12"
+      },
+      {
+        "text": "Driving",
+        "value": "3"
+      }
+    ],
     "location": {
       "text": "02: Boston",
       "value": "1"
@@ -3887,17 +5617,14 @@ const mockWOResources: WOResource[] = [{
       "value": "1292"
     },
     "resourceGroups": [{
-      "text": "Designers",
-      "value": "2"
+      "text": "Installers",
+      "value": "1"
     }],
     "types": [{
       "text": "Installer",
       "value": "1"
     }],
-    "subTypes": [{
-      "text": "designer",
-      "value": "1"
-    }],
+    "subTypes": [],
     "rate": 10,
     "vendor": {
       "text": "Template - Sales Person",
@@ -3915,7 +5642,19 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Interior Design",
+        "value": "14"
+      },
+      {
+        "text": "Material Knowledge",
+        "value": "9"
+      },
+      {
+        "text": "Quality Control",
+        "value": "13"
+      }
+    ],
     "location": {
       "text": "01: San Francisco",
       "value": "2"
@@ -3941,8 +5680,32 @@ const mockWOResources: WOResource[] = [{
       "text": "Arun Sharma",
       "value": "1770"
     },
-    "resourceGroups": [],
-    "types": [],
+    "resourceGroups": [{
+        "text": "Designers",
+        "value": "2"
+      },
+      {
+        "text": "Drivers",
+        "value": "3"
+      },
+      {
+        "text": "Installers",
+        "value": "1"
+      }
+    ],
+    "types": [{
+        "text": "Delivery Driver",
+        "value": "2"
+      },
+      {
+        "text": "Designer",
+        "value": "3"
+      },
+      {
+        "text": "Installer",
+        "value": "1"
+      }
+    ],
     "subTypes": [],
     "rate": 0,
     "vendor": {
@@ -3961,7 +5724,15 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Driving",
+        "value": "3"
+      },
+      {
+        "text": "Plumbing",
+        "value": "2"
+      }
+    ],
     "location": {
       "text": "02: Boston",
       "value": "1"
@@ -3987,8 +5758,32 @@ const mockWOResources: WOResource[] = [{
       "text": "Bea Quilinguin",
       "value": "1767"
     },
-    "resourceGroups": [],
-    "types": [],
+    "resourceGroups": [{
+        "text": "Designers",
+        "value": "2"
+      },
+      {
+        "text": "Drivers",
+        "value": "3"
+      },
+      {
+        "text": "Installers",
+        "value": "1"
+      }
+    ],
+    "types": [{
+        "text": "Delivery Driver",
+        "value": "2"
+      },
+      {
+        "text": "Designer",
+        "value": "3"
+      },
+      {
+        "text": "Installer",
+        "value": "1"
+      }
+    ],
     "subTypes": [],
     "rate": 0,
     "vendor": {
@@ -4007,7 +5802,19 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "CNC Machining",
+        "value": "12"
+      },
+      {
+        "text": "Furniture Design",
+        "value": "7"
+      },
+      {
+        "text": "Interior Design",
+        "value": "14"
+      }
+    ],
     "location": {
       "text": "01: San Francisco",
       "value": "2"
@@ -4033,8 +5840,14 @@ const mockWOResources: WOResource[] = [{
       "text": "Youssef Ezz",
       "value": "1656"
     },
-    "resourceGroups": [],
-    "types": [],
+    "resourceGroups": [{
+      "text": "Installers",
+      "value": "1"
+    }],
+    "types": [{
+      "text": "Installer",
+      "value": "1"
+    }],
     "subTypes": [],
     "rate": 0,
     "vendor": {
@@ -4053,7 +5866,19 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Carpentry and Joinery",
+        "value": "10"
+      },
+      {
+        "text": "Quality Control",
+        "value": "13"
+      },
+      {
+        "text": "Upholstery",
+        "value": "11"
+      }
+    ],
     "location": {
       "text": "01: San Francisco",
       "value": "2"
@@ -4079,8 +5904,14 @@ const mockWOResources: WOResource[] = [{
       "text": "Gary Grant",
       "value": "1312"
     },
-    "resourceGroups": [],
-    "types": [],
+    "resourceGroups": [{
+      "text": "Installers",
+      "value": "1"
+    }],
+    "types": [{
+      "text": "Installer",
+      "value": "1"
+    }],
     "subTypes": [],
     "rate": 0,
     "vendor": {
@@ -4099,7 +5930,15 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "CNC Machining",
+        "value": "12"
+      },
+      {
+        "text": "Driving",
+        "value": "3"
+      }
+    ],
     "location": {
       "text": "02: Boston",
       "value": "1"
@@ -4125,8 +5964,14 @@ const mockWOResources: WOResource[] = [{
       "text": "Matt Nolan",
       "value": "1292"
     },
-    "resourceGroups": [],
-    "types": [],
+    "resourceGroups": [{
+      "text": "Installers",
+      "value": "1"
+    }],
+    "types": [{
+      "text": "Installer",
+      "value": "1"
+    }],
     "subTypes": [],
     "rate": 0,
     "vendor": {
@@ -4145,7 +5990,19 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Interior Design",
+        "value": "14"
+      },
+      {
+        "text": "Material Knowledge",
+        "value": "9"
+      },
+      {
+        "text": "Quality Control",
+        "value": "13"
+      }
+    ],
     "location": {
       "text": "01: San Francisco",
       "value": "2"
@@ -4171,8 +6028,14 @@ const mockWOResources: WOResource[] = [{
       "text": "Gary Grant",
       "value": "1312"
     },
-    "resourceGroups": [],
-    "types": [],
+    "resourceGroups": [{
+      "text": "Installers",
+      "value": "1"
+    }],
+    "types": [{
+      "text": "Installer",
+      "value": "1"
+    }],
     "subTypes": [],
     "rate": 0,
     "vendor": {
@@ -4191,7 +6054,15 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "CNC Machining",
+        "value": "12"
+      },
+      {
+        "text": "Driving",
+        "value": "3"
+      }
+    ],
     "location": {
       "text": "02: Boston",
       "value": "1"
@@ -4217,8 +6088,14 @@ const mockWOResources: WOResource[] = [{
       "text": "Gary Grant",
       "value": "1312"
     },
-    "resourceGroups": [],
-    "types": [],
+    "resourceGroups": [{
+      "text": "Installers",
+      "value": "1"
+    }],
+    "types": [{
+      "text": "Installer",
+      "value": "1"
+    }],
     "subTypes": [],
     "rate": 0,
     "vendor": {
@@ -4237,7 +6114,15 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "CNC Machining",
+        "value": "12"
+      },
+      {
+        "text": "Driving",
+        "value": "3"
+      }
+    ],
     "location": {
       "text": "02: Boston",
       "value": "1"
@@ -4263,8 +6148,14 @@ const mockWOResources: WOResource[] = [{
       "text": "Gary Grant",
       "value": "1312"
     },
-    "resourceGroups": [],
-    "types": [],
+    "resourceGroups": [{
+      "text": "Installers",
+      "value": "1"
+    }],
+    "types": [{
+      "text": "Installer",
+      "value": "1"
+    }],
     "subTypes": [],
     "rate": 0,
     "vendor": {
@@ -4283,7 +6174,15 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "CNC Machining",
+        "value": "12"
+      },
+      {
+        "text": "Driving",
+        "value": "3"
+      }
+    ],
     "location": {
       "text": "02: Boston",
       "value": "1"
@@ -4309,8 +6208,14 @@ const mockWOResources: WOResource[] = [{
       "text": "Gary Grant",
       "value": "1312"
     },
-    "resourceGroups": [],
-    "types": [],
+    "resourceGroups": [{
+      "text": "Installers",
+      "value": "1"
+    }],
+    "types": [{
+      "text": "Installer",
+      "value": "1"
+    }],
     "subTypes": [],
     "rate": 0,
     "vendor": {
@@ -4329,7 +6234,15 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "CNC Machining",
+        "value": "12"
+      },
+      {
+        "text": "Driving",
+        "value": "3"
+      }
+    ],
     "location": {
       "text": "02: Boston",
       "value": "1"
@@ -4355,8 +6268,14 @@ const mockWOResources: WOResource[] = [{
       "text": "Gary Grant",
       "value": "1312"
     },
-    "resourceGroups": [],
-    "types": [],
+    "resourceGroups": [{
+      "text": "Installers",
+      "value": "1"
+    }],
+    "types": [{
+      "text": "Installer",
+      "value": "1"
+    }],
     "subTypes": [],
     "rate": 0,
     "vendor": {
@@ -4375,7 +6294,15 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "CNC Machining",
+        "value": "12"
+      },
+      {
+        "text": "Driving",
+        "value": "3"
+      }
+    ],
     "location": {
       "text": "02: Boston",
       "value": "1"
@@ -4401,8 +6328,14 @@ const mockWOResources: WOResource[] = [{
       "text": "Gary Grant",
       "value": "1312"
     },
-    "resourceGroups": [],
-    "types": [],
+    "resourceGroups": [{
+      "text": "Installers",
+      "value": "1"
+    }],
+    "types": [{
+      "text": "Installer",
+      "value": "1"
+    }],
     "subTypes": [],
     "rate": 0,
     "vendor": {
@@ -4421,7 +6354,15 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "CNC Machining",
+        "value": "12"
+      },
+      {
+        "text": "Driving",
+        "value": "3"
+      }
+    ],
     "location": {
       "text": "02: Boston",
       "value": "1"
@@ -4447,8 +6388,14 @@ const mockWOResources: WOResource[] = [{
       "text": "Gary Grant",
       "value": "1312"
     },
-    "resourceGroups": [],
-    "types": [],
+    "resourceGroups": [{
+      "text": "Installers",
+      "value": "1"
+    }],
+    "types": [{
+      "text": "Installer",
+      "value": "1"
+    }],
     "subTypes": [],
     "rate": 0,
     "vendor": {
@@ -4467,7 +6414,15 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "CNC Machining",
+        "value": "12"
+      },
+      {
+        "text": "Driving",
+        "value": "3"
+      }
+    ],
     "location": {
       "text": "02: Boston",
       "value": "1"
@@ -4493,8 +6448,14 @@ const mockWOResources: WOResource[] = [{
       "text": "Gary Grant",
       "value": "1312"
     },
-    "resourceGroups": [],
-    "types": [],
+    "resourceGroups": [{
+      "text": "Installers",
+      "value": "1"
+    }],
+    "types": [{
+      "text": "Installer",
+      "value": "1"
+    }],
     "subTypes": [],
     "rate": 0,
     "vendor": {
@@ -4513,7 +6474,15 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "CNC Machining",
+        "value": "12"
+      },
+      {
+        "text": "Driving",
+        "value": "3"
+      }
+    ],
     "location": {
       "text": "02: Boston",
       "value": "1"
@@ -4539,8 +6508,14 @@ const mockWOResources: WOResource[] = [{
       "text": "Gary Grant",
       "value": "1312"
     },
-    "resourceGroups": [],
-    "types": [],
+    "resourceGroups": [{
+      "text": "Installers",
+      "value": "1"
+    }],
+    "types": [{
+      "text": "Installer",
+      "value": "1"
+    }],
     "subTypes": [],
     "rate": 0,
     "vendor": {
@@ -4559,7 +6534,15 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "CNC Machining",
+        "value": "12"
+      },
+      {
+        "text": "Driving",
+        "value": "3"
+      }
+    ],
     "location": {
       "text": "02: Boston",
       "value": "1"
@@ -4598,7 +6581,19 @@ const mockWOResources: WOResource[] = [{
         "value": "1"
       }
     ],
-    "types": [],
+    "types": [{
+        "text": "Delivery Driver",
+        "value": "2"
+      },
+      {
+        "text": "Designer",
+        "value": "3"
+      },
+      {
+        "text": "Installer",
+        "value": "1"
+      }
+    ],
     "subTypes": [],
     "rate": 0,
     "vendor": {
@@ -4617,7 +6612,15 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Driving",
+        "value": "3"
+      },
+      {
+        "text": "Plumbing",
+        "value": "2"
+      }
+    ],
     "location": {
       "text": "02: Boston",
       "value": "1"
@@ -4656,7 +6659,19 @@ const mockWOResources: WOResource[] = [{
         "value": "1"
       }
     ],
-    "types": [],
+    "types": [{
+        "text": "Delivery Driver",
+        "value": "2"
+      },
+      {
+        "text": "Designer",
+        "value": "3"
+      },
+      {
+        "text": "Installer",
+        "value": "1"
+      }
+    ],
     "subTypes": [],
     "rate": 0,
     "vendor": {
@@ -4675,7 +6690,19 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "CNC Machining",
+        "value": "12"
+      },
+      {
+        "text": "Furniture Design",
+        "value": "7"
+      },
+      {
+        "text": "Interior Design",
+        "value": "14"
+      }
+    ],
     "location": {
       "text": "01: San Francisco",
       "value": "2"
@@ -4701,8 +6728,14 @@ const mockWOResources: WOResource[] = [{
       "text": "Gary Grant",
       "value": "1312"
     },
-    "resourceGroups": [],
-    "types": [],
+    "resourceGroups": [{
+      "text": "Installers",
+      "value": "1"
+    }],
+    "types": [{
+      "text": "Installer",
+      "value": "1"
+    }],
     "subTypes": [],
     "rate": 0,
     "vendor": {
@@ -4721,7 +6754,15 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "CNC Machining",
+        "value": "12"
+      },
+      {
+        "text": "Driving",
+        "value": "3"
+      }
+    ],
     "location": {
       "text": "02: Boston",
       "value": "1"
@@ -4747,8 +6788,14 @@ const mockWOResources: WOResource[] = [{
       "text": "Gary Grant",
       "value": "1312"
     },
-    "resourceGroups": [],
-    "types": [],
+    "resourceGroups": [{
+      "text": "Installers",
+      "value": "1"
+    }],
+    "types": [{
+      "text": "Installer",
+      "value": "1"
+    }],
     "subTypes": [],
     "rate": 0,
     "vendor": {
@@ -4767,7 +6814,15 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "CNC Machining",
+        "value": "12"
+      },
+      {
+        "text": "Driving",
+        "value": "3"
+      }
+    ],
     "location": {
       "text": "02: Boston",
       "value": "1"
@@ -4793,8 +6848,14 @@ const mockWOResources: WOResource[] = [{
       "text": "Gary Grant",
       "value": "1312"
     },
-    "resourceGroups": [],
-    "types": [],
+    "resourceGroups": [{
+      "text": "Installers",
+      "value": "1"
+    }],
+    "types": [{
+      "text": "Installer",
+      "value": "1"
+    }],
     "subTypes": [],
     "rate": 0,
     "vendor": {
@@ -4813,7 +6874,15 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "CNC Machining",
+        "value": "12"
+      },
+      {
+        "text": "Driving",
+        "value": "3"
+      }
+    ],
     "location": {
       "text": "02: Boston",
       "value": "1"
@@ -4839,8 +6908,14 @@ const mockWOResources: WOResource[] = [{
       "text": "Gary Grant",
       "value": "1312"
     },
-    "resourceGroups": [],
-    "types": [],
+    "resourceGroups": [{
+      "text": "Installers",
+      "value": "1"
+    }],
+    "types": [{
+      "text": "Installer",
+      "value": "1"
+    }],
     "subTypes": [],
     "rate": 0,
     "vendor": {
@@ -4859,7 +6934,15 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "CNC Machining",
+        "value": "12"
+      },
+      {
+        "text": "Driving",
+        "value": "3"
+      }
+    ],
     "location": {
       "text": "02: Boston",
       "value": "1"
@@ -4885,8 +6968,14 @@ const mockWOResources: WOResource[] = [{
       "text": "Gary Grant",
       "value": "1312"
     },
-    "resourceGroups": [],
-    "types": [],
+    "resourceGroups": [{
+      "text": "Installers",
+      "value": "1"
+    }],
+    "types": [{
+      "text": "Installer",
+      "value": "1"
+    }],
     "subTypes": [],
     "rate": 0,
     "vendor": {
@@ -4905,7 +6994,15 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "CNC Machining",
+        "value": "12"
+      },
+      {
+        "text": "Driving",
+        "value": "3"
+      }
+    ],
     "location": {
       "text": "02: Boston",
       "value": "1"
@@ -4944,7 +7041,19 @@ const mockWOResources: WOResource[] = [{
         "value": "1"
       }
     ],
-    "types": [],
+    "types": [{
+        "text": "Delivery Driver",
+        "value": "2"
+      },
+      {
+        "text": "Designer",
+        "value": "3"
+      },
+      {
+        "text": "Installer",
+        "value": "1"
+      }
+    ],
     "subTypes": [],
     "rate": 0,
     "vendor": {
@@ -4963,7 +7072,15 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Driving",
+        "value": "3"
+      },
+      {
+        "text": "Plumbing",
+        "value": "2"
+      }
+    ],
     "location": {
       "text": "02: Boston",
       "value": "1"
@@ -5002,7 +7119,19 @@ const mockWOResources: WOResource[] = [{
         "value": "1"
       }
     ],
-    "types": [],
+    "types": [{
+        "text": "Delivery Driver",
+        "value": "2"
+      },
+      {
+        "text": "Designer",
+        "value": "3"
+      },
+      {
+        "text": "Installer",
+        "value": "1"
+      }
+    ],
     "subTypes": [],
     "rate": 0,
     "vendor": {
@@ -5021,7 +7150,19 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "CNC Machining",
+        "value": "12"
+      },
+      {
+        "text": "Furniture Design",
+        "value": "7"
+      },
+      {
+        "text": "Interior Design",
+        "value": "14"
+      }
+    ],
     "location": {
       "text": "01: San Francisco",
       "value": "2"
@@ -5047,8 +7188,14 @@ const mockWOResources: WOResource[] = [{
       "text": "Gary Grant",
       "value": "1312"
     },
-    "resourceGroups": [],
-    "types": [],
+    "resourceGroups": [{
+      "text": "Installers",
+      "value": "1"
+    }],
+    "types": [{
+      "text": "Installer",
+      "value": "1"
+    }],
     "subTypes": [],
     "rate": 0,
     "vendor": {
@@ -5067,7 +7214,15 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "CNC Machining",
+        "value": "12"
+      },
+      {
+        "text": "Driving",
+        "value": "3"
+      }
+    ],
     "location": {
       "text": "02: Boston",
       "value": "1"
@@ -5106,7 +7261,19 @@ const mockWOResources: WOResource[] = [{
         "value": "1"
       }
     ],
-    "types": [],
+    "types": [{
+        "text": "Delivery Driver",
+        "value": "2"
+      },
+      {
+        "text": "Designer",
+        "value": "3"
+      },
+      {
+        "text": "Installer",
+        "value": "1"
+      }
+    ],
     "subTypes": [],
     "rate": 0,
     "vendor": {
@@ -5125,7 +7292,15 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Driving",
+        "value": "3"
+      },
+      {
+        "text": "Plumbing",
+        "value": "2"
+      }
+    ],
     "location": {
       "text": "02: Boston",
       "value": "1"
@@ -5164,7 +7339,19 @@ const mockWOResources: WOResource[] = [{
         "value": "1"
       }
     ],
-    "types": [],
+    "types": [{
+        "text": "Delivery Driver",
+        "value": "2"
+      },
+      {
+        "text": "Designer",
+        "value": "3"
+      },
+      {
+        "text": "Installer",
+        "value": "1"
+      }
+    ],
     "subTypes": [],
     "rate": 0,
     "vendor": {
@@ -5183,7 +7370,19 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "CNC Machining",
+        "value": "12"
+      },
+      {
+        "text": "Furniture Design",
+        "value": "7"
+      },
+      {
+        "text": "Interior Design",
+        "value": "14"
+      }
+    ],
     "location": {
       "text": "01: San Francisco",
       "value": "2"
@@ -5209,8 +7408,14 @@ const mockWOResources: WOResource[] = [{
       "text": "Gary Grant",
       "value": "1312"
     },
-    "resourceGroups": [],
-    "types": [],
+    "resourceGroups": [{
+      "text": "Installers",
+      "value": "1"
+    }],
+    "types": [{
+      "text": "Installer",
+      "value": "1"
+    }],
     "subTypes": [],
     "rate": 0,
     "vendor": {
@@ -5229,7 +7434,15 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "CNC Machining",
+        "value": "12"
+      },
+      {
+        "text": "Driving",
+        "value": "3"
+      }
+    ],
     "location": {
       "text": "02: Boston",
       "value": "1"
@@ -5268,7 +7481,19 @@ const mockWOResources: WOResource[] = [{
         "value": "1"
       }
     ],
-    "types": [],
+    "types": [{
+        "text": "Delivery Driver",
+        "value": "2"
+      },
+      {
+        "text": "Designer",
+        "value": "3"
+      },
+      {
+        "text": "Installer",
+        "value": "1"
+      }
+    ],
     "subTypes": [],
     "rate": 0,
     "vendor": {
@@ -5287,7 +7512,15 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Driving",
+        "value": "3"
+      },
+      {
+        "text": "Plumbing",
+        "value": "2"
+      }
+    ],
     "location": {
       "text": "02: Boston",
       "value": "1"
@@ -5326,7 +7559,19 @@ const mockWOResources: WOResource[] = [{
         "value": "1"
       }
     ],
-    "types": [],
+    "types": [{
+        "text": "Delivery Driver",
+        "value": "2"
+      },
+      {
+        "text": "Designer",
+        "value": "3"
+      },
+      {
+        "text": "Installer",
+        "value": "1"
+      }
+    ],
     "subTypes": [],
     "rate": 0,
     "vendor": {
@@ -5345,7 +7590,19 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "CNC Machining",
+        "value": "12"
+      },
+      {
+        "text": "Furniture Design",
+        "value": "7"
+      },
+      {
+        "text": "Interior Design",
+        "value": "14"
+      }
+    ],
     "location": {
       "text": "01: San Francisco",
       "value": "2"
@@ -5371,8 +7628,14 @@ const mockWOResources: WOResource[] = [{
       "text": "Gary Grant",
       "value": "1312"
     },
-    "resourceGroups": [],
-    "types": [],
+    "resourceGroups": [{
+      "text": "Installers",
+      "value": "1"
+    }],
+    "types": [{
+      "text": "Installer",
+      "value": "1"
+    }],
     "subTypes": [],
     "rate": 0,
     "vendor": {
@@ -5391,7 +7654,15 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "CNC Machining",
+        "value": "12"
+      },
+      {
+        "text": "Driving",
+        "value": "3"
+      }
+    ],
     "location": {
       "text": "02: Boston",
       "value": "1"
@@ -5430,7 +7701,19 @@ const mockWOResources: WOResource[] = [{
         "value": "1"
       }
     ],
-    "types": [],
+    "types": [{
+        "text": "Delivery Driver",
+        "value": "2"
+      },
+      {
+        "text": "Designer",
+        "value": "3"
+      },
+      {
+        "text": "Installer",
+        "value": "1"
+      }
+    ],
     "subTypes": [],
     "rate": 0,
     "vendor": {
@@ -5449,7 +7732,15 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Driving",
+        "value": "3"
+      },
+      {
+        "text": "Plumbing",
+        "value": "2"
+      }
+    ],
     "location": {
       "text": "02: Boston",
       "value": "1"
@@ -5475,8 +7766,14 @@ const mockWOResources: WOResource[] = [{
       "text": "Gary Grant",
       "value": "1312"
     },
-    "resourceGroups": [],
-    "types": [],
+    "resourceGroups": [{
+      "text": "Installers",
+      "value": "1"
+    }],
+    "types": [{
+      "text": "Installer",
+      "value": "1"
+    }],
     "subTypes": [],
     "rate": 0,
     "vendor": {
@@ -5495,7 +7792,15 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "CNC Machining",
+        "value": "12"
+      },
+      {
+        "text": "Driving",
+        "value": "3"
+      }
+    ],
     "location": {
       "text": "02: Boston",
       "value": "1"
@@ -5534,7 +7839,19 @@ const mockWOResources: WOResource[] = [{
         "value": "1"
       }
     ],
-    "types": [],
+    "types": [{
+        "text": "Delivery Driver",
+        "value": "2"
+      },
+      {
+        "text": "Designer",
+        "value": "3"
+      },
+      {
+        "text": "Installer",
+        "value": "1"
+      }
+    ],
     "subTypes": [],
     "rate": 0,
     "vendor": {
@@ -5553,7 +7870,15 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Driving",
+        "value": "3"
+      },
+      {
+        "text": "Plumbing",
+        "value": "2"
+      }
+    ],
     "location": {
       "text": "02: Boston",
       "value": "1"
@@ -5592,7 +7917,19 @@ const mockWOResources: WOResource[] = [{
         "value": "1"
       }
     ],
-    "types": [],
+    "types": [{
+        "text": "Delivery Driver",
+        "value": "2"
+      },
+      {
+        "text": "Designer",
+        "value": "3"
+      },
+      {
+        "text": "Installer",
+        "value": "1"
+      }
+    ],
     "subTypes": [],
     "rate": 0,
     "vendor": {
@@ -5611,7 +7948,19 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "CNC Machining",
+        "value": "12"
+      },
+      {
+        "text": "Furniture Design",
+        "value": "7"
+      },
+      {
+        "text": "Interior Design",
+        "value": "14"
+      }
+    ],
     "location": {
       "text": "01: San Francisco",
       "value": "2"
@@ -5637,18 +7986,9 @@ const mockWOResources: WOResource[] = [{
       "text": "Joanne Miller",
       "value": "1022"
     },
-    "resourceGroups": [{
-      "text": "Designers",
-      "value": "2"
-    }],
-    "types": [{
-      "text": "Designer",
-      "value": "3"
-    }],
-    "subTypes": [{
-      "text": "designer",
-      "value": "1"
-    }],
+    "resourceGroups": [],
+    "types": [],
+    "subTypes": [],
     "rate": 0,
     "vendor": {
       "text": "",
@@ -5705,7 +8045,19 @@ const mockWOResources: WOResource[] = [{
         "value": "1"
       }
     ],
-    "types": [],
+    "types": [{
+        "text": "Delivery Driver",
+        "value": "2"
+      },
+      {
+        "text": "Designer",
+        "value": "3"
+      },
+      {
+        "text": "Installer",
+        "value": "1"
+      }
+    ],
     "subTypes": [],
     "rate": 0,
     "vendor": {
@@ -5724,7 +8076,15 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Driving",
+        "value": "3"
+      },
+      {
+        "text": "Plumbing",
+        "value": "2"
+      }
+    ],
     "location": {
       "text": "02: Boston",
       "value": "1"
@@ -5763,7 +8123,19 @@ const mockWOResources: WOResource[] = [{
         "value": "1"
       }
     ],
-    "types": [],
+    "types": [{
+        "text": "Delivery Driver",
+        "value": "2"
+      },
+      {
+        "text": "Designer",
+        "value": "3"
+      },
+      {
+        "text": "Installer",
+        "value": "1"
+      }
+    ],
     "subTypes": [],
     "rate": 0,
     "vendor": {
@@ -5782,7 +8154,19 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "CNC Machining",
+        "value": "12"
+      },
+      {
+        "text": "Furniture Design",
+        "value": "7"
+      },
+      {
+        "text": "Interior Design",
+        "value": "14"
+      }
+    ],
     "location": {
       "text": "01: San Francisco",
       "value": "2"
@@ -5834,7 +8218,15 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "CNC Machining",
+        "value": "12"
+      },
+      {
+        "text": "Driving",
+        "value": "3"
+      }
+    ],
     "location": {
       "text": "02: Boston",
       "value": "1"
@@ -5873,7 +8265,19 @@ const mockWOResources: WOResource[] = [{
         "value": "1"
       }
     ],
-    "types": [],
+    "types": [{
+        "text": "Delivery Driver",
+        "value": "2"
+      },
+      {
+        "text": "Designer",
+        "value": "3"
+      },
+      {
+        "text": "Installer",
+        "value": "1"
+      }
+    ],
     "subTypes": [],
     "rate": 0,
     "vendor": {
@@ -5892,7 +8296,15 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Driving",
+        "value": "3"
+      },
+      {
+        "text": "Plumbing",
+        "value": "2"
+      }
+    ],
     "location": {
       "text": "02: Boston",
       "value": "1"
@@ -5931,7 +8343,19 @@ const mockWOResources: WOResource[] = [{
         "value": "1"
       }
     ],
-    "types": [],
+    "types": [{
+        "text": "Delivery Driver",
+        "value": "2"
+      },
+      {
+        "text": "Designer",
+        "value": "3"
+      },
+      {
+        "text": "Installer",
+        "value": "1"
+      }
+    ],
     "subTypes": [],
     "rate": 0,
     "vendor": {
@@ -5950,7 +8374,19 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "CNC Machining",
+        "value": "12"
+      },
+      {
+        "text": "Furniture Design",
+        "value": "7"
+      },
+      {
+        "text": "Interior Design",
+        "value": "14"
+      }
+    ],
     "location": {
       "text": "01: San Francisco",
       "value": "2"
@@ -6002,7 +8438,15 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "CNC Machining",
+        "value": "12"
+      },
+      {
+        "text": "Driving",
+        "value": "3"
+      }
+    ],
     "location": {
       "text": "02: Boston",
       "value": "1"
@@ -6041,7 +8485,19 @@ const mockWOResources: WOResource[] = [{
         "value": "1"
       }
     ],
-    "types": [],
+    "types": [{
+        "text": "Delivery Driver",
+        "value": "2"
+      },
+      {
+        "text": "Designer",
+        "value": "3"
+      },
+      {
+        "text": "Installer",
+        "value": "1"
+      }
+    ],
     "subTypes": [],
     "rate": 0,
     "vendor": {
@@ -6060,7 +8516,15 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Driving",
+        "value": "3"
+      },
+      {
+        "text": "Plumbing",
+        "value": "2"
+      }
+    ],
     "location": {
       "text": "02: Boston",
       "value": "1"
@@ -6099,7 +8563,19 @@ const mockWOResources: WOResource[] = [{
         "value": "1"
       }
     ],
-    "types": [],
+    "types": [{
+        "text": "Delivery Driver",
+        "value": "2"
+      },
+      {
+        "text": "Designer",
+        "value": "3"
+      },
+      {
+        "text": "Installer",
+        "value": "1"
+      }
+    ],
     "subTypes": [],
     "rate": 0,
     "vendor": {
@@ -6118,7 +8594,19 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "CNC Machining",
+        "value": "12"
+      },
+      {
+        "text": "Furniture Design",
+        "value": "7"
+      },
+      {
+        "text": "Interior Design",
+        "value": "14"
+      }
+    ],
     "location": {
       "text": "01: San Francisco",
       "value": "2"
@@ -6148,7 +8636,10 @@ const mockWOResources: WOResource[] = [{
       "text": "Installers",
       "value": "1"
     }],
-    "types": [],
+    "types": [{
+      "text": "Installer",
+      "value": "1"
+    }],
     "subTypes": [],
     "rate": 0,
     "vendor": {
@@ -6167,7 +8658,19 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Carpentry and Joinery",
+        "value": "10"
+      },
+      {
+        "text": "Quality Control",
+        "value": "13"
+      },
+      {
+        "text": "Upholstery",
+        "value": "11"
+      }
+    ],
     "location": {
       "text": "01: San Francisco",
       "value": "2"
@@ -6219,7 +8722,15 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "CNC Machining",
+        "value": "12"
+      },
+      {
+        "text": "Driving",
+        "value": "3"
+      }
+    ],
     "location": {
       "text": "02: Boston",
       "value": "1"
@@ -6246,10 +8757,31 @@ const mockWOResources: WOResource[] = [{
       "value": "1767"
     },
     "resourceGroups": [{
-      "text": "Installers",
-      "value": "1"
-    }],
-    "types": [],
+        "text": "Designers",
+        "value": "2"
+      },
+      {
+        "text": "Drivers",
+        "value": "3"
+      },
+      {
+        "text": "Installers",
+        "value": "1"
+      }
+    ],
+    "types": [{
+        "text": "Delivery Driver",
+        "value": "2"
+      },
+      {
+        "text": "Designer",
+        "value": "3"
+      },
+      {
+        "text": "Installer",
+        "value": "1"
+      }
+    ],
     "subTypes": [],
     "rate": 0,
     "vendor": {
@@ -6268,7 +8800,19 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "CNC Machining",
+        "value": "12"
+      },
+      {
+        "text": "Furniture Design",
+        "value": "7"
+      },
+      {
+        "text": "Interior Design",
+        "value": "14"
+      }
+    ],
     "location": {
       "text": "01: San Francisco",
       "value": "2"
@@ -6295,13 +8839,31 @@ const mockWOResources: WOResource[] = [{
       "value": "1770"
     },
     "resourceGroups": [{
-      "text": "Designers",
-      "value": "2"
-    }],
+        "text": "Designers",
+        "value": "2"
+      },
+      {
+        "text": "Drivers",
+        "value": "3"
+      },
+      {
+        "text": "Installers",
+        "value": "1"
+      }
+    ],
     "types": [{
-      "text": "Installer",
-      "value": "1"
-    }],
+        "text": "Delivery Driver",
+        "value": "2"
+      },
+      {
+        "text": "Designer",
+        "value": "3"
+      },
+      {
+        "text": "Installer",
+        "value": "1"
+      }
+    ],
     "subTypes": [],
     "rate": 0,
     "vendor": {
@@ -6320,7 +8882,15 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Driving",
+        "value": "3"
+      },
+      {
+        "text": "Plumbing",
+        "value": "2"
+      }
+    ],
     "location": {
       "text": "02: Boston",
       "value": "1"
@@ -6347,8 +8917,8 @@ const mockWOResources: WOResource[] = [{
       "value": "1656"
     },
     "resourceGroups": [{
-      "text": "Designers",
-      "value": "2"
+      "text": "Installers",
+      "value": "1"
     }],
     "types": [{
       "text": "Installer",
@@ -6372,7 +8942,19 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Carpentry and Joinery",
+        "value": "10"
+      },
+      {
+        "text": "Quality Control",
+        "value": "13"
+      },
+      {
+        "text": "Upholstery",
+        "value": "11"
+      }
+    ],
     "location": {
       "text": "01: San Francisco",
       "value": "2"
@@ -6488,7 +9070,15 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Driving",
+        "value": "3"
+      },
+      {
+        "text": "Plumbing",
+        "value": "2"
+      }
+    ],
     "location": {
       "text": "02: Boston",
       "value": "1"
@@ -6558,7 +9148,19 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "CNC Machining",
+        "value": "12"
+      },
+      {
+        "text": "Furniture Design",
+        "value": "7"
+      },
+      {
+        "text": "Interior Design",
+        "value": "14"
+      }
+    ],
     "location": {
       "text": "01: San Francisco",
       "value": "2"
@@ -6610,7 +9212,15 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "CNC Machining",
+        "value": "12"
+      },
+      {
+        "text": "Driving",
+        "value": "3"
+      }
+    ],
     "location": {
       "text": "02: Boston",
       "value": "1"
@@ -6662,7 +9272,19 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Material Knowledge",
+        "value": "9"
+      },
+      {
+        "text": "Metalworking",
+        "value": "5"
+      },
+      {
+        "text": "Welding",
+        "value": "6"
+      }
+    ],
     "location": {
       "text": "New York",
       "value": "15"
@@ -6714,7 +9336,19 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Carpentry and Joinery",
+        "value": "10"
+      },
+      {
+        "text": "Quality Control",
+        "value": "13"
+      },
+      {
+        "text": "Upholstery",
+        "value": "11"
+      }
+    ],
     "location": {
       "text": "01: San Francisco",
       "value": "2"
@@ -6766,7 +9400,19 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Carpentry and Joinery",
+        "value": "10"
+      },
+      {
+        "text": "Quality Control",
+        "value": "13"
+      },
+      {
+        "text": "Upholstery",
+        "value": "11"
+      }
+    ],
     "location": {
       "text": "01: San Francisco",
       "value": "2"
@@ -6836,7 +9482,15 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Driving",
+        "value": "3"
+      },
+      {
+        "text": "Plumbing",
+        "value": "2"
+      }
+    ],
     "location": {
       "text": "02: Boston",
       "value": "1"
@@ -6888,7 +9542,19 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Carpentry and Joinery",
+        "value": "10"
+      },
+      {
+        "text": "Quality Control",
+        "value": "13"
+      },
+      {
+        "text": "Upholstery",
+        "value": "11"
+      }
+    ],
     "location": {
       "text": "01: San Francisco",
       "value": "2"
@@ -6940,7 +9606,15 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "CNC Machining",
+        "value": "12"
+      },
+      {
+        "text": "Driving",
+        "value": "3"
+      }
+    ],
     "location": {
       "text": "02: Boston",
       "value": "1"
@@ -7010,7 +9684,19 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "CNC Machining",
+        "value": "12"
+      },
+      {
+        "text": "Furniture Design",
+        "value": "7"
+      },
+      {
+        "text": "Interior Design",
+        "value": "14"
+      }
+    ],
     "location": {
       "text": "01: San Francisco",
       "value": "2"
@@ -7062,7 +9748,19 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Material Knowledge",
+        "value": "9"
+      },
+      {
+        "text": "Metalworking",
+        "value": "5"
+      },
+      {
+        "text": "Welding",
+        "value": "6"
+      }
+    ],
     "location": {
       "text": "New York",
       "value": "15"
@@ -7132,7 +9830,15 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Driving",
+        "value": "3"
+      },
+      {
+        "text": "Plumbing",
+        "value": "2"
+      }
+    ],
     "location": {
       "text": "02: Boston",
       "value": "1"
@@ -7184,7 +9890,19 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Carpentry and Joinery",
+        "value": "10"
+      },
+      {
+        "text": "Quality Control",
+        "value": "13"
+      },
+      {
+        "text": "Upholstery",
+        "value": "11"
+      }
+    ],
     "location": {
       "text": "01: San Francisco",
       "value": "2"
@@ -7236,7 +9954,15 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "CNC Machining",
+        "value": "12"
+      },
+      {
+        "text": "Driving",
+        "value": "3"
+      }
+    ],
     "location": {
       "text": "02: Boston",
       "value": "1"
@@ -7306,7 +10032,15 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Driving",
+        "value": "3"
+      },
+      {
+        "text": "Plumbing",
+        "value": "2"
+      }
+    ],
     "location": {
       "text": "02: Boston",
       "value": "1"
@@ -7376,7 +10110,15 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Driving",
+        "value": "3"
+      },
+      {
+        "text": "Plumbing",
+        "value": "2"
+      }
+    ],
     "location": {
       "text": "02: Boston",
       "value": "1"
@@ -7446,7 +10188,15 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Driving",
+        "value": "3"
+      },
+      {
+        "text": "Plumbing",
+        "value": "2"
+      }
+    ],
     "location": {
       "text": "02: Boston",
       "value": "1"
@@ -7472,8 +10222,32 @@ const mockWOResources: WOResource[] = [{
       "text": "Bea Quilinguin",
       "value": "1767"
     },
-    "resourceGroups": [],
-    "types": [],
+    "resourceGroups": [{
+        "text": "Designers",
+        "value": "2"
+      },
+      {
+        "text": "Drivers",
+        "value": "3"
+      },
+      {
+        "text": "Installers",
+        "value": "1"
+      }
+    ],
+    "types": [{
+        "text": "Delivery Driver",
+        "value": "2"
+      },
+      {
+        "text": "Designer",
+        "value": "3"
+      },
+      {
+        "text": "Installer",
+        "value": "1"
+      }
+    ],
     "subTypes": [],
     "rate": 0,
     "vendor": {
@@ -7492,7 +10266,19 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "CNC Machining",
+        "value": "12"
+      },
+      {
+        "text": "Furniture Design",
+        "value": "7"
+      },
+      {
+        "text": "Interior Design",
+        "value": "14"
+      }
+    ],
     "location": {
       "text": "01: San Francisco",
       "value": "2"
@@ -7518,8 +10304,14 @@ const mockWOResources: WOResource[] = [{
       "text": "Gary Grant",
       "value": "1312"
     },
-    "resourceGroups": [],
-    "types": [],
+    "resourceGroups": [{
+      "text": "Installers",
+      "value": "1"
+    }],
+    "types": [{
+      "text": "Installer",
+      "value": "1"
+    }],
     "subTypes": [],
     "rate": 0,
     "vendor": {
@@ -7538,7 +10330,15 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "CNC Machining",
+        "value": "12"
+      },
+      {
+        "text": "Driving",
+        "value": "3"
+      }
+    ],
     "location": {
       "text": "02: Boston",
       "value": "1"
@@ -7608,7 +10408,15 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Driving",
+        "value": "3"
+      },
+      {
+        "text": "Plumbing",
+        "value": "2"
+      }
+    ],
     "location": {
       "text": "02: Boston",
       "value": "1"
@@ -7678,7 +10486,15 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Driving",
+        "value": "3"
+      },
+      {
+        "text": "Plumbing",
+        "value": "2"
+      }
+    ],
     "location": {
       "text": "02: Boston",
       "value": "1"
@@ -7704,14 +10520,8 @@ const mockWOResources: WOResource[] = [{
       "text": "Template - Sales Person",
       "value": "1"
     },
-    "resourceGroups": [{
-      "text": "Designers",
-      "value": "2"
-    }],
-    "types": [{
-      "text": "Delivery Driver",
-      "value": "2"
-    }],
+    "resourceGroups": [],
+    "types": [],
     "subTypes": [],
     "rate": 0,
     "vendor": {
@@ -7800,7 +10610,15 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Driving",
+        "value": "3"
+      },
+      {
+        "text": "Plumbing",
+        "value": "2"
+      }
+    ],
     "location": {
       "text": "02: Boston",
       "value": "1"
@@ -7870,7 +10688,15 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Driving",
+        "value": "3"
+      },
+      {
+        "text": "Plumbing",
+        "value": "2"
+      }
+    ],
     "location": {
       "text": "02: Boston",
       "value": "1"
@@ -7940,7 +10766,19 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "CNC Machining",
+        "value": "12"
+      },
+      {
+        "text": "Furniture Design",
+        "value": "7"
+      },
+      {
+        "text": "Interior Design",
+        "value": "14"
+      }
+    ],
     "location": {
       "text": "01: San Francisco",
       "value": "2"
@@ -7979,7 +10817,19 @@ const mockWOResources: WOResource[] = [{
         "value": "1"
       }
     ],
-    "types": [],
+    "types": [{
+        "text": "Delivery Driver",
+        "value": "2"
+      },
+      {
+        "text": "Designer",
+        "value": "3"
+      },
+      {
+        "text": "Installer",
+        "value": "1"
+      }
+    ],
     "subTypes": [],
     "rate": 0,
     "vendor": {
@@ -7998,7 +10848,15 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Driving",
+        "value": "3"
+      },
+      {
+        "text": "Plumbing",
+        "value": "2"
+      }
+    ],
     "location": {
       "text": "02: Boston",
       "value": "1"
@@ -8050,7 +10908,19 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Material Knowledge",
+        "value": "9"
+      },
+      {
+        "text": "Metalworking",
+        "value": "5"
+      },
+      {
+        "text": "Welding",
+        "value": "6"
+      }
+    ],
     "location": {
       "text": "New York",
       "value": "15"
@@ -8102,7 +10972,19 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Carpentry and Joinery",
+        "value": "10"
+      },
+      {
+        "text": "Quality Control",
+        "value": "13"
+      },
+      {
+        "text": "Upholstery",
+        "value": "11"
+      }
+    ],
     "location": {
       "text": "01: San Francisco",
       "value": "2"
@@ -8154,7 +11036,19 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Material Knowledge",
+        "value": "9"
+      },
+      {
+        "text": "Metalworking",
+        "value": "5"
+      },
+      {
+        "text": "Welding",
+        "value": "6"
+      }
+    ],
     "location": {
       "text": "New York",
       "value": "15"
@@ -8206,7 +11100,19 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Carpentry and Joinery",
+        "value": "10"
+      },
+      {
+        "text": "Quality Control",
+        "value": "13"
+      },
+      {
+        "text": "Upholstery",
+        "value": "11"
+      }
+    ],
     "location": {
       "text": "01: San Francisco",
       "value": "2"
@@ -8258,7 +11164,15 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "CNC Machining",
+        "value": "12"
+      },
+      {
+        "text": "Driving",
+        "value": "3"
+      }
+    ],
     "location": {
       "text": "02: Boston",
       "value": "1"
@@ -8310,7 +11224,19 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Material Knowledge",
+        "value": "9"
+      },
+      {
+        "text": "Metalworking",
+        "value": "5"
+      },
+      {
+        "text": "Welding",
+        "value": "6"
+      }
+    ],
     "location": {
       "text": "New York",
       "value": "15"
@@ -8362,7 +11288,15 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "CNC Machining",
+        "value": "12"
+      },
+      {
+        "text": "Driving",
+        "value": "3"
+      }
+    ],
     "location": {
       "text": "02: Boston",
       "value": "1"
@@ -8414,7 +11348,15 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Welding",
+        "value": "6"
+      },
+      {
+        "text": "Woodworking",
+        "value": "4"
+      }
+    ],
     "location": {
       "text": "01: San Francisco",
       "value": "2"
@@ -8466,7 +11408,15 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Painting and Finishing",
+        "value": "15"
+      },
+      {
+        "text": "Woodworking",
+        "value": "4"
+      }
+    ],
     "location": {
       "text": "",
       "value": ""
@@ -8518,7 +11468,19 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Furniture Assembly",
+        "value": "1"
+      },
+      {
+        "text": "Metalworking",
+        "value": "5"
+      },
+      {
+        "text": "Painting and Finishing",
+        "value": "15"
+      }
+    ],
     "location": {
       "text": "01: San Francisco",
       "value": "2"
@@ -8570,7 +11532,15 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Furniture Assembly",
+        "value": "1"
+      },
+      {
+        "text": "Painting and Finishing",
+        "value": "15"
+      }
+    ],
     "location": {
       "text": "01: San Francisco : QA Hold",
       "value": "5"
@@ -8622,7 +11592,15 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Welding",
+        "value": "6"
+      },
+      {
+        "text": "Woodworking",
+        "value": "4"
+      }
+    ],
     "location": {
       "text": "01: San Francisco",
       "value": "2"
@@ -8674,7 +11652,15 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Welding",
+        "value": "6"
+      },
+      {
+        "text": "Woodworking",
+        "value": "4"
+      }
+    ],
     "location": {
       "text": "01: San Francisco",
       "value": "2"
@@ -8726,7 +11712,15 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Carpentry and Joinery",
+        "value": "10"
+      },
+      {
+        "text": "Furniture Assembly",
+        "value": "1"
+      }
+    ],
     "location": {
       "text": "01: San Francisco",
       "value": "2"
@@ -8778,7 +11772,19 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "CNC Machining",
+        "value": "12"
+      },
+      {
+        "text": "Carpentry and Joinery",
+        "value": "10"
+      },
+      {
+        "text": "Computer-Aided Design (CAD)",
+        "value": "8"
+      }
+    ],
     "location": {
       "text": "01: San Francisco",
       "value": "2"
@@ -8830,7 +11836,19 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Material Knowledge",
+        "value": "9"
+      },
+      {
+        "text": "Plumbing",
+        "value": "2"
+      },
+      {
+        "text": "Quality Control",
+        "value": "13"
+      }
+    ],
     "location": {
       "text": "01: San Francisco",
       "value": "2"
@@ -8882,7 +11900,19 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Interior Design",
+        "value": "14"
+      },
+      {
+        "text": "Material Knowledge",
+        "value": "9"
+      },
+      {
+        "text": "Painting and Finishing",
+        "value": "15"
+      }
+    ],
     "location": {
       "text": "02: Boston",
       "value": "1"
@@ -8934,7 +11964,19 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Furniture Assembly",
+        "value": "1"
+      },
+      {
+        "text": "Furniture Design",
+        "value": "7"
+      },
+      {
+        "text": "Interior Design",
+        "value": "14"
+      }
+    ],
     "location": {
       "text": "01: San Francisco : QA Hold",
       "value": "5"
@@ -8986,7 +12028,15 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Computer-Aided Design (CAD)",
+        "value": "8"
+      },
+      {
+        "text": "Interior Design",
+        "value": "14"
+      }
+    ],
     "location": {
       "text": "01: San Francisco",
       "value": "2"
@@ -9038,7 +12088,15 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Carpentry and Joinery",
+        "value": "10"
+      },
+      {
+        "text": "Furniture Assembly",
+        "value": "1"
+      }
+    ],
     "location": {
       "text": "01: San Francisco",
       "value": "2"
@@ -9090,7 +12148,15 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Welding",
+        "value": "6"
+      },
+      {
+        "text": "Woodworking",
+        "value": "4"
+      }
+    ],
     "location": {
       "text": "01: San Francisco",
       "value": "2"
@@ -9142,7 +12208,19 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Furniture Assembly",
+        "value": "1"
+      },
+      {
+        "text": "Metalworking",
+        "value": "5"
+      },
+      {
+        "text": "Painting and Finishing",
+        "value": "15"
+      }
+    ],
     "location": {
       "text": "01: San Francisco",
       "value": "2"
@@ -9194,7 +12272,19 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Furniture Assembly",
+        "value": "1"
+      },
+      {
+        "text": "Furniture Design",
+        "value": "7"
+      },
+      {
+        "text": "Interior Design",
+        "value": "14"
+      }
+    ],
     "location": {
       "text": "01: San Francisco : QA Hold",
       "value": "5"
@@ -9246,7 +12336,19 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Material Knowledge",
+        "value": "9"
+      },
+      {
+        "text": "Plumbing",
+        "value": "2"
+      },
+      {
+        "text": "Quality Control",
+        "value": "13"
+      }
+    ],
     "location": {
       "text": "01: San Francisco",
       "value": "2"
@@ -9298,7 +12400,19 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Interior Design",
+        "value": "14"
+      },
+      {
+        "text": "Material Knowledge",
+        "value": "9"
+      },
+      {
+        "text": "Quality Control",
+        "value": "13"
+      }
+    ],
     "location": {
       "text": "01: San Francisco",
       "value": "2"
@@ -9350,7 +12464,15 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Painting and Finishing",
+        "value": "15"
+      },
+      {
+        "text": "Woodworking",
+        "value": "4"
+      }
+    ],
     "location": {
       "text": "",
       "value": ""
@@ -9402,7 +12524,19 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "CNC Machining",
+        "value": "12"
+      },
+      {
+        "text": "Carpentry and Joinery",
+        "value": "10"
+      },
+      {
+        "text": "Computer-Aided Design (CAD)",
+        "value": "8"
+      }
+    ],
     "location": {
       "text": "01: San Francisco",
       "value": "2"
@@ -9454,7 +12588,19 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Carpentry and Joinery",
+        "value": "10"
+      },
+      {
+        "text": "Quality Control",
+        "value": "13"
+      },
+      {
+        "text": "Upholstery",
+        "value": "11"
+      }
+    ],
     "location": {
       "text": "01: San Francisco",
       "value": "2"
@@ -9506,7 +12652,15 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "CNC Machining",
+        "value": "12"
+      },
+      {
+        "text": "Driving",
+        "value": "3"
+      }
+    ],
     "location": {
       "text": "02: Boston",
       "value": "1"
@@ -9558,7 +12712,15 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Carpentry and Joinery",
+        "value": "10"
+      },
+      {
+        "text": "Furniture Assembly",
+        "value": "1"
+      }
+    ],
     "location": {
       "text": "01: San Francisco",
       "value": "2"
@@ -9610,7 +12772,15 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Welding",
+        "value": "6"
+      },
+      {
+        "text": "Woodworking",
+        "value": "4"
+      }
+    ],
     "location": {
       "text": "01: San Francisco",
       "value": "2"
@@ -9662,7 +12832,15 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Painting and Finishing",
+        "value": "15"
+      },
+      {
+        "text": "Woodworking",
+        "value": "4"
+      }
+    ],
     "location": {
       "text": "",
       "value": ""
@@ -9714,7 +12892,19 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Furniture Assembly",
+        "value": "1"
+      },
+      {
+        "text": "Metalworking",
+        "value": "5"
+      },
+      {
+        "text": "Painting and Finishing",
+        "value": "15"
+      }
+    ],
     "location": {
       "text": "01: San Francisco",
       "value": "2"
@@ -9766,7 +12956,15 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Furniture Assembly",
+        "value": "1"
+      },
+      {
+        "text": "Painting and Finishing",
+        "value": "15"
+      }
+    ],
     "location": {
       "text": "01: San Francisco : QA Hold",
       "value": "5"
@@ -9818,7 +13016,19 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Material Knowledge",
+        "value": "9"
+      },
+      {
+        "text": "Plumbing",
+        "value": "2"
+      },
+      {
+        "text": "Quality Control",
+        "value": "13"
+      }
+    ],
     "location": {
       "text": "01: San Francisco",
       "value": "2"
@@ -9870,7 +13080,15 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "CNC Machining",
+        "value": "12"
+      },
+      {
+        "text": "Driving",
+        "value": "3"
+      }
+    ],
     "location": {
       "text": "02: Boston",
       "value": "1"
@@ -9922,7 +13140,19 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Interior Design",
+        "value": "14"
+      },
+      {
+        "text": "Material Knowledge",
+        "value": "9"
+      },
+      {
+        "text": "Quality Control",
+        "value": "13"
+      }
+    ],
     "location": {
       "text": "01: San Francisco",
       "value": "2"
@@ -9992,7 +13222,15 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Driving",
+        "value": "3"
+      },
+      {
+        "text": "Plumbing",
+        "value": "2"
+      }
+    ],
     "location": {
       "text": "02: Boston",
       "value": "1"
@@ -10044,7 +13282,15 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Furniture Assembly",
+        "value": "1"
+      },
+      {
+        "text": "Painting and Finishing",
+        "value": "15"
+      }
+    ],
     "location": {
       "text": "01: San Francisco : QA Hold",
       "value": "5"
@@ -10096,7 +13342,19 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Interior Design",
+        "value": "14"
+      },
+      {
+        "text": "Material Knowledge",
+        "value": "9"
+      },
+      {
+        "text": "Quality Control",
+        "value": "13"
+      }
+    ],
     "location": {
       "text": "01: San Francisco",
       "value": "2"
@@ -10148,7 +13406,15 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Painting and Finishing",
+        "value": "15"
+      },
+      {
+        "text": "Woodworking",
+        "value": "4"
+      }
+    ],
     "location": {
       "text": "",
       "value": ""
@@ -10200,7 +13466,15 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Welding",
+        "value": "6"
+      },
+      {
+        "text": "Woodworking",
+        "value": "4"
+      }
+    ],
     "location": {
       "text": "01: San Francisco",
       "value": "2"
@@ -10252,7 +13526,19 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Furniture Assembly",
+        "value": "1"
+      },
+      {
+        "text": "Furniture Design",
+        "value": "7"
+      },
+      {
+        "text": "Interior Design",
+        "value": "14"
+      }
+    ],
     "location": {
       "text": "01: San Francisco : QA Hold",
       "value": "5"
@@ -10322,7 +13608,19 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "CNC Machining",
+        "value": "12"
+      },
+      {
+        "text": "Furniture Design",
+        "value": "7"
+      },
+      {
+        "text": "Interior Design",
+        "value": "14"
+      }
+    ],
     "location": {
       "text": "01: San Francisco",
       "value": "2"
@@ -10374,7 +13672,15 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Welding",
+        "value": "6"
+      },
+      {
+        "text": "Woodworking",
+        "value": "4"
+      }
+    ],
     "location": {
       "text": "01: San Francisco",
       "value": "2"
@@ -10426,7 +13732,15 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Welding",
+        "value": "6"
+      },
+      {
+        "text": "Woodworking",
+        "value": "4"
+      }
+    ],
     "location": {
       "text": "01: San Francisco",
       "value": "2"
@@ -10496,7 +13810,15 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Driving",
+        "value": "3"
+      },
+      {
+        "text": "Plumbing",
+        "value": "2"
+      }
+    ],
     "location": {
       "text": "02: Boston",
       "value": "1"
@@ -10548,7 +13870,15 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Painting and Finishing",
+        "value": "15"
+      },
+      {
+        "text": "Woodworking",
+        "value": "4"
+      }
+    ],
     "location": {
       "text": "",
       "value": ""
@@ -10600,7 +13930,19 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Furniture Assembly",
+        "value": "1"
+      },
+      {
+        "text": "Metalworking",
+        "value": "5"
+      },
+      {
+        "text": "Painting and Finishing",
+        "value": "15"
+      }
+    ],
     "location": {
       "text": "01: San Francisco",
       "value": "2"
@@ -10652,7 +13994,15 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Furniture Assembly",
+        "value": "1"
+      },
+      {
+        "text": "Painting and Finishing",
+        "value": "15"
+      }
+    ],
     "location": {
       "text": "01: San Francisco : QA Hold",
       "value": "5"
@@ -10704,7 +14054,19 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Furniture Assembly",
+        "value": "1"
+      },
+      {
+        "text": "Furniture Design",
+        "value": "7"
+      },
+      {
+        "text": "Interior Design",
+        "value": "14"
+      }
+    ],
     "location": {
       "text": "01: San Francisco : QA Hold",
       "value": "5"
@@ -10756,7 +14118,15 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Computer-Aided Design (CAD)",
+        "value": "8"
+      },
+      {
+        "text": "Interior Design",
+        "value": "14"
+      }
+    ],
     "location": {
       "text": "01: San Francisco",
       "value": "2"
@@ -10808,7 +14178,15 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Carpentry and Joinery",
+        "value": "10"
+      },
+      {
+        "text": "Furniture Assembly",
+        "value": "1"
+      }
+    ],
     "location": {
       "text": "01: San Francisco",
       "value": "2"
@@ -10860,7 +14238,19 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Material Knowledge",
+        "value": "9"
+      },
+      {
+        "text": "Plumbing",
+        "value": "2"
+      },
+      {
+        "text": "Quality Control",
+        "value": "13"
+      }
+    ],
     "location": {
       "text": "01: San Francisco",
       "value": "2"
@@ -10912,7 +14302,19 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Interior Design",
+        "value": "14"
+      },
+      {
+        "text": "Material Knowledge",
+        "value": "9"
+      },
+      {
+        "text": "Quality Control",
+        "value": "13"
+      }
+    ],
     "location": {
       "text": "01: San Francisco",
       "value": "2"
@@ -10964,7 +14366,19 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Carpentry and Joinery",
+        "value": "10"
+      },
+      {
+        "text": "Quality Control",
+        "value": "13"
+      },
+      {
+        "text": "Upholstery",
+        "value": "11"
+      }
+    ],
     "location": {
       "text": "01: San Francisco",
       "value": "2"
@@ -11016,7 +14430,15 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Welding",
+        "value": "6"
+      },
+      {
+        "text": "Woodworking",
+        "value": "4"
+      }
+    ],
     "location": {
       "text": "01: San Francisco",
       "value": "2"
@@ -11068,7 +14490,15 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Carpentry and Joinery",
+        "value": "10"
+      },
+      {
+        "text": "Furniture Assembly",
+        "value": "1"
+      }
+    ],
     "location": {
       "text": "01: San Francisco",
       "value": "2"
@@ -11138,7 +14568,15 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Driving",
+        "value": "3"
+      },
+      {
+        "text": "Plumbing",
+        "value": "2"
+      }
+    ],
     "location": {
       "text": "02: Boston",
       "value": "1"
@@ -11190,7 +14628,15 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Welding",
+        "value": "6"
+      },
+      {
+        "text": "Woodworking",
+        "value": "4"
+      }
+    ],
     "location": {
       "text": "01: San Francisco",
       "value": "2"
@@ -11242,7 +14688,15 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Painting and Finishing",
+        "value": "15"
+      },
+      {
+        "text": "Woodworking",
+        "value": "4"
+      }
+    ],
     "location": {
       "text": "",
       "value": ""
@@ -11294,7 +14748,15 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Welding",
+        "value": "6"
+      },
+      {
+        "text": "Woodworking",
+        "value": "4"
+      }
+    ],
     "location": {
       "text": "01: San Francisco",
       "value": "2"
@@ -11346,7 +14808,15 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Painting and Finishing",
+        "value": "15"
+      },
+      {
+        "text": "Woodworking",
+        "value": "4"
+      }
+    ],
     "location": {
       "text": "",
       "value": ""
@@ -11398,7 +14868,15 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Welding",
+        "value": "6"
+      },
+      {
+        "text": "Woodworking",
+        "value": "4"
+      }
+    ],
     "location": {
       "text": "01: San Francisco",
       "value": "2"
@@ -11450,7 +14928,15 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Painting and Finishing",
+        "value": "15"
+      },
+      {
+        "text": "Woodworking",
+        "value": "4"
+      }
+    ],
     "location": {
       "text": "",
       "value": ""
@@ -11502,7 +14988,15 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Furniture Assembly",
+        "value": "1"
+      },
+      {
+        "text": "Painting and Finishing",
+        "value": "15"
+      }
+    ],
     "location": {
       "text": "01: San Francisco : QA Hold",
       "value": "5"
@@ -11554,7 +15048,19 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Furniture Assembly",
+        "value": "1"
+      },
+      {
+        "text": "Furniture Design",
+        "value": "7"
+      },
+      {
+        "text": "Interior Design",
+        "value": "14"
+      }
+    ],
     "location": {
       "text": "01: San Francisco : QA Hold",
       "value": "5"
@@ -11606,7 +15112,19 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Material Knowledge",
+        "value": "9"
+      },
+      {
+        "text": "Plumbing",
+        "value": "2"
+      },
+      {
+        "text": "Quality Control",
+        "value": "13"
+      }
+    ],
     "location": {
       "text": "01: San Francisco",
       "value": "2"
@@ -11658,7 +15176,15 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Welding",
+        "value": "6"
+      },
+      {
+        "text": "Woodworking",
+        "value": "4"
+      }
+    ],
     "location": {
       "text": "01: San Francisco",
       "value": "2"
@@ -11710,7 +15236,15 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Painting and Finishing",
+        "value": "15"
+      },
+      {
+        "text": "Woodworking",
+        "value": "4"
+      }
+    ],
     "location": {
       "text": "",
       "value": ""
@@ -11762,7 +15296,19 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Furniture Assembly",
+        "value": "1"
+      },
+      {
+        "text": "Metalworking",
+        "value": "5"
+      },
+      {
+        "text": "Painting and Finishing",
+        "value": "15"
+      }
+    ],
     "location": {
       "text": "01: San Francisco",
       "value": "2"
@@ -11814,7 +15360,15 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Computer-Aided Design (CAD)",
+        "value": "8"
+      },
+      {
+        "text": "Interior Design",
+        "value": "14"
+      }
+    ],
     "location": {
       "text": "01: San Francisco",
       "value": "2"
@@ -11866,7 +15420,19 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Material Knowledge",
+        "value": "9"
+      },
+      {
+        "text": "Plumbing",
+        "value": "2"
+      },
+      {
+        "text": "Quality Control",
+        "value": "13"
+      }
+    ],
     "location": {
       "text": "01: San Francisco",
       "value": "2"
@@ -11918,7 +15484,15 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Carpentry and Joinery",
+        "value": "10"
+      },
+      {
+        "text": "Furniture Assembly",
+        "value": "1"
+      }
+    ],
     "location": {
       "text": "01: San Francisco",
       "value": "2"
@@ -11970,7 +15544,15 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "CNC Machining",
+        "value": "12"
+      },
+      {
+        "text": "Driving",
+        "value": "3"
+      }
+    ],
     "location": {
       "text": "02: Boston",
       "value": "1"
@@ -12022,7 +15604,15 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Welding",
+        "value": "6"
+      },
+      {
+        "text": "Woodworking",
+        "value": "4"
+      }
+    ],
     "location": {
       "text": "01: San Francisco",
       "value": "2"
@@ -12092,7 +15682,15 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Driving",
+        "value": "3"
+      },
+      {
+        "text": "Plumbing",
+        "value": "2"
+      }
+    ],
     "location": {
       "text": "02: Boston",
       "value": "1"
@@ -12162,7 +15760,19 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "CNC Machining",
+        "value": "12"
+      },
+      {
+        "text": "Furniture Design",
+        "value": "7"
+      },
+      {
+        "text": "Interior Design",
+        "value": "14"
+      }
+    ],
     "location": {
       "text": "01: San Francisco",
       "value": "2"
@@ -12214,7 +15824,19 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Furniture Assembly",
+        "value": "1"
+      },
+      {
+        "text": "Furniture Design",
+        "value": "7"
+      },
+      {
+        "text": "Interior Design",
+        "value": "14"
+      }
+    ],
     "location": {
       "text": "01: San Francisco : QA Hold",
       "value": "5"
@@ -12284,7 +15906,19 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "CNC Machining",
+        "value": "12"
+      },
+      {
+        "text": "Furniture Design",
+        "value": "7"
+      },
+      {
+        "text": "Interior Design",
+        "value": "14"
+      }
+    ],
     "location": {
       "text": "01: San Francisco",
       "value": "2"
@@ -12336,7 +15970,15 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Furniture Assembly",
+        "value": "1"
+      },
+      {
+        "text": "Painting and Finishing",
+        "value": "15"
+      }
+    ],
     "location": {
       "text": "01: San Francisco : QA Hold",
       "value": "5"
@@ -12388,7 +16030,19 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Furniture Assembly",
+        "value": "1"
+      },
+      {
+        "text": "Furniture Design",
+        "value": "7"
+      },
+      {
+        "text": "Interior Design",
+        "value": "14"
+      }
+    ],
     "location": {
       "text": "01: San Francisco : QA Hold",
       "value": "5"
@@ -12440,7 +16094,19 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Carpentry and Joinery",
+        "value": "10"
+      },
+      {
+        "text": "Quality Control",
+        "value": "13"
+      },
+      {
+        "text": "Upholstery",
+        "value": "11"
+      }
+    ],
     "location": {
       "text": "01: San Francisco",
       "value": "2"
@@ -12492,7 +16158,15 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Welding",
+        "value": "6"
+      },
+      {
+        "text": "Woodworking",
+        "value": "4"
+      }
+    ],
     "location": {
       "text": "01: San Francisco",
       "value": "2"
@@ -12544,7 +16218,19 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Furniture Assembly",
+        "value": "1"
+      },
+      {
+        "text": "Metalworking",
+        "value": "5"
+      },
+      {
+        "text": "Painting and Finishing",
+        "value": "15"
+      }
+    ],
     "location": {
       "text": "01: San Francisco",
       "value": "2"
@@ -12596,7 +16282,19 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Material Knowledge",
+        "value": "9"
+      },
+      {
+        "text": "Plumbing",
+        "value": "2"
+      },
+      {
+        "text": "Quality Control",
+        "value": "13"
+      }
+    ],
     "location": {
       "text": "01: San Francisco",
       "value": "2"
@@ -12648,7 +16346,15 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "CNC Machining",
+        "value": "12"
+      },
+      {
+        "text": "Driving",
+        "value": "3"
+      }
+    ],
     "location": {
       "text": "02: Boston",
       "value": "1"
@@ -12674,8 +16380,32 @@ const mockWOResources: WOResource[] = [{
       "text": "Bea Quilinguin",
       "value": "1767"
     },
-    "resourceGroups": [],
-    "types": [],
+    "resourceGroups": [{
+        "text": "Designers",
+        "value": "2"
+      },
+      {
+        "text": "Drivers",
+        "value": "3"
+      },
+      {
+        "text": "Installers",
+        "value": "1"
+      }
+    ],
+    "types": [{
+        "text": "Delivery Driver",
+        "value": "2"
+      },
+      {
+        "text": "Designer",
+        "value": "3"
+      },
+      {
+        "text": "Installer",
+        "value": "1"
+      }
+    ],
     "subTypes": [],
     "rate": 0,
     "vendor": {
@@ -12694,7 +16424,19 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "CNC Machining",
+        "value": "12"
+      },
+      {
+        "text": "Furniture Design",
+        "value": "7"
+      },
+      {
+        "text": "Interior Design",
+        "value": "14"
+      }
+    ],
     "location": {
       "text": "01: San Francisco",
       "value": "2"
@@ -12720,8 +16462,32 @@ const mockWOResources: WOResource[] = [{
       "text": "Bea Quilinguin",
       "value": "1767"
     },
-    "resourceGroups": [],
-    "types": [],
+    "resourceGroups": [{
+        "text": "Designers",
+        "value": "2"
+      },
+      {
+        "text": "Drivers",
+        "value": "3"
+      },
+      {
+        "text": "Installers",
+        "value": "1"
+      }
+    ],
+    "types": [{
+        "text": "Delivery Driver",
+        "value": "2"
+      },
+      {
+        "text": "Designer",
+        "value": "3"
+      },
+      {
+        "text": "Installer",
+        "value": "1"
+      }
+    ],
     "subTypes": [],
     "rate": 0,
     "vendor": {
@@ -12740,7 +16506,19 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "CNC Machining",
+        "value": "12"
+      },
+      {
+        "text": "Furniture Design",
+        "value": "7"
+      },
+      {
+        "text": "Interior Design",
+        "value": "14"
+      }
+    ],
     "location": {
       "text": "01: San Francisco",
       "value": "2"
@@ -12792,7 +16570,19 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "CNC Machining",
+        "value": "12"
+      },
+      {
+        "text": "Carpentry and Joinery",
+        "value": "10"
+      },
+      {
+        "text": "Computer-Aided Design (CAD)",
+        "value": "8"
+      }
+    ],
     "location": {
       "text": "01: San Francisco",
       "value": "2"
@@ -12818,8 +16608,32 @@ const mockWOResources: WOResource[] = [{
       "text": "Bea Quilinguin",
       "value": "1767"
     },
-    "resourceGroups": [],
-    "types": [],
+    "resourceGroups": [{
+        "text": "Designers",
+        "value": "2"
+      },
+      {
+        "text": "Drivers",
+        "value": "3"
+      },
+      {
+        "text": "Installers",
+        "value": "1"
+      }
+    ],
+    "types": [{
+        "text": "Delivery Driver",
+        "value": "2"
+      },
+      {
+        "text": "Designer",
+        "value": "3"
+      },
+      {
+        "text": "Installer",
+        "value": "1"
+      }
+    ],
     "subTypes": [],
     "rate": 0,
     "vendor": {
@@ -12838,7 +16652,19 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "CNC Machining",
+        "value": "12"
+      },
+      {
+        "text": "Furniture Design",
+        "value": "7"
+      },
+      {
+        "text": "Interior Design",
+        "value": "14"
+      }
+    ],
     "location": {
       "text": "01: San Francisco",
       "value": "2"
@@ -12890,7 +16716,19 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Interior Design",
+        "value": "14"
+      },
+      {
+        "text": "Material Knowledge",
+        "value": "9"
+      },
+      {
+        "text": "Quality Control",
+        "value": "13"
+      }
+    ],
     "location": {
       "text": "01: San Francisco",
       "value": "2"
@@ -12916,8 +16754,32 @@ const mockWOResources: WOResource[] = [{
       "text": "Bea Quilinguin",
       "value": "1767"
     },
-    "resourceGroups": [],
-    "types": [],
+    "resourceGroups": [{
+        "text": "Designers",
+        "value": "2"
+      },
+      {
+        "text": "Drivers",
+        "value": "3"
+      },
+      {
+        "text": "Installers",
+        "value": "1"
+      }
+    ],
+    "types": [{
+        "text": "Delivery Driver",
+        "value": "2"
+      },
+      {
+        "text": "Designer",
+        "value": "3"
+      },
+      {
+        "text": "Installer",
+        "value": "1"
+      }
+    ],
     "subTypes": [],
     "rate": 0,
     "vendor": {
@@ -12936,7 +16798,19 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "CNC Machining",
+        "value": "12"
+      },
+      {
+        "text": "Furniture Design",
+        "value": "7"
+      },
+      {
+        "text": "Interior Design",
+        "value": "14"
+      }
+    ],
     "location": {
       "text": "01: San Francisco",
       "value": "2"
@@ -12988,7 +16862,15 @@ const mockWOResources: WOResource[] = [{
       "start": "07:00",
       "end": "15:00"
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Welding",
+        "value": "6"
+      },
+      {
+        "text": "Woodworking",
+        "value": "4"
+      }
+    ],
     "location": {
       "text": "01: San Francisco",
       "value": "2"
@@ -13040,7 +16922,15 @@ const mockWOResources: WOResource[] = [{
       "start": "09:00",
       "end": "17:00"
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Welding",
+        "value": "6"
+      },
+      {
+        "text": "Woodworking",
+        "value": "4"
+      }
+    ],
     "location": {
       "text": "01: San Francisco",
       "value": "2"
@@ -13110,7 +17000,15 @@ const mockWOResources: WOResource[] = [{
       "start": "10:00",
       "end": "18:00"
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Driving",
+        "value": "3"
+      },
+      {
+        "text": "Plumbing",
+        "value": "2"
+      }
+    ],
     "location": {
       "text": "02: Boston",
       "value": "1"
@@ -13180,7 +17078,15 @@ const mockWOResources: WOResource[] = [{
       "start": "08:00",
       "end": "17:00"
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Driving",
+        "value": "3"
+      },
+      {
+        "text": "Plumbing",
+        "value": "2"
+      }
+    ],
     "location": {
       "text": "02: Boston",
       "value": "1"
@@ -13232,7 +17138,15 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Welding",
+        "value": "6"
+      },
+      {
+        "text": "Woodworking",
+        "value": "4"
+      }
+    ],
     "location": {
       "text": "01: San Francisco",
       "value": "2"
@@ -13284,7 +17198,19 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Furniture Assembly",
+        "value": "1"
+      },
+      {
+        "text": "Metalworking",
+        "value": "5"
+      },
+      {
+        "text": "Painting and Finishing",
+        "value": "15"
+      }
+    ],
     "location": {
       "text": "01: San Francisco",
       "value": "2"
@@ -13336,7 +17262,15 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Computer-Aided Design (CAD)",
+        "value": "8"
+      },
+      {
+        "text": "Interior Design",
+        "value": "14"
+      }
+    ],
     "location": {
       "text": "01: San Francisco",
       "value": "2"
@@ -13388,7 +17322,19 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Driving",
+        "value": "3"
+      },
+      {
+        "text": "Furniture Assembly",
+        "value": "1"
+      },
+      {
+        "text": "Furniture Design",
+        "value": "7"
+      }
+    ],
     "location": {
       "text": "01: San Francisco",
       "value": "2"
@@ -13440,7 +17386,15 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Furniture Assembly",
+        "value": "1"
+      },
+      {
+        "text": "Painting and Finishing",
+        "value": "15"
+      }
+    ],
     "location": {
       "text": "01: San Francisco : QA Hold",
       "value": "5"
@@ -13492,7 +17446,15 @@ const mockWOResources: WOResource[] = [{
       "start": "08:00",
       "end": "18:00"
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Welding",
+        "value": "6"
+      },
+      {
+        "text": "Woodworking",
+        "value": "4"
+      }
+    ],
     "location": {
       "text": "01: San Francisco",
       "value": "2"
@@ -13518,8 +17480,14 @@ const mockWOResources: WOResource[] = [{
       "text": "Clark Koozer",
       "value": "23"
     },
-    "resourceGroups": [],
-    "types": [],
+    "resourceGroups": [{
+      "text": "Drivers",
+      "value": "3"
+    }],
+    "types": [{
+      "text": "Delivery Driver",
+      "value": "2"
+    }],
     "subTypes": [],
     "rate": 0,
     "vendor": {
@@ -13538,7 +17506,15 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Carpentry and Joinery",
+        "value": "10"
+      },
+      {
+        "text": "Furniture Assembly",
+        "value": "1"
+      }
+    ],
     "location": {
       "text": "01: San Francisco",
       "value": "2"
@@ -13564,8 +17540,14 @@ const mockWOResources: WOResource[] = [{
       "text": "Youssef Ezz",
       "value": "1656"
     },
-    "resourceGroups": [],
-    "types": [],
+    "resourceGroups": [{
+      "text": "Installers",
+      "value": "1"
+    }],
+    "types": [{
+      "text": "Installer",
+      "value": "1"
+    }],
     "subTypes": [],
     "rate": 0,
     "vendor": {
@@ -13584,7 +17566,19 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Carpentry and Joinery",
+        "value": "10"
+      },
+      {
+        "text": "Quality Control",
+        "value": "13"
+      },
+      {
+        "text": "Upholstery",
+        "value": "11"
+      }
+    ],
     "location": {
       "text": "01: San Francisco",
       "value": "2"
@@ -13610,8 +17604,14 @@ const mockWOResources: WOResource[] = [{
       "text": "Matt Nolan",
       "value": "1292"
     },
-    "resourceGroups": [],
-    "types": [],
+    "resourceGroups": [{
+      "text": "Installers",
+      "value": "1"
+    }],
+    "types": [{
+      "text": "Installer",
+      "value": "1"
+    }],
     "subTypes": [],
     "rate": 0,
     "vendor": {
@@ -13630,7 +17630,19 @@ const mockWOResources: WOResource[] = [{
       "start": "",
       "end": ""
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Interior Design",
+        "value": "14"
+      },
+      {
+        "text": "Material Knowledge",
+        "value": "9"
+      },
+      {
+        "text": "Quality Control",
+        "value": "13"
+      }
+    ],
     "location": {
       "text": "01: San Francisco",
       "value": "2"
@@ -13656,8 +17668,14 @@ const mockWOResources: WOResource[] = [{
       "text": "Aiden Somerhalder",
       "value": "1524"
     },
-    "resourceGroups": [],
-    "types": [],
+    "resourceGroups": [{
+      "text": "Installers",
+      "value": "1"
+    }],
+    "types": [{
+      "text": "Installer",
+      "value": "1"
+    }],
     "subTypes": [],
     "rate": 0,
     "vendor": {
@@ -13676,7 +17694,15 @@ const mockWOResources: WOResource[] = [{
       "start": "08:00",
       "end": "18:00"
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Welding",
+        "value": "6"
+      },
+      {
+        "text": "Woodworking",
+        "value": "4"
+      }
+    ],
     "location": {
       "text": "01: San Francisco",
       "value": "2"
@@ -13702,8 +17728,14 @@ const mockWOResources: WOResource[] = [{
       "text": "Ruth Smith",
       "value": "1539"
     },
-    "resourceGroups": [],
-    "types": [],
+    "resourceGroups": [{
+      "text": "Installers",
+      "value": "1"
+    }],
+    "types": [{
+      "text": "Installer",
+      "value": "1"
+    }],
     "subTypes": [],
     "rate": 0,
     "vendor": {
@@ -13722,7 +17754,19 @@ const mockWOResources: WOResource[] = [{
       "start": "08:00",
       "end": "18:00"
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "CNC Machining",
+        "value": "12"
+      },
+      {
+        "text": "Carpentry and Joinery",
+        "value": "10"
+      },
+      {
+        "text": "Computer-Aided Design (CAD)",
+        "value": "8"
+      }
+    ],
     "location": {
       "text": "01: San Francisco",
       "value": "2"
@@ -13748,8 +17792,14 @@ const mockWOResources: WOResource[] = [{
       "text": "Gary Grant",
       "value": "1312"
     },
-    "resourceGroups": [],
-    "types": [],
+    "resourceGroups": [{
+      "text": "Installers",
+      "value": "1"
+    }],
+    "types": [{
+      "text": "Installer",
+      "value": "1"
+    }],
     "subTypes": [],
     "rate": 0,
     "vendor": {
@@ -13768,7 +17818,15 @@ const mockWOResources: WOResource[] = [{
       "start": "08:00",
       "end": "18:00"
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "CNC Machining",
+        "value": "12"
+      },
+      {
+        "text": "Driving",
+        "value": "3"
+      }
+    ],
     "location": {
       "text": "02: Boston",
       "value": "1"
@@ -13820,7 +17878,15 @@ const mockWOResources: WOResource[] = [{
       "start": "08:00",
       "end": "18:00"
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Welding",
+        "value": "6"
+      },
+      {
+        "text": "Woodworking",
+        "value": "4"
+      }
+    ],
     "location": {
       "text": "01: San Francisco",
       "value": "2"
@@ -13872,7 +17938,19 @@ const mockWOResources: WOResource[] = [{
       "start": "08:00",
       "end": "18:00"
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "CNC Machining",
+        "value": "12"
+      },
+      {
+        "text": "Carpentry and Joinery",
+        "value": "10"
+      },
+      {
+        "text": "Computer-Aided Design (CAD)",
+        "value": "8"
+      }
+    ],
     "location": {
       "text": "01: San Francisco",
       "value": "2"
@@ -13924,7 +18002,19 @@ const mockWOResources: WOResource[] = [{
       "start": "08:00",
       "end": "18:00"
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Interior Design",
+        "value": "14"
+      },
+      {
+        "text": "Material Knowledge",
+        "value": "9"
+      },
+      {
+        "text": "Painting and Finishing",
+        "value": "15"
+      }
+    ],
     "location": {
       "text": "02: Boston",
       "value": "1"
@@ -13951,13 +18041,31 @@ const mockWOResources: WOResource[] = [{
       "value": "1770"
     },
     "resourceGroups": [{
-      "text": "Drivers",
-      "value": "3"
-    }],
+        "text": "Designers",
+        "value": "2"
+      },
+      {
+        "text": "Drivers",
+        "value": "3"
+      },
+      {
+        "text": "Installers",
+        "value": "1"
+      }
+    ],
     "types": [{
-      "text": "Delivery Driver",
-      "value": "2"
-    }],
+        "text": "Delivery Driver",
+        "value": "2"
+      },
+      {
+        "text": "Designer",
+        "value": "3"
+      },
+      {
+        "text": "Installer",
+        "value": "1"
+      }
+    ],
     "subTypes": [],
     "rate": 0,
     "vendor": {
@@ -13976,7 +18084,15 @@ const mockWOResources: WOResource[] = [{
       "start": "08:00",
       "end": "18:00"
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Driving",
+        "value": "3"
+      },
+      {
+        "text": "Plumbing",
+        "value": "2"
+      }
+    ],
     "location": {
       "text": "02: Boston",
       "value": "1"
@@ -14028,7 +18144,19 @@ const mockWOResources: WOResource[] = [{
       "start": "08:00",
       "end": "18:00"
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Material Knowledge",
+        "value": "9"
+      },
+      {
+        "text": "Plumbing",
+        "value": "2"
+      },
+      {
+        "text": "Quality Control",
+        "value": "13"
+      }
+    ],
     "location": {
       "text": "01: San Francisco",
       "value": "2"
@@ -14098,7 +18226,15 @@ const mockWOResources: WOResource[] = [{
       "start": "08:00",
       "end": "18:00"
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Driving",
+        "value": "3"
+      },
+      {
+        "text": "Plumbing",
+        "value": "2"
+      }
+    ],
     "location": {
       "text": "02: Boston",
       "value": "1"
@@ -14124,8 +18260,32 @@ const mockWOResources: WOResource[] = [{
       "text": "Bea Quilinguin",
       "value": "1767"
     },
-    "resourceGroups": [],
-    "types": [],
+    "resourceGroups": [{
+        "text": "Designers",
+        "value": "2"
+      },
+      {
+        "text": "Drivers",
+        "value": "3"
+      },
+      {
+        "text": "Installers",
+        "value": "1"
+      }
+    ],
+    "types": [{
+        "text": "Delivery Driver",
+        "value": "2"
+      },
+      {
+        "text": "Designer",
+        "value": "3"
+      },
+      {
+        "text": "Installer",
+        "value": "1"
+      }
+    ],
     "subTypes": [],
     "rate": 0,
     "vendor": {
@@ -14144,7 +18304,19 @@ const mockWOResources: WOResource[] = [{
       "start": "08:00",
       "end": "18:00"
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "CNC Machining",
+        "value": "12"
+      },
+      {
+        "text": "Furniture Design",
+        "value": "7"
+      },
+      {
+        "text": "Interior Design",
+        "value": "14"
+      }
+    ],
     "location": {
       "text": "01: San Francisco",
       "value": "2"
@@ -14196,7 +18368,15 @@ const mockWOResources: WOResource[] = [{
       "start": "00:00",
       "end": "00:00"
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Welding",
+        "value": "6"
+      },
+      {
+        "text": "Woodworking",
+        "value": "4"
+      }
+    ],
     "location": {
       "text": "01: San Francisco",
       "value": "2"
@@ -14266,7 +18446,15 @@ const mockWOResources: WOResource[] = [{
       "start": "08:00",
       "end": "18:00"
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Driving",
+        "value": "3"
+      },
+      {
+        "text": "Plumbing",
+        "value": "2"
+      }
+    ],
     "location": {
       "text": "02: Boston",
       "value": "1"
@@ -14336,7 +18524,19 @@ const mockWOResources: WOResource[] = [{
       "start": "08:00",
       "end": "18:00"
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "CNC Machining",
+        "value": "12"
+      },
+      {
+        "text": "Furniture Design",
+        "value": "7"
+      },
+      {
+        "text": "Interior Design",
+        "value": "14"
+      }
+    ],
     "location": {
       "text": "01: San Francisco",
       "value": "2"
@@ -14388,7 +18588,19 @@ const mockWOResources: WOResource[] = [{
       "start": "08:00",
       "end": "18:00"
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Furniture Assembly",
+        "value": "1"
+      },
+      {
+        "text": "Metalworking",
+        "value": "5"
+      },
+      {
+        "text": "Painting and Finishing",
+        "value": "15"
+      }
+    ],
     "location": {
       "text": "01: San Francisco",
       "value": "2"
@@ -14440,7 +18652,15 @@ const mockWOResources: WOResource[] = [{
       "start": "04:00",
       "end": "08:00"
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "CNC Machining",
+        "value": "12"
+      },
+      {
+        "text": "Driving",
+        "value": "3"
+      }
+    ],
     "location": {
       "text": "02: Boston",
       "value": "1"
@@ -14492,7 +18712,19 @@ const mockWOResources: WOResource[] = [{
       "start": "04:00",
       "end": "10:00"
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Interior Design",
+        "value": "14"
+      },
+      {
+        "text": "Material Knowledge",
+        "value": "9"
+      },
+      {
+        "text": "Quality Control",
+        "value": "13"
+      }
+    ],
     "location": {
       "text": "01: San Francisco",
       "value": "2"
@@ -14518,12 +18750,15 @@ const mockWOResources: WOResource[] = [{
       "text": "Aiden Somerhalder",
       "value": "1524"
     },
-    "resourceGroups": [],
-    "types": [],
-    "subTypes": [{
-      "text": "designer",
+    "resourceGroups": [{
+      "text": "Installers",
       "value": "1"
     }],
+    "types": [{
+      "text": "Installer",
+      "value": "1"
+    }],
+    "subTypes": [],
     "rate": 0,
     "vendor": {
       "text": "",
@@ -14541,7 +18776,15 @@ const mockWOResources: WOResource[] = [{
       "start": "08:00",
       "end": "18:00"
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Welding",
+        "value": "6"
+      },
+      {
+        "text": "Woodworking",
+        "value": "4"
+      }
+    ],
     "location": {
       "text": "01: San Francisco",
       "value": "2"
@@ -14567,12 +18810,15 @@ const mockWOResources: WOResource[] = [{
       "text": "Brenda Jones",
       "value": "1516"
     },
-    "resourceGroups": [],
-    "types": [],
-    "subTypes": [{
-      "text": "designer",
+    "resourceGroups": [{
+      "text": "Installers",
       "value": "1"
     }],
+    "types": [{
+      "text": "Installer",
+      "value": "1"
+    }],
+    "subTypes": [],
     "rate": 0,
     "vendor": {
       "text": "",
@@ -14590,7 +18836,19 @@ const mockWOResources: WOResource[] = [{
       "start": "08:00",
       "end": "18:00"
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Furniture Assembly",
+        "value": "1"
+      },
+      {
+        "text": "Metalworking",
+        "value": "5"
+      },
+      {
+        "text": "Painting and Finishing",
+        "value": "15"
+      }
+    ],
     "location": {
       "text": "01: San Francisco",
       "value": "2"
@@ -14616,12 +18874,15 @@ const mockWOResources: WOResource[] = [{
       "text": "Aiden Somerhalder",
       "value": "1524"
     },
-    "resourceGroups": [],
-    "types": [],
-    "subTypes": [{
-      "text": "designer",
+    "resourceGroups": [{
+      "text": "Installers",
       "value": "1"
     }],
+    "types": [{
+      "text": "Installer",
+      "value": "1"
+    }],
+    "subTypes": [],
     "rate": 0,
     "vendor": {
       "text": "",
@@ -14639,7 +18900,15 @@ const mockWOResources: WOResource[] = [{
       "start": "08:00",
       "end": "18:00"
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Welding",
+        "value": "6"
+      },
+      {
+        "text": "Woodworking",
+        "value": "4"
+      }
+    ],
     "location": {
       "text": "01: San Francisco",
       "value": "2"
@@ -14665,12 +18934,15 @@ const mockWOResources: WOResource[] = [{
       "text": "Brenda Jones",
       "value": "1516"
     },
-    "resourceGroups": [],
-    "types": [],
-    "subTypes": [{
-      "text": "designer",
+    "resourceGroups": [{
+      "text": "Installers",
       "value": "1"
     }],
+    "types": [{
+      "text": "Installer",
+      "value": "1"
+    }],
+    "subTypes": [],
     "rate": 0,
     "vendor": {
       "text": "",
@@ -14688,7 +18960,19 @@ const mockWOResources: WOResource[] = [{
       "start": "10:00",
       "end": "18:00"
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Furniture Assembly",
+        "value": "1"
+      },
+      {
+        "text": "Metalworking",
+        "value": "5"
+      },
+      {
+        "text": "Painting and Finishing",
+        "value": "15"
+      }
+    ],
     "location": {
       "text": "01: San Francisco",
       "value": "2"
@@ -14740,7 +19024,15 @@ const mockWOResources: WOResource[] = [{
       "start": "10:00",
       "end": "18:00"
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Welding",
+        "value": "6"
+      },
+      {
+        "text": "Woodworking",
+        "value": "4"
+      }
+    ],
     "location": {
       "text": "01: San Francisco",
       "value": "2"
@@ -14792,7 +19084,19 @@ const mockWOResources: WOResource[] = [{
       "start": "08:00",
       "end": "18:00"
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Furniture Assembly",
+        "value": "1"
+      },
+      {
+        "text": "Metalworking",
+        "value": "5"
+      },
+      {
+        "text": "Painting and Finishing",
+        "value": "15"
+      }
+    ],
     "location": {
       "text": "01: San Francisco",
       "value": "2"
@@ -14844,7 +19148,15 @@ const mockWOResources: WOResource[] = [{
       "start": "08:00",
       "end": "18:00"
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Welding",
+        "value": "6"
+      },
+      {
+        "text": "Woodworking",
+        "value": "4"
+      }
+    ],
     "location": {
       "text": "01: San Francisco",
       "value": "2"
@@ -14896,7 +19208,19 @@ const mockWOResources: WOResource[] = [{
       "start": "10:00",
       "end": "18:00"
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Furniture Assembly",
+        "value": "1"
+      },
+      {
+        "text": "Metalworking",
+        "value": "5"
+      },
+      {
+        "text": "Painting and Finishing",
+        "value": "15"
+      }
+    ],
     "location": {
       "text": "01: San Francisco",
       "value": "2"
@@ -14948,7 +19272,15 @@ const mockWOResources: WOResource[] = [{
       "start": "08:00",
       "end": "18:00"
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Welding",
+        "value": "6"
+      },
+      {
+        "text": "Woodworking",
+        "value": "4"
+      }
+    ],
     "location": {
       "text": "01: San Francisco",
       "value": "2"
@@ -15092,7 +19424,15 @@ const mockWOResources: WOResource[] = [{
       "start": "08:00",
       "end": "18:00"
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Welding",
+        "value": "6"
+      },
+      {
+        "text": "Woodworking",
+        "value": "4"
+      }
+    ],
     "location": {
       "text": "01: San Francisco",
       "value": "2"
@@ -15162,7 +19502,15 @@ const mockWOResources: WOResource[] = [{
       "start": "08:00",
       "end": "18:00"
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Driving",
+        "value": "3"
+      },
+      {
+        "text": "Plumbing",
+        "value": "2"
+      }
+    ],
     "location": {
       "text": "02: Boston",
       "value": "1"
@@ -15192,7 +19540,10 @@ const mockWOResources: WOResource[] = [{
       "text": "Installers",
       "value": "1"
     }],
-    "types": [],
+    "types": [{
+      "text": "Installer",
+      "value": "1"
+    }],
     "subTypes": [],
     "rate": 0,
     "vendor": {
@@ -15211,7 +19562,15 @@ const mockWOResources: WOResource[] = [{
       "start": "08:00",
       "end": "18:00"
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Welding",
+        "value": "6"
+      },
+      {
+        "text": "Woodworking",
+        "value": "4"
+      }
+    ],
     "location": {
       "text": "01: San Francisco",
       "value": "2"
@@ -15241,7 +19600,10 @@ const mockWOResources: WOResource[] = [{
       "text": "Installers",
       "value": "1"
     }],
-    "types": [],
+    "types": [{
+      "text": "Installer",
+      "value": "1"
+    }],
     "subTypes": [],
     "rate": 0,
     "vendor": {
@@ -15260,7 +19622,19 @@ const mockWOResources: WOResource[] = [{
       "start": "08:00",
       "end": "18:00"
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Furniture Assembly",
+        "value": "1"
+      },
+      {
+        "text": "Metalworking",
+        "value": "5"
+      },
+      {
+        "text": "Painting and Finishing",
+        "value": "15"
+      }
+    ],
     "location": {
       "text": "01: San Francisco",
       "value": "2"
@@ -15290,7 +19664,10 @@ const mockWOResources: WOResource[] = [{
       "text": "Installers",
       "value": "1"
     }],
-    "types": [],
+    "types": [{
+      "text": "Installer",
+      "value": "1"
+    }],
     "subTypes": [],
     "rate": 0,
     "vendor": {
@@ -15309,7 +19686,15 @@ const mockWOResources: WOResource[] = [{
       "start": "08:00",
       "end": "18:00"
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Computer-Aided Design (CAD)",
+        "value": "8"
+      },
+      {
+        "text": "Interior Design",
+        "value": "14"
+      }
+    ],
     "location": {
       "text": "01: San Francisco",
       "value": "2"
@@ -15339,7 +19724,10 @@ const mockWOResources: WOResource[] = [{
       "text": "Installers",
       "value": "1"
     }],
-    "types": [],
+    "types": [{
+      "text": "Installer",
+      "value": "1"
+    }],
     "subTypes": [],
     "rate": 0,
     "vendor": {
@@ -15358,7 +19746,15 @@ const mockWOResources: WOResource[] = [{
       "start": "08:00",
       "end": "18:00"
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Welding",
+        "value": "6"
+      },
+      {
+        "text": "Woodworking",
+        "value": "4"
+      }
+    ],
     "location": {
       "text": "01: San Francisco",
       "value": "2"
@@ -15388,7 +19784,10 @@ const mockWOResources: WOResource[] = [{
       "text": "Installers",
       "value": "1"
     }],
-    "types": [],
+    "types": [{
+      "text": "Installer",
+      "value": "1"
+    }],
     "subTypes": [],
     "rate": 0,
     "vendor": {
@@ -15407,7 +19806,19 @@ const mockWOResources: WOResource[] = [{
       "start": "08:00",
       "end": "18:00"
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Furniture Assembly",
+        "value": "1"
+      },
+      {
+        "text": "Metalworking",
+        "value": "5"
+      },
+      {
+        "text": "Painting and Finishing",
+        "value": "15"
+      }
+    ],
     "location": {
       "text": "01: San Francisco",
       "value": "2"
@@ -15437,7 +19848,10 @@ const mockWOResources: WOResource[] = [{
       "text": "Installers",
       "value": "1"
     }],
-    "types": [],
+    "types": [{
+      "text": "Installer",
+      "value": "1"
+    }],
     "subTypes": [],
     "rate": 0,
     "vendor": {
@@ -15456,7 +19870,15 @@ const mockWOResources: WOResource[] = [{
       "start": "08:00",
       "end": "18:00"
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Welding",
+        "value": "6"
+      },
+      {
+        "text": "Woodworking",
+        "value": "4"
+      }
+    ],
     "location": {
       "text": "01: San Francisco",
       "value": "2"
@@ -15486,7 +19908,10 @@ const mockWOResources: WOResource[] = [{
       "text": "Installers",
       "value": "1"
     }],
-    "types": [],
+    "types": [{
+      "text": "Installer",
+      "value": "1"
+    }],
     "subTypes": [],
     "rate": 0,
     "vendor": {
@@ -15505,7 +19930,19 @@ const mockWOResources: WOResource[] = [{
       "start": "08:00",
       "end": "18:00"
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Furniture Assembly",
+        "value": "1"
+      },
+      {
+        "text": "Metalworking",
+        "value": "5"
+      },
+      {
+        "text": "Painting and Finishing",
+        "value": "15"
+      }
+    ],
     "location": {
       "text": "01: San Francisco",
       "value": "2"
@@ -15535,7 +19972,10 @@ const mockWOResources: WOResource[] = [{
       "text": "Installers",
       "value": "1"
     }],
-    "types": [],
+    "types": [{
+      "text": "Installer",
+      "value": "1"
+    }],
     "subTypes": [],
     "rate": 0,
     "vendor": {
@@ -15554,7 +19994,15 @@ const mockWOResources: WOResource[] = [{
       "start": "08:00",
       "end": "18:00"
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Computer-Aided Design (CAD)",
+        "value": "8"
+      },
+      {
+        "text": "Interior Design",
+        "value": "14"
+      }
+    ],
     "location": {
       "text": "01: San Francisco",
       "value": "2"
@@ -15606,7 +20054,15 @@ const mockWOResources: WOResource[] = [{
       "start": "08:00",
       "end": "18:00"
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Welding",
+        "value": "6"
+      },
+      {
+        "text": "Woodworking",
+        "value": "4"
+      }
+    ],
     "location": {
       "text": "01: San Francisco",
       "value": "2"
@@ -15676,7 +20132,15 @@ const mockWOResources: WOResource[] = [{
       "start": "09:00",
       "end": "17:00"
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Driving",
+        "value": "3"
+      },
+      {
+        "text": "Plumbing",
+        "value": "2"
+      }
+    ],
     "location": {
       "text": "02: Boston",
       "value": "1"
@@ -15706,7 +20170,10 @@ const mockWOResources: WOResource[] = [{
       "text": "Installers",
       "value": "1"
     }],
-    "types": [],
+    "types": [{
+      "text": "Installer",
+      "value": "1"
+    }],
     "subTypes": [],
     "rate": 0,
     "vendor": {
@@ -15725,7 +20192,15 @@ const mockWOResources: WOResource[] = [{
       "start": "08:00",
       "end": "22:00"
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Welding",
+        "value": "6"
+      },
+      {
+        "text": "Woodworking",
+        "value": "4"
+      }
+    ],
     "location": {
       "text": "01: San Francisco",
       "value": "2"
@@ -15755,7 +20230,10 @@ const mockWOResources: WOResource[] = [{
       "text": "Installers",
       "value": "1"
     }],
-    "types": [],
+    "types": [{
+      "text": "Installer",
+      "value": "1"
+    }],
     "subTypes": [],
     "rate": 0,
     "vendor": {
@@ -15774,7 +20252,15 @@ const mockWOResources: WOResource[] = [{
       "start": "08:00",
       "end": "18:00"
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Furniture Assembly",
+        "value": "1"
+      },
+      {
+        "text": "Painting and Finishing",
+        "value": "15"
+      }
+    ],
     "location": {
       "text": "01: San Francisco : QA Hold",
       "value": "5"
@@ -15804,7 +20290,10 @@ const mockWOResources: WOResource[] = [{
       "text": "Installers",
       "value": "1"
     }],
-    "types": [],
+    "types": [{
+      "text": "Installer",
+      "value": "1"
+    }],
     "subTypes": [],
     "rate": 0,
     "vendor": {
@@ -15823,7 +20312,15 @@ const mockWOResources: WOResource[] = [{
       "start": "08:00",
       "end": "18:00"
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Computer-Aided Design (CAD)",
+        "value": "8"
+      },
+      {
+        "text": "Interior Design",
+        "value": "14"
+      }
+    ],
     "location": {
       "text": "01: San Francisco",
       "value": "2"
@@ -15853,7 +20350,10 @@ const mockWOResources: WOResource[] = [{
       "text": "Installers",
       "value": "1"
     }],
-    "types": [],
+    "types": [{
+      "text": "Installer",
+      "value": "1"
+    }],
     "subTypes": [],
     "rate": 0,
     "vendor": {
@@ -15872,7 +20372,19 @@ const mockWOResources: WOResource[] = [{
       "start": "08:00",
       "end": "18:00"
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Furniture Assembly",
+        "value": "1"
+      },
+      {
+        "text": "Metalworking",
+        "value": "5"
+      },
+      {
+        "text": "Painting and Finishing",
+        "value": "15"
+      }
+    ],
     "location": {
       "text": "01: San Francisco",
       "value": "2"
@@ -15924,7 +20436,15 @@ const mockWOResources: WOResource[] = [{
       "start": "16:00",
       "end": "20:00"
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Welding",
+        "value": "6"
+      },
+      {
+        "text": "Woodworking",
+        "value": "4"
+      }
+    ],
     "location": {
       "text": "01: San Francisco",
       "value": "2"
@@ -15954,7 +20474,10 @@ const mockWOResources: WOResource[] = [{
       "text": "Installers",
       "value": "1"
     }],
-    "types": [],
+    "types": [{
+      "text": "Installer",
+      "value": "1"
+    }],
     "subTypes": [],
     "rate": 0,
     "vendor": {
@@ -15973,7 +20496,15 @@ const mockWOResources: WOResource[] = [{
       "start": "08:00",
       "end": "14:00"
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Welding",
+        "value": "6"
+      },
+      {
+        "text": "Woodworking",
+        "value": "4"
+      }
+    ],
     "location": {
       "text": "01: San Francisco",
       "value": "2"
@@ -16025,7 +20556,15 @@ const mockWOResources: WOResource[] = [{
       "start": "07:00",
       "end": "17:00"
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Painting and Finishing",
+        "value": "15"
+      },
+      {
+        "text": "Woodworking",
+        "value": "4"
+      }
+    ],
     "location": {
       "text": "",
       "value": ""
@@ -16055,7 +20594,10 @@ const mockWOResources: WOResource[] = [{
       "text": "Installers",
       "value": "1"
     }],
-    "types": [],
+    "types": [{
+      "text": "Installer",
+      "value": "1"
+    }],
     "subTypes": [],
     "rate": 0,
     "vendor": {
@@ -16074,7 +20616,15 @@ const mockWOResources: WOResource[] = [{
       "start": "08:00",
       "end": "18:00"
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Computer-Aided Design (CAD)",
+        "value": "8"
+      },
+      {
+        "text": "Interior Design",
+        "value": "14"
+      }
+    ],
     "location": {
       "text": "01: San Francisco",
       "value": "2"
@@ -16104,7 +20654,10 @@ const mockWOResources: WOResource[] = [{
       "text": "Installers",
       "value": "1"
     }],
-    "types": [],
+    "types": [{
+      "text": "Installer",
+      "value": "1"
+    }],
     "subTypes": [],
     "rate": 0,
     "vendor": {
@@ -16123,7 +20676,15 @@ const mockWOResources: WOResource[] = [{
       "start": "08:00",
       "end": "18:00"
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Welding",
+        "value": "6"
+      },
+      {
+        "text": "Woodworking",
+        "value": "4"
+      }
+    ],
     "location": {
       "text": "01: San Francisco",
       "value": "2"
@@ -16153,7 +20714,10 @@ const mockWOResources: WOResource[] = [{
       "text": "Installers",
       "value": "1"
     }],
-    "types": [],
+    "types": [{
+      "text": "Installer",
+      "value": "1"
+    }],
     "subTypes": [],
     "rate": 0,
     "vendor": {
@@ -16172,7 +20736,19 @@ const mockWOResources: WOResource[] = [{
       "start": "08:00",
       "end": "18:00"
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Furniture Assembly",
+        "value": "1"
+      },
+      {
+        "text": "Metalworking",
+        "value": "5"
+      },
+      {
+        "text": "Painting and Finishing",
+        "value": "15"
+      }
+    ],
     "location": {
       "text": "01: San Francisco",
       "value": "2"
@@ -16224,7 +20800,15 @@ const mockWOResources: WOResource[] = [{
       "start": "07:00",
       "end": "18:00"
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Welding",
+        "value": "6"
+      },
+      {
+        "text": "Woodworking",
+        "value": "4"
+      }
+    ],
     "location": {
       "text": "01: San Francisco",
       "value": "2"
@@ -16294,7 +20878,15 @@ const mockWOResources: WOResource[] = [{
       "start": "07:00",
       "end": "18:00"
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Driving",
+        "value": "3"
+      },
+      {
+        "text": "Plumbing",
+        "value": "2"
+      }
+    ],
     "location": {
       "text": "02: Boston",
       "value": "1"
@@ -16364,7 +20956,19 @@ const mockWOResources: WOResource[] = [{
       "start": "07:00",
       "end": "18:00"
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "CNC Machining",
+        "value": "12"
+      },
+      {
+        "text": "Furniture Design",
+        "value": "7"
+      },
+      {
+        "text": "Interior Design",
+        "value": "14"
+      }
+    ],
     "location": {
       "text": "01: San Francisco",
       "value": "2"
@@ -16416,7 +21020,19 @@ const mockWOResources: WOResource[] = [{
       "start": "07:00",
       "end": "18:00"
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Furniture Assembly",
+        "value": "1"
+      },
+      {
+        "text": "Metalworking",
+        "value": "5"
+      },
+      {
+        "text": "Painting and Finishing",
+        "value": "15"
+      }
+    ],
     "location": {
       "text": "01: San Francisco",
       "value": "2"
@@ -16446,7 +21062,10 @@ const mockWOResources: WOResource[] = [{
       "text": "Installers",
       "value": "1"
     }],
-    "types": [],
+    "types": [{
+      "text": "Installer",
+      "value": "1"
+    }],
     "subTypes": [],
     "rate": 0,
     "vendor": {
@@ -16465,7 +21084,15 @@ const mockWOResources: WOResource[] = [{
       "start": "08:00",
       "end": "18:00"
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Welding",
+        "value": "6"
+      },
+      {
+        "text": "Woodworking",
+        "value": "4"
+      }
+    ],
     "location": {
       "text": "01: San Francisco",
       "value": "2"
@@ -16495,7 +21122,10 @@ const mockWOResources: WOResource[] = [{
       "text": "Installers",
       "value": "1"
     }],
-    "types": [],
+    "types": [{
+      "text": "Installer",
+      "value": "1"
+    }],
     "subTypes": [],
     "rate": 0,
     "vendor": {
@@ -16514,7 +21144,15 @@ const mockWOResources: WOResource[] = [{
       "start": "08:00",
       "end": "12:00"
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Welding",
+        "value": "6"
+      },
+      {
+        "text": "Woodworking",
+        "value": "4"
+      }
+    ],
     "location": {
       "text": "01: San Francisco",
       "value": "2"
@@ -16544,7 +21182,10 @@ const mockWOResources: WOResource[] = [{
       "text": "Installers",
       "value": "1"
     }],
-    "types": [],
+    "types": [{
+      "text": "Installer",
+      "value": "1"
+    }],
     "subTypes": [],
     "rate": 0,
     "vendor": {
@@ -16563,7 +21204,19 @@ const mockWOResources: WOResource[] = [{
       "start": "08:00",
       "end": "12:00"
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Furniture Assembly",
+        "value": "1"
+      },
+      {
+        "text": "Metalworking",
+        "value": "5"
+      },
+      {
+        "text": "Painting and Finishing",
+        "value": "15"
+      }
+    ],
     "location": {
       "text": "01: San Francisco",
       "value": "2"
@@ -16633,7 +21286,15 @@ const mockWOResources: WOResource[] = [{
       "start": "08:00",
       "end": "18:00"
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Driving",
+        "value": "3"
+      },
+      {
+        "text": "Plumbing",
+        "value": "2"
+      }
+    ],
     "location": {
       "text": "02: Boston",
       "value": "1"
@@ -16663,7 +21324,10 @@ const mockWOResources: WOResource[] = [{
       "text": "Installers",
       "value": "1"
     }],
-    "types": [],
+    "types": [{
+      "text": "Installer",
+      "value": "1"
+    }],
     "subTypes": [],
     "rate": 0,
     "vendor": {
@@ -16682,7 +21346,15 @@ const mockWOResources: WOResource[] = [{
       "start": "08:00",
       "end": "12:00"
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Computer-Aided Design (CAD)",
+        "value": "8"
+      },
+      {
+        "text": "Interior Design",
+        "value": "14"
+      }
+    ],
     "location": {
       "text": "01: San Francisco",
       "value": "2"
@@ -16712,7 +21384,10 @@ const mockWOResources: WOResource[] = [{
       "text": "Installers",
       "value": "1"
     }],
-    "types": [],
+    "types": [{
+      "text": "Installer",
+      "value": "1"
+    }],
     "subTypes": [],
     "rate": 0,
     "vendor": {
@@ -16731,7 +21406,19 @@ const mockWOResources: WOResource[] = [{
       "start": "08:00",
       "end": "12:00"
     },
-    "resourceSkills": [],
+    "resourceSkills": [{
+        "text": "Material Knowledge",
+        "value": "9"
+      },
+      {
+        "text": "Plumbing",
+        "value": "2"
+      },
+      {
+        "text": "Quality Control",
+        "value": "13"
+      }
+    ],
     "location": {
       "text": "01: San Francisco",
       "value": "2"
@@ -16745,7 +21432,6 @@ const mockWOResources: WOResource[] = [{
 
 export const fetchWOResources = async (woId: string, eventId: string): Promise<WOResource[]> => {
   if (isLocalDevelopment()) {
-    console.log('Using mock woResource data for local development');
     return new Promise((resolve) => {
       setTimeout(() => resolve(mockWOResources), 500);
     });
