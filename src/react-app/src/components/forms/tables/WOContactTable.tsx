@@ -35,7 +35,16 @@ export const WOContactTable: React.FC<WOContactTableProps> = ({ woId, onSelectio
   // Fetch data on load
   useEffect(() => {
     const loadData = async () => {
-      const data = await fetchWOContacts(woId, '');
+      let data = await fetchWOContacts(woId, '');
+      if (!onUpdate) {
+        data = data.filter(x => !x.event);
+      } else {
+        const unassignedContacts = data
+          .filter(x => !x.event)
+          .filter(x => !selectedEvent.contacts.map(y => y.contact.value)
+          .includes(x.contact.value));
+        data = [...selectedEvent.contacts, ...unassignedContacts];
+      }
       const mappedData = data;
       setTableDataState(mappedData);
     };

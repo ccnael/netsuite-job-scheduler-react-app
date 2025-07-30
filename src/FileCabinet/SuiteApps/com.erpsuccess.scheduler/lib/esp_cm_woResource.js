@@ -230,11 +230,50 @@ define([
 
   /**
    * Update existing resources start/end time etc
-   * @param {Object} event Event data
-   * @param {Object} dataSrc Data source
-   * @param {Object} woRef WO data
+   * @param {Object} updatedResources WO Resources for update
    */
-  function updateResources(eventData, updates) {
+  function updateResources(updatedResources) {
+    // log.audit('Updating WO Resources', { updatedResources });
+    for (const update of updatedResources) {
+      const values = {};
+      if (update.updatedStartTime) {
+        values.custrecord_esp_fop_res_start_time = moment(`1/1/1999 ${update.updatedStartTime}`).format(env.Format.IMPORT_TIME);
+      }
+      if (update.updatedEndTime) {
+        values.custrecord_esp_fop_res_end_time = moment(`1/1/1999 ${update.updatedEndTime}`).format(env.Format.IMPORT_TIME);
+      }
+      record.submitFields({
+        type: env.RecordType.WORK_ORDER_RESOURCE,
+        id: update.woResourceId,
+        values,
+        options: {
+          ignoreMandatoryFieds: true,
+        }
+      });
+      log.audit('----- [Updated WO Resource Record] -----', { update });
+    }
+  }
+
+  /**
+   * Delete WO Resource records
+   * @param {Object} removedResources WO Resources for deletion
+   */
+  function removeResources(removedResources) {
+    utils.deleteRecords(env.RecordType.WORK_ORDER_RESOURCE, removedResources.map(x => x.id));
+  }
+
+  /**
+   * Determines the Work Order (WO) resources that need to be created, updated, or removed
+   * based on the differences between the current event data and the incoming updates.
+   *
+   * @param {Object} eventData - The original event data containing current WO resources.
+   * @param {Object} updates - The updated event data containing new resource state.
+   * @returns {Object} An object with:
+   *  - updatedResources: Array of resources that need their time fields updated.
+   *  - newResources: Array of new resources to be created.
+   *  - removedResources: Array of resources that are no longer present in the updates.
+   */
+  function prepareUpdatedWOResources(eventData, updates) {
     const selectedResources = updates.resources;
     const srcResources = eventData.resources;
 
@@ -272,34 +311,11 @@ define([
       }
     }
 
-    log.audit('Updating WO Resources', { updatedResources, newResources, removedResources });
-
-    // Update updated resources
-    for (const update of updatedResources) {
-      const values = {};
-      if (update.updatedStartTime) {
-        values.custrecord_esp_fop_res_start_time = moment(`1/1/1999 ${update.updatedStartTime}`).format(env.Format.IMPORT_TIME);
-      }
-      if (update.updatedEndTime) {
-        values.custrecord_esp_fop_res_end_time = moment(`1/1/1999 ${update.updatedEndTime}`).format(env.Format.IMPORT_TIME);
-      }
-      record.submitFields({
-        type: env.RecordType.WORK_ORDER_RESOURCE,
-        id: update.id,
-        values,
-        options: {
-          ignoreMandatoryFieds: true,
-        }
-      });
+    return {
+      updatedResources,
+      newResources,
+      removedResources
     }
-
-    eventData.resources = newResources;
-
-    // Create new resources
-    createResources(eventData);
-
-    // Delete removed resources
-    utils.deleteRecords(env.RecordType.WORK_ORDER_RESOURCE, removedResources.map(x => x.id));
   }
 
   /**
@@ -432,6 +448,8 @@ define([
     getResources,
     createResources,
     updateResources,
+    removeResources,
+    prepareUpdatedWOResources,
     updateCalendarResourceAssignment,
     updateCalendarResizedDateTime
   }

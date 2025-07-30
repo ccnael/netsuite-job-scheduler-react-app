@@ -133,73 +133,100 @@ define([
   }
 
   /**
-   * Update existing items quantities
-   * @param {Object} event Event data
-   * @param {Object} dataSrc Data source
+   * Update existing items quantity
+   * @param {Object} updatedItems WO Items for update
    */
-  function updateItems(event, dataSrc) {
-    const selectedItems = event.selectedItems;
-    const selectedItemIds = selectedItems.map(x => x.id);
-    const srcItems = dataSrc.items.filter(x => !!(x.selected));
-    const srcItemIds = srcItems.map(x => x.id);
-    const removedItems = srcItems.filter(x => !(selectedItemIds.includes(x.id)));
-    const newItems = selectedItems.filter(x => !(srcItemIds.includes(x.id)));
-
-    log.audit('Updating WO Item Event List', { selectedItems, removedItems, newItems });
-
-    // If theres to quantity update
-    for (const item of selectedItems) {
-      if (!item.id) continue;
-
-      try {
-        const itemLookUp = search.lookupFields({
-          type: env.RecordType.WORK_ORDER_ITEM,
-          id: item.id,
-          columns: [
-            'custrecord_esp_fop_wo_item_quantity',
-            'custrecord_esp_fop_wo_item_completedqty'
-          ]
-        });
-
-        const values = {};
-
-        if (itemLookUp.custrecord_esp_fop_wo_item_quantity != item.quantity) {
-          values.custrecord_esp_fop_wo_item_quantity = item.quantity;
+  function updateItems(updatedItems) {
+    // log.audit('Updating WO Items', { updatedItems });
+    for (const update of updatedItems) {
+      const values = {};
+      if (update.updatedQuantity) {
+        values.custrecord_esp_fop_wo_item_quantity = update.updatedQuantity;
+      }
+      if (update.updatedCompleteQuantity) {
+        values.custrecord_esp_fop_wo_item_completedqty = update.updatedCompleteQuantity;
+      }
+      record.submitFields({
+        type: env.RecordType.WORK_ORDER_ITEM,
+        id: update.id,
+        values,
+        options: {
+          ignoreMandatoryFieds: true,
         }
+      });
+      log.audit('----- [Updated WO Item Record] -----', { update });
+    }
+  }
 
-        // Upon event completion
-        if (itemLookUp.custrecord_esp_fop_wo_item_completedqty != item.completedQty) {
-          values.custrecord_esp_fop_wo_item_completedqty = item.completedQty;
+  /**
+   * Delete WO Items records
+   * @param {Object} removedItems WO Items for deletion
+   */
+  function removeItems(removedItems) {
+    utils.deleteRecords(env.RecordType.WORK_ORDER_ITEM, removedItems.map(x => x.id));
+  }
+
+  /**
+ * Determines the Work Order (WO) items that need to be created, updated, or removed
+ * based on the differences between the current event data and the incoming updates.
+ *
+ * @param {Object} eventData - The original event data containing current WO items.
+ * @param {Object} updates - The updated event data containing new item state.
+ * @returns {Object} An object with:
+ *  - updatedItems: Array of items that need their time fields updated.
+ *  - newItems: Array of new items to be created.
+ *  - removedItems: Array of items that are no longer present in the updates.
+ */
+  function prepareUpdatedWOItems(eventData, updates) {
+    const selectedItems = updates.items;
+    const srcItems = eventData.items;
+
+    const selectedItemIds = selectedItems.map(x => x.id).filter(Boolean);
+    const srcItemsIds = srcItems.map(x => x.id);
+
+    const removedItems = srcItems.filter(
+      src => !selectedItemIds.includes(src.id)
+    );
+
+    const newItems = selectedItems.filter(
+      upd => !upd.id || !srcItemsIds.includes(upd.id)
+    );
+    const updatedItems = [];
+
+    for (const upd of selectedItems) {
+      const matchId = upd.id;
+      if (!matchId) continue;
+
+      const existing = srcItems.find(src => src.id === matchId);
+      if (existing) {
+        const valuesToUpdate = {};
+        if (existing.quantity !== upd.quantity) {
+          valuesToUpdate.updatedQuantity = upd.quantity;
         }
-
-        if (Object.keys(values).length) {
-          record.submitFields({
-            type: env.RecordType.WORK_ORDER_ITEM,
-            id: item.id,
-            values,
-            options: {
-              ignoreMandatoryFieds: true
-            }
+        if (existing.completedQty && existing.completedQty !== upd.endTime) {
+          valuesToUpdate.updatedCompleteQuantity = upd.completedQty;
+        }
+        if (Object.keys(valuesToUpdate).length) {
+          updatedItems.push({
+            ...upd,
+            ...valuesToUpdate
           });
-          log.error('----- [Updated WO Item Record] -----', { item });
         }
-      } catch (e) {
-        log.error('Error on WO Item > Update', { item, errorMsg: e.message });
       }
     }
 
-    // If theres to remove (removed items)
-    utils.deleteRecords(env.RecordType.WORK_ORDER_ITEM, removedItems.map(x => x.id));
-
-    // If theres to create (newly added items)
-    const clonedEventObj = helper.deepCopy(event);
-    clonedEventObj.selectedItems = newItems;
-    createItems(clonedEventObj);
+    return {
+      updatedItems,
+      newItems,
+      removedItems
+    }
   }
 
   return {
     getItems,
     createItems,
-    updateItems
+    updateItems,
+    removeItems,
+    prepareUpdatedWOItems
   }
 })

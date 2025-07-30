@@ -71,8 +71,71 @@ const getMockEvents = (): Event[] => {
   if (mockEventsStore) return mockEventsStore;
   
   const initialEvents = [{
-      "id": "101212",
-      "title": "Lobby Area - Product Core Dryrun",
+      "id": "101232",
+      "title": "123123",
+      "workorder": {
+        "text": "",
+        "value": ""
+      },
+      "location": "",
+      "status": {
+        "text": "Tentative",
+        "value": "TENTATIVE",
+        "code": "#6c757d"
+      },
+      "date": {
+        "recurrence": "occurs every day from 7/1/2025 until 7/9/2025",
+        "dates": [
+          "7/1/2025",
+          "7/9/2025"
+        ],
+        "start": "2025-07-01",
+        "end": "2025-07-09"
+      },
+      "time": {
+        "start": "09:00",
+        "end": "18:00"
+      },
+      "priority": {
+        "text": "Low",
+        "value": "1",
+        "code": "#026adf"
+      },
+      "note": "1\n2\n3",
+      "url": "/app/crm/calendar/event.nl?id=101232&compid=TSTDRV2617106",
+      "color": "#1a6756",
+      "woRef": {},
+      "resources": [],
+      "vendors": [],
+      "assets": [],
+      "items": [],
+      "contacts": [],
+      "addresses": [],
+      "address": {
+        "text": "",
+        "value": ""
+      },
+      "organizer": {
+        "text": "Lean Cendaña",
+        "value": "1765"
+      },
+      "projectInsight": {
+        "text": "",
+        "value": ""
+      },
+      "assetMaintenance": true,
+      "routingGroup": {
+        "text": "Group A",
+        "value": "1"
+      },
+      "salesorder": {
+        "text": "",
+        "value": ""
+      }
+    },
+    {
+      "id": "101229",
+      "title": "sss",
       "workorder": {
         "text": "Lobby Area - Product Core Dryrun",
         "value": "138"
@@ -84,23 +147,150 @@ const getMockEvents = (): Event[] => {
         "code": "#026adf"
       },
       "date": {
-        "recurrence": "one time event on 7/28/2025",
+        "recurrence": "occurs every day from 7/23/2025 until 7/25/2025",
         "dates": [
-          "7/28/2025"
+          "7/23/2025",
+          "7/25/2025"
         ],
-        "start": "2025-07-28",
-        "end": "2025-07-28"
+        "start": "2025-07-23",
+        "end": "2025-07-25"
       },
       "time": {
-        "start": "00:00",
-        "end": "04:00"
+        "start": "08:00",
+        "end": "18:00"
       },
       "priority": {
         "text": "Medium",
         "value": "2",
         "code": "#dfcf02"
       },
-      "note": "test\n123",
+      "note": "A\nB\nC",
+      "url": "/app/crm/calendar/event.nl?id=101229&compid=TSTDRV2617106",
+      "color": "#1a6756",
+      "woRef": {},
+      "resources": [],
+      "vendors": [],
+      "assets": [],
+      "items": [],
+      "contacts": [],
+      "addresses": [],
+      "address": {
+        "text": "TEST",
+        "value": "235"
+      },
+      "organizer": {
+        "text": "Lean Cendaña",
+        "value": "1765"
+      },
+      "projectInsight": {
+        "text": "",
+        "value": ""
+      },
+      "assetMaintenance": false,
+      "routingGroup": {
+        "text": "Group C",
+        "value": "3"
+      },
+      "salesorder": {
+        "text": "SLS00000835",
+        "value": "24427"
+      }
+    },
+    {
+      "id": "101227",
+      "title": "testing onle",
+      "workorder": {
+        "text": "Lobby Area - Product Core Dryrun",
+        "value": "138"
+      },
+      "location": "",
+      "status": {
+        "text": "Confirmed",
+        "value": "CONFIRMED",
+        "code": "#026adf"
+      },
+      "date": {
+        "recurrence": "occurs every day from 7/1/2025 until 7/5/2025",
+        "dates": [
+          "7/1/2025",
+          "7/5/2025"
+        ],
+        "start": "2025-07-01",
+        "end": "2025-07-05"
+      },
+      "time": {
+        "start": "09:00",
+        "end": "16:00"
+      },
+      "priority": {
+        "text": "Urgent",
+        "value": "4",
+        "code": "#9a2407"
+      },
+      "note": "1\n2\n3\n4",
+      "url": "/app/crm/calendar/event.nl?id=101227&compid=TSTDRV2617106",
+      "color": "#1a6756",
+      "woRef": {},
+      "resources": [],
+      "vendors": [],
+      "assets": [],
+      "items": [],
+      "contacts": [],
+      "addresses": [],
+      "address": {
+        "text": "World Bank | 12 Carlton Av",
+        "value": "228"
+      },
+      "organizer": {
+        "text": "Lean Cendaña",
+        "value": "1765"
+      },
+      "projectInsight": {
+        "text": "",
+        "value": ""
+      },
+      "assetMaintenance": false,
+      "routingGroup": {
+        "text": "Group A",
+        "value": "1"
+      },
+      "salesorder": {
+        "text": "SLS00000835",
+        "value": "24427"
+      }
+    },
+    {
+      "id": "101212",
+      "title": "Lobby Area - Product Core Dryrun2",
+      "workorder": {
+        "text": "Lobby Area - Product Core Dryrun",
+        "value": "138"
+      },
+      "location": "",
+      "status": {
+        "text": "Tentative",
+        "value": "TENTATIVE",
+        "code": "#6c757d"
+      },
+      "date": {
+        "recurrence": "occurs every day from 7/22/2025 until 7/27/2025",
+        "dates": [
+          "7/22/2025",
+          "7/27/2025"
+        ],
+        "start": "2025-07-22",
+        "end": "2025-07-27"
+      },
+      "time": {
+        "start": "00:45",
+        "end": "01:00"
+      },
+      "priority": {
+        "text": "High",
+        "value": "3",
+        "code": "#ca6621"
+      },
+      "note": "test\n123451",
       "url": "/app/crm/calendar/event.nl?id=101212&compid=TSTDRV2617106",
       "color": "#1a6756",
       "woRef": {},
@@ -124,8 +314,8 @@ const getMockEvents = (): Event[] => {
       },
       "assetMaintenance": false,
       "routingGroup": {
-        "text": "",
-        "value": ""
+        "text": "Group D",
+        "value": "52"
       },
       "salesorder": {
         "text": "SLS00000835",
@@ -20290,57 +20480,9 @@ export const createEvent = async (formData: any): Promise<Event> => {
 };
 
 export const updateEvent = async (eventData: Event, updates: Partial<Event>): Promise<Event> => {
-  // Filter out event fields to update
-  const eventFieldsToUpdate: Record<string, unknown> = {};
-
-  if (eventData.title != updates.title) {
-    eventFieldsToUpdate.title = updates.title;
-  }
-  if (eventData.date.start != updates.date.start) {
-    eventFieldsToUpdate.startdate = updates.date.start;
-  }
-  if (eventData.date.end != updates.date.end) {
-    eventFieldsToUpdate.endbydate = updates.date.end;
-  }
-  if (eventData.time.start != updates.time.start) {
-    eventFieldsToUpdate.starttime = updates.time.start;
-  }
-  if (eventData.time.end != updates.time.end) {
-    eventFieldsToUpdate.endtime = updates.time.end;
-  }
-  if (eventData.note != updates.note) {
-    eventFieldsToUpdate.custevent_esp_fop_memo = updates.note;
-  }
-  if (updates.priority) {
-    if (eventData.priority?.value != updates.priority?.value) {
-      eventFieldsToUpdate.custevent_esp_fop_event_priority = updates.priority.value;
-    }
-  }
-  if (updates.status) {
-    if (eventData.status?.value != updates.status?.value) {
-      eventFieldsToUpdate.status = updates.status.value;
-    }
-  }
-  if (updates.address) {
-    if (eventData.address?.value != updates.address?.value) {
-      eventFieldsToUpdate.custevent_esp_fop_event_address = updates.address.value;
-    }
-  }
-  if (eventData.routingGroup.value != updates.routingGroup.value) {
-    eventFieldsToUpdate.custevent_esp_fop_routing_group = updates.routingGroup.value;
-  }
-
-  // Filter out WO resources to update
-  // Filter out WO vendors to update
-  // Filter out WO assets to update
-  // Filter out WO items to update
-  // Filter out WO contacts to update
-  // Filter out WO address to update
-
   console.log('Update Event Payload', {
     eventData,
-    updates,
-    eventFieldsToUpdate
+    updates
   });
 
   if (isLocalDevelopment()) {
@@ -20365,8 +20507,7 @@ export const updateEvent = async (eventData: Event, updates: Partial<Event>): Pr
       },
       body: JSON.stringify({
         eventData,
-        updates,
-        eventFieldsToUpdate
+        updates
       })
     });
 

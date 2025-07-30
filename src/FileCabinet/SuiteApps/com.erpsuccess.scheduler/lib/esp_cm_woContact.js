@@ -128,32 +128,47 @@ define([
   }
 
   /**
-   * Update event contacts
-   * @param {Object} event Event data
-   * @param {Object} dataSrc Data source
+   * Delete WO Contacts records
+   * @param {Object} removeContacts WO Contacts for deletion
    */
-  function updateContacts(event, dataSrc) {
-    const selectedContacts = event.selectedContacts;
-    const selectedContactIds = selectedContacts.map(x => x.id);
-    const srcContacts = dataSrc.contacts.filter(x => !!(x.selected));
-    const srcContactIds = srcContacts.map(x => x.id);
-    const removedContacts = srcContacts.filter(x => !(selectedContactIds.includes(x.id)));
-    const newContacts = selectedContacts.filter(x => !(srcContactIds.includes(x.id)));
-
-    log.audit('Updating WO Contact Event List', { selectedContacts, removedContacts, newContacts });
-
-    // If theres to remove (removed contacts)
+  function removeContacts(removedContacts) {
     utils.deleteRecords(env.RecordType.WORK_ORDER_CONTACT, removedContacts.map(x => x.id));
+  }
 
-    // If theres to create (newly added contacts)
-    const clonedEventObj = helper.deepCopy(event);
-    clonedEventObj.selectedContacts = newContacts;
-    createContacts(clonedEventObj);
+  /**
+   * Prepare WO Contacts to create or remove based on event data and updates.
+   *
+   * @param {Object} eventData - The current event data with existing WO contacts.
+   * @param {Object} updates - The incoming update data with new WO contacts.
+   * @returns {Object} An object containing:
+   *  - newContacts: Contacts that need to be created.
+   *  - removedContacts: Contacts that should be removed.
+   */
+  function prepareUpdatedWOContacts(eventData, updates) {
+    const selectedContacts = updates.contacts || [];
+    const srcContacts = eventData.contacts || [];
+
+    const selectedContactIds = selectedContacts.map(x => x.id).filter(Boolean);
+    const srcContactIds = srcContacts.map(x => x.id);
+
+    const removedContacts = srcContacts.filter(
+      src => !selectedContactIds.includes(src.id)
+    );
+
+    const newContacts = selectedContacts.filter(
+      upd => !upd.id || !srcContactIds.includes(upd.id)
+    );
+
+    return {
+      newContacts,
+      removedContacts
+    };
   }
 
   return {
     getContacts,
     createContacts,
-    updateContacts
+    removeContacts,
+    prepareUpdatedWOContacts
   }
 })

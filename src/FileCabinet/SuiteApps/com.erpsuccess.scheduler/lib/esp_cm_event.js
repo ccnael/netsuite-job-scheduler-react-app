@@ -6,7 +6,6 @@ define([
   'N/runtime',
   'N/search',
   'N/record',
-  'N/format',
   './esp_cm_woResource',
   './esp_cm_woVendor',
   './esp_cm_woAsset',
@@ -21,7 +20,6 @@ define([
   runtime,
   search,
   record,
-  format,
   woResourceLib,
   woVendorLib,
   woAssetLib,
@@ -221,46 +219,44 @@ define([
       eventData.time.start = moment(`1/1/1999 ${eventData.time.start}`).format(env.Format.IMPORT_TIME);
       eventData.time.end = moment(`1/1/1999 ${eventData.time.end}`).format(env.Format.IMPORT_TIME);
 
-      const fieldId = {};
-      fieldId.title = eventData.title;
-      fieldId.custevent_esp_fop_work_order = eventData?.woRef?.id || '';
-      fieldId.organizer = user.id;
-      fieldId.status = eventData.status.value.replace('COMPLETED', 'COMPLETE');
-      fieldId.accesslevel = 'PUBLIC';
-      fieldId.startdate = eventData.parsedStartDate;
-      fieldId.starttime = helper.toDateTimez(eventData.date.start, eventData.time.start);
-      fieldId.endtime = helper.toDateTimez(eventData.date.start, eventData.time.end);
-      fieldId.custevent_esp_fop_event_priority = eventData.priority.value;
-      fieldId.custevent_esp_fop_memo = eventData.note;
-      fieldId.custevent_task_pi = eventData?.projectInsight?.value;
-      fieldId.custevent_esp_fop_asset_maintenance = !!(eventData?.assetMaintenance);
+      const nsFld = {};
+      nsFld.title = eventData.title;
+      nsFld.custevent_esp_fop_work_order = eventData?.woRef?.id || '';
+      nsFld.organizer = user.id;
+      nsFld.status = eventData.status.value.replace('COMPLETED', 'COMPLETE');
+      nsFld.accesslevel = 'PUBLIC';
+      nsFld.startdate = eventData.parsedStartDate;
+      nsFld.starttime = helper.toDateTimez(eventData.date.start, eventData.time.start);
+      nsFld.endtime = helper.toDateTimez(eventData.date.start, eventData.time.end);
+      nsFld.custevent_esp_fop_event_priority = eventData.priority.value;
+      nsFld.custevent_esp_fop_memo = eventData.note;
+      nsFld.custevent_task_pi = eventData?.projectInsight?.value;
+      nsFld.custevent_esp_fop_asset_maintenance = !!(eventData?.assetMaintenance);
 
       if (eventData.address) {
-        fieldId.custevent_esp_fop_event_address = eventData.address?.value;
+        nsFld.custevent_esp_fop_event_address = eventData.address?.value;
       }
 
       const numberOfDays = moment(eventData.date.end).diff(moment(eventData.date.start), 'days') + 1;
 
       if (numberOfDays > 1) {
-        fieldId.frequency = 'DAY';
-        fieldId.period = '1'; // Repeat every 1 day(s) / Daily
+        nsFld.frequency = 'DAY';
+        nsFld.period = '1'; // Repeat every 1 day(s) / Daily
       } else {
         // Default > Single Day Event (value->NONE)
       }
-      fieldId.custevent_esp_fop_routing_group = eventData.routingGroup.value;
-      fieldId.endbydate = eventData.parsedEndDate;
-
-      log.debug('Event Data', fieldId);
+      nsFld.custevent_esp_fop_routing_group = eventData.routingGroup.value;
+      nsFld.endbydate = eventData.parsedEndDate;
 
       const rec = record.create({
         type: record.Type.CALENDAR_EVENT,
         isDynamic: true
       });
 
-      for (const key in fieldId) {
+      for (const key in nsFld) {
         rec.setValue({
           fieldId: key,
-          value: fieldId[key]
+          value: nsFld[key]
         });
       }
 
@@ -293,78 +289,166 @@ define([
     const { request, response } = context;
     let requestBody = request.body || '{}';
     const payload = JSON.parse(requestBody);
-    const { eventData, updates, eventFieldsToUpdate: nsFld } = payload;
+    const { eventData, updates } = payload;
 
-    log.audit('----- [Update Work Order Event] -----', { eventData, updates, nsFld });
-    updates.date.start = moment(updates.date.start).format(env.Format.IMPORT_DATE);
-    updates.date.end = moment(updates.date.end).format(env.Format.IMPORT_DATE);
-    updates.time.start = moment(`1/1/1999 ${updates.time.start}`).format(env.Format.IMPORT_TIME);
-    updates.time.end = moment(`1/1/1999 ${updates.time.end}`).format(env.Format.IMPORT_TIME);
+    log.audit('----- [Update Work Order Event] -----', { updates });
+    log.audit('----- [Event Record Data] -----', eventData);
+
+    const parsedStartDate = utils.parseDate(updates.date.start);
+    const parsedEndDate = utils.parseDate(updates.date.end);
+    const nsFld = {};
 
     try {
-      if (nsFld.startdate) {
-        nsFld.startdate = utils.parseDate(nsFld.startdate);
+      if (eventData.title != updates.title) {
+        nsFld.title = updates.title;
       }
-      if (nsFld.endbydate) {
+      if (eventData.date.start != updates.date.start) {
+        nsFld.startdate = parsedStartDate;
+      }
+      if (eventData.date.end != updates.date.end) {
         const numberOfDays = moment(updates.date.end).diff(moment(updates.date.start), 'days') + 1;
         if (numberOfDays > 1) {
           nsFld.frequency = 'DAY';
           nsFld.period = '1';
         }
-        nsFld.endbydate = utils.parseDate(nsFld.endbydate);
+        nsFld.endbydate = parsedEndDate;
       }
-      if (nsFld.starttime) {
+
+      if (eventData.time.start != updates.time.start) {
+        updates.date.start = moment(updates.date.start).format(env.Format.IMPORT_DATE);
+        updates.time.start = moment(`1/1/1999 ${updates.time.start}`).format(env.Format.IMPORT_TIME);
         nsFld.starttime = helper.toDateTimez(updates.date.start, updates.time.start);
       }
-      if (nsFld.endtime) {
+      if (eventData.time.end != updates.time.end) {
+        updates.date.end = moment(updates.date.end).format(env.Format.IMPORT_DATE);
+        updates.time.end = moment(`1/1/1999 ${updates.time.end}`).format(env.Format.IMPORT_TIME);
         nsFld.endtime = helper.toDateTimez(updates.date.end, updates.time.end);
       }
-      if (nsFld.status && nsFld.status === 'COMPLETED') {
-        nsFld.status = 'COMPLETE';
+      if (eventData.note != updates.note) {
+        nsFld.custevent_esp_fop_memo = updates.note;
       }
-
-      log.audit('Fields To Update', { updates, nsFld });
-
-      if (Object.keys(nsFld).length) {
-        // Will not work (doesnt support event native fields)
-        /* record.submitFields({}); */
-        const rec = record.load({
-          type: record.Type.CALENDAR_EVENT,
-          id: eventData.id
-        });
-        for (const key in nsFld) {
-          rec.setValue({
-            fieldId: key,
-            value: nsFld[key]
-          });
-          // log.debug(`Setting Field ${key}`, nsFld[key]);
+      if (updates.priority) {
+        if (eventData.priority?.value != updates.priority?.value) {
+          nsFld.custevent_esp_fop_event_priority = updates.priority.value;
         }
-        rec.save({ ignoreMandatoryFieds: true });
-        log.audit('----- [Updated Event Record] -----', { recordId: eventData.id });
+      }
+      if (updates.status) {
+        if (eventData.status?.value != updates.status?.value) {
+          nsFld.status = updates.status.value.replace('COMPLETED', 'COMPLETE');
+        }
+      }
+      if (updates.address) {
+        if (eventData.address?.value != updates.address?.value) {
+          nsFld.custevent_esp_fop_event_address = updates.address.value;
+        }
+      }
+      if (eventData.routingGroup.value != updates.routingGroup.value) {
+        nsFld.custevent_esp_fop_routing_group = updates.routingGroup.value;
+      }
+
+      const { newResources, updatedResources, removedResources } = woResourceLib.prepareUpdatedWOResources(eventData, updates);
+      const { newVendors, updatedVendors, removedVendors } = woVendorLib.prepareUpdatedWOVendors(eventData, updates);
+      const { newAssets, updatedAssets, removedAssets } = woAssetLib.prepareUpdatedWOAssets(eventData, updates);
+      const { newItems, updatedItems, removedItems } = woItemLib.prepareUpdatedWOItems(eventData, updates);
+      const { newContacts, removedContacts } = woContactLib.prepareUpdatedWOContacts(eventData, updates);
+
+      log.audit('Fields To Update', {
+        nsFld,
+        newResources: newResources.length,
+        updatedResources: updatedResources.length,
+        removedResources: removedResources.length,
+        newVendors: newVendors.length,
+        updatedVendors: updatedVendors.length,
+        removedVendors: removedVendors.length,
+        newAssets: newAssets.length,
+        updatedAssets: updatedAssets.length,
+        removedAssets: removedAssets.length,
+        newItems: newItems.length,
+        updatedItems: updatedItems.length,
+        removedItems: removedItems.length,
+        newContacts: newContacts.length,
+        removedContacts: removedContacts.length,
+        newAddressId: nsFld.custevent_esp_fop_routing_group
+      });
+
+      if (
+        !Object.keys(nsFld).length &&
+        !newResources.length &&
+        !updatedResources.length &&
+        !removedResources.length &&
+        !newVendors.length &&
+        !updatedVendors.length &&
+        !removedVendors.length &&
+        !newAssets.length &&
+        !updatedAssets.length &&
+        !removedAssets.length &&
+        !newItems.length &&
+        !updatedItems.length &&
+        !removedItems.length &&
+        !newContacts.length &&
+        !removedContacts.length &&
+        !nsFld.custevent_esp_fop_event_address
+      ) {
+        response.write(JSON.stringify({
+          code: 200,
+          status: 'success',
+          message: 'Nothing to update'
+        }));
       } else {
-        log.audit('----- [Update Event Record not needed!] -----', { recordId: eventData.id });
-      }
+        // Update event
+        if (Object.keys(nsFld).length) {
+          // Will not work (doesnt support event native fields)
+          /* record.submitFields({}); */
+          const rec = record.load({
+            type: record.Type.CALENDAR_EVENT,
+            id: eventData.id
+          });
+          for (const key in nsFld) {
+            rec.setValue({
+              fieldId: key,
+              value: nsFld[key]
+            });
+            // log.debug(`Setting Field ${key}`, nsFld[key]);
+          }
+          rec.save({ ignoreMandatoryFieds: true });
+          log.audit('----- [Updated Event Record] -----', { recordId: eventData.id });
+        } else {
+          log.audit('----- [Update Event Record not needed!] -----', { recordId: eventData.id });
+        }
 
-      if (updates.resources) {
-        woResourceLib.updateResources(eventData, updates);
-      }
-      /* if (eventData.selectedVendors) {
-        woVendorLib.updateVendors(eventData, oldEventData, woRef);
-      }
-      if (eventData.selectedAssets) {
-        woAssetLib.updateAssets(eventData, oldEventData, woRef);
-      }
-      if (eventData.selectedItems) {
-        woItemLib.updateItems(eventData, oldEventData);
-      }
-      if (eventData.selectedContacts) {
-        woContactLib.updateContacts(eventData, oldEventData);
-      } */
+        eventData.resources = newResources;
+        eventData.vendors = newVendors;
+        eventData.assets = newAssets;
+        eventData.items = newItems;
+        eventData.contacts = newContacts;
 
-      response.write(JSON.stringify({
-        code: 200,
-        status: 'success'
-      }));
+        newResources.length && woResourceLib.createResources(eventData);
+        updatedResources.length && woResourceLib.updateResources(updatedResources);
+        removedResources.length && woResourceLib.removeResources(removedResources);
+        newVendors.length && woVendorLib.createVendors(eventData);
+        updatedVendors.length && woVendorLib.updateVendors(updatedVendors);
+        removedVendors.length && woVendorLib.removeVendors(removedVendors);
+        newAssets.length && woAssetLib.createAssets(eventData);
+        updatedAssets.length && woAssetLib.updateAssets(updatedAssets);
+        removedAssets.length && woAssetLib.removeAssets(removedAssets);
+        newItems.length && woItemLib.createItems(eventData);
+        updatedItems.length && woItemLib.updateItems(updatedItems);
+        removedItems.length && woItemLib.removeItems(removedItems);
+        newContacts.length && woContactLib.createContacts(eventData);
+        removedContacts.length && woContactLib.removeContacts(removedContacts);
+
+        if (eventData.address?.value != updates.address?.value) {
+          woAddressLib.removeEventFromAddress(eventData.address, eventData.id);
+          eventData.address = updates.address;
+          woAddressLib.addEventToAddress(eventData);
+        }
+
+        response.write(JSON.stringify({
+          code: 200,
+          status: 'success',
+          message: 'Updated Successfully'
+        }));
+      }
     } catch (e) {
       log.error('updateEventRecord() Unexpected Error', e.message);
       throw new Error(`Unexpected Error: ${e.message}`);
@@ -389,7 +473,7 @@ define([
       utils.deleteRecords(env.RecordType.WORK_ORDER_ASSET, eventData.assets.map(x => x.id));
       utils.deleteRecords(env.RecordType.WORK_ORDER_ITEM, eventData.items.map(x => x.id));
       utils.deleteRecords(env.RecordType.WORK_ORDER_CONTACT, eventData.contacts.map(x => x.id));
-      woAddressLib.removeEventFromAddresses(eventData.addresses, eventData.id);
+      woAddressLib.removeEventFromAddress(eventData.address, eventData.id);
 
       // Remove timetracking lines
       const rec = record.load({

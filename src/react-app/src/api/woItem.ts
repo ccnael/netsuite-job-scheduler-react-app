@@ -2669,30 +2669,6 @@ const mockWOItems: WOItem[] = [{
     "completedQty": 0
   },
   {
-    "id": "45",
-    "workorder": {
-      "text": "Furniture Installation",
-      "value": "45"
-    },
-    "salesorder": {
-      "text": "Sales Order #SLS00000654",
-      "value": "16211"
-    },
-    "event": "",
-    "uuid": "16210_2",
-    "line": "2",
-    "item": {
-      "text": "2375-6727",
-      "value": "1426"
-    },
-    "description": "",
-    "quantity": 0,
-    "availableQty": 0,
-    "note": "",
-    "quantityReceived": 0,
-    "completedQty": 0
-  },
-  {
     "id": "56",
     "workorder": {
       "text": "Furniture Installation",
@@ -2736,150 +2712,6 @@ const mockWOItems: WOItem[] = [{
     "description": "",
     "quantity": 0,
     "availableQty": 0,
-    "note": "",
-    "quantityReceived": 0,
-    "completedQty": 0
-  },
-  {
-    "id": "62",
-    "workorder": {
-      "text": "Furniture Installation",
-      "value": "60"
-    },
-    "salesorder": {
-      "text": "Sales Order #SLS00000686",
-      "value": "17729"
-    },
-    "event": "",
-    "uuid": "17729_2",
-    "line": "2",
-    "item": {
-      "text": "2375-6727",
-      "value": "1426"
-    },
-    "description": "",
-    "quantity": 0,
-    "availableQty": 0,
-    "note": "",
-    "quantityReceived": 0,
-    "completedQty": 0
-  },
-  {
-    "id": "104",
-    "workorder": {
-      "text": "Furniture Installation",
-      "value": "67"
-    },
-    "salesorder": {
-      "text": "Sales Order #SLS00000715",
-      "value": "19388"
-    },
-    "event": "",
-    "uuid": "19388_2",
-    "line": "2",
-    "item": {
-      "text": "2375-6727",
-      "value": "1426"
-    },
-    "description": "",
-    "quantity": 5,
-    "availableQty": 5,
-    "note": "",
-    "quantityReceived": 0,
-    "completedQty": 0
-  },
-  {
-    "id": "106",
-    "workorder": {
-      "text": "Furniture Installation",
-      "value": "67"
-    },
-    "salesorder": {
-      "text": "Sales Order #SLS00000715",
-      "value": "19388"
-    },
-    "event": "",
-    "uuid": "19388_2",
-    "line": "2",
-    "item": {
-      "text": "2375-6727",
-      "value": "1426"
-    },
-    "description": "",
-    "quantity": 5,
-    "availableQty": 5,
-    "note": "",
-    "quantityReceived": 0,
-    "completedQty": 0
-  },
-  {
-    "id": "43",
-    "workorder": {
-      "text": "Furniture Installation",
-      "value": "44"
-    },
-    "salesorder": {
-      "text": "Sales Order #SLS00000654",
-      "value": "16211"
-    },
-    "event": "",
-    "uuid": "16210_2",
-    "line": "2",
-    "item": {
-      "text": "2375-6727",
-      "value": "1426"
-    },
-    "description": "",
-    "quantity": 1,
-    "availableQty": 1,
-    "note": "",
-    "quantityReceived": 0,
-    "completedQty": 0
-  },
-  {
-    "id": "41",
-    "workorder": {
-      "text": "Furniture Installation",
-      "value": "43"
-    },
-    "salesorder": {
-      "text": "Sales Order #SLS00000654",
-      "value": "16211"
-    },
-    "event": "",
-    "uuid": "16210_2",
-    "line": "2",
-    "item": {
-      "text": "2375-6727",
-      "value": "1426"
-    },
-    "description": "",
-    "quantity": 0,
-    "availableQty": 0,
-    "note": "",
-    "quantityReceived": 0,
-    "completedQty": 0
-  },
-  {
-    "id": "246",
-    "workorder": {
-      "text": "Furniture Installation",
-      "value": "87"
-    },
-    "salesorder": {
-      "text": "Sales Order #SLS00000740",
-      "value": "20024"
-    },
-    "event": "",
-    "uuid": "20024_2",
-    "line": "2",
-    "item": {
-      "text": "2375-6727",
-      "value": "1426"
-    },
-    "description": "",
-    "quantity": 50,
-    "availableQty": 50,
     "note": "",
     "quantityReceived": 0,
     "completedQty": 0
@@ -2933,6 +2765,30 @@ const mockWOItems: WOItem[] = [{
     "completedQty": 0
   },
   {
+    "id": "62",
+    "workorder": {
+      "text": "Furniture Installation",
+      "value": "60"
+    },
+    "salesorder": {
+      "text": "Sales Order #SLS00000686",
+      "value": "17729"
+    },
+    "event": "",
+    "uuid": "17729_2",
+    "line": "2",
+    "item": {
+      "text": "2375-6727",
+      "value": "1426"
+    },
+    "description": "",
+    "quantity": 0,
+    "availableQty": 0,
+    "note": "",
+    "quantityReceived": 0,
+    "completedQty": 0
+  },
+  {
     "id": "241",
     "workorder": {
       "text": "Furniture Installation",
@@ -2944,6 +2800,150 @@ const mockWOItems: WOItem[] = [{
     },
     "event": "",
     "uuid": "19521_2",
+    "line": "2",
+    "item": {
+      "text": "2375-6727",
+      "value": "1426"
+    },
+    "description": "",
+    "quantity": 50,
+    "availableQty": 50,
+    "note": "",
+    "quantityReceived": 0,
+    "completedQty": 0
+  },
+  {
+    "id": "45",
+    "workorder": {
+      "text": "Furniture Installation",
+      "value": "45"
+    },
+    "salesorder": {
+      "text": "Sales Order #SLS00000654",
+      "value": "16211"
+    },
+    "event": "",
+    "uuid": "16210_2",
+    "line": "2",
+    "item": {
+      "text": "2375-6727",
+      "value": "1426"
+    },
+    "description": "",
+    "quantity": 0,
+    "availableQty": 0,
+    "note": "",
+    "quantityReceived": 0,
+    "completedQty": 0
+  },
+  {
+    "id": "41",
+    "workorder": {
+      "text": "Furniture Installation",
+      "value": "43"
+    },
+    "salesorder": {
+      "text": "Sales Order #SLS00000654",
+      "value": "16211"
+    },
+    "event": "",
+    "uuid": "16210_2",
+    "line": "2",
+    "item": {
+      "text": "2375-6727",
+      "value": "1426"
+    },
+    "description": "",
+    "quantity": 0,
+    "availableQty": 0,
+    "note": "",
+    "quantityReceived": 0,
+    "completedQty": 0
+  },
+  {
+    "id": "43",
+    "workorder": {
+      "text": "Furniture Installation",
+      "value": "44"
+    },
+    "salesorder": {
+      "text": "Sales Order #SLS00000654",
+      "value": "16211"
+    },
+    "event": "",
+    "uuid": "16210_2",
+    "line": "2",
+    "item": {
+      "text": "2375-6727",
+      "value": "1426"
+    },
+    "description": "",
+    "quantity": 1,
+    "availableQty": 1,
+    "note": "",
+    "quantityReceived": 0,
+    "completedQty": 0
+  },
+  {
+    "id": "106",
+    "workorder": {
+      "text": "Furniture Installation",
+      "value": "67"
+    },
+    "salesorder": {
+      "text": "Sales Order #SLS00000715",
+      "value": "19388"
+    },
+    "event": "",
+    "uuid": "19388_2",
+    "line": "2",
+    "item": {
+      "text": "2375-6727",
+      "value": "1426"
+    },
+    "description": "",
+    "quantity": 5,
+    "availableQty": 5,
+    "note": "",
+    "quantityReceived": 0,
+    "completedQty": 0
+  },
+  {
+    "id": "104",
+    "workorder": {
+      "text": "Furniture Installation",
+      "value": "67"
+    },
+    "salesorder": {
+      "text": "Sales Order #SLS00000715",
+      "value": "19388"
+    },
+    "event": "",
+    "uuid": "19388_2",
+    "line": "2",
+    "item": {
+      "text": "2375-6727",
+      "value": "1426"
+    },
+    "description": "",
+    "quantity": 5,
+    "availableQty": 5,
+    "note": "",
+    "quantityReceived": 0,
+    "completedQty": 0
+  },
+  {
+    "id": "246",
+    "workorder": {
+      "text": "Furniture Installation",
+      "value": "87"
+    },
+    "salesorder": {
+      "text": "Sales Order #SLS00000740",
+      "value": "20024"
+    },
+    "event": "",
+    "uuid": "20024_2",
     "line": "2",
     "item": {
       "text": "2375-6727",
@@ -5237,54 +5237,6 @@ const mockWOItems: WOItem[] = [{
     "completedQty": 0
   },
   {
-    "id": "1",
-    "workorder": {
-      "text": "Furniture Installation",
-      "value": "1"
-    },
-    "salesorder": {
-      "text": "Sales Order #SLS00000609",
-      "value": "11722"
-    },
-    "event": "",
-    "uuid": "11722_1",
-    "line": "1",
-    "item": {
-      "text": "4321GR",
-      "value": "1015"
-    },
-    "description": "",
-    "quantity": 2,
-    "availableQty": 2,
-    "note": "",
-    "quantityReceived": 0,
-    "completedQty": 0
-  },
-  {
-    "id": "11",
-    "workorder": {
-      "text": "Walls Installation",
-      "value": "13"
-    },
-    "salesorder": {
-      "text": "Sales Order #SLS00000609",
-      "value": "11722"
-    },
-    "event": "",
-    "uuid": "11722_1",
-    "line": "1",
-    "item": {
-      "text": "4321GR",
-      "value": "1015"
-    },
-    "description": "",
-    "quantity": 2,
-    "availableQty": 2,
-    "note": "",
-    "quantityReceived": 0,
-    "completedQty": 0
-  },
-  {
     "id": "15",
     "workorder": {
       "text": "Drop off and Walls Installation",
@@ -5309,10 +5261,10 @@ const mockWOItems: WOItem[] = [{
     "completedQty": 0
   },
   {
-    "id": "20",
+    "id": "377",
     "workorder": {
-      "text": "Conference Table Delivery",
-      "value": "28"
+      "text": "Desks Installation",
+      "value": "20"
     },
     "salesorder": {
       "text": "Sales Order #SLS00000609",
@@ -5326,32 +5278,8 @@ const mockWOItems: WOItem[] = [{
       "value": "1015"
     },
     "description": "",
-    "quantity": 2,
-    "availableQty": 2,
-    "note": "",
-    "quantityReceived": 0,
-    "completedQty": 0
-  },
-  {
-    "id": "21",
-    "workorder": {
-      "text": "Security Camera Installation",
-      "value": "29"
-    },
-    "salesorder": {
-      "text": "Sales Order #SLS00000609",
-      "value": "11722"
-    },
-    "event": "",
-    "uuid": "11722_1",
-    "line": "1",
-    "item": {
-      "text": "4321GR",
-      "value": "1015"
-    },
-    "description": "",
-    "quantity": 2,
-    "availableQty": 2,
+    "quantity": 3,
+    "availableQty": 3,
     "note": "",
     "quantityReceived": 0,
     "completedQty": 0
@@ -5405,10 +5333,10 @@ const mockWOItems: WOItem[] = [{
     "completedQty": 0
   },
   {
-    "id": "28",
+    "id": "1",
     "workorder": {
-      "text": "AV Installation",
-      "value": "33"
+      "text": "Furniture Installation",
+      "value": "1"
     },
     "salesorder": {
       "text": "Sales Order #SLS00000609",
@@ -5429,10 +5357,10 @@ const mockWOItems: WOItem[] = [{
     "completedQty": 0
   },
   {
-    "id": "377",
+    "id": "20",
     "workorder": {
-      "text": "Desks Installation",
-      "value": "20"
+      "text": "Conference Table Delivery",
+      "value": "28"
     },
     "salesorder": {
       "text": "Sales Order #SLS00000609",
@@ -5446,8 +5374,80 @@ const mockWOItems: WOItem[] = [{
       "value": "1015"
     },
     "description": "",
-    "quantity": 3,
-    "availableQty": 3,
+    "quantity": 2,
+    "availableQty": 2,
+    "note": "",
+    "quantityReceived": 0,
+    "completedQty": 0
+  },
+  {
+    "id": "21",
+    "workorder": {
+      "text": "Security Camera Installation",
+      "value": "29"
+    },
+    "salesorder": {
+      "text": "Sales Order #SLS00000609",
+      "value": "11722"
+    },
+    "event": "",
+    "uuid": "11722_1",
+    "line": "1",
+    "item": {
+      "text": "4321GR",
+      "value": "1015"
+    },
+    "description": "",
+    "quantity": 2,
+    "availableQty": 2,
+    "note": "",
+    "quantityReceived": 0,
+    "completedQty": 0
+  },
+  {
+    "id": "11",
+    "workorder": {
+      "text": "Walls Installation",
+      "value": "13"
+    },
+    "salesorder": {
+      "text": "Sales Order #SLS00000609",
+      "value": "11722"
+    },
+    "event": "",
+    "uuid": "11722_1",
+    "line": "1",
+    "item": {
+      "text": "4321GR",
+      "value": "1015"
+    },
+    "description": "",
+    "quantity": 2,
+    "availableQty": 2,
+    "note": "",
+    "quantityReceived": 0,
+    "completedQty": 0
+  },
+  {
+    "id": "28",
+    "workorder": {
+      "text": "AV Installation",
+      "value": "33"
+    },
+    "salesorder": {
+      "text": "Sales Order #SLS00000609",
+      "value": "11722"
+    },
+    "event": "",
+    "uuid": "11722_1",
+    "line": "1",
+    "item": {
+      "text": "4321GR",
+      "value": "1015"
+    },
+    "description": "",
+    "quantity": 2,
+    "availableQty": 2,
     "note": "",
     "quantityReceived": 0,
     "completedQty": 0
@@ -5765,6 +5765,54 @@ const mockWOItems: WOItem[] = [{
     "completedQty": 0
   },
   {
+    "id": "385",
+    "workorder": {
+      "text": "Furniture Installation",
+      "value": "103"
+    },
+    "salesorder": {
+      "text": "Sales Order #SLS00000769",
+      "value": "20898"
+    },
+    "event": "",
+    "uuid": "20898_3",
+    "line": "3",
+    "item": {
+      "text": "45XQ-2424-LJ4SCA",
+      "value": "1013"
+    },
+    "description": "",
+    "quantity": 10,
+    "availableQty": 10,
+    "note": "",
+    "quantityReceived": 0,
+    "completedQty": 0
+  },
+  {
+    "id": "57",
+    "workorder": {
+      "text": "Furniture Installation",
+      "value": "58"
+    },
+    "salesorder": {
+      "text": "Sales Order #SLS00000686",
+      "value": "17729"
+    },
+    "event": "",
+    "uuid": "17729_3",
+    "line": "3",
+    "item": {
+      "text": "45XQ-2424-LJ4SCA",
+      "value": "1013"
+    },
+    "description": "",
+    "quantity": 0,
+    "availableQty": 0,
+    "note": "",
+    "quantityReceived": 0,
+    "completedQty": 0
+  },
+  {
     "id": "363",
     "workorder": {
       "text": "Furniture Installation",
@@ -5832,54 +5880,6 @@ const mockWOItems: WOItem[] = [{
     "description": "",
     "quantity": 0,
     "availableQty": 0,
-    "note": "",
-    "quantityReceived": 0,
-    "completedQty": 0
-  },
-  {
-    "id": "57",
-    "workorder": {
-      "text": "Furniture Installation",
-      "value": "58"
-    },
-    "salesorder": {
-      "text": "Sales Order #SLS00000686",
-      "value": "17729"
-    },
-    "event": "",
-    "uuid": "17729_3",
-    "line": "3",
-    "item": {
-      "text": "45XQ-2424-LJ4SCA",
-      "value": "1013"
-    },
-    "description": "",
-    "quantity": 0,
-    "availableQty": 0,
-    "note": "",
-    "quantityReceived": 0,
-    "completedQty": 0
-  },
-  {
-    "id": "385",
-    "workorder": {
-      "text": "Furniture Installation",
-      "value": "103"
-    },
-    "salesorder": {
-      "text": "Sales Order #SLS00000769",
-      "value": "20898"
-    },
-    "event": "",
-    "uuid": "20898_3",
-    "line": "3",
-    "item": {
-      "text": "45XQ-2424-LJ4SCA",
-      "value": "1013"
-    },
-    "description": "",
-    "quantity": 10,
-    "availableQty": 10,
     "note": "",
     "quantityReceived": 0,
     "completedQty": 0
@@ -7373,6 +7373,30 @@ const mockWOItems: WOItem[] = [{
     "completedQty": 0
   },
   {
+    "id": "378",
+    "workorder": {
+      "text": "Desks Installation",
+      "value": "20"
+    },
+    "salesorder": {
+      "text": "Sales Order #SLS00000609",
+      "value": "11722"
+    },
+    "event": "",
+    "uuid": "11722_2",
+    "line": "2",
+    "item": {
+      "text": "7031-0501",
+      "value": "1047"
+    },
+    "description": "",
+    "quantity": 6,
+    "availableQty": 6,
+    "note": "",
+    "quantityReceived": 0,
+    "completedQty": 0
+  },
+  {
     "id": "25",
     "workorder": {
       "text": "Flooring Installation",
@@ -7416,30 +7440,6 @@ const mockWOItems: WOItem[] = [{
     "description": "",
     "quantity": 3,
     "availableQty": 3,
-    "note": "",
-    "quantityReceived": 0,
-    "completedQty": 0
-  },
-  {
-    "id": "378",
-    "workorder": {
-      "text": "Desks Installation",
-      "value": "20"
-    },
-    "salesorder": {
-      "text": "Sales Order #SLS00000609",
-      "value": "11722"
-    },
-    "event": "",
-    "uuid": "11722_2",
-    "line": "2",
-    "item": {
-      "text": "7031-0501",
-      "value": "1047"
-    },
-    "description": "",
-    "quantity": 6,
-    "availableQty": 6,
     "note": "",
     "quantityReceived": 0,
     "completedQty": 0
@@ -7877,10 +7877,10 @@ const mockWOItems: WOItem[] = [{
     "completedQty": 0
   },
   {
-    "id": "2",
+    "id": "18",
     "workorder": {
-      "text": "Furniture Installation",
-      "value": "1"
+      "text": "Drop off and Walls Installation",
+      "value": "15"
     },
     "salesorder": {
       "text": "Sales Order #SLS00000609",
@@ -7894,32 +7894,8 @@ const mockWOItems: WOItem[] = [{
       "value": "837"
     },
     "description": "",
-    "quantity": 10,
-    "availableQty": 10,
-    "note": "",
-    "quantityReceived": 0,
-    "completedQty": 0
-  },
-  {
-    "id": "12",
-    "workorder": {
-      "text": "Walls Installation",
-      "value": "13"
-    },
-    "salesorder": {
-      "text": "Sales Order #SLS00000609",
-      "value": "11722"
-    },
-    "event": "",
-    "uuid": "11722_3",
-    "line": "3",
-    "item": {
-      "text": "BAG00002",
-      "value": "837"
-    },
-    "description": "",
-    "quantity": 10,
-    "availableQty": 10,
+    "quantity": 20,
+    "availableQty": 20,
     "note": "",
     "quantityReceived": 0,
     "completedQty": 0
@@ -7949,6 +7925,30 @@ const mockWOItems: WOItem[] = [{
     "completedQty": 0
   },
   {
+    "id": "12",
+    "workorder": {
+      "text": "Walls Installation",
+      "value": "13"
+    },
+    "salesorder": {
+      "text": "Sales Order #SLS00000609",
+      "value": "11722"
+    },
+    "event": "",
+    "uuid": "11722_3",
+    "line": "3",
+    "item": {
+      "text": "BAG00002",
+      "value": "837"
+    },
+    "description": "",
+    "quantity": 10,
+    "availableQty": 10,
+    "note": "",
+    "quantityReceived": 0,
+    "completedQty": 0
+  },
+  {
     "id": "22",
     "workorder": {
       "text": "Security Camera Installation",
@@ -7973,10 +7973,10 @@ const mockWOItems: WOItem[] = [{
     "completedQty": 0
   },
   {
-    "id": "18",
+    "id": "2",
     "workorder": {
-      "text": "Drop off and Walls Installation",
-      "value": "15"
+      "text": "Furniture Installation",
+      "value": "1"
     },
     "salesorder": {
       "text": "Sales Order #SLS00000609",
@@ -7990,206 +7990,14 @@ const mockWOItems: WOItem[] = [{
       "value": "837"
     },
     "description": "",
-    "quantity": 20,
-    "availableQty": 20,
+    "quantity": 10,
+    "availableQty": 10,
     "note": "",
     "quantityReceived": 0,
     "completedQty": 0
   },
   {
-    "id": "527",
-    "workorder": {
-      "text": "Installation of Furnitures",
-      "value": "120"
-    },
-    "salesorder": {
-      "text": "Sales Order #SLS00000785",
-      "value": "20917"
-    },
-    "event": "",
-    "uuid": "20917_2",
-    "line": "2",
-    "item": {
-      "text": "BIC00008",
-      "value": "467"
-    },
-    "description": "Diana Chair",
-    "quantity": 1,
-    "availableQty": 1,
-    "note": "",
-    "quantityReceived": 56,
-    "completedQty": 0
-  },
-  {
-    "id": "528",
-    "workorder": {
-      "text": "Installation of Furnitures",
-      "value": "120"
-    },
-    "salesorder": {
-      "text": "Sales Order #SLS00000785",
-      "value": "20917"
-    },
-    "event": "101054",
-    "uuid": "20917_1",
-    "line": "1",
-    "item": {
-      "text": "BIC00008",
-      "value": "467"
-    },
-    "description": "Head Master Chair",
-    "quantity": 1,
-    "availableQty": 1,
-    "note": "",
-    "quantityReceived": 56,
-    "completedQty": 0
-  },
-  {
-    "id": "529",
-    "workorder": {
-      "text": "Furniture Installation",
-      "value": "121"
-    },
-    "salesorder": {
-      "text": "Sales Order #SLS00000786",
-      "value": "20919"
-    },
-    "event": "",
-    "uuid": "20919_1",
-    "line": "1",
-    "item": {
-      "text": "BIC00008",
-      "value": "467"
-    },
-    "description": "Head Master Chair",
-    "quantity": 2,
-    "availableQty": 2,
-    "note": "",
-    "quantityReceived": 56,
-    "completedQty": 0
-  },
-  {
-    "id": "530",
-    "workorder": {
-      "text": "Furniture Installation",
-      "value": "121"
-    },
-    "salesorder": {
-      "text": "Sales Order #SLS00000786",
-      "value": "20919"
-    },
-    "event": "",
-    "uuid": "20919_2",
-    "line": "2",
-    "item": {
-      "text": "BIC00008",
-      "value": "467"
-    },
-    "description": "Diana Chair",
-    "quantity": 5,
-    "availableQty": 5,
-    "note": "",
-    "quantityReceived": 56,
-    "completedQty": 0
-  },
-  {
-    "id": "533",
-    "workorder": {
-      "text": "AV Installation",
-      "value": "118"
-    },
-    "salesorder": {
-      "text": "Sales Order #SLS00000786",
-      "value": "20919"
-    },
-    "event": "101057",
-    "uuid": "20919_1",
-    "line": "1",
-    "item": {
-      "text": "BIC00008",
-      "value": "467"
-    },
-    "description": "Head Master Chair",
-    "quantity": 5,
-    "availableQty": 5,
-    "note": "",
-    "quantityReceived": 56,
-    "completedQty": 0
-  },
-  {
-    "id": "534",
-    "workorder": {
-      "text": "AV Installation",
-      "value": "118"
-    },
-    "salesorder": {
-      "text": "Sales Order #SLS00000786",
-      "value": "20919"
-    },
-    "event": "101057",
-    "uuid": "20919_2",
-    "line": "2",
-    "item": {
-      "text": "BIC00008",
-      "value": "467"
-    },
-    "description": "Diana Chair",
-    "quantity": 5,
-    "availableQty": 5,
-    "note": "",
-    "quantityReceived": 56,
-    "completedQty": 0
-  },
-  {
-    "id": "535",
-    "workorder": {
-      "text": "Furniture Installation",
-      "value": "119"
-    },
-    "salesorder": {
-      "text": "Sales Order #SLS00000785",
-      "value": "20917"
-    },
-    "event": "101060",
-    "uuid": "20917_2",
-    "line": "2",
-    "item": {
-      "text": "BIC00008",
-      "value": "467"
-    },
-    "description": "Diana Chair",
-    "quantity": 5,
-    "availableQty": 5,
-    "note": "",
-    "quantityReceived": 56,
-    "completedQty": 0
-  },
-  {
-    "id": "536",
-    "workorder": {
-      "text": "Furniture Installation",
-      "value": "119"
-    },
-    "salesorder": {
-      "text": "Sales Order #SLS00000785",
-      "value": "20917"
-    },
-    "event": "101060",
-    "uuid": "20917_3",
-    "line": "3",
-    "item": {
-      "text": "BIC00008",
-      "value": "467"
-    },
-    "description": "Working Table",
-    "quantity": 5,
-    "availableQty": 5,
-    "note": "",
-    "quantityReceived": 56,
-    "completedQty": 0
-  },
-  {
-    "id": "545",
+    "id": "468",
     "workorder": {
       "text": "AV Installation",
       "value": "112"
@@ -8198,9 +8006,9 @@ const mockWOItems: WOItem[] = [{
       "text": "Sales Order #SLS00000778",
       "value": "20907"
     },
-    "event": "101061",
-    "uuid": "20907_1",
-    "line": "1",
+    "event": "",
+    "uuid": "20907_4",
+    "line": "4",
     "item": {
       "text": "BIC00008",
       "value": "467"
@@ -8208,462 +8016,6 @@ const mockWOItems: WOItem[] = [{
     "description": "",
     "quantity": 5,
     "availableQty": 5,
-    "note": "",
-    "quantityReceived": 56,
-    "completedQty": 0
-  },
-  {
-    "id": "546",
-    "workorder": {
-      "text": "Test Work Order - AC Installation",
-      "value": "123"
-    },
-    "salesorder": {
-      "text": "Sales Order #SLS00000803",
-      "value": "22468"
-    },
-    "event": "",
-    "uuid": "22468_1",
-    "line": "1",
-    "item": {
-      "text": "BIC00008",
-      "value": "467"
-    },
-    "description": "Head Master Chair",
-    "quantity": 7,
-    "availableQty": 7,
-    "note": "",
-    "quantityReceived": 56,
-    "completedQty": 0
-  },
-  {
-    "id": "547",
-    "workorder": {
-      "text": "Test Work Order - AC Installation",
-      "value": "123"
-    },
-    "salesorder": {
-      "text": "Sales Order #SLS00000803",
-      "value": "22468"
-    },
-    "event": "101062",
-    "uuid": "22468_1",
-    "line": "1",
-    "item": {
-      "text": "BIC00008",
-      "value": "467"
-    },
-    "description": "Head Master Chair",
-    "quantity": 7,
-    "availableQty": 7,
-    "note": "",
-    "quantityReceived": 56,
-    "completedQty": 0
-  },
-  {
-    "id": "548",
-    "workorder": {
-      "text": "Test Work Order - AC Installation",
-      "value": "123"
-    },
-    "salesorder": {
-      "text": "Sales Order #SLS00000803",
-      "value": "22468"
-    },
-    "event": "",
-    "uuid": "22468_2",
-    "line": "2",
-    "item": {
-      "text": "BIC00008",
-      "value": "467"
-    },
-    "description": "Diana Chair",
-    "quantity": 10,
-    "availableQty": 10,
-    "note": "",
-    "quantityReceived": 56,
-    "completedQty": 0
-  },
-  {
-    "id": "549",
-    "workorder": {
-      "text": "Test Work Order - AC Installation",
-      "value": "123"
-    },
-    "salesorder": {
-      "text": "Sales Order #SLS00000803",
-      "value": "22468"
-    },
-    "event": "",
-    "uuid": "22468_3",
-    "line": "3",
-    "item": {
-      "text": "BIC00008",
-      "value": "467"
-    },
-    "description": "Working Table",
-    "quantity": 10,
-    "availableQty": 10,
-    "note": "",
-    "quantityReceived": 56,
-    "completedQty": 0
-  },
-  {
-    "id": "550",
-    "workorder": {
-      "text": "Test Work Order - AC Installation",
-      "value": "123"
-    },
-    "salesorder": {
-      "text": "Sales Order #SLS00000803",
-      "value": "22468"
-    },
-    "event": "",
-    "uuid": "22468_4",
-    "line": "4",
-    "item": {
-      "text": "BIC00008",
-      "value": "467"
-    },
-    "description": "Technology Table",
-    "quantity": 10,
-    "availableQty": 10,
-    "note": "",
-    "quantityReceived": 56,
-    "completedQty": 0
-  },
-  {
-    "id": "555",
-    "workorder": {
-      "text": "Test Work Order - AC Installation",
-      "value": "123"
-    },
-    "salesorder": {
-      "text": "Sales Order #SLS00000803",
-      "value": "22468"
-    },
-    "event": "101075",
-    "uuid": "22468_2",
-    "line": "2",
-    "item": {
-      "text": "BIC00008",
-      "value": "467"
-    },
-    "description": "Diana Chair",
-    "quantity": 10,
-    "availableQty": 10,
-    "note": "",
-    "quantityReceived": 56,
-    "completedQty": 0
-  },
-  {
-    "id": "556",
-    "workorder": {
-      "text": "Test Work Order - AC Installation",
-      "value": "123"
-    },
-    "salesorder": {
-      "text": "Sales Order #SLS00000803",
-      "value": "22468"
-    },
-    "event": "101075",
-    "uuid": "22468_3",
-    "line": "3",
-    "item": {
-      "text": "BIC00008",
-      "value": "467"
-    },
-    "description": "Working Table",
-    "quantity": 5,
-    "availableQty": 5,
-    "note": "",
-    "quantityReceived": 56,
-    "completedQty": 0
-  },
-  {
-    "id": "557",
-    "workorder": {
-      "text": "Test Work Order - AC Installation",
-      "value": "123"
-    },
-    "salesorder": {
-      "text": "Sales Order #SLS00000803",
-      "value": "22468"
-    },
-    "event": "101077",
-    "uuid": "22468_1",
-    "line": "1",
-    "item": {
-      "text": "BIC00008",
-      "value": "467"
-    },
-    "description": "Head Master Chair",
-    "quantity": 7,
-    "availableQty": 7,
-    "note": "",
-    "quantityReceived": 56,
-    "completedQty": 0
-  },
-  {
-    "id": "559",
-    "workorder": {
-      "text": "Test Work Order - AC Installation",
-      "value": "123"
-    },
-    "salesorder": {
-      "text": "Sales Order #SLS00000803",
-      "value": "22468"
-    },
-    "event": "101079",
-    "uuid": "22468_3",
-    "line": "3",
-    "item": {
-      "text": "BIC00008",
-      "value": "467"
-    },
-    "description": "Working Table",
-    "quantity": 10,
-    "availableQty": 10,
-    "note": "",
-    "quantityReceived": 56,
-    "completedQty": 0
-  },
-  {
-    "id": "575",
-    "workorder": {
-      "text": "Testing with Lean",
-      "value": "124"
-    },
-    "salesorder": {
-      "text": "Sales Order #SLS00000803",
-      "value": "22468"
-    },
-    "event": "",
-    "uuid": "22468_1",
-    "line": "1",
-    "item": {
-      "text": "BIC00008",
-      "value": "467"
-    },
-    "description": "Head Master Chair",
-    "quantity": -17,
-    "availableQty": -17,
-    "note": "",
-    "quantityReceived": 56,
-    "completedQty": 0
-  },
-  {
-    "id": "576",
-    "workorder": {
-      "text": "Testing with Lean",
-      "value": "124"
-    },
-    "salesorder": {
-      "text": "Sales Order #SLS00000803",
-      "value": "22468"
-    },
-    "event": "",
-    "uuid": "22468_2",
-    "line": "2",
-    "item": {
-      "text": "BIC00008",
-      "value": "467"
-    },
-    "description": "Diana Chair",
-    "quantity": -10,
-    "availableQty": -10,
-    "note": "",
-    "quantityReceived": 56,
-    "completedQty": 0
-  },
-  {
-    "id": "577",
-    "workorder": {
-      "text": "Lobby Area",
-      "value": "125"
-    },
-    "salesorder": {
-      "text": "Sales Order #SLS00000807",
-      "value": "22898"
-    },
-    "event": "",
-    "uuid": "22898_1",
-    "line": "1",
-    "item": {
-      "text": "BIC00008",
-      "value": "467"
-    },
-    "description": "Head Master Chair",
-    "quantity": 7,
-    "availableQty": 7,
-    "note": "",
-    "quantityReceived": 56,
-    "completedQty": 0
-  },
-  {
-    "id": "578",
-    "workorder": {
-      "text": "Lobby Area",
-      "value": "125"
-    },
-    "salesorder": {
-      "text": "Sales Order #SLS00000807",
-      "value": "22898"
-    },
-    "event": "",
-    "uuid": "22898_2",
-    "line": "2",
-    "item": {
-      "text": "BIC00008",
-      "value": "467"
-    },
-    "description": "Diana Chair",
-    "quantity": 10,
-    "availableQty": 10,
-    "note": "",
-    "quantityReceived": 56,
-    "completedQty": 0
-  },
-  {
-    "id": "581",
-    "workorder": {
-      "text": "Office Room A",
-      "value": "126"
-    },
-    "salesorder": {
-      "text": "Sales Order #SLS00000807",
-      "value": "22898"
-    },
-    "event": "",
-    "uuid": "22898_3",
-    "line": "3",
-    "item": {
-      "text": "BIC00008",
-      "value": "467"
-    },
-    "description": "Working Table",
-    "quantity": 3,
-    "availableQty": 3,
-    "note": "",
-    "quantityReceived": 56,
-    "completedQty": 0
-  },
-  {
-    "id": "582",
-    "workorder": {
-      "text": "Office Room A",
-      "value": "126"
-    },
-    "salesorder": {
-      "text": "Sales Order #SLS00000807",
-      "value": "22898"
-    },
-    "event": "",
-    "uuid": "22898_4",
-    "line": "4",
-    "item": {
-      "text": "BIC00008",
-      "value": "467"
-    },
-    "description": "Technology Table",
-    "quantity": 2,
-    "availableQty": 2,
-    "note": "",
-    "quantityReceived": 56,
-    "completedQty": 0
-  },
-  {
-    "id": "583",
-    "workorder": {
-      "text": "Office Room B",
-      "value": "127"
-    },
-    "salesorder": {
-      "text": "Sales Order #SLS00000807",
-      "value": "22898"
-    },
-    "event": "",
-    "uuid": "22898_3",
-    "line": "3",
-    "item": {
-      "text": "BIC00008",
-      "value": "467"
-    },
-    "description": "Working Table",
-    "quantity": 2,
-    "availableQty": 2,
-    "note": "",
-    "quantityReceived": 56,
-    "completedQty": 0
-  },
-  {
-    "id": "584",
-    "workorder": {
-      "text": "Office Room B",
-      "value": "127"
-    },
-    "salesorder": {
-      "text": "Sales Order #SLS00000807",
-      "value": "22898"
-    },
-    "event": "",
-    "uuid": "22898_4",
-    "line": "4",
-    "item": {
-      "text": "BIC00008",
-      "value": "467"
-    },
-    "description": "Technology Table",
-    "quantity": 2,
-    "availableQty": 2,
-    "note": "",
-    "quantityReceived": 56,
-    "completedQty": 0
-  },
-  {
-    "id": "585",
-    "workorder": {
-      "text": "Lobby Area",
-      "value": "128"
-    },
-    "salesorder": {
-      "text": "Sales Order #SLS00000808",
-      "value": "22899"
-    },
-    "event": "",
-    "uuid": "22899_1",
-    "line": "1",
-    "item": {
-      "text": "BIC00008",
-      "value": "467"
-    },
-    "description": "Head Master Chair",
-    "quantity": 3,
-    "availableQty": 3,
-    "note": "",
-    "quantityReceived": 56,
-    "completedQty": 0
-  },
-  {
-    "id": "586",
-    "workorder": {
-      "text": "Lobby Area",
-      "value": "128"
-    },
-    "salesorder": {
-      "text": "Sales Order #SLS00000808",
-      "value": "22899"
-    },
-    "event": "",
-    "uuid": "22899_2",
-    "line": "2",
-    "item": {
-      "text": "BIC00008",
-      "value": "467"
-    },
-    "description": "Diana Chair",
-    "quantity": 2,
-    "availableQty": 2,
     "note": "",
     "quantityReceived": 56,
     "completedQty": 0
@@ -8717,222 +8069,6 @@ const mockWOItems: WOItem[] = [{
     "completedQty": 0
   },
   {
-    "id": "589",
-    "workorder": {
-      "text": "Office Room A",
-      "value": "130"
-    },
-    "salesorder": {
-      "text": "Sales Order #SLS00000809",
-      "value": "22900"
-    },
-    "event": "",
-    "uuid": "22900_1",
-    "line": "1",
-    "item": {
-      "text": "BIC00008",
-      "value": "467"
-    },
-    "description": "Head Master Chair",
-    "quantity": 1,
-    "availableQty": 1,
-    "note": "",
-    "quantityReceived": 56,
-    "completedQty": 0
-  },
-  {
-    "id": "590",
-    "workorder": {
-      "text": "Office Room A",
-      "value": "130"
-    },
-    "salesorder": {
-      "text": "Sales Order #SLS00000809",
-      "value": "22900"
-    },
-    "event": "",
-    "uuid": "22900_2",
-    "line": "2",
-    "item": {
-      "text": "BIC00008",
-      "value": "467"
-    },
-    "description": "Diana Chair",
-    "quantity": 2,
-    "availableQty": 2,
-    "note": "",
-    "quantityReceived": 56,
-    "completedQty": 0
-  },
-  {
-    "id": "591",
-    "workorder": {
-      "text": "Office Room A",
-      "value": "130"
-    },
-    "salesorder": {
-      "text": "Sales Order #SLS00000809",
-      "value": "22900"
-    },
-    "event": "",
-    "uuid": "22900_4",
-    "line": "4",
-    "item": {
-      "text": "BIC00008",
-      "value": "467"
-    },
-    "description": "Technology Table",
-    "quantity": 3,
-    "availableQty": 3,
-    "note": "",
-    "quantityReceived": 56,
-    "completedQty": 0
-  },
-  {
-    "id": "592",
-    "workorder": {
-      "text": "Lobby Area",
-      "value": "131"
-    },
-    "salesorder": {
-      "text": "Sales Order #SLS00000810",
-      "value": "22901"
-    },
-    "event": "",
-    "uuid": "22901_1",
-    "line": "1",
-    "item": {
-      "text": "BIC00008",
-      "value": "467"
-    },
-    "description": "Head Master Chair",
-    "quantity": 2,
-    "availableQty": 2,
-    "note": "",
-    "quantityReceived": 56,
-    "completedQty": 0
-  },
-  {
-    "id": "593",
-    "workorder": {
-      "text": "Office Area 1",
-      "value": "132"
-    },
-    "salesorder": {
-      "text": "Sales Order #SLS00000810",
-      "value": "22901"
-    },
-    "event": "",
-    "uuid": "22901_1",
-    "line": "1",
-    "item": {
-      "text": "BIC00008",
-      "value": "467"
-    },
-    "description": "Head Master Chair",
-    "quantity": 4,
-    "availableQty": 4,
-    "note": "",
-    "quantityReceived": 56,
-    "completedQty": 0
-  },
-  {
-    "id": "594",
-    "workorder": {
-      "text": "Office Room 2",
-      "value": "133"
-    },
-    "salesorder": {
-      "text": "Sales Order #SLS00000810",
-      "value": "22901"
-    },
-    "event": "",
-    "uuid": "22901_1",
-    "line": "1",
-    "item": {
-      "text": "BIC00008",
-      "value": "467"
-    },
-    "description": "Head Master Chair",
-    "quantity": 1,
-    "availableQty": 1,
-    "note": "",
-    "quantityReceived": 56,
-    "completedQty": 0
-  },
-  {
-    "id": "595",
-    "workorder": {
-      "text": "Office Room 2",
-      "value": "133"
-    },
-    "salesorder": {
-      "text": "Sales Order #SLS00000810",
-      "value": "22901"
-    },
-    "event": "",
-    "uuid": "22901_2",
-    "line": "2",
-    "item": {
-      "text": "BIC00008",
-      "value": "467"
-    },
-    "description": "Diana Chair",
-    "quantity": 10,
-    "availableQty": 10,
-    "note": "",
-    "quantityReceived": 56,
-    "completedQty": 0
-  },
-  {
-    "id": "596",
-    "workorder": {
-      "text": "Office Room 2",
-      "value": "133"
-    },
-    "salesorder": {
-      "text": "Sales Order #SLS00000810",
-      "value": "22901"
-    },
-    "event": "",
-    "uuid": "22901_3",
-    "line": "3",
-    "item": {
-      "text": "BIC00008",
-      "value": "467"
-    },
-    "description": "Working Table",
-    "quantity": 10,
-    "availableQty": 10,
-    "note": "",
-    "quantityReceived": 56,
-    "completedQty": 0
-  },
-  {
-    "id": "597",
-    "workorder": {
-      "text": "Office Room 2",
-      "value": "133"
-    },
-    "salesorder": {
-      "text": "Sales Order #SLS00000810",
-      "value": "22901"
-    },
-    "event": "",
-    "uuid": "22901_4",
-    "line": "4",
-    "item": {
-      "text": "BIC00008",
-      "value": "467"
-    },
-    "description": "Technology Table",
-    "quantity": 10,
-    "availableQty": 10,
-    "note": "",
-    "quantityReceived": 56,
-    "completedQty": 0
-  },
-  {
     "id": "598",
     "workorder": {
       "text": "Lobby Area",
@@ -8952,702 +8088,6 @@ const mockWOItems: WOItem[] = [{
     "description": "Head Master Chair",
     "quantity": 2,
     "availableQty": 2,
-    "note": "",
-    "quantityReceived": 56,
-    "completedQty": 0
-  },
-  {
-    "id": "599",
-    "workorder": {
-      "text": "Office Area 1",
-      "value": "132"
-    },
-    "salesorder": {
-      "text": "Sales Order #SLS00000810",
-      "value": "22901"
-    },
-    "event": "101087",
-    "uuid": "22901_1",
-    "line": "1",
-    "item": {
-      "text": "BIC00008",
-      "value": "467"
-    },
-    "description": "Head Master Chair",
-    "quantity": 4,
-    "availableQty": 4,
-    "note": "",
-    "quantityReceived": 56,
-    "completedQty": 0
-  },
-  {
-    "id": "600",
-    "workorder": {
-      "text": "Office Area 1",
-      "value": "132"
-    },
-    "salesorder": {
-      "text": "Sales Order #SLS00000810",
-      "value": "22901"
-    },
-    "event": "101088",
-    "uuid": "22901_1",
-    "line": "1",
-    "item": {
-      "text": "BIC00008",
-      "value": "467"
-    },
-    "description": "Head Master Chair",
-    "quantity": 4,
-    "availableQty": 4,
-    "note": "",
-    "quantityReceived": 56,
-    "completedQty": 0
-  },
-  {
-    "id": "601",
-    "workorder": {
-      "text": "Creation of New Work Order",
-      "value": "135"
-    },
-    "salesorder": {
-      "text": "Sales Order #SLS00000811",
-      "value": "22902"
-    },
-    "event": "101095",
-    "uuid": "22902_3",
-    "line": "3",
-    "item": {
-      "text": "BIC00008",
-      "value": "467"
-    },
-    "description": "Technology Table",
-    "quantity": 10,
-    "availableQty": 10,
-    "note": "",
-    "quantityReceived": 56,
-    "completedQty": 0
-  },
-  {
-    "id": "604",
-    "workorder": {
-      "text": "Creation of New Work Order",
-      "value": "135"
-    },
-    "salesorder": {
-      "text": "Sales Order #SLS00000811",
-      "value": "22902"
-    },
-    "event": "101095",
-    "uuid": "22902_4",
-    "line": "4",
-    "item": {
-      "text": "BIC00008",
-      "value": "467"
-    },
-    "description": "Technology Table",
-    "quantity": 10,
-    "availableQty": 10,
-    "note": "",
-    "quantityReceived": 56,
-    "completedQty": 0
-  },
-  {
-    "id": "609",
-    "workorder": {
-      "text": "Lobby Area 1",
-      "value": "136"
-    },
-    "salesorder": {
-      "text": "Sales Order #SLS00000818",
-      "value": "22934"
-    },
-    "event": "",
-    "uuid": "22934_1",
-    "line": "1",
-    "item": {
-      "text": "BIC00008",
-      "value": "467"
-    },
-    "description": "Head Master Chair",
-    "quantity": 7,
-    "availableQty": 7,
-    "note": "",
-    "quantityReceived": 56,
-    "completedQty": 0
-  },
-  {
-    "id": "610",
-    "workorder": {
-      "text": "Lobby Area 1",
-      "value": "136"
-    },
-    "salesorder": {
-      "text": "Sales Order #SLS00000818",
-      "value": "22934"
-    },
-    "event": "",
-    "uuid": "22934_2",
-    "line": "2",
-    "item": {
-      "text": "BIC00008",
-      "value": "467"
-    },
-    "description": "Diana Chair",
-    "quantity": 10,
-    "availableQty": 10,
-    "note": "",
-    "quantityReceived": 56,
-    "completedQty": 0
-  },
-  {
-    "id": "611",
-    "workorder": {
-      "text": "Lobby Area 1",
-      "value": "136"
-    },
-    "salesorder": {
-      "text": "Sales Order #SLS00000818",
-      "value": "22934"
-    },
-    "event": "",
-    "uuid": "22934_3",
-    "line": "3",
-    "item": {
-      "text": "BIC00008",
-      "value": "467"
-    },
-    "description": "Working Table",
-    "quantity": 10,
-    "availableQty": 10,
-    "note": "",
-    "quantityReceived": 56,
-    "completedQty": 0
-  },
-  {
-    "id": "36",
-    "workorder": {
-      "text": "Furniture and Flooring Installation",
-      "value": "34"
-    },
-    "salesorder": {
-      "text": "Sales Order #SLS00000651",
-      "value": "15100"
-    },
-    "event": "",
-    "uuid": "15100_1",
-    "line": "1",
-    "item": {
-      "text": "BIC00008",
-      "value": "467"
-    },
-    "description": "",
-    "quantity": 2,
-    "availableQty": 2,
-    "note": "",
-    "quantityReceived": 56,
-    "completedQty": 0
-  },
-  {
-    "id": "37",
-    "workorder": {
-      "text": "Furniture and Flooring Installation",
-      "value": "34"
-    },
-    "salesorder": {
-      "text": "Sales Order #SLS00000651",
-      "value": "15100"
-    },
-    "event": "",
-    "uuid": "15100_2",
-    "line": "2",
-    "item": {
-      "text": "BIC00008",
-      "value": "467"
-    },
-    "description": "",
-    "quantity": 1,
-    "availableQty": 1,
-    "note": "",
-    "quantityReceived": 56,
-    "completedQty": 0
-  },
-  {
-    "id": "47",
-    "workorder": {
-      "text": "Furniture Installation",
-      "value": "46"
-    },
-    "salesorder": {
-      "text": "Sales Order #SLS00000654",
-      "value": "16211"
-    },
-    "event": "",
-    "uuid": "16210_1",
-    "line": "1",
-    "item": {
-      "text": "BIC00008",
-      "value": "467"
-    },
-    "description": "",
-    "quantity": 0,
-    "availableQty": 0,
-    "note": "",
-    "quantityReceived": 56,
-    "completedQty": 0
-  },
-  {
-    "id": "49",
-    "workorder": {
-      "text": "AV Installation",
-      "value": "47"
-    },
-    "salesorder": {
-      "text": "Sales Order #SLS00000654",
-      "value": "16211"
-    },
-    "event": "",
-    "uuid": "16210_1",
-    "line": "1",
-    "item": {
-      "text": "BIC00008",
-      "value": "467"
-    },
-    "description": "",
-    "quantity": 1,
-    "availableQty": 1,
-    "note": "",
-    "quantityReceived": 56,
-    "completedQty": 0
-  },
-  {
-    "id": "51",
-    "workorder": {
-      "text": "Flooring Installation",
-      "value": "48"
-    },
-    "salesorder": {
-      "text": "Sales Order #SLS00000654",
-      "value": "16211"
-    },
-    "event": "",
-    "uuid": "16210_1",
-    "line": "1",
-    "item": {
-      "text": "BIC00008",
-      "value": "467"
-    },
-    "description": "",
-    "quantity": 0,
-    "availableQty": 0,
-    "note": "",
-    "quantityReceived": 56,
-    "completedQty": 0
-  },
-  {
-    "id": "103",
-    "workorder": {
-      "text": "Furniture Installation",
-      "value": "67"
-    },
-    "salesorder": {
-      "text": "Sales Order #SLS00000715",
-      "value": "19388"
-    },
-    "event": "",
-    "uuid": "19388_1",
-    "line": "1",
-    "item": {
-      "text": "BIC00008",
-      "value": "467"
-    },
-    "description": "",
-    "quantity": 5,
-    "availableQty": 5,
-    "note": "",
-    "quantityReceived": 56,
-    "completedQty": 0
-  },
-  {
-    "id": "105",
-    "workorder": {
-      "text": "Furniture Installation",
-      "value": "67"
-    },
-    "salesorder": {
-      "text": "Sales Order #SLS00000715",
-      "value": "19388"
-    },
-    "event": "",
-    "uuid": "19388_1",
-    "line": "1",
-    "item": {
-      "text": "BIC00008",
-      "value": "467"
-    },
-    "description": "",
-    "quantity": 5,
-    "availableQty": 5,
-    "note": "",
-    "quantityReceived": 56,
-    "completedQty": 0
-  },
-  {
-    "id": "218",
-    "workorder": {
-      "text": "Furniture Installation",
-      "value": "83"
-    },
-    "salesorder": {
-      "text": "Sales Order #SLS00000736",
-      "value": "19418"
-    },
-    "event": "",
-    "uuid": "19418_1",
-    "line": "1",
-    "item": {
-      "text": "BIC00008",
-      "value": "467"
-    },
-    "description": "",
-    "quantity": 20,
-    "availableQty": 20,
-    "note": "",
-    "quantityReceived": 56,
-    "completedQty": 0
-  },
-  {
-    "id": "231",
-    "workorder": {
-      "text": "Furniture Installation",
-      "value": "85"
-    },
-    "salesorder": {
-      "text": "Sales Order #SLS00000739",
-      "value": "19521"
-    },
-    "event": "",
-    "uuid": "19521_1",
-    "line": "1",
-    "item": {
-      "text": "BIC00008",
-      "value": "467"
-    },
-    "description": "",
-    "quantity": 20,
-    "availableQty": 20,
-    "note": "",
-    "quantityReceived": 56,
-    "completedQty": 0
-  },
-  {
-    "id": "245",
-    "workorder": {
-      "text": "Furniture Installation",
-      "value": "87"
-    },
-    "salesorder": {
-      "text": "Sales Order #SLS00000740",
-      "value": "20024"
-    },
-    "event": "",
-    "uuid": "20024_1",
-    "line": "1",
-    "item": {
-      "text": "BIC00008",
-      "value": "467"
-    },
-    "description": "",
-    "quantity": 20,
-    "availableQty": 20,
-    "note": "",
-    "quantityReceived": 56,
-    "completedQty": 0
-  },
-  {
-    "id": "250",
-    "workorder": {
-      "text": "Furniture Installation",
-      "value": "87"
-    },
-    "salesorder": {
-      "text": "Sales Order #SLS00000740",
-      "value": "20024"
-    },
-    "event": "100931",
-    "uuid": "20024_1",
-    "line": "1",
-    "item": {
-      "text": "BIC00008",
-      "value": "467"
-    },
-    "description": "",
-    "quantity": 20,
-    "availableQty": 20,
-    "note": "",
-    "quantityReceived": 56,
-    "completedQty": 0
-  },
-  {
-    "id": "361",
-    "workorder": {
-      "text": "Furniture Installation",
-      "value": "99"
-    },
-    "salesorder": {
-      "text": "Sales Order #SLS00000740",
-      "value": "20024"
-    },
-    "event": "",
-    "uuid": "20024_1",
-    "line": "1",
-    "item": {
-      "text": "BIC00008",
-      "value": "467"
-    },
-    "description": "",
-    "quantity": 20,
-    "availableQty": 20,
-    "note": "",
-    "quantityReceived": 56,
-    "completedQty": 0
-  },
-  {
-    "id": "380",
-    "workorder": {
-      "text": "Desks Installation",
-      "value": "20"
-    },
-    "salesorder": {
-      "text": "Sales Order #SLS00000609",
-      "value": "11722"
-    },
-    "event": "",
-    "uuid": "11722_4",
-    "line": "4",
-    "item": {
-      "text": "BIC00008",
-      "value": "467"
-    },
-    "description": "",
-    "quantity": 7,
-    "availableQty": 7,
-    "note": "",
-    "quantityReceived": 56,
-    "completedQty": 0
-  },
-  {
-    "id": "383",
-    "workorder": {
-      "text": "Furniture Installation",
-      "value": "103"
-    },
-    "salesorder": {
-      "text": "Sales Order #SLS00000769",
-      "value": "20898"
-    },
-    "event": "",
-    "uuid": "20898_1",
-    "line": "1",
-    "item": {
-      "text": "BIC00008",
-      "value": "467"
-    },
-    "description": "",
-    "quantity": 10,
-    "availableQty": 10,
-    "note": "",
-    "quantityReceived": 56,
-    "completedQty": 0
-  },
-  {
-    "id": "389",
-    "workorder": {
-      "text": "AV Installation Only",
-      "value": "104"
-    },
-    "salesorder": {
-      "text": "Sales Order #SLS00000770",
-      "value": "20899"
-    },
-    "event": "",
-    "uuid": "20899_1",
-    "line": "1",
-    "item": {
-      "text": "BIC00008",
-      "value": "467"
-    },
-    "description": "",
-    "quantity": 1,
-    "availableQty": 1,
-    "note": "",
-    "quantityReceived": 56,
-    "completedQty": 0
-  },
-  {
-    "id": "390",
-    "workorder": {
-      "text": "AV Installation Only",
-      "value": "104"
-    },
-    "salesorder": {
-      "text": "Sales Order #SLS00000770",
-      "value": "20899"
-    },
-    "event": "",
-    "uuid": "20899_2",
-    "line": "2",
-    "item": {
-      "text": "BIC00008",
-      "value": "467"
-    },
-    "description": "",
-    "quantity": 1,
-    "availableQty": 1,
-    "note": "",
-    "quantityReceived": 56,
-    "completedQty": 0
-  },
-  {
-    "id": "391",
-    "workorder": {
-      "text": "AV Installation Only",
-      "value": "104"
-    },
-    "salesorder": {
-      "text": "Sales Order #SLS00000770",
-      "value": "20899"
-    },
-    "event": "",
-    "uuid": "20899_3",
-    "line": "3",
-    "item": {
-      "text": "BIC00008",
-      "value": "467"
-    },
-    "description": "",
-    "quantity": 1,
-    "availableQty": 1,
-    "note": "",
-    "quantityReceived": 56,
-    "completedQty": 0
-  },
-  {
-    "id": "393",
-    "workorder": {
-      "text": "Furniture Installation",
-      "value": "105"
-    },
-    "salesorder": {
-      "text": "Sales Order #SLS00000770",
-      "value": "20899"
-    },
-    "event": "",
-    "uuid": "20899_1",
-    "line": "1",
-    "item": {
-      "text": "BIC00008",
-      "value": "467"
-    },
-    "description": "",
-    "quantity": 1,
-    "availableQty": 1,
-    "note": "",
-    "quantityReceived": 56,
-    "completedQty": 0
-  },
-  {
-    "id": "409",
-    "workorder": {
-      "text": "Furniture Installation",
-      "value": "108"
-    },
-    "salesorder": {
-      "text": "Sales Order #SLS00000772",
-      "value": "20901"
-    },
-    "event": "",
-    "uuid": "20901_1",
-    "line": "1",
-    "item": {
-      "text": "BIC00008",
-      "value": "467"
-    },
-    "description": "",
-    "quantity": 7,
-    "availableQty": 7,
-    "note": "",
-    "quantityReceived": 56,
-    "completedQty": 0
-  },
-  {
-    "id": "410",
-    "workorder": {
-      "text": "Furniture Installation",
-      "value": "108"
-    },
-    "salesorder": {
-      "text": "Sales Order #SLS00000772",
-      "value": "20901"
-    },
-    "event": "",
-    "uuid": "20901_2",
-    "line": "2",
-    "item": {
-      "text": "BIC00008",
-      "value": "467"
-    },
-    "description": "",
-    "quantity": 10,
-    "availableQty": 10,
-    "note": "",
-    "quantityReceived": 56,
-    "completedQty": 0
-  },
-  {
-    "id": "411",
-    "workorder": {
-      "text": "Furniture Installation",
-      "value": "108"
-    },
-    "salesorder": {
-      "text": "Sales Order #SLS00000772",
-      "value": "20901"
-    },
-    "event": "",
-    "uuid": "20901_3",
-    "line": "3",
-    "item": {
-      "text": "BIC00008",
-      "value": "467"
-    },
-    "description": "",
-    "quantity": 10,
-    "availableQty": 10,
-    "note": "",
-    "quantityReceived": 56,
-    "completedQty": 0
-  },
-  {
-    "id": "412",
-    "workorder": {
-      "text": "Furniture Installation",
-      "value": "108"
-    },
-    "salesorder": {
-      "text": "Sales Order #SLS00000772",
-      "value": "20901"
-    },
-    "event": "",
-    "uuid": "20901_4",
-    "line": "4",
-    "item": {
-      "text": "BIC00008",
-      "value": "467"
-    },
-    "description": "",
-    "quantity": 10,
-    "availableQty": 10,
     "note": "",
     "quantityReceived": 56,
     "completedQty": 0
@@ -9749,17 +8189,1025 @@ const mockWOItems: WOItem[] = [{
     "completedQty": 0
   },
   {
-    "id": "465",
+    "id": "389",
     "workorder": {
-      "text": "AV Installation",
-      "value": "112"
+      "text": "AV Installation Only",
+      "value": "104"
     },
     "salesorder": {
-      "text": "Sales Order #SLS00000778",
-      "value": "20907"
+      "text": "Sales Order #SLS00000770",
+      "value": "20899"
     },
     "event": "",
-    "uuid": "20907_1",
+    "uuid": "20899_1",
+    "line": "1",
+    "item": {
+      "text": "BIC00008",
+      "value": "467"
+    },
+    "description": "",
+    "quantity": 1,
+    "availableQty": 1,
+    "note": "",
+    "quantityReceived": 56,
+    "completedQty": 0
+  },
+  {
+    "id": "390",
+    "workorder": {
+      "text": "AV Installation Only",
+      "value": "104"
+    },
+    "salesorder": {
+      "text": "Sales Order #SLS00000770",
+      "value": "20899"
+    },
+    "event": "",
+    "uuid": "20899_2",
+    "line": "2",
+    "item": {
+      "text": "BIC00008",
+      "value": "467"
+    },
+    "description": "",
+    "quantity": 1,
+    "availableQty": 1,
+    "note": "",
+    "quantityReceived": 56,
+    "completedQty": 0
+  },
+  {
+    "id": "391",
+    "workorder": {
+      "text": "AV Installation Only",
+      "value": "104"
+    },
+    "salesorder": {
+      "text": "Sales Order #SLS00000770",
+      "value": "20899"
+    },
+    "event": "",
+    "uuid": "20899_3",
+    "line": "3",
+    "item": {
+      "text": "BIC00008",
+      "value": "467"
+    },
+    "description": "",
+    "quantity": 1,
+    "availableQty": 1,
+    "note": "",
+    "quantityReceived": 56,
+    "completedQty": 0
+  },
+  {
+    "id": "510",
+    "workorder": {
+      "text": "Furniture Installation",
+      "value": "117"
+    },
+    "salesorder": {
+      "text": "Sales Order #SLS00000783",
+      "value": "20915"
+    },
+    "event": "",
+    "uuid": "20915_1",
+    "line": "1",
+    "item": {
+      "text": "BIC00008",
+      "value": "467"
+    },
+    "description": "Head Master Chair",
+    "quantity": 5,
+    "availableQty": 5,
+    "note": "",
+    "quantityReceived": 56,
+    "completedQty": 0
+  },
+  {
+    "id": "511",
+    "workorder": {
+      "text": "Furniture Installation",
+      "value": "117"
+    },
+    "salesorder": {
+      "text": "Sales Order #SLS00000783",
+      "value": "20915"
+    },
+    "event": "",
+    "uuid": "20915_2",
+    "line": "2",
+    "item": {
+      "text": "BIC00008",
+      "value": "467"
+    },
+    "description": "Diana Chair",
+    "quantity": 5,
+    "availableQty": 5,
+    "note": "",
+    "quantityReceived": 56,
+    "completedQty": 0
+  },
+  {
+    "id": "609",
+    "workorder": {
+      "text": "Lobby Area 1",
+      "value": "136"
+    },
+    "salesorder": {
+      "text": "Sales Order #SLS00000818",
+      "value": "22934"
+    },
+    "event": "",
+    "uuid": "22934_1",
+    "line": "1",
+    "item": {
+      "text": "BIC00008",
+      "value": "467"
+    },
+    "description": "Head Master Chair",
+    "quantity": 7,
+    "availableQty": 7,
+    "note": "",
+    "quantityReceived": 56,
+    "completedQty": 0
+  },
+  {
+    "id": "610",
+    "workorder": {
+      "text": "Lobby Area 1",
+      "value": "136"
+    },
+    "salesorder": {
+      "text": "Sales Order #SLS00000818",
+      "value": "22934"
+    },
+    "event": "",
+    "uuid": "22934_2",
+    "line": "2",
+    "item": {
+      "text": "BIC00008",
+      "value": "467"
+    },
+    "description": "Diana Chair",
+    "quantity": 10,
+    "availableQty": 10,
+    "note": "",
+    "quantityReceived": 56,
+    "completedQty": 0
+  },
+  {
+    "id": "611",
+    "workorder": {
+      "text": "Lobby Area 1",
+      "value": "136"
+    },
+    "salesorder": {
+      "text": "Sales Order #SLS00000818",
+      "value": "22934"
+    },
+    "event": "",
+    "uuid": "22934_3",
+    "line": "3",
+    "item": {
+      "text": "BIC00008",
+      "value": "467"
+    },
+    "description": "Working Table",
+    "quantity": 10,
+    "availableQty": 10,
+    "note": "",
+    "quantityReceived": 56,
+    "completedQty": 0
+  },
+  {
+    "id": "547",
+    "workorder": {
+      "text": "Test Work Order - AC Installation",
+      "value": "123"
+    },
+    "salesorder": {
+      "text": "Sales Order #SLS00000803",
+      "value": "22468"
+    },
+    "event": "101062",
+    "uuid": "22468_1",
+    "line": "1",
+    "item": {
+      "text": "BIC00008",
+      "value": "467"
+    },
+    "description": "Head Master Chair",
+    "quantity": 7,
+    "availableQty": 7,
+    "note": "",
+    "quantityReceived": 56,
+    "completedQty": 0
+  },
+  {
+    "id": "555",
+    "workorder": {
+      "text": "Test Work Order - AC Installation",
+      "value": "123"
+    },
+    "salesorder": {
+      "text": "Sales Order #SLS00000803",
+      "value": "22468"
+    },
+    "event": "101075",
+    "uuid": "22468_2",
+    "line": "2",
+    "item": {
+      "text": "BIC00008",
+      "value": "467"
+    },
+    "description": "Diana Chair",
+    "quantity": 10,
+    "availableQty": 10,
+    "note": "",
+    "quantityReceived": 56,
+    "completedQty": 0
+  },
+  {
+    "id": "556",
+    "workorder": {
+      "text": "Test Work Order - AC Installation",
+      "value": "123"
+    },
+    "salesorder": {
+      "text": "Sales Order #SLS00000803",
+      "value": "22468"
+    },
+    "event": "101075",
+    "uuid": "22468_3",
+    "line": "3",
+    "item": {
+      "text": "BIC00008",
+      "value": "467"
+    },
+    "description": "Working Table",
+    "quantity": 5,
+    "availableQty": 5,
+    "note": "",
+    "quantityReceived": 56,
+    "completedQty": 0
+  },
+  {
+    "id": "550",
+    "workorder": {
+      "text": "Test Work Order - AC Installation",
+      "value": "123"
+    },
+    "salesorder": {
+      "text": "Sales Order #SLS00000803",
+      "value": "22468"
+    },
+    "event": "",
+    "uuid": "22468_4",
+    "line": "4",
+    "item": {
+      "text": "BIC00008",
+      "value": "467"
+    },
+    "description": "Technology Table",
+    "quantity": 10,
+    "availableQty": 10,
+    "note": "",
+    "quantityReceived": 56,
+    "completedQty": 0
+  },
+  {
+    "id": "548",
+    "workorder": {
+      "text": "Test Work Order - AC Installation",
+      "value": "123"
+    },
+    "salesorder": {
+      "text": "Sales Order #SLS00000803",
+      "value": "22468"
+    },
+    "event": "",
+    "uuid": "22468_2",
+    "line": "2",
+    "item": {
+      "text": "BIC00008",
+      "value": "467"
+    },
+    "description": "Diana Chair",
+    "quantity": 10,
+    "availableQty": 10,
+    "note": "",
+    "quantityReceived": 56,
+    "completedQty": 0
+  },
+  {
+    "id": "549",
+    "workorder": {
+      "text": "Test Work Order - AC Installation",
+      "value": "123"
+    },
+    "salesorder": {
+      "text": "Sales Order #SLS00000803",
+      "value": "22468"
+    },
+    "event": "",
+    "uuid": "22468_3",
+    "line": "3",
+    "item": {
+      "text": "BIC00008",
+      "value": "467"
+    },
+    "description": "Working Table",
+    "quantity": 10,
+    "availableQty": 10,
+    "note": "",
+    "quantityReceived": 56,
+    "completedQty": 0
+  },
+  {
+    "id": "546",
+    "workorder": {
+      "text": "Test Work Order - AC Installation",
+      "value": "123"
+    },
+    "salesorder": {
+      "text": "Sales Order #SLS00000803",
+      "value": "22468"
+    },
+    "event": "",
+    "uuid": "22468_1",
+    "line": "1",
+    "item": {
+      "text": "BIC00008",
+      "value": "467"
+    },
+    "description": "Head Master Chair",
+    "quantity": 7,
+    "availableQty": 7,
+    "note": "",
+    "quantityReceived": 56,
+    "completedQty": 0
+  },
+  {
+    "id": "557",
+    "workorder": {
+      "text": "Test Work Order - AC Installation",
+      "value": "123"
+    },
+    "salesorder": {
+      "text": "Sales Order #SLS00000803",
+      "value": "22468"
+    },
+    "event": "101077",
+    "uuid": "22468_1",
+    "line": "1",
+    "item": {
+      "text": "BIC00008",
+      "value": "467"
+    },
+    "description": "Head Master Chair",
+    "quantity": 7,
+    "availableQty": 7,
+    "note": "",
+    "quantityReceived": 56,
+    "completedQty": 0
+  },
+  {
+    "id": "559",
+    "workorder": {
+      "text": "Test Work Order - AC Installation",
+      "value": "123"
+    },
+    "salesorder": {
+      "text": "Sales Order #SLS00000803",
+      "value": "22468"
+    },
+    "event": "101079",
+    "uuid": "22468_3",
+    "line": "3",
+    "item": {
+      "text": "BIC00008",
+      "value": "467"
+    },
+    "description": "Working Table",
+    "quantity": 10,
+    "availableQty": 10,
+    "note": "",
+    "quantityReceived": 56,
+    "completedQty": 0
+  },
+  {
+    "id": "575",
+    "workorder": {
+      "text": "Testing with Lean",
+      "value": "124"
+    },
+    "salesorder": {
+      "text": "Sales Order #SLS00000803",
+      "value": "22468"
+    },
+    "event": "",
+    "uuid": "22468_1",
+    "line": "1",
+    "item": {
+      "text": "BIC00008",
+      "value": "467"
+    },
+    "description": "Head Master Chair",
+    "quantity": -17,
+    "availableQty": -17,
+    "note": "",
+    "quantityReceived": 56,
+    "completedQty": 0
+  },
+  {
+    "id": "576",
+    "workorder": {
+      "text": "Testing with Lean",
+      "value": "124"
+    },
+    "salesorder": {
+      "text": "Sales Order #SLS00000803",
+      "value": "22468"
+    },
+    "event": "",
+    "uuid": "22468_2",
+    "line": "2",
+    "item": {
+      "text": "BIC00008",
+      "value": "467"
+    },
+    "description": "Diana Chair",
+    "quantity": -10,
+    "availableQty": -10,
+    "note": "",
+    "quantityReceived": 56,
+    "completedQty": 0
+  },
+  {
+    "id": "361",
+    "workorder": {
+      "text": "Furniture Installation",
+      "value": "99"
+    },
+    "salesorder": {
+      "text": "Sales Order #SLS00000740",
+      "value": "20024"
+    },
+    "event": "",
+    "uuid": "20024_1",
+    "line": "1",
+    "item": {
+      "text": "BIC00008",
+      "value": "467"
+    },
+    "description": "",
+    "quantity": 20,
+    "availableQty": 20,
+    "note": "",
+    "quantityReceived": 56,
+    "completedQty": 0
+  },
+  {
+    "id": "604",
+    "workorder": {
+      "text": "Creation of New Work Order",
+      "value": "135"
+    },
+    "salesorder": {
+      "text": "Sales Order #SLS00000811",
+      "value": "22902"
+    },
+    "event": "101095",
+    "uuid": "22902_4",
+    "line": "4",
+    "item": {
+      "text": "BIC00008",
+      "value": "467"
+    },
+    "description": "Technology Table",
+    "quantity": 10,
+    "availableQty": 10,
+    "note": "",
+    "quantityReceived": 56,
+    "completedQty": 0
+  },
+  {
+    "id": "601",
+    "workorder": {
+      "text": "Creation of New Work Order",
+      "value": "135"
+    },
+    "salesorder": {
+      "text": "Sales Order #SLS00000811",
+      "value": "22902"
+    },
+    "event": "101095",
+    "uuid": "22902_3",
+    "line": "3",
+    "item": {
+      "text": "BIC00008",
+      "value": "467"
+    },
+    "description": "Technology Table",
+    "quantity": 10,
+    "availableQty": 10,
+    "note": "",
+    "quantityReceived": 56,
+    "completedQty": 0
+  },
+  {
+    "id": "393",
+    "workorder": {
+      "text": "Furniture Installation",
+      "value": "105"
+    },
+    "salesorder": {
+      "text": "Sales Order #SLS00000770",
+      "value": "20899"
+    },
+    "event": "",
+    "uuid": "20899_1",
+    "line": "1",
+    "item": {
+      "text": "BIC00008",
+      "value": "467"
+    },
+    "description": "",
+    "quantity": 1,
+    "availableQty": 1,
+    "note": "",
+    "quantityReceived": 56,
+    "completedQty": 0
+  },
+  {
+    "id": "585",
+    "workorder": {
+      "text": "Lobby Area",
+      "value": "128"
+    },
+    "salesorder": {
+      "text": "Sales Order #SLS00000808",
+      "value": "22899"
+    },
+    "event": "",
+    "uuid": "22899_1",
+    "line": "1",
+    "item": {
+      "text": "BIC00008",
+      "value": "467"
+    },
+    "description": "Head Master Chair",
+    "quantity": 3,
+    "availableQty": 3,
+    "note": "",
+    "quantityReceived": 56,
+    "completedQty": 0
+  },
+  {
+    "id": "586",
+    "workorder": {
+      "text": "Lobby Area",
+      "value": "128"
+    },
+    "salesorder": {
+      "text": "Sales Order #SLS00000808",
+      "value": "22899"
+    },
+    "event": "",
+    "uuid": "22899_2",
+    "line": "2",
+    "item": {
+      "text": "BIC00008",
+      "value": "467"
+    },
+    "description": "Diana Chair",
+    "quantity": 2,
+    "availableQty": 2,
+    "note": "",
+    "quantityReceived": 56,
+    "completedQty": 0
+  },
+  {
+    "id": "589",
+    "workorder": {
+      "text": "Office Room A",
+      "value": "130"
+    },
+    "salesorder": {
+      "text": "Sales Order #SLS00000809",
+      "value": "22900"
+    },
+    "event": "",
+    "uuid": "22900_1",
+    "line": "1",
+    "item": {
+      "text": "BIC00008",
+      "value": "467"
+    },
+    "description": "Head Master Chair",
+    "quantity": 1,
+    "availableQty": 1,
+    "note": "",
+    "quantityReceived": 56,
+    "completedQty": 0
+  },
+  {
+    "id": "590",
+    "workorder": {
+      "text": "Office Room A",
+      "value": "130"
+    },
+    "salesorder": {
+      "text": "Sales Order #SLS00000809",
+      "value": "22900"
+    },
+    "event": "",
+    "uuid": "22900_2",
+    "line": "2",
+    "item": {
+      "text": "BIC00008",
+      "value": "467"
+    },
+    "description": "Diana Chair",
+    "quantity": 2,
+    "availableQty": 2,
+    "note": "",
+    "quantityReceived": 56,
+    "completedQty": 0
+  },
+  {
+    "id": "591",
+    "workorder": {
+      "text": "Office Room A",
+      "value": "130"
+    },
+    "salesorder": {
+      "text": "Sales Order #SLS00000809",
+      "value": "22900"
+    },
+    "event": "",
+    "uuid": "22900_4",
+    "line": "4",
+    "item": {
+      "text": "BIC00008",
+      "value": "467"
+    },
+    "description": "Technology Table",
+    "quantity": 3,
+    "availableQty": 3,
+    "note": "",
+    "quantityReceived": 56,
+    "completedQty": 0
+  },
+  {
+    "id": "577",
+    "workorder": {
+      "text": "Lobby Area",
+      "value": "125"
+    },
+    "salesorder": {
+      "text": "Sales Order #SLS00000807",
+      "value": "22898"
+    },
+    "event": "",
+    "uuid": "22898_1",
+    "line": "1",
+    "item": {
+      "text": "BIC00008",
+      "value": "467"
+    },
+    "description": "Head Master Chair",
+    "quantity": 7,
+    "availableQty": 7,
+    "note": "",
+    "quantityReceived": 56,
+    "completedQty": 0
+  },
+  {
+    "id": "578",
+    "workorder": {
+      "text": "Lobby Area",
+      "value": "125"
+    },
+    "salesorder": {
+      "text": "Sales Order #SLS00000807",
+      "value": "22898"
+    },
+    "event": "",
+    "uuid": "22898_2",
+    "line": "2",
+    "item": {
+      "text": "BIC00008",
+      "value": "467"
+    },
+    "description": "Diana Chair",
+    "quantity": 10,
+    "availableQty": 10,
+    "note": "",
+    "quantityReceived": 56,
+    "completedQty": 0
+  },
+  {
+    "id": "383",
+    "workorder": {
+      "text": "Furniture Installation",
+      "value": "103"
+    },
+    "salesorder": {
+      "text": "Sales Order #SLS00000769",
+      "value": "20898"
+    },
+    "event": "",
+    "uuid": "20898_1",
+    "line": "1",
+    "item": {
+      "text": "BIC00008",
+      "value": "467"
+    },
+    "description": "",
+    "quantity": 10,
+    "availableQty": 10,
+    "note": "",
+    "quantityReceived": 56,
+    "completedQty": 0
+  },
+  {
+    "id": "409",
+    "workorder": {
+      "text": "Furniture Installation",
+      "value": "108"
+    },
+    "salesorder": {
+      "text": "Sales Order #SLS00000772",
+      "value": "20901"
+    },
+    "event": "",
+    "uuid": "20901_1",
+    "line": "1",
+    "item": {
+      "text": "BIC00008",
+      "value": "467"
+    },
+    "description": "",
+    "quantity": 7,
+    "availableQty": 7,
+    "note": "",
+    "quantityReceived": 56,
+    "completedQty": 0
+  },
+  {
+    "id": "410",
+    "workorder": {
+      "text": "Furniture Installation",
+      "value": "108"
+    },
+    "salesorder": {
+      "text": "Sales Order #SLS00000772",
+      "value": "20901"
+    },
+    "event": "",
+    "uuid": "20901_2",
+    "line": "2",
+    "item": {
+      "text": "BIC00008",
+      "value": "467"
+    },
+    "description": "",
+    "quantity": 10,
+    "availableQty": 10,
+    "note": "",
+    "quantityReceived": 56,
+    "completedQty": 0
+  },
+  {
+    "id": "411",
+    "workorder": {
+      "text": "Furniture Installation",
+      "value": "108"
+    },
+    "salesorder": {
+      "text": "Sales Order #SLS00000772",
+      "value": "20901"
+    },
+    "event": "",
+    "uuid": "20901_3",
+    "line": "3",
+    "item": {
+      "text": "BIC00008",
+      "value": "467"
+    },
+    "description": "",
+    "quantity": 10,
+    "availableQty": 10,
+    "note": "",
+    "quantityReceived": 56,
+    "completedQty": 0
+  },
+  {
+    "id": "412",
+    "workorder": {
+      "text": "Furniture Installation",
+      "value": "108"
+    },
+    "salesorder": {
+      "text": "Sales Order #SLS00000772",
+      "value": "20901"
+    },
+    "event": "",
+    "uuid": "20901_4",
+    "line": "4",
+    "item": {
+      "text": "BIC00008",
+      "value": "467"
+    },
+    "description": "",
+    "quantity": 10,
+    "availableQty": 10,
+    "note": "",
+    "quantityReceived": 56,
+    "completedQty": 0
+  },
+  {
+    "id": "592",
+    "workorder": {
+      "text": "Lobby Area",
+      "value": "131"
+    },
+    "salesorder": {
+      "text": "Sales Order #SLS00000810",
+      "value": "22901"
+    },
+    "event": "",
+    "uuid": "22901_1",
+    "line": "1",
+    "item": {
+      "text": "BIC00008",
+      "value": "467"
+    },
+    "description": "Head Master Chair",
+    "quantity": 2,
+    "availableQty": 2,
+    "note": "",
+    "quantityReceived": 56,
+    "completedQty": 0
+  },
+  {
+    "id": "599",
+    "workorder": {
+      "text": "Office Area 1",
+      "value": "132"
+    },
+    "salesorder": {
+      "text": "Sales Order #SLS00000810",
+      "value": "22901"
+    },
+    "event": "101087",
+    "uuid": "22901_1",
+    "line": "1",
+    "item": {
+      "text": "BIC00008",
+      "value": "467"
+    },
+    "description": "Head Master Chair",
+    "quantity": 4,
+    "availableQty": 4,
+    "note": "",
+    "quantityReceived": 56,
+    "completedQty": 0
+  },
+  {
+    "id": "600",
+    "workorder": {
+      "text": "Office Area 1",
+      "value": "132"
+    },
+    "salesorder": {
+      "text": "Sales Order #SLS00000810",
+      "value": "22901"
+    },
+    "event": "101088",
+    "uuid": "22901_1",
+    "line": "1",
+    "item": {
+      "text": "BIC00008",
+      "value": "467"
+    },
+    "description": "Head Master Chair",
+    "quantity": 4,
+    "availableQty": 4,
+    "note": "",
+    "quantityReceived": 56,
+    "completedQty": 0
+  },
+  {
+    "id": "593",
+    "workorder": {
+      "text": "Office Area 1",
+      "value": "132"
+    },
+    "salesorder": {
+      "text": "Sales Order #SLS00000810",
+      "value": "22901"
+    },
+    "event": "",
+    "uuid": "22901_1",
+    "line": "1",
+    "item": {
+      "text": "BIC00008",
+      "value": "467"
+    },
+    "description": "Head Master Chair",
+    "quantity": 4,
+    "availableQty": 4,
+    "note": "",
+    "quantityReceived": 56,
+    "completedQty": 0
+  },
+  {
+    "id": "380",
+    "workorder": {
+      "text": "Desks Installation",
+      "value": "20"
+    },
+    "salesorder": {
+      "text": "Sales Order #SLS00000609",
+      "value": "11722"
+    },
+    "event": "",
+    "uuid": "11722_4",
+    "line": "4",
+    "item": {
+      "text": "BIC00008",
+      "value": "467"
+    },
+    "description": "",
+    "quantity": 7,
+    "availableQty": 7,
+    "note": "",
+    "quantityReceived": 56,
+    "completedQty": 0
+  },
+  {
+    "id": "231",
+    "workorder": {
+      "text": "Furniture Installation",
+      "value": "85"
+    },
+    "salesorder": {
+      "text": "Sales Order #SLS00000739",
+      "value": "19521"
+    },
+    "event": "",
+    "uuid": "19521_1",
+    "line": "1",
+    "item": {
+      "text": "BIC00008",
+      "value": "467"
+    },
+    "description": "",
+    "quantity": 20,
+    "availableQty": 20,
+    "note": "",
+    "quantityReceived": 56,
+    "completedQty": 0
+  },
+  {
+    "id": "49",
+    "workorder": {
+      "text": "AV Installation",
+      "value": "47"
+    },
+    "salesorder": {
+      "text": "Sales Order #SLS00000654",
+      "value": "16211"
+    },
+    "event": "",
+    "uuid": "16210_1",
+    "line": "1",
+    "item": {
+      "text": "BIC00008",
+      "value": "467"
+    },
+    "description": "",
+    "quantity": 1,
+    "availableQty": 1,
+    "note": "",
+    "quantityReceived": 56,
+    "completedQty": 0
+  },
+  {
+    "id": "105",
+    "workorder": {
+      "text": "Furniture Installation",
+      "value": "67"
+    },
+    "salesorder": {
+      "text": "Sales Order #SLS00000715",
+      "value": "19388"
+    },
+    "event": "",
+    "uuid": "19388_1",
     "line": "1",
     "item": {
       "text": "BIC00008",
@@ -9773,17 +9221,353 @@ const mockWOItems: WOItem[] = [{
     "completedQty": 0
   },
   {
-    "id": "466",
+    "id": "103",
     "workorder": {
-      "text": "AV Installation",
-      "value": "112"
+      "text": "Furniture Installation",
+      "value": "67"
     },
     "salesorder": {
-      "text": "Sales Order #SLS00000778",
-      "value": "20907"
+      "text": "Sales Order #SLS00000715",
+      "value": "19388"
     },
     "event": "",
-    "uuid": "20907_2",
+    "uuid": "19388_1",
+    "line": "1",
+    "item": {
+      "text": "BIC00008",
+      "value": "467"
+    },
+    "description": "",
+    "quantity": 5,
+    "availableQty": 5,
+    "note": "",
+    "quantityReceived": 56,
+    "completedQty": 0
+  },
+  {
+    "id": "245",
+    "workorder": {
+      "text": "Furniture Installation",
+      "value": "87"
+    },
+    "salesorder": {
+      "text": "Sales Order #SLS00000740",
+      "value": "20024"
+    },
+    "event": "",
+    "uuid": "20024_1",
+    "line": "1",
+    "item": {
+      "text": "BIC00008",
+      "value": "467"
+    },
+    "description": "",
+    "quantity": 20,
+    "availableQty": 20,
+    "note": "",
+    "quantityReceived": 56,
+    "completedQty": 0
+  },
+  {
+    "id": "250",
+    "workorder": {
+      "text": "Furniture Installation",
+      "value": "87"
+    },
+    "salesorder": {
+      "text": "Sales Order #SLS00000740",
+      "value": "20024"
+    },
+    "event": "100931",
+    "uuid": "20024_1",
+    "line": "1",
+    "item": {
+      "text": "BIC00008",
+      "value": "467"
+    },
+    "description": "",
+    "quantity": 20,
+    "availableQty": 20,
+    "note": "",
+    "quantityReceived": 56,
+    "completedQty": 0
+  },
+  {
+    "id": "47",
+    "workorder": {
+      "text": "Furniture Installation",
+      "value": "46"
+    },
+    "salesorder": {
+      "text": "Sales Order #SLS00000654",
+      "value": "16211"
+    },
+    "event": "",
+    "uuid": "16210_1",
+    "line": "1",
+    "item": {
+      "text": "BIC00008",
+      "value": "467"
+    },
+    "description": "",
+    "quantity": 0,
+    "availableQty": 0,
+    "note": "",
+    "quantityReceived": 56,
+    "completedQty": 0
+  },
+  {
+    "id": "51",
+    "workorder": {
+      "text": "Flooring Installation",
+      "value": "48"
+    },
+    "salesorder": {
+      "text": "Sales Order #SLS00000654",
+      "value": "16211"
+    },
+    "event": "",
+    "uuid": "16210_1",
+    "line": "1",
+    "item": {
+      "text": "BIC00008",
+      "value": "467"
+    },
+    "description": "",
+    "quantity": 0,
+    "availableQty": 0,
+    "note": "",
+    "quantityReceived": 56,
+    "completedQty": 0
+  },
+  {
+    "id": "218",
+    "workorder": {
+      "text": "Furniture Installation",
+      "value": "83"
+    },
+    "salesorder": {
+      "text": "Sales Order #SLS00000736",
+      "value": "19418"
+    },
+    "event": "",
+    "uuid": "19418_1",
+    "line": "1",
+    "item": {
+      "text": "BIC00008",
+      "value": "467"
+    },
+    "description": "",
+    "quantity": 20,
+    "availableQty": 20,
+    "note": "",
+    "quantityReceived": 56,
+    "completedQty": 0
+  },
+  {
+    "id": "36",
+    "workorder": {
+      "text": "Furniture and Flooring Installation",
+      "value": "34"
+    },
+    "salesorder": {
+      "text": "Sales Order #SLS00000651",
+      "value": "15100"
+    },
+    "event": "",
+    "uuid": "15100_1",
+    "line": "1",
+    "item": {
+      "text": "BIC00008",
+      "value": "467"
+    },
+    "description": "",
+    "quantity": 2,
+    "availableQty": 2,
+    "note": "",
+    "quantityReceived": 56,
+    "completedQty": 0
+  },
+  {
+    "id": "37",
+    "workorder": {
+      "text": "Furniture and Flooring Installation",
+      "value": "34"
+    },
+    "salesorder": {
+      "text": "Sales Order #SLS00000651",
+      "value": "15100"
+    },
+    "event": "",
+    "uuid": "15100_2",
+    "line": "2",
+    "item": {
+      "text": "BIC00008",
+      "value": "467"
+    },
+    "description": "",
+    "quantity": 1,
+    "availableQty": 1,
+    "note": "",
+    "quantityReceived": 56,
+    "completedQty": 0
+  },
+  {
+    "id": "528",
+    "workorder": {
+      "text": "Installation of Furnitures",
+      "value": "120"
+    },
+    "salesorder": {
+      "text": "Sales Order #SLS00000785",
+      "value": "20917"
+    },
+    "event": "101054",
+    "uuid": "20917_1",
+    "line": "1",
+    "item": {
+      "text": "BIC00008",
+      "value": "467"
+    },
+    "description": "Head Master Chair",
+    "quantity": 1,
+    "availableQty": 1,
+    "note": "",
+    "quantityReceived": 56,
+    "completedQty": 0
+  },
+  {
+    "id": "526",
+    "workorder": {
+      "text": "Installation of Furnitures",
+      "value": "120"
+    },
+    "salesorder": {
+      "text": "Sales Order #SLS00000785",
+      "value": "20917"
+    },
+    "event": "",
+    "uuid": "20917_1",
+    "line": "1",
+    "item": {
+      "text": "BIC00008",
+      "value": "467"
+    },
+    "description": "Head Master Chair",
+    "quantity": 1,
+    "availableQty": 1,
+    "note": "",
+    "quantityReceived": 56,
+    "completedQty": 0
+  },
+  {
+    "id": "527",
+    "workorder": {
+      "text": "Installation of Furnitures",
+      "value": "120"
+    },
+    "salesorder": {
+      "text": "Sales Order #SLS00000785",
+      "value": "20917"
+    },
+    "event": "",
+    "uuid": "20917_2",
+    "line": "2",
+    "item": {
+      "text": "BIC00008",
+      "value": "467"
+    },
+    "description": "Diana Chair",
+    "quantity": 1,
+    "availableQty": 1,
+    "note": "",
+    "quantityReceived": 56,
+    "completedQty": 0
+  },
+  {
+    "id": "529",
+    "workorder": {
+      "text": "Furniture Installation",
+      "value": "121"
+    },
+    "salesorder": {
+      "text": "Sales Order #SLS00000786",
+      "value": "20919"
+    },
+    "event": "",
+    "uuid": "20919_1",
+    "line": "1",
+    "item": {
+      "text": "BIC00008",
+      "value": "467"
+    },
+    "description": "Head Master Chair",
+    "quantity": 2,
+    "availableQty": 2,
+    "note": "",
+    "quantityReceived": 56,
+    "completedQty": 0
+  },
+  {
+    "id": "530",
+    "workorder": {
+      "text": "Furniture Installation",
+      "value": "121"
+    },
+    "salesorder": {
+      "text": "Sales Order #SLS00000786",
+      "value": "20919"
+    },
+    "event": "",
+    "uuid": "20919_2",
+    "line": "2",
+    "item": {
+      "text": "BIC00008",
+      "value": "467"
+    },
+    "description": "Diana Chair",
+    "quantity": 5,
+    "availableQty": 5,
+    "note": "",
+    "quantityReceived": 56,
+    "completedQty": 0
+  },
+  {
+    "id": "488",
+    "workorder": {
+      "text": "Furniture Installation",
+      "value": "115"
+    },
+    "salesorder": {
+      "text": "Sales Order #SLS00000781",
+      "value": "20911"
+    },
+    "event": "",
+    "uuid": "20911_1",
+    "line": "1",
+    "item": {
+      "text": "BIC00008",
+      "value": "467"
+    },
+    "description": "",
+    "quantity": 5,
+    "availableQty": 5,
+    "note": "",
+    "quantityReceived": 56,
+    "completedQty": 0
+  },
+  {
+    "id": "489",
+    "workorder": {
+      "text": "Furniture Installation",
+      "value": "115"
+    },
+    "salesorder": {
+      "text": "Sales Order #SLS00000781",
+      "value": "20911"
+    },
+    "event": "",
+    "uuid": "20911_2",
     "line": "2",
     "item": {
       "text": "BIC00008",
@@ -9797,17 +9581,17 @@ const mockWOItems: WOItem[] = [{
     "completedQty": 0
   },
   {
-    "id": "467",
+    "id": "490",
     "workorder": {
-      "text": "AV Installation",
-      "value": "112"
+      "text": "Furniture Installation",
+      "value": "115"
     },
     "salesorder": {
-      "text": "Sales Order #SLS00000778",
-      "value": "20907"
+      "text": "Sales Order #SLS00000781",
+      "value": "20911"
     },
     "event": "",
-    "uuid": "20907_3",
+    "uuid": "20911_3",
     "line": "3",
     "item": {
       "text": "BIC00008",
@@ -9821,17 +9605,17 @@ const mockWOItems: WOItem[] = [{
     "completedQty": 0
   },
   {
-    "id": "468",
+    "id": "491",
     "workorder": {
-      "text": "AV Installation",
-      "value": "112"
+      "text": "Furniture Installation",
+      "value": "115"
     },
     "salesorder": {
-      "text": "Sales Order #SLS00000778",
-      "value": "20907"
+      "text": "Sales Order #SLS00000781",
+      "value": "20911"
     },
     "event": "",
-    "uuid": "20907_4",
+    "uuid": "20911_4",
     "line": "4",
     "item": {
       "text": "BIC00008",
@@ -9840,6 +9624,126 @@ const mockWOItems: WOItem[] = [{
     "description": "",
     "quantity": 5,
     "availableQty": 5,
+    "note": "",
+    "quantityReceived": 56,
+    "completedQty": 0
+  },
+  {
+    "id": "496",
+    "workorder": {
+      "text": "Furniture Installation",
+      "value": "115"
+    },
+    "salesorder": {
+      "text": "Sales Order #SLS00000781",
+      "value": "20911"
+    },
+    "event": "101050",
+    "uuid": "20911_1",
+    "line": "1",
+    "item": {
+      "text": "BIC00008",
+      "value": "467"
+    },
+    "description": "",
+    "quantity": 1,
+    "availableQty": 1,
+    "note": "",
+    "quantityReceived": 56,
+    "completedQty": 0
+  },
+  {
+    "id": "497",
+    "workorder": {
+      "text": "Furniture Installation",
+      "value": "115"
+    },
+    "salesorder": {
+      "text": "Sales Order #SLS00000781",
+      "value": "20911"
+    },
+    "event": "101050",
+    "uuid": "20911_2",
+    "line": "2",
+    "item": {
+      "text": "BIC00008",
+      "value": "467"
+    },
+    "description": "",
+    "quantity": 1,
+    "availableQty": 1,
+    "note": "",
+    "quantityReceived": 56,
+    "completedQty": 0
+  },
+  {
+    "id": "498",
+    "workorder": {
+      "text": "Furniture Installation",
+      "value": "115"
+    },
+    "salesorder": {
+      "text": "Sales Order #SLS00000781",
+      "value": "20911"
+    },
+    "event": "101050",
+    "uuid": "20911_3",
+    "line": "3",
+    "item": {
+      "text": "BIC00008",
+      "value": "467"
+    },
+    "description": "",
+    "quantity": 1,
+    "availableQty": 1,
+    "note": "",
+    "quantityReceived": 56,
+    "completedQty": 0
+  },
+  {
+    "id": "581",
+    "workorder": {
+      "text": "Office Room A",
+      "value": "126"
+    },
+    "salesorder": {
+      "text": "Sales Order #SLS00000807",
+      "value": "22898"
+    },
+    "event": "",
+    "uuid": "22898_3",
+    "line": "3",
+    "item": {
+      "text": "BIC00008",
+      "value": "467"
+    },
+    "description": "Working Table",
+    "quantity": 3,
+    "availableQty": 3,
+    "note": "",
+    "quantityReceived": 56,
+    "completedQty": 0
+  },
+  {
+    "id": "582",
+    "workorder": {
+      "text": "Office Room A",
+      "value": "126"
+    },
+    "salesorder": {
+      "text": "Sales Order #SLS00000807",
+      "value": "22898"
+    },
+    "event": "",
+    "uuid": "22898_4",
+    "line": "4",
+    "item": {
+      "text": "BIC00008",
+      "value": "467"
+    },
+    "description": "Technology Table",
+    "quantity": 2,
+    "availableQty": 2,
     "note": "",
     "quantityReceived": 56,
     "completedQty": 0
@@ -10037,6 +9941,30 @@ const mockWOItems: WOItem[] = [{
     "completedQty": 0
   },
   {
+    "id": "487",
+    "workorder": {
+      "text": "Lobby Room",
+      "value": "114"
+    },
+    "salesorder": {
+      "text": "Sales Order #SLS00000780",
+      "value": "20910"
+    },
+    "event": "101048",
+    "uuid": "20910_4",
+    "line": "4",
+    "item": {
+      "text": "BIC00008",
+      "value": "467"
+    },
+    "description": "Technology Table",
+    "quantity": 3,
+    "availableQty": 3,
+    "note": "",
+    "quantityReceived": 56,
+    "completedQty": 0
+  },
+  {
     "id": "485",
     "workorder": {
       "text": "Lobby Room",
@@ -10085,71 +10013,23 @@ const mockWOItems: WOItem[] = [{
     "completedQty": 0
   },
   {
-    "id": "487",
-    "workorder": {
-      "text": "Lobby Room",
-      "value": "114"
-    },
-    "salesorder": {
-      "text": "Sales Order #SLS00000780",
-      "value": "20910"
-    },
-    "event": "101048",
-    "uuid": "20910_4",
-    "line": "4",
-    "item": {
-      "text": "BIC00008",
-      "value": "467"
-    },
-    "description": "Technology Table",
-    "quantity": 3,
-    "availableQty": 3,
-    "note": "",
-    "quantityReceived": 56,
-    "completedQty": 0
-  },
-  {
-    "id": "488",
+    "id": "535",
     "workorder": {
       "text": "Furniture Installation",
-      "value": "115"
+      "value": "119"
     },
     "salesorder": {
-      "text": "Sales Order #SLS00000781",
-      "value": "20911"
+      "text": "Sales Order #SLS00000785",
+      "value": "20917"
     },
-    "event": "",
-    "uuid": "20911_1",
-    "line": "1",
-    "item": {
-      "text": "BIC00008",
-      "value": "467"
-    },
-    "description": "",
-    "quantity": 5,
-    "availableQty": 5,
-    "note": "",
-    "quantityReceived": 56,
-    "completedQty": 0
-  },
-  {
-    "id": "489",
-    "workorder": {
-      "text": "Furniture Installation",
-      "value": "115"
-    },
-    "salesorder": {
-      "text": "Sales Order #SLS00000781",
-      "value": "20911"
-    },
-    "event": "",
-    "uuid": "20911_2",
+    "event": "101060",
+    "uuid": "20917_2",
     "line": "2",
     "item": {
       "text": "BIC00008",
       "value": "467"
     },
-    "description": "",
+    "description": "Diana Chair",
     "quantity": 5,
     "availableQty": 5,
     "note": "",
@@ -10157,23 +10037,23 @@ const mockWOItems: WOItem[] = [{
     "completedQty": 0
   },
   {
-    "id": "490",
+    "id": "536",
     "workorder": {
       "text": "Furniture Installation",
-      "value": "115"
+      "value": "119"
     },
     "salesorder": {
-      "text": "Sales Order #SLS00000781",
-      "value": "20911"
+      "text": "Sales Order #SLS00000785",
+      "value": "20917"
     },
-    "event": "",
-    "uuid": "20911_3",
+    "event": "101060",
+    "uuid": "20917_3",
     "line": "3",
     "item": {
       "text": "BIC00008",
       "value": "467"
     },
-    "description": "",
+    "description": "Working Table",
     "quantity": 5,
     "availableQty": 5,
     "note": "",
@@ -10181,113 +10061,17 @@ const mockWOItems: WOItem[] = [{
     "completedQty": 0
   },
   {
-    "id": "491",
+    "id": "518",
     "workorder": {
       "text": "Furniture Installation",
-      "value": "115"
+      "value": "119"
     },
     "salesorder": {
-      "text": "Sales Order #SLS00000781",
-      "value": "20911"
+      "text": "Sales Order #SLS00000785",
+      "value": "20917"
     },
     "event": "",
-    "uuid": "20911_4",
-    "line": "4",
-    "item": {
-      "text": "BIC00008",
-      "value": "467"
-    },
-    "description": "",
-    "quantity": 5,
-    "availableQty": 5,
-    "note": "",
-    "quantityReceived": 56,
-    "completedQty": 0
-  },
-  {
-    "id": "496",
-    "workorder": {
-      "text": "Furniture Installation",
-      "value": "115"
-    },
-    "salesorder": {
-      "text": "Sales Order #SLS00000781",
-      "value": "20911"
-    },
-    "event": "101050",
-    "uuid": "20911_1",
-    "line": "1",
-    "item": {
-      "text": "BIC00008",
-      "value": "467"
-    },
-    "description": "",
-    "quantity": 1,
-    "availableQty": 1,
-    "note": "",
-    "quantityReceived": 56,
-    "completedQty": 0
-  },
-  {
-    "id": "497",
-    "workorder": {
-      "text": "Furniture Installation",
-      "value": "115"
-    },
-    "salesorder": {
-      "text": "Sales Order #SLS00000781",
-      "value": "20911"
-    },
-    "event": "101050",
-    "uuid": "20911_2",
-    "line": "2",
-    "item": {
-      "text": "BIC00008",
-      "value": "467"
-    },
-    "description": "",
-    "quantity": 1,
-    "availableQty": 1,
-    "note": "",
-    "quantityReceived": 56,
-    "completedQty": 0
-  },
-  {
-    "id": "498",
-    "workorder": {
-      "text": "Furniture Installation",
-      "value": "115"
-    },
-    "salesorder": {
-      "text": "Sales Order #SLS00000781",
-      "value": "20911"
-    },
-    "event": "101050",
-    "uuid": "20911_3",
-    "line": "3",
-    "item": {
-      "text": "BIC00008",
-      "value": "467"
-    },
-    "description": "",
-    "quantity": 1,
-    "availableQty": 1,
-    "note": "",
-    "quantityReceived": 56,
-    "completedQty": 0
-  },
-  {
-    "id": "510",
-    "workorder": {
-      "text": "Furniture Installation",
-      "value": "117"
-    },
-    "salesorder": {
-      "text": "Sales Order #SLS00000783",
-      "value": "20915"
-    },
-    "event": "",
-    "uuid": "20915_1",
+    "uuid": "20917_1",
     "line": "1",
     "item": {
       "text": "BIC00008",
@@ -10301,17 +10085,113 @@ const mockWOItems: WOItem[] = [{
     "completedQty": 0
   },
   {
-    "id": "511",
+    "id": "519",
     "workorder": {
       "text": "Furniture Installation",
-      "value": "117"
+      "value": "119"
     },
     "salesorder": {
-      "text": "Sales Order #SLS00000783",
-      "value": "20915"
+      "text": "Sales Order #SLS00000785",
+      "value": "20917"
     },
     "event": "",
-    "uuid": "20915_2",
+    "uuid": "20917_2",
+    "line": "2",
+    "item": {
+      "text": "BIC00008",
+      "value": "467"
+    },
+    "description": "Diana Chair",
+    "quantity": 5,
+    "availableQty": 5,
+    "note": "",
+    "quantityReceived": 56,
+    "completedQty": 0
+  },
+  {
+    "id": "520",
+    "workorder": {
+      "text": "Furniture Installation",
+      "value": "119"
+    },
+    "salesorder": {
+      "text": "Sales Order #SLS00000785",
+      "value": "20917"
+    },
+    "event": "",
+    "uuid": "20917_3",
+    "line": "3",
+    "item": {
+      "text": "BIC00008",
+      "value": "467"
+    },
+    "description": "Working Table",
+    "quantity": 5,
+    "availableQty": 5,
+    "note": "",
+    "quantityReceived": 56,
+    "completedQty": 0
+  },
+  {
+    "id": "521",
+    "workorder": {
+      "text": "Furniture Installation",
+      "value": "119"
+    },
+    "salesorder": {
+      "text": "Sales Order #SLS00000785",
+      "value": "20917"
+    },
+    "event": "",
+    "uuid": "20917_4",
+    "line": "4",
+    "item": {
+      "text": "BIC00008",
+      "value": "467"
+    },
+    "description": "Technology Table",
+    "quantity": 5,
+    "availableQty": 5,
+    "note": "",
+    "quantityReceived": 56,
+    "completedQty": 0
+  },
+  {
+    "id": "533",
+    "workorder": {
+      "text": "AV Installation",
+      "value": "118"
+    },
+    "salesorder": {
+      "text": "Sales Order #SLS00000786",
+      "value": "20919"
+    },
+    "event": "101057",
+    "uuid": "20919_1",
+    "line": "1",
+    "item": {
+      "text": "BIC00008",
+      "value": "467"
+    },
+    "description": "Head Master Chair",
+    "quantity": 5,
+    "availableQty": 5,
+    "note": "",
+    "quantityReceived": 56,
+    "completedQty": 0
+  },
+  {
+    "id": "534",
+    "workorder": {
+      "text": "AV Installation",
+      "value": "118"
+    },
+    "salesorder": {
+      "text": "Sales Order #SLS00000786",
+      "value": "20919"
+    },
+    "event": "101057",
+    "uuid": "20919_2",
     "line": "2",
     "item": {
       "text": "BIC00008",
@@ -10421,113 +10301,17 @@ const mockWOItems: WOItem[] = [{
     "completedQty": 0
   },
   {
-    "id": "518",
+    "id": "594",
     "workorder": {
-      "text": "Furniture Installation",
-      "value": "119"
+      "text": "Office Room 2",
+      "value": "133"
     },
     "salesorder": {
-      "text": "Sales Order #SLS00000785",
-      "value": "20917"
+      "text": "Sales Order #SLS00000810",
+      "value": "22901"
     },
     "event": "",
-    "uuid": "20917_1",
-    "line": "1",
-    "item": {
-      "text": "BIC00008",
-      "value": "467"
-    },
-    "description": "Head Master Chair",
-    "quantity": 5,
-    "availableQty": 5,
-    "note": "",
-    "quantityReceived": 56,
-    "completedQty": 0
-  },
-  {
-    "id": "519",
-    "workorder": {
-      "text": "Furniture Installation",
-      "value": "119"
-    },
-    "salesorder": {
-      "text": "Sales Order #SLS00000785",
-      "value": "20917"
-    },
-    "event": "",
-    "uuid": "20917_2",
-    "line": "2",
-    "item": {
-      "text": "BIC00008",
-      "value": "467"
-    },
-    "description": "Diana Chair",
-    "quantity": 5,
-    "availableQty": 5,
-    "note": "",
-    "quantityReceived": 56,
-    "completedQty": 0
-  },
-  {
-    "id": "520",
-    "workorder": {
-      "text": "Furniture Installation",
-      "value": "119"
-    },
-    "salesorder": {
-      "text": "Sales Order #SLS00000785",
-      "value": "20917"
-    },
-    "event": "",
-    "uuid": "20917_3",
-    "line": "3",
-    "item": {
-      "text": "BIC00008",
-      "value": "467"
-    },
-    "description": "Working Table",
-    "quantity": 5,
-    "availableQty": 5,
-    "note": "",
-    "quantityReceived": 56,
-    "completedQty": 0
-  },
-  {
-    "id": "521",
-    "workorder": {
-      "text": "Furniture Installation",
-      "value": "119"
-    },
-    "salesorder": {
-      "text": "Sales Order #SLS00000785",
-      "value": "20917"
-    },
-    "event": "",
-    "uuid": "20917_4",
-    "line": "4",
-    "item": {
-      "text": "BIC00008",
-      "value": "467"
-    },
-    "description": "Technology Table",
-    "quantity": 5,
-    "availableQty": 5,
-    "note": "",
-    "quantityReceived": 56,
-    "completedQty": 0
-  },
-  {
-    "id": "526",
-    "workorder": {
-      "text": "Installation of Furnitures",
-      "value": "120"
-    },
-    "salesorder": {
-      "text": "Sales Order #SLS00000785",
-      "value": "20917"
-    },
-    "event": "",
-    "uuid": "20917_1",
+    "uuid": "22901_1",
     "line": "1",
     "item": {
       "text": "BIC00008",
@@ -10541,17 +10325,281 @@ const mockWOItems: WOItem[] = [{
     "completedQty": 0
   },
   {
-    "id": "661",
+    "id": "595",
     "workorder": {
-      "text": "Product Core Testing - 2",
-      "value": "140"
+      "text": "Office Room 2",
+      "value": "133"
     },
     "salesorder": {
-      "text": "Sales Order #SLS00000837",
-      "value": "24432"
+      "text": "Sales Order #SLS00000810",
+      "value": "22901"
     },
     "event": "",
-    "uuid": "24432_6",
+    "uuid": "22901_2",
+    "line": "2",
+    "item": {
+      "text": "BIC00008",
+      "value": "467"
+    },
+    "description": "Diana Chair",
+    "quantity": 10,
+    "availableQty": 10,
+    "note": "",
+    "quantityReceived": 56,
+    "completedQty": 0
+  },
+  {
+    "id": "596",
+    "workorder": {
+      "text": "Office Room 2",
+      "value": "133"
+    },
+    "salesorder": {
+      "text": "Sales Order #SLS00000810",
+      "value": "22901"
+    },
+    "event": "",
+    "uuid": "22901_3",
+    "line": "3",
+    "item": {
+      "text": "BIC00008",
+      "value": "467"
+    },
+    "description": "Working Table",
+    "quantity": 10,
+    "availableQty": 10,
+    "note": "",
+    "quantityReceived": 56,
+    "completedQty": 0
+  },
+  {
+    "id": "597",
+    "workorder": {
+      "text": "Office Room 2",
+      "value": "133"
+    },
+    "salesorder": {
+      "text": "Sales Order #SLS00000810",
+      "value": "22901"
+    },
+    "event": "",
+    "uuid": "22901_4",
+    "line": "4",
+    "item": {
+      "text": "BIC00008",
+      "value": "467"
+    },
+    "description": "Technology Table",
+    "quantity": 10,
+    "availableQty": 10,
+    "note": "",
+    "quantityReceived": 56,
+    "completedQty": 0
+  },
+  {
+    "id": "583",
+    "workorder": {
+      "text": "Office Room B",
+      "value": "127"
+    },
+    "salesorder": {
+      "text": "Sales Order #SLS00000807",
+      "value": "22898"
+    },
+    "event": "",
+    "uuid": "22898_3",
+    "line": "3",
+    "item": {
+      "text": "BIC00008",
+      "value": "467"
+    },
+    "description": "Working Table",
+    "quantity": 2,
+    "availableQty": 2,
+    "note": "",
+    "quantityReceived": 56,
+    "completedQty": 0
+  },
+  {
+    "id": "584",
+    "workorder": {
+      "text": "Office Room B",
+      "value": "127"
+    },
+    "salesorder": {
+      "text": "Sales Order #SLS00000807",
+      "value": "22898"
+    },
+    "event": "",
+    "uuid": "22898_4",
+    "line": "4",
+    "item": {
+      "text": "BIC00008",
+      "value": "467"
+    },
+    "description": "Technology Table",
+    "quantity": 2,
+    "availableQty": 2,
+    "note": "",
+    "quantityReceived": 56,
+    "completedQty": 0
+  },
+  {
+    "id": "545",
+    "workorder": {
+      "text": "AV Installation",
+      "value": "112"
+    },
+    "salesorder": {
+      "text": "Sales Order #SLS00000778",
+      "value": "20907"
+    },
+    "event": "101061",
+    "uuid": "20907_1",
+    "line": "1",
+    "item": {
+      "text": "BIC00008",
+      "value": "467"
+    },
+    "description": "",
+    "quantity": 5,
+    "availableQty": 5,
+    "note": "",
+    "quantityReceived": 56,
+    "completedQty": 0
+  },
+  {
+    "id": "465",
+    "workorder": {
+      "text": "AV Installation",
+      "value": "112"
+    },
+    "salesorder": {
+      "text": "Sales Order #SLS00000778",
+      "value": "20907"
+    },
+    "event": "",
+    "uuid": "20907_1",
+    "line": "1",
+    "item": {
+      "text": "BIC00008",
+      "value": "467"
+    },
+    "description": "",
+    "quantity": 5,
+    "availableQty": 5,
+    "note": "",
+    "quantityReceived": 56,
+    "completedQty": 0
+  },
+  {
+    "id": "466",
+    "workorder": {
+      "text": "AV Installation",
+      "value": "112"
+    },
+    "salesorder": {
+      "text": "Sales Order #SLS00000778",
+      "value": "20907"
+    },
+    "event": "",
+    "uuid": "20907_2",
+    "line": "2",
+    "item": {
+      "text": "BIC00008",
+      "value": "467"
+    },
+    "description": "",
+    "quantity": 5,
+    "availableQty": 5,
+    "note": "",
+    "quantityReceived": 56,
+    "completedQty": 0
+  },
+  {
+    "id": "467",
+    "workorder": {
+      "text": "AV Installation",
+      "value": "112"
+    },
+    "salesorder": {
+      "text": "Sales Order #SLS00000778",
+      "value": "20907"
+    },
+    "event": "",
+    "uuid": "20907_3",
+    "line": "3",
+    "item": {
+      "text": "BIC00008",
+      "value": "467"
+    },
+    "description": "",
+    "quantity": 5,
+    "availableQty": 5,
+    "note": "",
+    "quantityReceived": 56,
+    "completedQty": 0
+  },
+  {
+    "id": "427",
+    "workorder": {
+      "text": "Install Office Furniture",
+      "value": "109"
+    },
+    "salesorder": {
+      "text": "Sales Order #SLS00000774",
+      "value": "20903"
+    },
+    "event": "",
+    "uuid": "20903_7",
+    "line": "7",
+    "item": {
+      "text": "J2HB-5124-SS1RS1",
+      "value": "2036"
+    },
+    "description": "X Series PST,HngdDr,51.5Hx24Wx24D,B/B/F,Valet,RH,PtdDwr,Ptd/StlDr,Ellipse Pull,Reg Top,Glide",
+    "quantity": 3,
+    "availableQty": 3,
+    "note": "",
+    "quantityReceived": 12,
+    "completedQty": 0
+  },
+  {
+    "id": "441",
+    "workorder": {
+      "text": "Install AC",
+      "value": "110"
+    },
+    "salesorder": {
+      "text": "Sales Order #SLS00000776",
+      "value": "20905"
+    },
+    "event": "",
+    "uuid": "20905_7",
+    "line": "7",
+    "item": {
+      "text": "J2HB-5124-SS1RS1",
+      "value": "2036"
+    },
+    "description": "",
+    "quantity": 3,
+    "availableQty": 3,
+    "note": "",
+    "quantityReceived": 12,
+    "completedQty": 0
+  },
+  {
+    "id": "686",
+    "workorder": {
+      "text": "Lobby Area - Product Core Dryrun",
+      "value": "138"
+    },
+    "salesorder": {
+      "text": "Sales Order #SLS00000835",
+      "value": "24427"
+    },
+    "event": "101212",
+    "uuid": "24427_6",
     "line": "6",
     "item": {
       "text": "J2HB-5124-SS1RS1",
@@ -10589,7 +10637,7 @@ const mockWOItems: WOItem[] = [{
     "completedQty": 0
   },
   {
-    "id": "648",
+    "id": "684",
     "workorder": {
       "text": "Lobby Area - Product Core Dryrun",
       "value": "138"
@@ -10598,7 +10646,7 @@ const mockWOItems: WOItem[] = [{
       "text": "Sales Order #SLS00000835",
       "value": "24427"
     },
-    "event": "101132",
+    "event": "101211",
     "uuid": "24427_6",
     "line": "6",
     "item": {
@@ -10606,56 +10654,8 @@ const mockWOItems: WOItem[] = [{
       "value": "2036"
     },
     "description": "X Series PST,HngdDr,51.5Hx24Wx24D,B/B/F,Valet,RH,PtdDwr,Ptd/StlDr,Ellipse Pull,Reg Top,Glide",
-    "quantity": 3,
-    "availableQty": 3,
-    "note": "",
-    "quantityReceived": 12,
-    "completedQty": 3
-  },
-  {
-    "id": "441",
-    "workorder": {
-      "text": "Install AC",
-      "value": "110"
-    },
-    "salesorder": {
-      "text": "Sales Order #SLS00000776",
-      "value": "20905"
-    },
-    "event": "",
-    "uuid": "20905_7",
-    "line": "7",
-    "item": {
-      "text": "J2HB-5124-SS1RS1",
-      "value": "2036"
-    },
-    "description": "",
-    "quantity": 3,
-    "availableQty": 3,
-    "note": "",
-    "quantityReceived": 12,
-    "completedQty": 0
-  },
-  {
-    "id": "427",
-    "workorder": {
-      "text": "Install Office Furniture",
-      "value": "109"
-    },
-    "salesorder": {
-      "text": "Sales Order #SLS00000774",
-      "value": "20903"
-    },
-    "event": "",
-    "uuid": "20903_7",
-    "line": "7",
-    "item": {
-      "text": "J2HB-5124-SS1RS1",
-      "value": "2036"
-    },
-    "description": "X Series PST,HngdDr,51.5Hx24Wx24D,B/B/F,Valet,RH,PtdDwr,Ptd/StlDr,Ellipse Pull,Reg Top,Glide",
-    "quantity": 3,
-    "availableQty": 3,
+    "quantity": 2,
+    "availableQty": 2,
     "note": "",
     "quantityReceived": 12,
     "completedQty": 0
@@ -10685,23 +10685,95 @@ const mockWOItems: WOItem[] = [{
     "completedQty": 0
   },
   {
-    "id": "505",
+    "id": "648",
     "workorder": {
-      "text": "Window Placement Planning",
-      "value": "116"
+      "text": "Lobby Area - Product Core Dryrun",
+      "value": "138"
     },
     "salesorder": {
-      "text": "Sales Order #SLS00000782",
-      "value": "20914"
+      "text": "Sales Order #SLS00000835",
+      "value": "24427"
+    },
+    "event": "101132",
+    "uuid": "24427_6",
+    "line": "6",
+    "item": {
+      "text": "J2HB-5124-SS1RS1",
+      "value": "2036"
+    },
+    "description": "X Series PST,HngdDr,51.5Hx24Wx24D,B/B/F,Valet,RH,PtdDwr,Ptd/StlDr,Ellipse Pull,Reg Top,Glide",
+    "quantity": 3,
+    "availableQty": 3,
+    "note": "",
+    "quantityReceived": 12,
+    "completedQty": 3
+  },
+  {
+    "id": "712",
+    "workorder": {
+      "text": "Lobby Area - Product Core Dryrun",
+      "value": "138"
+    },
+    "salesorder": {
+      "text": "Sales Order #SLS00000835",
+      "value": "24427"
+    },
+    "event": "101229",
+    "uuid": "24427_6",
+    "line": "6",
+    "item": {
+      "text": "J2HB-5124-SS1RS1",
+      "value": "2036"
+    },
+    "description": "X Series PST,HngdDr,51.5Hx24Wx24D,B/B/F,Valet,RH,PtdDwr,Ptd/StlDr,Ellipse Pull,Reg Top,Glide",
+    "quantity": 3,
+    "availableQty": 3,
+    "note": "",
+    "quantityReceived": 12,
+    "completedQty": 0
+  },
+  {
+    "id": "708",
+    "workorder": {
+      "text": "Lobby Area - Product Core Dryrun",
+      "value": "138"
+    },
+    "salesorder": {
+      "text": "Sales Order #SLS00000835",
+      "value": "24427"
+    },
+    "event": "101227",
+    "uuid": "24427_6",
+    "line": "6",
+    "item": {
+      "text": "J2HB-5124-SS1RS1",
+      "value": "2036"
+    },
+    "description": "X Series PST,HngdDr,51.5Hx24Wx24D,B/B/F,Valet,RH,PtdDwr,Ptd/StlDr,Ellipse Pull,Reg Top,Glide",
+    "quantity": 5,
+    "availableQty": 5,
+    "note": "",
+    "quantityReceived": 12,
+    "completedQty": 0
+  },
+  {
+    "id": "661",
+    "workorder": {
+      "text": "Product Core Testing - 2",
+      "value": "140"
+    },
+    "salesorder": {
+      "text": "Sales Order #SLS00000837",
+      "value": "24432"
     },
     "event": "",
-    "uuid": "20914_8",
-    "line": "8",
+    "uuid": "24432_6",
+    "line": "6",
     "item": {
-      "text": "JCTB-24S1",
-      "value": "2037"
+      "text": "J2HB-5124-SS1RS1",
+      "value": "2036"
     },
-    "description": "X Series,Pedestal,Cushion Top Kit, 24\"​【61 cm】D",
+    "description": "X Series PST,HngdDr,51.5Hx24Wx24D,B/B/F,Valet,RH,PtdDwr,Ptd/StlDr,Ellipse Pull,Reg Top,Glide",
     "quantity": 3,
     "availableQty": 3,
     "note": "",
@@ -10726,30 +10798,6 @@ const mockWOItems: WOItem[] = [{
       "value": "2037"
     },
     "description": "",
-    "quantity": 3,
-    "availableQty": 3,
-    "note": "",
-    "quantityReceived": 12,
-    "completedQty": 0
-  },
-  {
-    "id": "428",
-    "workorder": {
-      "text": "Install Office Furniture",
-      "value": "109"
-    },
-    "salesorder": {
-      "text": "Sales Order #SLS00000774",
-      "value": "20903"
-    },
-    "event": "",
-    "uuid": "20903_8",
-    "line": "8",
-    "item": {
-      "text": "JCTB-24S1",
-      "value": "2037"
-    },
-    "description": "X Series,Pedestal,Cushion Top Kit, 24\"​【61 cm】D",
     "quantity": 3,
     "availableQty": 3,
     "note": "",
@@ -10805,23 +10853,23 @@ const mockWOItems: WOItem[] = [{
     "completedQty": 0
   },
   {
-    "id": "678",
+    "id": "428",
     "workorder": {
-      "text": "HVAC Maintenance",
-      "value": "141"
+      "text": "Install Office Furniture",
+      "value": "109"
     },
     "salesorder": {
-      "text": "Sales Order #SLS00000848",
-      "value": "25472"
+      "text": "Sales Order #SLS00000774",
+      "value": "20903"
     },
-    "event": "101140",
-    "uuid": "",
+    "event": "",
+    "uuid": "20903_8",
     "line": "8",
     "item": {
-      "text": "JPMA-24-S1CS1",
-      "value": "2038"
+      "text": "JCTB-24S1",
+      "value": "2037"
     },
-    "description": "X Series,Pedestal,Mobile,B/F,24\"D,PtdDrwFrt, Stl Lkrl,Ellipse Pull,Cstr,No Top",
+    "description": "X Series,Pedestal,Cushion Top Kit, 24\"​【61 cm】D",
     "quantity": 3,
     "availableQty": 3,
     "note": "",
@@ -10829,23 +10877,23 @@ const mockWOItems: WOItem[] = [{
     "completedQty": 0
   },
   {
-    "id": "669",
+    "id": "505",
     "workorder": {
-      "text": "HVAC Maintenance",
-      "value": "141"
+      "text": "Window Placement Planning",
+      "value": "116"
     },
     "salesorder": {
-      "text": "Sales Order #SLS00000848",
-      "value": "25472"
+      "text": "Sales Order #SLS00000782",
+      "value": "20914"
     },
     "event": "",
-    "uuid": "",
+    "uuid": "20914_8",
     "line": "8",
     "item": {
-      "text": "JPMA-24-S1CS1",
-      "value": "2038"
+      "text": "JCTB-24S1",
+      "value": "2037"
     },
-    "description": "X Series,Pedestal,Mobile,B/F,24\"D,PtdDrwFrt, Stl Lkrl,Ellipse Pull,Cstr,No Top",
+    "description": "X Series,Pedestal,Cushion Top Kit, 24\"​【61 cm】D",
     "quantity": 3,
     "availableQty": 3,
     "note": "",
@@ -10877,30 +10925,6 @@ const mockWOItems: WOItem[] = [{
     "completedQty": 0
   },
   {
-    "id": "443",
-    "workorder": {
-      "text": "Install AC",
-      "value": "110"
-    },
-    "salesorder": {
-      "text": "Sales Order #SLS00000776",
-      "value": "20905"
-    },
-    "event": "",
-    "uuid": "20905_9",
-    "line": "9",
-    "item": {
-      "text": "JPMA-24-S1CS1",
-      "value": "2038"
-    },
-    "description": "",
-    "quantity": 3,
-    "availableQty": 3,
-    "note": "",
-    "quantityReceived": 12,
-    "completedQty": 0
-  },
-  {
     "id": "506",
     "workorder": {
       "text": "Window Placement Planning",
@@ -10925,6 +10949,78 @@ const mockWOItems: WOItem[] = [{
     "completedQty": 0
   },
   {
+    "id": "669",
+    "workorder": {
+      "text": "HVAC Maintenance",
+      "value": "141"
+    },
+    "salesorder": {
+      "text": "Sales Order #SLS00000848",
+      "value": "25472"
+    },
+    "event": "",
+    "uuid": "",
+    "line": "8",
+    "item": {
+      "text": "JPMA-24-S1CS1",
+      "value": "2038"
+    },
+    "description": "X Series,Pedestal,Mobile,B/F,24\"D,PtdDrwFrt, Stl Lkrl,Ellipse Pull,Cstr,No Top",
+    "quantity": 3,
+    "availableQty": 3,
+    "note": "",
+    "quantityReceived": 12,
+    "completedQty": 0
+  },
+  {
+    "id": "678",
+    "workorder": {
+      "text": "HVAC Maintenance",
+      "value": "141"
+    },
+    "salesorder": {
+      "text": "Sales Order #SLS00000848",
+      "value": "25472"
+    },
+    "event": "101140",
+    "uuid": "",
+    "line": "8",
+    "item": {
+      "text": "JPMA-24-S1CS1",
+      "value": "2038"
+    },
+    "description": "X Series,Pedestal,Mobile,B/F,24\"D,PtdDrwFrt, Stl Lkrl,Ellipse Pull,Cstr,No Top",
+    "quantity": 3,
+    "availableQty": 3,
+    "note": "",
+    "quantityReceived": 12,
+    "completedQty": 0
+  },
+  {
+    "id": "443",
+    "workorder": {
+      "text": "Install AC",
+      "value": "110"
+    },
+    "salesorder": {
+      "text": "Sales Order #SLS00000776",
+      "value": "20905"
+    },
+    "event": "",
+    "uuid": "20905_9",
+    "line": "9",
+    "item": {
+      "text": "JPMA-24-S1CS1",
+      "value": "2038"
+    },
+    "description": "",
+    "quantity": 3,
+    "availableQty": 3,
+    "note": "",
+    "quantityReceived": 12,
+    "completedQty": 0
+  },
+  {
     "id": "305",
     "workorder": {
       "text": "Furniture Installation",
@@ -10935,30 +11031,6 @@ const mockWOItems: WOItem[] = [{
       "value": "19372"
     },
     "event": "100960",
-    "uuid": "19372_1",
-    "line": "1",
-    "item": {
-      "text": "LOT00001",
-      "value": "677"
-    },
-    "description": "",
-    "quantity": 1,
-    "availableQty": 1,
-    "note": "",
-    "quantityReceived": 626,
-    "completedQty": 0
-  },
-  {
-    "id": "373",
-    "workorder": {
-      "text": "Furniture Installation and Pickup",
-      "value": "101"
-    },
-    "salesorder": {
-      "text": "Sales Order #SLS00000713",
-      "value": "19372"
-    },
-    "event": "",
     "uuid": "19372_1",
     "line": "1",
     "item": {
@@ -10997,7 +11069,7 @@ const mockWOItems: WOItem[] = [{
     "completedQty": 0
   },
   {
-    "id": "374",
+    "id": "373",
     "workorder": {
       "text": "Furniture Installation and Pickup",
       "value": "101"
@@ -11007,17 +11079,17 @@ const mockWOItems: WOItem[] = [{
       "value": "19372"
     },
     "event": "",
-    "uuid": "19372_2",
-    "line": "2",
+    "uuid": "19372_1",
+    "line": "1",
     "item": {
-      "text": "LOT00002",
-      "value": "678"
+      "text": "LOT00001",
+      "value": "677"
     },
     "description": "",
     "quantity": 1,
     "availableQty": 1,
     "note": "",
-    "quantityReceived": 726,
+    "quantityReceived": 626,
     "completedQty": 0
   },
   {
@@ -11032,6 +11104,30 @@ const mockWOItems: WOItem[] = [{
     },
     "event": "",
     "uuid": "20897_2",
+    "line": "2",
+    "item": {
+      "text": "LOT00002",
+      "value": "678"
+    },
+    "description": "",
+    "quantity": 1,
+    "availableQty": 1,
+    "note": "",
+    "quantityReceived": 726,
+    "completedQty": 0
+  },
+  {
+    "id": "374",
+    "workorder": {
+      "text": "Furniture Installation and Pickup",
+      "value": "101"
+    },
+    "salesorder": {
+      "text": "Sales Order #SLS00000713",
+      "value": "19372"
+    },
+    "event": "",
+    "uuid": "19372_2",
     "line": "2",
     "item": {
       "text": "LOT00002",
@@ -11093,7 +11189,7 @@ const mockWOItems: WOItem[] = [{
     "completedQty": 0
   },
   {
-    "id": "359",
+    "id": "353",
     "workorder": {
       "text": "Work Order for Testing Nov 5",
       "value": "96"
@@ -11102,7 +11198,7 @@ const mockWOItems: WOItem[] = [{
       "text": "Sales Order #SLS00000755",
       "value": "20872"
     },
-    "event": "101012",
+    "event": "",
     "uuid": "20872_1",
     "line": "1",
     "item": {
@@ -11141,6 +11237,30 @@ const mockWOItems: WOItem[] = [{
     "completedQty": 0
   },
   {
+    "id": "359",
+    "workorder": {
+      "text": "Work Order for Testing Nov 5",
+      "value": "96"
+    },
+    "salesorder": {
+      "text": "Sales Order #SLS00000755",
+      "value": "20872"
+    },
+    "event": "101012",
+    "uuid": "20872_1",
+    "line": "1",
+    "item": {
+      "text": "VZCC-0024-A",
+      "value": "1144"
+    },
+    "description": "",
+    "quantity": 60,
+    "availableQty": 60,
+    "note": "",
+    "quantityReceived": 0,
+    "completedQty": 0
+  },
+  {
     "id": "365",
     "workorder": {
       "text": "Work Order Dry Run - Nov 8",
@@ -11165,47 +11285,23 @@ const mockWOItems: WOItem[] = [{
     "completedQty": 0
   },
   {
-    "id": "353",
+    "id": "430",
     "workorder": {
-      "text": "Work Order for Testing Nov 5",
-      "value": "96"
+      "text": "Install Office Furniture",
+      "value": "109"
     },
     "salesorder": {
-      "text": "Sales Order #SLS00000755",
-      "value": "20872"
+      "text": "Sales Order #SLS00000774",
+      "value": "20903"
     },
     "event": "",
-    "uuid": "20872_1",
-    "line": "1",
-    "item": {
-      "text": "VZCC-0024-A",
-      "value": "1144"
-    },
-    "description": "",
-    "quantity": 60,
-    "availableQty": 60,
-    "note": "",
-    "quantityReceived": 0,
-    "completedQty": 0
-  },
-  {
-    "id": "670",
-    "workorder": {
-      "text": "HVAC Maintenance",
-      "value": "141"
-    },
-    "salesorder": {
-      "text": "Sales Order #SLS00000848",
-      "value": "25472"
-    },
-    "event": "",
-    "uuid": "",
-    "line": "9",
+    "uuid": "20903_10",
+    "line": "10",
     "item": {
       "text": "VZCC-0054-HSS1",
       "value": "2031"
     },
-    "description": "Compose,Top Trim 54In.W,Stl, Pnl Frame",
+    "description": "Compose,Top Trim 54In​【137 cm】.W,Stl, Pnl Frame",
     "quantity": 1,
     "availableQty": 1,
     "note": "",
@@ -11213,23 +11309,71 @@ const mockWOItems: WOItem[] = [{
     "completedQty": 0
   },
   {
-    "id": "665",
+    "id": "422",
     "workorder": {
-      "text": "HVAC Maintenance",
-      "value": "141"
+      "text": "Install Office Furniture",
+      "value": "109"
     },
     "salesorder": {
-      "text": "Sales Order #SLS00000848",
-      "value": "25472"
+      "text": "Sales Order #SLS00000774",
+      "value": "20903"
     },
     "event": "",
-    "uuid": "",
-    "line": "1",
+    "uuid": "20903_2",
+    "line": "2",
     "item": {
       "text": "VZCC-0054-HSS1",
       "value": "2031"
     },
-    "description": "Compose,Top Trim 54In.W,Stl, Pnl Frame",
+    "description": "Compose,Top Trim 54In​【137 cm】.W,Stl, Pnl Frame",
+    "quantity": 1,
+    "availableQty": 1,
+    "note": "",
+    "quantityReceived": 30,
+    "completedQty": 0
+  },
+  {
+    "id": "402",
+    "workorder": {
+      "text": "Install Cove Lights - Follow Up",
+      "value": "107"
+    },
+    "salesorder": {
+      "text": "Sales Order #SLS00000771",
+      "value": "20900"
+    },
+    "event": "",
+    "uuid": "20900_3",
+    "line": "3",
+    "item": {
+      "text": "VZCC-0054-HSS1",
+      "value": "2031"
+    },
+    "description": "",
+    "quantity": 1,
+    "availableQty": 1,
+    "note": "",
+    "quantityReceived": 30,
+    "completedQty": 0
+  },
+  {
+    "id": "499",
+    "workorder": {
+      "text": "Window Placement Planning",
+      "value": "116"
+    },
+    "salesorder": {
+      "text": "Sales Order #SLS00000782",
+      "value": "20914"
+    },
+    "event": "",
+    "uuid": "20914_2",
+    "line": "2",
+    "item": {
+      "text": "VZCC-0054-HSS1",
+      "value": "2031"
+    },
+    "description": "Compose,Top Trim 54In​【137 cm】.W,Stl, Pnl Frame",
     "quantity": 1,
     "availableQty": 1,
     "note": "",
@@ -11285,17 +11429,89 @@ const mockWOItems: WOItem[] = [{
     "completedQty": 0
   },
   {
-    "id": "656",
+    "id": "395",
     "workorder": {
-      "text": "Product Core Testing - 2",
-      "value": "140"
+      "text": "Install Cove Lights",
+      "value": "106"
     },
     "salesorder": {
-      "text": "Sales Order #SLS00000837",
-      "value": "24432"
+      "text": "Sales Order #SLS00000771",
+      "value": "20900"
     },
     "event": "",
-    "uuid": "24432_1",
+    "uuid": "20900_3",
+    "line": "3",
+    "item": {
+      "text": "VZCC-0054-HSS1",
+      "value": "2031"
+    },
+    "description": "",
+    "quantity": 1,
+    "availableQty": 1,
+    "note": "",
+    "quantityReceived": 30,
+    "completedQty": 0
+  },
+  {
+    "id": "444",
+    "workorder": {
+      "text": "Install AC",
+      "value": "110"
+    },
+    "salesorder": {
+      "text": "Sales Order #SLS00000776",
+      "value": "20905"
+    },
+    "event": "",
+    "uuid": "20905_10",
+    "line": "10",
+    "item": {
+      "text": "VZCC-0054-HSS1",
+      "value": "2031"
+    },
+    "description": "",
+    "quantity": 1,
+    "availableQty": 1,
+    "note": "",
+    "quantityReceived": 30,
+    "completedQty": 0
+  },
+  {
+    "id": "436",
+    "workorder": {
+      "text": "Install AC",
+      "value": "110"
+    },
+    "salesorder": {
+      "text": "Sales Order #SLS00000776",
+      "value": "20905"
+    },
+    "event": "",
+    "uuid": "20905_2",
+    "line": "2",
+    "item": {
+      "text": "VZCC-0054-HSS1",
+      "value": "2031"
+    },
+    "description": "",
+    "quantity": 1,
+    "availableQty": 1,
+    "note": "",
+    "quantityReceived": 30,
+    "completedQty": 0
+  },
+  {
+    "id": "687",
+    "workorder": {
+      "text": "Lobby Area - Product Core Dryrun",
+      "value": "138"
+    },
+    "salesorder": {
+      "text": "Sales Order #SLS00000835",
+      "value": "24427"
+    },
+    "event": "101212",
+    "uuid": "24427_1",
     "line": "1",
     "item": {
       "text": "VZCC-0054-HSS1",
@@ -11304,6 +11520,78 @@ const mockWOItems: WOItem[] = [{
     "description": "Compose,Top Trim 54In.W,Stl, Pnl Frame",
     "quantity": 1,
     "availableQty": 1,
+    "note": "",
+    "quantityReceived": 30,
+    "completedQty": 0
+  },
+  {
+    "id": "685",
+    "workorder": {
+      "text": "Lobby Area - Product Core Dryrun",
+      "value": "138"
+    },
+    "salesorder": {
+      "text": "Sales Order #SLS00000835",
+      "value": "24427"
+    },
+    "event": "101211",
+    "uuid": "24427_1",
+    "line": "1",
+    "item": {
+      "text": "VZCC-0054-HSS1",
+      "value": "2031"
+    },
+    "description": "Compose,Top Trim 54In.W,Stl, Pnl Frame",
+    "quantity": 1,
+    "availableQty": 1,
+    "note": "",
+    "quantityReceived": 30,
+    "completedQty": 0
+  },
+  {
+    "id": "709",
+    "workorder": {
+      "text": "Lobby Area - Product Core Dryrun",
+      "value": "138"
+    },
+    "salesorder": {
+      "text": "Sales Order #SLS00000835",
+      "value": "24427"
+    },
+    "event": "101227",
+    "uuid": "24427_1",
+    "line": "1",
+    "item": {
+      "text": "VZCC-0054-HSS1",
+      "value": "2031"
+    },
+    "description": "Compose,Top Trim 54In.W,Stl, Pnl Frame",
+    "quantity": 3,
+    "availableQty": 3,
+    "note": "",
+    "quantityReceived": 30,
+    "completedQty": 0
+  },
+  {
+    "id": "713",
+    "workorder": {
+      "text": "Lobby Area - Product Core Dryrun",
+      "value": "138"
+    },
+    "salesorder": {
+      "text": "Sales Order #SLS00000835",
+      "value": "24427"
+    },
+    "event": "101229",
+    "uuid": "24427_1",
+    "line": "1",
+    "item": {
+      "text": "VZCC-0054-HSS1",
+      "value": "2031"
+    },
+    "description": "Compose,Top Trim 54In.W,Stl, Pnl Frame",
+    "quantity": 5,
+    "availableQty": 5,
     "note": "",
     "quantityReceived": 30,
     "completedQty": 0
@@ -11344,6 +11632,54 @@ const mockWOItems: WOItem[] = [{
     },
     "event": "",
     "uuid": "24427_1",
+    "line": "1",
+    "item": {
+      "text": "VZCC-0054-HSS1",
+      "value": "2031"
+    },
+    "description": "Compose,Top Trim 54In.W,Stl, Pnl Frame",
+    "quantity": 1,
+    "availableQty": 1,
+    "note": "",
+    "quantityReceived": 30,
+    "completedQty": 0
+  },
+  {
+    "id": "656",
+    "workorder": {
+      "text": "Product Core Testing - 2",
+      "value": "140"
+    },
+    "salesorder": {
+      "text": "Sales Order #SLS00000837",
+      "value": "24432"
+    },
+    "event": "",
+    "uuid": "24432_1",
+    "line": "1",
+    "item": {
+      "text": "VZCC-0054-HSS1",
+      "value": "2031"
+    },
+    "description": "Compose,Top Trim 54In.W,Stl, Pnl Frame",
+    "quantity": 1,
+    "availableQty": 1,
+    "note": "",
+    "quantityReceived": 30,
+    "completedQty": 0
+  },
+  {
+    "id": "618",
+    "workorder": {
+      "text": "Android Full Dryrun",
+      "value": "137"
+    },
+    "salesorder": {
+      "text": "Sales Order #SLS00000826",
+      "value": "23471"
+    },
+    "event": "",
+    "uuid": "23471_1",
     "line": "1",
     "item": {
       "text": "VZCC-0054-HSS1",
@@ -11405,17 +11741,41 @@ const mockWOItems: WOItem[] = [{
     "completedQty": 0
   },
   {
-    "id": "618",
+    "id": "670",
     "workorder": {
-      "text": "Android Full Dryrun",
-      "value": "137"
+      "text": "HVAC Maintenance",
+      "value": "141"
     },
     "salesorder": {
-      "text": "Sales Order #SLS00000826",
-      "value": "23471"
+      "text": "Sales Order #SLS00000848",
+      "value": "25472"
     },
     "event": "",
-    "uuid": "23471_1",
+    "uuid": "",
+    "line": "9",
+    "item": {
+      "text": "VZCC-0054-HSS1",
+      "value": "2031"
+    },
+    "description": "Compose,Top Trim 54In.W,Stl, Pnl Frame",
+    "quantity": 1,
+    "availableQty": 1,
+    "note": "",
+    "quantityReceived": 30,
+    "completedQty": 0
+  },
+  {
+    "id": "665",
+    "workorder": {
+      "text": "HVAC Maintenance",
+      "value": "141"
+    },
+    "salesorder": {
+      "text": "Sales Order #SLS00000848",
+      "value": "25472"
+    },
+    "event": "",
+    "uuid": "",
     "line": "1",
     "item": {
       "text": "VZCC-0054-HSS1",
@@ -11453,171 +11813,51 @@ const mockWOItems: WOItem[] = [{
     "completedQty": 0
   },
   {
-    "id": "395",
+    "id": "356",
     "workorder": {
-      "text": "Install Cove Lights",
-      "value": "106"
+      "text": "Work Order for Testing Nov 5 - 2",
+      "value": "97"
     },
     "salesorder": {
-      "text": "Sales Order #SLS00000771",
-      "value": "20900"
+      "text": "Sales Order #SLS00000755",
+      "value": "20872"
     },
     "event": "",
-    "uuid": "20900_3",
-    "line": "3",
-    "item": {
-      "text": "VZCC-0054-HSS1",
-      "value": "2031"
-    },
-    "description": "",
-    "quantity": 1,
-    "availableQty": 1,
-    "note": "",
-    "quantityReceived": 30,
-    "completedQty": 0
-  },
-  {
-    "id": "402",
-    "workorder": {
-      "text": "Install Cove Lights - Follow Up",
-      "value": "107"
-    },
-    "salesorder": {
-      "text": "Sales Order #SLS00000771",
-      "value": "20900"
-    },
-    "event": "",
-    "uuid": "20900_3",
-    "line": "3",
-    "item": {
-      "text": "VZCC-0054-HSS1",
-      "value": "2031"
-    },
-    "description": "",
-    "quantity": 1,
-    "availableQty": 1,
-    "note": "",
-    "quantityReceived": 30,
-    "completedQty": 0
-  },
-  {
-    "id": "422",
-    "workorder": {
-      "text": "Install Office Furniture",
-      "value": "109"
-    },
-    "salesorder": {
-      "text": "Sales Order #SLS00000774",
-      "value": "20903"
-    },
-    "event": "",
-    "uuid": "20903_2",
+    "uuid": "20872_2",
     "line": "2",
     "item": {
-      "text": "VZCC-0054-HSS1",
-      "value": "2031"
-    },
-    "description": "Compose,Top Trim 54In​【137 cm】.W,Stl, Pnl Frame",
-    "quantity": 1,
-    "availableQty": 1,
-    "note": "",
-    "quantityReceived": 30,
-    "completedQty": 0
-  },
-  {
-    "id": "430",
-    "workorder": {
-      "text": "Install Office Furniture",
-      "value": "109"
-    },
-    "salesorder": {
-      "text": "Sales Order #SLS00000774",
-      "value": "20903"
-    },
-    "event": "",
-    "uuid": "20903_10",
-    "line": "10",
-    "item": {
-      "text": "VZCC-0054-HSS1",
-      "value": "2031"
-    },
-    "description": "Compose,Top Trim 54In​【137 cm】.W,Stl, Pnl Frame",
-    "quantity": 1,
-    "availableQty": 1,
-    "note": "",
-    "quantityReceived": 30,
-    "completedQty": 0
-  },
-  {
-    "id": "436",
-    "workorder": {
-      "text": "Install AC",
-      "value": "110"
-    },
-    "salesorder": {
-      "text": "Sales Order #SLS00000776",
-      "value": "20905"
-    },
-    "event": "",
-    "uuid": "20905_2",
-    "line": "2",
-    "item": {
-      "text": "VZCC-0054-HSS1",
-      "value": "2031"
+      "text": "VZCC-0054-HSS1_NEW2",
+      "value": "2935"
     },
     "description": "",
-    "quantity": 1,
-    "availableQty": 1,
+    "quantity": 6,
+    "availableQty": 6,
     "note": "",
-    "quantityReceived": 30,
+    "quantityReceived": 0,
     "completedQty": 0
   },
   {
-    "id": "444",
+    "id": "360",
     "workorder": {
-      "text": "Install AC",
-      "value": "110"
+      "text": "Work Order for Testing Nov 5",
+      "value": "96"
     },
     "salesorder": {
-      "text": "Sales Order #SLS00000776",
-      "value": "20905"
+      "text": "Sales Order #SLS00000755",
+      "value": "20872"
     },
-    "event": "",
-    "uuid": "20905_10",
-    "line": "10",
-    "item": {
-      "text": "VZCC-0054-HSS1",
-      "value": "2031"
-    },
-    "description": "",
-    "quantity": 1,
-    "availableQty": 1,
-    "note": "",
-    "quantityReceived": 30,
-    "completedQty": 0
-  },
-  {
-    "id": "499",
-    "workorder": {
-      "text": "Window Placement Planning",
-      "value": "116"
-    },
-    "salesorder": {
-      "text": "Sales Order #SLS00000782",
-      "value": "20914"
-    },
-    "event": "",
-    "uuid": "20914_2",
+    "event": "101012",
+    "uuid": "20872_2",
     "line": "2",
     "item": {
-      "text": "VZCC-0054-HSS1",
-      "value": "2031"
+      "text": "VZCC-0054-HSS1_NEW2",
+      "value": "2935"
     },
-    "description": "Compose,Top Trim 54In​【137 cm】.W,Stl, Pnl Frame",
-    "quantity": 1,
-    "availableQty": 1,
+    "description": "",
+    "quantity": 7,
+    "availableQty": 7,
     "note": "",
-    "quantityReceived": 30,
+    "quantityReceived": 0,
     "completedQty": 0
   },
   {
@@ -11664,54 +11904,6 @@ const mockWOItems: WOItem[] = [{
     "description": "",
     "quantity": 7,
     "availableQty": 7,
-    "note": "",
-    "quantityReceived": 0,
-    "completedQty": 0
-  },
-  {
-    "id": "360",
-    "workorder": {
-      "text": "Work Order for Testing Nov 5",
-      "value": "96"
-    },
-    "salesorder": {
-      "text": "Sales Order #SLS00000755",
-      "value": "20872"
-    },
-    "event": "101012",
-    "uuid": "20872_2",
-    "line": "2",
-    "item": {
-      "text": "VZCC-0054-HSS1_NEW2",
-      "value": "2935"
-    },
-    "description": "",
-    "quantity": 7,
-    "availableQty": 7,
-    "note": "",
-    "quantityReceived": 0,
-    "completedQty": 0
-  },
-  {
-    "id": "356",
-    "workorder": {
-      "text": "Work Order for Testing Nov 5 - 2",
-      "value": "97"
-    },
-    "salesorder": {
-      "text": "Sales Order #SLS00000755",
-      "value": "20872"
-    },
-    "event": "",
-    "uuid": "20872_2",
-    "line": "2",
-    "item": {
-      "text": "VZCC-0054-HSS1_NEW2",
-      "value": "2935"
-    },
-    "description": "",
-    "quantity": 6,
-    "availableQty": 6,
     "note": "",
     "quantityReceived": 0,
     "completedQty": 0
@@ -11789,23 +11981,47 @@ const mockWOItems: WOItem[] = [{
     "completedQty": 0
   },
   {
-    "id": "657",
+    "id": "437",
     "workorder": {
-      "text": "Product Core Testing - 2",
-      "value": "140"
+      "text": "Install AC",
+      "value": "110"
     },
     "salesorder": {
-      "text": "Sales Order #SLS00000837",
-      "value": "24432"
+      "text": "Sales Order #SLS00000776",
+      "value": "20905"
     },
     "event": "",
-    "uuid": "24432_2",
-    "line": "2",
+    "uuid": "20905_3",
+    "line": "3",
     "item": {
       "text": "VZCE-7400-HS1",
       "value": "2032"
     },
-    "description": "Compose,Panel Trim,End-Of-Run 74In.H, Steel",
+    "description": "",
+    "quantity": 3,
+    "availableQty": 3,
+    "note": "",
+    "quantityReceived": 90,
+    "completedQty": 0
+  },
+  {
+    "id": "500",
+    "workorder": {
+      "text": "Window Placement Planning",
+      "value": "116"
+    },
+    "salesorder": {
+      "text": "Sales Order #SLS00000782",
+      "value": "20914"
+    },
+    "event": "",
+    "uuid": "20914_3",
+    "line": "3",
+    "item": {
+      "text": "VZCE-7400-HS1",
+      "value": "2032"
+    },
+    "description": "Compose,Panel Trim,End-Of-Run 74In​【188 cm】.H, Steel",
     "quantity": 3,
     "availableQty": 3,
     "note": "",
@@ -11837,47 +12053,23 @@ const mockWOItems: WOItem[] = [{
     "completedQty": 0
   },
   {
-    "id": "675",
+    "id": "538",
     "workorder": {
-      "text": "Lobby Area - Product Test",
-      "value": "139"
+      "text": "World Bank_WRKORDR0001",
+      "value": "122"
     },
     "salesorder": {
-      "text": "Sales Order #SLS00000836",
-      "value": "24428"
+      "text": "Sales Order #SLS00000795",
+      "value": "22459"
     },
-    "event": "101150",
-    "uuid": "24428_2",
+    "event": "",
+    "uuid": "22459_2",
     "line": "2",
     "item": {
       "text": "VZCE-7400-HS1",
       "value": "2032"
     },
-    "description": "Compose,Panel Trim,End-Of-Run 74In.H, Steel",
-    "quantity": 3,
-    "availableQty": 3,
-    "note": "",
-    "quantityReceived": 90,
-    "completedQty": 0
-  },
-  {
-    "id": "396",
-    "workorder": {
-      "text": "Install Cove Lights",
-      "value": "106"
-    },
-    "salesorder": {
-      "text": "Sales Order #SLS00000771",
-      "value": "20900"
-    },
-    "event": "",
-    "uuid": "20900_4",
-    "line": "4",
-    "item": {
-      "text": "VZCE-7400-HS1",
-      "value": "2032"
-    },
-    "description": "",
+    "description": "Compose,Panel Trim,End-Of-Run 74In​【188 cm】.H, Steel",
     "quantity": 3,
     "availableQty": 3,
     "note": "",
@@ -11909,23 +12101,23 @@ const mockWOItems: WOItem[] = [{
     "completedQty": 0
   },
   {
-    "id": "423",
+    "id": "675",
     "workorder": {
-      "text": "Install Office Furniture",
-      "value": "109"
+      "text": "Lobby Area - Product Test",
+      "value": "139"
     },
     "salesorder": {
-      "text": "Sales Order #SLS00000774",
-      "value": "20903"
+      "text": "Sales Order #SLS00000836",
+      "value": "24428"
     },
-    "event": "",
-    "uuid": "20903_3",
-    "line": "3",
+    "event": "101150",
+    "uuid": "24428_2",
+    "line": "2",
     "item": {
       "text": "VZCE-7400-HS1",
       "value": "2032"
     },
-    "description": "Compose,Panel Trim,End-Of-Run 74In​【188 cm】.H, Steel",
+    "description": "Compose,Panel Trim,End-Of-Run 74In.H, Steel",
     "quantity": 3,
     "availableQty": 3,
     "note": "",
@@ -11957,23 +12149,23 @@ const mockWOItems: WOItem[] = [{
     "completedQty": 0
   },
   {
-    "id": "437",
+    "id": "423",
     "workorder": {
-      "text": "Install AC",
-      "value": "110"
+      "text": "Install Office Furniture",
+      "value": "109"
     },
     "salesorder": {
-      "text": "Sales Order #SLS00000776",
-      "value": "20905"
+      "text": "Sales Order #SLS00000774",
+      "value": "20903"
     },
     "event": "",
-    "uuid": "20905_3",
+    "uuid": "20903_3",
     "line": "3",
     "item": {
       "text": "VZCE-7400-HS1",
       "value": "2032"
     },
-    "description": "",
+    "description": "Compose,Panel Trim,End-Of-Run 74In​【188 cm】.H, Steel",
     "quantity": 3,
     "availableQty": 3,
     "note": "",
@@ -11998,30 +12190,6 @@ const mockWOItems: WOItem[] = [{
       "value": "2032"
     },
     "description": "",
-    "quantity": 3,
-    "availableQty": 3,
-    "note": "",
-    "quantityReceived": 90,
-    "completedQty": 0
-  },
-  {
-    "id": "500",
-    "workorder": {
-      "text": "Window Placement Planning",
-      "value": "116"
-    },
-    "salesorder": {
-      "text": "Sales Order #SLS00000782",
-      "value": "20914"
-    },
-    "event": "",
-    "uuid": "20914_3",
-    "line": "3",
-    "item": {
-      "text": "VZCE-7400-HS1",
-      "value": "2032"
-    },
-    "description": "Compose,Panel Trim,End-Of-Run 74In​【188 cm】.H, Steel",
     "quantity": 3,
     "availableQty": 3,
     "note": "",
@@ -12077,42 +12245,66 @@ const mockWOItems: WOItem[] = [{
     "completedQty": 0
   },
   {
-    "id": "667",
+    "id": "396",
     "workorder": {
-      "text": "HVAC Maintenance",
-      "value": "141"
+      "text": "Install Cove Lights",
+      "value": "106"
     },
     "salesorder": {
-      "text": "Sales Order #SLS00000848",
-      "value": "25472"
+      "text": "Sales Order #SLS00000771",
+      "value": "20900"
     },
     "event": "",
-    "uuid": "",
-    "line": "3",
+    "uuid": "20900_4",
+    "line": "4",
     "item": {
-      "text": "VZCW-0000-PS1S1",
-      "value": "2033"
+      "text": "VZCE-7400-HS1",
+      "value": "2032"
     },
-    "description": "Compose,Wall Mount,Fits All Heights",
+    "description": "",
     "quantity": 3,
     "availableQty": 3,
     "note": "",
-    "quantityReceived": 48,
+    "quantityReceived": 90,
     "completedQty": 0
   },
   {
-    "id": "438",
+    "id": "657",
     "workorder": {
-      "text": "Install AC",
-      "value": "110"
+      "text": "Product Core Testing - 2",
+      "value": "140"
     },
     "salesorder": {
-      "text": "Sales Order #SLS00000776",
-      "value": "20905"
+      "text": "Sales Order #SLS00000837",
+      "value": "24432"
     },
     "event": "",
-    "uuid": "20905_4",
-    "line": "4",
+    "uuid": "24432_2",
+    "line": "2",
+    "item": {
+      "text": "VZCE-7400-HS1",
+      "value": "2032"
+    },
+    "description": "Compose,Panel Trim,End-Of-Run 74In.H, Steel",
+    "quantity": 3,
+    "availableQty": 3,
+    "note": "",
+    "quantityReceived": 90,
+    "completedQty": 0
+  },
+  {
+    "id": "404",
+    "workorder": {
+      "text": "Install Cove Lights - Follow Up",
+      "value": "107"
+    },
+    "salesorder": {
+      "text": "Sales Order #SLS00000771",
+      "value": "20900"
+    },
+    "event": "",
+    "uuid": "20900_5",
+    "line": "5",
     "item": {
       "text": "VZCW-0000-PS1S1",
       "value": "2033"
@@ -12125,17 +12317,17 @@ const mockWOItems: WOItem[] = [{
     "completedQty": 0
   },
   {
-    "id": "501",
+    "id": "424",
     "workorder": {
-      "text": "Window Placement Planning",
-      "value": "116"
+      "text": "Install Office Furniture",
+      "value": "109"
     },
     "salesorder": {
-      "text": "Sales Order #SLS00000782",
-      "value": "20914"
+      "text": "Sales Order #SLS00000774",
+      "value": "20903"
     },
     "event": "",
-    "uuid": "20914_4",
+    "uuid": "20903_4",
     "line": "4",
     "item": {
       "text": "VZCW-0000-PS1S1",
@@ -12173,41 +12365,17 @@ const mockWOItems: WOItem[] = [{
     "completedQty": 0
   },
   {
-    "id": "397",
+    "id": "667",
     "workorder": {
-      "text": "Install Cove Lights",
-      "value": "106"
+      "text": "HVAC Maintenance",
+      "value": "141"
     },
     "salesorder": {
-      "text": "Sales Order #SLS00000771",
-      "value": "20900"
+      "text": "Sales Order #SLS00000848",
+      "value": "25472"
     },
     "event": "",
-    "uuid": "20900_5",
-    "line": "5",
-    "item": {
-      "text": "VZCW-0000-PS1S1",
-      "value": "2033"
-    },
-    "description": "",
-    "quantity": 3,
-    "availableQty": 3,
-    "note": "",
-    "quantityReceived": 48,
-    "completedQty": 0
-  },
-  {
-    "id": "644",
-    "workorder": {
-      "text": "Lobby Area - Product Core Dryrun",
-      "value": "138"
-    },
-    "salesorder": {
-      "text": "Sales Order #SLS00000835",
-      "value": "24427"
-    },
-    "event": "",
-    "uuid": "24427_3",
+    "uuid": "",
     "line": "3",
     "item": {
       "text": "VZCW-0000-PS1S1",
@@ -12245,10 +12413,106 @@ const mockWOItems: WOItem[] = [{
     "completedQty": 0
   },
   {
-    "id": "404",
+    "id": "619",
     "workorder": {
-      "text": "Install Cove Lights - Follow Up",
-      "value": "107"
+      "text": "Android Full Dryrun",
+      "value": "137"
+    },
+    "salesorder": {
+      "text": "Sales Order #SLS00000826",
+      "value": "23471"
+    },
+    "event": "",
+    "uuid": "23471_3",
+    "line": "3",
+    "item": {
+      "text": "VZCW-0000-PS1S1",
+      "value": "2033"
+    },
+    "description": "Compose,Wall Mount,Fits All Heights",
+    "quantity": 3,
+    "availableQty": 3,
+    "note": "",
+    "quantityReceived": 48,
+    "completedQty": 0
+  },
+  {
+    "id": "658",
+    "workorder": {
+      "text": "Product Core Testing - 2",
+      "value": "140"
+    },
+    "salesorder": {
+      "text": "Sales Order #SLS00000837",
+      "value": "24432"
+    },
+    "event": "",
+    "uuid": "24432_3",
+    "line": "3",
+    "item": {
+      "text": "VZCW-0000-PS1S1",
+      "value": "2033"
+    },
+    "description": "Compose,Wall Mount,Fits All Heights",
+    "quantity": 3,
+    "availableQty": 3,
+    "note": "",
+    "quantityReceived": 48,
+    "completedQty": 0
+  },
+  {
+    "id": "644",
+    "workorder": {
+      "text": "Lobby Area - Product Core Dryrun",
+      "value": "138"
+    },
+    "salesorder": {
+      "text": "Sales Order #SLS00000835",
+      "value": "24427"
+    },
+    "event": "",
+    "uuid": "24427_3",
+    "line": "3",
+    "item": {
+      "text": "VZCW-0000-PS1S1",
+      "value": "2033"
+    },
+    "description": "Compose,Wall Mount,Fits All Heights",
+    "quantity": 3,
+    "availableQty": 3,
+    "note": "",
+    "quantityReceived": 48,
+    "completedQty": 0
+  },
+  {
+    "id": "438",
+    "workorder": {
+      "text": "Install AC",
+      "value": "110"
+    },
+    "salesorder": {
+      "text": "Sales Order #SLS00000776",
+      "value": "20905"
+    },
+    "event": "",
+    "uuid": "20905_4",
+    "line": "4",
+    "item": {
+      "text": "VZCW-0000-PS1S1",
+      "value": "2033"
+    },
+    "description": "",
+    "quantity": 3,
+    "availableQty": 3,
+    "note": "",
+    "quantityReceived": 48,
+    "completedQty": 0
+  },
+  {
+    "id": "397",
+    "workorder": {
+      "text": "Install Cove Lights",
+      "value": "106"
     },
     "salesorder": {
       "text": "Sales Order #SLS00000771",
@@ -12293,41 +12557,17 @@ const mockWOItems: WOItem[] = [{
     "completedQty": 0
   },
   {
-    "id": "619",
+    "id": "501",
     "workorder": {
-      "text": "Android Full Dryrun",
-      "value": "137"
+      "text": "Window Placement Planning",
+      "value": "116"
     },
     "salesorder": {
-      "text": "Sales Order #SLS00000826",
-      "value": "23471"
+      "text": "Sales Order #SLS00000782",
+      "value": "20914"
     },
     "event": "",
-    "uuid": "23471_3",
-    "line": "3",
-    "item": {
-      "text": "VZCW-0000-PS1S1",
-      "value": "2033"
-    },
-    "description": "Compose,Wall Mount,Fits All Heights",
-    "quantity": 3,
-    "availableQty": 3,
-    "note": "",
-    "quantityReceived": 48,
-    "completedQty": 0
-  },
-  {
-    "id": "424",
-    "workorder": {
-      "text": "Install Office Furniture",
-      "value": "109"
-    },
-    "salesorder": {
-      "text": "Sales Order #SLS00000774",
-      "value": "20903"
-    },
-    "event": "",
-    "uuid": "20903_4",
+    "uuid": "20914_4",
     "line": "4",
     "item": {
       "text": "VZCW-0000-PS1S1",
@@ -12341,27 +12581,99 @@ const mockWOItems: WOItem[] = [{
     "completedQty": 0
   },
   {
-    "id": "658",
+    "id": "653",
     "workorder": {
-      "text": "Product Core Testing - 2",
-      "value": "140"
+      "text": "Lobby Area - Product Test",
+      "value": "139"
     },
     "salesorder": {
-      "text": "Sales Order #SLS00000837",
-      "value": "24432"
+      "text": "Sales Order #SLS00000836",
+      "value": "24428"
     },
     "event": "",
-    "uuid": "24432_3",
-    "line": "3",
+    "uuid": "24428_4",
+    "line": "4",
     "item": {
-      "text": "VZCW-0000-PS1S1",
-      "value": "2033"
+      "text": "VZFS-1654-RS1",
+      "value": "2034"
     },
-    "description": "Compose,Wall Mount,Fits All Heights",
-    "quantity": 3,
-    "availableQty": 3,
+    "description": "Compose,Stack Frame 16In.H X 54In.W,Std Accoust,NoPwr",
+    "quantity": 6,
+    "availableQty": 6,
     "note": "",
-    "quantityReceived": 48,
+    "quantityReceived": 108,
+    "completedQty": 0
+  },
+  {
+    "id": "620",
+    "workorder": {
+      "text": "Android Full Dryrun",
+      "value": "137"
+    },
+    "salesorder": {
+      "text": "Sales Order #SLS00000826",
+      "value": "23471"
+    },
+    "event": "",
+    "uuid": "23471_4",
+    "line": "4",
+    "item": {
+      "text": "VZFS-1654-RS1",
+      "value": "2034"
+    },
+    "description": "Compose,Stack Frame 16In.H X 54In.W,Std Accoust,NoPwr",
+    "quantity": 6,
+    "availableQty": 6,
+    "note": "",
+    "quantityReceived": 108,
+    "completedQty": 0
+  },
+  {
+    "id": "398",
+    "workorder": {
+      "text": "Install Cove Lights",
+      "value": "106"
+    },
+    "salesorder": {
+      "text": "Sales Order #SLS00000771",
+      "value": "20900"
+    },
+    "event": "",
+    "uuid": "20900_6",
+    "line": "6",
+    "item": {
+      "text": "VZFS-1654-RS1",
+      "value": "2034"
+    },
+    "description": "",
+    "quantity": 6,
+    "availableQty": 6,
+    "note": "",
+    "quantityReceived": 108,
+    "completedQty": 0
+  },
+  {
+    "id": "405",
+    "workorder": {
+      "text": "Install Cove Lights - Follow Up",
+      "value": "107"
+    },
+    "salesorder": {
+      "text": "Sales Order #SLS00000771",
+      "value": "20900"
+    },
+    "event": "",
+    "uuid": "20900_6",
+    "line": "6",
+    "item": {
+      "text": "VZFS-1654-RS1",
+      "value": "2034"
+    },
+    "description": "",
+    "quantity": 6,
+    "availableQty": 6,
+    "note": "",
+    "quantityReceived": 108,
     "completedQty": 0
   },
   {
@@ -12413,95 +12725,23 @@ const mockWOItems: WOItem[] = [{
     "completedQty": 0
   },
   {
-    "id": "405",
+    "id": "540",
     "workorder": {
-      "text": "Install Cove Lights - Follow Up",
-      "value": "107"
+      "text": "World Bank_WRKORDR0001",
+      "value": "122"
     },
     "salesorder": {
-      "text": "Sales Order #SLS00000771",
-      "value": "20900"
+      "text": "Sales Order #SLS00000795",
+      "value": "22459"
     },
     "event": "",
-    "uuid": "20900_6",
-    "line": "6",
-    "item": {
-      "text": "VZFS-1654-RS1",
-      "value": "2034"
-    },
-    "description": "",
-    "quantity": 6,
-    "availableQty": 6,
-    "note": "",
-    "quantityReceived": 108,
-    "completedQty": 0
-  },
-  {
-    "id": "398",
-    "workorder": {
-      "text": "Install Cove Lights",
-      "value": "106"
-    },
-    "salesorder": {
-      "text": "Sales Order #SLS00000771",
-      "value": "20900"
-    },
-    "event": "",
-    "uuid": "20900_6",
-    "line": "6",
-    "item": {
-      "text": "VZFS-1654-RS1",
-      "value": "2034"
-    },
-    "description": "",
-    "quantity": 6,
-    "availableQty": 6,
-    "note": "",
-    "quantityReceived": 108,
-    "completedQty": 0
-  },
-  {
-    "id": "659",
-    "workorder": {
-      "text": "Product Core Testing - 2",
-      "value": "140"
-    },
-    "salesorder": {
-      "text": "Sales Order #SLS00000837",
-      "value": "24432"
-    },
-    "event": "",
-    "uuid": "24432_4",
+    "uuid": "22459_4",
     "line": "4",
     "item": {
       "text": "VZFS-1654-RS1",
       "value": "2034"
     },
-    "description": "Compose,Stack Frame 16In.H X 54In.W,Std Accoust,NoPwr",
-    "quantity": 6,
-    "availableQty": 6,
-    "note": "",
-    "quantityReceived": 108,
-    "completedQty": 0
-  },
-  {
-    "id": "653",
-    "workorder": {
-      "text": "Lobby Area - Product Test",
-      "value": "139"
-    },
-    "salesorder": {
-      "text": "Sales Order #SLS00000836",
-      "value": "24428"
-    },
-    "event": "",
-    "uuid": "24428_4",
-    "line": "4",
-    "item": {
-      "text": "VZFS-1654-RS1",
-      "value": "2034"
-    },
-    "description": "Compose,Stack Frame 16In.H X 54In.W,Std Accoust,NoPwr",
+    "description": "Compose,Stack Frame 16In​【41 cm】.H X 54In​【137 cm】.W,Std Accoust,NoPwr",
     "quantity": 6,
     "availableQty": 6,
     "note": "",
@@ -12533,54 +12773,6 @@ const mockWOItems: WOItem[] = [{
     "completedQty": 0
   },
   {
-    "id": "620",
-    "workorder": {
-      "text": "Android Full Dryrun",
-      "value": "137"
-    },
-    "salesorder": {
-      "text": "Sales Order #SLS00000826",
-      "value": "23471"
-    },
-    "event": "",
-    "uuid": "23471_4",
-    "line": "4",
-    "item": {
-      "text": "VZFS-1654-RS1",
-      "value": "2034"
-    },
-    "description": "Compose,Stack Frame 16In.H X 54In.W,Std Accoust,NoPwr",
-    "quantity": 6,
-    "availableQty": 6,
-    "note": "",
-    "quantityReceived": 108,
-    "completedQty": 0
-  },
-  {
-    "id": "540",
-    "workorder": {
-      "text": "World Bank_WRKORDR0001",
-      "value": "122"
-    },
-    "salesorder": {
-      "text": "Sales Order #SLS00000795",
-      "value": "22459"
-    },
-    "event": "",
-    "uuid": "22459_4",
-    "line": "4",
-    "item": {
-      "text": "VZFS-1654-RS1",
-      "value": "2034"
-    },
-    "description": "Compose,Stack Frame 16In​【41 cm】.H X 54In​【137 cm】.W,Std Accoust,NoPwr",
-    "quantity": 6,
-    "availableQty": 6,
-    "note": "",
-    "quantityReceived": 108,
-    "completedQty": 0
-  },
-  {
     "id": "502",
     "workorder": {
       "text": "Window Placement Planning",
@@ -12605,55 +12797,31 @@ const mockWOItems: WOItem[] = [{
     "completedQty": 0
   },
   {
-    "id": "541",
+    "id": "659",
     "workorder": {
-      "text": "World Bank_WRKORDR0001",
-      "value": "122"
+      "text": "Product Core Testing - 2",
+      "value": "140"
     },
     "salesorder": {
-      "text": "Sales Order #SLS00000795",
-      "value": "22459"
+      "text": "Sales Order #SLS00000837",
+      "value": "24432"
     },
     "event": "",
-    "uuid": "22459_5",
-    "line": "5",
+    "uuid": "24432_4",
+    "line": "4",
     "item": {
-      "text": "VZTI-1654-FNNS1",
-      "value": "2035"
+      "text": "VZFS-1654-RS1",
+      "value": "2034"
     },
-    "description": "Compose,Single Tile,16In​【41 cm】.HX54In.W,Fabric/Tackable,Std Core,No Tech",
-    "quantity": 12,
-    "availableQty": 12,
+    "description": "Compose,Stack Frame 16In.H X 54In.W,Std Accoust,NoPwr",
+    "quantity": 6,
+    "availableQty": 6,
     "note": "",
-    "quantityReceived": 192,
+    "quantityReceived": 108,
     "completedQty": 0
   },
   {
-    "id": "406",
-    "workorder": {
-      "text": "Install Cove Lights - Follow Up",
-      "value": "107"
-    },
-    "salesorder": {
-      "text": "Sales Order #SLS00000771",
-      "value": "20900"
-    },
-    "event": "",
-    "uuid": "20900_7",
-    "line": "7",
-    "item": {
-      "text": "VZTI-1654-FNNS1",
-      "value": "2035"
-    },
-    "description": "",
-    "quantity": 12,
-    "availableQty": 12,
-    "note": "",
-    "quantityReceived": 192,
-    "completedQty": 0
-  },
-  {
-    "id": "646",
+    "id": "718",
     "workorder": {
       "text": "Lobby Area - Product Core Dryrun",
       "value": "138"
@@ -12662,42 +12830,18 @@ const mockWOItems: WOItem[] = [{
       "text": "Sales Order #SLS00000835",
       "value": "24427"
     },
-    "event": "",
-    "uuid": "24427_5",
-    "line": "5",
+    "event": "101229",
+    "uuid": "24427_4",
+    "line": "4",
     "item": {
-      "text": "VZTI-1654-FNNS1",
-      "value": "2035"
+      "text": "VZFS-1654-RS1",
+      "value": "2034"
     },
-    "description": "Compose,Single Tile,16In.HX54In.W,Fabric/Tackable,Std Core,No Tech",
-    "quantity": 12,
-    "availableQty": 12,
+    "description": "Compose,Stack Frame 16In.H X 54In.W,Std Accoust,NoPwr",
+    "quantity": 6,
+    "availableQty": 6,
     "note": "",
-    "quantityReceived": 192,
-    "completedQty": 0
-  },
-  {
-    "id": "621",
-    "workorder": {
-      "text": "Android Full Dryrun",
-      "value": "137"
-    },
-    "salesorder": {
-      "text": "Sales Order #SLS00000826",
-      "value": "23471"
-    },
-    "event": "",
-    "uuid": "23471_5",
-    "line": "5",
-    "item": {
-      "text": "VZTI-1654-FNNS1",
-      "value": "2035"
-    },
-    "description": "Compose,Single Tile,16In.HX54In.W,Fabric/Tackable,Std Core,No Tech",
-    "quantity": 12,
-    "availableQty": 12,
-    "note": "",
-    "quantityReceived": 192,
+    "quantityReceived": 108,
     "completedQty": 0
   },
   {
@@ -12749,49 +12893,25 @@ const mockWOItems: WOItem[] = [{
     "completedQty": 0
   },
   {
-    "id": "426",
+    "id": "646",
     "workorder": {
-      "text": "Install Office Furniture",
-      "value": "109"
+      "text": "Lobby Area - Product Core Dryrun",
+      "value": "138"
     },
     "salesorder": {
-      "text": "Sales Order #SLS00000774",
-      "value": "20903"
+      "text": "Sales Order #SLS00000835",
+      "value": "24427"
     },
-    "event": "",
-    "uuid": "20903_6",
-    "line": "6",
+    "event": "101229",
+    "uuid": "24427_5",
+    "line": "5",
     "item": {
       "text": "VZTI-1654-FNNS1",
       "value": "2035"
     },
-    "description": "Compose,Single Tile,16In​【41 cm】.HX54In.W,Fabric/Tackable,Std Core,No Tech",
-    "quantity": 12,
-    "availableQty": 12,
-    "note": "",
-    "quantityReceived": 192,
-    "completedQty": 0
-  },
-  {
-    "id": "503",
-    "workorder": {
-      "text": "Window Placement Planning",
-      "value": "116"
-    },
-    "salesorder": {
-      "text": "Sales Order #SLS00000782",
-      "value": "20914"
-    },
-    "event": "",
-    "uuid": "20914_6",
-    "line": "6",
-    "item": {
-      "text": "VZTI-1654-FNNS1",
-      "value": "2035"
-    },
-    "description": "Compose,Single Tile,16In​【41 cm】.HX54In.W,Fabric/Tackable,Std Core,No Tech",
-    "quantity": 12,
-    "availableQty": 12,
+    "description": "Compose,Single Tile,16In.HX54In.W,Fabric/Tackable,Std Core,No Tech",
+    "quantity": 13,
+    "availableQty": 13,
     "note": "",
     "quantityReceived": 192,
     "completedQty": 0
@@ -12821,6 +12941,78 @@ const mockWOItems: WOItem[] = [{
     "completedQty": 0
   },
   {
+    "id": "621",
+    "workorder": {
+      "text": "Android Full Dryrun",
+      "value": "137"
+    },
+    "salesorder": {
+      "text": "Sales Order #SLS00000826",
+      "value": "23471"
+    },
+    "event": "",
+    "uuid": "23471_5",
+    "line": "5",
+    "item": {
+      "text": "VZTI-1654-FNNS1",
+      "value": "2035"
+    },
+    "description": "Compose,Single Tile,16In.HX54In.W,Fabric/Tackable,Std Core,No Tech",
+    "quantity": 12,
+    "availableQty": 12,
+    "note": "",
+    "quantityReceived": 192,
+    "completedQty": 0
+  },
+  {
+    "id": "541",
+    "workorder": {
+      "text": "World Bank_WRKORDR0001",
+      "value": "122"
+    },
+    "salesorder": {
+      "text": "Sales Order #SLS00000795",
+      "value": "22459"
+    },
+    "event": "",
+    "uuid": "22459_5",
+    "line": "5",
+    "item": {
+      "text": "VZTI-1654-FNNS1",
+      "value": "2035"
+    },
+    "description": "Compose,Single Tile,16In​【41 cm】.HX54In.W,Fabric/Tackable,Std Core,No Tech",
+    "quantity": 12,
+    "availableQty": 12,
+    "note": "",
+    "quantityReceived": 192,
+    "completedQty": 0
+  },
+  {
+    "id": "426",
+    "workorder": {
+      "text": "Install Office Furniture",
+      "value": "109"
+    },
+    "salesorder": {
+      "text": "Sales Order #SLS00000774",
+      "value": "20903"
+    },
+    "event": "",
+    "uuid": "20903_6",
+    "line": "6",
+    "item": {
+      "text": "VZTI-1654-FNNS1",
+      "value": "2035"
+    },
+    "description": "Compose,Single Tile,16In​【41 cm】.HX54In.W,Fabric/Tackable,Std Core,No Tech",
+    "quantity": 12,
+    "availableQty": 12,
+    "note": "",
+    "quantityReceived": 192,
+    "completedQty": 0
+  },
+  {
     "id": "433",
     "workorder": {
       "text": "Install Office Furniture",
@@ -12833,6 +13025,30 @@ const mockWOItems: WOItem[] = [{
     "event": "101035",
     "uuid": "20903_6",
     "line": "6",
+    "item": {
+      "text": "VZTI-1654-FNNS1",
+      "value": "2035"
+    },
+    "description": "",
+    "quantity": 12,
+    "availableQty": 12,
+    "note": "",
+    "quantityReceived": 192,
+    "completedQty": 0
+  },
+  {
+    "id": "406",
+    "workorder": {
+      "text": "Install Cove Lights - Follow Up",
+      "value": "107"
+    },
+    "salesorder": {
+      "text": "Sales Order #SLS00000771",
+      "value": "20900"
+    },
+    "event": "",
+    "uuid": "20900_7",
+    "line": "7",
     "item": {
       "text": "VZTI-1654-FNNS1",
       "value": "2035"
@@ -12867,6 +13083,30 @@ const mockWOItems: WOItem[] = [{
     "note": "",
     "quantityReceived": 192,
     "completedQty": 0
+  },
+  {
+    "id": "503",
+    "workorder": {
+      "text": "Window Placement Planning",
+      "value": "116"
+    },
+    "salesorder": {
+      "text": "Sales Order #SLS00000782",
+      "value": "20914"
+    },
+    "event": "",
+    "uuid": "20914_6",
+    "line": "6",
+    "item": {
+      "text": "VZTI-1654-FNNS1",
+      "value": "2035"
+    },
+    "description": "Compose,Single Tile,16In​【41 cm】.HX54In.W,Fabric/Tackable,Std Core,No Tech",
+    "quantity": 12,
+    "availableQty": 12,
+    "note": "",
+    "quantityReceived": 192,
+    "completedQty": 0
   }
 ];
 
@@ -12878,6 +13118,7 @@ export const fetchWOItems = async (woId: string, eventId: string): Promise<WOIte
       if (eventId) {
         loadData = loadData.filter(x => x.event == eventId);
       }
+      console.log('Fetched WO Items', loadData.length);
       setTimeout(() => resolve(loadData), 500);
     });
   }

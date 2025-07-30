@@ -25,6 +25,226 @@ export interface WOContact {
 
 // Mockup data for local development
 const mockWOContacts: WOContact[] = [{
+    "id": "233",
+    "workorder": {
+      "text": "Lobby Area - Product Core Dryrun",
+      "value": "138"
+    },
+    "events": [
+      "101211"
+    ],
+    "event": "101211",
+    "contact": {
+      "text": "World Bank : Harry Osborn",
+      "value": "2064"
+    },
+    "name": "Harry Osborn",
+    "email": "hosborn@email.com",
+    "jobTitle": "VP",
+    "mobilePhone": "",
+    "phone": "",
+    "primary": false,
+    "url": "/app/common/entity/contact.nl?id=2064&compid=TSTDRV2617106"
+  },
+  {
+    "id": "234",
+    "workorder": {
+      "text": "Lobby Area - Product Core Dryrun",
+      "value": "138"
+    },
+    "events": [
+      "101211"
+    ],
+    "event": "101211",
+    "contact": {
+      "text": "World Bank : Jane Doe",
+      "value": "2054"
+    },
+    "name": "Jane Doe",
+    "email": "janedoe@email.com",
+    "jobTitle": "Purchasing Manager",
+    "mobilePhone": "",
+    "phone": "",
+    "primary": false,
+    "url": "/app/common/entity/contact.nl?id=2054&compid=TSTDRV2617106"
+  },
+  {
+    "id": "235",
+    "workorder": {
+      "text": "Lobby Area - Product Core Dryrun",
+      "value": "138"
+    },
+    "events": [
+      "101211"
+    ],
+    "event": "101211",
+    "contact": {
+      "text": "World Bank : Harry Osborn",
+      "value": "2064"
+    },
+    "name": "Harry Osborn",
+    "email": "hosborn@email.com",
+    "jobTitle": "VP",
+    "mobilePhone": "",
+    "phone": "",
+    "primary": false,
+    "url": "/app/common/entity/contact.nl?id=2064&compid=TSTDRV2617106"
+  },
+  {
+    "id": "236",
+    "workorder": {
+      "text": "Lobby Area - Product Core Dryrun",
+      "value": "138"
+    },
+    "events": [
+      "101211"
+    ],
+    "event": "101211",
+    "contact": {
+      "text": "World Bank : Jane Doe",
+      "value": "2054"
+    },
+    "name": "Jane Doe",
+    "email": "janedoe@email.com",
+    "jobTitle": "Purchasing Manager",
+    "mobilePhone": "",
+    "phone": "",
+    "primary": false,
+    "url": "/app/common/entity/contact.nl?id=2054&compid=TSTDRV2617106"
+  },
+  {
+    "id": "237",
+    "workorder": {
+      "text": "Lobby Area - Product Core Dryrun",
+      "value": "138"
+    },
+    "events": [
+      "101212"
+    ],
+    "event": "101212",
+    "contact": {
+      "text": "World Bank : Harry Osborn",
+      "value": "2064"
+    },
+    "name": "Harry Osborn",
+    "email": "hosborn@email.com",
+    "jobTitle": "VP",
+    "mobilePhone": "",
+    "phone": "",
+    "primary": false,
+    "url": "/app/common/entity/contact.nl?id=2064&compid=TSTDRV2617106"
+  },
+  {
+    "id": "238",
+    "workorder": {
+      "text": "Lobby Area - Product Core Dryrun",
+      "value": "138"
+    },
+    "events": [
+      "101212"
+    ],
+    "event": "101212",
+    "contact": {
+      "text": "World Bank : Jane Doe",
+      "value": "2054"
+    },
+    "name": "Jane Doe",
+    "email": "janedoe@email.com",
+    "jobTitle": "Purchasing Manager",
+    "mobilePhone": "",
+    "phone": "",
+    "primary": false,
+    "url": "/app/common/entity/contact.nl?id=2054&compid=TSTDRV2617106"
+  },
+  {
+    "id": "259",
+    "workorder": {
+      "text": "Lobby Area - Product Core Dryrun",
+      "value": "138"
+    },
+    "events": [
+      "101227"
+    ],
+    "event": "101227",
+    "contact": {
+      "text": "World Bank : Harry Osborn",
+      "value": "2064"
+    },
+    "name": "Harry Osborn",
+    "email": "hosborn@email.com",
+    "jobTitle": "VP",
+    "mobilePhone": "",
+    "phone": "",
+    "primary": false,
+    "url": "/app/common/entity/contact.nl?id=2064&compid=TSTDRV2617106"
+  },
+  {
+    "id": "260",
+    "workorder": {
+      "text": "Lobby Area - Product Core Dryrun",
+      "value": "138"
+    },
+    "events": [
+      "101227"
+    ],
+    "event": "101227",
+    "contact": {
+      "text": "World Bank : Jane Doe",
+      "value": "2054"
+    },
+    "name": "Jane Doe",
+    "email": "janedoe@email.com",
+    "jobTitle": "Purchasing Manager",
+    "mobilePhone": "",
+    "phone": "",
+    "primary": false,
+    "url": "/app/common/entity/contact.nl?id=2054&compid=TSTDRV2617106"
+  },
+  {
+    "id": "263",
+    "workorder": {
+      "text": "Lobby Area - Product Core Dryrun",
+      "value": "138"
+    },
+    "events": [
+      "101229"
+    ],
+    "event": "101229",
+    "contact": {
+      "text": "World Bank : Harry Osborn",
+      "value": "2064"
+    },
+    "name": "Harry Osborn",
+    "email": "hosborn@email.com",
+    "jobTitle": "VP",
+    "mobilePhone": "",
+    "phone": "",
+    "primary": false,
+    "url": "/app/common/entity/contact.nl?id=2064&compid=TSTDRV2617106"
+  },
+  {
+    "id": "264",
+    "workorder": {
+      "text": "Lobby Area - Product Core Dryrun",
+      "value": "138"
+    },
+    "events": [
+      "101229"
+    ],
+    "event": "101229",
+    "contact": {
+      "text": "World Bank : Jane Doe",
+      "value": "2054"
+    },
+    "name": "Jane Doe",
+    "email": "janedoe@email.com",
+    "jobTitle": "Purchasing Manager",
+    "mobilePhone": "",
+    "phone": "",
+    "primary": false,
+    "url": "/app/common/entity/contact.nl?id=2054&compid=TSTDRV2617106"
+  },
+  {
     "id": "1",
     "workorder": {
       "text": "Furniture Installation",
@@ -825,6 +1045,26 @@ const mockWOContacts: WOContact[] = [{
     "url": "/app/common/entity/contact.nl?id=1892&compid=TSTDRV2617106"
   },
   {
+    "id": "51",
+    "workorder": {
+      "text": "",
+      "value": ""
+    },
+    "events": [],
+    "event": "",
+    "contact": {
+      "text": "pravallika",
+      "value": "2009"
+    },
+    "name": "pravallika",
+    "email": "pravallismart@gmail.com",
+    "jobTitle": "developer",
+    "mobilePhone": "",
+    "phone": "",
+    "primary": false,
+    "url": "/app/common/entity/contact.nl?id=2009&compid=TSTDRV2617106"
+  },
+  {
     "id": "53",
     "workorder": {
       "text": "Test customer center",
@@ -971,6 +1211,26 @@ const mockWOContacts: WOContact[] = [{
     "workorder": {
       "text": "Test Work Order 3",
       "value": "78"
+    },
+    "events": [],
+    "event": "",
+    "contact": {
+      "text": "World Bank : John Smith",
+      "value": "1892"
+    },
+    "name": "Test Prav",
+    "email": "pravallika@erpsuccesspartners.com",
+    "jobTitle": "QA",
+    "mobilePhone": "",
+    "phone": "",
+    "primary": false,
+    "url": "/app/common/entity/contact.nl?id=1892&compid=TSTDRV2617106"
+  },
+  {
+    "id": "66",
+    "workorder": {
+      "text": "",
+      "value": ""
     },
     "events": [],
     "event": "",

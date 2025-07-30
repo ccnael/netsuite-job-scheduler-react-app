@@ -2839,6 +2839,24 @@ const mockWOAddresses: WOAddress[] = [{
     "customerUrl": "/app/common/entity/custjob.nl?id=2008&compid=TSTDRV2617106"
   },
   {
+    "id": "48",
+    "workorder": {
+      "text": "",
+      "value": ""
+    },
+    "customer": {
+      "text": "",
+      "value": ""
+    },
+    "events": [],
+    "address": {
+      "text": "",
+      "value": ""
+    },
+    "addressDetails": "",
+    "customerUrl": "/app/common/entity/custjob.nl?stage=CUSTOMER&compid=TSTDRV2617106"
+  },
+  {
     "id": "49",
     "workorder": {
       "text": "TEST XYZ",
@@ -3399,24 +3417,23 @@ const mockWOAddresses: WOAddress[] = [{
     "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
   },
   {
-    "id": "231",
+    "id": "235",
     "workorder": {
-      "text": "Product Core Testing - 2",
-      "value": "140"
+      "text": "Lobby Area - Product Core Dryrun",
+      "value": "138"
     },
     "customer": {
       "text": "World Bank",
       "value": "1249"
     },
     "events": [
-      "101134",
-      "101146"
+      "101229"
     ],
     "address": {
-      "text": "12 Carlton Av",
-      "value": "245148"
+      "text": "22 Dundas",
+      "value": "245145"
     },
-    "addressDetails": "12 Carlton Ave<br/>San Francisco CA 1241<br/>United States",
+    "addressDetails": "12 Carlton Ave\r<br/>San Francisco CA 1241\r<br/>United States",
     "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
   },
   {
@@ -3431,6 +3448,27 @@ const mockWOAddresses: WOAddress[] = [{
     },
     "events": [
       "101132"
+    ],
+    "address": {
+      "text": "12 Carlton Av",
+      "value": "245148"
+    },
+    "addressDetails": "12 Carlton Ave<br/>San Francisco CA 1241<br/>United States",
+    "customerUrl": "/app/common/entity/custjob.nl?id=1249&compid=TSTDRV2617106"
+  },
+  {
+    "id": "231",
+    "workorder": {
+      "text": "Product Core Testing - 2",
+      "value": "140"
+    },
+    "customer": {
+      "text": "World Bank",
+      "value": "1249"
+    },
+    "events": [
+      "101134",
+      "101146"
     ],
     "address": {
       "text": "12 Carlton Av",

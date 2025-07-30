@@ -290,7 +290,10 @@ const Board = () => {
         for (const address of woAddressData) {
           const event = eventData.find(e => address.events.includes(e.id));
           if (event) {
-            event.address = { ...address.address };
+            event.address = {
+              value: address.id,
+              text: address.customer.text
+            };
             event.addresses = event.addresses || [];
             event.addresses.push({
               ...address

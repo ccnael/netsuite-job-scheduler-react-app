@@ -71,6 +71,138 @@ const mockWOAssets: WOAsset[] = [{
     }
   },
   {
+    "id": "241",
+    "name": "Bolts",
+    "workorder": {
+      "text": "Lobby Area - Product Core Dryrun",
+      "value": "138"
+    },
+    "event": "101227",
+    "quantity": 5,
+    "maxQuantity": 5,
+    "description": "",
+    "asset": {
+      "text": "Bolts",
+      "value": "5"
+    },
+    "onMaintenance": false,
+    "owned": true,
+    "time": {
+      "start": "00:00",
+      "end": "00:30"
+    }
+  },
+  {
+    "id": "245",
+    "name": "Cranes",
+    "workorder": {
+      "text": "Lobby Area - Product Core Dryrun",
+      "value": "138"
+    },
+    "event": "101229",
+    "quantity": 4,
+    "maxQuantity": 4,
+    "description": "",
+    "asset": {
+      "text": "Cranes",
+      "value": "107"
+    },
+    "onMaintenance": false,
+    "owned": true,
+    "time": {
+      "start": "00:00",
+      "end": "00:15"
+    }
+  },
+  {
+    "id": "246",
+    "name": "Disposable gloves",
+    "workorder": {
+      "text": "Lobby Area - Product Core Dryrun",
+      "value": "138"
+    },
+    "event": "101229",
+    "quantity": 2,
+    "maxQuantity": 2,
+    "description": "",
+    "asset": {
+      "text": "Disposable gloves",
+      "value": "10"
+    },
+    "onMaintenance": true,
+    "owned": true,
+    "time": {
+      "start": "00:30",
+      "end": "00:45"
+    }
+  },
+  {
+    "id": "247",
+    "name": "Welding rods",
+    "workorder": {
+      "text": "Lobby Area - Product Core Dryrun",
+      "value": "138"
+    },
+    "event": "101229",
+    "quantity": 5,
+    "maxQuantity": 5,
+    "description": "",
+    "asset": {
+      "text": "Welding rods",
+      "value": "11"
+    },
+    "onMaintenance": false,
+    "owned": true,
+    "time": {
+      "start": "00:00",
+      "end": "00:15"
+    }
+  },
+  {
+    "id": "249",
+    "name": "Bolts",
+    "workorder": {
+      "text": "",
+      "value": ""
+    },
+    "event": "101232",
+    "quantity": 0,
+    "maxQuantity": 0,
+    "description": "",
+    "asset": {
+      "text": "Bolts",
+      "value": "5"
+    },
+    "onMaintenance": false,
+    "owned": true,
+    "time": {
+      "start": "00:00",
+      "end": "00:15"
+    }
+  },
+  {
+    "id": "250",
+    "name": "Disposable gloves",
+    "workorder": {
+      "text": "",
+      "value": ""
+    },
+    "event": "101232",
+    "quantity": 0,
+    "maxQuantity": 0,
+    "description": "",
+    "asset": {
+      "text": "Disposable gloves",
+      "value": "10"
+    },
+    "onMaintenance": true,
+    "owned": true,
+    "time": {
+      "start": "00:00",
+      "end": "00:30"
+    }
+  },
+  {
     "id": "1",
     "name": "",
     "workorder": {

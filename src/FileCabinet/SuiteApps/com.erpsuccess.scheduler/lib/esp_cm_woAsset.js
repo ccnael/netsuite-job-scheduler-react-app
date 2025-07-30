@@ -157,57 +157,100 @@ define([
   }
 
   /**
-   * Update existing assets quantity
-   * @param {Object} event Event data
-   * @param {Object} dataSrc Data source
-   * @param {Object} woRef WO data
+   * Update existing assets qty, start/end time
+   * @param {Object} updatedAssets WO Assets for update
    */
-  function updateAssets(event, dataSrc, woRef) {
-    const selectedAssets = event.selectedAssets;
-    const selectedassetIds = selectedAssets.map(x => x.id);
-    const srcAssets = dataSrc.assets.filter(x => !!x.selected);
-    const srcAssetIds = srcAssets.map(x => x.id);
-    const removedAssets = srcAssets.filter(x => !(selectedassetIds.includes(x.id)));
-    const newAssets = selectedAssets.filter(x => !(srcAssetIds.includes(x.id)));
+  function updateAssets(updatedAssets) {
+    // log.audit('Updating WO Assets', { updatedAssets });
+    for (const update of updatedAssets) {
+      const values = {};
 
-    log.audit('Updating WO Asset Event List', { selectedAssets, removedAssets, newAssets });
-
-    // If theres quantity to update
-    for (const asset of selectedAssets) {
-      if (!asset.id) continue;
-
-      try {
-        const assetLookUp = search.lookupFields({
-          type: env.RecordType.WORK_ORDER_ASSET,
-          id: asset.id,
-          columns: 'custrecord_esp_fop_ast_quantity'
-        });
-
-        if (assetLookUp.custrecord_esp_fop_ast_quantity != asset.quantity) {
-          record.submitFields({
-            type: env.RecordType.WORK_ORDER_ASSET,
-            id: asset.id,
-            values: {
-              custrecord_esp_fop_ast_quantity: asset.quantity
-            },
-            options: {
-              ignoreMandatoryFieds: true
-            }
-          });
-          log.audit('----- [Updated WO Asset Record] -----', { asset });
+      if (update.updatedQuantity) {
+        values.custrecord_esp_fop_ast_quantity = update.updatedQuantity;
+      }
+      if (update.updatedStartTime) {
+        values.custrecord_esp_fop_ast_start_time = moment(`1/1/1999 ${update.updatedStartTime}`).format(env.Format.IMPORT_TIME);
+      }
+      if (update.updatedEndTime) {
+        values.custrecord_esp_fop_ast_end_time = moment(`1/1/1999 ${update.updatedEndTime}`).format(env.Format.IMPORT_TIME);
+      }
+      record.submitFields({
+        type: env.RecordType.WORK_ORDER_ASSET,
+        id: update.woAssetId,
+        values,
+        options: {
+          ignoreMandatoryFieds: true,
         }
-      } catch (e) {
-        log.error('Error on WO Asset > Update', { asset, errorMsg: e.message });
+      });
+      log.audit('----- [Updated WO Asset Record] -----', { update });
+    }
+  }
+
+  /**
+   * Delete WO Assets records
+   * @param {Object} removedAssets WO Assets for deletion
+   */
+  function removeAssets(removedAssets) {
+    utils.deleteRecords(env.RecordType.WORK_ORDER_ASSET, removedAssets.map(x => x.id));
+  }
+
+  /**
+   * Determines the Work Order (WO) assets that need to be created, updated, or removed
+   * based on the differences between the current event data and the incoming updates.
+   *
+   * @param {Object} eventData - The original event data containing current WO assets.
+   * @param {Object} updates - The updated event data containing new asset state.
+   * @returns {Object} An object with:
+   *  - updatedAssets: Array of assets that need their time fields updated.
+   *  - newAssets: Array of new assets to be created.
+   *  - removedAssets: Array of assets that are no longer present in the updates.
+   */
+  function prepareUpdatedWOAssets(eventData, updates) {
+    const selectedAssets = updates.assets;
+    const srcAssets = eventData.assets;
+
+    const selectedAssetIds = selectedAssets.map(x => x.woAssetId).filter(Boolean);
+    const srcAssetIds = srcAssets.map(x => x.id);
+
+    const removedAssets = srcAssets.filter(
+      src => !selectedAssetIds.includes(src.id)
+    );
+
+    const newAssets = selectedAssets.filter(
+      upd => !upd.woAssetId || !srcAssetIds.includes(upd.woAssetId)
+    );
+    const updatedAssets = [];
+
+    for (const upd of selectedAssets) {
+      const matchId = upd.woAssetId;
+      if (!matchId) continue;
+
+      const existing = srcAssets.find(src => src.id === matchId);
+      if (existing) {
+        const valuesToUpdate = {};
+        if (existing.quantity !== upd.quantity) {
+          valuesToUpdate.updatedQuantity = upd.quantity;
+        }
+        if (existing.time?.start !== upd.startTime) {
+          valuesToUpdate.updatedStartTime = upd.startTime;
+        }
+        if (existing.time?.end !== upd.endTime) {
+          valuesToUpdate.updatedEndTime = upd.endTime;
+        }
+        if (Object.keys(valuesToUpdate).length) {
+          updatedAssets.push({
+            ...upd,
+            ...valuesToUpdate
+          });
+        }
       }
     }
 
-    // If theres to remove (removed assets)
-    utils.deleteRecords(env.RecordType.WORK_ORDER_ASSET, removedAssets.map(x => x.id));
-
-    // If theres to create (newly added assets)
-    const clonedEventObj = helper.deepCopy(event);
-    clonedEventObj.selectedAssets = newAssets;
-    createAssets(clonedEventObj, woRef);
+    return {
+      updatedAssets,
+      newAssets,
+      removedAssets
+    }
   }
 
   /**
@@ -342,6 +385,8 @@ define([
     getAssets,
     createAssets,
     updateAssets,
+    removeAssets,
+    prepareUpdatedWOAssets,
     updateCalendarAssetAssignment,
     updateCalendarResizedDateTime
   }

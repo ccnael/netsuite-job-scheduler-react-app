@@ -55,7 +55,7 @@ export const WOAddressTable: React.FC<WOAddressTableProps> = ({ woId, onSelectio
       setTableDataState(mappedData);
       
       // Auto-select if only 1 row(on create only)
-      if (!onUpdate && mappedData.length === 1) {
+      if (!onUpdate && mappedData.length) {
         setSelectedRowId(mappedData[0].id);
       }
     };

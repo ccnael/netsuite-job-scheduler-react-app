@@ -97,11 +97,12 @@ define([
   }
 
   /**
-   * Add address to the events
+   * Add WO Address to the event
    * @param {Object} event Event data
    */
   function addEventToAddress(event) {
     const address = event?.address || {};
+    if (!address.value) return;
 
     try {
       const addressLookUp = search.lookupFields({
@@ -131,49 +132,47 @@ define([
   }
 
   /**
-   * Remove the event from the addresses
-   * @param {Array} addresses WO addresses
+   * Remove event from the address
+   * @param {Array} addresses WO Address
    * @param {String|Number} eventId Event internalid
    */
-  function removeEventFromAddresses(addresses, eventId) {
-    for (const address of addresses) {
-      if (!address.id) continue;
+  function removeEventFromAddress(address, eventId) {
+    if (!address.value) return;
 
-      try {
-        const lookUp = search.lookupFields({
-          type: env.RecordType.WORK_ORDER_ADDRESS,
-          id: address.id,
-          columns: 'custrecord_esp_fop_wo_add_event'
-        });
-        const idToRemove = eventId;
-        let events = (lookUp.custrecord_esp_fop_wo_add_event[0]?.value || '').split(',');
-        const index = events.indexOf(idToRemove);
+    try {
+      const lookUp = search.lookupFields({
+        type: env.RecordType.WORK_ORDER_ADDRESS,
+        id: address.value,
+        columns: 'custrecord_esp_fop_wo_add_event'
+      });
+      const idToRemove = eventId;
+      let events = (lookUp.custrecord_esp_fop_wo_add_event[0]?.value || '').split(',');
+      const index = events.indexOf(idToRemove);
 
-        if (index > -1) {
-          events.splice(index, 1);
-        }
-
-        record.submitFields({
-          type: env.RecordType.WORK_ORDER_ADDRESS,
-          id: address.id,
-          values: {
-            custrecord_esp_fop_wo_add_event: events
-          },
-          options: {
-            ignoreMandatoryFieds: true
-          }
-        });
-        log.audit('----- [Removed Event from WO Address Record] -----', address);
-      } catch (e) {
-        log.error('Error on WO Address > Remove Event', { address, errorMsg: e.message });
-        address.errorMsg = e.message;
+      if (index > -1) {
+        events.splice(index, 1);
       }
+
+      record.submitFields({
+        type: env.RecordType.WORK_ORDER_ADDRESS,
+        id: address.value,
+        values: {
+          custrecord_esp_fop_wo_add_event: events
+        },
+        options: {
+          ignoreMandatoryFieds: true
+        }
+      });
+      log.audit('----- [Removed Event from WO Address Record] -----', address);
+    } catch (e) {
+      log.error('Error on WO Address > Remove Event', { address, errorMsg: e.message });
+      address.errorMsg = e.message;
     }
   }
 
   return {
     getAddresses,
     addEventToAddress,
-    removeEventFromAddresses
+    removeEventFromAddress
   }
 })

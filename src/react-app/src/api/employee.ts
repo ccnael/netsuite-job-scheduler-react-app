@@ -29,7 +29,7 @@ export interface Employee {
     text: string;
     value: string;
   }>;
-  color: string;
+  color?: string;
   url: string;
   events: string[];
   rate?: number;
@@ -102,7 +102,6 @@ export const getMockEmployees = (): Employee[] => {
         "text": "In-House",
         "value": "1"
       },
-      "color": "#007bff",
       "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1524%26compid%3DTSTDRV2617106",
       "events": [],
       "labRates": [{
@@ -191,7 +190,6 @@ export const getMockEmployees = (): Employee[] => {
         "text": "In-House",
         "value": "1"
       },
-      "color": "#28a745",
       "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1770%26compid%3DTSTDRV2617106",
       "events": [],
       "labRates": [],
@@ -223,7 +221,7 @@ export const getMockEmployees = (): Employee[] => {
         "text": "01: San Francisco",
         "value": "2"
       },
-      "active": true,
+      "active": false,
       "employee": {
         "text": "Bea Quilinguin",
         "value": "1767"
@@ -268,7 +266,6 @@ export const getMockEmployees = (): Employee[] => {
         "text": "In-House",
         "value": "1"
       },
-      "color": "#dc3545",
       "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1767%26compid%3DTSTDRV2617106",
       "events": [],
       "labRates": [{
@@ -343,7 +340,6 @@ export const getMockEmployees = (): Employee[] => {
         "text": "Vendor",
         "value": "2"
       },
-      "color": "#ffc107",
       "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D912%26compid%3DTSTDRV2617106",
       "events": [],
       "labRates": [],
@@ -406,7 +402,6 @@ export const getMockEmployees = (): Employee[] => {
         "text": "In-House",
         "value": "1"
       },
-      "color": "#6f42c1",
       "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D27%26compid%3DTSTDRV2617106",
       "events": [],
       "labRates": [],
@@ -469,7 +464,6 @@ export const getMockEmployees = (): Employee[] => {
         "text": "In-House",
         "value": "1"
       },
-      "color": "#20c997",
       "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1545%26compid%3DTSTDRV2617106",
       "events": [],
       "labRates": [],
@@ -528,7 +522,6 @@ export const getMockEmployees = (): Employee[] => {
         "text": "In-House",
         "value": "1"
       },
-      "color": "#fd7e14",
       "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1516%26compid%3DTSTDRV2617106",
       "events": [],
       "labRates": [{
@@ -603,7 +596,6 @@ export const getMockEmployees = (): Employee[] => {
         "text": "In-House",
         "value": "1"
       },
-      "color": "#e83e8c",
       "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1513%26compid%3DTSTDRV2617106",
       "events": [],
       "labRates": [],
@@ -662,7 +654,6 @@ export const getMockEmployees = (): Employee[] => {
         "text": "In-House",
         "value": "1"
       },
-      "color": "#17a2b8",
       "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D31%26compid%3DTSTDRV2617106",
       "events": [],
       "labRates": [],
@@ -725,7 +716,6 @@ export const getMockEmployees = (): Employee[] => {
         "text": "Crew Enhancement",
         "value": "3"
       },
-      "color": "#6610f2",
       "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D24%26compid%3DTSTDRV2617106",
       "events": [],
       "labRates": [],
@@ -784,7 +774,6 @@ export const getMockEmployees = (): Employee[] => {
         "text": "In-House",
         "value": "1"
       },
-      "color": "#198754",
       "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D23%26compid%3DTSTDRV2617106",
       "events": [],
       "labRates": [],
@@ -843,7 +832,6 @@ export const getMockEmployees = (): Employee[] => {
         "text": "Crew Enhancement",
         "value": "3"
       },
-      "color": "#adb5bd",
       "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D224%26compid%3DTSTDRV2617106",
       "events": [],
       "labRates": [],
@@ -906,7 +894,6 @@ export const getMockEmployees = (): Employee[] => {
         "text": "Crew Enhancement",
         "value": "3"
       },
-      "color": "#495057",
       "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1312%26compid%3DTSTDRV2617106",
       "events": [],
       "labRates": [],
@@ -965,7 +952,6 @@ export const getMockEmployees = (): Employee[] => {
         "text": "Crew Enhancement",
         "value": "3"
       },
-      "color": "#f8f9fa",
       "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1292%26compid%3DTSTDRV2617106",
       "events": [],
       "labRates": [],
@@ -1028,7 +1014,6 @@ export const getMockEmployees = (): Employee[] => {
         "text": "In-House",
         "value": "1"
       },
-      "color": "#212529",
       "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1647%26compid%3DTSTDRV2617106",
       "events": [],
       "labRates": [],
@@ -1088,7 +1073,6 @@ export const getMockEmployees = (): Employee[] => {
         "text": "In-House",
         "value": "1"
       },
-      "color": "#6c757d",
       "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1766%26compid%3DTSTDRV2617106",
       "events": [],
       "labRates": [],
@@ -1151,7 +1135,6 @@ export const getMockEmployees = (): Employee[] => {
         "text": "In-House",
         "value": "1"
       },
-      "color": "#0d6efd",
       "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1539%26compid%3DTSTDRV2617106",
       "events": [],
       "labRates": [],
@@ -1214,7 +1197,6 @@ export const getMockEmployees = (): Employee[] => {
         "text": "In-House",
         "value": "1"
       },
-      "color": "#198754",
       "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D18%26compid%3DTSTDRV2617106",
       "events": [],
       "labRates": [],
@@ -1277,7 +1259,6 @@ export const getMockEmployees = (): Employee[] => {
         "text": "Crew Enhancement",
         "value": "3"
       },
-      "color": "#dc3545",
       "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D918%26compid%3DTSTDRV2617106",
       "events": [],
       "labRates": [],
@@ -1340,7 +1321,6 @@ export const getMockEmployees = (): Employee[] => {
         "text": "In-House",
         "value": "1"
       },
-      "color": "#20c997",
       "url": "%2Fapp%2Fcommon%2Fentity%2Femployee.nl%3Fid%3D1656%26compid%3DTSTDRV2617106",
       "events": [],
       "labRates": [],

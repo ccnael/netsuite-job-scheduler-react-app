@@ -201,6 +201,436 @@ const mockWOResources: WOResource[] = [{
     }
   },
   {
+    "id": "554",
+    "name": "Aiden Somerhalder",
+    "initials": "AS",
+    "email": "admin@ramsey.com",
+    "phone": "",
+    "active": true,
+    "workorder": {
+      "text": "Lobby Area - Product Core Dryrun",
+      "value": "138"
+    },
+    "event": "101227",
+    "employee": {
+      "text": "Aiden Somerhalder",
+      "value": "1524"
+    },
+    "resourceGroups": [{
+      "text": "Installers",
+      "value": "1"
+    }],
+    "types": [{
+      "text": "Installer",
+      "value": "1"
+    }],
+    "subTypes": [],
+    "rate": 0,
+    "vendor": {
+      "text": "",
+      "value": ""
+    },
+    "purchaseOrder": {
+      "text": " ",
+      "value": ""
+    },
+    "affiliationType": {
+      "text": "In-House",
+      "value": "1"
+    },
+    "time": {
+      "start": "00:00",
+      "end": "00:30"
+    },
+    "resourceSkills": [{
+        "text": "Welding",
+        "value": "6"
+      },
+      {
+        "text": "Woodworking",
+        "value": "4"
+      }
+    ],
+    "location": {
+      "text": "01: San Francisco",
+      "value": "2"
+    },
+    "department": {
+      "text": "",
+      "value": ""
+    }
+  },
+  {
+    "id": "557",
+    "name": "Bea Quilinguin",
+    "initials": "BQ",
+    "email": "beatrice.q@erpsuccesspartners.com",
+    "phone": "",
+    "active": false,
+    "workorder": {
+      "text": "Lobby Area - Product Core Dryrun",
+      "value": "138"
+    },
+    "event": "101227",
+    "employee": {
+      "text": "Bea Quilinguin",
+      "value": "1767"
+    },
+    "resourceGroups": [{
+        "text": "Designers",
+        "value": "2"
+      },
+      {
+        "text": "Drivers",
+        "value": "3"
+      },
+      {
+        "text": "Installers",
+        "value": "1"
+      }
+    ],
+    "types": [{
+        "text": "Delivery Driver",
+        "value": "2"
+      },
+      {
+        "text": "Designer",
+        "value": "3"
+      },
+      {
+        "text": "Installer",
+        "value": "1"
+      }
+    ],
+    "subTypes": [],
+    "rate": 0,
+    "vendor": {
+      "text": "",
+      "value": ""
+    },
+    "purchaseOrder": {
+      "text": " ",
+      "value": ""
+    },
+    "affiliationType": {
+      "text": "In-House",
+      "value": "1"
+    },
+    "time": {
+      "start": "00:00",
+      "end": "02:15"
+    },
+    "resourceSkills": [{
+        "text": "CNC Machining",
+        "value": "12"
+      },
+      {
+        "text": "Furniture Design",
+        "value": "7"
+      },
+      {
+        "text": "Interior Design",
+        "value": "14"
+      }
+    ],
+    "location": {
+      "text": "01: San Francisco",
+      "value": "2"
+    },
+    "department": {
+      "text": "",
+      "value": ""
+    }
+  },
+  {
+    "id": "562",
+    "name": "Bea Quilinguin",
+    "initials": "BQ",
+    "email": "beatrice.q@erpsuccesspartners.com",
+    "phone": "",
+    "active": false,
+    "workorder": {
+      "text": "Lobby Area - Product Core Dryrun",
+      "value": "138"
+    },
+    "event": "101229",
+    "employee": {
+      "text": "Bea Quilinguin",
+      "value": "1767"
+    },
+    "resourceGroups": [{
+        "text": "Designers",
+        "value": "2"
+      },
+      {
+        "text": "Drivers",
+        "value": "3"
+      },
+      {
+        "text": "Installers",
+        "value": "1"
+      }
+    ],
+    "types": [{
+        "text": "Delivery Driver",
+        "value": "2"
+      },
+      {
+        "text": "Designer",
+        "value": "3"
+      },
+      {
+        "text": "Installer",
+        "value": "1"
+      }
+    ],
+    "subTypes": [],
+    "rate": 0,
+    "vendor": {
+      "text": "",
+      "value": ""
+    },
+    "purchaseOrder": {
+      "text": " ",
+      "value": ""
+    },
+    "affiliationType": {
+      "text": "In-House",
+      "value": "1"
+    },
+    "time": {
+      "start": "00:30",
+      "end": "00:45"
+    },
+    "resourceSkills": [{
+        "text": "CNC Machining",
+        "value": "12"
+      },
+      {
+        "text": "Furniture Design",
+        "value": "7"
+      },
+      {
+        "text": "Interior Design",
+        "value": "14"
+      }
+    ],
+    "location": {
+      "text": "01: San Francisco",
+      "value": "2"
+    },
+    "department": {
+      "text": "",
+      "value": ""
+    }
+  },
+  {
+    "id": "563",
+    "name": "Bonita Kane",
+    "initials": "BK",
+    "email": "bdickens@ramsey.com",
+    "phone": "(123) 456-7890",
+    "active": false,
+    "workorder": {
+      "text": "Lobby Area - Product Core Dryrun",
+      "value": "138"
+    },
+    "event": "101229",
+    "employee": {
+      "text": "Bonita Kane",
+      "value": "912"
+    },
+    "resourceGroups": [{
+      "text": "Installers",
+      "value": "1"
+    }],
+    "types": [{
+      "text": "Installer",
+      "value": "1"
+    }],
+    "subTypes": [],
+    "rate": 0,
+    "vendor": {
+      "text": "",
+      "value": ""
+    },
+    "purchaseOrder": {
+      "text": " ",
+      "value": ""
+    },
+    "affiliationType": {
+      "text": "Vendor",
+      "value": "2"
+    },
+    "time": {
+      "start": "00:45",
+      "end": "01:00"
+    },
+    "resourceSkills": [{
+        "text": "Computer-Aided Design (CAD)",
+        "value": "8"
+      },
+      {
+        "text": "Furniture Assembly",
+        "value": "1"
+      },
+      {
+        "text": "Quality Control",
+        "value": "13"
+      }
+    ],
+    "location": {
+      "text": "02: Boston",
+      "value": "1"
+    },
+    "department": {
+      "text": "Sales",
+      "value": "2"
+    }
+  },
+  {
+    "id": "564",
+    "name": "Brad Sparling",
+    "initials": "BS",
+    "email": "jc@erpsuccesspartners.com",
+    "phone": "650-555-3226",
+    "active": false,
+    "workorder": {
+      "text": "Lobby Area - Product Core Dryrun",
+      "value": "138"
+    },
+    "event": "101229",
+    "employee": {
+      "text": "Brad M Sparling",
+      "value": "27"
+    },
+    "resourceGroups": [{
+      "text": "Drivers",
+      "value": "3"
+    }],
+    "types": [{
+      "text": "Delivery Driver",
+      "value": "2"
+    }],
+    "subTypes": [],
+    "rate": 0,
+    "vendor": {
+      "text": "",
+      "value": ""
+    },
+    "purchaseOrder": {
+      "text": " ",
+      "value": ""
+    },
+    "affiliationType": {
+      "text": "In-House",
+      "value": "1"
+    },
+    "time": {
+      "start": "17:00",
+      "end": "17:00"
+    },
+    "resourceSkills": [{
+        "text": "CNC Machining",
+        "value": "12"
+      },
+      {
+        "text": "Carpentry and Joinery",
+        "value": "10"
+      },
+      {
+        "text": "Material Knowledge",
+        "value": "9"
+      }
+    ],
+    "location": {
+      "text": "01: San Francisco",
+      "value": "2"
+    },
+    "department": {
+      "text": "Engineering",
+      "value": "11"
+    }
+  },
+  {
+    "id": "565",
+    "name": "Arun Sharma",
+    "initials": "AS",
+    "email": "aruns.unlock2go@gmail.com",
+    "phone": "",
+    "active": true,
+    "workorder": {
+      "text": "Lobby Area - Product Core Dryrun",
+      "value": "138"
+    },
+    "event": "101229",
+    "employee": {
+      "text": "Arun Sharma",
+      "value": "1770"
+    },
+    "resourceGroups": [{
+        "text": "Designers",
+        "value": "2"
+      },
+      {
+        "text": "Drivers",
+        "value": "3"
+      },
+      {
+        "text": "Installers",
+        "value": "1"
+      }
+    ],
+    "types": [{
+        "text": "Delivery Driver",
+        "value": "2"
+      },
+      {
+        "text": "Designer",
+        "value": "3"
+      },
+      {
+        "text": "Installer",
+        "value": "1"
+      }
+    ],
+    "subTypes": [],
+    "rate": 0,
+    "vendor": {
+      "text": "",
+      "value": ""
+    },
+    "purchaseOrder": {
+      "text": " ",
+      "value": ""
+    },
+    "affiliationType": {
+      "text": "In-House",
+      "value": "1"
+    },
+    "time": {
+      "start": "00:00",
+      "end": "00:15"
+    },
+    "resourceSkills": [{
+        "text": "Driving",
+        "value": "3"
+      },
+      {
+        "text": "Plumbing",
+        "value": "2"
+      }
+    ],
+    "location": {
+      "text": "02: Boston",
+      "value": "1"
+    },
+    "department": {
+      "text": "",
+      "value": ""
+    }
+  },
+  {
     "id": "1",
     "name": " ",
     "initials": "",

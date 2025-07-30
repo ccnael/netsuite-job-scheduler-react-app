@@ -186,8 +186,8 @@ export const CompleteEvent: React.FC<CompleteEventProps> = ({
         </ScrollArea>
 
         <DialogFooter className="mt-2 flex-shrink-0">
-          <Button variant="outline" onClick={onClose} className="text-[12px] h-8 px-3 tracking-tight">Cancel</Button>
-          <Button onClick={handleSubmit} className="text-[12px] h-8 px-3 tracking-tight">Complete</Button>
+          <Button variant="outline" onClick={onClose}>Cancel</Button>
+          <Button onClick={handleSubmit}>Complete</Button>
         </DialogFooter>
       </DialogContent>
     </Dialog>

@@ -144,7 +144,7 @@ export const UpdateEvent: React.FC<UpdateEventProps> = ({
     status: selectedEvent?.status?.value || 'TENTATIVE', 
     priority: selectedEvent?.priority?.value || '1', 
     allDay: false, 
-    assetMaintenance: false,
+    assetMaintenance: selectedEvent?.assetMaintenance,
     routingGroupText: selectedEvent?.routingGroup?.text || '',
     routingGroup: selectedEvent?.routingGroup?.value || '',
     woRef: selectedEvent?.woRef,
@@ -223,6 +223,13 @@ export const UpdateEvent: React.FC<UpdateEventProps> = ({
     if (isOpen && !previousIsOpenRef.current) {
       console.log('Dialog opened, resetting form data');
       setFormData(defaultFormData);
+      
+      // Set accordion values based on assetMaintenance
+      if (defaultFormData.assetMaintenance) {
+        setAccordionValues(['primary-info', 'assets']);
+      } else {
+        setAccordionValues(['primary-info', 'resources', 'vendors', 'assets']);
+      }
     }
     previousIsOpenRef.current = isOpen;
   }, [isOpen]);

@@ -2,6 +2,7 @@ import React, { useState, useMemo, useCallback, useEffect } from 'react';
 import {
   ColumnDef, flexRender, getCoreRowModel, getFilteredRowModel,
   getPaginationRowModel, getSortedRowModel, SortingState, useReactTable,
+  PaginationState
 } from "@tanstack/react-table";
 import {
   Table, TableBody, TableCell, TableHead, TableHeader, TableRow
@@ -41,6 +42,7 @@ export const WOItemTable: React.FC<WOItemTableProps> = ({ woId, onSelectionChang
   const [tableDataState, setTableDataState] = useState<TableWOItem[]>([]);
   const [rowSelection, setRowSelection] = useState({});
   const [validationWarnings, setValidationWarnings] = useState<Record<string, boolean>>({});
+  const [pagination, setPagination] = useState<PaginationState>({ pageIndex: 0, pageSize: 5 });
 
   // Fetch data on load
   useEffect(() => {
@@ -48,6 +50,12 @@ export const WOItemTable: React.FC<WOItemTableProps> = ({ woId, onSelectionChang
       let data = await fetchWOItems(woId, '');
       if (!onUpdate) {
         data = data.filter(x => !x.event);
+      } else {
+        // let unassignedItems = data.filter(x => !x.event);
+        const unassignedItems = data
+          .filter(x => !selectedEvent.items.map(y => y.item.value)
+          .includes(x.item.value));
+        data = [...selectedEvent.items, ...unassignedItems];
       }
       const mappedData = data.map(woItem => ({
         id: woItem.id,
@@ -272,16 +280,19 @@ export const WOItemTable: React.FC<WOItemTableProps> = ({ woId, onSelectionChang
     getPaginationRowModel: getPaginationRowModel(),
     getFilteredRowModel: getFilteredRowModel(),
     getSortedRowModel: getSortedRowModel(),
+    manualPagination: false,
     state: { 
       globalFilter, 
       sorting,
-      rowSelection
+      rowSelection,
+      pagination
     },
     onGlobalFilterChange: setGlobalFilter,
     onSortingChange: setSorting,
     onRowSelectionChange: setRowSelection,
+    onPaginationChange: setPagination,
     enableRowSelection: true,
-    initialState: { pagination: { pageSize: 5 } },
+    autoResetPageIndex: false,
   });
 
   return (
@@ -291,8 +302,8 @@ export const WOItemTable: React.FC<WOItemTableProps> = ({ woId, onSelectionChang
         <div className="flex items-center space-x-1">
           <span className="text-[12px] font-sans text-foreground">Rows:</span>
           <select
-            value={table.getState().pagination.pageSize}
-            onChange={(e) => table.setPageSize(Number(e.target.value))}
+            value={pagination.pageSize}
+            onChange={(e) => setPagination(prev => ({ ...prev, pageSize: Number(e.target.value), pageIndex: 0 }))}
             className="h-6 w-[50px] rounded border border-border bg-background px-1 text-[12px] font-sans"
           >
             {[5, 10, 20, 30].map((size) => <option key={size} value={size}>{size}</option>)}
@@ -356,8 +367,8 @@ export const WOItemTable: React.FC<WOItemTableProps> = ({ woId, onSelectionChang
       <div className="flex items-center justify-between mt-2">
         <div className="text-[12px] font-sans text-foreground">
           {(() => {
-            const pageIndex = table.getState().pagination.pageIndex;
-            const pageSize = table.getState().pagination.pageSize;
+            const pageIndex = pagination.pageIndex;
+            const pageSize = pagination.pageSize;
             const total = table.getFilteredRowModel().rows.length;
             const from = total === 0 ? 0 : pageIndex * pageSize + 1;
             const to = Math.min(total, (pageIndex + 1) * pageSize);
@@ -366,17 +377,17 @@ export const WOItemTable: React.FC<WOItemTableProps> = ({ woId, onSelectionChang
         </div>
 
         <div className="flex items-center justify-end space-x-1">
-          <Button variant="outline" className="h-6 w-6 p-0" onClick={() => table.setPageIndex(0)} disabled={!table.getCanPreviousPage()}>
+          <Button variant="outline" className="h-6 w-6 p-0" onClick={() => setPagination(prev => ({ ...prev, pageIndex: 0 }))} disabled={!table.getCanPreviousPage()}>
             <ChevronsLeft className="h-3 w-3" />
           </Button>
-          <Button variant="outline" className="h-6 w-6 p-0" onClick={() => table.previousPage()} disabled={!table.getCanPreviousPage()}>
+          <Button variant="outline" className="h-6 w-6 p-0" onClick={() => setPagination(prev => ({ ...prev, pageIndex: prev.pageIndex - 1 }))} disabled={!table.getCanPreviousPage()}>
             <ChevronLeft className="h-3 w-3" />
           </Button>
-          <span className="text-[12px] font-sans">{table.getState().pagination.pageIndex + 1} / {table.getPageCount()}</span>
-          <Button variant="outline" className="h-6 w-6 p-0" onClick={() => table.nextPage()} disabled={!table.getCanNextPage()}>
+          <span className="text-[12px] font-sans">{pagination.pageIndex + 1} / {table.getPageCount()}</span>
+          <Button variant="outline" className="h-6 w-6 p-0" onClick={() => setPagination(prev => ({ ...prev, pageIndex: prev.pageIndex + 1 }))} disabled={!table.getCanNextPage()}>
             <ChevronRight className="h-3 w-3" />
           </Button>
-          <Button variant="outline" className="h-6 w-6 p-0" onClick={() => table.setPageIndex(table.getPageCount() - 1)} disabled={!table.getCanNextPage()}>
+          <Button variant="outline" className="h-6 w-6 p-0" onClick={() => setPagination(prev => ({ ...prev, pageIndex: table.getPageCount() - 1 }))} disabled={!table.getCanNextPage()}>
             <ChevronsRight className="h-3 w-3" />
           </Button>
         </div>

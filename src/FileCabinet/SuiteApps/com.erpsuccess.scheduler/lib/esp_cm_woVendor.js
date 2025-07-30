@@ -57,11 +57,11 @@ define([
           search.createColumn({ name: 'email', join: 'custrecord_esp_fop_wo_sub_vendor', label: 'Email' }),
           search.createColumn({ name: 'custrecord_esp_fop_wo_sub_rel_wo', label: 'Work Order' }),
           search.createColumn({ name: 'custrecord_esp_fop_wo_sub_qty_rqd', label: 'Quantity Required' }),
-          search.createColumn({
-            name: 'custentity_esp_fop_ven_avail_resources',
-            join: 'CUSTRECORD_ESP_FOP_WO_SUB_VENDOR',
-            label: 'Available Resources'
-          }),
+          // search.createColumn({
+          //   name: 'custentity_esp_fop_ven_avail_resources',
+          //   join: 'CUSTRECORD_ESP_FOP_WO_SUB_VENDOR',
+          //   label: 'Available Resources'
+          // }),
           search.createColumn({ name: 'custrecord_esp_fop_wo_sub_event', label: 'Event' }),
           search.createColumn({ name: 'custrecord_esp_fop_wo_sub_po', label: 'Purchase Order' }),
           search.createColumn({ name: 'custrecord_esp_fop_wo_sub_amount', label: 'Amount' }),
@@ -160,70 +160,100 @@ define([
   }
 
   /**
-   * Update existing vendors quantity and memo
-   * @param {Object} event Event data
-   * @param {Object} dataSrc Data source
-   * @param {Object} woRef WO data
+   * Update existing vendors qtyrequired and memo
+   * @param {Object} updatedVendors WO Vendors for update
    */
-  function updateVendors(event, dataSrc, woRef) {
-    const selectedVendors = event.selectedVendors;
-    const selectedVendorIds = selectedVendors.map(x => x.id);
-    const srcVendors = dataSrc.vendors.filter(x => !!(x.selected));
+  function updateVendors(updatedVendors) {
+    // log.audit('Updating WO Vendors', { updatedVendors });
+    for (const update of updatedVendors) {
+      const values = {};
+      if (update.updatedQuantityRequired) {
+        values.custrecord_esp_fop_wo_sub_qty_rqd = update.updatedQuantityRequired;
+      }
+      if (update.updatedMemo) {
+        values.custrecord_esp_fop_wo_sub_comment = update.updatedMemo;
+      }
+      record.submitFields({
+        type: env.RecordType.WORK_ORDER_VENDOR,
+        id: update.woVendorId,
+        values,
+        options: {
+          ignoreMandatoryFieds: true,
+        }
+      });
+      log.audit('----- [Updated WO Vendor Record] -----', { update });
+    }
+  }
+
+  /**
+   * Delete WO Vendor records
+   * @param {Object} removedVendors WO Vendors for deletion
+   */
+  function removeVendors(removedVendors) {
+    utils.deleteRecords(env.RecordType.WORK_ORDER_VENDOR, removedVendors.map(x => x.id));
+  }
+
+  /**
+   * Determines the Work Order (WO) vendors that need to be created, updated, or removed
+   * based on the differences between the current event data and the incoming updates.
+   *
+   * @param {Object} eventData - The original event data containing current WO vendors.
+   * @param {Object} updates - The updated event data containing new vendor state.
+   * @returns {Object} An object with:
+   *  - updatedVendors: Array of vendors that need their time fields updated.
+   *  - newVendors: Array of new vendors to be created.
+   *  - removedVendors: Array of vendors that are no longer present in the updates.
+   */
+  function prepareUpdatedWOVendors(eventData, updates) {
+    const selectedVendors = updates.vendors;
+    const srcVendors = eventData.vendors;
+
+    const selectedVendorIds = selectedVendors.map(x => x.woVendorId).filter(Boolean);
     const srcVendorIds = srcVendors.map(x => x.id);
-    const removedVendors = srcVendors.filter(x => !(selectedVendorIds.includes(x.id)));
-    const newVendors = selectedVendors.filter(x => !(srcVendorIds.includes(x.id)));
 
-    log.audit('Updating WO Vendor Event List', { selectedVendors, removedVendors, newVendors });
+    const removedVendors = srcVendors.filter(
+      src => !selectedVendorIds.includes(src.id)
+    );
 
-    // If theres quantity to update
-    for (const vendor of selectedVendors) {
-      if (!vendor.id) continue;
+    const newVendors = selectedVendors.filter(
+      upd => !upd.woVendorId || !srcVendorIds.includes(upd.woVendorId)
+    );
+    const updatedVendors = [];
 
-      try {
-        const vendorLookUp = search.lookupFields({
-          type: env.RecordType.WORK_ORDER_VENDOR,
-          id: vendor.id,
-          columns: ['custrecord_esp_fop_wo_sub_qty_rqd', 'custrecord_esp_fop_wo_sub_comment']
-        });
+    for (const upd of selectedVendors) {
+      const matchId = upd.woVendorId;
+      if (!matchId) continue;
 
-        const values = {};
-
-        if (vendorLookUp.custrecord_esp_fop_wo_sub_qty_rqd != vendor.quantityRequired) {
-          values.custrecord_esp_fop_wo_sub_qty_rqd = vendor.quantityRequired;
+      const existing = srcVendors.find(src => src.id === matchId);
+      if (existing) {
+        const valuesToUpdate = {};
+        if (existing.quantityRequired !== upd.quantityRequired) {
+          valuesToUpdate.updatedQuantityRequired = upd.quantityRequired;
         }
-
-        if (vendorLookUp.custrecord_esp_fop_wo_sub_comment != vendor.memo) {
-          values.custrecord_esp_fop_wo_sub_comment = vendor.memo;
+        if (existing.memo !== upd.memo) {
+          valuesToUpdate.updatedMemo = upd.memo;
         }
-
-        if (Object.keys(values).length) {
-          record.submitFields({
-            type: env.RecordType.WORK_ORDER_VENDOR,
-            id: vendor.id,
-            values,
-            options: {
-              ignoreMandatoryFieds: true
-            }
+        if (Object.keys(valuesToUpdate).length) {
+          updatedVendors.push({
+            ...upd,
+            ...valuesToUpdate
           });
-          log.audit('----- [Updated WO Vendor Record] -----', { vendor });
         }
-      } catch (e) {
-        log.error('Error on WO Vendor > Update', { vendor, errorMsg: e.message });
       }
     }
 
-    // If theres to remove (removed vendors)
-    utils.deleteRecords(env.RecordType.WORK_ORDER_VENDOR, removedVendors.map(x => x.id));
-
-    // If theres to create (newly added vendors)
-    const clonedEventObj = helper.deepCopy(event);
-    clonedEventObj.selectedVendors = newVendors;
-    createVendors(clonedEventObj, woRef);
+    return {
+      updatedVendors,
+      newVendors,
+      removedVendors
+    }
   }
 
   return {
     getVendors,
     createVendors,
-    updateVendors
+    updateVendors,
+    removeVendors,
+    prepareUpdatedWOVendors
   }
 })
