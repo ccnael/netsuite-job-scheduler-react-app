@@ -840,6 +840,31 @@ const getMockAssets = (): Asset[] => {
   ]
 };
 
+export const assignAsset = async (resourceDetails: any, eventData: any): Promise<boolean> => {
+  try {
+    const url = `${suiteletUrl}&mode=assignAsset`;
+    const response = await fetch(url, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        resourceDetails,
+        eventData
+      })
+    });
+
+    if (!response.ok) {
+      throw new Error(`Failed to assign asset: ${response.status}`);
+    }
+
+    return true;
+  } catch (error) {
+    console.error('Error assigning asset:', error);
+    throw error;
+  }
+};
+
 export const fetchAssets = async (): Promise<Asset[]> => {
   if (isLocalDevelopment()) {
     console.log('Using mock asset data for local development');

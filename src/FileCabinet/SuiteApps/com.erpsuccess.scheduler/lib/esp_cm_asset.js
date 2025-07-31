@@ -2,7 +2,21 @@
  * @NApiVersion 2.1
  * @NModuleScope Public
  */
-define(['N/search'], (search) => {
+define([
+  'N/search',
+  './esp_cm_woAsset',
+  './esp_cm_helper',
+  './esp_cm_utils',
+  './esp_cm_constants',
+  './moment.min'
+], (
+  search,
+  woAssetLib,
+  helper,
+  utils,
+  env,
+  moment
+) => {
   /**
    * Get the list of assets
    * @param {Object} context Suitelet object
@@ -84,7 +98,35 @@ define(['N/search'], (search) => {
     response.write(JSON.stringify(assets));
   }
 
+  /**
+ * Assign asset to event (Asset > WO Asset)
+ * @param {Object} context Suitelet object
+ */
+  function assignAsset(context) {
+    const { request, response } = context;
+    const requestBody = request.body || '{}';
+    const payload = JSON.parse(requestBody);
+    const { eventData, resourceDetails } = payload;
+
+    // Prepare date and time NS values formatting
+    eventData.parsedStartDate = utils.parseDate(eventData.date.start);
+    eventData.parsedEndDate = utils.parseDate(eventData.date.end);
+    eventData.date.start = moment(eventData.date.start).format(env.Format.IMPORT_DATE);
+    eventData.date.end = moment(eventData.date.end).format(env.Format.IMPORT_DATE);
+
+    eventData.assets = [resourceDetails];
+
+    woAssetLib.createAssets(eventData);
+
+    response.write(JSON.stringify({
+      code: 200,
+      recordId: eventData.id,
+      status: 'success'
+    }));
+  }
+
   return {
-    getAssets
+    getAssets,
+    assignAsset
   }
 })

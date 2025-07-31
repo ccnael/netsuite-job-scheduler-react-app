@@ -212,6 +212,7 @@ define([
     log.audit('----- [Create Work Order Event] -----', { eventData });
 
     try {
+      // Prepare date and time NS values formatting
       eventData.parsedStartDate = utils.parseDate(eventData.date.start);
       eventData.parsedEndDate = utils.parseDate(eventData.date.end);
       eventData.date.start = moment(eventData.date.start).format(env.Format.IMPORT_DATE);
@@ -337,7 +338,7 @@ define([
           nsFld.status = updates.status.value.replace('COMPLETED', 'COMPLETE');
         }
       }
-      if (updates.address) {
+      if (updates.address?.value) {
         if (eventData.address?.value != updates.address?.value) {
           nsFld.custevent_esp_fop_event_address = updates.address.value;
         }
@@ -437,10 +438,12 @@ define([
         newContacts.length && woContactLib.createContacts(eventData);
         removedContacts.length && woContactLib.removeContacts(removedContacts);
 
-        if (eventData.address?.value != updates.address?.value) {
-          woAddressLib.removeEventFromAddress(eventData.address, eventData.id);
-          eventData.address = updates.address;
-          woAddressLib.addEventToAddress(eventData);
+        if (updates.address?.value) {
+          if (eventData.address?.value != updates.address?.value) {
+            woAddressLib.removeEventFromAddress(eventData.address, eventData.id);
+            eventData.address = updates.address;
+            woAddressLib.addEventToAddress(eventData);
+          }
         }
 
         response.write(JSON.stringify({

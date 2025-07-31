@@ -190,9 +190,8 @@ define([
   /**
    * Transform employees to WO resources
    * @param {Object} event Event data
-   * @param {Boolean} copyEventTime 
    */
-  function createResources(event, copyEventTime) {
+  function createResources(event) {
     const resources = event?.resources || [];
     for (const resource of resources) {
       try {
@@ -213,11 +212,11 @@ define([
         rec.setValue({ fieldId: 'custrecord_esp_fop_res_event_end_date', value: event.parsedEndDate });
         rec.setValue({
           fieldId: 'custrecord_esp_fop_res_start_time',
-          value: helper.toDateTimez(event.date.start, !copyEventTime ? resource.startTime : event.time.start) // If no resource start time, use event start time instead
+          value: helper.toDateTimez(event.date.start, resource.startTime)
         });
         rec.setValue({
           fieldId: 'custrecord_esp_fop_res_end_time',
-          value: helper.toDateTimez(event.date.start, !copyEventTime ? resource.endTime : event.time.end)  // If no resource end time, use event end time instead
+          value: helper.toDateTimez(event.date.start, resource.endTime)
         });
         const newId = rec.save({ ignoreMandatoryFields: true });
         log.audit('----- [Created WO Resource Record] -----', newId);

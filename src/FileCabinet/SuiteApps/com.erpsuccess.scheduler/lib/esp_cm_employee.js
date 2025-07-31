@@ -4,9 +4,19 @@
  */
 define([
   'N/search',
+  './esp_cm_woResource',
   './esp_cm_helper',
-  './esp_cm_utils'
-], (search, helper, utils) => {
+  './esp_cm_utils',
+  './esp_cm_constants',
+  './moment.min'
+], (
+  search,
+  woResourceLib,
+  helper,
+  utils,
+  env,
+  moment
+) => {
   /**
    * Get the list of employees
    * @param {Object} context Suitelet object
@@ -159,7 +169,35 @@ define([
     response.write(JSON.stringify(employees));
   }
 
+  /**
+   * Assign resource to event (Employee > WO Resource)
+   * @param {Object} context Suitelet object
+   */
+  function assignEmployee(context) {
+    const { request, response } = context;
+    const requestBody = request.body || '{}';
+    const payload = JSON.parse(requestBody);
+    const { eventData, resourceDetails } = payload;
+
+    // Prepare date and time NS values formatting
+    eventData.parsedStartDate = utils.parseDate(eventData.date.start);
+    eventData.parsedEndDate = utils.parseDate(eventData.date.end);
+    eventData.date.start = moment(eventData.date.start).format(env.Format.IMPORT_DATE);
+    eventData.date.end = moment(eventData.date.end).format(env.Format.IMPORT_DATE);
+
+    eventData.resources = [resourceDetails];
+
+    woResourceLib.createResources(eventData);
+
+    response.write(JSON.stringify({
+      code: 200,
+      recordId: eventData.id,
+      status: 'success'
+    }));
+  }
+
   return {
-    getEmployees
+    getEmployees,
+    assignEmployee
   }
 })

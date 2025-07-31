@@ -116,9 +116,8 @@ define([
   /**
    * Transform assets to WO assets
    * @param {Object} event Event data
-   * @param {Boolean} copyEventTime 
    */
-  function createAssets(event, copyEventTime) {
+  function createAssets(event) {
     const assets = event?.assets || [];
     for (const asset of assets) {
       try {
@@ -141,11 +140,11 @@ define([
         rec.setValue({ fieldId: 'custrecord_esp_fop_ast_end_date', value: event.parsedEndDate });
         rec.setValue({
           fieldId: 'custrecord_esp_fop_ast_start_time',
-          value: helper.toDateTimez(event.date.start, !copyEventTime ? asset.startTime : event.stime.starttartTime) // If no asset start time, use event start time instead
+          value: helper.toDateTimez(event.date.start, asset.startTime)
         });
         rec.setValue({
           fieldId: 'custrecord_esp_fop_ast_end_time',
-          value: helper.toDateTimez(event.date.start, !copyEventTime ? asset.endTime : event.time.end) // If no asset end time, use event end time instead
+          value: helper.toDateTimez(event.date.start, asset.endTime)
         });
         const newId = rec.save({ ignoreMandatoryFieds: true });
         log.audit('----- [Created WO Asset Record] -----', newId);

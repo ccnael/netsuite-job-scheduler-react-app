@@ -1025,13 +1025,13 @@ const Calendar = () => {
 
      switch (action) {
        case 'update':
-         toast.info(`Update event: ${event.title || 'Event'}`);
+         toast.info(`IN PROGRESS...`);
          break;
        case 'complete':
-         toast.info(`Complete event: ${event.title || 'Event'}`);
+         toast.info(`IN PROGRESS...`);
          break;
        case 'remove':
-         toast.info(`Remove event: ${event.title || 'Event'}`);
+         toast.info(`IN PROGRESS...`);
          break;
      }
    };

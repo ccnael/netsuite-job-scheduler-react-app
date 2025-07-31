@@ -1349,6 +1349,35 @@ export const getMockEmployees = (): Employee[] => {
   ];
 };
 
+export const assignEmployee = async (resourceDetails: any, eventData: any): Promise<boolean> => {
+  console.log('FUCK YOU!!!', {
+    resourceDetails,
+    eventData
+  });
+  try {
+    const url = `${suiteletUrl}&mode=assignEmployee`;
+    const response = await fetch(url, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        resourceDetails,
+        eventData
+      })
+    });
+
+    if (!response.ok) {
+      throw new Error(`Failed to assign employee: ${response.status}`);
+    }
+
+    return true;
+  } catch (error) {
+    console.error('Error assigning employee:', error);
+    throw error;
+  }
+};
+
 export const fetchEmployees = async (): Promise<Employee[]> => {
   if (isLocalDevelopment()) {
     console.log('Using mock employee data for local development');

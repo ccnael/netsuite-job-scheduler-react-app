@@ -212,6 +212,31 @@ const getMockVendors = (): Vendor[] => {
   ]
 };
 
+export const assignVendor = async (resourceDetails: any, eventData: any): Promise<boolean> => {
+  try {
+    const url = `${suiteletUrl}&mode=assignVendor`;
+    const response = await fetch(url, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        resourceDetails,
+        eventData
+      })
+    });
+
+    if (!response.ok) {
+      throw new Error(`Failed to assign vendor: ${response.status}`);
+    }
+
+    return true;
+  } catch (error) {
+    console.error('Error assigning vendor:', error);
+    throw error;
+  }
+};
+
 export const fetchVendors = async (): Promise<Vendor[]> => {
   if (isLocalDevelopment()) {
     console.log('Using mock vendor data for local development');

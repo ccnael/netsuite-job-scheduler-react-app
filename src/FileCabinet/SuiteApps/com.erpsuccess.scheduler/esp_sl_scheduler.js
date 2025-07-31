@@ -201,13 +201,28 @@ define([
     } else if (method === 'POST') {
 
       switch (mode) {
+        case 'createRoutingGroup':
+          routingGroupLib.createRoutingGroup(context);
+          break;
         case 'createEvent':
           eventLib.createEvent(context);
           break;
         case 'updateEvent':
           eventLib.updateEvent(context);
           break;
-        case 'updateResourceAssignment':
+        case 'removeEvent':
+          eventLib.removeEvent(context);
+          break;
+        case 'assignEmployee':
+          employeeLib.assignEmployee(context);
+          break;
+        case 'assignVendor':
+          vendorLib.assignVendor(context);
+          break;
+        case 'assignAsset':
+          assetLib.assignAsset(context);
+          break;
+        /* case 'updateResourceAssignment':
           woResourceLib.updateCalendarResourceAssignment(context);
           break;
         case 'updateAssetAssignment':
@@ -218,15 +233,9 @@ define([
           break;
         case 'updateAssetDateTime':
           woAssetLib.updateCalendarResizedDateTime(context);
-          break;
+          break; */
         case 'completeEvent':
           eventLib.completeEvent(context);
-          break;
-        case 'removeEvent':
-          eventLib.removeEvent(context);
-          break;
-        case 'createRoutingGroup':
-          routingGroupLib.createRoutingGroup(context);
           break;
       }
     }

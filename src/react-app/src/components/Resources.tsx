@@ -30,7 +30,7 @@ interface ResourcesProps {
   assets: Asset[];
   isLoading: boolean;
   selectedResources?: string[];
-  onResourceDragStart?: (resourceId: string, resourceType: 'employee' | 'vendor' | 'asset') => void;
+  onResourceDragStart?: (resourceId: string, resourceType: 'employee' | 'vendor' | 'asset', resourceName: string) => void;
   onResourceDragEnd?: () => void;
   onResourceClick?: (resourceName: string) => void;
 }
@@ -289,17 +289,20 @@ export const Resources: React.FC<ResourcesProps> = ({
   const defaultExpandedGroups = Object.keys(groupedResources);
 
   const handleDragStart = (resource: Resource) => {
-    let resourceId = '';
+    let resourceId = '', resourceName = '';
     if (resource.resourceType === 'employee') {
       resourceId = resource.employee?.value || '';
+      resourceName = resource.employee?.text || '';
     } else if (resource.resourceType === 'vendor') {
       resourceId = resource.vendor?.value || '';
+      resourceName = resource.vendor?.text || '';
     } else if (resource.resourceType === 'asset') {
       resourceId = resource.asset?.value || '';
+      resourceName = resource.asset?.text || '';
     }
     
     if (resourceId && onResourceDragStart) {
-      onResourceDragStart(resourceId, resource.resourceType);
+      onResourceDragStart(resourceId, resource.resourceType, resourceName);
     }
   };
 

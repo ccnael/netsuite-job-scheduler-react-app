@@ -2,9 +2,9 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { Card } from '../components/Card';
 import { Resources } from '../components/Resources';
 import { fetchEvents, removeEvent, type Event } from '@/api/event';
-import { fetchEmployees, type Employee } from '@/api/employee';
-import { fetchVendors, type Vendor } from '@/api/vendor';
-import { fetchAssets, type Asset } from '@/api/asset';
+import { fetchEmployees, assignEmployee, type Employee } from '@/api/employee';
+import { fetchVendors, assignVendor, type Vendor } from '@/api/vendor';
+import { fetchAssets, assignAsset, type Asset } from '@/api/asset';
 import { fetchWOResources, type WOResource } from '@/api/woResource';
 import { fetchWOVendors, type WOVendor } from '@/api/woVendor';
 import { fetchWOAssets, type WOAsset } from '@/api/woAsset';
@@ -32,6 +32,7 @@ import MultiSelectFilter from '../components/forms/MultiSelectFilter';
 import { Option } from '@/components/ui-custom/MultiSelect';
 import { ChevronRight, Filter, Bot, ClipboardCheck, Calendar, Plus, Search, Users, X } from "lucide-react";
 import DateRangeFilter from '../components/forms/DateRangeFilter';
+import TimeRangeFilter from '../components/forms/TimeRangeFilter';
 import {
   Popover,
   PopoverContent,
@@ -167,25 +168,6 @@ interface SelectedContact {
 interface SelectedAddress {
   id: string;
   name: string;
-}
-
-interface EventFormData {
-  eventTitle: string;
-  notes: string;
-  startDate: string;
-  endDate: string;
-  startTime: string;
-  endTime: string;
-  status: string;
-  priority: string;
-  allDay: boolean;
-  routingGroup: string;
-  selectedResources: SelectedResource[];
-  selectedVendors: SelectedVendor[];
-  selectedAssets: SelectedAsset[];
-  selectedItems: SelectedItem[];
-  selectedContacts: SelectedContact[];
-  selectedAddress: SelectedAddress | null;
 }
 
 const Board = () => {
@@ -356,9 +338,23 @@ const Board = () => {
   const [isRemoveDialogOpen, setIsRemoveDialogOpen] = useState(false);
   const [selectedEventForRemove, setSelectedEventForRemove] = useState<Event | null>(null);
   const [isRemoving, setIsRemoving] = useState(false);
+  const [isAssigning, setIsAssigning] = useState(false);
+  const [isAssignResourceDialogOpen, setIsAssignResourceDialogOpen] = useState(false);
+  const [pendingResourceAssignment, setPendingResourceAssignment] = useState<{
+    event: Event;
+    resource: { id: string; type: 'employee' | 'vendor' | 'asset'; name: string }
+  } | null>(null);
+  
+  // Assignment form data
+  const [assignmentFormData, setAssignmentFormData] = useState({
+    startTime: '',
+    endTime: '',
+    quantity: '',
+    memo: ''
+  });
 
   const handleRemoveEvent = async (e: React.MouseEvent) => {
-    e.preventDefault(); // Prevent default AlertDialogAction behavior
+    e.preventDefault();
     
     if (!selectedEventForRemove) return;
 
@@ -366,7 +362,6 @@ const Board = () => {
       setIsRemoving(true);
       await removeEvent(selectedEventForRemove);
       
-      // Reload events like in CreateEvent
       await loadAllData();
       
       toast.custom((id) => (
@@ -482,7 +477,9 @@ const Board = () => {
   const [draggedResource, setDraggedResource] = useState<{
     id: string;
     type: 'employee' | 'vendor' | 'asset';
+    name: string;
   } | null>(null);
+  const [dragOverEventId, setDragOverEventId] = useState<string | null>(null);
   const [isCreateModalOpen, setIsCreateModalOpen] = useState(false);
   const [selectedJob, setSelectedJob] = useState<Job | null>(null);
   const [isCollapsed, setIsCollapsed] = useState(false);
@@ -663,13 +660,14 @@ const Board = () => {
     label: loc.name
   }));
 
-  const handleResourceDragStart = (resourceId: string, resourceType: 'employee' | 'vendor' | 'asset') => {
+  const handleResourceDragStart = (resourceId: string, resourceType: 'employee' | 'vendor' | 'asset', resourceName: string) => {
     console.log('Resource drag started:', { resourceId, resourceType });
-    setDraggedResource({ id: resourceId, type: resourceType });
+    setDraggedResource({ id: resourceId, type: resourceType, name: resourceName });
   };
 
   const handleResourceDragEnd = () => {
-    console.log('Resource drag ended');
+    // Reset drag over state to clear visual indicators
+    setDragOverEventId(null);
     setDraggedResource(null);
   };
 
@@ -703,6 +701,24 @@ const Board = () => {
 
   const handleDragOver = (e: React.DragEvent) => {
     e.preventDefault();
+  };
+
+  const handleEventDragOver = (e: React.DragEvent, eventId: string) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setDragOverEventId(eventId);
+    const canAcceptDrop = shouldShowDropZone(eventId);
+    e.dataTransfer.dropEffect = canAcceptDrop ? 'copy' : 'none';
+
+    // if (!canAcceptDrop) {
+    //   (e.target as HTMLElement).style.cursor = 'not-allowed';
+    //   console.log('Added');
+    // }
+  };
+
+  const handleEventDragLeave = (e: React.DragEvent) => {
+    e.preventDefault();
+    setDragOverEventId(null);
   };
 
   const handleJobDrop = (e: React.DragEvent) => {
@@ -748,65 +764,123 @@ const Board = () => {
         return;
       }
 
-      let resourceDetails = null;
-      if (draggedResource.type === 'employee') {
-        resourceDetails = employees.find(emp => emp.employee?.value === draggedResource.id);
-      } else if (draggedResource.type === 'vendor') {
-        resourceDetails = vendors.find(vendor => vendor.vendor?.value === draggedResource.id);
-      } else if (draggedResource.type === 'asset') {
-        resourceDetails = assets.find(asset => asset.asset?.value === draggedResource.id);
-      }
+      // Show confirmation modal instead of directly assigning
+      setPendingResourceAssignment({
+        event,
+        resource: draggedResource
+      });
+      // Reset form data with default values
+      setAssignmentFormData({
+        startTime: event.time.start || '',
+        endTime: event.time.end || '',
+        quantity: '1',
+        memo: ''
+      });
+      setIsAssignResourceDialogOpen(true);
+    }
+  };
 
-      if (resourceDetails) {
-        const updatedEvents = events.map(e => 
-          e.id === eventId 
-            ? {
-                ...e,
-                ...(draggedResource.type === 'employee' && {
-                  resources: [
-                    ...(e.resources || []),
-                    {
-                      id: '', // This would typically be generated by the backend
-                      employee: resourceDetails.employee,
-                      startTime: '',
-                      endTime: '',
-                      woResourceId: ''
-                    }
-                  ]
-                }),
-                ...(draggedResource.type === 'vendor' && {
-                  vendors: [
-                    ...(e.vendors || []),
-                    {
-                      id: '', // This would typically be generated by the backend
-                      vendor: resourceDetails.vendor,
-                      quantityRequired: 1,
-                      memo: ''
-                    }
-                  ]
-                }),
-                ...(draggedResource.type === 'asset' && {
-                  assets: [
-                    ...(e.assets || []),
-                    {
-                      id: '', // This would typically be generated by the backend
-                      asset: resourceDetails.asset,
-                      quantity: 1,
-                      startTime: '',
-                      endTime: ''
-                    }
-                  ]
-                })
-              }
-            : e
-        );
-        
-        setEvents(updatedEvents);
-        toast.success(`${draggedResource.type.charAt(0).toUpperCase() + draggedResource.type.slice(1)} assigned to event`, {
-          position: "top-right",
-          className: "!bg-green-100 !text-green-800 !border !border-green-300",
-        });
+  const confirmResourceAssignment = async (e: React.MouseEvent) => {
+    e.preventDefault();
+    if (!pendingResourceAssignment) return;
+
+    // Validate mandatory fields
+    const { event, resource } = pendingResourceAssignment;
+    let isValid = true;
+    let errorMessage = '';
+    let resourceDetails = null;
+
+    if (resource.type === 'employee') {
+      resourceDetails = employees.find(emp => emp.employee?.value === resource.id);
+      if (!assignmentFormData.startTime || !assignmentFormData.endTime) {
+        isValid = false;
+        errorMessage = 'Start time and end time are required for employee assignment.';
       }
+    } else if (resource.type === 'vendor') {
+      resourceDetails = vendors.find(vendor => vendor.vendor?.value === resource.id);
+      if (!assignmentFormData.quantity || !assignmentFormData.memo) {
+        isValid = false;
+        errorMessage = 'Quantity and memo are required for vendor assignment.';
+      }
+    } else if (resource.type === 'asset') {
+      resourceDetails = assets.find(asset => asset.asset?.value === resource.id);
+      if (!assignmentFormData.quantity || !assignmentFormData.startTime || !assignmentFormData.endTime) {
+        isValid = false;
+        errorMessage = 'Quantity, start time, and end time are required for asset assignment.';
+      }
+    }
+
+    if (!isValid) {
+      toast.error(errorMessage, {
+        position: "top-right",
+        className: "!bg-red-100 !text-red-800 !border !border-red-300",
+      });
+      return;
+    }
+
+    setIsAssigning(true);
+
+    if (resourceDetails) {
+      try {
+        // Call appropriate assignment API
+        if (resource.type === 'employee') {
+          resourceDetails.startTime = assignmentFormData.startTime;
+          resourceDetails.endTime = assignmentFormData.endTime;
+          await assignEmployee(resourceDetails, event);
+        } else if (resource.type === 'vendor') {
+          resourceDetails.quantityRequired = assignmentFormData.quantity;
+          resourceDetails.memo = assignmentFormData.memo;
+          await assignVendor(resourceDetails, event);
+        } else if (resource.type === 'asset') {
+          resourceDetails.quantity = assignmentFormData.quantity;
+          resourceDetails.startTime = assignmentFormData.startTime;
+          resourceDetails.endTime = assignmentFormData.endTime;
+          await assignAsset(resourceDetails, event);
+        }
+
+        await loadAllData();
+
+        toast.custom((id) => (
+          <div
+            data-sonner-rounded-toast
+            className="flex items-start gap-3 w-full max-w-xl bg-green-100 text-green-800 border border-green-300 px-4 py-3 rounded-md"
+          >
+            <CheckCircle className="h-5 w-5 mt-0.5 text-green-700 shrink-0" />
+            <div className="flex-1 text-sm font-medium">
+              "{resourceDetails.name}" successfully assigned to Event "{pendingResourceAssignment.event.title}!"
+            </div>
+            <button
+              onClick={() => toast.dismiss(id)}
+              className="ml-3 text-green-800 hover:text-red-500 p-1"
+            >
+              <X size={16} />
+            </button>
+          </div>
+        ), {
+          unstyled: true,
+          duration: 5000,
+          position: "top-right",
+        });
+      } catch (error) {
+        console.error('Failed to assign resource:', error);
+        toast.error(`Failed to assign ${resource.type} to event`, {
+          position: "top-right",
+          className: "!bg-red-100 !text-red-800 !border !border-red-300",
+        });
+      } finally {
+        setIsAssigning(false);
+        // Close dialog and reset state
+        setIsAssignResourceDialogOpen(false);
+        setPendingResourceAssignment(null);
+        setDraggedResource(null);
+        setDragOverEventId(null);
+      }
+    } else {
+      setIsAssigning(false);
+      setIsAssignResourceDialogOpen(false);
+      setPendingResourceAssignment(null);
+      setDraggedResource(null);
+      setDragOverEventId(null);
     }
   };
 
@@ -832,12 +906,17 @@ const Board = () => {
   };
 
   const shouldShowDropZone = (eventId: string) => {
+    // Allow drop zone for available jobs (draggedCard)
+    if (draggedCard) {
+      return true;
+    }
+    
     if (!draggedResource) {
       // console.log('No dragged resource, not showing drop zone');
       return false;
     }
     const isAssigned = isResourceAssignedToEvent(eventId, draggedResource.id, draggedResource.type);
-    console.log('Should show drop zone for event', eventId, ':', !isAssigned);
+    // console.log('Should show drop zone for event', eventId, ':', !isAssigned);
     return !isAssigned;
   };
 
@@ -1594,7 +1673,7 @@ const Board = () => {
                        }}>
                      {filteredEvents.map((event) => {
                        const canAcceptDrop = shouldShowDropZone(event.id);
-                       const isAlreadyAssigned = draggedResource && isResourceAssignedToEvent(event.id, draggedResource.id, draggedResource.type);
+                        const isAlreadyAssigned = draggedResource && isResourceAssignedToEvent(event.id, draggedResource.id, draggedResource.type);
                        
                       //  console.log('Event', event.id, 'canAcceptDrop:', canAcceptDrop, 'isAlreadyAssigned:', isAlreadyAssigned);
                        
@@ -1631,17 +1710,27 @@ const Board = () => {
                            data-tooltip-id="event-tooltip"
                            data-tooltip-html={tooltipContent}
                          >
-                          <div
-                            className={`${
-                              canAcceptDrop
-                                ? 'border-[3px] border-dashed border-green-500 rounded-lg p-1 bg-green-50'
-                                : isAlreadyAssigned
-                                ? 'opacity-50 cursor-not-allowed'
-                                : ''
-                            }`}
-                            onDragOver={canAcceptDrop ? handleDragOver : undefined}
-                            onDrop={canAcceptDrop ? (e) => handleResourceDrop(e, event.id) : undefined}
-                            style={isAlreadyAssigned ? { pointerEvents: 'none' } : undefined}
+                            <div
+                               className={`${
+                                 canAcceptDrop && draggedResource
+                                   ? 'border-[3px] border-dashed border-green-500 rounded-lg p-1 bg-green-50'
+                                   : isAlreadyAssigned
+                                   ? 'opacity-50'
+                                   : ''
+                               } ${
+                                 dragOverEventId === event.id && !canAcceptDrop ? 'cursor-not-allowed' : ''
+                               } ${
+                                 dragOverEventId === event.id && canAcceptDrop ? 'cursor-copy' : ''
+                               }`}
+                              onDragOver={(e) => handleEventDragOver(e, event.id)}
+                              onDragLeave={handleEventDragLeave}
+                              onDrop={canAcceptDrop ? (e) => {
+                                if (draggedCard) {
+                                  handleJobDrop(e);
+                                } else {
+                                  handleResourceDrop(e, event.id);
+                                }
+                              } : undefined}
                           >
                             <Card
                               id={parseInt(event.id)}
@@ -1762,336 +1851,6 @@ const Board = () => {
           onSubmit={handleCompleteEvent}
         />
       )}
-
-      {/* <Popover>
-        <PopoverTrigger asChild>
-          <span className="hidden">Filter Trigger</span>
-        </PopoverTrigger>
-        <PopoverContent className="w-[500px] p-4" align="center">
-          <div className="space-y-2">
-            <div className="flex items-center justify-between">
-              <div>
-                <h3 className="text-md font-medium">Filter {filterType === 'jobs' ? 'Available Jobs' : 'Events'}</h3>
-                <p className="tracking-tight text-[12px] text-muted-foreground">Select your filter criteria below</p>
-              </div>
-              <Button 
-                variant="outline" 
-                className="text-[12px] h-8 px-3 tracking-tight"
-                onClick={() => {
-                  if (filterType === 'events') {
-                    setEventsFilter({
-                      statuses: [],
-                      eventId: '',
-                      resourceNames: [],
-                      resourceGroups: [],
-                      priorities: [],
-                      eventTypes: [],
-                      dateFrom: undefined,
-                      dateTo: undefined,
-                      organizers: [],
-                      receiptStatuses: [],
-                      routingGroups: [],
-                    });
-                  } else {
-                    setJobsFilter({
-                      statuses: [],
-                      woId: '',
-                      title: '',
-                      resourceNames: [],
-                      resourceGroups: [],
-                      priorities: [],
-                      eventTypes: [],
-                      dateFrom: undefined,
-                      dateTo: undefined,
-                      organizers: [],
-                      receiptStatuses: [],
-                      routingGroups: [],
-                      customers: [],
-                      locations: []
-                    });
-                  }
-                }}
-              >
-                Clear All
-              </Button>
-            </div>
-            
-            {filterType === 'events' ? (
-            <div className="space-y-3">
-              <div className="grid grid-cols-2 gap-2">
-                <div className="relative">
-                  <Search className="absolute left-2 top-1/2 -translate-y-1/2 h-3 w-3 text-muted-foreground pointer-events-none" />
-                  <Input
-                    placeholder="Enter Event ID"
-                    value={eventsFilter.eventId}
-                    onChange={(e) =>
-                      setEventsFilter((prev) => ({ ...prev, eventId: e.target.value }))
-                    }
-                    className="h-8 text-sm !text-[12px] !placeholder:text-[12px] pl-7 pr-8 outline-none focus:outline-none focus:ring-0 focus:ring-transparent focus-visible:ring-0 focus-visible:ring-transparent focus:shadow-none"
-                  />
-                  {eventsFilter.eventId && (
-                    <button
-                      onClick={() => setEventsFilter((prev) => ({ ...prev, eventId: '' }))}
-                      className="absolute right-2 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground hover:text-foreground flex items-center justify-center"
-                    >
-                      <X className="!h-3 !w-3" />
-                    </button>
-                  )}
-                </div>
-
-                <div className="-mt-[5px]">
-                  <MultiSelectFilter
-                    id="resourceName"
-                    label=""
-                    options={uniqueResourceNames}
-                    selected={eventsFilter.resourceNames}
-                    onChange={(value) =>
-                      setEventsFilter((prev) => ({ ...prev, resourceNames: value }))
-                    }
-                    placeholder="Filter by Resource Name"
-                    className="w-full text-sm !text-[12px] placeholder:text-[12px]"
-                  />
-                </div>
-              </div>
-              
-              <div className="grid grid-cols-2 gap-2">
-                <div className="-mt-[5px]">
-                  <MultiSelectFilter
-                    id="resourceGroup"
-                    label=""
-                    options={uniqueResourceGroups}
-                    selected={eventsFilter.resourceGroups}
-                    onChange={(value) =>
-                      setEventsFilter((prev) => ({ ...prev, resourceGroups: value }))
-                    }
-                    placeholder="Filter by Resource Group"
-                    className="w-full text-sm !text-[12px] placeholder:text-[12px]"
-                  />
-                </div>
-                
-                <div className="-mt-[5px]">
-                  <MultiSelectFilter
-                    id="eventStatus"
-                    label=""
-                    options={eventStatuses}
-                    selected={eventsFilter.statuses}
-                    onChange={(value) =>
-                      setEventsFilter((prev) => ({ ...prev, statuses: value }))
-                    }
-                    placeholder="Filter by Status"
-                    className="w-full text-sm !text-[12px] placeholder:text-[12px]"
-                  />
-                </div>
-              </div>
-              
-              <div className="grid grid-cols-2 gap-2">
-                <div className="-mt-[5px]">
-                  <MultiSelectFilter
-                    id="eventPriority"
-                    label=""
-                    options={eventPriorities}
-                    selected={eventsFilter.priorities}
-                    onChange={(value) =>
-                      setEventsFilter((prev) => ({ ...prev, priorities: value }))
-                    }
-                    placeholder="Filter by Priority"
-                    className="w-full text-sm !text-[12px] placeholder:text-[12px]"
-                  />
-                </div>
-                
-                <div className="-mt-[5px]">
-                  <MultiSelectFilter
-                    id="eventType"
-                    label=""
-                    options={eventTypes}
-                    selected={eventsFilter.eventTypes}
-                    onChange={(value) =>
-                      setEventsFilter((prev) => ({ ...prev, eventTypes: value }))
-                    }
-                    placeholder="Filter by Event Type"
-                    className="w-full text-sm !text-[12px] placeholder:text-[12px]"
-                  />
-                </div>
-              </div>
-              
-              <div className="grid grid-cols-2 gap-2">
-                <div className="-mt-[5px]">
-                  <DateRangeFilter
-                    id="dateFrom"
-                    label=""
-                    value={eventsFilter.dateFrom}
-                    onChange={(value) =>
-                      setEventsFilter((prev) => ({ ...prev, dateFrom: value }))
-                    }
-                    placeholder="Date From"
-                  />
-                </div>
-                
-                <div className="-mt-[5px]">
-                  <DateRangeFilter
-                    id="dateTo"
-                    label=""
-                    value={eventsFilter.dateTo}
-                    onChange={(value) =>
-                      setEventsFilter((prev) => ({ ...prev, dateTo: value }))
-                    }
-                    placeholder="Date To"
-                  />
-                </div>
-              </div>
-              
-              <div className="grid grid-cols-2 gap-2">
-                <div className="-mt-[5px]">
-                  <MultiSelectFilter
-                    id="organizer"
-                    label=""
-                    options={uniqueOrganizers}
-                    selected={eventsFilter.organizers}
-                    onChange={(value) =>
-                      setEventsFilter((prev) => ({ ...prev, organizers: value }))
-                    }
-                    placeholder="Filter by Organizer"
-                    className="w-full text-sm !text-[12px] placeholder:text-[12px]"
-                  />
-                </div>
-                
-                <div className="-mt-[5px]">
-                  <MultiSelectFilter
-                    id="receiptStatus"
-                    label=""
-                    options={receiptStatuses}
-                    selected={eventsFilter.receiptStatuses}
-                    onChange={(value) =>
-                      setEventsFilter((prev) => ({ ...prev, receiptStatuses: value }))
-                    }
-                    placeholder="Filter by Receipt Status"
-                    className="w-full text-sm !text-[12px] placeholder:text-[12px]"
-                  />
-                </div>
-              </div>
-              
-              <div className="grid grid-cols-2 gap-2">
-                <div className="-mt-[5px]">
-                  <MultiSelectFilter
-                    id="routingGroup"
-                    label=""
-                    options={uniqueRoutingGroups}
-                    selected={eventsFilter.routingGroups}
-                    onChange={(value) =>
-                      setEventsFilter((prev) => ({ ...prev, routingGroups: value }))
-                    }
-                    placeholder="Filter by Routing Group"
-                    className="w-full text-sm !text-[12px] placeholder:text-[12px]"
-                    fetchOptionsOnOpen={fetchRoutingGroupsOnDemand}
-                  />
-                </div>
-              </div>
-            </div>
-            ) : (
-            <div className="space-y-3">
-              
-              <div className="grid grid-cols-2 gap-2">
-                <div className="-mt-[5px]">
-                  <MultiSelectFilter
-                    id="customer"
-                    label=""
-                    options={uniqueCustomers}
-                    selected={jobsFilter.customers}
-                    onChange={(value) =>
-                      setJobsFilter((prev) => ({ ...prev, customers: value }))
-                    }
-                    placeholder="Filter by Customer"
-                    className="w-full text-sm !text-[12px] placeholder:text-[12px]"
-                    fetchOptionsOnOpen={fetchCustomersOnDemand}
-                  />
-                </div>
-                <div className="-mt-[5px]">
-                  <MultiSelectFilter
-                    id="location"
-                    label=""
-                    options={uniqueLocations}
-                    selected={jobsFilter.locations}
-                    onChange={(value) =>
-                      setJobsFilter((prev) => ({ ...prev, locations: value }))
-                    }
-                    placeholder="Filter by Location"
-                    className="w-full text-sm !text-[12px] placeholder:text-[12px]"
-                    fetchOptionsOnOpen={fetchLocationsOnDemand}
-                  />
-                </div>
-              </div>
-
-              <div className="grid grid-cols-2 gap-2">
-                <div className="relative">
-                  <Search className="absolute left-2 top-1/2 -translate-y-1/2 h-3 w-3 text-muted-foreground pointer-events-none" />
-                  <Input
-                    placeholder="Enter Work Order ID"
-                    value={jobsFilter.woId}
-                    onChange={(e) =>
-                      setJobsFilter((prev) => ({ ...prev, woId: e.target.value }))
-                    }
-                    className="h-8 text-sm !text-[12px] !placeholder:text-[12px] pl-7 pr-8 outline-none focus:outline-none focus:ring-0 focus:ring-transparent focus-visible:ring-0 focus-visible:ring-transparent focus:shadow-none"
-                  />
-                  {jobsFilter.woId && (
-                    <button
-                      onClick={() => setJobsFilter((prev) => ({ ...prev, woId: '' }))}
-                      className="absolute right-2 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground hover:text-foreground flex items-center justify-center"
-                    >
-                      <X className="!h-3 !w-3" />
-                    </button>
-                  )}
-                </div>
-                <div className="relative">
-                  <Search className="absolute left-2 top-1/2 -translate-y-1/2 h-3 w-3 text-muted-foreground pointer-events-none" />
-                  <Input
-                    placeholder="Enter Work Order Title"
-                    value={jobsFilter.title}
-                    onChange={(e) =>
-                      setJobsFilter((prev) => ({ ...prev, title: e.target.value }))
-                    }
-                    className="h-8 text-sm !text-[12px] !placeholder:text-[12px] pl-7 pr-8 outline-none focus:outline-none focus:ring-0 focus:ring-transparent focus-visible:ring-0 focus-visible:ring-transparent focus:shadow-none"
-                  />
-                  {jobsFilter.title && (
-                    <button
-                      onClick={() => setJobsFilter((prev) => ({ ...prev, title: '' }))}
-                      className="absolute right-2 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground hover:text-foreground flex items-center justify-center"
-                    >
-                      <X className="!h-3 !w-3" />
-                    </button>
-                  )}
-                </div>
-              </div>
-
-              <div className="grid grid-cols-2 gap-2">
-                <div className="-mt-[5px]">
-                  <DateRangeFilter
-                    id="dateFrom"
-                    label=""
-                    value={jobsFilter.dateFrom}
-                    onChange={(value) =>
-                      setJobsFilter((prev) => ({ ...prev, dateFrom: value }))
-                    }
-                    placeholder="Date From"
-                  />
-                </div>
-                
-                <div className="-mt-[5px]">
-                  <DateRangeFilter
-                    id="dateTo"
-                    label=""
-                    value={jobsFilter.dateTo}
-                    onChange={(value) =>
-                      setJobsFilter((prev) => ({ ...prev, dateTo: value }))
-                    }
-                    placeholder="Date To"
-                  />
-                </div>
-              </div>
-            </div>
-            )}
-          </div>
-        </PopoverContent>
-      </Popover> */}
        
        <Tooltip 
          id="job-tooltip"
@@ -2121,8 +1880,147 @@ const Board = () => {
          }}
         />
 
-        {/* Remove Event Dialog */}
-        <AlertDialog open={isRemoveDialogOpen} onOpenChange={setIsRemoveDialogOpen}>
+         {/* Assign Resource Confirmation Dialog */}
+         <AlertDialog open={isAssignResourceDialogOpen} onOpenChange={setIsAssignResourceDialogOpen}>
+           <AlertDialogContent>
+              <AlertDialogHeader>
+                <AlertDialogTitle>
+                   Assign{" "}
+                   {pendingResourceAssignment?.resource.type === "employee"
+                     ? "Resource"
+                     : pendingResourceAssignment?.resource.type === "vendor"
+                     ? "Vendor"
+                     : pendingResourceAssignment?.resource.type === "asset"
+                     ? "Asset"
+                     : ""}
+                 </AlertDialogTitle>
+                <AlertDialogDescription>
+                  Confirm assignment of <strong>{pendingResourceAssignment?.resource.name}</strong> to Event <strong>{pendingResourceAssignment?.event.title}</strong> [ID {pendingResourceAssignment?.event.id}]?
+                </AlertDialogDescription>
+              </AlertDialogHeader>
+              
+              {/* Conditional fields based on resource type */}
+              <div className="space-y-4">
+                 {pendingResourceAssignment?.resource.type === "employee" && (
+                   <div className="grid grid-cols-2 gap-4">
+                     <div className="min-w-[130px]">
+                       <TimeRangeFilter
+                         id="start-time"
+                         label="Start Time"
+                         value={assignmentFormData.startTime}
+                         onChange={(time) => setAssignmentFormData(prev => ({ ...prev, startTime: time }))}
+                         isRequired={true}
+                         overrideLabelClassName='!text-[14px]'
+                         overrideFieldClassName='w-full justify-start text-left font-normal tracking-tight'
+                         overrideContentClassName='px-3 py-2 hover:bg-accent cursor-pointer text-[14px] rounded-sm transition-colors'
+                       />
+                     </div>
+                     <div className="min-w-[130px]">
+                       <TimeRangeFilter
+                         id="end-time"
+                         label="End Time"
+                         value={assignmentFormData.endTime}
+                         onChange={(time) => setAssignmentFormData(prev => ({ ...prev, endTime: time }))}
+                         isRequired={true}
+                         overrideLabelClassName='!text-[14px]'
+                         overrideFieldClassName='w-full justify-start text-left font-normal tracking-tight'
+                         overrideContentClassName='px-3 py-2 hover:bg-accent cursor-pointer text-[14px] rounded-sm transition-colors'
+                       />
+                     </div>
+                   </div>
+                 )}
+                 
+                 {pendingResourceAssignment?.resource.type === "vendor" && (
+                   <div className="space-y-4">
+                     <div>
+                       <label className="justify-start text-left font-medium tracking-tight mb-1 text-[15px]">Quantity <span className="text-red-500">*</span></label>
+                       <Input 
+                         type="number" 
+                         placeholder="Enter quantity" 
+                         min="1"
+                         value={assignmentFormData.quantity}
+                         onChange={(e) => setAssignmentFormData(prev => ({ ...prev, quantity: e.target.value }))}
+                       />
+                     </div>
+                     <div>
+                       <label className="justify-start text-left font-medium tracking-tight mb-1 text-[15px]">Memo</label>
+                       <textarea 
+                         className="w-full min-h-[80px] px-3 py-2 border border-input rounded-md text-sm resize-none"
+                         placeholder="Enter memo..."
+                         value={assignmentFormData.memo}
+                         onChange={(e) => setAssignmentFormData(prev => ({ ...prev, memo: e.target.value }))}
+                       />
+                     </div>
+                   </div>
+                 )}
+                 
+                 {pendingResourceAssignment?.resource.type === "asset" && (
+                   <div className="space-y-4">
+                     <div>
+                       <label className="justify-start text-left font-medium tracking-tight mb-1 text-[15px]">Quantity <span className="text-red-500">*</span></label>
+                       <Input 
+                         type="number" 
+                         placeholder="Enter quantity" 
+                         min="1"
+                         value={assignmentFormData.quantity}
+                         onChange={(e) => setAssignmentFormData(prev => ({ ...prev, quantity: e.target.value }))}
+                       />
+                     </div>
+                     <div className="grid grid-cols-2 gap-4">
+                       <div className="min-w-[130px]">
+                         <TimeRangeFilter
+                           id="asset-start-time"
+                           label="Start Time"
+                           value={assignmentFormData.startTime}
+                           onChange={(time) => setAssignmentFormData(prev => ({ ...prev, startTime: time }))}
+                           isRequired={true}
+                           overrideLabelClassName='!text-[14px]'
+                           overrideFieldClassName='w-full justify-start text-left font-normal tracking-tight'
+                           overrideContentClassName='px-3 py-2 hover:bg-accent cursor-pointer text-[14px] rounded-sm transition-colors'
+                         />
+                       </div>
+                       <div className="min-w-[130px]">
+                         <TimeRangeFilter
+                           id="asset-end-time"
+                           label="End Time"
+                           value={assignmentFormData.endTime}
+                           onChange={(time) => setAssignmentFormData(prev => ({ ...prev, endTime: time }))}
+                           isRequired={true}
+                           overrideLabelClassName='!text-[14px]'
+                           overrideFieldClassName='w-full justify-start text-left font-normal tracking-tight'
+                           overrideContentClassName='px-3 py-2 hover:bg-accent cursor-pointer text-[14px] rounded-sm transition-colors'
+                         />
+                       </div>
+                     </div>
+                   </div>
+                 )}
+              </div>
+             <AlertDialogFooter>
+                 <AlertDialogCancel disabled={isAssigning} onClick={() => {
+                   setIsAssignResourceDialogOpen(false);
+                   setPendingResourceAssignment(null);
+                   setDraggedResource(null);
+                   setDragOverEventId(null);
+                 }}>Cancel</AlertDialogCancel>
+                <AlertDialogAction 
+                  onClick={confirmResourceAssignment}
+                  disabled={isAssigning}
+                >
+                  {isAssigning ? (
+                    <>
+                      <Loader className="mr-2 h-4 w-4 animate-spin" />
+                      Assigning...
+                    </>
+                  ) : (
+                    'Confirm Assignment'
+                  )}
+                </AlertDialogAction>
+             </AlertDialogFooter>
+           </AlertDialogContent>
+         </AlertDialog>
+
+         {/* Remove Event Dialog */}
+         <AlertDialog open={isRemoveDialogOpen} onOpenChange={setIsRemoveDialogOpen}>
           <AlertDialogContent>
             <AlertDialogHeader>
               <AlertDialogTitle>Remove Event</AlertDialogTitle>

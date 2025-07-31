@@ -62,7 +62,7 @@ const DateRangeFilter: React.FC<DateRangeFilterProps> = ({
 
   return (
     <div className="space-y-1">
-      <Label htmlFor={id} className="filter-label !text-[12px]">
+      <Label htmlFor={id} className="!text-[12px]">
         {label}
         {isRequired && <span className="text-red-500 ml-0.5">*</span>}
       </Label>

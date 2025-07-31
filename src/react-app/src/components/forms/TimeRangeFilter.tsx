@@ -19,6 +19,9 @@ interface TimeRangeFilterProps {
   onChange: (time: string) => void;
   isRequired?: boolean;
   disabled?: boolean;
+  overrideLabelClassName?: string;
+  overrideFieldClassName?: string;
+  overrideContentClassName?: string;
 }
 
 const TimeRangeFilter: React.FC<TimeRangeFilterProps> = ({
@@ -27,7 +30,10 @@ const TimeRangeFilter: React.FC<TimeRangeFilterProps> = ({
   value,
   onChange,
   isRequired,
-  disabled = false
+  disabled = false,
+  overrideLabelClassName,
+  overrideFieldClassName,
+  overrideContentClassName
 }) => {
   const handleClear = (e: React.MouseEvent) => {
     e.stopPropagation();
@@ -38,7 +44,7 @@ const TimeRangeFilter: React.FC<TimeRangeFilterProps> = ({
 
   return (
     <div className="space-y-1">
-      <Label htmlFor={id} className="filter-label !text-[12px]">
+      <Label htmlFor={id} className={overrideLabelClassName || "!text-[12px]"}>
         {label}
         {isRequired && <span className="text-red-500 ml-0.5">*</span>}
       </Label>
@@ -48,7 +54,7 @@ const TimeRangeFilter: React.FC<TimeRangeFilterProps> = ({
             id={id}
             variant="outline"
             disabled={disabled}
-            className={cn(
+            className={overrideFieldClassName || cn(
               "w-full justify-start text-left font-normal h-7 text-[12px] tracking-tight",
               !value && "text-muted-foreground"
             )}
@@ -71,7 +77,7 @@ const TimeRangeFilter: React.FC<TimeRangeFilterProps> = ({
               {timeOptions.map((time) => (
                 <div
                   key={time}
-                  className={cn(
+                  className={overrideContentClassName ? overrideContentClassName + (value === time ? " bg-primary text-primary-foreground" : "") : cn(
                     "px-3 py-2 hover:bg-accent cursor-pointer text-[12px] rounded-sm transition-colors",
                     value === time && "bg-primary text-primary-foreground"
                   )}
