@@ -143,8 +143,8 @@ define([
       if (update.updatedQuantity) {
         values.custrecord_esp_fop_wo_item_quantity = update.updatedQuantity;
       }
-      if (update.updatedCompleteQuantity) {
-        values.custrecord_esp_fop_wo_item_completedqty = update.updatedCompleteQuantity;
+      if (update.completeQty) {
+        values.custrecord_esp_fop_wo_item_completedqty = update.completeQty;
       }
       record.submitFields({
         type: env.RecordType.WORK_ORDER_ITEM,

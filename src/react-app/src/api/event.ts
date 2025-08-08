@@ -71,38 +71,38 @@ const getMockEvents = (): Event[] => {
   if (mockEventsStore) return mockEventsStore;
   
   const initialEvents = [{
-      "id": "101232",
-      "title": "123123",
+      "id": "101236",
+      "title": "666666666",
       "workorder": {
-        "text": "",
-        "value": ""
+        "text": "Lobby Area - Product Core Dryrun",
+        "value": "138"
       },
       "location": "",
       "status": {
-        "text": "Tentative",
-        "value": "TENTATIVE",
-        "code": "#6c757d"
-      },
-      "date": {
-        "recurrence": "occurs every day from 7/1/2025 until 7/9/2025",
-        "dates": [
-          "7/1/2025",
-          "7/9/2025"
-        ],
-        "start": "2025-07-01",
-        "end": "2025-07-09"
-      },
-      "time": {
-        "start": "09:00",
-        "end": "18:00"
-      },
-      "priority": {
-        "text": "Low",
-        "value": "1",
+        "text": "Confirmed",
+        "value": "CONFIRMED",
         "code": "#026adf"
       },
+      "date": {
+        "recurrence": "occurs every day from 8/1/2025 until 8/5/2025",
+        "dates": [
+          "8/1/2025",
+          "8/5/2025"
+        ],
+        "start": "2025-08-01",
+        "end": "2025-08-05"
+      },
+      "time": {
+        "start": "00:00",
+        "end": "00:15"
+      },
+      "priority": {
+        "text": "Urgent",
+        "value": "4",
+        "code": "#9a2407"
+      },
       "note": "1\n2\n3",
-      "url": "/app/crm/calendar/event.nl?id=101232&compid=TSTDRV2617106",
+      "url": "/app/crm/calendar/event.nl?id=101236&compid=TSTDRV2617106",
       "color": "#1a6756",
       "woRef": {},
       "resources": [],
@@ -112,8 +112,8 @@ const getMockEvents = (): Event[] => {
       "contacts": [],
       "addresses": [],
       "address": {
-        "text": "",
-        "value": ""
+        "text": "TEST",
+        "value": "235"
       },
       "organizer": {
         "text": "Lean Cendaña",
@@ -123,14 +123,77 @@ const getMockEvents = (): Event[] => {
         "text": "",
         "value": ""
       },
-      "assetMaintenance": true,
+      "assetMaintenance": false,
       "routingGroup": {
-        "text": "Group A",
-        "value": "1"
+        "text": "Group XYZ",
+        "value": "4"
       },
       "salesorder": {
+        "text": "SLS00000835",
+        "value": "24427"
+      }
+    },
+    {
+      "id": "101235",
+      "title": "12345",
+      "workorder": {
+        "text": "Lobby Area - Product Core Dryrun",
+        "value": "138"
+      },
+      "location": "",
+      "status": {
+        "text": "Confirmed",
+        "value": "CONFIRMED",
+        "code": "#026adf"
+      },
+      "date": {
+        "recurrence": "occurs every day from 8/1/2025 until 8/7/2025",
+        "dates": [
+          "8/1/2025",
+          "8/7/2025"
+        ],
+        "start": "2025-08-01",
+        "end": "2025-08-07"
+      },
+      "time": {
+        "start": "09:00",
+        "end": "13:00"
+      },
+      "priority": {
+        "text": "Medium",
+        "value": "2",
+        "code": "#dfcf02"
+      },
+      "note": "abc\nd\nef",
+      "url": "/app/crm/calendar/event.nl?id=101235&compid=TSTDRV2617106",
+      "color": "#1a6756",
+      "woRef": {},
+      "resources": [],
+      "vendors": [],
+      "assets": [],
+      "items": [],
+      "contacts": [],
+      "addresses": [],
+      "address": {
+        "text": "World Bank | 12 Carlton Av",
+        "value": "228"
+      },
+      "organizer": {
+        "text": "Lean Cendaña",
+        "value": "1765"
+      },
+      "projectInsight": {
         "text": "",
         "value": ""
+      },
+      "assetMaintenance": false,
+      "routingGroup": {
+        "text": "Group XYZ",
+        "value": "4"
+      },
+      "salesorder": {
+        "text": "SLS00000835",
+        "value": "24427"
       }
     },
     {
@@ -175,8 +238,8 @@ const getMockEvents = (): Event[] => {
       "contacts": [],
       "addresses": [],
       "address": {
-        "text": "TEST",
-        "value": "235"
+        "text": "World Bank | 12 Carlton Av",
+        "value": "228"
       },
       "organizer": {
         "text": "Lean Cendaña",
@@ -20480,11 +20543,6 @@ export const createEvent = async (formData: any): Promise<Event> => {
 };
 
 export const updateEvent = async (eventData: Event, updates: Partial<Event>): Promise<Event> => {
-  console.log('Update Event Payload', {
-    eventData,
-    updates
-  });
-
   if (isLocalDevelopment()) {
     return new Promise((resolve) => {
       setTimeout(() => {

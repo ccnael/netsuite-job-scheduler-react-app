@@ -5,15 +5,15 @@ import timeGridPlugin from '@fullcalendar/timegrid';
 import { Draggable } from '@fullcalendar/interaction';
 import interactionPlugin from '@fullcalendar/interaction';
 import resourceTimelinePlugin from '@fullcalendar/resource-timeline';
-import { fetchEvents, type Event } from '@/api/event';
-import { format, parse } from "date-fns";
+import { fetchEvents, removeEvent, updateEvent, type Event } from '@/api/event';
+import { format, parse, isBefore, isAfter } from "date-fns";
 import { fetchEmployees, type Employee } from '@/api/employee';
 import { fetchVendors, type Vendor } from '@/api/vendor';
 import { fetchAssets, type Asset } from '@/api/asset';
 import { fetchWOResources, type WOResource } from '@/api/woResource';
 import { fetchWOVendors, type WOVendor } from '@/api/woVendor';
 import { fetchWOAssets, type WOAsset } from '@/api/woAsset';
-import { fetchWorkOrders, type WorkOrder } from '@/api/workOrder';
+import { fetchWorkOrders, type WorkOrder, printWorkOrder, holdWorkOrder, cancelWorkOrder } from '@/api/workOrder';
 import { fetchRoutingGroups, type RoutingGroup } from '@/api/routingGroup';
 import { fetchWOItems, type WOItem } from '@/api/woItem';
 import { fetchWOContacts, type WOContact } from '@/api/woContact';
@@ -25,12 +25,13 @@ import { Card } from '../components/Card';
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-// import { ClipboardCheck, Users, Stars, Filter, Search } from "lucide-react";
-import { Stars, ChevronRight, Filter, Bot, ClipboardCheck, Plus, Search, Users, X, MoreVertical } from "lucide-react";
+import { Stars, ChevronRight, Filter, Bot, ClipboardCheck, Plus, Search, Users, X, MoreVertical, Loader, CheckCircle } from "lucide-react";
 import { Skeleton } from "@/components/ui/skeleton";
 import { ResizablePanelGroup, ResizablePanel, ResizableHandle } from "@/components/ui/resizable";
 import { Tooltip } from 'react-tooltip';
 import { CreateEvent } from '../components/forms/CreateEvent';
+import { UpdateEvent } from '../components/forms/UpdateEvent';
+import { CompleteEvent } from '../components/forms/CompleteEvent';
 import {
   Dialog,
   DialogContent,
@@ -39,6 +40,16 @@ import {
   DialogFooter,
   DialogDescription,
 } from "@/components/ui/dialog";
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+} from "@/components/ui/alert-dialog";
 import {
   Popover,
   PopoverContent,
@@ -56,7 +67,7 @@ import DateRangeFilter from '../components/forms/DateRangeFilter';
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { receiptStatuses, eventStatuses, eventPriorities, eventTypes } from "@/lib/constants";
-import { formatDate, formatTime } from "@/lib/helpers";
+import { formatDate, formatTime, isLocalDevelopment } from "@/lib/helpers";
 
 interface EventFilterState {
   statuses: string[];
@@ -89,16 +100,25 @@ interface JobFilterState {
   locations: string[];
 }
 
+export interface Status {
+  text:  string;
+  value: string;
+  code:  string;
+}
+
+export interface ReceiptStatus {
+  text: string;
+  value: string;
+  code?: string;
+  display?: string; // Keep display optional
+}
+
 interface Job {
   id: string;
   title: string;
   description: string;
   memo: string;
-  status: {
-    text: string;
-    value: string;
-    code: string;
-  };
+  status: Status;
   type: string;
   date: string;
   customer: string;
@@ -111,12 +131,11 @@ interface Job {
   projectUrl?: string;
   customerUrl?: string;
   workOrder?: WorkOrder;
-  receiptStatus: {
+  receiptStatus: ReceiptStatus;
+  projectInsight: {
     text: string;
     value: string;
-    code?: string;
-    display?: string;
-  };
+  }
 }
 
 const Calendar = () => {
@@ -125,6 +144,12 @@ const Calendar = () => {
   const [vendors, setVendors] = useState<Vendor[]>([]);
   const [assets, setAssets] = useState<Asset[]>([]);
   const [jobs, setJobs] = useState<Job[]>([]);
+  const [woResources, setWoResources] = useState<WOResource[]>([]);
+  const [woVendors, setWoVendors] = useState<WOVendor[]>([]);
+  const [woAssets, setWoAssets] = useState<WOAsset[]>([]);
+  const [woItems, setWoItems] = useState<WOItem[]>([]);
+  const [woContacts, setWoContacts] = useState<WOContact[]>([]);
+  const [woAddresses, setWoAddresses] = useState<WOAddress[]>([]);
   const [routingGroups, setRoutingGroups] = useState<RoutingGroup[]>([]);
   const [routingGroupsLoaded, setRoutingGroupsLoaded] = useState(false);
   const [customers, setCustomers] = useState<Customer[]>([]);
@@ -134,6 +159,19 @@ const Calendar = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [draggedJob, setDraggedJob] = useState<Job | null>(null);
   const [isCreateModalOpen, setIsCreateModalOpen] = useState(false);
+  const [isUpdateModalOpen, setIsUpdateModalOpen] = useState(false);
+  const [selectedEventForUpdate, setSelectedEventForUpdate] = useState<Event | null>(null);
+  const [isCompleteEventModalOpen, setIsCompleteEventModalOpen] = useState(false);
+  const [selectedEventForComplete, setSelectedEventForComplete] = useState<Event | null>(null);
+  const [workOrderId, setWorkOrderId] = useState(null);
+  const [workOrderAction, setWorkOrderAction] = useState('');
+  const [selectedWo, setSelectedWo] = useState(null);
+  const [isWOStatusDialogOpen, setIsWOStatusDialogOpen] = useState(false);
+  const [isWOUpdating, setIsWOUpdating] = useState(false);
+  const [isRemoveDialogOpen, setIsRemoveDialogOpen] = useState(false);
+  const [selectedEventForRemove, setSelectedEventForRemove] = useState<Event | null>(null);
+  const [isRemoving, setIsRemoving] = useState(false);
+  const [isUpdating, setIsUpdating] = useState(false);
   const [selectedJob, setSelectedJob] = useState<Job | null>(null);
   const [prefilledResourceId, setPrefilledResourceId] = useState<string | undefined>(undefined);
   const [prefilledStartDate, setPrefilledStartDate] = useState<string | undefined>(undefined);
@@ -141,6 +179,9 @@ const Calendar = () => {
   const [prefilledStartTime, setPrefilledStartTime] = useState<string | undefined>(undefined);
   const [prefilledEndTime, setPrefilledEndTime] = useState<string | undefined>(undefined);
   const [isConfirmDialogOpen, setIsConfirmDialogOpen] = useState(false);
+  const [originalStart, setOriginalStart] = useState(null);
+  const [originalEnd, setOriginalEnd] = useState(null);
+  const [calendarKey, setCalendarKey] = useState(0);
   const [confirmDialogData, setConfirmDialogData] = useState<{
     type: 'move' | 'resize';
     id: string;
@@ -151,6 +192,13 @@ const Calendar = () => {
     newEnd: string;
     oldResource?: string;
     newResource?: string;
+    bothUnassigned?: boolean;
+    resourceToUpdate?: object;
+    resourceToRemove?: object;
+    resourceToCreate?: object;
+    eventToUpdate?: object;
+    eventData?: object;
+    event?: any;
     onConfirm: () => void;
     onCancel: () => void;
   } | null>(null);
@@ -192,7 +240,6 @@ const Calendar = () => {
   });
   
   const calendarRef = useRef<FullCalendar | null>(null);
-
 
   const getActiveEventFiltersCount = (filter: EventFilterState) => {
     return filter.statuses.length + 
@@ -462,7 +509,6 @@ const Calendar = () => {
         fetchWOAddresses('', '').catch(() => []),
       ]);
 
-        // Hydrate event data with WO resource links
         for (const resource of woResourceData) {
           const event = eventData.find(e => e.id === resource.event);
           if (event) {
@@ -517,7 +563,10 @@ const Calendar = () => {
         for (const address of woAddressData) {
           const event = eventData.find(e => address.events.includes(e.id));
           if (event) {
-            event.address = { ...address.address };
+            event.address = {
+              value: address.id,
+              text: address.customer.text
+            };
             event.addresses = event.addresses || [];
             event.addresses.push({
               ...address
@@ -525,7 +574,6 @@ const Calendar = () => {
           }
         }
 
-        // Transform work orders to jobs
         const jobsData = (workOrderData || []).map((wo: WorkOrder): Job => ({
           id: wo.id,
           title: wo.title || 'Untitled Work Order',
@@ -547,7 +595,8 @@ const Calendar = () => {
           soUrl: wo.soUrl,
           projectUrl: wo.projectUrl,
           workOrder: wo,
-          receiptStatus: wo.receiptStatus || { text: '', value: '' }
+          receiptStatus: wo.receiptStatus || { text: '', value: '' },
+          projectInsight: wo.projectInsight
         }));
 
         // Set all the updated data
@@ -556,6 +605,12 @@ const Calendar = () => {
         setVendors(vendorData);
         setAssets(assetData);
         setJobs(jobsData);
+        setWoResources(woResourceData);
+        setWoVendors(woVendorData);
+        setWoAssets(woAssetData);
+        setWoItems(woItemData);
+        setWoContacts(woContactData);
+        setWoAddresses(woAddressData);
       } catch (error) {
         console.error('Calendar: Failed to load data:', error);
         toast.error('Failed to load calendar data');
@@ -603,6 +658,7 @@ const Calendar = () => {
           }
         });
       });
+      resource.woResourceId = resource.id;
     });
 
      // WO Vendors
@@ -633,6 +689,7 @@ const Calendar = () => {
           tooltipContent
         }
       });
+      vendor.woVendorId = vendor.id;
     });
 
      // WO Assets
@@ -663,6 +720,7 @@ const Calendar = () => {
           tooltipContent
          }
        });
+       asset.woAssetId = asset.id;
     });
 
     if (!event.resources.length && !event.vendors.length && !event.assets.length) {         
@@ -691,7 +749,7 @@ const Calendar = () => {
     }
   });
 
-  console.log('Processed Events', calendarEvents);
+  // console.log('Processed Events', calendarEvents);
   // console.log('calendarEvents.find(x => x.id == 101211)', calendarEvents.find(x => x.id == '101211'));
 
   const handleCreateNewEvent = () => {
@@ -723,39 +781,81 @@ const Calendar = () => {
     }
   }, [jobs]);
 
+  const handleWOStatusUpdate = async (e: React.MouseEvent) => {
+    e.preventDefault();
+    
+    if (!workOrderId) return;
+
+    try {
+      setIsWOUpdating(true);
+
+      const wo = jobs.find(j => j.id === workOrderId);
+
+      if (workOrderAction === 'hold') {
+        await holdWorkOrder(workOrderId);
+      } else if (workOrderAction === 'close') {
+        await cancelWorkOrder(workOrderId);
+      }
+
+      toast.custom((id) => (
+        <div
+          data-sonner-rounded-toast
+          className="flex items-start gap-3 w-full max-w-xl bg-green-100 text-green-800 border border-green-300 px-4 py-3 rounded-md"
+        >
+          <CheckCircle className="h-5 w-5 mt-0.5 text-green-700 shrink-0" />
+          <div className="flex-1 text-sm font-medium">
+            Work Order "{wo.title}" is now set to <strong>{workOrderAction.toUpperCase()}</strong>.
+          </div>
+          <button
+            onClick={() => toast.dismiss(id)}
+            className="ml-3 text-green-800 hover:text-red-500 p-1"
+          >
+            <X size={16} />
+          </button>
+        </div>
+      ), {
+        unstyled: true,
+        duration: 5000,
+        position: "top-right",
+      });
+
+      await loadAllData();
+
+      setWorkOrderId(null);
+      // setWorkOrderAction(null);
+      setIsWOStatusDialogOpen(false);
+    } catch (error) {
+      console.error('Failed to set work order status:', error);
+      toast.error('Failed to set work order status', {
+        position: "top-right",
+        className: "!bg-red-100 !text-red-800 !border !border-red-300",
+      });
+    } finally {
+      setIsWOUpdating(false);
+    }
+  };
+
   const handleCardAction = (cardId: string, action: string) => {
     const card = jobs.find(j => j.id === cardId);
     if (!card) return;
 
+    setSelectedWo(card);
+
     switch (action) {
       case 'print':
-        toast.success(`Printing ${card.title}`, {
-          className: "!bg-green-100 !text-green-800 !border !border-green-300",
-        });
+        printWorkOrder(cardId);
         break;
       case 'hold':
-        setJobs(jobs.map(job => 
-          job.id === cardId 
-            ? { 
-                ...job, 
-                status: { text: 'On Hold', value: 'ON_HOLD', code: 'ON_HOLD' } 
-              }
-            : job
-        ));
-        toast.info(`${card.title} put on hold`);
+        // Update job status to ON_HOLD
+        setWorkOrderId(cardId);
+        setWorkOrderAction('hold');
+        setIsWOStatusDialogOpen(true);
         break;
       case 'close':
-        setJobs(jobs.map(job => 
-          job.id === cardId 
-            ? { 
-                ...job, 
-                status: { text: 'Completed', value: 'COMPLETED', code: 'COMPLETED' } 
-              }
-            : job
-        ));
-        toast.success(`${card.title} closed`, {
-          className: "!bg-green-100 !text-green-800 !border !border-green-300",
-        });
+        // Update job status to CANCELLED
+        setWorkOrderId(cardId);
+        setWorkOrderAction('close');
+        setIsWOStatusDialogOpen(true);
         break;
     }
   };
@@ -1025,14 +1125,63 @@ const Calendar = () => {
 
      switch (action) {
        case 'update':
-         toast.info(`IN PROGRESS...`);
+         setSelectedEventForUpdate(event);
+         setIsUpdateModalOpen(true);
          break;
        case 'complete':
-         toast.info(`IN PROGRESS...`);
+         setSelectedEventForComplete(event);
+         setIsCompleteEventModalOpen(true);
          break;
        case 'remove':
-         toast.info(`IN PROGRESS...`);
+         setSelectedEventForRemove(event);
+         setIsRemoveDialogOpen(true);
          break;
+     }
+   };
+
+   const handleRemoveEvent = async (e: React.MouseEvent) => {
+     e.preventDefault();
+     
+     if (!selectedEventForRemove) return;
+
+     try {
+       setIsRemoving(true);
+       await removeEvent(selectedEventForRemove);
+       
+       await loadAllData();
+       
+       toast.custom((id) => (
+         <div
+           data-sonner-rounded-toast
+           className="flex items-start gap-3 w-full max-w-xl bg-green-100 text-green-800 border border-green-300 px-4 py-3 rounded-md"
+         >
+           <CheckCircle className="h-5 w-5 mt-0.5 text-green-700 shrink-0" />
+           <div className="flex-1 text-sm font-medium">
+             Event "{selectedEventForRemove.title}" removed successfully!
+           </div>
+           <button
+             onClick={() => toast.dismiss(id)}
+             className="ml-3 text-green-800 hover:text-red-500 p-1"
+           >
+             <X className="h-4 w-4" />
+           </button>
+         </div>
+       ), {
+         duration: 5000,
+         position: "top-right",
+       });
+       
+       // Manually close the dialog after successful removal
+       setIsRemoveDialogOpen(false);
+       setSelectedEventForRemove(null);
+     } catch (error) {
+       console.error('Failed to remove event:', error);
+       toast.error('Failed to remove event', {
+         position: "top-right",
+         className: "!bg-red-100 !text-red-800 !border !border-red-300",
+       });
+     } finally {
+       setIsRemoving(false);
      }
    };
 
@@ -1259,7 +1408,8 @@ const Calendar = () => {
           <div className="basis-[80%] bg-background p-4 h-full">
             <div className="space-y-4 h-full flex flex-col border-r relative">
               <div className="absolute inset-0 flex justify-center items-center">
-                <div className="animate-spin rounded-full h-10 w-10 border-b-2 border-primary"></div>
+                {/* <div className="animate-spin rounded-full h-10 w-10 border-b-2 border-primary"></div> */}
+                <Loader className="animate-spin rounded-full h-10 w-10 border-primary text-muted-foreground" />
               </div>
             </div>
           </div>
@@ -1268,7 +1418,8 @@ const Calendar = () => {
           <div className="basis-[20%] bg-background p-4 h-full">
             <div className="space-y-4 h-full flex flex-col relative">
               <div className="absolute inset-0 flex justify-center items-center">
-                <div className="animate-spin rounded-full h-10 w-10 border-b-2 border-primary"></div>
+                {/* <div className="animate-spin rounded-full h-10 w-10 border-b-2 border-primary"></div> */}
+                <Loader className="animate-spin rounded-full h-10 w-10 border-primary text-muted-foreground" />
               </div>
             </div>
           </div>
@@ -1285,6 +1436,7 @@ const Calendar = () => {
             <ScrollArea className="h-[calc(100%-1rem)]">
               <div className="h-[calc(100%-4rem)] bg-background">
                 <FullCalendar
+                  key={calendarKey}
                   ref={calendarRef}
                   plugins={[dayGridPlugin, timeGridPlugin, resourceTimelinePlugin, interactionPlugin]}
                   schedulerLicenseKey="XXXX"
@@ -1352,11 +1504,6 @@ const Calendar = () => {
                       
                       return (
                         <div className="flex items-center justify-between w-full p-1 relative group">
-                          <div className="flex-1 min-w-0">
-                            <div className="text-xs font-medium truncate">
-                              {event.title || 'Untitled Event'} [ID {event.id}]
-                            </div>
-                          </div>
                           <DropdownMenu>
                             <DropdownMenuTrigger asChild>
                               <Button
@@ -1378,15 +1525,19 @@ const Calendar = () => {
                               >
                                 Update
                               </DropdownMenuItem>
-                              <DropdownMenuItem 
-                                className="text-xs cursor-pointer"
-                                onClick={(e) => {
-                                  e.stopPropagation();
-                                  handleEventAction('complete', event.id);
-                                }}
-                              >
-                                Complete
-                              </DropdownMenuItem>
+              <DropdownMenuItem 
+                className="text-xs cursor-pointer"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  const eventToComplete = events.find(e => e.id === event.id);
+                  if (eventToComplete) {
+                    setSelectedEventForComplete(eventToComplete);
+                    setIsCompleteEventModalOpen(true);
+                  }
+                }}
+              >
+                Complete
+              </DropdownMenuItem>
                               <DropdownMenuItem 
                                 className="text-xs cursor-pointer"
                                 onClick={(e) => {
@@ -1398,6 +1549,11 @@ const Calendar = () => {
                               </DropdownMenuItem>
                             </DropdownMenuContent>
                           </DropdownMenu>
+                          <div className="flex-1 min-w-0">
+                            <div className="text-xs font-medium truncate">
+                              {event.title || 'Untitled Event'} [ID {event.id}]
+                            </div>
+                          </div>
                         </div>
                       );
                     }}
@@ -1452,105 +1608,488 @@ const Calendar = () => {
                       click: handleCreateNewEvent
                     }
                   }}
-                   viewDidMount={handleViewDidMount}
-                   datesSet={handleDatesSet}
-                   slotLaneClassNames={() => ['fc-slot-hoverable']}
-                   eventReceive={(info) => {
-                       console.log('eventReceive:', info);
-                       const woId = info.event.extendedProps.woId;
-                       if (woId) {
-                         const job = jobs.find(j => j.id === woId);
-                         if (job) {
-                           // Capture resource information
-                           const resources = info.event.getResources();
-                           const resourceId = resources.length > 0 ? resources[0].id : undefined;
-                           
-                           // Capture date/time information
-                           const startDate = info.event.start ? format(info.event.start, 'yyyy-MM-dd') : '';
-                           const endDate = info.event.end ? format(info.event.end, 'yyyy-MM-dd') : startDate;
-                           const startTime = info.event.start ? format(info.event.start, 'HH:mm') : '08:00';
-                           const endTime = info.event.end ? format(info.event.end, 'HH:mm') : '12:00';
-                           
-                           console.log('Drop info:', { resourceId, startDate, endDate, startTime, endTime });
-                           
-                           setSelectedJob(job);
-                           setPrefilledResourceId(resourceId);
-                           setPrefilledStartDate(startDate);
-                           setPrefilledEndDate(endDate);
-                           setPrefilledStartTime(startTime);
-                           setPrefilledEndTime(endTime);
-                           setIsCreateModalOpen(true);
-                         }
-                       }
-                       info.revert();
-                   }}
-                     eventDrop={(info) => {
-                         const oldStart = info.oldEvent.start ? format(info.oldEvent.start, 'PPP p') : '';
-                         const oldEnd = info.oldEvent.end ? format(info.oldEvent.end, 'PPP p') : '';
-                         const newStart = info.event.start ? format(info.event.start, 'PPP p') : '';
-                         const newEnd = info.event.end ? format(info.event.end, 'PPP p') : '';
-                         const oldCalResourceId = info.oldEvent.extendedProps.calendarResourceId;
-                         const newCalResourceId = info.oldEvent.extendedProps.calendarResourceId;
-                         
-                         const oldResourceId = info.oldResource?.id || oldCalResourceId;
-                         const newResourceId = info.newResource?.id || newCalResourceId;
-                         const oldResourceName = getResourceName(oldResourceId);
-                         const newResourceName = getResourceName(newResourceId);
-                         console.log('Confirm Event dropped:', info);
-                         
-                         setConfirmDialogData({
-                           type: 'move',
-                           id: info.event.extendedProps.id,
-                           title: info.event.title,
-                           oldStart,
-                           oldEnd,
-                           newStart,
-                           newEnd,
-                           oldResource: oldResourceName,
-                           newResource: newResourceName,
-                           onConfirm: () => {
-                             console.log('Event dropped:', info);
-                             toast.success('Event moved successfully');
-                             setIsConfirmDialogOpen(false);
-                           },
-                           onCancel: () => {
-                             info.revert();
-                             setIsConfirmDialogOpen(false);
-                           }
-                         });
-                         setIsConfirmDialogOpen(true);
-                     }}
-                     eventResize={(info) => {
-                         const oldStart = info.oldEvent.start ? format(info.oldEvent.start, 'PPP p') : '';
-                         const oldEnd = info.oldEvent.end ? format(info.oldEvent.end, 'PPP p') : '';
-                         const newStart = info.event.start ? format(info.event.start, 'PPP p') : '';
-                         const newEnd = info.event.end ? format(info.event.end, 'PPP p') : '';
-                         
-                         const resourceId = info.event.getResources()[0]?.id;
-                         const resourceName = getResourceName(resourceId);
-                         
-                         setConfirmDialogData({
-                           type: 'resize',
-                           id: info.event.extendedProps.id,
-                           title: info.event.title,
-                           oldStart,
-                           oldEnd,
-                           newStart,
-                           newEnd,
-                           oldResource: resourceName,
-                           newResource: resourceName,
-                           onConfirm: () => {
-                             console.log('Event resized:', info);
-                             toast.success('Event resized successfully');
-                             setIsConfirmDialogOpen(false);
-                           },
-                           onCancel: () => {
-                             info.revert();
-                             setIsConfirmDialogOpen(false);
-                           }
-                         });
-                         setIsConfirmDialogOpen(true);
-                     }}
+                  viewDidMount={handleViewDidMount}
+                  datesSet={handleDatesSet}
+                  slotLaneClassNames={() => ['fc-slot-hoverable']}
+                  eventReceive={(info) => {
+                    console.log('eventReceive:', info);
+                    const woId = info.event.extendedProps.woId;
+                    if (woId) {
+                      const job = jobs.find(j => j.id === woId);
+                      if (job) {
+                        // Capture resource information
+                        const resources = info.event.getResources();
+                        const resourceId = resources.length > 0 ? resources[0].id : undefined;
+                        
+                        // Capture date/time information
+                        const startDate = info.event.start ? format(info.event.start, 'yyyy-MM-dd') : '';
+                        const endDate = info.event.end ? format(info.event.end, 'yyyy-MM-dd') : startDate;
+                        const startTime = info.event.start ? format(info.event.start, 'HH:mm') : '08:00';
+                        const endTime = info.event.end ? format(info.event.end, 'HH:mm') : '12:00';
+                        
+                        console.log('Drop info:', { resourceId, startDate, endDate, startTime, endTime });
+                        
+                        setSelectedJob(job);
+                        setPrefilledResourceId(resourceId);
+                        setPrefilledStartDate(startDate);
+                        setPrefilledEndDate(endDate);
+                        setPrefilledStartTime(startTime);
+                        setPrefilledEndTime(endTime);
+                        setIsCreateModalOpen(true);
+                      }
+                    }
+                    info.revert();
+                    // console.log('Event received > info.revert()');
+                  }}
+                  eventDrop={(info) => {
+                    const { oldResource, newResource, event, oldEvent } = info;
+                    const eventData = event.extendedProps;
+                    const oldResourceProps = oldResource?.extendedProps;
+                    const newResourceProps = newResource?.extendedProps;
+                    const oldCalResourceId = oldEvent.extendedProps.calendarResourceId;
+                    const newCalResourceId = eventData.calendarResourceId;
+                    const oldResourceId = oldResource?.id || oldCalResourceId;
+                    const newResourceId = newResource?.id || newCalResourceId;
+                    const resourceIdSplit = newCalResourceId.split('-');
+                    const resourceId = resourceIdSplit[resourceIdSplit.length-1];
+                    console.log('Confirm Event dropped:', info);
+
+                    if (newResourceProps?.resourceCount) {
+                      info.revert();
+                      return;
+                    }
+                    
+                    // Updated resource date and time values
+                    // Date format "2025-08-05"
+                    // Time format "00:15"
+                    let eventToUpdate: any = {};
+                    let resourceToUpdate: any = {};
+                    let resourceToRemove: any = {};
+                    let resourceToCreate: any = {};
+
+                    const startDate = format(event.start, "yyyy-MM-dd");
+                    const endDate = format(event.end, "yyyy-MM-dd");
+                    const startTime = format(event.start, "HH:mm");
+                    const endTime = format(event.end, "HH:mm");
+
+                    const eventStartDate = new Date(`${eventData.date.start} ${eventData.time.start}`);
+                    const eventEndDate = new Date(`${eventData.date.end} ${eventData.time.end}`);
+                    const resourceStartDate = new Date(`${startDate} ${startTime}`);
+                    const resourceEndDate = new Date(`${endDate} ${endTime}`);
+
+                    eventToUpdate = {...eventData};
+
+                    if (newCalResourceId !== 'z-unassigned') {
+                      // Validate resource date and time
+                      if (
+                        isBefore(resourceStartDate, eventStartDate) ||
+                        isAfter(resourceEndDate, eventEndDate)
+                      ) {
+                        toast.error(<div>
+                          <div className="font-semibold">Invalid Resource Time</div>
+                          <div>Start and End Date must be within the scheduled event.</div>
+                          <div className="mt-2">
+                            <div className="font-semibold">Scheduled Event/Valid Range:{" "}<br/></div>
+                            <span className="font-medium">
+                              {format(event.start, 'PPP p').replace(/AM|PM/, (match) => match.toLowerCase())} –{" "}
+                              {format(event.end, 'PPP p').replace(/AM|PM/, (match) => match.toLowerCase())}
+                            </span>
+                          </div>
+                        </div>, {
+                          position: "top-right",
+                          className: "!bg-red-100 !text-red-800 !border !border-red-300",
+                        });
+                        info.revert();
+                        return;
+                      }
+
+                      // Scenario 1: Same resource, horizontal event move event (1 request - update)
+                      if (oldResourceId === newResourceId) {
+                        resourceToUpdate = eventData.resources.find(x => x.employee.value == resourceId);
+                        if (resourceToUpdate) {
+                          resourceToUpdate.type = 'resource';
+                        } else {
+                          resourceToUpdate = eventData.vendors.find(x => x.vendor.value == resourceId);
+                          if (resourceToUpdate) {
+                            resourceToUpdate.type = 'vendor';
+                          } else {
+                            resourceToUpdate = eventData.assets.find(x => x.asset.value == resourceId);
+                            if (resourceToUpdate) {
+                              resourceToUpdate.type = 'asset';
+                            }
+                          }
+                        }
+                        
+                        if (resourceToUpdate) {
+                          if (/* resourceToUpdate.vendor */resourceToUpdate.vendor && !resourceToUpdate.vendor.value) { // WO Vendor doesnt have date and time fields
+                            resourceToUpdate.time.start = startTime;
+                            resourceToUpdate.time.end = endTime;
+                          }
+                        }
+                      } else {
+                        // Scenario 2: Change event resource (1 remove request and 1 create request)
+                        if (oldResourceProps.employee) {
+                          resourceToRemove = eventData.resources.find(x => x.employee.value == oldResourceProps.employee.value);
+                          if (resourceToRemove) {
+                            resourceToRemove.type = 'resource';
+                          }
+                        } else if (oldResourceProps.vendor) {
+                          resourceToRemove = eventData.vendors.find(x => x.vendor.value == oldResourceProps.vendor.value);
+                          if (resourceToRemove) {
+                            resourceToRemove.type = 'vendor';
+                          }
+                        } else if (oldResourceProps.asset) {
+                          resourceToRemove = eventData.assets.find(x => x.asset.value == oldResourceProps.asset.value);
+                          if (resourceToRemove) {
+                            resourceToRemove.type = 'asset';
+                          }
+                        }
+
+                        // Resource to create
+                        if (newResourceProps.employee) {
+                          resourceToCreate.type = 'resource';
+                          resourceToCreate = {...newResourceProps};
+                        } else if (newResourceProps.vendor) {
+                          resourceToCreate.type = 'vendor';
+                          resourceToCreate = {...newResourceProps};
+                        } else if (newResourceProps.asset) {
+                          resourceToCreate.type = 'asset';
+                          resourceToCreate = {...newResourceProps};
+                        } else {
+                          // Dragging resource to unassign group?
+                          // Basically unassign/remove the resource
+                        }
+                      }
+
+                      if (Object.keys(resourceToCreate).length) {
+                        resourceToCreate.time.start = startTime;
+                        resourceToCreate.time.end = endTime;
+                      }
+                    } else {
+                      eventToUpdate.date = { 
+                        start: startDate, 
+                        end: endDate
+                      };
+                      eventToUpdate.time = { 
+                        start: startTime, 
+                        end: endTime 
+                      };
+                    }
+
+                    console.log(`MOVED - Set Confirm Dialog Data`, {
+                      resourceToUpdate,
+                      resourceToRemove,
+                      resourceToCreate,
+                      eventToUpdate,
+                      eventData
+                    });
+
+                    if (Object.keys(resourceToUpdate).length) {
+                      if (resourceToUpdate.type === 'resource') {
+                        const resIdx = eventToUpdate.resources.findIndex(x => x.employee.value == resourceId);
+                        if (resIdx > -1) {
+                          eventToUpdate.resources[resIdx] = {...resourceToUpdate};
+                        }
+                      } else if (resourceToUpdate.type === 'vendor') {
+                        const vendIdx = eventToUpdate.vendors.findIndex(x => x.vendor.value == resourceId);
+                        if (vendIdx > -1) {
+                          eventToUpdate.vendors[vendIdx] = {...resourceToUpdate};
+                        }
+                      } else if (resourceToUpdate.type === 'asset') {
+                        const asIdx = eventToUpdate.assets.findIndex(x => x.asset.value == resourceId);
+                        if (asIdx > -1) {
+                          eventToUpdate.assets[asIdx] = {...resourceToUpdate};
+                        }
+                      }
+                    }
+
+                    if (Object.keys(resourceToRemove).length) {
+                      const removedId = resourceToRemove.id;
+                      if (resourceToRemove.type === 'resource') {
+                        eventToUpdate.resources = eventToUpdate.resources.filter(x => removedId != x.id);
+                      } else if (resourceToRemove.type === 'vendor') {
+                        eventToUpdate.vendors = eventToUpdate.vendors.filter(x => removedId != x.id);
+                      } else if (resourceToRemove.type === 'asset') {
+                        eventToUpdate.assets = eventToUpdate.assets.filter(x => removedId != x.id);
+                      }
+                    }
+
+                    if (Object.keys(resourceToCreate).length) {
+                      if (resourceToRemove.type === 'resource') {
+                        eventToUpdate.resources.push(resourceToCreate);
+                      } else if (resourceToRemove.type === 'vendor') {
+                        eventToUpdate.vendors.push(resourceToCreate);
+                      } else if (resourceToRemove.type === 'asset') {
+                        eventToUpdate.assets.push(resourceToCreate);
+                      }
+                    }
+
+                    eventToUpdate.resources = eventToUpdate.resources.map((resource) => ({
+                      id: resource.id,
+                      name: resource.name,
+                      startTime: resource.time.start,
+                      endTime: resource.time.end,
+                      woResourceId: resource.woResourceId || ''
+                    }));
+
+                    eventToUpdate.vendors = eventToUpdate.vendors.map((vendor) => ({
+                      id: vendor.id,
+                      name: vendor.name,
+                      memo: vendor.memo,
+                      quantityRequired: vendor.quantityRequired,
+                      woVendorId: vendor.woVendorId || ''
+                    }));
+
+                    eventToUpdate.assets = eventToUpdate.assets.map((asset) => ({
+                      id: asset.id,
+                      name: asset.name,
+                      quantity: asset.quantity,
+                      startTime: asset.time.start,
+                      endTime: asset.time.end,
+                      woAssetId: asset.woAssetId || ''
+                    }));
+
+                    if (isLocalDevelopment()) {
+                      console.log('DEBUGGING', {
+                        selectedEvent: eventData,
+                        updates: eventToUpdate
+                      });
+                      // return;
+                    }
+                       
+                    setConfirmDialogData({
+                      type: 'move',
+                      id: event.extendedProps.id,
+                      title: event.title,
+                      oldStart: oldEvent.start ? format(oldEvent.start, 'PPP p').replace(/AM|PM/, (match) => match.toLowerCase()) : '',
+                      oldEnd: oldEvent.end ? format(oldEvent.end, 'PPP p').replace(/AM|PM/, (match) => match.toLowerCase()) : '',
+                      newStart: event.start ? format(event.start, 'PPP p').replace(/AM|PM/, (match) => match.toLowerCase()) : '',
+                      newEnd: event.end ? format(event.end, 'PPP p').replace(/AM|PM/, (match) => match.toLowerCase()) : '',
+                      oldResource: getResourceName(oldResourceId),
+                      newResource: getResourceName(newResourceId),
+                      get bothUnassigned() {
+                        return this.oldResource === 'Unassigned' && this.newResource === 'Unassigned'
+                      },
+                      onConfirm: async () => {
+                        setIsUpdating(true);
+                        try {
+                          // Store current view state before reload
+                          const calendarApi = calendarRef.current?.getApi();
+                          const currentDate = calendarApi?.getDate();
+                          const currentView = calendarApi?.view.type;
+                          
+                          await updateEvent(eventData as Event, eventToUpdate);
+                          
+                          toast.custom((id) => (
+                            <div
+                              data-sonner-rounded-toast
+                              className="flex items-start gap-3 w-full max-w-xl bg-green-100 text-green-800 border border-green-300 px-4 py-3 rounded-md"
+                            >
+                              <CheckCircle className="h-5 w-5 mt-0.5 text-green-700 shrink-0" />
+                              <div className="flex-1 text-sm font-medium">
+                                Event "{eventToUpdate.title}" resource updated successfully!
+                              </div>
+                              <button
+                                onClick={() => toast.dismiss(id)}
+                                className="ml-3 text-green-800 hover:text-red-500 p-1"
+                              >
+                                <X className="h-4 w-4" />
+                              </button>
+                            </div>
+                          ), {
+                            duration: 5000,
+                            position: "top-right",
+                          });
+
+                          await loadAllData();
+                          
+                          // Restore view state after reload
+                          if (calendarApi && currentDate && currentView) {
+                            calendarApi.changeView(currentView);
+                            calendarApi.gotoDate(currentDate);
+                          }
+
+                          setIsConfirmDialogOpen(false);
+                        } catch (error) {
+                          console.error('Failed to update event:', error);
+                          toast.error('Failed to move event');
+                        } finally {
+                          setIsUpdating(false);
+                        }
+                      },
+                      onCancel: () => {
+                        info.revert();
+                        setIsConfirmDialogOpen(false);
+                      }
+                    });
+                    setIsConfirmDialogOpen(true);
+                  }}
+                  eventResize={(info) => {
+                    // PREVENT the visual change immediately
+                    // info.revert();
+                    
+                    const { event, oldEvent } = info;
+                    const eventData = event.extendedProps;
+                    const calResourceId = eventData.calendarResourceId;
+                    const resourceIdSplit = calResourceId.split('-');
+                    const resourceId = resourceIdSplit[resourceIdSplit.length-1];
+                    console.log('Event resize requested:', info);
+                    
+                    // Updated resource date and time values
+                    let eventToUpdate: any = {};
+                    let resourceToUpdate: any = {};
+
+                    const startDate = format(event.start, "yyyy-MM-dd");
+                    const endDate = format(event.end, "yyyy-MM-dd");
+                    const startTime = format(event.start, "HH:mm");
+                    const endTime = format(event.end, "HH:mm");
+
+                    const eventStartDate = new Date(`${eventData.date.start} ${eventData.time.start}`);
+                    const eventEndDate = new Date(`${eventData.date.end} ${eventData.time.end}`);
+                    const resourceStartDate = new Date(`${startDate} ${startTime}`);
+                    const resourceEndDate = new Date(`${endDate} ${endTime}`);
+
+                    eventToUpdate = {...eventData};
+
+                    if (calResourceId !== 'z-unassigned') {
+                      // Validate resource date and time
+                      if (
+                        isBefore(resourceStartDate, eventStartDate) ||
+                        isAfter(resourceEndDate, eventEndDate)
+                      ) {
+                        toast.error(<div>
+                          <div className="font-semibold">Invalid Resource Time</div>
+                          <div>Start and End Date must be within the scheduled event.</div>
+                          <div className="mt-2">
+                            <div className="font-semibold">Scheduled Event/Valid Range:{" "}<br/></div>
+                            <span className="font-medium">
+                              {format(event.start, 'PPP p').replace(/AM|PM/, (match) => match.toLowerCase())} –{" "}
+                              {format(event.end, 'PPP p').replace(/AM|PM/, (match) => match.toLowerCase())}
+                            </span>
+                          </div>
+                        </div>, {
+                          position: "top-right",
+                          className: "!bg-red-100 !text-red-800 !border !border-red-300",
+                        });
+                        info.revert();
+                        return;
+                      }
+                      
+                      resourceToUpdate = {...eventData.resources.find(x => x.employee.value == resourceId) || {}};
+                      if (Object.keys(resourceToUpdate).length) {
+                        resourceToUpdate.type = 'resource';
+                      } else {
+                        resourceToUpdate = {...eventData.vendors.find(x => x.vendor.value == resourceId) || {}};
+                        if (Object.keys(resourceToUpdate).length) {
+                          resourceToUpdate.type = 'vendor';
+                        } else {
+                          resourceToUpdate = {...eventData.assets.find(x => x.asset.value == resourceId) || {}};
+                          if (Object.keys(resourceToUpdate).length) {
+                            resourceToUpdate.type = 'asset';
+                          }
+                        }
+                      }
+                    } else {
+                      // Unassigned event (no need for validation)
+                      eventToUpdate.date = { 
+                        start: startDate, 
+                        end: endDate
+                       };
+                      eventToUpdate.time = { 
+                        time: startTime, 
+                        end: endTime 
+                      };
+                    }
+
+                    console.log(`RESIZED - Set Confirm Dialog Data`, {
+                      calResourceId,
+                      resourceId,
+                      resourceToUpdate,
+                      eventToUpdate,
+                    });
+
+                    eventToUpdate.resources = eventToUpdate.resources.map((resource) => ({
+                      id: resource.id,
+                      name: resource.name,
+                      startTime: resource.employee.value == resourceId ? startTime : resource.time.start,
+                      endTime: resource.employee.value == resourceId ? endTime : resource.time.end,
+                      woResourceId: resource.woResourceId || ''
+                    }));
+
+                    eventToUpdate.vendors = eventToUpdate.vendors.map((vendor) => ({
+                      id: vendor.id,
+                      name: vendor.name,
+                      memo: vendor.memo,
+                      quantityRequired: vendor.quantityRequired,
+                      woVendorId: vendor.woVendorId || ''
+                    }));
+
+                    eventToUpdate.assets = eventToUpdate.assets.map((asset) => ({
+                      id: asset.id,
+                      name: asset.name,
+                      quantity: asset.quantity,
+                      startTime: asset.asset.value == resourceId ? startTime : asset.time.start,
+                      endTime: asset.asset.value == resourceId ? endTime : asset.time.end,
+                      woAssetId: asset.woAssetId || ''
+                    }));
+
+                    if (isLocalDevelopment()) {
+                      console.log('DEBUGGING', {
+                        selectedEvent: eventData,
+                        updates: eventToUpdate
+                      });
+                      // return;
+                    }
+
+                    setConfirmDialogData({
+                      type: 'resize',
+                      id: eventData.id,
+                      title: event.title,
+                      oldStart: oldEvent.start ? format(oldEvent.start, 'PPP p').replace(/AM|PM/, (match) => match.toLowerCase()) : '',
+                      oldEnd: oldEvent.end ? format(oldEvent.end, 'PPP p').replace(/AM|PM/, (match) => match.toLowerCase()) : '',
+                      newStart: event.start ? format(event.start, 'PPP p').replace(/AM|PM/, (match) => match.toLowerCase()) : '',
+                      newEnd: event.end ? format(event.end, 'PPP p').replace(/AM|PM/, (match) => match.toLowerCase()) : '',
+                      oldResource: '',
+                      newResource: getResourceName(calResourceId),
+                      bothUnassigned: false,
+                      eventToUpdate,
+                      resourceToUpdate,
+                      resourceToRemove: {},
+                      resourceToCreate: {},
+                      eventData,
+                      event,
+                      onConfirm: async () => {
+                        setIsUpdating(true);
+                        try {
+                          await updateEvent(eventData as Event, {
+                            ...eventToUpdate,
+                            resources: resourceToUpdate ? [resourceToUpdate] : (eventData as Event).resources,
+                          });
+                          
+                          // Apply the visual change after successful update
+                          const apiEvent = calendarRef.current?.getApi().getEventById(event.id);
+                          if (apiEvent) {
+                            apiEvent.setStart(event.start);
+                            apiEvent.setEnd(event.end);
+                          }
+                          
+                          console.log('Event resized confirmed');
+                          toast.success('Event resized successfully');
+                          setIsConfirmDialogOpen(false);
+                        } catch (error) {
+                          console.error('Failed to update event:', error);
+                          toast.error('Failed to resize event');
+                        } finally {
+                          setIsUpdating(false);
+                        }
+                      },
+                      onCancel: () => {
+                        // Do nothing - the visual change was already prevented
+                        setIsConfirmDialogOpen(false);
+                      }
+                    });
+                    setIsConfirmDialogOpen(true);
+                  }}
                 />
               </div>
             </ScrollArea>
@@ -1813,6 +2352,7 @@ const Calendar = () => {
         isOpen={isCreateModalOpen}
         onClose={() => setIsCreateModalOpen(false)}
         onEventCreated={loadAllData}
+        events={events}
         selectedJob={selectedJob ? {
           id: selectedJob.id,
           title: selectedJob.title,
@@ -1824,12 +2364,131 @@ const Calendar = () => {
         employees={employees}
         vendors={vendors}
         assets={assets}
+        woResources={selectedJob ? 
+          woResources.filter(x => 
+            x.workorder.value == selectedJob.id
+            && !x.event
+          ) : 
+          []
+        }
+        woVendors={selectedJob ? 
+          woVendors.filter(x => 
+            x.workorder.value == selectedJob.id
+            && !x.event
+          ) : 
+          []
+        }
+        woAssets={selectedJob ? 
+          woAssets.filter(x => 
+            x.workorder.value == selectedJob.id
+            && !x.event
+          ) : 
+          []
+        }
+        woItems={selectedJob ? 
+          woItems.filter(x => 
+            x.workorder.value == selectedJob.id
+            && !x.event
+          ) : 
+          []
+        }
+        woContacts={selectedJob ? 
+          woContacts.filter(x => 
+            x.workorder.value == selectedJob.id
+            && !x.event
+          ) : 
+          []
+        }
+        woAddresses={selectedJob ? 
+          woAddresses.filter(x => 
+            x.workorder.value == selectedJob.id
+          ) : 
+          []
+        }
         prefilledResourceId={prefilledResourceId}
         prefilledStartDate={prefilledStartDate}
         prefilledEndDate={prefilledEndDate}
         prefilledStartTime={prefilledStartTime}
         prefilledEndTime={prefilledEndTime}
       />
+
+      <UpdateEvent
+        isOpen={isUpdateModalOpen}
+        onClose={() => setIsUpdateModalOpen(false)}
+        onEventUpdated={loadAllData}
+        selectedEvent={selectedEventForUpdate}
+        employees={employees}
+        vendors={vendors}
+        assets={assets}
+        woResources={selectedEventForUpdate ? 
+          woResources.filter(x => x.event == selectedEventForUpdate.id) : 
+          []
+        }
+        woVendors={selectedEventForUpdate ? 
+          woVendors.filter(x => x.event == selectedEventForUpdate.id) : 
+          []
+        }
+        woAssets={selectedEventForUpdate ? 
+          woAssets.filter(x => x.event == selectedEventForUpdate.id) : 
+          []
+        }
+        woItems={selectedEventForUpdate?.woRef ? 
+          woItems.filter(x => 
+            x.workorder.value == selectedEventForUpdate.woRef.id
+          ) : 
+          []
+        }
+        woContacts={selectedEventForUpdate?.woRef ? 
+          woContacts.filter(x => 
+            x.workorder.value == selectedEventForUpdate.woRef.id
+          ) : 
+          []
+        }
+        woAddresses={selectedEventForUpdate?.woRef ? 
+          woAddresses.filter(x => 
+            x.workorder.value == selectedEventForUpdate.woRef.id
+          ) : 
+          []
+        }
+      />
+
+      {selectedEventForComplete && (
+        <CompleteEvent 
+          isOpen={isCompleteEventModalOpen}
+          onClose={() => setIsCompleteEventModalOpen(false)}
+          selectedEvent={selectedEventForComplete} 
+          onEventCompleted={loadAllData}
+        />
+      )}
+
+      {/* Remove Event Dialog */}
+      <AlertDialog open={isRemoveDialogOpen} onOpenChange={setIsRemoveDialogOpen}>
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle>Remove Event</AlertDialogTitle>
+            <AlertDialogDescription>
+              Are you sure you want to remove "{selectedEventForRemove?.title || 'this event'}"? This action cannot be undone.
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogCancel disabled={isRemoving}>Cancel</AlertDialogCancel>
+            <AlertDialogAction
+              onClick={handleRemoveEvent}
+              disabled={isRemoving}
+              className="bg-destructive text-destructive-foreground hover:bg-destructive/90"
+            >
+              {isRemoving ? (
+                <>
+                  <Loader className="mr-2 h-4 w-4 animate-spin" />
+                  Removing...
+                </>
+              ) : (
+                'Remove Event'
+              )}
+            </AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
 
       {/* Confirmation Dialog */}
       <Dialog open={isConfirmDialogOpen} onOpenChange={setIsConfirmDialogOpen}>
@@ -1849,35 +2508,71 @@ const Calendar = () => {
                  <p className="text-sm text-muted-foreground">
                    {confirmDialogData?.oldStart} - {confirmDialogData?.oldEnd}
                  </p>
-                 {confirmDialogData?.oldResource && (
+                 {(confirmDialogData?.oldResource) ? (
                    <p className="text-sm text-muted-foreground">
                      Resource: {confirmDialogData.oldResource}
                    </p>
-                 )}
+                 ) : ''}
                </div>
                <div>
                  <p className="text-sm font-medium">New:</p>
                  <p className="text-sm text-muted-foreground">
                    {confirmDialogData?.newStart} - {confirmDialogData?.newEnd}
                  </p>
-                 {confirmDialogData?.newResource && (
+                 {(confirmDialogData?.newResource) ? (
                    <p className="text-sm text-muted-foreground">
                      Resource: {confirmDialogData.newResource}
                    </p>
-                 )}
+                 ) : ''}
                </div>
              </div>
            </div>
-          <DialogFooter>
-            <Button variant="outline" onClick={confirmDialogData?.onCancel}>
-              Cancel
-            </Button>
-            <Button onClick={confirmDialogData?.onConfirm}>
-              Confirm
-            </Button>
-          </DialogFooter>
+           <DialogFooter>
+             <Button variant="outline" disabled={isUpdating} onClick={confirmDialogData?.onCancel}>
+               Cancel
+             </Button>
+             <Button onClick={confirmDialogData?.onConfirm} disabled={isUpdating}>
+               {isUpdating ? (
+                 <>
+                   <Loader className="mr-2 h-4 w-4 animate-spin" />
+                   Updating...
+                 </>
+               ) : (
+                 'Confirm'
+               )}
+             </Button>
+           </DialogFooter>
         </DialogContent>
       </Dialog>
+
+      {/* WO Status Dialog */}
+       <AlertDialog open={isWOStatusDialogOpen} onOpenChange={setIsWOStatusDialogOpen}>
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle>Update Work Order Status</AlertDialogTitle>
+            <AlertDialogDescription>
+              Update Work Order "{selectedWo?.title}" Status to "{workOrderAction.toUpperCase()}"?
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogCancel disabled={isWOUpdating}>Cancel</AlertDialogCancel>
+            <AlertDialogAction
+              onClick={handleWOStatusUpdate}
+              disabled={isWOUpdating}
+            >
+              {isWOUpdating ? (
+                <>
+                  {/* <Loader2 className="mr-2 h-4 w-4 animate-spin" /> */}
+                  <Loader className="mr-2 h-4 w-4 animate-spin" />
+                  Updating...
+                </>
+              ) : (
+                'Update'
+              )}
+            </AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
 
       {/* Events Filter Popover */}
       <Popover open={isEventsFilterOpen} onOpenChange={setIsEventsFilterOpen}>

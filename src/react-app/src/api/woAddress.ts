@@ -3427,7 +3427,7 @@ const mockWOAddresses: WOAddress[] = [{
       "value": "1249"
     },
     "events": [
-      "101229"
+      "101236"
     ],
     "address": {
       "text": "22 Dundas",
@@ -3447,7 +3447,8 @@ const mockWOAddresses: WOAddress[] = [{
       "value": "1249"
     },
     "events": [
-      "101132"
+      "101132",
+      "101229"
     ],
     "address": {
       "text": "12 Carlton Av",

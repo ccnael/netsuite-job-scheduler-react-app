@@ -11,7 +11,7 @@ import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Badge } from "@/components/ui/badge";
 import { Search, ChevronLeft, ChevronRight, ChevronsLeft, ChevronsRight, ChevronUp, ChevronDown, ChevronsUpDown, Filter } from "lucide-react";
-import { fetchWOContacts, type WOContact } from "@/api/woContact";
+import { type WOContact } from "@/api/woContact";
 import { type Event } from "@/api/event";
 
 interface SelectedWOContact {
@@ -20,13 +20,14 @@ interface SelectedWOContact {
 }
 
 interface WOContactTableProps { 
+  data: WOContact[];
   woId: string; 
   onSelectionChange?: (selectedWOContacts: SelectedWOContact[]) => void;
   onUpdate?: boolean;
   selectedEvent?: Event;
 }
 
-export const WOContactTable: React.FC<WOContactTableProps> = ({ woId, onSelectionChange, onUpdate, selectedEvent }) => {
+export const WOContactTable: React.FC<WOContactTableProps> = ({ data, woId, onSelectionChange, onUpdate, selectedEvent }) => {
   const [globalFilter, setGlobalFilter] = useState('');
   const [sorting, setSorting] = useState<SortingState>([]);
   const [tableDataState, setTableDataState] = useState<WOContact[]>([]);
@@ -35,17 +36,18 @@ export const WOContactTable: React.FC<WOContactTableProps> = ({ woId, onSelectio
   // Fetch data on load
   useEffect(() => {
     const loadData = async () => {
-      let data = await fetchWOContacts(woId, '');
+      // let data = await fetchWOContacts(woId, '');
+      let filteredData = data;
       if (!onUpdate) {
-        data = data.filter(x => !x.event);
+        filteredData = filteredData.filter(x => !x.event);
       } else {
-        const unassignedContacts = data
+        const unassignedContacts = filteredData
           .filter(x => !x.event)
           .filter(x => !selectedEvent.contacts.map(y => y.contact.value)
           .includes(x.contact.value));
-        data = [...selectedEvent.contacts, ...unassignedContacts];
+        filteredData = [...selectedEvent.contacts, ...unassignedContacts];
       }
-      const mappedData = data;
+      const mappedData = filteredData;
       setTableDataState(mappedData);
     };
 

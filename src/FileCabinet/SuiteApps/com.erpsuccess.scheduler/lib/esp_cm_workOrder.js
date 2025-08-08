@@ -163,58 +163,6 @@ define([
     response.write(JSON.stringify(workOrders));
   }
 
-  function holdWorkOrder(context) {
-    const { request, response } = context;
-    const { parameters: params } = request;
-    const { woId } = params;
-    const result = {};
-
-    try {
-      record.submitFields({
-        type: env.RecordType.WORK_ORDER,
-        id: woId,
-        values: {
-          custrecord_esp_fop_wo_status: env.Status.ON_HOLD
-        }
-      });
-      result.status = 'success';
-      result.message = 'Updated Successfully';
-    } catch (e) {
-      result.status = 'failed';
-      result.message = `Unexpected Error: ${e.message}`;
-    }
-
-    log.audit('----- [Hold Work Order] -----', { woId, result });
-
-    response.write(JSON.stringify(result));
-  }
-
-  function cancelWorkOrder(context) {
-    const { request, response } = context;
-    const { parameters: params } = request;
-    const { woId } = params;
-    const result = {};
-
-    try {
-      record.submitFields({
-        type: env.RecordType.WORK_ORDER,
-        id: woId,
-        values: {
-          custrecord_esp_fop_wo_status: env.Status.CLOSED
-        }
-      });
-      result.status = 'success';
-      result.message = 'Updated Successfully';
-    } catch (e) {
-      result.status = 'failed';
-      result.message = `Unexpected Error: ${e.message}`;
-    }
-
-    log.audit('----- [Cancel Work Order] -----', { woId, result });
-
-    response.write(JSON.stringify(result));
-  }
-
   function printWorkOrder(context) {
     const { request, response } = context;
     const { parameters: params } = request;
@@ -250,54 +198,52 @@ define([
     });
   }
 
-  function printPickList(context) {
+  function holdWorkOrder(context) {
     const { request, response } = context;
     const { parameters: params } = request;
     const { woId } = params;
-    const woLookUp = search.lookupFields({
+    const result = {};
+
+    record.submitFields({
       type: env.RecordType.WORK_ORDER,
       id: woId,
-      columns: 'custrecord_esp_cfi_wo_so'
+      values: {
+        custrecord_esp_fop_wo_status: env.Status.ON_HOLD
+      }
     });
-    let soId;
-    if (woLookUp) {
-      soId = +(woLookUp.custrecord_esp_cfi_wo_so[0].value);
-    }
-    if (soId) {
-      const pdfFile = render.pickingTicket({
-        entityId: soId,
-        printMode: render.PrintMode.PDF,
-        inCustLocale: true
-      });
-      pdfFile.name = `PickingTicket_${soId}.pdf`;
-      response.writeFile({
-        file: pdfFile,
-        isInline: true
-      });
-    } else {
-      response.write('<h1>Missing Sales Order</h1>');
-    }
+    result.status = 'success';
+    result.message = 'Updated Successfully';
+
+    log.audit('----- [Hold Work Order] -----', { woId, result });
+
+    response.write(JSON.stringify(result));
   }
 
-  function getWorkOrderStatuses() {
-    const formatText = txt => {
-      return txt
-        .toLowerCase()
-        .replace(/_/g, ' ')
-        .replace(/\b\w/g, (char) => char.toUpperCase()); // Capitalize first letter of each word
-    };
-    return Object.entries(env.Status).map(([key, value]) => ({
-      text: formatText(key),
-      value: value
-    }));
+  function cancelWorkOrder(context) {
+    const { request, response } = context;
+    const { parameters: params } = request;
+    const { woId } = params;
+    const result = {};
+
+    record.submitFields({
+      type: env.RecordType.WORK_ORDER,
+      id: woId,
+      values: {
+        custrecord_esp_fop_wo_status: env.Status.CLOSED
+      }
+    });
+    result.status = 'success';
+    result.message = 'Updated Successfully';
+
+    log.audit('----- [Cancel Work Order] -----', { woId, result });
+
+    response.write(JSON.stringify(result));
   }
 
   return {
     getWorkOrders,
+    printWorkOrder,
     holdWorkOrder,
     cancelWorkOrder,
-    printWorkOrder,
-    printPickList,
-    getWorkOrderStatuses
   }
 })

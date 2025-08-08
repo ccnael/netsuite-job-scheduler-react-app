@@ -5309,6 +5309,78 @@ const mockWOItems: WOItem[] = [{
     "completedQty": 0
   },
   {
+    "id": "28",
+    "workorder": {
+      "text": "AV Installation",
+      "value": "33"
+    },
+    "salesorder": {
+      "text": "Sales Order #SLS00000609",
+      "value": "11722"
+    },
+    "event": "",
+    "uuid": "11722_1",
+    "line": "1",
+    "item": {
+      "text": "4321GR",
+      "value": "1015"
+    },
+    "description": "",
+    "quantity": 2,
+    "availableQty": 2,
+    "note": "",
+    "quantityReceived": 0,
+    "completedQty": 0
+  },
+  {
+    "id": "11",
+    "workorder": {
+      "text": "Walls Installation",
+      "value": "13"
+    },
+    "salesorder": {
+      "text": "Sales Order #SLS00000609",
+      "value": "11722"
+    },
+    "event": "",
+    "uuid": "11722_1",
+    "line": "1",
+    "item": {
+      "text": "4321GR",
+      "value": "1015"
+    },
+    "description": "",
+    "quantity": 2,
+    "availableQty": 2,
+    "note": "",
+    "quantityReceived": 0,
+    "completedQty": 0
+  },
+  {
+    "id": "21",
+    "workorder": {
+      "text": "Security Camera Installation",
+      "value": "29"
+    },
+    "salesorder": {
+      "text": "Sales Order #SLS00000609",
+      "value": "11722"
+    },
+    "event": "",
+    "uuid": "11722_1",
+    "line": "1",
+    "item": {
+      "text": "4321GR",
+      "value": "1015"
+    },
+    "description": "",
+    "quantity": 2,
+    "availableQty": 2,
+    "note": "",
+    "quantityReceived": 0,
+    "completedQty": 0
+  },
+  {
     "id": "24",
     "workorder": {
       "text": "Flooring Installation",
@@ -5361,78 +5433,6 @@ const mockWOItems: WOItem[] = [{
     "workorder": {
       "text": "Conference Table Delivery",
       "value": "28"
-    },
-    "salesorder": {
-      "text": "Sales Order #SLS00000609",
-      "value": "11722"
-    },
-    "event": "",
-    "uuid": "11722_1",
-    "line": "1",
-    "item": {
-      "text": "4321GR",
-      "value": "1015"
-    },
-    "description": "",
-    "quantity": 2,
-    "availableQty": 2,
-    "note": "",
-    "quantityReceived": 0,
-    "completedQty": 0
-  },
-  {
-    "id": "21",
-    "workorder": {
-      "text": "Security Camera Installation",
-      "value": "29"
-    },
-    "salesorder": {
-      "text": "Sales Order #SLS00000609",
-      "value": "11722"
-    },
-    "event": "",
-    "uuid": "11722_1",
-    "line": "1",
-    "item": {
-      "text": "4321GR",
-      "value": "1015"
-    },
-    "description": "",
-    "quantity": 2,
-    "availableQty": 2,
-    "note": "",
-    "quantityReceived": 0,
-    "completedQty": 0
-  },
-  {
-    "id": "11",
-    "workorder": {
-      "text": "Walls Installation",
-      "value": "13"
-    },
-    "salesorder": {
-      "text": "Sales Order #SLS00000609",
-      "value": "11722"
-    },
-    "event": "",
-    "uuid": "11722_1",
-    "line": "1",
-    "item": {
-      "text": "4321GR",
-      "value": "1015"
-    },
-    "description": "",
-    "quantity": 2,
-    "availableQty": 2,
-    "note": "",
-    "quantityReceived": 0,
-    "completedQty": 0
-  },
-  {
-    "id": "28",
-    "workorder": {
-      "text": "AV Installation",
-      "value": "33"
     },
     "salesorder": {
       "text": "Sales Order #SLS00000609",
@@ -5789,10 +5789,10 @@ const mockWOItems: WOItem[] = [{
     "completedQty": 0
   },
   {
-    "id": "57",
+    "id": "63",
     "workorder": {
       "text": "Furniture Installation",
-      "value": "58"
+      "value": "60"
     },
     "salesorder": {
       "text": "Sales Order #SLS00000686",
@@ -5837,10 +5837,10 @@ const mockWOItems: WOItem[] = [{
     "completedQty": 0
   },
   {
-    "id": "63",
+    "id": "57",
     "workorder": {
       "text": "Furniture Installation",
-      "value": "60"
+      "value": "58"
     },
     "salesorder": {
       "text": "Sales Order #SLS00000686",
@@ -10637,6 +10637,30 @@ const mockWOItems: WOItem[] = [{
     "completedQty": 0
   },
   {
+    "id": "661",
+    "workorder": {
+      "text": "Product Core Testing - 2",
+      "value": "140"
+    },
+    "salesorder": {
+      "text": "Sales Order #SLS00000837",
+      "value": "24432"
+    },
+    "event": "",
+    "uuid": "24432_6",
+    "line": "6",
+    "item": {
+      "text": "J2HB-5124-SS1RS1",
+      "value": "2036"
+    },
+    "description": "X Series PST,HngdDr,51.5Hx24Wx24D,B/B/F,Valet,RH,PtdDwr,Ptd/StlDr,Ellipse Pull,Reg Top,Glide",
+    "quantity": 3,
+    "availableQty": 3,
+    "note": "",
+    "quantityReceived": 12,
+    "completedQty": 0
+  },
+  {
     "id": "684",
     "workorder": {
       "text": "Lobby Area - Product Core Dryrun",
@@ -10656,30 +10680,6 @@ const mockWOItems: WOItem[] = [{
     "description": "X Series PST,HngdDr,51.5Hx24Wx24D,B/B/F,Valet,RH,PtdDwr,Ptd/StlDr,Ellipse Pull,Reg Top,Glide",
     "quantity": 2,
     "availableQty": 2,
-    "note": "",
-    "quantityReceived": 12,
-    "completedQty": 0
-  },
-  {
-    "id": "647",
-    "workorder": {
-      "text": "Lobby Area - Product Core Dryrun",
-      "value": "138"
-    },
-    "salesorder": {
-      "text": "Sales Order #SLS00000835",
-      "value": "24427"
-    },
-    "event": "",
-    "uuid": "24427_6",
-    "line": "6",
-    "item": {
-      "text": "J2HB-5124-SS1RS1",
-      "value": "2036"
-    },
-    "description": "X Series PST,HngdDr,51.5Hx24Wx24D,B/B/F,Valet,RH,PtdDwr,Ptd/StlDr,Ellipse Pull,Reg Top,Glide",
-    "quantity": 3,
-    "availableQty": 3,
     "note": "",
     "quantityReceived": 12,
     "completedQty": 0
@@ -10707,6 +10707,54 @@ const mockWOItems: WOItem[] = [{
     "note": "",
     "quantityReceived": 12,
     "completedQty": 3
+  },
+  {
+    "id": "722",
+    "workorder": {
+      "text": "Lobby Area - Product Core Dryrun",
+      "value": "138"
+    },
+    "salesorder": {
+      "text": "Sales Order #SLS00000835",
+      "value": "24427"
+    },
+    "event": "101235",
+    "uuid": "24427_6",
+    "line": "6",
+    "item": {
+      "text": "J2HB-5124-SS1RS1",
+      "value": "2036"
+    },
+    "description": "X Series PST,HngdDr,51.5Hx24Wx24D,B/B/F,Valet,RH,PtdDwr,Ptd/StlDr,Ellipse Pull,Reg Top,Glide",
+    "quantity": 3,
+    "availableQty": 3,
+    "note": "",
+    "quantityReceived": 12,
+    "completedQty": 0
+  },
+  {
+    "id": "724",
+    "workorder": {
+      "text": "Lobby Area - Product Core Dryrun",
+      "value": "138"
+    },
+    "salesorder": {
+      "text": "Sales Order #SLS00000835",
+      "value": "24427"
+    },
+    "event": "101236",
+    "uuid": "24427_6",
+    "line": "6",
+    "item": {
+      "text": "J2HB-5124-SS1RS1",
+      "value": "2036"
+    },
+    "description": "X Series PST,HngdDr,51.5Hx24Wx24D,B/B/F,Valet,RH,PtdDwr,Ptd/StlDr,Ellipse Pull,Reg Top,Glide",
+    "quantity": 3,
+    "availableQty": 3,
+    "note": "",
+    "quantityReceived": 12,
+    "completedQty": 0
   },
   {
     "id": "712",
@@ -10757,17 +10805,17 @@ const mockWOItems: WOItem[] = [{
     "completedQty": 0
   },
   {
-    "id": "661",
+    "id": "647",
     "workorder": {
-      "text": "Product Core Testing - 2",
-      "value": "140"
+      "text": "Lobby Area - Product Core Dryrun",
+      "value": "138"
     },
     "salesorder": {
-      "text": "Sales Order #SLS00000837",
-      "value": "24432"
+      "text": "Sales Order #SLS00000835",
+      "value": "24427"
     },
     "event": "",
-    "uuid": "24432_6",
+    "uuid": "24427_6",
     "line": "6",
     "item": {
       "text": "J2HB-5124-SS1RS1",
@@ -11189,6 +11237,54 @@ const mockWOItems: WOItem[] = [{
     "completedQty": 0
   },
   {
+    "id": "359",
+    "workorder": {
+      "text": "Work Order for Testing Nov 5",
+      "value": "96"
+    },
+    "salesorder": {
+      "text": "Sales Order #SLS00000755",
+      "value": "20872"
+    },
+    "event": "101012",
+    "uuid": "20872_1",
+    "line": "1",
+    "item": {
+      "text": "VZCC-0024-A",
+      "value": "1144"
+    },
+    "description": "",
+    "quantity": 60,
+    "availableQty": 60,
+    "note": "",
+    "quantityReceived": 0,
+    "completedQty": 0
+  },
+  {
+    "id": "365",
+    "workorder": {
+      "text": "Work Order Dry Run - Nov 8",
+      "value": "100"
+    },
+    "salesorder": {
+      "text": "Sales Order #SLS00000766",
+      "value": "20892"
+    },
+    "event": "",
+    "uuid": "20892_1",
+    "line": "1",
+    "item": {
+      "text": "VZCC-0024-A",
+      "value": "1144"
+    },
+    "description": "",
+    "quantity": 200,
+    "availableQty": 200,
+    "note": "",
+    "quantityReceived": 0,
+    "completedQty": 0
+  },
+  {
     "id": "353",
     "workorder": {
       "text": "Work Order for Testing Nov 5",
@@ -11237,51 +11333,339 @@ const mockWOItems: WOItem[] = [{
     "completedQty": 0
   },
   {
-    "id": "359",
+    "id": "665",
     "workorder": {
-      "text": "Work Order for Testing Nov 5",
-      "value": "96"
+      "text": "HVAC Maintenance",
+      "value": "141"
     },
     "salesorder": {
-      "text": "Sales Order #SLS00000755",
-      "value": "20872"
+      "text": "Sales Order #SLS00000848",
+      "value": "25472"
     },
-    "event": "101012",
-    "uuid": "20872_1",
+    "event": "",
+    "uuid": "",
     "line": "1",
     "item": {
-      "text": "VZCC-0024-A",
-      "value": "1144"
+      "text": "VZCC-0054-HSS1",
+      "value": "2031"
     },
-    "description": "",
-    "quantity": 60,
-    "availableQty": 60,
+    "description": "Compose,Top Trim 54In.W,Stl, Pnl Frame",
+    "quantity": 1,
+    "availableQty": 1,
     "note": "",
-    "quantityReceived": 0,
+    "quantityReceived": 30,
     "completedQty": 0
   },
   {
-    "id": "365",
+    "id": "670",
     "workorder": {
-      "text": "Work Order Dry Run - Nov 8",
-      "value": "100"
+      "text": "HVAC Maintenance",
+      "value": "141"
     },
     "salesorder": {
-      "text": "Sales Order #SLS00000766",
-      "value": "20892"
+      "text": "Sales Order #SLS00000848",
+      "value": "25472"
     },
     "event": "",
-    "uuid": "20892_1",
+    "uuid": "",
+    "line": "9",
+    "item": {
+      "text": "VZCC-0054-HSS1",
+      "value": "2031"
+    },
+    "description": "Compose,Top Trim 54In.W,Stl, Pnl Frame",
+    "quantity": 1,
+    "availableQty": 1,
+    "note": "",
+    "quantityReceived": 30,
+    "completedQty": 0
+  },
+  {
+    "id": "631",
+    "workorder": {
+      "text": "Android Full Dryrun",
+      "value": "137"
+    },
+    "salesorder": {
+      "text": "Sales Order #SLS00000826",
+      "value": "23471"
+    },
+    "event": "101122",
+    "uuid": "23471_1",
     "line": "1",
     "item": {
-      "text": "VZCC-0024-A",
-      "value": "1144"
+      "text": "VZCC-0054-HSS1",
+      "value": "2031"
     },
-    "description": "",
-    "quantity": 200,
-    "availableQty": 200,
+    "description": "Compose,Top Trim 54In.W,Stl, Pnl Frame",
+    "quantity": 1,
+    "availableQty": 1,
     "note": "",
-    "quantityReceived": 0,
+    "quantityReceived": 30,
+    "completedQty": 0
+  },
+  {
+    "id": "633",
+    "workorder": {
+      "text": "Android Full Dryrun",
+      "value": "137"
+    },
+    "salesorder": {
+      "text": "Sales Order #SLS00000826",
+      "value": "23471"
+    },
+    "event": "101123",
+    "uuid": "23471_1",
+    "line": "1",
+    "item": {
+      "text": "VZCC-0054-HSS1",
+      "value": "2031"
+    },
+    "description": "Compose,Top Trim 54In.W,Stl, Pnl Frame",
+    "quantity": 1,
+    "availableQty": 1,
+    "note": "",
+    "quantityReceived": 30,
+    "completedQty": 0
+  },
+  {
+    "id": "618",
+    "workorder": {
+      "text": "Android Full Dryrun",
+      "value": "137"
+    },
+    "salesorder": {
+      "text": "Sales Order #SLS00000826",
+      "value": "23471"
+    },
+    "event": "",
+    "uuid": "23471_1",
+    "line": "1",
+    "item": {
+      "text": "VZCC-0054-HSS1",
+      "value": "2031"
+    },
+    "description": "Compose,Top Trim 54In.W,Stl, Pnl Frame",
+    "quantity": 1,
+    "availableQty": 1,
+    "note": "",
+    "quantityReceived": 30,
+    "completedQty": 0
+  },
+  {
+    "id": "656",
+    "workorder": {
+      "text": "Product Core Testing - 2",
+      "value": "140"
+    },
+    "salesorder": {
+      "text": "Sales Order #SLS00000837",
+      "value": "24432"
+    },
+    "event": "",
+    "uuid": "24432_1",
+    "line": "1",
+    "item": {
+      "text": "VZCC-0054-HSS1",
+      "value": "2031"
+    },
+    "description": "Compose,Top Trim 54In.W,Stl, Pnl Frame",
+    "quantity": 1,
+    "availableQty": 1,
+    "note": "",
+    "quantityReceived": 30,
+    "completedQty": 0
+  },
+  {
+    "id": "642",
+    "workorder": {
+      "text": "Lobby Area - Product Core Dryrun",
+      "value": "138"
+    },
+    "salesorder": {
+      "text": "Sales Order #SLS00000835",
+      "value": "24427"
+    },
+    "event": "",
+    "uuid": "24427_1",
+    "line": "1",
+    "item": {
+      "text": "VZCC-0054-HSS1",
+      "value": "2031"
+    },
+    "description": "Compose,Top Trim 54In.W,Stl, Pnl Frame",
+    "quantity": 1,
+    "availableQty": 1,
+    "note": "",
+    "quantityReceived": 30,
+    "completedQty": 0
+  },
+  {
+    "id": "649",
+    "workorder": {
+      "text": "Lobby Area - Product Core Dryrun",
+      "value": "138"
+    },
+    "salesorder": {
+      "text": "Sales Order #SLS00000835",
+      "value": "24427"
+    },
+    "event": "101132",
+    "uuid": "24427_1",
+    "line": "1",
+    "item": {
+      "text": "VZCC-0054-HSS1",
+      "value": "2031"
+    },
+    "description": "Compose,Top Trim 54In.W,Stl, Pnl Frame",
+    "quantity": 1,
+    "availableQty": 1,
+    "note": "",
+    "quantityReceived": 30,
+    "completedQty": 1
+  },
+  {
+    "id": "723",
+    "workorder": {
+      "text": "Lobby Area - Product Core Dryrun",
+      "value": "138"
+    },
+    "salesorder": {
+      "text": "Sales Order #SLS00000835",
+      "value": "24427"
+    },
+    "event": "101235",
+    "uuid": "24427_1",
+    "line": "1",
+    "item": {
+      "text": "VZCC-0054-HSS1",
+      "value": "2031"
+    },
+    "description": "Compose,Top Trim 54In.W,Stl, Pnl Frame",
+    "quantity": 3,
+    "availableQty": 3,
+    "note": "",
+    "quantityReceived": 30,
+    "completedQty": 0
+  },
+  {
+    "id": "713",
+    "workorder": {
+      "text": "Lobby Area - Product Core Dryrun",
+      "value": "138"
+    },
+    "salesorder": {
+      "text": "Sales Order #SLS00000835",
+      "value": "24427"
+    },
+    "event": "101229",
+    "uuid": "24427_1",
+    "line": "1",
+    "item": {
+      "text": "VZCC-0054-HSS1",
+      "value": "2031"
+    },
+    "description": "Compose,Top Trim 54In.W,Stl, Pnl Frame",
+    "quantity": 5,
+    "availableQty": 5,
+    "note": "",
+    "quantityReceived": 30,
+    "completedQty": 0
+  },
+  {
+    "id": "709",
+    "workorder": {
+      "text": "Lobby Area - Product Core Dryrun",
+      "value": "138"
+    },
+    "salesorder": {
+      "text": "Sales Order #SLS00000835",
+      "value": "24427"
+    },
+    "event": "101227",
+    "uuid": "24427_1",
+    "line": "1",
+    "item": {
+      "text": "VZCC-0054-HSS1",
+      "value": "2031"
+    },
+    "description": "Compose,Top Trim 54In.W,Stl, Pnl Frame",
+    "quantity": 3,
+    "availableQty": 3,
+    "note": "",
+    "quantityReceived": 30,
+    "completedQty": 0
+  },
+  {
+    "id": "685",
+    "workorder": {
+      "text": "Lobby Area - Product Core Dryrun",
+      "value": "138"
+    },
+    "salesorder": {
+      "text": "Sales Order #SLS00000835",
+      "value": "24427"
+    },
+    "event": "101211",
+    "uuid": "24427_1",
+    "line": "1",
+    "item": {
+      "text": "VZCC-0054-HSS1",
+      "value": "2031"
+    },
+    "description": "Compose,Top Trim 54In.W,Stl, Pnl Frame",
+    "quantity": 1,
+    "availableQty": 1,
+    "note": "",
+    "quantityReceived": 30,
+    "completedQty": 0
+  },
+  {
+    "id": "687",
+    "workorder": {
+      "text": "Lobby Area - Product Core Dryrun",
+      "value": "138"
+    },
+    "salesorder": {
+      "text": "Sales Order #SLS00000835",
+      "value": "24427"
+    },
+    "event": "101212",
+    "uuid": "24427_1",
+    "line": "1",
+    "item": {
+      "text": "VZCC-0054-HSS1",
+      "value": "2031"
+    },
+    "description": "Compose,Top Trim 54In.W,Stl, Pnl Frame",
+    "quantity": 1,
+    "availableQty": 1,
+    "note": "",
+    "quantityReceived": 30,
+    "completedQty": 0
+  },
+  {
+    "id": "537",
+    "workorder": {
+      "text": "World Bank_WRKORDR0001",
+      "value": "122"
+    },
+    "salesorder": {
+      "text": "Sales Order #SLS00000795",
+      "value": "22459"
+    },
+    "event": "",
+    "uuid": "22459_1",
+    "line": "1",
+    "item": {
+      "text": "VZCC-0054-HSS1",
+      "value": "2031"
+    },
+    "description": "Compose,Top Trim 54In​【137 cm】.W,Stl, Pnl Frame",
+    "quantity": 1,
+    "availableQty": 1,
+    "note": "",
+    "quantityReceived": 30,
     "completedQty": 0
   },
   {
@@ -11333,30 +11717,6 @@ const mockWOItems: WOItem[] = [{
     "completedQty": 0
   },
   {
-    "id": "402",
-    "workorder": {
-      "text": "Install Cove Lights - Follow Up",
-      "value": "107"
-    },
-    "salesorder": {
-      "text": "Sales Order #SLS00000771",
-      "value": "20900"
-    },
-    "event": "",
-    "uuid": "20900_3",
-    "line": "3",
-    "item": {
-      "text": "VZCC-0054-HSS1",
-      "value": "2031"
-    },
-    "description": "",
-    "quantity": 1,
-    "availableQty": 1,
-    "note": "",
-    "quantityReceived": 30,
-    "completedQty": 0
-  },
-  {
     "id": "499",
     "workorder": {
       "text": "Window Placement Planning",
@@ -11374,6 +11734,30 @@ const mockWOItems: WOItem[] = [{
       "value": "2031"
     },
     "description": "Compose,Top Trim 54In​【137 cm】.W,Stl, Pnl Frame",
+    "quantity": 1,
+    "availableQty": 1,
+    "note": "",
+    "quantityReceived": 30,
+    "completedQty": 0
+  },
+  {
+    "id": "402",
+    "workorder": {
+      "text": "Install Cove Lights - Follow Up",
+      "value": "107"
+    },
+    "salesorder": {
+      "text": "Sales Order #SLS00000771",
+      "value": "20900"
+    },
+    "event": "",
+    "uuid": "20900_3",
+    "line": "3",
+    "item": {
+      "text": "VZCC-0054-HSS1",
+      "value": "2031"
+    },
+    "description": "",
     "quantity": 1,
     "availableQty": 1,
     "note": "",
@@ -11501,315 +11885,51 @@ const mockWOItems: WOItem[] = [{
     "completedQty": 0
   },
   {
-    "id": "687",
+    "id": "366",
     "workorder": {
-      "text": "Lobby Area - Product Core Dryrun",
-      "value": "138"
+      "text": "Work Order Dry Run - Nov 8",
+      "value": "100"
     },
     "salesorder": {
-      "text": "Sales Order #SLS00000835",
-      "value": "24427"
-    },
-    "event": "101212",
-    "uuid": "24427_1",
-    "line": "1",
-    "item": {
-      "text": "VZCC-0054-HSS1",
-      "value": "2031"
-    },
-    "description": "Compose,Top Trim 54In.W,Stl, Pnl Frame",
-    "quantity": 1,
-    "availableQty": 1,
-    "note": "",
-    "quantityReceived": 30,
-    "completedQty": 0
-  },
-  {
-    "id": "685",
-    "workorder": {
-      "text": "Lobby Area - Product Core Dryrun",
-      "value": "138"
-    },
-    "salesorder": {
-      "text": "Sales Order #SLS00000835",
-      "value": "24427"
-    },
-    "event": "101211",
-    "uuid": "24427_1",
-    "line": "1",
-    "item": {
-      "text": "VZCC-0054-HSS1",
-      "value": "2031"
-    },
-    "description": "Compose,Top Trim 54In.W,Stl, Pnl Frame",
-    "quantity": 1,
-    "availableQty": 1,
-    "note": "",
-    "quantityReceived": 30,
-    "completedQty": 0
-  },
-  {
-    "id": "709",
-    "workorder": {
-      "text": "Lobby Area - Product Core Dryrun",
-      "value": "138"
-    },
-    "salesorder": {
-      "text": "Sales Order #SLS00000835",
-      "value": "24427"
-    },
-    "event": "101227",
-    "uuid": "24427_1",
-    "line": "1",
-    "item": {
-      "text": "VZCC-0054-HSS1",
-      "value": "2031"
-    },
-    "description": "Compose,Top Trim 54In.W,Stl, Pnl Frame",
-    "quantity": 3,
-    "availableQty": 3,
-    "note": "",
-    "quantityReceived": 30,
-    "completedQty": 0
-  },
-  {
-    "id": "713",
-    "workorder": {
-      "text": "Lobby Area - Product Core Dryrun",
-      "value": "138"
-    },
-    "salesorder": {
-      "text": "Sales Order #SLS00000835",
-      "value": "24427"
-    },
-    "event": "101229",
-    "uuid": "24427_1",
-    "line": "1",
-    "item": {
-      "text": "VZCC-0054-HSS1",
-      "value": "2031"
-    },
-    "description": "Compose,Top Trim 54In.W,Stl, Pnl Frame",
-    "quantity": 5,
-    "availableQty": 5,
-    "note": "",
-    "quantityReceived": 30,
-    "completedQty": 0
-  },
-  {
-    "id": "649",
-    "workorder": {
-      "text": "Lobby Area - Product Core Dryrun",
-      "value": "138"
-    },
-    "salesorder": {
-      "text": "Sales Order #SLS00000835",
-      "value": "24427"
-    },
-    "event": "101132",
-    "uuid": "24427_1",
-    "line": "1",
-    "item": {
-      "text": "VZCC-0054-HSS1",
-      "value": "2031"
-    },
-    "description": "Compose,Top Trim 54In.W,Stl, Pnl Frame",
-    "quantity": 1,
-    "availableQty": 1,
-    "note": "",
-    "quantityReceived": 30,
-    "completedQty": 1
-  },
-  {
-    "id": "642",
-    "workorder": {
-      "text": "Lobby Area - Product Core Dryrun",
-      "value": "138"
-    },
-    "salesorder": {
-      "text": "Sales Order #SLS00000835",
-      "value": "24427"
+      "text": "Sales Order #SLS00000766",
+      "value": "20892"
     },
     "event": "",
-    "uuid": "24427_1",
-    "line": "1",
+    "uuid": "20892_2",
+    "line": "2",
     "item": {
-      "text": "VZCC-0054-HSS1",
-      "value": "2031"
+      "text": "VZCC-0054-HSS1_NEW2",
+      "value": "2935"
     },
-    "description": "Compose,Top Trim 54In.W,Stl, Pnl Frame",
-    "quantity": 1,
-    "availableQty": 1,
+    "description": "",
+    "quantity": 10,
+    "availableQty": 10,
     "note": "",
-    "quantityReceived": 30,
+    "quantityReceived": 0,
     "completedQty": 0
   },
   {
-    "id": "656",
+    "id": "354",
     "workorder": {
-      "text": "Product Core Testing - 2",
-      "value": "140"
+      "text": "Work Order for Testing Nov 5",
+      "value": "96"
     },
     "salesorder": {
-      "text": "Sales Order #SLS00000837",
-      "value": "24432"
+      "text": "Sales Order #SLS00000755",
+      "value": "20872"
     },
     "event": "",
-    "uuid": "24432_1",
-    "line": "1",
+    "uuid": "20872_2",
+    "line": "2",
     "item": {
-      "text": "VZCC-0054-HSS1",
-      "value": "2031"
+      "text": "VZCC-0054-HSS1_NEW2",
+      "value": "2935"
     },
-    "description": "Compose,Top Trim 54In.W,Stl, Pnl Frame",
-    "quantity": 1,
-    "availableQty": 1,
+    "description": "",
+    "quantity": 7,
+    "availableQty": 7,
     "note": "",
-    "quantityReceived": 30,
-    "completedQty": 0
-  },
-  {
-    "id": "618",
-    "workorder": {
-      "text": "Android Full Dryrun",
-      "value": "137"
-    },
-    "salesorder": {
-      "text": "Sales Order #SLS00000826",
-      "value": "23471"
-    },
-    "event": "",
-    "uuid": "23471_1",
-    "line": "1",
-    "item": {
-      "text": "VZCC-0054-HSS1",
-      "value": "2031"
-    },
-    "description": "Compose,Top Trim 54In.W,Stl, Pnl Frame",
-    "quantity": 1,
-    "availableQty": 1,
-    "note": "",
-    "quantityReceived": 30,
-    "completedQty": 0
-  },
-  {
-    "id": "633",
-    "workorder": {
-      "text": "Android Full Dryrun",
-      "value": "137"
-    },
-    "salesorder": {
-      "text": "Sales Order #SLS00000826",
-      "value": "23471"
-    },
-    "event": "101123",
-    "uuid": "23471_1",
-    "line": "1",
-    "item": {
-      "text": "VZCC-0054-HSS1",
-      "value": "2031"
-    },
-    "description": "Compose,Top Trim 54In.W,Stl, Pnl Frame",
-    "quantity": 1,
-    "availableQty": 1,
-    "note": "",
-    "quantityReceived": 30,
-    "completedQty": 0
-  },
-  {
-    "id": "631",
-    "workorder": {
-      "text": "Android Full Dryrun",
-      "value": "137"
-    },
-    "salesorder": {
-      "text": "Sales Order #SLS00000826",
-      "value": "23471"
-    },
-    "event": "101122",
-    "uuid": "23471_1",
-    "line": "1",
-    "item": {
-      "text": "VZCC-0054-HSS1",
-      "value": "2031"
-    },
-    "description": "Compose,Top Trim 54In.W,Stl, Pnl Frame",
-    "quantity": 1,
-    "availableQty": 1,
-    "note": "",
-    "quantityReceived": 30,
-    "completedQty": 0
-  },
-  {
-    "id": "670",
-    "workorder": {
-      "text": "HVAC Maintenance",
-      "value": "141"
-    },
-    "salesorder": {
-      "text": "Sales Order #SLS00000848",
-      "value": "25472"
-    },
-    "event": "",
-    "uuid": "",
-    "line": "9",
-    "item": {
-      "text": "VZCC-0054-HSS1",
-      "value": "2031"
-    },
-    "description": "Compose,Top Trim 54In.W,Stl, Pnl Frame",
-    "quantity": 1,
-    "availableQty": 1,
-    "note": "",
-    "quantityReceived": 30,
-    "completedQty": 0
-  },
-  {
-    "id": "665",
-    "workorder": {
-      "text": "HVAC Maintenance",
-      "value": "141"
-    },
-    "salesorder": {
-      "text": "Sales Order #SLS00000848",
-      "value": "25472"
-    },
-    "event": "",
-    "uuid": "",
-    "line": "1",
-    "item": {
-      "text": "VZCC-0054-HSS1",
-      "value": "2031"
-    },
-    "description": "Compose,Top Trim 54In.W,Stl, Pnl Frame",
-    "quantity": 1,
-    "availableQty": 1,
-    "note": "",
-    "quantityReceived": 30,
-    "completedQty": 0
-  },
-  {
-    "id": "537",
-    "workorder": {
-      "text": "World Bank_WRKORDR0001",
-      "value": "122"
-    },
-    "salesorder": {
-      "text": "Sales Order #SLS00000795",
-      "value": "22459"
-    },
-    "event": "",
-    "uuid": "22459_1",
-    "line": "1",
-    "item": {
-      "text": "VZCC-0054-HSS1",
-      "value": "2031"
-    },
-    "description": "Compose,Top Trim 54In​【137 cm】.W,Stl, Pnl Frame",
-    "quantity": 1,
-    "availableQty": 1,
-    "note": "",
-    "quantityReceived": 30,
+    "quantityReceived": 0,
     "completedQty": 0
   },
   {
@@ -11847,54 +11967,6 @@ const mockWOItems: WOItem[] = [{
       "value": "20872"
     },
     "event": "101012",
-    "uuid": "20872_2",
-    "line": "2",
-    "item": {
-      "text": "VZCC-0054-HSS1_NEW2",
-      "value": "2935"
-    },
-    "description": "",
-    "quantity": 7,
-    "availableQty": 7,
-    "note": "",
-    "quantityReceived": 0,
-    "completedQty": 0
-  },
-  {
-    "id": "366",
-    "workorder": {
-      "text": "Work Order Dry Run - Nov 8",
-      "value": "100"
-    },
-    "salesorder": {
-      "text": "Sales Order #SLS00000766",
-      "value": "20892"
-    },
-    "event": "",
-    "uuid": "20892_2",
-    "line": "2",
-    "item": {
-      "text": "VZCC-0054-HSS1_NEW2",
-      "value": "2935"
-    },
-    "description": "",
-    "quantity": 10,
-    "availableQty": 10,
-    "note": "",
-    "quantityReceived": 0,
-    "completedQty": 0
-  },
-  {
-    "id": "354",
-    "workorder": {
-      "text": "Work Order for Testing Nov 5",
-      "value": "96"
-    },
-    "salesorder": {
-      "text": "Sales Order #SLS00000755",
-      "value": "20872"
-    },
-    "event": "",
     "uuid": "20872_2",
     "line": "2",
     "item": {
@@ -11981,18 +12053,18 @@ const mockWOItems: WOItem[] = [{
     "completedQty": 0
   },
   {
-    "id": "437",
+    "id": "403",
     "workorder": {
-      "text": "Install AC",
-      "value": "110"
+      "text": "Install Cove Lights - Follow Up",
+      "value": "107"
     },
     "salesorder": {
-      "text": "Sales Order #SLS00000776",
-      "value": "20905"
+      "text": "Sales Order #SLS00000771",
+      "value": "20900"
     },
     "event": "",
-    "uuid": "20905_3",
-    "line": "3",
+    "uuid": "20900_4",
+    "line": "4",
     "item": {
       "text": "VZCE-7400-HS1",
       "value": "2032"
@@ -12005,18 +12077,66 @@ const mockWOItems: WOItem[] = [{
     "completedQty": 0
   },
   {
-    "id": "500",
+    "id": "423",
     "workorder": {
-      "text": "Window Placement Planning",
-      "value": "116"
+      "text": "Install Office Furniture",
+      "value": "109"
     },
     "salesorder": {
-      "text": "Sales Order #SLS00000782",
-      "value": "20914"
+      "text": "Sales Order #SLS00000774",
+      "value": "20903"
     },
     "event": "",
-    "uuid": "20914_3",
+    "uuid": "20903_3",
     "line": "3",
+    "item": {
+      "text": "VZCE-7400-HS1",
+      "value": "2032"
+    },
+    "description": "Compose,Panel Trim,End-Of-Run 74In​【188 cm】.H, Steel",
+    "quantity": 3,
+    "availableQty": 3,
+    "note": "",
+    "quantityReceived": 90,
+    "completedQty": 0
+  },
+  {
+    "id": "431",
+    "workorder": {
+      "text": "Install Office Furniture",
+      "value": "109"
+    },
+    "salesorder": {
+      "text": "Sales Order #SLS00000774",
+      "value": "20903"
+    },
+    "event": "",
+    "uuid": "20903_11",
+    "line": "11",
+    "item": {
+      "text": "VZCE-7400-HS1",
+      "value": "2032"
+    },
+    "description": "Compose,Panel Trim,End-Of-Run 74In​【188 cm】.H, Steel",
+    "quantity": 3,
+    "availableQty": 3,
+    "note": "",
+    "quantityReceived": 90,
+    "completedQty": 0
+  },
+  {
+    "id": "538",
+    "workorder": {
+      "text": "World Bank_WRKORDR0001",
+      "value": "122"
+    },
+    "salesorder": {
+      "text": "Sales Order #SLS00000795",
+      "value": "22459"
+    },
+    "event": "",
+    "uuid": "22459_2",
+    "line": "2",
     "item": {
       "text": "VZCE-7400-HS1",
       "value": "2032"
@@ -12053,23 +12173,23 @@ const mockWOItems: WOItem[] = [{
     "completedQty": 0
   },
   {
-    "id": "538",
+    "id": "657",
     "workorder": {
-      "text": "World Bank_WRKORDR0001",
-      "value": "122"
+      "text": "Product Core Testing - 2",
+      "value": "140"
     },
     "salesorder": {
-      "text": "Sales Order #SLS00000795",
-      "value": "22459"
+      "text": "Sales Order #SLS00000837",
+      "value": "24432"
     },
     "event": "",
-    "uuid": "22459_2",
+    "uuid": "24432_2",
     "line": "2",
     "item": {
       "text": "VZCE-7400-HS1",
       "value": "2032"
     },
-    "description": "Compose,Panel Trim,End-Of-Run 74In​【188 cm】.H, Steel",
+    "description": "Compose,Panel Trim,End-Of-Run 74In.H, Steel",
     "quantity": 3,
     "availableQty": 3,
     "note": "",
@@ -12077,10 +12197,106 @@ const mockWOItems: WOItem[] = [{
     "completedQty": 0
   },
   {
-    "id": "403",
+    "id": "643",
     "workorder": {
-      "text": "Install Cove Lights - Follow Up",
-      "value": "107"
+      "text": "Lobby Area - Product Core Dryrun",
+      "value": "138"
+    },
+    "salesorder": {
+      "text": "Sales Order #SLS00000835",
+      "value": "24427"
+    },
+    "event": "",
+    "uuid": "24427_2",
+    "line": "2",
+    "item": {
+      "text": "VZCE-7400-HS1",
+      "value": "2032"
+    },
+    "description": "Compose,Panel Trim,End-Of-Run 74In.H, Steel",
+    "quantity": 3,
+    "availableQty": 3,
+    "note": "",
+    "quantityReceived": 90,
+    "completedQty": 0
+  },
+  {
+    "id": "719",
+    "workorder": {
+      "text": "Lobby Area - Product Core Dryrun",
+      "value": "138"
+    },
+    "salesorder": {
+      "text": "Sales Order #SLS00000835",
+      "value": "24427"
+    },
+    "event": "101229",
+    "uuid": "24427_2",
+    "line": "2",
+    "item": {
+      "text": "VZCE-7400-HS1",
+      "value": "2032"
+    },
+    "description": "Compose,Panel Trim,End-Of-Run 74In.H, Steel",
+    "quantity": 4,
+    "availableQty": 4,
+    "note": "",
+    "quantityReceived": 90,
+    "completedQty": 0
+  },
+  {
+    "id": "437",
+    "workorder": {
+      "text": "Install AC",
+      "value": "110"
+    },
+    "salesorder": {
+      "text": "Sales Order #SLS00000776",
+      "value": "20905"
+    },
+    "event": "",
+    "uuid": "20905_3",
+    "line": "3",
+    "item": {
+      "text": "VZCE-7400-HS1",
+      "value": "2032"
+    },
+    "description": "",
+    "quantity": 3,
+    "availableQty": 3,
+    "note": "",
+    "quantityReceived": 90,
+    "completedQty": 0
+  },
+  {
+    "id": "445",
+    "workorder": {
+      "text": "Install AC",
+      "value": "110"
+    },
+    "salesorder": {
+      "text": "Sales Order #SLS00000776",
+      "value": "20905"
+    },
+    "event": "",
+    "uuid": "20905_11",
+    "line": "11",
+    "item": {
+      "text": "VZCE-7400-HS1",
+      "value": "2032"
+    },
+    "description": "",
+    "quantity": 3,
+    "availableQty": 3,
+    "note": "",
+    "quantityReceived": 90,
+    "completedQty": 0
+  },
+  {
+    "id": "396",
+    "workorder": {
+      "text": "Install Cove Lights",
+      "value": "106"
     },
     "salesorder": {
       "text": "Sales Order #SLS00000771",
@@ -12125,102 +12341,6 @@ const mockWOItems: WOItem[] = [{
     "completedQty": 0
   },
   {
-    "id": "431",
-    "workorder": {
-      "text": "Install Office Furniture",
-      "value": "109"
-    },
-    "salesorder": {
-      "text": "Sales Order #SLS00000774",
-      "value": "20903"
-    },
-    "event": "",
-    "uuid": "20903_11",
-    "line": "11",
-    "item": {
-      "text": "VZCE-7400-HS1",
-      "value": "2032"
-    },
-    "description": "Compose,Panel Trim,End-Of-Run 74In​【188 cm】.H, Steel",
-    "quantity": 3,
-    "availableQty": 3,
-    "note": "",
-    "quantityReceived": 90,
-    "completedQty": 0
-  },
-  {
-    "id": "423",
-    "workorder": {
-      "text": "Install Office Furniture",
-      "value": "109"
-    },
-    "salesorder": {
-      "text": "Sales Order #SLS00000774",
-      "value": "20903"
-    },
-    "event": "",
-    "uuid": "20903_3",
-    "line": "3",
-    "item": {
-      "text": "VZCE-7400-HS1",
-      "value": "2032"
-    },
-    "description": "Compose,Panel Trim,End-Of-Run 74In​【188 cm】.H, Steel",
-    "quantity": 3,
-    "availableQty": 3,
-    "note": "",
-    "quantityReceived": 90,
-    "completedQty": 0
-  },
-  {
-    "id": "445",
-    "workorder": {
-      "text": "Install AC",
-      "value": "110"
-    },
-    "salesorder": {
-      "text": "Sales Order #SLS00000776",
-      "value": "20905"
-    },
-    "event": "",
-    "uuid": "20905_11",
-    "line": "11",
-    "item": {
-      "text": "VZCE-7400-HS1",
-      "value": "2032"
-    },
-    "description": "",
-    "quantity": 3,
-    "availableQty": 3,
-    "note": "",
-    "quantityReceived": 90,
-    "completedQty": 0
-  },
-  {
-    "id": "643",
-    "workorder": {
-      "text": "Lobby Area - Product Core Dryrun",
-      "value": "138"
-    },
-    "salesorder": {
-      "text": "Sales Order #SLS00000835",
-      "value": "24427"
-    },
-    "event": "",
-    "uuid": "24427_2",
-    "line": "2",
-    "item": {
-      "text": "VZCE-7400-HS1",
-      "value": "2032"
-    },
-    "description": "Compose,Panel Trim,End-Of-Run 74In.H, Steel",
-    "quantity": 3,
-    "availableQty": 3,
-    "note": "",
-    "quantityReceived": 90,
-    "completedQty": 0
-  },
-  {
     "id": "651",
     "workorder": {
       "text": "Lobby Area - Product Test",
@@ -12245,23 +12365,23 @@ const mockWOItems: WOItem[] = [{
     "completedQty": 0
   },
   {
-    "id": "396",
+    "id": "500",
     "workorder": {
-      "text": "Install Cove Lights",
-      "value": "106"
+      "text": "Window Placement Planning",
+      "value": "116"
     },
     "salesorder": {
-      "text": "Sales Order #SLS00000771",
-      "value": "20900"
+      "text": "Sales Order #SLS00000782",
+      "value": "20914"
     },
     "event": "",
-    "uuid": "20900_4",
-    "line": "4",
+    "uuid": "20914_3",
+    "line": "3",
     "item": {
       "text": "VZCE-7400-HS1",
       "value": "2032"
     },
-    "description": "",
+    "description": "Compose,Panel Trim,End-Of-Run 74In​【188 cm】.H, Steel",
     "quantity": 3,
     "availableQty": 3,
     "note": "",
@@ -12269,89 +12389,17 @@ const mockWOItems: WOItem[] = [{
     "completedQty": 0
   },
   {
-    "id": "657",
+    "id": "632",
     "workorder": {
-      "text": "Product Core Testing - 2",
-      "value": "140"
+      "text": "Android Full Dryrun",
+      "value": "137"
     },
     "salesorder": {
-      "text": "Sales Order #SLS00000837",
-      "value": "24432"
+      "text": "Sales Order #SLS00000826",
+      "value": "23471"
     },
-    "event": "",
-    "uuid": "24432_2",
-    "line": "2",
-    "item": {
-      "text": "VZCE-7400-HS1",
-      "value": "2032"
-    },
-    "description": "Compose,Panel Trim,End-Of-Run 74In.H, Steel",
-    "quantity": 3,
-    "availableQty": 3,
-    "note": "",
-    "quantityReceived": 90,
-    "completedQty": 0
-  },
-  {
-    "id": "404",
-    "workorder": {
-      "text": "Install Cove Lights - Follow Up",
-      "value": "107"
-    },
-    "salesorder": {
-      "text": "Sales Order #SLS00000771",
-      "value": "20900"
-    },
-    "event": "",
-    "uuid": "20900_5",
-    "line": "5",
-    "item": {
-      "text": "VZCW-0000-PS1S1",
-      "value": "2033"
-    },
-    "description": "",
-    "quantity": 3,
-    "availableQty": 3,
-    "note": "",
-    "quantityReceived": 48,
-    "completedQty": 0
-  },
-  {
-    "id": "424",
-    "workorder": {
-      "text": "Install Office Furniture",
-      "value": "109"
-    },
-    "salesorder": {
-      "text": "Sales Order #SLS00000774",
-      "value": "20903"
-    },
-    "event": "",
-    "uuid": "20903_4",
-    "line": "4",
-    "item": {
-      "text": "VZCW-0000-PS1S1",
-      "value": "2033"
-    },
-    "description": "Compose,Wall Mount,Fits All Heights",
-    "quantity": 3,
-    "availableQty": 3,
-    "note": "",
-    "quantityReceived": 48,
-    "completedQty": 0
-  },
-  {
-    "id": "539",
-    "workorder": {
-      "text": "World Bank_WRKORDR0001",
-      "value": "122"
-    },
-    "salesorder": {
-      "text": "Sales Order #SLS00000795",
-      "value": "22459"
-    },
-    "event": "",
-    "uuid": "22459_3",
+    "event": "101122",
+    "uuid": "23471_3",
     "line": "3",
     "item": {
       "text": "VZCW-0000-PS1S1",
@@ -12389,7 +12437,7 @@ const mockWOItems: WOItem[] = [{
     "completedQty": 0
   },
   {
-    "id": "632",
+    "id": "619",
     "workorder": {
       "text": "Android Full Dryrun",
       "value": "137"
@@ -12398,7 +12446,7 @@ const mockWOItems: WOItem[] = [{
       "text": "Sales Order #SLS00000826",
       "value": "23471"
     },
-    "event": "101122",
+    "event": "",
     "uuid": "23471_3",
     "line": "3",
     "item": {
@@ -12413,17 +12461,137 @@ const mockWOItems: WOItem[] = [{
     "completedQty": 0
   },
   {
-    "id": "619",
+    "id": "404",
     "workorder": {
-      "text": "Android Full Dryrun",
-      "value": "137"
+      "text": "Install Cove Lights - Follow Up",
+      "value": "107"
     },
     "salesorder": {
-      "text": "Sales Order #SLS00000826",
-      "value": "23471"
+      "text": "Sales Order #SLS00000771",
+      "value": "20900"
     },
     "event": "",
-    "uuid": "23471_3",
+    "uuid": "20900_5",
+    "line": "5",
+    "item": {
+      "text": "VZCW-0000-PS1S1",
+      "value": "2033"
+    },
+    "description": "",
+    "quantity": 3,
+    "availableQty": 3,
+    "note": "",
+    "quantityReceived": 48,
+    "completedQty": 0
+  },
+  {
+    "id": "501",
+    "workorder": {
+      "text": "Window Placement Planning",
+      "value": "116"
+    },
+    "salesorder": {
+      "text": "Sales Order #SLS00000782",
+      "value": "20914"
+    },
+    "event": "",
+    "uuid": "20914_4",
+    "line": "4",
+    "item": {
+      "text": "VZCW-0000-PS1S1",
+      "value": "2033"
+    },
+    "description": "Compose,Wall Mount,Fits All Heights",
+    "quantity": 3,
+    "availableQty": 3,
+    "note": "",
+    "quantityReceived": 48,
+    "completedQty": 0
+  },
+  {
+    "id": "397",
+    "workorder": {
+      "text": "Install Cove Lights",
+      "value": "106"
+    },
+    "salesorder": {
+      "text": "Sales Order #SLS00000771",
+      "value": "20900"
+    },
+    "event": "",
+    "uuid": "20900_5",
+    "line": "5",
+    "item": {
+      "text": "VZCW-0000-PS1S1",
+      "value": "2033"
+    },
+    "description": "",
+    "quantity": 3,
+    "availableQty": 3,
+    "note": "",
+    "quantityReceived": 48,
+    "completedQty": 0
+  },
+  {
+    "id": "644",
+    "workorder": {
+      "text": "Lobby Area - Product Core Dryrun",
+      "value": "138"
+    },
+    "salesorder": {
+      "text": "Sales Order #SLS00000835",
+      "value": "24427"
+    },
+    "event": "",
+    "uuid": "24427_3",
+    "line": "3",
+    "item": {
+      "text": "VZCW-0000-PS1S1",
+      "value": "2033"
+    },
+    "description": "Compose,Wall Mount,Fits All Heights",
+    "quantity": 3,
+    "availableQty": 3,
+    "note": "",
+    "quantityReceived": 48,
+    "completedQty": 0
+  },
+  {
+    "id": "424",
+    "workorder": {
+      "text": "Install Office Furniture",
+      "value": "109"
+    },
+    "salesorder": {
+      "text": "Sales Order #SLS00000774",
+      "value": "20903"
+    },
+    "event": "",
+    "uuid": "20903_4",
+    "line": "4",
+    "item": {
+      "text": "VZCW-0000-PS1S1",
+      "value": "2033"
+    },
+    "description": "Compose,Wall Mount,Fits All Heights",
+    "quantity": 3,
+    "availableQty": 3,
+    "note": "",
+    "quantityReceived": 48,
+    "completedQty": 0
+  },
+  {
+    "id": "652",
+    "workorder": {
+      "text": "Lobby Area - Product Test",
+      "value": "139"
+    },
+    "salesorder": {
+      "text": "Sales Order #SLS00000836",
+      "value": "24428"
+    },
+    "event": "",
+    "uuid": "24428_3",
     "line": "3",
     "item": {
       "text": "VZCW-0000-PS1S1",
@@ -12461,17 +12629,17 @@ const mockWOItems: WOItem[] = [{
     "completedQty": 0
   },
   {
-    "id": "644",
+    "id": "539",
     "workorder": {
-      "text": "Lobby Area - Product Core Dryrun",
-      "value": "138"
+      "text": "World Bank_WRKORDR0001",
+      "value": "122"
     },
     "salesorder": {
-      "text": "Sales Order #SLS00000835",
-      "value": "24427"
+      "text": "Sales Order #SLS00000795",
+      "value": "22459"
     },
     "event": "",
-    "uuid": "24427_3",
+    "uuid": "22459_3",
     "line": "3",
     "item": {
       "text": "VZCW-0000-PS1S1",
@@ -12509,55 +12677,79 @@ const mockWOItems: WOItem[] = [{
     "completedQty": 0
   },
   {
-    "id": "397",
+    "id": "540",
     "workorder": {
-      "text": "Install Cove Lights",
-      "value": "106"
+      "text": "World Bank_WRKORDR0001",
+      "value": "122"
+    },
+    "salesorder": {
+      "text": "Sales Order #SLS00000795",
+      "value": "22459"
+    },
+    "event": "",
+    "uuid": "22459_4",
+    "line": "4",
+    "item": {
+      "text": "VZFS-1654-RS1",
+      "value": "2034"
+    },
+    "description": "Compose,Stack Frame 16In​【41 cm】.H X 54In​【137 cm】.W,Std Accoust,NoPwr",
+    "quantity": 6,
+    "availableQty": 6,
+    "note": "",
+    "quantityReceived": 108,
+    "completedQty": 0
+  },
+  {
+    "id": "425",
+    "workorder": {
+      "text": "Install Office Furniture",
+      "value": "109"
+    },
+    "salesorder": {
+      "text": "Sales Order #SLS00000774",
+      "value": "20903"
+    },
+    "event": "",
+    "uuid": "20903_5",
+    "line": "5",
+    "item": {
+      "text": "VZFS-1654-RS1",
+      "value": "2034"
+    },
+    "description": "Compose,Stack Frame 16In​【41 cm】.H X 54In​【137 cm】.W,Std Accoust,NoPwr",
+    "quantity": 6,
+    "availableQty": 6,
+    "note": "",
+    "quantityReceived": 108,
+    "completedQty": 0
+  },
+  {
+    "id": "405",
+    "workorder": {
+      "text": "Install Cove Lights - Follow Up",
+      "value": "107"
     },
     "salesorder": {
       "text": "Sales Order #SLS00000771",
       "value": "20900"
     },
     "event": "",
-    "uuid": "20900_5",
-    "line": "5",
+    "uuid": "20900_6",
+    "line": "6",
     "item": {
-      "text": "VZCW-0000-PS1S1",
-      "value": "2033"
+      "text": "VZFS-1654-RS1",
+      "value": "2034"
     },
     "description": "",
-    "quantity": 3,
-    "availableQty": 3,
+    "quantity": 6,
+    "availableQty": 6,
     "note": "",
-    "quantityReceived": 48,
+    "quantityReceived": 108,
     "completedQty": 0
   },
   {
-    "id": "652",
-    "workorder": {
-      "text": "Lobby Area - Product Test",
-      "value": "139"
-    },
-    "salesorder": {
-      "text": "Sales Order #SLS00000836",
-      "value": "24428"
-    },
-    "event": "",
-    "uuid": "24428_3",
-    "line": "3",
-    "item": {
-      "text": "VZCW-0000-PS1S1",
-      "value": "2033"
-    },
-    "description": "Compose,Wall Mount,Fits All Heights",
-    "quantity": 3,
-    "availableQty": 3,
-    "note": "",
-    "quantityReceived": 48,
-    "completedQty": 0
-  },
-  {
-    "id": "501",
+    "id": "502",
     "workorder": {
       "text": "Window Placement Planning",
       "value": "116"
@@ -12567,17 +12759,17 @@ const mockWOItems: WOItem[] = [{
       "value": "20914"
     },
     "event": "",
-    "uuid": "20914_4",
-    "line": "4",
+    "uuid": "20914_5",
+    "line": "5",
     "item": {
-      "text": "VZCW-0000-PS1S1",
-      "value": "2033"
+      "text": "VZFS-1654-RS1",
+      "value": "2034"
     },
-    "description": "Compose,Wall Mount,Fits All Heights",
-    "quantity": 3,
-    "availableQty": 3,
+    "description": "Compose,Stack Frame 16In​【41 cm】.H X 54In​【137 cm】.W,Std Accoust,NoPwr",
+    "quantity": 6,
+    "availableQty": 6,
     "note": "",
-    "quantityReceived": 48,
+    "quantityReceived": 108,
     "completedQty": 0
   },
   {
@@ -12605,58 +12797,10 @@ const mockWOItems: WOItem[] = [{
     "completedQty": 0
   },
   {
-    "id": "620",
-    "workorder": {
-      "text": "Android Full Dryrun",
-      "value": "137"
-    },
-    "salesorder": {
-      "text": "Sales Order #SLS00000826",
-      "value": "23471"
-    },
-    "event": "",
-    "uuid": "23471_4",
-    "line": "4",
-    "item": {
-      "text": "VZFS-1654-RS1",
-      "value": "2034"
-    },
-    "description": "Compose,Stack Frame 16In.H X 54In.W,Std Accoust,NoPwr",
-    "quantity": 6,
-    "availableQty": 6,
-    "note": "",
-    "quantityReceived": 108,
-    "completedQty": 0
-  },
-  {
     "id": "398",
     "workorder": {
       "text": "Install Cove Lights",
       "value": "106"
-    },
-    "salesorder": {
-      "text": "Sales Order #SLS00000771",
-      "value": "20900"
-    },
-    "event": "",
-    "uuid": "20900_6",
-    "line": "6",
-    "item": {
-      "text": "VZFS-1654-RS1",
-      "value": "2034"
-    },
-    "description": "",
-    "quantity": 6,
-    "availableQty": 6,
-    "note": "",
-    "quantityReceived": 108,
-    "completedQty": 0
-  },
-  {
-    "id": "405",
-    "workorder": {
-      "text": "Install Cove Lights - Follow Up",
-      "value": "107"
     },
     "salesorder": {
       "text": "Sales Order #SLS00000771",
@@ -12701,54 +12845,6 @@ const mockWOItems: WOItem[] = [{
     "completedQty": 0
   },
   {
-    "id": "425",
-    "workorder": {
-      "text": "Install Office Furniture",
-      "value": "109"
-    },
-    "salesorder": {
-      "text": "Sales Order #SLS00000774",
-      "value": "20903"
-    },
-    "event": "",
-    "uuid": "20903_5",
-    "line": "5",
-    "item": {
-      "text": "VZFS-1654-RS1",
-      "value": "2034"
-    },
-    "description": "Compose,Stack Frame 16In​【41 cm】.H X 54In​【137 cm】.W,Std Accoust,NoPwr",
-    "quantity": 6,
-    "availableQty": 6,
-    "note": "",
-    "quantityReceived": 108,
-    "completedQty": 0
-  },
-  {
-    "id": "540",
-    "workorder": {
-      "text": "World Bank_WRKORDR0001",
-      "value": "122"
-    },
-    "salesorder": {
-      "text": "Sales Order #SLS00000795",
-      "value": "22459"
-    },
-    "event": "",
-    "uuid": "22459_4",
-    "line": "4",
-    "item": {
-      "text": "VZFS-1654-RS1",
-      "value": "2034"
-    },
-    "description": "Compose,Stack Frame 16In​【41 cm】.H X 54In​【137 cm】.W,Std Accoust,NoPwr",
-    "quantity": 6,
-    "availableQty": 6,
-    "note": "",
-    "quantityReceived": 108,
-    "completedQty": 0
-  },
-  {
     "id": "645",
     "workorder": {
       "text": "Lobby Area - Product Core Dryrun",
@@ -12766,30 +12862,6 @@ const mockWOItems: WOItem[] = [{
       "value": "2034"
     },
     "description": "Compose,Stack Frame 16In.H X 54In.W,Std Accoust,NoPwr",
-    "quantity": 6,
-    "availableQty": 6,
-    "note": "",
-    "quantityReceived": 108,
-    "completedQty": 0
-  },
-  {
-    "id": "502",
-    "workorder": {
-      "text": "Window Placement Planning",
-      "value": "116"
-    },
-    "salesorder": {
-      "text": "Sales Order #SLS00000782",
-      "value": "20914"
-    },
-    "event": "",
-    "uuid": "20914_5",
-    "line": "5",
-    "item": {
-      "text": "VZFS-1654-RS1",
-      "value": "2034"
-    },
-    "description": "Compose,Stack Frame 16In​【41 cm】.H X 54In​【137 cm】.W,Std Accoust,NoPwr",
     "quantity": 6,
     "availableQty": 6,
     "note": "",
@@ -12821,17 +12893,17 @@ const mockWOItems: WOItem[] = [{
     "completedQty": 0
   },
   {
-    "id": "718",
+    "id": "620",
     "workorder": {
-      "text": "Lobby Area - Product Core Dryrun",
-      "value": "138"
+      "text": "Android Full Dryrun",
+      "value": "137"
     },
     "salesorder": {
-      "text": "Sales Order #SLS00000835",
-      "value": "24427"
+      "text": "Sales Order #SLS00000826",
+      "value": "23471"
     },
-    "event": "101229",
-    "uuid": "24427_4",
+    "event": "",
+    "uuid": "23471_4",
     "line": "4",
     "item": {
       "text": "VZFS-1654-RS1",
@@ -12842,6 +12914,78 @@ const mockWOItems: WOItem[] = [{
     "availableQty": 6,
     "note": "",
     "quantityReceived": 108,
+    "completedQty": 0
+  },
+  {
+    "id": "654",
+    "workorder": {
+      "text": "Lobby Area - Product Test",
+      "value": "139"
+    },
+    "salesorder": {
+      "text": "Sales Order #SLS00000836",
+      "value": "24428"
+    },
+    "event": "",
+    "uuid": "24428_5",
+    "line": "5",
+    "item": {
+      "text": "VZTI-1654-FNNS1",
+      "value": "2035"
+    },
+    "description": "Compose,Single Tile,16In.HX54In.W,Fabric/Tackable,Std Core,No Tech",
+    "quantity": 3,
+    "availableQty": 3,
+    "note": "",
+    "quantityReceived": 192,
+    "completedQty": 0
+  },
+  {
+    "id": "646",
+    "workorder": {
+      "text": "Lobby Area - Product Core Dryrun",
+      "value": "138"
+    },
+    "salesorder": {
+      "text": "Sales Order #SLS00000835",
+      "value": "24427"
+    },
+    "event": "101229",
+    "uuid": "24427_5",
+    "line": "5",
+    "item": {
+      "text": "VZTI-1654-FNNS1",
+      "value": "2035"
+    },
+    "description": "Compose,Single Tile,16In.HX54In.W,Fabric/Tackable,Std Core,No Tech",
+    "quantity": 12,
+    "availableQty": 12,
+    "note": "",
+    "quantityReceived": 192,
+    "completedQty": 0
+  },
+  {
+    "id": "406",
+    "workorder": {
+      "text": "Install Cove Lights - Follow Up",
+      "value": "107"
+    },
+    "salesorder": {
+      "text": "Sales Order #SLS00000771",
+      "value": "20900"
+    },
+    "event": "",
+    "uuid": "20900_7",
+    "line": "7",
+    "item": {
+      "text": "VZTI-1654-FNNS1",
+      "value": "2035"
+    },
+    "description": "",
+    "quantity": 12,
+    "availableQty": 12,
+    "note": "",
+    "quantityReceived": 192,
     "completedQty": 0
   },
   {
@@ -12869,95 +13013,23 @@ const mockWOItems: WOItem[] = [{
     "completedQty": 0
   },
   {
-    "id": "440",
+    "id": "433",
     "workorder": {
-      "text": "Install AC",
-      "value": "110"
+      "text": "Install Office Furniture",
+      "value": "109"
     },
     "salesorder": {
-      "text": "Sales Order #SLS00000776",
-      "value": "20905"
+      "text": "Sales Order #SLS00000774",
+      "value": "20903"
     },
-    "event": "",
-    "uuid": "20905_6",
+    "event": "101035",
+    "uuid": "20903_6",
     "line": "6",
     "item": {
       "text": "VZTI-1654-FNNS1",
       "value": "2035"
     },
     "description": "",
-    "quantity": 12,
-    "availableQty": 12,
-    "note": "",
-    "quantityReceived": 192,
-    "completedQty": 0
-  },
-  {
-    "id": "646",
-    "workorder": {
-      "text": "Lobby Area - Product Core Dryrun",
-      "value": "138"
-    },
-    "salesorder": {
-      "text": "Sales Order #SLS00000835",
-      "value": "24427"
-    },
-    "event": "101229",
-    "uuid": "24427_5",
-    "line": "5",
-    "item": {
-      "text": "VZTI-1654-FNNS1",
-      "value": "2035"
-    },
-    "description": "Compose,Single Tile,16In.HX54In.W,Fabric/Tackable,Std Core,No Tech",
-    "quantity": 13,
-    "availableQty": 13,
-    "note": "",
-    "quantityReceived": 192,
-    "completedQty": 0
-  },
-  {
-    "id": "660",
-    "workorder": {
-      "text": "Product Core Testing - 2",
-      "value": "140"
-    },
-    "salesorder": {
-      "text": "Sales Order #SLS00000837",
-      "value": "24432"
-    },
-    "event": "",
-    "uuid": "24432_5",
-    "line": "5",
-    "item": {
-      "text": "VZTI-1654-FNNS1",
-      "value": "2035"
-    },
-    "description": "Compose,Single Tile,16In.HX54In.W,Fabric/Tackable,Std Core,No Tech",
-    "quantity": 12,
-    "availableQty": 12,
-    "note": "",
-    "quantityReceived": 192,
-    "completedQty": 0
-  },
-  {
-    "id": "621",
-    "workorder": {
-      "text": "Android Full Dryrun",
-      "value": "137"
-    },
-    "salesorder": {
-      "text": "Sales Order #SLS00000826",
-      "value": "23471"
-    },
-    "event": "",
-    "uuid": "23471_5",
-    "line": "5",
-    "item": {
-      "text": "VZTI-1654-FNNS1",
-      "value": "2035"
-    },
-    "description": "Compose,Single Tile,16In.HX54In.W,Fabric/Tackable,Std Core,No Tech",
     "quantity": 12,
     "availableQty": 12,
     "note": "",
@@ -12977,6 +13049,30 @@ const mockWOItems: WOItem[] = [{
     "event": "",
     "uuid": "22459_5",
     "line": "5",
+    "item": {
+      "text": "VZTI-1654-FNNS1",
+      "value": "2035"
+    },
+    "description": "Compose,Single Tile,16In​【41 cm】.HX54In.W,Fabric/Tackable,Std Core,No Tech",
+    "quantity": 12,
+    "availableQty": 12,
+    "note": "",
+    "quantityReceived": 192,
+    "completedQty": 0
+  },
+  {
+    "id": "503",
+    "workorder": {
+      "text": "Window Placement Planning",
+      "value": "116"
+    },
+    "salesorder": {
+      "text": "Sales Order #SLS00000782",
+      "value": "20914"
+    },
+    "event": "",
+    "uuid": "20914_6",
+    "line": "6",
     "item": {
       "text": "VZTI-1654-FNNS1",
       "value": "2035"
@@ -13013,95 +13109,71 @@ const mockWOItems: WOItem[] = [{
     "completedQty": 0
   },
   {
-    "id": "433",
+    "id": "621",
     "workorder": {
-      "text": "Install Office Furniture",
-      "value": "109"
+      "text": "Android Full Dryrun",
+      "value": "137"
     },
     "salesorder": {
-      "text": "Sales Order #SLS00000774",
-      "value": "20903"
-    },
-    "event": "101035",
-    "uuid": "20903_6",
-    "line": "6",
-    "item": {
-      "text": "VZTI-1654-FNNS1",
-      "value": "2035"
-    },
-    "description": "",
-    "quantity": 12,
-    "availableQty": 12,
-    "note": "",
-    "quantityReceived": 192,
-    "completedQty": 0
-  },
-  {
-    "id": "406",
-    "workorder": {
-      "text": "Install Cove Lights - Follow Up",
-      "value": "107"
-    },
-    "salesorder": {
-      "text": "Sales Order #SLS00000771",
-      "value": "20900"
+      "text": "Sales Order #SLS00000826",
+      "value": "23471"
     },
     "event": "",
-    "uuid": "20900_7",
-    "line": "7",
-    "item": {
-      "text": "VZTI-1654-FNNS1",
-      "value": "2035"
-    },
-    "description": "",
-    "quantity": 12,
-    "availableQty": 12,
-    "note": "",
-    "quantityReceived": 192,
-    "completedQty": 0
-  },
-  {
-    "id": "654",
-    "workorder": {
-      "text": "Lobby Area - Product Test",
-      "value": "139"
-    },
-    "salesorder": {
-      "text": "Sales Order #SLS00000836",
-      "value": "24428"
-    },
-    "event": "",
-    "uuid": "24428_5",
+    "uuid": "23471_5",
     "line": "5",
     "item": {
       "text": "VZTI-1654-FNNS1",
       "value": "2035"
     },
     "description": "Compose,Single Tile,16In.HX54In.W,Fabric/Tackable,Std Core,No Tech",
-    "quantity": 3,
-    "availableQty": 3,
+    "quantity": 12,
+    "availableQty": 12,
     "note": "",
     "quantityReceived": 192,
     "completedQty": 0
   },
   {
-    "id": "503",
+    "id": "440",
     "workorder": {
-      "text": "Window Placement Planning",
-      "value": "116"
+      "text": "Install AC",
+      "value": "110"
     },
     "salesorder": {
-      "text": "Sales Order #SLS00000782",
-      "value": "20914"
+      "text": "Sales Order #SLS00000776",
+      "value": "20905"
     },
     "event": "",
-    "uuid": "20914_6",
+    "uuid": "20905_6",
     "line": "6",
     "item": {
       "text": "VZTI-1654-FNNS1",
       "value": "2035"
     },
-    "description": "Compose,Single Tile,16In​【41 cm】.HX54In.W,Fabric/Tackable,Std Core,No Tech",
+    "description": "",
+    "quantity": 12,
+    "availableQty": 12,
+    "note": "",
+    "quantityReceived": 192,
+    "completedQty": 0
+  },
+  {
+    "id": "660",
+    "workorder": {
+      "text": "Product Core Testing - 2",
+      "value": "140"
+    },
+    "salesorder": {
+      "text": "Sales Order #SLS00000837",
+      "value": "24432"
+    },
+    "event": "",
+    "uuid": "24432_5",
+    "line": "5",
+    "item": {
+      "text": "VZTI-1654-FNNS1",
+      "value": "2035"
+    },
+    "description": "Compose,Single Tile,16In.HX54In.W,Fabric/Tackable,Std Core,No Tech",
     "quantity": 12,
     "availableQty": 12,
     "note": "",

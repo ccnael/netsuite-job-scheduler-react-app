@@ -23,8 +23,11 @@ import { type Asset } from "@/api/asset";
 import { type WOResource } from "@/api/woResource";
 import { type WOVendor } from "@/api/woVendor";
 import { type WOAsset } from "@/api/woAsset";
+import { type WOItem } from "@/api/woItem";
+import { type WOContact } from "@/api/woContact";
+import { type WOAddress } from "@/api/woAddress";
 import { fetchRoutingGroups, RoutingGroup } from "@/api/routingGroup";
-import { createEvent } from "@/api/event";
+import { createEvent, type Event } from "@/api/event";
 import DropdownFilter from './DropdownFilter';
 import DateRangeFilter from './DateRangeFilter';
 import TimeRangeFilter from './TimeRangeFilter';
@@ -131,6 +134,10 @@ interface CreateEventProps {
   woResources?: WOResource[];
   woVendors?: WOVendor[];
   woAssets?: WOAsset[];
+  woItems?: WOItem[];
+  woContacts?: WOContact[];
+  woAddresses?: WOAddress[];
+  events?: Event[]; // Add events prop for conflict detection
   prefilledResourceId?: string;
   prefilledStartDate?: string;
   prefilledEndDate?: string;
@@ -149,6 +156,10 @@ export const CreateEvent: React.FC<CreateEventProps> = ({
   woResources = [],
   woVendors = [],
   woAssets = [],
+  woItems = [],
+  woContacts = [],
+  woAddresses = [],
+  events = [],
   prefilledResourceId,
   prefilledStartDate,
   prefilledEndDate,
@@ -189,14 +200,260 @@ export const CreateEvent: React.FC<CreateEventProps> = ({
   const [dropdownKey, setDropdownKey] = useState(0); // Force re-render of dropdown
   const [isCreating, setIsCreating] = useState(false);
   const [showConfirmDialog, setShowConfirmDialog] = useState(false);
+  const [timeChangeKey, setTimeChangeKey] = useState(0);
 
-  console.log('CreateEvent props', {
-    employees,
-    vendors,
-    assets,
-    woId: selectedJob?.id,
-    woResources
-  });
+  // Get conflict detection functions with event tracking
+  const getResourceConflicts = useCallback(() => {
+    console.log('[CreateEvent] Checking employee conflicts with formData:', {
+      startDate: formData.startDate,
+      endDate: formData.endDate,
+      startTime: formData.startTime,
+      endTime: formData.endTime,
+      allDay: formData.allDay
+    });
+
+    if (!formData.startDate && !formData.endDate) {
+      console.log('[CreateEvent] No dates provided, returning empty employee conflicts');
+      return { conflicts: new Set<string>(), conflictEvents: new Map<string, any[]>() };
+    }
+
+    const conflicts = new Set<string>();
+    const conflictEvents = new Map<string, any[]>();
+    
+    events.forEach(event => {
+      if (!event.resources || !event.date?.start || !event.date?.end) return;
+      
+      const eventStartDate = new Date(event.date.start);
+      const eventEndDate = new Date(event.date.end);
+      
+      let newStartDate: Date | null = null;
+      let newEndDate: Date | null = null;
+      
+      if (formData.startDate && formData.endDate) {
+        newStartDate = new Date(formData.startDate);
+        newEndDate = new Date(formData.endDate);
+      } else if (formData.startDate && !formData.endDate) {
+        newStartDate = new Date(formData.startDate);
+        newEndDate = new Date('2099-12-31');
+      } else if (!formData.startDate && formData.endDate) {
+        newStartDate = new Date('1900-01-01');
+        newEndDate = new Date(formData.endDate);
+      }
+      
+      if (!newStartDate || !newEndDate) return;
+      
+      const dateOverlap = newStartDate <= eventEndDate && newEndDate >= eventStartDate;
+      
+      if (dateOverlap) {
+        let timeOverlap = true;
+        
+        if (!formData.allDay && formData.startTime && formData.endTime && event.time?.start && event.time?.end) {
+          const [newStartHour, newStartMin] = formData.startTime.split(':').map(Number);
+          const [newEndHour, newEndMin] = formData.endTime.split(':').map(Number);
+          const [eventStartHour, eventStartMin] = event.time.start.split(':').map(Number);
+          const [eventEndHour, eventEndMin] = event.time.end.split(':').map(Number);
+          
+          const newStartMinutes = newStartHour * 60 + newStartMin;
+          const newEndMinutes = newEndHour * 60 + newEndMin;
+          const eventStartMinutes = eventStartHour * 60 + eventStartMin;
+          const eventEndMinutes = eventEndHour * 60 + eventEndMin;
+          
+          let timeRangeStart = newStartMinutes;
+          let timeRangeEnd = newEndMinutes;
+          
+          if (formData.startTime && !formData.endTime) {
+            timeRangeEnd = 24 * 60;
+          } else if (!formData.startTime && formData.endTime) {
+            timeRangeStart = 0;
+          }
+          
+          timeOverlap = timeRangeStart < eventEndMinutes && timeRangeEnd > eventStartMinutes;
+        }
+        
+        if (timeOverlap) {
+          event.resources.forEach((resource: any) => {
+            if (resource.employee?.value) {
+              // Check if resource has specific start/end times
+              let resourceTimeOverlap: boolean = timeOverlap;
+              
+              if (!formData.allDay && resource.time?.start && resource.time?.end && formData.startTime && formData.endTime) {
+                const [resourceStartHour, resourceStartMin] = resource.time.start.split(':').map(Number);
+                const [resourceEndHour, resourceEndMin] = resource.time.end.split(':').map(Number);
+                const [newStartHour, newStartMin] = formData.startTime.split(':').map(Number);
+                const [newEndHour, newEndMin] = formData.endTime.split(':').map(Number);
+                
+                const resourceStartMinutes = resourceStartHour * 60 + resourceStartMin;
+                const resourceEndMinutes = resourceEndHour * 60 + resourceEndMin;
+                const newStartMinutes = newStartHour * 60 + newStartMin;
+                const newEndMinutes = newEndHour * 60 + newEndMin;
+                
+                resourceTimeOverlap = newStartMinutes < resourceEndMinutes && newEndMinutes > resourceStartMinutes;
+              }
+              
+              if (resourceTimeOverlap) {
+                conflicts.add(resource.employee.value);
+                
+                if (!conflictEvents.has(resource.employee.value)) {
+                  conflictEvents.set(resource.employee.value, []);
+                }
+                const resourceEvent = {...event};
+                resourceEvent.time = resource.time;
+                conflictEvents.get(resource.employee.value)!.push(resourceEvent);
+              }
+            }
+          });
+        }
+      }
+    });
+
+    return { conflicts, conflictEvents };
+  }, [formData.startDate, formData.endDate, formData.startTime, formData.endTime, formData.allDay, events]);
+
+  const getAssetConflicts = useCallback(() => {
+    console.log('[CreateEvent] Checking asset conflicts with formData:', {
+      startDate: formData.startDate,
+      endDate: formData.endDate,
+      startTime: formData.startTime,
+      endTime: formData.endTime,
+      allDay: formData.allDay
+    });
+
+    if (!formData.startDate && !formData.endDate) {
+      console.log('[CreateEvent] No dates provided, returning empty asset conflicts');
+      return { conflicts: new Set<string>(), conflictEvents: new Map<string, any[]>() };
+    }
+
+    const conflicts = new Set<string>();
+    const conflictEvents = new Map<string, any[]>();
+    
+    events.forEach(event => {
+      if (!event.assets || !event.date?.start || !event.date?.end) return;
+      
+      const eventStartDate = new Date(event.date.start);
+      const eventEndDate = new Date(event.date.end);
+      
+      let newStartDate: Date | null = null;
+      let newEndDate: Date | null = null;
+      
+      if (formData.startDate && formData.endDate) {
+        newStartDate = new Date(formData.startDate);
+        newEndDate = new Date(formData.endDate);
+      } else if (formData.startDate && !formData.endDate) {
+        newStartDate = new Date(formData.startDate);
+        newEndDate = new Date('2099-12-31');
+      } else if (!formData.startDate && formData.endDate) {
+        newStartDate = new Date('1900-01-01');
+        newEndDate = new Date(formData.endDate);
+      }
+      
+      if (!newStartDate || !newEndDate) return;
+      
+      const dateOverlap = newStartDate <= eventEndDate && newEndDate >= eventStartDate;
+      
+      if (dateOverlap) {
+        let timeOverlap = true;
+        
+        if (!formData.allDay && formData.startTime && formData.endTime && event.time?.start && event.time?.end) {
+          const [newStartHour, newStartMin] = formData.startTime.split(':').map(Number);
+          const [newEndHour, newEndMin] = formData.endTime.split(':').map(Number);
+          const [eventStartHour, eventStartMin] = event.time.start.split(':').map(Number);
+          const [eventEndHour, eventEndMin] = event.time.end.split(':').map(Number);
+          
+          const newStartMinutes = newStartHour * 60 + newStartMin;
+          const newEndMinutes = newEndHour * 60 + newEndMin;
+          const eventStartMinutes = eventStartHour * 60 + eventStartMin;
+          const eventEndMinutes = eventEndHour * 60 + eventEndMin;
+          
+          let timeRangeStart = newStartMinutes;
+          let timeRangeEnd = newEndMinutes;
+          
+          if (formData.startTime && !formData.endTime) {
+            timeRangeEnd = 24 * 60;
+          } else if (!formData.startTime && formData.endTime) {
+            timeRangeStart = 0;
+          }
+          
+          timeOverlap = timeRangeStart < eventEndMinutes && timeRangeEnd > eventStartMinutes;
+        }
+        
+        if (timeOverlap) {
+          event.assets.forEach((asset: any) => {
+            if (asset.asset?.value) {
+              // Check if asset has specific start/end times
+              let assetTimeOverlap: boolean = timeOverlap;
+              
+              if (!formData.allDay && asset.time?.start && asset.time?.end && formData.startTime && formData.endTime) {
+                const [assetStartHour, assetStartMin] = asset.time.start.split(':').map(Number);
+                const [assetEndHour, assetEndMin] = asset.time.end.split(':').map(Number);
+                const [newStartHour, newStartMin] = formData.startTime.split(':').map(Number);
+                const [newEndHour, newEndMin] = formData.endTime.split(':').map(Number);
+                
+                const assetStartMinutes = assetStartHour * 60 + assetStartMin;
+                const assetEndMinutes = assetEndHour * 60 + assetEndMin;
+                const newStartMinutes = newStartHour * 60 + newStartMin;
+                const newEndMinutes = newEndHour * 60 + newEndMin;
+                
+                assetTimeOverlap = newStartMinutes < assetEndMinutes && newEndMinutes > assetStartMinutes;
+              }
+              
+              if (assetTimeOverlap) {
+                conflicts.add(asset.asset.value);
+                
+                if (!conflictEvents.has(asset.asset.value)) {
+                  conflictEvents.set(asset.asset.value, []);
+                }
+                const assetEvent = {...event};
+                assetEvent.time = asset.time;
+                conflictEvents.get(asset.asset.value)!.push(assetEvent);
+              }
+            }
+          });
+        }
+      }
+    });
+
+    return { conflicts, conflictEvents };
+  }, [formData.startDate, formData.endDate, formData.startTime, formData.endTime, formData.allDay, events]);
+
+  // Get conflict information with useMemo to ensure consistency
+  const resourceConflictInfo = useMemo(() => getResourceConflicts(), [
+    formData.startDate, 
+    formData.endDate, 
+    formData.startTime, 
+    formData.endTime, 
+    formData.allDay, 
+    events
+  ]);
+  
+  const assetConflictInfo = useMemo(() => getAssetConflicts(), [
+    formData.startDate, 
+    formData.endDate, 
+    formData.startTime, 
+    formData.endTime, 
+    formData.allDay, 
+    events
+  ]);
+  
+  // Debug logging for conflicts
+  // console.log('[CreateEvent] Resource conflicts:', resourceConflictInfo);
+  // console.log('[CreateEvent] Asset conflicts:', assetConflictInfo);
+  // console.log('[CreateEvent] Form data for conflict detection:', {
+  //   startDate: formData.startDate,
+  //   endDate: formData.endDate,
+  //   startTime: formData.startTime,
+  //   endTime: formData.endTime,
+  //   allDay: formData.allDay
+  // });
+  // console.log('[CreateEvent] Available events for conflict check:', events?.length || 0);
+  // console.log('[CreateEvent] Events data:', events);
+
+  // console.log('CreateEvent props', {
+  //   employees,
+  //   vendors,
+  //   assets,
+  //   woId: selectedJob?.id,
+  //   woResources
+  // });
 
   const fetchRoutingGroupOptions = async (): Promise<DropdownOption[]> => {
     try {
@@ -411,11 +668,21 @@ export const CreateEvent: React.FC<CreateEventProps> = ({
   const handleStartDateSelect = (date: Date | undefined) => { 
     console.log('Start Date selected:', date); 
     if (date) {
-      // const isoString = date.toISOString();
-      // console.log('Setting start date to:', isoString);
-      const normalized = new Date(date.getFullYear(), date.getMonth(), date.getDate(), 12).toISOString(); // Noon to avoid UTC shifts.toISOString();
-      // console.log('Setting start date to:', normalized, typeof normalized);
-      setFormData(prev => ({ ...prev, startDate: normalized })); 
+      const normalized = new Date(date.getFullYear(), date.getMonth(), date.getDate(), 12).toISOString();
+      setFormData(prev => {
+        const newData = { ...prev, startDate: normalized };
+        
+        // Validate date range if both dates are set
+        if (newData.endDate && new Date(normalized) > new Date(newData.endDate)) {
+          toast.error("Start date must be earlier than or equal to end date", {
+            position: "top-right",
+            className: "!bg-red-100 !text-red-800 !border !border-red-300",
+          });
+          return prev; // Don't update if invalid
+        }
+        
+        return newData;
+      }); 
     } else {
       setFormData(prev => ({ ...prev, startDate: '' })); 
     }
@@ -424,17 +691,87 @@ export const CreateEvent: React.FC<CreateEventProps> = ({
   const handleEndDateSelect = (date: Date | undefined) => { 
     console.log('End Date selected:', date); 
     if (date) {
-      // const isoString = date.toISOString();
-      // console.log('Setting end date to:', isoString);
       const normalized = new Date(date.getFullYear(), date.getMonth(), date.getDate(), 12).toISOString(); 
-      setFormData(prev => ({ ...prev, endDate: normalized })); 
+      setFormData(prev => {
+        const newData = { ...prev, endDate: normalized };
+        
+        // Validate date range if both dates are set
+        if (newData.startDate && new Date(newData.startDate) > new Date(normalized)) {
+          toast.error("End date must be later than or equal to start date", {
+            position: "top-right",
+            className: "!bg-red-100 !text-red-800 !border !border-red-300",
+          });
+          return prev; // Don't update if invalid
+        }
+        
+        return newData;
+      });
     } else {
       setFormData(prev => ({ ...prev, endDate: '' })); 
     }
   };
   
-  const handleStartTimeSelect = (time: string) => { setFormData(prev => ({ ...prev, startTime: time })); };
-  const handleEndTimeSelect = (time: string) => { setFormData(prev => ({ ...prev, endTime: time })); };
+  const handleStartTimeSelect = (time: string) => { 
+    setFormData(prev => {
+      const newData = { 
+        ...prev, 
+        startTime: time,
+        selectedResources: [],
+        selectedAssets: []
+      };
+      
+      // Validate time range if both times are set and not all day
+      if (!newData.allDay && newData.endTime) {
+        const [startHour, startMinute] = time.split(':').map(Number);
+        const [endHour, endMinute] = newData.endTime.split(':').map(Number);
+        
+        const startTimeInMinutes = startHour * 60 + startMinute;
+        const endTimeInMinutes = endHour * 60 + endMinute;
+        
+        if (startTimeInMinutes >= endTimeInMinutes) {
+          toast.error("Start time must be earlier than end time", {
+            position: "top-right",
+            className: "!bg-red-100 !text-red-800 !border !border-red-300",
+          });
+          return prev; // Don't update if invalid
+        }
+      }
+      
+      return newData;
+    });
+    setTimeChangeKey(prev => prev + 1);
+  };
+  
+  const handleEndTimeSelect = (time: string) => { 
+    setFormData(prev => {
+      const newData = { 
+        ...prev, 
+        endTime: time,
+        selectedResources: [],
+        selectedAssets: []
+      };
+      
+      // Validate time range if both times are set and not all day
+      if (!newData.allDay && newData.startTime) {
+        const [startHour, startMinute] = newData.startTime.split(':').map(Number);
+        const [endHour, endMinute] = time.split(':').map(Number);
+        
+        const startTimeInMinutes = startHour * 60 + startMinute;
+        const endTimeInMinutes = endHour * 60 + endMinute;
+        
+        if (startTimeInMinutes >= endTimeInMinutes) {
+          toast.error("End time must be later than start time", {
+            position: "top-right",
+            className: "!bg-red-100 !text-red-800 !border !border-red-300",
+          });
+         return prev; // Don't update if invalid
+        }
+      }
+      
+      return newData;
+    });
+    setTimeChangeKey(prev => prev + 1);
+  };
   
   // Memoize the date parsing to prevent unnecessary re-computations
   const parsedStartDate = useMemo(() => {
@@ -488,8 +825,8 @@ export const CreateEvent: React.FC<CreateEventProps> = ({
       ...groupOptions
     ];
     
-    console.log('Routing group options updated:', allOptions);
-    console.log('Current form routing group:', formData.routingGroup);
+    // console.log('Routing group options updated:', allOptions);
+    // console.log('Current form routing group:', formData.routingGroup);
     
     return allOptions;
   }, [routingGroups, isCreatingRoutingGroup, formData.routingGroup]);
@@ -695,15 +1032,19 @@ export const CreateEvent: React.FC<CreateEventProps> = ({
                   </AccordionTrigger>
                   <AccordionContent className="p-2">
                     <div className="max-h-[400px] overflow-y-auto">
-                       <EmployeeTable 
-                         key={`employee-table-${formData.assetMaintenance}`}
-                         data={employees/* .filter(x => !!x.active) */} 
-                         woResources={woResources}
-                         onSelectionChange={handleResourceSelection}
-                         preselectedResourceIds={getPreselectedResourceIds()}
-                         primaryStartTime={prefilledStartTime}
-                         primaryEndTime={prefilledEndTime}
-                       />
+                        <EmployeeTable 
+                          key={`employee-table-${formData.assetMaintenance}-${timeChangeKey}-${formData.startDate}-${formData.endDate}-${formData.startTime}-${formData.endTime}-${formData.allDay}`}
+                          data={employees/* .filter(x => !!x.active) */} 
+                          woResources={woResources}
+                          onSelectionChange={handleResourceSelection}
+                          preselectedResourceIds={getPreselectedResourceIds()}
+                          primaryStartTime={prefilledStartTime}
+                          primaryEndTime={prefilledEndTime}
+                          currentStartTime={formData.startTime}
+                          currentEndTime={formData.endTime}
+                          conflictedResourceIds={Array.from(resourceConflictInfo.conflicts)}
+                          conflictEvents={resourceConflictInfo.conflictEvents}
+                        />
                     </div>
                   </AccordionContent>
                 </AccordionItem>
@@ -764,14 +1105,19 @@ export const CreateEvent: React.FC<CreateEventProps> = ({
                   </AccordionTrigger>
                   <AccordionContent className="p-2">
                     <div className="max-h-[400px] overflow-y-auto">
-                       <AssetTable 
-                         data={assets/* .filter(x => !!x.active) */}
-                         woAssets={woAssets}
-                         onSelectionChange={handleAssetSelection}
-                         preselectedAssetIds={getPreselectedAssetIds()}
-                         prefilledStartTime={prefilledStartTime}
-                         prefilledEndTime={prefilledEndTime}
-                       />
+                        <AssetTable 
+                          key={`asset-table-${timeChangeKey}-${formData.startDate}-${formData.endDate}-${formData.startTime}-${formData.endTime}-${formData.allDay}`}
+                          data={assets/* .filter(x => !!x.active) */}
+                          woAssets={woAssets}
+                          onSelectionChange={handleAssetSelection}
+                          preselectedAssetIds={getPreselectedAssetIds()}
+                          prefilledStartTime={prefilledStartTime}
+                          prefilledEndTime={prefilledEndTime}
+                          currentStartTime={formData.startTime}
+                          currentEndTime={formData.endTime}
+                          conflictedAssetIds={Array.from(assetConflictInfo.conflicts)}
+                          conflictEvents={assetConflictInfo.conflictEvents}
+                        />
                     </div>
                   </AccordionContent>
                 </AccordionItem>
@@ -795,6 +1141,7 @@ export const CreateEvent: React.FC<CreateEventProps> = ({
                       <AccordionContent className="p-2">
                         <div className="max-h-[400px] overflow-y-auto">
                           <WOItemTable 
+                            data={woItems}
                             woId={selectedJob?.id}
                             onSelectionChange={handleWOItemSelection}
                           />
@@ -817,6 +1164,7 @@ export const CreateEvent: React.FC<CreateEventProps> = ({
                       <AccordionContent className="p-2">
                         <div className="max-h-[400px] overflow-y-auto">
                           <WOContactTable 
+                            data={woContacts}
                             woId={selectedJob?.id}
                             onSelectionChange={handleWOContactSelection}
                           />
@@ -832,6 +1180,7 @@ export const CreateEvent: React.FC<CreateEventProps> = ({
                       <AccordionContent className="p-2">
                         <div className="max-h-[400px] overflow-y-auto">
                           <WOAddressTable 
+                            data={woAddresses}
                             woId={selectedJob?.id}
                             onSelectionChange={handleWOAddressSelection}
                           />
@@ -882,7 +1231,7 @@ export const CreateEvent: React.FC<CreateEventProps> = ({
                   Creating...
                 </>
               ) : (
-                'Create'
+                'Create Event'
               )}
             </AlertDialogAction>
           </AlertDialogFooter>

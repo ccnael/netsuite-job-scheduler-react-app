@@ -10,7 +10,7 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Badge } from "@/components/ui/badge";
-import { Search, ChevronLeft, ChevronRight, ChevronsLeft, ChevronsRight, ChevronUp, ChevronDown, ChevronsUpDown, Filter } from "lucide-react";
+import { Search, ChevronLeft, ChevronRight, ChevronsLeft, ChevronsRight, ChevronUp, ChevronDown, ChevronsUpDown, Filter, Info } from "lucide-react";
 import { Asset } from "@/api/asset";
 import * as helper from "@/lib/helpers";
 import TimeRangeFilter from '../TimeRangeFilter';
@@ -21,6 +21,10 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
+import { cn } from "@/lib/utils";
+import { ScrollArea } from "@/components/ui/scroll-area";
+import { formatDate, formatTime } from "@/lib/helpers";
+import { toast } from "sonner";
 
 interface SelectedAsset {
   id: string;
@@ -38,6 +42,12 @@ interface AssetTableProps {
   preselectedAssetIds?: string[];
   prefilledStartTime?: string;
   prefilledEndTime?: string;
+  currentStartTime?: string;
+  currentEndTime?: string;
+  conflictedAssetIds?: string[];
+  conflictEvents?: Map<string, any[]>;
+  clearSelections?: boolean;
+  onClearComplete?: () => void;
 }
 
 interface TableAsset {
@@ -59,8 +69,16 @@ export const AssetTable: React.FC<AssetTableProps> = ({
   onUpdate,
   preselectedAssetIds = [],
   prefilledStartTime = '',
-  prefilledEndTime = ''
+  prefilledEndTime = '',
+  currentStartTime,
+  currentEndTime,
+  conflictedAssetIds = [],
+  conflictEvents = new Map(),
+  clearSelections = false,
+  onClearComplete
 }) => {
+  // console.log('[AssetTable] Received conflicted asset IDs:', conflictedAssetIds);
+  // console.log('[AssetTable] Received conflict events:', conflictEvents);
   const [globalFilter, setGlobalFilter] = useState('');
   const [sorting, setSorting] = useState<SortingState>([]);
   const [rowSelection, setRowSelection] = useState({});
@@ -88,7 +106,7 @@ export const AssetTable: React.FC<AssetTableProps> = ({
 
   // Memoize the table data to prevent infinite loops
   const tableData = useMemo(() => {
-    console.log('[AssetTable] Building table data', { dataLen: data.length, woResourcesLen: woAssets.length });
+    // console.log('[AssetTable] Building table data', { dataLen: data.length, woResourcesLen: woAssets.length });
 
     if (!data.length) return [];
 
@@ -161,6 +179,15 @@ export const AssetTable: React.FC<AssetTableProps> = ({
     }
   }, [tableData, onUpdate, isInitialized, preselectedAssetIds, prefilledStartTime, prefilledEndTime]);
 
+  // Handle external clear selections request
+  useEffect(() => {
+    if (clearSelections) {
+      setRowSelection({});
+      setDataOverrides({});
+      onClearComplete?.();
+    }
+  }, [clearSelections, onClearComplete]);
+
   // Reset initialization when onUpdate, data, or preselectedAssetIds changes
   useEffect(() => {
     setIsInitialized(false);
@@ -168,13 +195,80 @@ export const AssetTable: React.FC<AssetTableProps> = ({
 
   const updateField = useCallback((rowId: string, key: 'startTime' | 'endTime' | 'quantity', value: string | number) => {
     // console.log('Field update requested:', { rowId, key, value });
-    setDataOverrides(prev => ({
-      ...prev,
-      [rowId]: {
-        ...prev[rowId],
-        [key]: value
-      }
-    }));
+    
+    if (key === 'startTime') {
+      const timeValue = value as string;
+      setDataOverrides(prev => {
+        const newData = { 
+          ...prev,
+          [rowId]: {
+            ...prev[rowId],
+            startTime: timeValue
+          }
+        };
+        
+        if (timeValue && currentStartTime && currentEndTime && (timeValue < currentStartTime || timeValue > currentEndTime)) {
+          toast.error(`Start time must be between ${formatTime(currentStartTime)} and ${formatTime(currentEndTime)}`, {
+            position: "top-right",
+            className: "!bg-red-100 !text-red-800 !border !border-red-300",
+          });
+          return prev; // Don't update if invalid
+        }
+        
+        // Validate time range if both times are set
+        const endTime = newData[rowId]?.endTime;
+        if (timeValue && endTime && timeValue > endTime) {
+          toast.error("Start time must be earlier than or equal to end time", {
+            position: "top-right",
+            className: "!bg-red-100 !text-red-800 !border !border-red-300",
+          });
+          return prev; // Don't update if invalid
+        }
+        
+        return newData;
+      });
+    } else if (key === 'endTime') {
+      const timeValue = value as string;
+      setDataOverrides(prev => {
+        const newData = { 
+          ...prev,
+          [rowId]: {
+            ...prev[rowId],
+            endTime: timeValue
+          }
+        };
+        
+        // Only validate if value is not empty (allow clearing with X button)
+        if (timeValue && currentStartTime && currentEndTime && (timeValue < currentStartTime || timeValue > currentEndTime)) {
+          toast.error(`End time must be between ${formatTime(currentStartTime)} and ${formatTime(currentEndTime)}`, {
+            position: "top-right",
+            className: "!bg-red-100 !text-red-800 !border !border-red-300",
+          });
+          return prev; // Don't update if invalid
+        }
+        
+        // Validate time range if both times are set
+        const startTime = newData[rowId]?.startTime;
+        if (timeValue && startTime && startTime > timeValue) {
+          toast.error("End time must be later than or equal to start time", {
+            position: "top-right",
+            className: "!bg-red-100 !text-red-800 !border !border-red-300",
+          });
+          return prev; // Don't update if invalid
+        }
+        
+        return newData;
+      });
+    } else {
+      const quantityValue = value as number;
+      setDataOverrides(prev => ({
+        ...prev,
+        [rowId]: {
+          ...prev[rowId],
+          quantity: quantityValue
+        }
+      }));
+    }
   }, []);
 
   // Handler functions for row selection
@@ -183,17 +277,41 @@ export const AssetTable: React.FC<AssetTableProps> = ({
       ...prev, 
       [rowId]: checked 
     }));
-  }, []);
+    
+    // Auto-populate start and end time when selecting an asset
+    if (checked) {
+      setDataOverrides(prev => ({
+        ...prev,
+        [rowId]: {
+          ...prev[rowId],
+          startTime: prev[rowId]?.startTime || currentStartTime || prefilledStartTime || '',
+          endTime: prev[rowId]?.endTime || currentEndTime || prefilledEndTime || '',
+          quantity: prev[rowId]?.quantity || 1,
+        }
+      }));
+    }
+  }, [currentStartTime, currentEndTime, prefilledStartTime, prefilledEndTime]);
 
   // Updated handleSelectAll to only select current page rows
   const handleSelectAll = useCallback((checked: boolean, table: any) => {
     if (checked) {
       const newSelection: Record<string, boolean> = {};
+      const newOverrides: Record<string, { startTime?: string; endTime?: string; quantity?: number; }> = {};
+      
       // Only select rows on the current page using their IDs
       table.getRowModel().rows.forEach((row: any) => {
         newSelection[row.original.id] = true;
+        
+        // Auto-populate start and end time when selecting assets
+        newOverrides[row.original.id] = {
+          startTime: dataOverrides[row.original.id]?.startTime || currentStartTime || prefilledStartTime || '',
+          endTime: dataOverrides[row.original.id]?.endTime || currentEndTime || prefilledEndTime || '',
+          quantity: dataOverrides[row.original.id]?.quantity || 1,
+        };
       });
+      
       setRowSelection(prev => ({ ...prev, ...newSelection }));
+      setDataOverrides(prev => ({ ...prev, ...newOverrides }));
     } else {
       // Deselect only the rows on the current page using their IDs
       const currentPageRowIds = table.getRowModel().rows.map((row: any) => row.original.id);
@@ -205,7 +323,7 @@ export const AssetTable: React.FC<AssetTableProps> = ({
         return newSelection;
       });
     }
-  }, []);
+  }, [dataOverrides, currentStartTime, currentEndTime, prefilledStartTime, prefilledEndTime]);
 
   // Memoize the selection computation to prevent infinite loops
   const selectedAssets = useMemo(() => {
@@ -270,9 +388,75 @@ export const AssetTable: React.FC<AssetTableProps> = ({
           Name {renderSortIcon(column)}
         </Button>
       ),
-      cell: ({ row }) => (
-        <div className="text-foreground text-[12px] font-sans tracking-tight">{row.getValue("name")}</div>
-      ),
+      cell: ({ row }) => {
+        const isConflicted = conflictedAssetIds.includes(row.original.id);
+        const conflicts = conflictEvents.get(row.original.id) || [];
+        
+        // console.log(`[AssetTable] Row ${row.original.name} (${row.original.id}):`, {
+        //   isConflicted,
+        //   conflictsCount: conflicts.length,
+        //   conflictedAssetIds: conflictedAssetIds
+        // });
+        
+        return (
+          <div className="flex items-center gap-1 justify-center">
+            <div className={cn("font-sans tracking-tight text-[12px] text-muted-foreground", isConflicted && conflicts.length > 0 ? "text-muted-foreground" : "text-foreground")}>{row.getValue("name")}</div>
+            {isConflicted && conflicts.length > 0 && (
+              <Popover>
+                <PopoverTrigger asChild>
+                  <div 
+                    className="h-6 w-6 p-0 flex items-center justify-center cursor-pointer group"
+                    onMouseEnter={(e) => {
+                      e.currentTarget.click();
+                    }}
+                  >
+                    <Info className="h-4 w-4 text-muted-foreground group-hover:text-foreground" />
+                  </div>
+                </PopoverTrigger>
+                <PopoverContent className="w-140 bg-background border border-border shadow-lg z-50" align="start" side="bottom">
+                  <div className="space-y-2">
+                    <h4 className="font-medium text-sm">
+                      Scheduling Conflicts ({conflicts.length})
+                    </h4>
+                    <p className="text-xs text-muted-foreground">
+                      Asset has conflicting events
+                    </p>
+                    <ScrollArea 
+                      className="h-48 overflow-y-auto overscroll-contain"
+                      onWheel={(e) => {
+                        e.stopPropagation();
+                      }}
+                    >
+                      <div className="space-y-2">
+                        <table className="w-full text-xs">
+                          <thead>
+                            <tr className="border-b">
+                              <th className="text-center py-1 px-2">Event ID</th>
+                              <th className="text-center py-1 px-2">Event Title</th>
+                              <th className="text-center py-1 px-2">Date</th>
+                              <th className="text-center py-1 px-2">Time</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            {conflicts.map((conflict, index) => (
+                              <tr key={index} className="border-b hover:bg-muted/30">
+                                <td className="text-center py-1 px-2">{conflict.id}</td>
+                                <td className="text-center py-1 px-2">{conflict.title}</td>
+                                <td className="text-center py-1 px-2">{`${formatDate(conflict.date.start)} - ${formatDate(conflict.date.end)}`}</td>
+                                <td className="text-center py-1 px-2">{`${formatTime(conflict.time.start)} - ${formatTime(conflict.time.end)}`}</td>
+                              </tr>
+                            ))}
+                          </tbody>
+                        </table>
+                      </div>
+                    </ScrollArea>
+                  </div>
+                </PopoverContent>
+              </Popover>
+            )}
+          </div>
+        );
+      },
     },
     {
       accessorKey: "description",
@@ -496,13 +680,21 @@ export const AssetTable: React.FC<AssetTableProps> = ({
           </TableHeader>
           <TableBody>
             {table.getRowModel().rows.length ? (
-              table.getRowModel().rows.map((row) => (
-                <TableRow key={row.id} className="border-b border-border hover:bg-muted/50">
-                  {row.getVisibleCells().map((cell) => (
-                    <TableCell key={cell.id} className="px-2 py-1 text-center text-[12px] font-sans">{flexRender(cell.column.columnDef.cell, cell.getContext())}</TableCell>
-                  ))}
-                </TableRow>
-              ))
+              table.getRowModel().rows.map((row) => {
+                const isConflicted = conflictedAssetIds.includes(row.original.id);
+                return (
+                  <TableRow 
+                    key={row.id} 
+                    className={`border-b border-border hover:bg-muted/50 ${
+                      isConflicted ? 'bg-yellow-100 hover:bg-yellow-200' : ''
+                    }`}
+                  >
+                    {row.getVisibleCells().map((cell) => (
+                      <TableCell key={cell.id} className="py-1 text-center text-[12px] font-sans text-foreground">{flexRender(cell.column.columnDef.cell, cell.getContext())}</TableCell>
+                    ))}
+                  </TableRow>
+                );
+              })
             ) : (
               <TableRow><TableCell colSpan={columns.length} className="h-16 text-center text-muted-foreground text-[12px]">No assets found.</TableCell></TableRow>
             )}

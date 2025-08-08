@@ -13,7 +13,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Badge } from "@/components/ui/badge";
 import { Search, ChevronLeft, ChevronRight, ChevronsLeft, ChevronsRight, ChevronUp, ChevronDown, ChevronsUpDown, Filter } from "lucide-react";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
-import { fetchWOAddresses } from "@/api/woAddress";
+import { type WOAddress } from "@/api/woAddress";
 import { type Event } from "@/api/event";
 
 interface SelectedAddress {
@@ -21,7 +21,8 @@ interface SelectedAddress {
   name: string;
 }
 
-interface WOAddressTableProps { 
+interface WOAddressTableProps {
+  data: WOAddress[];
   woId: string; 
   onSelectionChange?: (selectedAddress: SelectedAddress) => void;
   onUpdate?: boolean;
@@ -36,7 +37,7 @@ interface TableWOAddress {
   events?: string[];
 }
 
-export const WOAddressTable: React.FC<WOAddressTableProps> = ({ woId, onSelectionChange, onUpdate, selectedEvent }) => {
+export const WOAddressTable: React.FC<WOAddressTableProps> = ({ data, woId, onSelectionChange, onUpdate, selectedEvent }) => {
   const [globalFilter, setGlobalFilter] = useState('');
   const [sorting, setSorting] = useState<SortingState>([]);
   const [tableDataState, setTableDataState] = useState<TableWOAddress[]>([]);
@@ -44,8 +45,8 @@ export const WOAddressTable: React.FC<WOAddressTableProps> = ({ woId, onSelectio
   // Fetch data on load
   useEffect(() => {
     const loadData = async () => {
-      const data = await fetchWOAddresses(woId, '');
-      const mappedData = data.map(woAddress => ({
+      const filteredData = data;
+      const mappedData = filteredData.map(woAddress => ({
         id: woAddress.id,
         customer: woAddress.customer.text,
         address: woAddress.address.text || '-',

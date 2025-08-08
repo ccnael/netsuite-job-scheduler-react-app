@@ -1,6 +1,7 @@
 
 import React, { useState } from 'react';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter } from "@/components/ui/dialog";
+import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle } from "@/components/ui/alert-dialog";
 import { Button } from "@/components/ui/button";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { ScrollArea } from "@/components/ui/scroll-area";
@@ -8,12 +9,16 @@ import { TimeSheetTable } from './tables/TimeSheetTable';
 import { WOItemTable } from './tables/WOItemTableCompletion';
 import { PunchItemTable } from './tables/PunchItemTable';
 import { type Event } from "@/api/event";
+import { completeEvent } from "@/api/completeEvent";
+import { Loader, CheckCircle, X } from "lucide-react";
+import { isLocalDevelopment } from "@/lib/helpers";
+import { toast } from "sonner";
 
 interface CompleteEventProps {
   isOpen: boolean;
   onClose: () => void;
   selectedEvent: Event;
-  onSubmit: (eventData: any) => void;
+  onEventCompleted?: () => void;
 }
 
 interface SelectedWOItem {
@@ -26,7 +31,7 @@ export const CompleteEvent: React.FC<CompleteEventProps> = ({
   isOpen, 
   onClose, 
   selectedEvent, 
-  onSubmit 
+  onEventCompleted
 }) => {
   const [startTime, setStartTime] = useState('08:00');
   const [endTime, setEndTime] = useState('18:00');
@@ -34,6 +39,8 @@ export const CompleteEvent: React.FC<CompleteEventProps> = ({
   const [selectedWOItems, setSelectedWOItems] = useState<SelectedWOItem[]>([]);
   const [timesheetData, setTimesheetData] = useState<any[]>([]);
   const [punchItemsData, setPunchItemsData] = useState<any[]>([]);
+  const [showConfirmDialog, setShowConfirmDialog] = useState(false);
+  const [isCompleting, setIsCompleting] = useState(false);
 
   const handleStartTimeSelect = (time: string) => {
     setStartTime(time);
@@ -64,18 +71,64 @@ export const CompleteEvent: React.FC<CompleteEventProps> = ({
   };
 
   const handleSubmit = () => {
-    const formData = {
-      id: selectedEvent.id,
-      startTime,
-      endTime,
-      selectedWOItems,
-      timesheetData,
-      punchItemsData,
-      // Add any other data that needs to be submitted
-    };
+    const unresolvedPunchItems = punchItemsData.filter(x => x.status.value != 6); // 6 - Not resolved
+    if (unresolvedPunchItems.length) {
+      toast.error("Unable to proceed. There are still unresolved punch items.", {
+        position: "top-right",
+        className: "!bg-red-100 !text-red-800 !border !border-red-300",
+      });
+      return;
+    }
+    setShowConfirmDialog(true);
+  };
+
+  const handleConfirmComplete = async (e: React.MouseEvent) => {
+    e.preventDefault();
     
-    console.log('Complete event form data on submit:', formData);
-    onSubmit(formData);
+    try {
+      setIsCompleting(true);
+      // if (isLocalDevelopment()) {
+      //   console.log('COMPLETING EVENT!!!', { selectedEvent, timesheetData, selectedWOItems });
+      //   return;
+      // }
+
+      await completeEvent(selectedEvent, timesheetData, selectedWOItems);
+
+      // Show success toast
+      toast.custom((id: string) => (
+        <div
+          data-sonner-rounded-toast
+          className="flex items-start gap-3 w-full max-w-xl bg-green-100 text-green-800 border border-green-300 px-4 py-3 rounded-md"
+        >
+          <CheckCircle className="h-5 w-5 mt-0.5 text-green-700 shrink-0" />
+          <div className="flex-1 text-sm font-medium">
+            Event "{selectedEvent.title}" successfully completed!
+          </div>
+          <button
+            onClick={() => toast.dismiss(id)}
+            className="ml-3 text-green-800 hover:text-red-500 p-1"
+          >
+            <X size={16} />
+          </button>
+        </div>
+      ), {
+        unstyled: true,
+        duration: 5000,
+        position: "top-right",
+      });
+
+      setShowConfirmDialog(false);
+      onClose();
+      onEventCompleted?.();
+    } catch (error) {
+      console.error('Error completing event:', error);
+      toast.error("Failed to complete event. Please try again.", {
+        position: "top-right",
+        className: "!bg-red-100 !text-red-800 !border !border-red-300",
+      });
+    } finally {
+      setIsCompleting(false);
+    }
   };
 
   return (
@@ -190,6 +243,35 @@ export const CompleteEvent: React.FC<CompleteEventProps> = ({
           <Button onClick={handleSubmit}>Complete</Button>
         </DialogFooter>
       </DialogContent>
+
+      {/* Confirmation Dialog */}
+      <AlertDialog open={showConfirmDialog} onOpenChange={setShowConfirmDialog}>
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle>Confirm Completion</AlertDialogTitle>
+            <AlertDialogDescription>
+              Are you sure you want to complete the event "{selectedEvent.title}"? This action will finalize the event details.
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogCancel disabled={isCompleting}>Cancel</AlertDialogCancel>
+            <AlertDialogAction 
+              onClick={handleConfirmComplete} 
+              disabled={isCompleting}
+              className="bg-primary text-primary-foreground hover:bg-primary/90"
+            >
+              {isCompleting ? (
+                <>
+                  <Loader className="mr-2 h-4 w-4 animate-spin" />
+                  Completing Event...
+                </>
+              ) : (
+                "Complete Event"
+              )}
+            </AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
     </Dialog>
   );
 };

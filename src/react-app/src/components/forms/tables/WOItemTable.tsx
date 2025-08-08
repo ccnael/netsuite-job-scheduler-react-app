@@ -12,7 +12,7 @@ import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Badge } from "@/components/ui/badge";
 import { Search, ChevronLeft, ChevronRight, ChevronsLeft, ChevronsRight, ChevronUp, ChevronDown, ChevronsUpDown, Filter, AlertTriangle } from "lucide-react";
-import { fetchWOItems } from "@/api/woItem";
+import { WOItem } from "@/api/woItem";
 import { type Event } from "@/api/event";
 
 interface SelectedWOItem {
@@ -21,7 +21,8 @@ interface SelectedWOItem {
   quantity: number;
 }
 
-interface WOItemTableProps { 
+interface WOItemTableProps {
+  data?: WOItem[]; 
   woId: string; 
   onSelectionChange?: (selectedWOItems: SelectedWOItem[]) => void;
   onUpdate?: boolean;
@@ -36,7 +37,7 @@ interface TableWOItem {
   event?: any;
 }
 
-export const WOItemTable: React.FC<WOItemTableProps> = ({ woId, onSelectionChange, onUpdate, selectedEvent }) => {
+export const WOItemTable: React.FC<WOItemTableProps> = ({ data, woId, onSelectionChange, onUpdate, selectedEvent }) => {
   const [globalFilter, setGlobalFilter] = useState('');
   const [sorting, setSorting] = useState<SortingState>([]);
   const [tableDataState, setTableDataState] = useState<TableWOItem[]>([]);
@@ -47,17 +48,24 @@ export const WOItemTable: React.FC<WOItemTableProps> = ({ woId, onSelectionChang
   // Fetch data on load
   useEffect(() => {
     const loadData = async () => {
-      let data = await fetchWOItems(woId, '');
+      let filteredData = data;
       if (!onUpdate) {
-        data = data.filter(x => !x.event);
+        filteredData = filteredData.filter(x => !x.event);
       } else {
-        // let unassignedItems = data.filter(x => !x.event);
-        const unassignedItems = data
+        const unassignedItems = filteredData
+          .filter(x => !x.event)
           .filter(x => !selectedEvent.items.map(y => y.item.value)
           .includes(x.item.value));
-        data = [...selectedEvent.items, ...unassignedItems];
+        filteredData = [...selectedEvent.items, ...unassignedItems];
+
+        console.log('CHECKING', {
+          data,
+          selectedEvent,
+          unassignedItems,
+          filteredData
+        });
       }
-      const mappedData = data.map(woItem => ({
+      const mappedData = filteredData.map(woItem => ({
         id: woItem.id,
         name: woItem.item.text,
         description: woItem.description || '-',

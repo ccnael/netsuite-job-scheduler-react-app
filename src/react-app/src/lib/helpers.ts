@@ -40,7 +40,7 @@ export const formatDate = (dateStr: string) => {
 };
 export const formatTime = (timeStr: string) => {
   try {
-    return timeStr ? format(parse(timeStr, 'HH:mm', new Date()), 'h:mm a') : '';
+    return timeStr ? format(parse(timeStr, 'HH:mm', new Date()), 'h:mm a').replace(/AM|PM/, (match) => match.toLowerCase()) : '';
   } catch {
     return timeStr || '';
   }

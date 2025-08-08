@@ -5,9 +5,12 @@
 define([
   'N/search',
   'N/record',
-  './esp_cm_constants',
-  './moment.min',
-], (search, record, env, moment) => {
+  './esp_cm_constants'
+], (
+  search,
+  record,
+  env
+) => {
   /**
    * Get the list of routing groups
    * @param {Object} context Suitelet object 

@@ -170,17 +170,14 @@ define([
         case 'getWorkOrderAddresses':
           woAddressLib.getAddresses(context);
           break;
+        case 'printWorkOrder':
+          woLib.printWorkOrder(context);
+          break;
         case 'holdWorkOrder':
           woLib.holdWorkOrder(context);
           break;
         case 'cancelWorkOrder':
           woLib.cancelWorkOrder(context);
-          break;
-        case 'printWorkOrder':
-          woLib.printWorkOrder(context);
-          break;
-        case 'printPickList':
-          woLib.printPickList(context);
           break;
         case 'getRoutingGroups':
           routingGroupLib.getRoutingGroups(context);
@@ -222,20 +219,8 @@ define([
         case 'assignAsset':
           assetLib.assignAsset(context);
           break;
-        /* case 'updateResourceAssignment':
-          woResourceLib.updateCalendarResourceAssignment(context);
-          break;
-        case 'updateAssetAssignment':
-          woAssetLib.updateCalendarAssetAssignment(context);
-          break;
-        case 'updateResourceDateTime':
-          woResourceLib.updateCalendarResizedDateTime(context);
-          break;
-        case 'updateAssetDateTime':
-          woAssetLib.updateCalendarResizedDateTime(context);
-          break; */
         case 'completeEvent':
-          eventLib.completeEvent(context);
+          completeEventLib.completeEvent(context);
           break;
       }
     }

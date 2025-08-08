@@ -1,6 +1,7 @@
 
 import { suiteletUrl } from '@/lib/constants';
 import { isLocalDevelopment } from '@/lib/helpers';
+import { type Event } from "@/api/event";
 
 export interface PunchItem {
   status: {
@@ -1733,6 +1734,46 @@ export const fetchPunchItems = async (soId: string): Promise<PunchItem[]> => {
   }
 };
 
-export const completeEvent = async () => {
-  alert('Not yet available');
-}
+export const completeEvent = async (eventData: Event, timeSheets: any, items: any, ): Promise<Event> => {
+  if (isLocalDevelopment()) {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        const mockEvent = eventData;
+        if (mockEvent) {
+          resolve({ ...mockEvent });
+        } else {
+          throw new Error('Event not found');
+        }
+      }, 300);
+    });
+  }
+
+  try {
+    const url = `${suiteletUrl}&mode=completeEvent`;
+    const response = await fetch(url, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        eventData,
+        timeSheets,
+        items,
+      })
+    });
+
+    console.log('Complete event RESPONSE:', response);
+
+    if (!response.ok) {
+      throw new Error(`Failed to complete event: ${response.status}`);
+    }
+
+    const completedEvent = await response.json();
+    console.log('Complete event RESULT:', completedEvent);
+
+    return completedEvent;
+  } catch (error) {
+    console.error('Error completing event:', error);
+    throw error;
+  }
+};

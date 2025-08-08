@@ -10,7 +10,7 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Badge } from "@/components/ui/badge";
-import { Search, ChevronLeft, ChevronRight, ChevronsLeft, ChevronsRight, ChevronUp, ChevronDown, ChevronsUpDown, Filter, AlertTriangle } from "lucide-react";
+import { Search, ChevronLeft, ChevronRight, ChevronsLeft, ChevronsRight, ChevronUp, ChevronDown, ChevronsUpDown, Filter } from "lucide-react";
 import { Vendor } from "@/api/vendor";
 
 interface SelectedVendor {
@@ -85,7 +85,7 @@ export const VendorTable: React.FC<VendorTableProps> = ({
     return {};
   });
 
-  const [validationWarnings, setValidationWarnings] = useState<Record<string, boolean>>({});
+  
 
   // Local state for memo inputs to prevent auto-exit - initialize properly
   const [memoInputs, setMemoInputs] = useState<Record<string, string>>(() => {
@@ -119,42 +119,31 @@ export const VendorTable: React.FC<VendorTableProps> = ({
     });
   }, []);
 
-  // Handle memo input changes locally
-  const handleMemoChange = useCallback((rowId: string, value: string) => {
-    setMemoInputs(prev => ({ ...prev, [rowId]: value }));
-  }, []);
-
-  // Handle memo blur to update main state
-  const handleMemoBlur = useCallback((rowId: string, value: string) => {
-    updateField(rowId, 'memo', value);
-  }, [updateField]);
-
-  // Custom row selection handler to validate manpower and show warnings only on check attempt
+  // Custom row selection handler
   const handleRowToggle = useCallback((rowIndex: string, checked: boolean) => {
-    const vendor = tableDataState[parseInt(rowIndex)];
-    
-    if (checked && (!vendor.quantityRequired || vendor.quantityRequired === 0)) {
-      // Show warning for invalid selection attempt
-      setValidationWarnings(prev => ({ ...prev, [rowIndex]: true }));
-      // Auto-hide warning after 3 seconds with fade
-      setTimeout(() => {
-        setValidationWarnings(prev => ({ ...prev, [rowIndex]: false }));
-      }, 3000);
-      return;
-    }
-    
     setRowSelection(prev => ({ ...prev, [rowIndex]: checked }));
-  }, [tableDataState]);
+    
+    // Auto-set quantity to 1 if selecting row and current quantity is 0
+    if (checked) {
+      const vendor = tableDataState[parseInt(rowIndex)];
+      if (vendor && vendor.quantityRequired === 0) {
+        updateField(vendor.id, 'quantityRequired', 1);
+      }
+    }
+  }, [tableDataState, updateField]);
 
-  // Custom select all handler to skip vendors with 0 manpower and only select current page
+  // Custom select all handler for current page
   const handleSelectAll = useCallback((checked: boolean, table: any) => {
     if (checked) {
       const newSelection: Record<string, boolean> = {};
-      // Only select rows on the current page with valid manpower
+      // Select all rows on the current page
       table.getRowModel().rows.forEach((row: any) => {
+        newSelection[row.index.toString()] = true;
+        
+        // Auto-set quantity to 1 if selecting row and current quantity is 0
         const vendor = tableDataState[row.index];
-        if (vendor.quantityRequired && vendor.quantityRequired > 0) {
-          newSelection[row.index.toString()] = true;
+        if (vendor && vendor.quantityRequired === 0) {
+          updateField(vendor.id, 'quantityRequired', 1);
         }
       });
       setRowSelection(prev => ({ ...prev, ...newSelection }));
@@ -169,7 +158,7 @@ export const VendorTable: React.FC<VendorTableProps> = ({
         return newSelection;
       });
     }
-  }, [tableDataState]);
+  }, [tableDataState, updateField]);
 
   // Memoize the selection computation to prevent infinite loops
   const selectedVendors = useMemo<SelectedVendor[]>(() => {
@@ -221,15 +210,10 @@ export const VendorTable: React.FC<VendorTableProps> = ({
     {
       id: "select",
       header: ({ table }) => {
-        // Calculate if all selectable vendors on current page are selected
+        // Calculate if all vendors on current page are selected
         const currentPageRows = table.getRowModel().rows;
-        const selectableRows = currentPageRows.filter(row => {
-          const vendor = row.original;
-          return vendor.quantityRequired && vendor.quantityRequired > 0;
-        });
-        
-        const isAllCurrentPageSelected = selectableRows.length > 0 && 
-          selectableRows.every(row => rowSelection[row.index]);
+        const isAllCurrentPageSelected = currentPageRows.length > 0 && 
+          currentPageRows.every(row => rowSelection[row.index]);
 
         return (
           <div className="flex justify-center items-center">
@@ -242,21 +226,13 @@ export const VendorTable: React.FC<VendorTableProps> = ({
         );
       },
       cell: ({ row }) => {
-        const vendor = row.original;
-        const hasValidManpower = vendor.quantityRequired && vendor.quantityRequired > 0;
-        const showWarning = validationWarnings[row.index];
-
         return (
-          <div className="flex justify-center items-center space-x-1">
+          <div className="flex justify-center items-center">
             <Checkbox
               checked={row.getIsSelected()}
               onCheckedChange={(value) => handleRowToggle(row.index.toString(), !!value)}
-              disabled={!hasValidManpower}
               className="translate-y-[1px]"
             />
-            {showWarning && (
-              <AlertTriangle className="h-3 w-3 text-amber-500 animate-fade-in" />
-            )}
           </div>
         );
       },
@@ -279,28 +255,15 @@ export const VendorTable: React.FC<VendorTableProps> = ({
       accessorKey: "quantityRequired",
       header: () => <span>Manpower Required <span className="text-red-500">*</span></span>,
       cell: ({ row }) => {
-        const vendor = row.original;
-        const hasValidManpower = vendor.quantityRequired && vendor.quantityRequired > 0;
-        const showWarning = validationWarnings[row.index];
-        
         return (
-          <div className="flex flex-col items-center space-y-1">
-            <div className="flex justify-center">
-              <Input
-                type="number"
-                value={row.original.quantityRequired}
-                onChange={(e) => updateField(row.original.id, 'quantityRequired', Number(e.target.value))}
-                className={`h-6 text-center w-[80px] !text-[12px] appearance-none ${
-                  !hasValidManpower ? 'border-amber-500' : ''
-                }`}
-                min={0}
-              />
-            </div>
-            {showWarning && (
-              <div className="text-[10px] text-amber-600 text-center animate-fade-in">
-                Must be &gt; 0 to select
-              </div>
-            )}
+          <div className="flex justify-center">
+            <Input
+              type="number"
+              value={row.original.quantityRequired}
+              onChange={(e) => updateField(row.original.id, 'quantityRequired', Number(e.target.value))}
+              className="h-6 text-center w-[80px] !text-[12px] appearance-none"
+              min={0}
+            />
           </div>
         );
       },
@@ -317,7 +280,7 @@ export const VendorTable: React.FC<VendorTableProps> = ({
         );
       },
     },
-  ], [handleSelectAll, handleRowToggle, renderSortIcon, validationWarnings, rowSelection, updateField]);
+  ], [handleSelectAll, handleRowToggle, renderSortIcon, rowSelection, updateField]);
 
   const table = useReactTable({
     data: tableDataState,

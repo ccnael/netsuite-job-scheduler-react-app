@@ -7,10 +7,16 @@ define([
   'N/record',
   './esp_cm_woItem',
   './esp_cm_helper',
-  './esp_cm_utils',
   './moment.min',
   './esp_cm_constants'
-], (search, record, woItemLib, helper, utils, moment, env) => {
+], (
+  search,
+  record,
+  woItemLib,
+  helper,
+  moment,
+  env
+) => {
   /**
    * Get the SO punch list
    * @param {Object} context Suitelet object
@@ -86,52 +92,45 @@ define([
     const { request, response } = context;
     const requestBody = request.body || '{}';
     const payload = JSON.parse(requestBody);
-    let { eventData, oldEventData, timeSheets } = payload;
+    const { eventData, items, timeSheets } = payload;
     const eventId = eventData.id;
-    log.audit('----- [Complete Event] -----', { oldEventData, timeSheets });
+    log.audit('----- [Complete Event] -----', { eventId: eventData.id });
+    log.audit('WO Items', items);
+    log.audit('Time Sheets', timeSheets);
 
-    try {
-      timeSheets.length &&
-        createTimeTracking(oldEventData, timeSheets);
+    timeSheets.length &&
+      createTimeTracking(eventData, timeSheets);
 
-      !!eventData.selectedItems.length &&
-        woItemLib.updateItems(eventData, oldEventData);
+    items.length &&
+      woItemLib.updateItems(items);
 
-      record.submitFields({
-        type: record.Type.CALENDAR_EVENT,
-        id: eventId,
-        values: {
-          status: 'COMPLETE'
-        },
-        options: {
-          ignoreMandatoryFieds: true
-        }
-      });
+    record.submitFields({
+      type: record.Type.CALENDAR_EVENT,
+      id: eventId,
+      values: {
+        status: 'COMPLETE'
+      },
+      options: {
+        ignoreMandatoryFieds: true
+      }
+    });
 
-      response.write(JSON.stringify({
-        code: 200,
-        recordId: eventId,
-        status: 'success'
-      }));
-    } catch (e) {
-      log.audit('Complete Event Unexpected Error', e.message);
-
-      response.write(JSON.stringify({
-        code: 401,
-        status: 'failed',
-        errorMsg: e.message
-      }));
-    }
+    response.write(JSON.stringify({
+      code: 200,
+      recordId: eventId,
+      status: 'success'
+    }));
   }
 
   /**
    * Create event time tracking records
-   * @param {Object} oldEventData Old state event data
+   * @param {Object} eventData Event data
    * @param {Array} timeSheets Time tracking data
    */
-  function createTimeTracking(oldEventData, timeSheets) {
-    const eventId = oldEventData.id;
+  function createTimeTracking(eventData, timeSheets) {
+    const eventId = eventData.id;
 
+    // Compute st, ot dt and actual costs
     // Map hours and location
     timeSheets = timeSheets.map((timeSheet) => {
       timeSheet.startTime = moment(`1/1/1999 ${timeSheet.startTime}`).format(env.Format.IMPORT_TIME);
@@ -140,9 +139,52 @@ define([
       const diffDate = helper.diffDates(`1/1/1999 ${timeSheet.startTime}`, `1/1/1999 ${timeSheet.endTime}`);
       timeSheet.hours = helper.convertTimeToDecimal(diffDate.hour, diffDate.minute);
 
-      const resource = oldEventData.resources.find(resource => resource.id == timeSheet.id);
+      const resource = eventData.resources.find(x => x.id == timeSheet.id);
       if (resource) {
+        timeSheet.employee = resource.employee.value;
         timeSheet.location = resource.location.value;
+      }
+
+      timeSheet = {
+        ...timeSheet,
+        get labRates() {
+          const resource = eventData.resources.find(x => x.id == this.id);
+          return resource?.labRates || [];
+        },
+        get stCost() {
+          const labRateData = this.labRates.find(el => el.labRateCatId == '1') || '';
+          return labRateData ? (this.stHrs * +labRateData?.labRate) + ((this.stMins / 60) * +labRateData?.labRate) : 0;
+        },
+        get otCost() {
+          const labRateData = this.labRates.find(el => el.labRateCatId == '2') || '';
+          return labRateData ? (this.otHrs * +labRateData?.labRate) + ((this.otMins / 60) * +labRateData?.labRate) : 0;
+        },
+        get dtCost() {
+          const labRateData = this.labRates.find(el => el.labRateCatId == '3') || '';
+          return labRateData ? (this.dtHrs * +labRateData?.labRate) + ((this.dtMins / 60) * +labRateData?.labRate) : 0;
+        },
+        get actualCost() {
+          return this.stCost + this.otCost + this.dtCost;
+        },
+        get actualCostData() {
+          return JSON.stringify({
+            st: {
+              hrs: this.stHrs,
+              mins: this.stMins,
+              cost: this.stCost
+            },
+            ot: {
+              hrs: this.otHrs,
+              mins: this.otMins,
+              cost: this.otCost
+            },
+            dt: {
+              hrs: this.dtHrs,
+              mins: this.dtMins,
+              cost: this.dtCost
+            }
+          });
+        }
       }
       return timeSheet;
     });
@@ -158,7 +200,7 @@ define([
         id: eventId
       });
       const lineCount = rec.getLineCount({ sublistId: 'timeitem' });
-      const projectInsight = oldEventData.woRef?.projectInsight?.value;
+      const projectInsight = eventData.woRef?.projectInsight?.value;
 
       for (let i in timeSheets) {
         const timeSheet = timeSheets[i];
@@ -167,7 +209,7 @@ define([
           rec.setSublistValue({
             sublistId: 'timeitem',
             fieldId: 'employee',
-            value: timeSheet.id,
+            value: timeSheet.employee,
             line
           });
           rec.setSublistValue({

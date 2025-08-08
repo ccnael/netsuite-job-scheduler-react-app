@@ -6080,3 +6080,43 @@ export const fetchWorkOrders = async (): Promise<WorkOrder[]> => {
     throw error;
   }
 };
+
+export const printWorkOrder = async(woId: string) => {
+  window.open(`${suiteletUrl}&mode=printWorkOrder&woId=${woId}`);
+}
+
+export const holdWorkOrder = async(woId: string) => {
+    try {
+    const url = `${suiteletUrl}&mode=holdWorkOrder&woId=${woId}`;
+    const response = await fetch(url);
+
+    console.log('Hold event RESPONSE:', response);
+
+    if (!response.ok) {
+      throw new Error(`Failed to hold workorder: ${response.status}`);
+    }
+
+    console.log('Hold WO RESULT: WO updated successfully');
+  } catch (error) {
+    console.error('Error hold WO:', error);
+    throw error;
+  }
+}
+
+export const cancelWorkOrder = async(woId: string) => {
+    try {
+    const url = `${suiteletUrl}&mode=cancelWorkOrder&woId=${woId}`;
+    const response = await fetch(url);
+
+    console.log('Cancel event RESPONSE:', response);
+
+    if (!response.ok) {
+      throw new Error(`Failed to cancel workorder: ${response.status}`);
+    }
+
+    console.log('Cancel WO RESULT: WO updated successfully');
+  } catch (error) {
+    console.error('Error cancel WO:', error);
+    throw error;
+  }
+}

@@ -1350,10 +1350,6 @@ export const getMockEmployees = (): Employee[] => {
 };
 
 export const assignEmployee = async (resourceDetails: any, eventData: any): Promise<boolean> => {
-  console.log('FUCK YOU!!!', {
-    resourceDetails,
-    eventData
-  });
   try {
     const url = `${suiteletUrl}&mode=assignEmployee`;
     const response = await fetch(url, {

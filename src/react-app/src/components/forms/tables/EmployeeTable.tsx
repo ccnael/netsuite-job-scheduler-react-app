@@ -10,7 +10,7 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Badge } from "@/components/ui/badge";
-import { Search, ChevronLeft, ChevronRight, ChevronsLeft, ChevronsRight, ChevronUp, ChevronDown, ChevronsUpDown, Filter } from "lucide-react";
+import { Search, ChevronLeft, ChevronRight, ChevronsLeft, ChevronsRight, ChevronUp, ChevronDown, ChevronsUpDown, Filter, Info } from "lucide-react";
 import { Employee } from "@/api/employee";
 import TimeRangeFilter from '../TimeRangeFilter';
 import {
@@ -19,6 +19,10 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 import MultiSelectFilter from '../MultiSelectFilter';
+import { cn } from "@/lib/utils";
+import { ScrollArea } from "@/components/ui/scroll-area";
+import { formatDate, formatTime } from "@/lib/helpers";
+import { toast } from "sonner";
 
 interface SelectedResource {
   id: string;
@@ -32,9 +36,15 @@ interface EmployeeTableProps {
   onSelectionChange?: (selectedResources: SelectedResource[]) => void;
   primaryStartTime?: string;
   primaryEndTime?: string;
+  currentStartTime?: string;
+  currentEndTime?: string;
   woResources?: any[];
   onUpdate?: boolean;
   preselectedResourceIds?: string[];
+  conflictedResourceIds?: string[];
+  conflictEvents?: Map<string, any[]>;
+  clearSelections?: boolean;
+  onClearComplete?: () => void;
 }
 
 interface TableEmployee {
@@ -58,8 +68,14 @@ export const EmployeeTable: React.FC<EmployeeTableProps> = ({
   onSelectionChange,
   primaryStartTime = '08:00',
   primaryEndTime = '18:00',
+  currentStartTime,
+  currentEndTime,
   onUpdate,
-  preselectedResourceIds = []
+  preselectedResourceIds = [],
+  conflictedResourceIds = [],
+  conflictEvents = new Map(),
+  clearSelections = false,
+  onClearComplete
 }) => {
   const [globalFilter, setGlobalFilter] = useState('');
   const [sorting, setSorting] = useState<SortingState>([]);
@@ -78,7 +94,9 @@ export const EmployeeTable: React.FC<EmployeeTableProps> = ({
   const lastSelectionRef = useRef<string>('');
 
   // console.log('EmployeeTable render - woResources:', woResources);
-  console.log('EmployeeTable render - data:', data);
+  // console.log('EmployeeTable render - data:', data);
+  // console.log('EmployeeTable render - conflictedResourceIds:', conflictedResourceIds);
+  // console.log('EmployeeTable render - conflictEvents:', conflictEvents);
 
   // Calculate unique values for filters
   const uniqueNames = useMemo(() => {
@@ -201,6 +219,15 @@ export const EmployeeTable: React.FC<EmployeeTableProps> = ({
     }
   }, [tableData, onUpdate, isInitialized, preselectedResourceIds, primaryStartTime, primaryEndTime]);
 
+  // Handle external clear selections request
+  useEffect(() => {
+    if (clearSelections) {
+      setRowSelection({});
+      setTimeOverrides({});
+      onClearComplete?.();
+    }
+  }, [clearSelections, onClearComplete]);
+
   // Reset initialization when onUpdate, data, or preselectedResourceIds changes
   useEffect(() => {
     setIsInitialized(false);
@@ -208,14 +235,71 @@ export const EmployeeTable: React.FC<EmployeeTableProps> = ({
 
   const updateTime = useCallback((rowId: string, key: 'startTime' | 'endTime', value: string) => {
     // console.log('Time update requested:', { rowId, key, value });
-    setTimeOverrides(prev => ({
-      ...prev,
-      [rowId]: {
-        ...prev[rowId],
-        [key]: value
-      }
-    }));
-  }, []);
+    
+    if (key === 'startTime') {
+      setTimeOverrides(prev => {
+        const newData = { 
+          ...prev,
+          [rowId]: {
+            ...prev[rowId],
+            [key]: value
+          }
+        };
+        
+        // Only validate if value is not empty (allow clearing with X button)
+        if (value && currentStartTime && currentEndTime && (value < currentStartTime || value > currentEndTime)) {
+          toast.error(`Start time must be between ${formatTime(currentStartTime)} and ${formatTime(currentEndTime)}`, {
+            position: "top-right",
+            className: "!bg-red-100 !text-red-800 !border !border-red-300",
+          });
+          return prev; // Don't update if invalid
+        }
+        
+        // Validate time range if both times are set
+        const endTime = newData[rowId]?.endTime;
+        if (value && endTime && value > endTime) {
+          toast.error("Start time must be earlier than or equal to end time", {
+            position: "top-right",
+            className: "!bg-red-100 !text-red-800 !border !border-red-300",
+          });
+          return prev; // Don't update if invalid
+        }
+        
+        return newData;
+      });
+    } else {
+      setTimeOverrides(prev => {
+        const newData = { 
+          ...prev,
+          [rowId]: {
+            ...prev[rowId],
+            [key]: value
+          }
+        };
+        
+        // Only validate if value is not empty (allow clearing with X button)
+        if (value && currentStartTime && currentEndTime && (value < currentStartTime || value > currentEndTime)) {
+          toast.error(`End time must be between ${formatTime(currentStartTime)} and ${formatTime(currentEndTime)}`, {
+            position: "top-right",
+            className: "!bg-red-100 !text-red-800 !border !border-red-300",
+          });
+          return prev; // Don't update if invalid
+        }
+        
+        // Validate time range if both times are set
+        const startTime = newData[rowId]?.startTime;
+        if (value && startTime && startTime > value) {
+          toast.error("End time must be later than or equal to start time", {
+            position: "top-right",
+            className: "!bg-red-100 !text-red-800 !border !border-red-300",
+          });
+          return prev; // Don't update if invalid
+        }
+        
+        return newData;
+      });
+    }
+  }, [currentStartTime, currentEndTime]);
 
   // Fixed checkbox handlers that don't reset pagination
   const handleRowToggle = useCallback((rowId: string, checked: boolean) => {
@@ -223,16 +307,37 @@ export const EmployeeTable: React.FC<EmployeeTableProps> = ({
       ...prev, 
       [rowId]: checked 
     }));
-  }, []);
+    
+    // Auto-populate start and end time when selecting a resource
+    if (checked) {
+      setTimeOverrides(prev => ({
+        ...prev,
+        [rowId]: {
+          startTime: prev[rowId]?.startTime || currentStartTime || primaryStartTime,
+          endTime: prev[rowId]?.endTime || currentEndTime || primaryEndTime,
+        }
+      }));
+    }
+  }, [primaryStartTime, primaryEndTime, currentStartTime, currentEndTime]);
 
   const handleSelectAll = useCallback((checked: boolean, table: any) => {
     if (checked) {
       const newSelection: Record<string, boolean> = {};
+      const newTimeOverrides: Record<string, { startTime?: string; endTime?: string }> = {};
+      
       // Only select rows on the current page using their IDs
       table.getRowModel().rows.forEach((row: any) => {
         newSelection[row.original.id] = true;
+        
+        // Auto-populate start and end time when selecting resources
+        newTimeOverrides[row.original.id] = {
+          startTime: timeOverrides[row.original.id]?.startTime || currentStartTime || primaryStartTime,
+          endTime: timeOverrides[row.original.id]?.endTime || currentEndTime || primaryEndTime,
+        };
       });
+      
       setRowSelection(prev => ({ ...prev, ...newSelection }));
+      setTimeOverrides(prev => ({ ...prev, ...newTimeOverrides }));
     } else {
       // Deselect only the rows on the current page using their IDs
       const currentPageRowIds = table.getRowModel().rows.map((row: any) => row.original.id);
@@ -244,7 +349,7 @@ export const EmployeeTable: React.FC<EmployeeTableProps> = ({
         return newSelection;
       });
     }
-  }, []);
+  }, [primaryStartTime, primaryEndTime, currentStartTime, currentEndTime, timeOverrides]);
 
   // Memoize selected resources to prevent infinite loops
   const selectedResources = useMemo(() => {
@@ -310,9 +415,75 @@ export const EmployeeTable: React.FC<EmployeeTableProps> = ({
           Name {renderSortIcon(column)}
         </Button>
       ),
-      cell: ({ row }) => (
-        <div className="text-foreground text-[12px] font-sans tracking-tight">{row.getValue("name")}</div>
-      ),
+      cell: ({ row }) => {
+        const isConflicted = conflictedResourceIds.includes(row.original.id);
+        const conflicts = conflictEvents.get(row.original.id) || [];
+        
+        // console.log(`[EmployeeTable] Row ${row.original.name} (${row.original.id}):`, {
+        //   isConflicted,
+        //   conflictsCount: conflicts.length,
+        //   conflictedResourceIds: conflictedResourceIds
+        // });
+        
+        return (
+          <div className="flex items-center gap-1 justify-center">
+            <div className={cn("font-sans tracking-tight text-[12px] text-muted-foreground", isConflicted && conflicts.length > 0 ? "text-muted-foreground" : "text-foreground")}>{row.getValue("name")}</div>
+            {isConflicted && conflicts.length > 0 && (
+              <Popover>
+                <PopoverTrigger asChild>
+                  <div 
+                    className="h-6 w-6 p-0 flex items-center justify-center cursor-pointer group"
+                    onMouseEnter={(e) => {
+                      e.currentTarget.click();
+                    }}
+                  >
+                    <Info className="h-4 w-4 text-muted-foreground group-hover:text-foreground" />
+                  </div>
+                </PopoverTrigger>
+                <PopoverContent className="w-140 bg-background border border-border shadow-lg z-50" align="start" side="bottom">
+                  <div className="space-y-2">
+                    <h4 className="font-medium text-sm">
+                      Scheduling Conflicts ({conflicts.length})
+                    </h4>
+                    <p className="text-xs text-muted-foreground">
+                      Resource has conflicting events
+                    </p>
+                    <ScrollArea 
+                      className="h-48 overflow-y-auto overscroll-contain"
+                      onWheel={(e) => {
+                        e.stopPropagation();
+                      }}
+                    >
+                      <div className="space-y-2">
+                        <table className="w-full text-xs">
+                          <thead>
+                            <tr className="border-b">
+                              <th className="text-center py-1 px-2">Event ID</th>
+                              <th className="text-center py-1 px-2">Event Title</th>
+                              <th className="text-center py-1 px-2">Date</th>
+                              <th className="text-center py-1 px-2">Time</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            {conflicts.map((conflict, index) => (
+                              <tr key={index} className="border-b hover:bg-muted/30">
+                                <td className="text-center py-1 px-2">{conflict.id}</td>
+                                <td className="text-center py-1 px-2">{conflict.title}</td>
+                                <td className="text-center py-1 px-2">{`${formatDate(conflict.date.start)} - ${formatDate(conflict.date.end)}`}</td>
+                                <td className="text-center py-1 px-2">{`${formatTime(conflict.time.start)} - ${formatTime(conflict.time.end)}`}</td>
+                              </tr>
+                            ))}
+                          </tbody>
+                        </table>
+                      </div>
+                    </ScrollArea>
+                  </div>
+                </PopoverContent>
+              </Popover>
+            )}
+          </div>
+        );
+      },
     },
     {
       accessorKey: "group",
@@ -327,7 +498,7 @@ export const EmployeeTable: React.FC<EmployeeTableProps> = ({
         return (
           <div className="flex flex-wrap gap-1 justify-center">
             {groups.map((group, idx) => (
-              <span key={idx} className="inline-block rounded bg-primary text-primary-foreground px-1 text-[9px] font-medium">{group}</span>
+              <span key={idx} className="inline-block rounded bg-primary text-primary-foreground px-1 text-[10px] font-medium">{group}</span>
             ))}
           </div>
         );
@@ -346,7 +517,7 @@ export const EmployeeTable: React.FC<EmployeeTableProps> = ({
         return (
           <div className="flex flex-wrap gap-1 justify-center">
             {skills.map((skill, idx) => (
-              <span key={idx} className="inline-block rounded bg-primary text-primary-foreground px-1 text-[9px] font-medium">{skill}</span>
+              <span key={idx} className="inline-block rounded bg-primary text-primary-foreground px-1 text-[10px] font-medium">{skill}</span>
             ))}
           </div>
         );
@@ -580,13 +751,21 @@ export const EmployeeTable: React.FC<EmployeeTableProps> = ({
           </TableHeader>
           <TableBody>
             {table.getRowModel().rows.length ? (
-              table.getRowModel().rows.map((row) => (
-                <TableRow key={row.id} className="border-b border-border hover:bg-muted/50">
-                  {row.getVisibleCells().map((cell) => (
-                    <TableCell key={cell.id} className="px-2 py-1 text-center text-[12px] font-sans">{flexRender(cell.column.columnDef.cell, cell.getContext())}</TableCell>
-                  ))}
-                </TableRow>
-              ))
+              table.getRowModel().rows.map((row) => {
+                const isConflicted = conflictedResourceIds.includes(row.original.id);
+                return (
+                  <TableRow 
+                    key={row.id} 
+                    className={`border-b border-border hover:bg-muted/50 ${
+                      isConflicted ? 'bg-yellow-100 hover:bg-yellow-200' : ''
+                    }`}
+                  >
+                    {row.getVisibleCells().map((cell) => (
+                      <TableCell key={cell.id} className="px-2 py-1 text-center text-[12px] font-sans">{flexRender(cell.column.columnDef.cell, cell.getContext())}</TableCell>
+                    ))}
+                  </TableRow>
+                );
+              })
             ) : (
               <TableRow><TableCell colSpan={columns.length} className="h-16 text-center text-muted-foreground text-[12px]">No employees found.</TableCell></TableRow>
             )}

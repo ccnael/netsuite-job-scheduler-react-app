@@ -8,10 +8,10 @@ import { fetchAssets, assignAsset, type Asset } from '@/api/asset';
 import { fetchWOResources, type WOResource } from '@/api/woResource';
 import { fetchWOVendors, type WOVendor } from '@/api/woVendor';
 import { fetchWOAssets, type WOAsset } from '@/api/woAsset';
-import { fetchWorkOrders, type WorkOrder } from '@/api/workOrder';
-import { fetchWOItems } from "@/api/woItem";
-import { fetchWOContacts } from "@/api/woContact";
-import { fetchWOAddresses } from "@/api/woAddress";
+import { fetchWorkOrders, type WorkOrder, printWorkOrder, holdWorkOrder, cancelWorkOrder } from '@/api/workOrder';
+import { fetchWOItems, type WOItem } from "@/api/woItem";
+import { fetchWOContacts, type WOContact } from "@/api/woContact";
+import { fetchWOAddresses, type WOAddress } from "@/api/woAddress";
 import { fetchRoutingGroups, type RoutingGroup } from '@/api/routingGroup';
 import { fetchCustomers, type Customer } from "@/api/customer";
 import { fetchLocations, type Location } from "@/api/location";
@@ -179,6 +179,9 @@ const Board = () => {
   const [woResources, setWoResources] = useState<WOResource[]>([]);
   const [woVendors, setWoVendors] = useState<WOVendor[]>([]);
   const [woAssets, setWoAssets] = useState<WOAsset[]>([]);
+  const [woItems, setWoItems] = useState<WOItem[]>([]);
+  const [woContacts, setWoContacts] = useState<WOContact[]>([]);
+  const [woAddresses, setWoAddresses] = useState<WOAddress[]>([]);
   const [routingGroups, setRoutingGroups] = useState<RoutingGroup[]>([]);
   const [routingGroupsLoaded, setRoutingGroupsLoaded] = useState(false);
   const [customers, setCustomers] = useState<Customer[]>([]);
@@ -316,6 +319,9 @@ const Board = () => {
         setWoResources(woResourceData);
         setWoVendors(woVendorData);
         setWoAssets(woAssetData);
+        setWoItems(woItemData);
+        setWoContacts(woContactData);
+        setWoAddresses(woAddressData);
       } catch (error) {
         console.error('Board: Failed to load data:', error);
         toast.error('Failed to load board data', {
@@ -336,6 +342,11 @@ const Board = () => {
   const [selectedEventForUpdate, setSelectedEventForUpdate] = useState<Event | null>(null);
   const [selectedEventForComplete, setSelectedEventForComplete] = useState<Event | null>(null);
   const [isRemoveDialogOpen, setIsRemoveDialogOpen] = useState(false);
+  const [workOrderId, setWorkOrderId] = useState(null);
+  const [workOrderAction, setWorkOrderAction] = useState('');
+  const [selectedWo, setSelectedWo] = useState(null);
+  const [isWOStatusDialogOpen, setIsWOStatusDialogOpen] = useState(false);
+  const [isWOUpdating, setIsWOUpdating] = useState(false);
   const [selectedEventForRemove, setSelectedEventForRemove] = useState<Event | null>(null);
   const [isRemoving, setIsRemoving] = useState(false);
   const [isAssigning, setIsAssigning] = useState(false);
@@ -362,8 +373,6 @@ const Board = () => {
       setIsRemoving(true);
       await removeEvent(selectedEventForRemove);
       
-      await loadAllData();
-      
       toast.custom((id) => (
         <div
           data-sonner-rounded-toast
@@ -385,6 +394,8 @@ const Board = () => {
         duration: 5000,
         position: "top-right",
       });
+
+      await loadAllData();
       
       // Manually close the dialog after successful removal
       setIsRemoveDialogOpen(false);
@@ -400,51 +411,85 @@ const Board = () => {
     }
   };
 
+  const handleWOStatusUpdate = async (e: React.MouseEvent) => {
+    e.preventDefault();
+    
+    if (!workOrderId) return;
+
+    try {
+      setIsWOUpdating(true);
+
+      const wo = jobs.find(j => j.id === workOrderId);
+
+      if (workOrderAction === 'hold') {
+        await holdWorkOrder(workOrderId);
+      } else if (workOrderAction === 'close') {
+        await cancelWorkOrder(workOrderId);
+      }
+
+      toast.custom((id) => (
+        <div
+          data-sonner-rounded-toast
+          className="flex items-start gap-3 w-full max-w-xl bg-green-100 text-green-800 border border-green-300 px-4 py-3 rounded-md"
+        >
+          <CheckCircle className="h-5 w-5 mt-0.5 text-green-700 shrink-0" />
+          <div className="flex-1 text-sm font-medium">
+            Work Order "{wo.title}" is now set to <strong>{workOrderAction.toUpperCase()}</strong>.
+          </div>
+          <button
+            onClick={() => toast.dismiss(id)}
+            className="ml-3 text-green-800 hover:text-red-500 p-1"
+          >
+            <X size={16} />
+          </button>
+        </div>
+      ), {
+        unstyled: true,
+        duration: 5000,
+        position: "top-right",
+      });
+
+      await loadAllData();
+
+      setWorkOrderId(null);
+      // setWorkOrderAction(null);
+      setIsWOStatusDialogOpen(false);
+    } catch (error) {
+      console.error('Failed to set work order status:', error);
+      toast.error('Failed to set work order status', {
+        position: "top-right",
+        className: "!bg-red-100 !text-red-800 !border !border-red-300",
+      });
+    } finally {
+      setIsWOUpdating(false);
+    }
+  };
+
   const handleCardAction = (cardId: string, action: string, isEvent: boolean = false) => {
     const cardList = isEvent ? events : jobs;
     const card = isEvent ? events.find(e => e.id === cardId) : jobs.find(j => j.id === cardId);
     
     if (!card) return;
 
-    const cardTitle = isEvent ? (card as Event).title || 'Event' : (card as Job).title;
+    if (!isEvent) {
+      setSelectedWo(card);
+    }
 
     switch (action) {
       case 'print':
-        toast.success(`Printing ${cardTitle}`, {
-          position: "top-right",
-          className: "!bg-green-100 !text-green-800 !border !border-green-300",
-        });
+        printWorkOrder(cardId);
         break;
       case 'hold':
         // Update job status to ON_HOLD
-        if (!isEvent) {
-          setJobs(jobs.map(job => 
-            job.id === cardId 
-              ? { 
-                  ...job, 
-                  status: { text: 'On Hold', value: 'ON_HOLD', code: 'ON_HOLD' } 
-                }
-              : job
-          ));
-        }
-        toast.info(`${cardTitle} put on hold`);
+        setWorkOrderId(cardId);
+        setWorkOrderAction('hold');
+        setIsWOStatusDialogOpen(true);
         break;
       case 'close':
-        // Update job status to COMPLETED
-        if (!isEvent) {
-          setJobs(jobs.map(job => 
-            job.id === cardId 
-              ? { 
-                  ...job, 
-                  status: { text: 'Completed', value: 'COMPLETED', code: 'COMPLETED' } 
-                }
-              : job
-          ));
-        }
-        toast.success(`${cardTitle} closed`, {
-          position: "top-right",
-          className: "!bg-green-100 !text-green-800 !border !border-green-300",
-        });
+        // Update job status to CANCELLED
+        setWorkOrderId(cardId);
+        setWorkOrderAction('close');
+        setIsWOStatusDialogOpen(true);
         break;
       case 'update':
         if (isEvent) {
@@ -458,7 +503,7 @@ const Board = () => {
           setIsCompleteEventModalOpen(true);
         } else {
           setEvents(events.filter(e => e.id !== cardId));
-          toast.success(`${cardTitle} completed`, {
+            toast.info(`In Progress...`, {
             position: "top-right",
             className: "!bg-green-100 !text-green-800 !border !border-green-300",
           });
@@ -838,8 +883,6 @@ const Board = () => {
           await assignAsset(resourceDetails, event);
         }
 
-        await loadAllData();
-
         toast.custom((id) => (
           <div
             data-sonner-rounded-toast
@@ -861,6 +904,8 @@ const Board = () => {
           duration: 5000,
           position: "top-right",
         });
+
+        await loadAllData();
       } catch (error) {
         console.error('Failed to assign resource:', error);
         toast.error(`Failed to assign ${resource.type} to event`, {
@@ -919,28 +964,6 @@ const Board = () => {
     // console.log('Should show drop zone for event', eventId, ':', !isAssigned);
     return !isAssigned;
   };
-
-  const handleCompleteEvent = useCallback((submittedFormData: any) => {
-    console.log('Complete event form data:', submittedFormData);
-
-    const updatedEvents = events.map(event => 
-      event.id === selectedEventForComplete?.id 
-        ? { 
-            ...event, 
-            status: { text: 'Completed', value: 'COMPLETED', code: 'COMPLETED' } 
-          }
-        : event
-    );
-    
-    setEvents(updatedEvents);
-    setIsCompleteEventModalOpen(false);
-    setSelectedEventForComplete(null);
-    
-    toast.success(`Event completed successfully`, {
-      position: "top-right",
-      className: "!bg-green-100 !text-green-800 !border !border-green-300",
-    });
-  }, [events, selectedEventForComplete]);
 
   const getActiveEventFiltersCount = (filter: EventFilterState) => {
     return filter.statuses.length + 
@@ -1142,14 +1165,16 @@ const Board = () => {
           <div className="flex-1 bg-background p-4 h-full">
             <div className="space-y-4 h-full flex flex-col border-r relative">
               <div className="absolute inset-0 flex justify-center items-center">
-                <div className="animate-spin rounded-full h-10 w-10 border-b-2 border-primary"></div>
+                {/* <div className="animate-spin rounded-full h-10 w-10 border-b-2 border-primary"></div> */}
+                <Loader className="animate-spin rounded-full h-10 w-10 border-primary text-muted-foreground" />
               </div>
             </div>
           </div>
           <div className="flex-1 bg-background p-4 h-full">
             <div className="space-y-4 h-full flex flex-col relative">
               <div className="absolute inset-0 flex justify-center items-center">
-                <div className="animate-spin rounded-full h-10 w-10 border-b-2 border-primary"></div>
+                {/* <div className="animate-spin rounded-full h-10 w-10 border-b-2 border-primary"></div> */}
+                <Loader className="animate-spin rounded-full h-10 w-10 border-primary text-muted-foreground" />
               </div>
             </div>
           </div>
@@ -1159,6 +1184,7 @@ const Board = () => {
   }
 
   console.log('selectedEventForComplete', selectedEventForComplete);
+  console.log('selectedEventForUpdate', selectedEventForUpdate);
 
   return (
     <div className="p-6 h-screen bg-background">
@@ -1787,6 +1813,7 @@ const Board = () => {
         isOpen={isCreateModalOpen}
         onClose={() => setIsCreateModalOpen(false)}
         onEventCreated={loadAllData}
+        events={events}
         selectedJob={selectedJob ? {
           id: selectedJob.id,
           title: selectedJob.title,
@@ -1819,6 +1846,26 @@ const Board = () => {
           ) : 
           []
         }
+        woItems={selectedJob ? 
+          woItems.filter(x => 
+            x.workorder.value == selectedJob.id
+            && !x.event
+          ) : 
+          []
+        }
+        woContacts={selectedJob ? 
+          woContacts.filter(x => 
+            x.workorder.value == selectedJob.id
+            && !x.event
+          ) : 
+          []
+        }
+        woAddresses={selectedJob ? 
+          woAddresses.filter(x => 
+            x.workorder.value == selectedJob.id
+          ) : 
+          []
+        }
       />
 
       <UpdateEvent
@@ -1841,14 +1888,32 @@ const Board = () => {
           woAssets.filter(x => x.event == selectedEventForUpdate.id) : 
           []
         }
+        woItems={selectedEventForUpdate?.woRef ? 
+          woItems.filter(x => 
+            x.workorder.value == selectedEventForUpdate.woRef.id
+          ) : 
+          []
+        }
+        woContacts={selectedEventForUpdate?.woRef ? 
+          woContacts.filter(x => 
+            x.workorder.value == selectedEventForUpdate.woRef.id
+          ) : 
+          []
+        }
+        woAddresses={selectedEventForUpdate?.woRef ? 
+          woAddresses.filter(x => 
+            x.workorder.value == selectedEventForUpdate.woRef.id
+          ) : 
+          []
+        }
       />
 
       {selectedEventForComplete && (
         <CompleteEvent 
-          selectedEvent={selectedEventForComplete} 
           isOpen={isCompleteEventModalOpen}
           onClose={() => setIsCompleteEventModalOpen(false)}
-          onSubmit={handleCompleteEvent}
+          selectedEvent={selectedEventForComplete} 
+          onEventCompleted={loadAllData}
         />
       )}
        
@@ -2043,6 +2108,35 @@ const Board = () => {
                   </>
                 ) : (
                   'Remove Event'
+                )}
+              </AlertDialogAction>
+            </AlertDialogFooter>
+          </AlertDialogContent>
+        </AlertDialog>
+
+        {/* WO Status Dialog */}
+         <AlertDialog open={isWOStatusDialogOpen} onOpenChange={setIsWOStatusDialogOpen}>
+          <AlertDialogContent>
+            <AlertDialogHeader>
+              <AlertDialogTitle>Update Work Order Status</AlertDialogTitle>
+              <AlertDialogDescription>
+                Update Work Order "{selectedWo?.title}" Status to "{workOrderAction.toUpperCase()}"?
+              </AlertDialogDescription>
+            </AlertDialogHeader>
+            <AlertDialogFooter>
+              <AlertDialogCancel disabled={isWOUpdating}>Cancel</AlertDialogCancel>
+              <AlertDialogAction
+                onClick={handleWOStatusUpdate}
+                disabled={isWOUpdating}
+              >
+                {isWOUpdating ? (
+                  <>
+                    {/* <Loader2 className="mr-2 h-4 w-4 animate-spin" /> */}
+                    <Loader className="mr-2 h-4 w-4 animate-spin" />
+                    Updating...
+                  </>
+                ) : (
+                  'Update'
                 )}
               </AlertDialogAction>
             </AlertDialogFooter>
