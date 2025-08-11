@@ -5,19 +5,20 @@ import timeGridPlugin from '@fullcalendar/timegrid';
 import { Draggable } from '@fullcalendar/interaction';
 import interactionPlugin from '@fullcalendar/interaction';
 import resourceTimelinePlugin from '@fullcalendar/resource-timeline';
-import { fetchEvents, removeEvent, updateEvent, type Event } from '@/api/event';
+import { removeEvent, updateEvent, type Event } from '@/api/event';
 import { format, parse, isBefore, isAfter } from "date-fns";
-import { fetchEmployees, type Employee } from '@/api/employee';
-import { fetchVendors, type Vendor } from '@/api/vendor';
-import { fetchAssets, type Asset } from '@/api/asset';
-import { fetchWOResources, type WOResource } from '@/api/woResource';
-import { fetchWOVendors, type WOVendor } from '@/api/woVendor';
-import { fetchWOAssets, type WOAsset } from '@/api/woAsset';
-import { fetchWorkOrders, type WorkOrder, printWorkOrder, holdWorkOrder, cancelWorkOrder } from '@/api/workOrder';
+import { type Employee } from '@/api/employee';
+import { type Vendor } from '@/api/vendor';
+import { type Asset } from '@/api/asset';
+import { type WOResource } from '@/api/woResource';
+import { type WOVendor } from '@/api/woVendor';
+import { type WOAsset } from '@/api/woAsset';
+import { type WorkOrder, printWorkOrder, holdWorkOrder, cancelWorkOrder } from '@/api/workOrder';
 import { fetchRoutingGroups, type RoutingGroup } from '@/api/routingGroup';
-import { fetchWOItems, type WOItem } from '@/api/woItem';
-import { fetchWOContacts, type WOContact } from '@/api/woContact';
-import { fetchWOAddresses, type WOAddress } from '@/api/woAddress';
+import { type WOItem } from '@/api/woItem';
+import { type WOContact } from '@/api/woContact';
+import { type WOAddress } from '@/api/woAddress';
+import { useData } from '@/contexts/DataContext';
 import { fetchCustomers, type Customer } from "@/api/customer";
 import { fetchLocations, type Location } from "@/api/location";
 import { toast } from "sonner";
@@ -139,24 +140,15 @@ interface Job {
 }
 
 const Calendar = () => {
-  const [events, setEvents] = useState<Event[]>([]);
-  const [employees, setEmployees] = useState<Employee[]>([]);
-  const [vendors, setVendors] = useState<Vendor[]>([]);
-  const [assets, setAssets] = useState<Asset[]>([]);
+  const { events, employees, vendors, assets, workOrders, woResources, woVendors, woAssets, woItems, woContacts, woAddresses, isLoading: dataLoading, refreshData } = useData();
   const [jobs, setJobs] = useState<Job[]>([]);
-  const [woResources, setWoResources] = useState<WOResource[]>([]);
-  const [woVendors, setWoVendors] = useState<WOVendor[]>([]);
-  const [woAssets, setWoAssets] = useState<WOAsset[]>([]);
-  const [woItems, setWoItems] = useState<WOItem[]>([]);
-  const [woContacts, setWoContacts] = useState<WOContact[]>([]);
-  const [woAddresses, setWoAddresses] = useState<WOAddress[]>([]);
   const [routingGroups, setRoutingGroups] = useState<RoutingGroup[]>([]);
   const [routingGroupsLoaded, setRoutingGroupsLoaded] = useState(false);
   const [customers, setCustomers] = useState<Customer[]>([]);
   const [customersLoaded, setCustomersLoaded] = useState(false);
   const [locations, setLocations] = useState<Location[]>([]);
   const [locationsLoaded, setLocationsLoaded] = useState(false);
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
   const [draggedJob, setDraggedJob] = useState<Job | null>(null);
   const [isCreateModalOpen, setIsCreateModalOpen] = useState(false);
   const [isUpdateModalOpen, setIsUpdateModalOpen] = useState(false);
@@ -483,145 +475,47 @@ const Calendar = () => {
     try {
       setIsLoading(true);
 
-      const [
-        eventData,
-        employeeData,
-        vendorData,
-        assetData,
-        woResourceData,
-        woVendorData,
-        woAssetData,
-        workOrderData,
-        woItemData,
-        woContactData,
-        woAddressData
-      ] = await Promise.all([
-        fetchEvents().catch(() => []),
-        fetchEmployees().catch(() => []),
-        fetchVendors().catch(() => []),
-        fetchAssets().catch(() => []),
-        fetchWOResources('', '').catch(() => []),
-        fetchWOVendors('', '').catch(() => []),
-        fetchWOAssets('', '').catch(() => []),
-        fetchWorkOrders().catch(() => []),
-        fetchWOItems('', '').catch(() => []),
-        fetchWOContacts('', '').catch(() => []),
-        fetchWOAddresses('', '').catch(() => []),
-      ]);
+      // Map work orders to jobs
+      const jobData: Job[] = workOrders.map((wo: WorkOrder) => ({
+        id: wo.id,
+        title: wo.title || 'Untitled Work Order',
+        description: wo.description || 'No description',
+        memo: wo.memo || '',
+        status: {
+          text: wo.status?.text || '',
+          value: wo.status?.value || '',
+          code: wo.status?.code || ''
+        },
+        type: typeof wo.type === 'string' ? wo.type : wo.type?.text || '',
+        date: wo.date || new Date().toLocaleDateString(),
+        customer: wo.customer?.text || '',
+        location: wo.location?.text || '',
+        project: wo.project?.text || '',
+        salesOrder: wo.salesorder?.text || '',
+        estHours: +wo.esthours || 0,
+        woUrl: wo.woUrl,
+        soUrl: wo.soUrl,
+        projectUrl: wo.projectUrl,
+        customerUrl: undefined,
+        workOrder: wo,
+        receiptStatus: wo.receiptStatus || { text: 'Not Set', value: '', code: '' },
+        projectInsight: wo.projectInsight || { text: '', value: '' }
+      }));
 
-        for (const resource of woResourceData) {
-          const event = eventData.find(e => e.id === resource.event);
-          if (event) {
-            event.resources = event.resources || [];
-            event.resources.push({
-              ...resource
-            });
-          }
-        }
-
-        for (const vendor of woVendorData) {
-          const event = eventData.find(e => e.id === vendor.event);
-          if (event) {
-            event.vendors = event.vendors || [];
-            event.vendors.push({
-              ...vendor
-            });
-          }
-        }
-
-        for (const asset of woAssetData) {
-          const event = eventData.find(e => e.id === asset.event);
-          if (event) {
-            event.assets = event.assets || [];
-            event.assets.push({
-              ...asset
-            });
-          }
-        }
-
-        for (const event of eventData) {
-          const wo = workOrderData.find(e => e.id === event.workorder.value);
-          if (wo) {
-            event.woRef = { ...wo };
-          }
-        }
-
-        for (const item of woItemData) {
-          const event = eventData.find(e => e.id === item.event);
-          if (event) {
-            event.items.push({ ...item });
-          }
-        }
-
-        for (const contact of woContactData) {
-          const event = eventData.find(e => contact.event.includes(e.id));
-          if (event) {
-            event.contacts.push({ ...contact });
-          }
-        }
-
-        for (const address of woAddressData) {
-          const event = eventData.find(e => address.events.includes(e.id));
-          if (event) {
-            event.address = {
-              value: address.id,
-              text: address.customer.text
-            };
-            event.addresses = event.addresses || [];
-            event.addresses.push({
-              ...address
-            });
-          }
-        }
-
-        const jobsData = (workOrderData || []).map((wo: WorkOrder): Job => ({
-          id: wo.id,
-          title: wo.title || 'Untitled Work Order',
-          description: wo.description || 'No description',
-          memo: wo.memo,
-          status: {
-            text: wo.status?.text ?? '',
-            value: wo.status?.value ?? '',
-            code: wo.status?.code ?? ''
-          },
-          type: wo.type.text || '',
-          date: wo.date || new Date().toLocaleDateString(),
-          customer: wo.customer.text,
-          location: wo.location.text,
-          project: wo.project.text,
-          salesOrder: wo.salesorder.text,
-          estHours: +wo.esthours,
-          woUrl: wo.woUrl,
-          soUrl: wo.soUrl,
-          projectUrl: wo.projectUrl,
-          workOrder: wo,
-          receiptStatus: wo.receiptStatus || { text: '', value: '' },
-          projectInsight: wo.projectInsight
-        }));
-
-        // Set all the updated data
-        setEvents(eventData);
-        setEmployees(employeeData);
-        setVendors(vendorData);
-        setAssets(assetData);
-        setJobs(jobsData);
-        setWoResources(woResourceData);
-        setWoVendors(woVendorData);
-        setWoAssets(woAssetData);
-        setWoItems(woItemData);
-        setWoContacts(woContactData);
-        setWoAddresses(woAddressData);
+      setJobs(jobData);
       } catch (error) {
         console.error('Calendar: Failed to load data:', error);
         toast.error('Failed to load calendar data');
       } finally {
         setIsLoading(false);
       }
-    }, []);
+    }, [workOrders]);
 
   useEffect(() => {
-    loadAllData();
-  }, [loadAllData]);
+    if (!dataLoading) {
+      loadAllData();
+    }
+  }, [dataLoading, workOrders, loadAllData]);
 
   // console.log('eventData', events.find(x => x.id == '101211'));
 
@@ -1395,7 +1289,7 @@ const Calendar = () => {
     }
   }
 
-  if (isLoading) {
+  if (dataLoading || isLoading) {
     /* return (
       <div className="flex justify-center items-center h-screen">
         <div className="animate-spin rounded-full h-10 w-10 border-b-2 border-primary"></div>

@@ -572,7 +572,7 @@ export const EmployeeTable: React.FC<EmployeeTableProps> = ({
         </div>
       )
     },
-  ], [updateTime, handleSelectAll, handleRowToggle, renderSortIcon, rowSelection]);
+  ], [updateTime, handleSelectAll, handleRowToggle, renderSortIcon, rowSelection, conflictEvents, conflictedResourceIds]);
 
   const table = useReactTable({
     data: tableData, 

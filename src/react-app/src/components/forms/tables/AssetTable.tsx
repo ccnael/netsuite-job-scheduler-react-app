@@ -269,7 +269,7 @@ export const AssetTable: React.FC<AssetTableProps> = ({
         }
       }));
     }
-  }, []);
+  }, [currentStartTime, currentEndTime]);
 
   // Handler functions for row selection
   const handleRowToggle = useCallback((rowId: string, checked: boolean) => {
@@ -401,7 +401,7 @@ export const AssetTable: React.FC<AssetTableProps> = ({
         return (
           <div className="flex items-center gap-1 justify-center">
             <div className={cn("font-sans tracking-tight text-[12px] text-muted-foreground", isConflicted && conflicts.length > 0 ? "text-muted-foreground" : "text-foreground")}>{row.getValue("name")}</div>
-            {isConflicted && conflicts.length > 0 && (
+            {isConflicted && conflicts.length > 0 && conflictedAssetIds.includes(row.original.id) ? (
               <Popover>
                 <PopoverTrigger asChild>
                   <div 
@@ -453,7 +453,7 @@ export const AssetTable: React.FC<AssetTableProps> = ({
                   </div>
                 </PopoverContent>
               </Popover>
-            )}
+            ) : null}
           </div>
         );
       },
@@ -522,7 +522,7 @@ export const AssetTable: React.FC<AssetTableProps> = ({
         </div>
       )
     },
-  ], [updateField, handleSelectAll, handleRowToggle, renderSortIcon, rowSelection]);
+  ], [updateField, handleSelectAll, handleRowToggle, renderSortIcon, rowSelection, conflictEvents, conflictedAssetIds]);
 
   // Apply filters to the data
   const filteredData = useMemo(() => {

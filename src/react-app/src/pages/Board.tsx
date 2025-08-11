@@ -1,21 +1,23 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { Card } from '../components/Card';
 import { Resources } from '../components/Resources';
-import { fetchEvents, removeEvent, type Event } from '@/api/event';
-import { fetchEmployees, assignEmployee, type Employee } from '@/api/employee';
-import { fetchVendors, assignVendor, type Vendor } from '@/api/vendor';
-import { fetchAssets, assignAsset, type Asset } from '@/api/asset';
-import { fetchWOResources, type WOResource } from '@/api/woResource';
-import { fetchWOVendors, type WOVendor } from '@/api/woVendor';
-import { fetchWOAssets, type WOAsset } from '@/api/woAsset';
-import { fetchWorkOrders, type WorkOrder, printWorkOrder, holdWorkOrder, cancelWorkOrder } from '@/api/workOrder';
-import { fetchWOItems, type WOItem } from "@/api/woItem";
-import { fetchWOContacts, type WOContact } from "@/api/woContact";
-import { fetchWOAddresses, type WOAddress } from "@/api/woAddress";
+import { removeEvent, type Event } from '@/api/event';
+import { assignEmployee, type Employee } from '@/api/employee';
+import { assignVendor, type Vendor } from '@/api/vendor';
+import { assignAsset, type Asset } from '@/api/asset';
+import { type WOResource } from '@/api/woResource';
+import { type WOVendor } from '@/api/woVendor';
+import { type WOAsset } from '@/api/woAsset';
+import { type WorkOrder, printWorkOrder, holdWorkOrder, cancelWorkOrder } from '@/api/workOrder';
+import { type WOItem } from "@/api/woItem";
+import { type WOContact } from "@/api/woContact";
+import { type WOAddress } from "@/api/woAddress";
+import { useData } from '@/contexts/DataContext';
 import { fetchRoutingGroups, type RoutingGroup } from '@/api/routingGroup';
 import { fetchCustomers, type Customer } from "@/api/customer";
 import { fetchLocations, type Location } from "@/api/location";
 import { toast } from "sonner";
+import { useToast } from "@/hooks/use-toast";
 import { format, parse } from "date-fns";
 import {
   ResizablePanelGroup,
@@ -131,171 +133,61 @@ interface Job {
 }
 
 const Board = () => {
-  const [events, setEvents] = useState<Event[]>([]);
-  const [employees, setEmployees] = useState<Employee[]>([]);
-  const [vendors, setVendors] = useState<Vendor[]>([]);
-  const [assets, setAssets] = useState<Asset[]>([]);
+  const { toast: toastHook } = useToast();
+  const { 
+    events, 
+    employees, 
+    vendors, 
+    assets, 
+    workOrders, 
+    woResources, 
+    woVendors, 
+    woAssets, 
+    woItems, 
+    woContacts, 
+    woAddresses, 
+    isLoading, 
+    refreshData 
+  } = useData();
+  
   const [jobs, setJobs] = useState<Job[]>([]);
-  const [woResources, setWoResources] = useState<WOResource[]>([]);
-  const [woVendors, setWoVendors] = useState<WOVendor[]>([]);
-  const [woAssets, setWoAssets] = useState<WOAsset[]>([]);
-  const [woItems, setWoItems] = useState<WOItem[]>([]);
-  const [woContacts, setWoContacts] = useState<WOContact[]>([]);
-  const [woAddresses, setWoAddresses] = useState<WOAddress[]>([]);
   const [routingGroups, setRoutingGroups] = useState<RoutingGroup[]>([]);
   const [routingGroupsLoaded, setRoutingGroupsLoaded] = useState(false);
   const [customers, setCustomers] = useState<Customer[]>([]);
   const [customersLoaded, setCustomersLoaded] = useState(false);
   const [locations, setLocations] = useState<Location[]>([]);
   const [locationsLoaded, setLocationsLoaded] = useState(false);
-  const [isLoading, setIsLoading] = useState(true);
-  const [loadingError, setLoadingError] = useState<string | null>(null);
 
-  const loadAllData = useCallback(async () => {
-    try {
-      setIsLoading(true);
-
-      const [
-        eventData,
-        workOrderData,
-        employeeData,
-        vendorData,
-        assetData,
-        woResourceData,
-        woVendorData,
-        woAssetData,
-        woItemData,
-        woContactData,
-        woAddressData
-      ] = await Promise.all([
-        fetchEvents().catch(() => []),
-        fetchWorkOrders().catch(() => []),
-        fetchEmployees().catch(() => []),
-        fetchVendors().catch(() => []),
-        fetchAssets().catch(() => []),
-        fetchWOResources('', '').catch(() => []),
-        fetchWOVendors('', '').catch(() => []),
-        fetchWOAssets('', '').catch(() => []),
-        fetchWOItems('', '').catch(() => []),
-        fetchWOContacts('', '').catch(() => []),
-        fetchWOAddresses('', '').catch(() => [])
-      ]);
-
-        for (const resource of woResourceData) {
-          const event = eventData.find(e => e.id === resource.event);
-          if (event) {
-            event.resources = event.resources || [];
-            event.resources.push({
-              ...resource
-            });
-          }
-        }
-
-        for (const vendor of woVendorData) {
-          const event = eventData.find(e => e.id === vendor.event);
-          if (event) {
-            event.vendors = event.vendors || [];
-            event.vendors.push({
-              ...vendor
-            });
-          }
-        }
-
-        for (const asset of woAssetData) {
-          const event = eventData.find(e => e.id === asset.event);
-          if (event) {
-            event.assets = event.assets || [];
-            event.assets.push({
-              ...asset
-            });
-          }
-        }
-
-        for (const event of eventData) {
-          const wo = workOrderData.find(e => e.id === event.workorder.value);
-          if (wo) {
-            event.woRef = { ...wo };
-          }
-        }
-
-        for (const item of woItemData) {
-          const event = eventData.find(e => e.id === item.event);
-          if (event) {
-            event.items.push({ ...item });
-          }
-        }
-
-        for (const contact of woContactData) {
-          const event = eventData.find(e => contact.event.includes(e.id));
-          if (event) {
-            event.contacts.push({ ...contact });
-          }
-        }
-
-        for (const address of woAddressData) {
-          const event = eventData.find(e => address.events.includes(e.id));
-          if (event) {
-            event.address = {
-              value: address.id,
-              text: address.customer.text
-            };
-            event.addresses = event.addresses || [];
-            event.addresses.push({
-              ...address
-            });
-          }
-        }
-
-        const jobsData = (workOrderData || []).map((wo: WorkOrder): Job => ({
-          id: wo.id,
-          title: wo.title || 'Untitled Work Order',
-          description: wo.description || 'No description',
-          memo: wo.memo,
-          status: {
-            text: wo.status?.text ?? '',
-            value: wo.status?.value ?? '',
-            code: wo.status?.code ?? ''
-          },
-          type: wo.type.text || '',
-          date: wo.date || new Date().toLocaleDateString(),
-          customer: wo.customer.text,
-          location: wo.location.text,
-          project: wo.project.text,
-          salesOrder: wo.salesorder.text,
-          estHours: +wo.esthours,
-          woUrl: wo.woUrl,
-          soUrl: wo.soUrl,
-          projectUrl: wo.projectUrl,
-          workOrder: wo,
-          receiptStatus: wo.receiptStatus || { text: '', value: '' },
-          projectInsight: wo.projectInsight
-        }));
-
-        setEvents(eventData);
-        setEmployees(employeeData);
-        setVendors(vendorData);
-        setAssets(assetData);
-        setJobs(jobsData);
-        setWoResources(woResourceData);
-        setWoVendors(woVendorData);
-        setWoAssets(woAssetData);
-        setWoItems(woItemData);
-        setWoContacts(woContactData);
-        setWoAddresses(woAddressData);
-      } catch (error) {
-        console.error('Board: Failed to load data:', error);
-        toast.error('Failed to load board data', {
-          position: "top-right",
-          className: "!bg-red-100 !text-red-800 !border !border-red-300",
-        });
-      } finally {
-        setIsLoading(false);
-      }
-    }, []);
-
+  // Convert workOrders to jobs format when data changes
   useEffect(() => {
-    loadAllData();
-  }, [loadAllData]);
+    if (workOrders && workOrders.length > 0) {
+      const jobsData = workOrders.map((wo: WorkOrder): Job => ({
+        id: wo.id,
+        title: wo.title || 'Untitled Work Order',
+        description: wo.description || 'No description',
+        memo: wo.memo,
+        status: {
+          text: wo.status?.text ?? '',
+          value: wo.status?.value ?? '',
+          code: wo.status?.code ?? ''
+        },
+        type: wo.type.text || '',
+        date: wo.date || new Date().toLocaleDateString(),
+        customer: wo.customer.text,
+        location: wo.location.text,
+        project: wo.project.text,
+        salesOrder: wo.salesorder.text,
+        estHours: +wo.esthours,
+        woUrl: wo.woUrl,
+        soUrl: wo.soUrl,
+        projectUrl: wo.projectUrl,
+        workOrder: wo,
+        receiptStatus: wo.receiptStatus || { text: '', value: '' },
+        projectInsight: wo.projectInsight
+      }));
+      setJobs(jobsData);
+    }
+  }, [workOrders]);
 
   const [isUpdateModalOpen, setIsUpdateModalOpen] = useState(false);
   const [isCompleteEventModalOpen, setIsCompleteEventModalOpen] = useState(false);
@@ -355,7 +247,7 @@ const Board = () => {
         position: "top-right",
       });
 
-      await loadAllData();
+      await refreshData();
       
       // Manually close the dialog after successful removal
       setIsRemoveDialogOpen(false);
@@ -409,7 +301,7 @@ const Board = () => {
         position: "top-right",
       });
 
-      await loadAllData();
+      await refreshData();
 
       setWorkOrderId(null);
       // setWorkOrderAction(null);
@@ -462,8 +354,8 @@ const Board = () => {
           setSelectedEventForComplete(card as Event);
           setIsCompleteEventModalOpen(true);
         } else {
-          setEvents(events.filter(e => e.id !== cardId));
-            toast.info(`In Progress...`, {
+          // Note: events are managed by DataContext, so we just show progress message
+          toast.info(`In Progress...`, {
             position: "top-right",
             className: "!bg-green-100 !text-green-800 !border !border-green-300",
           });
@@ -865,7 +757,7 @@ const Board = () => {
           position: "top-right",
         });
 
-        await loadAllData();
+        await refreshData();
       } catch (error) {
         console.error('Failed to assign resource:', error);
         toast.error(`Failed to assign ${resource.type} to event`, {
@@ -1148,11 +1040,7 @@ const Board = () => {
 
   return (
     <div className="p-6 h-screen bg-background">
-      {loadingError && (
-        <div className="bg-yellow-50 p-2 mb-4 border border-yellow-200 rounded text-yellow-800 text-sm">
-          {loadingError}
-        </div>
-      )}
+      {/* loadingError handled by DataContext */}
       <div className="flex rounded-lg border relative overflow-hidden h-full">
         <Collapsible
           open={!isCollapsed}
@@ -1357,41 +1245,74 @@ const Board = () => {
                   </div>
                 </div>
                 <ScrollArea className="flex-1 h-full">
-                  <div className="grid auto-rows-max gap-0 justify-items-center h-full"
-                       style={{
-                         gridTemplateColumns: 'repeat(auto-fill, minmax(150px, 1fr))',
-                         width: '100%'
-                       }}>
-                     {filteredJobs.map((job) => (
-                       <div 
-                         key={job.id} 
-                         className="w-full max-w-[170px] p-0.5"
-                         data-tooltip-id="job-tooltip"
-                         data-tooltip-content={job.title}
-                       >
-                         <Card
-                          id={parseInt(job.id)}
-                          title={job.title}
-                          description={job.description}
-                          customer={job.customer}
-                          date={job.date}
-                          salesOrder={job.salesOrder}
-                          project={job.project}
-                          estHours={job.estHours}
-                          woUrl={job.woUrl}
-                          soUrl={job.soUrl}
-                          projectUrl={job.projectUrl}
-                          status={job.status}
-                          draggable
-                          onDragStart={() => handleDragStart(job.id)}
-                          onDragEnd={handleDragEnd}
-                          isDragging={draggedCard === job.id}
-                          onAction={(action) => handleCardAction(job.id, action)}
-                          compact
-                        />
+                  {isLoading || !workOrders || workOrders.length === 0 ? (
+                    <div className="p-6 h-screen bg-background">
+                      <div className="flex rounded-lg border relative overflow-hidden h-full">
+                        <div className="w-[250px] min-w-[250px] h-full bg-background p-4 border-r">
+                          <div className="space-y-2 h-full flex flex-col">
+                            <Skeleton className="h-6 w-24" />
+                            <div className="space-y-1 flex-1">
+                              {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15].map((i) => (
+                                <Skeleton key={i} className="h-16 w-full" />
+                              ))}
+                            </div>
+                          </div>
+                        </div>
+                        <div className="flex-1 bg-background p-4 h-full">
+                          <div className="space-y-4 h-full flex flex-col border-r relative">
+                            <div className="absolute inset-0 flex justify-center items-center">
+                              {/* <div className="animate-spin rounded-full h-10 w-10 border-b-2 border-primary"></div> */}
+                              <Loader className="animate-spin rounded-full h-10 w-10 border-primary text-muted-foreground" />
+                            </div>
+                          </div>
+                        </div>
+                        <div className="flex-1 bg-background p-4 h-full">
+                          <div className="space-y-4 h-full flex flex-col relative">
+                            <div className="absolute inset-0 flex justify-center items-center">
+                              {/* <div className="animate-spin rounded-full h-10 w-10 border-b-2 border-primary"></div> */}
+                              <Loader className="animate-spin rounded-full h-10 w-10 border-primary text-muted-foreground" />
+                            </div>
+                          </div>
+                        </div>
                       </div>
-                    ))}
-                  </div>
+                    </div>
+                  ) : (
+                    <div className="grid auto-rows-max gap-0 justify-items-center h-full"
+                         style={{
+                           gridTemplateColumns: 'repeat(auto-fill, minmax(150px, 1fr))',
+                           width: '100%'
+                         }}>
+                       {filteredJobs.map((job) => (
+                         <div 
+                           key={job.id} 
+                           className="w-full max-w-[170px] p-0.5"
+                           data-tooltip-id="job-tooltip"
+                           data-tooltip-content={job.title}
+                         >
+                           <Card
+                            id={parseInt(job.id)}
+                            title={job.title}
+                            description={job.description}
+                            customer={job.customer}
+                            date={job.date}
+                            salesOrder={job.salesOrder}
+                            project={job.project}
+                            estHours={job.estHours}
+                            woUrl={job.woUrl}
+                            soUrl={job.soUrl}
+                            projectUrl={job.projectUrl}
+                            status={job.status}
+                            draggable
+                            onDragStart={() => handleDragStart(job.id)}
+                            onDragEnd={handleDragEnd}
+                            isDragging={draggedCard === job.id}
+                            onAction={(action) => handleCardAction(job.id, action)}
+                            compact
+                          />
+                        </div>
+                      ))}
+                    </div>
+                  )}
                 </ScrollArea>
               </div>
             </div>
@@ -1652,14 +1573,27 @@ const Board = () => {
                     </div>
                 </div>
                 <ScrollArea className="flex-1 h-full">
-                  <div className="grid auto-rows-max gap-0 justify-items-center h-full"
-                       style={{
-                         gridTemplateColumns: 'repeat(auto-fill, minmax(150px, 1fr))',
-                         width: '100%'
-                       }}>
-                     {filteredEvents.map((event) => {
-                       const canAcceptDrop = shouldShowDropZone(event.id);
-                        const isAlreadyAssigned = draggedResource && isResourceAssignedToEvent(event.id, draggedResource.id, draggedResource.type);
+                  {isLoading || !events || events.length === 0 ? (
+                    <div className="grid auto-rows-max gap-0 justify-items-center h-full"
+                         style={{
+                           gridTemplateColumns: 'repeat(auto-fill, minmax(150px, 1fr))',
+                           width: '100%'
+                         }}>
+                      {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((i) => (
+                        <div key={i} className="w-full max-w-[170px] p-0.5">
+                          <Skeleton className="h-32 w-full rounded-lg" />
+                        </div>
+                      ))}
+                    </div>
+                  ) : (
+                    <div className="grid auto-rows-max gap-0 justify-items-center h-full"
+                         style={{
+                           gridTemplateColumns: 'repeat(auto-fill, minmax(150px, 1fr))',
+                           width: '100%'
+                         }}>
+                       {filteredEvents.map((event) => {
+                         const canAcceptDrop = shouldShowDropZone(event.id);
+                         const isAlreadyAssigned = draggedResource && isResourceAssignedToEvent(event.id, draggedResource.id, draggedResource.type);
                        
                       //  console.log('Event', event.id, 'canAcceptDrop:', canAcceptDrop, 'isAlreadyAssigned:', isAlreadyAssigned);
                        
@@ -1746,9 +1680,10 @@ const Board = () => {
                             />
                           </div>
                         </div>
-                      );
-                    })}
-                  </div>
+                       );
+                      })}
+                    </div>
+                  )}
                 </ScrollArea>
               </div>
             </div>
@@ -1772,7 +1707,7 @@ const Board = () => {
       <CreateEvent
         isOpen={isCreateModalOpen}
         onClose={() => setIsCreateModalOpen(false)}
-        onEventCreated={loadAllData}
+        onEventCreated={refreshData}
         events={events}
         selectedJob={selectedJob ? {
           id: selectedJob.id,
@@ -1831,7 +1766,7 @@ const Board = () => {
       <UpdateEvent
         isOpen={isUpdateModalOpen}
         onClose={() => setIsUpdateModalOpen(false)}
-        onEventUpdated={loadAllData}
+        onEventUpdated={refreshData}
         events={events}
         selectedEvent={selectedEventForUpdate}
         employees={employees}
@@ -1875,7 +1810,7 @@ const Board = () => {
           onClose={() => setIsCompleteEventModalOpen(false)}
           selectedEvent={selectedEventForComplete} 
           employees={employees}
-          onEventCompleted={loadAllData}
+          onEventCompleted={refreshData}
         />
       )}
        
@@ -1931,28 +1866,90 @@ const Board = () => {
                  {pendingResourceAssignment?.resource.type === "employee" && (
                    <div className="grid grid-cols-2 gap-4">
                      <div className="min-w-[130px]">
-                       <TimeRangeFilter
-                         id="start-time"
-                         label="Start Time"
-                         value={assignmentFormData.startTime}
-                         onChange={(time) => setAssignmentFormData(prev => ({ ...prev, startTime: time }))}
-                         isRequired={true}
-                         overrideLabelClassName='!text-[14px]'
-                         overrideFieldClassName='w-full justify-start text-left font-normal tracking-tight'
-                         overrideContentClassName='px-3 py-2 hover:bg-accent cursor-pointer text-[14px] rounded-sm transition-colors'
-                       />
+                        <TimeRangeFilter
+                          id="start-time"
+                          label="Start Time"
+                          value={assignmentFormData.startTime}
+                          onChange={(time) => {
+                            const currentStartTime = pendingResourceAssignment?.event.time.start;
+                            const currentEndTime = pendingResourceAssignment?.event.time.end;
+                            const formatTime = (timeStr: string) => {
+                              if (!timeStr) return '';
+                              const [hours, minutes] = timeStr.split(':');
+                              const hour = parseInt(hours);
+                              const period = hour >= 12 ? 'PM' : 'AM';
+                              const displayHour = hour === 0 ? 12 : hour > 12 ? hour - 12 : hour;
+                              return `${displayHour}:${minutes} ${period}`;
+                            };
+                            
+                            // Only validate if value is not empty (allow clearing with X button)
+                            if (time && currentStartTime && currentEndTime && (time < currentStartTime || time > currentEndTime)) {
+                              toast.error(`Start time must be between ${formatTime(currentStartTime)} and ${formatTime(currentEndTime)}`, {
+                                position: "top-right",
+                                className: "!bg-red-100 !text-red-800 !border !border-red-300",
+                              });
+                              return; // Don't update if invalid
+                            }
+                            
+                            // Validate time range if both times are set
+                            if (time && assignmentFormData.endTime && time > assignmentFormData.endTime) {
+                              toast.error("Start time must be earlier than or equal to end time", {
+                                position: "top-right",
+                                className: "!bg-red-100 !text-red-800 !border !border-red-300",
+                              });
+                              return; // Don't update if invalid
+                            }
+                            
+                            setAssignmentFormData(prev => ({ ...prev, startTime: time }));
+                          }}
+                          isRequired={true}
+                          overrideLabelClassName='!text-[14px]'
+                          overrideFieldClassName='w-full justify-start text-left font-normal tracking-tight'
+                          overrideContentClassName='px-3 py-2 hover:bg-accent cursor-pointer text-[14px] rounded-sm transition-colors'
+                        />
                      </div>
                      <div className="min-w-[130px]">
-                       <TimeRangeFilter
-                         id="end-time"
-                         label="End Time"
-                         value={assignmentFormData.endTime}
-                         onChange={(time) => setAssignmentFormData(prev => ({ ...prev, endTime: time }))}
-                         isRequired={true}
-                         overrideLabelClassName='!text-[14px]'
-                         overrideFieldClassName='w-full justify-start text-left font-normal tracking-tight'
-                         overrideContentClassName='px-3 py-2 hover:bg-accent cursor-pointer text-[14px] rounded-sm transition-colors'
-                       />
+                        <TimeRangeFilter
+                          id="end-time"
+                          label="End Time"
+                          value={assignmentFormData.endTime}
+                          onChange={(time) => {
+                            const currentStartTime = pendingResourceAssignment?.event.time.start;
+                            const currentEndTime = pendingResourceAssignment?.event.time.end;
+                            const formatTime = (timeStr: string) => {
+                              if (!timeStr) return '';
+                              const [hours, minutes] = timeStr.split(':');
+                              const hour = parseInt(hours);
+                              const period = hour >= 12 ? 'PM' : 'AM';
+                              const displayHour = hour === 0 ? 12 : hour > 12 ? hour - 12 : hour;
+                              return `${displayHour}:${minutes} ${period}`;
+                            };
+                            
+                            // Only validate if value is not empty (allow clearing with X button)
+                            if (time && currentStartTime && currentEndTime && (time < currentStartTime || time > currentEndTime)) {
+                              toast.error(`End time must be between ${formatTime(currentStartTime)} and ${formatTime(currentEndTime)}`, {
+                                position: "top-right",
+                                className: "!bg-red-100 !text-red-800 !border !border-red-300",
+                              });
+                              return; // Don't update if invalid
+                            }
+                            
+                            // Validate time range if both times are set
+                            if (time && assignmentFormData.startTime && assignmentFormData.startTime > time) {
+                              toast.error("End time must be later than or equal to start time", {
+                                position: "top-right",
+                                className: "!bg-red-100 !text-red-800 !border !border-red-300",
+                              });
+                              return; // Don't update if invalid
+                            }
+                            
+                            setAssignmentFormData(prev => ({ ...prev, endTime: time }));
+                          }}
+                          isRequired={true}
+                          overrideLabelClassName='!text-[14px]'
+                          overrideFieldClassName='w-full justify-start text-left font-normal tracking-tight'
+                          overrideContentClassName='px-3 py-2 hover:bg-accent cursor-pointer text-[14px] rounded-sm transition-colors'
+                        />
                      </div>
                    </div>
                  )}
@@ -1988,35 +1985,97 @@ const Board = () => {
                        <Input 
                          type="number" 
                          placeholder="Enter quantity" 
-                         min="1"
+                         min={1}
                          value={assignmentFormData.quantity}
                          onChange={(e) => setAssignmentFormData(prev => ({ ...prev, quantity: e.target.value }))}
                        />
                      </div>
                      <div className="grid grid-cols-2 gap-4">
                        <div className="min-w-[130px]">
-                         <TimeRangeFilter
-                           id="asset-start-time"
-                           label="Start Time"
-                           value={assignmentFormData.startTime}
-                           onChange={(time) => setAssignmentFormData(prev => ({ ...prev, startTime: time }))}
-                           isRequired={true}
-                           overrideLabelClassName='!text-[14px]'
-                           overrideFieldClassName='w-full justify-start text-left font-normal tracking-tight'
-                           overrideContentClassName='px-3 py-2 hover:bg-accent cursor-pointer text-[14px] rounded-sm transition-colors'
-                         />
+                          <TimeRangeFilter
+                            id="asset-start-time"
+                            label="Start Time"
+                            value={assignmentFormData.startTime}
+                            onChange={(time) => {
+                              const currentStartTime = pendingResourceAssignment?.event.time.start;
+                              const currentEndTime = pendingResourceAssignment?.event.time.end;
+                              const formatTime = (timeStr: string) => {
+                                if (!timeStr) return '';
+                                const [hours, minutes] = timeStr.split(':');
+                                const hour = parseInt(hours);
+                                const period = hour >= 12 ? 'PM' : 'AM';
+                                const displayHour = hour === 0 ? 12 : hour > 12 ? hour - 12 : hour;
+                                return `${displayHour}:${minutes} ${period}`;
+                              };
+                              
+                              // Only validate if value is not empty (allow clearing with X button)
+                              if (time && currentStartTime && currentEndTime && (time < currentStartTime || time > currentEndTime)) {
+                                toast.error(`Start time must be between ${formatTime(currentStartTime)} and ${formatTime(currentEndTime)}`, {
+                                  position: "top-right",
+                                  className: "!bg-red-100 !text-red-800 !border !border-red-300",
+                                });
+                                return; // Don't update if invalid
+                              }
+                              
+                              // Validate time range if both times are set
+                              if (time && assignmentFormData.endTime && time > assignmentFormData.endTime) {
+                                toast.error("Start time must be earlier than or equal to end time", {
+                                  position: "top-right",
+                                  className: "!bg-red-100 !text-red-800 !border !border-red-300",
+                                });
+                                return; // Don't update if invalid
+                              }
+                              
+                              setAssignmentFormData(prev => ({ ...prev, startTime: time }));
+                            }}
+                            isRequired={true}
+                            overrideLabelClassName='!text-[14px]'
+                            overrideFieldClassName='w-full justify-start text-left font-normal tracking-tight'
+                            overrideContentClassName='px-3 py-2 hover:bg-accent cursor-pointer text-[14px] rounded-sm transition-colors'
+                          />
                        </div>
                        <div className="min-w-[130px]">
-                         <TimeRangeFilter
-                           id="asset-end-time"
-                           label="End Time"
-                           value={assignmentFormData.endTime}
-                           onChange={(time) => setAssignmentFormData(prev => ({ ...prev, endTime: time }))}
-                           isRequired={true}
-                           overrideLabelClassName='!text-[14px]'
-                           overrideFieldClassName='w-full justify-start text-left font-normal tracking-tight'
-                           overrideContentClassName='px-3 py-2 hover:bg-accent cursor-pointer text-[14px] rounded-sm transition-colors'
-                         />
+                          <TimeRangeFilter
+                            id="asset-end-time"
+                            label="End Time"
+                            value={assignmentFormData.endTime}
+                            onChange={(time) => {
+                              const currentStartTime = pendingResourceAssignment?.event.time.start;
+                              const currentEndTime = pendingResourceAssignment?.event.time.end;
+                              const formatTime = (timeStr: string) => {
+                                if (!timeStr) return '';
+                                const [hours, minutes] = timeStr.split(':');
+                                const hour = parseInt(hours);
+                                const period = hour >= 12 ? 'PM' : 'AM';
+                                const displayHour = hour === 0 ? 12 : hour > 12 ? hour - 12 : hour;
+                                return `${displayHour}:${minutes} ${period}`;
+                              };
+                              
+                              // Only validate if value is not empty (allow clearing with X button)
+                              if (time && currentStartTime && currentEndTime && (time < currentStartTime || time > currentEndTime)) {
+                                toast.error(`End time must be between ${formatTime(currentStartTime)} and ${formatTime(currentEndTime)}`, {
+                                  position: "top-right",
+                                  className: "!bg-red-100 !text-red-800 !border !border-red-300",
+                                });
+                                return; // Don't update if invalid
+                              }
+                              
+                              // Validate time range if both times are set
+                              if (time && assignmentFormData.startTime && assignmentFormData.startTime > time) {
+                                toast.error("End time must be later than or equal to start time", {
+                                  position: "top-right",
+                                  className: "!bg-red-100 !text-red-800 !border !border-red-300",
+                                });
+                                return; // Don't update if invalid
+                              }
+                              
+                              setAssignmentFormData(prev => ({ ...prev, endTime: time }));
+                            }}
+                            isRequired={true}
+                            overrideLabelClassName='!text-[14px]'
+                            overrideFieldClassName='w-full justify-start text-left font-normal tracking-tight'
+                            overrideContentClassName='px-3 py-2 hover:bg-accent cursor-pointer text-[14px] rounded-sm transition-colors'
+                          />
                        </div>
                      </div>
                    </div>
