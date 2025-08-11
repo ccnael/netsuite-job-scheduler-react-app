@@ -470,7 +470,7 @@ const Calendar = () => {
     }
   }, [eventsFilter, events, filteredEvents]);
 
-
+  // Thinking if still needed...
   const loadAllData = useCallback(async () => {
     try {
       setIsLoading(true);
@@ -713,7 +713,7 @@ const Calendar = () => {
         position: "top-right",
       });
 
-      await loadAllData();
+      await refreshData();
 
       setWorkOrderId(null);
       // setWorkOrderAction(null);
@@ -1042,7 +1042,7 @@ const Calendar = () => {
        setIsRemoving(true);
        await removeEvent(selectedEventForRemove);
        
-       await loadAllData();
+       await refreshData();
        
        toast.custom((id) => (
          <div
@@ -1189,7 +1189,7 @@ const Calendar = () => {
         
         if (activeCount > 0) {
           const badge = document.createElement('div');
-          badge.className = 'filter-badge absolute -top-2 -right-2 mt-[7px] h-4 w-4 flex items-center justify-center p-0 text-[9px] font-semibold border-transparent bg-destructive text-destructive-foreground hover:bg-destructive/80 rounded-full border transition-colors focus:outline-none focus:ring-2 focus:ring-destructive focus:ring-offset-2';
+          badge.className = 'filter-badge absolute -top-2 -right-2 mt-[8px] h-4 w-4 flex items-center justify-center p-0 text-[9px] font-semibold border-transparent bg-destructive text-destructive-foreground hover:bg-destructive/80 rounded-full border transition-colors focus:outline-none focus:ring-2 focus:ring-destructive focus:ring-offset-2';
           badge.textContent = activeCount.toString();
           buttonWrapper.appendChild(badge);
         }
@@ -1419,19 +1419,19 @@ const Calendar = () => {
                               >
                                 Update Event
                               </DropdownMenuItem>
-              <DropdownMenuItem 
-                className="text-xs cursor-pointer"
-                onClick={(e) => {
-                  e.stopPropagation();
-                  const eventToComplete = events.find(e => e.id === event.id);
-                  if (eventToComplete) {
-                    setSelectedEventForComplete(eventToComplete);
-                    setIsCompleteEventModalOpen(true);
-                  }
-                }}
-              >
-                Complete Event
-              </DropdownMenuItem>
+                              <DropdownMenuItem 
+                                className="text-xs cursor-pointer"
+                                onClick={(e) => {
+                                  e.stopPropagation();
+                                  const eventToComplete = events.find(e => e.id === event.id);
+                                  if (eventToComplete) {
+                                    setSelectedEventForComplete(eventToComplete);
+                                    setIsCompleteEventModalOpen(true);
+                                  }
+                                }}
+                              >
+                                Complete Event
+                              </DropdownMenuItem>
                               <DropdownMenuItem 
                                 className="text-xs cursor-pointer"
                                 onClick={(e) => {
@@ -1795,7 +1795,7 @@ const Calendar = () => {
                             position: "top-right",
                           });
 
-                          await loadAllData();
+                          await refreshData();
                           
                           // Restore view state after reload
                           if (calendarApi && currentDate && currentView) {
@@ -2245,7 +2245,7 @@ const Calendar = () => {
       <CreateEvent
         isOpen={isCreateModalOpen}
         onClose={() => setIsCreateModalOpen(false)}
-        onEventCreated={loadAllData}
+        onEventCreated={refreshData}
         events={events}
         selectedJob={selectedJob ? {
           id: selectedJob.id,
@@ -2309,7 +2309,7 @@ const Calendar = () => {
       <UpdateEvent
         isOpen={isUpdateModalOpen}
         onClose={() => setIsUpdateModalOpen(false)}
-        onEventUpdated={loadAllData}
+        onEventUpdated={refreshData}
         events={events}
         selectedEvent={selectedEventForUpdate}
         employees={employees}
@@ -2353,7 +2353,7 @@ const Calendar = () => {
           onClose={() => setIsCompleteEventModalOpen(false)}
           selectedEvent={selectedEventForComplete} 
           employees={employees}
-          onEventCompleted={loadAllData}
+          onEventCompleted={refreshData}
         />
       )}
 
