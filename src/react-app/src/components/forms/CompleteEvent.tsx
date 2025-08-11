@@ -9,6 +9,7 @@ import { TimeSheetTable } from './tables/TimeSheetTable';
 import { WOItemTable } from './tables/WOItemTableCompletion';
 import { PunchItemTable } from './tables/PunchItemTable';
 import { type Event } from "@/api/event";
+import { type Employee } from '@/api/employee';
 import { completeEvent } from "@/api/completeEvent";
 import { Loader, CheckCircle, X } from "lucide-react";
 import { isLocalDevelopment } from "@/lib/helpers";
@@ -18,6 +19,7 @@ interface CompleteEventProps {
   isOpen: boolean;
   onClose: () => void;
   selectedEvent: Event;
+  employees: Employee[];
   onEventCompleted?: () => void;
 }
 
@@ -31,6 +33,7 @@ export const CompleteEvent: React.FC<CompleteEventProps> = ({
   isOpen, 
   onClose, 
   selectedEvent, 
+  employees,
   onEventCompleted
 }) => {
   const [startTime, setStartTime] = useState('08:00');
@@ -71,6 +74,25 @@ export const CompleteEvent: React.FC<CompleteEventProps> = ({
   };
 
   const handleSubmit = () => {
+    // timeSheets = timeSheets.filter(x => !!(x.location)); // Location is mandatory in the event record timetracking sublist
+    const missingLocations = timesheetData.filter(x => !x.location);
+    if (missingLocations.length) {
+      toast.error("Cannot continue — some resources have missing locations. Please fill them in.", {
+        position: "top-right",
+        className: "!bg-red-100 !text-red-800 !border !border-red-300",
+      });
+      return;
+    }
+
+    const incompleteTimeEntries = timesheetData.filter(x => !x.startTime || !x.endTime);
+    if (incompleteTimeEntries.length) {
+      toast.error("Looks like some time entries are missing. Please fill them in to proceed.", {
+        position: "top-right",
+        className: "!bg-red-100 !text-red-800 !border !border-red-300",
+      });
+      return;
+    }
+
     const unresolvedPunchItems = punchItemsData.filter(x => x.status.value != 6); // 6 - Not resolved
     if (unresolvedPunchItems.length) {
       toast.error("Unable to proceed. There are still unresolved punch items.", {
@@ -189,12 +211,9 @@ export const CompleteEvent: React.FC<CompleteEventProps> = ({
                 </AccordionTrigger>
                 <AccordionContent className="p-2">
                   <div className="max-h-[400px] overflow-y-auto">
-                    <TimeSheetTable 
-                      startTime={startTime}
-                      endTime={endTime}
-                      onStartTimeChange={handleStartTimeSelect}
-                      onEndTimeChange={handleEndTimeSelect}
+                    <TimeSheetTable
                       selectedEvent={selectedEvent}
+                      employees={employees}
                       onDataChange={handleTimesheetDataChange}
                     />
                   </div>

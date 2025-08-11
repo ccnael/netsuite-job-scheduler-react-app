@@ -12,13 +12,13 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Badge } from "@/components/ui/badge";
 import { Search, ChevronLeft, ChevronRight, ChevronsLeft, ChevronsRight, ChevronUp, ChevronDown, ChevronsUpDown, Filter, Info } from "lucide-react";
 import { Employee } from "@/api/employee";
-import TimeRangeFilter from '../TimeRangeFilter';
+import TimeRangeFilter from '../fields/TimeRangeFilter';
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
-import MultiSelectFilter from '../MultiSelectFilter';
+import MultiSelectFilter from '../fields/MultiSelectFilter';
 import { cn } from "@/lib/utils";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { formatDate, formatTime } from "@/lib/helpers";

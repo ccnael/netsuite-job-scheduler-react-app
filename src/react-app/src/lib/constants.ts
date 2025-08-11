@@ -1,5 +1,5 @@
 import { getSuiteletUrl } from './helpers';
-import { DropdownOption } from '../components/forms/types';
+import { DropdownOption } from '../components/forms/fields/DropdownFilter';
 
 export const suiteletUrl = getSuiteletUrl();
 

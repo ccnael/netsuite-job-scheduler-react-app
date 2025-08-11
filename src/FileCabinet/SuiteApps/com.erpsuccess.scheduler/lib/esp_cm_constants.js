@@ -24,11 +24,6 @@ define({
     ON_HOLD: '#6c757d',
     CLOSED: '#6c757d'
   },
-  /* EventCode: {
-    TENTATIVE: 'bg-secondary',
-    CONFIRMED: 'bg-success',
-    COMPLETED: 'bg-info'
-  }, */
   EventCode: {
     TENTATIVE: '#6c757d',
     CONFIRMED: '#026adf',
@@ -62,21 +57,11 @@ define({
     IMPORT_TIME: 'h:mm a'
   },
   AppFilePath: {
-    VanillaJS: {
-      TEMPLATE: '../vanilla-app-bundle/index.html',
-      STYLE: '../vanilla-app-bundle/index.css',
-      JS: '../vanilla-app-bundle/app.js',
-      SVG: '../vanilla-app-bundle/assets/images/vite.svg',
-      AI_ICON: '../vanilla-app-bundle/assets/images/ai.png'
-    },
-    React: {
-      TEMPLATE: '../react-app-bundle/index.html',
-      STYLE: '../react-app-bundle/index.css',
-      JS: '../react-app-bundle/app.js',
-      SVG: '../react-app-bundle/assets/images/react.svg',
-    },
-    MOCKUP: './esp_cm_mockup.json',
-    FILTER_MAP: './esp_cm_filterMap.json',
+    TEMPLATE: '../react-app-bundle/index.html',
+    STYLE: '../react-app-bundle/index.css',
+    JS: '../react-app-bundle/app.js',
+    SVG: '../react-app-bundle/assets/images/react.svg',
+    LOGS: './logs/sample.json'
   },
   WO_PDF_TEMPLATE_ID: 'CUSTTMPL_FOP_WORK_ORDER'
 })

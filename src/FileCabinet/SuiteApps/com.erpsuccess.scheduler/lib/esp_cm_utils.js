@@ -122,12 +122,13 @@ define([
 
   /**
    * Creates a log file from given contents and saves it to the same folder as a mockup file.
-   * @param {Object} contents - The data to log
+   * @param {String} name - Log file name
+   * @param {Object} contents - Log file contents
    */
-  function createLogFile(contents) {
+  function createLogFile(name, contents) {
     try {
-      const fileObj = file.load(env.AppFilePath.MOCKUP);
-      const { name, folder } = fileObj;
+      const fileObj = file.load(env.AppFilePath.LOGS);
+      const { folder } = fileObj;
       const fileId = file.create({
         name,
         fileType: file.Type.PLAINTEXT,

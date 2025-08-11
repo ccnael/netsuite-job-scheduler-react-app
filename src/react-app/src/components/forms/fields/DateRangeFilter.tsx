@@ -28,23 +28,6 @@ interface DateRangeFilterProps {
   disabled?: boolean;
 }
 
-export const useDateRangeFilter = (initialRange?: DateRange) => {
-  const [dateRange, setDateRange] = React.useState<DateRange>(initialRange || {});
-  
-  const handleDateChange = React.useCallback((field: keyof DateRange, value: Date | undefined) => {
-    setDateRange(prev => ({
-      ...prev,
-      [field]: value
-    }));
-  }, []);
-  
-  return {
-    dateRange,
-    setDateRange,
-    handleDateChange
-  };
-};
-
 const DateRangeFilter: React.FC<DateRangeFilterProps> = ({
   id,
   label,

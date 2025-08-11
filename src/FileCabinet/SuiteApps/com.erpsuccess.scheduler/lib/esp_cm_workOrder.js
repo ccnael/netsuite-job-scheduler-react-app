@@ -152,7 +152,7 @@ define([
       }
     }));
 
-    // utils.createLogFile(JSON.stringify(workOrders));
+    // utils.createLogFile('workOrders.json', JSON.stringify(workOrders));
 
     response.setHeader({
       name: 'Content-Type',

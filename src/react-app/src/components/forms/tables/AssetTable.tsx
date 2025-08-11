@@ -13,9 +13,9 @@ import { Badge } from "@/components/ui/badge";
 import { Search, ChevronLeft, ChevronRight, ChevronsLeft, ChevronsRight, ChevronUp, ChevronDown, ChevronsUpDown, Filter, Info } from "lucide-react";
 import { Asset } from "@/api/asset";
 import * as helper from "@/lib/helpers";
-import TimeRangeFilter from '../TimeRangeFilter';
-import MultiSelectFilter from '../MultiSelectFilter';
-import { Option } from "@/components/ui-custom/MultiSelect";
+import TimeRangeFilter from '../fields/TimeRangeFilter';
+import MultiSelectFilter from '../fields/MultiSelectFilter';
+import { Option } from "@/components/ui/MultiSelect";
 import {
   Popover,
   PopoverContent,

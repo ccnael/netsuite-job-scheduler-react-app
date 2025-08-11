@@ -1,6 +1,6 @@
 import React from "react";
 import { Label } from "@/components/ui/label";
-import { MultiSelect, Option } from "@/components/ui-custom/MultiSelect";
+import { MultiSelect, Option } from "@/components/ui/MultiSelect";
 import { useMultiSelectFetch } from "./hooks/useMultiSelectFetch";
 
 interface MultiSelectFilterProps {

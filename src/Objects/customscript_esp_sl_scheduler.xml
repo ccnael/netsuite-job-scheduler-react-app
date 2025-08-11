@@ -1,5 +1,5 @@
 <suitelet scriptid="customscript_esp_sl_scheduler">
-  <description></description>
+  <description>Field Ops Pro Scheduler</description>
   <isinactive>F</isinactive>
   <name>ESP CFI SL Scheduler</name>
   <notifyadmins>F</notifyadmins>
@@ -8,7 +8,7 @@
   <notifyuser>F</notifyuser>
   <scriptfile>[/SuiteApps/com.erpsuccess.scheduler/esp_sl_scheduler.js]</scriptfile>
   <scriptdeployments>
-    <scriptdeployment scriptid="customdeploy_esp_sl_scheduler_vanillajs">
+    <scriptdeployment scriptid="customdeploy_esp_sl_scheduler">
       <allemployees>F</allemployees>
       <allpartners>F</allpartners>
       <allroles>T</allroles>
@@ -19,20 +19,7 @@
       <loglevel>DEBUG</loglevel>
       <runasrole>ADMINISTRATOR</runasrole>
       <status>RELEASED</status>
-      <title>WO Scheduler (Vanilla JS)</title>
-    </scriptdeployment>
-    <scriptdeployment scriptid="customdeploy_esp_sl_scheduler_react">
-      <allemployees>F</allemployees>
-      <allpartners>F</allpartners>
-      <allroles>T</allroles>
-      <audslctrole></audslctrole>
-      <eventtype></eventtype>
-      <isdeployed>T</isdeployed>
-      <isonline>F</isonline>
-      <loglevel>DEBUG</loglevel>
-      <runasrole>ADMINISTRATOR</runasrole>
-      <status>RELEASED</status>
-      <title>WO Scheduler (React)</title>
+      <title>Scheduler</title>
     </scriptdeployment>
   </scriptdeployments>
 </suitelet>

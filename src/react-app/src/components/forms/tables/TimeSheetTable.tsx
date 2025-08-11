@@ -10,9 +10,14 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Badge } from "@/components/ui/badge";
-import { Search, ChevronLeft, ChevronRight, ChevronsLeft, ChevronsRight, ChevronUp, ChevronDown, ChevronsUpDown, Filter } from "lucide-react";
-import TimeRangeFilter from '../TimeRangeFilter';
+import { Search, ChevronLeft, ChevronRight, ChevronsLeft, ChevronsRight, ChevronUp, ChevronDown, ChevronsUpDown, Filter, Info } from "lucide-react";
+import TimeRangeFilter from '../fields/TimeRangeFilter';
 import { type Event } from "@/api/event";
+import { type Employee } from '@/api/employee';
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
+import { ScrollArea } from "@/components/ui/scroll-area";
+import { toast } from "sonner";
+import { formatTime } from "@/lib/helpers";
 
 interface TimeSheetRow {
   id: string;
@@ -33,25 +38,19 @@ interface TimeSheetRow {
 }
 
 interface TimeSheetTableProps {
-  startTime: string;
-  endTime: string;
-  onStartTimeChange: (time: string) => void;
-  onEndTimeChange: (time: string) => void;
   selectedEvent: Event;
+  employees: Employee[];
   onDataChange?: (data: TimeSheetRow[]) => void;
 }
 
-export const TimeSheetTable: React.FC<TimeSheetTableProps> = ({ 
-  startTime, 
-  endTime, 
-  onStartTimeChange, 
-  onEndTimeChange,
+export const TimeSheetTable: React.FC<TimeSheetTableProps> = ({
   selectedEvent,
+  employees,
   onDataChange
 }) => {
   const [globalFilter, setGlobalFilter] = useState('');
   const [sorting, setSorting] = useState<SortingState>([]);
-  const [pagination, setPagination] = useState({ pageIndex: 0, pageSize: 5 });
+  const [pagination, setPagination] = useState({ pageIndex: 0, pageSize: 20 });
   const [rowSelection, setRowSelection] = useState({});
   
   // Initialize rows from selectedEvent.resources with proper null checks
@@ -62,8 +61,8 @@ export const TimeSheetTable: React.FC<TimeSheetTableProps> = ({
         // selected: false,
         name: String(resource?.name || resource?.text || `Resource ${index + 1}`),
         location: String(resource?.location?.text || '-'),
-        startTime: '',
-        endTime: '',
+        startTime: resource?.time.start,
+        endTime: resource?.time.end,
         awayHrs: '0',
         awayMin: '0',
         stHrs: '0',
@@ -165,6 +164,27 @@ export const TimeSheetTable: React.FC<TimeSheetTableProps> = ({
 
   const handleRowStartTimeChange = (id: string, time: string) => {
     setRows(prev => {
+      const currentRow = prev.find(row => row.id === id);
+      if (currentRow && currentRow.endTime && time && time > currentRow.endTime) {
+        toast.error("Start time must be earlier than or equal to end time", {
+          position: "top-right",
+          className: "!bg-red-100 !text-red-800 !border !border-red-300",
+        });
+        return prev; // Don't update if invalid
+      }
+
+      const resource = selectedEvent.resources.find(x => x.id == id);
+      const currentStartTime = resource?.time?.start;
+      const currentEndTime = resource?.time?.end;
+
+      if (time && currentStartTime && currentEndTime && (time < currentStartTime || time > currentEndTime)) {
+        toast.error(`Start time must be between ${formatTime(currentStartTime)} and ${formatTime(currentEndTime)}`, {
+          position: "top-right",
+          className: "!bg-red-100 !text-red-800 !border !border-red-300",
+        });
+        return prev; // Don't update if invalid
+      }
+      
       const updated = prev.map(row => 
         row.id === id ? { ...row, startTime: time } : row
       );
@@ -174,6 +194,27 @@ export const TimeSheetTable: React.FC<TimeSheetTableProps> = ({
 
   const handleRowEndTimeChange = (id: string, time: string) => {
     setRows(prev => {
+      const currentRow = prev.find(row => row.id === id);
+      if (currentRow && currentRow.startTime && time && time < currentRow.startTime) {
+        toast.error("End time must be later than or equal to start time", {
+          position: "top-right",
+          className: "!bg-red-100 !text-red-800 !border !border-red-300",
+        });
+        return prev; // Don't update if invalid
+      }
+
+      const resource = selectedEvent.resources.find(x => x.id == id);
+      const currentStartTime = resource?.time?.start;
+      const currentEndTime = resource?.time?.end;
+
+      if (time && currentStartTime && currentEndTime && (time < currentStartTime || time > currentEndTime)) {
+        toast.error(`End time must be between ${formatTime(currentStartTime)} and ${formatTime(currentEndTime)}`, {
+          position: "top-right",
+          className: "!bg-red-100 !text-red-800 !border !border-red-300",
+        });
+        return prev; // Don't update if invalid
+      }
+      
       const updated = prev.map(row => 
         row.id === id ? { ...row, endTime: time } : row
       );
@@ -228,9 +269,76 @@ export const TimeSheetTable: React.FC<TimeSheetTableProps> = ({
           Name {renderSortIcon(column)}
         </Button>
       ),
-      cell: ({ row }) => (
-        <div className="text-foreground text-[12px] font-sans tracking-tight">{row.getValue("name")}</div>
-      ),
+      cell: ({ row }) => {
+        const resource = selectedEvent.resources.find(x => x.id == row.original.id);
+        const employee = employees.find(x => x.id == resource.employee.value);
+        const labRates = employee?.labRates || [];
+        
+        return (
+          <div className="flex items-center gap-2">
+            <div className="text-blue-600 text-[12px] font-sans tracking-tight">
+              <a href={decodeURIComponent(employee.url) + "&=&selectedtab=custom336"} target="_blank" rel="noopener noreferrer">
+                {employee.name}
+              </a>
+            </div>
+            {labRates && labRates.length > 0 && (
+              <Popover>
+                <PopoverTrigger asChild>
+                  <div 
+                    className="h-2 w-6 p-0 flex items-center justify-center cursor-pointer group"
+                    onMouseEnter={(e) => {
+                      e.currentTarget.click();
+                    }}
+                  >
+                    <Info className="h-4 w-4 text-muted-foreground group-hover:text-foreground" />
+                  </div>
+                </PopoverTrigger>
+                <PopoverContent className="w-140 bg-background border border-border shadow-lg z-50" align="start" side="bottom">
+                  <div className="space-y-2">
+                    <h4 className="font-medium text-sm">
+                      Labor Rates
+                    </h4>
+                    <p className="text-xs text-muted-foreground">
+                      Employee labor rate information
+                    </p>
+                    <ScrollArea 
+                      className="h-24 overflow-y-auto overscroll-contain"
+                      onWheel={(e) => {
+                        e.stopPropagation();
+                      }}
+                    >
+                      <div className="space-y-2">
+                        <table className="w-full text-xs">
+                          <thead>
+                            <tr className="border-b">
+                              <th className="text-center py-1 px-2">Category</th>
+                              <th className="text-center py-1 px-2">Rate</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            {labRates.map((rate, index) => (
+                              <tr key={index} className="border-b hover:bg-muted/30">
+                                <td className="text-center py-1 px-2">
+                                  {{
+                                    '1': 'Standard Time',
+                                    '2': 'Over Time',
+                                    '3': 'Double Time'
+                                  }[rate.labRateCatId] || rate.labRateCatId}
+                                </td>
+                                <td className="text-center py-1 px-2">{rate.labRate.toFixed(2)}</td>
+                              </tr>
+                            ))}
+                          </tbody>
+                        </table>
+                      </div>
+                    </ScrollArea>
+                  </div>
+                </PopoverContent>
+              </Popover>
+            )}
+          </div>
+        )
+      },
     },
     {
       accessorKey: "location",

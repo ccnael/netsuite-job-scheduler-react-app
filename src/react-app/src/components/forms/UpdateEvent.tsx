@@ -31,10 +31,10 @@ import { type WOContact } from "@/api/woContact";
 import { type WOAddress } from "@/api/woAddress";
 import { isLocalDevelopment } from "@/lib/helpers";
 import { fetchRoutingGroups, RoutingGroup } from "@/api/routingGroup";
-import DropdownFilter from './DropdownFilter';
-import DateRangeFilter from './DateRangeFilter';
-import TimeRangeFilter from './TimeRangeFilter';
-import { DropdownOption } from './types';
+import DropdownFilter from './fields/DropdownFilter';
+import DateRangeFilter from './fields/DateRangeFilter';
+import TimeRangeFilter from './fields/TimeRangeFilter';
+import { DropdownOption } from './fields/DropdownFilter';
 import { priorityOptions, statusOptions } from "@/lib/constants";
 import { toast } from "sonner";
 import { CheckCircle, X } from 'lucide-react';
@@ -427,6 +427,9 @@ export const UpdateEvent: React.FC<UpdateEventProps> = ({
     events,
     selectedEvent?.id
   ]);
+
+  console.log('UPDATE - Resources conflict info', resourceConflictInfo);
+  console.log('UPDATE - Assets conflict info', assetConflictInfo);
 
   const fetchRoutingGroupOptions = async (): Promise<DropdownOption[]> => {
     try {

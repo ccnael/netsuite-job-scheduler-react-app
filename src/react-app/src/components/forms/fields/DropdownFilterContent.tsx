@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { Input } from '@/components/ui/input';
 import { Search, Loader2 } from 'lucide-react';
-import { DropdownOption } from './types';
+import { DropdownOption } from './DropdownFilter';
 
 interface DropdownFilterContentProps {
   options: DropdownOption[];

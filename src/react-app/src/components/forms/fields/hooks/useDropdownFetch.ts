@@ -1,6 +1,6 @@
 
 import { useState, useCallback } from 'react';
-import { DropdownOption, FetchOptionsFunction } from './types';
+import { DropdownOption, FetchOptionsFunction } from '../DropdownFilter';
 
 interface UseDropdownFetchProps {
   options: DropdownOption[];

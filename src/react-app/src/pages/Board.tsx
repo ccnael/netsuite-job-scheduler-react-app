@@ -28,11 +28,11 @@ import {
   CollapsibleTrigger,
 } from "@/components/ui/collapsible";
 import { Button } from "@/components/ui/button";
-import MultiSelectFilter from '../components/forms/MultiSelectFilter';
-import { Option } from '@/components/ui-custom/MultiSelect';
+import MultiSelectFilter from '../components/forms/fields/MultiSelectFilter';
+import { Option } from '@/components/ui/MultiSelect';
 import { ChevronRight, Filter, Bot, ClipboardCheck, Calendar, Plus, Search, Users, X } from "lucide-react";
-import DateRangeFilter from '../components/forms/DateRangeFilter';
-import TimeRangeFilter from '../components/forms/TimeRangeFilter';
+import DateRangeFilter from '../components/forms/fields/DateRangeFilter';
+import TimeRangeFilter from '../components/forms/fields/TimeRangeFilter';
 import {
   Popover,
   PopoverContent,
@@ -128,46 +128,6 @@ interface Job {
     text: string;
     value: string;
   }
-}
-
-interface SelectedResource {
-  id: string;
-  name: string;
-  startTime: string;
-  endTime: string;
-  woResourceId?: string;
-}
-
-interface SelectedVendor {
-  id: string;
-  name: string;
-  quantityRequired: number;
-  memo: string;
-  woVendorId?: string;
-}
-
-interface SelectedAsset {
-  id: string;
-  name: string;
-  quantity: number;
-  startTime: string;
-  endTime: string;
-}
-
-interface SelectedItem {
-  id: string;
-  name: string;
-  quantity: number;
-}
-
-interface SelectedContact {
-  id: string;
-  name: string;
-}
-
-interface SelectedAddress {
-  id: string;
-  name: string;
 }
 
 const Board = () => {
@@ -1872,6 +1832,7 @@ const Board = () => {
         isOpen={isUpdateModalOpen}
         onClose={() => setIsUpdateModalOpen(false)}
         onEventUpdated={loadAllData}
+        events={events}
         selectedEvent={selectedEventForUpdate}
         employees={employees}
         vendors={vendors}
@@ -1913,6 +1874,7 @@ const Board = () => {
           isOpen={isCompleteEventModalOpen}
           onClose={() => setIsCompleteEventModalOpen(false)}
           selectedEvent={selectedEventForComplete} 
+          employees={employees}
           onEventCompleted={loadAllData}
         />
       )}

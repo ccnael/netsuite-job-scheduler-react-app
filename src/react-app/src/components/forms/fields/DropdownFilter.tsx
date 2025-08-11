@@ -9,9 +9,15 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
-import { DropdownOption, FetchOptionsFunction } from "./types";
-import { useDropdownFetch } from "./useDropdownFetch";
+import { useDropdownFetch } from "./hooks/useDropdownFetch";
 import DropdownFilterContent from "./DropdownFilterContent";
+
+export interface DropdownOption {
+  value: string;
+  text: string | React.ReactNode;
+}
+
+export type FetchOptionsFunction = () => Promise<DropdownOption[]>;
 
 interface DropdownFilterProps {
   id: string;

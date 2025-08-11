@@ -13,7 +13,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Filter, Users, Search, X } from "lucide-react";
-import MultiSelectFilter from './forms/MultiSelectFilter';
+import MultiSelectFilter from './forms/fields/MultiSelectFilter';
 import { type Employee } from '@/api/employee';
 import { type Vendor } from '@/api/vendor';
 import { type Asset } from '@/api/asset';

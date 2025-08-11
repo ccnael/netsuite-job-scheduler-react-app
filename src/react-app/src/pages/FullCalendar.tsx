@@ -61,9 +61,9 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import MultiSelectFilter from '../components/forms/MultiSelectFilter';
-import { Option } from '@/components/ui-custom/MultiSelect';
-import DateRangeFilter from '../components/forms/DateRangeFilter';
+import MultiSelectFilter from '../components/forms/fields/MultiSelectFilter';
+import { Option } from '@/components/ui/MultiSelect';
+import DateRangeFilter from '../components/forms/fields/DateRangeFilter';
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { receiptStatuses, eventStatuses, eventPriorities, eventTypes } from "@/lib/constants";
@@ -1523,7 +1523,7 @@ const Calendar = () => {
                                   handleEventAction('update', event.id);
                                 }}
                               >
-                                Update
+                                Update Event
                               </DropdownMenuItem>
               <DropdownMenuItem 
                 className="text-xs cursor-pointer"
@@ -1536,7 +1536,7 @@ const Calendar = () => {
                   }
                 }}
               >
-                Complete
+                Complete Event
               </DropdownMenuItem>
                               <DropdownMenuItem 
                                 className="text-xs cursor-pointer"
@@ -1545,7 +1545,7 @@ const Calendar = () => {
                                   handleEventAction('remove', event.id);
                                 }}
                               >
-                                Remove
+                                Remove Event
                               </DropdownMenuItem>
                             </DropdownMenuContent>
                           </DropdownMenu>
@@ -2416,6 +2416,7 @@ const Calendar = () => {
         isOpen={isUpdateModalOpen}
         onClose={() => setIsUpdateModalOpen(false)}
         onEventUpdated={loadAllData}
+        events={events}
         selectedEvent={selectedEventForUpdate}
         employees={employees}
         vendors={vendors}
@@ -2457,6 +2458,7 @@ const Calendar = () => {
           isOpen={isCompleteEventModalOpen}
           onClose={() => setIsCompleteEventModalOpen(false)}
           selectedEvent={selectedEventForComplete} 
+          employees={employees}
           onEventCompleted={loadAllData}
         />
       )}

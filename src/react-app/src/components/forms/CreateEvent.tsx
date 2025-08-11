@@ -6,7 +6,6 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Switch } from "@/components/ui/switch";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Badge } from "@/components/ui/badge";
 import { ScrollArea } from "@/components/ui/scroll-area";
@@ -28,10 +27,10 @@ import { type WOContact } from "@/api/woContact";
 import { type WOAddress } from "@/api/woAddress";
 import { fetchRoutingGroups, RoutingGroup } from "@/api/routingGroup";
 import { createEvent, type Event } from "@/api/event";
-import DropdownFilter from './DropdownFilter';
-import DateRangeFilter from './DateRangeFilter';
-import TimeRangeFilter from './TimeRangeFilter';
-import { DropdownOption } from './types';
+import DropdownFilter from './fields/DropdownFilter';
+import DateRangeFilter from './fields/DateRangeFilter';
+import TimeRangeFilter from './fields/TimeRangeFilter';
+import { DropdownOption } from './fields/DropdownFilter';
 import { priorityOptions, statusOptions } from "@/lib/constants";
 import { toast } from "sonner";
 import { CheckCircle, X } from 'lucide-react';
@@ -433,6 +432,9 @@ export const CreateEvent: React.FC<CreateEventProps> = ({
     formData.allDay, 
     events
   ]);
+
+  console.log('CREATE - Resources conflict info', resourceConflictInfo);
+  console.log('CREATE - Assets conflict info', assetConflictInfo);
   
   // Debug logging for conflicts
   // console.log('[CreateEvent] Resource conflicts:', resourceConflictInfo);

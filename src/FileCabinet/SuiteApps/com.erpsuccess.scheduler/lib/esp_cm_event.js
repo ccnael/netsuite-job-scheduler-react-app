@@ -293,7 +293,7 @@ define([
     const { eventData, updates } = payload;
 
     log.audit('----- [Update Work Order Event] -----', { updates });
-    log.audit('----- [Event Record Data] -----', eventData);
+    // log.audit('----- [Event Record Data] -----', eventData);
 
     const parsedStartDate = utils.parseDate(updates.date.start);
     const parsedEndDate = utils.parseDate(updates.date.end);
