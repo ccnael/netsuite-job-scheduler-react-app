@@ -2,7 +2,13 @@
  * @NApiVersion 2.1
  * @NModuleScope Public
  */
-define(['N/search'], (search) => {
+define([
+  'N/search',
+  './esp_cm_woVendor'
+], (
+  search,
+  woVendorLib
+) => {
   /**
    * Get the list of vendors
    * @param {Object} context Suitelet object
@@ -92,11 +98,33 @@ define(['N/search'], (search) => {
       value: 'application/json'
     });
 
-    // log.audit('----- [Vendors] -----', vendors);
+    log.audit('----- [Vendors] -----', vendors.length);
     response.write(JSON.stringify(vendors));
   }
 
+  /**
+   * Assign vendor to event (Vendor > WO Vendor)
+   * @param {Object} context Suitelet object
+   */
+  function assignVendor(context) {
+    const { request, response } = context;
+    const requestBody = request.body || '{}';
+    const payload = JSON.parse(requestBody);
+    const { eventData, resourceDetails } = payload;
+
+    eventData.vendors = [resourceDetails];
+
+    woVendorLib.createVendors(eventData);
+
+    response.write(JSON.stringify({
+      code: 200,
+      recordId: eventData.id,
+      status: 'success'
+    }));
+  }
+
   return {
-    getVendors
+    getVendors,
+    assignVendor
   }
 })

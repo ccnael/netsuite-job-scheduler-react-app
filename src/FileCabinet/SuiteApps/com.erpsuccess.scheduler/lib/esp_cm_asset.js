@@ -2,7 +2,21 @@
  * @NApiVersion 2.1
  * @NModuleScope Public
  */
-define(['N/search'], (search) => {
+define([
+  'N/search',
+  './esp_cm_woAsset',
+  './esp_cm_helper',
+  './esp_cm_utils',
+  './esp_cm_constants',
+  './moment.min'
+], (
+  search,
+  woAssetLib,
+  helper,
+  utils,
+  env,
+  moment
+) => {
   /**
    * Get the list of assets
    * @param {Object} context Suitelet object
@@ -65,6 +79,7 @@ define(['N/search'], (search) => {
       quantityUsed: +map.getValue('custrecord_esp_fop_asset_qty_used'),
       owned: map.getValue('custrecord_esp_fop_asset_owned'),
       consumable: map.getValue('custrecord_erp_fop_asset_is_consumable'),
+      events: [], // Will be updated in the front end side once events data is fetched
       time: {
         start: '',
         end: ''
@@ -79,11 +94,39 @@ define(['N/search'], (search) => {
       value: 'application/json'
     });
 
-    // log.audit('----- [Assets & Equipments] -----', assets);
+    log.audit('----- [Assets & Equipments] -----', assets.length);
     response.write(JSON.stringify(assets));
   }
 
+  /**
+ * Assign asset to event (Asset > WO Asset)
+ * @param {Object} context Suitelet object
+ */
+  function assignAsset(context) {
+    const { request, response } = context;
+    const requestBody = request.body || '{}';
+    const payload = JSON.parse(requestBody);
+    const { eventData, resourceDetails } = payload;
+
+    // Prepare date and time NS values formatting
+    eventData.parsedStartDate = utils.parseDate(eventData.date.start);
+    eventData.parsedEndDate = utils.parseDate(eventData.date.end);
+    eventData.date.start = moment(eventData.date.start).format(env.Format.IMPORT_DATE);
+    eventData.date.end = moment(eventData.date.end).format(env.Format.IMPORT_DATE);
+
+    eventData.assets = [resourceDetails];
+
+    woAssetLib.createAssets(eventData);
+
+    response.write(JSON.stringify({
+      code: 200,
+      recordId: eventData.id,
+      status: 'success'
+    }));
+  }
+
   return {
-    getAssets
+    getAssets,
+    assignAsset
   }
 })

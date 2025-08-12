@@ -13,19 +13,42 @@ define([
    * Get the list of WO addresses
    * @param {Object} context Suitelet object
    */
-  function getList(context) {
+  function getAddresses(context) {
     const { request, response } = context;
     const { parameters: params } = request;
-    const { start, end } = params;
+    const { woId, eventId, start, end } = params;
+
+    const filters = [
+      ['isinactive', 'is', 'F']
+    ];
+
+    if (woId) {
+      filters.push(
+        'AND',
+        ['custrecord_esp_fop_address_rel_wo', 'is', woId]
+      );
+    }
+
+    if (eventId) {
+      filters.push(
+        'AND',
+        ['custrecord_esp_fop_wo_add_event', 'is', eventId]
+      );
+    }
+
+    if (!woId && !eventId) {
+      filters.push('AND',
+        [
+          ['custrecord_esp_fop_address_rel_wo', 'noneof', ['@NONE@', '']],
+          'OR',
+          ['custrecord_esp_fop_wo_add_event', 'noneof', ['@NONE@', '']]
+        ]
+      );
+    }
 
     const searchObj = search.create({
       type: env.RecordType.WORK_ORDER_ADDRESS,
-      filters:
-        [
-          ['isinactive', 'is', 'F'],
-          'AND',
-          ['custrecord_esp_fop_address_rel_wo', 'anyof', woIds]
-        ],
+      filters,
       columns:
         [
           search.createColumn({ name: 'custrecord_esp_fop_address_rel_wo', label: 'Work Order' }),
@@ -44,112 +67,112 @@ define([
       });
 
     const addresses = searchResult.map((map) => ({
-      id: result.id,
+      id: map.id,
       workorder: {
-        text: result.getText('custrecord_esp_fop_address_rel_wo'),
-        value: result.getValue('custrecord_esp_fop_address_rel_wo')
+        text: map.getText('custrecord_esp_fop_address_rel_wo'),
+        value: map.getValue('custrecord_esp_fop_address_rel_wo')
       },
       customer: {
-        text: result.getText('custrecord_esp_fop_wo_add_customer'),
-        value: result.getValue('custrecord_esp_fop_wo_add_customer')
+        text: map.getText('custrecord_esp_fop_wo_add_customer'),
+        value: map.getValue('custrecord_esp_fop_wo_add_customer')
       },
-      events: helper.stringToArray(result.getValue('custrecord_esp_fop_wo_add_event')),
+      events: helper.stringToArray(map.getValue('custrecord_esp_fop_wo_add_event')),
       address: {
-        text: result.getText('custrecord_esp_fop_wo_address'),
-        value: result.getValue('custrecord_esp_fop_wo_address')
+        text: map.getText('custrecord_esp_fop_wo_address'),
+        value: map.getValue('custrecord_esp_fop_wo_address')
       },
-      addressDetails: (result.getValue('custrecord_esp_fop_wo_add_details') || '').replace(/\n/g, '<br/>'),
+      addressDetails: (map.getValue('custrecord_esp_fop_wo_add_details') || '').replace(/\n/g, '<br/>'),
       get customerUrl() {
-        return Url.customer(this.customer.value)
+        return utils.Url.customerUrl(this.customer.value)
       }
     }));
+
+    response.setHeader({
+      name: 'Content-Type',
+      value: 'application/json'
+    });
 
     // log.audit('----- [Work Order Addresses] -----', addresses);
     response.write(JSON.stringify(addresses));
   }
 
   /**
-   * Add address to the events
+   * Add WO Address to the event
    * @param {Object} event Event data
    */
-  function addEventToAddresses(event) {
-    const addresses = event?.addresses || [];
+  function addEventToAddress(event) {
+    const address = event?.address || {};
+    if (!address.value) return;
 
-    for (const address of addresses) {
-      if (!address.id) continue;
+    try {
+      const addressLookUp = search.lookupFields({
+        type: env.RecordType.WORK_ORDER_ADDRESS,
+        id: address.value,
+        columns: 'custrecord_esp_fop_wo_add_event'
+      });
+      let events = (addressLookUp.custrecord_esp_fop_wo_add_event[0]?.value || '').split(',');
+      events.push(event.id);
+      events = events.filter(Boolean);
 
-      try {
-        const addressLookUp = search.lookupFields({
-          type: env.RecordType.WORK_ORDER_ADDRESS,
-          id: address.id,
-          columns: 'custrecord_esp_fop_wo_add_event'
-        });
-        let events = (addressLookUp.custrecord_esp_fop_wo_add_event[0]?.value || '').split(',');
-        events.push(event.id);
-        events = events.filter(Boolean);
-
-        record.submitFields({
-          type: env.RecordType.WORK_ORDER_ADDRESS,
-          id: address.id,
-          values: {
-            custrecord_esp_fop_wo_add_event: events
-          },
-          options: {
-            ignoreMandatoryFieds: true
-          }
-        });
-        log.audit('----- [Added Event to WO Address Record] -----', address);
-      } catch (e) {
-        log.error('Error on WO Address > Add Events', { address: address.address.text, errorMsg: e.message });
-        address.errorMsg = e.message;
-      }
+      record.submitFields({
+        type: env.RecordType.WORK_ORDER_ADDRESS,
+        id: address.value,
+        values: {
+          custrecord_esp_fop_wo_add_event: events
+        },
+        options: {
+          ignoreMandatoryFieds: true
+        }
+      });
+      log.audit('----- [Added Event to WO Address Record] -----', address);
+    } catch (e) {
+      log.error('Error on WO Address > Add Events', { address, errorMsg: e.message });
+      address.errorMsg = e.message;
     }
   }
 
   /**
-   * Remove the event from the addresses
-   * @param {Array} addresses WO addresses
+   * Remove event from the address
+   * @param {Array} addresses WO Address
    * @param {String|Number} eventId Event internalid
    */
-  function removeEventFromAddresses(addresses, eventId) {
-    for (const address of addresses) {
-      if (!address.id) continue;
+  function removeEventFromAddress(address, eventId) {
+    if (!address.value) return;
 
-      try {
-        const lookUp = search.lookupFields({
-          type: env.RecordType.WORK_ORDER_ADDRESS,
-          id: address.id,
-          columns: 'custrecord_esp_fop_wo_add_event'
-        });
-        const idToRemove = eventId;
-        let events = (lookUp.custrecord_esp_fop_wo_add_event[0]?.value || '').split(',');
-        const index = events.indexOf(idToRemove);
+    try {
+      const lookUp = search.lookupFields({
+        type: env.RecordType.WORK_ORDER_ADDRESS,
+        id: address.value,
+        columns: 'custrecord_esp_fop_wo_add_event'
+      });
+      const idToRemove = eventId;
+      let events = (lookUp.custrecord_esp_fop_wo_add_event[0]?.value || '').split(',');
+      const index = events.indexOf(idToRemove);
 
-        if (index > -1) {
-          events.splice(index, 1);
-        }
-
-        record.submitFields({
-          type: env.RecordType.WORK_ORDER_ADDRESS,
-          id: address.id,
-          values: {
-            custrecord_esp_fop_wo_add_event: events
-          },
-          options: {
-            ignoreMandatoryFieds: true
-          }
-        });
-        log.audit('----- [Removed Event from WO Address Record] -----', address);
-      } catch (e) {
-        log.error('Error on WO Address > Remove Event', { address, errorMsg: e.message });
-        address.errorMsg = e.message;
+      if (index > -1) {
+        events.splice(index, 1);
       }
+
+      record.submitFields({
+        type: env.RecordType.WORK_ORDER_ADDRESS,
+        id: address.value,
+        values: {
+          custrecord_esp_fop_wo_add_event: events
+        },
+        options: {
+          ignoreMandatoryFieds: true
+        }
+      });
+      log.audit('----- [Removed Event from WO Address Record] -----', address);
+    } catch (e) {
+      log.error('Error on WO Address > Remove Event', { address, errorMsg: e.message });
+      address.errorMsg = e.message;
     }
   }
 
   return {
-    getList,
-    addEventToAddresses,
-    removeEventFromAddresses
+    getAddresses,
+    addEventToAddress,
+    removeEventFromAddress
   }
 })

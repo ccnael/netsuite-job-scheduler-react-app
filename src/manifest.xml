@@ -2,7 +2,7 @@
   <publisherid>com.erpsuccess</publisherid>
   <projectid>scheduler</projectid>
   <projectname>CFI Work Order Scheduler</projectname>
-  <projectversion>1.0.0</projectversion>
+  <projectversion>1.5.0</projectversion>
   <frameworkversion>1.0</frameworkversion>
   <dependencies>
     <features>

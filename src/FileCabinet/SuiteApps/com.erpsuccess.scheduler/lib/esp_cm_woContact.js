@@ -13,17 +13,42 @@ define([
    * Get the list of WO contacts
    * @param {Object} context Suitelet object
    */
-  function getList(context) {
+  function getContacts(context) {
     const { request, response } = context;
     const { parameters: params } = request;
-    const { start, end } = params;
+    const { woId, eventId, start, end } = params;
+
+    const filters = [
+      ['isinactive', 'is', 'F']
+    ];
+
+    if (woId) {
+      filters.push(
+        'AND',
+        ['custrecord_esp_fop_rel_wo', 'is', woId]
+      );
+    }
+
+    if (eventId) {
+      filters.push(
+        'AND',
+        ['custrecord_esp_fop_wo_rel_event', 'is', eventId]
+      );
+    }
+
+    if (!woId && !eventId) {
+      filters.push('AND',
+        [
+          ['custrecord_esp_fop_rel_wo', 'noneof', ['@NONE@', '']],
+          'OR',
+          ['custrecord_esp_fop_wo_rel_event', 'noneof', ['@NONE@', '']]
+        ]
+      );
+    }
 
     const searchObj = search.create({
       type: env.RecordType.WORK_ORDER_CONTACT,
-      filters:
-        [
-          ['isinactive', 'is', 'F']
-        ],
+      filters,
       columns:
         [
           search.createColumn({ name: 'custrecord_esp_fop_rel_wo', label: 'Work Order' }),
@@ -66,9 +91,14 @@ define([
       phone: map.getValue('custrecord_esp_fop_wo_phone_number'),
       primary: !!((map.getText('custrecord_esp_fop_wo_contact_role') || '').match(/primary contact/gi)),
       get url() {
-        return Url.contact(this.contact.value)
+        return utils.Url.contactUrl(this.contact.value)
       }
     }));
+
+    response.setHeader({
+      name: 'Content-Type',
+      value: 'application/json'
+    });
 
     // log.audit('----- [Work Order Contacts] -----', contacts);
     response.write(JSON.stringify(contacts));
@@ -79,7 +109,7 @@ define([
    * @param {Object} event Event data
    */
   function createContacts(event) {
-    const contacts = event?.selectedContacts || [];
+    const contacts = event?.contacts || [];
     for (const contact of contacts) {
       try {
         const rec = record.copy({
@@ -91,39 +121,54 @@ define([
         contact.id = rec.save({ ignoreMandatoryFieds: true });
         log.audit('----- [Created WO Contact Record] -----', contact.id);
       } catch (e) {
-        log.error('Error on WO Contact > Create', { id: contact.id, errorMsg: e.message });
+        log.error('Error on WO Contact > Create', { contact, errorMsg: e.message });
         contact.errorMsg = e.message;
       }
     }
   }
 
   /**
-   * Update event contacts
-   * @param {Object} event Event data
-   * @param {Object} dataSrc Data source
+   * Delete WO Contacts records
+   * @param {Object} removeContacts WO Contacts for deletion
    */
-  function updateContacts(event, dataSrc) {
-    const selectedContacts = event.selectedContacts;
-    const selectedContactIds = selectedContacts.map(x => x.id);
-    const srcContacts = dataSrc.contacts.filter(x => !!(x.selected));
-    const srcContactIds = srcContacts.map(x => x.id);
-    const removedContacts = srcContacts.filter(x => !(selectedContactIds.includes(x.id)));
-    const newContacts = selectedContacts.filter(x => !(srcContactIds.includes(x.id)));
-
-    log.audit('Updating WO Contact Event List', { selectedContacts, removedContacts, newContacts });
-
-    // If theres to remove (removed contacts)
+  function removeContacts(removedContacts) {
     utils.deleteRecords(env.RecordType.WORK_ORDER_CONTACT, removedContacts.map(x => x.id));
+  }
 
-    // If theres to create (newly added contacts)
-    const clonedEventObj = helper.deepCopy(event);
-    clonedEventObj.selectedContacts = newContacts;
-    createContacts(clonedEventObj);
+  /**
+   * Prepare WO Contacts to create or remove based on event data and updates.
+   *
+   * @param {Object} eventData - The current event data with existing WO contacts.
+   * @param {Object} updates - The incoming update data with new WO contacts.
+   * @returns {Object} An object containing:
+   *  - newContacts: Contacts that need to be created.
+   *  - removedContacts: Contacts that should be removed.
+   */
+  function prepareUpdatedWOContacts(eventData, updates) {
+    const selectedContacts = updates.contacts || [];
+    const srcContacts = eventData.contacts || [];
+
+    const selectedContactIds = selectedContacts.map(x => x.id).filter(Boolean);
+    const srcContactIds = srcContacts.map(x => x.id);
+
+    const removedContacts = srcContacts.filter(
+      src => !selectedContactIds.includes(src.id)
+    );
+
+    const newContacts = selectedContacts.filter(
+      upd => !upd.id || !srcContactIds.includes(upd.id)
+    );
+
+    return {
+      newContacts,
+      removedContacts
+    };
   }
 
   return {
-    getList,
+    getContacts,
     createContacts,
-    updateContacts
+    removeContacts,
+    prepareUpdatedWOContacts
   }
 })

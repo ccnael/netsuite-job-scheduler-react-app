@@ -2,6 +2,12 @@
 
 A comprehensive scheduling and resource management platform designed for field operations teams
 
+### Preview
+
+![Scheduler - Board View](./src/react-app/public/assets/Scheduler%20-%20Board%20View.png)
+![Scheduler - Calendar View](./src/react-app/public/assets/Scheduler%20-%20Calendar%20View.png)
+![Scheduler - Create Event](./src/react-app/public/assets/Scheduler%20-%20Create%20Event.png)
+
 ### Step 1: Clone the repository using the project's Git URL.
 
 git clone https://github.com/erpsp/CFI-Work-Order-Scheduler.git

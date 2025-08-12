@@ -1,5 +1,6 @@
+
 import { Link, useLocation } from "react-router-dom";
-import { Calendar, Kanban, Moon, Sun } from "lucide-react";
+import { Calendar, Kanban, Moon, Sun, CalendarDays } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useTheme } from "next-themes";
 
@@ -19,13 +20,13 @@ export const Navigation = () => {
             {/* Left links */}
             <div className="flex space-x-6">
               <Link
-                to="/"
+                to="/board"
                 className={cn(
                   "flex items-center space-x-1 text-xs font-medium transition-colors hover:text-white",
-                  location.pathname === "/" ? "text-white" : "text-white/50"
+                  (location.pathname === "/board" || location.pathname === "/") ? "text-white" : "text-white/50"
                 )}
               >
-                <Kanban className={cn("h-3 w-3 text-white",location.pathname === "/" ? "text-white" : "text-white/30")} />
+                <Kanban className={cn("h-3 w-3 text-white",(location.pathname === "/board" || location.pathname === "/") ? "text-white" : "text-white/30")} />
                 <span style={{ fontSize: '10pt' }}>Board</span>
               </Link>
               <Link
@@ -35,7 +36,7 @@ export const Navigation = () => {
                   location.pathname === "/calendar" ? "text-white" : "text-white/50"
                 )}
               >
-                <Calendar className={cn("h-3 w-3 text-white",location.pathname === "/calendar" ? "text-white" : "text-white/30")} />
+                <CalendarDays className={cn("h-3 w-3 text-white",location.pathname === "/fullcalendar" ? "text-white" : "text-white/30")} />
                 <span style={{ fontSize: '10pt' }}>Calendar</span>
               </Link>
             </div>

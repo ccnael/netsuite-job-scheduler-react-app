@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { format, parse } from "date-fns";
 import { MoreHorizontal } from "lucide-react";
 import {
   DropdownMenu,
@@ -105,10 +106,10 @@ export const Card = ({
       onDragStart={onDragStart}
       onDragEnd={onDragEnd}
       className={`
-        bg-white rounded border border-gray-200 p-1.5 ${isEvent ? 'cursor-default' : 'cursor-grab'}
+        bg-card rounded border border-border p-1.5 ${isEvent ? 'cursor-default' : 'cursor-grab'}
         transition-all duration-200 w-full relative max-w-[180px]
         ${isDragging ? 'opacity-50' : 'opacity-100'}
-        hover:shadow-md hover:border-blue-200
+        hover:shadow-md hover:border-primary/20
       `}
     >
       <div className="flex justify-between items-start mb-1">
@@ -118,14 +119,14 @@ export const Card = ({
               href={eventData.url} 
               target="_blank" 
               rel="noopener noreferrer"
-              className={`font-bold text-blue-600 hover:text-blue-800 underline truncate flex-1 text-[11px]`}
+              className={`font-bold text-primary hover:text-primary/80 underline truncate flex-1 text-[11px]`}
               onClick={(e) => e.stopPropagation()}
               title={title}
             >
               {title}
             </a>
           ) : (
-            <h3 className={`font-bold text-gray-800 truncate flex-1 text-[11px]`} title={title}>
+            <h3 className={`font-bold text-card-foreground truncate flex-1 text-[11px]`} title={title}>
               {title}
             </h3>
           )
@@ -134,19 +135,19 @@ export const Card = ({
             href={woUrl} 
             target="_blank" 
             rel="noopener noreferrer"
-            className={`font-bold text-blue-600 hover:text-blue-800 underline truncate flex-1 text-[11px]`}
+            className={`font-bold text-primary hover:text-primary/80 underline truncate flex-1 text-[11px]`}
             onClick={(e) => e.stopPropagation()}
             title={title}
           >
             {title}
           </a>
         ) : (
-          <h3 className={`font-bold text-gray-800 truncate flex-1 text-[11px]`} title={title}>
+          <h3 className={`font-bold text-card-foreground truncate flex-1 text-[11px]`} title={title}>
             {title}
           </h3>
         )}
         <DropdownMenu>
-          <DropdownMenuTrigger className="h-3.5 w-3.5 inline-flex items-center justify-center rounded hover:bg-slate-100">
+          <DropdownMenuTrigger className="h-3.5 w-3.5 inline-flex items-center justify-center rounded hover:bg-muted">
             <MoreHorizontal className="h-2.5 w-2.5" />
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end" className="py-1 px-1.5 min-w-[120px]">
@@ -165,10 +166,10 @@ export const Card = ({
             ) : (
               <>
                 <DropdownMenuItem className="px-2 py-1 text-[11px]" onClick={() => onAction?.('update')}>
-                  Update Event
+                  Update
                 </DropdownMenuItem>
                 <DropdownMenuItem className="px-2 py-1 text-[11px]" onClick={() => onAction?.('complete')}>
-                  Complete Event
+                  Complete
                 </DropdownMenuItem>
                 <DropdownMenuItem className="px-2 py-1 text-[11px]" onClick={() => onAction?.('remove')}>
                   Remove
@@ -181,7 +182,7 @@ export const Card = ({
 
       {isEvent && eventData ? (
         <div className="space-y-0.5">
-          <p className={`text-gray-600 font-medium truncate text-[11px]`} title={`ID ${id}`}>
+          <p className={`text-muted-foreground font-medium truncate text-[11px]`} title={`ID ${id}`}>
             ID {id}
           </p>
           
@@ -193,14 +194,14 @@ export const Card = ({
                   href={eventData.woUrl} 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="text-blue-600 hover:text-blue-800 underline text-[11px] font-medium"
+                  className="text-primary hover:text-primary/80 underline text-[11px] font-medium"
                   onClick={(e) => e.stopPropagation()}
                   title={eventData.workorder.text}
                 >
                   {eventData.workorder.text}
                 </a>
               ) : (
-                <p className="text-gray-600 text-[11px] font-medium" title={eventData.workorder.text}>
+                <p className="text-muted-foreground text-[11px] font-medium" title={eventData.workorder.text}>
                   {eventData.workorder.text}
                 </p>
               )}
@@ -218,21 +219,41 @@ export const Card = ({
 
           {/* Event Date */}
           {eventData.date && (
-            <p className={`text-gray-600 truncate text-[11px]`}>
-              {eventData.date.start == eventData.date.end ? eventData.date.start : `${eventData.date.start} - ${eventData.date.end}`}
+            <p className={`text-muted-foreground truncate text-[11px]`}>
+              {(() => {
+                const formatDateSafe = (dateStr: string) => {
+                  try {
+                    return format(new Date(dateStr), 'M/d/yyyy');
+                  } catch {
+                    return dateStr;
+                  }
+                };
+                const startFormatted = formatDateSafe(eventData.date.start);
+                const endFormatted = formatDateSafe(eventData.date.end);
+                return eventData.date.start == eventData.date.end ? startFormatted : `${startFormatted} - ${endFormatted}`;
+              })()}
             </p>
           )}
 
           {/* Event Time */}
           {eventData.time && (
-            <p className={`text-gray-600 truncate text-[11px]`}>
-              {eventData.time.start} - {eventData.time.end}
+            <p className={`text-muted-foreground truncate text-[11px]`}>
+              {(() => {
+                const formatTimeSafe = (timeStr: string) => {
+                  try {
+                    return format(parse(timeStr, 'HH:mm', new Date()), 'h:mm a');
+                  } catch {
+                    return timeStr;
+                  }
+                };
+                return `${formatTimeSafe(eventData.time.start)} - ${formatTimeSafe(eventData.time.end)}`;
+              })()}
             </p>
           )}
 
           {/* Organizer - only show if not hiding calendar fields */}
           {!hideCalendarFields && eventData.organizer && (
-            <p className={`text-gray-600 truncate text-[11px]`}>
+            <p className={`text-muted-foreground truncate text-[11px]`}>
               Organizer: {eventData.organizer.text}
             </p>
           )}
@@ -267,28 +288,28 @@ export const Card = ({
         </div>
       ) : !isEvent && (customer || date || salesOrder || project || estHours) ? (
         <div className="space-y-0.5">
-           <p className={`text-gray-600 truncate text-[11px]`} title={`ID ${id}`}>
+           <p className={`text-muted-foreground truncate text-[11px]`} title={`ID ${id}`}>
             ID {id}
           </p>
           {customer && (
-             <p className={`text-gray-600 font-bold truncate text-[11px]`} title={customer}>
+             <p className={`text-muted-foreground font-bold truncate text-[11px]`} title={customer}>
               {customer}
             </p>
           )}
           {date && (
-             <p className={`text-gray-600 truncate text-[11px]`} title={date}>
+             <p className={`text-muted-foreground truncate text-[11px]`} title={date}>
               {date}
             </p>
           )}
           {/* Sales Order - only show if not hiding calendar fields */}
           {!hideCalendarFields && salesOrder && (
-             <p className={`text-gray-600 truncate text-[11px]`}>
+             <p className={`text-muted-foreground truncate text-[11px]`}>
               {soUrl ? (
                 <a 
                   href={soUrl} 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="text-blue-600 hover:text-blue-800 underline truncate block"
+                  className="text-primary hover:text-primary/80 underline truncate block"
                   onClick={(e) => e.stopPropagation()}
                   title={salesOrder}
                 >
@@ -301,13 +322,13 @@ export const Card = ({
           )}
           {/* Project - only show if not hiding calendar fields */}
           {!hideCalendarFields && project && (
-             <p className={`text-gray-600 truncate text-[11px]`}>
+             <p className={`text-muted-foreground truncate text-[11px]`}>
               {projectUrl ? (
                 <a 
                   href={projectUrl} 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="text-blue-600 hover:text-blue-800 underline truncate block"
+                  className="text-primary hover:text-primary/80 underline truncate block"
                   onClick={(e) => e.stopPropagation()}
                   title={project}
                 >
@@ -318,16 +339,16 @@ export const Card = ({
               )}
             </p>
           )}
-          <p className={`text-gray-600 truncate text-[11px]`} title={`Est Hours: ${estHours}`}>
+          <p className={`text-muted-foreground truncate text-[11px]`} title={`Est Hours: ${estHours}`}>
             Est Hours: {estHours || 0}
           </p>
         </div>
       ) : (
-        <p className={`text-gray-600 line-clamp-2 mb-1 text-[11px]`} title={description}>{description}</p>
+        <p className={`text-muted-foreground line-clamp-2 mb-1 text-[11px]`} title={description}>{description}</p>
       )}
       
       {group && (
-        <span className={`inline-block px-1 py-0.5 font-medium bg-gray-100 text-gray-600 rounded truncate ${compact ? 'text-[8px]' : 'text-xs'}`} title={group}>
+        <span className={`inline-block px-1 py-0.5 font-medium bg-muted text-muted-foreground rounded truncate ${compact ? 'text-[8px]' : 'text-xs'}`} title={group}>
           {group}
         </span>
       )}

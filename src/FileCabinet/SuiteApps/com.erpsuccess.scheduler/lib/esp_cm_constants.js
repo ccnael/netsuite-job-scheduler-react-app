@@ -14,7 +14,8 @@ define({
     WORK_ORDER_ADDRESS: 'customrecord_esp_fop_wo_address',
     PUNCH: 'customrecord_esp_pp_punch',
     RESOURCE_SKILL: 'customrecord_esp_fop_resource_skill',
-    ASSET: 'customrecord_esp_fop_asset'
+    ASSET: 'customrecord_esp_fop_asset',
+    ROUTING_GROUP: 'customlist_esp_fop_routing_group'
   },
   WorkOrderCode: {
     NOT_STARTED: '#026adf',
@@ -23,15 +24,10 @@ define({
     ON_HOLD: '#6c757d',
     CLOSED: '#6c757d'
   },
-  /* EventCode: {
-    TENTATIVE: 'bg-secondary',
-    CONFIRMED: 'bg-success',
-    COMPLETED: 'bg-info'
-  }, */
   EventCode: {
     TENTATIVE: '#6c757d',
-    CONFIRMED: '#22c55e',
-    COMPLETED: '#3b82f6'
+    CONFIRMED: '#026adf',
+    COMPLETED: '#28a745'
   },
   PriorityCode: {
     LOW: '#026adf',
@@ -61,21 +57,11 @@ define({
     IMPORT_TIME: 'h:mm a'
   },
   AppFilePath: {
-    VanillaJS: {
-      TEMPLATE: '../vanilla-vite-app-bundle/index.html',
-      STYLE: '../vanilla-vite-app-bundle/index.css',
-      JS: '../vanilla-vite-app-bundle/app.js',
-      SVG: '../vanilla-vite-app-bundle/assets/images/vite.svg',
-      AI_ICON: '../vanilla-vite-app-bundle/assets/images/ai.png'
-    },
-    React: {
-      TEMPLATE: '../react-vite-app-bundle/index.html',
-      STYLE: '../react-vite-app-bundle/index.css',
-      JS: '../react-vite-app-bundle/app.js',
-      SVG: '../react-vite-app-bundle/assets/images/react.svg',
-    },
-    MOCKUP: './esp_cm_mockup.json',
-    FILTER_MAP: './esp_cm_filterMap.json',
+    TEMPLATE: '../react-app-bundle/index.html',
+    STYLE: '../react-app-bundle/index.css',
+    JS: '../react-app-bundle/app.js',
+    SVG: '../react-app-bundle/assets/images/react.svg',
+    LOGS: './logs/sample.json'
   },
   WO_PDF_TEMPLATE_ID: 'CUSTTMPL_FOP_WORK_ORDER'
 })

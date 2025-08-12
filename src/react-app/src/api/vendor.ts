@@ -1,125 +1,240 @@
+
 import { suiteletUrl } from '@/lib/constants';
+import { isLocalDevelopment } from '@/lib/helpers';
 
 export interface Vendor {
+  id: string;
+  name: string;
   vendor: {
     text: string;
     value: string;
   };
-  initials: string;
+  url: string;
   email: string;
-  phone: string;
+  initials: string;
+  quantityRequired: number;
+  quantityAvailable: number;
+  purchaseOrder: {
+    text: string;
+    value: string;
+  };
+  woVendor: boolean;
+  events: string[];
+  memo: string;
   location: {
     text: string;
     value: string;
   };
+  department: {
+    text: string;
+    value: string;
+  };
+  time: {
+    start: string;
+    end: string;
+  };
   active: boolean;
-  resourceGroups: Array<{
+  resourceGroups?: Array<{
     text: string;
     value: string;
   }>;
-  types: Array<{
-    text: string;
-    value: string;
-  }>;
-  color: string;
-  url: string;
-  events: string[];
+  color?: string;
+  woVendorId?: string;
 }
 
+
 const getMockVendors = (): Vendor[] => {
-  return [
-    {
+  return [{
+      "id": "12",
+      "name": "Best Fixture, Inc.",
       "vendor": {
-        "text": "ABC Supply Co",
-        "value": "vendor001"
+        "text": "Best Fixture, Inc.",
+        "value": "12"
       },
-      "initials": "AS",
-      "email": "contact@abcsupply.com",
-      "phone": "(555) 123-4567",
+      "url": "",
+      "email": "",
+      "initials": "BF",
+      "quantityRequired": 0,
+      "quantityAvailable": 0,
+      "purchaseOrder": {
+        "text": "",
+        "value": ""
+      },
+      "woVendor": false,
+      "events": [],
+      "memo": "",
       "location": {
-        "text": "01: San Francisco",
-        "value": "2"
+        "text": "",
+        "value": ""
       },
-      "active": true,
-      "resourceGroups": [
-        {
-          "text": "Vendors",
-          "value": "4"
-        }
-      ],
-      "types": [
-        {
-          "text": "Material Supplier",
-          "value": "4"
-        }
-      ],
-      "color": "#ff6b35",
-      "url": "%2Fapp%2Fcommon%2Fentity%2Fvendor.nl%3Fcompid%3DTSTDRV2617106",
-      "events": []
+      "department": {
+        "text": "",
+        "value": ""
+      },
+      "time": {
+        "start": "",
+        "end": ""
+      },
+      "active": true
     },
     {
-      "vendor": {
-        "text": "Quality Tools Inc",
-        "value": "vendor002"
-      },
-      "initials": "QT",
-      "email": "info@qualitytools.com",
-      "phone": "(555) 987-6543",
-      "location": {
-        "text": "02: Boston",
-        "value": "1"
-      },
-      "active": true,
-      "resourceGroups": [
-        {
-          "text": "Vendors",
-          "value": "4"
-        }
-      ],
-      "types": [
-        {
-          "text": "Equipment Supplier",
-          "value": "5"
-        }
-      ],
-      "color": "#4ecdc4",
-      "url": "%2Fapp%2Fcommon%2Fentity%2Fvendor.nl%3Fcompid%3DTSTDRV2617106",
-      "events": []
-    },
-    {
+      "id": "1473",
+      "name": "Bridgepoint Industries",
       "vendor": {
         "text": "Bridgepoint Industries",
-        "value": "vendor003"
+        "value": "1473"
       },
+      "url": "http://www.bridgepointindustries.com.de",
+      "email": "support@bridgempointindustries.com.de",
       "initials": "BI",
-      "email": "info@qualitytools.com",
-      "phone": "(555) 987-6543",
-      "location": {
-        "text": "02: Boston",
-        "value": "1"
+      "quantityRequired": 0,
+      "quantityAvailable": 20,
+      "purchaseOrder": {
+        "text": "",
+        "value": ""
       },
-      "active": true,
-      "resourceGroups": [
-        {
-          "text": "Vendors",
-          "value": "4"
-        }
-      ],
-      "types": [
-        {
-          "text": "Equipment Supplier",
-          "value": "5"
-        }
-      ],
-      "color": "#4ecdc4",
-      "url": "%2Fapp%2Fcommon%2Fentity%2Fvendor.nl%3Fcompid%3DTSTDRV2617106",
-      "events": []
+      "woVendor": false,
+      "events": [],
+      "memo": "",
+      "location": {
+        "text": "",
+        "value": ""
+      },
+      "department": {
+        "text": "",
+        "value": ""
+      },
+      "time": {
+        "start": "",
+        "end": ""
+      },
+      "active": true
+    },
+    {
+      "id": "1661",
+      "name": "CFI Furniture Inc.",
+      "vendor": {
+        "text": "CFI Furniture Inc.",
+        "value": "1661"
+      },
+      "url": "",
+      "email": "login+plural@erpsuccesspartners.com",
+      "initials": "CF",
+      "quantityRequired": 0,
+      "quantityAvailable": 0,
+      "purchaseOrder": {
+        "text": "",
+        "value": ""
+      },
+      "woVendor": false,
+      "events": [],
+      "memo": "",
+      "location": {
+        "text": "",
+        "value": ""
+      },
+      "department": {
+        "text": "",
+        "value": ""
+      },
+      "time": {
+        "start": "",
+        "end": ""
+      },
+      "active": true
+    },
+    {
+      "id": "965",
+      "name": "Computer Depot Pacific",
+      "vendor": {
+        "text": "Computer Depot Pacific",
+        "value": "965"
+      },
+      "url": "http://www.cdp.com",
+      "email": "payables@cdp.com",
+      "initials": "CD",
+      "quantityRequired": 0,
+      "quantityAvailable": 0,
+      "purchaseOrder": {
+        "text": "",
+        "value": ""
+      },
+      "woVendor": false,
+      "events": [],
+      "memo": "",
+      "location": {
+        "text": "",
+        "value": ""
+      },
+      "department": {
+        "text": "",
+        "value": ""
+      },
+      "time": {
+        "start": "",
+        "end": ""
+      },
+      "active": true
+    },
+    {
+      "id": "1664",
+      "name": "Haworth, Inc.",
+      "vendor": {
+        "text": "Haworth, Inc.",
+        "value": "1664"
+      },
+      "url": "",
+      "email": "login+cbi2@erpsuccesspartners.com",
+      "initials": "HI",
+      "quantityRequired": 0,
+      "quantityAvailable": 0,
+      "purchaseOrder": {
+        "text": "",
+        "value": ""
+      },
+      "woVendor": false,
+      "events": [],
+      "memo": "",
+      "location": {
+        "text": "",
+        "value": ""
+      },
+      "department": {
+        "text": "",
+        "value": ""
+      },
+      "time": {
+        "start": "",
+        "end": ""
+      },
+      "active": true
     }
-  ];
+  ]
 };
 
-const isLocalDevelopment = (): boolean => {
-  return import.meta.env.DEV || window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+export const assignVendor = async (resourceDetails: any, eventData: any): Promise<boolean> => {
+  try {
+    const url = `${suiteletUrl}&mode=assignVendor`;
+    const response = await fetch(url, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        resourceDetails,
+        eventData
+      })
+    });
+
+    if (!response.ok) {
+      throw new Error(`Failed to assign vendor: ${response.status}`);
+    }
+
+    return true;
+  } catch (error) {
+    console.error('Error assigning vendor:', error);
+    throw error;
+  }
 };
 
 export const fetchVendors = async (): Promise<Vendor[]> => {

@@ -5,11 +5,13 @@
  * Utility module providing URL resolvers and NetSuite record helpers.
  */
 define([
+  'N/runtime',
   'N/url',
   'N/file',
   'N/record',
+  'N/config',
   './esp_cm_constants'
-], (url, file, record, env) => {
+], (runtime, url, file, record, config, env) => {
   /**
    * Class containing methods to generate NetSuite record and script URLs.
    */
@@ -19,9 +21,10 @@ define([
      * @returns {string} Suitelet URL
      */
     static suiteletUrl() {
+      const script = runtime.getCurrentScript();
       return url.resolveScript({
-        deploymentId: 'customdeploy_esp_sl_scheduler_new',
-        scriptId: 'customscript_esp_sl_scheduler'
+        deploymentId: script.deploymentId,
+        scriptId: script.id
       });
     }
 
@@ -119,12 +122,13 @@ define([
 
   /**
    * Creates a log file from given contents and saves it to the same folder as a mockup file.
-   * @param {Object} contents - The data to log
+   * @param {String} name - Log file name
+   * @param {Object} contents - Log file contents
    */
-  function createLogFile(contents) {
+  function createLogFile(name, contents) {
     try {
-      const fileObj = file.load(env.AppFilePath.MOCKUP);
-      const { name, folder } = fileObj;
+      const fileObj = file.load(env.AppFilePath.LOGS);
+      const { folder } = fileObj;
       const fileId = file.create({
         name,
         fileType: file.Type.PLAINTEXT,
@@ -156,9 +160,21 @@ define([
     }
   }
 
+  /**
+   * Parses a date string and forces the time to 12:00 noon (local time),
+   * to avoid timezone shifting issues (e.g., when storing in NetSuite).
+   *
+   * @param {string} dateStr - An ISO date string (e.g., "2025-07-09T00:00:00.000Z")
+   * @returns {Date} A local Date object set to 12:00 noon on the same calendar day
+   */
+  function parseDate(dateStr) {
+    return new Date(`${dateStr.split('T')[0]}T12:00:00`);
+  }
+
   return {
     Url,
     createLogFile,
-    deleteRecords
+    deleteRecords,
+    parseDate
   };
 });

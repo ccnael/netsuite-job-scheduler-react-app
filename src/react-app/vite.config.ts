@@ -21,7 +21,6 @@ export default defineConfig(({ mode }) => ({
       output: {
         entryFileNames: 'app.js',
         assetFileNames: ({ name }) => {
-          console.log('NAME', name);
           if (name?.endsWith('.css')) {
             return 'index.css'; // For CSS files
           } else if (name?.match(/svg|png/gi)) {

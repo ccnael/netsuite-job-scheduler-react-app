@@ -1,4 +1,5 @@
 
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -43,6 +44,7 @@
     --sidebar-accent-foreground: 240 5.9% 10%;
     --sidebar-border: 220 13% 91%;
     --sidebar-ring: 217.2 91.2% 59.8%;
+    --fc-border-color: hsl(var(--border));
   }
 
   .dark {
@@ -82,6 +84,7 @@
     --sidebar-accent-foreground: 240 4.8% 95.9%;
     --sidebar-border: 240 3.7% 15.9%;
     --sidebar-ring: 217.2 91.2% 59.8%;
+    --fc-border-color: hsl(var(--border));
   }
 }
 
@@ -93,4 +96,130 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+.fc {
+  font-size: 12px !important;
+}
+.fc .fc-toolbar-title {
+  font-size: 22px !important; /* Optional: slightly bigger title */
+}
+.fc .fc-daygrid-day-number,
+.fc .fc-timegrid-slot-label,
+.fc .fc-timegrid-event,
+.fc .fc-resource-cell {
+  font-size: 12px !important;
+}
+
+.fc-license-message {
+  display: none;
+}
+
+/* FullCalendar 8PM border styles - Multiple approaches to ensure it works */
+/* .fc-timeline-slot[data-time="20:00:00"] {
+  border-left: 8px solid #dc2626 !important;
+  background: linear-gradient(to right, rgba(220, 38, 38, 0.2) 0%, transparent 15%) !important;
+  position: relative !important;
+} */
+
+.fc-timeline-slot[data-time="20:00:00"]::before {
+  content: '' !important;
+  position: absolute !important;
+  left: 0 !important;
+  top: 0 !important;
+  bottom: 0 !important;
+  width: 8px !important;
+  background-color: #dc2626 !important;
+  z-index: 100 !important;
+}
+
+/* Alternative selectors for different FullCalendar versions */
+/* .fc-timeline-body .fc-timeline-slot[data-time*="20:00"] {
+  border-left: 8px solid #dc2626 !important;
+  background: linear-gradient(to right, rgba(220, 38, 38, 0.2) 0%, transparent 15%) !important;
+} */
+
+/* Catch-all for 8PM slots */
+/* .fc-timeline-slot:nth-child(7),
+.fc-timeline-slot:nth-child(13),
+.fc-timeline-slot:nth-child(19),
+.fc-timeline-slot:nth-child(25),
+.fc-timeline-slot:nth-child(31),
+.fc-timeline-slot:nth-child(37) {
+  border-left: 1px solid #4b5563 !important;
+}
+
+.fc-timeline-slot-frame {
+  border-right: 1px solid #4b5563 !important;
+} */
+
+/* General timeline slot positioning */
+.fc-timeline-body .fc-timeline-slot {
+  position: relative !important;
+}
+
+/* Add this to your global CSS (e.g. styles/globals.css or in a <style> block) */
+.fc .fc-timeline-slot {
+
+}
+
+/* Optional: Make the last column not have a border */
+.fc .fc-timeline-slots tr td:last-child {
+  border-right: none;
+}
+
+.fc-datagrid-row.fc-datagrid-row-parent {
+  position: relative;
+  background-color: transparent;
+}
+
+.fc-datagrid-row.fc-datagrid-row-parent::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 100%; /* push to start of time columns */
+  width: 3000px; /* long enough to span timeline */
+  height: 100%;
+  background-color: #f3f4f6; /* match your gray */
+  z-index: -1;
+}
+
+/* Add border radius to event blocks */
+.fc-event {
+  border-radius: 4px !important;
+}
+
+.fc-event-main {
+  border-radius: 4px !important;
+}
+
+.fc-event-title {
+  border-radius: 4px !important;
+}
+
+@layer components {
+  .table-container {
+    @apply rounded-lg border bg-card text-card-foreground shadow-sm overflow-hidden;
+  }
+  
+  .filter-chip {
+    @apply inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium 
+           bg-secondary text-secondary-foreground hover:bg-secondary/80;
+  }
+
+  .filter-section {
+    @apply space-y-1;
+  }
+
+  .filter-label {
+    @apply text-xs font-medium text-muted-foreground;
+  }
+}
+
+[data-sonner-toast]:has([data-sonner-rounded-toast]) {
+  background: transparent !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  border-radius: 0 !important;
+  overflow: visible !important;
 }

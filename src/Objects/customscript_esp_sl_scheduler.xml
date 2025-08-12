@@ -1,5 +1,5 @@
 <suitelet scriptid="customscript_esp_sl_scheduler">
-  <description></description>
+  <description>Field Ops Pro Scheduler</description>
   <isinactive>F</isinactive>
   <name>ESP CFI SL Scheduler</name>
   <notifyadmins>F</notifyadmins>
@@ -19,20 +19,7 @@
       <loglevel>DEBUG</loglevel>
       <runasrole>ADMINISTRATOR</runasrole>
       <status>RELEASED</status>
-      <title>WO Scheduler</title>
-    </scriptdeployment>
-    <scriptdeployment scriptid="customdeploy_esp_sl_scheduler_new">
-      <allemployees>F</allemployees>
-      <allpartners>F</allpartners>
-      <allroles>T</allroles>
-      <audslctrole></audslctrole>
-      <eventtype></eventtype>
-      <isdeployed>T</isdeployed>
-      <isonline>F</isonline>
-      <loglevel>DEBUG</loglevel>
-      <runasrole>ADMINISTRATOR</runasrole>
-      <status>RELEASED</status>
-      <title>WO Scheduler (TBD)</title>
+      <title>Scheduler</title>
     </scriptdeployment>
   </scriptdeployments>
 </suitelet>
