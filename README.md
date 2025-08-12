@@ -10,7 +10,7 @@ A comprehensive scheduling and resource management platform designed for field o
 
 ### Step 1: Clone the repository using the project's Git URL.
 
-git clone https://github.com/erpsp/CFI-Work-Order-Scheduler.git
+git clone https://github.com/ccnael/job-scheduler-react-app.git
 
 ### Step 2: Navigate to the project directory.
 
