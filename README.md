@@ -1,6 +1,6 @@
 # CFI-Work-Order-Scheduler
 
-A comprehensive scheduling and resource management platform designed for field operations teams
+React based Suitelet - A comprehensive scheduling and resource management platform designed for field operations teams
 
 ### Preview
 
